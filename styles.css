@@ -9886,3 +9886,17 @@ html {
 .dream-special-cards button {
   font-size: 0.7rem !important;
 }
+
+/* === Collapsible Learn Sections === */
+.learn-collapse { border: 2px dashed rgba(31,35,40,0.14); border-radius: 12px; margin: 16px 0; overflow: hidden; }
+.learn-collapse > summary { padding: 14px 20px; font-weight: 700; font-size: 1rem; cursor: inherit; list-style: none; display: flex; align-items: center; gap: 8px; transition: background 0.2s; }
+.learn-collapse > summary::-webkit-details-marker { display: none; }
+.learn-collapse > summary::before { content: "▸"; font-size: 0.85em; transition: transform 0.2s; }
+.learn-collapse[open] > summary::before { transform: rotate(90deg); }
+.learn-collapse > summary:hover { background: #fce4f2; }
+
+/* === Community Rooms Collapse === */
+.board-rooms-more { border: 2px dashed rgba(31,35,40,0.14); border-radius: 12px; margin-top: 12px; }
+.board-rooms-more > summary { padding: 12px 18px; font-weight: 700; font-size: 0.95rem; cursor: inherit; list-style: none; text-align: center; color: #ff2d9b; }
+.board-rooms-more > summary::-webkit-details-marker { display: none; }
+.board-rooms-more > summary:hover { background: #fce4f2; border-radius: 12px; }
