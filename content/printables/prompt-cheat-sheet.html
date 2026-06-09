@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The lAIdies Prompting Cheat Sheet</title>
+  <style>
+    :root {
+      --ink: #251923;
+      --paper: #fff8f7;
+      --soft: #ffe7f1;
+      --pink: #ff3da8;
+      --hot: #d90f82;
+      --teal: #168b8f;
+      --gold: #b98926;
+      --plum: #4b244a;
+      --line: #3b2738;
+      --muted: #765d70;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #f2e7ee;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.34;
+    }
+
+    .sheet {
+      width: min(100%, 1080px);
+      margin: 0 auto;
+      background: var(--paper);
+      box-shadow: 0 18px 60px rgba(37, 25, 35, 0.22);
+    }
+
+    .page {
+      min-height: 11in;
+      padding: 0.48in;
+      border-bottom: 2px dashed rgba(37, 25, 35, 0.22);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 92% 5%, rgba(255, 61, 168, 0.15), transparent 22%),
+        linear-gradient(90deg, rgba(255, 61, 168, 0.05) 1px, transparent 1px),
+        linear-gradient(rgba(22, 139, 143, 0.04) 1px, transparent 1px);
+      background-size: auto, 28px 28px, 28px 28px;
+      pointer-events: none;
+    }
+
+    .page > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow {
+      color: var(--hot);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1;
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 56px;
+      max-width: 12ch;
+      color: var(--plum);
+    }
+
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--plum);
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      color: var(--hot);
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    .dek {
+      max-width: 56ch;
+      font-size: 18px;
+      color: var(--line);
+      margin-top: 12px;
+    }
+
+    .hero-card {
+      border: 2px solid var(--line);
+      background: white;
+      box-shadow: 8px 8px 0 var(--pink);
+      padding: 10px;
+      transform: rotate(1deg);
+    }
+
+    .hero-card img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border: 1px solid rgba(37, 25, 35, 0.28);
+    }
+
+    .callout {
+      background: var(--soft);
+      border: 2px solid var(--line);
+      box-shadow: 5px 5px 0 rgba(22, 139, 143, 0.28);
+      padding: 14px;
+      margin: 14px 0;
+    }
+
+    .callout strong {
+      color: var(--hot);
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .box {
+      border: 1.7px solid var(--line);
+      background: rgba(255, 255, 255, 0.72);
+      padding: 14px;
+      min-height: 100%;
+    }
+
+    .box.pink {
+      background: #fff0f7;
+    }
+
+    .box.teal {
+      background: #ecfbfb;
+    }
+
+    .box.gold {
+      background: #fff6df;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--ink);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      padding: 4px 7px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    ol,
+    ul {
+      margin: 0;
+      padding-left: 21px;
+    }
+
+    li {
+      margin-bottom: 7px;
+    }
+
+    .prompt {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 13px;
+      background: white;
+      border: 1.5px solid var(--line);
+      padding: 12px;
+      white-space: pre-wrap;
+    }
+
+    .formula {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin: 14px 0;
+    }
+
+    .letter {
+      border: 2px solid var(--line);
+      background: white;
+      padding: 10px 8px;
+      text-align: center;
+      min-height: 96px;
+    }
+
+    .letter b {
+      display: block;
+      color: var(--pink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 36px;
+      line-height: 1;
+    }
+
+    .letter span {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(255, 255, 255, 0.72);
+      font-size: 13px;
+    }
+
+    th,
+    td {
+      border: 1.5px solid var(--line);
+      padding: 8px;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--plum);
+      color: white;
+      text-align: left;
+    }
+
+    .mini {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .page-number {
+      position: absolute;
+      right: 0.48in;
+      bottom: 0.28in;
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .usage-footer {
+      position: absolute;
+      left: 0.48in;
+      right: 2.5in;
+      bottom: 0.28in;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.3px;
+    }
+
+    .tearaway {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 16px;
+      align-items: start;
+      margin-top: 14px;
+    }
+
+    .receipt {
+      border: 2px solid var(--line);
+      background: #fff;
+      padding: 14px;
+      box-shadow: 6px 6px 0 rgba(185, 137, 38, 0.3);
+    }
+
+    .receipt h3 {
+      color: var(--plum);
+    }
+
+    .checklist {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .checklist li {
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .checklist li::before {
+      content: "□";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--hot);
+      font-weight: 800;
+    }
+
+    .footer-note {
+      margin-top: 14px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .sheet {
+        width: 100%;
+        box-shadow: none;
+      }
+
+      .page {
+        min-height: auto;
+        page-break-after: always;
+        border-bottom: 0;
+        padding: 0.42in;
+      }
+
+      .hero-card {
+        box-shadow: 5px 5px 0 rgba(255, 61, 168, 0.65);
+      }
+    }
+
+    @media (max-width: 780px) {
+      header,
+      .grid.two,
+      .grid.three,
+      .tearaway {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      .formula {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <section class="page">
+      <header>
+        <div>
+          <div class="eyebrow">lAIdies printable takeaway</div>
+          <h1>The Prompting Cheat Sheet</h1>
+          <p class="dek">Your prompt is not a wish. It is a brief. The better the brief, the less your AI has to guess.</p>
+        </div>
+        <figure class="hero-card">
+          <img src="../../assets/printables/prompt-cheat-sheet-hero.png" alt="Y2K desk scene with a pink prompt binder, laptop, sticky notes, and lAIdies-style accessories.">
+        </figure>
+      </header>
+
+      <div class="callout">
+        <p><strong>The core move:</strong> talk to AI like a smart new coworker who joined 12 minutes ago. It can move fast, but it needs the assignment, the context, the standard, and the format.</p>
+      </div>
+
+      <h2>The BRIEF Formula</h2>
+      <div class="formula" aria-label="BRIEF prompt formula">
+        <div class="letter"><b>B</b><span>Background</span><p class="mini">What is happening? What should it know?</p></div>
+        <div class="letter"><b>R</b><span>Role + Reader</span><p class="mini">Who should it act as? Who is this for?</p></div>
+        <div class="letter"><b>I</b><span>Instructions</span><p class="mini">What exactly should it do?</p></div>
+        <div class="letter"><b>E</b><span>Examples + Edges</span><p class="mini">What does good look like? What is out of bounds?</p></div>
+        <div class="letter"><b>F</b><span>Format</span><p class="mini">What should the answer look like?</p></div>
+      </div>
+
+      <div class="grid two">
+        <div class="box pink">
+          <h3>Copy-Paste Starter</h3>
+          <div class="prompt">I need help with [task] for [audience].
+
+Background: [facts, situation, stakes].
+Source material: [paste notes, draft, policy, email, transcript, data].
+Act as: [role or lens].
+Tone: [plainspoken, polished, warm, executive, funny but not chaotic].
+Constraints: [length, must include, must avoid, deadline, geography, policy limits].
+Format: [table, bullets, memo, script, email, checklist].
+
+Before drafting, ask me up to [number] clarifying questions if anything important is missing.</div>
+        </div>
+        <div class="box teal">
+          <h3>Why It Works</h3>
+          <ul>
+            <li><strong>Background</strong> reduces generic answers.</li>
+            <li><strong>Role + reader</strong> changes what the AI prioritizes.</li>
+            <li><strong>Instructions</strong> stop it from wandering.</li>
+            <li><strong>Examples</strong> show taste, quality, and pattern.</li>
+            <li><strong>Format</strong> makes the output usable immediately.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="usage-footer">&copy; 2026 lAIdies&trade; / Ali Eakin. Personal-use subscriber printable. Do not resell, repackage, or use in paid training without permission. lAIdies.com</div>
+      <div class="page-number">Page 1 - Prompt Like You Mean It</div>
+    </section>
+
+    <section class="page">
+      <h2>The 8-Step Prompt Glow-Up</h2>
+      <div class="grid two">
+        <div class="box">
+          <span class="tag">Step by step</span>
+          <ol>
+            <li><strong>Name the job.</strong> Summarize the task in one plain sentence.</li>
+            <li><strong>Name the audience.</strong> Executive, client, team, newsletter reader, five-minute learner, skeptical stakeholder.</li>
+            <li><strong>Paste the receipts.</strong> Give the actual email, policy, notes, transcript, numbers, or links the answer should use.</li>
+            <li><strong>Set the standard.</strong> Say what good looks like: concise, practical, low-jargon, legally careful, board-ready, funny but still useful.</li>
+            <li><strong>Set the boundaries.</strong> Include must-use, must-avoid, length, location, confidentiality, and deadline constraints.</li>
+            <li><strong>Ask for the shape.</strong> Tell it whether you want a table, checklist, memo, draft email, script, decision tree, or options.</li>
+            <li><strong>Make it inspect itself.</strong> Ask for assumptions, missing information, risks, or a constraint checklist.</li>
+            <li><strong>Try it on.</strong> Iterate: shorter, warmer, more specific, more senior, more skeptical, more actionable.</li>
+          </ol>
+        </div>
+        <div class="box gold">
+          <span class="tag">The fitting room rule</span>
+          <p>The first answer is not the outfit. It is what the AI brought into the fitting room.</p>
+          <p>Try prompts like:</p>
+          <ul>
+            <li>"Make this 30 percent shorter and keep only the parts a VP would care about."</li>
+            <li>"Give me three versions: warm, direct, and extremely concise."</li>
+            <li>"What assumptions did you make? Which ones should I verify?"</li>
+            <li>"Turn this into a checklist I can use before sending."</li>
+            <li>"Point out anything vague, risky, or unsupported."</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 style="margin-top:18px;">Bad vs Better</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Weak Prompt</th>
+            <th>Why It Misses</th>
+            <th>Better Prompt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>"Write a LinkedIn post about AI."</td>
+            <td>No audience, voice, point, or outcome.</td>
+            <td>"Write a 140-word LinkedIn post for busy corporate women who are curious about AI but overwhelmed. Point: AI makes more sense when you build something small. Voice: smart friend at work, practical, lightly funny, no hype."</td>
+          </tr>
+          <tr>
+            <td>"Summarize this."</td>
+            <td>Summary for whom? What decisions matter?</td>
+            <td>"Summarize this for a senior leader who has 3 minutes. Include: decision needed, top 3 risks, open questions, and a recommendation. Use bullets."</td>
+          </tr>
+          <tr>
+            <td>"Make this better."</td>
+            <td>"Better" is a taste test with no recipe.</td>
+            <td>"Edit this email so it is warmer, shorter, and clearer. Keep the ask direct. Do not add facts. Show the final version only."</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="usage-footer">&copy; 2026 lAIdies&trade; / Ali Eakin. Personal-use subscriber printable. Do not resell, repackage, or use in paid training without permission. lAIdies.com</div>
+      <div class="page-number">Page 2 - The Prompt Makeover</div>
+    </section>
+
+    <section class="page">
+      <h2>Prompt Recipes for Real Work</h2>
+      <div class="grid two">
+        <div class="box pink">
+          <h3>Email Rewrite</h3>
+          <div class="prompt">Rewrite this email so it sounds [tone] and is easy to act on. Keep the main ask clear, remove filler, and do not invent facts. Give me:
+1. Subject line
+2. Final email
+3. One sentence explaining what changed
+
+Draft: [paste]</div>
+        </div>
+        <div class="box">
+          <h3>Executive Summary</h3>
+          <div class="prompt">Summarize the material below for [audience]. Focus on decisions, risks, and next steps. Use this format:
+- Bottom line
+- What changed
+- Why it matters
+- Risks or open questions
+- Recommended next action
+
+Material: [paste]</div>
+        </div>
+        <div class="box teal">
+          <h3>Meeting Prep</h3>
+          <div class="prompt">Help me prepare for a meeting with [person/team] about [topic]. Use the context below to create:
+1. A 30-second opener
+2. 5 questions to ask
+3. Likely objections
+4. Responses that are direct but collaborative
+5. A follow-up email template
+
+Context: [paste]</div>
+        </div>
+        <div class="box gold">
+          <h3>Pressure Test</h3>
+          <div class="prompt">Act as a skeptical but fair reviewer. Pressure-test this plan. Identify:
+- Weak assumptions
+- Missing stakeholders
+- Practical risks
+- Places where the wording is too vague
+- 3 changes that would make this stronger
+
+Plan: [paste]</div>
+        </div>
+        <div class="box">
+          <h3>Learning Buddy</h3>
+          <div class="prompt">Teach me [topic] like I am smart but new to it. Start with the plain-English version, then give me an analogy, then a practical example, then 5 questions to check whether I understand.</div>
+        </div>
+        <div class="box pink">
+          <h3>Prompt Makeover</h3>
+          <div class="prompt">Improve this prompt. Keep my intent, but make it clearer and more likely to produce a useful answer. Explain what you changed in plain language.
+
+Prompt: [paste]</div>
+        </div>
+      </div>
+      <div class="usage-footer">&copy; 2026 lAIdies&trade; / Ali Eakin. Personal-use subscriber printable. Do not resell, repackage, or use in paid training without permission. lAIdies.com</div>
+      <div class="page-number">Page 3 - Recipes You Will Actually Use</div>
+    </section>
+
+    <section class="page">
+      <h2>Troubleshooting</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Problem</th>
+            <th>Likely Cause</th>
+            <th>Fix Prompt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>It sounds generic.</td>
+            <td>Not enough audience, stakes, or taste.</td>
+            <td>"Make this specific to [audience]. Use the facts I gave you. Remove generic AI/business language."</td>
+          </tr>
+          <tr>
+            <td>It is too long.</td>
+            <td>No length or priority limit.</td>
+            <td>"Cut this to [word count]. Keep only the points needed for [decision/action]."</td>
+          </tr>
+          <tr>
+            <td>The tone is wrong.</td>
+            <td>Tone adjectives are too vague.</td>
+            <td>"Make it sound like [example]. Avoid [words/phrases]. It should feel [3 traits]."</td>
+          </tr>
+          <tr>
+            <td>It invented details.</td>
+            <td>The AI filled gaps instead of asking.</td>
+            <td>"Use only the source material below. If something is missing, write 'not provided' and ask a follow-up question."</td>
+          </tr>
+          <tr>
+            <td>It missed a constraint.</td>
+            <td>The constraint was buried or not checked.</td>
+            <td>"Revise using this checklist: [constraints]. After the answer, confirm each constraint was met."</td>
+          </tr>
+          <tr>
+            <td>It feels too confident.</td>
+            <td>No uncertainty instruction.</td>
+            <td>"Label assumptions, uncertainty, and anything that needs verification before I rely on it."</td>
+          </tr>
+          <tr>
+            <td>It is not strategic enough.</td>
+            <td>The role/lens is too junior.</td>
+            <td>"Rework this as if advising a senior leader. Focus on tradeoffs, sequencing, risks, and decision points."</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="tearaway">
+        <div class="receipt">
+          <h3>Receipts Rule</h3>
+          <ul class="checklist">
+            <li>Verify names, dates, titles, quotes, prices, links, laws, policies, and numbers.</li>
+            <li>For legal, tax, medical, financial, HR, privacy, or safety topics: treat AI as a drafting and thinking tool, not the final authority.</li>
+            <li>Ask for sources, but still check them yourself.</li>
+            <li>Do not paste confidential or sensitive information into tools that are not approved for that use.</li>
+          </ul>
+        </div>
+        <div class="box teal">
+          <h3>Analogy Bank</h3>
+          <ul>
+            <li><strong>Smart new hire:</strong> fast, useful, but needs the assignment and the office context.</li>
+            <li><strong>Clueless closet:</strong> AI can pull options, but you still decide what works for the occasion.</li>
+            <li><strong>David Rose specificity:</strong> "very fancy" is not enough. Say the occasion, the guest list, and the vibe.</li>
+            <li><strong>Fitting room:</strong> the first draft is a try-on, not a commitment.</li>
+            <li><strong>Receipts:</strong> for anything important, make the answer show what it is based on.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 style="margin-top:18px;">The 5-Minute Thursday Try-On</h2>
+      <div class="callout">
+        <p>Pick one real work task. Write a messy prompt. Then upgrade it with BRIEF. Ask the AI to show what changed. Save the better prompt in your personal prompt closet.</p>
+      </div>
+      <p class="footer-note">Source basis: OpenAI, Anthropic, Google Gemini, Microsoft Copilot, public AI educators/commentators, and practical prompting guidance from productivity and UX brands. See the source note saved with this printable.</p>
+      <div class="usage-footer">&copy; 2026 lAIdies&trade; / Ali Eakin. Personal-use subscriber printable. Do not resell, repackage, or use in paid training without permission. lAIdies.com</div>
+      <div class="page-number">Page 4 - When the First Draft Is Not It</div>
+    </section>
+  </main>
+</body>
+</html>

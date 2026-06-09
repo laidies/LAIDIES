@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Issue 01 Printable: Open the Tab</title>
+  <style>
+    :root {
+      --ink: #251923;
+      --paper: #fff8f7;
+      --soft: #ffe7f1;
+      --pink: #ff3da8;
+      --hot: #d90f82;
+      --teal: #168b8f;
+      --gold: #b98926;
+      --plum: #4b244a;
+      --line: #3b2738;
+      --muted: #765d70;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #f2e7ee;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.34;
+    }
+
+    .sheet {
+      width: min(100%, 1080px);
+      margin: 0 auto;
+      background: var(--paper);
+      box-shadow: 0 18px 60px rgba(37, 25, 35, 0.22);
+    }
+
+    .page {
+      min-height: 11in;
+      padding: 0.48in;
+      border-bottom: 2px dashed rgba(37, 25, 35, 0.22);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 92% 5%, rgba(255, 61, 168, 0.15), transparent 22%),
+        linear-gradient(90deg, rgba(255, 61, 168, 0.05) 1px, transparent 1px),
+        linear-gradient(rgba(22, 139, 143, 0.04) 1px, transparent 1px);
+      background-size: auto, 28px 28px, 28px 28px;
+      pointer-events: none;
+    }
+
+    .page > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow {
+      color: var(--hot);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1;
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 58px;
+      max-width: 11ch;
+      color: var(--plum);
+    }
+
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--plum);
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      color: var(--hot);
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    .dek {
+      max-width: 54ch;
+      font-size: 18px;
+      color: var(--line);
+      margin-top: 12px;
+    }
+
+    .hero-card {
+      border: 2px solid var(--line);
+      background: white;
+      box-shadow: 8px 8px 0 var(--pink);
+      padding: 10px;
+      transform: rotate(1deg);
+    }
+
+    .hero-card img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border: 1px solid rgba(37, 25, 35, 0.28);
+    }
+
+    .callout {
+      background: var(--soft);
+      border: 2px solid var(--line);
+      box-shadow: 5px 5px 0 rgba(22, 139, 143, 0.28);
+      padding: 14px;
+      margin: 14px 0;
+    }
+
+    .callout strong {
+      color: var(--hot);
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .box {
+      border: 1.7px solid var(--line);
+      background: rgba(255, 255, 255, 0.72);
+      padding: 14px;
+      min-height: 100%;
+    }
+
+    .box.pink {
+      background: #fff0f7;
+    }
+
+    .box.teal {
+      background: #ecfbfb;
+    }
+
+    .box.gold {
+      background: #fff6df;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--ink);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      padding: 4px 7px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    ol,
+    ul {
+      margin: 0;
+      padding-left: 21px;
+    }
+
+    li {
+      margin-bottom: 7px;
+    }
+
+    .prompt {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 13px;
+      background: white;
+      border: 1.5px solid var(--line);
+      padding: 12px;
+      white-space: pre-wrap;
+    }
+
+    .formula {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    .letter {
+      border: 2px solid var(--line);
+      background: white;
+      padding: 12px 10px;
+      text-align: center;
+      min-height: 112px;
+    }
+
+    .letter b {
+      display: block;
+      color: var(--pink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 42px;
+      line-height: 1;
+    }
+
+    .letter span {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(255, 255, 255, 0.72);
+      font-size: 13px;
+    }
+
+    th,
+    td {
+      border: 1.5px solid var(--line);
+      padding: 8px;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--plum);
+      color: white;
+      text-align: left;
+    }
+
+    .mini {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .usage-footer {
+      position: absolute;
+      left: 0.48in;
+      right: 2.5in;
+      bottom: 0.28in;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.3px;
+    }
+
+    .page-number {
+      position: absolute;
+      right: 0.48in;
+      bottom: 0.28in;
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .checklist {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .checklist li {
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .checklist li::before {
+      content: "□";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--hot);
+      font-weight: 800;
+    }
+
+    .footer-note {
+      margin-top: 14px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .sheet {
+        width: 100%;
+        box-shadow: none;
+      }
+
+      .page {
+        min-height: auto;
+        page-break-after: always;
+        border-bottom: 0;
+        padding: 0.42in;
+      }
+
+      .hero-card {
+        box-shadow: 5px 5px 0 rgba(255, 61, 168, 0.65);
+      }
+    }
+
+    @media (max-width: 780px) {
+      header,
+      .grid.two,
+      .grid.three {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      .formula {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <section class="page">
+      <header>
+        <div>
+          <div class="eyebrow">lAIdies issue 01 printable</div>
+          <h1>Open the Tab</h1>
+          <p class="dek">You do not need a 40-hour course or a new personality. You need one safe first rep.</p>
+        </div>
+        <figure class="hero-card">
+          <img src="../../assets/printables/issue-01-open-the-tab-hero.png" alt="Y2K closet computer desk with AI tool cards, sticky notes, and butterfly clip rating marks.">
+        </figure>
+      </header>
+
+      <div class="callout">
+        <p><strong>The core move:</strong> AI is not Google in a blazer. It can draft, summarize, compare, translate tone, and turn messy work into a usable first pass. It still needs your context, judgment, and review.</p>
+      </div>
+
+      <h2>The TAB Method</h2>
+      <div class="formula" aria-label="TAB first AI try-on method">
+        <div class="letter"><b>T</b><span>Try One Task</span><p class="mini">Pick something low-risk, real, and small enough to finish in 10 minutes.</p></div>
+        <div class="letter"><b>A</b><span>Ask All Three</span><p class="mini">Run the same prompt in ChatGPT, Claude, and Gemini.</p></div>
+        <div class="letter"><b>B</b><span>Bring Judgment</span><p class="mini">Compare usefulness, tone, accuracy, and what still needs a human.</p></div>
+      </div>
+
+      <div class="grid two">
+        <div class="box pink">
+          <h3>Your First Safe Prompt</h3>
+          <div class="prompt">Explain [topic] to me like I am smart but new to it.
+
+Context: I need this for [meeting/email/project/conversation].
+Keep it practical and work-appropriate.
+Give me:
+1. The plain-English version
+2. One simple example
+3. What people often misunderstand
+4. Three questions I should ask next
+
+Do not assume I know technical terms.</div>
+        </div>
+        <div class="box teal">
+          <h3>Good First Tasks</h3>
+          <ul>
+            <li>Explain a concept before a meeting.</li>
+            <li>Summarize a non-confidential article.</li>
+            <li>Rewrite a low-stakes email draft.</li>
+            <li>Turn messy notes into a checklist.</li>
+            <li>Brainstorm questions for a conversation.</li>
+            <li>Compare three possible next steps.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="usage-footer">&copy; 2026 lAIdies&trade; / Ali Eakin. Personal-use subscriber printable. Do not resell, repackage, or use in paid training without permission. lAIdies.com</div>
+      <div class="page-number">Page 1 - Cher Opened the Tab</div>
+    </section>
+
+    <section class="page">
+      <h2>The 10-Minute AI Try-On</h2>
+      <div class="grid two">
+        <div class="box">
+          <span class="tag">Do this once</span>
+          <ol>
+            <li><strong>Choose a low-risk topic.</strong> Nothing confidential, sensitive, personal, legal, medical, tax-advice-specific, or unreleased.</li>
+            <li><strong>Open three tools.</strong> ChatGPT, Claude, and Gemini.</li>
+            <li><strong>Paste the same prompt.</strong> Do not tweak yet. You are comparing the tools, not your editing skills.</li>
+            <li><strong>Read like a reviewer.</strong> Which answer is clear? Which is useful? Which sounds confident but thin?</li>
+            <li><strong>Ask one follow-up.</strong> Try: "Make this more practical for my situation."</li>
+            <li><strong>Save the winner.</strong> Keep the prompt and the best output in your personal prompt closet.</li>
+          </ol>
+        </div>
+        <div class="box gold">
+          <span class="tag">The butterfly clip rating system</span>
+          <ul class="checklist">
+            <li><strong>0:</strong> Ouch, you stepped on a broken butterfly clip.</li>
+            <li><strong>10:</strong> Amazing, you almost have enough butterfly clips for a full hairstyle.</li>
+            <li>Useful: I could actually use part of this.</li>
+            <li>Clear: I understood it without rereading five times.</li>
+            <li>Specific: It used my context instead of giving generic advice.</li>
+            <li>Accurate enough to keep exploring: no obvious nonsense.</li>
+            <li>Human still needed: I know what I would check or change.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 style="margin-top:18px;">Comparison Sheet</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>What Felt Strong</th>
+            <th>What Needed Work</th>
+            <th>Butterfly Clip Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ChatGPT</td>
+            <td></td>
+            <td></td>
+            <td>__ / 10 clips</td>
+          </tr>
+          <tr>
+            <td>Claude</td>
+            <td></td>
+            <td></td>
+            <td>__ / 10 clips</td>
+          </tr>
+          <tr>
+            <td>Gemini</td>
+            <td></td>
+            <td></td>
+            <td>__ / 10 clips</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <p><strong>Remember:</strong> the point is not picking your forever tool. The point is proving to yourself that you can open the tab, ask for help, and stay in charge.</p>
+      </div>
+      <div class="usage-footer">&copy; 2026 lAIdies&trade; / Ali Eakin. Personal-use subscriber printable. Do not resell, repackage, or use in paid training without permission. lAIdies.com</div>
+      <div class="page-number">Page 2 - The First Try-On</div>
+    </section>
+
+    <section class="page">
+      <h2>AI Is Not Google in a Blazer</h2>
+      <div class="grid two">
+        <div class="box pink">
+          <h3>Search Is Usually For</h3>
+          <ul>
+            <li>Finding a specific page, source, or fact.</li>
+            <li>Checking a current price, rule, date, or event.</li>
+            <li>Opening an official source.</li>
+            <li>Looking up something you can verify directly.</li>
+          </ul>
+        </div>
+        <div class="box teal">
+          <h3>Generative AI Is Usually For</h3>
+          <ul>
+            <li>Drafting a first pass.</li>
+            <li>Summarizing material you provide.</li>
+            <li>Explaining something in a different way.</li>
+            <li>Comparing options and tradeoffs.</li>
+            <li>Turning messy notes into structure.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 style="margin-top:18px;">Do / Do Not</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Do</th>
+            <th>Do Not</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Use a real but low-stakes task.</td>
+            <td>Start with confidential, sensitive, or regulated information.</td>
+          </tr>
+          <tr>
+            <td>Give context and say what you need the answer for.</td>
+            <td>Ask vague questions and then decide AI is useless.</td>
+          </tr>
+          <tr>
+            <td>Compare outputs and keep your judgment.</td>
+            <td>Treat the first answer as finished work.</td>
+          </tr>
+          <tr>
+            <td>Ask follow-ups when the answer is close but not useful yet.</td>
+            <td>Assume confident wording means correct wording.</td>
+          </tr>
+          <tr>
+            <td>Save prompts that worked.</td>
+            <td>Start from scratch every time.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="grid two" style="margin-top:14px;">
+        <div class="box gold">
+          <h3>The Human Job</h3>
+          <p>Your job is taste, context, judgment, and consequences. AI can help with the blank page. It cannot own your standards.</p>
+        </div>
+        <div class="box">
+          <h3>Save This Line</h3>
+          <p><strong>I do not need to understand everything to try one useful thing.</strong></p>
+        </div>
+      </div>
+      <div class="usage-footer">&copy; 2026 lAIdies&trade; / Ali Eakin. Personal-use subscriber printable. Do not resell, repackage, or use in paid training without permission. lAIdies.com</div>
+      <div class="page-number">Page 3 - Not Google in a Blazer</div>
+    </section>
+
+    <section class="page">
+      <h2>Troubleshooting Your First Rep</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Problem</th>
+            <th>Likely Cause</th>
+            <th>Try This</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>"It gave me fluffy nonsense."</td>
+            <td>Your prompt had no context or standard.</td>
+            <td>"Use my situation below. Make this practical for [audience] and give examples."</td>
+          </tr>
+          <tr>
+            <td>"I do not know what to ask."</td>
+            <td>The task is too broad.</td>
+            <td>"Ask me five questions that would help you help me with [topic]."</td>
+          </tr>
+          <tr>
+            <td>"The answer sounds wrong."</td>
+            <td>It may be guessing or oversimplifying.</td>
+            <td>"List what you are assuming and what I should verify before relying on this."</td>
+          </tr>
+          <tr>
+            <td>"This feels risky for work."</td>
+            <td>The material may be sensitive or confidential.</td>
+            <td>Stop. Remove sensitive details or use only approved tools and approved data.</td>
+          </tr>
+          <tr>
+            <td>"I got three different answers."</td>
+            <td>Different models make different choices.</td>
+            <td>Compare the outputs, ask for sources where needed, and use your judgment.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="grid two" style="margin-top:18px;">
+        <div class="box pink">
+          <h3>Receipts Rule</h3>
+          <ul class="checklist">
+            <li>Verify current facts, names, dates, numbers, laws, policies, quotes, and links.</li>
+            <li>Do not paste confidential work information into tools that are not approved.</li>
+            <li>For tax, legal, HR, medical, financial, privacy, or safety topics, use AI for drafting and thinking, not final authority.</li>
+            <li>When it matters, ask: "What should I verify before relying on this?"</li>
+          </ul>
+        </div>
+        <div class="box teal">
+          <h3>Thursday Try-On</h3>
+          <p>Open ChatGPT, Claude, and Gemini. Paste the same safe prompt. Rate the answers on the butterfly clip scale. Save your winner.</p>
+          <p><strong>Community prompt:</strong> What AI question are you embarrassed to ask at work?</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <p><strong>Prompt Closet:</strong> Save this when you need a first safe way to test an AI tool without making it your whole afternoon.</p>
+      </div>
+
+      <p class="footer-note">Issue 01 source: On Wednesdays We Use AI. Tools mentioned: ChatGPT, Claude, Gemini. References carried forward: Clueless, Dolly Parton, Sex and the City, The Devil Wears Prada.</p>
+      <div class="usage-footer">&copy; 2026 lAIdies&trade; / Ali Eakin. Personal-use subscriber printable. Do not resell, repackage, or use in paid training without permission. lAIdies.com</div>
+      <div class="page-number">Page 4 - Keep Your Judgment</div>
+    </section>
+  </main>
+</body>
+</html>

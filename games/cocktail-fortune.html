@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Businesswomen's Special | lAIdies Clubhouse</title>
+    <meta name="description" content="Paper fortune teller picks your drink order. Choose cocktails or spirit-free, pick a mood, and open your drink fortune." />
+    <meta name="theme-color" content="#ff2d9b" />
+    <link rel="icon" type="image/png" href="../assets/laidies-logo-square.png" />
+    <link rel="stylesheet" href="../styles.css?v=games-extract-1" />
+    <style>
+      .game-page-wrap { max-width: 720px; margin: 0 auto; padding: clamp(18px, 4vw, 48px) clamp(14px, 3vw, 32px); }
+      .game-page-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+      .game-page-header a { font-size: 0.85rem; font-weight: 600; text-decoration: none; color: var(--hot-pink); }
+      .game-page-header a:hover { text-decoration: underline; }
+      .game-page-title { display: grid; gap: 8px; margin-bottom: 32px; }
+      .game-page-title h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.1; }
+      .game-page-title p { color: var(--muted); max-width: 600px; }
+
+      .fortune-teller-image { text-align: center; margin-bottom: 24px; }
+      .fortune-teller-image img { max-width: 320px; width: 100%; height: auto; transition: transform 0.3s; }
+      .fortune-teller-image.is-open img { transform: scale(1.02); }
+
+      .controls { display: grid; gap: 16px; margin-bottom: 24px; }
+      .control-label { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 6px; }
+      .lane-buttons { display: flex; gap: 8px; flex-wrap: wrap; }
+      .lane-buttons button {
+        padding: 10px 18px;
+        border: 2px solid var(--ink);
+        border-radius: 8px;
+        background: var(--paper);
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+      .lane-buttons button strong { display: block; font-size: 1rem; }
+      .lane-buttons button span { font-size: 0.78rem; color: var(--muted); }
+      .lane-buttons button.is-selected { background: var(--hot-pink); color: white; border-color: var(--hot-pink); }
+      .lane-buttons button.is-selected span { color: rgba(255,255,255,0.8); }
+
+      .mood-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
+      .mood-button {
+        padding: 12px;
+        border: 2px solid var(--line);
+        border-radius: 10px;
+        background: var(--paper);
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+      .mood-button:hover { border-color: var(--hot-pink); }
+      .mood-button strong { display: block; font-size: 0.95rem; }
+      .mood-button span { font-size: 0.75rem; color: var(--muted); }
+
+      .drink-result {
+        margin-top: 24px;
+        padding: 24px;
+        border: 2px solid var(--hot-pink);
+        border-radius: 14px;
+        background: var(--mist);
+        display: none;
+      }
+      .drink-result.is-visible { display: block; animation: cardReveal 0.35s ease; }
+      @keyframes cardReveal { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
+      .drink-result strong { font-size: 1.2rem; display: block; margin-bottom: 8px; color: var(--ink); }
+      .drink-result .vibe { font-style: italic; margin-bottom: 8px; }
+      .drink-result .order { margin-bottom: 8px; }
+      .drink-result .note { font-size: 0.88rem; color: var(--muted); padding-top: 8px; border-top: 1px solid var(--line); }
+
+      .microcopy { font-size: 0.82rem; color: var(--muted); margin-top: 16px; text-align: center; }
+      .badge-reveal { margin-top: 20px; padding: 14px; border: 2px dashed var(--hot-pink); border-radius: 10px; text-align: center; display: none; }
+      .badge-reveal.is-visible { display: block; }
+      .badge-reveal strong { color: var(--hot-pink); }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="lAIdies home">
+        <img src="../assets/laidies-logo-wordmark.png" alt="" />
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="../index.html#episodes">Episodes</a>
+        <a href="../index.html#fun-games">Clubhouse</a>
+        <a href="../index.html#member-passport">Community</a>
+        <a href="../index.html#signup">Subscribe</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="game-page-wrap">
+        <div class="game-page-header">
+          <a href="../index.html#fun-games">&larr; Back to Clubhouse</a>
+        </div>
+        <div class="game-page-title">
+          <p class="eyebrow">Clubhouse Game</p>
+          <h1>Businesswomen's Special</h1>
+          <p>The coven has a reservation at 7. Choose your lane, pick a mood, and open your drink fortune. Paper fortune teller style.</p>
+        </div>
+
+        <div class="fortune-teller-image" id="fortuneImage">
+          <img src="../assets/businesswomen-special-fortune-teller-v1.png" alt="Paper fortune teller for drink selection" id="fortuneImg"
+               data-closed-src="../assets/businesswomen-special-fortune-teller-v1.png"
+               data-open-src="../assets/businesswomen-special-fortune-teller-open-v1.png" />
+        </div>
+
+        <div class="controls">
+          <div>
+            <p class="control-label">1. Choose lane</p>
+            <div class="lane-buttons" role="group" aria-label="Drink lane selection">
+              <button type="button" class="is-selected" data-lane="cocktail">
+                <strong>Summon Spirits</strong>
+                <span>cocktails</span>
+              </button>
+              <button type="button" data-lane="spiritFree">
+                <strong>Ghostbusters</strong>
+                <span>spirit-free</span>
+              </button>
+            </div>
+          </div>
+          <div>
+            <p class="control-label">2. Pick drink mood</p>
+            <div class="mood-grid" role="group" aria-label="Drink mood selection">
+              <button class="mood-button" type="button" data-mood="0">
+                <strong>Bubble</strong><span>sparkly / easy</span>
+              </button>
+              <button class="mood-button" type="button" data-mood="1">
+                <strong>Citrus</strong><span>bright / tart</span>
+              </button>
+              <button class="mood-button" type="button" data-mood="2">
+                <strong>Classic</strong><span>polished / iconic</span>
+              </button>
+              <button class="mood-button" type="button" data-mood="3">
+                <strong>After Dark</strong><span>bitter / bold</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="drink-result" id="drinkResult">
+          <strong id="drinkName"></strong>
+          <p class="vibe" id="drinkVibe"></p>
+          <p class="order" id="drinkOrder"></p>
+          <p class="note" id="drinkNote"></p>
+        </div>
+
+        <p class="microcopy" id="orderCount">Orders placed: 0</p>
+
+        <div class="badge-reveal" id="badgeReveal">
+          <strong>🍸 Coven Reservation merit badge unlocked!</strong>
+          <p>You opened every paper-fortune lane and the table is officially ready at 7.</p>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const cocktailMenus = {
+        cocktail: [
+          { name: "French 75", vibe: "For when you want champagne energy with a little structure.", order: "Gin, lemon, simple syrup, and bubbles.", note: "Elegant, bright, and very 'I have a hard stop at 7.'" },
+          { name: "Pisco Sour", vibe: "For when the menu is boring but you are not.", order: "Pisco, lime, simple syrup, egg white, bitters.", note: "Silky, tart, dramatic enough to deserve a tiny garnish moment." },
+          { name: "Gin Sour", vibe: "For when you want classic, sharp, and not remotely beige.", order: "Gin, lemon, simple syrup, optional egg white.", note: "A clean little power suit of a drink." },
+          { name: "Cosmopolitan", vibe: "For when the meeting is over and Carrie Bradshaw can take the wheel.", order: "Vodka, cranberry, lime, orange liqueur.", note: "Pink, tart, iconic. No notes." },
+          { name: "Sidecar", vibe: "For when you want old-school fabulous without yelling about it.", order: "Cognac, orange liqueur, lemon.", note: "A tailored blazer in coupe-glass form." },
+          { name: "Margarita on the Rocks", vibe: "For when you want the classic answer and you want it with a salted rim.", order: "Tequila, lime, orange liqueur, rocks, salted rim.", note: "Crisp, obvious, correct. Sometimes the popular choice earned her seat." },
+          { name: "Paper Plane", vibe: "For when you want something modern-classic and secretly balanced.", order: "Bourbon, Aperol, amaro, lemon.", note: "Like a status update with an actual point." },
+          { name: "Aviation", vibe: "For when you want a little vintage glamour and a purple wink.", order: "Gin, lemon, maraschino, creme de violette.", note: "Pretty, floral, and not for people who fear a main character drink." },
+          { name: "Paloma", vibe: "For when you want tequila but also want to remain a person with standards.", order: "Tequila, grapefruit, lime, soda.", note: "Fresh, unfussy, and better than panic-ordering another vodka soda." },
+          { name: "Sparkling Rose", vibe: "For when the room needs bubbles and absolutely no one needs a speech.", order: "A chilled glass of sparkling rose.", note: "Pink, easy, and businesswomen's special approved." },
+          { name: "Yes, Get the Bottle", vibe: "For when the table has already done the math and the bottle is the responsible choice.", order: "Pick the wine, bubbles, or rose everyone will actually drink.", note: "Consensus, but with better glassware." },
+          { name: "Main Character Spritz", vibe: "For when the table needs tequila, bubbles, and a drink with its own entrance.", order: "Blanco tequila, Aperol, lemon, simple syrup, rocks, Prosecco, orange zest.", note: "Developed exclusively for lAIdies by Ryan C at CHAR No.5. Ask for Ryan and tell him Ali sent you." },
+        ],
+        spiritFree: [
+          { name: "Faux French 75", vibe: "For champagne energy without the champagne logistics.", order: "Lemon, simple syrup, non-alcoholic bubbles, and a twist.", note: "Bright, crisp, and still dressed for the calendar invite." },
+          { name: "No-groni Spritz", vibe: "For when you want bitter, glossy, and above the group text drama.", order: "Non-alcoholic aperitif, orange, soda, rocks.", note: "The main-character glass without the next-day plot hole." },
+          { name: "Cucumber Spritz", vibe: "For when the room needs spa water that got promoted.", order: "Cucumber, lime, mint, soda, tiny pinch of salt.", note: "Cool, sharp, and very 'I already read the pre-read.'" },
+          { name: "Ginger Mule", vibe: "For when you need sparkle with a little backtalk.", order: "Ginger beer, lime, mint, crushed ice.", note: "Zippy enough to answer the email. Polite enough not to." },
+          { name: "Coconut Colada", vibe: "For when your calendar says quarterly planning but your soul says vacation episode.", order: "Coconut, pineapple, lime, crushed ice.", note: "A tiny out-of-office reply in a glass." },
+          { name: "Paloma-ish", vibe: "For when grapefruit is doing all the heavy lifting and deserves recognition.", order: "Grapefruit, lime, agave, soda, salted rim.", note: "Fresh, punchy, and not here for beige beverages." },
+          { name: "Mint Mojito-ish", vibe: "For when you want patio energy without the plot complications.", order: "Mint, lime, simple syrup, soda, crushed ice.", note: "Clean, sparkly, and emotionally available." },
+          { name: "Zero Rose Fizz", vibe: "For when the table wants pink bubbles and no committee meeting.", order: "Alcohol-free rose, soda, raspberry, lemon.", note: "Soft launch the sparkle. Keep the standards." },
+          { name: "Espresso Tonic", vibe: "For when happy hour is actually a rebrand of caffeine.", order: "Espresso, tonic, orange peel, lots of ice.", note: "The 9 to 5 cup of ambition with a better outfit." },
+          { name: "Pink Lemonade Upgrade", vibe: "For when nostalgia deserves a promotion.", order: "Lemon, berry syrup, soda, sugared rim.", note: "Mall-food-court classic, executive edit." },
+          { name: "Arnold Palmer, Corporate Goth", vibe: "For when iced tea and lemonade came prepared with talking points.", order: "Black tea, lemonade, lemon wheel, big ice.", note: "Serious enough for notes. Cute enough for a straw." },
+          { name: "Berry Fizz", vibe: "For when the answer is bubbles and a little color theory.", order: "Muddled berries, lime, soda, mint.", note: "Pretty, useful, and impossible to call boring." },
+        ],
+      };
+
+      let activeLane = "cocktail";
+      let orderCount = 0;
+      let lanesUsed = new Set(["cocktail"]);
+      const BADGE_THRESHOLD = 2; // both lanes used
+
+      const laneButtons = document.querySelectorAll("[data-lane]");
+      const moodButtons = document.querySelectorAll("[data-mood]");
+      const resultEl = document.querySelector("#drinkResult");
+      const nameEl = document.querySelector("#drinkName");
+      const vibeEl = document.querySelector("#drinkVibe");
+      const orderEl = document.querySelector("#drinkOrder");
+      const noteEl = document.querySelector("#drinkNote");
+      const countEl = document.querySelector("#orderCount");
+      const badgeEl = document.querySelector("#badgeReveal");
+      const fortuneImage = document.querySelector("#fortuneImage");
+      const fortuneImg = document.querySelector("#fortuneImg");
+
+      laneButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          activeLane = btn.dataset.lane;
+          lanesUsed.add(activeLane);
+          laneButtons.forEach(b => b.classList.toggle("is-selected", b.dataset.lane === activeLane));
+        });
+      });
+
+      moodButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const moodIndex = parseInt(btn.dataset.mood);
+          const menu = cocktailMenus[activeLane] || cocktailMenus.cocktail;
+
+          // Map mood to 3 drinks each (0-2, 3-5, 6-8, 9-11)
+          const startIndex = moodIndex * 3;
+          const options = menu.slice(startIndex, startIndex + 3);
+          const drink = options[Math.floor(Math.random() * options.length)];
+
+          if (!drink) return;
+
+          nameEl.textContent = drink.name;
+          vibeEl.textContent = drink.vibe;
+          orderEl.textContent = "Order: " + drink.order;
+          noteEl.textContent = drink.note;
+
+          resultEl.classList.remove("is-visible");
+          void resultEl.offsetWidth;
+          resultEl.classList.add("is-visible");
+
+          // Open the fortune teller image
+          fortuneImage.classList.add("is-open");
+          if (fortuneImg.dataset.openSrc) fortuneImg.src = fortuneImg.dataset.openSrc;
+
+          orderCount++;
+          countEl.textContent = `Orders placed: ${orderCount}`;
+
+          // Badge: used both lanes
+          if (lanesUsed.size >= BADGE_THRESHOLD && orderCount >= 4) {
+            badgeEl.classList.add("is-visible");
+            try {
+              const badges = JSON.parse(localStorage.getItem("laidies-secret-badges") || "{}");
+              if (!badges["coven-reservation"]) {
+                badges["coven-reservation"] = {
+                  id: "coven-reservation",
+                  title: "Coven Reservation merit badge",
+                  sticker: "7PM",
+                  unlockedAt: new Date().toISOString(),
+                  source: "Businesswomen's Special",
+                };
+                localStorage.setItem("laidies-secret-badges", JSON.stringify(badges));
+              }
+            } catch(e) {}
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

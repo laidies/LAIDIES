@@ -1,0 +1,138 @@
+.issue-site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px clamp(16px, 4vw, 44px);
+  background:
+    radial-gradient(circle at 14% 28%, rgba(255, 45, 155, 0.28) 0 2px, transparent 3px),
+    radial-gradient(circle at 72% 22%, rgba(255, 45, 155, 0.2) 0 2px, transparent 3px),
+    #150b08;
+  border-bottom: 2px solid #ff2d9b;
+  box-shadow: 0 8px 22px rgba(16, 8, 5, 0.18);
+}
+
+.issue-site-nav a {
+  color: #fff;
+  border-bottom-color: rgba(255, 255, 255, 0.35);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.issue-site-nav a:hover {
+  color: #ff2d9b;
+  border-bottom-color: #ff2d9b;
+}
+
+.issue-site-nav .issue-brand-link {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(1.35rem, 4vw, 2rem);
+  line-height: 1;
+  color: #ff2d9b;
+  text-shadow: 0 0 14px rgba(255, 45, 155, 0.9);
+  border-bottom: 0;
+}
+
+.issue-site-nav .issue-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px 16px;
+}
+
+.issue-toolkit {
+  max-width: 860px;
+  margin: 20px auto 48px;
+  padding: 0 24px;
+  position: relative;
+  z-index: 3;
+}
+
+.issue-toolkit-inner {
+  background: linear-gradient(135deg, #fff 0%, #fff1f8 62%, #fce4f2 100%);
+  border: 2px solid #ff2d9b;
+  border-radius: 18px;
+  box-shadow: 8px 8px 0 #100805, 0 16px 36px rgba(255, 45, 155, 0.16);
+  padding: clamp(18px, 4vw, 26px);
+}
+
+.issue-toolkit-label {
+  margin: 0 0 6px;
+  color: #13777f;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.issue-toolkit h2 {
+  margin: 0 0 8px;
+  color: #3a0626;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.45rem, 4vw, 2rem);
+  line-height: 1.05;
+}
+
+.issue-toolkit p {
+  margin: 0 0 16px;
+  color: #5a4b57;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.issue-toolkit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.issue-toolkit-grid a {
+  display: flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid #100805;
+  color: #100805;
+  font-size: 0.78rem;
+  font-weight: 900;
+  line-height: 1.2;
+  text-decoration: none;
+  box-shadow: 3px 3px 0 #ff2d9b;
+}
+
+.issue-toolkit-grid a:hover {
+  color: #100805;
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 #ff2d9b;
+}
+
+.issue-toolkit-grid a[data-link-type="quiz"],
+.issue-toolkit-grid a[data-link-type="cardPack"] {
+  background: #ff2d9b;
+  color: #fff;
+  border-color: #ff2d9b;
+  box-shadow: 3px 3px 0 #100805;
+}
+
+@media (max-width: 640px) {
+  .issue-site-nav {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .issue-site-nav .issue-nav-links {
+    justify-content: flex-start;
+  }
+
+  .issue-toolkit {
+    margin-top: -14px;
+    padding: 0 16px;
+  }
+}

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Girl Talk Prompt Deck | lAIdies Clubhouse</title>
+    <meta name="description" content="Draw a question card for work drama, ambition, confidence, or group-chat honesty." />
+    <meta name="theme-color" content="#ff2d9b" />
+    <link rel="icon" type="image/png" href="../assets/laidies-logo-square.png" />
+    <link rel="stylesheet" href="../styles.css?v=games-extract-1" />
+    <style>
+      .game-page-wrap { max-width: 680px; margin: 0 auto; padding: clamp(18px, 4vw, 48px) clamp(14px, 3vw, 32px); }
+      .game-page-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+      .game-page-header a { font-size: 0.85rem; font-weight: 600; text-decoration: none; color: var(--hot-pink); }
+      .game-page-header a:hover { text-decoration: underline; }
+      .game-page-title { display: grid; gap: 8px; margin-bottom: 32px; }
+      .game-page-title h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.1; }
+      .game-page-title p { color: var(--muted); max-width: 600px; }
+      .girl-talk-stage { margin-bottom: 24px; border-radius: 14px; overflow: hidden; }
+      .girl-talk-stage img { width: 100%; height: auto; display: block; }
+      .girl-talk-card {
+        margin-top: 24px;
+        padding: 28px 24px;
+        border: 3px solid var(--hot-pink);
+        border-radius: 14px;
+        background: var(--mist);
+        text-align: center;
+        font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+        line-height: 1.5;
+        min-height: 120px;
+        display: grid;
+        place-content: center;
+        transition: transform 0.2s;
+      }
+      .girl-talk-card.is-new { animation: cardFlip 0.3s ease; }
+      @keyframes cardFlip { 0% { transform: scale(0.95) rotateY(8deg); opacity: 0.6; } 100% { transform: scale(1) rotateY(0); opacity: 1; } }
+      .draw-button { margin-top: 20px; }
+      .microcopy { font-size: 0.82rem; color: var(--muted); margin-top: 12px; text-align: center; }
+      .badge-reveal { margin-top: 20px; padding: 14px; border: 2px dashed var(--hot-pink); border-radius: 10px; text-align: center; display: none; }
+      .badge-reveal.is-visible { display: block; }
+      .badge-reveal strong { color: var(--hot-pink); }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="lAIdies home">
+        <img src="../assets/laidies-logo-wordmark.png" alt="" />
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="../index.html#episodes">Episodes</a>
+        <a href="../index.html#fun-games">Clubhouse</a>
+        <a href="../index.html#member-passport">Community</a>
+        <a href="../index.html#signup">Subscribe</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="game-page-wrap">
+        <div class="game-page-header">
+          <a href="../index.html#fun-games">&larr; Back to Clubhouse</a>
+        </div>
+        <div class="game-page-title">
+          <p class="eyebrow">Clubhouse Game</p>
+          <h1>Girl Talk Prompt Deck</h1>
+          <p>Draw a question card for work drama, ambition, confidence, or group-chat honesty. Truth or dare, but make it corporate.</p>
+        </div>
+
+        <div class="girl-talk-stage" aria-hidden="true">
+          <img src="../assets/girl-talk-board.webp" alt="" />
+        </div>
+
+        <div class="girl-talk-card" id="girlTalkCard" aria-live="polite">
+          The deck is shuffled. Pick truth, dare, or professionally contained chaos.
+        </div>
+
+        <div style="text-align: center;">
+          <button class="button primary draw-button" type="button" id="drawButton">Draw a card</button>
+        </div>
+
+        <p class="microcopy" id="drawCount">Cards drawn: 0</p>
+
+        <div class="badge-reveal" id="badgeReveal">
+          <strong>🏆 Group Chat Regular merit badge unlocked!</strong>
+          <p>You kept drawing cards until the deck started saving you a seat.</p>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const girlTalkCards = [
+        "Truth: what are you calling 'busy' that is actually avoidance in a blazer?",
+        "Dare: ask for the thing in one sentence, no apology confetti.",
+        "Truth: which meeting could have been a voice note and a lip gloss application?",
+        "Dare: send one message that is 30 percent shorter and 80 percent clearer.",
+        "Truth: what part of your ambition are you making sound smaller so everyone stays comfortable?",
+        "Dare: post the question you think everyone else already knows the answer to.",
+        "Truth: who in the room has the context, template, or shortcut you keep pretending you do not need?",
+        "Dare: give yourself the title you keep waiting for someone else to hand you.",
+      ];
+
+      let lastIndex = -1;
+      let drawCount = 0;
+      const BADGE_THRESHOLD = 8;
+
+      const card = document.querySelector("#girlTalkCard");
+      const button = document.querySelector("#drawButton");
+      const countEl = document.querySelector("#drawCount");
+      const badgeEl = document.querySelector("#badgeReveal");
+
+      function nextIndex(length, prev) {
+        if (length <= 1) return 0;
+        let i = prev;
+        while (i === prev) { i = Math.floor(Math.random() * length); }
+        return i;
+      }
+
+      button?.addEventListener("click", () => {
+        lastIndex = nextIndex(girlTalkCards.length, lastIndex);
+        card.textContent = girlTalkCards[lastIndex];
+        card.classList.remove("is-new");
+        void card.offsetWidth; // trigger reflow
+        card.classList.add("is-new");
+
+        drawCount++;
+        countEl.textContent = `Cards drawn: ${drawCount}`;
+
+        // Badge unlock after drawing all unique cards
+        if (drawCount >= BADGE_THRESHOLD) {
+          badgeEl.classList.add("is-visible");
+          try {
+            const badges = JSON.parse(localStorage.getItem("laidies-secret-badges") || "{}");
+            if (!badges["group-chat-regular"]) {
+              badges["group-chat-regular"] = {
+                id: "group-chat-regular",
+                title: "Group Chat Regular merit badge",
+                sticker: "CHAT",
+                unlockedAt: new Date().toISOString(),
+                source: "Girl Talk",
+              };
+              localStorage.setItem("laidies-secret-badges", JSON.stringify(badges));
+            }
+          } catch(e) {}
+        }
+      });
+    </script>
+  </body>
+</html>
