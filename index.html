@@ -115,7 +115,7 @@
               <a href="issues/issue-01.html">Read episode 1</a>
             </div>
           </article>
-          <article class="issue-card issue-card-preview">
+          <article class="issue-card">
             <img src="assets/issue-02-hero.png" alt="" />
             <div>
               <p class="issue-meta">Issue #2</p>
@@ -204,13 +204,29 @@
         </div>
       </section>
 
+            <aside class="mini-subscribe" aria-label="Quick subscribe">
+        <p>New episode every Wednesday. No spam. No beige.</p>
+        <form
+          class="mini-subscribe-form"
+          action="https://buttondown.com/api/emails/embed-subscribe/laidies"
+          method="post"
+          target="laidiesMiniSubscribeFrame"
+        >
+          <div class="field-row">
+            <input name="email" type="email" placeholder="your.email@icon.com" required aria-label="Email address" />
+            <button type="submit">Subscribe</button>
+          </div>
+        </form>
+        <iframe class="subscribe-frame" name="laidiesMiniSubscribeFrame" title="Mini subscription response" aria-hidden="true"></iframe>
+      </aside>
+
       <span class="anchor-alias" id="girl-talk" aria-hidden="true"></span>
       <section class="community-board" id="community-board" aria-labelledby="board-title">
         <div class="section-heading">
           <p class="eyebrow">The <span class="wordmark" aria-label="lAIdies"><span>l</span><strong>AI</strong><span>dies</span></span> Room</p>
           <h2 id="board-title">ICQ walked so these rooms could run.</h2>
           <p>
-            Public questions, wins, references, and the little things that worked should live where everyone can learn from them. Member cards live in the Clubhouse because identity, consent, and profile-building deserve their own front door. Pick the room that fits: ask the messy question, drop the tiny win, request the reference, or leave the feedback before the whole thing becomes hallway folklore.
+            Ask the messy question, drop the tiny win, request the reference, or leave the feedback before the whole thing becomes hallway folklore.
           </p>
           <p class="microcopy">Post in one chat room to earn the Room Key sticker. Post in every chat room to earn the Every Room, No Notes merit badge.</p>
         </div>
@@ -396,7 +412,7 @@
             <div class="quiz-progress-heading">
               <p class="pack-release">Your quiz progress</p>
               <h4 id="quiz-progress-title">Weekly scores for your <span class="wordmark laidies-inline-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Card.</h4>
-              <p>Sign in with Clubhouse Pass to pin scores and earned stickers to your member card. Guest mode can preview progress before you open the pass.</p>
+              <p>Sign in with your Clubhouse Pass to keep scores and stickers on your member card.</p>
             </div>
             <div class="quiz-progress-list" id="quizProgressList" aria-live="polite"></div>
           </section>
@@ -445,7 +461,7 @@
                 <button class="button secondary" type="button" id="resetCardPackButton">Reset</button>
               </div>
               <p class="pack-status" id="cardPackStatus" aria-live="polite">Open your first pack. Duplicates are part of the drama.</p>
-              <p class="pack-storage-note">Card pulls belong on your member card. Guest mode can preview the binder, but Clubhouse Pass is how rewards follow you properly.</p>
+              <p class="pack-storage-note">Open a Clubhouse Pass to keep your card pulls saved across devices.</p>
               <div class="pack-stats" aria-label="Card collection status">
                 <span><strong id="cardPackOwnedCount">0</strong> owned</span>
                 <span><strong id="cardPackMissingCount">10</strong> missing</span>
@@ -704,11 +720,11 @@
         <div class="hot-goss-copy">
           <p class="eyebrow">TLDR. But make it fetch.</p>
           <h2 id="hot-goss-title">The AI headlines worth bringing to the group chat.</h2>
-          <p class="hot-goss-note">Biggest stories of the week stay put long enough to be useful. The daily lane is ready for an automated refresh once the source list and review rule are approved.</p>
+          <p class="hot-goss-note">The biggest AI stories of the week, explained like we are catching you up on the group chat you missed.</p>
           <div class="hot-goss-stamp" aria-label="Hot Goss update cadence">
             <span>News desk</span>
-            <strong>Week + day</strong>
-            <em>Weekly receipts now. Daily refresh needs automation before launch.</em>
+            <strong>Updated weekly</strong>
+            <em>Fresh receipts every Wednesday with the newsletter.</em>
           </div>
           <div class="hot-goss-visual" aria-hidden="true">
             <img src="assets/hot-goss-desk-v2.png" alt="" />
@@ -741,12 +757,12 @@
           <aside class="goss-lane goss-lane-today" aria-labelledby="trending-today-title">
             <div class="goss-lane-heading">
               <p class="eyebrow">Trending Today</p>
-              <h3 id="trending-today-title">Daily watchlist</h3>
+              <h3 id="trending-today-title">On the radar</h3>
             </div>
             <article>
-              <span>Automation-ready</span>
-              <p><strong>Daily refresh can work.</strong> The right version needs approved sources, a scheduled pull, human review rules, and a stale-news fallback so the homepage never invents a trend.</p>
-              <em>Recommended cadence: refresh every morning; publish only after review.</em>
+              <span>Coming soon</span>
+              <p><strong>Daily AI headlines drop here.</strong> Quick-hit stories between the weekly deep cuts — written for the group chat, not the boardroom.</p>
+              <em>Launching soon. Weekly stories are live now.</em>
             </article>
           </aside>
         </div>
@@ -874,7 +890,7 @@
               <p class="member-pass-email-help" id="memberPassEmailHelp" hidden>Still no email? Check spam/promotions and wait a few minutes. Do not request another email right away, because repeat sends may be temporarily blocked.</p>
               <label for="memberPassEmail">Email for your Clubhouse Pass</label>
               <div class="member-pass-form">
-                <input id="memberPassEmail" type="email" autocomplete="email" placeholder="itsbritneybitch@icon.com" />
+                <input id="memberPassEmail" type="email" autocomplete="email" placeholder="yourname@icon.com" />
               </div>
               <label class="member-pass-newsletter" for="memberPassNewsletter">
                 <input id="memberPassNewsletter" type="checkbox" />
@@ -902,7 +918,7 @@
                   <button type="button" data-member-profile="industry" data-member-profile-value="tps-reports">Filing TPS reports</button>
                   <button type="button" data-member-profile="industry" data-member-profile-value="golden-girls">Retired in Florida with my 3 BFFs</button>
                 </details>
-                <details class="member-profile-group" data-member-profile-group="aiComfort" open>
+                <details class="member-profile-group" data-member-profile-group="aiComfort">
                   <summary>What is your AI main character energy?</summary>
                   <button type="button" data-member-profile="aiComfort" data-member-profile-value="new">Brand new</button>
                   <button type="button" data-member-profile="aiComfort" data-member-profile-value="prompting">Prompting sometimes</button>
@@ -912,7 +928,7 @@
                   <button type="button" data-member-profile="aiComfort" data-member-profile-value="doesnt-go-here">AI? She doesn't even go here!</button>
                   <button type="button" data-member-profile="aiComfort" data-member-profile-value="miranda-priestly">I am the Miranda Priestly of AI</button>
                 </details>
-                <details class="member-profile-group" data-member-profile-group="generation" open>
+                <details class="member-profile-group" data-member-profile-group="generation">
                   <summary>Which group chat raised you?</summary>
                   <button type="button" data-member-profile="generation" data-member-profile-value="gen-x">Gen X</button>
                   <button type="button" data-member-profile="generation" data-member-profile-value="elder-millennial">Elder Millennial</button>
@@ -920,7 +936,7 @@
                   <button type="button" data-member-profile="generation" data-member-profile-value="gen-z">Gen Z</button>
                   <button type="button" data-member-profile="generation" data-member-profile-value="no-label">Age knows no bounds</button>
                 </details>
-                <details class="member-profile-group" data-member-profile-group="goals" data-member-profile-multiple="true" open>
+                <details class="member-profile-group" data-member-profile-group="goals" data-member-profile-multiple="true">
                   <summary class="member-profile-question">What are you here for, <span class="wordmark member-profile-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span>?</summary>
                   <button type="button" data-member-profile="goals" data-member-profile-value="learn-basics">Learn the basics</button>
                   <button type="button" data-member-profile="goals" data-member-profile-value="save-time">Save time</button>
@@ -941,7 +957,7 @@
                 <button class="button secondary member-pass-signout" type="button" id="memberSignOutButton" hidden>Sign out</button>
                 <button class="button secondary" type="button" id="memberStartFreshButton">Reset and start over</button>
               </div>
-              <p class="member-pass-note" id="memberPassNote" aria-live="polite">Clubhouse Pass is the account home for rewards. Guest mode is only a preview.</p>
+              <p class="member-pass-note" id="memberPassNote" aria-live="polite">Your Clubhouse Pass keeps everything in one place — stickers, badges, card pulls, and quiz scores.</p>
             </div>
             <div class="member-pass-actions">
               <a class="button primary" href="community/laidy-spotlight.html?v=issue-02-live-1#spotlight-form-title">Create your lAIdies Card</a>

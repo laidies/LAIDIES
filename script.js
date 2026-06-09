@@ -2818,6 +2818,14 @@ memberProfileButtons.forEach((button) => {
     saveMemberPass({ profile: getSelectedMemberProfile() });
     renderMemberPass();
     scheduleMemberRewardSync();
+    // Progressive disclosure: auto-open next profile group after selection
+    if (!allowsMultiple) {
+      const currentGroup = button.closest(".member-profile-group");
+      const nextGroup = currentGroup?.nextElementSibling;
+      if (nextGroup?.tagName === "DETAILS" && !nextGroup.open) {
+        setTimeout(() => { currentGroup.open = false; nextGroup.open = true; nextGroup.scrollIntoView({ behavior: "smooth", block: "nearest" }); }, 300);
+      }
+    }
   });
 });
 

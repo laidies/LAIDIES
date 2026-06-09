@@ -9797,3 +9797,92 @@ html {
   color: var(--wordmark-ai) !important;
   text-transform: uppercase !important;
 }
+
+
+/* === Mini Subscribe CTA (between Episodes and Community) === */
+.mini-subscribe {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 24px;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 28px clamp(18px, 5vw, 64px);
+  text-align: center;
+}
+
+.mini-subscribe p {
+  width: 100%;
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.mini-subscribe-form {
+  width: 100%;
+  max-width: 420px;
+}
+
+.mini-subscribe-form .field-row {
+  display: flex;
+  gap: 8px;
+}
+
+.mini-subscribe-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 14px;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background: #fff;
+  transition: border-color 0.2s;
+}
+
+.mini-subscribe-form input:focus {
+  outline: none;
+  border-color: var(--hot-pink);
+}
+
+.mini-subscribe-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: var(--hot-pink);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: inherit;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.mini-subscribe-form button:hover {
+  background: #e0208a;
+}
+
+/* === Minimum readable font fix (accessibility) === */
+.drawer-hotspot strong {
+  font-size: clamp(0.65rem, 1.8vw, 0.82rem) !important;
+}
+
+.clubhouse-sticker-button {
+  font-size: clamp(0.7rem, 2.6vw, 0.85rem) !important;
+}
+
+.clubhouse-sticker-button[data-clubhouse-sticker="business"],
+.clubhouse-sticker-button[data-clubhouse-sticker="dream-phone"],
+.clubhouse-sticker-button[data-clubhouse-sticker="psychic"],
+.clubhouse-sticker-button[data-clubhouse-sticker="fairy"] {
+  font-size: clamp(0.65rem, 2.35vw, 0.82rem) !important;
+}
+
+.cocktail-lane-label span {
+  font-size: 0.7rem !important;
+}
+
+.dream-special-cards button {
+  font-size: 0.7rem !important;
+}
