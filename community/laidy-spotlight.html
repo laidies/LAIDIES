@@ -6,7 +6,95 @@
     <title>lAIdies Card | lAIdies</title>
     <link rel="stylesheet" href="../styles.css?v=issue-02-live-1" />
     <script defer data-domain="wearelaidies.com" src="https://plausible.io/js/script.js"></script>
-</head>
+
+    <style>
+      /* Thumbnail grid for member cards */
+      .member-directory-demo {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+        gap: 16px !important;
+      }
+      .member-directory-demo .member-trading-card {
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        max-width: 100% !important;
+        font-size: 0.75rem;
+      }
+      .member-directory-demo .member-trading-card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 24px rgba(255,45,155,0.25);
+      }
+      .member-directory-demo .member-trading-card .member-card-body p:not(.member-card-kicker) {
+        display: none;
+      }
+      .member-directory-demo .member-trading-card .member-card-links,
+      .member-directory-demo .member-trading-card .member-card-link-note,
+      .member-directory-demo .member-trading-card .member-card-reward-case {
+        display: none;
+      }
+
+      /* Expanded card overlay */
+      .card-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.75);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        pointer-events: none;
+      }
+      .card-overlay.is-visible {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .card-overlay-inner {
+        max-width: 420px;
+        max-height: 90vh;
+        overflow-y: auto;
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(255,45,155,0.3);
+        position: relative;
+      }
+      .card-overlay-inner .member-trading-card {
+        max-width: 100% !important;
+        font-size: 1rem;
+      }
+      .card-overlay-inner .member-card-body p,
+      .card-overlay-inner .member-card-links,
+      .card-overlay-inner .member-card-link-note,
+      .card-overlay-inner .member-card-reward-case {
+        display: block !important;
+      }
+      .card-overlay-close {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: var(--hot-pink);
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media (max-width: 600px) {
+        .member-directory-demo {
+          grid-template-columns: repeat(2, 1fr) !important;
+          gap: 10px !important;
+        }
+      }
+    </style>
+  </head>
   <body>
     <header class="site-header">
       <button onclick="history.back()" style="background: none; border: none; color: var(--hot-pink); font-size: 0.85rem; cursor: pointer; padding: 4px 8px; text-decoration: underline;" aria-label="Go back">← Back</button>
@@ -96,7 +184,7 @@
               <p class="member-card-meta"><strong>Can help with:</strong> tax, community building, practical AI tests, messy first drafts, and work that refuses to stay beige.</p>
               <div class="member-card-reward-case" aria-label="Founder reward shelf">
                 <strong>Sticker Case / Secret Merit Badges</strong>
-                <p>Founder card shows the full reward shelf so members can see what is possible. Update this case with each weekly drop.</p>
+                
                 <div class="member-card-tags member-card-reward-tags">
                   <span>2 Sticker Drop</span>
                   <span>Receipts Queen</span>
@@ -110,7 +198,8 @@
                   <span>Issue Fun Pack badges</span>
                 </div>
               </div>
-              <div class="member-card-tags"><span>Indirect Tax</span><span>Women-in-Tax</span><span>TEI</span><span>ChatGPT</span><span>Claude Code</span><span>Codex</span><span>Open to connect</span></div>
+              <p class="member-card-kicker" style="margin-top: 12px; margin-bottom: 4px;">Tools & Interests</p>
+                <div class="member-card-tags"><span>Indirect Tax</span><span>Women-in-Tax</span><span>TEI</span><span>ChatGPT</span><span>Claude Code</span><span>Codex</span><span>Open to connect</span></div>
               <div class="member-card-links">
                 <a href="https://ca.linkedin.com/in/alison-eakin-01b29621" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
               </div>
@@ -482,5 +571,45 @@
     </footer>
 
     <script src="../script.js?v=issue-02-live-1"></script>
+  
+    <script>
+      // Card click-to-expand
+      document.addEventListener("DOMContentLoaded", function() {
+        var cards = document.querySelectorAll(".member-directory-demo .member-trading-card");
+        if (!cards.length) return;
+
+        // Create overlay
+        var overlay = document.createElement("div");
+        overlay.className = "card-overlay";
+        overlay.innerHTML = '<div class="card-overlay-inner"><button class="card-overlay-close" aria-label="Close">&times;</button><div class="card-overlay-content"></div></div>';
+        document.body.appendChild(overlay);
+
+        var closeBtn = overlay.querySelector(".card-overlay-close");
+        var content = overlay.querySelector(".card-overlay-content");
+
+        function openCard(card) {
+          content.innerHTML = card.outerHTML;
+          overlay.classList.add("is-visible");
+          document.body.style.overflow = "hidden";
+        }
+
+        function closeCard() {
+          overlay.classList.remove("is-visible");
+          document.body.style.overflow = "";
+        }
+
+        cards.forEach(function(card) {
+          card.addEventListener("click", function() { openCard(card); });
+        });
+
+        closeBtn.addEventListener("click", closeCard);
+        overlay.addEventListener("click", function(e) {
+          if (e.target === overlay) closeCard();
+        });
+        document.addEventListener("keydown", function(e) {
+          if (e.key === "Escape") closeCard();
+        });
+      });
+    </script>
   </body>
 </html>
