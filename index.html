@@ -25,8 +25,8 @@
 
       /* ─── HERO SIZING ─── */
       .hero-logo {
-        max-width: 320px !important;
-        width: 45% !important;
+        max-width: 500px !important;
+        width: 60% !important;
       }
       .hero h1 {
         font-size: clamp(2rem, 4vw, 3.2rem) !important;
@@ -230,6 +230,13 @@
       .clubhouse-grid-card p {
         color: rgba(255, 248, 252, 0.7) !important;
       }
+
+      /* About section responsive */
+      @media (max-width: 768px) {
+        .about-band {
+          grid-template-columns: 1fr !important;
+        }
+      }
     </style>
   </head>
   <body>
@@ -345,7 +352,7 @@
             <img loading="lazy" src="assets/send-it.png" alt="The LAIDIES Room" />
             <div class="card-text">
               <h3>The LAIDIES Room</h3>
-              <p>9 rooms. Ask the Room, Wins, Dear lAIdies, Mix CD Exchange, Send-It Energy, Try-On Debrief, Burn Book, Comment Card, and the Spotlight. Real questions, no lurking required.</p>
+              <p>9 rooms. Ask questions, drop wins, trade playlists, talk yourself into the brave thing.</p>
             </div>
           </a>
         </div>
@@ -384,7 +391,7 @@
       </section>
 
       <!-- ORIGIN STORY -->
-      <section class="about-band" id="about" aria-labelledby="about-title">
+      <section class="about-band" id="about" aria-labelledby="about-title" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; padding: 60px clamp(20px, 5vw, 80px);">
         <div>
           <p class="eyebrow">The Origin Story</p>
           <h2 id="about-title">Built by one woman, pushed forward by the right group chat.</h2>
@@ -398,57 +405,21 @@
             <span>Receipt</span>
             <h3>Five days from "I have never built a website" to a living, glitter-covered AI world.</h3>
             <p>
-              Before this, I had never designed a website or built anything like it. I am also, historically, one of IT's most frequent flyers. My portrait is probably hanging somewhere as Customer of the Year, and when I bring IT a problem, they often have to go find their IT. At this point, it is only a matter of time before the imaginary loyalty department calls to offer me a very special valued-customer discount if I come back.
-            </p>
-            <p>
               With AI, the idea stopped waiting for a traditional tech on-ramp. In under three weeks, the vision became a newsletter, website, visual system, quiz archive, games, agents, issue packs, and a public room people can actually use.
             </p>
           </div>
-          <p>
-            I am writing and building <span class="wordmark" aria-label="lAIdies"><span>l</span><strong>AI</strong><span>dies</span></span> myself, but it did not come out of nowhere. Sara Baxter and Eugina Lim helped turn the lonely "am I crazy for wanting this?" stage into an actual room: reviewing drafts, giving feedback, cheering on the weird ideas, and helping prove through Echo that women in tax can build the future instead of waiting for someone else to translate it.
-          </p>
-          <p>
-            DJ JAIDY has been cheering from the AI steering committee side of the house, and now he is bringing the music: weekly AI-made songs for each episode, because apparently this project needed a House DJ too.
-          </p>
-          <p>
-            <span class="wordmark" aria-label="lAIdies"><span>l</span><strong>AI</strong><span>dies</span></span> is not asking you to become the IT department in better shoes. It is here to remind you that you are allowed to understand this stuff, and you absolutely can. Learn enough of the technical pieces to stop feeling locked out, then use that confidence to bring the really good ideas to life in your own voice.
-          </p>
-          <p class="story-note">
-            P.S. In case it was not clear, I do not have this all perfectly figured out. If you spot a problem, have a better idea, or know a shortcut I should try, tell me. We are all in this together, preferably with better snacks.
-          </p>
         </div>
-        <div class="about-proof">
-          <p class="eyebrow">The Founding Group Chat</p>
-          <h3>AI fluency is practical confidence, with just enough tech literacy to stop waiting for a translator.</h3>
-          <p>
-            That is the promise of <span class="wordmark" aria-label="lAIdies"><span>l</span><strong>AI</strong><span>dies</span></span>: small weekly tries, a useful room, and enough confidence to stop waiting for someone else to translate your idea.
+        <div style="display: flex; flex-direction: column; gap: 24px; position: sticky; top: 120px;">
+          <img loading="lazy" src="assets/member-ali-founder-card.png" alt="Ali Eakin — Founder card" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(255,45,155,0.15);" />
+          <div style="background: linear-gradient(135deg, #1a0a12, #2d0f1f); border-radius: 12px; padding: 24px; color: #fff;">
+            <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--hot-pink); margin: 0 0 8px;">The Founding Group Chat</p>
+            <p style="margin: 0 0 12px; font-size: 0.95rem; color: rgba(255,248,252,0.85); line-height: 1.6;"><strong>Sara Baxter</strong> — Early reviewer, Echo hackathon teammate, the woman who made the idea feel worth building out loud.</p>
+            <p style="margin: 0 0 12px; font-size: 0.95rem; color: rgba(255,248,252,0.85); line-height: 1.6;"><strong>Eugina Lim</strong> — Echo was her idea. Amazon Tax AI expert and part of where this whole thing goes next.</p>
+            <p style="margin: 0; font-size: 0.95rem; color: rgba(255,248,252,0.85); line-height: 1.6;"><strong>DJ JAIDY</strong> — AI steering committee supporter, song maker, and the person turning each episode into something you can play.</p>
+          </div>
+          <p style="font-style: italic; font-size: 0.9rem; color: var(--muted); text-align: center;">
+            P.S. I do not have this all perfectly figured out. If you spot a problem, have a better idea, or know a shortcut I should try — tell me. We are all in this together.
           </p>
-          <div class="origin-credits" aria-label="lAIdies contributor credits">
-            <article>
-              <span>Writer / Builder</span>
-              <h4>Ali Eakin</h4>
-              <p>Created the newsletter, website, visuals, and public room after getting tired of waiting for a traditional tech on-ramp.</p>
-            </article>
-            <article>
-              <span>Reviewer / Spark</span>
-              <h4>Sara Baxter</h4>
-              <p>Early reviewer, feedback giver, Echo hackathon teammate, and one of the women who made the idea feel worth building out loud.</p>
-            </article>
-            <article>
-              <span>Echo / AI Brain</span>
-              <h4>Eugina Lim</h4>
-              <p>Echo was Eugina's idea. She is one of Amazon Tax's AI experts, an Echo hackathon teammate, and part of where this whole thing is going next.</p>
-            </article>
-            <article>
-              <span>House DJ / AI Music</span>
-              <h4>DJ JAIDY</h4>
-              <p>AI steering committee supporter, AI song maker, and the person turning each Wednesday episode into something you can play while pretending your inbox is under control.</p>
-            </article>
-          </div>
-          <div class="about-actions">
-            <a class="button primary" href="community.html">Join the <span class="wordmark" aria-label="lAIdies"><span>l</span><strong>AI</strong><span>dies</span></span> Room</a>
-            <a class="button secondary" href="#signup">Get Wednesday episodes</a>
-          </div>
         </div>
       </section>
 
