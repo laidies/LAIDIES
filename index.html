@@ -208,6 +208,25 @@
           grid-template-columns: 1fr;
         }
       }
+
+      /* ─── Hero image fix ─── */
+      .hero {
+        min-height: auto !important;
+        padding-bottom: 0 !important;
+      }
+      .hero-image {
+        max-height: 450px !important;
+        overflow: hidden;
+        border-radius: 12px;
+        margin: 0 auto;
+      }
+      .hero-image img {
+        max-height: 450px !important;
+        width: 100% !important;
+        object-fit: cover !important;
+        object-position: center top;
+        border-radius: 12px;
+      }
     </style>
   </head>
   <body>
