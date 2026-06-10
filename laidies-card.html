@@ -309,5 +309,28 @@
     <script src="content/site/supabase-config.js" defer></script>
     <script src="content/site/site-data.js" defer></script>
     <script src="script.js" defer></script>
+  
+    <script>
+      // Enhanced card approval feedback
+      document.addEventListener("DOMContentLoaded", function() {
+        var form = document.querySelector("#spotlightForm");
+        var preview = document.querySelector(".spotlight-preview");
+        if (form && preview) {
+          form.addEventListener("submit", function() {
+            // Scroll to the preview
+            preview.scrollIntoView({behavior: "smooth", block: "start"});
+            // Add a success banner
+            var existing = document.querySelector(".card-saved-banner");
+            if (!existing) {
+              var banner = document.createElement("div");
+              banner.className = "card-saved-banner";
+              banner.style.cssText = "background: var(--hot-pink); color: #fff; padding: 16px 20px; border-radius: 10px; text-align: center; font-weight: 700; font-size: 1rem; margin-bottom: 16px; animation: fadeIn 0.3s ease;";
+              banner.textContent = "✓ Card approved! Your preview is ready. Get a Clubhouse Pass to save it permanently.";
+              preview.insertBefore(banner, preview.firstChild);
+            }
+          });
+        }
+      });
+    </script>
   </body>
 </html>
