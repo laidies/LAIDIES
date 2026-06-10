@@ -20,146 +20,147 @@
     <script defer data-domain="wearelaidies.com" src="https://plausible.io/js/script.js"></script>
     <style>
       /* ═══════════════════════════════════════════════
-         LAIDIES HOMEPAGE — Custom Styles
+         LAIDIES HOMEPAGE
          ═══════════════════════════════════════════════ */
 
-      /* Hero sizing */
+      /* ─── HERO SIZING ─── */
       .hero-logo {
-        max-width: 280px !important;
-        width: 40% !important;
+        max-width: 200px !important;
+        width: 30% !important;
+      }
+      .hero h1 {
+        font-size: clamp(2rem, 4vw, 3.2rem) !important;
+        line-height: 1.15 !important;
+      }
+      .hero-quote {
+        font-size: clamp(1.1rem, 2vw, 1.4rem) !important;
+      }
+      .hero {
+        min-height: auto !important;
+        padding: 60px 0 40px !important;
+        gap: 20px !important;
+      }
+      .hero-copy {
+        gap: 12px !important;
+      }
+      .hero-image {
+        max-height: 350px !important;
+        overflow: hidden;
+        border-radius: 12px;
+        margin: 0 auto;
       }
       .hero-image img {
-        max-height: 400px !important;
-        width: auto !important;
-        object-fit: contain;
+        max-height: 350px !important;
+        width: 100% !important;
+        object-fit: cover !important;
+        object-position: center 20%;
+        border-radius: 12px;
+      }
+      .hero-actions {
+        margin-top: 8px !important;
+      }
+
+      /* ─── INTRO BAND ─── */
+      .intro-band {
+        padding: 28px 20px !important;
+        font-size: 0.95rem !important;
       }
 
       /* ─── CLUBHOUSE GRID ─── */
       .clubhouse-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        margin-top: 32px;
+        gap: 24px;
+        margin-top: 36px;
       }
 
       .clubhouse-grid-card {
         position: relative;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 32px 24px;
-        border: 2px solid var(--ink);
-        border-radius: 20px;
-        background:
-          radial-gradient(ellipse at top left, rgba(255, 45, 155, 0.08), transparent 60%),
-          radial-gradient(ellipse at bottom right, rgba(36, 123, 131, 0.06), transparent 60%),
-          linear-gradient(160deg, #fff8fc 0%, #fff 40%, #fce4f2 100%);
         text-decoration: none;
         color: inherit;
-        transition: transform 0.25s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        min-height: 220px;
-        justify-content: center;
+        border-radius: 20px;
         overflow: hidden;
-      }
-
-      /* Shimmer overlay on each card */
-      .clubhouse-grid-card::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          135deg,
-          transparent 40%,
-          rgba(255, 255, 255, 0.4) 50%,
-          transparent 60%
-        );
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        pointer-events: none;
-      }
-
-      /* Decorative circle (like game-card) */
-      .clubhouse-grid-card::after {
-        content: "";
-        position: absolute;
-        bottom: -20px;
-        right: -20px;
-        width: 80px;
-        height: 80px;
-        border: 2px solid rgba(255, 45, 155, 0.25);
-        border-radius: 999px;
-        background: rgba(255, 45, 155, 0.04);
-        pointer-events: none;
-        transition: transform 0.3s ease, border-color 0.3s;
+        border: 2.5px solid rgba(255, 45, 155, 0.4);
+        background: linear-gradient(180deg, #1a0a12 0%, #2d0f1f 100%);
+        box-shadow:
+          0 4px 20px rgba(255, 45, 155, 0.12),
+          inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
       }
 
       .clubhouse-grid-card:hover {
-        transform: translateY(-4px) scale(1.01);
-        box-shadow:
-          0 12px 40px rgba(255, 45, 155, 0.2),
-          0 0 20px rgba(255, 45, 155, 0.1);
+        transform: translateY(-6px) scale(1.02);
         border-color: var(--hot-pink);
+        box-shadow:
+          0 20px 60px rgba(255, 45, 155, 0.25),
+          0 0 30px rgba(255, 45, 155, 0.15),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
       }
 
-      .clubhouse-grid-card:hover::before {
-        opacity: 1;
-      }
-
-      .clubhouse-grid-card:hover::after {
-        transform: scale(1.3);
-        border-color: rgba(255, 45, 155, 0.5);
-      }
-
+      /* Image fills entire top — no padding, edge to edge */
       .clubhouse-grid-card img {
-        max-width: 140px;
-        max-height: 110px;
-        object-fit: contain;
-        margin-bottom: 14px;
-        filter: drop-shadow(0 4px 12px rgba(255, 45, 155, 0.15));
-        transition: transform 0.3s ease;
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
       }
 
       .clubhouse-grid-card:hover img {
-        transform: scale(1.05);
+        transform: scale(1.08);
+      }
+
+      /* Text area below image */
+      .clubhouse-grid-card .card-text {
+        padding: 20px 20px 24px;
+        text-align: center;
+        background: linear-gradient(180deg, rgba(26, 10, 18, 0.95) 0%, rgba(45, 15, 31, 0.98) 100%);
       }
 
       .clubhouse-grid-card h3 {
-        margin: 8px 0 6px;
+        margin: 0 0 6px;
         font-family: Georgia, "Times New Roman", serif;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         font-weight: 700;
-        color: var(--ink);
+        color: #fff;
+        text-shadow: 0 0 12px rgba(255, 45, 155, 0.3);
       }
 
       .clubhouse-grid-card p {
         margin: 0;
         font-size: 0.85rem;
-        color: var(--muted);
+        color: rgba(255, 248, 252, 0.7);
         line-height: 1.5;
       }
 
-      /* ─── Room card (full width) ─── */
+      /* ─── Room card (full width, horizontal) ─── */
       .clubhouse-room-card {
         grid-column: 1 / -1;
-        flex-direction: row;
-        gap: 28px;
-        text-align: left;
-        min-height: auto;
-        padding: 36px;
-        background:
-          linear-gradient(135deg, rgba(255, 45, 155, 0.05) 0%, transparent 50%),
-          linear-gradient(160deg, #fff8fc 0%, #fff 100%);
+        flex-direction: row !important;
       }
-
       .clubhouse-room-card img {
-        max-width: 160px;
-        max-height: 120px;
-        border-radius: 12px;
+        width: 280px !important;
+        height: auto !important;
+        min-height: 180px;
         object-fit: cover;
       }
+      .clubhouse-room-card .card-text {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 28px 32px;
+      }
+      .clubhouse-room-card h3 {
+        font-size: 1.5rem;
+      }
+      .clubhouse-room-card p {
+        font-size: 0.9rem;
+      }
 
-      /* ─── Episode section polish ─── */
+      /* ─── Episode section ─── */
       .episode-links {
         display: flex;
         gap: 10px;
@@ -167,20 +168,12 @@
         margin-top: 12px;
         align-items: center;
       }
-
       .episode-links .button.episode-archive-link {
         font-size: 0.82rem;
         padding: 6px 14px;
       }
 
-      /* ─── Section heading glow treatment ─── */
-      #the-clubhouse .section-heading h2 {
-        background: linear-gradient(135deg, var(--ink) 0%, var(--plum) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
+      /* ─── THE CLUBHOUSE section header ─── */
       #the-clubhouse .section-heading .eyebrow {
         letter-spacing: 0.15em;
         color: var(--hot-pink);
@@ -188,44 +181,29 @@
       }
 
       /* ─── Responsive ─── */
-      @media (max-width: 768px) {
+      @media (max-width: 900px) {
         .clubhouse-grid {
           grid-template-columns: repeat(2, 1fr);
-          gap: 14px;
+          gap: 16px;
         }
         .clubhouse-room-card {
-          flex-direction: column;
+          flex-direction: column !important;
+        }
+        .clubhouse-room-card img {
+          width: 100% !important;
+          height: 180px !important;
+        }
+        .clubhouse-room-card .card-text {
           text-align: center;
         }
-        .clubhouse-grid-card {
-          min-height: 180px;
-          padding: 24px 16px;
-        }
       }
-
-      @media (max-width: 480px) {
+      @media (max-width: 520px) {
         .clubhouse-grid {
           grid-template-columns: 1fr;
         }
-      }
-
-      /* ─── Hero image fix ─── */
-      .hero {
-        min-height: auto !important;
-        padding-bottom: 0 !important;
-      }
-      .hero-image {
-        max-height: 450px !important;
-        overflow: hidden;
-        border-radius: 12px;
-        margin: 0 auto;
-      }
-      .hero-image img {
-        max-height: 450px !important;
-        width: 100% !important;
-        object-fit: cover !important;
-        object-position: center top;
-        border-radius: 12px;
+        .clubhouse-grid-card img {
+          height: 180px;
+        }
       }
     </style>
   </head>
@@ -296,42 +274,51 @@
           <h2 id="clubhouse-title">Everything that makes the learning stick, the practice fun, and the room worth coming back to.</h2>
         </div>
         <div class="clubhouse-grid">
-          <!-- Row 1 -->
           <a href="clubhouse.html#member-passport" class="clubhouse-grid-card">
-            <img loading="lazy" src="assets/laidies-logo-square.png" alt="Clubhouse Pass" />
-            <h3>Clubhouse Pass</h3>
-            <p>Sign up to save your progress, badges, and card collection.</p>
+            <img loading="lazy" src="assets/clubhouse-pass-laidies-card-sample.png" alt="Clubhouse Pass" />
+            <div class="card-text">
+              <h3>Clubhouse Pass</h3>
+              <p>Sign up to save your progress, badges, and card collection.</p>
+            </div>
           </a>
           <a href="clubhouse.html#card-pack" class="clubhouse-grid-card">
-            <img loading="lazy" src="assets/trading-card-pack.webp" alt="Trading card pack" />
-            <h3>LAIDIES Card</h3>
-            <p>Build your member card. Collect the set every episode.</p>
+            <img loading="lazy" src="assets/member-ali-founder-card.png" alt="LAIDIES Card" />
+            <div class="card-text">
+              <h3>LAIDIES Card</h3>
+              <p>Build your member card. Collect the set every episode.</p>
+            </div>
           </a>
           <a href="clubhouse.html" class="clubhouse-grid-card">
-            <img loading="lazy" src="assets/clubhouse-compact-closed-v1.png" alt="Clubhouse compact"  />
-            <h3>Enter Clubhouse</h3>
-            <p>Games, tools, weekly packs, and everything that lives between episodes.</p>
+            <img loading="lazy" src="assets/clubhouse-compact-closed-v1.png" alt="Enter Clubhouse" />
+            <div class="card-text">
+              <h3>Enter Clubhouse</h3>
+              <p>Games, tools, weekly packs, and everything that lives between episodes.</p>
+            </div>
           </a>
-          <!-- Row 2 -->
           <a href="this-week.html#hot-goss" class="clubhouse-grid-card">
-            <img loading="lazy" src="assets/hot-goss-desk-v2.png" alt="Hot Goss news desk" />
-            <h3>Hot Goss</h3>
-            <p>This week's AI headlines, translated for the group chat.</p>
+            <img loading="lazy" src="assets/hot-goss-desk-v2.png" alt="Hot Goss" />
+            <div class="card-text">
+              <h3>Hot Goss</h3>
+              <p>This week's AI headlines, translated for the group chat.</p>
+            </div>
           </a>
           <a href="learn.html#glossary" class="clubhouse-grid-card">
-            <img loading="lazy" src="assets/glossary-rolodex.png" alt="Glossary rolodex" />
-            <h3>Glossary</h3>
-            <p>The words that keep showing up in meetings, finally explained.</p>
+            <img loading="lazy" src="assets/glossary-rolodex.png" alt="Glossary" />
+            <div class="card-text">
+              <h3>Glossary</h3>
+              <p>The words that keep showing up in meetings, finally explained.</p>
+            </div>
           </a>
           <a href="reference-closet.html" class="clubhouse-grid-card">
-            <img loading="lazy" src="assets/reference-closet-open.png" alt="Reference closet" />
-            <h3>Reference Closet</h3>
-            <p>56 pop culture moments that power every analogy in the newsletter.</p>
+            <img loading="lazy" src="assets/reference-closet-open.png" alt="Reference Closet" />
+            <div class="card-text">
+              <h3>Reference Closet</h3>
+              <p>56 pop culture moments that power every analogy in the newsletter.</p>
+            </div>
           </a>
-          <!-- Full-width: The Room -->
           <a href="community.html" class="clubhouse-grid-card clubhouse-room-card">
-            <img loading="lazy" src="assets/send-it.png" alt="Send-it energy" />
-            <div>
+            <img loading="lazy" src="assets/send-it.png" alt="The LAIDIES Room" />
+            <div class="card-text">
               <h3>The LAIDIES Room</h3>
               <p>9 rooms. Ask the Room, Wins, Dear lAIdies, Mix CD Exchange, Send-It Energy, Try-On Debrief, Burn Book, Comment Card, and the Spotlight. Real questions, no lurking required.</p>
             </div>
