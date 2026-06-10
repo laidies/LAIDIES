@@ -330,21 +330,21 @@
           }
         </style>
         <div class="nav-cards">
-          <a href="#dreamPhoneToggle" class="nav-card" onclick="event.preventDefault(); document.querySelectorAll('.clubhouse-revealable').forEach(el => { if(el.classList.contains('dream-phone-game')) el.classList.add('is-clubhouse-revealed'); }); document.getElementById('dreamPhoneToggle')?.scrollIntoView({behavior:'smooth', block:'start'});">
+          <a href="#dreamPhoneToggle" class="nav-card" onclick="event.preventDefault(); document.querySelectorAll('.clubhouse-revealable').forEach(el => { if(el.classList.contains('dream-phone-game')) el.classList.add('is-clubhouse-revealed'); }); setTimeout(() => { const toggle = document.getElementById('dreamPhoneToggle'); if(toggle && toggle.getAttribute('aria-expanded') !== 'true') toggle.click(); else toggle?.scrollIntoView({behavior:'smooth', block:'start'}); }, 50);">
             <img src="assets/dream-phone-retro-chroma.png" alt="Dream Phone" loading="lazy" />
             <div class="nav-card-text">
               <strong>Dream Phone</strong>
               <span>Career advice line</span>
             </div>
           </a>
-          <a href="#madame-claio" class="nav-card" onclick="event.preventDefault(); document.querySelectorAll('.clubhouse-revealable').forEach(el => { if(el.classList.contains('psychic-game')) el.classList.add('is-clubhouse-revealed'); }); document.getElementById('madame-claio')?.scrollIntoView({behavior:'smooth', block:'start'});">
+          <a href="#madame-claio" class="nav-card" onclick="event.preventDefault(); document.querySelectorAll('.clubhouse-revealable').forEach(el => { if(el.classList.contains('psychic-game')) el.classList.add('is-clubhouse-revealed'); }); setTimeout(() => { document.getElementById('madame-claio')?.scrollIntoView({behavior:'smooth', block:'start'}); document.getElementById('fortuneButton')?.click(); }, 60);">
             <img src="assets/madame-claio-crystal-phone-v3.png" alt="Madame CLAI-O" loading="lazy" />
             <div class="nav-card-text">
               <strong>Madame CLAI-O</strong>
               <span>Fortune readings</span>
             </div>
           </a>
-          <a href="#cocktailWheel" class="nav-card" onclick="event.preventDefault(); document.querySelectorAll('.clubhouse-revealable').forEach(el => { if(el.classList.contains('cocktail-wheel-game')) el.classList.add('is-clubhouse-revealed'); }); document.getElementById('cocktailWheel')?.scrollIntoView({behavior:'smooth', block:'start'});">
+          <a href="#cocktailWheel" class="nav-card" onclick="event.preventDefault(); document.querySelectorAll('.clubhouse-revealable').forEach(el => { if(el.classList.contains('cocktail-wheel-game')) el.classList.add('is-clubhouse-revealed'); }); setTimeout(() => { document.getElementById('cocktailWheel')?.scrollIntoView({behavior:'smooth', block:'start'}); if(window.spinCocktail) spinCocktail(); else if(window.spinCocktailFallback) spinCocktailFallback(); }, 60);">
             <img src="assets/businesswomen-special-spinner-v3.png" alt="Cocktail Fortune" loading="lazy" />
             <div class="nav-card-text">
               <strong>Happy Hour Fortune</strong>

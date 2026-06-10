@@ -3108,7 +3108,19 @@ function handleClubhouseRoute(button, event) {
   }
 
   if (button.dataset.clubhouseAction === "dream-phone" && !document.querySelector(".dream-phone-game")?.classList.contains("is-expanded")) {
-    dreamPhoneToggle?.click();
+    setTimeout(() => dreamPhoneToggle?.click(), 60);
+    return;
+  }
+
+  if (zone === "psychic") {
+    scrollToClubhouseTarget(button.dataset.clubhouseTarget);
+    setTimeout(() => document.getElementById("fortuneButton")?.click(), 120);
+    return;
+  }
+
+  if (zone === "business") {
+    scrollToClubhouseTarget(button.dataset.clubhouseTarget);
+    setTimeout(() => { if (window.spinCocktail) spinCocktail(); else if (window.spinCocktailFallback) spinCocktailFallback(); }, 120);
     return;
   }
 
