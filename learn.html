@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Learn | lAIdies</title>
+    <meta
+      name="description"
+      content="lAIdies is a Wednesday newsletter and community for women building practical AI fluency without pretending they have spare time."
+    />
+    <meta property="og:title" content="lAIdies | Girl power meets machine power" />
+    <meta property="og:description" content="AI fluency for women with full calendars, high standards, and no patience for beige tech explanations." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://wearelaidies.com/" />
+    <meta property="og:image" content="https://wearelaidies.com/assets/laidies-logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#ff2d9b" />
+    <link rel="icon" type="image/png" href="assets/laidies-logo-square.png" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="assets/laidies-logo-square.png" />
+    <link rel="stylesheet" href="styles.css?v=issue-02-live-1" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="lAIdies home">
+        <img src="assets/laidies-logo-wordmark.png" alt="" />
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="episodes.html">Episodes</a>
+        <a href="learn.html">Learn</a>
+        <a href="clubhouse.html">Clubhouse</a>
+        <a href="community.html">Community</a>
+        <a href="this-week.html">This Week</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="page-intro" aria-labelledby="page-title">
+        <p class="eyebrow">Level Up</p>
+        <h1 id="page-title">The stuff that makes the newsletter stick.</h1>
+        <p>Terms, quizzes, faces, and the reinforcement without the homework energy. Start with the glossary, test yourself with the quiz, or meet the names that keep showing up in meetings.</p>
+      </section>
+
+      <section class="glossary-section" id="glossary" aria-labelledby="glossary-title">
+        <div class="section-heading">
+          <p class="eyebrow">So You Don't Pull a Cher</p>
+          <h2 id="glossary-title">The glossary for AI and computer confidence.</h2>
+          <p>
+            A living dictionary for the words that show up when you start using AI more seriously. Plain English, useful analogies, no condescension, no R-words, no vests, no maxxing, and absolutely no pretending you were born knowing what a terminal is.
+          </p>
+          <div class="learn-actions" aria-label="Learn shortcuts">
+            <a href="#quiz">Take the magazine quiz</a>
+            <a href="#who-is-who">Meet the AI cast list</a>
+            <a href="#hot-goss">Read the hot goss</a>
+          </div>
+        </div>
+        <details class="learn-collapse" open><summary>Glossary — flip through the Rolodex</summary>
+        <div class="glossary-cabinet">
+        <div class="glossary-workbench">
+          <div class="glossary-rolodex-hero">
+            <img src="assets/glossary-rolodex.png" alt="A hot pink Y2K Rolodex-style glossary card file with pastel cards, lip gloss, sticky notes, and glitter pen" />
+          </div>
+          <div class="glossary-controls" aria-label="Glossary Rolodex controls">
+            <label for="glossarySelect">Flip to a term</label>
+            <select id="glossarySelect"></select>
+            <div>
+              <button class="icon-button" type="button" id="glossaryPrev">Previous</button>
+              <button class="icon-button" type="button" id="glossaryNext">Next</button>
+              <button class="icon-button" type="button" id="glossaryShowAll" aria-expanded="false">Show all</button>
+            </div>
+            <p id="glossaryStatus" aria-live="polite">One card at a time, like an office Rolodex with better lip gloss.</p>
+          </div>
+        </div>
+        <div class="glossary-grid is-rolodex" id="glossaryGrid">
+          <article><strong>Generative AI</strong><p><b>What it is:</b> AI that creates a new draft, image, summary, plan, or bit of code from your instructions.</p><p><b>Where it comes up:</b> ChatGPT, Claude, Gemini, image tools, and most "make this for me" AI features.</p><p><b>Analogy:</b> Not Google. More like an assistant making the first messy version so you are not staring at a blank page.</p></article>
+          <article><strong>Prompt</strong><p><b>What it is:</b> The instruction you give an AI tool.</p><p><b>Where it comes up:</b> Anytime you type into ChatGPT, ask for an image, or tell Codex what to change.</p><p><b>Analogy:</b> A brief with standards: audience, task, tone, context, and what good looks like.</p></article>
+          <article><strong>Hallucination</strong><p><b>What it is:</b> When AI gives an answer that sounds polished but is wrong or made up.</p><p><b>Where it comes up:</b> Names, dates, laws, links, quotes, sources, numbers, or anything high-stakes.</p><p><b>Analogy:</b> Regina George confidence, zero receipts. Verify before you forward.</p></article>
+          <article><strong>Model</strong><p><b>What it is:</b> The trained system inside an AI product that predicts and generates the response.</p><p><b>Where it comes up:</b> When people say GPT-5, Claude Sonnet, Gemini, or "which model are you using?"</p><p><b>Analogy:</b> The app is the venue. The model is the person doing the work in the back room.</p></article>
+          <article><strong>Context</strong><p><b>What it is:</b> The background information AI needs to understand your situation.</p><p><b>Where it comes up:</b> When the first answer is generic and you need to add audience, goal, constraints, examples, or documents.</p><p><b>Analogy:</b> Telling your stylist the event, weather, dress code, and shoes before asking for the outfit.</p></article>
+          <article><strong>Token</strong><p><b>What it is:</b> A chunk of text an AI model reads and predicts with. A token can be a word, part of a word, punctuation, or a weird little text fragment.</p><p><b>Where it comes up:</b> Token limits, pricing, long documents, context windows, and the viral "how many Rs are in strawberry?" problem.</p><p><b>Analogy:</b> The model may not see strawberry as nine neat letters. It sees chunks. That is why an LLM can confidently say there are two Rs when there are three: it is predicting from pieces, not naturally counting letters like a spelling bee judge with receipts.</p></article>
+          <article><strong>Agent</strong><p><b>What it is:</b> AI that can take multiple steps toward a goal, sometimes using tools along the way.</p><p><b>Where it comes up:</b> Coding assistants, research agents, workflow builders, and tools that can plan, act, check, and revise.</p><p><b>Analogy:</b> An assistant with a checklist. Useful, but still needs boundaries and review.</p></article>
+          <article><strong>Browser</strong><p><b>What it is:</b> The app you use to open websites.</p><p><b>Where it comes up:</b> Visiting ChatGPT, reading docs, testing your site, or checking whether a link works.</p><p><b>Analogy:</b> Chrome, Safari, and Edge are the front doors. The website is what is inside.</p></article>
+          <article><strong>HTML</strong><p><b>What it is:</b> The structure of a webpage: headings, paragraphs, links, forms, buttons, and images.</p><p><b>Where it comes up:</b> When you want AI to create a page, fix newsletter HTML, or understand what is on a site.</p><p><b>Analogy:</b> The bones of the outfit before hair, makeup, and accessories.</p></article>
+          <article><strong>CSS</strong><p><b>What it is:</b> The styling rules for a webpage: layout, colors, fonts, spacing, and responsive behavior.</p><p><b>Where it comes up:</b> When text spills out of boxes, buttons look wrong, or a page needs to work on mobile.</p><p><b>Analogy:</b> Same content, better blazer. CSS is what makes it look intentional.</p></article>
+          <article><strong>JavaScript</strong><p><b>What it is:</b> Code that makes a webpage interactive after it loads.</p><p><b>Where it comes up:</b> Quote generators, filters, dropdowns, forms, calculators, and buttons that change what you see.</p><p><b>Analogy:</b> HTML is the room, CSS is the decor, JavaScript is someone turning the lights on and moving the furniture.</p></article>
+          <article><strong>Terminal</strong><p><b>What it is:</b> A text-based place to talk to your computer by typing instructions instead of clicking app buttons.</p><p><b>Where it comes up:</b> Starting a website preview, installing tools, running a script, or following developer setup instructions.</p><p><b>Analogy:</b> The Starbucks counter. Apps are the printed menu. The terminal is where the off-menu options live, if you know how to order.</p></article>
+          <article><strong>PowerShell</strong><p><b>What it is:</b> A Windows terminal shell: the thing that understands Windows-style commands and passes them to the right tool.</p><p><b>Where it comes up:</b> On Windows when instructions say to run something, list files, start a server, or check a folder.</p><p><b>Analogy:</b> The Windows barista/register system. It takes the order, checks what ingredients and machines exist on that computer, and either makes the drink or tells you why it cannot.</p></article>
+          <article><strong>Command</strong><p><b>What it is:</b> A typed instruction you give your computer in Terminal or PowerShell.</p><p><b>Where it comes up:</b> Copying setup instructions, running tests, starting a local site, or asking AI what a command does before using it.</p><p><b>Analogy:</b> The secret drink-menu order. It is not listed on the big friendly app menu, but if the ingredients are installed and you say it exactly right, you get precisely what you wanted.</p></article>
+          <article><strong>File Path</strong><p><b>What it is:</b> The exact location of a file or folder on your computer.</p><p><b>Where it comes up:</b> When you send AI a file location, upload assets, fix image links, or open a local HTML page.</p><p><b>Analogy:</b> The full address, not "that cute place downtown."</p></article>
+          <article><strong>Extension</strong><p><b>What it is:</b> The ending of a filename that tells your computer what kind of file it is.</p><p><b>Where it comes up:</b> HTML newsletters, images, Markdown docs, PDFs, CSVs, and anything AI asks you to save or upload.</p><p><b>Analogy:</b> The label on the garment bag: .html, .png, .md, .pdf.</p></article>
+          <article><strong>Embed</strong><p><b>What it is:</b> A small piece of code that places another service inside your webpage.</p><p><b>Where it comes up:</b> Comments, signup forms, videos, maps, calendars, surveys, and other tools you do not want to build from scratch.</p><p><b>Analogy:</b> Borrowing the professional photo booth instead of constructing one in your living room.</p></article>
+        </div>
+        </details>
+        </div>
+      </section>
+
+
+      <section class="quiz-section game-tool-panel" id="quiz" aria-labelledby="quiz-title" data-game-panel>
+        <div class="quiz-hub-top">
+          <div class="quiz-copy">
+            <p class="eyebrow">Magazine Quiz</p>
+            <h2 id="quiz-title">Did the analogy stick, or do we need to call the group chat?</h2>
+            <p>
+              Pick any released issue and take the quiz whenever you get there. New readers can start at Episode 1, archive girls can catch up later, and high scores earn digital stickers for their <span class="wordmark laidies-inline-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Card, not extra chores, money, or another tote bag.
+            </p>
+          </div>
+          <div class="quiz-format-card">
+            <span>Quiz standard</span>
+            <strong>10 questions + 2 bonus</strong>
+            <em>Score out of 10. Extra credit can still hit 12/10.</em>
+          </div>
+          <div class="quiz-score-card">
+            <span class="quiz-sticker" id="quizSticker" aria-live="polite">?</span>
+            <div>
+              <p class="pack-release">Current sticker</p>
+              <strong id="quizRewardTitle">No sticker yet</strong>
+              <span id="quizBestScore">Best score: not taken</span>
+            </div>
+          </div>
+          <div class="quiz-sticker-board" aria-hidden="true">
+            <img src="assets/quiz-sticker-sheet.png" alt="" />
+          </div>
+        </div>
+        <div class="quiz-console">
+          <div class="quiz-console-header">
+            <div>
+              <p class="eyebrow" id="quizIssueLabel">Issue 01 Quiz</p>
+              <h3 id="quizIssueTitle">Opening the tab without making it a whole personality crisis.</h3>
+            </div>
+          </div>
+          <div class="quiz-start-panel" id="quizStartPanel">
+            <div class="quiz-start-heading">
+              <p class="pack-release">Season quiz archive</p>
+              <h4>Choose the issue you just read.</h4>
+            </div>
+            <div class="quiz-issue-shelf" aria-label="Available issue quizzes">
+              <button class="quiz-issue-card" type="button" data-quiz-open="foundation">
+                <span>Foundation</span>
+                <strong>Why <span class="wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Exists</strong>
+                <em>10 questions + 2 bonus</em>
+              </button>
+              <button class="quiz-issue-card" type="button" data-quiz-open="issue01">
+                <span>Issue 01</span>
+                <strong>On Wednesdays We Use AI</strong>
+                <em>10 questions + 2 bonus</em>
+              </button>
+            </div>
+          </div>
+          <div class="quiz-picker">
+            <label for="quizIssueSelect">Choose your issue</label>
+            <select id="quizIssueSelect">
+              <option value="foundation">Foundation: Why We Exist</option>
+              <option value="issue01">Issue 01: On Wednesdays We Use AI</option>
+            </select>
+          </div>
+          <form id="quizForm" class="quiz-form" hidden>
+            <div id="quizQuestions" class="quiz-questions" aria-live="polite"></div>
+            <div class="quiz-actions">
+              <button class="button primary" type="submit">Check my score</button>
+              <button class="button secondary" type="button" id="quizResetButton">Retake</button>
+              <a class="button ghost" id="quizRereadLink" href="issues/issue-01.html">Reread Issue 01</a>
+            </div>
+          </form>
+          <p class="quiz-result" id="quizResult" aria-live="polite">Pick an issue above. The questions stay in the Caboodle until you open them.</p>
+
+          <section class="quiz-progress-panel" aria-labelledby="quiz-progress-title">
+            <div class="quiz-progress-heading">
+              <p class="pack-release">Your quiz progress</p>
+              <h4 id="quiz-progress-title">Weekly scores for your <span class="wordmark laidies-inline-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Card.</h4>
+              <p>Sign in with your Clubhouse Pass to keep scores and stickers on your member card.</p>
+            </div>
+            <div class="quiz-progress-list" id="quizProgressList" aria-live="polite"></div>
+          </section>
+        </div>
+      </section>
+
+
+      <section class="who-section" id="who-is-who" aria-labelledby="who-title">
+        <div class="section-heading">
+          <p class="eyebrow">Who's Who in the AI Group Chat</p>
+          <h2 id="who-title">Companies, tools, and why anyone keeps saying their names.</h2>
+          <p>
+            The glossary explains the words. This is the cast list: who made what, what you might use it for, and how to recognize the name when it wanders into a meeting wearing confidence.
+          </p>
+        </div>
+        <details class="learn-collapse"><summary>Who's Who — the AI cast list</summary>
+        <div class="profile-grid">
+          <article><span>Company</span><strong><a href="https://openai.com/" target="_blank" rel="noreferrer">OpenAI</a></strong><p>The company behind ChatGPT. If someone says "the ChatGPT people," they usually mean OpenAI.</p></article>
+          <article><span>Tool</span><strong><a href="https://chatgpt.com/" target="_blank" rel="noreferrer">ChatGPT</a></strong><p>The general-purpose AI assistant most people try first. Good for drafting, brainstorming, summarizing, and getting unstuck.</p></article>
+          <article><span>Company</span><strong><a href="https://www.anthropic.com/" target="_blank" rel="noreferrer">Anthropic</a></strong><p>The company behind Claude. Often discussed for safety, enterprise use, and models that are very good with long documents.</p></article>
+          <article><span>Tool</span><strong><a href="https://claude.ai/" target="_blank" rel="noreferrer">Claude</a></strong><p>A strong writing, analysis, and document-heavy assistant. Think thoughtful editor with a giant reading pile.</p></article>
+          <article><span>Company</span><strong><a href="https://ai.google/" target="_blank" rel="noreferrer">Google AI</a></strong><p>The company behind Gemini, plus a very large amount of the internet's plumbing, advertising, search, cloud, and AI infrastructure.</p></article>
+          <article><span>Tool</span><strong><a href="https://gemini.google.com/" target="_blank" rel="noreferrer">Gemini</a></strong><p>Google's AI assistant family. Useful to know because it is showing up across Google products people already use.</p></article>
+          <article><span>Concept</span><strong>Model vs. App</strong><p>The app is the handbag. The model is what is inside doing the work. Cute bag, important contents.</p></article>
+        </div>
+        </details>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        <span class="footer-brand"><span class="wordmark" aria-label="lAIdies trademark"><span>l</span><strong>AI</strong><span>dies</span></span><sup class="legal-mark">&trade;</sup></span>
+        <span class="footer-legal">&copy; 2026 Ali Eakin. All rights reserved.</span>
+      </p>
+      <div>
+        <a href="https://www.instagram.com/we.are.laidies/" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="community.html">The Room</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </footer>
+    <script src="content/site/site-data.js?v=issue-02-live-1"></script>
+    <script src="content/site/supabase-config.js?v=issue-02-live-1"></script>
+    <script src="script.js?v=issue-02-live-1"></script>
+  </body>
+</html>

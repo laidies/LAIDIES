@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reference Closet | lAIdies</title>
+    <meta
+      name="description"
+      content="lAIdies is a Wednesday newsletter and community for women building practical AI fluency without pretending they have spare time."
+    />
+    <meta property="og:title" content="lAIdies | Girl power meets machine power" />
+    <meta property="og:description" content="AI fluency for women with full calendars, high standards, and no patience for beige tech explanations." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://wearelaidies.com/" />
+    <meta property="og:image" content="https://wearelaidies.com/assets/laidies-logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#ff2d9b" />
+    <link rel="icon" type="image/png" href="assets/laidies-logo-square.png" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="assets/laidies-logo-square.png" />
+    <link rel="stylesheet" href="styles.css?v=issue-02-live-1" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="lAIdies home">
+        <img src="assets/laidies-logo-wordmark.png" alt="" />
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="episodes.html">Episodes</a>
+        <a href="learn.html">Learn</a>
+        <a href="clubhouse.html">Clubhouse</a>
+        <a href="community.html">Community</a>
+        <a href="this-week.html">This Week</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="page-intro" aria-labelledby="page-title">
+        <p class="eyebrow">The Reference Closet</p>
+        <h1 id="page-title">The 90s/Y2K canon that powers the brand.</h1>
+        <p>Every show, movie, song, snack, beauty product, and office object that has earned its place as an AI analogy. Search, browse, and nominate the ones we missed.</p>
+      </section>
+
+      <section class="reference-closet" id="reference-closet" aria-labelledby="reference-title">
+        <div class="section-heading">
+          <p class="eyebrow">The Reference Closet</p>
+          <h2 id="reference-title">There's always more room in the closet.</h2>
+          <p>
+            Mean Girls and Clueless can only carry so much luggage. The reference closet should keep rotating so the series stays fresh, widely recognizable, and painfully specific.
+          </p>
+        </div>
+        <div class="reference-workbench">
+          <div class="reference-closet-visual reference-closet-map">
+            <img src="assets/reference-closet-interface-v2.png" alt="An open 90s/Y2K reference closet with drawers for screen references, music, people and characters, accessories, and print and pages" />
+            <div class="reference-drawer-hotspots" aria-label="Reference closet drawers">
+              <button class="drawer-hotspot drawer-hotspot-screen" type="button" data-reference-filter="screen" aria-label="Open the Screen drawer">
+                <strong>Screen</strong>
+              </button>
+              <button class="drawer-hotspot drawer-hotspot-music" type="button" data-reference-filter="music" aria-label="Open the Music drawer">
+                <strong>Music</strong>
+              </button>
+              <button class="drawer-hotspot drawer-hotspot-people" type="button" data-reference-filter="people" aria-label="Open the People and Characters drawer">
+                <strong>People &amp; Characters</strong>
+              </button>
+              <button class="drawer-hotspot drawer-hotspot-objects" type="button" data-reference-filter="objects" aria-label="Open the Accessories drawer">
+                <strong>Accessories</strong>
+              </button>
+              <button class="drawer-hotspot drawer-hotspot-work" type="button" data-reference-filter="work" aria-label="Open the Print and Pages drawer">
+                <strong>Print &amp; Pages</strong>
+              </button>
+            </div>
+          </div>
+          <label class="reference-search-label" for="referenceSearch">Search the closet</label>
+          <input class="reference-search" id="referenceSearch" type="search" placeholder="Search Dolly, Buffy, Lip Smackers..." />
+          <div class="reference-toolbar reference-open-all" aria-label="Reference closet controls">
+            <button class="drawer-button is-selected" type="button" data-reference-filter="all">
+              <strong>Don't know what to wear? Bring it all out.</strong>
+              <span>Open the whole closet</span>
+            </button>
+            <button class="drawer-button drawer-button-close" type="button" data-reference-close>
+              <strong>A cute boy is coming over. Quick!</strong>
+              <span>Shove everything back in the closet.</span>
+            </button>
+          </div>
+          <p class="reference-closet-status" id="referenceClosetStatus" aria-live="polite">Pick a drawer or search the closet. The whole wardrobe stays tucked away until you need it.</p>
+          <div class="reference-grid closet-card-drawer" id="referenceGrid">
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>Clueless</h3>
+              <p>Cher's closet computer, pattern matching, taste, context, and the eternal warning not to confuse output with judgment.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>Sex and the City</h3>
+              <p>Question-led framing, career overthinking, skills debt, and the occasional useful spiral over drinks.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>Buffy the Vampire Slayer</h3>
+              <p>Fighting the scary thing before you feel fully trained. Useful for overwhelm, courage, and "I am no AI Slayer" humility.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>Angel</h3>
+              <p>Spin-off perspective, moral ambiguity, chosen teams, and doing the repair work after the dramatic mess.</p>
+            </article>
+            <article class="reference-card" data-reference-type="people">
+              <p class="eyebrow">People &amp; Characters</p>
+              <h3>Dolly Parton</h3>
+              <p>9 to 5, cups of ambition, practical optimism, permissionless building, and making work feel human without making it small.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>Legally Blonde</h3>
+              <p>Underestimated competence, evidence, confidence, and the woman who reads the room better than the room reads her.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>The Devil Wears Prada</h3>
+              <p>Executive standards, impossible asks, cerulean-level context, and why vague work gets dismissed in two words.</p>
+            </article>
+            <article class="reference-card" data-reference-type="music">
+              <p class="eyebrow">Music</p>
+              <h3>Destiny's Child</h3>
+              <p>Independent women, bills paid, standards high, AI used strategically. Not dependence. A tool you control.</p>
+            </article>
+            <article class="reference-card" data-reference-type="music">
+              <p class="eyebrow">Music</p>
+              <h3>Lilith Fair</h3>
+              <p>Women-led creative ecosystem, shared stage power, and proof that the lineup can be the strategy.</p>
+            </article>
+            <article class="reference-card" data-reference-type="music">
+              <p class="eyebrow">Music</p>
+              <h3>Sarah McLachlan, Jewel, and Fiona Apple</h3>
+              <p>Precise ache, notebook honesty, structured intensity, and women refusing to sand off the emotional truth.</p>
+            </article>
+            <article class="reference-card" data-reference-type="music">
+              <p class="eyebrow">Music</p>
+              <h3>S Club 7</h3>
+              <p>Cheerful group-pop optimism, bring-it-all-back energy, and making participation feel like part of the hook. Also findable as S-Club 7.</p>
+            </article>
+            <article class="reference-card" data-reference-type="music">
+              <p class="eyebrow">Music</p>
+              <h3>Backstreet Boys</h3>
+              <p>Harmonized roles, big chorus confidence, synchronized teamwork, and larger-than-life energy without losing the individual parts.</p>
+            </article>
+            <article class="reference-card" data-reference-type="music">
+              <p class="eyebrow">Music</p>
+              <h3>NSYNC</h3>
+              <p>Precision choreography, clean handoffs, assembled strengths, and knowing when the group is tighter than the solo. Also findable as N-Sync.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>Bring It On</h3>
+              <p>Execution, credit, originality, and the problem with copying someone else's routine without understanding the work.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>Miss Congeniality</h3>
+              <p>Competence in heels, tactical polish, and the difference between being underestimated and being unprepared.</p>
+            </article>
+            <article class="reference-card" data-reference-type="people">
+              <p class="eyebrow">People &amp; Characters</p>
+              <h3>Britney</h3>
+              <p>Reinvention, performance pressure, comeback energy, and knowing when the first draft needs a choreographer.</p>
+            </article>
+            <article class="reference-card" data-reference-type="objects">
+              <p class="eyebrow">Accessories</p>
+              <h3>Lip Smackers</h3>
+              <p>Tiny, addictive, instantly nostalgic. Perfect for ratings, quick tips, and "small sips, big moves" moments.</p>
+            </article>
+            <article class="reference-card" data-reference-type="objects">
+              <p class="eyebrow">Accessories</p>
+              <h3>AIM Away Messages</h3>
+              <p>Proof that tone, brevity, and audience awareness mattered before anyone called it prompt engineering.</p>
+            </article>
+            <article class="reference-card" data-reference-type="objects">
+              <p class="eyebrow">Accessories</p>
+              <h3>Caboodles</h3>
+              <p>The resource hub metaphor. Tools, prompts, receipts, and emergency glitter in one organized place.</p>
+            </article>
+            <article class="reference-card" data-reference-type="objects">
+              <p class="eyebrow">Accessories</p>
+              <h3>Orbitz Drink</h3>
+              <p>Suspended-dot novelty, weird texture, transparent proof of concept, and the reminder that memorable does not always mean repeatable.</p>
+            </article>
+            <article class="reference-card" data-reference-type="objects">
+              <p class="eyebrow">Accessories</p>
+              <h3>Jones Soda</h3>
+              <p>Photo-label personalization, indie corner-store cool, unusual flavors, and making the package feel like part of the message.</p>
+            </article>
+            <article class="reference-card" data-reference-type="work">
+              <p class="eyebrow">Print &amp; Pages</p>
+              <h3>Vogue September Issue</h3>
+              <p>Editorial judgment, hierarchy, taste, ruthless cuts, and why the best output still needs a strong editor.</p>
+            </article>
+            <article class="reference-card" data-reference-type="work">
+              <p class="eyebrow">Print &amp; Pages</p>
+              <h3>Sweet Valley High</h3>
+              <p>Identical-twin contrast, glossy teen-drama stakes, social sorting, and the reminder that similar inputs can still read very differently.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>Romy and Michele</h3>
+              <p>Businesswomen's special energy, reinvention, friendship, and the confidence to walk in like you invented Post-its.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>Empire Records</h3>
+              <p>Record-store work crew, found family, one-day mission energy, and saving the shop without pretending anyone has a perfect plan.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>The Golden Girls</h3>
+              <p>Community advice, story-first wisdom, and proof that one good table can solve more than most strategy decks.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>Beverly Hills 90210</h3>
+              <p>Social hierarchy, reputation, reinvention, and the drama of everyone having an opinion before they have the facts.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>Saved by the Bell</h3>
+              <p>Small lessons, exaggerated schemes, group dynamics, and learning the thing before the bell rings.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>ABC's TGIF</h3>
+              <p>Appointment-viewing ritual, family-sitcom ensemble rhythm, wholesome chaos, and making learning feel like a recurring Friday-night hang.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>Breaker High</h3>
+              <p>School-on-a-cruise-ship premise, teen ensemble logistics, forced proximity, and learning while the whole environment keeps moving.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>You've Got Mail</h3>
+              <p>Email tone, online identity, inbox tension, and why charming correspondence still needs a point.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>Sleepless in Seattle</h3>
+              <p>Longing as signal, timing, public vulnerability, and trusting that the right message still needs the right channel.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>Practical Magic</h3>
+              <p>Women helping women, intuition with receipts, and making the scary thing feel survivable.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>The Craft</h3>
+              <p>Coven energy, outsider confidence, power with consequences, and the reminder that aesthetics are not a substitute for judgment.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>Jerry Maguire</h3>
+              <p>Mission-statement clarity, relationship business, "show me the money" negotiation energy, and knowing when the client actually wants fewer, better words. Also findable as Jerry McGuire.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>Bridget Jones' Diary</h3>
+              <p>Messy drafts, honest self-assessment, diary-as-data, and turning the imperfect running commentary into useful evidence.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>Love Actually</h3>
+              <p>Ensemble storylines, airport feelings, grand gestures, messy message delivery, and the reminder that many small threads can still make one emotional system.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>Cruel Intentions</h3>
+              <p>Preppy manipulation, social strategy, weaponized charm, and the reminder that clever games still have consequences.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>I Know What You Did Last Summer</h3>
+              <p>Secrets with receipts, consequence chains, group accountability, and the warning that buried context keeps coming back.</p>
+            </article>
+            <article class="reference-card" data-reference-type="screen">
+              <p class="eyebrow">Screen</p>
+              <h3>Final Destination</h3>
+              <p>Chain reactions, ignored warning signs, brittle plans, and the reminder that risk hides in the handoffs.</p>
+            </article>
+            <article class="reference-card" data-reference-type="people">
+              <p class="eyebrow">People &amp; Characters</p>
+              <h3>Avril Lavigne</h3>
+              <p>Direct voice, anti-polish polish, and not sanding off the point just because the room got corporate.</p>
+            </article>
+            <article class="reference-card" data-reference-type="people">
+              <p class="eyebrow">People &amp; Characters</p>
+              <h3>The Olsen Twins</h3>
+              <p>Twin-brand empire, direct-to-girls media, matching-but-not-identical positioning, and building a whole world out of highly specific audience understanding.</p>
+            </article>
+            <article class="reference-card" data-reference-type="people">
+              <p class="eyebrow">People &amp; Characters</p>
+              <h3>Cher Horowitz</h3>
+              <p>Closet computer energy: taste, pattern matching, and the reminder that a good system still needs judgment.</p>
+            </article>
+            <article class="reference-card" data-reference-type="people">
+              <p class="eyebrow">People &amp; Characters</p>
+              <h3>Carrie Bradshaw</h3>
+              <p>Question-led framing, voice, and turning the spiral into one sentence worth reading.</p>
+            </article>
+            <article class="reference-card" data-reference-type="people">
+              <p class="eyebrow">People &amp; Characters</p>
+              <h3>Miranda Priestly</h3>
+              <p>Executive standards, ruthless edits, and why vague work does not survive the walk to the elevator.</p>
+            </article>
+            <article class="reference-card" data-reference-type="people">
+              <p class="eyebrow">People &amp; Characters</p>
+              <h3>Sophia Petrillo</h3>
+              <p>Plainspoken wisdom, zero patience for fluff, and advice that starts with the actual problem.</p>
+            </article>
+            <article class="reference-card" data-reference-type="people">
+              <p class="eyebrow">People &amp; Characters</p>
+              <h3>Elle Woods</h3>
+              <p>Evidence, confidence, and the woman who reads the room better than the room reads her.</p>
+            </article>
+            <article class="reference-card" data-reference-type="people">
+              <p class="eyebrow">People &amp; Characters</p>
+              <h3>Buffy Summers</h3>
+              <p>Doing the scary thing before you feel fully trained, then finding the people who help you carry it.</p>
+            </article>
+            <article class="reference-card" data-reference-type="people">
+              <p class="eyebrow">People &amp; Characters</p>
+              <h3>David Rose</h3>
+              <p>Specificity, taste, and refusing beige output just because someone called it "professional."</p>
+            </article>
+            <article class="reference-card" data-reference-type="objects">
+              <p class="eyebrow">Accessories</p>
+              <h3>Claire's Accessories</h3>
+              <p>Roll-on glitter, tiny rhinestones, butterfly clips, and the reminder that the details can change the whole outfit.</p>
+            </article>
+            <article class="reference-card" data-reference-type="objects">
+              <p class="eyebrow">Accessories</p>
+              <h3>NO FEAR T-shirts</h3>
+              <p>Oversized mall-rack bravado, motivational intensity, and the funny gap between slogan confidence and actually doing the work.</p>
+            </article>
+            <article class="reference-card" data-reference-type="objects">
+              <p class="eyebrow">Accessories</p>
+              <h3>Dance Mix CDs</h3>
+              <p>Curation, sequencing, energy shifts, and the perfect soundtrack for turning scattered ideas into a usable set.</p>
+            </article>
+            <article class="reference-card" data-reference-type="objects">
+              <p class="eyebrow">Accessories</p>
+              <h3>Napster / LimeWire</h3>
+              <p>Messy discovery, peer-to-peer access, mislabeled files, and the reminder that free can still come with risk.</p>
+            </article>
+            <article class="reference-card" data-reference-type="objects">
+              <p class="eyebrow">Accessories</p>
+              <h3>Detachable Car Stereo Faceplates</h3>
+              <p>Popping out the music deck so nobody stole it, tiny security rituals, and the reminder not to leave the valuable part exposed.</p>
+            </article>
+            <article class="reference-card" data-reference-type="objects">
+              <p class="eyebrow">Accessories</p>
+              <h3>Tamagotchi</h3>
+              <p>Care-and-feeding, maintenance, and the reminder that agents, workflows, and tiny digital responsibilities get dramatic when ignored.</p>
+            </article>
+            <article class="reference-card" data-reference-type="objects">
+              <p class="eyebrow">Accessories</p>
+              <h3>Y2K Outfit Math</h3>
+              <p>Newsboy hats, trucker hats, layered polos, lace-trim tanks, hip belts, low-rise flare jeans, platform sneakers, jelly sandals, baby tees, chokers, belly-button piercings, helix piercings, and the difference between a signal and a strategy.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        <span class="footer-brand"><span class="wordmark" aria-label="lAIdies trademark"><span>l</span><strong>AI</strong><span>dies</span></span><sup class="legal-mark">&trade;</sup></span>
+        <span class="footer-legal">&copy; 2026 Ali Eakin. All rights reserved.</span>
+      </p>
+      <div>
+        <a href="https://www.instagram.com/we.are.laidies/" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="community.html">The Room</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </footer>
+    <script src="content/site/site-data.js?v=issue-02-live-1"></script>
+    <script src="content/site/supabase-config.js?v=issue-02-live-1"></script>
+    <script src="script.js?v=issue-02-live-1"></script>
+  </body>
+</html>

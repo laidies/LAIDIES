@@ -9900,3 +9900,67 @@ html {
 .board-rooms-more > summary { padding: 12px 18px; font-weight: 700; font-size: 0.95rem; cursor: inherit; list-style: none; text-align: center; color: #ff2d9b; }
 .board-rooms-more > summary::-webkit-details-marker { display: none; }
 .board-rooms-more > summary:hover { background: #fce4f2; border-radius: 12px; }
+
+
+/* === New Subpage Styles === */
+.page-intro {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px clamp(18px, 5vw, 64px) 24px;
+  text-align: center;
+}
+.page-intro .eyebrow { margin-bottom: 8px; }
+.page-intro h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.2; margin: 0 0 12px; }
+.page-intro p { font-size: 1.05rem; color: var(--muted); max-width: 560px; margin: 0 auto; }
+
+/* === Slim Homepage: Current Episode === */
+.current-episode {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 24px clamp(18px, 5vw, 64px) 32px;
+  text-align: center;
+}
+.current-episode .eyebrow { margin-bottom: 12px; }
+.current-episode .issue-card {
+  text-align: left;
+  margin: 0 auto;
+}
+.current-episode .microcopy {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.current-episode .microcopy a { color: var(--hot-pink); }
+
+/* === Slim Homepage: This Week Teaser === */
+.this-week-teaser {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px clamp(18px, 5vw, 64px);
+  text-align: center;
+}
+.this-week-teaser .eyebrow { margin-bottom: 8px; }
+.this-week-teaser h2 { margin-bottom: 20px; }
+.goss-teaser-list {
+  text-align: left;
+  max-width: 560px;
+  margin: 0 auto 24px;
+}
+.goss-teaser-list p {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.goss-teaser-list p:last-child { border-bottom: none; }
+
+/* === Slim Homepage: Origin Snippet === */
+.origin-snippet {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 40px clamp(18px, 5vw, 64px);
+  text-align: center;
+}
+.origin-snippet .eyebrow { margin-bottom: 8px; }
+.origin-snippet h2 { margin-bottom: 16px; font-size: clamp(1.3rem, 3vw, 1.8rem); }
+.origin-snippet p { color: var(--muted); margin-bottom: 20px; max-width: 560px; margin-left: auto; margin-right: auto; }
