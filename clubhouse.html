@@ -1349,5 +1349,16 @@
         });
       })();
     </script>
-  </body>
+  
+<script>
+// Only one audio track plays at a time
+document.addEventListener('play', function(e) {
+  if (e.target.tagName === 'AUDIO') {
+    document.querySelectorAll('audio').forEach(function(audio) {
+      if (audio !== e.target) audio.pause();
+    });
+  }
+}, true);
+</script>
+</body>
 </html>

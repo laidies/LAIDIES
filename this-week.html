@@ -46,7 +46,8 @@
       <section class="hot-goss" id="hot-goss" aria-labelledby="hot-goss-title">
         <div class="hot-goss-copy">
           <p class="eyebrow">TLDR. But make it fetch.</p>
-          <h2 id="hot-goss-title">The AI headlines worth bringing to the group chat.</h2>
+          <h2 id="hot-goss-title">Hot Goss</h2>
+<p style="font-family: Georgia, serif; font-size: 1.1rem; color: rgba(16,8,5,0.7); margin-top: 4px;">The AI headlines worth bringing to the group chat.</p>
           <p class="hot-goss-note">The biggest AI stories of the week, explained like we are catching you up on the group chat you missed.</p>
           <div class="hot-goss-stamp" aria-label="Hot Goss update cadence">
             <span>News desk</span>
@@ -362,5 +363,16 @@
     <script src="content/site/site-data.js?v=issue-02-live-1"></script>
     <script src="content/site/supabase-config.js?v=issue-02-live-1"></script>
     <script src="script.js?v=issue-02-live-1"></script>
-  </body>
+  
+<script>
+// Only one audio track plays at a time
+document.addEventListener('play', function(e) {
+  if (e.target.tagName === 'AUDIO') {
+    document.querySelectorAll('audio').forEach(function(audio) {
+      if (audio !== e.target) audio.pause();
+    });
+  }
+}, true);
+</script>
+</body>
 </html>

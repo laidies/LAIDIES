@@ -175,10 +175,27 @@
       }
 
       /* ─── THE CLUBHOUSE section header ─── */
+      #the-clubhouse {
+        background: linear-gradient(165deg, #1f0e18 0%, #2a1222 40%, #1a0a12 100%) !important;
+        color: #fff;
+        border-radius: 32px;
+        margin: 32px clamp(8px, 2vw, 24px);
+        padding: clamp(40px, 6vw, 80px) clamp(18px, 5vw, 64px) !important;
+      }
+      #the-clubhouse .section-heading h2 {
+        color: #fff;
+        text-shadow: 0 0 20px rgba(255, 45, 155, 0.2);
+      }
       #the-clubhouse .section-heading .eyebrow {
         letter-spacing: 0.15em;
         color: var(--hot-pink);
         font-weight: 800;
+      }
+      #the-clubhouse .clubhouse-grid-card-body p {
+        color: rgba(255, 248, 252, 0.7);
+      }
+      #the-clubhouse .clubhouse-grid-card-body strong {
+        color: #fff;
       }
 
       /* ─── Responsive ─── */
@@ -274,21 +291,15 @@
       </section>
 
       <!-- INTRO -->
-      <section class="intro-band" aria-label="Series promise">
-        <p>Twenty-four episodes, like the glory days when TV actually let you fall in love with the characters before cancelling them after eight. No bingeing. New episode every Wednesday. The arc: she stops feeling behind, learns to delegate to machines, keeps her standards, builds her squad, and becomes the woman other people come to when the future gets confusing.</p>
-      </section>
+      
 
       <!-- CURRENT EPISODE -->
-      <section class="section-grid" id="episodes" aria-labelledby="episodes-title">
-        <div class="section-heading">
-          <p class="eyebrow">New this Wednesday</p>
-          <h2 id="episodes-title">Episode 2: Tell Me What You Want</h2>
-        </div>
+      <section id="episodes" style="padding: clamp(34px, 5vw, 64px) clamp(18px, 5vw, 64px);">
         <article class="issue-card">
           <img loading="lazy" src="assets/issue-02-hero.png" alt="Episode 2 hero" />
           <div>
-            <p class="issue-meta">Issue #2 of 24</p>
-            <h3>Tell Me What You Want</h3>
+            <p class="eyebrow" style="margin-bottom: 4px;">New this Wednesday</p>
+            <h2 id="episodes-title" style="font-family: Georgia, serif; font-size: clamp(1.4rem, 3vw, 2rem); margin: 0 0 8px;">Episode 2: Tell Me What You Want</h2>
             <p>The one in which she types something vague into ChatGPT, gets back absolute garbage, and discovers the problem was never the technology. It was the ask. The Spice Girls were right all along.</p>
             <a class="button primary" href="issues/issue-02.html">Read Episode 2</a>
             <div class="episode-links">
@@ -296,6 +307,8 @@
               <a class="button episode-archive-link" href="episodes.html">Season roadmap</a>
               <a class="button episode-archive-link" href="clubhouse.html#issue-fun-packs">Open this week's Fun Pack &rarr;</a>
             </div>
+            <p class="season-pitch-teaser" style="font-size: 0.8rem; color: rgba(16,8,5,0.5); margin-top: 14px; line-height: 1.4;">Twenty-four episodes. New one every Wednesday. <a href="#" class="season-pitch-toggle" onclick="event.preventDefault(); this.parentElement.nextElementSibling.hidden = !this.parentElement.nextElementSibling.hidden; this.textContent = this.parentElement.nextElementSibling.hidden ? 'Read more…' : 'Less';">Read more…</a></p>
+            <p class="season-pitch-full" hidden style="font-size: 0.8rem; color: rgba(16,8,5,0.5); margin-top: 4px; line-height: 1.5;">Like the glory days when TV actually let you fall in love with the characters before cancelling them after eight. No bingeing. The arc: she stops feeling behind, learns to delegate to machines, keeps her standards, builds her squad, and becomes the woman other people come to when the future gets confusing.</p>
           </div>
         </article>
       </section>
@@ -365,7 +378,7 @@
             <img loading="lazy" src="assets/send-it.png" alt="The LAIDIES Room" />
             <div class="card-text">
               <h3>The LAIDIES Room</h3>
-              <p>9 rooms. Ask questions, drop wins, trade playlists, talk yourself into the brave thing.</p>
+              <p>Chat rooms for the group chat you wish you had at work. 9 rooms: ask AI questions, share wins, trade playlists, vent about meetings, and talk yourself into the brave thing.</p>
             </div>
           </a>
         </div>
@@ -409,10 +422,10 @@
           <p class="eyebrow">The Origin Story</p>
           <h2 id="about-title">Built by one woman, pushed forward by the right group chat.</h2>
           <p>
-            Six months ago, I could not get a Women-in-Tax newsletter to send properly via email. I work in tax, not tech. I am not a developer. The ideas were there, but they kept getting stuck behind someone else's time, budget, or availability.
+            Six months ago, I could not get an Amazon Women-in-Tax newsletter to send properly via email. I work in tax, not tech. I am not a developer. The ideas were there, but they kept getting stuck behind someone else's time, budget, or availability.
           </p>
           <p>
-            Then I started using AI. Since then, I have built a personal command centre, designed AI agents for research and operations, entered a Women-in-Tax hackathon with a team that built Echo, an AI product VPs now want to bring to production, made amazing <span class="wordmark" aria-label="lAIdies"><span>l</span><strong>AI</strong><span>dies</span></span> friends, and created the newsletter, website, images, and brand you are looking at now.
+            Then I started using AI. Since then, I have built a personal command centre, designed AI agents for research and operations, entered an Amazon Women-in-Tax hackathon with a team that built Echo, an AI product VPs now want to bring to production, made amazing <span class="wordmark" aria-label="lAIdies"><span>l</span><strong>AI</strong><span>dies</span></span> friends, and created the newsletter, website, images, and brand you are looking at now.
           </p>
           <div class="origin-proof-card" aria-label="Origin story proof point">
             <span>Receipt</span>

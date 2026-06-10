@@ -5456,6 +5456,7 @@ h3 {
 .reference-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: min-content;
   gap: 12px;
 }
 
@@ -5464,7 +5465,7 @@ h3 {
 }
 
 .closet-card-drawer.is-open {
-  max-height: 560px;
+  max-height: 70vh;
   overflow: auto;
   padding: 4px 8px 8px 4px;
 }
@@ -5478,6 +5479,7 @@ h3 {
   background: white;
   padding: 20px;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .reference-card h3 {
@@ -6025,7 +6027,7 @@ h3 {
   display: grid;
   min-width: 0;
   min-height: 0;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   place-items: center;
   border: 2px solid rgba(16, 8, 5, 0.82);
   border-radius: 8px;
@@ -6048,6 +6050,7 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
 }
 
 .member-card-photo--object img {
