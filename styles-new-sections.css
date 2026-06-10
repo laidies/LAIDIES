@@ -87,3 +87,213 @@
 .origin-snippet h2 {
   margin-bottom: 16px;
 }
+
+/* ==========================================
+   THE FUN SHELF — Visual Game Card Grid
+   ========================================== */
+.fun-shelf {
+  padding: clamp(40px, 6vw, 72px) clamp(18px, 5vw, 64px);
+  background:
+    linear-gradient(170deg, rgba(252, 228, 242, 0.5) 0%, rgba(255, 248, 252, 0.95) 40%, rgba(230, 252, 255, 0.3) 100%);
+}
+
+.fun-shelf-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 32px;
+}
+
+.fun-shelf-header h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  margin-bottom: 8px;
+}
+
+.fun-shelf-header p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.fun-shelf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: clamp(16px, 2.5vw, 24px);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.fun-shelf-card {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 6px 6px 0 var(--ink);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.fun-shelf-card:hover,
+.fun-shelf-card:focus-visible {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0 var(--ink);
+  border-color: var(--hot-pink);
+}
+
+.fun-shelf-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 2px solid var(--ink);
+}
+
+.fun-shelf-card-body {
+  padding: 14px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fun-shelf-card-body strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1rem;
+}
+
+.fun-shelf-card-body span {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.fun-shelf-cta {
+  text-align: center;
+  margin-top: 28px;
+}
+
+@media (max-width: 560px) {
+  .fun-shelf-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .fun-shelf-card img {
+    height: 120px;
+  }
+  .fun-shelf-card-body {
+    padding: 10px 12px 14px;
+  }
+  .fun-shelf-card-body strong {
+    font-size: 0.95rem;
+  }
+  .fun-shelf-card-body span {
+    font-size: 0.75rem;
+  }
+}
+
+/* ==========================================
+   COMMUNITY TEASER
+   ========================================== */
+.community-teaser {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: clamp(40px, 6vw, 72px) clamp(18px, 5vw, 64px);
+}
+
+.community-teaser-content h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin-bottom: 12px;
+}
+
+.community-teaser-content p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.community-room-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.community-room-preview span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1.5px solid var(--ink);
+  background: rgba(252, 228, 242, 0.5);
+  color: var(--plum);
+}
+
+.community-teaser-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 8px 8px 0 var(--ink);
+  border: 2px solid var(--ink);
+}
+
+@media (max-width: 560px) {
+  .community-teaser {
+    grid-template-columns: 1fr;
+  }
+  .community-teaser-image {
+    order: -1;
+  }
+  .community-teaser-image img {
+    max-height: 200px;
+    object-fit: cover;
+  }
+}
+
+/* ==========================================
+   REFERENCE CLOSET TEASER
+   ========================================== */
+.reference-closet-teaser {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: clamp(40px, 6vw, 72px) clamp(18px, 5vw, 64px);
+}
+
+.reference-closet-teaser-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 8px 8px 0 var(--ink);
+  border: 2px solid var(--ink);
+}
+
+.reference-closet-teaser-content h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin-bottom: 12px;
+}
+
+.reference-closet-teaser-content p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 560px) {
+  .reference-closet-teaser {
+    grid-template-columns: 1fr;
+  }
+  .reference-closet-teaser-image img {
+    max-height: 200px;
+    object-fit: cover;
+  }
+}
