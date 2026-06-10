@@ -25,8 +25,8 @@
 
       /* ─── HERO SIZING ─── */
       .hero-logo {
-        max-width: 200px !important;
-        width: 30% !important;
+        max-width: 320px !important;
+        width: 45% !important;
       }
       .hero h1 {
         font-size: clamp(2rem, 4vw, 3.2rem) !important;
@@ -44,16 +44,17 @@
         gap: 12px !important;
       }
       .hero-image {
-        max-height: 350px !important;
+        max-height: 420px !important;
         overflow: hidden;
         border-radius: 12px;
         margin: 0 auto;
+        width: 100%;
       }
       .hero-image img {
-        max-height: 350px !important;
+        max-height: 420px !important;
         width: 100% !important;
         object-fit: cover !important;
-        object-position: center 20%;
+        object-position: center 25%;
         border-radius: 12px;
       }
       .hero-actions {
@@ -205,6 +206,30 @@
           height: 180px;
         }
       }
+
+      /* Force section heading to not be sticky in clubhouse section */
+      #the-clubhouse .section-heading {
+        position: static !important;
+        max-height: none !important;
+        overflow: visible !important;
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+      }
+
+      /* Ensure dark card bg wins over styles.css */
+      .clubhouse-grid-card {
+        background: linear-gradient(180deg, #1a0a12 0%, #2d0f1f 100%) !important;
+        border-color: rgba(255, 45, 155, 0.4) !important;
+      }
+      .clubhouse-grid-card .card-text {
+        background: linear-gradient(180deg, rgba(26, 10, 18, 0.95) 0%, rgba(45, 15, 31, 0.98) 100%) !important;
+      }
+      .clubhouse-grid-card h3 {
+        color: #fff !important;
+      }
+      .clubhouse-grid-card p {
+        color: rgba(255, 248, 252, 0.7) !important;
+      }
     </style>
   </head>
   <body>
@@ -275,7 +300,7 @@
         </div>
         <div class="clubhouse-grid">
           <a href="clubhouse-pass.html" class="clubhouse-grid-card">
-            <img loading="lazy" src="assets/clubhouse-pass-laidies-card-sample.png" alt="Clubhouse Pass" />
+            <img loading="lazy" src="assets/card-clubhouse-pass-v2.png" alt="Clubhouse Pass" />
             <div class="card-text">
               <h3>Clubhouse Pass</h3>
               <p>Sign up to save your progress, badges, and card collection.</p>
