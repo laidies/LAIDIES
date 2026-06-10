@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="styles.css?v=issue-02-live-1" />
     <style>
       .clubhouse-menu { padding: clamp(24px, 4vw, 48px) clamp(18px, 5vw, 64px); }
+      .fun-games { padding: clamp(24px, 4vw, 48px) clamp(18px, 5vw, 64px); }
+      .laidy-band { padding: clamp(24px, 4vw, 48px) clamp(18px, 5vw, 64px); }
+      .clubhouse-compact-live { margin: 0 clamp(18px, 5vw, 64px); }
       .clubhouse-menu h2 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.6rem, 3.2vw, 2.4rem); margin-bottom: 6px; }
       .clubhouse-menu > p { color: #65515d; font-size: 0.9rem; margin-bottom: 20px; }
       .clubhouse-menu-grid {
@@ -93,6 +96,64 @@
         margin-bottom: 16px;
         display: block;
       }
+
+      /* Fix game output on dark panels */
+      .game-panel-styled .game-output {
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 45, 155, 0.08)), rgba(16, 8, 5, 0.4) !important;
+        color: #fff !important;
+        box-shadow: inset 0 0 14px rgba(255, 45, 155, 0.12);
+      }
+      /* Fix cocktail controls on dark panel */
+      .game-panel-styled .cocktail-lane-label,
+      .game-panel-styled .cocktail-control-label {
+        color: rgba(255, 248, 252, 0.9) !important;
+      }
+      .game-panel-styled .cocktail-lane-label span {
+        color: rgba(255, 248, 252, 0.6) !important;
+      }
+      .game-panel-styled .cocktail-mood-button {
+        background: rgba(255, 255, 255, 0.06) !important;
+        border-color: rgba(255, 255, 255, 0.25) !important;
+      }
+      .game-panel-styled .cocktail-mood-button strong,
+      .game-panel-styled .cocktail-mood-button span {
+        color: #fff !important;
+      }
+      .game-panel-styled .cocktail-mood-button.is-selected {
+        background: rgba(255, 45, 155, 0.2) !important;
+        border-color: rgba(255, 45, 155, 0.7) !important;
+      }
+      .game-panel-styled .cocktail-output {
+        background: rgba(16, 8, 5, 0.4) !important;
+        border-color: rgba(255, 255, 255, 0.2) !important;
+        color: #fff !important;
+      }
+      .game-panel-styled .cocktail-output strong {
+        color: var(--hot-pink) !important;
+      }
+      .game-panel-styled .cocktail-menu-card {
+        background: rgba(255, 255, 255, 0.04) !important;
+        border-color: rgba(255, 255, 255, 0.15) !important;
+        color: #fff !important;
+      }
+      .game-panel-styled .cocktail-menu-card li {
+        color: rgba(255, 248, 252, 0.85) !important;
+      }
+      .game-panel-styled .fortune-reveal-card {
+        background: rgba(16, 8, 5, 0.5) !important;
+        border-color: rgba(255, 45, 155, 0.4) !important;
+        color: #fff !important;
+      }
+      .game-panel-styled .cocktail-fortune-table::after {
+        color: rgba(255, 248, 252, 0.6) !important;
+      }
+      /* Girl Talk output fix */
+      .game-panel-styled .girl-talk-stage {
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
       /* Nav card images bigger */
       .nav-card img {
         width: 100px !important;
@@ -167,12 +228,12 @@
                 <img data-clubhouse-image="open" src="assets/clubhouse-compact-open-v4.png" alt="Open pink LAIDIES Clubhouse compact with Weekly Fun Packs, Weekly Jams, DJ booth, Dream Phone, Girl Talk, Madame CLAI-O, and other miniature room fixtures" hidden />
                 <div class="clubhouse-hotspot-layer" aria-label="Clubhouse compact clickable areas">
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="weekly-fun-pack" data-clubhouse-target="#issue-fun-packs" aria-label="Open Weekly Fun Pack"></button>
-                  <a href="this-week.html#playlist" class="clubhouse-hotspot"  data-clubhouse-zone="weekly-jams" data-clubhouse-target="#dj-booth-section" aria-label="Weekly Jams"></a>
+                  <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="weekly-jams" data-clubhouse-target="#dj-booth-section" aria-label="Weekly Jams"></button>
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="fun-pack-1-6" data-clubhouse-target="#issue-fun-packs" aria-label="Show Fun Packs 1 through 6"></button>
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="fun-pack-7-12" data-clubhouse-target="#issue-fun-packs" aria-label="Show Fun Packs 7 through 12"></button>
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="fun-pack-13-18" data-clubhouse-target="#issue-fun-packs" aria-label="Show Fun Packs 13 through 18"></button>
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="fun-pack-19-24" data-clubhouse-target="#issue-fun-packs" aria-label="Show Fun Packs 19 through 24"></button>
-                  <a href="this-week.html#playlist" class="clubhouse-hotspot"  data-clubhouse-zone="mix-cds" data-clubhouse-target="#dj-booth-section" aria-label="Mix CDs"></a>
+                  <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="mix-cds" data-clubhouse-target="#dj-booth-section" aria-label="Mix CDs"></button>
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="psychic" data-clubhouse-target=".psychic-game" aria-label="Call Psychic Hotline"></button>
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="dream-phone" data-clubhouse-target=".dream-phone-game" data-clubhouse-action="dream-phone" aria-label="Call Dream Phone"></button>
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="girl-talk" data-clubhouse-target=".girl-talk-game" aria-label="Open Girl Talk"></button>
@@ -186,8 +247,8 @@
                 <div class="clubhouse-sticker-sheet">
                   <img src="assets/clubhouse-sticker-grid-v1.png" alt="" />
                   <button class="clubhouse-sticker-button" type="button" data-clubhouse-sticker="weekly-fun-pack" data-clubhouse-target="#issue-fun-packs">Open Weekly Fun Pack</button>
-                  <a href="this-week.html#playlist" class="clubhouse-sticker-button"  data-clubhouse-sticker="weekly-jams" data-clubhouse-target="#dj-booth-section">Weekly Jams</a>
-                  <a href="this-week.html#playlist" class="clubhouse-sticker-button"  data-clubhouse-sticker="mix-cds" data-clubhouse-target="#dj-booth-section">Mix CDs</a>
+                  <button class="clubhouse-sticker-button" type="button" data-clubhouse-sticker="weekly-jams" data-clubhouse-target="#dj-booth-section">Weekly Jams</button>
+                  <button class="clubhouse-sticker-button" type="button" data-clubhouse-sticker="mix-cds" data-clubhouse-target="#dj-booth-section">Mix CDs</button>
                   <button class="clubhouse-sticker-button" type="button" data-clubhouse-sticker="girl-talk" data-clubhouse-target=".girl-talk-game">Open Girl Talk</button>
                   <a href="this-week.html#playbook" class="clubhouse-sticker-button"  data-clubhouse-sticker="try-on" data-open-game-panel="playbook">5min Try-On</a>
                   <button class="clubhouse-sticker-button" type="button" data-clubhouse-sticker="business" data-clubhouse-target=".cocktail-wheel-game">Businesswomen's Special</button>
@@ -269,21 +330,21 @@
           }
         </style>
         <div class="nav-cards">
-          <a href="#dreamPhoneToggle" class="nav-card">
+          <a href="#dreamPhoneToggle" class="nav-card" onclick="event.preventDefault(); document.querySelectorAll('.clubhouse-revealable').forEach(el => { if(el.classList.contains('dream-phone-game')) el.classList.add('is-clubhouse-revealed'); }); document.getElementById('dreamPhoneToggle')?.scrollIntoView({behavior:'smooth', block:'start'});">
             <img src="assets/dream-phone-retro-chroma.png" alt="Dream Phone" loading="lazy" />
             <div class="nav-card-text">
               <strong>Dream Phone</strong>
               <span>Career advice line</span>
             </div>
           </a>
-          <a href="#madame-claio" class="nav-card">
+          <a href="#madame-claio" class="nav-card" onclick="event.preventDefault(); document.querySelectorAll('.clubhouse-revealable').forEach(el => { if(el.classList.contains('psychic-game')) el.classList.add('is-clubhouse-revealed'); }); document.getElementById('madame-claio')?.scrollIntoView({behavior:'smooth', block:'start'});">
             <img src="assets/madame-claio-crystal-phone-v3.png" alt="Madame CLAI-O" loading="lazy" />
             <div class="nav-card-text">
               <strong>Madame CLAI-O</strong>
               <span>Fortune readings</span>
             </div>
           </a>
-          <a href="#cocktailWheel" class="nav-card">
+          <a href="#cocktailWheel" class="nav-card" onclick="event.preventDefault(); document.querySelectorAll('.clubhouse-revealable').forEach(el => { if(el.classList.contains('cocktail-wheel-game')) el.classList.add('is-clubhouse-revealed'); }); document.getElementById('cocktailWheel')?.scrollIntoView({behavior:'smooth', block:'start'});">
             <img src="assets/businesswomen-special-spinner-v3.png" alt="Cocktail Fortune" loading="lazy" />
             <div class="nav-card-text">
               <strong>Happy Hour Fortune</strong>
@@ -297,28 +358,28 @@
               <span>Conversation prompts</span>
             </div>
           </a>
-          <a href="#card-pack" class="nav-card">
+          <a href="#card-pack" class="nav-card" onclick="event.preventDefault(); if(window.openGamePanel) openGamePanel('card-pack'); else { document.querySelectorAll('.clubhouse-revealable').forEach(el => { if(el.dataset.clubhouseLayer && el.dataset.clubhouseLayer.includes('top')) el.classList.add('is-clubhouse-revealed'); }); document.getElementById('card-pack')?.scrollIntoView({behavior:'smooth', block:'start'}); }">
             <img src="assets/trading-card-pack.webp" alt="Trading Cards" loading="lazy" />
             <div class="nav-card-text">
               <strong>Trading Cards</strong>
               <span>Flip &amp; collect</span>
             </div>
           </a>
-          <a href="#laidy" class="nav-card">
+          <a href="#laidy" class="nav-card" onclick="event.preventDefault(); if(window.openGamePanel) openGamePanel('laidy'); else { document.querySelectorAll('.clubhouse-revealable').forEach(el => { if(el.classList.contains('fairy-game')) el.classList.add('is-clubhouse-revealed'); }); document.getElementById('laidy')?.scrollIntoView({behavior:'smooth', block:'start'}); }">
             <img src="assets/fairy-wand-chroma.png" alt="fAIry Godmother" loading="lazy" />
             <div class="nav-card-text">
               <strong>fAIry Godmother</strong>
               <span>Ask for advice</span>
             </div>
           </a>
-          <a href="#issue-fun-packs" class="nav-card">
+          <a href="#issue-fun-packs" class="nav-card" onclick="event.preventDefault(); document.querySelectorAll('.clubhouse-revealable').forEach(el => { if(el.dataset.clubhouseLayer && el.dataset.clubhouseLayer.includes('top')) el.classList.add('is-clubhouse-revealed'); }); document.getElementById('issue-fun-packs')?.scrollIntoView({behavior:'smooth', block:'start'});">
             <img src="assets/quiz-teen-magazine.png" alt="Fun Packs" loading="lazy" />
             <div class="nav-card-text">
               <strong>Weekly Fun Pack</strong>
               <span>Quiz + cards + try-on</span>
             </div>
           </a>
-          <a href="#game-panel-dock" class="nav-card">
+          <a href="#dj-booth-section" class="nav-card" onclick="event.preventDefault(); document.querySelectorAll('.clubhouse-revealable').forEach(el => { if(el.classList.contains('house-dj-game')) el.classList.add('is-clubhouse-revealed'); }); document.getElementById('dj-booth-section')?.scrollIntoView({behavior:'smooth', block:'start'});">
             <img src="assets/house-dj-mixdesk.png" alt="DJ Booth" loading="lazy" />
             <div class="nav-card-text">
               <strong>DJ Booth</strong>
@@ -646,7 +707,7 @@
             <div class="house-dj-game-visual" aria-hidden="true">
               <img src="assets/house-dj-mixdesk.png" alt="" />
             </div>
-            <a class="button secondary" href="this-week.html#playlist" data-clubhouse-target="#dj-booth-section">Open the booth</a>
+            <a class="button secondary" href="#dj-booth-section" onclick="event.preventDefault(); document.getElementById('dj-booth-section')?.scrollIntoView({behavior:'smooth', block:'start'});">Open the booth</a>
           </article>
           <article class="game-card is-live game-panel-styled girl-talk-game clubhouse-revealable" data-clubhouse-layer="bottom">
             <img class="game-hero-img" src="assets/girl-talk-board.webp" alt="" loading="lazy" />

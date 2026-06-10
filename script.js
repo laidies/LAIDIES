@@ -2990,6 +2990,10 @@ const clubhouseRevealSelectorsByPanel = {
 const clubhouseRevealSelectorsByHash = {
   "issue-fun-packs": ['[data-clubhouse-layer~="top"]'],
   "madame-claio": ["#madame-claio"],
+  "dreamPhoneToggle": [".dream-phone-game"],
+  "cocktailWheel": [".cocktail-wheel-game"],
+  "dj-booth-section": [".house-dj-game", ".games-group-heading--dj"],
+  "girlTalkButton": [".girl-talk-game"],
   "member-passport": [],
   clubhouse: [],
   "fun-games": [],
