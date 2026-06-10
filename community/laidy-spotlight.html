@@ -8,43 +8,112 @@
     <script defer data-domain="wearelaidies.com" src="https://plausible.io/js/script.js"></script>
 
     <style>
-      /* Thumbnail grid for member cards */
+      /* Member card thumbnail grid */
       .member-directory-demo {
         display: grid !important;
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
-        gap: 16px !important;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
+        gap: 14px !important;
+        align-items: start !important;
       }
+
+      /* Force cards into compact thumbnail mode */
       .member-directory-demo .member-trading-card {
         cursor: pointer;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
-        max-width: 100% !important;
-        font-size: 0.75rem;
+        width: 100% !important;
+        max-width: 200px !important;
+        min-height: auto !important;
+        height: auto !important;
+        overflow: hidden !important;
+        font-size: 0.7rem !important;
+        padding: 8px !important;
+        border-radius: 10px !important;
       }
+
       .member-directory-demo .member-trading-card:hover {
-        transform: scale(1.03);
-        box-shadow: 0 8px 24px rgba(255,45,155,0.25);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(255, 45, 155, 0.25);
       }
-      .member-directory-demo .member-trading-card .member-card-body p:not(.member-card-kicker) {
-        display: none;
+
+      /* Shrink the photo */
+      .member-directory-demo .member-card-photo {
+        max-height: 120px !important;
+        overflow: hidden !important;
+        border-radius: 6px !important;
+        margin-bottom: 6px !important;
       }
-      .member-directory-demo .member-trading-card .member-card-links,
-      .member-directory-demo .member-trading-card .member-card-link-note,
-      .member-directory-demo .member-trading-card .member-card-reward-case {
-        display: none;
+      .member-directory-demo .member-card-photo img {
+        width: 100% !important;
+        height: 120px !important;
+        object-fit: cover !important;
+      }
+
+      /* Show only name + kicker, hide everything else */
+      .member-directory-demo .member-card-body {
+        padding: 4px 0 !important;
+      }
+      .member-directory-demo .member-card-body h3 {
+        font-size: 0.95rem !important;
+        margin: 0 0 2px !important;
+      }
+      .member-directory-demo .member-card-body .member-card-kicker {
+        font-size: 0.65rem !important;
+        margin: 0 !important;
+      }
+      .member-directory-demo .member-card-body p:not(.member-card-kicker) {
+        display: none !important;
+      }
+
+      /* Hide tags, links, rewards in thumbnail */
+      .member-directory-demo .member-card-tags,
+      .member-directory-demo .member-card-links,
+      .member-directory-demo .member-card-link-note,
+      .member-directory-demo .member-card-reward-case,
+      .member-directory-demo .member-card-meta {
+        display: none !important;
+      }
+
+      /* Compact ribbon */
+      .member-directory-demo .member-card-ribbon {
+        font-size: 0.55rem !important;
+        padding: 3px 6px !important;
+      }
+
+      /* Filter buttons - compact, not huge pills */
+      .directory-filter-demo {
+        display: flex !important;
+        gap: 8px !important;
+        flex-wrap: wrap !important;
+        margin-bottom: 20px !important;
+      }
+      .directory-filter-demo button {
+        padding: 6px 14px !important;
+        font-size: 0.8rem !important;
+        border-radius: 20px !important;
+        border: 1.5px solid var(--ink) !important;
+        background: #fff !important;
+        cursor: pointer !important;
+        min-width: auto !important;
+        height: auto !important;
+      }
+      .directory-filter-demo button.is-active {
+        background: var(--hot-pink) !important;
+        color: #fff !important;
+        border-color: var(--hot-pink) !important;
       }
 
       /* Expanded card overlay */
       .card-overlay {
         position: fixed;
         inset: 0;
-        background: rgba(0,0,0,0.75);
+        background: rgba(0, 0, 0, 0.8);
         z-index: 9999;
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 20px;
         opacity: 0;
-        transition: opacity 0.2s ease;
+        transition: opacity 0.25s ease;
         pointer-events: none;
       }
       .card-overlay.is-visible {
@@ -52,45 +121,65 @@
         pointer-events: all;
       }
       .card-overlay-inner {
-        max-width: 420px;
-        max-height: 90vh;
+        max-width: 400px;
+        width: 90%;
+        max-height: 85vh;
         overflow-y: auto;
         border-radius: 16px;
-        box-shadow: 0 20px 60px rgba(255,45,155,0.3);
+        box-shadow: 0 20px 60px rgba(255, 45, 155, 0.3);
         position: relative;
+        background: var(--paper, #fff8fc);
       }
       .card-overlay-inner .member-trading-card {
         max-width: 100% !important;
-        font-size: 1rem;
+        width: 100% !important;
+        font-size: 1rem !important;
+        padding: 16px !important;
+        min-height: auto !important;
+        height: auto !important;
+        overflow: visible !important;
+      }
+      .card-overlay-inner .member-card-photo {
+        max-height: none !important;
+      }
+      .card-overlay-inner .member-card-photo img {
+        height: auto !important;
+        max-height: 280px !important;
       }
       .card-overlay-inner .member-card-body p,
+      .card-overlay-inner .member-card-tags,
       .card-overlay-inner .member-card-links,
       .card-overlay-inner .member-card-link-note,
-      .card-overlay-inner .member-card-reward-case {
+      .card-overlay-inner .member-card-reward-case,
+      .card-overlay-inner .member-card-meta {
         display: block !important;
       }
       .card-overlay-close {
-        position: absolute;
-        top: 12px;
-        right: 12px;
+        position: sticky;
+        top: 8px;
+        float: right;
         background: var(--hot-pink);
         color: #fff;
         border: none;
         border-radius: 50%;
-        width: 36px;
-        height: 36px;
-        font-size: 1.2rem;
+        width: 32px;
+        height: 32px;
+        font-size: 1.1rem;
         cursor: pointer;
         z-index: 10000;
         display: flex;
         align-items: center;
         justify-content: center;
+        margin: 8px;
       }
 
       @media (max-width: 600px) {
         .member-directory-demo {
           grid-template-columns: repeat(2, 1fr) !important;
           gap: 10px !important;
+        }
+        .member-directory-demo .member-card-photo img {
+          height: 100px !important;
         }
       }
     </style>
