@@ -54,14 +54,24 @@
         </figure>
       </section>
 
+      <!-- INTRO BAND -->
+      <section class="intro-band" aria-label="Series promise">
+        <p>
+          Twenty-four episodes, like the glory days when TV actually let you fall in love with the characters before cancelling them after eight. No bingeing. New episode every Wednesday. The arc: she stops feeling behind, learns to delegate to machines, keeps her standards, builds her squad, and becomes the woman other people come to when the future gets confusing.
+        </p>
+      </section>
+
       <!-- CURRENT EPISODE -->
-      <section class="current-episode" aria-labelledby="current-ep-title">
-        <p class="eyebrow">New this Wednesday</p>
+      <section class="section-grid" aria-labelledby="current-ep-title">
+        <div class="section-heading">
+          <p class="eyebrow">New this Wednesday</p>
+          <h2 id="current-ep-title">Episode 2: Tell Me What You Want</h2>
+        </div>
         <article class="issue-card">
-          <img src="assets/issue-02-hero.png" alt="" />
+          <img src="assets/issue-02-hero.png" alt="Episode 2 hero visual" />
           <div>
             <p class="issue-meta">Issue #2</p>
-            <h2 id="current-ep-title">Tell Me What You Want</h2>
+            <h3>Tell Me What You Want</h3>
             <p>The one in which she types something vague into ChatGPT, gets back absolute garbage, and discovers the problem was never the technology. It was the ask. The Spice Girls were right all along.</p>
             <a class="button primary" href="issues/issue-02.html">Read Episode 2</a>
           </div>
@@ -120,13 +130,23 @@
         <iframe class="subscribe-frame" name="laidiesMiniSubscribeFrame" title="Mini subscription response" aria-hidden="true"></iframe>
       </aside>
 
-      <!-- THE FUN SHELF -->
-      <section class="fun-shelf" aria-labelledby="fun-shelf-title">
-        <div class="fun-shelf-header">
-          <p class="eyebrow">Games, quizzes, and useful detours</p>
-          <h2 id="fun-shelf-title">The Fun Shelf</h2>
-          <p>The part where she stops scrolling and starts playing. Five minutes, zero patience required.</p>
+      <!-- CLUBHOUSE PREVIEW (Polly Pocket Clamshell) -->
+      <section class="fun-games" aria-labelledby="clubhouse-preview-title">
+        <div class="section-heading">
+          <p class="eyebrow">Fun &amp; Games</p>
+          <h2 id="clubhouse-preview-title">Useful practice disguised as a 2001 sleepover with office supplies.</h2>
+          <p>
+            Start in the Clubhouse when you want always-on tools, open the week&#x2019;s fun pack for article-specific practice, and end in the DJ Booth when the work needs a soundtrack.
+          </p>
         </div>
+        <div class="clubhouse-compact-stage" style="text-align:center; margin-bottom: 24px;">
+          <a href="clubhouse.html" aria-label="Open the lAIdies Clubhouse">
+            <img src="assets/clubhouse-compact-closed-v1.png" alt="Closed pink LAIDIES Clubhouse compact with molded shell ridges, latch, and plaque" loading="lazy" style="max-width: 480px; width: 100%; border-radius: 8px;" />
+          </a>
+          <p class="microcopy" style="margin-top: 12px;"><a class="button primary" href="clubhouse.html">Open the Clubhouse &rarr;</a></p>
+        </div>
+
+        <!-- Game Cards Grid -->
         <div class="fun-shelf-grid">
           <a href="games/dream-phone.html" class="fun-shelf-card">
             <img src="assets/dream-phone-retro-chroma.png" alt="Retro neon Dream Phone handset" loading="lazy" />
@@ -171,62 +191,112 @@
             </div>
           </a>
         </div>
-        <p class="fun-shelf-cta"><a class="button secondary" href="clubhouse.html">See everything in the Clubhouse &rarr;</a></p>
       </section>
 
-      <!-- THIS WEEK / HOT GOSS TEASER -->
-      <section class="this-week-teaser" aria-labelledby="this-week-title">
-        <p class="eyebrow">Hot Goss</p>
-        <h2 id="this-week-title">What&#x2019;s happening in AI this week</h2>
-        <div class="goss-teaser-list">
-          <p><strong>The government wants a 30-day preview of AI models before you can use them.</strong> Translation: the bouncer wants to see the guest list before the afterparty starts.</p>
-          <p><strong>Anthropic&#x2019;s AI is now writing code for other AI systems.</strong> The intern got good enough to train next year&#x2019;s interns. Recursive, a little unsettling, mostly impressive.</p>
-          <p><strong>OpenAI shipped a million-line product with zero human-written code.</strong> The humans designed the environment. The AI wrote every line. Cher&#x2019;s closet computer energy, but production-grade.</p>
+      <!-- HOT GOSS -->
+      <section class="hot-goss" aria-labelledby="hot-goss-title">
+        <div class="hot-goss-copy">
+          <p class="eyebrow">TLDR. But make it fetch.</p>
+          <h2 id="hot-goss-title">The AI headlines worth bringing to the group chat.</h2>
+          <div class="hot-goss-visual" aria-hidden="true">
+            <img src="assets/hot-goss-desk-v2.png" alt="" loading="lazy" />
+          </div>
         </div>
-        <a class="button secondary" href="this-week.html">Read all this week&#x2019;s stories &rarr;</a>
+        <div class="goss-board">
+          <div class="goss-lane goss-lane-week">
+            <div class="goss-lane-heading">
+              <p class="eyebrow">Biggest This Week</p>
+              <h3>Stories big enough to survive the group chat.</h3>
+            </div>
+            <div class="goss-list">
+              <article>
+                <span class="goss-number">01</span>
+                <p><strong>The government wants a 30-day preview of AI models before you can use them.</strong> Translation: the bouncer wants to see the guest list before the afterparty starts.</p>
+                <a href="https://www.cbsnews.com/news/trump-ai-executive-order/" target="_blank" rel="noreferrer">Read the receipt</a>
+              </article>
+              <article>
+                <span class="goss-number">02</span>
+                <p><strong>Anthropic&#x2019;s AI is now writing code for other AI systems.</strong> The intern got good enough to train next year&#x2019;s interns. Recursive, a little unsettling, mostly impressive.</p>
+                <a href="https://www.axios.com/2026/06/02/anthropic-ipo-ai-sticker-shock-spending-usage" target="_blank" rel="noreferrer">Read the receipt</a>
+              </article>
+              <article>
+                <span class="goss-number">03</span>
+                <p><strong>The real bottleneck is infrastructure.</strong> Chips, power, cooling, data centers, and compute deals are the unglamorous handbag holding the whole outfit together. No compute, no magic.</p>
+                <a href="https://techcrunch.com/2026/04/24/google-to-invest-up-to-40b-in-anthropic-in-cash-and-compute" target="_blank" rel="noreferrer">Read the receipt</a>
+              </article>
+            </div>
+          </div>
+        </div>
+        <p style="text-align: center; margin-top: 18px;"><a class="button secondary" href="this-week.html">Read all this week&#x2019;s stories &rarr;</a></p>
       </section>
 
       <!-- COMMUNITY TEASER -->
-      <section class="community-teaser" aria-labelledby="community-teaser-title">
-        <div class="community-teaser-content">
+      <section class="community-teaser" aria-labelledby="community-title">
+        <div>
           <p class="eyebrow">The Room</p>
-          <h2 id="community-teaser-title">9 rooms. Real questions. No lurking required.</h2>
-          <p>Ask the room, send encouragement, swap playlists, debrief your AI experiments, or just say what you&#x2019;re proud of this week. Think group chat energy, but organized.</p>
+          <h2 id="community-title">9 rooms. Real questions. No lurking required.</h2>
+          <p>Ask, answer, share playlists, or leave feedback. The group chat where AI stops being intimidating and starts being useful.</p>
           <div class="community-room-preview">
-            <span>Ask the Room</span>
-            <span>Wins</span>
-            <span>Dear lAIdies</span>
-            <span>Mix CD Exchange</span>
-            <span>Send-It Energy</span>
+            <span>Ask the Room</span><span>Wins</span><span>Dear lAIdies</span><span>Mix CD Exchange</span><span>Send-It Energy</span>
           </div>
-          <a class="button primary" href="community.html">Enter the Room</a>
+          <a class="button primary" href="community.html">Enter the Room &rarr;</a>
         </div>
-        <figure class="community-teaser-image">
-          <img src="assets/send-it.png" alt="Colorful send-it energy sticker collage" loading="lazy" />
+        <figure>
+          <img src="assets/send-it.png" alt="Send-it energy community visual" loading="lazy" />
         </figure>
       </section>
 
-      <!-- REFERENCE CLOSET TEASER -->
-      <section class="reference-closet-teaser" aria-labelledby="ref-closet-title">
-        <figure class="reference-closet-teaser-image">
-          <img src="assets/reference-closet-open.png" alt="Open closet filled with pop culture reference cards" loading="lazy" />
+      <!-- REFERENCE CLOSET -->
+      <section class="reference-closet-teaser" aria-labelledby="closet-title">
+        <figure>
+          <img src="assets/reference-closet-open.png" alt="Open reference closet with categorized cultural references" loading="lazy" />
         </figure>
-        <div class="reference-closet-teaser-content">
+        <div>
           <p class="eyebrow">The Cultural Canon</p>
-          <h2 id="ref-closet-title">56 pop culture moments that power every analogy in the newsletter.</h2>
-          <p>Mean Girls. Clueless. TLC. Destiny&#x2019;s Child. The office supply drawer that holds more wisdom than any boardroom. If you&#x2019;ve ever thought &#x201C;wait, what&#x2019;s that reference?&#x201D; &#x2014; this is for you.</p>
+          <h2 id="closet-title">56 pop culture moments that power every analogy in the newsletter.</h2>
+          <p>Mean Girls, Clueless, TLC, and the office supply drawer that holds more wisdom than any boardroom. Browse the references. Get the jokes. Feel like an insider.</p>
           <a class="button secondary" href="reference-closet.html">Browse the Reference Closet &rarr;</a>
         </div>
       </section>
 
-      <!-- ORIGIN SNIPPET -->
-      <section class="origin-snippet" aria-labelledby="origin-title">
-        <p class="eyebrow">The Origin Story</p>
-        <h2 id="origin-title">Built by one woman, pushed forward by the right group chat.</h2>
-        <p>
-          Six months ago, I could not get a Women-in-Tax newsletter to send properly via email. I work in tax, not tech. Then I started using AI. Since then: a newsletter, a website, games, agents, and a public room people can actually use. In under three weeks, the vision became something real.
-        </p>
-        <a class="button secondary" href="about.html">Read the full story &rarr;</a>
+      <!-- ABOUT / ORIGIN -->
+      <section class="about-band" aria-labelledby="about-title">
+        <div>
+          <p class="eyebrow">The Origin Story</p>
+          <h2 id="about-title">Built by one woman, pushed forward by the right group chat.</h2>
+          <p>
+            Six months ago, I could not get a Women-in-Tax newsletter to send properly via email. I work in tax, not tech. I am not a developer. The ideas were there, but they kept getting stuck behind someone else&#x2019;s time, budget, or availability.
+          </p>
+          <p>
+            Then I started using AI. Since then: a newsletter, a website, games, agents, and a public room people can actually use. In under three weeks, the vision became something real.
+          </p>
+          <div class="origin-proof-card" aria-label="Origin story proof point">
+            <span>Receipt</span>
+            <h3>Five days from &#x201C;I have never built a website&#x201D; to a living, glitter-covered AI world.</h3>
+            <p>
+              Before this, I had never designed a website or built anything like it. I am also, historically, one of IT&#x2019;s most frequent flyers. With AI, the idea stopped waiting for a traditional tech on-ramp.
+            </p>
+          </div>
+          <a class="button secondary" href="about.html">Read the full story &rarr;</a>
+        </div>
+      </section>
+
+      <!-- SOCIAL STRIP -->
+      <section class="social-strip" aria-labelledby="social-title">
+        <div>
+          <p class="eyebrow">After Hours</p>
+          <h2 id="social-title">The off-duty feed for lipstick, references, and group-chat useful things.</h2>
+          <p>
+            Follow for visual drops, behind-the-scenes bits, and the occasional post worth sending to the group chat. Bring questions and wins to the public threads; bring the outfit check energy here.
+          </p>
+        </div>
+        <div class="qr-card compact">
+          <img src="assets/instagram-qr.jpg" alt="Instagram QR code for @we.are.laidies" loading="lazy" />
+          <div>
+            <p class="qr-handle">@we.are.laidies</p>
+            <a class="button secondary" href="https://www.instagram.com/we.are.laidies/" target="_blank" rel="noreferrer">Go after hours</a>
+          </div>
+        </div>
       </section>
 
       <!-- SUBSCRIBE -->
