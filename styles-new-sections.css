@@ -128,7 +128,9 @@
   flex-direction: column;
   border: 2px solid var(--ink);
   border-radius: 8px;
-  background: #fff;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(252, 228, 242, 0.94)),
+    repeating-linear-gradient(135deg, rgba(255, 45, 155, 0.12) 0 8px, rgba(36, 123, 131, 0.1) 8px 16px);
   box-shadow: 6px 6px 0 var(--ink);
   overflow: hidden;
   text-decoration: none;
@@ -296,4 +298,15 @@
     max-height: 200px;
     object-fit: cover;
   }
+}
+
+/* Episode quick links */
+.episode-quick-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.episode-quick-links .button {
+  font-size: 0.82rem;
 }
