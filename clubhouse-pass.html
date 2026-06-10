@@ -63,19 +63,52 @@
       .game-card.member-pass-game {
         display: block !important;
         grid-template-columns: 1fr !important;
-        max-width: 100%;
-        border: none !important;
-        box-shadow: none !important;
-        background: transparent !important;
-        padding: 0 !important;
-      }
-      .member-pass-panel {
-        grid-column: 1 !important;
-        grid-row: auto !important;
-        margin-top: 24px;
+        grid-template-rows: none !important;
+        max-width: 100% !important;
+        border: 2px solid var(--ink) !important;
+        border-radius: 16px !important;
+        box-shadow: 0 4px 20px rgba(255,45,155,0.1) !important;
+        background: #fff !important;
+        padding: 24px !important;
+        min-height: auto !important;
       }
       .member-pass-explainer {
-        grid-column: 1 !important;
+        display: block !important;
+        grid-column: auto !important;
+        margin-bottom: 20px;
+      }
+      .member-pass-panel {
+        display: block !important;
+        grid-column: auto !important;
+        grid-row: auto !important;
+        border: 2px solid var(--ink) !important;
+        border-radius: 8px !important;
+        background: rgba(255,248,252,0.9) !important;
+        padding: 20px !important;
+        margin-top: 20px;
+      }
+      .member-pass-form {
+        display: block !important;
+        margin-top: 12px;
+      }
+      .member-pass-form input[type="email"] {
+        width: 100% !important;
+        padding: 12px 16px !important;
+        font-size: 1rem !important;
+        border: 2px solid var(--ink) !important;
+        border-radius: 8px !important;
+        background: #fff !important;
+      }
+      .member-pass-profile {
+        display: block !important;
+        grid-column: auto !important;
+        margin-top: 20px;
+      }
+      .member-pass-profile details {
+        margin-bottom: 12px;
+      }
+      .member-pass-submit-row {
+        margin-top: 20px;
       }
       .member-pass-game::after,
       .member-pass-game::before {
@@ -86,10 +119,15 @@
         max-height: none !important;
         overflow: visible !important;
       }
+      .member-pass-game > span:first-child,
+      .member-pass-game > h3:first-of-type {
+        display: none !important;
+      }
     </style>
   </head>
   <body>
     <main>
+      <!-- HEADER -->
       <header class="site-header">
         <a class="brand" href="index.html" aria-label="lAIdies home">
           <img src="assets/laidies-logo-wordmark.png" alt="" />
@@ -103,13 +141,21 @@
         </nav>
       </header>
 
-      <section class="fun-games" style="max-width: 720px; margin: 0 auto; padding: 40px 20px;">
-        <div class="section-heading" style="position: static; max-width: 100%;">
-          <p class="eyebrow">Save Your Progress</p>
-          <h2>Clubhouse Pass</h2>
-          <p>Create your Clubhouse Pass to save what you earn, build your <span class="wordmark laidies-inline-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Card, and make it easier to connect with other lAIdies when you are ready to share.</p>
+      <!-- SECTION 1: Clubhouse Pass intro + Sign In / Sign Up buttons -->
+      <section style="max-width: 720px; margin: 0 auto; padding: 40px 20px;">
+        <div style="text-align: center; margin-bottom: 32px;">
+          <p class="eyebrow" style="color: var(--hot-pink); font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.8rem;">Save Your Progress</p>
+          <h2 style="font-family: Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.5rem); margin: 8px 0 12px;">Clubhouse Pass</h2>
+          <p style="color: var(--muted); line-height: 1.6;">Create your Clubhouse Pass to save what you earn, build your <span class="wordmark laidies-inline-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Card, and make it easier to connect with other lAIdies when you are ready to share.</p>
         </div>
 
+        <!-- SIGN IN / SIGN UP BUTTONS -->
+        <div style="display: flex; gap: 16px; justify-content: center; margin-bottom: 40px;">
+          <a class="button secondary" href="#member-passport" style="flex: 1; max-width: 200px; text-align: center;">Sign In</a>
+          <a class="button primary" href="#member-passport" style="flex: 1; max-width: 200px; text-align: center;">Sign Up</a>
+        </div>
+
+        <!-- SECTION 2: The pass form (secret password through save/reset) -->
         <article class="game-card is-live member-pass-game" id="member-passport" style="display: block; grid-template-columns: 1fr; grid-template-rows: none; min-height: auto;">
           <div class="member-pass-explainer" aria-label="Why create a Clubhouse Pass">
             <strong>A Clubhouse Pass is the secret password. A <span class="wordmark member-pass-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Card is the hello.</strong>
@@ -195,7 +241,7 @@
           
         </article>
 
-        <!-- LAIDIES Card preview + badges + stickers come after the pass -->
+        <!-- SECTION 3: Your LAIDIES Card & Collection -->
         <div style="margin-top: 48px; padding-top: 32px; border-top: 1px solid rgba(255,45,155,0.2);">
           <h3 style="font-family: Georgia, serif; font-size: 1.3rem; margin-bottom: 16px;">Your LAIDIES Card &amp; Collection</h3>
           <figure class="member-card-sample">
@@ -223,15 +269,12 @@
               </div>
         </div>
 
-        <p style="margin-top: 32px; text-align: center;">
-          <a class="button secondary" href="clubhouse.html">&larr; Back to the full Clubhouse</a>
-        </p>
+        <!-- RETURN TO HOMEPAGE -->
+        <div style="text-align: center; padding: 40px 20px;">
+          <a class="button secondary" href="index.html">&larr; Return to Homepage</a>
+        </div>
       </section>
-    
-    <div style="text-align: center; padding: 32px 20px 48px;">
-      <a class="button secondary" href="index.html">← Back to Home</a>
-    </div>
-  </main>
+    </main>
 
     <script src="content/site/supabase-config.js" defer></script>
     <script src="script.js" defer></script>
