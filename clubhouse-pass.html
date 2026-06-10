@@ -151,8 +151,8 @@
 
         <!-- SIGN IN / SIGN UP BUTTONS -->
         <div style="display: flex; gap: 16px; justify-content: center; margin-bottom: 40px;">
-          <a class="button secondary" href="#member-passport" style="flex: 1; max-width: 200px; text-align: center;">Sign In</a>
-          <a class="button primary" href="#member-passport" style="flex: 1; max-width: 200px; text-align: center;">Sign Up</a>
+          <button class="button secondary" onclick="document.getElementById('memberPassEmail').scrollIntoView({behavior:'smooth',block:'center'});setTimeout(function(){document.getElementById('memberPassEmail').focus();},500);" style="flex: 1; max-width: 200px; text-align: center; cursor: pointer;">Sign In</button>
+          <button class="button primary" onclick="document.getElementById('memberPassEmail').scrollIntoView({behavior:'smooth',block:'center'});setTimeout(function(){document.getElementById('memberPassEmail').focus();},500);" style="flex: 1; max-width: 200px; text-align: center; cursor: pointer;">Sign Up</button>
         </div>
 
         <!-- SECTION 2: The pass form (secret password through save/reset) -->
