@@ -21,6 +21,21 @@
     <link rel="stylesheet" href="styles.css?v=issue-02-live-1" />
     <link rel="stylesheet" href="styles-new-sections.css?v=redesign-1" />
     <script defer data-domain="wearelaidies.com" src="https://plausible.io/js/script.js"></script>
+  
+    <style>
+      /* Homepage game card image sizing */
+      .game-card img {
+        max-height: 200px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 6px;
+      }
+      /* Episode card button stacking */
+      .issue-card .button.episode-archive-link {
+        font-size: 0.82rem;
+        padding: 6px 14px;
+      }
+    </style>
   </head>
   <body>
     <header class="site-header">
@@ -45,7 +60,7 @@
           <p class="hero-quote">Get in, loser. We're learning <span class="hero-quote-ai">AI</span>.</p>
           <div class="hero-actions">
             <a class="button primary" href="issues/issue-02.html">Read Current Episode</a>
-            <a class="button secondary" href="#fun-games">Enter the Clubhouse</a>
+            <a class="button secondary" href="#start-here-title">Start Here</a>
           </div>
         </div>
         <figure class="hero-image">
@@ -68,22 +83,22 @@
           </p>
         </div>
         <div class="start-here-grid" aria-label="Quick paths">
-          <a href="#episodes">
+          <a href="episodes.html">
             <span>01</span>
             <strong>Read the episodes</strong>
             <em>Start with Episode 1 or catch the newest Wednesday drop.</em>
           </a>
-          <a href="#glossary">
+          <a href="learn.html">
             <span>02</span>
             <strong>Learn the words</strong>
             <em>Glossary, quizzes, and the names that keep showing up in meetings.</em>
           </a>
-          <a href="#community-board">
+          <a href="community.html">
             <span>03</span>
             <strong>Enter the room</strong>
             <em>Ask, answer, share playlists, or leave feedback.</em>
           </a>
-          <a href="#fun-games">
+          <a href="clubhouse.html">
             <span>04</span>
             <strong>Open the caboodle</strong>
             <em>Madame CLAI-O, Dream Phone, card packs, playlists, and useful detours.</em>
@@ -118,8 +133,10 @@
             <h3>Tell Me What You Want</h3>
             <p>The one in which she types something vague into ChatGPT, gets back absolute garbage, and discovers the problem was never the technology. It was the ask. The Spice Girls were right all along.</p>
             <a class="button primary" href="issues/issue-02.html">Read Episode 2</a>
-            <a class="button episode-archive-link" href="issues/issue-01.html">Read Episode 1</a>
-            <a class="button episode-archive-link" href="episodes.html">See the season roadmap</a>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px;">
+                <a class="button episode-archive-link" href="issues/issue-01.html">← Episode 1</a>
+                <a class="button episode-archive-link" href="episodes.html">Season roadmap</a>
+              </div>
           </div>
         </article>
       </section>
@@ -130,6 +147,10 @@
           <p class="eyebrow">Fun &amp; Games</p>
           <h2 id="games-title">Useful practice disguised as a 2001 sleepover with office supplies.</h2>
           <p>Start in the Clubhouse for always-on tools, open the week's fun pack for article-specific practice, and end in the DJ Booth when the work needs a soundtrack.</p>
+        </div>
+        <div class="clubhouse-compact-stage" style="text-align: center; margin-bottom: 32px;">
+          <img loading="lazy" src="assets/clubhouse-compact-closed-v1.png" alt="Closed pink LAIDIES Clubhouse compact" style="max-width: 480px; width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(255,45,155,0.15);" />
+          <p style="margin-top: 12px;"><a class="button primary" href="clubhouse.html">Open the Clubhouse →</a></p>
         </div>
         <div class="games-grid">
           <article class="game-card is-live">
@@ -425,7 +446,7 @@
       <p><span class="wordmark" aria-label="lAIdies"><span>l</span><strong>AI</strong><span>dies</span></span></p>
       <div>
         <a href="https://www.instagram.com/we.are.laidies/" target="_blank" rel="noreferrer">Instagram</a>
-        <a href="#community-board">The Room</a>
+        <a href="community.html">The Room</a>
         <a href="reference-closet.html">Reference Closet</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
