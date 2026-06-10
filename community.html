@@ -20,7 +20,102 @@
     <link rel="apple-touch-icon" href="assets/laidies-logo-square.png" />
     <link rel="stylesheet" href="styles.css?v=issue-02-live-1" />
     <script defer data-domain="wearelaidies.com" src="https://plausible.io/js/script.js"></script>
-</head>
+
+    <style>
+      /* Member card thumbnails on community page */
+      .trading-card-grid {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 180px)) !important;
+        gap: 20px !important;
+        justify-content: center !important;
+      }
+      .trading-card-grid .member-trading-card {
+        transform: scale(0.38) !important;
+        transform-origin: top left !important;
+        width: 380px !important;
+        height: 520px !important;
+        margin-bottom: -320px !important;
+        margin-right: -230px !important;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        overflow: hidden !important;
+      }
+      .trading-card-grid .member-trading-card:hover {
+        animation: cardJiggle 0.4s ease;
+        box-shadow: 0 8px 32px rgba(255,45,155,0.3) !important;
+      }
+      @keyframes cardJiggle {
+        0% { transform: scale(0.38) rotate(0deg); }
+        20% { transform: scale(0.38) rotate(-2deg); }
+        40% { transform: scale(0.38) rotate(2deg); }
+        60% { transform: scale(0.38) rotate(-1deg); }
+        80% { transform: scale(0.38) rotate(1deg); }
+        100% { transform: scale(0.38) rotate(0deg); }
+      }
+      .directory-filter-demo {
+        display: flex !important;
+        gap: 8px !important;
+        flex-wrap: wrap !important;
+        margin-bottom: 16px !important;
+      }
+      .directory-filter-demo button {
+        padding: 6px 14px !important;
+        font-size: 0.8rem !important;
+        border-radius: 20px !important;
+        border: 1.5px solid var(--ink, #100805) !important;
+        background: #fff !important;
+        cursor: pointer !important;
+        width: auto !important;
+        height: auto !important;
+        min-width: auto !important;
+      }
+      .directory-filter-demo button.is-active {
+        background: var(--hot-pink, #ff2d9b) !important;
+        color: #fff !important;
+        border-color: var(--hot-pink, #ff2d9b) !important;
+      }
+      /* Card overlay */
+      .card-overlay {
+        position: fixed; inset: 0; background: rgba(0,0,0,0.8);
+        z-index: 9999; display: flex; align-items: center; justify-content: center;
+        padding: 20px; opacity: 0; transition: opacity 0.25s ease; pointer-events: none;
+      }
+      .card-overlay.is-visible { opacity: 1; pointer-events: all; }
+      .card-overlay-inner {
+        max-width: 420px; width: 90%; max-height: 85vh; overflow-y: auto;
+        border-radius: 16px; box-shadow: 0 20px 60px rgba(255,45,155,0.3);
+        position: relative; background: #fff8fc; padding: 12px;
+      }
+      .card-overlay-inner .member-trading-card {
+        transform: none !important; width: 100% !important; height: auto !important;
+        margin: 0 !important; overflow: visible !important;
+      }
+      .card-overlay-close {
+        position: sticky; top: 8px; float: right; background: #ff2d9b; color: #fff;
+        border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 1.2rem;
+        cursor: pointer; z-index: 10000; display: flex; align-items: center; justify-content: center;
+      }
+      @media (max-width: 600px) {
+        .trading-card-grid {
+          grid-template-columns: repeat(2, 140px) !important;
+          gap: 16px !important;
+        }
+        .trading-card-grid .member-trading-card {
+          transform: scale(0.32) !important;
+          margin-bottom: -350px !important;
+          margin-right: -250px !important;
+        }
+        @keyframes cardJiggle {
+          0% { transform: scale(0.32) rotate(0deg); }
+          20% { transform: scale(0.32) rotate(-2deg); }
+          40% { transform: scale(0.32) rotate(2deg); }
+          60% { transform: scale(0.32) rotate(-1deg); }
+          80% { transform: scale(0.32) rotate(1deg); }
+          100% { transform: scale(0.32) rotate(0deg); }
+        }
+      }
+    </style>
+  </head>
   <body>
     <header class="site-header">
       <button onclick="history.back()" style="background: none; border: none; color: var(--hot-pink); font-size: 0.85rem; cursor: pointer; padding: 4px 8px; text-decoration: underline;" aria-label="Go back">← Back</button>
@@ -241,13 +336,176 @@
             </div>
             <div class="member-pass-actions">
               <a class="button primary" href="community/laidy-spotlight.html?v=issue-02-live-1#spotlight-form-title">Create your lAIdies Card</a>
-              <a class="button secondary" href="community/laidy-spotlight.html#member-directory">Browse lAIdies Cards</a>
+              <a class="button secondary" href="community.html#member-cards">Browse lAIdies Cards</a>
             </div>
           </article>
       </section>
 
     
-    <div style="text-align: center; padding: 32px 20px 48px;">
+    
+      <!-- MEMBER CARDS -->
+      <a id="member-cards"></a>
+      <section style="padding: 40px 20px; max-width: 1000px; margin: 0 auto;">
+        <p class="eyebrow" style="color: var(--hot-pink); font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.8rem;">lAIdies Cards</p>
+        <h2 style="font-family: Georgia, serif; font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 8px 0 12px;">Find your people.</h2>
+        <p style="color: var(--muted); margin-bottom: 20px;">Browse by journey stage, tools, what people need, and what they can offer. Click a card to see the full profile.</p>
+        
+        <div class="directory-filter-demo" aria-label="lAIdies Card filters">
+          <button type="button" class="is-active" data-card-filter="all">All cards</button>
+          <button type="button" data-card-filter="stock">Stock cards</button>
+          <button type="button" data-card-filter="member">Members</button>
+          <button type="button" data-card-filter="help">Here to help</button>
+          <button type="button" data-card-filter="progress">Making progress</button>
+          <button type="button" data-card-filter="connect">Open to connect</button>
+        </div>
+        <p class="directory-filter-status" style="font-size: 0.8rem; color: var(--muted); margin-bottom: 16px;" aria-live="polite"></p>
+        <div class="trading-card-grid" id="laidiesCardGrid">
+          <article class="member-trading-card card-founder is-founder" data-card-type="member" data-card-tags="member help progress connect founder tax community">
+            <div class="member-card-ribbon"><span>lAIdies Card</span><span>#001</span></div>
+            <div class="member-card-photo">
+              <img src="../assets/dream-phone-boss-ali.webp" alt="Ali's neon Dream Phone-style member portrait in a hot pink jacket" />
+            </div>
+            <div class="member-card-body">
+              <p class="member-card-kicker">Founder Era</p>
+              <h3>Ali</h3>
+              <p>Tax leader, Women-in-Tax builder, TEI contributor, and founder of <span class="wordmark laidies-inline-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span>, the room you are currently standing in.</p>
+              <p class="member-card-meta"><strong>AI journey:</strong> building in public, testing agents, and learning the technical pieces out loud.</p>
+              <p class="member-card-meta"><strong>Can help with:</strong> tax, community building, practical AI tests, messy first drafts, and work that refuses to stay beige.</p>
+              <div class="member-card-reward-case" aria-label="Founder reward shelf" id="founderBadgeShelf">
+                <!-- Dynamically populated by script.js — shows ALL available badges/stickers -->
+              </div>
+              <p class="member-card-kicker" style="margin-top: 12px; margin-bottom: 4px;">Tools & Interests</p>
+                <div class="member-card-tags"><span>Indirect Tax</span><span>Women-in-Tax</span><span>TEI</span><span>ChatGPT</span><span>Claude Code</span><span>Codex</span><span>Open to connect</span></div>
+              <div class="member-card-links">
+                <a href="https://ca.linkedin.com/in/alison-eakin-01b29621" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+              </div>
+            </div>
+          </article>
+          <article class="member-trading-card card-closet" data-card-type="member" data-card-tags="member founder echo original-three">
+            <div class="member-card-ribbon"><span>lAIdies Card</span><span>#002</span></div>
+            <div class="member-card-photo">
+              <img src="../assets/people/eugina-lim.jpg" alt="Eugina Lim" />
+            </div>
+            <div class="member-card-body">
+              <p class="member-card-kicker">Founding Spark Era</p>
+              <h3>Eugina</h3>
+              <p>The original Echo idea was hers. Part of the founding sisterhood that brought lAIdies to life.</p>
+              <p class="member-card-meta"><strong>Spark:</strong> the idea that started the conversation — what if we built something for us?</p>
+              <div class="member-card-tags"><span>OG lAIdy</span><span>Echo Architect</span><span>Original Three</span><span>WIT</span></div>
+            </div>
+          </article>
+          <article class="member-trading-card card-holo" data-card-type="member" data-card-tags="member founder original-three day-one">
+            <div class="member-card-ribbon"><span>lAIdies Card</span><span>#003</span></div>
+            <div class="member-card-photo">
+              <img src="../assets/people/sara-baxter.png" alt="Sara Baxter" />
+            </div>
+            <div class="member-card-body">
+              <p class="member-card-kicker">Founding Spark Era</p>
+              <h3>Sara</h3>
+              <p>One of the original three. The group chat energy that made lAIdies go from idea to real thing.</p>
+              <p class="member-card-meta"><strong>Spark:</strong> the encouragement, the early hype, the "yes, do it" that every builder needs.</p>
+              <div class="member-card-tags"><span>OG lAIdy</span><span>Day One Energy</span><span>Original Three</span><span>WIT</span></div>
+            </div>
+          </article>
+          <article class="member-trading-card card-laser" data-card-type="member" data-card-tags="member crew wit-champion hackathon dj-jaidy">
+            <div class="member-card-ribbon"><span>lAIdies Card</span><span>#004</span></div>
+            <div class="member-card-photo">
+              <img src="../assets/people/josh-hudson.png" alt="Josh Hudson" />
+            </div>
+            <div class="member-card-body">
+              <p class="member-card-kicker">The Crew · WIT Champion</p>
+              <h3>Josh</h3>
+              <p>The hype man. WIT champion, hackathon co-conspirator, and the reason the site has a soundtrack.</p>
+              <p class="member-card-meta"><strong>Known as:</strong> DJ JAIDY. Brings the energy, the support, and the beats.</p>
+              <div class="member-card-tags"><span>DJ JAIDY</span><span>WIT Champion</span><span>Hackathon Crew</span><span>GenAI Tax</span></div>
+            </div>
+          </article>
+          <article class="member-trading-card card-closet stock-card" data-card-type="stock" data-card-tags="stock help progress laidy fairy-godmother advice">
+            <div class="member-card-ribbon"><span>Stock Card</span><span>fAIry Godmother</span></div>
+            <div class="member-card-photo member-card-photo--object">
+              <img src="../assets/fairy-wand.png" alt="Pink fairy wand representing LAIDY the fAIry Godmother" />
+            </div>
+            <div class="member-card-body">
+              <p class="member-card-kicker">fAIry Godmother Era</p>
+              <h3>LAIDY</h3>
+              <p>The fAIry Godmother who appears when your prompt has vibes, no verbs, and somehow three competing deadlines.</p>
+              <p class="member-card-meta"><strong>Special move:</strong> waves the wand, turns panic into one useful next step, and makes you add context before the draft leaves the house.</p>
+              <div class="member-card-tags"><span>fAIry Godmother</span><span>Prompt triage</span><span>Tough love</span><span>Here to help</span></div>
+              <div class="member-card-links">
+                <a href="../clubhouse.html#laidy">Ask the fAIry Godmother</a>
+              </div>
+            </div>
+          </article>
+          <article class="member-trading-card card-press stock-card" data-card-type="stock" data-card-tags="stock help connect claio oracle">
+            <div class="member-card-ribbon"><span>Stock Card</span><span>Mme CLAI-O</span></div>
+            <div class="member-card-photo">
+              <img src="../assets/madame-claio-crystal.webp" alt="Madame CLAI-O crystal ball and phone" />
+            </div>
+            <div class="member-card-body">
+              <p class="member-card-kicker">Psychic Hotline Era</p>
+              <h3>Mme CLAI-O</h3>
+              <p>Sees the future, notices the missing source, and refuses to bless a vague strategy deck.</p>
+              <p class="member-card-meta"><strong>Special move:</strong> delivers one omen, one receipt, and one small action before the meeting invite multiplies.</p>
+              <div class="member-card-tags"><span>Receipts</span><span>Clarity</span><span>Here to help</span></div>
+              <div class="member-card-links">
+                <a href="../clubhouse.html#madame-claio">Call Mme CLAI-O</a>
+              </div>
+            </div>
+          </article>
+          <article class="member-trading-card card-desk stock-card" data-card-type="stock" data-card-tags="stock progress deb office music">
+            <div class="member-card-ribbon"><span>Stock Card</span><span>Deb</span></div>
+            <div class="member-card-photo">
+              <img src="../assets/deb-80s-portrait-stare-v1.png" alt="Deb, a direct 80s-style office portrait with big curly hair, oversized glasses, and a loud silk shirt" />
+            </div>
+            <div class="member-card-body">
+              <p class="member-card-kicker">Early Retirement Era</p>
+              <h3>Deb</h3>
+              <p>Payroll legend. Reorg survivor. Emotionally unavailable to bad rollouts and men named Brad with urgent asks.</p>
+              <p class="member-card-meta"><strong>Special move:</strong> knows where the form is, who broke the printer, and exactly how many months until freedom.</p>
+              <div class="member-card-tags"><span>Office lore</span><span>DJ JAIDY canon</span><span>Making progress</span></div>
+              <div class="member-card-links">
+                <span class="member-card-link-note">Song link coming when Josh sends the track.</span>
+              </div>
+            </div>
+          </article>
+          <article class="member-trading-card card-laser" data-card-type="member" data-card-tags="member progress help ops copilot">
+            <div class="member-card-ribbon"><span>lAIdies Card</span><span>#014</span></div>
+            <div class="member-card-photo">Laser<br />Portrait</div>
+            <div class="member-card-body">
+              <p class="member-card-kicker">Builder Era</p>
+              <h3>Maya</h3>
+              <p>Ops leader turning messy processes into AI-assisted workflows.</p>
+              <div class="member-card-tags"><span>Copilot</span><span>Process</span><span>Can help</span></div>
+            </div>
+          </article>
+          <article class="member-trading-card card-sparkle" data-card-type="member" data-card-tags="member progress writing practice">
+            <div class="member-card-ribbon"><span>lAIdies Card</span><span>#027</span></div>
+            <div class="member-card-photo">Y2K<br />Avatar</div>
+            <div class="member-card-body">
+              <p class="member-card-kicker">Curious Era</p>
+              <h3>Jess</h3>
+              <p>Comms partner learning how to make AI outputs sound less like a press release.</p>
+              <div class="member-card-tags"><span>ChatGPT</span><span>Writing</span><span>Practicing</span></div>
+            </div>
+          </article>
+          <article class="member-trading-card card-holo" data-card-type="member" data-card-tags="member help connect finance strategy">
+            <div class="member-card-ribbon"><span>lAIdies Card</span><span>#039</span></div>
+            <div class="member-card-photo">No Face<br />Card</div>
+            <div class="member-card-body">
+              <p class="member-card-kicker">Helper Era</p>
+              <h3>Priya</h3>
+              <p>Finance strategist sharing examples for better analysis, synthesis, and exec updates.</p>
+              <div class="member-card-tags"><span>Claude</span><span>Strategy</span><span>Open to connect</span></div>
+            </div>
+          </article>
+        </div>
+        
+        <div style="text-align: center; margin-top: 24px;">
+          <a class="button primary" href="laidies-card.html">Create your own card →</a>
+        </div>
+      </section>
+
+      <div style="text-align: center; padding: 32px 20px 48px;">
       <a class="button secondary" href="index.html">← Back to Home</a>
     </div>
   </main>
@@ -268,5 +526,24 @@
     <script src="content/site/site-data.js?v=issue-02-live-1"></script>
     <script src="content/site/supabase-config.js?v=issue-02-live-1"></script>
     <script src="script.js?v=issue-02-live-1"></script>
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        var cards = document.querySelectorAll(".trading-card-grid .member-trading-card");
+        if (!cards.length) return;
+        var overlay = document.createElement("div");
+        overlay.className = "card-overlay";
+        overlay.innerHTML = '<div class="card-overlay-inner"><button class="card-overlay-close">&times;</button><div class="card-overlay-content"></div></div>';
+        document.body.appendChild(overlay);
+        var closeBtn = overlay.querySelector(".card-overlay-close");
+        var content = overlay.querySelector(".card-overlay-content");
+        function openCard(card) { content.innerHTML = card.outerHTML; overlay.classList.add("is-visible"); document.body.style.overflow = "hidden"; }
+        function closeCard() { overlay.classList.remove("is-visible"); document.body.style.overflow = ""; }
+        cards.forEach(function(card) { card.addEventListener("click", function() { openCard(card); }); });
+        closeBtn.addEventListener("click", closeCard);
+        overlay.addEventListener("click", function(e) { if (e.target === overlay) closeCard(); });
+        document.addEventListener("keydown", function(e) { if (e.key === "Escape") closeCard(); });
+      });
+    </script>
   </body>
 </html>
