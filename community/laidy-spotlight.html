@@ -8,98 +8,65 @@
     <script defer data-domain="wearelaidies.com" src="https://plausible.io/js/script.js"></script>
 
     <style>
-      /* Member card thumbnail grid */
+      /* Member card thumbnail grid — scale transform approach */
       .member-directory-demo {
         display: grid !important;
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
-        gap: 14px !important;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 180px)) !important;
+        gap: 20px !important;
         align-items: start !important;
+        justify-content: center !important;
       }
 
-      /* Force cards into compact thumbnail mode */
+      /* Each card is rendered full-size then scaled down inside a fixed container */
       .member-directory-demo .member-trading-card {
+        transform: scale(0.38) !important;
+        transform-origin: top left !important;
+        width: 380px !important;
+        height: 520px !important;
+        margin-bottom: -320px !important;  /* Collapse the visual space */
+        margin-right: -230px !important;
         cursor: pointer;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        width: 100% !important;
-        max-width: 200px !important;
-        min-height: auto !important;
-        height: auto !important;
+        transition: transform 0.3s ease, box-shadow 0.2s ease;
         overflow: hidden !important;
-        font-size: 0.7rem !important;
-        padding: 8px !important;
-        border-radius: 10px !important;
       }
 
+      /* Hover: jiggle animation */
       .member-directory-demo .member-trading-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 24px rgba(255, 45, 155, 0.25);
+        animation: cardJiggle 0.4s ease;
+        box-shadow: 0 8px 32px rgba(255, 45, 155, 0.3) !important;
       }
 
-      /* Shrink the photo */
-      .member-directory-demo .member-card-photo {
-        max-height: 120px !important;
-        overflow: hidden !important;
-        border-radius: 6px !important;
-        margin-bottom: 6px !important;
-      }
-      .member-directory-demo .member-card-photo img {
-        width: 100% !important;
-        height: 120px !important;
-        object-fit: cover !important;
+      @keyframes cardJiggle {
+        0% { transform: scale(0.38) rotate(0deg); }
+        20% { transform: scale(0.38) rotate(-2deg); }
+        40% { transform: scale(0.38) rotate(2deg); }
+        60% { transform: scale(0.38) rotate(-1deg); }
+        80% { transform: scale(0.38) rotate(1deg); }
+        100% { transform: scale(0.38) rotate(0deg); }
       }
 
-      /* Show only name + kicker, hide everything else */
-      .member-directory-demo .member-card-body {
-        padding: 4px 0 !important;
-      }
-      .member-directory-demo .member-card-body h3 {
-        font-size: 0.95rem !important;
-        margin: 0 0 2px !important;
-      }
-      .member-directory-demo .member-card-body .member-card-kicker {
-        font-size: 0.65rem !important;
-        margin: 0 !important;
-      }
-      .member-directory-demo .member-card-body p:not(.member-card-kicker) {
-        display: none !important;
-      }
-
-      /* Hide tags, links, rewards in thumbnail */
-      .member-directory-demo .member-card-tags,
-      .member-directory-demo .member-card-links,
-      .member-directory-demo .member-card-link-note,
-      .member-directory-demo .member-card-reward-case,
-      .member-directory-demo .member-card-meta {
-        display: none !important;
-      }
-
-      /* Compact ribbon */
-      .member-directory-demo .member-card-ribbon {
-        font-size: 0.55rem !important;
-        padding: 3px 6px !important;
-      }
-
-      /* Filter buttons - compact, not huge pills */
+      /* Filter buttons — small compact pills */
       .directory-filter-demo {
         display: flex !important;
         gap: 8px !important;
         flex-wrap: wrap !important;
-        margin-bottom: 20px !important;
+        margin-bottom: 24px !important;
       }
       .directory-filter-demo button {
-        padding: 6px 14px !important;
+        padding: 8px 16px !important;
         font-size: 0.8rem !important;
         border-radius: 20px !important;
-        border: 1.5px solid var(--ink) !important;
+        border: 1.5px solid var(--ink, #100805) !important;
         background: #fff !important;
         cursor: pointer !important;
         min-width: auto !important;
+        width: auto !important;
         height: auto !important;
       }
       .directory-filter-demo button.is-active {
-        background: var(--hot-pink) !important;
+        background: var(--hot-pink, #ff2d9b) !important;
         color: #fff !important;
-        border-color: var(--hot-pink) !important;
+        border-color: var(--hot-pink, #ff2d9b) !important;
       }
 
       /* Expanded card overlay */
@@ -121,7 +88,7 @@
         pointer-events: all;
       }
       .card-overlay-inner {
-        max-width: 400px;
+        max-width: 420px;
         width: 90%;
         max-height: 85vh;
         overflow-y: auto;
@@ -129,58 +96,69 @@
         box-shadow: 0 20px 60px rgba(255, 45, 155, 0.3);
         position: relative;
         background: var(--paper, #fff8fc);
+        padding: 12px;
       }
       .card-overlay-inner .member-trading-card {
-        max-width: 100% !important;
+        transform: none !important;
         width: 100% !important;
-        font-size: 1rem !important;
-        padding: 16px !important;
-        min-height: auto !important;
         height: auto !important;
+        margin-bottom: 0 !important;
+        margin-right: 0 !important;
         overflow: visible !important;
-      }
-      .card-overlay-inner .member-card-photo {
-        max-height: none !important;
-      }
-      .card-overlay-inner .member-card-photo img {
-        height: auto !important;
-        max-height: 280px !important;
-      }
-      .card-overlay-inner .member-card-body p,
-      .card-overlay-inner .member-card-tags,
-      .card-overlay-inner .member-card-links,
-      .card-overlay-inner .member-card-link-note,
-      .card-overlay-inner .member-card-reward-case,
-      .card-overlay-inner .member-card-meta {
-        display: block !important;
       }
       .card-overlay-close {
         position: sticky;
         top: 8px;
         float: right;
-        background: var(--hot-pink);
+        background: var(--hot-pink, #ff2d9b);
         color: #fff;
         border: none;
         border-radius: 50%;
-        width: 32px;
-        height: 32px;
-        font-size: 1.1rem;
+        width: 36px;
+        height: 36px;
+        font-size: 1.2rem;
         cursor: pointer;
         z-index: 10000;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 8px;
+      }
+      .card-overlay-close:hover {
+        transform: scale(1.1);
       }
 
       @media (max-width: 600px) {
         .member-directory-demo {
-          grid-template-columns: repeat(2, 1fr) !important;
-          gap: 10px !important;
+          grid-template-columns: repeat(2, 140px) !important;
+          gap: 16px !important;
+          justify-content: center !important;
         }
-        .member-directory-demo .member-card-photo img {
-          height: 100px !important;
+        .member-directory-demo .member-trading-card {
+          transform: scale(0.32) !important;
+          margin-bottom: -350px !important;
+          margin-right: -250px !important;
         }
+        @keyframes cardJiggle {
+          0% { transform: scale(0.32) rotate(0deg); }
+          20% { transform: scale(0.32) rotate(-2deg); }
+          40% { transform: scale(0.32) rotate(2deg); }
+          60% { transform: scale(0.32) rotate(-1deg); }
+          80% { transform: scale(0.32) rotate(1deg); }
+          100% { transform: scale(0.32) rotate(0deg); }
+        }
+      }
+
+      /* Badge/sticker emoji display */
+      .member-card-reward-tags {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 4px !important;
+        padding: 4px 0 !important;
+      }
+      .member-card-reward-tags span {
+        background: none !important;
+        border: none !important;
+        padding: 0 !important;
       }
     </style>
   </head>
@@ -271,21 +249,8 @@
               <p>Tax leader, Women-in-Tax builder, TEI contributor, and founder of <span class="wordmark laidies-inline-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span>, the room you are currently standing in.</p>
               <p class="member-card-meta"><strong>AI journey:</strong> building in public, testing agents, and learning the technical pieces out loud.</p>
               <p class="member-card-meta"><strong>Can help with:</strong> tax, community building, practical AI tests, messy first drafts, and work that refuses to stay beige.</p>
-              <div class="member-card-reward-case" aria-label="Founder reward shelf">
-                <strong>Sticker Case / Secret Merit Badges</strong>
-                
-                <div class="member-card-tags member-card-reward-tags">
-                  <span>2 Sticker Drop</span>
-                  <span>Receipts Queen</span>
-                  <span>Caboodle Scholar</span>
-                  <span>Montage Mode</span>
-                  <span>Participation Lip Gloss</span>
-                  <span>Butterfly Clip Incident</span>
-                  <span>867 Club merit badge</span>
-                  <span>Secret Dream Phone sticker</span>
-                  <span>Trading card pulls</span>
-                  <span>Issue Fun Pack badges</span>
-                </div>
+              <div class="member-card-reward-case" aria-label="Founder reward shelf" id="founderBadgeShelf">
+                <!-- Dynamically populated by script.js — shows ALL available badges/stickers -->
               </div>
               <p class="member-card-kicker" style="margin-top: 12px; margin-bottom: 4px;">Tools & Interests</p>
                 <div class="member-card-tags"><span>Indirect Tax</span><span>Women-in-Tax</span><span>TEI</span><span>ChatGPT</span><span>Claude Code</span><span>Codex</span><span>Open to connect</span></div>
@@ -698,6 +663,44 @@
         document.addEventListener("keydown", function(e) {
           if (e.key === "Escape") closeCard();
         });
+      });
+    </script>
+  
+    <script>
+      // Auto-populate founder card with ALL available badges and stickers
+      document.addEventListener("DOMContentLoaded", function() {
+        var shelf = document.getElementById("founderBadgeShelf");
+        if (!shelf) return;
+
+        // Wait for script.js to define hiddenMeritBadges and quizStickerAwards
+        function populateFounderShelf() {
+          if (typeof hiddenMeritBadges === "undefined" || typeof quizStickerAwards === "undefined") {
+            setTimeout(populateFounderShelf, 200);
+            return;
+          }
+
+          var html = "";
+
+          // Merit Badges header
+          html += '<p style="font-size:0.6rem;text-transform:uppercase;letter-spacing:0.08em;color:#65515d;margin:0 0 6px;font-weight:700;">Merit Badges</p>';
+          html += '<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px;">';
+          Object.values(hiddenMeritBadges).forEach(function(badge) {
+            html += '<span title="' + badge.title + ' (' + badge.source + ')" style="display:inline-flex;align-items:center;justify-content:center;min-width:36px;height:36px;padding:0 6px;border-radius:8px;background:linear-gradient(135deg,#1a0a12,#2d0f1f);color:#ff2d9b;font-size:0.55rem;font-weight:800;letter-spacing:0.02em;border:1.5px solid rgba(255,45,155,0.5);cursor:help;">' + badge.sticker + '</span>';
+          });
+          html += '</div>';
+
+          // Quiz Stickers header
+          html += '<p style="font-size:0.6rem;text-transform:uppercase;letter-spacing:0.08em;color:#65515d;margin:0 0 6px;font-weight:700;">Quiz Stickers</p>';
+          html += '<div style="display:flex;flex-wrap:wrap;gap:4px;">';
+          quizStickerAwards.forEach(function(sticker) {
+            html += '<span title="' + sticker.title + ' (' + sticker.source + ')" style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#ff2d9b;color:#fff;font-size:0.55rem;font-weight:800;cursor:help;">' + sticker.sticker + '</span>';
+          });
+          html += '</div>';
+
+          shelf.innerHTML = html;
+        }
+
+        populateFounderShelf();
       });
     </script>
   </body>
