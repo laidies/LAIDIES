@@ -3306,10 +3306,13 @@ function getCocktailFortuneIndex(type, flapIndex) {
   const flap = cocktailFortuneFlaps[flapIndex] || cocktailFortuneFlaps[0];
   const options = flap.drinks?.[type] || menu.map((_, index) => index);
   if (!options.length) return nextIndex(menu.length, state.lastIndex);
-  let index = options[(state.turns + flapIndex + flap.count) % options.length];
+  let index = options[Math.floor(Math.random() * options.length)];
   if (index === state.lastIndex && options.length > 1) {
-    const currentPosition = options.indexOf(index);
-    index = options[(currentPosition + 1) % options.length];
+    let attempts = 0;
+    while (index === state.lastIndex && attempts < 10) {
+      index = options[Math.floor(Math.random() * options.length)];
+      attempts++;
+    }
   }
   return index;
 }

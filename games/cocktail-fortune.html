@@ -138,6 +138,9 @@
               </button>
             </div>
           </div>
+          <div style="margin-top: 16px; text-align: center;">
+            <button type="button" id="chooseForMe" style="background: var(--hot-pink); color: #fff; border: none; border-radius: 24px; padding: 10px 24px; font-weight: 700; font-size: 0.9rem; cursor: pointer;">Choose for me</button>
+          </div>
         </div>
 
         <div class="drink-result" id="drinkResult">
@@ -263,6 +266,45 @@
             } catch(e) {}
           }
         });
+      });
+
+      // "Choose for me" — picks any random drink from the active lane
+      document.querySelector("#chooseForMe")?.addEventListener("click", () => {
+        const menu = cocktailMenus[activeLane] || cocktailMenus.cocktail;
+        const drink = menu[Math.floor(Math.random() * menu.length)];
+        if (!drink) return;
+
+        nameEl.textContent = drink.name;
+        vibeEl.textContent = drink.vibe;
+        orderEl.textContent = "Order: " + drink.order;
+        noteEl.textContent = drink.note;
+
+        resultEl.classList.remove("is-visible");
+        void resultEl.offsetWidth;
+        resultEl.classList.add("is-visible");
+
+        fortuneImage.classList.add("is-open");
+        if (fortuneImg.dataset.openSrc) fortuneImg.src = fortuneImg.dataset.openSrc;
+
+        orderCount++;
+        countEl.textContent = `Orders placed: ${orderCount}`;
+
+        if (lanesUsed.size >= BADGE_THRESHOLD && orderCount >= 4) {
+          badgeEl.classList.add("is-visible");
+          try {
+            const badges = JSON.parse(localStorage.getItem("laidiesSecretBadges") || "{}");
+            if (!badges["coven-reservation"]) {
+              badges["coven-reservation"] = {
+                id: "coven-reservation",
+                title: "Coven Reservation merit badge",
+                sticker: "7PM",
+                unlockedAt: new Date().toISOString(),
+                source: "Businesswomen's Special",
+              };
+              localStorage.setItem("laidiesSecretBadges", JSON.stringify(badges));
+            }
+          } catch(e) {}
+        }
       });
     </script>
   </body>
