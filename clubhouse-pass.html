@@ -57,6 +57,36 @@
     <script defer data-domain="wearelaidies.com" src="https://plausible.io/js/script.js"></script>
 
     <title>Clubhouse Pass | lAIdies</title>
+  
+    <style>
+      /* Override game-card grid for standalone page */
+      .game-card.member-pass-game {
+        display: block !important;
+        grid-template-columns: 1fr !important;
+        max-width: 100%;
+        border: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        padding: 0 !important;
+      }
+      .member-pass-panel {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+        margin-top: 24px;
+      }
+      .member-pass-explainer {
+        grid-column: 1 !important;
+      }
+      .member-pass-game::after,
+      .member-pass-game::before {
+        display: none !important;
+      }
+      .section-heading {
+        position: static !important;
+        max-height: none !important;
+        overflow: visible !important;
+      }
+    </style>
   </head>
   <body>
     <main>
@@ -80,7 +110,7 @@
           <p>Create your Clubhouse Pass to save what you earn, build your <span class="wordmark laidies-inline-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Card, and make it easier to connect with other lAIdies when you are ready to share.</p>
         </div>
 
-        <article class="member-pass-game" id="member-passport" style="display: block;">
+        <article class="game-card is-live member-pass-game" id="member-passport" style="display: block; grid-template-columns: 1fr; grid-template-rows: none; min-height: auto;">
           <div class="member-pass-explainer" aria-label="Why create a Clubhouse Pass">
             <strong>A Clubhouse Pass is the secret password. A <span class="wordmark member-pass-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Card is the hello.</strong>
             <p>The pass remembers what you have tried. The card turns that into a fun, useful intro for the room: what lane you work in, where you are with AI, what you want to learn, and where you might be able to help. For now, members connect through the LinkedIn or website link they choose to share; direct chat can come later.</p>
