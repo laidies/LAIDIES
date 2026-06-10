@@ -1,133 +1,167 @@
 <!doctype html>
-<!-- v2 restructured -->
 <html lang="en">
   <head>
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Clubhouse | lAIdies</title>
-    <meta
-      name="description"
-      content="lAIdies is a Wednesday newsletter and community for women building practical AI fluency without pretending they have spare time."
-    />
-    <meta property="og:title" content="lAIdies | Girl power meets machine power" />
-    <meta property="og:description" content="AI fluency for women with full calendars, high standards, and no patience for beige tech explanations." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://wearelaidies.com/" />
-    <meta property="og:image" content="https://wearelaidies.com/assets/laidies-logo.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#ff2d9b" />
-    <link rel="icon" type="image/png" href="assets/laidies-logo-square.png" />
-    <link rel="manifest" href="manifest.webmanifest" />
-    <link rel="apple-touch-icon" href="assets/laidies-logo-square.png" />
-    <link rel="stylesheet" href="styles.css?v=issue-02-live-1" />
-    <style>
-      .clubhouse-menu { padding: clamp(24px, 4vw, 48px) clamp(18px, 5vw, 64px); }
-      .clubhouse-menu h2 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.6rem, 3.2vw, 2.4rem); margin-bottom: 6px; }
-      .clubhouse-menu > p { color: #65515d; font-size: 0.9rem; margin-bottom: 20px; }
-      .clubhouse-menu-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap: 14px;
-      }
-      .menu-card {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        padding: 16px 18px;
-        border: 2px solid #100805;
-        border-radius: 8px;
-        box-shadow: 4px 4px 0 #100805;
-        text-decoration: none;
-        color: #100805;
-        background: #fff;
-        transition: transform 150ms ease, box-shadow 150ms ease;
-      }
-      .menu-card:hover {
-        transform: translate(-2px, -2px);
-        box-shadow: 6px 6px 0 #100805;
-      }
-      .menu-card strong { font-size: 1rem; }
-      .menu-card span { font-size: 0.82rem; color: #65515d; line-height: 1.4; }
-      .menu-card em { font-size: 0.72rem; color: #247b83; font-style: normal; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 4px; }
-      @media (max-width: 560px) {
-        .clubhouse-menu-grid { grid-template-columns: 1fr; }
-      }
-    </style>
-    <script defer data-domain="wearelaidies.com" src="https://plausible.io/js/script.js"></script>
-
     <title>Clubhouse Pass | lAIdies</title>
-  
+    <meta name="description" content="Get your lAIdies Clubhouse Pass — save your card, badges, quiz scores, and stickers across devices." />
+    <link rel="icon" type="image/png" href="assets/laidies-logo-square.png" />
+    <link rel="stylesheet" href="styles.css?v=redesign-2" />
+    <link rel="stylesheet" href="styles-new-sections.css?v=redesign-2" />
+    <script defer data-domain="wearelaidies.com" src="https://plausible.io/js/script.js"></script>
     <style>
-      /* Override game-card grid for standalone page */
-      .game-card.member-pass-game {
-        display: block !important;
-        grid-template-columns: 1fr !important;
-        grid-template-rows: none !important;
-        max-width: 100% !important;
-        border: 2px solid var(--ink) !important;
-        border-radius: 16px !important;
-        box-shadow: 0 4px 20px rgba(255,45,155,0.1) !important;
-        background: #fff !important;
-        padding: 24px !important;
-        min-height: auto !important;
+      .pass-page {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 40px 20px;
       }
-      .member-pass-explainer {
-        display: block !important;
-        grid-column: auto !important;
-        margin-bottom: 20px;
+      .pass-page h1 {
+        font-family: Georgia, serif;
+        font-size: clamp(1.8rem, 4vw, 2.4rem);
+        margin: 0 0 12px;
+        color: var(--ink);
       }
-      .member-pass-panel {
-        display: block !important;
-        grid-column: auto !important;
-        grid-row: auto !important;
-        border: 2px solid var(--ink) !important;
-        border-radius: 8px !important;
-        background: rgba(255,248,252,0.9) !important;
-        padding: 20px !important;
-        margin-top: 20px;
+      .pass-page .intro {
+        color: var(--muted);
+        line-height: 1.6;
+        margin-bottom: 32px;
       }
-      .member-pass-form {
-        display: block !important;
+      .pass-form-card {
+        background: #fff;
+        border: 2px solid var(--ink);
+        border-radius: 16px;
+        padding: 28px 24px;
+        margin-bottom: 24px;
+      }
+      .pass-form-card label {
+        display: block;
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+        color: var(--ink);
+      }
+      .pass-form-card input[type="email"] {
+        width: 100%;
+        padding: 14px 16px;
+        font-size: 1rem;
+        border: 2px solid var(--ink);
+        border-radius: 10px;
+        background: var(--paper);
+        margin-bottom: 12px;
+        box-sizing: border-box;
+      }
+      .pass-form-card input[type="email"]:focus {
+        outline: none;
+        border-color: var(--hot-pink);
+        box-shadow: 0 0 0 3px rgba(255,45,155,0.15);
+      }
+      .pass-form-card .newsletter-opt {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-bottom: 16px;
+      }
+      .pass-form-card .submit-btn {
+        width: 100%;
+        padding: 14px;
+        font-size: 1rem;
+        font-weight: 700;
+        background: var(--hot-pink);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .pass-form-card .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255,45,155,0.3);
+      }
+      .pass-status {
+        text-align: center;
+        padding: 12px;
+        border-radius: 8px;
+        margin-top: 12px;
+        font-size: 0.9rem;
+      }
+      .pass-privacy {
+        font-size: 0.78rem;
+        color: var(--muted);
         margin-top: 12px;
       }
-      .member-pass-form input[type="email"] {
-        width: 100% !important;
-        padding: 12px 16px !important;
-        font-size: 1rem !important;
-        border: 2px solid var(--ink) !important;
-        border-radius: 8px !important;
-        background: #fff !important;
+      .profile-section {
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px dashed rgba(255,45,155,0.3);
       }
-      .member-pass-profile {
-        display: block !important;
-        grid-column: auto !important;
-        margin-top: 20px;
+      .profile-section h3 {
+        font-family: Georgia, serif;
+        font-size: 1.1rem;
+        margin: 0 0 8px;
       }
-      .member-pass-profile details {
+      .profile-section p {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin: 0 0 16px;
+      }
+      .profile-section details {
         margin-bottom: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 12px 16px;
       }
-      .member-pass-submit-row {
+      .profile-section summary {
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--ink);
+      }
+      .profile-section button {
+        margin: 6px 4px 0 0;
+        padding: 6px 12px;
+        font-size: 0.82rem;
+        border: 1.5px solid var(--ink);
+        border-radius: 20px;
+        background: #fff;
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+      .profile-section button:hover,
+      .profile-section button.selected {
+        background: var(--hot-pink);
+        color: #fff;
+        border-color: var(--hot-pink);
+      }
+      .pass-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
         margin-top: 20px;
+        padding-top: 16px;
+        border-top: 1px dashed rgba(255,45,155,0.3);
       }
-      .member-pass-game::after,
-      .member-pass-game::before {
-        display: none !important;
+      .next-step {
+        text-align: center;
+        margin-top: 36px;
+        padding: 28px 20px;
+        background: linear-gradient(135deg, #fff8fc, #fce4f2);
+        border-radius: 16px;
+        border: 1px solid rgba(255,45,155,0.2);
       }
-      .section-heading {
-        position: static !important;
-        max-height: none !important;
-        overflow: visible !important;
-      }
-      .member-pass-game > span:first-child,
-      .member-pass-game > h3:first-of-type {
-        display: none !important;
+      .next-step p {
+        font-family: Georgia, serif;
+        font-size: 1.15rem;
+        margin: 0 0 14px;
+        color: var(--ink);
       }
     </style>
   </head>
   <body>
     <main>
-      <!-- HEADER -->
       <header class="site-header">
         <button onclick="history.back()" style="background: none; border: none; color: var(--hot-pink); font-size: 0.85rem; cursor: pointer; padding: 4px 8px; text-decoration: underline;" aria-label="Go back">← Back</button>
         <a class="brand" href="index.html" aria-label="lAIdies home">
@@ -142,118 +176,98 @@
         </nav>
       </header>
 
-      <!-- SECTION 1: Clubhouse Pass intro + Sign In / Sign Up buttons -->
-      <section style="max-width: 720px; margin: 0 auto; padding: 40px 20px;">
-        <div style="text-align: center; margin-bottom: 32px;">
-          <p class="eyebrow" style="color: var(--hot-pink); font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.8rem;">Save Your Progress</p>
-          <h2 style="font-family: Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.5rem); margin: 8px 0 12px;">Clubhouse Pass</h2>
-          <p style="color: var(--muted); line-height: 1.6;">Create your Clubhouse Pass to save what you earn, build your <span class="wordmark laidies-inline-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Card, and make it easier to connect with other lAIdies when you are ready to share.</p>
+      <div class="pass-page">
+        <!-- INTRO -->
+        <p class="eyebrow" style="color: var(--hot-pink); font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.8rem;">Save Your Progress</p>
+        <h1>Clubhouse Pass</h1>
+        <p class="intro">Your card, your badges, your quiz scores, your stickers — all saved across devices. One email, no password. We send you a magic link every time you want in.</p>
+
+        <!-- THE FORM -->
+        <div class="pass-form-card">
+          <label for="memberPassEmail">Your email</label>
+          <input id="memberPassEmail" type="email" autocomplete="email" placeholder="yourname@email.com" />
+          <div class="newsletter-opt">
+            <input id="memberPassNewsletter" type="checkbox" />
+            <span>Also send me the Wednesday newsletter</span>
+          </div>
+          <button class="submit-btn" type="button" id="saveMemberPassButton">Get my magic link</button>
+          <div id="memberPassStatus" class="pass-status" aria-live="polite"></div>
+          <p class="pass-privacy">We save your email + profile answers. Nothing else. Your card is yours to share or not. <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
         </div>
 
-        <!-- SIGN IN / SIGN UP BUTTONS -->
-        
-
-        <!-- SECTION 2: The pass form (secret password through save/reset) -->
-        <article class="game-card is-live member-pass-game" id="member-passport" style="display: block; grid-template-columns: 1fr; grid-template-rows: none; min-height: auto;">
-          <div class="member-pass-explainer" aria-label="Why create a Clubhouse Pass">
-            <strong>A Clubhouse Pass is the secret password. A <span class="wordmark member-pass-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Card is the hello.</strong>
-            <p>The pass remembers what you have tried. The card turns that into a fun, useful intro for the room: what lane you work in, where you are with AI, what you want to learn, and where you might be able to help. For now, members connect through the LinkedIn or website link they choose to share; direct chat can come later.</p>
-          </div>
-
-          <!-- EMAIL FORM + SIGN IN — immediately after intro -->
-          <label for="memberPassEmail">Email for your Clubhouse Pass</label>
-              <div class="member-pass-form">
-                <input id="memberPassEmail" type="email" autocomplete="email" placeholder="yourname@icon.com" />
-              </div>
-              <label class="member-pass-newsletter" for="memberPassNewsletter">
-                <input id="memberPassNewsletter" type="checkbox" />
-                <span>Optional: email me the weekly newsletter too.</span>
-              </label>
-              <p class="member-pass-privacy">Clubhouse Pass saves your email, profile answers, and rewards like stickers, badges, and trading cards. Sharing your <span class="wordmark laidies-inline-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Card is encouraged, optional, and approval-based. <a href="privacy.html">Privacy</a> and <a href="terms.html">terms</a>.</p>
-              <div class="member-pass-profile" aria-label="Member profile options">
-                <details class="member-profile-group" data-member-profile-group="industry" open>
-                  <summary>Where do you do your thing?</summary>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="tax">Tax</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="finance">Finance</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="legal-compliance">Legal / Compliance</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="ops-product">Ops / Product</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="people-hr">People / HR</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="marketing-comms">Marketing / Comms</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="founder-consultant">Founder / Consultant</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="tech-engineering">Tech / Engineering</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="data-analytics">Data / Analytics</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="sales-bizdev">Sales / Biz Dev</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="education-training">Education / Training</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="health-life-sciences">Health / Life Sciences</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="government-public">Government / Public Sector</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="creative-media">Creative / Media</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="exploring">Exploring / Other</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="tps-reports">Filing TPS reports</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="golden-girls">Retired in Florida with my 3 BFFs</button>
-                </details>
-                <details class="member-profile-group" data-member-profile-group="aiComfort">
-                  <summary>What is your AI main character energy?</summary>
-                  <button type="button" data-member-profile="aiComfort" data-member-profile-value="new">Brand new</button>
-                  <button type="button" data-member-profile="aiComfort" data-member-profile-value="prompting">Prompting sometimes</button>
-                  <button type="button" data-member-profile="aiComfort" data-member-profile-value="weekly-user">Using weekly</button>
-                  <button type="button" data-member-profile="aiComfort" data-member-profile-value="workflow-builder">Building workflows</button>
-                  <button type="button" data-member-profile="aiComfort" data-member-profile-value="agent-curious">Agent-curious</button>
-                  <button type="button" data-member-profile="aiComfort" data-member-profile-value="doesnt-go-here">AI? She doesn't even go here!</button>
-                  <button type="button" data-member-profile="aiComfort" data-member-profile-value="miranda-priestly">I am the Miranda Priestly of AI</button>
-                </details>
-                <details class="member-profile-group" data-member-profile-group="generation">
-                  <summary>Which group chat raised you?</summary>
-                  <button type="button" data-member-profile="generation" data-member-profile-value="gen-x">Gen X</button>
-                  <button type="button" data-member-profile="generation" data-member-profile-value="elder-millennial">Elder Millennial</button>
-                  <button type="button" data-member-profile="generation" data-member-profile-value="millennial">Millennial</button>
-                  <button type="button" data-member-profile="generation" data-member-profile-value="gen-z">Gen Z</button>
-                  <button type="button" data-member-profile="generation" data-member-profile-value="no-label">Age knows no bounds</button>
-                </details>
-                <details class="member-profile-group" data-member-profile-group="goals" data-member-profile-multiple="true">
-                  <summary class="member-profile-question">What are you here for, <span class="wordmark member-profile-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span>?</summary>
-                  <button type="button" data-member-profile="goals" data-member-profile-value="learn-basics">Learn the basics</button>
-                  <button type="button" data-member-profile="goals" data-member-profile-value="save-time">Save time</button>
-                  <button type="button" data-member-profile="goals" data-member-profile-value="write-better">Write better</button>
-                  <button type="button" data-member-profile="goals" data-member-profile-value="build-tools">Build tools</button>
-                  <button type="button" data-member-profile="goals" data-member-profile-value="lead-team">Lead my team</button>
-                  <button type="button" data-member-profile="goals" data-member-profile-value="find-community">Find community</button>
-                  <button type="button" data-member-profile="goals" data-member-profile-value="confidence">Build confidence</button>
-                  <button type="button" data-member-profile="goals" data-member-profile-value="templates">Get templates</button>
-                  <button type="button" data-member-profile="goals" data-member-profile-value="automate-work">Automate repeat work</button>
-                  <button type="button" data-member-profile="goals" data-member-profile-value="career-growth">Grow my career</button>
-                  <button type="button" data-member-profile="goals" data-member-profile-value="fun-games">I'm just here for the fun and games</button>
-                </details>
-              </div>
-              <div class="member-pass-submit-row">
-                <p>Ready? Finish here after you choose any answers you want.</p>
-                <button class="button primary" type="button" id="saveMemberPassButton">Save guest pass</button>
-                <button class="button secondary member-pass-signout" type="button" id="memberSignOutButton" hidden>Sign out</button>
-                <button class="button secondary" type="button" id="memberStartFreshButton">Reset and start over</button>
-              </div>
-              <p class="member-pass-note" id="memberPassNote" aria-live="polite">Your Clubhouse Pass keeps everything in one place — stickers, badges, card pulls, and quiz scores.</p>
-            </div>
-            <div class="member-pass-actions">
-              <a class="button primary" href="community/laidy-spotlight.html?v=issue-02-live-1#spotlight-form-title">Create your lAIdies Card</a>
-              <a class="button secondary" href="community/laidy-spotlight.html#member-directory">Browse lAIdies Cards</a>
-            </div>
+        <!-- PROFILE QUESTIONS (optional, collapsible) -->
+        <div class="profile-section" id="member-passport">
+          <h3>Tell us about you (optional)</h3>
+          <p>These help us make better packs, community matches, and content. Skip any you want — you can always fill them in later.</p>
           
-        </article>
+          <details class="member-profile-group" data-member-profile-group="industry">
+            <summary>Where do you do your thing?</summary>
+            <button type="button" data-member-profile="industry" data-member-profile-value="tax">Tax</button>
+            <button type="button" data-member-profile="industry" data-member-profile-value="finance">Finance</button>
+            <button type="button" data-member-profile="industry" data-member-profile-value="legal-compliance">Legal / Compliance</button>
+            <button type="button" data-member-profile="industry" data-member-profile-value="ops-product">Ops / Product</button>
+            <button type="button" data-member-profile="industry" data-member-profile-value="people-hr">People / HR</button>
+            <button type="button" data-member-profile="industry" data-member-profile-value="marketing-comms">Marketing / Comms</button>
+            <button type="button" data-member-profile="industry" data-member-profile-value="founder-consultant">Founder / Consultant</button>
+            <button type="button" data-member-profile="industry" data-member-profile-value="tech-engineering">Tech / Engineering</button>
+            <button type="button" data-member-profile="industry" data-member-profile-value="data-analytics">Data / Analytics</button>
+            <button type="button" data-member-profile="industry" data-member-profile-value="sales-bizdev">Sales / Biz Dev</button>
+            <button type="button" data-member-profile="industry" data-member-profile-value="education-training">Education / Training</button>
+            <button type="button" data-member-profile="industry" data-member-profile-value="health-life-sciences">Health / Life Sciences</button>
+            <button type="button" data-member-profile="industry" data-member-profile-value="government-public">Government / Public Sector</button>
+            <button type="button" data-member-profile="industry" data-member-profile-value="creative-media">Creative / Media</button>
+            <button type="button" data-member-profile="industry" data-member-profile-value="exploring-other">Exploring / Other</button>
+          </details>
+
+          <details class="member-profile-group" data-member-profile-group="aiComfort">
+            <summary>What's your AI main character energy?</summary>
+            <button type="button" data-member-profile="aiComfort" data-member-profile-value="brand-new">Brand new</button>
+            <button type="button" data-member-profile="aiComfort" data-member-profile-value="prompting-sometimes">Prompting sometimes</button>
+            <button type="button" data-member-profile="aiComfort" data-member-profile-value="using-weekly">Using weekly</button>
+            <button type="button" data-member-profile="aiComfort" data-member-profile-value="building-workflows">Building workflows</button>
+            <button type="button" data-member-profile="aiComfort" data-member-profile-value="agent-curious">Agent-curious</button>
+          </details>
+
+          <details class="member-profile-group" data-member-profile-group="generation">
+            <summary>Which group chat raised you?</summary>
+            <button type="button" data-member-profile="generation" data-member-profile-value="gen-x">Gen X</button>
+            <button type="button" data-member-profile="generation" data-member-profile-value="elder-millennial">Elder Millennial</button>
+            <button type="button" data-member-profile="generation" data-member-profile-value="millennial">Millennial</button>
+            <button type="button" data-member-profile="generation" data-member-profile-value="gen-z">Gen Z</button>
+            <button type="button" data-member-profile="generation" data-member-profile-value="no-bounds">Age knows no bounds</button>
+          </details>
+
+          <details class="member-profile-group" data-member-profile-group="goals">
+            <summary>What are you here for?</summary>
+            <button type="button" data-member-profile="goals" data-member-profile-value="learn-basics">Learn the basics</button>
+            <button type="button" data-member-profile="goals" data-member-profile-value="save-time">Save time</button>
+            <button type="button" data-member-profile="goals" data-member-profile-value="write-better">Write better</button>
+            <button type="button" data-member-profile="goals" data-member-profile-value="build-tools">Build tools</button>
+            <button type="button" data-member-profile="goals" data-member-profile-value="lead-team">Lead my team</button>
+            <button type="button" data-member-profile="goals" data-member-profile-value="find-community">Find community</button>
+          </details>
+        </div>
+
+        <!-- SIGN OUT / RESET (only visible when signed in, controlled by script.js) -->
+        <div class="pass-actions">
+          <button class="button secondary member-pass-signout" type="button" id="memberSignOutButton" hidden>Sign out</button>
+          <button class="button secondary" type="button" id="memberStartFreshButton">Reset and start over</button>
+        </div>
+
         <!-- NEXT STEP: Create your card -->
-        <div style="text-align: center; margin-top: 32px; padding: 28px 20px; background: linear-gradient(135deg, #fff8fc, #fce4f2); border-radius: 16px; border: 1px solid rgba(255,45,155,0.2);">
-          <p style="font-family: Georgia, serif; font-size: 1.2rem; margin: 0 0 12px; color: var(--ink);">You're in. Now make it yours.</p>
+        <div class="next-step">
+          <p>You're in. Now make it yours.</p>
           <a class="button primary" href="laidies-card.html">Create your LAIDIES Card →</a>
         </div>
 
-
-        <!-- RETURN TO HOMEPAGE -->
-        <div style="text-align: center; padding: 40px 20px;">
-          <a class="button secondary" href="index.html">&larr; Return to Homepage</a>
+        <!-- RETURN HOME -->
+        <div style="text-align: center; padding: 32px 20px;">
+          <a class="button secondary" href="index.html">← Return to Homepage</a>
         </div>
-      </section>
+      </div>
     </main>
 
     <script src="content/site/supabase-config.js" defer></script>
     <script src="script.js" defer></script>
-    <script defer data-domain="wearelaidies.com" src="https://plausible.io/js/script.js"></script>
   </body>
 </html>
