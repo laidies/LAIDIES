@@ -129,6 +129,7 @@
     <main>
       <!-- HEADER -->
       <header class="site-header">
+        <button onclick="history.back()" style="background: none; border: none; color: var(--hot-pink); font-size: 0.85rem; cursor: pointer; padding: 4px 8px; text-decoration: underline;" aria-label="Go back">← Back</button>
         <a class="brand" href="index.html" aria-label="lAIdies home">
           <img src="assets/laidies-logo-wordmark.png" alt="" />
         </a>
@@ -150,10 +151,7 @@
         </div>
 
         <!-- SIGN IN / SIGN UP BUTTONS -->
-        <div style="display: flex; gap: 16px; justify-content: center; margin-bottom: 40px;">
-          <button class="button secondary" onclick="document.getElementById('memberPassEmail').scrollIntoView({behavior:'smooth',block:'center'});setTimeout(function(){document.getElementById('memberPassEmail').focus();},500);" style="flex: 1; max-width: 200px; text-align: center; cursor: pointer;">Sign In</button>
-          <button class="button primary" onclick="document.getElementById('memberPassEmail').scrollIntoView({behavior:'smooth',block:'center'});setTimeout(function(){document.getElementById('memberPassEmail').focus();},500);" style="flex: 1; max-width: 200px; text-align: center; cursor: pointer;">Sign Up</button>
-        </div>
+        
 
         <!-- SECTION 2: The pass form (secret password through save/reset) -->
         <article class="game-card is-live member-pass-game" id="member-passport" style="display: block; grid-template-columns: 1fr; grid-template-rows: none; min-height: auto;">
@@ -240,34 +238,12 @@
             </div>
           
         </article>
-
-        <!-- SECTION 3: Your LAIDIES Card & Collection -->
-        <div style="margin-top: 48px; padding-top: 32px; border-top: 1px solid rgba(255,45,155,0.2);">
-          <h3 style="font-family: Georgia, serif; font-size: 1.3rem; margin-bottom: 16px;">Your LAIDIES Card &amp; Collection</h3>
-          <figure class="member-card-sample">
-                <img src="assets/clubhouse-pass-laidies-card-sample.png" alt="Sample lAIdies Card with blank fields for name, work lane, AI superpower, stickers, badges, and trading cards" />
-                <figcaption>Think trading card, not resume. Share it only if you want people to find you, then let LinkedIn handle the actual hello for now.</figcaption>
-              </figure>
-          <ul>
-                <li><b>Save your progress:</b> keep quiz scores, stickers, badges, and card-pack pulls in one place.</li>
-                <li><b>Build your <span class="wordmark laidies-inline-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Card:</b> make a shareable intro that feels more like a 90s trading card than another corporate bio.</li>
-                <li><b>Find the secret unlocks:</b> hidden merit badges are starting to appear around the site. Find one, earn the badge, and pin it to your Clubhouse Pass so your member card shows what you found.</li>
-                <li><b>Find your people:</b> connect around AI questions, useful shortcuts, and the work lanes where you actually live.</li>
-                <li><b>Shape the room:</b> your answers help future packs, events, and community features feel less generic.</li>
-              </ul>
-          <div class="secret-badge-shelf" aria-label="Hidden merit badge collection">
-                <div>
-                  <strong>Hidden merit badges</strong>
-                  <p>Earned badges fill in. Locked ones keep a dotted outline so your member card makes it clear what is still missing.</p>
-                </div>
-                <div class="secret-badge-grid" id="secretBadgeShelf" aria-live="polite"></div>
-                <div>
-                  <strong>Quiz stickers</strong>
-                  <p>Quiz stickers fill in as you earn them. Trading cards keep their full missing-sleeve binder in the card pack section.</p>
-                </div>
-                <div class="secret-badge-grid" id="quizStickerShelf" aria-live="polite"></div>
-              </div>
+        <!-- NEXT STEP: Create your card -->
+        <div style="text-align: center; margin-top: 32px; padding: 28px 20px; background: linear-gradient(135deg, #fff8fc, #fce4f2); border-radius: 16px; border: 1px solid rgba(255,45,155,0.2);">
+          <p style="font-family: Georgia, serif; font-size: 1.2rem; margin: 0 0 12px; color: var(--ink);">You're in. Now make it yours.</p>
+          <a class="button primary" href="laidies-card.html">Create your LAIDIES Card →</a>
         </div>
+
 
         <!-- RETURN TO HOMEPAGE -->
         <div style="text-align: center; padding: 40px 20px;">
