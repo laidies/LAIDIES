@@ -1,61 +1,14 @@
 <!doctype html>
 <html lang="en">
   <head>
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>LAIDIES Card | lAIdies</title>
-    <meta
-      name="description"
-      content="lAIdies is a Wednesday newsletter and community for women building practical AI fluency without pretending they have spare time."
-    />
-    <meta property="og:title" content="lAIdies | Girl power meets machine power" />
-    <meta property="og:description" content="AI fluency for women with full calendars, high standards, and no patience for beige tech explanations." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://wearelaidies.com/" />
-    <meta property="og:image" content="https://wearelaidies.com/assets/laidies-logo.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#ff2d9b" />
+    <meta name="description" content="Build your lAIdies member card — your name, work lane, AI superpower. See other members' cards." />
     <link rel="icon" type="image/png" href="assets/laidies-logo-square.png" />
-    <link rel="manifest" href="manifest.webmanifest" />
-    <link rel="apple-touch-icon" href="assets/laidies-logo-square.png" />
-    <link rel="stylesheet" href="styles.css?v=issue-02-live-1" />
-    <style>
-      .clubhouse-menu { padding: clamp(24px, 4vw, 48px) clamp(18px, 5vw, 64px); }
-      .clubhouse-menu h2 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.6rem, 3.2vw, 2.4rem); margin-bottom: 6px; }
-      .clubhouse-menu > p { color: #65515d; font-size: 0.9rem; margin-bottom: 20px; }
-      .clubhouse-menu-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap: 14px;
-      }
-      .menu-card {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        padding: 16px 18px;
-        border: 2px solid #100805;
-        border-radius: 8px;
-        box-shadow: 4px 4px 0 #100805;
-        text-decoration: none;
-        color: #100805;
-        background: #fff;
-        transition: transform 150ms ease, box-shadow 150ms ease;
-      }
-      .menu-card:hover {
-        transform: translate(-2px, -2px);
-        box-shadow: 6px 6px 0 #100805;
-      }
-      .menu-card strong { font-size: 1rem; }
-      .menu-card span { font-size: 0.82rem; color: #65515d; line-height: 1.4; }
-      .menu-card em { font-size: 0.72rem; color: #247b83; font-style: normal; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 4px; }
-      @media (max-width: 560px) {
-        .clubhouse-menu-grid { grid-template-columns: 1fr; }
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css?v=redesign-2" />
+    <link rel="stylesheet" href="styles-new-sections.css?v=redesign-2" />
     <script defer data-domain="wearelaidies.com" src="https://plausible.io/js/script.js"></script>
-
-    <title>LAIDIES Card | lAIdies</title>
   </head>
   <body>
     <main>
@@ -73,269 +26,288 @@
         </nav>
       </header>
 
-      <section class="fun-games" style="max-width: 900px; margin: 0 auto; padding: 40px 20px;">
-        <div class="section-heading" style="position: static; max-width: 100%;">
-          <p class="eyebrow">Collect the Set</p>
-          <h2>LAIDIES Card</h2>
-          <p>Build your member card, flip trading cards from each episode, and collect the full set. New pack drops every Wednesday with the episode.</p>
-          <p style="margin-top: 8px; font-size: 0.9rem; color: var(--muted);">Start building now — no sign-up needed. Everything saves to this browser automatically. Want to keep it across devices? <a href="clubhouse-pass.html">Get a Clubhouse Pass</a> anytime.</p>
-        </div>
-        
-        <section class="card-pack-section" id="card-pack" aria-labelledby="card-pack-title">
-        <div class="card-pack-copy">
-          <p class="eyebrow">The Card Pack</p>
-          <h2 id="card-pack-title">Rip open the Wednesday pack.</h2>
-          <p>
-            Every Wednesday adds new cards to the collection. Pick an issue pack, get three random pulls, and yes, duplicates count. Late readers can start with Issue 1 and build the binder from the beginning.
-          </p>
-          <div class="card-pack-opener">
-            <img src="assets/trading-card-pack.webp" alt="A shiny pink foil trading card pack with cards peeking out" />
-            <div class="card-pack-controls">
-              <p class="pack-release">New packs released every Wednesday.</p>
-              <div class="card-pack-picker">
-                <label for="cardPackIssueSelect">Choose your pack</label>
-                <select id="cardPackIssueSelect">
-                  <option value="all">All released cards</option>
-                  <option value="issue01">Issue 01 pack</option>
-                </select>
-              </div>
-              <div class="card-pack-actions">
-                <button class="button primary" type="button" id="openCardPackButton" onclick="window.openCardPack && window.openCardPack()">Open a pack</button>
-                <button class="button secondary" type="button" id="resetCardPackButton">Reset</button>
-              </div>
-              <p class="pack-status" id="cardPackStatus" aria-live="polite">Open your first pack. Duplicates are part of the drama.</p>
-              <p class="pack-storage-note">Open a Clubhouse Pass to keep your card pulls saved across devices.</p>
-              <div class="pack-stats" aria-label="Card collection status">
-                <span><strong id="cardPackOwnedCount">0</strong> owned</span>
-                <span><strong id="cardPackMissingCount">10</strong> missing</span>
-              </div>
-            </div>
-          </div>
-          <div class="pack-reveal">
-            <p class="pack-release">Latest pulls</p>
-            <div class="card-pack-pulls" id="cardPackPulls" aria-live="polite" aria-label="Latest card pack pulls">
-              <p class="pack-empty">Nothing in the wrapper yet. Open a pack and see what you pulled.</p>
-            </div>
-          </div>
-        </div>
-        <div class="card-binder" aria-labelledby="card-binder-title">
-          <div class="binder-heading">
-            <p class="eyebrow">The Binder</p>
-            <h3 id="card-binder-title">Your plastic-sleeve collection page.</h3>
-            <p>Owned cards stay bright. Empty sleeves show what is still missing. Duplicates stack on the little pink count sticker.</p>
-          </div>
-          <div
-            class="card-pack-rail"
-            data-card-pack-rail
-            aria-label="Newsletter image trading cards stored in the binder"
-          >
-          <article class="episode-trading-card has-portrait-art" data-pack-card="issue01-open-the-tab" data-pack-issue="issue01" data-pack-title="Open the Tab Card">
-            <input class="card-flip-toggle" type="checkbox" id="card-flip-issue01-open-the-tab" aria-label="Flip Open the Tab Card" />
-            <label class="episode-card-inner" for="card-flip-issue01-open-the-tab">
-              <div class="episode-card-face episode-card-front">
-                <img src="assets/ugh-as-if.png" alt="A pink 90s desk scene about opening the AI tab anyway" />
-                <div>
-                  <span>Issue 01</span>
-                  <h3>Open the Tab Card</h3>
-                </div>
-              </div>
-              <div class="episode-card-face episode-card-back">
-                <span>Unlock</span>
-                <h3>Try one tiny AI move.</h3>
-                <p>Open the tool and ask it to help with one real work thing for ten minutes.</p>
-                <p class="card-reward">Collected when you stop waiting for the perfect on-ramp and start with the tab.</p>
-                <em>Tap to see front</em>
-              </div>
-            </label>
-          </article>
-          <article class="episode-trading-card has-portrait-art" data-pack-card="issue01-small-sips" data-pack-issue="issue01" data-pack-title="Small Sips Card">
-            <input class="card-flip-toggle" type="checkbox" id="card-flip-issue01-small-sips" aria-label="Flip Small Sips Card" />
-            <label class="episode-card-inner" for="card-flip-issue01-small-sips">
-              <div class="episode-card-face episode-card-front">
-                <img src="assets/9-to-5-chaos.png" alt="A pink 9 to 5 workday scene with notes, coffee, and AI practice energy" />
-                <div>
-                  <span>Issue 01</span>
-                  <h3>Small Sips Card</h3>
-                </div>
-              </div>
-              <div class="episode-card-face episode-card-back">
-                <span>Unlock</span>
-                <h3>Keep the first try tiny.</h3>
-                <p>Do one small AI experiment instead of turning learning into a second unpaid job.</p>
-                <p class="card-reward">Collected when ten useful minutes beat a fantasy weekend that never arrives.</p>
-                <em>Tap to see front</em>
-              </div>
-            </label>
-          </article>
-          <article class="episode-trading-card has-portrait-art" data-pack-card="issue01-cher-closet" data-pack-issue="issue01" data-pack-title="Cher Closet Card">
-            <input class="card-flip-toggle" type="checkbox" id="card-flip-issue01-cher-closet" aria-label="Flip Cher Closet Card" />
-            <label class="episode-card-inner" for="card-flip-issue01-cher-closet">
-              <div class="episode-card-face episode-card-front">
-                <img src="assets/lets-chat.png" alt="A stylish 90s inspired phone and desk scene with pop culture references" />
-                <div>
-                  <span>Issue 01</span>
-                  <h3>Cher Closet Card</h3>
-                </div>
-              </div>
-              <div class="episode-card-face episode-card-back">
-                <span>Unlock</span>
-                <h3>Make tech feel usable.</h3>
-                <p>Name one place where AI could work like Cher's closet computer: practical, visual, and actually helpful.</p>
-                <p class="card-reward">Collected when the technology stops feeling sterile and starts feeling like a tool you can dress properly.</p>
-                <em>Tap to see front</em>
-              </div>
-            </label>
-          </article>
-          <article class="episode-trading-card has-portrait-art" data-pack-card="issue01-judgment" data-pack-issue="issue01" data-pack-title="Judgment Card">
-            <input class="card-flip-toggle" type="checkbox" id="card-flip-issue01-judgment" aria-label="Flip Judgment Card" />
-            <label class="episode-card-inner" for="card-flip-issue01-judgment">
-              <div class="episode-card-face episode-card-front">
-                <img src="assets/send-it.png" alt="A pink corporate desk scene about deciding what is ready to send" />
-                <div>
-                  <span>Issue 01</span>
-                  <h3>Judgment Card</h3>
-                </div>
-              </div>
-              <div class="episode-card-face episode-card-back">
-                <span>Unlock</span>
-                <h3>Keep your standards.</h3>
-                <p>Use AI for a draft, then make one human judgment call before anything leaves your laptop.</p>
-                <p class="card-reward">Collected when the machine helps, but you still decide what is worth sending.</p>
-                <em>Tap to see front</em>
-              </div>
-            </label>
-          </article>
-          <article class="episode-trading-card has-portrait-art" data-pack-card="issue01-room" data-pack-issue="issue01" data-pack-title="Room Key Card">
-            <input class="card-flip-toggle" type="checkbox" id="card-flip-issue01-room" aria-label="Flip Room Key Card" />
-            <label class="episode-card-inner" for="card-flip-issue01-room">
-              <div class="episode-card-face episode-card-front">
-                <img src="assets/laidies-logo.png" alt="The lAIdies neon logo" />
-                <div>
-                  <span>Issue 01</span>
-                  <h3>Room Key Card</h3>
-                </div>
-              </div>
-              <div class="episode-card-face episode-card-back">
-                <span>Unlock</span>
-                <h3>Bring one question to the room.</h3>
-                <p>Share where you are starting, what you are trying, or what feels confusing.</p>
-                <p class="card-reward">Collected when learning stops being a solo spiral and starts becoming a group chat with receipts.</p>
-                <em>Tap to see front</em>
-              </div>
-            </label>
-          </article>
-          <article class="episode-trading-card" data-pack-card="specificity" data-pack-issue="issue02" data-pack-title="Specificity Card">
-            <input class="card-flip-toggle" type="checkbox" id="card-flip-specificity" aria-label="Flip Specificity Card" />
-            <label class="episode-card-inner" for="card-flip-specificity">
-              <div class="episode-card-face episode-card-front">
-                <img src="assets/trading-card-specificity.webp" alt="A neon pink trading card scene with a note that says Be Specific" />
-                <div>
-                  <span>Issue 02</span>
-                  <h3>Specificity Card</h3>
-                </div>
-              </div>
-              <div class="episode-card-face episode-card-back">
-                <span>Unlock</span>
-                <h3>Be David Rose about it.</h3>
-                <p>Turn one vague ask into the painfully specific version and share the before-and-after.</p>
-                <p class="card-reward">Collected when you make the work clearer instead of making the meeting longer.</p>
-                <em>Tap to see front</em>
-              </div>
-            </label>
-          </article>
-          <article class="episode-trading-card has-portrait-art" data-pack-card="girl-power" data-pack-issue="issue02" data-pack-title="Girl Power Prompt">
-            <input class="card-flip-toggle" type="checkbox" id="card-flip-girl-power" aria-label="Flip Girl Power Prompt" />
-            <label class="episode-card-inner" for="card-flip-girl-power">
-              <div class="episode-card-face episode-card-front">
-                <img src="assets/trading-card-girl-power.webp" alt="A bright Y2K trading card scene with two women improving a prompt together" />
-                <div>
-                  <span>Issue 02</span>
-                  <h3>Girl Power Prompt</h3>
-                </div>
-              </div>
-              <div class="episode-card-face episode-card-back">
-                <span>Unlock</span>
-                <h3>Fix one prompt in the room.</h3>
-                <p>Help another member add audience, context, constraints, or a good example.</p>
-                <p class="card-reward">Collected when the group chat gets more useful because you showed your work.</p>
-                <em>Tap to see front</em>
-              </div>
-            </label>
-          </article>
-          <article class="episode-trading-card has-portrait-art" data-pack-card="try-on" data-pack-issue="issue02" data-pack-title="Try-On Card">
-            <input class="card-flip-toggle" type="checkbox" id="card-flip-try-on" aria-label="Flip Try-On Card" />
-            <label class="episode-card-inner" for="card-flip-try-on">
-              <div class="episode-card-face episode-card-front">
-                <img src="assets/trading-card-try-on.webp" alt="A pastel board game trading card scene with a spinner, rings, and a Try It On note" />
-                <div>
-                  <span>Issue 02</span>
-                  <h3>Try-On Card</h3>
-                </div>
-              </div>
-              <div class="episode-card-face episode-card-back">
-                <span>Unlock</span>
-                <h3>Do the weekly try-on.</h3>
-                <p>Complete the prompt, revise once, and post what changed after the second pass.</p>
-                <p class="card-reward">Collected when you test the thing instead of saving the article forever.</p>
-                <em>Tap to see front</em>
-              </div>
-            </label>
-          </article>
-          <article class="episode-trading-card has-portrait-art" data-pack-card="rewrite-remix" data-pack-issue="issue02" data-pack-title="Rewrite Remix">
-            <input class="card-flip-toggle" type="checkbox" id="card-flip-rewrite-remix" aria-label="Flip Rewrite Remix" />
-            <label class="episode-card-inner" for="card-flip-rewrite-remix">
-              <div class="episode-card-face episode-card-front">
-                <img src="assets/trading-card-rewrite-remix.webp" alt="A glam Y2K trading card scene with a laptop, flip phone, and three rewrite cards" />
-                <div>
-                  <span>Issue 02</span>
-                  <h3>Rewrite Remix</h3>
-                </div>
-              </div>
-              <div class="episode-card-face episode-card-back">
-                <span>Unlock</span>
-                <h3>Rewrite the messy one.</h3>
-                <p>Use AI to make one draft direct, warmer, and executive-clean. Keep the version with judgment.</p>
-                <p class="card-reward">Collected when the first draft finds a stylist and a spine.</p>
-                <em>Tap to see front</em>
-              </div>
-            </label>
-          </article>
-          <article class="episode-trading-card has-portrait-art" data-pack-card="receipts" data-pack-issue="issue02" data-pack-title="Receipts Card">
-            <input class="card-flip-toggle" type="checkbox" id="card-flip-receipts" aria-label="Flip Receipts Card" />
-            <label class="episode-card-inner" for="card-flip-receipts">
-              <div class="episode-card-face episode-card-front">
-                <img src="assets/trading-card-receipts.webp" alt="A pink evidence desk trading card scene with a magnifying glass and receipts note" />
-                <div>
-                  <span>Issue 02</span>
-                  <h3>Receipts Card</h3>
-                </div>
-              </div>
-              <div class="episode-card-face episode-card-back">
-                <span>Unlock</span>
-                <h3>Ask for the source.</h3>
-                <p>Catch one AI answer that needs a citation, correction, date check, or better receipt.</p>
-                <p class="card-reward">Collected when you remember the machine can be wrong in a blazer.</p>
-                <em>Tap to see front</em>
-              </div>
-            </label>
-          </article>
-          </div>
-        </div>
+      <!-- INTRO -->
+      <section style="max-width: 800px; margin: 0 auto; padding: 40px 20px 0;">
+        <p class="eyebrow" style="color: var(--hot-pink); font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.8rem;">Your Member Card</p>
+        <h1 style="font-family: Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.4rem); margin: 8px 0 12px; color: var(--ink);">LAIDIES Card</h1>
+        <p style="color: var(--muted); line-height: 1.6; margin-bottom: 8px;">Your name, your work lane, your AI superpower. Fill it in, make it yours. See other members' cards and find your people.</p>
+        <p style="font-size: 0.9rem; color: var(--muted);">Start building now — no sign-up needed. Everything saves to this browser automatically. Want to keep it across devices? <a href="clubhouse-pass.html">Get a Clubhouse Pass</a> anytime.</p>
       </section>
-        
-        <p style="margin-top: 32px; text-align: center;">
-          <a class="button secondary" href="clubhouse.html">← Back to the full Clubhouse</a>
-        </p>
-      </section>
-    
-    <div style="text-align: center; padding: 32px 20px 48px;">
-      <a class="button secondary" href="index.html">← Back to Home</a>
-    </div>
-  </main>
 
-    <script src="content/site/site-data.js?v=issue-02-live-1" defer></script>
-    <script src="content/site/supabase-config.js?v=issue-02-live-1" defer></script>
-    <script src="script.js?v=issue-02-live-1" defer></script>
-    
+      <!-- CARD BUILDER -->
+      <section class="spotlight-intake" aria-labelledby="spotlight-form-title">
+        <div class="spotlight-form-card">
+          <p class="eyebrow">Build Your Card</p>
+          <h2 id="spotlight-form-title">A card people can actually use.</h2>
+          <p>
+            Fill out the useful details, upload a photo if you want one, choose a card mode, and watch the preview update. The point is not a perfect bio. The point is helping another lAIdy think, "Oh, she is working on the same kind of thing I am."
+          </p>
+          <form class="spotlight-form" id="spotlightForm">
+            <fieldset>
+              <legend>Who you are</legend>
+              <label>
+                Name as you want it shown
+                <input name="name" type="text" autocomplete="name" required />
+              </label>
+              <label>
+                Role, team, or short work description
+                <input name="role" type="text" required />
+              </label>
+              <label>
+                Location or time zone
+                <input name="location" type="text" placeholder="Seattle, London, EST, remote..." />
+              </label>
+              <label>
+                Photo for your profile, if you want one
+                <input name="photo" type="file" accept="image/*" />
+              </label>
+              <label>
+                No face photo? Pick your stand-in
+                <select name="avatarVibe">
+                  <option value="">I am using a photo or deciding later</option>
+                  <option>Favourite 90s/Y2K character</option>
+                  <option>Favourite singer, band, or actor</option>
+                  <option>Iconic object: flip phone, lip gloss, diary, mixtape</option>
+                  <option>Classic school-photo laser background</option>
+                  <option>Y2K desktop avatar energy</option>
+                </select>
+              </label>
+            </fieldset>
+
+            <fieldset>
+              <legend>Your AI journey</legend>
+              <label>
+                Pick your AI journey status
+                <select name="journey" required>
+                  <option value="">Pick the one that feels most accurate</option>
+                  <option>I have no idea what I am doing, but I am having fun.</option>
+                  <option>I am so lost, please send help.</option>
+                  <option>I have opened the tool twice and deserve credit.</option>
+                  <option>I am trying things when work gives me a reason.</option>
+                  <option>I cannot believe it took me so long to start. I am making real progress.</option>
+                  <option>I am building workflows and becoming pleasantly annoying about it.</option>
+                  <option>I have been doing this for a while, and I am here to help.</option>
+                </select>
+              </label>
+              <label>
+                Tools you are using or testing
+                <input name="tools" type="text" placeholder="ChatGPT, Claude, Gemini, Copilot, Midjourney..." />
+              </label>
+              <label>
+                What are you struggling with?
+                <textarea name="struggles" rows="3" required></textarea>
+              </label>
+              <label>
+                What are you hoping to learn next?
+                <textarea name="learn" rows="3" required></textarea>
+              </label>
+            </fieldset>
+
+            <fieldset>
+              <legend>You've Got Mail!</legend>
+              <p class="field-note">Direct chat is not live yet. If you want other members to reach you, LinkedIn is the cleanest hello for now.</p>
+              <label>
+                LinkedIn or public link for connection
+                <input name="link" type="url" placeholder="https://www.linkedin.com/in/your-name" />
+              </label>
+              <label>
+                Where can you offer help?
+                <select name="help">
+                  <option value="">Pick the help you can offer</option>
+                  <option>Prompting without sounding like a robot</option>
+                  <option>Turning messy ideas into a first draft</option>
+                  <option>Making work less beige</option>
+                  <option>Change management and buy-in</option>
+                  <option>Workflow building</option>
+                  <option>Data, analysis, or reporting</option>
+                  <option>Writing, editing, or comms</option>
+                  <option>Leadership, strategy, or stakeholder wrangling</option>
+                  <option>Tax, finance, legal, or compliance context</option>
+                  <option>Just moral support and good questions</option>
+                </select>
+              </label>
+              <label>
+                Other help you can offer
+                <input name="helpOther" type="text" placeholder="Say it your way..." />
+              </label>
+              <p class="field-note">The dropdown is the searchable category. This box is extra card copy, not a filter.</p>
+              <label>
+                What kind of support would be useful?
+                <select name="support">
+                  <option value="">Pick what would help</option>
+                  <option>Help me figure out where to start</option>
+                  <option>Give me practical examples</option>
+                  <option>Recommend tools that are not a whole personality</option>
+                  <option>Help me write better prompts</option>
+                  <option>Help me build a workflow</option>
+                  <option>Help me explain this to my team</option>
+                  <option>Help me make the business case</option>
+                  <option>Accountability so I actually try it</option>
+                  <option>Confidence and fewer beige training vibes</option>
+                  <option>I am mostly here to find my people</option>
+                </select>
+              </label>
+              <label>
+                Other support that would be useful
+                <input name="supportOther" type="text" placeholder="Say it your way..." />
+              </label>
+              <label>
+                Current lAIdies energy
+                <select name="energy">
+                  <option value="">Pick the energy that fits</option>
+                  <option>Dolly Energy</option>
+                  <option>Miranda Polish</option>
+                  <option>Elle Evidence</option>
+                  <option>Cher Closet Check</option>
+                  <option>Sophia Says</option>
+                  <option>David Specificity</option>
+                  <option>Buffy Courage</option>
+                  <option>Ask the Room</option>
+                </select>
+              </label>
+              <label class="checkbox-label">
+                <input name="openToConnect" type="checkbox" />
+                I am open to other members connecting with me through the LinkedIn or public link I choose to share.
+              </label>
+            </fieldset>
+
+            <fieldset>
+              <legend>Visibility, card mode, and feature consent</legend>
+              <label>
+                Profile visibility
+                <select name="visibility" required>
+                  <option value="directory">Share in the member directory</option>
+                  <option value="private">Keep private for the lAIdies team only</option>
+                  <option value="first-name">Share first name and journey only</option>
+                </select>
+              </label>
+              <label>
+                Pick the card mode to preview
+                <select name="y2kStyle" id="cardStyle">
+                  <option value="original">Original photo, simple card frame</option>
+                  <option value="laser">Classic school-photo laser backdrop</option>
+                  <option value="sparkle">Butterfly clips, soft sparkle, and mall-photo lighting</option>
+                  <option value="holo">Holographic trading-card foil</option>
+                  <option value="desk">Caboodles, flip phone, and glitter gel pen desk</option>
+                  <option value="closet">Clueless closet computer glow-up</option>
+                  <option value="press">Pop-star press photo, but make it corporate</option>
+                  <option value="laidy-surprise">LAIDY surprise me</option>
+                  <option value="claio-surprise">Mme CLAI-O chooses</option>
+                </select>
+              </label>
+              <p class="field-note">Pick a mode, check the preview, and change it until the card feels right. If you choose a surprise, LAIDY or Mme CLAI-O picks the vibe. Nothing should publish until the final card is approved.</p>
+              <label class="checkbox-label">
+                <input name="featureOptIn" id="featureOptIn" type="checkbox" />
+                I am open to being featured in a future lAIdies website, newsletter, LinkedIn, or Instagram spotlight.
+              </label>
+              <div class="feature-fields" id="featureFields" aria-hidden="true">
+                <label>
+                  What should we celebrate?
+                  <textarea name="proud" rows="3"></textarea>
+                </label>
+                <label>
+                  What are you excited about right now?
+                  <textarea name="excited" rows="3"></textarea>
+                </label>
+                <label>
+                  What would make this a great feature?
+                  <textarea name="featureAngle" rows="3" placeholder="A career pivot, a tool you tried, a lesson learned, a win worth naming..."></textarea>
+                </label>
+              </div>
+            </fieldset>
+
+            <label class="checkbox-label">
+              <input name="permission" type="checkbox" required />
+              I approve this profile information, selected card mode, and visibility choice. I understand the final generated card should come back for approval before anything is published.
+            </label>
+            <button class="button primary" type="submit">Approve this preview</button>
+          </form>
+        </div>
+
+        <aside class="spotlight-preview" aria-labelledby="spotlight-preview-title">
+          <p class="eyebrow">Draft Preview</p>
+          <h2 id="spotlight-preview-title">Trading card preview</h2>
+          <div class="member-trading-card card-laser profile-card-preview" id="memberCardPreview">
+            <div class="member-card-ribbon"><span>lAIdies Card</span><span>Draft</span></div>
+            <div class="spotlight-photo-preview" id="spotlightPhotoPreview">Photo, avatar, or laser backdrop preview</div>
+            <div class="member-card-body">
+              <p class="member-card-kicker" id="memberCardKicker">Member Era</p>
+              <h3 id="memberCardName">Your name</h3>
+              <p id="memberCardSummary">Fill out the form and preview your card.</p>
+              <div class="member-card-tags" id="memberCardTags"><span>AI journey</span><span>Tools</span><span>Help offered</span></div>
+              <div class="member-card-reward-case member-card-secret-badges" aria-label="Hidden badge slots">
+                <strong>Hidden merit badges</strong>
+                <p>Earned badges fill in. Dotted slots show what is still missing.</p>
+                <div class="secret-badge-grid secret-badge-grid--card" id="secretBadgeShelf" aria-live="polite"></div>
+                <strong>Quiz stickers</strong>
+                <p>Quiz stickers fill in as they are earned.</p>
+                <div class="secret-badge-grid secret-badge-grid--card" id="quizStickerShelf" aria-live="polite"></div>
+              </div>
+            </div>
+          </div>
+          <p class="selected-card-style" id="selectedCardStyleNote" aria-live="polite">Selected mode: original photo with simple card frame.</p>
+          <div class="spotlight-copy" id="spotlightCopy">
+            Fill out the form and pick a card mode. The preview updates before you approve, so you can choose the version you like.
+          </div>
+          <button class="button secondary" type="button" id="copySpotlightDraft">Copy draft</button>
+          <p class="form-status" id="spotlightStatus" aria-live="polite">
+            For now, this creates a draft preview. The launch version needs private submission, photo upload, generated image review, final approval, visibility controls, and feature consent.
+          </p>
+          <div class="card-approval-steps" aria-label="lAIdies Card approval steps">
+            <span class="is-active">1 Draft</span>
+            <span>2 Generate</span>
+            <span>3 Approve</span>
+            <span>4 Share</span>
+          </div>
+        </aside>
+      </section>
+
+      <!-- MEMBER DIRECTORY -->
+      <section class="member-directory-concept" aria-labelledby="directory-concept-title">
+        <div>
+          <p class="eyebrow">How It Works</p>
+          <h2 id="directory-concept-title">Find your people. Trade the receipts.</h2>
+          <p>
+            This is not a vanity directory. It should help you see who is here, where each lAIdy is in her AI journey, what she is testing, what she needs, and who has the shortcut before everyone quietly Googles the same thing alone. The wrapper can still be fun: 90s trading-card energy, school-photo lasers, and a preview you approve before anything goes live.
+          </p>
+        </div>
+        <div class="directory-steps" aria-label="Member directory steps">
+          <article>
+            <span>01</span>
+            <strong>Tell us the useful stuff</strong>
+            <p>Role, journey stage, tools, support needs, help offered, location or time zone, and LinkedIn if you want to share it.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <strong>Pick your visibility</strong>
+            <p>Public directory card, first name only, private for Ali/Savina, open to connect, or feature consideration.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <strong>Try the card looks</strong>
+            <p>Upload a photo or choose a no-face stand-in, then preview the card modes. LAIDY or Mme CLAI-O can choose if you want a surprise.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <strong>Approve the one you want</strong>
+            <p>The selected mode is saved with the profile. Before anything is published, the finished card comes back for final approval.</p>
+          </article>
+          <article>
+            <span>05</span>
+            <strong>Then it goes where you allowed</strong>
+            <p>Directory only, first-name version, private team view, or feature consideration. No mystery publishing. No midnight scramble.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- RETURN HOME -->
+      <div style="text-align: center; padding: 32px 20px 48px;">
+        <a class="button secondary" href="index.html">← Back to Home</a>
+      </div>
+    </main>
+
+    <script src="content/site/supabase-config.js" defer></script>
+    <script src="content/site/site-data.js" defer></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
