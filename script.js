@@ -2326,7 +2326,7 @@ function renderMemberPass(statusOverride = "") {
   memberPassDetail.textContent = pass.email
     ? `${pass.email} is ready for Clubhouse Pass sign-in. Open the pass to pin rewards to your member card.`
     : "Badges, stickers, card pulls, and quiz progress belong on your member card. Sign in so the good stuff follows you.";
-  memberPassNote.textContent = statusOverride || "Guest mode can preview progress, but Clubhouse Pass is the account home for rewards.";
+  memberPassNote.textContent = statusOverride || "Your progress is saved locally. Sign in to keep it across devices and unlock your full Clubhouse Pass.";
 }
 
 function submitNewsletterOptIn(email) {
@@ -4961,6 +4961,15 @@ subscribeForm?.addEventListener("submit", (event) => {
   if (subscribeStatus) {
     subscribeStatus.textContent = "Check your inbox to confirm. You can stay right here: no empty archive detour required.";
     subscribeStatus.classList.add("is-success");
+  }
+});
+
+const miniSubscribeForm = document.querySelector(".mini-subscribe-form");
+const miniSubscribeStatus = document.querySelector("#miniSubscribeStatus");
+miniSubscribeForm?.addEventListener("submit", () => {
+  if (miniSubscribeStatus) {
+    miniSubscribeStatus.textContent = "You\u2019re in! Check your inbox \u2713";
+    miniSubscribeStatus.classList.add("is-success");
   }
 });
 

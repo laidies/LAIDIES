@@ -156,16 +156,17 @@
       .dream-secret-badge em { font-size: 0.82rem; color: var(--muted); }
       .microcopy { font-size: 0.82rem; color: var(--muted); margin-top: 8px; }
     </style>
-  </head>
+    <script defer data-domain="wearelaidies.com" src="https://plausible.io/js/script.js"></script>
+</head>
   <body>
     <header class="site-header">
       <a class="brand" href="../index.html" aria-label="lAIdies home">
         <img src="../assets/laidies-logo-wordmark.png" alt="" />
       </a>
       <nav class="nav" aria-label="Primary navigation">
-        <a href="../index.html#episodes">Episodes</a>
-        <a href="../index.html#fun-games">Clubhouse</a>
-        <a href="../index.html#member-passport">Community</a>
+        <a href="../episodes.html">Episodes</a>
+        <a href="../clubhouse.html">Clubhouse</a>
+        <a href="../clubhouse.html#member-passport">Community</a>
         <a href="../index.html#signup">Subscribe</a>
       </nav>
     </header>
@@ -173,7 +174,7 @@
     <main>
       <div class="game-page-wrap">
         <div class="game-page-header">
-          <a href="../index.html#fun-games">&larr; Back to Clubhouse</a>
+          <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
         </div>
         <div class="game-page-title">
           <p class="eyebrow">Clubhouse Game</p>
@@ -305,7 +306,7 @@
       dialButton?.addEventListener("click", () => {
         const dialed = normalizeDreamPhoneNumber(phoneNumber?.value);
         const badge = dreamPhoneSecretBadges[parseInt(dialed)];
-        if (badge) { output.textContent = badge.baseMessage; if (secretBadge) secretBadge.hidden = false; try { const b = JSON.parse(localStorage.getItem("laidies-secret-badges")||"{}"); if (!b[badge.id]) { b[badge.id]={id:badge.id,title:badge.title,unlockedAt:new Date().toISOString()}; localStorage.setItem("laidies-secret-badges",JSON.stringify(b)); } } catch(e){} return; }
+        if (badge) { output.textContent = badge.baseMessage; if (secretBadge) secretBadge.hidden = false; try { const b = JSON.parse(localStorage.getItem("laidiesSecretBadges")||"{}"); if (!b[badge.id]) { b[badge.id]={id:badge.id,title:badge.title,unlockedAt:new Date().toISOString()}; localStorage.setItem("laidiesSecretBadges",JSON.stringify(b)); } } catch(e){} return; }
         const pick = dreamPhoneNumbers[dialed];
         if (!dialed) { output.textContent = "Dial the number on a caller card. The phone is cute, but it is not psychic."; return; }
         if (!pick) { output.textContent = "Busy signal. That number is not in this Dream Phone deck."; return; }

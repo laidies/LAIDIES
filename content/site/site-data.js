@@ -14,34 +14,34 @@ window.LAIDIES_SITE_DATA = {
       "siteLinks": [
         {
           "label": "Take the Issue 1 quiz",
-          "url": "index.html#quiz",
+          "url": "learn.html#quiz",
           "type": "quiz"
         },
         {
           "label": "Open the Issue 1 card pack",
-          "url": "index.html#card-pack",
+          "url": "clubhouse.html#card-pack",
           "type": "cardPack"
         },
         {
           "label": "Enter the chat room",
-          "url": "index.html#community-board",
+          "url": "community.html",
           "type": "community"
         },
         {
           "label": "Review the starter glossary",
-          "url": "index.html#glossary",
+          "url": "learn.html#glossary",
           "type": "glossary"
         },
         {
           "label": "Play the Fun & Games shelf",
-          "url": "index.html#fun-games",
+          "url": "clubhouse.html",
           "type": "other"
         }
       ],
       "websiteModules": {
         "quiz": "issue01",
         "cardPack": "issue01",
-        "communityThread": "index.html#community-board",
+        "communityThread": "community.html",
         "glossaryTerms": [
           "Generative AI",
           "Model",
@@ -73,12 +73,12 @@ window.LAIDIES_SITE_DATA = {
       "siteLinks": [
         {
           "label": "Take the Issue 2 quiz",
-          "url": "index.html#quiz",
+          "url": "learn.html#quiz",
           "type": "quiz"
         },
         {
           "label": "Open the Issue 2 card pack",
-          "url": "index.html#card-pack",
+          "url": "clubhouse.html#card-pack",
           "type": "cardPack"
         },
         {
@@ -88,12 +88,12 @@ window.LAIDIES_SITE_DATA = {
         },
         {
           "label": "Review the glossary",
-          "url": "index.html#glossary",
+          "url": "learn.html#glossary",
           "type": "glossary"
         },
         {
           "label": "Read this week's Hot Goss",
-          "url": "index.html#hot-goss",
+          "url": "this-week.html#hot-goss",
           "type": "hotGoss"
         }
       ],

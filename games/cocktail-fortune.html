@@ -73,16 +73,17 @@
       .badge-reveal.is-visible { display: block; }
       .badge-reveal strong { color: var(--hot-pink); }
     </style>
-  </head>
+    <script defer data-domain="wearelaidies.com" src="https://plausible.io/js/script.js"></script>
+</head>
   <body>
     <header class="site-header">
       <a class="brand" href="../index.html" aria-label="lAIdies home">
         <img src="../assets/laidies-logo-wordmark.png" alt="" />
       </a>
       <nav class="nav" aria-label="Primary navigation">
-        <a href="../index.html#episodes">Episodes</a>
-        <a href="../index.html#fun-games">Clubhouse</a>
-        <a href="../index.html#member-passport">Community</a>
+        <a href="../episodes.html">Episodes</a>
+        <a href="../clubhouse.html">Clubhouse</a>
+        <a href="../clubhouse.html#member-passport">Community</a>
         <a href="../index.html#signup">Subscribe</a>
       </nav>
     </header>
@@ -90,7 +91,7 @@
     <main>
       <div class="game-page-wrap">
         <div class="game-page-header">
-          <a href="../index.html#fun-games">&larr; Back to Clubhouse</a>
+          <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
         </div>
         <div class="game-page-title">
           <p class="eyebrow">Clubhouse Game</p>
@@ -242,7 +243,7 @@
           if (lanesUsed.size >= BADGE_THRESHOLD && orderCount >= 4) {
             badgeEl.classList.add("is-visible");
             try {
-              const badges = JSON.parse(localStorage.getItem("laidies-secret-badges") || "{}");
+              const badges = JSON.parse(localStorage.getItem("laidiesSecretBadges") || "{}");
               if (!badges["coven-reservation"]) {
                 badges["coven-reservation"] = {
                   id: "coven-reservation",
@@ -251,7 +252,7 @@
                   unlockedAt: new Date().toISOString(),
                   source: "Businesswomen's Special",
                 };
-                localStorage.setItem("laidies-secret-badges", JSON.stringify(badges));
+                localStorage.setItem("laidiesSecretBadges", JSON.stringify(badges));
               }
             } catch(e) {}
           }

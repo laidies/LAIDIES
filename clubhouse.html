@@ -19,7 +19,41 @@
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="apple-touch-icon" href="assets/laidies-logo-square.png" />
     <link rel="stylesheet" href="styles.css?v=issue-02-live-1" />
-  </head>
+    <style>
+      .clubhouse-menu { padding: clamp(24px, 4vw, 48px) clamp(18px, 5vw, 64px); }
+      .clubhouse-menu h2 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.6rem, 3.2vw, 2.4rem); margin-bottom: 6px; }
+      .clubhouse-menu > p { color: #65515d; font-size: 0.9rem; margin-bottom: 20px; }
+      .clubhouse-menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 14px;
+      }
+      .menu-card {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding: 16px 18px;
+        border: 2px solid #100805;
+        border-radius: 8px;
+        box-shadow: 4px 4px 0 #100805;
+        text-decoration: none;
+        color: #100805;
+        background: #fff;
+        transition: transform 150ms ease, box-shadow 150ms ease;
+      }
+      .menu-card:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0 #100805;
+      }
+      .menu-card strong { font-size: 1rem; }
+      .menu-card span { font-size: 0.82rem; color: #65515d; line-height: 1.4; }
+      .menu-card em { font-size: 0.72rem; color: #247b83; font-style: normal; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 4px; }
+      @media (max-width: 560px) {
+        .clubhouse-menu-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+    <script defer data-domain="wearelaidies.com" src="https://plausible.io/js/script.js"></script>
+</head>
   <body>
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="lAIdies home">
@@ -41,7 +75,44 @@
         <p>Games, card packs, advice from LAIDY, and the fun that also teaches you something. This is where you come when the spreadsheet can wait five minutes.</p>
       </section>
 
-      <section class="fun-games" id="fun-games" aria-labelledby="games-title">
+      <section class="clubhouse-menu" aria-labelledby="clubhouse-menu-title">
+        <h2 id="clubhouse-menu-title">Pick your adventure.</h2>
+        <p>Everything here is five minutes or less. Unless you get competitive about it.</p>
+        <div class="clubhouse-menu-grid">
+          <a href="#fun-games" class="menu-card">
+            <strong>🎲 Games</strong>
+            <span>Dream Phone career advice, Madame CLAI-O fortunes, Girl Talk prompts, and Cocktail Fortune.</span>
+            <em>Play something → 5 min</em>
+          </a>
+          <a href="#member-passport" class="menu-card">
+            <strong>💳 Your Clubhouse Pass</strong>
+            <span>Build your member card. Track badges, quiz stickers, and card pulls.</span>
+            <em>Set up → 3 min</em>
+          </a>
+          <a href="#card-pack" class="menu-card">
+            <strong>🃏 Trading Cards</strong>
+            <span>Flip, collect, and pin cards from each episode. New pack every Wednesday.</span>
+            <em>Open a pack → 2 min</em>
+          </a>
+          <a href="#cocktailWheel" class="menu-card">
+            <strong>🍸 Businesswomen's Special</strong>
+            <span>Spin the wheel. Get a cocktail recipe matched to your current energy.</span>
+            <em>Spin → 30 sec</em>
+          </a>
+          <a href="#madame-claio" class="menu-card">
+            <strong>🔮 Madame CLAI-O</strong>
+            <span>AI-powered career fortune readings. Practical advice, late-night-commercial drama.</span>
+            <em>Get a reading → 1 min</em>
+          </a>
+          <a href="#dreamPhoneToggle" class="menu-card">
+            <strong>📞 Dream Phone</strong>
+            <span>Dial a number, pick a caller, get career and AI advice from the other end.</span>
+            <em>Make a call → 3 min</em>
+          </a>
+        </div>
+      </section>
+
+            <section class="fun-games" id="fun-games" aria-labelledby="games-title">
         <div class="section-heading">
           <p class="eyebrow">Fun & Games</p>
           <h2 id="games-title">Useful practice disguised as a 2001 sleepover with office supplies.</h2>
@@ -84,16 +155,16 @@
                 <img data-clubhouse-image="open" src="assets/clubhouse-compact-open-v4.png" alt="Open pink LAIDIES Clubhouse compact with Weekly Fun Packs, Weekly Jams, DJ booth, Dream Phone, Girl Talk, Madame CLAI-O, and other miniature room fixtures" hidden />
                 <div class="clubhouse-hotspot-layer" aria-label="Clubhouse compact clickable areas">
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="weekly-fun-pack" data-clubhouse-target="#issue-fun-packs" aria-label="Open Weekly Fun Pack"></button>
-                  <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="weekly-jams" data-open-game-panel="playlist" aria-label="Weekly Jams"></button>
+                  <a href="this-week.html#playlist" class="clubhouse-hotspot"  data-clubhouse-zone="weekly-jams" data-open-game-panel="playlist" aria-label="Weekly Jams"></a>
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="fun-pack-1-6" data-clubhouse-target="#issue-fun-packs" aria-label="Show Fun Packs 1 through 6"></button>
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="fun-pack-7-12" data-clubhouse-target="#issue-fun-packs" aria-label="Show Fun Packs 7 through 12"></button>
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="fun-pack-13-18" data-clubhouse-target="#issue-fun-packs" aria-label="Show Fun Packs 13 through 18"></button>
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="fun-pack-19-24" data-clubhouse-target="#issue-fun-packs" aria-label="Show Fun Packs 19 through 24"></button>
-                  <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="mix-cds" data-open-game-panel="playlist" aria-label="Mix CDs"></button>
+                  <a href="this-week.html#playlist" class="clubhouse-hotspot"  data-clubhouse-zone="mix-cds" data-open-game-panel="playlist" aria-label="Mix CDs"></a>
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="psychic" data-clubhouse-target=".psychic-game" aria-label="Call Psychic Hotline"></button>
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="dream-phone" data-clubhouse-target=".dream-phone-game" data-clubhouse-action="dream-phone" aria-label="Call Dream Phone"></button>
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="girl-talk" data-clubhouse-target=".girl-talk-game" aria-label="Open Girl Talk"></button>
-                  <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="try-on" data-open-game-panel="playbook" aria-label="5 minute Try-On"></button>
+                  <a href="this-week.html#playbook" class="clubhouse-hotspot"  data-clubhouse-zone="try-on" data-open-game-panel="playbook" aria-label="5 minute Try-On"></a>
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="business" data-clubhouse-target=".cocktail-wheel-game" aria-label="Businesswomen's Special"></button>
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="fairy" data-open-game-panel="laidy" aria-label="Ask fAIry Godmother"></button>
                 </div>
@@ -103,10 +174,10 @@
                 <div class="clubhouse-sticker-sheet">
                   <img src="assets/clubhouse-sticker-grid-v1.png" alt="" />
                   <button class="clubhouse-sticker-button" type="button" data-clubhouse-sticker="weekly-fun-pack" data-clubhouse-target="#issue-fun-packs">Open Weekly Fun Pack</button>
-                  <button class="clubhouse-sticker-button" type="button" data-clubhouse-sticker="weekly-jams" data-open-game-panel="playlist">Weekly Jams</button>
-                  <button class="clubhouse-sticker-button" type="button" data-clubhouse-sticker="mix-cds" data-open-game-panel="playlist">Mix CDs</button>
+                  <a href="this-week.html#playlist" class="clubhouse-sticker-button"  data-clubhouse-sticker="weekly-jams" data-open-game-panel="playlist">Weekly Jams</a>
+                  <a href="this-week.html#playlist" class="clubhouse-sticker-button"  data-clubhouse-sticker="mix-cds" data-open-game-panel="playlist">Mix CDs</a>
                   <button class="clubhouse-sticker-button" type="button" data-clubhouse-sticker="girl-talk" data-clubhouse-target=".girl-talk-game">Open Girl Talk</button>
-                  <button class="clubhouse-sticker-button" type="button" data-clubhouse-sticker="try-on" data-open-game-panel="playbook">5min Try-On</button>
+                  <a href="this-week.html#playbook" class="clubhouse-sticker-button"  data-clubhouse-sticker="try-on" data-open-game-panel="playbook">5min Try-On</a>
                   <button class="clubhouse-sticker-button" type="button" data-clubhouse-sticker="business" data-clubhouse-target=".cocktail-wheel-game">Businesswomen's Special</button>
                   <button class="clubhouse-sticker-button" type="button" data-clubhouse-sticker="dream-phone" data-clubhouse-target=".dream-phone-game" data-clubhouse-action="dream-phone">Call Dream Phone</button>
                   <button class="clubhouse-sticker-button" type="button" data-clubhouse-sticker="psychic" data-clubhouse-target=".psychic-game">Call Psychic Hotline</button>
@@ -262,7 +333,7 @@
                 <em>small sips, big moves.</em>
               </div>
             </div>
-            <a class="button secondary" href="#challenge" data-open-game-panel="challenge">Generate one</a>
+            <a class="button secondary" href="this-week.html#challenge" data-open-game-panel="challenge">Generate one</a>
           </article>
           <article class="game-card is-live try-on-game clubhouse-revealable" data-clubhouse-layer="bottom">
             <span>Live</span>
@@ -271,7 +342,7 @@
             <div class="try-on-visual" aria-hidden="true">
               <img src="assets/five-minute-try-on-game.webp" alt="" />
             </div>
-            <a class="button secondary" href="#playbook" data-open-game-panel="playbook">Spin the board</a>
+            <a class="button secondary" href="this-week.html#playbook" data-open-game-panel="playbook">Spin the board</a>
           </article>
           <article class="game-card is-live cocktail-wheel-game clubhouse-revealable" data-clubhouse-layer="bottom">
             <span>Live</span>
@@ -364,7 +435,7 @@
                 <em>10 questions + 2 bonus. One sticker. No Scantron.</em>
               </div>
             </div>
-            <a class="button secondary" href="#quiz" data-open-game-panel="quiz">Take the quiz</a>
+            <a class="button secondary" href="learn.html#quiz" data-open-game-panel="quiz">Take the quiz</a>
           </article>
           <article class="game-card is-live issue-try-on-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue01" data-fun-pack-kind="try-on" data-clubhouse-layer="top">
             <span>Pack Activity</span>
@@ -487,7 +558,7 @@
                 <em>10 questions + 2 bonus. Specificity gets the sticker.</em>
               </div>
             </div>
-            <a class="button secondary" href="#quiz" data-open-game-panel="quiz" data-quiz-open="issue02">Take Issue 2 quiz</a>
+            <a class="button secondary" href="learn.html#quiz" data-open-game-panel="quiz" data-quiz-open="issue02">Take Issue 2 quiz</a>
           </article>
           <article class="game-card is-live issue-try-on-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue02" data-fun-pack-kind="try-on" data-clubhouse-layer="top">
             <span>Pack Activity</span>
@@ -538,7 +609,7 @@
             <div class="house-dj-game-visual" aria-hidden="true">
               <img src="assets/house-dj-mixdesk.png" alt="" />
             </div>
-            <a class="button secondary" href="#playlist" data-open-game-panel="playlist">Open the booth</a>
+            <a class="button secondary" href="this-week.html#playlist" data-open-game-panel="playlist">Open the booth</a>
           </article>
           <article class="game-card is-live girl-talk-game clubhouse-revealable" data-clubhouse-layer="bottom">
             <span>Live</span>

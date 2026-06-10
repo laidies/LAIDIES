@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Clubhouse | lAIdies</title>
+    <meta
+      name="description"
+      content="lAIdies is a Wednesday newsletter and community for women building practical AI fluency without pretending they have spare time."
+    />
+    <meta property="og:title" content="lAIdies | Girl power meets machine power" />
+    <meta property="og:description" content="AI fluency for women with full calendars, high standards, and no patience for beige tech explanations." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://wearelaidies.com/" />
+    <meta property="og:image" content="https://wearelaidies.com/assets/laidies-logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#ff2d9b" />
+    <link rel="icon" type="image/png" href="assets/laidies-logo-square.png" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="assets/laidies-logo-square.png" />
+    <link rel="stylesheet" href="styles.css?v=issue-02-live-1" />
+    <style>
+      .clubhouse-menu { padding: clamp(24px, 4vw, 48px) clamp(18px, 5vw, 64px); }
+      .clubhouse-menu h2 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.6rem, 3.2vw, 2.4rem); margin-bottom: 6px; }
+      .clubhouse-menu > p { color: #65515d; font-size: 0.9rem; margin-bottom: 20px; }
+      .clubhouse-menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 14px;
+      }
+      .menu-card {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding: 16px 18px;
+        border: 2px solid #100805;
+        border-radius: 8px;
+        box-shadow: 4px 4px 0 #100805;
+        text-decoration: none;
+        color: #100805;
+        background: #fff;
+        transition: transform 150ms ease, box-shadow 150ms ease;
+      }
+      .menu-card:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0 #100805;
+      }
+      .menu-card strong { font-size: 1rem; }
+      .menu-card span { font-size: 0.82rem; color: #65515d; line-height: 1.4; }
+      .menu-card em { font-size: 0.72rem; color: #247b83; font-style: normal; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 4px; }
+      @media (max-width: 560px) {
+        .clubhouse-menu-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="lAIdies home">
+        <img src="assets/laidies-logo-wordmark.png" alt="" />
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="episodes.html">Episodes</a>
+        <a href="learn.html">Learn</a>
+        <a href="clubhouse.html">Clubhouse</a>
+        <a href="community.html">Community</a>
+        <a href="this-week.html">This Week</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="page-intro" aria-labelledby="page-title">
+        <p class="eyebrow">The Clubhouse</p>
+        <h1 id="page-title">The break room for women who need a useful detour.</h1>
+        <p>Games, card packs, advice from LAIDY, and the fun that also teaches you something. This is where you come when the spreadsheet can wait five minutes.</p>
+      </section>
+
+      <section class="clubhouse-menu" aria-labelledby="clubhouse-menu-title">
+        <h2 id="clubhouse-menu-title">Pick your adventure.</h2>
+        <p>Everything here is five minutes or less. Unless you get competitive about it.</p>
+        <div class="clubhouse-menu-grid">
+          <a href="#fun-games" class="menu-card">
+            <strong>🎲 Games</strong>
+            <span>Dream Phone career advice, Madame CLAI-O fortunes, Girl Talk prompts, and Cocktail Fortune.</span>
+            <em>Play something → 5 min</em>
+          </a>
+          <a href="#member-passport" class="menu-card">
+            <strong>💳 Your Clubhouse Pass</strong>
+            <span>Build your member card. Track badges, quiz stickers, and card pulls.</span>
+            <em>Set up → 3 min</em>
+          </a>
+          <a href="#card-pack" class="menu-card">
+            <strong>🃏 Trading Cards</strong>
+            <span>Flip, collect, and pin cards from each episode. New pack every Wednesday.</span>
+            <em>Open a pack → 2 min</em>
+          </a>
+          <a href="#cocktailWheel" class="menu-card">
+            <strong>🍸 Businesswomen's Special</strong>
+            <span>Spin the wheel. Get a cocktail recipe matched to your current energy.</span>
+            <em>Spin → 30 sec</em>
+          </a>
+          <a href="#madame-claio" class="menu-card">
+            <strong>🔮 Madame CLAI-O</strong>
+            <span>AI-powered career fortune readings. Practical advice, late-night-commercial drama.</span>
+            <em>Get a reading → 1 min</em>
+          </a>
+          <a href="#dreamPhoneToggle" class="menu-card">
+            <strong>📞 Dream Phone</strong>
+            <span>Dial a number, pick a caller, get career and AI advice from the other end.</span>
+            <em>Make a call → 3 min</em>
+          </a>
+        </div>
+      </section>
