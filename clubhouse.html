@@ -1363,5 +1363,167 @@ document.addEventListener('play', function(e) {
   }
 }, true);
 </script>
+
+<!-- Fixed Mini Player -->
+<div id="miniPlayer" class="mini-player" hidden>
+  <div class="mini-player-inner">
+    <button type="button" class="mini-player-btn" id="miniPlayerPrev" aria-label="Previous track">⏮</button>
+    <button type="button" class="mini-player-btn mini-player-play" id="miniPlayerPlay" aria-label="Play/Pause">⏸</button>
+    <button type="button" class="mini-player-btn" id="miniPlayerNext" aria-label="Next track">⏭</button>
+    <span class="mini-player-title" id="miniPlayerTitle">Now playing</span>
+    <button type="button" class="mini-player-close" id="miniPlayerClose" aria-label="Close player">✕</button>
+  </div>
+</div>
+<style>
+.mini-player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: linear-gradient(135deg, #1a0a12 0%, #2d0f1f 100%);
+  border-top: 2px solid rgba(255, 45, 155, 0.5);
+  padding: 10px 20px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+  animation: miniPlayerSlideUp 0.3s ease-out;
+}
+@keyframes miniPlayerSlideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+.mini-player-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.mini-player-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.mini-player-btn:hover {
+  background: rgba(255, 45, 155, 0.2);
+}
+.mini-player-play {
+  background: rgba(255, 45, 155, 0.3);
+  font-size: 1.3rem;
+  width: 42px;
+  height: 42px;
+}
+.mini-player-title {
+  flex: 1;
+  color: rgba(255, 248, 252, 0.9);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mini-player-close {
+  background: none;
+  border: none;
+  color: rgba(255, 248, 252, 0.5);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 6px;
+}
+.mini-player-close:hover {
+  color: #fff;
+}
+</style>
+<script>
+(() => {
+  const player = document.getElementById('miniPlayer');
+  const playBtn = document.getElementById('miniPlayerPlay');
+  const prevBtn = document.getElementById('miniPlayerPrev');
+  const nextBtn = document.getElementById('miniPlayerNext');
+  const closeBtn = document.getElementById('miniPlayerClose');
+  const titleEl = document.getElementById('miniPlayerTitle');
+  
+  const allAudio = Array.from(document.querySelectorAll('audio'));
+  let currentIndex = -1;
+  let activeAudio = null;
+
+  // Track names from nearby labels
+  function getTrackName(audio) {
+    const parent = audio.closest('div');
+    const label = parent?.querySelector('div[style*="font-weight: 600"]');
+    if (label) return label.textContent;
+    const strong = parent?.closest('article, section, div')?.querySelector('strong');
+    if (strong) return strong.textContent;
+    const src = audio.src || '';
+    const filename = src.split('/').pop().replace(/\.mp3.*/, '').replace(/-/g, ' ');
+    return filename || 'Now playing';
+  }
+
+  // Show mini player when any audio plays
+  document.addEventListener('play', (e) => {
+    if (e.target.tagName !== 'AUDIO') return;
+    activeAudio = e.target;
+    currentIndex = allAudio.indexOf(activeAudio);
+    player.hidden = false;
+    playBtn.textContent = '⏸';
+    titleEl.textContent = getTrackName(activeAudio);
+  }, true);
+
+  document.addEventListener('pause', (e) => {
+    if (e.target.tagName !== 'AUDIO') return;
+    if (e.target === activeAudio) {
+      playBtn.textContent = '▶';
+    }
+  }, true);
+
+  document.addEventListener('ended', (e) => {
+    if (e.target.tagName !== 'AUDIO') return;
+    if (e.target === activeAudio) {
+      playBtn.textContent = '▶';
+    }
+  }, true);
+
+  playBtn?.addEventListener('click', () => {
+    if (!activeAudio) return;
+    if (activeAudio.paused) {
+      activeAudio.play();
+    } else {
+      activeAudio.pause();
+    }
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    if (allAudio.length === 0) return;
+    if (activeAudio) activeAudio.pause();
+    currentIndex = (currentIndex + 1) % allAudio.length;
+    activeAudio = allAudio[currentIndex];
+    activeAudio.play();
+  });
+
+  prevBtn?.addEventListener('click', () => {
+    if (allAudio.length === 0) return;
+    if (activeAudio) activeAudio.pause();
+    currentIndex = (currentIndex - 1 + allAudio.length) % allAudio.length;
+    activeAudio = allAudio[currentIndex];
+    activeAudio.play();
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    if (activeAudio) activeAudio.pause();
+    player.hidden = true;
+    activeAudio = null;
+  });
+})();
+</script>
+
 </body>
 </html>
