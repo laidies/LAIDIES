@@ -310,3 +310,51 @@
 .episode-quick-links .button {
   font-size: 0.82rem;
 }
+
+
+/* ═══════════════════════════════════════════
+   BUTTON ENHANCEMENTS — Soft Pulse + Archive Links
+   ═══════════════════════════════════════════ */
+
+/* All primary buttons get the soft alive pulse */
+.button.primary {
+  animation: aliveCtaPulse 3.4s ease-in-out infinite;
+}
+
+/* Episode archive link buttons — smaller, softer, muted pink */
+.button.episode-archive-link {
+  font-size: 0.78rem;
+  padding: 8px 16px;
+  min-height: 36px;
+  background: rgba(255, 45, 155, 0.12);
+  color: #3a0928;
+  border-color: rgba(255, 45, 155, 0.3);
+  animation: softPinkPulse 5.4s ease-in-out infinite;
+  border-radius: 999px;
+}
+.button.episode-archive-link:hover {
+  background: rgba(255, 45, 155, 0.22);
+  border-color: rgba(255, 45, 155, 0.5);
+}
+
+/* All secondary buttons get a subtle version of the glow */
+.button.secondary {
+  animation: aliveCtaPulse 4.8s ease-in-out infinite;
+}
+
+/* Game cards and fun-shelf cards get the alive pulse on their links */
+.fun-shelf-card,
+.game-card.is-live {
+  animation: softPinkPulse 6s ease-in-out infinite;
+}
+
+/* Reduce animation for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .button.primary,
+  .button.secondary,
+  .button.episode-archive-link,
+  .fun-shelf-card,
+  .game-card.is-live {
+    animation: none;
+  }
+}
