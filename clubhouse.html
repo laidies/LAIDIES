@@ -51,6 +51,62 @@
       @media (max-width: 560px) {
         .clubhouse-menu-grid { grid-template-columns: 1fr; }
       }
+    
+      /* === GAME PANEL PREMIUM STYLING === */
+      .game-panel-styled {
+        background: linear-gradient(160deg, #1a0a12 0%, #2d0f1f 100%) !important;
+        border: 2px solid rgba(255, 45, 155, 0.4) !important;
+        border-radius: 16px !important;
+        padding: 28px !important;
+        margin-bottom: 24px !important;
+        color: #fff !important;
+        box-shadow: 0 4px 20px rgba(255, 45, 155, 0.1);
+        overflow: hidden;
+      }
+      .game-panel-styled h3 {
+        color: #fff !important;
+        text-shadow: 0 0 12px rgba(255, 45, 155, 0.3);
+      }
+      .game-panel-styled p,
+      .game-panel-styled span,
+      .game-panel-styled em {
+        color: rgba(255, 248, 252, 0.8) !important;
+      }
+      .game-panel-styled .eyebrow {
+        color: var(--hot-pink) !important;
+      }
+      .game-panel-styled a {
+        color: #fff !important;
+      }
+      .game-panel-styled .button {
+        border-color: rgba(255, 255, 255, 0.5) !important;
+      }
+      .game-panel-styled .button.primary {
+        background: var(--hot-pink) !important;
+        border-color: var(--hot-pink) !important;
+      }
+      .game-panel-styled .game-hero-img {
+        max-height: 200px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 16px;
+        display: block;
+      }
+      /* Nav card images bigger */
+      .nav-card img {
+        width: 100px !important;
+        height: 100px !important;
+        min-width: 100px !important;
+        object-fit: cover;
+      }
+      @media (min-width: 768px) {
+        .nav-card img {
+          width: 120px !important;
+          height: 120px !important;
+          min-width: 120px !important;
+        }
+      }
     </style>
     <script defer data-domain="wearelaidies.com" src="https://plausible.io/js/script.js"></script>
 </head>
@@ -264,35 +320,15 @@
       </section>
 
             <section class="fun-games" id="fun-games" aria-labelledby="games-title">
-        <div class="section-heading">
-          <p class="eyebrow">Fun & Games</p>
-          <h2 id="games-title">Useful practice disguised as a 2001 sleepover with office supplies.</h2>
-          <p>
-            Start in the Clubhouse when you want always-on tools, open the week's fun pack for article-specific practice, and end in the DJ Booth when the work needs a soundtrack.
-          </p>
-        </div>
+        
         <div class="games-grid is-issue-pack-open is-clubhouse-gated" id="gamesGrid">
-          <div class="games-group-heading games-group-heading--issue clubhouse-revealable" id="issue-fun-packs" data-clubhouse-layer="top">
-            <p class="eyebrow">Weekly Kits</p>
-            <h3>Issue Fun Packs</h3>
-            <p>Choose a released pack and the tray below loads that issue's quiz, cards, try-on, printables, and article takeaways. Late readers can start at Issue 1 without hunting.</p>
-          </div>
-          <div class="games-group-heading games-group-heading--permanent" id="clubhouse">
-            <p class="eyebrow">Always Open</p>
-            <h3><span class="wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Clubhouse</h3>
-            <p>The always-open room: AI can help you learn, make useful work rituals, and build playful tools that still have a job. Your Clubhouse Pass, advice fixtures, games, music, and weekly packs all connect back to practice.</p>
-          </div>
           
-          <div style="text-align: center; padding: 20px; margin: 16px 0; border: 1px dashed rgba(255,45,155,0.3); border-radius: 12px;">
-            <p style="margin: 0 0 8px; font-weight: 700;">Looking for your Clubhouse Pass?</p>
-            <a class="button primary" href="clubhouse-pass.html">Go to Clubhouse Pass →</a>
-          </div>
-          <div class="games-group-heading games-group-heading--dj clubhouse-revealable" data-clubhouse-layer="bottom top">
-            <p class="eyebrow">After Hours</p>
-            <h3>DJ Booth</h3>
-            <p>The permanent playlists and DJ JAIDY's weekly custom AI tracks live together here, separate from the article pack so the music always has a home.</p>
-          </div>
-          <article class="game-card is-live fairy-game clubhouse-revealable" data-clubhouse-layer="bottom">
+          
+          
+          
+          
+          <article class="game-card is-live game-panel-styled fairy-game clubhouse-revealable" data-clubhouse-layer="bottom">
+            <img class="game-hero-img" src="assets/fairy-wand-chroma.png" alt="" loading="lazy" />
             <span>Live</span>
             <h3>fAIry Godmother</h3>
             <p>Tap or wave the wand to open the full LAIDY advice console below.</p>
@@ -301,7 +337,8 @@
             </a>
             <a class="button primary" href="#laidy" data-open-game-panel="laidy" onclick="event.preventDefault(); window.openGamePanel && window.openGamePanel('laidy');">Open LAIDY</a>
           </article>
-          <article class="game-card is-live signoff-game clubhouse-revealable" data-clubhouse-layer="bottom">
+          <article class="game-card is-live game-panel-styled signoff-game clubhouse-revealable" data-clubhouse-layer="bottom">
+            <img class="game-hero-img" src="assets/sign-off-generator.webp" alt="" loading="lazy" />
             <span>Live</span>
             <h3>Sign-Off Generator</h3>
             <p>Pull a glossy little closer for the end of the episode, the thread, or the group chat.</p>
@@ -314,7 +351,8 @@
             </div>
             <a class="button secondary" href="this-week.html#challenge" data-open-game-panel="challenge">Generate one</a>
           </article>
-          <article class="game-card is-live try-on-game clubhouse-revealable" data-clubhouse-layer="bottom">
+          <article class="game-card is-live game-panel-styled try-on-game clubhouse-revealable" data-clubhouse-layer="bottom">
+            <img class="game-hero-img" src="assets/five-minute-try-on-game.webp" alt="" loading="lazy" />
             <span>Live</span>
             <h3>Five-Minute Try-On</h3>
             <p>Spin for one small work dare. Low stakes, less carrying the same task around all week.</p>
@@ -323,7 +361,8 @@
             </div>
             <a class="button secondary" href="this-week.html#playbook" data-open-game-panel="playbook">Spin the board</a>
           </article>
-          <article class="game-card is-live cocktail-wheel-game clubhouse-revealable" data-clubhouse-layer="bottom">
+          <article class="game-card is-live game-panel-styled cocktail-wheel-game clubhouse-revealable" data-clubhouse-layer="bottom">
+            <img class="game-hero-img" src="assets/businesswomen-special-spinner-v3.png" alt="" loading="lazy" />
             <span>Live</span>
             <h3>Businesswomen's Special</h3>
             <p>The Businesswomen's Special is now a paper fortune teller: the coven has a reservation at 7, so choose your lane, pick a mood, and open your drink fortune.</p>
@@ -394,7 +433,8 @@
             </button>
           </div>
           <p class="fun-pack-status clubhouse-revealable" data-fun-pack-status aria-live="polite" data-clubhouse-layer="top">Issue 02 pack loaded: quiz, specificity cards, try-on, prompt cheat sheet, and article takeaways.</p>
-          <article class="game-card is-live trading-pack-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue01" data-fun-pack-kind="cards" data-clubhouse-layer="top">
+          <article class="game-card is-live game-panel-styled trading-pack-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue01" data-fun-pack-kind="cards" data-clubhouse-layer="top">
+            <img class="game-hero-img" src="assets/trading-card-pack.webp" alt="" loading="lazy" />
             <span>Live</span>
             <h3>Trading Card Pack</h3>
             <p>Rip open a Wednesday pack. Maybe you get the card you needed. Maybe you get three of the same one. Iconic.</p>
@@ -403,7 +443,8 @@
             </div>
             <a class="button secondary" href="#card-pack" data-open-game-panel="card-pack">Open the pack</a>
           </article>
-          <article class="game-card is-live quiz-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue01" data-fun-pack-kind="quiz" data-clubhouse-layer="top">
+          <article class="game-card is-live game-panel-styled quiz-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue01" data-fun-pack-kind="quiz" data-clubhouse-layer="top">
+            <img class="game-hero-img" src="assets/quiz-teen-magazine.png" alt="" loading="lazy" />
             <span>Live</span>
             <h3>Magazine Quiz</h3>
             <p>Match the analogy to the AI concept and earn a digital sticker for your <span class="wordmark laidies-inline-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Card.</p>
@@ -416,7 +457,8 @@
             </div>
             <a class="button secondary" href="learn.html#quiz" data-open-game-panel="quiz">Take the quiz</a>
           </article>
-          <article class="game-card is-live issue-try-on-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue01" data-fun-pack-kind="try-on" data-clubhouse-layer="top">
+          <article class="game-card is-live game-panel-styled issue-try-on-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue01" data-fun-pack-kind="try-on" data-clubhouse-layer="top">
+            <img class="game-hero-img" src="assets/five-minute-try-on-game.webp" alt="" loading="lazy" />
             <span>Pack Activity</span>
             <h3>Issue 01 Try-On</h3>
             <p>Use one real, low-risk work explanation to test ChatGPT, Claude, and Gemini side by side.</p>
@@ -505,7 +547,8 @@
               <a class="button secondary" href="community/try-on-debrief.html">Post debrief</a>
             </div>
           </article>
-          <article class="game-card is-live printable-pack-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue01" data-fun-pack-kind="printables" data-clubhouse-layer="top">
+          <article class="game-card is-live game-panel-styled printable-pack-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue01" data-fun-pack-kind="printables" data-clubhouse-layer="top">
+            <img class="game-hero-img" src="assets/reference-closet-open.png" alt="" loading="lazy" />
             <span>Printable</span>
             <h3>Issue 01 Printable Pack</h3>
             <p>Open the matching printables for the first issue: the quick prompt cheat sheet and the Issue 1 practice printable.</p>
@@ -517,7 +560,8 @@
               <a class="button secondary" href="content/printables/issue-01-open-the-tab.html">Issue 1 printable</a>
             </div>
           </article>
-          <article class="game-card is-live trading-pack-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue02" data-fun-pack-kind="cards" data-clubhouse-layer="top">
+          <article class="game-card is-live game-panel-styled trading-pack-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue02" data-fun-pack-kind="cards" data-clubhouse-layer="top">
+            <img class="game-hero-img" src="assets/trading-card-pack.webp" alt="" loading="lazy" />
             <span>Live</span>
             <h3>Issue 02 Specificity Pack</h3>
             <p>Pull the cards for better asks: specificity, Girl Power prompting, try-on practice, rewrite remix, and receipts.</p>
@@ -526,7 +570,8 @@
             </div>
             <a class="button secondary" href="#card-pack" data-open-game-panel="card-pack" data-card-pack-open="issue02">Open Issue 2 cards</a>
           </article>
-          <article class="game-card is-live quiz-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue02" data-fun-pack-kind="quiz" data-clubhouse-layer="top">
+          <article class="game-card is-live game-panel-styled quiz-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue02" data-fun-pack-kind="quiz" data-clubhouse-layer="top">
+            <img class="game-hero-img" src="assets/quiz-teen-magazine.png" alt="" loading="lazy" />
             <span>Live</span>
             <h3>Issue 02 Magazine Quiz</h3>
             <p>Take the Tell Me What You Want quiz and prove the Spice Girls lesson stuck: AI needs the ask, not your hopes and vibes.</p>
@@ -539,7 +584,8 @@
             </div>
             <a class="button secondary" href="learn.html#quiz" data-open-game-panel="quiz" data-quiz-open="issue02">Take Issue 2 quiz</a>
           </article>
-          <article class="game-card is-live issue-try-on-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue02" data-fun-pack-kind="try-on" data-clubhouse-layer="top">
+          <article class="game-card is-live game-panel-styled issue-try-on-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue02" data-fun-pack-kind="try-on" data-clubhouse-layer="top">
+            <img class="game-hero-img" src="assets/five-minute-try-on-game.webp" alt="" loading="lazy" />
             <span>Pack Activity</span>
             <h3>Issue 02 Try-On</h3>
             <p>Take one vague ask and make it painfully useful: task, audience, context, standards, constraints, and one good example.</p>
@@ -556,7 +602,8 @@
               <a class="button secondary" href="community/try-on-debrief.html">Post debrief</a>
             </div>
           </article>
-          <article class="game-card is-live printable-pack-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue02" data-fun-pack-kind="printables" data-clubhouse-layer="top">
+          <article class="game-card is-live game-panel-styled printable-pack-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue02" data-fun-pack-kind="printables" data-clubhouse-layer="top">
+            <img class="game-hero-img" src="assets/reference-closet-open.png" alt="" loading="lazy" />
             <span>Printable</span>
             <h3>Issue 02 Prompt Cheat Sheet</h3>
             <p>Use the prompt cheat sheet as the no-drama checklist before you ask AI for anything important.</p>
@@ -568,7 +615,8 @@
               <a class="button secondary" href="issues/issue-02.html">Read Issue 2</a>
             </div>
           </article>
-          <article class="game-card is-live psychic-game clubhouse-revealable" id="madame-claio" data-clubhouse-layer="bottom">
+          <article class="game-card is-live game-panel-styled psychic-game clubhouse-revealable" id="madame-claio" data-clubhouse-layer="bottom">
+            <img class="game-hero-img" src="assets/madame-claio-crystal-phone-v3.png" alt="" loading="lazy" />
             <div class="psychic-topline">
               <span>Live</span>
               <span>Psychic Hotline</span>
@@ -581,7 +629,8 @@
             </div>
             <p class="game-output" id="fortuneOutput" aria-live="polite">Madame CLAI-O is on the line. Pick up for your card, message, and next move.</p>
           </article>
-          <article class="game-card is-live house-dj-game clubhouse-revealable" data-clubhouse-layer="bottom top">
+          <article class="game-card is-live game-panel-styled house-dj-game clubhouse-revealable" data-clubhouse-layer="bottom top">
+            <img class="game-hero-img" src="assets/house-dj-mixdesk.png" alt="" loading="lazy" />
             <span>Live</span>
             <h3>DJ JAIDY + Mix CDs</h3>
             <p>One booth for the weekly custom AI song, the Spotify playlists, and the community mix-CD energy.</p>
@@ -590,7 +639,8 @@
             </div>
             <a class="button secondary" href="this-week.html#playlist" data-open-game-panel="playlist">Open the booth</a>
           </article>
-          <article class="game-card is-live girl-talk-game clubhouse-revealable" data-clubhouse-layer="bottom">
+          <article class="game-card is-live game-panel-styled girl-talk-game clubhouse-revealable" data-clubhouse-layer="bottom">
+            <img class="game-hero-img" src="assets/girl-talk-board.webp" alt="" loading="lazy" />
             <span>Live</span>
             <h3>Girl Talk Prompt Deck</h3>
             <p>Draw a question card for work drama, ambition, confidence, or group-chat honesty.</p>
@@ -600,7 +650,8 @@
             <button class="button secondary" type="button" id="girlTalkButton">Draw a card</button>
             <p class="game-output" id="girlTalkOutput" aria-live="polite">The deck is shuffled. Pick truth, dare, or professionally contained chaos.</p>
           </article>
-          <article class="game-card is-live dream-phone-game clubhouse-revealable" data-clubhouse-layer="bottom">
+          <article class="game-card is-live game-panel-styled dream-phone-game clubhouse-revealable" data-clubhouse-layer="bottom">
+            <img class="game-hero-img" src="assets/dream-phone-retro-chroma.png" alt="" loading="lazy" />
             <span>Live</span>
             <h3>Dream Phone</h3>
             <p>Dial a number by pressing the phone buttons or using your keyboard. Hyphens are optional; the phone will add them.</p>
