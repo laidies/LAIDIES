@@ -141,14 +141,15 @@
 /* Fix badge shelf: side by side layout, no blank space */
 .secret-badge-shelf {
   display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  gap: 16px 24px !important;
-  padding: 20px !important;
+  grid-template-columns: 1fr !important;
+  gap: 24px !important;
+  padding: 24px !important;
+  max-width: 900px !important;
 }
 .secret-badge-grid {
   display: grid !important;
-  grid-template-columns: 1fr !important;
-  gap: 8px !important;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)) !important;
+  gap: 12px !important;
 }
 .clubhouse-pass-section {
   display: block !important;
@@ -169,8 +170,8 @@
   width: 100% !important;
 }
 @media (max-width: 600px) {
-  .secret-badge-shelf {
-    grid-template-columns: 1fr !important;
+  .secret-badge-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)) !important;
   }
 }
 </style>
