@@ -31,94 +31,71 @@
       #laidiesCardGrid,
       .trading-card-grid {
         display: grid !important;
-        grid-template-columns: repeat(auto-fill, minmax(140px, 180px)) !important;
-        gap: 20px !important;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
+        gap: 16px !important;
         justify-content: center !important;
+        max-width: 900px !important;
+        margin: 0 auto !important;
       }
       #laidiesCardGrid .member-trading-card,
       .trading-card-grid .member-trading-card {
-        transform: scale(0.38) !important;
-        transform-origin: top left !important;
-        width: 380px !important;
-        height: 520px !important;
-        margin-bottom: -320px !important;
-        margin-right: -230px !important;
+        width: 100% !important;
+        max-width: 260px !important;
+        height: auto !important;
+        transform: none !important;
+        margin: 0 !important;
         cursor: pointer;
-        transition: transform 0.3s ease;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
         overflow: hidden !important;
+        font-size: 0.7rem !important;
+      }
+      .trading-card-grid .member-trading-card .member-card-body {
+        padding: 8px 10px !important;
+      }
+      .trading-card-grid .member-trading-card .member-card-body h3 {
+        font-size: 0.95rem !important;
+        margin: 4px 0 !important;
+      }
+      .trading-card-grid .member-trading-card .member-card-body p {
+        font-size: 0.68rem !important;
+        line-height: 1.3 !important;
+        margin: 0 0 4px !important;
+      }
+      .trading-card-grid .member-trading-card .member-card-kicker {
+        font-size: 0.55rem !important;
+        margin: 0 !important;
+      }
+      .trading-card-grid .member-trading-card .member-card-tags {
+        gap: 3px !important;
+      }
+      .trading-card-grid .member-trading-card .member-card-tags span {
+        font-size: 0.55rem !important;
+        padding: 2px 5px !important;
+      }
+      .trading-card-grid .member-trading-card .member-card-photo {
+        height: 120px !important;
+        aspect-ratio: auto !important;
+      }
+      .trading-card-grid .member-trading-card .member-card-ribbon {
+        font-size: 0.5rem !important;
+        padding: 3px 6px !important;
+      }
+      .trading-card-grid .member-trading-card .member-card-links,
+      .trading-card-grid .member-trading-card .member-card-reward-case {
+        display: none !important;
       }
       .trading-card-grid .member-trading-card:hover {
-        animation: cardJiggle 0.4s ease;
-        box-shadow: 0 8px 32px rgba(255,45,155,0.3) !important;
+        transform: translateY(-4px) !important;
+        box-shadow: 0 8px 24px rgba(255,45,155,0.3) !important;
       }
-      @keyframes cardJiggle {
-        0% { transform: scale(0.38) rotate(0deg); }
-        20% { transform: scale(0.38) rotate(-2deg); }
-        40% { transform: scale(0.38) rotate(2deg); }
-        60% { transform: scale(0.38) rotate(-1deg); }
-        80% { transform: scale(0.38) rotate(1deg); }
-        100% { transform: scale(0.38) rotate(0deg); }
-      }
-      .directory-filter-demo {
-        display: flex !important;
-        gap: 8px !important;
-        flex-wrap: wrap !important;
-        margin-bottom: 16px !important;
-      }
-      .directory-filter-demo button {
-        padding: 6px 14px !important;
-        font-size: 0.8rem !important;
-        border-radius: 20px !important;
-        border: 1.5px solid var(--ink, #100805) !important;
-        background: #fff !important;
-        cursor: pointer !important;
-        width: auto !important;
-        height: auto !important;
-        min-width: auto !important;
-      }
-      .directory-filter-demo button.is-active {
-        background: var(--hot-pink, #ff2d9b) !important;
-        color: #fff !important;
-        border-color: var(--hot-pink, #ff2d9b) !important;
-      }
-      /* Card overlay */
-      .card-overlay {
-        position: fixed; inset: 0; background: rgba(0,0,0,0.8);
-        z-index: 9999; display: flex; align-items: center; justify-content: center;
-        padding: 20px; opacity: 0; transition: opacity 0.25s ease; pointer-events: none;
-      }
-      .card-overlay.is-visible { opacity: 1; pointer-events: all; }
-      .card-overlay-inner {
-        max-width: 420px; width: 90%; max-height: 85vh; overflow-y: auto;
-        border-radius: 16px; box-shadow: 0 20px 60px rgba(255,45,155,0.3);
-        position: relative; background: #fff8fc; padding: 12px;
-      }
-      .card-overlay-inner .member-trading-card {
-        transform: none !important; width: 100% !important; height: auto !important;
-        margin: 0 !important; overflow: visible !important;
-      }
-      .card-overlay-close {
-        position: sticky; top: 8px; float: right; background: #ff2d9b; color: #fff;
-        border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 1.2rem;
-        cursor: pointer; z-index: 10000; display: flex; align-items: center; justify-content: center;
-      }
-      @media (max-width: 600px) {
+      @media (max-width: 560px) {
+        #laidiesCardGrid,
         .trading-card-grid {
-          grid-template-columns: repeat(2, 140px) !important;
-          gap: 16px !important;
+          grid-template-columns: repeat(2, 1fr) !important;
+          gap: 10px !important;
         }
-        .trading-card-grid .member-trading-card {
-          transform: scale(0.32) !important;
-          margin-bottom: -350px !important;
-          margin-right: -250px !important;
-        }
-        @keyframes cardJiggle {
-          0% { transform: scale(0.32) rotate(0deg); }
-          20% { transform: scale(0.32) rotate(-2deg); }
-          40% { transform: scale(0.32) rotate(2deg); }
-          60% { transform: scale(0.32) rotate(-1deg); }
-          80% { transform: scale(0.32) rotate(1deg); }
-          100% { transform: scale(0.32) rotate(0deg); }
+        .trading-card-grid .member-trading-card .member-card-photo {
+          height: 80px !important;
         }
       }
     </style>
