@@ -125,10 +125,15 @@
   aspect-ratio: 1 / 1 !important;
 }
 .member-card-photo img {
-  object-fit: contain !important;
-  object-position: center center !important;
+  object-fit: cover !important;
+  object-position: center 20% !important;
   width: 100% !important;
   height: 100% !important;
+}
+.member-card-photo--object img {
+  object-fit: contain !important;
+  object-position: center center !important;
+  padding: 12px !important;
 }
 </style>
 
@@ -166,6 +171,36 @@
 @media (max-width: 600px) {
   .secret-badge-shelf {
     grid-template-columns: 1fr !important;
+  }
+}
+</style>
+
+<style>
+/* Mobile header fix - more compact */
+@media (max-width: 768px) {
+  .site-header {
+    min-height: 70px !important;
+    padding: 8px 12px !important;
+    gap: 6px !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+  }
+  .site-header .brand img {
+    width: 90px !important;
+  }
+  .site-header .nav {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 4px 12px !important;
+    font-size: 0.75rem !important;
+  }
+  .site-header .nav a {
+    font-size: 0.75rem !important;
+    padding: 2px 0 !important;
+  }
+  .site-header button {
+    font-size: 0.75rem !important;
   }
 }
 </style>
@@ -477,7 +512,7 @@
           <article class="member-trading-card card-closet stock-card" data-card-type="stock" data-card-tags="stock help progress laidy fairy-godmother advice">
             <div class="member-card-ribbon"><span>Stock Card</span><span>fAIry Godmother</span></div>
             <div class="member-card-photo member-card-photo--object">
-              <img src="assets/fairy-wand.png" alt="Pink fairy wand representing LAIDY the fAIry Godmother" />
+              <img src="assets/laidy-character-v1.png" alt="Pink fairy wand representing LAIDY the fAIry Godmother" />
             </div>
             <div class="member-card-body">
               <p class="member-card-kicker">fAIry Godmother Era</p>
@@ -493,7 +528,7 @@
           <article class="member-trading-card card-press stock-card" data-card-type="stock" data-card-tags="stock help connect claio oracle">
             <div class="member-card-ribbon"><span>Stock Card</span><span>Mme CLAI-O</span></div>
             <div class="member-card-photo">
-              <img src="assets/madame-claio-crystal.webp" alt="Madame CLAI-O crystal ball and phone" />
+              <img src="assets/madame-claio-character-v1.png" alt="Madame CLAI-O crystal ball and phone" />
             </div>
             <div class="member-card-body">
               <p class="member-card-kicker">Psychic Hotline Era</p>
