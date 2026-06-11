@@ -6151,15 +6151,21 @@ h3 {
 
 .secret-badge-shelf {
   display: grid;
-  gap: 12px;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 24px;
   margin-top: 14px;
   border: 2px dotted rgba(58, 9, 40, 0.42);
   border-radius: 8px;
   background:
     radial-gradient(circle at 96% 12%, rgba(255, 244, 94, 0.24), transparent 24%),
     rgba(255, 255, 255, 0.72);
-  padding: 16px;
+  padding: 20px;
   grid-column: 1 / -1;
+}
+@media (max-width: 600px) {
+  .secret-badge-shelf {
+    grid-template-columns: 1fr;
+  }
 }
 
 .secret-badge-shelf > div:first-child strong {
@@ -6180,7 +6186,7 @@ h3 {
 
 .secret-badge-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: 1fr;
   gap: 8px;
 }
 
