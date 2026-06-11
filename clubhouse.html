@@ -228,12 +228,12 @@
                 <img data-clubhouse-image="open" src="assets/clubhouse-compact-open-v4.png" alt="Open pink LAIDIES Clubhouse compact with Weekly Fun Packs, Weekly Jams, DJ booth, Dream Phone, Girl Talk, Madame CLAI-O, and other miniature room fixtures" hidden />
                 <div class="clubhouse-hotspot-layer" aria-label="Clubhouse compact clickable areas">
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="weekly-fun-pack" data-clubhouse-target="#issue-fun-packs" aria-label="Open Weekly Fun Pack"></button>
-                  <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="weekly-jams" data-clubhouse-target="#dj-booth-section" aria-label="Weekly Jams"></button>
+                  <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="weekly-jams" data-clubhouse-target="#dj-booth-inline" aria-label="Weekly Jams"></button>
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="fun-pack-1-6" data-clubhouse-target="#issue-fun-packs" aria-label="Show Fun Packs 1 through 6"></button>
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="fun-pack-7-12" data-clubhouse-target="#issue-fun-packs" aria-label="Show Fun Packs 7 through 12"></button>
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="fun-pack-13-18" data-clubhouse-target="#issue-fun-packs" aria-label="Show Fun Packs 13 through 18"></button>
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="fun-pack-19-24" data-clubhouse-target="#issue-fun-packs" aria-label="Show Fun Packs 19 through 24"></button>
-                  <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="mix-cds" data-clubhouse-target="#dj-booth-section" aria-label="Mix CDs"></button>
+                  <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="mix-cds" data-clubhouse-target="#dj-booth-inline" aria-label="Mix CDs"></button>
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="psychic" data-clubhouse-target=".psychic-game" aria-label="Call Psychic Hotline"></button>
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="dream-phone" data-clubhouse-target=".dream-phone-game" data-clubhouse-action="dream-phone" aria-label="Call Dream Phone"></button>
                   <button class="clubhouse-hotspot" type="button" data-clubhouse-zone="girl-talk" data-clubhouse-target=".girl-talk-game" aria-label="Open Girl Talk"></button>
@@ -247,8 +247,8 @@
                 <div class="clubhouse-sticker-sheet">
                   <img src="assets/clubhouse-sticker-grid-v1.png" alt="" />
                   <button class="clubhouse-sticker-button" type="button" data-clubhouse-sticker="weekly-fun-pack" data-clubhouse-target="#issue-fun-packs">Open Weekly Fun Pack</button>
-                  <button class="clubhouse-sticker-button" type="button" data-clubhouse-sticker="weekly-jams" data-clubhouse-target="#dj-booth-section">Weekly Jams</button>
-                  <button class="clubhouse-sticker-button" type="button" data-clubhouse-sticker="mix-cds" data-clubhouse-target="#dj-booth-section">Mix CDs</button>
+                  <button class="clubhouse-sticker-button" type="button" data-clubhouse-sticker="weekly-jams" data-clubhouse-target="#dj-booth-inline">Weekly Jams</button>
+                  <button class="clubhouse-sticker-button" type="button" data-clubhouse-sticker="mix-cds" data-clubhouse-target="#dj-booth-inline">Mix CDs</button>
                   <button class="clubhouse-sticker-button" type="button" data-clubhouse-sticker="girl-talk" data-clubhouse-target=".girl-talk-game">Open Girl Talk</button>
                   <a href="this-week.html#playbook" class="clubhouse-sticker-button"  data-clubhouse-sticker="try-on" data-open-game-panel="playbook">5min Try-On</a>
                   <button class="clubhouse-sticker-button" type="button" data-clubhouse-sticker="business" data-clubhouse-target=".cocktail-wheel-game">Businesswomen's Special</button>
@@ -379,7 +379,7 @@
               <span>Quiz + cards + try-on</span>
             </div>
           </a>
-          <a href="#dj-booth-section" class="nav-card" onclick="event.preventDefault(); document.querySelectorAll('.clubhouse-revealable').forEach(el => { if(el.classList.contains('house-dj-game')) el.classList.add('is-clubhouse-revealed'); }); document.getElementById('dj-booth-section')?.scrollIntoView({behavior:'smooth', block:'start'});">
+          <a href="#dj-booth-section" class="nav-card" onclick="event.preventDefault(); document.querySelectorAll('.clubhouse-revealable').forEach(el => { if(el.classList.contains('house-dj-game')) el.classList.add('is-clubhouse-revealed'); }); document.getElementById('dj-booth-inline')?.scrollIntoView({behavior:'smooth', block:'start'});">
             <img src="assets/house-dj-mixdesk.png" alt="DJ Booth" loading="lazy" />
             <div class="nav-card-text">
               <strong>DJ Booth</strong>
@@ -702,15 +702,32 @@
             </div>
             <p class="game-output" id="fortuneOutput" aria-live="polite">Madame CLAI-O is on the line. Pick up for your card, message, and next move.</p>
           </article>
-          <article class="game-card is-live game-panel-styled house-dj-game clubhouse-revealable" data-clubhouse-layer="bottom top">
+          <article class="game-card is-live game-panel-styled house-dj-game clubhouse-revealable" data-clubhouse-layer="bottom top" id="dj-booth-inline">
             <img class="game-hero-img" src="assets/house-dj-mixdesk.png" alt="" loading="lazy" />
             <span>Live</span>
-            <h3>DJ JAIDY + Mix CDs</h3>
-            <p>One booth for the weekly custom AI song, the Spotify playlists, and the community mix-CD energy.</p>
-            <div class="house-dj-game-visual" aria-hidden="true">
-              <img src="assets/house-dj-mixdesk.png" alt="" />
+            <h3>DJ JAIDY's Booth</h3>
+            <p>Weekly AI-made songs for each episode. Press play — the mini player appears at the bottom.</p>
+            <div style="display: grid; gap: 10px; margin-top: 8px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 140px; flex-shrink: 0;"><span style="color: var(--hot-pink); font-size: 0.7rem; font-weight: 700;">EP 2</span><div style="color: #fff; font-size: 0.75rem; font-weight: 600; margin-top: 1px;">Tell Me What You Want</div></div>
+                <audio controls preload="metadata" src="content/music/dj-jaidy-week-02-tell-me-what-you-want.mp3" style="flex: 1; height: 32px;"></audio>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 140px; flex-shrink: 0;"><span style="color: var(--hot-pink); font-size: 0.7rem; font-weight: 700;">EP 1</span><div style="color: #fff; font-size: 0.75rem; font-weight: 600; margin-top: 1px;">On Wednesday We Do AI</div></div>
+                <audio controls preload="metadata" src="content/music/dj-jaidy-week-01-on-wednesday-we-do-ai.mp3" style="flex: 1; height: 32px;"></audio>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 140px; flex-shrink: 0;"><span style="color: var(--hot-pink); font-size: 0.7rem; font-weight: 700;">BONUS</span><div style="color: #fff; font-size: 0.75rem; font-weight: 600; margin-top: 1px;">Impossible to Underestimate You</div></div>
+                <audio controls preload="metadata" src="content/music/dj-jaidy-impossible-to-underestimate-you.mp3" style="flex: 1; height: 32px;"></audio>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 140px; flex-shrink: 0;"><span style="color: var(--hot-pink); font-size: 0.7rem; font-weight: 700;">BONUS</span><div style="color: #fff; font-size: 0.75rem; font-weight: 600; margin-top: 1px;">Tomorrow's Problem</div></div>
+                <audio controls preload="metadata" src="content/music/debs-tomorrow-problem.mp3" style="flex: 1; height: 32px;"></audio>
+              </div>
             </div>
-            <a class="button secondary" href="#dj-booth-section" onclick="event.preventDefault(); document.getElementById('dj-booth-section')?.scrollIntoView({behavior:'smooth', block:'start'});">Open the booth</a>
+            <div style="margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap;">
+              <a class="button secondary" href="this-week.html#playlist" style="font-size: 0.8rem;">Spotify Playlists →</a>
+            </div>
           </article>
           <article class="game-card is-live game-panel-styled girl-talk-game clubhouse-revealable" data-clubhouse-layer="bottom">
             <img class="game-hero-img" src="assets/girl-talk-board.webp" alt="" loading="lazy" />
@@ -1270,43 +1287,6 @@
     
     
       <!-- DJ BOOTH -->
-      <section id="dj-booth-section" class="game-panel-styled" style="background: linear-gradient(180deg, #1a0a12 0%, #2d0f1f 100%); border: 2px solid rgba(255,45,155,0.4); border-radius: 16px; padding: 28px; margin: 24px auto; max-width: 800px;">
-        <img src="assets/house-dj-mixdesk.png" alt="DJ Booth" loading="lazy" style="width: 100%; max-height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 16px;" />
-        <h3 style="color: #fff; font-family: Georgia, serif; margin: 0 0 8px; text-shadow: 0 0 12px rgba(255,45,155,0.3);">DJ JAIDY's Booth</h3>
-        <p style="color: rgba(255,248,252,0.7); margin: 0 0 16px; font-size: 0.9rem;">Weekly AI-made songs for each episode. Press play — no autoplay, ever.</p>
-        <div style="display: grid; gap: 12px;">
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="width: 180px; flex-shrink: 0; overflow: hidden;">
-              <span style="color: var(--hot-pink); font-size: 0.75rem; font-weight: 700;">EP 2</span>
-              <div style="color: #fff; font-size: 0.8rem; font-weight: 600; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Tell Me What You Want</div>
-            </div>
-            <audio controls preload="metadata" src="content/music/dj-jaidy-week-02-tell-me-what-you-want.mp3" style="flex: 1; height: 36px;"></audio>
-          </div>
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="width: 180px; flex-shrink: 0; overflow: hidden;">
-              <span style="color: var(--hot-pink); font-size: 0.75rem; font-weight: 700;">EP 1</span>
-              <div style="color: #fff; font-size: 0.8rem; font-weight: 600; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">On Wednesday We Do AI</div>
-            </div>
-            <audio controls preload="metadata" src="content/music/dj-jaidy-week-01-on-wednesday-we-do-ai.mp3" style="flex: 1; height: 36px;"></audio>
-          </div>
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="width: 180px; flex-shrink: 0; overflow: hidden;">
-              <span style="color: var(--hot-pink); font-size: 0.75rem; font-weight: 700;">BONUS</span>
-              <div style="color: #fff; font-size: 0.8rem; font-weight: 600; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Impossible to Underestimate You</div>
-              <div style="color: rgba(255,248,252,0.5); font-size: 0.7rem; margin-top: 1px;">For the woman who works with a mansplainer.</div>
-            </div>
-            <audio controls preload="metadata" src="content/music/dj-jaidy-impossible-to-underestimate-you.mp3" style="flex: 1; height: 36px;"></audio>
-          </div>
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="width: 180px; flex-shrink: 0; overflow: hidden;">
-              <span style="color: var(--hot-pink); font-size: 0.75rem; font-weight: 700;">BONUS</span>
-              <div style="color: #fff; font-size: 0.8rem; font-weight: 600; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Tomorrow's Problem</div>
-              <div style="color: rgba(255,248,252,0.5); font-size: 0.7rem; margin-top: 1px;">Deb's anthem for procrastinators everywhere.</div>
-            </div>
-            <audio controls preload="metadata" src="content/music/debs-tomorrow-problem.mp3" style="flex: 1; height: 36px;"></audio>
-          </div>
-        </div>
-      </section>
 
       <div style="text-align: center; padding: 32px 20px 48px;">
       <a class="button secondary" href="index.html">← Back to Home</a>
