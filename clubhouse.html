@@ -331,7 +331,7 @@
         </style>
         <div class="nav-cards">
           <a href="#dreamPhoneToggle" class="nav-card" onclick="event.preventDefault(); document.querySelectorAll('.clubhouse-revealable').forEach(el => { if(el.classList.contains('dream-phone-game')) el.classList.add('is-clubhouse-revealed'); }); setTimeout(() => { const toggle = document.getElementById('dreamPhoneToggle'); if(toggle && toggle.getAttribute('aria-expanded') !== 'true') toggle.click(); else toggle?.scrollIntoView({behavior:'smooth', block:'start'}); }, 50);">
-            <img src="assets/dream-phone-retro-chroma.png" alt="Dream Phone" loading="lazy" />
+            <img src="assets/dream-phone-cordless-crop.png" alt="Dream Phone" loading="lazy" />
             <div class="nav-card-text">
               <strong>Dream Phone</strong>
               <span>Career advice line</span>
@@ -345,10 +345,10 @@
             </div>
           </a>
           <a href="#cocktailWheel" class="nav-card" onclick="event.preventDefault(); document.querySelectorAll('.clubhouse-revealable').forEach(el => { if(el.classList.contains('cocktail-wheel-game')) el.classList.add('is-clubhouse-revealed'); }); setTimeout(() => { document.getElementById('cocktailWheel')?.scrollIntoView({behavior:'smooth', block:'start'}); if(window.spinCocktail) spinCocktail(); else if(window.spinCocktailFallback) spinCocktailFallback(); }, 60);">
-            <img src="assets/businesswomen-special-spinner-v3.png" alt="Cocktail Fortune" loading="lazy" />
+            <img src="assets/businesswomen-special-fortune-teller-v1.png" alt="Businesswomen's Special" loading="lazy" />
             <div class="nav-card-text">
-              <strong>Happy Hour Fortune</strong>
-              <span>Spin the wheel</span>
+              <strong>Businesswomen's Special</strong>
+              <span>Pick your drink fortune</span>
             </div>
           </a>
           <a href="games/girl-talk.html" class="nav-card">
@@ -366,7 +366,7 @@
             </div>
           </a>
           <a href="#laidy" class="nav-card" onclick="event.preventDefault(); if(window.openGamePanel) openGamePanel('laidy'); else { document.querySelectorAll('.clubhouse-revealable').forEach(el => { if(el.classList.contains('fairy-game')) el.classList.add('is-clubhouse-revealed'); }); document.getElementById('laidy')?.scrollIntoView({behavior:'smooth', block:'start'}); }">
-            <img src="assets/fairy-wand-chroma.png" alt="fAIry Godmother" loading="lazy" />
+            <img src="assets/fairy-wand.png" alt="fAIry Godmother" loading="lazy" />
             <div class="nav-card-text">
               <strong>fAIry Godmother</strong>
               <span>Ask for advice</span>
@@ -398,7 +398,7 @@
           
           
           <article class="game-card is-live game-panel-styled fairy-game clubhouse-revealable" data-clubhouse-layer="bottom">
-            <img class="game-hero-img" src="assets/fairy-wand-chroma.png" alt="" loading="lazy" />
+            <img class="game-hero-img" src="assets/fairy-wand.png" alt="" loading="lazy" />
             <span>Live</span>
             <h3>fAIry Godmother</h3>
             <p>Tap or wave the wand to open the full LAIDY advice console below.</p>
@@ -724,7 +724,7 @@
             <p class="game-output" id="girlTalkOutput" aria-live="polite">The deck is shuffled. Pick truth, dare, or professionally contained chaos.</p>
           </article>
           <article class="game-card is-live game-panel-styled dream-phone-game clubhouse-revealable" data-clubhouse-layer="bottom">
-            <img class="game-hero-img" src="assets/dream-phone-retro-chroma.png" alt="" loading="lazy" />
+            <img class="game-hero-img" src="assets/dream-phone-cordless-crop.png" alt="" loading="lazy" />
             <span>Live</span>
             <h3>Dream Phone</h3>
             <p>Dial a number by pressing the phone buttons or using your keyboard. Hyphens are optional; the phone will add them.</p>
@@ -1276,31 +1276,31 @@
         <p style="color: rgba(255,248,252,0.7); margin: 0 0 16px; font-size: 0.9rem;">Weekly AI-made songs for each episode. Press play — no autoplay, ever.</p>
         <div style="display: grid; gap: 12px;">
           <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="min-width: 120px;">
+            <div style="width: 180px; flex-shrink: 0; overflow: hidden;">
               <span style="color: var(--hot-pink); font-size: 0.75rem; font-weight: 700;">EP 2</span>
-              <div style="color: #fff; font-size: 0.8rem; font-weight: 600; margin-top: 2px;">Tell Me What You Want</div>
+              <div style="color: #fff; font-size: 0.8rem; font-weight: 600; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Tell Me What You Want</div>
             </div>
             <audio controls preload="metadata" src="content/music/dj-jaidy-week-02-tell-me-what-you-want.mp3" style="flex: 1; height: 36px;"></audio>
           </div>
           <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="min-width: 120px;">
+            <div style="width: 180px; flex-shrink: 0; overflow: hidden;">
               <span style="color: var(--hot-pink); font-size: 0.75rem; font-weight: 700;">EP 1</span>
-              <div style="color: #fff; font-size: 0.8rem; font-weight: 600; margin-top: 2px;">On Wednesday We Do AI</div>
+              <div style="color: #fff; font-size: 0.8rem; font-weight: 600; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">On Wednesday We Do AI</div>
             </div>
             <audio controls preload="metadata" src="content/music/dj-jaidy-week-01-on-wednesday-we-do-ai.mp3" style="flex: 1; height: 36px;"></audio>
           </div>
           <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="min-width: 120px;">
+            <div style="width: 180px; flex-shrink: 0; overflow: hidden;">
               <span style="color: var(--hot-pink); font-size: 0.75rem; font-weight: 700;">BONUS</span>
-              <div style="color: #fff; font-size: 0.8rem; font-weight: 600; margin-top: 2px;">Impossible to Underestimate You</div>
+              <div style="color: #fff; font-size: 0.8rem; font-weight: 600; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Impossible to Underestimate You</div>
               <div style="color: rgba(255,248,252,0.5); font-size: 0.7rem; margin-top: 1px;">For the woman who works with a mansplainer.</div>
             </div>
             <audio controls preload="metadata" src="content/music/dj-jaidy-impossible-to-underestimate-you.mp3" style="flex: 1; height: 36px;"></audio>
           </div>
           <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="min-width: 120px;">
+            <div style="width: 180px; flex-shrink: 0; overflow: hidden;">
               <span style="color: var(--hot-pink); font-size: 0.75rem; font-weight: 700;">BONUS</span>
-              <div style="color: #fff; font-size: 0.8rem; font-weight: 600; margin-top: 2px;">Tomorrow's Problem</div>
+              <div style="color: #fff; font-size: 0.8rem; font-weight: 600; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Tomorrow's Problem</div>
               <div style="color: rgba(255,248,252,0.5); font-size: 0.7rem; margin-top: 1px;">Deb's anthem for procrastinators everywhere.</div>
             </div>
             <audio controls preload="metadata" src="content/music/debs-tomorrow-problem.mp3" style="flex: 1; height: 36px;"></audio>
