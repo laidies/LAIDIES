@@ -6158,7 +6158,8 @@ h3 {
   background:
     radial-gradient(circle at 96% 12%, rgba(255, 244, 94, 0.24), transparent 24%),
     rgba(255, 255, 255, 0.72);
-  padding: 12px;
+  padding: 16px;
+  grid-column: 1 / -1;
 }
 
 .secret-badge-shelf > div:first-child strong {
@@ -6179,7 +6180,7 @@ h3 {
 
 .secret-badge-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 8px;
 }
 
@@ -8476,8 +8477,12 @@ html {
 .clubhouse-pass-section {
   display: block;
   padding: clamp(34px, 6vw, 72px) clamp(18px, 5vw, 64px);
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
+}
+.clubhouse-pass-section .game-card {
+  max-width: none;
+  width: 100%;
 }
 .clubhouse-pass-section .section-heading {
   position: static;
