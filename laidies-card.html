@@ -1,310 +1,262 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LAIDIES Card | LAIDIES</title>
-    <meta name="description" content="Build your lAIdies member card — your name, work lane, AI superpower. See other members' cards." />
-    <link rel="icon" type="image/png" href="assets/laidies-logo-square.png" />
-    <link rel="stylesheet" href="styles.css?v=redesign-2" />
-    <link rel="stylesheet" href="styles-new-sections.css?v=redesign-2" />
-    <script defer data-domain="wearelaidies.com" src="https://plausible.io/js/script.js"></script>
-  </head>
-  <body>
-    <header class="site-header">
-        <button onclick="history.back()" style="background: none; border: none; color: var(--hot-pink); font-size: 0.85rem; cursor: pointer; padding: 4px 8px; text-decoration: underline;" aria-label="Go back">← Back</button>
-        <a class="brand" href="index.html" aria-label="lAIdies home">
-          <img src="assets/laidies-logo-wordmark.png" alt="" />
-        </a>
-        <nav class="nav" aria-label="Primary navigation">
-          <a href="episodes.html">Episodes</a>
-          <a href="learn.html">Learn</a>
-          <a href="clubhouse.html">Clubhouse</a>
-          <a href="community.html">Community</a>
-          <a href="this-week.html">This Week</a>
-        </nav>
-      </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LAIDIES Card | Make yours</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles-new-sections.css" />
+  <script defer data-domain="wearelaidies.com" src="https://plausible.io/js/script.js"></script>
+<style>
+/* Mobile header fix - more compact */
+@media (max-width: 768px) {
+  .site-header {
+    min-height: 70px !important;
+    padding: 8px 12px !important;
+    gap: 6px !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+  }
+  .site-header .brand img { width: 90px !important; }
+  .site-header .nav { display: flex !important; flex-wrap: wrap !important; gap: 4px 12px !important; font-size: 0.75rem !important; }
+  .site-header .nav a { font-size: 0.75rem !important; padding: 2px 0 !important; }
+}
+.card-builder-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .card-builder-layout { grid-template-columns: 1fr; }
+  .card-preview-sticky { position: static !important; }
+}
+.card-preview-sticky {
+  position: sticky;
+  top: 100px;
+}
+.card-builder-form label {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink, #100805);
+}
+.card-builder-form input,
+.card-builder-form select,
+.card-builder-form textarea {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  border: 1.5px solid rgba(16,8,5,0.15);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+.card-builder-form input:focus,
+.card-builder-form select:focus,
+.card-builder-form textarea:focus {
+  border-color: var(--hot-pink, #ff2d9b);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255,45,155,0.12);
+}
+.optional-fields-toggle {
+  background: none;
+  border: none;
+  color: var(--hot-pink, #ff2d9b);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 12px 0;
+  text-decoration: underline;
+}
+.optional-fields { display: none; }
+.optional-fields.is-open { display: block; }
+.save-btn {
+  display: block;
+  width: 100%;
+  padding: 14px 24px;
+  background: var(--hot-pink, #ff2d9b);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255,45,155,0.3);
+}
+.save-status {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted, #65515d);
+  margin-top: 8px;
+  min-height: 1.2em;
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <button onclick="history.back()" style="background: none; border: none; color: var(--hot-pink); font-size: 0.85rem; cursor: pointer; padding: 4px 8px;">← Back</button>
+  <a class="brand" href="index.html" aria-label="lAIdies home">
+    <img src="assets/laidies-logo-wordmark.png" alt="" />
+  </a>
+  <nav class="nav" aria-label="Primary navigation">
+    <a href="episodes.html">Episodes</a>
+    <a href="learn.html">Learn</a>
+    <a href="clubhouse.html">Clubhouse</a>
+    <a href="community.html">Community</a>
+    <a href="this-week.html">This Week</a>
+  </nav>
+</header>
 <main>
+  <section style="max-width: 800px; margin: 0 auto; padding: 40px 20px 0; text-align: center;">
+    <p class="eyebrow" style="color: var(--hot-pink); font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.8rem;">Your Card</p>
+    <h1 style="font-family: Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.4rem); margin: 8px 0 12px; color: var(--ink);">Make your LAIDIES Card</h1>
+    <p style="color: var(--muted); line-height: 1.6; max-width: 520px; margin: 0 auto;">Your name, your work lane, your AI journey. Takes two minutes. No sign-up needed — saves to this browser automatically.</p>
+  </section>
+
+  <div class="card-builder-layout">
+    <!-- FORM -->
+    <form class="card-builder-form spotlight-form" id="spotlightForm">
       
+      <label>
+        Name (as you want it on the card)
+        <input name="name" type="text" autocomplete="name" required />
+      </label>
 
-      <!-- INTRO -->
-      <section style="max-width: 800px; margin: 0 auto; padding: 40px 20px 0;">
-        <p class="eyebrow" style="color: var(--hot-pink); font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.8rem;">Your Member Card</p>
-        <h1 style="font-family: Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.4rem); margin: 8px 0 12px; color: var(--ink);">LAIDIES Card</h1>
-        <p style="color: var(--muted); line-height: 1.6; margin-bottom: 8px;">Your name, your work lane, your AI superpower. Fill it in, make it yours. See other members' cards and find your people.</p>
-        <p style="font-size: 0.9rem; color: var(--muted);">Start building now — no sign-up needed. Everything saves to this browser automatically. Want to keep it across devices? <a href="clubhouse-pass.html">Get a Clubhouse Pass</a> anytime.</p>
-      </section>
+      <label>
+        What you do
+        <input name="role" type="text" placeholder="Tax lead, comms partner, ops manager..." required />
+      </label>
 
-      <!-- CARD BUILDER -->
-      <section class="spotlight-intake" aria-labelledby="spotlight-form-title">
-        <div class="spotlight-form-card">
-          <p class="eyebrow">Build Your Card</p>
-          <h2 id="spotlight-form-title">A card people can actually use.</h2>
-          <p>
-            Fill out the useful details, upload a photo if you want one, choose a card mode, and watch the preview update. The point is not a perfect bio. The point is helping another lAIdy think, "Oh, she is working on the same kind of thing I am."
-          </p>
-          <form class="spotlight-form" id="spotlightForm">
-            <fieldset>
-              <legend>Who you are</legend>
-              <label>
-                Name as you want it shown
-                <input name="name" type="text" autocomplete="name" required />
-              </label>
-              <label>
-                Role, team, or short work description
-                <input name="role" type="text" required />
-              </label>
-              <label>
-                Location or time zone
-                <input name="location" type="text" placeholder="Seattle, London, EST, remote..." />
-              </label>
-              <label>
-                Photo for your profile, if you want one
-                <input name="photo" type="file" accept="image/*" />
-              </label>
-              <label>
-                No face photo? Pick your stand-in
-                <select name="avatarVibe">
-                  <option value="">I am using a photo or deciding later</option>
-                  <option>Favourite 90s/Y2K character</option>
-                  <option>Favourite singer, band, or actor</option>
-                  <option>Iconic object: flip phone, lip gloss, diary, mixtape</option>
-                  <option>Classic school-photo laser background</option>
-                  <option>Y2K desktop avatar energy</option>
-                </select>
-              </label>
-            </fieldset>
+      <label>
+        Your AI journey
+        <select name="journey" required>
+          <option value="">Pick the one that fits</option>
+          <option>I have no idea what I am doing, but I am having fun.</option>
+          <option>I am so lost, please send help.</option>
+          <option>I have opened the tool twice and deserve credit.</option>
+          <option>I am trying things when work gives me a reason.</option>
+          <option>I cannot believe it took me so long to start.</option>
+          <option>I am building workflows and becoming pleasantly annoying about it.</option>
+          <option>I have been doing this for a while, and I am here to help.</option>
+        </select>
+      </label>
 
-            <fieldset>
-              <legend>Your AI journey</legend>
-              <label>
-                Pick your AI journey status
-                <select name="journey" required>
-                  <option value="">Pick the one that feels most accurate</option>
-                  <option>I have no idea what I am doing, but I am having fun.</option>
-                  <option>I am so lost, please send help.</option>
-                  <option>I have opened the tool twice and deserve credit.</option>
-                  <option>I am trying things when work gives me a reason.</option>
-                  <option>I cannot believe it took me so long to start. I am making real progress.</option>
-                  <option>I am building workflows and becoming pleasantly annoying about it.</option>
-                  <option>I have been doing this for a while, and I am here to help.</option>
-                </select>
-              </label>
-              <label>
-                Tools you are using or testing
-                <input name="tools" type="text" placeholder="ChatGPT, Claude, Gemini, Copilot, Midjourney..." />
-              </label>
-              <label>
-                What are you struggling with?
-                <textarea name="struggles" rows="3" required></textarea>
-              </label>
-              <label>
-                What are you hoping to learn next?
-                <textarea name="learn" rows="3" required></textarea>
-              </label>
-            </fieldset>
+      <label>
+        Photo (optional)
+        <input name="photo" type="file" accept="image/*" />
+      </label>
 
-            <fieldset>
-              <legend>You've Got Mail!</legend>
-              <p class="field-note">Direct chat is not live yet. If you want other members to reach you, LinkedIn is the cleanest hello for now.</p>
-              <label>
-                LinkedIn or public link for connection
-                <input name="link" type="url" placeholder="https://www.linkedin.com/in/your-name" />
-              </label>
-              <label>
-                Where can you offer help?
-                <select name="help">
-                  <option value="">Pick the help you can offer</option>
-                  <option>Prompting without sounding like a robot</option>
-                  <option>Turning messy ideas into a first draft</option>
-                  <option>Making work less beige</option>
-                  <option>Change management and buy-in</option>
-                  <option>Workflow building</option>
-                  <option>Data, analysis, or reporting</option>
-                  <option>Writing, editing, or comms</option>
-                  <option>Leadership, strategy, or stakeholder wrangling</option>
-                  <option>Tax, finance, legal, or compliance context</option>
-                  <option>Just moral support and good questions</option>
-                </select>
-              </label>
-              <label>
-                Other help you can offer
-                <input name="helpOther" type="text" placeholder="Say it your way..." />
-              </label>
-              <p class="field-note">The dropdown is the searchable category. This box is extra card copy, not a filter.</p>
-              <label>
-                What kind of support would be useful?
-                <select name="support">
-                  <option value="">Pick what would help</option>
-                  <option>Help me figure out where to start</option>
-                  <option>Give me practical examples</option>
-                  <option>Recommend tools that are not a whole personality</option>
-                  <option>Help me write better prompts</option>
-                  <option>Help me build a workflow</option>
-                  <option>Help me explain this to my team</option>
-                  <option>Help me make the business case</option>
-                  <option>Accountability so I actually try it</option>
-                  <option>Confidence and fewer beige training vibes</option>
-                  <option>I am mostly here to find my people</option>
-                </select>
-              </label>
-              <label>
-                Other support that would be useful
-                <input name="supportOther" type="text" placeholder="Say it your way..." />
-              </label>
-              <label>
-                Current lAIdies energy
-                <select name="energy">
-                  <option value="">Pick the energy that fits</option>
-                  <option>Dolly Energy</option>
-                  <option>Miranda Polish</option>
-                  <option>Elle Evidence</option>
-                  <option>Cher Closet Check</option>
-                  <option>Sophia Says</option>
-                  <option>David Specificity</option>
-                  <option>Buffy Courage</option>
-                  <option>Ask the Room</option>
-                </select>
-              </label>
-              <label class="checkbox-label">
-                <input name="openToConnect" type="checkbox" />
-                I am open to other members connecting with me through the LinkedIn or public link I choose to share.
-              </label>
-            </fieldset>
+      <label>
+        Card style
+        <select name="y2kStyle" id="cardStyle">
+          <option value="laser">Classic laser backdrop</option>
+          <option value="sparkle">Butterfly clips & sparkle</option>
+          <option value="holo">Holographic foil</option>
+          <option value="desk">Caboodles & flip phone desk</option>
+          <option value="closet">Clueless closet glow-up</option>
+          <option value="press">Pop-star press photo</option>
+          <option value="original">Plain photo frame</option>
+        </select>
+      </label>
 
-            <fieldset>
-              <legend>Visibility, card mode, and feature consent</legend>
-              <label>
-                Profile visibility
-                <select name="visibility" required>
-                  <option value="directory">Share in the member directory</option>
-                  <option value="private">Keep private for the lAIdies team only</option>
-                  <option value="first-name">Share first name and journey only</option>
-                </select>
-              </label>
-              <label>
-                Pick the card mode to preview
-                <select name="y2kStyle" id="cardStyle">
-                  <option value="original">Original photo, simple card frame</option>
-                  <option value="laser">Classic school-photo laser backdrop</option>
-                  <option value="sparkle">Butterfly clips, soft sparkle, and mall-photo lighting</option>
-                  <option value="holo">Holographic trading-card foil</option>
-                  <option value="desk">Caboodles, flip phone, and glitter gel pen desk</option>
-                  <option value="closet">Clueless closet computer glow-up</option>
-                  <option value="press">Pop-star press photo, but make it corporate</option>
-                  <option value="laidy-surprise">LAIDY surprise me</option>
-                  <option value="claio-surprise">Mme CLAI-O chooses</option>
-                </select>
-              </label>
-              <p class="field-note">Pick a mode, check the preview, and change it until the card feels right. If you choose a surprise, LAIDY or Mme CLAI-O picks the vibe. Nothing should publish until the final card is approved.</p>
-              <label class="checkbox-label">
-                <input name="featureOptIn" id="featureOptIn" type="checkbox" />
-                I am open to being featured in a future lAIdies website, newsletter, LinkedIn, or Instagram spotlight.
-              </label>
-              <div class="feature-fields" id="featureFields" aria-hidden="true">
-                <label>
-                  What should we celebrate?
-                  <textarea name="proud" rows="3"></textarea>
-                </label>
-                <label>
-                  What are you excited about right now?
-                  <textarea name="excited" rows="3"></textarea>
-                </label>
-                <label>
-                  What would make this a great feature?
-                  <textarea name="featureAngle" rows="3" placeholder="A career pivot, a tool you tried, a lesson learned, a win worth naming..."></textarea>
-                </label>
-              </div>
-            </fieldset>
-
-            <label class="checkbox-label">
-              <input name="permission" type="checkbox" required />
-              I approve this profile information, selected card mode, and visibility choice. I understand the final generated card should come back for approval before anything is published.
-            </label>
-            <button class="button primary" type="submit">Approve this preview</button>
-          </form>
-        </div>
-
-        <aside class="spotlight-preview" aria-labelledby="spotlight-preview-title">
-          <p class="eyebrow">Draft Preview</p>
-          <h2 id="spotlight-preview-title">Trading card preview</h2>
-          <div class="member-trading-card card-laser profile-card-preview" id="memberCardPreview">
-            <div class="member-card-ribbon"><span>lAIdies Card</span><span>Draft</span></div>
-            <div class="spotlight-photo-preview" id="spotlightPhotoPreview">Photo, avatar, or laser backdrop preview</div>
-            <div class="member-card-body">
-              <p class="member-card-kicker" id="memberCardKicker">Member Era</p>
-              <h3 id="memberCardName">Your name</h3>
-              <p id="memberCardSummary">Fill out the form and preview your card.</p>
-              <div class="member-card-tags" id="memberCardTags"><span>AI journey</span><span>Tools</span><span>Help offered</span></div>
-              <div class="member-card-reward-case member-card-secret-badges" aria-label="Hidden badge slots">
-                <strong>Hidden merit badges</strong>
-                <p>Earned badges fill in. Dotted slots show what is still missing.</p>
-                <div class="secret-badge-grid secret-badge-grid--card" id="secretBadgeShelf" aria-live="polite"></div>
-                <strong>Quiz stickers</strong>
-                <p>Quiz stickers fill in as they are earned.</p>
-                <div class="secret-badge-grid secret-badge-grid--card" id="quizStickerShelf" aria-live="polite"></div>
-              </div>
-            </div>
-          </div>
-          <p class="selected-card-style" id="selectedCardStyleNote" aria-live="polite">Selected mode: original photo with simple card frame.</p>
-          <div class="spotlight-copy" id="spotlightCopy">
-            Fill out the form and pick a card mode. The preview updates before you approve, so you can choose the version you like.
-          </div>
-          <button class="button secondary" type="button" id="copySpotlightDraft">Copy draft</button>
-          <p class="form-status" id="spotlightStatus" aria-live="polite">
-            Your card preview is ready. Approve it below and it saves to your browser automatically.
-          </p>
-          <div class="card-approval-steps" aria-label="lAIdies Card approval steps">
-            <span class="is-active">1 Draft</span>
-            <span>2 Generate</span>
-            <span>3 Approve</span>
-            <span>4 Share</span>
-          </div>
-        </aside>
-      </section>
-
-      <!-- MEMBER DIRECTORY -->
-      <section style="text-align: center; padding: 32px 20px; margin-top: 32px; border-top: 1px solid rgba(255,45,155,0.2);">
-        <h3 style="font-family: Georgia, serif; font-size: 1.2rem; margin: 0 0 12px;">Want to see other members' cards?</h3>
-        <p style="color: var(--muted); margin: 0 0 16px;">Browse the full directory on the Community page.</p>
-        <a class="button primary" href="community.html#member-cards">Browse member cards →</a>
-      </section>
-
-      <!-- RETURN HOME -->
-      <div style="text-align: center; padding: 32px 20px 48px;">
-        <a class="button secondary" href="index.html">← Back to Home</a>
+      <!-- OPTIONAL FIELDS (collapsed) -->
+      <button type="button" class="optional-fields-toggle" onclick="document.getElementById('optionalFields').classList.toggle('is-open'); this.textContent = this.textContent.includes('Add') ? '− Hide extra details' : '+ Add more details to your card';">+ Add more details to your card</button>
+      
+      <div class="optional-fields" id="optionalFields">
+        <label>
+          Tools you use or are testing
+          <input name="tools" type="text" placeholder="ChatGPT, Claude, Gemini, Copilot..." />
+        </label>
+        <label>
+          What are you working on or struggling with?
+          <textarea name="struggles" rows="2"></textarea>
+        </label>
+        <label>
+          Where can you help others?
+          <select name="help">
+            <option value="">Pick one (or skip)</option>
+            <option>Prompting without sounding like a robot</option>
+            <option>Turning messy ideas into a first draft</option>
+            <option>Change management and buy-in</option>
+            <option>Workflow building</option>
+            <option>Data, analysis, or reporting</option>
+            <option>Writing, editing, or comms</option>
+            <option>Leadership or stakeholder wrangling</option>
+            <option>Just moral support and good questions</option>
+          </select>
+        </label>
+        <label>
+          LinkedIn (so people can say hi)
+          <input name="link" type="url" placeholder="https://linkedin.com/in/you" />
+        </label>
+        <label>
+          Current lAIdies energy
+          <select name="energy">
+            <option value="">Pick your vibe (optional)</option>
+            <option>Dolly Energy</option>
+            <option>Miranda Polish</option>
+            <option>Elle Evidence</option>
+            <option>Cher Closet Check</option>
+            <option>David Specificity</option>
+            <option>Buffy Courage</option>
+          </select>
+        </label>
+        <label class="checkbox-label" style="display: flex; align-items: flex-start; gap: 8px;">
+          <input name="openToConnect" type="checkbox" style="width: auto; margin-top: 3px;" />
+          <span>I am open to other members connecting with me</span>
+        </label>
       </div>
-    </main>
 
-    <script src="content/site/supabase-config.js" defer></script>
-    <script src="content/site/site-data.js" defer></script>
-    <script src="script.js" defer></script>
-  
-    <script>
-      // Enhanced card approval feedback
-      document.addEventListener("DOMContentLoaded", function() {
-        var form = document.querySelector("#spotlightForm");
-        var preview = document.querySelector(".spotlight-preview");
-        if (form && preview) {
-          form.addEventListener("submit", function() {
-            // Scroll to the preview
-            preview.scrollIntoView({behavior: "smooth", block: "start"});
-            // Add a success banner
-            var existing = document.querySelector(".card-saved-banner");
-            if (!existing) {
-              var banner = document.createElement("div");
-              banner.className = "card-saved-banner";
-              banner.style.cssText = "background: var(--hot-pink); color: #fff; padding: 16px 20px; border-radius: 10px; text-align: center; font-weight: 700; font-size: 1rem; margin-bottom: 16px; animation: fadeIn 0.3s ease;";
-              banner.textContent = "✓ Card approved! Your preview is ready. Get a Clubhouse Pass to save it permanently.";
-              preview.insertBefore(banner, preview.firstChild);
-            }
-          });
-        }
-      });
-    </script>
-  
+      <button class="save-btn" type="submit">Save my card</button>
+      <p class="save-status" id="spotlightStatus" aria-live="polite"></p>
+    </form>
+
+    <!-- LIVE PREVIEW -->
+    <aside class="card-preview-sticky">
+      <p class="eyebrow" style="color: var(--hot-pink); font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.72rem; margin-bottom: 8px;">Live Preview</p>
+      <div class="member-trading-card card-laser profile-card-preview" id="memberCardPreview">
+        <div class="member-card-ribbon"><span>lAIdies Card</span><span>Draft</span></div>
+        <div class="spotlight-photo-preview" id="spotlightPhotoPreview">Your photo here</div>
+        <div class="member-card-body">
+          <p class="member-card-kicker" id="memberCardKicker">Your Era</p>
+          <h3 id="memberCardName">Your name</h3>
+          <p id="memberCardSummary">Fill in the form to see your card take shape.</p>
+          <div class="member-card-tags" id="memberCardTags"><span>AI journey</span><span>Tools</span></div>
+        </div>
+      </div>
+      <p style="font-size: 0.78rem; color: var(--muted); margin-top: 12px; text-align: center;">Preview updates as you type</p>
+    </aside>
+  </div>
+
+  <!-- MEMBER DIRECTORY -->
+  <section style="text-align: center; padding: 32px 20px; margin-top: 32px; border-top: 1px solid rgba(255,45,155,0.2);">
+    <h3 style="font-family: Georgia, serif; font-size: 1.2rem; margin: 0 0 12px;">Want to see other members' cards?</h3>
+    <p style="color: var(--muted); margin: 0 0 16px;">Browse the full directory on the Community page.</p>
+    <a class="button primary" href="community.html#member-cards">Browse member cards →</a>
+  </section>
+</main>
+
 <footer style="text-align: center; padding: 24px; font-size: 0.8rem; color: var(--muted, #65515d);">
   <a href="index.html">← Back to homepage</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a>
 </footer>
+
+<script src="content/site/supabase-config.js" defer></script>
+<script src="content/site/site-data.js" defer></script>
+<script src="script.js" defer></script>
 </body>
 </html>
