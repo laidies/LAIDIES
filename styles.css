@@ -10005,17 +10005,26 @@ html {
   background: none;
   border: none;
   color: var(--hot-pink);
-  font-size: 1.6rem;
+  font-size: 2.2rem;
   cursor: pointer;
-  padding: 4px 8px;
+  padding: 8px 12px;
   line-height: 1;
-  z-index: 2;
+  z-index: 52;
   position: relative;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 @media (max-width: 768px) {
   .hamburger-btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .site-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 50 !important;
   }
   .site-header .nav {
     display: none;
@@ -10030,21 +10039,18 @@ html {
     gap: 0;
     border-bottom: 2px solid var(--hot-pink);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
-    z-index: 50;
+    z-index: 51;
   }
   .site-header .nav.is-open {
     display: flex;
   }
   .site-header .nav a {
     display: block;
-    padding: 12px 0;
-    font-size: 1rem !important;
+    padding: 14px 0;
+    font-size: 1.05rem !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
   .site-header .nav a:last-child {
     border-bottom: none;
-  }
-  .site-header {
-    position: relative;
   }
 }
