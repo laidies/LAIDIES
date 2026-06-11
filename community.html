@@ -117,7 +117,21 @@
         }
       }
     </style>
-  </head>
+  
+<style>
+/* Force member card photos to show full face - inline override */
+.member-card-photo,
+.spotlight-photo-preview {
+  aspect-ratio: 1 / 1 !important;
+}
+.member-card-photo img {
+  object-fit: contain !important;
+  object-position: center center !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+</style>
+</head>
   <body>
     <header class="site-header">
       <button onclick="history.back()" style="background: none; border: none; color: var(--hot-pink); font-size: 0.85rem; cursor: pointer; padding: 4px 8px; text-decoration: underline;" aria-label="Go back">← Back</button>
