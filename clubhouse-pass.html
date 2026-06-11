@@ -173,7 +173,7 @@
         <a class="brand" href="index.html" aria-label="lAIdies home">
           <img src="assets/laidies-logo-wordmark.png" alt="" />
         </a>
-        <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=this.parentElement.querySelector('.nav');var o=n.classList.toggle('is-open');this.setAttribute('aria-expanded',o);this.textContent=o?'✕':'☰';">☰</button>
+        <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=this.nextElementSibling;if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'☰':'✕';this.setAttribute('aria-expanded',!isOpen);">☰</button>
         <nav class="nav" aria-label="Primary navigation">
           <a href="episodes.html">Episodes</a>
           <a href="learn.html">Learn</a>
