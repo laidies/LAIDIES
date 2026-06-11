@@ -18,7 +18,8 @@
       <a class="brand" href="index.html#top" aria-label="lAIdies home">
         <img src="assets/laidies-logo-wordmark.png" alt="" />
       </a>
-      <nav class="nav" aria-label="Primary navigation">
+      <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+        <nav class="nav" aria-label="Primary navigation">
         <a href="episodes.html">Episodes</a>
         <a href="learn.html">Learn</a>
         <a href="clubhouse.html">Clubhouse</a>
@@ -56,5 +57,31 @@
         <a href="terms.html">Terms</a>
       </div>
     </footer>
-  </body>
+  <script>
+(function(){
+  var btn = document.querySelector(".hamburger-btn");
+  var nav = document.querySelector(".site-header .nav");
+  if (!btn || !nav) return;
+  btn.addEventListener("click", function() {
+    var open = nav.classList.toggle("is-open");
+    btn.setAttribute("aria-expanded", open);
+    btn.textContent = open ? "✕" : "☰";
+  });
+  nav.addEventListener("click", function(e) {
+    if (e.target.tagName === "A") {
+      nav.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+      btn.textContent = "☰";
+    }
+  });
+  document.addEventListener("click", function(e) {
+    if (!btn.contains(e.target) && !nav.contains(e.target) && nav.classList.contains("is-open")) {
+      nav.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+      btn.textContent = "☰";
+    }
+  });
+})();
+</script>
+</body>
 </html>
