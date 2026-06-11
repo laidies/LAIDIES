@@ -66,28 +66,14 @@
             <img src="assets/hot-goss-desk-v2.png" alt="" />
           </div>
         </div>
-        <div class="goss-board">
+        <div class="goss-board" id="gossBoard">
           <div class="goss-lane goss-lane-week">
             <div class="goss-lane-heading">
               <p class="eyebrow">Biggest This Week</p>
               <h3>Stories big enough to survive the group chat.</h3>
             </div>
-            <div class="goss-list">
-              <article>
-                <span class="goss-number">01</span>
-                <p><strong>Anthropic is getting the money conversation.</strong> The AI story is not just "which model is smartest?" anymore. It is also "who can afford to run this thing at scale?" Less vibes math, more CFO with a spreadsheet.</p>
-                <a href="https://www.axios.com/2026/06/02/anthropic-ipo-ai-sticker-shock-spending-usage" target="_blank" rel="noreferrer">Read the receipt</a>
-              </article>
-              <article>
-                <span class="goss-number">02</span>
-                <p><strong>The White House wants an early look at powerful models.</strong> New model launches may get a 30-day government preview window. Translation: the bouncer wants to see the guest list before the afterparty starts.</p>
-                <a href="https://www.cbsnews.com/news/trump-ai-executive-order/" target="_blank" rel="noreferrer">Read the receipt</a>
-              </article>
-              <article>
-                <span class="goss-number">03</span>
-                <p><strong>The real bottleneck is infrastructure.</strong> Chips, power, cooling, data centers, and compute deals are the unglamorous handbag holding the whole outfit together. No compute, no magic.</p>
-                <a href="https://techcrunch.com/2026/04/24/google-to-invest-up-to-40b-in-anthropic-in-cash-and-compute" target="_blank" rel="noreferrer">Read the receipt</a>
-              </article>
+            <div class="goss-list" id="gossWeeklyList">
+              <p style="color: var(--muted); font-style: italic;">Loading stories...</p>
             </div>
           </div>
           <aside class="goss-lane goss-lane-today" aria-labelledby="trending-today-title">
@@ -95,12 +81,44 @@
               <p class="eyebrow">Trending Today</p>
               <h3 id="trending-today-title">On the radar</h3>
             </div>
-            <article>
-              <span>Daily</span>
-              <p><strong>Quick AI headlines between the deep cuts.</strong> Written for the group chat, not the boardroom. Check back for fresh stories.</p>
-            </article>
+            <div id="gossDailyList">
+              <p style="color: var(--muted); font-style: italic;">Loading...</p>
+            </div>
           </aside>
         </div>
+        <script>
+        (function() {
+          fetch("content/hot-goss-feed.json?v=" + Date.now())
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+              // Render weekly stories
+              var weeklyEl = document.getElementById("gossWeeklyList");
+              if (weeklyEl && data.weeklyStories && data.weeklyStories.length) {
+                weeklyEl.innerHTML = data.weeklyStories.map(function(story, i) {
+                  var link = story.source ? '<a href="' + story.source + '" target="_blank" rel="noreferrer">Read the receipt</a>' : '';
+                  return '<article><span class="goss-number">' + String(i + 1).padStart(2, '0') + '</span><p><strong>' + story.headline + '</strong> ' + story.body + '</p>' + link + '</article>';
+                }).join("");
+              }
+              // Render daily headlines
+              var dailyEl = document.getElementById("gossDailyList");
+              if (dailyEl && data.dailyHeadlines && data.dailyHeadlines.length) {
+                dailyEl.innerHTML = data.dailyHeadlines.map(function(story) {
+                  var link = story.source ? ' <a href="' + story.source + '" target="_blank" rel="noreferrer">→</a>' : '';
+                  return '<article><p><strong>' + story.headline + '</strong> ' + story.body + link + '</p></article>';
+                }).join("");
+              }
+              // Show last updated
+              if (data.lastUpdated) {
+                var stamp = document.querySelector(".hot-goss-stamp strong");
+                if (stamp) stamp.textContent = "Last updated: " + data.lastUpdated;
+              }
+            })
+            .catch(function() {
+              var weeklyEl = document.getElementById("gossWeeklyList");
+              if (weeklyEl) weeklyEl.innerHTML = '<p style="color: var(--muted);">Stories loading soon. Check back shortly.</p>';
+            });
+        })();
+        </script>
       </section>
 
 
