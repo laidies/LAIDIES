@@ -27,78 +27,112 @@
 </script>
 
     <style>
-      /* Member card thumbnails on community page */
-      #laidiesCardGrid,
-      .trading-card-grid {
-        display: grid !important;
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
-        gap: 16px !important;
-        justify-content: center !important;
-        max-width: 900px !important;
-        margin: 0 auto !important;
-      }
-      #laidiesCardGrid .member-trading-card,
-      .trading-card-grid .member-trading-card {
-        width: 100% !important;
-        max-width: 260px !important;
-        height: auto !important;
-        transform: none !important;
-        margin: 0 !important;
-        cursor: pointer;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        overflow: hidden !important;
-        font-size: 0.7rem !important;
-      }
-      .trading-card-grid .member-trading-card .member-card-body {
-        padding: 8px 10px !important;
-      }
-      .trading-card-grid .member-trading-card .member-card-body h3 {
-        font-size: 0.95rem !important;
-        margin: 4px 0 !important;
-      }
-      .trading-card-grid .member-trading-card .member-card-body p {
-        font-size: 0.68rem !important;
-        line-height: 1.3 !important;
-        margin: 0 0 4px !important;
-      }
-      .trading-card-grid .member-trading-card .member-card-kicker {
-        font-size: 0.55rem !important;
-        margin: 0 !important;
-      }
-      .trading-card-grid .member-trading-card .member-card-tags {
-        gap: 3px !important;
-      }
-      .trading-card-grid .member-trading-card .member-card-tags span {
-        font-size: 0.55rem !important;
-        padding: 2px 5px !important;
-      }
-      .trading-card-grid .member-trading-card .member-card-photo {
-        height: 120px !important;
-        aspect-ratio: auto !important;
-      }
-      .trading-card-grid .member-trading-card .member-card-ribbon {
-        font-size: 0.5rem !important;
-        padding: 3px 6px !important;
-      }
-      .trading-card-grid .member-trading-card .member-card-links,
-      .trading-card-grid .member-trading-card .member-card-reward-case {
-        display: none !important;
-      }
-      .trading-card-grid .member-trading-card:hover {
-        transform: translateY(-4px) !important;
-        box-shadow: 0 8px 24px rgba(255,45,155,0.3) !important;
-      }
-      @media (max-width: 560px) {
-        #laidiesCardGrid,
-        .trading-card-grid {
-          grid-template-columns: repeat(2, 1fr) !important;
-          gap: 10px !important;
-        }
-        .trading-card-grid .member-trading-card .member-card-photo {
-          height: 80px !important;
-        }
-      }
-    </style>
+/* Member card thumbnails — clean responsive grid */
+#laidiesCardGrid,
+.trading-card-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)) !important;
+  gap: 14px !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  justify-content: center !important;
+}
+
+#laidiesCardGrid .member-trading-card,
+.trading-card-grid .member-trading-card {
+  width: 100% !important;
+  max-width: 280px !important;
+  height: auto !important;
+  transform: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden !important;
+  border-radius: 8px !important;
+}
+
+.trading-card-grid .member-trading-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 24px rgba(255,45,155,0.25) !important;
+}
+
+/* Ribbon */
+.trading-card-grid .member-card-ribbon {
+  padding: 4px 8px !important;
+  font-size: 0.5rem !important;
+}
+
+/* Photo — centered face */
+.trading-card-grid .member-card-photo {
+  height: 110px !important;
+  aspect-ratio: auto !important;
+  overflow: hidden !important;
+}
+.trading-card-grid .member-card-photo img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+/* Body */
+.trading-card-grid .member-card-body {
+  padding: 8px 10px 12px !important;
+}
+.trading-card-grid .member-card-body .member-card-kicker {
+  font-size: 0.55rem !important;
+  margin: 0 0 2px !important;
+}
+.trading-card-grid .member-card-body h3 {
+  font-size: 0.9rem !important;
+  margin: 0 0 4px !important;
+}
+.trading-card-grid .member-card-body p {
+  font-size: 0.65rem !important;
+  line-height: 1.3 !important;
+  margin: 0 0 4px !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+/* Tags — compact */
+.trading-card-grid .member-card-tags {
+  gap: 3px !important;
+  margin-top: 6px !important;
+}
+.trading-card-grid .member-card-tags span {
+  font-size: 0.5rem !important;
+  padding: 2px 5px !important;
+}
+
+/* Hide heavy elements in thumbnail */
+.trading-card-grid .member-card-links,
+.trading-card-grid .member-card-reward-case,
+.trading-card-grid .member-card-meta {
+  display: none !important;
+}
+
+/* Mobile: 2 columns */
+@media (max-width: 560px) {
+  #laidiesCardGrid,
+  .trading-card-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .trading-card-grid .member-card-photo {
+    height: 80px !important;
+  }
+  .trading-card-grid .member-card-body h3 {
+    font-size: 0.8rem !important;
+  }
+  .trading-card-grid .member-card-body p {
+    -webkit-line-clamp: 1 !important;
+  }
+}
+</style>
   
 <style>
 /* Force member card photos to show full face - inline override */

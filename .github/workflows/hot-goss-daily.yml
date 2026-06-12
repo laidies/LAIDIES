@@ -1,0 +1,36 @@
+name: Update Hot Goss Daily
+
+on:
+  schedule:
+    - cron: '0 12 * * *'  # 12:00 UTC = 8:00 AM ET
+  workflow_dispatch:  # Allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  update-hot-goss:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests feedparser anthropic
+
+      - name: Fetch and rewrite stories
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/update-hot-goss.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "laidies"
+          git config user.email "wednesday.laidies@gmail.com"
+          git add content/hot-goss-feed.json
+          git diff --cached --quiet || git commit -m "🗞️ Hot Goss daily update $(date +%Y-%m-%d)"
+          git push
