@@ -2994,6 +2994,7 @@ const clubhouseRevealSelectorsByHash = {
   "dreamPhoneToggle": [".dream-phone-game"],
   "cocktailWheel": [".cocktail-wheel-game"],
   "dj-booth-section": [".house-dj-game", ".games-group-heading--dj"],
+  "dj-booth-inline": [".house-dj-game"],
   "girlTalkButton": [".girl-talk-game"],
   "member-passport": [],
   clubhouse: [],
