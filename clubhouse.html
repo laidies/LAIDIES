@@ -99,6 +99,18 @@
         margin-bottom: 16px;
         display: block;
       }
+      /* Hide hero image when card has its own interactive visual section */
+      .game-panel-styled:has(.psychic-visual) .game-hero-img,
+      .game-panel-styled:has(.fairy-wand) .game-hero-img,
+      .game-panel-styled:has(.signoff-visual) .game-hero-img,
+      .game-panel-styled:has(.try-on-visual) .game-hero-img,
+      .game-panel-styled:has(.girl-talk-stage) .game-hero-img,
+      .game-panel-styled:has(.dream-handset) .game-hero-img,
+      .game-panel-styled:has(.trading-pack-visual) .game-hero-img,
+      .game-panel-styled:has(.cocktail-fortune-table) .game-hero-img,
+      .game-panel-styled:has(.quiz-game-visual) .game-hero-img {
+        display: none;
+      }
 
       /* Fix game output on dark panels */
       .game-panel-styled .game-output {
@@ -132,10 +144,15 @@
       /* Fix cocktail controls on dark panel */
       .game-panel-styled .cocktail-lane-label,
       .game-panel-styled .cocktail-control-label {
-        color: rgba(255, 248, 252, 0.9) !important;
+        color: #3a0928 !important;
       }
       .game-panel-styled .cocktail-lane-label span {
-        color: rgba(255, 248, 252, 0.6) !important;
+        color: #247b83 !important;
+      }
+      /* Fix yellow buttons needing dark text */
+      .game-panel-styled .button.secondary[href*="playbook"],
+      .game-panel-styled .try-on-game .button.secondary {
+        color: #100805 !important;
       }
       .game-panel-styled .cocktail-mood-button {
         background: rgba(255, 255, 255, 0.06) !important;
