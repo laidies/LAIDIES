@@ -123,13 +123,19 @@
 
       /* === Who's Who Section === */
       .who-section {
-        padding: clamp(40px, 6vw, 72px) clamp(18px, 5vw, 64px);
-        max-width: 1000px;
+        padding: clamp(32px, 5vw, 56px) clamp(18px, 5vw, 64px);
+        max-width: 960px;
         margin: 0 auto;
+        display: block !important;
       }
       .who-section .section-heading {
         text-align: center;
-        margin-bottom: 32px;
+        margin-bottom: 20px;
+        position: static !important;
+        max-width: none !important;
+        width: 100% !important;
+        float: none !important;
+        display: block !important;
       }
       .who-section .eyebrow {
         font-family: 'JetBrains Mono', monospace;
@@ -152,15 +158,20 @@
         line-height: 1.5;
       }
       .who-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap: 16px;
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 12px !important;
+        width: 100% !important;
+        max-width: none !important;
+      }
+      @media (max-width: 640px) {
+        .who-grid { grid-template-columns: repeat(2, 1fr) !important; }
       }
       .who-card {
         background: #fff;
         border: 1.5px solid #f0e6ec;
         border-radius: 12px;
-        padding: 18px 20px;
+        padding: 14px 16px;
         text-decoration: none;
         color: inherit;
         transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
@@ -193,199 +204,6 @@
         margin: 0;
       }
 
-      /* === Glossary Section (scrollable target) === */
-      .glossary-inline {
-        padding: clamp(40px, 6vw, 72px) clamp(18px, 5vw, 64px);
-        max-width: 900px;
-        margin: 0 auto;
-        border-top: 1px solid #f0e6ec;
-      }
-      .glossary-inline .section-heading {
-        text-align: center;
-        margin-bottom: 32px;
-      }
-      .glossary-inline .eyebrow {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: #ff2d9b;
-        margin-bottom: 8px;
-      }
-      .glossary-inline h2 {
-        font-family: 'Playfair Display', Georgia, serif;
-        font-size: clamp(1.4rem, 3vw, 1.9rem);
-        margin: 0 0 10px;
-      }
-      .glossary-inline .section-heading > p {
-        font-size: 0.9rem;
-        color: #65515d;
-        max-width: 560px;
-        margin: 0 auto;
-        line-height: 1.5;
-      }
-      .glossary-terms {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 16px;
-      }
-      .glossary-card {
-        background: #fff;
-        border: 1.5px solid #f0e6ec;
-        border-radius: 12px;
-        padding: 20px;
-        transition: border-color 150ms ease, box-shadow 150ms ease;
-      }
-      .glossary-card:hover {
-        border-color: rgba(255, 45, 155, 0.4);
-        box-shadow: 0 4px 16px rgba(255, 45, 155, 0.08);
-      }
-      .glossary-card strong {
-        font-family: 'Playfair Display', Georgia, serif;
-        font-size: 1rem;
-        display: block;
-        margin-bottom: 8px;
-        color: #1a0a12;
-      }
-      .glossary-card p {
-        font-size: 0.82rem;
-        color: #65515d;
-        line-height: 1.5;
-        margin: 4px 0;
-      }
-      .glossary-card b {
-        color: #3d2231;
-      }
-
-      /* === Quiz Section (scrollable target) === */
-      .quiz-inline {
-        padding: clamp(40px, 6vw, 72px) clamp(18px, 5vw, 64px);
-        max-width: 760px;
-        margin: 0 auto;
-        border-top: 1px solid #f0e6ec;
-      }
-      .quiz-inline .section-heading {
-        text-align: center;
-        margin-bottom: 32px;
-      }
-      .quiz-inline .eyebrow {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: #ff2d9b;
-        margin-bottom: 8px;
-      }
-      .quiz-inline h2 {
-        font-family: 'Playfair Display', Georgia, serif;
-        font-size: clamp(1.4rem, 3vw, 1.9rem);
-        margin: 0 0 10px;
-      }
-      .quiz-inline .section-heading > p {
-        font-size: 0.9rem;
-        color: #65515d;
-        max-width: 520px;
-        margin: 0 auto;
-        line-height: 1.5;
-      }
-      .quiz-console {
-        background: #fff;
-        border: 1.5px solid #f0e6ec;
-        border-radius: 16px;
-        padding: 28px 24px;
-      }
-      .quiz-console .quiz-console-header {
-        margin-bottom: 20px;
-      }
-      .quiz-console .quiz-console-header .eyebrow {
-        margin-bottom: 4px;
-      }
-      .quiz-console .quiz-console-header h3 {
-        font-family: 'Playfair Display', Georgia, serif;
-        font-size: 1.1rem;
-        margin: 0;
-      }
-      .quiz-issue-shelf {
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-        margin-bottom: 20px;
-      }
-      .quiz-issue-card {
-        background: linear-gradient(160deg, #1a0a12 0%, #2d0f1f 100%);
-        border: 2px solid rgba(255, 45, 155, 0.35);
-        border-radius: 12px;
-        padding: 14px 18px;
-        color: #fff;
-        cursor: pointer;
-        text-align: left;
-        transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
-        flex: 1;
-        min-width: 180px;
-      }
-      .quiz-issue-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 16px rgba(255, 45, 155, 0.2);
-        border-color: rgba(255, 45, 155, 0.7);
-      }
-      .quiz-issue-card span {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.68rem;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-        color: #ff2d9b;
-        display: block;
-        margin-bottom: 4px;
-      }
-      .quiz-issue-card strong {
-        display: block;
-        font-size: 0.9rem;
-        margin-bottom: 4px;
-      }
-      .quiz-issue-card em {
-        font-size: 0.75rem;
-        color: rgba(255, 248, 252, 0.6);
-        font-style: normal;
-      }
-      .quiz-form {
-        margin-top: 20px;
-      }
-      .quiz-questions {
-        margin-bottom: 20px;
-      }
-      .quiz-actions {
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
-      .quiz-result {
-        margin-top: 16px;
-        font-size: 0.9rem;
-        color: #65515d;
-      }
-      .quiz-score-row {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-top: 16px;
-        padding: 12px 16px;
-        background: linear-gradient(135deg, #fff5fa, #fff);
-        border: 1.5px solid #f0e6ec;
-        border-radius: 10px;
-      }
-      .quiz-score-row .quiz-sticker {
-        font-size: 1.6rem;
-      }
-      .quiz-score-row .quiz-score-details p {
-        margin: 0;
-        font-size: 0.82rem;
-        color: #65515d;
-      }
-      .quiz-score-row .quiz-score-details strong {
-        font-size: 0.9rem;
-        color: #1a0a12;
-      }
-
       /* === Footer spacing === */
       .learn-back-home {
         text-align: center;
@@ -404,12 +222,7 @@
         .who-grid {
           grid-template-columns: 1fr;
         }
-        .glossary-terms {
-          grid-template-columns: 1fr;
-        }
-        .quiz-issue-shelf {
-          flex-direction: column;
-        }
+
       }
     </style>
       <link rel="stylesheet" href="/content/site/mini-player.css">
@@ -428,7 +241,8 @@
         <a href="community.html">Community</a>
         <a href="games/dj-booth.html">Listen</a>
         <a href="this-week.html">This Week</a>
-      </nav>
+        <a href="clubhouse-pass.html" style="color: #ff2d9b; text-decoration: underline; margin-left: 8px;">Sign In</a>
+</nav>
     </header>
 
     <main id="top">
@@ -444,7 +258,7 @@
       <section class="learn-hub-grid-wrapper" aria-label="Learning hub navigation">
         <div class="learn-hub-grid">
 
-          <a class="hub-card" href="#glossary">
+          <a class="hub-card" href="learn/glossary.html">
             <img src="assets/glossary-rolodex.png" alt="Hot pink Y2K Rolodex glossary" />
             <div class="hub-card-body">
               <strong>Glossary</strong>
@@ -453,7 +267,7 @@
             </div>
           </a>
 
-          <a class="hub-card" href="#quiz">
+          <a class="hub-card" href="learn/quiz.html">
             <img src="assets/quiz-teen-magazine.png" alt="Retro teen magazine quiz style" />
             <div class="hub-card-body">
               <strong>Magazine Quiz</strong>
@@ -521,86 +335,11 @@
             <strong>Gemini</strong>
             <p>Google&rsquo;s AI assistant family. Useful to know because it is showing up across Google products people already use.</p>
           </a>
-          <a class="who-card" href="#glossary">
+          <a class="who-card" href="learn/glossary.html">
             <span class="who-tag">Concept</span>
             <strong>Model vs. App</strong>
             <p>The app is the handbag. The model is what is inside doing the work. Cute bag, important contents.</p>
           </a>
-        </div>
-      </section>
-
-      <!-- ===== GLOSSARY (full, scrollable) ===== -->
-      <section class="glossary-inline" id="glossary" aria-labelledby="glossary-title">
-        <div class="section-heading">
-          <p class="eyebrow">So You Don&rsquo;t Pull a Cher</p>
-          <h2 id="glossary-title">The glossary for AI and computer confidence.</h2>
-          <p>A living dictionary for the words that show up when you start using AI more seriously. Plain English, useful analogies, no condescension.</p>
-        </div>
-        <div class="glossary-terms" id="glossaryGrid">
-          <article class="glossary-card"><strong>Generative AI</strong><p><b>What it is:</b> AI that creates a new draft, image, summary, plan, or bit of code from your instructions.</p><p><b>Where it comes up:</b> ChatGPT, Claude, Gemini, image tools, and most &ldquo;make this for me&rdquo; AI features.</p><p><b>Analogy:</b> Not Google. More like an assistant making the first messy version so you are not staring at a blank page.</p></article>
-          <article class="glossary-card"><strong>Prompt</strong><p><b>What it is:</b> The instruction you give an AI tool.</p><p><b>Where it comes up:</b> Anytime you type into ChatGPT, ask for an image, or tell Codex what to change.</p><p><b>Analogy:</b> A brief with standards: audience, task, tone, context, and what good looks like.</p></article>
-          <article class="glossary-card"><strong>Hallucination</strong><p><b>What it is:</b> When AI gives an answer that sounds polished but is wrong or made up.</p><p><b>Where it comes up:</b> Names, dates, laws, links, quotes, sources, numbers, or anything high-stakes.</p><p><b>Analogy:</b> Regina George confidence, zero receipts. Verify before you forward.</p></article>
-          <article class="glossary-card"><strong>Model</strong><p><b>What it is:</b> The trained system inside an AI product that predicts and generates the response.</p><p><b>Where it comes up:</b> When people say GPT-5, Claude Sonnet, Gemini, or &ldquo;which model are you using?&rdquo;</p><p><b>Analogy:</b> The app is the venue. The model is the person doing the work in the back room.</p></article>
-          <article class="glossary-card"><strong>Context</strong><p><b>What it is:</b> The background information AI needs to understand your situation.</p><p><b>Where it comes up:</b> When the first answer is generic and you need to add audience, goal, constraints, examples, or documents.</p><p><b>Analogy:</b> Telling your stylist the event, weather, dress code, and shoes before asking for the outfit.</p></article>
-          <article class="glossary-card"><strong>Token</strong><p><b>What it is:</b> A chunk of text an AI model reads and predicts with. A token can be a word, part of a word, punctuation, or a weird little text fragment.</p><p><b>Where it comes up:</b> Token limits, pricing, long documents, context windows, and the viral &ldquo;how many Rs are in strawberry?&rdquo; problem.</p><p><b>Analogy:</b> The model may not see strawberry as nine neat letters. It sees chunks. That is why an LLM can confidently say there are two Rs when there are three.</p></article>
-          <article class="glossary-card"><strong>Agent</strong><p><b>What it is:</b> AI that can take multiple steps toward a goal, sometimes using tools along the way.</p><p><b>Where it comes up:</b> Coding assistants, research agents, workflow builders, and tools that can plan, act, check, and revise.</p><p><b>Analogy:</b> An assistant with a checklist. Useful, but still needs boundaries and review.</p></article>
-          <article class="glossary-card"><strong>Browser</strong><p><b>What it is:</b> The app you use to open websites.</p><p><b>Where it comes up:</b> Visiting ChatGPT, reading docs, testing your site, or checking whether a link works.</p><p><b>Analogy:</b> Chrome, Safari, and Edge are the front doors. The website is what is inside.</p></article>
-          <article class="glossary-card"><strong>HTML</strong><p><b>What it is:</b> The structure of a webpage: headings, paragraphs, links, forms, buttons, and images.</p><p><b>Where it comes up:</b> When you want AI to create a page, fix newsletter HTML, or understand what is on a site.</p><p><b>Analogy:</b> The bones of the outfit before hair, makeup, and accessories.</p></article>
-          <article class="glossary-card"><strong>CSS</strong><p><b>What it is:</b> The styling rules for a webpage: layout, colors, fonts, spacing, and responsive behavior.</p><p><b>Where it comes up:</b> When text spills out of boxes, buttons look wrong, or a page needs to work on mobile.</p><p><b>Analogy:</b> Same content, better blazer. CSS is what makes it look intentional.</p></article>
-          <article class="glossary-card"><strong>JavaScript</strong><p><b>What it is:</b> Code that makes a webpage interactive after it loads.</p><p><b>Where it comes up:</b> Quote generators, filters, dropdowns, forms, calculators, and buttons that change what you see.</p><p><b>Analogy:</b> HTML is the room, CSS is the decor, JavaScript is someone turning the lights on and moving the furniture.</p></article>
-          <article class="glossary-card"><strong>Terminal</strong><p><b>What it is:</b> A text-based place to talk to your computer by typing instructions instead of clicking app buttons.</p><p><b>Where it comes up:</b> Starting a website preview, installing tools, running a script, or following developer setup instructions.</p><p><b>Analogy:</b> The Starbucks counter. Apps are the printed menu. The terminal is where the off-menu options live.</p></article>
-          <article class="glossary-card"><strong>PowerShell</strong><p><b>What it is:</b> A Windows terminal shell: the thing that understands Windows-style commands and passes them to the right tool.</p><p><b>Where it comes up:</b> On Windows when instructions say to run something, list files, start a server, or check a folder.</p><p><b>Analogy:</b> The Windows barista/register system. It takes the order, checks what ingredients exist, and either makes the drink or tells you why it cannot.</p></article>
-          <article class="glossary-card"><strong>Command</strong><p><b>What it is:</b> A typed instruction you give your computer in Terminal or PowerShell.</p><p><b>Where it comes up:</b> Copying setup instructions, running tests, starting a local site, or asking AI what a command does before using it.</p><p><b>Analogy:</b> The secret drink-menu order. Not listed on the friendly app menu, but if you say it exactly right, you get precisely what you wanted.</p></article>
-          <article class="glossary-card"><strong>File Path</strong><p><b>What it is:</b> The exact location of a file or folder on your computer.</p><p><b>Where it comes up:</b> When you send AI a file location, upload assets, fix image links, or open a local HTML page.</p><p><b>Analogy:</b> The full address, not &ldquo;that cute place downtown.&rdquo;</p></article>
-          <article class="glossary-card"><strong>Extension</strong><p><b>What it is:</b> The ending of a filename that tells your computer what kind of file it is.</p><p><b>Where it comes up:</b> HTML newsletters, images, Markdown docs, PDFs, CSVs, and anything AI asks you to save or upload.</p><p><b>Analogy:</b> The label on the garment bag: .html, .png, .md, .pdf.</p></article>
-          <article class="glossary-card"><strong>Embed</strong><p><b>What it is:</b> A small piece of code that places another service inside your webpage.</p><p><b>Where it comes up:</b> Comments, signup forms, videos, maps, calendars, surveys, and other tools you do not want to build from scratch.</p><p><b>Analogy:</b> Borrowing the professional photo booth instead of constructing one in your living room.</p></article>
-        </div>
-      </section>
-
-      <!-- ===== QUIZ (full, scrollable) ===== -->
-      <section class="quiz-inline" id="quiz" aria-labelledby="quiz-title">
-        <div class="section-heading">
-          <p class="eyebrow">Magazine Quiz</p>
-          <h2 id="quiz-title">Did the analogy stick, or do we need to call the group chat?</h2>
-          <p>Pick any released issue and take the quiz whenever you get there. New readers can start at Episode 1, archive girls can catch up later.</p>
-        </div>
-        <div class="quiz-console">
-          <div class="quiz-console-header">
-            <div>
-              <p class="eyebrow" id="quizIssueLabel">Issue 01 Quiz</p>
-              <h3 id="quizIssueTitle">Opening the tab without making it a whole personality crisis.</h3>
-            </div>
-          </div>
-          <div class="quiz-start-panel" id="quizStartPanel">
-            <div class="quiz-issue-shelf" aria-label="Available issue quizzes">
-              <button class="quiz-issue-card" type="button" data-quiz-open="foundation">
-                <span>Foundation</span>
-                <strong>Why <span class="wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Exists</strong>
-                <em>10 questions + 2 bonus</em>
-              </button>
-              <button class="quiz-issue-card" type="button" data-quiz-open="issue01">
-                <span>Issue 01</span>
-                <strong>On Wednesdays We Use AI</strong>
-                <em>10 questions + 2 bonus</em>
-              </button>
-            </div>
-          </div>
-          <form id="quizForm" class="quiz-form" hidden>
-            <div id="quizQuestions" class="quiz-questions" aria-live="polite"></div>
-            <div class="quiz-actions">
-              <button class="button primary" type="submit">Check my score</button>
-              <button class="button secondary" type="button" id="quizResetButton">Retake</button>
-              <a class="button ghost" id="quizRereadLink" href="issues/issue-01.html">Reread Issue 01</a>
-            </div>
-          </form>
-          <p class="quiz-result" id="quizResult" aria-live="polite">Pick an issue above. The questions stay in the Caboodle until you open them.</p>
-          <div class="quiz-score-row">
-            <span class="quiz-sticker" id="quizSticker" aria-live="polite">?</span>
-            <div class="quiz-score-details">
-              <strong id="quizRewardTitle">No sticker yet</strong>
-              <p id="quizBestScore">Best score: not taken</p>
-            </div>
-          </div>
         </div>
       </section>
 

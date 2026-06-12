@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glossary | LAIDIES</title>
+  <meta name="description" content="AI terms in plain English. No vests, no maxxing, no condescension. The LAIDIES glossary." />
+  <meta property="og:title" content="Glossary | LAIDIES" />
+  <meta property="og:description" content="The glossary for AI and computer confidence." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#ff2d9b" />
+  <link rel="icon" type="image/png" href="../assets/laidies-logo-square.png" />
+  <link rel="manifest" href="../manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="../assets/laidies-logo-square.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="[REDACTED_CONN_STRING]://400;700&family=Dancing+Script:wght@400;700&family=JetBrains+Mono:wght@400&family=Inter:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="../content/site/mini-player.css">
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fdf8fb;
+      color: #1a0a12;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* === STICKY BACK NAV === */
+    .back-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(253, 248, 251, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid #f0e6ec;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .back-bar a {
+      color: #ff2d9b;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    .back-bar a:hover { opacity: 0.75; }
+    .back-bar .brand img { height: 24px; }
+
+    /* === NAV === */
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .site-nav a {
+      color: #3d2231;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .site-nav a:hover { color: #ff2d9b; }
+    .hamburger-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: #1a0a12;
+    }
+    @media (max-width: 700px) {
+      .site-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(253, 248, 251, 0.97);
+        padding: 16px 24px;
+        border-bottom: 1px solid #f0e6ec;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .site-nav.is-open { display: flex; }
+      .hamburger-btn { display: block; }
+    }
+
+    /* === HERO === */
+    .glossary-hero {
+      text-align: center;
+      padding: clamp(40px, 7vw, 72px) clamp(18px, 5vw, 64px) clamp(24px, 4vw, 40px);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .glossary-hero .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #ff2d9b;
+      margin-bottom: 12px;
+    }
+    .glossary-hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: #1a0a12;
+    }
+    .glossary-hero img {
+      max-width: 240px;
+      width: 100%;
+      margin: 20px auto 0;
+      display: block;
+      border-radius: 12px;
+    }
+
+    /* === SEARCH / FILTER === */
+    .glossary-filter {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 clamp(18px, 5vw, 48px) 24px;
+    }
+    .glossary-filter input {
+      width: 100%;
+      max-width: 400px;
+      display: block;
+      margin: 0 auto;
+      padding: 10px 16px;
+      border: 1.5px solid #f0e6ec;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #1a0a12;
+      transition: border-color 0.2s;
+    }
+    .glossary-filter input:focus {
+      outline: none;
+      border-color: #ff2d9b;
+      box-shadow: 0 0 0 3px rgba(255, 45, 155, 0.08);
+    }
+    .glossary-filter input::placeholder {
+      color: #a08a96;
+    }
+
+    /* === GLOSSARY GRID === */
+    .glossary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 clamp(18px, 5vw, 48px) clamp(48px, 6vw, 72px);
+    }
+    @media (max-width: 860px) {
+      .glossary-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 540px) {
+      .glossary-grid { grid-template-columns: 1fr; }
+    }
+
+    .glossary-card {
+      background: #fff;
+      border: 1.5px solid #f0e6ec;
+      border-radius: 14px;
+      padding: 20px 22px;
+      transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+    }
+    .glossary-card:hover {
+      border-color: rgba(255, 45, 155, 0.4);
+      box-shadow: 0 4px 18px rgba(255, 45, 155, 0.08);
+      transform: translateY(-2px);
+    }
+    .glossary-card.hidden { display: none; }
+    .glossary-card strong {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.05rem;
+      display: block;
+      margin-bottom: 10px;
+      color: #1a0a12;
+    }
+    .glossary-card p {
+      font-size: 0.82rem;
+      color: #65515d;
+      line-height: 1.55;
+      margin: 5px 0;
+    }
+    .glossary-card b {
+      color: #3d2231;
+    }
+    .glossary-card .analogy {
+      color: #b82070;
+      font-style: italic;
+    }
+
+    /* === FOOTER === */
+    .site-footer {
+      text-align: center;
+      padding: 32px 24px 48px;
+      border-top: 1px solid #f0e6ec;
+      font-size: 0.78rem;
+      color: #8a7080;
+    }
+    .site-footer a {
+      color: #65515d;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+    .site-footer a:hover { color: #ff2d9b; }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Back Bar -->
+  <header class="back-bar">
+    <a href="../learn.html">&larr; Back to Learn</a>
+    <a class="brand" href="../index.html" aria-label="lAIdies home">
+      <img src="../assets/laidies-logo-wordmark.png" alt="LAIDIES" />
+    </a>
+    <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="../episodes.html">Episodes</a>
+      <a href="../learn.html">Learn</a>
+      <a href="../clubhouse.html">Clubhouse</a>
+      <a href="../community.html">Community</a>
+      <a href="../games/dj-booth.html">Listen</a>
+      <a href="../this-week.html">This Week</a>
+      <a href="../clubhouse-pass.html" style="color: #ff2d9b; text-decoration: underline; margin-left: 8px;">Sign In</a>
+</nav>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="glossary-hero">
+      <p class="eyebrow">So You Don&rsquo;t Pull a Cher</p>
+      <h1>The glossary for AI and computer confidence.</h1>
+      <img src="../assets/glossary-rolodex.png" alt="Hot pink Y2K Rolodex glossary" />
+    </section>
+
+    <!-- Search Filter -->
+    <div class="glossary-filter">
+      <input type="text" id="glossarySearch" placeholder="Search terms&hellip;" aria-label="Filter glossary terms" />
+    </div>
+
+    <!-- Glossary Grid: All 17 terms -->
+    <div class="glossary-grid" id="glossaryGrid">
+
+      <article class="glossary-card" data-term="generative ai">
+        <strong>Generative AI</strong>
+        <p><b>What it is:</b> AI that creates a new draft, image, summary, plan, or bit of code from your instructions.</p>
+        <p><b>Where it comes up:</b> ChatGPT, Claude, Gemini, image tools, and most &ldquo;make this for me&rdquo; AI features.</p>
+        <p class="analogy"><b>Analogy:</b> Not Google. More like an assistant making the first messy version so you are not staring at a blank page.</p>
+      </article>
+
+      <article class="glossary-card" data-term="prompt">
+        <strong>Prompt</strong>
+        <p><b>What it is:</b> The instruction you give an AI tool.</p>
+        <p><b>Where it comes up:</b> Anytime you type into ChatGPT, ask for an image, or tell Codex what to change.</p>
+        <p class="analogy"><b>Analogy:</b> A brief with standards: audience, task, tone, context, and what good looks like.</p>
+      </article>
+
+      <article class="glossary-card" data-term="hallucination">
+        <strong>Hallucination</strong>
+        <p><b>What it is:</b> When AI gives an answer that sounds polished but is wrong or made up.</p>
+        <p><b>Where it comes up:</b> Names, dates, laws, links, quotes, sources, numbers, or anything high-stakes.</p>
+        <p class="analogy"><b>Analogy:</b> Regina George confidence, zero receipts. Verify before you forward.</p>
+      </article>
+
+      <article class="glossary-card" data-term="model">
+        <strong>Model</strong>
+        <p><b>What it is:</b> The trained system inside an AI product that predicts and generates the response.</p>
+        <p><b>Where it comes up:</b> When people say GPT-5, Claude Sonnet, Gemini, or &ldquo;which model are you using?&rdquo;</p>
+        <p class="analogy"><b>Analogy:</b> The app is the venue. The model is the person doing the work in the back room.</p>
+      </article>
+
+      <article class="glossary-card" data-term="context">
+        <strong>Context</strong>
+        <p><b>What it is:</b> The background information AI needs to understand your situation.</p>
+        <p><b>Where it comes up:</b> When the first answer is generic and you need to add audience, goal, constraints, examples, or documents.</p>
+        <p class="analogy"><b>Analogy:</b> Telling your stylist the event, weather, dress code, and shoes before asking for the outfit.</p>
+      </article>
+
+      <article class="glossary-card" data-term="token">
+        <strong>Token</strong>
+        <p><b>What it is:</b> A chunk of text an AI model reads and predicts with. A token can be a word, part of a word, punctuation, or a weird little text fragment.</p>
+        <p><b>Where it comes up:</b> Token limits, pricing, long documents, context windows, and the viral &ldquo;how many Rs are in strawberry?&rdquo; problem.</p>
+        <p class="analogy"><b>Analogy:</b> The model may not see strawberry as nine neat letters. It sees chunks. That is why an LLM can confidently say there are two Rs when there are three.</p>
+      </article>
+
+      <article class="glossary-card" data-term="agent">
+        <strong>Agent</strong>
+        <p><b>What it is:</b> AI that can take multiple steps toward a goal, sometimes using tools along the way.</p>
+        <p><b>Where it comes up:</b> Coding assistants, research agents, workflow builders, and tools that can plan, act, check, and revise.</p>
+        <p class="analogy"><b>Analogy:</b> An assistant with a checklist. Useful, but still needs boundaries and review.</p>
+      </article>
+
+      <article class="glossary-card" data-term="browser">
+        <strong>Browser</strong>
+        <p><b>What it is:</b> The app you use to open websites.</p>
+        <p><b>Where it comes up:</b> Visiting ChatGPT, reading docs, testing your site, or checking whether a link works.</p>
+        <p class="analogy"><b>Analogy:</b> Chrome, Safari, and Edge are the front doors. The website is what is inside.</p>
+      </article>
+
+      <article class="glossary-card" data-term="html">
+        <strong>HTML</strong>
+        <p><b>What it is:</b> The structure of a webpage: headings, paragraphs, links, forms, buttons, and images.</p>
+        <p><b>Where it comes up:</b> When you want AI to create a page, fix newsletter HTML, or understand what is on a site.</p>
+        <p class="analogy"><b>Analogy:</b> The bones of the outfit before hair, makeup, and accessories.</p>
+      </article>
+
+      <article class="glossary-card" data-term="css">
+        <strong>CSS</strong>
+        <p><b>What it is:</b> The styling rules for a webpage: layout, colors, fonts, spacing, and responsive behavior.</p>
+        <p><b>Where it comes up:</b> When text spills out of boxes, buttons look wrong, or a page needs to work on mobile.</p>
+        <p class="analogy"><b>Analogy:</b> Same content, better blazer. CSS is what makes it look intentional.</p>
+      </article>
+
+      <article class="glossary-card" data-term="javascript">
+        <strong>JavaScript</strong>
+        <p><b>What it is:</b> Code that makes a webpage interactive after it loads.</p>
+        <p><b>Where it comes up:</b> Quote generators, filters, dropdowns, forms, calculators, and buttons that change what you see.</p>
+        <p class="analogy"><b>Analogy:</b> HTML is the room, CSS is the decor, JavaScript is someone turning the lights on and moving the furniture.</p>
+      </article>
+
+      <article class="glossary-card" data-term="terminal">
+        <strong>Terminal</strong>
+        <p><b>What it is:</b> A text-based place to talk to your computer by typing instructions instead of clicking app buttons.</p>
+        <p><b>Where it comes up:</b> Starting a website preview, installing tools, running a script, or following developer setup instructions.</p>
+        <p class="analogy"><b>Analogy:</b> The Starbucks counter. Apps are the printed menu. The terminal is where the off-menu options live.</p>
+      </article>
+
+      <article class="glossary-card" data-term="powershell">
+        <strong>PowerShell</strong>
+        <p><b>What it is:</b> A Windows terminal shell: the thing that understands Windows-style commands and passes them to the right tool.</p>
+        <p><b>Where it comes up:</b> On Windows when instructions say to run something, list files, start a server, or check a folder.</p>
+        <p class="analogy"><b>Analogy:</b> The Windows barista/register system. It takes the order, checks what ingredients exist, and either makes the drink or tells you why it cannot.</p>
+      </article>
+
+      <article class="glossary-card" data-term="command">
+        <strong>Command</strong>
+        <p><b>What it is:</b> A typed instruction you give your computer in Terminal or PowerShell.</p>
+        <p><b>Where it comes up:</b> Copying setup instructions, running tests, starting a local site, or asking AI what a command does before using it.</p>
+        <p class="analogy"><b>Analogy:</b> The secret drink-menu order. Not listed on the friendly app menu, but if you say it exactly right, you get precisely what you wanted.</p>
+      </article>
+
+      <article class="glossary-card" data-term="file path">
+        <strong>File Path</strong>
+        <p><b>What it is:</b> The exact location of a file or folder on your computer.</p>
+        <p><b>Where it comes up:</b> When you send AI a file location, upload assets, fix image links, or open a local HTML page.</p>
+        <p class="analogy"><b>Analogy:</b> The full address, not &ldquo;that cute place downtown.&rdquo;</p>
+      </article>
+
+      <article class="glossary-card" data-term="extension">
+        <strong>Extension</strong>
+        <p><b>What it is:</b> The ending of a filename that tells your computer what kind of file it is.</p>
+        <p><b>Where it comes up:</b> HTML newsletters, images, Markdown docs, PDFs, CSVs, and anything AI asks you to save or upload.</p>
+        <p class="analogy"><b>Analogy:</b> The label on the garment bag: .html, .png, .md, .pdf.</p>
+      </article>
+
+      <article class="glossary-card" data-term="embed">
+        <strong>Embed</strong>
+        <p><b>What it is:</b> A small piece of code that places another service inside your webpage.</p>
+        <p><b>Where it comes up:</b> Comments, signup forms, videos, maps, calendars, surveys, and other tools you do not want to build from scratch.</p>
+        <p class="analogy"><b>Analogy:</b> Borrowing the professional photo booth instead of constructing one in your living room.</p>
+      </article>
+
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      <span class="wordmark" aria-label="lAIdies trademark"><span>l</span><strong>AI</strong><span>dies</span></span>&trade;
+      &copy; 2026 Ali Eakin. All rights reserved.
+    </p>
+    <div>
+      <a href="https://www.instagram.com/we.are.laidies/" target="_blank" rel="noreferrer">Instagram</a>
+      <a href="../community.html">The Room</a>
+      <a href="../reference-closet.html">Reference Closet</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="../terms.html">Terms</a>
+    </div>
+  </footer>
+
+  <script src="../content/site/supabase-config.js"></script>
+  <script src="../content/site/site-data.js"></script>
+  <script src="../script.js"></script>
+  <script src="../content/site/mini-player.js"></script>
+  <script>
+  // Glossary search/filter
+  (function(){
+    var input = document.getElementById('glossarySearch');
+    var cards = document.querySelectorAll('.glossary-card');
+    if (!input || !cards.length) return;
+    input.addEventListener('input', function() {
+      var q = this.value.toLowerCase().trim();
+      cards.forEach(function(card) {
+        var term = card.getAttribute('data-term') || '';
+        var text = card.textContent.toLowerCase();
+        if (!q || term.includes(q) || text.includes(q)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  })();
+
+  // Mobile nav toggle
+  (function(){
+    var btn = document.querySelector(".hamburger-btn");
+    var nav = document.querySelector(".site-nav");
+    if (!btn || !nav) return;
+    btn.addEventListener("click", function() {
+      var open = nav.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", open);
+      btn.textContent = open ? "\u2715" : "\u2630";
+    });
+    nav.addEventListener("click", function(e) {
+      if (e.target.tagName === "A") {
+        nav.classList.remove("is-open");
+        btn.setAttribute("aria-expanded", "false");
+        btn.textContent = "\u2630";
+      }
+    });
+    document.addEventListener("click", function(e) {
+      if (!btn.contains(e.target) && !nav.contains(e.target) && nav.classList.contains("is-open")) {
+        nav.classList.remove("is-open");
+        btn.setAttribute("aria-expanded", "false");
+        btn.textContent = "\u2630";
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

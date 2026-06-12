@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Magazine Quiz | LAIDIES</title>
+  <meta name="description" content="Test your AI fluency with the LAIDIES magazine quiz. Pick an issue, answer the questions, collect your sticker." />
+  <meta property="og:title" content="Magazine Quiz | LAIDIES" />
+  <meta property="og:description" content="Did the analogy stick, or do we need to call the group chat?" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#ff2d9b" />
+  <link rel="icon" type="image/png" href="../assets/laidies-logo-square.png" />
+  <link rel="manifest" href="../manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="../assets/laidies-logo-square.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&family=JetBrains+Mono:wght@400&family=Inter:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="../content/site/mini-player.css">
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(180deg, #0d0609 0%, #1a0a12 60%, #0d0609 100%);
+      color: #fff;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* === STICKY BACK NAV === */
+    .back-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13, 6, 9, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 45, 155, 0.15);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .back-bar a {
+      color: #ff2d9b;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    .back-bar a:hover { opacity: 0.75; }
+    .back-bar .brand img { height: 24px; }
+
+    /* === NAV === */
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .site-nav a {
+      color: rgba(255, 248, 252, 0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .site-nav a:hover { color: #ff2d9b; }
+    .hamburger-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: #fff;
+    }
+    @media (max-width: 700px) {
+      .site-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(13, 6, 9, 0.97);
+        padding: 16px 24px;
+        border-bottom: 1px solid rgba(255, 45, 155, 0.15);
+        flex-direction: column;
+        gap: 12px;
+      }
+      .site-nav.is-open { display: flex; }
+      .hamburger-btn { display: block; }
+    }
+
+    /* === HERO === */
+    .quiz-hero {
+      text-align: center;
+      padding: clamp(48px, 8vw, 80px) clamp(18px, 5vw, 64px) clamp(32px, 5vw, 56px);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .quiz-hero .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #ff2d9b;
+      margin-bottom: 12px;
+    }
+    .quiz-hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      line-height: 1.2;
+      margin-bottom: 14px;
+      color: #fff;
+    }
+    .quiz-hero p {
+      font-size: 0.92rem;
+      color: rgba(255, 248, 252, 0.65);
+      line-height: 1.55;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* === ISSUE SELECTOR === */
+    .quiz-container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 clamp(18px, 5vw, 48px) clamp(48px, 6vw, 80px);
+    }
+    .quiz-issue-shelf {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .quiz-issue-card {
+      background: linear-gradient(160deg, #1a0a12 0%, #2d0f1f 100%);
+      border: 2px solid rgba(255, 45, 155, 0.35);
+      border-radius: 14px;
+      padding: 16px 20px;
+      color: #fff;
+      cursor: pointer;
+      text-align: left;
+      transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+      flex: 1;
+      min-width: 200px;
+    }
+    .quiz-issue-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 24px rgba(255, 45, 155, 0.2);
+      border-color: rgba(255, 45, 155, 0.7);
+    }
+    .quiz-issue-card.active {
+      border-color: #ff2d9b;
+      box-shadow: 0 0 20px rgba(255, 45, 155, 0.3);
+    }
+    .quiz-issue-card span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #ff2d9b;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .quiz-issue-card strong {
+      display: block;
+      font-size: 0.92rem;
+      margin-bottom: 4px;
+    }
+    .quiz-issue-card em {
+      font-size: 0.75rem;
+      color: rgba(255, 248, 252, 0.55);
+      font-style: normal;
+    }
+
+    /* === QUIZ FORM === */
+    .quiz-console {
+      background: rgba(26, 10, 18, 0.6);
+      border: 1.5px solid rgba(255, 45, 155, 0.2);
+      border-radius: 18px;
+      padding: clamp(24px, 4vw, 36px);
+    }
+    .quiz-console-header {
+      margin-bottom: 20px;
+    }
+    .quiz-console-header .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ff2d9b;
+      margin-bottom: 4px;
+    }
+    .quiz-console-header h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+    .quiz-form { margin-top: 20px; }
+    .quiz-questions { margin-bottom: 20px; }
+    .quiz-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Buttons */
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .button.primary {
+      background: #ff2d9b;
+      color: #fff;
+    }
+    .button.primary:hover { background: #e0258a; }
+    .button.secondary {
+      background: transparent;
+      border: 1.5px solid rgba(255, 45, 155, 0.4);
+      color: #ff2d9b;
+    }
+    .button.secondary:hover {
+      border-color: #ff2d9b;
+      background: rgba(255, 45, 155, 0.08);
+    }
+    .button.ghost {
+      background: transparent;
+      color: rgba(255, 248, 252, 0.6);
+      text-decoration: underline;
+    }
+    .button.ghost:hover { color: #ff2d9b; }
+
+    /* Score display */
+    .quiz-result {
+      margin-top: 16px;
+      font-size: 0.9rem;
+      color: rgba(255, 248, 252, 0.6);
+    }
+    .quiz-score-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 18px;
+      padding: 14px 18px;
+      background: rgba(255, 45, 155, 0.06);
+      border: 1.5px solid rgba(255, 45, 155, 0.2);
+      border-radius: 12px;
+    }
+    .quiz-score-row .quiz-sticker { font-size: 1.6rem; }
+    .quiz-score-row .quiz-score-details p {
+      margin: 0;
+      font-size: 0.82rem;
+      color: rgba(255, 248, 252, 0.6);
+    }
+    .quiz-score-row .quiz-score-details strong {
+      font-size: 0.9rem;
+      color: #fff;
+    }
+
+    /* === CLUBHOUSE PASS CTA === */
+    .pass-cta {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 clamp(18px, 5vw, 48px) clamp(48px, 6vw, 80px);
+    }
+    .pass-cta-card {
+      background: rgba(13, 6, 9, 0.7);
+      border: 1.5px solid rgba(255, 45, 155, 0.25);
+      border-radius: 14px;
+      padding: 20px 24px;
+      text-align: center;
+    }
+    .pass-cta-card p {
+      font-size: 0.84rem;
+      color: rgba(255, 248, 252, 0.55);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    .pass-cta-card a {
+      color: #ff2d9b;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .pass-cta-card a:hover { opacity: 0.75; }
+
+    /* === FOOTER === */
+    .site-footer {
+      text-align: center;
+      padding: 32px 24px 48px;
+      border-top: 1px solid rgba(255, 45, 155, 0.1);
+      font-size: 0.78rem;
+      color: rgba(255, 248, 252, 0.4);
+    }
+    .site-footer a {
+      color: rgba(255, 248, 252, 0.5);
+      text-decoration: none;
+      margin: 0 8px;
+    }
+    .site-footer a:hover { color: #ff2d9b; }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 640px) {
+      .quiz-issue-shelf { flex-direction: column; }
+      .quiz-issue-card { min-width: unset; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Back Bar -->
+  <header class="back-bar">
+    <a href="../learn.html">&larr; Back to Learn</a>
+    <a class="brand" href="../index.html" aria-label="lAIdies home">
+      <img src="../assets/laidies-logo-wordmark.png" alt="LAIDIES" />
+    </a>
+    <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="../episodes.html">Episodes</a>
+      <a href="../learn.html">Learn</a>
+      <a href="../clubhouse.html">Clubhouse</a>
+      <a href="../community.html">Community</a>
+      <a href="../games/dj-booth.html">Listen</a>
+      <a href="../this-week.html">This Week</a>
+      <a href="../clubhouse-pass.html" style="color: #ff2d9b; text-decoration: underline; margin-left: 8px;">Sign In</a>
+</nav>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="quiz-hero">
+      <p class="eyebrow">Magazine Quiz</p>
+      <h1>Did the analogy stick, or do we need to call the group chat?</h1>
+      <p>Pick any released issue and take the quiz whenever you get there. New readers can start at the Foundation, archive girls can catch up later.</p>
+    </section>
+
+    <!-- Quiz Container -->
+    <div class="quiz-container">
+
+      <!-- Issue Selector Buttons -->
+      <div class="quiz-issue-shelf" aria-label="Available issue quizzes">
+        <button class="quiz-issue-card" type="button" data-quiz-open="foundation">
+          <span>Foundation</span>
+          <strong>Why <span class="wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Exists</strong>
+          <em>10 questions + 2 bonus</em>
+        </button>
+        <button class="quiz-issue-card" type="button" data-quiz-open="issue01">
+          <span>Issue 01</span>
+          <strong>On Wednesdays We Use AI</strong>
+          <em>10 questions + 2 bonus</em>
+        </button>
+      </div>
+
+      <!-- Quiz Console -->
+      <div class="quiz-console">
+        <div class="quiz-console-header">
+          <p class="eyebrow" id="quizIssueLabel">Issue 01 Quiz</p>
+          <h3 id="quizIssueTitle">Opening the tab without making it a whole personality crisis.</h3>
+        </div>
+
+        <div class="quiz-start-panel" id="quizStartPanel">
+          <p style="font-size: 0.88rem; color: rgba(255,248,252,0.6);">Pick an issue above to start the quiz.</p>
+        </div>
+
+        <form id="quizForm" class="quiz-form" hidden>
+          <div id="quizQuestions" class="quiz-questions" aria-live="polite"></div>
+          <div class="quiz-actions">
+            <button class="button primary" type="submit">Check my score</button>
+            <button class="button secondary" type="button" id="quizResetButton">Retake</button>
+            <a class="button ghost" id="quizRereadLink" href="../issues/issue-01.html">Reread Issue 01</a>
+          </div>
+        </form>
+
+        <p class="quiz-result" id="quizResult" aria-live="polite">Pick an issue above. The questions stay in the Caboodle until you open them.</p>
+        <div class="quiz-score-row">
+          <span class="quiz-sticker" id="quizSticker" aria-live="polite">?</span>
+          <div class="quiz-score-details">
+            <strong id="quizRewardTitle">No sticker yet</strong>
+            <p id="quizBestScore">Best score: not taken</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Clubhouse Pass CTA -->
+    <div class="pass-cta">
+      <div class="pass-cta-card">
+        <p>Want to save your scores? Get a Clubhouse Pass &mdash; one email, no password, ever.</p>
+        <a href="../clubhouse-pass.html">Get my pass &rarr;</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      <span class="wordmark" aria-label="lAIdies trademark"><span>l</span><strong>AI</strong><span>dies</span></span>&trade;
+      &copy; 2026 Ali Eakin. All rights reserved.
+    </p>
+    <div>
+      <a href="https://www.instagram.com/we.are.laidies/" target="_blank" rel="noreferrer">Instagram</a>
+      <a href="../community.html">The Room</a>
+      <a href="../reference-closet.html">Reference Closet</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="../terms.html">Terms</a>
+    </div>
+  </footer>
+
+  <script src="../content/site/supabase-config.js"></script>
+  <script src="../content/site/site-data.js"></script>
+  <script src="../script.js"></script>
+  <script src="../content/site/mini-player.js"></script>
+  <script>
+  (function(){
+    var btn = document.querySelector(".hamburger-btn");
+    var nav = document.querySelector(".site-nav");
+    if (!btn || !nav) return;
+    btn.addEventListener("click", function() {
+      var open = nav.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", open);
+      btn.textContent = open ? "\u2715" : "\u2630";
+    });
+    nav.addEventListener("click", function(e) {
+      if (e.target.tagName === "A") {
+        nav.classList.remove("is-open");
+        btn.setAttribute("aria-expanded", "false");
+        btn.textContent = "\u2630";
+      }
+    });
+    document.addEventListener("click", function(e) {
+      if (!btn.contains(e.target) && !nav.contains(e.target) && nav.classList.contains("is-open")) {
+        nav.classList.remove("is-open");
+        btn.setAttribute("aria-expanded", "false");
+        btn.textContent = "\u2630";
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

@@ -17,7 +17,7 @@
   <link rel="apple-touch-icon" href="assets/laidies-logo-square.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Dancing+Script:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="[REDACTED_CONN_STRING]://400;600;700&family=Dancing+Script:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
   <script>
@@ -45,6 +45,129 @@
       color: var(--text);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
+    }
+
+    /* === 90s CARD BACKGROUNDS === */
+    .card-bg-laser {
+      background:
+        repeating-linear-gradient(
+          135deg,
+          transparent,
+          transparent 8px,
+          rgba(255,45,155,0.3) 8px,
+          rgba(255,45,155,0.3) 9px
+        ),
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 12px,
+          rgba(0,200,255,0.25) 12px,
+          rgba(0,200,255,0.25) 13px
+        ),
+        linear-gradient(160deg, #2d0a3e 0%, #1a0028 40%, #0d001a 100%);
+    }
+
+    .card-bg-holo {
+      background: linear-gradient(135deg, 
+        #ff6ec7 0%, #7873f5 15%, #4de8f4 30%, 
+        #59f587 45%, #f5e942 60%, #ff6ec7 75%, 
+        #7873f5 90%, #4de8f4 100%);
+      background-size: 300% 300%;
+      animation: holoShift 6s ease-in-out infinite;
+    }
+    @keyframes holoShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .card-bg-lightning {
+      background:
+        conic-gradient(from 0deg at 20% 80%, transparent 0deg, rgba(255,255,0,0.15) 10deg, transparent 20deg),
+        conic-gradient(from 120deg at 80% 20%, transparent 0deg, rgba(255,45,155,0.2) 15deg, transparent 30deg),
+        radial-gradient(circle at 15% 25%, rgba(255,255,0,0.2) 0%, transparent 30%),
+        radial-gradient(circle at 85% 75%, rgba(255,0,200,0.2) 0%, transparent 30%),
+        repeating-linear-gradient(
+          -60deg,
+          transparent,
+          transparent 20px,
+          rgba(255,255,100,0.08) 20px,
+          rgba(255,255,100,0.08) 22px
+        ),
+        linear-gradient(180deg, #1a0033 0%, #0a001a 100%);
+    }
+
+    .card-bg-doodle {
+      background:
+        radial-gradient(circle at 20% 30%, rgba(0,255,200,0.25) 0%, rgba(0,255,200,0.25) 4px, transparent 4px),
+        radial-gradient(circle at 70% 20%, rgba(255,45,155,0.3) 0%, rgba(255,45,155,0.3) 3px, transparent 3px),
+        radial-gradient(circle at 50% 70%, rgba(255,200,0,0.25) 0%, rgba(255,200,0,0.25) 5px, transparent 5px),
+        radial-gradient(circle at 85% 60%, rgba(0,200,255,0.3) 0%, rgba(0,200,255,0.3) 3px, transparent 3px),
+        radial-gradient(circle at 30% 80%, rgba(180,0,255,0.25) 0%, rgba(180,0,255,0.25) 4px, transparent 4px),
+        radial-gradient(circle at 60% 40%, transparent 6px, rgba(255,100,200,0.2) 6px, rgba(255,100,200,0.2) 8px, transparent 8px),
+        radial-gradient(circle at 40% 55%, transparent 4px, rgba(0,255,180,0.15) 4px, rgba(0,255,180,0.15) 6px, transparent 6px),
+        linear-gradient(160deg, #0a0a2e 0%, #0d0030 100%);
+    }
+
+    .card-bg-sunset {
+      background:
+        radial-gradient(ellipse at 50% 120%, rgba(255,100,0,0.3) 0%, transparent 60%),
+        conic-gradient(from 200deg at 50% 80%, transparent 0deg, rgba(255,200,0,0.1) 30deg, transparent 60deg),
+        linear-gradient(180deg, 
+          #ff6b35 0%, #ff2d9b 35%, #9b30ff 65%, #2d0066 100%);
+    }
+
+    .card-bg-arcade {
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 11px,
+          rgba(0,255,100,0.08) 11px,
+          rgba(0,255,100,0.08) 12px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 11px,
+          rgba(0,255,100,0.08) 11px,
+          rgba(0,255,100,0.08) 12px
+        ),
+        radial-gradient(circle at 30% 40%, rgba(0,255,100,0.15) 0%, transparent 40%),
+        radial-gradient(circle at 70% 60%, rgba(255,45,155,0.15) 0%, transparent 40%),
+        linear-gradient(160deg, #0a0a0a 0%, #050515 100%);
+    }
+
+    .card-bg-confetti {
+      background:
+        radial-gradient(circle at 10% 20%, #ff2d9b 0%, #ff2d9b 3px, transparent 3px),
+        radial-gradient(circle at 30% 50%, #00e5ff 0%, #00e5ff 2px, transparent 2px),
+        radial-gradient(circle at 55% 15%, #ffdd00 0%, #ffdd00 3px, transparent 3px),
+        radial-gradient(circle at 75% 45%, #7b2dff 0%, #7b2dff 2px, transparent 2px),
+        radial-gradient(circle at 90% 25%, #00ff88 0%, #00ff88 3px, transparent 3px),
+        radial-gradient(circle at 20% 75%, #ff6b35 0%, #ff6b35 2px, transparent 2px),
+        radial-gradient(circle at 45% 85%, #00e5ff 0%, #00e5ff 3px, transparent 3px),
+        radial-gradient(circle at 80% 80%, #ffdd00 0%, #ffdd00 2px, transparent 2px),
+        radial-gradient(circle at 65% 65%, #ff2d9b 0%, #ff2d9b 2px, transparent 2px),
+        radial-gradient(circle at 40% 35%, #7b2dff 0%, #7b2dff 3px, transparent 3px),
+        linear-gradient(160deg, #ff69b4 0%, #ff2d9b 100%);
+    }
+
+    .card-bg-chrome {
+      background: 
+        linear-gradient(135deg, 
+          rgba(255,255,255,0.3) 0%, 
+          rgba(200,200,220,0.1) 20%,
+          rgba(255,255,255,0.2) 40%,
+          rgba(180,180,200,0.1) 60%,
+          rgba(255,255,255,0.3) 80%,
+          rgba(200,200,220,0.1) 100%),
+        linear-gradient(160deg, #c0c0c0 0%, #8a8a9a 25%, #d4d4e0 50%, #9a9aaa 75%, #e0e0f0 100%);
+      background-size: 200% 200%, 100% 100%;
+      animation: chromeShift 4s ease-in-out infinite;
+    }
+    @keyframes chromeShift {
+      0%, 100% { background-position: 0% 0%, 0% 0%; }
+      50% { background-position: 100% 100%, 0% 0%; }
     }
 
     /* === HEADER / NAV === */
@@ -156,52 +279,71 @@
       border-color: var(--hot-pink);
     }
 
-    /* Card Grid — small thumbnails */
+    /* === LAYERED CARD GRID === */
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+      gap: 16px;
       margin-bottom: 28px;
     }
 
-    /* Individual thumbnail card */
+    /* Individual LAYERED thumbnail card */
     .thumb-card {
-      background: var(--white);
-      border-radius: 10px;
+      border-radius: 14px;
       overflow: hidden;
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
       border: 1px solid rgba(0,0,0,0.04);
     }
     .thumb-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(255,45,155,0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(255,45,155,0.25);
     }
-    .thumb-card .thumb-photo {
+
+    /* Background layer with photo on top */
+    .thumb-card .thumb-bg {
+      position: relative;
       width: 100%;
       aspect-ratio: 1 / 1;
-      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
     }
-    .thumb-card .thumb-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 20%;
-      display: block;
-    }
-    .thumb-card .thumb-photo img.object-contain {
+    .thumb-card .thumb-bg .thumb-photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 12px;
       object-fit: contain;
       object-position: center center;
-      padding: 10px;
+      position: relative;
+      z-index: 2;
+      /* subtle shadow to lift from bg */
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
     }
+
+    /* Info section below */
     .thumb-card .thumb-info {
-      padding: 8px 10px 10px;
+      background: var(--white);
+      padding: 10px 12px 12px;
     }
     .thumb-card .thumb-info h3 {
       font-size: 0.85rem;
       font-weight: 700;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .thumb-card .thumb-info .thumb-meta {
+      font-size: 0.68rem;
+      color: var(--muted);
+      line-height: 1.3;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
     .thumb-card .thumb-info .thumb-tag {
       font-size: 0.65rem;
@@ -348,24 +490,28 @@
       z-index: 2;
     }
     .overlay-close:hover { background: rgba(255,255,255,0.2); }
-    .overlay-photo {
+
+    /* OVERLAY: layered photo area */
+    .overlay-photo-area {
       width: 100%;
-      aspect-ratio: 3 / 4;
-      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border-radius: 14px 14px 0 0;
+      padding: 24px;
+      position: relative;
     }
-    .overlay-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 20%;
-      display: block;
-    }
-    .overlay-photo img.object-contain {
+    .overlay-photo-area img {
+      max-width: 180px;
+      max-height: 180px;
+      border-radius: 14px;
       object-fit: contain;
-      object-position: center center;
-      padding: 20px;
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.4));
+      position: relative;
+      z-index: 2;
     }
+
     .overlay-body {
       padding: 20px 22px 24px;
     }
@@ -415,17 +561,19 @@
     /* Mobile adjustments */
     @media (max-width: 560px) {
       .card-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
       }
-      .thumb-card .thumb-info { padding: 6px 8px 8px; }
-      .thumb-card .thumb-info h3 { font-size: 0.75rem; }
+      .thumb-card .thumb-bg { padding: 14px; }
+      .thumb-card .thumb-bg .thumb-photo { width: 80px; height: 80px; }
+      .thumb-card .thumb-info { padding: 8px 10px 10px; }
+      .thumb-card .thumb-info h3 { font-size: 0.78rem; }
     }
     @media (max-width: 380px) {
       .card-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
-    <link rel="stylesheet" href="/content/site/mini-player.css">
+  <link rel="stylesheet" href="/content/site/mini-player.css">
 </head>
 <body>
   <!-- HEADER -->
@@ -441,7 +589,8 @@
       <a href="community.html">Community</a>
       <a href="games/dj-booth.html">Listen</a>
       <a href="this-week.html">This Week</a>
-    </nav>
+      <a href="clubhouse-pass.html" style="color: #ff2d9b; text-decoration: underline; margin-left: 8px;">Sign In</a>
+</nav>
   </header>
 
   <main>
@@ -461,70 +610,70 @@
       </div>
 
       <div class="card-grid" id="cardGrid">
-        <!-- Card 1: Ali -->
+        <!-- Card 1: Ali — LAYERED: laser bg + photo on top -->
         <div class="thumb-card" data-type="member" data-tags="member help progress connect founder" data-card="ali">
-          <div class="thumb-photo">
-            <img src="assets/dream-phone-boss-ali.png" alt="Ali" />
+          <div class="thumb-bg card-bg-laser">
+            <img class="thumb-photo" src="assets/people/dream-phone-boss-ali.png" alt="Ali" />
           </div>
           <div class="thumb-info">
             <h3>Ali</h3>
-            <span class="thumb-tag">Founder Era</span>
+            <span class="thumb-tag">Founder · Teaching others</span>
           </div>
         </div>
-        <!-- Card 2: Eugina -->
+        <!-- Card 2: Eugina — LAYERED: holo bg -->
         <div class="thumb-card" data-type="member" data-tags="member founder" data-card="eugina">
-          <div class="thumb-photo">
-            <img src="assets/people/eugina-lim.jpg" alt="Eugina" style="object-position: center 35%;" />
+          <div class="thumb-bg card-bg-holo">
+            <img class="thumb-photo" src="assets/people/eugina-lim.jpg" alt="Eugina" />
           </div>
           <div class="thumb-info">
             <h3>Eugina</h3>
             <span class="thumb-tag">Founding Spark</span>
           </div>
         </div>
-        <!-- Card 3: Sara -->
+        <!-- Card 3: Sara — LAYERED: lightning bg -->
         <div class="thumb-card" data-type="member" data-tags="member founder" data-card="sara">
-          <div class="thumb-photo">
-            <img src="assets/people/sara-baxter.png" alt="Sara" style="object-position: center 30%;" />
+          <div class="thumb-bg card-bg-lightning">
+            <img class="thumb-photo" src="assets/people/sara-baxter.png" alt="Sara" />
           </div>
           <div class="thumb-info">
             <h3>Sara</h3>
             <span class="thumb-tag">Founding Spark</span>
           </div>
         </div>
-        <!-- Card 4: Josh -->
+        <!-- Card 4: Josh — LAYERED: arcade bg -->
         <div class="thumb-card" data-type="member" data-tags="member connect" data-card="josh">
-          <div class="thumb-photo">
-            <img src="assets/people/josh-hudson.png" alt="Josh" />
+          <div class="thumb-bg card-bg-arcade">
+            <img class="thumb-photo" src="assets/people/josh-hudson.png" alt="Josh" />
           </div>
           <div class="thumb-info">
             <h3>Josh</h3>
-            <span class="thumb-tag">The Crew</span>
+            <span class="thumb-tag">The Crew · DJ JAIDY</span>
           </div>
         </div>
-        <!-- Card 5: LAIDY (stock) -->
+        <!-- Card 5: LAIDY (stock) — doodle bg -->
         <div class="thumb-card" data-type="stock" data-tags="stock help" data-card="laidy">
-          <div class="thumb-photo">
-            <img src="assets/laidy-character-v1.png" alt="LAIDY" class="object-contain" />
+          <div class="thumb-bg card-bg-doodle">
+            <img class="thumb-photo" src="assets/laidy-character-v1.png" alt="LAIDY" />
           </div>
           <div class="thumb-info">
             <h3>LAIDY</h3>
-            <span class="thumb-tag">f<span class="brand-ai">AI</span>ry Godmother</span>
+            <span class="thumb-tag">f<span style="color:var(--hot-pink);font-weight:800;">AI</span>ry Godmother</span>
           </div>
         </div>
-        <!-- Card 6: Mme CLAI-O (stock) -->
+        <!-- Card 6: Mme CLAI-O (stock) — sunset bg -->
         <div class="thumb-card" data-type="stock" data-tags="stock help connect" data-card="claio">
-          <div class="thumb-photo">
-            <img src="assets/madame-claio-character-v1.png" alt="Mme CLAI-O" />
+          <div class="thumb-bg card-bg-sunset">
+            <img class="thumb-photo" src="assets/madame-claio-character-v1.png" alt="Mme CLAI-O" />
           </div>
           <div class="thumb-info">
             <h3>Mme CLAI-O</h3>
             <span class="thumb-tag">Psychic Hotline</span>
           </div>
         </div>
-        <!-- Card 7: Deb (stock) -->
+        <!-- Card 7: Deb (stock) — confetti bg -->
         <div class="thumb-card" data-type="stock" data-tags="stock progress" data-card="deb">
-          <div class="thumb-photo">
-            <img src="assets/deb-80s-portrait-stare-v1.png" alt="Deb" style="object-position: center 25%;" />
+          <div class="thumb-bg card-bg-confetti">
+            <img class="thumb-photo" src="assets/deb-80s-portrait-stare-v1.png" alt="Deb" />
           </div>
           <div class="thumb-info">
             <h3>Deb</h3>
@@ -591,13 +740,22 @@
         </div>
       </div>
     </section>
+  
+    <!-- === CLUBHOUSE PASS CTA === -->
+    <section style="max-width: 560px; margin: 32px auto 0; padding: 0 24px 48px;">
+      <div style="background: var(--dark-bg); border: 1.5px solid var(--card-border); border-radius: 14px; padding: 20px 24px; text-align: center;">
+        <p style="font-size: 0.84rem; color: rgba(255,248,252,0.6); line-height: 1.5; margin-bottom: 10px;">Want to save your card across devices? Get a Clubhouse Pass &mdash; one email, no password, ever.</p>
+        <a href="clubhouse-pass.html" style="color: var(--hot-pink); font-size: 0.82rem; font-weight: 600; text-decoration: none;">Get my pass &rarr;</a>
+      </div>
+    </section>
+
   </main>
 
   <!-- ============ OVERLAY MODAL ============ -->
   <div class="card-overlay" id="cardOverlay" role="dialog" aria-modal="true" aria-label="Member card detail">
     <div class="overlay-card" id="overlayCard">
       <button class="overlay-close" id="overlayClose" aria-label="Close">&times;</button>
-      <div class="overlay-photo" id="overlayPhoto"></div>
+      <div class="overlay-photo-area" id="overlayPhotoArea"></div>
       <div class="overlay-body" id="overlayBody"></div>
     </div>
   </div>
@@ -606,8 +764,8 @@
   // === CARD DATA ===
   const cardData = {
     ali: {
-      photo: 'assets/dream-phone-boss-ali.png',
-      photoStyle: '',
+      photo: 'assets/people/dream-phone-boss-ali.png',
+      bgClass: 'card-bg-laser',
       name: 'Ali',
       era: 'Founder Era',
       desc: 'Tax leader, Women-in-Tax builder, TEI contributor, and founder of lAIdies — the room you are currently standing in.',
@@ -616,7 +774,7 @@
     },
     eugina: {
       photo: 'assets/people/eugina-lim.jpg',
-      photoStyle: 'object-position: center 35%;',
+      bgClass: 'card-bg-holo',
       name: 'Eugina',
       era: 'Founding Spark Era',
       desc: 'The original Echo idea was hers. Part of the founding sisterhood that brought lAIdies to life.',
@@ -625,7 +783,7 @@
     },
     sara: {
       photo: 'assets/people/sara-baxter.png',
-      photoStyle: 'object-position: center 30%;',
+      bgClass: 'card-bg-lightning',
       name: 'Sara',
       era: 'Founding Spark Era',
       desc: 'One of the original three. The group chat energy that made lAIdies go from idea to real thing.',
@@ -634,7 +792,7 @@
     },
     josh: {
       photo: 'assets/people/josh-hudson.png',
-      photoStyle: '',
+      bgClass: 'card-bg-arcade',
       name: 'Josh',
       era: 'The Crew · WIT Champion',
       desc: 'The hype man. WIT champion, hackathon co-conspirator, and the reason the site has a soundtrack.',
@@ -643,8 +801,7 @@
     },
     laidy: {
       photo: 'assets/laidy-character-v1.png',
-      photoStyle: '',
-      photoClass: 'object-contain',
+      bgClass: 'card-bg-doodle',
       name: 'LAIDY',
       era: 'FAIRY Godmother Era',
       desc: 'The FAIRY Godmother who appears when your prompt has vibes, no verbs, and somehow three competing deadlines.',
@@ -653,7 +810,7 @@
     },
     claio: {
       photo: 'assets/madame-claio-character-v1.png',
-      photoStyle: '',
+      bgClass: 'card-bg-sunset',
       name: 'Mme CLAI-O',
       era: 'Psychic Hotline Era',
       desc: 'Sees the future, notices the missing source, and refuses to bless a vague strategy deck.',
@@ -662,7 +819,7 @@
     },
     deb: {
       photo: 'assets/deb-80s-portrait-stare-v1.png',
-      photoStyle: 'object-position: center 25%;',
+      bgClass: 'card-bg-confetti',
       name: 'Deb',
       era: 'Early Retirement Era',
       desc: 'Payroll legend. Reorg survivor. Emotionally unavailable to bad rollouts and men named Brad with urgent asks.',
@@ -671,16 +828,75 @@
     }
   };
 
+  // === LOAD MEMBER CARDS FROM localStorage ===
+  function loadMemberCards() {
+    const saved = localStorage.getItem('laidies-my-card');
+    if (!saved) return;
+    try {
+      const data = JSON.parse(saved);
+      if (!data.name) return;
+      
+      // Create a card element
+      const card = document.createElement('div');
+      card.className = 'thumb-card';
+      card.dataset.type = 'member';
+      card.dataset.tags = 'member' + (data.openToConnect ? ' connect' : '') + (data.helpWith ? ' help' : '');
+      card.dataset.card = 'my-card';
+      
+      const bgClass = 'card-bg-' + (data.bgStyle || 'laser');
+      const photoHtml = data.photo 
+        ? '<img class="thumb-photo" src="' + data.photo + '" alt="' + data.name + '" />'
+        : '<div style="width:100px;height:100px;border-radius:12px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:2rem;color:rgba(255,255,255,0.5);">👤</div>';
+      
+      let metaText = data.role || '';
+      if (data.journey) metaText += (metaText ? ' · ' : '') + data.journey;
+      
+      card.innerHTML = `
+        <div class="thumb-bg ${bgClass}">
+          ${photoHtml}
+        </div>
+        <div class="thumb-info">
+          <h3>${data.name}</h3>
+          <span class="thumb-tag">${metaText}</span>
+        </div>
+      `;
+      
+      // Add card data for overlay
+      cardData['my-card'] = {
+        photo: data.photo || '',
+        bgClass: bgClass,
+        name: data.name,
+        era: data.journey || 'Member',
+        desc: data.role + (data.helpWith ? '. Can help with: ' + data.helpWith : ''),
+        meta: (data.tools ? '<strong>Tools:</strong> ' + data.tools + '<br>' : '') +
+              (data.helpWith ? '<strong>Can help with:</strong> ' + data.helpWith + '<br>' : '') +
+              (data.openToConnect ? '<strong>Open to connect!</strong>' : ''),
+        tags: [data.journey, data.role].filter(Boolean)
+      };
+      
+      // Click handler
+      card.addEventListener('click', () => openOverlay('my-card'));
+      
+      // Insert before the stock cards
+      const grid = document.getElementById('cardGrid');
+      const stockCards = grid.querySelectorAll('[data-type="stock"]');
+      if (stockCards.length > 0) {
+        grid.insertBefore(card, stockCards[0]);
+      } else {
+        grid.appendChild(card);
+      }
+    } catch(e) { /* ignore */ }
+  }
+
   // === FILTER LOGIC ===
   const filterBtns = document.querySelectorAll('.filter-bar button');
-  const cards = document.querySelectorAll('.thumb-card');
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const filter = btn.dataset.filter;
-      cards.forEach(card => {
+      document.querySelectorAll('.thumb-card').forEach(card => {
         if (filter === 'all') {
           card.hidden = false;
         } else {
@@ -694,7 +910,7 @@
   // === OVERLAY LOGIC ===
   const overlay = document.getElementById('cardOverlay');
   const overlayCard = document.getElementById('overlayCard');
-  const overlayPhoto = document.getElementById('overlayPhoto');
+  const overlayPhotoArea = document.getElementById('overlayPhotoArea');
   const overlayBody = document.getElementById('overlayBody');
   const overlayClose = document.getElementById('overlayClose');
 
@@ -702,9 +918,16 @@
     const data = cardData[cardId];
     if (!data) return;
 
-    const imgClass = data.photoClass ? ` class="${data.photoClass}"` : '';
-    const imgStyle = data.photoStyle ? ` style="${data.photoStyle}"` : '';
-    overlayPhoto.innerHTML = `<img src="${data.photo}"${imgClass}${imgStyle} alt="${data.name}" />`;
+    // Build layered photo area with bg
+    const bgClass = data.bgClass || 'card-bg-laser';
+    const photoSrc = data.photo;
+    
+    overlayPhotoArea.className = 'overlay-photo-area ' + bgClass;
+    if (photoSrc) {
+      overlayPhotoArea.innerHTML = `<img src="${photoSrc}" alt="${data.name}" />`;
+    } else {
+      overlayPhotoArea.innerHTML = '<div style="width:120px;height:120px;border-radius:14px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:3rem;color:rgba(255,255,255,0.4);">👤</div>';
+    }
 
     const tagsHtml = data.tags.map(t => `<span>${t}</span>`).join('');
     overlayBody.innerHTML = `
@@ -716,7 +939,6 @@
     `;
 
     overlay.style.display = 'flex';
-    // Trigger reflow for animation
     void overlay.offsetHeight;
     overlay.classList.add('visible');
     document.body.style.overflow = 'hidden';
@@ -726,14 +948,14 @@
     overlay.classList.remove('visible');
     setTimeout(() => {
       overlay.style.display = 'none';
-      overlayPhoto.innerHTML = '';
+      overlayPhotoArea.innerHTML = '';
       overlayBody.innerHTML = '';
     }, 250);
     document.body.style.overflow = '';
   }
 
   // Click cards to open
-  cards.forEach(card => {
+  document.querySelectorAll('.thumb-card').forEach(card => {
     card.addEventListener('click', () => {
       openOverlay(card.dataset.card);
     });
@@ -747,7 +969,10 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && overlay.classList.contains('visible')) closeOverlay();
   });
+
+  // Load member cards on page ready
+  loadMemberCards();
   </script>
-    <script src="/content/site/mini-player.js"></script>
+  <script src="/content/site/mini-player.js"></script>
 </body>
 </html>
