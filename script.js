@@ -1937,6 +1937,7 @@ const cocktailSpinState = {
   spiritFree: { lastIndex: 0, turns: 0, wheel: cocktailWheel },
 };
 let activeCocktailType = "cocktail";
+window.setActiveCocktailType = function(type) { activeCocktailType = type; };
 renderCocktailWheels();
 let lastGirlTalkIndex = 0;
 let activeDreamPhoneSpecial = "";
