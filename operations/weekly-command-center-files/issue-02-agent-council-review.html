@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Issue 02 Agent Council Review</title>
+    <style>
+      body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #18121b; background: #fff; line-height: 1.55; }
+      header { padding: 24px clamp(18px, 4vw, 54px); background: #2b0822; color: white; }
+      main { max-width: 1180px; padding: 24px clamp(18px, 4vw, 54px) 64px; }
+      h1, h2, h3 { line-height: 1.15; }
+      h1 { font-size: clamp(28px, 4vw, 48px); }
+      h2 { margin-top: 32px; border-bottom: 1px solid #eaddea; padding-bottom: 8px; }
+      h3 { margin-top: 24px; }
+      a { color: #a90068; font-weight: 700; }
+      code { padding: 2px 5px; border: 1px solid #eaddea; border-radius: 5px; background: #fff9fd; }
+      table { width: 100%; border-collapse: collapse; margin: 18px 0; overflow-wrap: anywhere; font-size: 14px; }
+      td, th { border: 1px solid #eaddea; padding: 8px; vertical-align: top; text-align: left; }
+      th { background: #fff4fb; }
+      ul, ol { padding-left: 24px; }
+      .back { display: inline-block; margin-bottom: 14px; color: #ffd8ef; }
+      .source { color: #ffd8ef; font-size: 13px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="back" href="../weekly-command-center.html">Back to Weekly Command Center</a>
+      <h1>Issue 02 Agent Council Review</h1>
+      <div class="source">operations/agent-council/issue-02-agent-council-review.md</div>
+    </header>
+    <main>
+      <h1>Agent Council Review: Issue 02 - Tell Me What You Want</h1>
+<p>Generated: 2026-06-09</p>
+<p>Review date context: Tuesday, June 9, 2026. Target Issue 2 release date is Wednesday, June 10, 2026.</p>
+<p>Overall gate: BLOCK LAUNCH until the release-state and unreleased-content items in the Top 5 are fixed or explicitly approved by Ali as intentional preview behavior.</p>
+<p>This is a recommend-only review packet. It cannot publish, rewrite live pages, remove features, or change public positioning automatically. Ali approves implementation.</p>
+<h2>Issue Snapshot</h2>
+<ul><li>Status in <code>content/episodes/issue-02.json</code>: <code>published</code></li>
+<li>Release date in metadata: 2026-06-10</li>
+<li>Act: Act 1: The Awakening</li>
+<li>Lesson: How to write specific, context-rich prompts that produce usable work output.</li>
+<li>Emotional beat: First tiny win: that took eight minutes?</li>
+<li>Try-On: Give AI the same real task twice: once vaguely, then once with audience, context, tone, length, and what not to include. Compare the outputs.</li>
+<li>Community action: Drop a vague prompt and let the room help make it specific.</li>
+<li>Shareable hook: The Spice Girls were right about prompting.</li>
+<li>Website page: <code>issues/issue-02.html</code></li>
+<li>Quiz module: <code>issue02</code></li>
+<li>Card pack module: <code>issue02</code></li>
+<li>Community thread: <code>community/try-on-debrief.html</code></li>
+<li>Glossary terms: Prompt, Context, Token</li></ul>
+<h2>CEO Agent Top 5 Recommended Actions</h2>
+<table><tbody><tr><th>Rank</th><th>Exact change</th><th>Evidence</th><th>Dependencies</th><th>What Ali needs to approve</th></tr>
+<tr><td>1</td><td>Fix release gating before the June 10 send: either set Issue 2 back to scheduled until launch day, or explicitly approve early-public preview. Hide or disable Issue 2 homepage/current treatment until launch if it is not meant to be live. Remove public links from Issue 2 to draft Issue 3 until Issue 3 is published or clearly label them as preview-only.</td><td>Today is June 9, but Issue 2 metadata is <code>published</code>, browser QA shows homepage progress <code>2 of 24 episodes aired</code>, and <code>issues/issue-02.html</code> includes <code>Read next episode -&gt; ../issues/issue-03.html</code> while Issue 3 is draft. Stop-the-line category: unreleased content and wrong release state.</td><td>Release Manager, Episode Archive, Front-End, Content Ops. Rerun weekly production after metadata/link changes.</td><td>Approve whether Issue 2 is intentionally public on June 9 or should remain staged until June 10. Approve whether draft next-episode links are ever allowed on public issue pages.</td></tr>
+<tr><td>2</td><td>Fix mobile brand/button overlap in Clubhouse Pass actions. Replace inline wordmark treatment inside narrow buttons with plain <code>lAIdies</code> text, icon-only brand mark, or stacked/flex-wrapped label that cannot crowd <code>Card/Cards</code>.</td><td>Mobile screenshot <code>tmp/qa-screens/10-mobile-member-pass.png</code> shows <code>Create your lAIdies Card</code> crowding/overlapping the button label. Mobile action measurement shows 350px buttons with inline wordmark text <code>Create your l AI dies Card</code>. Stop-the-line category: overlap and wrong brand styling.</td><td>Chief Design, Art Direction, Accessibility, Front-End. CSS/button copy fix only.</td><td>Approve the mobile button treatment: plain text, small logo mark, or two-line button label.</td></tr>
+<tr><td>3</td><td>Tighten persistence/auth honesty before inviting real member testing. Keep guest copy explicitly local-only; add a signed-in/auth readiness line that says Clubhouse Pass email/login is active only after Ali approves the email flow. Confirm Supabase magic-link delivery in production, not only local.</td><td>Guest pass reload keeps <code>state.test@example.com</code> on the same browser; a separate mobile browser context starts blank. Long auth test reached <code>Check your email to open your Clubhouse Pass</code> with no console errors, but one earlier run emitted a Supabase <code>Failed to fetch</code> console error while the UI briefly showed <code>Sending account email...</code>. Privacy page accurately says guest storage is browser-local.</td><td>Data Stewardship, Privacy &amp; Safety, Front-End, Vendor Procurement, Release Manager. Requires production auth/email verification.</td><td>Approve whether Clubhouse Pass is launch-grade for real users or should be positioned as guest/local-only until auth is fully signed off.</td></tr>
+<tr><td>4</td><td>Complete article-only quiz calibration for Issue 2 and document the answer map. Every question, bonus item, explanation, and reread link must trace to <code>content/issues/issue-02.md</code> or be cut/reworded.</td><td>Browser completion path works: Issue 2 quiz rendered 12 questions, submitted successfully, saved <code>laidiesQuizBestScores</code> and <code>laidiesQuizProgress</code>, and showed a completion sticker. But no line-by-line calibration evidence is attached, so Article-to-Quiz cannot score above 3.</td><td>Article-to-Quiz Calibration, Chief Learning Design, Editor-in-Chief, Technical Accuracy.</td><td>Approve final quiz wording after seeing the answer map and any unsupported/ambiguous questions.</td></tr>
+<tr><td>5</td><td>Add a small launch-ready archive/current-path decision: first-time and late readers need one obvious path to <code>Read current issue</code>, <code>Start at Issue 1</code>, and <code>Open Issue 2 pack</code> without needing to understand the whole Clubhouse.</td><td>Issue 2 page has <code>Start from Episode 1</code>; Fun Pack shelf shows Issue 01 and Issue 02 after opening Clubhouse; no Issue 3 pack cards are visible. This is close. The remaining gap is product hierarchy: mobile Clubhouse is long, first-time readers see many choices, and late-reader pack discovery depends on opening the compact Clubhouse.</td><td>UX, Product, Roadmap, Design, Content Ops.</td><td>Approve the launch hierarchy: keep the big Clubhouse as-is, or add a simpler current/start/archive strip above it for launch week.</td></tr></tbody></table>
+<h2>Mandatory Surface Owner Launch Gate</h2>
+<table><tbody><tr><th>Check</th><th>Gate</th><th>Evidence</th><th>Exact fix if not PASS</th></tr>
+<tr><td>Release state: only published/current content appears public</td><td>BLOCK LAUNCH</td><td>Issue 2 is <code>published</code> on June 9 for a June 10 release; Issue 2 links to draft Issue 3.</td><td>Decide staged vs live; hide draft next links; rerun workflow.</td></tr>
+<tr><td>Desktop QA: layout, hierarchy, blank space, overlap</td><td>PASS</td><td><code>tmp/qa-screens/01-desktop-home.png</code>, <code>desktop-issue2.png</code>, and Issue 2 pack shelf show intentional layout with no horizontal overflow.</td><td>Keep screenshot QA in weekly packet.</td></tr>
+<tr><td>Mobile QA: fit, readability, tap targets, scroll behavior</td><td>IMPROVE</td><td>Document overflow is 0; Issue 2 mobile page has no horizontal overflow; Clubhouse Pass mobile element measured <code>scrollWidth 414</code> inside a 390px box in one screenshot pass.</td><td>Fix narrow inline wordmark buttons and retest mobile Clubhouse Pass.</td></tr>
+<tr><td>Interaction QA: every button/control visibly does what it promises</td><td>IMPROVE</td><td>Issue 2 quiz/card links switch to <code>issue02</code>; card pack opens and persists; member email flow succeeds in long test. Earlier auth run had a transient failed fetch.</td><td>Add a production auth/email smoke test and recovery-state check.</td></tr>
+<tr><td>Visual polish: section feels intentional, not chaotic or leftover</td><td>IMPROVE</td><td>Clubhouse is much cleaner than prior pass, but mobile still exposes a large number of controls and a visible brand-label overlap.</td><td>Fix overlap and approve homepage capacity rule.</td></tr>
+<tr><td>Brand respect: fun supports smart professional learning</td><td>PASS</td><td>Issue 2 article ties Spice Girls/David Rose references to prompting as delegation; no remedial framing found.</td><td>Preserve specificity; do not add generic AI explainer language.</td></tr>
+<tr><td>Maintenance burden: section can be kept fresh without heroics</td><td>IMPROVE</td><td>Issue packs, quiz, card pack, community prompt, Hot Goss, and glossary exist. Mobile Clubhouse density and auth readiness still add weekly QA load.</td><td>Cap visible homepage activities and keep auth approval separate.</td></tr>
+<tr><td>Detail integrity: issue titles, labels, brand styling, asset choice, and copy are correct</td><td>BLOCK LAUNCH</td><td>Mobile action buttons crowd the <code>lAIdies</code> wordmark; Issue 2 public page links to draft Issue 3.</td><td>Fix brand button labels and release labels.</td></tr>
+<tr><td>Persistence honesty: saved/collected/synced claims match current implementation</td><td>IMPROVE</td><td>Quiz progress saves locally; card pack saves in <code>laidiesCardPackCollection</code>; guest pass reload persists same browser; different browser context starts blank.</td><td>Add explicit production-approved login wording or keep guest/local-only promise.</td></tr>
+<tr><td>Archive readiness: late readers can find prior released issues/packs</td><td>IMPROVE</td><td>Issue 2 page links to Issue 1; Fun Pack shelf includes Issue 01 and Issue 02.</td><td>Add simpler start/current/archive path before the long Clubhouse.</td></tr></tbody></table>
+<h2>UX Journey Audit</h2>
+<table><tbody><tr><th>Reader flow</th><th>Gate</th><th>Evidence</th><th>Coordinating agents</th><th>Exact fix if not PASS</th></tr>
+<tr><td>First-time reader knows where to start</td><td>PASS</td><td>Homepage primary buttons are <code>Read Current Episode</code> and <code>Enter the Clubhouse</code>; desktop screenshot confirms hero hierarchy.</td><td>UX, Editor, CMO</td><td>Keep current issue CTA focused.</td></tr>
+<tr><td>Current-issue reader knows what is live this week</td><td>BLOCK LAUNCH</td><td>Homepage progress says <code>2 of 24 episodes aired</code> on June 9; target release is June 10.</td><td>Release, Content Ops, Front-End</td><td>Approve early release or revert staged state until launch day.</td></tr>
+<tr><td>Late reader can start at Issue 01 and access released back issues</td><td>IMPROVE</td><td>Issue 2 article has <code>Start from Episode 1</code>; Fun Pack shelf includes Issue 01 and Issue 02 after opening Clubhouse.</td><td>UX, Product, Archive</td><td>Add a visible archive/start strip outside the long game shelf.</td></tr>
+<tr><td>Returning same-device reader sees expected saved state</td><td>PASS</td><td>Quiz progress saved to <code>laidiesQuizBestScores</code> and <code>laidiesQuizProgress</code>; member pass email persisted after reload; card pack persisted in <code>laidiesCardPackCollection</code>.</td><td>Front-End, Data Stewardship</td><td>Keep local storage copy honest.</td></tr>
+<tr><td>Returning cross-device reader sees honest login/sync limitation</td><td>IMPROVE</td><td>Separate mobile browser context had blank email and guest status; privacy page says guest data does not follow across devices.</td><td>Data Stewardship, Privacy, Product</td><td>Make this limitation visible at the moment of reward/pass creation, not only privacy page.</td></tr>
+<tr><td>Guest user understands local-only storage</td><td>PASS</td><td>Clubhouse Pass says guest mode saves on device/browser; privacy page has a Guest Mode section.</td><td>Privacy, UX</td><td>Maintain wording until auth is fully approved.</td></tr>
+<tr><td>Signed-in user path exists or is clearly marked future/not available</td><td>IMPROVE</td><td>Supabase config exists and long test reached email confirmation; sign-out hidden when signed out. Production email receipt not verified in this pass.</td><td>Release, Vendor, Front-End</td><td>Require production auth smoke test before promoting real sign-in.</td></tr>
+<tr><td>Completion/reward path says what was earned and where it goes</td><td>PASS</td><td>Quiz completion displayed <code>Butterfly Clip Incident Sticker</code> and <code>Saved to your quiz progress on this device</code>; card pack showed new pulls and binder counts.</td><td>Learning, Member Card, Front-End</td><td>Add member-card sync wording only after auth approval.</td></tr>
+<tr><td>Empty/error/loading states are not confusing</td><td>IMPROVE</td><td>Newsletter invalid email uses browser validation; member auth long run succeeded. Earlier failed fetch showed a temporary <code>Sending account email...</code> state.</td><td>QA, Front-End, Incident Response</td><td>Add explicit auth failure recovery copy and retest.</td></tr>
+<tr><td>Mobile journey works without overlap, horizontal scroll, or tiny controls</td><td>BLOCK LAUNCH</td><td>Issue page overflow 0; homepage document overflow 0; mobile Clubhouse Pass button has visible inline-wordmark crowding/overlap.</td><td>Design, Accessibility, Front-End</td><td>Fix mobile brand button rendering.</td></tr>
+<tr><td>Desktop journey feels polished, guided, and not chaotic</td><td>PASS</td><td>Desktop home, Issue 2 page, and Issue 2 pack shelf screenshots show a coherent current issue and pack path.</td><td>Design, UX, QA</td><td>Keep desktop regression screenshots.</td></tr></tbody></table>
+<h2>Browser Evidence Log</h2>
+<ul><li>Local base URL tested: <code>http://127.0.0.1:4173</code></li>
+<li>Desktop homepage screenshot: <code>tmp/qa-screens/01-desktop-home.png</code></li>
+<li>Desktop Issue 2 article screenshot: <code>tmp/qa-screens/desktop-issue2.png</code></li>
+<li>Mobile Issue 2 article screenshot: <code>tmp/qa-screens/mobile-issue2.png</code></li>
+<li>Mobile Clubhouse open screenshot: <code>tmp/qa-screens/09-mobile-clubhouse-open.png</code></li>
+<li>Mobile Clubhouse Pass screenshot: <code>tmp/qa-screens/10-mobile-member-pass.png</code></li>
+<li>Desktop Issue 2 pack shelf screenshot: <code>tmp/qa-screens/13-desktop-issue2-pack-shelf.png</code></li>
+<li>Desktop Issue 2 card screenshot: <code>tmp/qa-screens/14-desktop-issue2-card.png</code></li>
+<li>Issue 2 pack evidence: Fun Pack status loaded <code>Issue 02</code>; visible pack cards were specificity pack, magazine quiz, Try-On, and prompt cheat sheet; quiz selector became <code>issue02</code>; card pack selector became <code>issue02</code>.</li>
+<li>State evidence: Issue 2 quiz rendered 12 questions, submitted, and saved local progress; Issue 2 card pack opened and saved <code>laidiesCardPackCollection</code>; same-browser member pass email persisted after reload; different browser context started blank.</li>
+<li>Console evidence: full walkthrough reported no issues; long Clubhouse Pass auth test reported no console errors; one shorter auth run produced a Supabase <code>Failed to fetch</code> console error and is retained as a watch item.</li></ul>
+<h2>AI Credibility Proof</h2>
+<table><tbody><tr><th>Check</th><th>Gate</th><th>Evidence</th><th>Exact fix if not PASS</th></tr>
+<tr><td>Agents caught quality issues before CEO review</td><td>PASS</td><td>This review caught early-published Issue 2, draft Issue 3 exposure, mobile brand overlap, auth readiness ambiguity, and missing quiz calibration.</td><td>Keep these in the weekly blocker gate until resolved.</td></tr>
+<tr><td>Agent collaboration improved UX, design, learning, privacy, product, and implementation quality</td><td>IMPROVE</td><td>UX, QA, Release, Design, Learning, Data, and Product findings now connect into the Top 5.</td><td>Convert approved Top 5 items into implementation tickets.</td></tr>
+<tr><td>The output would make a skeptical smart professional more likely to believe AI fluency is worth learning</td><td>IMPROVE</td><td>Issue 2 itself is sharp and useful; obvious release/brand misses would undermine the proof if shipped.</td><td>Fix blockers so the public surface proves the operating model.</td></tr>
+<tr><td>The agents reduced Ali's manual review burden instead of pushing obvious misses to her</td><td>PASS</td><td>The review names exact files, screenshots, states, dependencies, and Ali approvals.</td><td>Keep the same evidence standard for Issue 3.</td></tr></tbody></table>
+<h2>CEO Agent Review</h2>
+<ul><li>Agent: CEO Agent</li>
+<li>Role mission: Prioritize the highest-leverage fixes, protect Ali's time, and move only implementation-ready work forward.</li>
+<li>CEO score target: 5</li>
+<li>Current CEO score: 5</li>
+<li>Why it earned a 5: It identified the highest-risk launch issue first: release state and draft content exposure. It also separated launch blockers from improvements, named what Ali must approve, and kept the Top 5 implementation-ready.</li>
+<li>Top-score action: Do not let Issue 2 go out until Ali makes the release-state decision and the public draft Issue 3 path is removed or approved.</li>
+<li>Evidence: June 9 review date, Issue 2 status <code>published</code>, progress <code>2 of 24 episodes aired</code>, Issue 2 page link to draft Issue 3.</li>
+<li>Handoff partners: Release Manager, Content Ops, Front-End, Editor-in-Chief.</li>
+<li>Decision: block.</li></ul>
+<h2>Senior Agent Whole-Site Review</h2>
+<table><tbody><tr><th>Senior agent</th><th>CEO score</th><th>Why it earned / did not earn a 5</th><th>Gate</th><th>Evidence</th><th>Top-score action</th></tr>
+<tr><td>Chief Brand Agent</td><td>4</td><td>Strong Issue 2 voice and references, but mobile wordmark crowding is a brand execution miss.</td><td>IMPROVE</td><td>Mobile Clubhouse Pass screenshot.</td><td>Approve a mobile-safe brand label rule for buttons.</td></tr>
+<tr><td>Editor-in-Chief Agent</td><td>4</td><td>Issue arc is strong, but public next-episode routing to draft Issue 3 breaks editorial release discipline.</td><td>BLOCK</td><td>Issue 2 link list includes <code>Read next episode</code>.</td><td>Hide next links until next issue is public.</td></tr>
+<tr><td>Chief Design Agent</td><td>3</td><td>Desktop is polished, but the mobile <code>lAIdies Card</code> button overlap is a basic visual defect.</td><td>BLOCK</td><td><code>tmp/qa-screens/10-mobile-member-pass.png</code>.</td><td>Fix inline wordmark/button layout before launch.</td></tr>
+<tr><td>UX / Product Experience Agent</td><td>5</td><td>Completed first-time/current/late/returning/guest/signed-in/completion/error/mobile/desktop audit with evidence and fixes.</td><td>PASS</td><td>UX Journey Audit table.</td><td>Add current/start/archive strip if Ali approves.</td></tr>
+<tr><td>Website QA Lead</td><td>5</td><td>Ran desktop/mobile browser evidence, interactions, state checks, console checks, and screenshots.</td><td>PASS</td><td>Browser Evidence Log.</td><td>Turn these checks into weekly regression script coverage.</td></tr>
+<tr><td>Accessibility &amp; Responsive Agent</td><td>4</td><td>Mobile overflow is mostly controlled and tap targets are large; keyboard-only review is still missing.</td><td>IMPROVE</td><td>Mobile overflow 0; member pass internal scroll/crowding noted.</td><td>Run keyboard-only nav, quiz, cards, forms, and Clubhouse pass.</td></tr>
+<tr><td>Front-End Engineering Agent</td><td>4</td><td>Syntax and core state behavior pass; release gating and brand button rendering need implementation fixes.</td><td>IMPROVE</td><td><code>node --check script.js</code> pass; local storage evidence.</td><td>Add conditional next-link rendering and mobile button CSS fix.</td></tr>
+<tr><td>Release Manager Agent</td><td>3</td><td>The review caught release problems, but the surface currently exposes Issue 2 early and draft Issue 3.</td><td>BLOCK</td><td>Status <code>published</code> before June 10; draft next link.</td><td>Own the launch-day metadata/link gate.</td></tr>
+<tr><td>Chief Technical Accuracy Agent</td><td>4</td><td>Issue 2 teaching claim is nuanced, but Harvard/BCG research note still needs citation/date/source receipt in final review.</td><td>IMPROVE</td><td>Production review flagged BCG/Harvard claim.</td><td>Attach source receipt or simplify the claim.</td></tr>
+<tr><td>Responsible AI Governance Officer</td><td>4</td><td>Human approval and launch gates are explicit; auth/member reward boundary needs final approval status.</td><td>IMPROVE</td><td>Persistence/auth Top 5 item.</td><td>Mark Clubhouse Pass risk owner and approval boundary.</td></tr>
+<tr><td>Risk Register &amp; Controls Agent</td><td>5</td><td>Material risks are visible, owned, and tied to launch decisions.</td><td>PASS</td><td>Top 5 includes release, brand, persistence, calibration, archive.</td><td>Add these blockers to the risk register/decision log.</td></tr>
+<tr><td>AI Audit &amp; Compliance Agent</td><td>5</td><td>Evidence, gates, blockers, and approvals are traceable.</td><td>PASS</td><td>Screenshots, browser state, exact files.</td><td>Verify fixes are logged before removing BLOCK status.</td></tr>
+<tr><td>Transparency &amp; System Documentation Agent</td><td>4</td><td>Privacy page explains local vs synced storage; page-level auth readiness wording needs tightening.</td><td>IMPROVE</td><td><code>privacy.html</code> Guest Mode and Clubhouse Pass sections.</td><td>Add launch-status copy near Clubhouse Pass.</td></tr>
+<tr><td>Human Oversight &amp; Decision Rights Agent</td><td>5</td><td>Ali approvals are explicitly named for every Top 5 item.</td><td>PASS</td><td>Top 5 approval column.</td><td>Keep draft/publish/auth as Ali-owned decisions.</td></tr>
+<tr><td>AI Policy &amp; Regulatory Watch Agent</td><td>3</td><td>No current external policy/platform scan was run in this Issue 2 pass.</td><td>IMPROVE</td><td>No policy evidence attached.</td><td>Run a lightweight current policy/privacy/copyright scan before broader launch claims.</td></tr>
+<tr><td>AI Evaluation &amp; Red Team Lead</td><td>4</td><td>Error and persistence edge cases were tested; adversarial community-submission testing is still missing.</td><td>IMPROVE</td><td>Invalid email, auth watch item, cross-browser blank state.</td><td>Test malicious/unsafe submissions on community and card forms.</td></tr>
+<tr><td>AI Security &amp; Abuse Prevention Agent</td><td>4</td><td>Privacy-sensitive paths were identified; spam/abuse controls for forms were not fully tested.</td><td>IMPROVE</td><td>Community/card forms are public-facing.</td><td>Add moderation/spam control review before scaling community asks.</td></tr>
+<tr><td>Chief Learning Design Agent</td><td>4</td><td>Issue 2 teaches prompting as delegation well; quiz calibration evidence is incomplete.</td><td>IMPROVE</td><td>Quiz completed but answer map absent.</td><td>Finish article-only calibration.</td></tr>
+<tr><td>Article-to-Quiz Calibration Agent</td><td>3</td><td>Browser completion is proven, but article-only answer support was not documented.</td><td>IMPROVE</td><td>12-question quiz completion evidence only.</td><td>Produce answer map from Issue 2 article.</td></tr>
+<tr><td>CMO Agent</td><td>4</td><td>Clear shareable hook and community CTA; launch state would confuse timing and social scheduling.</td><td>IMPROVE</td><td>Shareable hook plus release blocker.</td><td>Align social posts with actual live state on June 10.</td></tr>
+<tr><td>Social Media &amp; Comms Manager</td><td>4</td><td>Issue 2 has usable social angles; public links must not send people into draft/future content.</td><td>IMPROVE</td><td><code>Read next episode</code> draft path.</td><td>Finalize launch links after release-gate fix.</td></tr>
+<tr><td>Creative Strategy &amp; Ideation Agent</td><td>4</td><td>References and pack ideas are strong; now the job is constraint, not adding more.</td><td>IMPROVE</td><td>Mobile Clubhouse remains long.</td><td>Keep Issue 2 launch focused on quiz, cards, Try-On.</td></tr>
+<tr><td>SEO &amp; Audience Discovery Agent</td><td>4</td><td>Issue page title and links are strong; draft Issue 3 public access creates indexing/share risk.</td><td>IMPROVE</td><td>Issue 3 page accessible from Issue 2.</td><td>Prevent draft/future issue discovery unless intentional.</td></tr>
+<tr><td>Content Operations Agent</td><td>4</td><td>Files exist and command center structure works; status/date mismatch needs cleanup.</td><td>IMPROVE</td><td>Issue 2 JSON says <code>published</code> with June 10 release date.</td><td>Create a weekly status/date preflight.</td></tr>
+<tr><td>Art Direction &amp; Asset Agent</td><td>3</td><td>Assets are distinctive, but mobile wordmark crowding undercuts the system.</td><td>BLOCK</td><td>Mobile <code>Create your lAIdies Card</code> screenshot.</td><td>Define where wordmark images are not allowed.</td></tr>
+<tr><td>Community &amp; Partnerships Manager</td><td>4</td><td>Try-On Debrief and member-card flow are useful; auth readiness must be honest before inviting users.</td><td>IMPROVE</td><td>Community prompt path and Clubhouse Pass tests.</td><td>Gate real member invites on auth approval.</td></tr>
+<tr><td>Analytics &amp; Feedback Agent</td><td>4</td><td>Success signals are named; current state lacks launch metrics attached to Issue 2 yet.</td><td>IMPROVE</td><td>Growth scorecard exists.</td><td>Track quiz starts/completions, card opens, Try-On posts, signups.</td></tr>
+<tr><td>Privacy &amp; Safety Agent</td><td>4</td><td>Privacy page and local-only wording are good; production email/auth failure handling needs proof.</td><td>IMPROVE</td><td>Guest/cross-device tests, auth watch item.</td><td>Approve final privacy/auth language.</td></tr>
+<tr><td>Data Stewardship &amp; Privacy Agent</td><td>4</td><td>Data touchpoints are inventoried; synced storage is not fully production-verified.</td><td>IMPROVE</td><td>LocalStorage keys and Supabase config.</td><td>Verify Supabase storage, consent, retention, and deletion path.</td></tr>
+<tr><td>Inclusive Content, Legal/HR &amp; DEI Risk Agent</td><td>5</td><td>The issue treats women as capable professionals and avoids legal/HR advice overreach.</td><td>PASS</td><td>Article, Try-On, privacy language.</td><td>Keep workplace examples non-confidential and non-employer-specific.</td></tr>
+<tr><td>Roadmap Agent</td><td>5</td><td>Correctly prioritizes release gating, mobile polish, auth, calibration, and archive hierarchy over new features.</td><td>PASS</td><td>Top 5 scope.</td><td>Do not add new toys before fixing launch gates.</td></tr>
+<tr><td>Chief Product Agent</td><td>4</td><td>Product loop is promising; persistence/auth and late-reader flow need sharper product promises.</td><td>IMPROVE</td><td>Same-device/cross-device evidence.</td><td>Approve product promise: guest-local first, synced pass later or live now.</td></tr>
+<tr><td>Growth &amp; Monetization Agent</td><td>4</td><td>Growth surfaces exist without cheapening the brand; launch bugs would hurt trust.</td><td>IMPROVE</td><td>Subscribe, community, cards, pack path.</td><td>Measure demand before monetization ideas move forward.</td></tr>
+<tr><td>Finance &amp; Monetization Ideas Agent</td><td>4</td><td>Monetization remains appropriately parked; no cost/benefit analysis for auth/vendor spend yet.</td><td>IMPROVE</td><td>Vendor/auth dependency.</td><td>Track tool costs and demand signals after launch.</td></tr>
+<tr><td>AI Vendor &amp; Tool Procurement Agent</td><td>4</td><td>Supabase and Buttondown are identified; production reliability and terms/cost review are incomplete.</td><td>IMPROVE</td><td>Supabase config, Buttondown form.</td><td>Complete vendor checklist for auth and newsletter.</td></tr>
+<tr><td>AI Incident Response &amp; Escalation Agent</td><td>4</td><td>Auth failure is identified as a watch item; no full incident runbook is attached.</td><td>IMPROVE</td><td>Earlier failed fetch and later success.</td><td>Define what happens if signup/auth breaks on launch day.</td></tr>
+<tr><td>External Review &amp; Reader Advisory Liaison</td><td>3</td><td>No outside reader or expert review was captured in this pass.</td><td>IMPROVE</td><td>No external feedback evidence.</td><td>Ask one trusted reader to test Issue 2 start-to-quiz-to-card flow.</td></tr>
+<tr><td>Change Management &amp; Enablement Agent</td><td>4</td><td>Review structure is stronger and reusable; needs conversion into checklist habits.</td><td>IMPROVE</td><td>Filled Top 5 and gates.</td><td>Add release-gate checklist item to weekly workflow.</td></tr>
+<tr><td>Continuous Monitoring Agent</td><td>5</td><td>Found live-state, draft-link, mobile, and auth watch items that should be monitored through launch.</td><td>PASS</td><td>Evidence log and blockers.</td><td>Re-run smoke tests after every release-state change.</td></tr>
+<tr><td>Professional Reputation Agent</td><td>4</td><td>Issue 2 is credible and shareable; draft content exposure and brand overlap would be reputationally sloppy.</td><td>BLOCK</td><td>Draft Issue 3 link and mobile overlap.</td><td>Fix launch polish before Ali shares broadly.</td></tr></tbody></table>
+<h2>Section Agent Reviews</h2>
+<table><tbody><tr><th>Agent</th><th>Launch gate</th><th>Current verdict</th><th>Exact recommendation / dependency</th></tr>
+<tr><td>Episode Archive / Current Issue Agent</td><td>BLOCK</td><td>Current/draft state is not clean.</td><td>Fix Issue 2 status and draft Issue 3 link exposure.</td></tr>
+<tr><td>Newsletter Signup Agent</td><td>PASS WITH WATCH</td><td>Invalid email validation works; Buttondown is the email-only signup path.</td><td>Keep newsletter separate from Clubhouse Pass until auth is approved.</td></tr>
+<tr><td>Mme CLAI-O Agent</td><td>PASS</td><td>No new Issue 2-specific defect found in this pass.</td><td>Preserve card/read/message/move structure.</td></tr>
+<tr><td>fAIry Godmother / LAIDY Agent</td><td>IMPROVE</td><td>Direct panel path was not deeply red-teamed in this Issue 2 pass.</td><td>Run unsafe-advice and prompt-injection checks before broader promotion.</td></tr>
+<tr><td>Quiz Agent</td><td>IMPROVE</td><td>Quiz renders, submits, saves, and gives sticker; calibration missing.</td><td>Complete answer map and cut unsupported items.</td></tr>
+<tr><td>Card Pack Agent</td><td>PASS</td><td>Issue 2 card pack opens, pulls cards, updates binder counts, and persists under <code>laidiesCardPackCollection</code>.</td><td>Keep Issue 2 cards tied to prompting specificity.</td></tr>
+<tr><td>Dream Phone Agent</td><td>PASS WITH WATCH</td><td>Not an Issue 2 blocker.</td><td>Keep compact and do not add more homepage complexity this week.</td></tr>
+<tr><td>Businesswomen's Special Agent</td><td>PASS WITH WATCH</td><td>Not an Issue 2 blocker.</td><td>Keep inclusive Proof Positive/Zero Proof language under QA.</td></tr>
+<tr><td>Girl Talk Prompt Deck Agent</td><td>IMPROVE</td><td>Useful community ritual, but not core to Issue 2 launch.</td><td>Keep prompts non-confidential and optional.</td></tr>
+<tr><td>Five-Minute Try-On Agent</td><td>PASS</td><td>Issue 2 Try-On is clear and tied to vague vs specific prompts.</td><td>Keep timebox and compare-output framing.</td></tr>
+<tr><td>Sign-Off Generator Agent</td><td>PASS WITH WATCH</td><td>Issue 2 sign-off is strong.</td><td>Do not over-rotate into extra homepage activity.</td></tr>
+<tr><td>DJ JAIDY Agent</td><td>PASS WITH WATCH</td><td>No launch blocker found.</td><td>Keep music secondary to Issue 2 learning path.</td></tr>
+<tr><td>Playlist / Mix CD Agent</td><td>PASS WITH WATCH</td><td>No launch blocker found.</td><td>Verify external playlist links only when promoted.</td></tr>
+<tr><td>Hot Goss Agent</td><td>IMPROVE</td><td>Issue links point to Hot Goss, but source-date review was not rerun here.</td><td>Verify live news links and dates before newsletter send.</td></tr>
+<tr><td>Glossary / Reference Closet Agent</td><td>PASS</td><td>Issue 2 glossary terms are Prompt, Context, Token.</td><td>Add terms to durable archive/canon intake if not already done.</td></tr>
+<tr><td>Community Room Agent</td><td>IMPROVE</td><td>Try-On Debrief path exists.</td><td>Add moderation/safety expectations for before-and-after workplace prompts.</td></tr>
+<tr><td>Member Card Agent</td><td>BLOCK</td><td>Mobile action buttons have brand overlap; auth readiness needs approval.</td><td>Fix mobile buttons and gate real member invites.</td></tr>
+<tr><td>Comment Card / Feedback Agent</td><td>IMPROVE</td><td>Feedback path exists but was not part of completion-state evidence.</td><td>Add feedback success/error check to weekly QA.</td></tr>
+<tr><td>Chat Room Digest Agent</td><td>IMPROVE</td><td>Digest is post-launch dependent.</td><td>Refresh only after real comments; do not label community answers as correct without review.</td></tr></tbody></table>
+<h2>Shared Scoring Rubric</h2>
+<table><tbody><tr><th>Category</th><th>Score</th><th>Notes</th></tr>
+<tr><td>usability</td><td>4</td><td>Core paths work; current/release state and mobile Clubhouse button overlap block a 5.</td></tr>
+<tr><td>fun</td><td>5</td><td>Issue 2 references and packs are memorable and on-brand.</td></tr>
+<tr><td>brand fit</td><td>4</td><td>Strong voice; mobile wordmark/button crowding needs fix.</td></tr>
+<tr><td>engagement</td><td>4</td><td>Quiz, cards, Try-On, community, and member pass create return hooks.</td></tr>
+<tr><td>user feedback</td><td>3</td><td>Feedback channels exist; no Issue 2 reader signal yet.</td></tr>
+<tr><td>learning/job-to-be-done execution</td><td>4</td><td>Lesson is strong; quiz calibration evidence missing.</td></tr>
+<tr><td>social/share potential</td><td>4</td><td>Spice Girls/David Rose hook is strong; launch links must be clean.</td></tr>
+<tr><td>technical/reputation risk</td><td>3</td><td>Release leakage, draft links, auth watch item, and mobile brand overlap create risk.</td></tr>
+<tr><td>maintenance burden</td><td>4</td><td>Weekly system exists; Clubhouse density and auth add QA load.</td></tr>
+<tr><td>leadership narrative support</td><td>4</td><td>AI-assisted review strengthens the story if blockers are fixed before Ali review.</td></tr></tbody></table>
+<h2>Reputation/Safety Gate</h2>
+<ul><li>[x] no confidential workplace information found in Issue 2 article examples</li>
+<li>[x] no named live career opportunities found</li>
+<li>[x] no employer-specific implication found in Issue 2 public copy</li>
+<li>[ ] source receipt still needed for Harvard/BCG research claim before final send</li>
+<li>[x] no legal, tax, HR, medical, financial, privacy, or policy guidance presented as official advice</li>
+<li>[x] no public spotlighting without consent identified in Issue 2 review</li>
+<li>[x] no community answer labeled correct without human review</li>
+<li>[ ] mobile brand overlap must be fixed before broad sharing</li>
+<li>[x] monetization remains parked</li>
+<li>[ ] Clubhouse Pass/auth maintenance burden needs Ali approval before real user invitations</li></ul>
+<h2>Ali Decision</h2>
+<ul><li>Approved:</li>
+<li>Rejected:</li>
+<li>Parked:</li>
+<li>Needs revision:</li></ul>
+<p>  - Release-state decision for Issue 2 and draft Issue 3 link exposure.</p>
+<p>  - Mobile <code>lAIdies Card</code> button brand treatment.</p>
+<p>  - Clubhouse Pass auth readiness and public positioning.</p>
+<p>  - Issue 2 quiz answer-map calibration.</p>
+<p>  - Launch-week current/start/archive hierarchy.</p>
+<h2>Decision Log Entries</h2>
+<p>Record accepted/rejected recommendations in <code>operations/agents/agent-decision-log.md</code>.</p>
+<table><tbody><tr><th>Agent</th><th>Recommendation</th><th>CEO decision</th><th>Ali decision</th><th>Why accepted/rejected</th><th>Signal needed to revisit</th></tr>
+<tr><td>Release Manager Agent</td><td>Fix Issue 2 status/date and draft Issue 3 public link exposure.</td><td>BLOCK</td><td></td><td></td><td>Retest after metadata/link update.</td></tr>
+<tr><td>Chief Design Agent</td><td>Fix mobile inline wordmark overlap in Clubhouse Pass buttons.</td><td>BLOCK</td><td></td><td></td><td>Mobile screenshot passes at 390px.</td></tr>
+<tr><td>Data Stewardship &amp; Privacy Agent</td><td>Confirm Clubhouse Pass auth/email production readiness and wording.</td><td>IMPROVE</td><td></td><td></td><td>Successful production magic-link test and privacy wording approval.</td></tr>
+<tr><td>Article-to-Quiz Calibration Agent</td><td>Produce Issue 2 answer map.</td><td>IMPROVE</td><td></td><td></td><td>Every question traces to article source.</td></tr>
+<tr><td>UX / Product Experience Agent</td><td>Add or approve current/start/archive hierarchy.</td><td>IMPROVE</td><td></td><td></td><td>First-time and late-reader path is obvious in browser test.</td></tr></tbody></table>
+    </main>
+  </body>
+</html>

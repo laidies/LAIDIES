@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>lAIdies Agent Organization Map</title>
+    <style>
+      :root {
+        --ink: #171018;
+        --muted: #6e6470;
+        --line: #eaddea;
+        --paper: #fff9fd;
+        --pink: #ff2aa3;
+        --yellow: #ffd84d;
+        --green: #1d9b72;
+        --blue: #2d6cdf;
+        --violet: #7b4bd9;
+        --red: #c43d60;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #fff;
+        color: var(--ink);
+        line-height: 1.45;
+      }
+      header {
+        padding: 32px clamp(18px, 4vw, 56px);
+        background: #2b0822;
+        color: #fff;
+      }
+      h1, h2, h3, p { margin-top: 0; }
+      h1 { max-width: 920px; margin-bottom: 8px; font-size: clamp(30px, 5vw, 56px); line-height: 1; }
+      header p { max-width: 840px; margin-bottom: 0; color: #ffe4f5; }
+      main { padding: 24px clamp(18px, 4vw, 56px) 56px; }
+      .topline {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 14px;
+        margin-bottom: 22px;
+      }
+      .role, .group {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+      }
+      .role {
+        padding: 14px;
+        min-height: 92px;
+      }
+      .role strong { display: block; font-size: 15px; }
+      .role span { display: block; margin-top: 6px; color: var(--muted); font-size: 13px; }
+      .ali { border-top: 6px solid var(--pink); background: #fff1fa; }
+      .ceo { border-top: 6px solid var(--yellow); background: #fff9d7; }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+      .group { padding: 16px; }
+      .group h2 { margin-bottom: 10px; font-size: 20px; }
+      .group p { margin-bottom: 12px; color: var(--muted); }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 10px;
+      }
+      .card {
+        border: 1px solid var(--line);
+        border-left: 6px solid var(--pink);
+        border-radius: 8px;
+        background: #fff;
+        padding: 10px;
+        min-height: 72px;
+      }
+      .card strong { display: block; font-size: 14px; }
+      .card span { display: block; margin-top: 5px; color: var(--muted); font-size: 12px; }
+      .governance .card { border-left-color: var(--red); }
+      .experience .card { border-left-color: var(--blue); }
+      .learning .card { border-left-color: var(--green); }
+      .growth .card { border-left-color: var(--violet); }
+      .sections .card { border-left-color: var(--pink); }
+      .sections { grid-column: 1 / -1; }
+      .pilot {
+        margin-top: 18px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-left: 8px solid var(--yellow);
+        border-radius: 8px;
+        background: #fffdf0;
+      }
+      .pilot ul { margin: 0; padding-left: 20px; }
+      @media (max-width: 860px) {
+        .grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>lAIdies Agent Organization Map</h1>
+      <p>A visual view of the agent organization: final approval, CEO prioritization, senior operating teams, and section owners competing for Best Website Section.</p>
+    </header>
+    <main>
+      <section class="topline" aria-label="Top decision layer">
+        <div class="role ali"><strong>Ali</strong><span>Final public approval, taste, risk acceptance, and strategic direction.</span></div>
+        <div class="role ceo"><strong>CEO Agent</strong><span>Turns council findings into the Top 5 actions and holds every agent to a CEO score target of 5.</span></div>
+      </section>
+
+      <div class="grid">
+        <section class="group governance">
+          <h2>Responsible AI Governance & Risk</h2>
+          <p>Controls, evidence, risk ownership, safety, transparency, and response paths.</p>
+          <div class="cards">
+            <div class="card"><strong>Responsible AI Governance</strong><span>Policy, accountability, human approval.</span></div>
+            <div class="card"><strong>Risk Register & Controls</strong><span>Owned risks, controls, residual risk.</span></div>
+            <div class="card"><strong>AI Audit & Compliance</strong><span>Checks gates, evidence, decision trail.</span></div>
+            <div class="card"><strong>Transparency & Docs</strong><span>AI use, limits, human review, disclosure.</span></div>
+            <div class="card"><strong>Human Oversight</strong><span>Decision rights and escalation.</span></div>
+            <div class="card"><strong>Policy & Regulatory Watch</strong><span>AI policy, platform, privacy, IP changes.</span></div>
+            <div class="card"><strong>AI Evaluation & Red Team</strong><span>Unsafe outputs, bias, hallucination tests.</span></div>
+            <div class="card"><strong>AI Security & Abuse</strong><span>Leakage, spam, unsafe links, misuse.</span></div>
+            <div class="card"><strong>Data Stewardship</strong><span>Data inventory, minimization, third parties.</span></div>
+            <div class="card"><strong>Vendor & Tool Procurement</strong><span>Terms, cost, data use, reliability.</span></div>
+            <div class="card"><strong>Incident Response</strong><span>Severity, containment, correction, prevention.</span></div>
+          </div>
+        </section>
+
+        <section class="group experience">
+          <h2>Website Experience & Quality</h2>
+          <p>How the site looks, works, fits, loads, and feels to a reader.</p>
+          <div class="cards">
+            <div class="card"><strong>Chief Brand</strong><span>Voice, taste, canon, non-cringe.</span></div>
+            <div class="card"><strong>Editor-in-Chief</strong><span>Issue arc, flow, narrative hierarchy.</span></div>
+            <div class="card"><strong>Chief Design</strong><span>Polish, rhythm, hierarchy, calm.</span></div>
+            <div class="card"><strong>UX / Product Experience</strong><span>Reader journey, states, CTAs.</span></div>
+            <div class="card"><strong>Website QA Lead</strong><span>Desktop/mobile interaction proof.</span></div>
+            <div class="card"><strong>Accessibility & Responsive</strong><span>Keyboard, focus, tap, contrast, fit.</span></div>
+            <div class="card"><strong>Front-End Engineering</strong><span>Assets, state, cache, maintainability.</span></div>
+            <div class="card"><strong>Release Manager</strong><span>Dates, visibility, cache, live state.</span></div>
+            <div class="card"><strong>Art Direction & Assets</strong><span>Images, crops, icons, visual world.</span></div>
+          </div>
+        </section>
+
+        <section class="group learning">
+          <h2>Learning, Product & Operations</h2>
+          <p>What readers learn, what becomes product, and whether the system can repeat.</p>
+          <div class="cards">
+            <div class="card"><strong>Chief Learning Design</strong><span>Concept sequence and workplace transfer.</span></div>
+            <div class="card"><strong>Article-to-Quiz Calibration</strong><span>Reads the issue, takes the quiz, traces every answer.</span></div>
+            <div class="card"><strong>Chief Product</strong><span>Product thesis, loops, prototypes.</span></div>
+            <div class="card"><strong>Creative Strategy & Ideation</strong><span>New ideas and smallest useful tests.</span></div>
+            <div class="card"><strong>Roadmap</strong><span>Now, later, park, simplify.</span></div>
+            <div class="card"><strong>Analytics & Feedback</strong><span>Signal, scorecards, measurement gaps.</span></div>
+            <div class="card"><strong>Content Operations</strong><span>Calendar, files, handoffs, templates.</span></div>
+            <div class="card"><strong>Change Management</strong><span>Usable workflows and adoption.</span></div>
+            <div class="card"><strong>Continuous Monitoring</strong><span>Post-launch links, stale content, regressions.</span></div>
+          </div>
+        </section>
+
+        <section class="group growth">
+          <h2>Growth, Comms & Trust</h2>
+          <p>How lAIdies reaches people, earns trust, and stores future business ideas.</p>
+          <div class="cards">
+            <div class="card"><strong>CMO</strong><span>Audience entry, shareability, ritual.</span></div>
+            <div class="card"><strong>Social Media & Comms</strong><span>Channel-native launch messaging.</span></div>
+            <div class="card"><strong>SEO & Audience Discovery</strong><span>Search, metadata, internal links.</span></div>
+            <div class="card"><strong>Community & Partnerships</strong><span>Readers, collaborators, ERGs, sponsors.</span></div>
+            <div class="card"><strong>Growth & Monetization</strong><span>Demand tests without cheapening trust.</span></div>
+            <div class="card"><strong>Finance Ideas</strong><span>Revenue hypotheses and idea bank.</span></div>
+            <div class="card"><strong>External Review</strong><span>Reader advisory and expert input.</span></div>
+            <div class="card"><strong>Inclusive Legal/HR & DEI</strong><span>Inclusive language and workplace risk.</span></div>
+            <div class="card"><strong>Privacy & Safety</strong><span>Consent, community, advice boundaries.</span></div>
+            <div class="card"><strong>Professional Reputation</strong><span>Senior-professional credibility.</span></div>
+          </div>
+        </section>
+
+        <section class="group sections">
+          <h2>Website Section Owners</h2>
+          <p>Each section owner competes for Best Website Section and must block launch when their section is broken, chaotic, fake, unreleased, or unsafe.</p>
+          <div class="cards">
+            <div class="card"><strong>Current Issue / Archive</strong><span>Release gating and navigation.</span></div>
+            <div class="card"><strong>Newsletter Signup</strong><span>Buttondown path and trust.</span></div>
+            <div class="card"><strong>Mme CLAI-O</strong><span>Gold-standard signature feature.</span></div>
+            <div class="card"><strong>fAIry / LAIDY</strong><span>Advice console and safe modes.</span></div>
+            <div class="card"><strong>Quiz</strong><span>Fast confidence checks, calibrated against the issue.</span></div>
+            <div class="card"><strong>Card Pack</strong><span>Practical workplace tools.</span></div>
+            <div class="card"><strong>Dream Phone</strong><span>Role-based advice.</span></div>
+            <div class="card"><strong>Businesswomen's Special</strong><span>Visible spin and inclusive ritual.</span></div>
+            <div class="card"><strong>Girl Talk Deck</strong><span>Safe conversation prompts.</span></div>
+            <div class="card"><strong>Five-Minute Try-On</strong><span>Small practical work dares.</span></div>
+            <div class="card"><strong>Sign-Off Generator</strong><span>Copyable closer lines.</span></div>
+            <div class="card"><strong>DJ JAIDY</strong><span>House DJ identity.</span></div>
+            <div class="card"><strong>Playlist / Mix CD</strong><span>Playlists and member mixes.</span></div>
+            <div class="card"><strong>Hot Goss</strong><span>Short AI news context.</span></div>
+            <div class="card"><strong>Reference Closet</strong><span>Durable glossary and references.</span></div>
+            <div class="card"><strong>Community Room</strong><span>Participation ritual.</span></div>
+            <div class="card"><strong>Member Card</strong><span>Identity and consent.</span></div>
+            <div class="card"><strong>Comment Card</strong><span>Feedback signal.</span></div>
+            <div class="card"><strong>Chat Room Digest</strong><span>Community knowledge queues.</span></div>
+          </div>
+        </section>
+      </div>
+
+      <section class="pilot">
+        <h2>Current Review Model: Whole Site First</h2>
+        <ul>
+          <li>Review the full website for cohesion, hierarchy, release state, learning path, polish, and reputation before isolated section fixes.</li>
+          <li>Use Fun & Games as the stress test for chaotic layout, blank space, stale open panels, and fake interactions.</li>
+          <li>Any whole-site or stress-test blocker goes to the CEO Top 5 before section-level upgrades.</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

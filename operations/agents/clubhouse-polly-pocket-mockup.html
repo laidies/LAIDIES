@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>lAIdies Clubhouse Compact Image Mockup</title>
+  <style>
+    :root {
+      --ink: #160812;
+      --plum: #51143c;
+      --hot-pink: #ff2d9b;
+      --paper: #fff8fc;
+      --line: rgba(22, 8, 18, 0.16);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 14% 10%, rgba(255, 242, 92, 0.34), transparent 18%),
+        radial-gradient(circle at 84% 12%, rgba(81, 214, 223, 0.28), transparent 24%),
+        linear-gradient(135deg, #fff8fc, #ffe5f3 62%, #effcff);
+      color: var(--ink);
+    }
+
+    main {
+      display: grid;
+      gap: clamp(18px, 3vw, 28px);
+      width: min(100%, 1180px);
+      margin: 0 auto;
+      padding: clamp(18px, 4vw, 48px);
+    }
+
+    .heading,
+    .notes {
+      display: grid;
+      gap: 10px;
+      max-width: 920px;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--hot-pink);
+      font-size: 0.78rem;
+      font-weight: 950;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    p {
+      margin: 0;
+    }
+
+    h1,
+    h2 {
+      color: var(--plum);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 0.96;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 6vw, 4.6rem);
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+    }
+
+    p,
+    li {
+      color: #70435f;
+      line-height: 1.55;
+    }
+
+    .concept-frame {
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 8px 8px 0 var(--ink);
+      padding: clamp(10px, 2vw, 16px);
+    }
+
+    .concept-stage {
+      display: grid;
+      gap: 14px;
+    }
+
+    .interactive-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: clamp(12px, 2vw, 18px);
+      align-items: start;
+    }
+
+    .concept-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .concept-actions button {
+      min-height: 44px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--plum);
+      cursor: pointer;
+      font-weight: 950;
+      letter-spacing: 0.04em;
+      padding: 0 16px;
+      text-transform: uppercase;
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .concept-actions button:hover,
+    .concept-actions button:focus-visible,
+    .concept-actions button.is-active {
+      background: var(--hot-pink);
+      color: #fff;
+      outline: none;
+    }
+
+    .concept-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      background: var(--paper);
+    }
+
+    .concept-frame img[hidden] {
+      display: none;
+    }
+
+    .image-wrap {
+      position: relative;
+      overflow: hidden;
+      border-radius: 6px;
+    }
+
+    .hotspot-layer {
+      position: absolute;
+      inset: 0;
+      display: none;
+      pointer-events: none;
+    }
+
+    .concept-stage[data-state="open"] .hotspot-layer {
+      display: block;
+    }
+
+    .hotspot {
+      position: absolute;
+      border: 2px solid rgba(255, 45, 155, 0.34);
+      border-radius: 999px;
+      background: rgba(255, 216, 237, 0.1);
+      cursor: pointer;
+      pointer-events: auto;
+      animation: softPinkPulse 3.2s ease-in-out infinite;
+    }
+
+    .hotspot:hover,
+    .hotspot:focus-visible,
+    .hotspot.is-active {
+      background: rgba(255, 216, 237, 0.42);
+      border-color: rgba(255, 45, 155, 0.9);
+      box-shadow:
+        0 0 0 5px rgba(255, 45, 155, 0.14),
+        0 0 26px rgba(255, 45, 155, 0.56),
+        inset 0 0 22px rgba(255, 255, 255, 0.48);
+      animation: activeSoftPinkPulse 1.75s ease-in-out infinite;
+      outline: none;
+    }
+
+    .hotspot[data-zone="weekly-fun-pack"] {
+      left: 20%;
+      top: 8%;
+      width: 48%;
+      height: 27%;
+    }
+
+    .hotspot[data-zone="weekly-jams"] {
+      left: 69%;
+      top: 10.8%;
+      width: 20%;
+      height: 22.5%;
+    }
+
+    .hotspot[data-zone="fun-pack-1-6"],
+    .hotspot[data-zone="fun-pack-7-12"],
+    .hotspot[data-zone="fun-pack-13-18"],
+    .hotspot[data-zone="fun-pack-19-24"] {
+      top: 34.4%;
+      height: 5.4%;
+      border-radius: 12px;
+    }
+
+    .hotspot[data-zone="fun-pack-1-6"] {
+      left: 22.9%;
+      width: 10.8%;
+    }
+
+    .hotspot[data-zone="fun-pack-7-12"] {
+      left: 35.8%;
+      width: 9.8%;
+    }
+
+    .hotspot[data-zone="fun-pack-13-18"] {
+      left: 46.3%;
+      top: 35.4%;
+      width: 10.8%;
+    }
+
+    .hotspot[data-zone="fun-pack-19-24"] {
+      left: 57.6%;
+      top: 36%;
+      width: 10.6%;
+    }
+
+    .hotspot[data-zone="mix-cds"] {
+      left: 37%;
+      top: 42%;
+      width: 32%;
+      height: 18.5%;
+    }
+
+    .hotspot[data-zone="psychic"] {
+      left: 35.7%;
+      top: 75.4%;
+      width: 20.6%;
+      height: 16%;
+    }
+
+    .hotspot[data-zone="dream-phone"] {
+      left: 5.5%;
+      top: 51.5%;
+      width: 20%;
+      height: 23%;
+    }
+
+    .hotspot[data-zone="girl-talk"] {
+      left: 29%;
+      top: 63%;
+      width: 28%;
+      height: 16.5%;
+    }
+
+    .hotspot[data-zone="try-on"] {
+      left: 68.2%;
+      top: 49%;
+      width: 18.5%;
+      height: 22%;
+    }
+
+    .hotspot[data-zone="business"] {
+      left: 69.5%;
+      top: 72.2%;
+      width: 17.8%;
+      height: 13.5%;
+    }
+
+    .hotspot[data-zone="fairy"] {
+      left: 18%;
+      top: 41%;
+      width: 17%;
+      height: 17%;
+    }
+
+    .sticker-drawer {
+      display: none;
+      width: min(100%, 760px);
+      justify-self: center;
+    }
+
+    .concept-stage[data-state="open"] .sticker-drawer {
+      display: block;
+    }
+
+    .sticker-drawer summary {
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 229, 243, 0.92));
+      color: var(--plum);
+      cursor: pointer;
+      font-weight: 950;
+      list-style: none;
+      padding: 12px 14px;
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    .sticker-drawer summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .sticker-drawer summary::after {
+      content: " +";
+      color: var(--hot-pink);
+      font-weight: 950;
+    }
+
+    .sticker-drawer[open] summary::after {
+      content: " -";
+    }
+
+    .sticker-rail {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 229, 243, 0.92));
+      box-shadow: 6px 6px 0 var(--ink);
+      padding: 12px;
+    }
+
+    .sticker-rail h2 {
+      font-size: clamp(1.25rem, 2vw, 1.65rem);
+    }
+
+    .sticker-rail p {
+      color: #70435f;
+      font-size: 0.9rem;
+      line-height: 1.35;
+    }
+
+    .sticker-sheet {
+      position: relative;
+      width: min(100%, 560px);
+      margin-inline: auto;
+    }
+
+    .sticker-sheet img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .sticker-button {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      border: 0;
+      background: transparent;
+      color: var(--plum);
+      cursor: pointer;
+      font-weight: 950;
+      line-height: 0.98;
+      padding: 0 8px;
+      text-align: center;
+      text-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.95),
+        1px 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .sticker-button:hover,
+    .sticker-button:focus-visible,
+    .sticker-button.is-active {
+      color: #fff;
+      outline: none;
+      text-shadow:
+        1px 1px 0 var(--plum),
+        0 0 8px rgba(255, 45, 155, 0.9);
+    }
+
+    .sticker-button::after {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: 999px;
+      opacity: 0;
+      pointer-events: none;
+      box-shadow: 0 0 24px rgba(255, 45, 155, 0.5);
+    }
+
+    .sticker-button:hover::after,
+    .sticker-button:focus-visible::after,
+    .sticker-button.is-active::after {
+      opacity: 1;
+      animation: activeSoftPinkPulse 1.75s ease-in-out infinite;
+    }
+
+    .sticker-button[data-zone-button="weekly-fun-pack"] {
+      left: 4.8%;
+      top: 13.2%;
+      width: 27.4%;
+      height: 13.8%;
+    }
+
+    .sticker-button[data-zone-button="weekly-jams"] {
+      left: 38.4%;
+      top: 12.8%;
+      width: 23.2%;
+      height: 14.2%;
+    }
+
+    .sticker-button[data-zone-button="mix-cds"] {
+      left: 70%;
+      top: 13.4%;
+      width: 22.8%;
+      height: 13.8%;
+    }
+
+    .sticker-button[data-zone-button="girl-talk"] {
+      left: 4.5%;
+      top: 42.5%;
+      width: 27.6%;
+      height: 14.4%;
+    }
+
+    .sticker-button[data-zone-button="try-on"] {
+      left: 39.7%;
+      top: 42.8%;
+      width: 21.8%;
+      height: 13.6%;
+    }
+
+    .sticker-button[data-zone-button="business"] {
+      left: 69%;
+      top: 42.2%;
+      width: 23.2%;
+      height: 14.8%;
+      font-size: 0.86rem;
+    }
+
+    .sticker-button[data-zone-button="dream-phone"] {
+      left: 6.8%;
+      top: 69.8%;
+      width: 20.8%;
+      height: 14.2%;
+      font-size: 0.92rem;
+    }
+
+    .sticker-button[data-zone-button="psychic"] {
+      left: 39.8%;
+      top: 69.2%;
+      width: 21.4%;
+      height: 14.8%;
+      font-size: 0.94rem;
+    }
+
+    .sticker-button[data-zone-button="fairy"] {
+      left: 70.2%;
+      top: 74.8%;
+      width: 23.4%;
+      height: 12.2%;
+      font-size: 0.92rem;
+    }
+
+    .range-status {
+      display: none;
+      width: min(100%, 760px);
+      justify-self: center;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 16% 18%, rgba(255, 242, 92, 0.42), transparent 34%),
+        rgba(255, 255, 255, 0.9);
+      color: #70435f;
+      font-weight: 850;
+      line-height: 1.42;
+      padding: 12px 14px;
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .concept-stage[data-state="open"] .range-status {
+      display: block;
+    }
+
+    .range-status strong {
+      color: var(--plum);
+    }
+
+    @keyframes softPinkPulse {
+      0%,
+      100% {
+        box-shadow:
+          0 0 0 0 rgba(255, 45, 155, 0),
+          inset 0 0 0 rgba(255, 255, 255, 0);
+      }
+      50% {
+        box-shadow:
+          0 0 22px rgba(255, 45, 155, 0.34),
+          inset 0 0 18px rgba(255, 255, 255, 0.34);
+      }
+    }
+
+    @keyframes activeSoftPinkPulse {
+      0%,
+      100% {
+        box-shadow:
+          0 0 0 4px rgba(255, 45, 155, 0.12),
+          0 0 18px rgba(255, 45, 155, 0.36),
+          inset 0 0 14px rgba(255, 255, 255, 0.42);
+      }
+      50% {
+        box-shadow:
+          0 0 0 8px rgba(255, 45, 155, 0.2),
+          0 0 38px rgba(255, 45, 155, 0.68),
+          inset 0 0 28px rgba(255, 255, 255, 0.62);
+      }
+    }
+
+    .notes {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-width: none;
+    }
+
+    .note-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.82);
+      padding: clamp(16px, 2vw, 22px);
+    }
+
+    .note-card ul {
+      display: grid;
+      gap: 8px;
+      margin: 12px 0 0;
+      padding-left: 20px;
+    }
+
+    @media (max-width: 760px) {
+      .sticker-sheet {
+        width: min(100%, 460px);
+      }
+
+      .notes {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="heading">
+      <p class="eyebrow">Image Generator Mockup Only</p>
+      <h1>lAIdies Clubhouse Compact</h1>
+      <p>This page uses generated concept images as the design reference. It starts closed, then opens on click to show the top Fun Pack shell and bottom permanent clubhouse room.</p>
+    </header>
+
+    <section class="concept-stage" aria-label="Generated compact state mockup" data-state="closed">
+      <div class="concept-actions">
+        <button class="is-active" type="button" data-state-button="closed" aria-pressed="true">Close Clubhouse</button>
+        <button type="button" data-state-button="open" aria-pressed="false">Open Clubhouse</button>
+      </div>
+      <div class="interactive-layout">
+        <figure class="concept-frame">
+          <div class="image-wrap">
+            <img data-state-image="closed" src="../../assets/clubhouse-compact-closed-v1.png" alt="Generated concept mockup of the closed pink lAIdies Clubhouse compact with a shell shape, molded ridges, hinge, latch, and plaque." />
+            <img data-state-image="open" src="../../assets/clubhouse-compact-open-v4.png" alt="Generated concept mockup of the open lAIdies Clubhouse compact. The top shell is labeled Weekly Fun Packs with Episode packs, range tabs, and Weekly Jams. The bottom shell has a full DJ booth with mix CDs, a labeled fAIry Godmother vanity, and permanent activity fixtures." hidden />
+            <div class="hotspot-layer" aria-label="Clickable concept areas">
+              <button class="hotspot" type="button" data-zone="weekly-fun-pack" aria-label="Open Weekly Fun Pack"></button>
+              <button class="hotspot" type="button" data-zone="weekly-jams" aria-label="Weekly Jams"></button>
+              <button class="hotspot" type="button" data-zone="fun-pack-1-6" aria-label="Show Fun Packs 1 through 6"></button>
+              <button class="hotspot" type="button" data-zone="fun-pack-7-12" aria-label="Show Fun Packs 7 through 12"></button>
+              <button class="hotspot" type="button" data-zone="fun-pack-13-18" aria-label="Show Fun Packs 13 through 18"></button>
+              <button class="hotspot" type="button" data-zone="fun-pack-19-24" aria-label="Show Fun Packs 19 through 24"></button>
+              <button class="hotspot" type="button" data-zone="mix-cds" aria-label="Mix CDs"></button>
+              <button class="hotspot" type="button" data-zone="psychic" aria-label="Call Psychic Hotline"></button>
+              <button class="hotspot" type="button" data-zone="dream-phone" aria-label="Call Dream Phone"></button>
+              <button class="hotspot" type="button" data-zone="girl-talk" aria-label="Open Girl Talk"></button>
+              <button class="hotspot" type="button" data-zone="try-on" aria-label="5 minute Try-On"></button>
+              <button class="hotspot" type="button" data-zone="business" aria-label="Businesswomen's Special"></button>
+              <button class="hotspot" type="button" data-zone="fairy" aria-label="Ask fAIry Godmother"></button>
+            </div>
+          </div>
+        </figure>
+        <details class="sticker-drawer">
+          <summary>Open sticker controls</summary>
+          <aside class="sticker-rail" aria-label="Sticker-style activity buttons">
+            <h2>Sticker controls</h2>
+            <p>Use these if the compact image is too small to tap, especially on a phone.</p>
+            <div class="sticker-sheet">
+              <img src="../../assets/clubhouse-sticker-grid-v1.png" alt="" />
+              <button class="sticker-button" type="button" data-zone-button="weekly-fun-pack">Open Weekly Fun Pack</button>
+              <button class="sticker-button" type="button" data-zone-button="weekly-jams">Weekly Jams</button>
+              <button class="sticker-button" type="button" data-zone-button="mix-cds">Mix CDs</button>
+              <button class="sticker-button" type="button" data-zone-button="girl-talk">Open Girl Talk</button>
+              <button class="sticker-button" type="button" data-zone-button="try-on">5min Try-On</button>
+              <button class="sticker-button" type="button" data-zone-button="business">Businesswomen's Special</button>
+              <button class="sticker-button" type="button" data-zone-button="dream-phone">Call Dream Phone</button>
+              <button class="sticker-button" type="button" data-zone-button="psychic">Call Psychic Hotline</button>
+              <button class="sticker-button" type="button" data-zone-button="fairy">Ask fAIry Godmother</button>
+            </div>
+          </aside>
+        </details>
+        <p class="range-status" data-range-status aria-live="polite">
+          <strong>Fun Packs 1-6:</strong> Issue 1 is available now. Issues 2-6 are visible shelf space for upcoming weekly packs.
+        </p>
+      </div>
+    </section>
+
+    <section class="notes" aria-label="Mockup review notes">
+      <article class="note-card">
+        <p class="eyebrow">Design Direction</p>
+        <h2>What this is testing</h2>
+        <ul>
+          <li>Closed pink compact with a plaque reading LAIDIES CLUBHOUSE.</li>
+          <li>Open clamshell with the top shell labeled Weekly Fun Packs, showing Fun Packs 1-6, range tabs for 7-12, 13-18, and 19-24, plus Weekly Jams for DJ JAIDY's AI song.</li>
+          <li>Bottom shell with permanent activity fixtures and a fuller DJ booth with mix CDs.</li>
+          <li>Soft pink glow marks clickable zones, with sticker-style buttons for phone users.</li>
+          <li>Whether the visual world feels enough like a miniature compact before any web implementation.</li>
+        </ul>
+      </article>
+      <article class="note-card">
+        <p class="eyebrow">Implementation Boundary</p>
+        <h2>What this is not doing</h2>
+        <ul>
+          <li>Not changing the live homepage.</li>
+          <li>Not touching the Member Pass workstream.</li>
+          <li>Not using CSS as image generation.</li>
+          <li>Not approving the final interaction model yet.</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+  <script>
+    const stateButtons = document.querySelectorAll("[data-state-button]");
+    const stateImages = document.querySelectorAll("[data-state-image]");
+    const conceptStage = document.querySelector(".concept-stage");
+    const hotspots = document.querySelectorAll("[data-zone]");
+    const stickerButtons = document.querySelectorAll("[data-zone-button]");
+    const rangeStatus = document.querySelector("[data-range-status]");
+    const zoneMessages = {
+      "weekly-fun-pack": "<strong>Weekly Fun Packs:</strong> The top shell is the archive shelf for weekly issue packs.",
+      "fun-pack-1-6": "<strong>Fun Packs 1-6:</strong> Issue 1 is available now. Issues 2-6 are visible shelf space for upcoming weekly packs.",
+      "fun-pack-7-12": "<strong>Fun Packs 7-12:</strong> This shelf range is reserved for future weekly packs once those issues exist.",
+      "fun-pack-13-18": "<strong>Fun Packs 13-18:</strong> This shelf range is reserved for later archive browsing.",
+      "fun-pack-19-24": "<strong>Fun Packs 19-24:</strong> This shelf range is reserved for the full-season archive.",
+      "weekly-jams": "<strong>Weekly Jams:</strong> DJ JAIDY's weekly AI song lives in the top shell next to the issue packs.",
+      "mix-cds": "<strong>Mix CDs:</strong> The full DJ booth and mix CDs live in the permanent bottom room.",
+      "psychic": "<strong>Call Psychic Hotline:</strong> Opens the Mme CLAI-O crystal-phone table.",
+      "dream-phone": "<strong>Call Dream Phone:</strong> Opens the Dream Phone nook.",
+      "girl-talk": "<strong>Open Girl Talk:</strong> Opens the Girl Talk prompt board.",
+      "try-on": "<strong>5min Try-On:</strong> Opens the quick practice closet.",
+      "business": "<strong>Businesswomen's Special:</strong> Opens the table fixture.",
+      "fairy": "<strong>Ask fAIry Godmother:</strong> Opens the vanity and wand area."
+    };
+
+    function setState(state) {
+      conceptStage.dataset.state = state;
+      stateButtons.forEach((button) => {
+        const isActive = button.dataset.stateButton === state;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+      stateImages.forEach((image) => {
+        image.hidden = image.dataset.stateImage !== state;
+      });
+    }
+
+    function setActiveZone(zone) {
+      setState("open");
+      hotspots.forEach((hotspot) => hotspot.classList.toggle("is-active", hotspot.dataset.zone === zone));
+      stickerButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.zoneButton === zone));
+      if (rangeStatus && zoneMessages[zone]) rangeStatus.innerHTML = zoneMessages[zone];
+    }
+
+    stateButtons.forEach((button) => {
+      button.addEventListener("click", () => setState(button.dataset.stateButton));
+    });
+
+    hotspots.forEach((hotspot) => {
+      hotspot.addEventListener("mouseenter", () => setActiveZone(hotspot.dataset.zone));
+      hotspot.addEventListener("focus", () => setActiveZone(hotspot.dataset.zone));
+      hotspot.addEventListener("click", () => setActiveZone(hotspot.dataset.zone));
+    });
+
+    stickerButtons.forEach((button) => {
+      button.addEventListener("mouseenter", () => setActiveZone(button.dataset.zoneButton));
+      button.addEventListener("focus", () => setActiveZone(button.dataset.zoneButton));
+      button.addEventListener("click", () => setActiveZone(button.dataset.zoneButton));
+    });
+  </script>
+</body>
+</html>

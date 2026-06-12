@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>lAIdies Agent Council Command Center</title>
+    <style>
+      :root {
+        --ink: #171018;
+        --muted: #6e6470;
+        --line: #eaddea;
+        --paper: #fff9fd;
+        --pink: #ff2aa3;
+        --yellow: #ffd84d;
+        --green: #1d9b72;
+        --red: #c43d60;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #fff;
+        color: var(--ink);
+        line-height: 1.45;
+      }
+      header {
+        padding: 32px clamp(18px, 4vw, 56px);
+        background: #2b0822;
+        color: #fff;
+      }
+      h1, h2, h3, p { margin-top: 0; }
+      h1 { margin-bottom: 8px; font-size: clamp(30px, 5vw, 56px); line-height: 1; }
+      header p { max-width: 880px; margin-bottom: 0; color: #ffe4f5; }
+      main { padding: 24px clamp(18px, 4vw, 56px) 56px; }
+      .grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+        gap: 18px;
+        align-items: start;
+      }
+      .panel {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+        padding: 18px;
+        margin-bottom: 18px;
+      }
+      .steps {
+        counter-reset: step;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 10px;
+      }
+      .steps li {
+        counter-increment: step;
+        border: 1px solid var(--line);
+        border-left: 6px solid var(--pink);
+        border-radius: 8px;
+        background: #fff;
+        padding: 12px 12px 12px 46px;
+        position: relative;
+      }
+      .steps li::before {
+        content: counter(step);
+        position: absolute;
+        left: 12px;
+        top: 12px;
+        width: 22px;
+        height: 22px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--yellow);
+        font-weight: 700;
+      }
+      .links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 10px;
+      }
+      .links a {
+        display: block;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        padding: 12px;
+        color: #8d0054;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .links span {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 400;
+      }
+      code {
+        display: block;
+        white-space: normal;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        padding: 12px;
+        color: #6b0040;
+      }
+      .callout {
+        border-left: 8px solid var(--green);
+        background: #f0fff9;
+      }
+      @media (max-width: 880px) {
+        .grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Agent Council Command Center</h1>
+      <p>Start here to run the lAIdies agent organization: weekly command center first, whole-site review next, Fun & Games as the stress test, then CEO Top 5 actions.</p>
+    </header>
+    <main>
+      <div class="grid">
+        <section>
+          <div class="panel">
+            <h2>Run Order</h2>
+            <ol class="steps">
+              <li><strong>Open the Weekly Command Center.</strong><br />Check Project Radar first: recent changes, launch blockers, Member Pass, Clubhouse QA, canon intake, and handover health.</li>
+              <li><strong>Open the visual org map.</strong><br />Confirm which senior agents and section owners are responsible for the review.</li>
+              <li><strong>Run the whole-site review.</strong><br />Judge cohesion, hierarchy, release state, learning path, polish, governance, and reputation before isolated fixes.</li>
+              <li><strong>Use Fun & Games as the stress test.</strong><br />Check for chaotic layout, stale open panels, blank space, fake interactions, fortune-teller reveal behavior, and brand/reputation risk.</li>
+              <li><strong>Score agents against a target of 5.</strong><br />Each agent explains why it did or did not earn a 5 and names the top-score action.</li>
+              <li><strong>Move blockers to CEO Top 5.</strong><br />No blocker stays buried inside a section note.</li>
+            </ol>
+          </div>
+
+          <div class="panel callout">
+            <h2>Reusable Codex Prompt</h2>
+            <code>Run the lAIdies Whole-Site Agent Council Review. Use operations/agents/agent-role-performance-standards.md and operations/agents/whole-site-agent-council-review.md. Review the full website first for cohesion, hierarchy, release state, learning path, visual polish, governance, and reputation. Use Fun & Games as the stress test for chaotic layout, blank space, stale open panels, fake interactions, and brand risk. Score every relevant senior agent against a CEO target of 5, explain why they did or did not earn a 5, and put all blockers in the CEO Top 5 with exact fixes and evidence.</code>
+          </div>
+        </section>
+
+        <aside>
+          <div class="panel">
+            <h2>Core Views</h2>
+            <ul class="links">
+              <li><a href="../weekly-command-center.html">Weekly Command Center<span>Issue checklist plus Project Radar for changes, blockers, and next-week actions.</span></a></li>
+              <li><a href="agent-organization-map.html">Visual Org Map<span>Dashboard-style overview of the agent organization.</span></a></li>
+              <li><a href="agent-organization-map.md">Mermaid Org Map<span>Diagram version for Markdown.</span></a></li>
+              <li><a href="whole-site-agent-council-review.md">Whole-Site Review<span>Main operating review for the full website.</span></a></li>
+              <li><a href="fun-and-games-pilot-review.md">Fun & Games Stress Test<span>Detailed pressure test inside the full review.</span></a></li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h2>Operating Docs</h2>
+            <ul class="links">
+              <li><a href="agent-council-operating-system.md">Council Operating System<span>Rules, launch gates, evidence, and workflow.</span></a></li>
+              <li><a href="agent-role-performance-standards.md">Role Performance Standards<span>What a CEO score of 5 means for every role.</span></a></li>
+              <li><a href="agent-charters.md">Agent Charters<span>Role missions, actions, evidence, and blockers.</span></a></li>
+              <li><a href="ai-agent-organization-design-principles.md">AI Org Design Principles<span>Best-practice control system for the agent organization.</span></a></li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h2>Governance Tools</h2>
+            <ul class="links">
+              <li><a href="ai-risk-register.md">AI / Product Risk Register<span>Owned risks, controls, evidence, and review dates.</span></a></li>
+              <li><a href="ai-feature-system-card-template.md">AI Feature / System Card<span>Feature behavior, limits, human review, and transparency.</span></a></li>
+              <li><a href="release-safety-case-template.md">Release Safety Case<span>Evidence-backed launch pass/block decision.</span></a></li>
+              <li><a href="post-launch-monitoring-log.md">Post-Launch Monitoring Log<span>Broken paths, stale content, feedback, and follow-ups.</span></a></li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h2>Pipelines</h2>
+            <ul class="links">
+              <li><a href="idea-pipeline.md">Idea Pipeline<span>Creative Strategy owns new ideas and smallest tests.</span></a></li>
+              <li><a href="monetization-idea-bank.md">Monetization Idea Bank<span>Finance stores future revenue ideas without launch pressure.</span></a></li>
+              <li><a href="agent-decision-log.md">Decision Log<span>Accepted, rejected, parked, and revisit decisions.</span></a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </body>
+</html>

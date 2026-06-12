@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>lAIdies Weekly Command Center</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #18121b;
+        --muted: #6f6372;
+        --line: #e9dde9;
+        --paper: #fff9fd;
+        --pink: #ff2aa3;
+        --yellow: #ffd84d;
+        --green: #1f9d73;
+        --red: #c43d60;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #fff;
+        color: var(--ink);
+        line-height: 1.5;
+      }
+      header {
+        padding: 28px clamp(18px, 4vw, 56px);
+        background: #2b0822;
+        color: white;
+      }
+      header p { margin: 6px 0 0; max-width: 920px; color: #ffd8ef; }
+      main { padding: 24px clamp(18px, 4vw, 56px) 56px; }
+      h1, h2, h3 { margin: 0; line-height: 1.1; }
+      h1 { font-size: clamp(30px, 5vw, 58px); }
+      h2 { font-size: 22px; margin-bottom: 12px; }
+      h3 { font-size: 16px; margin-bottom: 8px; }
+      a { color: #a90068; font-weight: 700; }
+      code {
+        display: inline-block;
+        padding: 4px 8px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: white;
+        color: #6b0040;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
+        gap: 20px;
+        align-items: start;
+      }
+      .panel {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+        padding: 18px;
+        margin-bottom: 18px;
+      }
+      .issue-meta {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 10px;
+        margin-top: 16px;
+      }
+      .issue-meta div {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 12px;
+      }
+      .issue-meta span, .tasks span, .links span {
+        display: block;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: .04em;
+        text-transform: uppercase;
+      }
+      .tasks {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 10px;
+      }
+      .tasks li {
+        border: 1px solid var(--line);
+        border-left: 6px solid var(--yellow);
+        border-radius: 8px;
+        background: white;
+        padding: 12px;
+      }
+      .tasks li.done { border-left-color: var(--green); }
+      .tasks li.ready { border-left-color: var(--yellow); }
+      .tasks li.action { border-left-color: var(--pink); }
+      .tasks li.todo { border-left-color: var(--red); }
+      .tasks strong { display: block; margin: 3px 0; }
+      .tasks p { margin: 0; color: var(--muted); }
+      .links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 10px;
+      }
+      .links li {
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 10px;
+      }
+      .missing { color: var(--red); font-weight: 700; }
+      .callout {
+        border-left: 6px solid var(--pink);
+        background: #fff;
+        padding: 14px;
+        border-radius: 8px;
+      }
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 10px;
+        background: #e9fff6;
+        border: 1px solid #b5ecd7;
+        border-radius: 999px;
+        font-weight: 700;
+      }
+      @media (max-width: 820px) {
+        .grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="status">Issue 02: published</div>
+      <h1>Weekly Command Center</h1>
+      <p>One page for the lAIdies weekly process. It regenerates for whichever issue you run, so Issue 02 is the focus now and the next issue will get its own review when you run the workflow for that issue.</p>
+    </header>
+    <main>
+      <section class="panel">
+        <h2>Current Issue: Tell Me What You Want</h2>
+        <p>Prompting as delegation, not coding.</p>
+        <div class="issue-meta">
+          <div><span>Lesson</span>How to write specific, context-rich prompts that produce usable work output.</div>
+          <div><span>Try-On</span>Give AI the same real task twice: once vaguely, then once with audience, context, tone, length, and what not to include. Compare the outputs.</div>
+          <div><span>Community Action</span>Drop a vague prompt and let the room help make it specific.</div>
+          <div><span>Shareable Hook</span>The Spice Girls were right about prompting.</div>
+          <div><span>Release Date</span>2026-06-10</div>
+        </div>
+      </section>
+
+      
+      <section class="panel">
+        <h2>Project Radar</h2>
+        <p>This is the operating dashboard for what changed outside the issue article. It keeps weekly publishing, product polish, member systems, canon, and handovers visible.</p>
+        <ul class="tasks">
+          <li class="ready"><span>Ready to review</span><strong>Clubhouse / Fun &amp; Games QA</strong><p>14 QA screenshots found in <code>tmp/qa-screens</code>. Review <a href="../index.html#fun-games">Fun & Games</a> on desktop and mobile before launch-week changes.</p></li>
+<li class="ready"><span>Ready to review</span><strong>Businesswomen's Special is now a fortune teller</strong><p>Current source uses the paper fortune-teller interaction and asset <code>assets/businesswomen-special-fortune-teller-v1.png</code>. Weekly reviews should test lane selection, flap reveal, result clarity, and no drinking-pressure framing.</p></li>
+<li class="action"><span>Ali action</span><strong>Member Pass / lAIdies Card readiness</strong><p>Post-confirm flow is wired to card creation and reward sync. Ali still needs launch-grade email/auth setup from <a href="../COMMUNITY-SUBSCRIBE-SETUP.md">COMMUNITY-SUBSCRIBE-SETUP.md</a> before public testing.</p></li>
+<li class="action"><span>Ali action</span><strong>Founder card reward shelf</strong><p>Ali/founder card has a maximum-rewards shelf. Each weekly issue that adds stickers, cards, badges, or ratings must update this shelf so users can see the ceiling.</p></li>
+<li class="ready"><span>Ready to review</span><strong>Butterfly clip rating standard</strong><p>Site has the reusable butterfly rating control. New pack activities, debriefs, games, and printables should use the 0-10 butterfly clip scale with slider plus number buttons.</p></li>
+<li class="action"><span>Ali action</span><strong>True per-issue Fun Pack loader</strong><p>Before Issue 03+ packs feel live, build a real loader for issue-specific quiz/card/try-on/printable content. Do not fake unlocked packs from the homepage switcher.</p></li>
+<li class="action"><span>Ali action</span><strong>Reference Closet canon intake</strong><p>Keep <a href="../REFERENCE-CLOSET.md">REFERENCE-CLOSET.md</a> and <a href="../index.html#reference-closet">the public closet</a> aligned. Weekly review should decide which new canon items become social posts, issue references, or community prompts.</p></li>
+<li class="action"><span>Ali action</span><strong>Handover / context health</strong><p>Latest current-window handoff: <a href="../docs/handoffs/current-window-handoff-2026-06-08-clubhouse-deep-qa.md">current-window-handoff-2026-06-08-clubhouse-deep-qa.md</a>. If a chat moves beyond this state, create a fresh handover before continuing.</p></li>
+<li class="action"><span>Ali action</span><strong>Next week setup: Issue 03</strong><p>After Issue 02 is approved or published, run <code>.\scripts\start-weekly-workflow.ps1 3</code> and review the new weekly command centre before drafting/posting next-week assets.</p></li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>Launch Blockers And Weekly Maintenance</h2>
+        <div class="callout">
+          <p>Configure and test Clubhouse Pass email delivery before public user testing.</p><p>Build the true per-issue Fun Pack loader before promoting Issue 02+ pack activities as live.</p><p>Run desktop and mobile browser QA for Clubhouse, Member Pass, card builder, and issue publishing after each major weekly change.</p><p>Fill the growth scorecard after launch with newsletter, website, social, and community signals.</p>
+        </div>
+      </section>
+
+      <div class="grid">
+        <section class="panel">
+          <h2>Ali Review Checklist</h2>
+          <ul class="tasks">
+            <li class="done"><span>Done</span><strong>Run weekly production</strong><p>Use <code>.\scripts\start-weekly-workflow.ps1 2</code> next time to run this and open the dashboard.</p></li>
+<li class="ready"><span>Ready to review</span><strong>Review the production packet</strong><p><a href="weekly-command-center-files/issue-02-production-review.html">Issue 02 production review</a></p></li>
+<li class="action"><span>Ali action</span><strong>Fill the Agent Council Top 5</strong><p><a href="weekly-command-center-files/issue-02-agent-council-review.html">Issue 02 Agent Council review</a><br><em>If blank, ask Codex: "Run the weekly Agent Council review for Issue 2. Make each agent act like a best-in-class senior owner for its role and aim for a CEO score of 5 using operations/agents/agent-role-performance-standards.md and operations/agents/ceo-feedback-quality-standard.md. Grade every senior agent, explain why it did or did not earn a 5, and name the top-score action. Require desktop/mobile browser evidence, UX journey audit across first-time/current/late/returning/guest/signed-in/completion/error flows, persistence honesty, archive readiness, launch gates, and stop-the-line blockers for chaotic layout, blank space, overlap, stale open panels, fake interactions, unreleased content, wrong labels/brand styling, or brand risk. The agents should catch issues before Ali does and prove that AI-supported work makes Laidies sharper. Fill the Top 5 with exact changes, evidence, dependencies, and what I need to approve."</em></p></li>
+<li class="action"><span>Ali action</span><strong>Update the growth scorecard after launch</strong><p><a href="weekly-command-center-files/issue-02-growth-scorecard.html">Issue 02 growth scorecard</a></p></li>
+<li class="action"><span>Ali action</span><strong>Approve the website issue page</strong><p><a href="../issues/issue-02.html">Open Issue 02 website page</a></p></li>
+<li class="action"><span>Ali action</span><strong>Approve/schedule the Buttondown draft</strong><p><a href="weekly-command-center-files/issue-02-buttondown.html">Issue 02 Buttondown draft</a></p></li>
+<li class="action"><span>Ali action</span><strong>Approve/post LinkedIn</strong><p><a href="weekly-command-center-files/issue-02-linkedin.html">Issue 02 LinkedIn draft</a></p></li>
+<li class="action"><span>Ali action</span><strong>Approve/post Instagram</strong><p><a href="weekly-command-center-files/issue-02-instagram-kit.html">Issue 02 Instagram kit</a></p></li>
+<li class="action"><span>Ali action</span><strong>Post/update the community prompt</strong><p><a href="weekly-command-center-files/issue-02-community-prompt.html">Issue 02 community prompt</a></p></li>
+<li class="done"><span>Done</span><strong>On publish day, mark issue as published</strong><p>Issue metadata is already marked published.</p></li>
+          </ul>
+        </section>
+
+        <aside>
+          <section class="panel">
+            <h2>Start Here Next Time</h2>
+            <p>Open PowerShell and run:</p>
+            <code>.\scripts\start-weekly-workflow.ps1 2</code>
+            <p>This runs the weekly process and opens this dashboard for that issue. Change the number for the next Wednesday issue.</p>
+          </section>
+
+          <section class="panel">
+            <h2>Codex Prompt</h2>
+            <div class="callout">
+              Run the weekly Agent Council review for Issue 2. Make each agent act like a best-in-class senior owner for its role and aim for a CEO score of 5 using operations/agents/agent-role-performance-standards.md and operations/agents/ceo-feedback-quality-standard.md. Grade every senior agent, explain why it did or did not earn a 5, and name the top-score action. Require desktop/mobile browser evidence, UX journey audit across first-time/current/late/returning/guest/signed-in/completion/error flows, persistence honesty, archive readiness, launch gates, and stop-the-line blockers for chaotic layout, blank space, overlap, stale open panels, fake interactions, unreleased content, wrong labels/brand styling, or brand risk. The agents should catch issues before Ali does and prove that AI-supported work makes Laidies sharper. Fill the Top 5 with exact changes, evidence, dependencies, and what I need to approve.
+            </div>
+            <p>This prompt is reusable every week. Replace the issue number when you move to the next issue.</p>
+          </section>
+
+          <section class="panel">
+            <h2>Website Module Links</h2>
+            <ul class="links">
+              <li><span>quiz</span><a href="../index.html#quiz">Take the Issue 2 quiz</a></li><li><span>cardPack</span><a href="../index.html#card-pack">Open the Issue 2 card pack</a></li><li><span>community</span><a href="../community/try-on-debrief.html">Post your before-and-after prompt</a></li><li><span>glossary</span><a href="../index.html#glossary">Review the glossary</a></li><li><span>hotGoss</span><a href="../index.html#hot-goss">Read this week's Hot Goss</a></li>
+            </ul>
+          </section>
+        </aside>
+      </div>
+
+      <section class="panel">
+        <h2>Publish Order</h2>
+        <ol>
+          <li>Before launch: approve/fix the issue article and website page.</li>
+          <li>Before launch: approve/fix quiz, card pack, Hot Goss, glossary, and community links.</li>
+          <li>Before launch: approve and schedule the Buttondown newsletter.</li>
+          <li>Website launch: deploy the website with only published issues visible.</li>
+          <li>Issue launch on Wednesday, June 10, 2026: mark Issue 2 published and rerun the weekly workflow.</li>
+          <li>After Issue 2 is live: post LinkedIn and Instagram using the generated drafts.</li>
+          <li>After socials are posted: post the community prompt and refresh the chat-room digest after comments begin.</li>
+          <li>End of week: update the growth scorecard with what happened.</li>
+        </ol>
+      </section>
+
+      <section class="panel">
+        <h2>Source Files</h2>
+        <ul class="links">
+          <li><span>Episode JSON</span><a href="../content/episodes/issue-02.json">content/episodes/issue-02.json</a></li>
+          <li><span>Article Markdown</span><a href="weekly-command-center-files/issue-02-article.html">content/issues/issue-02.md</a></li>
+          <li><span>Website Page</span><a href="../issues/issue-02.html">issues/issue-02.html</a></li>
+          <li><span>Production Review</span><a href="weekly-command-center-files/issue-02-production-review.html">operations/weekly-reviews/issue-02-production-review.md</a></li>
+          <li><span>Agent Council</span><a href="weekly-command-center-files/issue-02-agent-council-review.html">operations/agent-council/issue-02-agent-council-review.md</a></li>
+          <li><span>Growth Scorecard</span><a href="weekly-command-center-files/issue-02-growth-scorecard.html">operations/growth/issue-02-growth-scorecard.md</a></li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,1177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fun & Games Clubhouse and Issue Fun Packs</title>
+    <style>
+      :root {
+        --ink: #171018;
+        --muted: #665c68;
+        --paper: #fff8fc;
+        --line: #eaddea;
+        --pink: #ff2aa3;
+        --yellow: #fff25c;
+        --teal: #1aa7b8;
+        --mint: #35f4a5;
+        --plum: #3a0b31;
+        --sky: #dff9ff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M4 3 24 17 15 19 20 29 15 31 10 21 4 27Z' fill='%23ff2aa3' stroke='%23171018' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M22 3 23.4 6.6 27 8 23.4 9.4 22 13 20.6 9.4 17 8 20.6 6.6Z' fill='%23fff25c' stroke='%23171018' stroke-width='1.4' stroke-linejoin='round'/%3E%3Cpath d='M27 14 27.8 16.2 30 17 27.8 17.8 27 20 26.2 17.8 24 17 26.2 16.2Z' fill='%2335f4a5' stroke='%23171018' stroke-width='1'/%3E%3C/svg%3E") 4 3, auto;
+      }
+
+      a,
+      button,
+      [role="button"] {
+        cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M5 4 24 16 16 19 21 28 16 30 11 21 5 26Z' fill='%23fff25c' stroke='%23171018' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M21 4 22.4 7.6 26 9 22.4 10.4 21 14 19.6 10.4 16 9 19.6 7.6Z' fill='%23ff2aa3' stroke='%23171018' stroke-width='1.4'/%3E%3C/svg%3E") 5 4, pointer;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.45;
+        background:
+          linear-gradient(90deg, rgba(255, 42, 163, 0.07) 1px, transparent 1px),
+          linear-gradient(0deg, rgba(26, 167, 184, 0.06) 1px, transparent 1px),
+          #fff;
+        background-size: 34px 34px;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      p {
+        margin-top: 0;
+      }
+
+      header {
+        min-height: 78svh;
+        display: grid;
+        align-items: end;
+        padding: 32px clamp(18px, 5vw, 70px);
+        color: #fff;
+        background:
+          linear-gradient(180deg, rgba(58, 11, 49, 0.14), rgba(58, 11, 49, 0.92)),
+          url("../../assets/trading-card-pack.png") center 34% / cover no-repeat,
+          var(--plum);
+      }
+
+      .hero-copy {
+        max-width: 980px;
+      }
+
+      header h1 {
+        margin-bottom: 10px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.4rem, 7vw, 6rem);
+        line-height: 0.92;
+      }
+
+      header p {
+        max-width: 760px;
+        margin-bottom: 0;
+        color: #ffe9f7;
+        font-size: clamp(1rem, 2vw, 1.24rem);
+      }
+
+      main {
+        padding: 24px clamp(14px, 4vw, 58px) 58px;
+      }
+
+      .note,
+      .shell,
+      .fixture-card,
+      .pack-button,
+      .activity-card,
+      .step {
+        border: 2px solid var(--ink);
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 5px 5px 0 var(--ink);
+      }
+
+      .note {
+        display: grid;
+        gap: 4px;
+        margin-bottom: 18px;
+        padding: 14px;
+        background: #fffbe1;
+      }
+
+      .tag,
+      .eyebrow,
+      .note strong {
+        color: var(--teal);
+        font-size: 0.72rem;
+        font-weight: 950;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .wordmark {
+        --wordmark-script: var(--plum);
+        --wordmark-ai: var(--pink);
+        display: inline-flex;
+        align-items: baseline;
+        color: var(--wordmark-script);
+        font-family: "Brush Script MT", "Segoe Script", "Lucida Handwriting", cursive;
+        font-size: 1.18em;
+        font-weight: 700;
+        line-height: 0.8;
+        margin: 0 0.12em;
+        text-transform: none;
+        white-space: nowrap;
+      }
+
+      .wordmark strong,
+      .wordmark b {
+        color: var(--wordmark-ai);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.9em;
+        font-weight: 950;
+        letter-spacing: 0;
+        line-height: 1;
+      }
+
+      header .wordmark,
+      .activity-hero .wordmark {
+        --wordmark-script: #fff8fc;
+        --wordmark-ai: var(--pink);
+        text-shadow:
+          1px 1px 0 var(--ink),
+          0 0 10px rgba(255, 42, 163, 0.62);
+      }
+
+      .shell {
+        display: grid;
+        gap: 18px;
+        padding: clamp(16px, 3vw, 28px);
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 229, 244, 0.9)),
+          repeating-linear-gradient(135deg, rgba(255, 42, 163, 0.08) 0 10px, rgba(26, 167, 184, 0.08) 10px 20px);
+      }
+
+      .intro {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(300px, 1.1fr);
+        gap: 18px;
+        align-items: end;
+      }
+
+      .intro h2,
+      .lane-head h3,
+      .activity-stage h3 {
+        margin-bottom: 8px;
+        font-family: Georgia, "Times New Roman", serif;
+        line-height: 0.96;
+      }
+
+      .intro h2 {
+        font-size: clamp(2rem, 4.8vw, 4rem);
+      }
+
+      .intro p:not(.eyebrow),
+      .lane-head p,
+      .fixture-card p,
+      .activity-card p,
+      .step span {
+        color: var(--muted);
+      }
+
+      .legend {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .legend-card {
+        border: 2px solid var(--ink);
+        border-radius: 8px;
+        background: #fff;
+        padding: 14px;
+      }
+
+      .legend-card h3 {
+        margin: 4px 0 6px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.34rem;
+        line-height: 1;
+      }
+
+      .legend-card p {
+        margin-bottom: 0;
+        color: var(--muted);
+      }
+
+      .clubhouse {
+        background:
+          radial-gradient(circle at 18% 16%, rgba(255, 242, 92, 0.52), transparent 24%),
+          linear-gradient(145deg, #fffbe1, #fff);
+      }
+
+      .funpack {
+        background:
+          radial-gradient(circle at 82% 14%, rgba(53, 244, 165, 0.3), transparent 24%),
+          linear-gradient(145deg, #effcff, #fff);
+      }
+
+      .lane {
+        display: grid;
+        gap: 14px;
+        border-top: 2px dashed rgba(23, 16, 24, 0.28);
+        padding-top: 18px;
+      }
+
+      .lane-head {
+        display: flex;
+        gap: 14px;
+        align-items: end;
+        justify-content: space-between;
+      }
+
+      .lane-head h3 {
+        font-size: clamp(1.8rem, 4vw, 3rem);
+      }
+
+      .lane-head p {
+        max-width: 760px;
+        margin-bottom: 0;
+      }
+
+      .pill {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        border: 1px solid var(--ink);
+        border-radius: 999px;
+        background: var(--yellow);
+        color: var(--ink);
+        font-size: 0.68rem;
+        font-weight: 950;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0 10px;
+      }
+
+      .fixture-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        gap: 12px;
+      }
+
+      .fixture-card {
+        display: grid;
+        grid-template-rows: 178px auto auto 1fr auto;
+        gap: 8px;
+        min-height: 390px;
+        overflow: hidden;
+      }
+
+      .fixture-art,
+      .activity-art {
+        min-width: 0;
+        background-position: center;
+        background-size: cover;
+      }
+
+      .fixture-card .tag,
+      .fixture-card h4,
+      .fixture-card p,
+      .fixture-card .button {
+        margin-inline: 14px;
+      }
+
+      .fixture-card h4,
+      .activity-card h4 {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.45rem;
+        line-height: 1;
+      }
+
+      .fixture-card p,
+      .activity-card p {
+        margin-bottom: 0;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        min-height: 40px;
+        border: 2px solid var(--ink);
+        border-radius: 999px;
+        background: var(--yellow);
+        color: var(--ink);
+        font-size: 0.78rem;
+        font-weight: 950;
+        letter-spacing: 0.04em;
+        text-decoration: none;
+        text-transform: uppercase;
+        box-shadow: 3px 3px 0 var(--ink);
+        padding: 0 14px;
+      }
+
+      .fixture-card .button {
+        margin-bottom: 14px;
+      }
+
+      .pack-layout {
+        display: grid;
+        grid-template-columns: minmax(260px, 0.42fr) minmax(0, 1fr);
+        gap: 14px;
+        align-items: start;
+      }
+
+      .pack-list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .archive-note,
+      .save-model {
+        border: 2px solid var(--ink);
+        border-radius: 8px;
+        background: #fffbe1;
+        box-shadow: 4px 4px 0 var(--ink);
+        padding: 12px;
+      }
+
+      .archive-note h4,
+      .save-model h4 {
+        margin: 4px 0 6px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.2rem;
+        line-height: 1;
+      }
+
+      .archive-note p,
+      .save-model p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      .pack-button {
+        width: 100%;
+        min-height: 118px;
+        display: grid;
+        grid-template-columns: 82px minmax(0, 1fr);
+        gap: 12px;
+        align-items: center;
+        padding: 10px;
+        color: var(--ink);
+        font: inherit;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .pack-button[aria-pressed="true"] {
+        background: #fffbe1;
+        transform: translate(-2px, -2px);
+        box-shadow: 7px 7px 0 var(--ink);
+      }
+
+      .pack-thumb {
+        width: 82px;
+        aspect-ratio: 1;
+        border: 2px solid var(--ink);
+        border-radius: 8px;
+        background-position: center;
+        background-size: cover;
+      }
+
+      .pack-button h4 {
+        margin: 3px 0 3px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.18rem;
+        line-height: 1;
+      }
+
+      .pack-button p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .activity-stage {
+        min-width: 0;
+        border: 2px solid var(--ink);
+        border-radius: 8px;
+        background: var(--paper);
+        box-shadow: 5px 5px 0 var(--ink);
+        overflow: hidden;
+      }
+
+      .activity-hero {
+        min-height: 290px;
+        display: grid;
+        align-items: end;
+        padding: 16px;
+        color: #fff;
+        background:
+          linear-gradient(180deg, rgba(58, 11, 49, 0.08), rgba(58, 11, 49, 0.9)),
+          var(--hero-image),
+          #ffd8ef;
+        background-position: center;
+        background-size: cover;
+      }
+
+      .activity-hero h3 {
+        max-width: 650px;
+        margin-bottom: 8px;
+        font-size: clamp(2rem, 5vw, 4rem);
+      }
+
+      .activity-hero p {
+        max-width: 720px;
+        margin-bottom: 0;
+        color: #ffe2f3;
+      }
+
+      .activity-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        padding: 14px;
+      }
+
+      .member-pass {
+        display: grid;
+        gap: 12px;
+        border-top: 2px dashed rgba(23, 16, 24, 0.28);
+        background:
+          radial-gradient(circle at 92% 16%, rgba(255, 242, 92, 0.46), transparent 22%),
+          #fff;
+        padding: 14px;
+      }
+
+      .member-pass-head {
+        display: flex;
+        gap: 12px;
+        align-items: end;
+        justify-content: space-between;
+      }
+
+      .member-pass-head h4 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.35rem, 3vw, 2.2rem);
+        line-height: 1;
+      }
+
+      .member-pass-head p {
+        max-width: 760px;
+        margin: 6px 0 0;
+        color: var(--muted);
+      }
+
+      .reward-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .reward-chip {
+        min-height: 118px;
+        display: grid;
+        gap: 6px;
+        align-content: start;
+        border: 2px solid var(--ink);
+        border-radius: 8px;
+        background: var(--paper);
+        box-shadow: 3px 3px 0 var(--ink);
+        padding: 12px;
+      }
+
+      .reward-chip strong {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.08rem;
+        line-height: 1;
+      }
+
+      .reward-chip span {
+        color: var(--teal);
+        font-size: 0.68rem;
+        font-weight: 950;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .reward-chip p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .save-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .save-step {
+        border: 1px solid var(--line);
+        border-left: 6px solid var(--teal);
+        border-radius: 8px;
+        background: #fff;
+        padding: 10px;
+      }
+
+      .save-step strong,
+      .save-step span {
+        display: block;
+      }
+
+      .save-step span {
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+
+      .activity-card {
+        display: grid;
+        grid-template-rows: 150px auto auto 1fr auto;
+        gap: 8px;
+        min-height: 350px;
+        overflow: hidden;
+      }
+
+      .activity-card .tag,
+      .activity-card h4,
+      .activity-card p,
+      .activity-card .button {
+        margin-inline: 12px;
+      }
+
+      .activity-card .button {
+        margin-bottom: 12px;
+      }
+
+      .experience {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .step {
+        border-left-width: 8px;
+        border-left-color: var(--pink);
+        box-shadow: none;
+        padding: 12px;
+      }
+
+      .step strong,
+      .step span {
+        display: block;
+      }
+
+      .step span {
+        margin-top: 4px;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 980px) {
+        header {
+          min-height: 62svh;
+        }
+
+        .intro,
+        .pack-layout,
+        .experience {
+          grid-template-columns: 1fr;
+        }
+
+        .fixture-grid,
+        .activity-grid,
+        .reward-grid,
+        .save-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 620px) {
+        main {
+          padding-inline: 12px;
+        }
+
+        .legend,
+        .fixture-grid,
+        .activity-grid,
+        .reward-grid,
+        .save-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .lane-head {
+          align-items: start;
+          flex-direction: column;
+        }
+
+        .fixture-card,
+        .activity-card {
+          min-height: auto;
+        }
+
+        .fixture-card {
+          grid-template-rows: 160px auto auto 1fr auto;
+        }
+
+        .activity-card {
+          grid-template-rows: 150px auto auto 1fr auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="hero-copy">
+        <p class="eyebrow">Fun & Games</p>
+        <h1>Clubhouse fixtures plus Issue Fun Packs.</h1>
+        <p>
+          The always-on guide, games, and Spotify mixes become the <span class="wordmark" aria-label="lAIdies"><span>l</span><strong>AI</strong><span>dies</span></span> clubhouse. The foundational AI quiz becomes a pinned Start Here pack. The rotating issue activities become pre-assembled packs readers can open whenever they want the current week's quiz, cards, prompts, printables, and weekly song.
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <section class="note">
+        <strong>Prototype only</strong>
+        <span>This visual model separates permanent destinations from issue-specific activities before changing the live homepage.</span>
+      </section>
+
+      <section class="shell" aria-label="Fun and Games clubhouse and issue pack prototype">
+        <div class="intro">
+          <div>
+            <p class="eyebrow">Structure</p>
+            <h2>Always there. Fresh each issue.</h2>
+            <p>
+              This keeps the site from feeling chaotic. Readers see the permanent Clubhouse fixtures first, then choose an Issue Fun Pack to load that issue's activities.
+            </p>
+          </div>
+
+          <div class="legend">
+            <article class="legend-card clubhouse">
+              <span class="tag">Always there</span>
+              <h3>The <span class="wordmark" aria-label="lAIdies"><span>l</span><strong>AI</strong><span>dies</span></span> Clubhouse</h3>
+              <p>fAIry Godmother, Mme CLAI-O, Dream Phone, the Businesswomen's Special paper fortune teller, and the Spotify playlist booth stay available every week.</p>
+            </article>
+            <article class="legend-card funpack">
+              <span class="tag">Pinned + weekly</span>
+              <h3>Issue Fun Packs</h3>
+              <p>Start Here holds the foundational quiz. Issue packs hold the current issue's quiz, cards, Try-On activity, printables, and weekly AI song.</p>
+            </article>
+          </div>
+        </div>
+
+        <section class="lane" aria-label="The lAIdies Clubhouse">
+          <div class="lane-head">
+            <div>
+              <h3>The <span class="wordmark" aria-label="lAIdies"><span>l</span><strong>AI</strong><span>dies</span></span> Clubhouse</h3>
+              <p>Permanent fixtures get a stable home and no longer compete with every weekly activity at full size.</p>
+            </div>
+            <span class="pill">Permanent</span>
+          </div>
+
+          <div class="fixture-grid">
+            <article class="fixture-card">
+              <div class="fixture-art" style="background-image: url('../../assets/fairy-wand.png')"></div>
+              <span class="tag">Advice concierge</span>
+              <h4>fAIry Godmother</h4>
+              <p>LAIDY is the on-demand guide: ask a question, pick the energy, get a lovingly direct next move. She should open when called, not sit open by default.</p>
+              <a class="button" href="../../index.html#laidy">Ask LAIDY</a>
+            </article>
+
+            <article class="fixture-card">
+              <div class="fixture-art" style="background-image: url('../../assets/madame-claio-crystal-phone-v3.png')"></div>
+              <span class="tag">Psychic hotline</span>
+              <h4>Mme CLAI-O</h4>
+              <p>The signature reading: card, read, message, next move. This remains the gold-standard brand feature.</p>
+              <a class="button" href="../../index.html#fun-games">Call now</a>
+            </article>
+
+            <article class="fixture-card">
+              <div class="fixture-art" style="background-image: url('../../assets/dream-phone-contact-sheet.jpg')"></div>
+              <span class="tag">Role advice</span>
+              <h4>Dream Phone</h4>
+              <p>A permanent advice fixture. It should open as a focused destination, not sit open by default.</p>
+              <a class="button" href="../../index.html#fun-games">Dial in</a>
+            </article>
+
+            <article class="fixture-card">
+              <div class="fixture-art" style="background-image: url('../../assets/businesswomen-special-wheel.png')"></div>
+              <span class="tag">Happy-hour ritual</span>
+              <h4>Wheel Spin</h4>
+              <p>Businesswomen's Special: Proof Positive or Zero Proof, then mood flap reveal. Always available, compact by default.</p>
+              <a class="button" href="../../index.html#fun-games">Spin</a>
+            </article>
+
+            <article class="fixture-card">
+              <div class="fixture-art" style="background-image: url('../../assets/playlist-mix-cd-v2.png')"></div>
+              <span class="tag">Spotify booth</span>
+              <h4>DJ JAIDY + Playlists</h4>
+              <p>The evergreen music destination: live Spotify mixes, community mix CDs, and the booth where the weekly AI song gets filed.</p>
+              <a class="button" href="../../index.html#playlist">Open booth</a>
+            </article>
+          </div>
+        </section>
+
+        <section class="lane" aria-label="Issue Fun Packs">
+          <div class="lane-head">
+            <div>
+              <h3>Issue Fun Packs</h3>
+              <p>Click a pack and the activity tray changes. Start Here stays pinned; weekly issue packs rotate underneath it.</p>
+            </div>
+            <span class="pill">Rotating</span>
+          </div>
+
+          <div class="pack-layout">
+            <div class="pack-list" aria-label="Choose an issue fun pack">
+              <aside class="archive-note" aria-label="Back issue shelf explanation">
+                <span class="tag">Back Issue Shelf</span>
+                <h4>Joining in Week 6? Start at the beginning.</h4>
+                <p>Start Here stays pinned, then every released Issue Fun Pack stays available below. A late reader can open Issue 01, then Issue 02, then keep going until they catch up.</p>
+              </aside>
+
+              <button class="pack-button" type="button" data-pack="foundation" aria-pressed="true">
+                <span class="pack-thumb" style="background-image: url('../../assets/quiz-sticker-sheet.png')"></span>
+                <span>
+                  <span class="tag">Start here</span>
+                  <h4>The AI Gap Foundation</h4>
+                  <p>The permanent quiz about women, AI, confidence, access, and why <span class="wordmark" aria-label="lAIdies"><span>l</span><strong>AI</strong><span>dies</span></span> exists.</p>
+                </span>
+              </button>
+
+              <button class="pack-button" type="button" data-pack="issue01" aria-pressed="false">
+                <span class="pack-thumb" style="background-image: url('../../assets/ugh-as-if.png')"></span>
+                <span>
+                  <span class="tag">Issue 01</span>
+                  <h4>On Wednesdays We Use AI</h4>
+                  <p>AI gap, confidence, first tries, weekly song, and learning by doing.</p>
+                </span>
+              </button>
+
+              <button class="pack-button" type="button" data-pack="issue02" aria-pressed="false">
+                <span class="pack-thumb" style="background-image: url('../../assets/issue-02-hero.png')"></span>
+                <span>
+                  <span class="tag">Issue 02</span>
+                  <h4>Tell Me What You Want</h4>
+                  <p>Specificity, examples, better prompts, and fast workplace practice.</p>
+                </span>
+              </button>
+
+              <button class="pack-button" type="button" data-pack="future" aria-pressed="false">
+                <span class="pack-thumb" style="background-image: url('../../assets/trading-card-pack.png')"></span>
+                <span>
+                  <span class="tag">Future pack</span>
+                  <h4>24-Issue Shelf</h4>
+                  <p>The same container can hold every future issue without redesigning the section.</p>
+                </span>
+              </button>
+            </div>
+
+            <section class="activity-stage" aria-live="polite" aria-label="Selected issue activities">
+              <div class="activity-hero" id="activityHero">
+                <div>
+                  <span class="tag" id="packKicker">Start Here Pack</span>
+                  <h3 id="packTitle">The AI Gap Foundation</h3>
+                  <p id="packDescription">The permanent quiz about women, AI, confidence, access, and the reason <span class="wordmark" aria-label="lAIdies"><span>l</span><strong>AI</strong><span>dies</span></span> exists.</p>
+                </div>
+              </div>
+
+              <div class="activity-grid" id="activityGrid"></div>
+
+              <section class="member-pass" aria-label="Member card rewards">
+                <div class="member-pass-head">
+                  <div>
+                    <span class="tag">Member card</span>
+                    <h4>Collected here, shown on your card.</h4>
+                    <p id="memberRewardCopy">Stickers, cards, songs, and completion badges from this pack should attach to the user's member card.</p>
+                  </div>
+                  <span class="pill">Passport</span>
+                </div>
+                <div class="reward-grid" id="memberRewardGrid"></div>
+                <div class="save-model" aria-label="Progress save model">
+                  <span class="tag">Progress save model</span>
+                  <h4>Device-only first, account-backed when profiles launch.</h4>
+                  <p>Without login, rewards can only be trusted on the current browser. Cross-device member cards need either an account, a magic-link profile, or an export/import member pass.</p>
+                  <div class="save-grid">
+                    <div class="save-step"><strong>Now</strong><span>Save rewards in this browser so return visits on the same device still work.</span></div>
+                    <div class="save-step"><strong>Bridge</strong><span>Offer a downloadable/shareable member pass code so users can restore progress manually.</span></div>
+                    <div class="save-step"><strong>Best</strong><span>Use email magic link login so stickers, cards, songs, and badges follow the member card across devices.</span></div>
+                  </div>
+                </div>
+              </section>
+            </section>
+          </div>
+        </section>
+      </section>
+
+      <section class="experience" aria-label="Experience summary">
+        <div class="step"><strong>1. Return</strong><span>The Clubhouse gives readers familiar permanent destinations.</span></div>
+        <div class="step"><strong>2. Choose</strong><span>The Issue Fun Pack makes weekly activities feel intentional.</span></div>
+        <div class="step"><strong>3. Collect</strong><span>Completed activities add stickers, cards, and badges to the member card.</span></div>
+        <div class="step"><strong>4. Scale</strong><span>The model works for 24 issue packs without adding homepage chaos.</span></div>
+      </section>
+    </main>
+
+    <script>
+      const packs = {
+        foundation: {
+          kicker: "Start Here Pack",
+          title: "The AI Gap Foundation",
+          description: "The permanent quiz about women, AI, confidence, access, and the reason Laidies exists. This should be available before, during, and after every issue.",
+          hero: "../../assets/quiz-sticker-sheet.png",
+          rewardCopy: "The foundation pack should create the user's first member-card proof: a baseline AI fluency sticker and a first-task badge.",
+          rewards: [
+            {
+              type: "Sticker",
+              title: "AI Foundation",
+              body: "Earned by completing the foundational quiz."
+            },
+            {
+              type: "Badge",
+              title: "First AI Task",
+              body: "Earned by choosing one real task to try."
+            },
+            {
+              type: "Stamp",
+              title: "Start Here",
+              body: "Marks the member card as onboarded."
+            }
+          ],
+          activities: [
+            {
+              type: "Foundational quiz",
+              title: "Women and AI Foundation Quiz",
+              body: "The always-available 10 question plus 2 bonus quiz on the AI gender gap, confidence gap, and what happens when women learn AI.",
+              image: "../../assets/quiz-sticker-sheet.png",
+              cta: "Start here",
+              href: "../../index.html#quiz"
+            },
+            {
+              type: "Context",
+              title: "Why Laidies Exists",
+              body: "A short, plain-language explainer that connects the quiz to the larger mission: making AI feel accessible, useful, and culturally familiar.",
+              image: "../../assets/ugh-as-if.png",
+              cta: "Read context",
+              href: "../../index.html#playbook"
+            },
+            {
+              type: "Worksheet",
+              title: "First AI Task Starter",
+              body: "A practical worksheet for choosing one real task to try with AI after the foundation quiz.",
+              image: "../../assets/printables/issue-01-open-the-tab-hero.png",
+              cta: "Use worksheet",
+              href: "../../assets/printables/issue-01-open-the-tab-hero.png"
+            }
+          ]
+        },
+        issue01: {
+          kicker: "Issue 01 Fun Pack",
+          title: "On Wednesdays We Use AI",
+          description: "Activities tied to the gender gap in AI, what changes when women learn AI, and the practical first try that Laidies was created to encourage.",
+          hero: "../../assets/ugh-as-if.png",
+          rewardCopy: "Issue 01 should add proof that the reader understands the AI gender gap and tried one practical AI move.",
+          rewards: [
+            {
+              type: "Sticker",
+              title: "Women + AI Gap",
+              body: "Earned by finishing the Issue 01 quiz."
+            },
+            {
+              type: "Card",
+              title: "First-Try Prompt",
+              body: "Collected from the Issue 01 prompt pack."
+            },
+            {
+              type: "Printable",
+              title: "Task Starter",
+              body: "Saved when the worksheet is opened or completed."
+            },
+            {
+              type: "Song badge",
+              title: "AI Playlist Drop",
+              body: "Added when the weekly song is played or saved."
+            }
+          ],
+          activities: [
+            {
+              type: "Quiz",
+              title: "Women and AI Gap Quiz",
+              body: "10 questions plus 2 bonus, focused on the confidence gap, access gap, and what changes when women start using AI at work.",
+              image: "../../assets/quiz-sticker-sheet.png",
+              cta: "Take quiz",
+              href: "../../index.html#quiz"
+            },
+            {
+              type: "Printable",
+              title: "First AI Task Starter",
+              body: "A printable worksheet for choosing one real thing to try with AI, so the idea moves from abstract to practical.",
+              image: "../../assets/printables/issue-01-open-the-tab-hero.png",
+              cta: "Use worksheet",
+              href: "../../assets/printables/issue-01-open-the-tab-hero.png"
+            },
+            {
+              type: "Printable",
+              title: "Better Prompt Cheat Sheet",
+              body: "A quick-reference sheet for writing clearer asks, adding useful context, and getting a stronger first answer.",
+              image: "../../assets/printables/prompt-cheat-sheet-hero.png",
+              cta: "Open printable",
+              href: "../../assets/printables/prompt-cheat-sheet-hero.png"
+            },
+            {
+              type: "Cards",
+              title: "First-Try Prompt Cards",
+              body: "Starter prompts for using AI on everyday work, without making the reader start from a blank page.",
+              image: "../../assets/trading-card-pack.png",
+              cta: "Open pack",
+              href: "../../index.html#card-pack"
+            },
+            {
+              type: "Try-On",
+              title: "Five-Minute AI Try-On",
+              body: "One small experiment designed to make the benefits of learning AI feel immediate and doable.",
+              image: "../../assets/five-minute-try-on-game.png",
+              cta: "Try it",
+              href: "../../index.html#playbook"
+            },
+            {
+              type: "Girl Talk",
+              title: "What Changed When You Tried It?",
+              body: "A conversation starter about how confidence, speed, and options can shift when women use the tool directly.",
+              image: "../../assets/girl-talk-board.png",
+              cta: "Open extra",
+              href: "../../index.html#fun-games"
+            },
+            {
+              type: "Weekly song",
+              title: "AI Playlist Drop",
+              body: "The issue's AI-made song gets added to the custom AI playlist, with DJ JAIDY keeping the liner notes in the booth.",
+              image: "../../assets/house-dj-mixdesk.png",
+              cta: "Open booth",
+              href: "../../index.html#playlist"
+            }
+          ]
+        },
+        issue02: {
+          kicker: "Issue 02 Fun Pack",
+          title: "Tell Me What You Want (What You Really Really Want)",
+          description: "A pack for specificity, examples, constraints, and rewriting vague asks into useful AI prompts.",
+          hero: "../../assets/issue-02-hero.png",
+          rewardCopy: "Issue 02 should add proof that the reader can turn vague wants into specific prompts.",
+          rewards: [
+            {
+              type: "Sticker",
+              title: "Specificity Check",
+              body: "Earned by finishing the Issue 02 quiz."
+            },
+            {
+              type: "Card",
+              title: "Do Not Pull a Cher",
+              body: "Collected from the Issue 02 card pack."
+            },
+            {
+              type: "Badge",
+              title: "Really Really Want",
+              body: "Earned by rewriting one vague ask."
+            },
+            {
+              type: "Song badge",
+              title: "Prompt Remix Track",
+              body: "Added when the weekly song joins the AI playlist."
+            }
+          ],
+          activities: [
+            {
+              type: "Quiz",
+              title: "Specificity Check",
+              body: "A 10 question plus 2 bonus quiz about why better context gets better AI help.",
+              image: "../../assets/quiz-sticker-sheet.png",
+              cta: "Preview quiz",
+              href: "../../index.html#quiz"
+            },
+            {
+              type: "Cards",
+              title: "Do Not Pull a Cher",
+              body: "Prompt cards for moving from vague to specific without overcomplicating the ask.",
+              image: "../../assets/issue02-dont-pull-a-cher.png",
+              cta: "Open cards",
+              href: "../../index.html#card-pack"
+            },
+            {
+              type: "Try-On",
+              title: "David Rose Specificity",
+              body: "Practice adding taste, standards, and constraints before asking AI for help.",
+              image: "../../assets/issue02-david-rose-specificity.png",
+              cta: "Try it",
+              href: "../../index.html#playbook"
+            },
+            {
+              type: "Game",
+              title: "Spice Girls Drawing Game",
+              body: "A quick creative exercise that shows how details change the output.",
+              image: "../../assets/issue02-drawing-game-spice-girls.png",
+              cta: "Play",
+              href: "../../index.html#fun-games"
+            },
+            {
+              type: "Extra",
+              title: "It's Britney, Brief",
+              body: "Rewrite a weak request into something clearer, sharper, and easier for AI to answer.",
+              image: "../../assets/issue02-its-britney-bitch.png",
+              cta: "Open extra",
+              href: "../../index.html#fun-games"
+            },
+            {
+              type: "Homework",
+              title: "Try-On Homework",
+              body: "A small follow-through task so the lesson leaves the website and enters the workday.",
+              image: "../../assets/issue02-tryon-homework.png",
+              cta: "Open homework",
+              href: "../../index.html#playbook"
+            },
+            {
+              type: "Weekly song",
+              title: "Prompt Remix Track",
+              body: "The episode track joins the custom AI playlist while the evergreen Spotify mixes stay available in the Clubhouse.",
+              image: "../../assets/house-dj-mixdesk.png",
+              cta: "Open booth",
+              href: "../../index.html#playlist"
+            }
+          ]
+        },
+        future: {
+          kicker: "Future Pack Shelf",
+          title: "Room for 24 Issues",
+          description: "The pack model can hold every future issue while keeping the homepage readable: choose a pack, then the activities populate here.",
+          hero: "../../assets/trading-card-pack.png",
+          rewardCopy: "Every future pack should define what gets added to the member card before the issue ships.",
+          rewards: [
+            {
+              type: "Template",
+              title: "Quiz Sticker",
+              body: "One completion sticker per issue quiz."
+            },
+            {
+              type: "Template",
+              title: "Pack Cards",
+              body: "Cards pulled from that issue's activity pack."
+            },
+            {
+              type: "Template",
+              title: "Printable Stamp",
+              body: "Stamp for opened or completed worksheets."
+            },
+            {
+              type: "Template",
+              title: "Song Badge",
+              body: "One weekly song badge per issue."
+            }
+          ],
+          activities: [
+            {
+              type: "Template",
+              title: "10 + 2 Quiz Slot",
+              body: "Every issue pack keeps the correct quiz standard: 10 core questions plus 2 bonus.",
+              image: "../../assets/quiz-sticker-sheet.png",
+              cta: "Use slot",
+              href: "../../index.html#quiz"
+            },
+            {
+              type: "Template",
+              title: "Cards Slot",
+              body: "Each issue can include a prompt pack, trading cards, or workplace swipe file.",
+              image: "../../assets/trading-card-pack.png",
+              cta: "Use slot",
+              href: "../../index.html#card-pack"
+            },
+            {
+              type: "Template",
+              title: "Printable Slot",
+              body: "Printables get a real home instead of disappearing in another thread or buried asset folder.",
+              image: "../../assets/printables/prompt-cheat-sheet-hero.png",
+              cta: "Use slot",
+              href: "../../assets/printables/prompt-cheat-sheet-hero.png"
+            },
+            {
+              type: "Template",
+              title: "Weekly Song Slot",
+              body: "Every issue can add one song to the custom AI playlist without turning the pack into a full music library.",
+              image: "../../assets/house-dj-mixdesk.png",
+              cta: "Use slot",
+              href: "../../index.html#playlist"
+            }
+          ]
+        }
+      };
+
+      const buttons = Array.from(document.querySelectorAll(".pack-button"));
+      const hero = document.getElementById("activityHero");
+      const kicker = document.getElementById("packKicker");
+      const title = document.getElementById("packTitle");
+      const description = document.getElementById("packDescription");
+      const grid = document.getElementById("activityGrid");
+      const memberRewardCopy = document.getElementById("memberRewardCopy");
+      const memberRewardGrid = document.getElementById("memberRewardGrid");
+
+      function formatBrandText(value) {
+        const escaped = String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+        return escaped.replace(/\b(?:Laidies|lAIdies)\b/g, '<span class="wordmark" aria-label="lAIdies"><span>l</span><strong>AI</strong><span>dies</span></span>');
+      }
+
+      function renderPack(packKey) {
+        const pack = packs[packKey];
+        hero.style.setProperty("--hero-image", `url("${pack.hero}")`);
+        kicker.textContent = pack.kicker;
+        title.textContent = pack.title;
+        description.innerHTML = formatBrandText(pack.description);
+        if (memberRewardCopy) memberRewardCopy.innerHTML = formatBrandText(pack.rewardCopy || "Completed activities from this pack should attach to the user's member card.");
+        if (memberRewardGrid) {
+          memberRewardGrid.innerHTML = (pack.rewards || []).map((reward) => `
+            <article class="reward-chip">
+              <span>${reward.type}</span>
+              <strong>${formatBrandText(reward.title)}</strong>
+              <p>${formatBrandText(reward.body)}</p>
+            </article>
+          `).join("");
+        }
+        grid.innerHTML = pack.activities.map((activity) => `
+          <article class="activity-card">
+            <div class="activity-art" style="background-image: url('${activity.image}')"></div>
+            <span class="tag">${activity.type}</span>
+            <h4>${formatBrandText(activity.title)}</h4>
+            <p>${formatBrandText(activity.body)}</p>
+            <a class="button" href="${activity.href}">${activity.cta}</a>
+          </article>
+        `).join("");
+      }
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          buttons.forEach((candidate) => candidate.setAttribute("aria-pressed", String(candidate === button)));
+          renderPack(button.dataset.pack);
+        });
+      });
+
+      renderPack("foundation");
+    </script>
+  </body>
+</html>
