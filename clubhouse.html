@@ -104,6 +104,27 @@
         color: #fff !important;
         box-shadow: inset 0 0 14px rgba(255, 45, 155, 0.12);
       }
+      
+      /* Fix cocktail controls - DARK background for dark text mode */
+      .game-panel-styled .cocktail-fortune-controls {
+        background: linear-gradient(145deg, #1a0a12, #2d0f1f) !important;
+        border-color: rgba(255, 45, 155, 0.4) !important;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+      }
+      .game-panel-styled .cocktail-stage {
+        background: none !important;
+      }
+      .game-panel-styled .cocktail-fortune-stage::before {
+        opacity: 0.3 !important;
+      }
+      .game-panel-styled .cocktail-control-label {
+        color: rgba(255, 255, 255, 0.6) !important;
+        font-size: 0.75rem !important;
+      }
+      .game-panel-styled .cocktail-lane-buttons .button {
+        color: #fff !important;
+      }
+
       /* Fix cocktail controls on dark panel */
       .game-panel-styled .cocktail-lane-label,
       .game-panel-styled .cocktail-control-label {
@@ -755,7 +776,11 @@
                   <span class="dj-track-title">Tomorrow's Problem</span>
                 </button>
               </div>
-              <a class="dj-spotify-link" href="this-week.html#playlist">🎧 Spotify Playlists →</a>
+              <div style="margin-top: 16px;">
+              <p style="font-size: 0.75rem; font-weight: 700; color: rgba(255,255,255,0.6); letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 10px;">LAIDIES on Spotify</p>
+              <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0otpKZoGiISkRo3Pxutc6R?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+              <div style="margin-top: 12px;"><iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2r39nbnpuxb7L0TcAovpwq?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            </div>
             </div>
 
             <style>
