@@ -285,6 +285,17 @@
 
 
     <link rel="stylesheet" href="/content/site/mini-player.css">
+
+    <style>
+    .hero-anthem:hover { text-shadow: 0 0 12px rgba(255,45,155,0.3); }
+    .hero-anthem:hover .anthem-play-hint { opacity: 1 !important; }
+    .hero-anthem.is-playing { animation: anthemPulse 2s ease-in-out infinite; }
+    @keyframes anthemPulse {
+      0%, 100% { text-shadow: 0 0 20px rgba(255,45,155,0.4); }
+      50% { text-shadow: 0 0 30px rgba(255,45,155,0.7), 0 0 60px rgba(255,45,155,0.2); }
+    }
+    </style>
+
 </head>
   <body>
     <main id="top">
@@ -311,7 +322,10 @@
         <div class="hero-copy">
           <p class="eyebrow">New episodes every Wednesday, obviously</p>
           <h1 id="hero-title">AI fluency for women with full calendars, high standards, and no patience for beige tech explanations.</h1>
-          <p class="hero-quote">Get in, loser. We're learning <span class="hero-quote-ai">AI</span>.</p>
+          <p class="hero-quote hero-anthem" id="heroAnthem" onclick="playAnthem(this)" title="♫ Press play on the LAIDIES anthem" style="cursor: pointer; transition: all 0.3s; position: relative; display: inline-block;">
+            <span class="anthem-play-hint" style="position: absolute; left: -28px; top: 50%; transform: translateY(-50%); opacity: 0.4; font-size: 0.7em; transition: opacity 0.3s;">▶</span>
+            Get in, loser. We’re learning <span class="hero-quote-ai">AI</span>.
+          </p>
           <div class="hero-actions">
             <a class="button primary" href="issues/issue-02.html">Read Current Episode</a>
             <a class="button secondary" href="clubhouse.html">Go to Clubhouse</a>
@@ -345,6 +359,7 @@
         </article>
       </section>
 
+      
       <!-- MINI SUBSCRIBE -->
       <aside class="mini-subscribe" aria-label="Quick subscribe">
         <p><strong>Get the next Wednesday episode.</strong> No spam, no fluff, just the good stuff.</p>
@@ -580,5 +595,39 @@
 })();
 </script>
     <script src="/content/site/mini-player.js"></script>
+
+    <script>
+    function playAnthem(el) {
+      var a = document.getElementById('anthemAudio');
+      if (!a) {
+        a = document.createElement('audio');
+        a.id = 'anthemAudio';
+        a.src = 'content/music/dj-jaidy-week-01-on-wednesday-we-do-ai.mp3';
+        a.setAttribute('data-title', 'On Wednesdays We Do AI');
+        document.body.appendChild(a);
+      }
+      var hint = el.querySelector('.anthem-play-hint');
+      if (a.paused) {
+        a.play();
+        if (hint) hint.textContent = '⏸';
+        if (hint) hint.style.opacity = '1';
+        el.style.textShadow = '0 0 20px rgba(255,45,155,0.6)';
+        el.classList.add('is-playing');
+      } else {
+        a.pause();
+        if (hint) hint.textContent = '▶';
+        if (hint) hint.style.opacity = '0.4';
+        el.style.textShadow = '';
+        el.classList.remove('is-playing');
+      }
+      a.onended = function() {
+        if (hint) hint.textContent = '▶';
+        if (hint) hint.style.opacity = '0.4';
+        el.style.textShadow = '';
+        el.classList.remove('is-playing');
+      };
+    }
+    </script>
+
 </body>
 </html><!-- deploy trigger -->
