@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trading Card Pack | LAIDIES Clubhouse</title>
+    <meta name="description" content="Flip & collect AI concept trading cards. Open packs, discover rare cards, and build your binder." />
+    <meta name="theme-color" content="#ff2d9b" />
+    <link rel="icon" type="image/png" href="../assets/laidies-logo-square.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;600;700&family=Georgia&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --hot-pink: #ff2d9b;
+        --dark-bg: #0d0611;
+        --card-bg: #1a0a12;
+        --panel-bg: linear-gradient(160deg, #1a0a12 0%, #2d0f1f 100%);
+        --muted: #65515d;
+        --gold: #ffd700;
+        --pink-border: rgba(255, 45, 155, 0.4);
+        --holographic: linear-gradient(135deg, #ff2d9b, #7b2dff, #2dd4ff, #ff2d9b);
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: 'Inter', -apple-system, sans-serif;
+        background: var(--dark-bg);
+        color: #fff;
+        min-height: 100vh;
+        line-height: 1.5;
+      }
+      a { color: var(--hot-pink); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      /* Site Header */
+      .site-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px clamp(14px, 3vw, 32px);
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        background: rgba(13, 6, 17, 0.95);
+        backdrop-filter: blur(8px);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .site-header .brand img { height: 28px; display: block; }
+      .site-header nav { display: flex; gap: 16px; margin-left: auto; font-size: 0.82rem; }
+      .site-header nav a { color: rgba(255,255,255,0.7); }
+      .site-header nav a:hover { color: #fff; }
+      .hamburger-btn { display: none; background: none; border: none; color: #fff; font-size: 1.4rem; cursor: pointer; }
+      @media (max-width: 680px) {
+        .site-header nav { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--dark-bg); padding: 16px; border-bottom: 1px solid var(--pink-border); }
+        .hamburger-btn { display: block; margin-left: auto; }
+      }
+
+      /* Page Layout */
+      .game-page-wrap {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: clamp(24px, 4vw, 48px) clamp(14px, 3vw, 32px);
+      }
+      .game-page-header {
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+      .game-page-header a {
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+      .eyebrow {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--hot-pink);
+        font-weight: 700;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        align-items: center;
+        margin-bottom: 48px;
+      }
+      @media (max-width: 680px) {
+        .hero-section { grid-template-columns: 1fr; gap: 20px; }
+      }
+      .hero-image {
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 40px rgba(255, 45, 155, 0.2);
+      }
+      .hero-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .hero-copy h1 {
+        font-family: Georgia, serif;
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+        line-height: 1.1;
+        margin-bottom: 8px;
+      }
+      .hero-copy .subtitle {
+        color: rgba(255,255,255,0.6);
+        font-size: 1rem;
+        margin-bottom: 16px;
+      }
+
+      /* Progress Bar */
+      .collection-progress {
+        margin-bottom: 20px;
+      }
+      .progress-label {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.6);
+        margin-bottom: 6px;
+      }
+      .progress-label strong { color: var(--hot-pink); }
+      .progress-bar {
+        height: 8px;
+        background: rgba(255,255,255,0.08);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .progress-bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--hot-pink), #7b2dff);
+        border-radius: 4px;
+        transition: width 0.6s ease;
+        width: 0%;
+      }
+
+      /* Pack Controls */
+      .pack-controls {
+        display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+        margin-bottom: 20px;
+      }
+      .pack-select {
+        padding: 8px 14px;
+        border-radius: 8px;
+        border: 1px solid var(--pink-border);
+        background: rgba(255,255,255,0.04);
+        color: #fff;
+        font-size: 0.85rem;
+        cursor: pointer;
+      }
+      .pack-select option { background: #1a0a12; }
+
+      /* Buttons */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        border: 2px solid var(--hot-pink);
+        background: var(--hot-pink);
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: transform 0.15s, box-shadow 0.15s;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 45, 155, 0.4);
+      }
+      .btn:active { transform: translateY(0); }
+      .btn-secondary {
+        background: transparent;
+        border-color: rgba(255,255,255,0.3);
+      }
+      .btn-secondary:hover {
+        border-color: var(--hot-pink);
+        box-shadow: 0 4px 16px rgba(255,45,155,0.2);
+      }
+
+      .pack-status {
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.5);
+        margin-top: 8px;
+      }
+
+      /* Pack Opening Animation Area */
+      .pack-opening-area {
+        margin-bottom: 48px;
+        min-height: 280px;
+        position: relative;
+      }
+      .pack-pulls {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      @media (max-width: 560px) {
+        .pack-pulls { grid-template-columns: 1fr; max-width: 260px; margin: 0 auto; }
+      }
+      .pack-empty {
+        text-align: center;
+        color: rgba(255,255,255,0.3);
+        font-style: italic;
+        padding: 60px 20px;
+        grid-column: 1 / -1;
+      }
+
+      /* Trading Card with 3D Flip */
+      .trading-card {
+        perspective: 800px;
+        cursor: pointer;
+        animation: slideIn 0.4s ease backwards;
+      }
+      .trading-card:nth-child(1) { animation-delay: 0s; }
+      .trading-card:nth-child(2) { animation-delay: 0.2s; }
+      .trading-card:nth-child(3) { animation-delay: 0.4s; }
+
+      @keyframes slideIn {
+        from { transform: translateY(40px) scale(0.9); opacity: 0; }
+        to { transform: translateY(0) scale(1); opacity: 1; }
+      }
+
+      .card-inner {
+        position: relative;
+        width: 100%;
+        padding-bottom: 140%;
+        transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-style: preserve-3d;
+      }
+      .trading-card.is-flipped .card-inner {
+        transform: rotateY(180deg);
+      }
+
+      .card-face {
+        position: absolute;
+        inset: 0;
+        backface-visibility: hidden;
+        border-radius: 14px;
+        overflow: hidden;
+        border: 2px solid var(--pink-border);
+      }
+
+      /* Card Front - Holographic Shimmer */
+      .card-front {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: var(--panel-bg);
+        position: relative;
+      }
+      .card-front::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 45, 155, 0.1) 0%,
+          rgba(123, 45, 255, 0.15) 25%,
+          rgba(45, 212, 255, 0.1) 50%,
+          rgba(255, 215, 0, 0.1) 75%,
+          rgba(255, 45, 155, 0.1) 100%
+        );
+        background-size: 400% 400%;
+        animation: holoShimmer 4s ease infinite;
+        pointer-events: none;
+        z-index: 1;
+      }
+      @keyframes holoShimmer {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .card-front::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          45deg,
+          transparent 30%,
+          rgba(255, 255, 255, 0.08) 50%,
+          transparent 70%
+        );
+        background-size: 200% 200%;
+        animation: foilSweep 3s ease-in-out infinite;
+        pointer-events: none;
+        z-index: 2;
+      }
+      @keyframes foilSweep {
+        0% { background-position: -100% -100%; }
+        100% { background-position: 200% 200%; }
+      }
+      .card-front img {
+        width: 80%;
+        height: auto;
+        border-radius: 8px;
+        position: relative;
+        z-index: 3;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      }
+      .card-front .card-issue-badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        padding: 3px 8px;
+        border-radius: 4px;
+        background: rgba(0,0,0,0.5);
+        color: var(--hot-pink);
+        z-index: 4;
+      }
+
+      /* Card Back - Content */
+      .card-back {
+        transform: rotateY(180deg);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px 16px;
+        background: linear-gradient(160deg, #1a0a12, #2d0f1f);
+        text-align: center;
+        justify-content: center;
+      }
+      .card-back .card-unlock-label {
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--hot-pink);
+        font-weight: 700;
+      }
+      .card-back h3 {
+        font-family: Georgia, serif;
+        font-size: clamp(0.95rem, 2vw, 1.1rem);
+        line-height: 1.3;
+      }
+      .card-back p {
+        font-size: 0.8rem;
+        color: rgba(255,255,255,0.7);
+        line-height: 1.4;
+      }
+      .card-back .card-reward {
+        font-size: 0.72rem;
+        color: rgba(255,255,255,0.4);
+        font-style: italic;
+        margin-top: auto;
+      }
+      .card-back .flip-hint {
+        font-size: 0.68rem;
+        color: rgba(255,255,255,0.3);
+      }
+
+      /* Rarity Borders */
+      .rarity-common .card-face { border-color: var(--hot-pink); }
+      .rarity-rare .card-face { border-color: var(--gold); box-shadow: 0 0 12px rgba(255, 215, 0, 0.3); }
+      .rarity-special .card-face {
+        border-image: linear-gradient(135deg, #ff2d9b, #7b2dff, #2dd4ff, #ff2d9b) 1;
+        box-shadow: 0 0 16px rgba(123, 45, 255, 0.3);
+      }
+      .rarity-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 0.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 2px 6px;
+        border-radius: 3px;
+        z-index: 5;
+      }
+      .rarity-common .rarity-badge { background: var(--hot-pink); color: #fff; }
+      .rarity-rare .rarity-badge { background: var(--gold); color: #1a0a12; }
+      .rarity-special .rarity-badge { background: var(--holographic); background-size: 300% 300%; animation: holoShimmer 3s ease infinite; color: #fff; }
+
+      /* Duplicate badge */
+      .dup-badge {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-size: 0.65rem;
+        font-weight: 700;
+        padding: 2px 7px;
+        border-radius: 10px;
+        background: rgba(255,255,255,0.15);
+        color: rgba(255,255,255,0.7);
+        z-index: 5;
+      }
+
+      /* Collection Binder */
+      .binder-section {
+        margin-top: 48px;
+      }
+      .binder-section h2 {
+        font-family: Georgia, serif;
+        font-size: clamp(1.3rem, 3vw, 1.8rem);
+        margin-bottom: 6px;
+      }
+      .binder-section > p {
+        color: rgba(255,255,255,0.5);
+        font-size: 0.85rem;
+        margin-bottom: 20px;
+      }
+      .binder-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 14px;
+      }
+      @media (max-width: 560px) {
+        .binder-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      }
+
+      .binder-card {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 2px solid rgba(255,255,255,0.08);
+        background: rgba(255,255,255,0.02);
+        transition: border-color 0.3s, transform 0.2s;
+        cursor: pointer;
+        perspective: 600px;
+      }
+      .binder-card.is-owned {
+        border-color: var(--pink-border);
+      }
+      .binder-card.is-owned:hover {
+        transform: translateY(-3px);
+        border-color: var(--hot-pink);
+      }
+      .binder-card.is-missing {
+        opacity: 0.35;
+        filter: grayscale(0.8);
+      }
+      .binder-card img {
+        width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+        display: block;
+      }
+      .binder-card-info {
+        padding: 10px;
+      }
+      .binder-card-info strong {
+        display: block;
+        font-size: 0.75rem;
+        margin-bottom: 2px;
+      }
+      .binder-card-info span {
+        font-size: 0.65rem;
+        color: rgba(255,255,255,0.4);
+      }
+      .binder-count-badge {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: var(--hot-pink);
+        color: #fff;
+        font-size: 0.6rem;
+        font-weight: 700;
+        padding: 2px 6px;
+        border-radius: 8px;
+      }
+
+      /* Footer */
+      .back-link {
+        display: inline-block;
+        margin-top: 40px;
+        padding: 10px 20px;
+        border: 1px solid var(--pink-border);
+        border-radius: 8px;
+        font-size: 0.85rem;
+        color: rgba(255,255,255,0.7);
+        transition: border-color 0.2s, color 0.2s;
+      }
+      .back-link:hover { border-color: var(--hot-pink); color: #fff; text-decoration: none; }
+    </style>
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="lAIdies home">
+        <img src="../assets/laidies-logo-wordmark.png" alt="LAIDIES" />
+      </a>
+      <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=this.nextElementSibling;if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'\u2630':'\u2715';this.setAttribute('aria-expanded',!isOpen);">&#9776;</button>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="../episodes.html">Episodes</a>
+        <a href="../learn.html">Learn</a>
+        <a href="../clubhouse.html">Clubhouse</a>
+        <a href="../community.html">Community</a>
+        <a href="../clubhouse.html#dj-booth-inline">Listen</a>
+        <a href="../this-week.html">This Week</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="game-page-wrap">
+        <div class="game-page-header">
+          <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
+        </div>
+
+        <!-- Hero -->
+        <section class="hero-section">
+          <div class="hero-image">
+            <img src="../assets/trading-card-pack.webp" alt="Shiny pink foil trading card pack with cards peeking out" />
+          </div>
+          <div class="hero-copy">
+            <p class="eyebrow">The Card Pack</p>
+            <h1>Trading Card Pack</h1>
+            <p class="subtitle">Flip & collect AI concept cards</p>
+            <p style="color:rgba(255,255,255,0.5); font-size:0.85rem; margin-bottom: 20px;">Every Wednesday adds new cards to the collection. Pick an issue pack, rip it open, and flip each card to learn an AI concept. Duplicates count &mdash; just like the real thing.</p>
+
+            <!-- Collection Progress -->
+            <div class="collection-progress">
+              <div class="progress-label">
+                <span>Cards collected: <strong id="progressCount">0/10</strong></span>
+                <span id="progressPercent">0%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-bar-fill" id="progressFill"></div>
+              </div>
+            </div>
+
+            <!-- Pack Controls -->
+            <div class="pack-controls">
+              <select class="pack-select" id="packSelect">
+                <option value="all">All released cards</option>
+                <option value="issue01">Issue 01 pack</option>
+                <option value="issue02">Issue 02 pack</option>
+              </select>
+              <button class="btn" id="openPackBtn">&#x1F4E6; Open Pack</button>
+              <button class="btn btn-secondary" id="resetBtn">Reset</button>
+            </div>
+            <p class="pack-status" id="packStatus">Open your first pack. Duplicates are part of the drama.</p>
+          </div>
+        </section>
+
+        <!-- Pack Opening Area -->
+        <section class="pack-opening-area" aria-label="Latest card pulls">
+          <div class="pack-pulls" id="packPulls">
+            <p class="pack-empty">Nothing in the wrapper yet. Open a pack and see what you pulled.</p>
+          </div>
+        </section>
+
+        <!-- Collection Binder -->
+        <section class="binder-section">
+          <p class="eyebrow">The Binder</p>
+          <h2>Your plastic-sleeve collection page</h2>
+          <p>Owned cards stay bright. Empty sleeves show what&rsquo;s still missing. Duplicates stack on the pink count badge.</p>
+          <div class="binder-grid" id="binderGrid"></div>
+        </section>
+
+        <a class="back-link" href="../clubhouse.html">&larr; Back to Clubhouse</a>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../content/site/supabase-config.js"></script>
+    <script src="../content/site/site-data.js"></script>
+    <script>
+    (function() {
+      'use strict';
+
+      // === Card Data from site-data.js ===
+      const allCards = window.SITE_DATA?.cardPacks?.cards || [];
+
+      // Assign rarity based on issue (issue01 = common, issue02 has mixed)
+      const rarityMap = {
+        'issue01-room': 'rare',
+        'specificity': 'rare',
+        'receipts': 'special',
+        'girl-power': 'rare',
+      };
+      function getRarity(cardId) {
+        return rarityMap[cardId] || 'common';
+      }
+
+      // === Local Storage ===
+      const STORAGE_KEY = 'laidies_card_collection';
+      const LAST_PULLS_KEY = 'laidies_last_pulls';
+
+      function getCollection() {
+        try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+        catch { return {}; }
+      }
+      function saveCollection(coll) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(coll));
+      }
+      function getLastPulls() {
+        try { return JSON.parse(localStorage.getItem(LAST_PULLS_KEY)) || []; }
+        catch { return []; }
+      }
+      function saveLastPulls(pulls) {
+        localStorage.setItem(LAST_PULLS_KEY, JSON.stringify(pulls));
+      }
+
+      let collection = getCollection();
+
+      // === DOM refs ===
+      const packSelect = document.getElementById('packSelect');
+      const openPackBtn = document.getElementById('openPackBtn');
+      const resetBtn = document.getElementById('resetBtn');
+      const packPulls = document.getElementById('packPulls');
+      const packStatus = document.getElementById('packStatus');
+      const binderGrid = document.getElementById('binderGrid');
+      const progressCount = document.getElementById('progressCount');
+      const progressPercent = document.getElementById('progressPercent');
+      const progressFill = document.getElementById('progressFill');
+
+      // === Get selected pack cards ===
+      function getSelectedCards() {
+        const val = packSelect.value;
+        if (val === 'all') return allCards;
+        return allCards.filter(c => c.issue === val);
+      }
+
+      // === Progress update ===
+      function updateProgress() {
+        const total = allCards.length;
+        const owned = allCards.filter(c => (collection[c.id] || 0) > 0).length;
+        const pct = total > 0 ? Math.round((owned / total) * 100) : 0;
+        progressCount.textContent = `${owned}/${total}`;
+        progressPercent.textContent = `${pct}%`;
+        progressFill.style.width = `${pct}%`;
+      }
+
+      // === Create pull card with 3D flip ===
+      function createPullCard(card, delay) {
+        const rarity = getRarity(card.id);
+        const el = document.createElement('div');
+        el.className = `trading-card rarity-${rarity}`;
+        el.style.animationDelay = `${delay}s`;
+
+        el.innerHTML = `
+          <div class="card-inner">
+            <div class="card-face card-front">
+              <span class="card-issue-badge">${card.issueLabel || card.issue}</span>
+              <span class="rarity-badge">${rarity}</span>
+              <img src="../${card.image}" alt="${card.alt}" />
+              ${card.isDuplicate ? '<span class="dup-badge">x' + card.count + '</span>' : ''}
+            </div>
+            <div class="card-face card-back">
+              <span class="card-unlock-label">${card.isDuplicate ? 'Duplicate pull' : 'New pull!'}</span>
+              <h3>${card.unlockTitle}</h3>
+              <p>${card.prompt}</p>
+              <p class="card-reward">${card.reward}</p>
+              <span class="flip-hint">Tap to flip</span>
+            </div>
+          </div>
+        `;
+
+        // Flip on click
+        el.addEventListener('click', () => {
+          el.classList.toggle('is-flipped');
+        });
+
+        return el;
+      }
+
+      // === Render pulls ===
+      function renderPulls(pulls) {
+        packPulls.innerHTML = '';
+        if (!pulls.length) {
+          packPulls.innerHTML = '<p class="pack-empty">Nothing in the wrapper yet. Open a pack and see what you pulled.</p>';
+          return;
+        }
+        pulls.forEach((card, i) => {
+          packPulls.appendChild(createPullCard(card, i * 0.2));
+        });
+      }
+
+      // === Open pack ===
+      function openPack() {
+        const cards = getSelectedCards();
+        if (!cards.length) {
+          packStatus.textContent = 'No cards in this pack yet. Try another.';
+          return;
+        }
+
+        const pulls = Array.from({ length: 3 }, () => {
+          return cards[Math.floor(Math.random() * cards.length)];
+        });
+
+        const newPulls = pulls.map(card => {
+          const prev = Number(collection[card.id] || 0);
+          collection[card.id] = prev + 1;
+          return { ...card, isDuplicate: prev > 0, count: collection[card.id] };
+        });
+
+        saveCollection(collection);
+        saveLastPulls(newPulls);
+        renderPulls(newPulls);
+        updateProgress();
+        renderBinder();
+
+        const hasDupe = newPulls.some(c => c.isDuplicate);
+        const selectedLabel = packSelect.selectedOptions[0].textContent;
+        packStatus.textContent = hasDupe
+          ? `Opened ${selectedLabel}. Duplicate drama detected — into the binder it goes.`
+          : `Opened ${selectedLabel}. Fresh stack, no doubles! Into the binder they go.`;
+      }
+
+      // === Reset ===
+      function resetCollection() {
+        collection = {};
+        saveCollection(collection);
+        localStorage.removeItem(LAST_PULLS_KEY);
+        renderPulls([]);
+        updateProgress();
+        renderBinder();
+        packStatus.textContent = 'Collection reset. The binder is empty and emotionally ready.';
+      }
+
+      // === Render Binder ===
+      function renderBinder() {
+        binderGrid.innerHTML = '';
+        allCards.forEach(card => {
+          const count = collection[card.id] || 0;
+          const owned = count > 0;
+          const rarity = getRarity(card.id);
+          const el = document.createElement('div');
+          el.className = `binder-card ${owned ? 'is-owned' : 'is-missing'}`;
+
+          el.innerHTML = `
+            <img src="../${card.image}" alt="${card.alt}" />
+            <div class="binder-card-info">
+              <strong>${card.title}</strong>
+              <span>${card.issueLabel} • ${rarity}</span>
+            </div>
+            ${owned ? '<span class="binder-count-badge">x' + count + '</span>' : ''}
+          `;
+          binderGrid.appendChild(el);
+        });
+      }
+
+      // === Init ===
+      openPackBtn.addEventListener('click', openPack);
+      resetBtn.addEventListener('click', resetCollection);
+
+      updateProgress();
+      renderBinder();
+
+      // Restore last pulls
+      const lastPulls = getLastPulls();
+      if (lastPulls.length) {
+        renderPulls(lastPulls);
+      }
+    })();
+    </script>
+    <script src="../script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,882 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DJ JAIDY's Booth | LAIDIES Clubhouse</title>
+    <meta name="description" content="DJ JAIDY makes custom AI-generated songs for each LAIDIES episode. Step into the booth and listen." />
+    <meta property="og:title" content="DJ JAIDY's Booth | LAIDIES" />
+    <meta property="og:description" content="Custom AI-generated songs for each LAIDIES episode. Weekly jams from the booth." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://wearelaidies.com/assets/house-dj-mixdesk.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#ff2d9b" />
+    <link rel="icon" type="image/png" href="../assets/laidies-logo-square.png" />
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../assets/laidies-logo-square.png" />
+    <link rel="stylesheet" href="../styles.css?v=dj-booth-standalone-1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+      /* === DJ BOOTH — DARK MOODY OVERRIDE === */
+      :root {
+        --dj-bg: #0a0409;
+        --dj-surface: #140810;
+        --dj-card: #1a0c12;
+        --dj-pink: #ff2d9b;
+        --dj-pink-glow: rgba(255, 45, 155, 0.6);
+        --dj-pink-subtle: rgba(255, 45, 155, 0.12);
+        --dj-text: #fff;
+        --dj-muted: rgba(255, 255, 255, 0.55);
+        --dj-line: rgba(255, 45, 155, 0.2);
+      }
+
+      body {
+        background: var(--dj-bg) !important;
+        color: var(--dj-text);
+        min-height: 100vh;
+      }
+
+      /* Ambient pink glow on body */
+      body::before {
+        content: '';
+        position: fixed;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(ellipse at 50% 20%, rgba(255, 45, 155, 0.04) 0%, transparent 60%),
+                    radial-gradient(ellipse at 80% 80%, rgba(255, 45, 155, 0.02) 0%, transparent 40%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .site-header {
+        background: rgba(10, 4, 9, 0.95) !important;
+        border-bottom: 1px solid var(--dj-line) !important;
+        position: relative;
+        z-index: 100;
+      }
+      .site-header .nav a { color: rgba(255,255,255,0.7) !important; }
+      .site-header .nav a:hover { color: var(--dj-pink) !important; }
+
+      main { position: relative; z-index: 1; }
+
+      /* === HERO === */
+      .dj-hero {
+        position: relative;
+        width: 100%;
+        max-height: 340px;
+        overflow: hidden;
+        margin-bottom: 0;
+      }
+      .dj-hero img {
+        width: 100%;
+        height: 340px;
+        object-fit: cover;
+        object-position: center 30%;
+        display: block;
+        filter: brightness(0.6) saturate(1.2);
+      }
+      .dj-hero::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        height: 60%;
+        background: linear-gradient(to bottom, transparent, var(--dj-bg));
+        pointer-events: none;
+      }
+
+      /* === TITLE AREA === */
+      .dj-title-section {
+        text-align: center;
+        padding: 48px 24px 32px;
+        position: relative;
+      }
+      .dj-title-section .eyebrow {
+        color: var(--dj-pink) !important;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+        display: block;
+      }
+      .dj-title-section h1 {
+        font-family: 'Space Grotesk', Georgia, serif;
+        font-size: clamp(2.2rem, 5vw, 3.6rem);
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 0 0 40px var(--dj-pink-glow), 0 0 80px rgba(255, 45, 155, 0.3);
+        margin: 0 0 12px;
+        line-height: 1.1;
+      }
+      .dj-title-section p {
+        color: var(--dj-muted);
+        font-size: 1rem;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      /* === PLAYER CONTAINER === */
+      .dj-player-container {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 0 24px 48px;
+      }
+
+      /* === VINYL + EQUALIZER ROW === */
+      .dj-visual-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        margin-bottom: 32px;
+      }
+
+      /* === SPINNING VINYL === */
+      .dj-vinyl-wrap {
+        position: relative;
+        width: 160px;
+        height: 160px;
+        flex-shrink: 0;
+      }
+      .dj-vinyl {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        background: conic-gradient(
+          from 0deg,
+          #111 0deg, #1a1a1a 30deg,
+          #0d0d0d 60deg, #222 90deg,
+          #111 120deg, #1a1a1a 150deg,
+          #0d0d0d 180deg, #222 210deg,
+          #111 240deg, #1a1a1a 270deg,
+          #0d0d0d 300deg, #222 330deg,
+          #111 360deg
+        );
+        box-shadow: 0 0 0 3px #333, 0 0 30px rgba(0,0,0,0.8), 0 0 60px rgba(255, 45, 155, 0.15);
+        animation: spin 2.5s linear infinite;
+        animation-play-state: paused;
+        position: relative;
+      }
+      .dj-vinyl::before {
+        content: '';
+        position: absolute;
+        top: 50%; left: 50%;
+        width: 44px; height: 44px;
+        margin: -22px 0 0 -22px;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--dj-pink) 0%, #a01860 60%, #1a0c12 100%);
+        box-shadow: 0 0 12px var(--dj-pink-glow);
+      }
+      .dj-vinyl::after {
+        content: '';
+        position: absolute;
+        top: 50%; left: 50%;
+        width: 8px; height: 8px;
+        margin: -4px 0 0 -4px;
+        border-radius: 50%;
+        background: #fff;
+      }
+      /* Grooves */
+      .dj-vinyl-grooves {
+        position: absolute;
+        inset: 25px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.04);
+        box-shadow:
+          inset 0 0 0 8px rgba(255,255,255,0.02),
+          inset 0 0 0 16px rgba(255,255,255,0.015),
+          inset 0 0 0 24px rgba(255,255,255,0.02),
+          inset 0 0 0 32px rgba(255,255,255,0.015),
+          inset 0 0 0 40px rgba(255,255,255,0.02);
+        pointer-events: none;
+      }
+
+      .is-playing .dj-vinyl {
+        animation-play-state: running;
+      }
+
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+
+      /* === EQUALIZER === */
+      .dj-equalizer {
+        display: flex;
+        align-items: flex-end;
+        gap: 5px;
+        height: 80px;
+      }
+      .dj-eq-bar {
+        width: 8px;
+        background: linear-gradient(to top, var(--dj-pink), #ff6ec4);
+        border-radius: 4px;
+        animation: eqBounce var(--eq-speed, 0.8s) ease-in-out infinite alternate;
+        animation-play-state: paused;
+        opacity: 0.7;
+        box-shadow: 0 0 6px var(--dj-pink-glow);
+      }
+      .is-playing .dj-eq-bar {
+        animation-play-state: running;
+        opacity: 1;
+      }
+      .dj-eq-bar:nth-child(1) { height: 30%; --eq-speed: 0.6s; }
+      .dj-eq-bar:nth-child(2) { height: 60%; --eq-speed: 0.75s; }
+      .dj-eq-bar:nth-child(3) { height: 45%; --eq-speed: 0.5s; }
+      .dj-eq-bar:nth-child(4) { height: 80%; --eq-speed: 0.9s; }
+      .dj-eq-bar:nth-child(5) { height: 55%; --eq-speed: 0.65s; }
+      .dj-eq-bar:nth-child(6) { height: 70%; --eq-speed: 0.85s; }
+      .dj-eq-bar:nth-child(7) { height: 40%; --eq-speed: 0.55s; }
+
+      @keyframes eqBounce {
+        0% { transform: scaleY(0.3); }
+        100% { transform: scaleY(1); }
+      }
+
+      /* === NOW PLAYING === */
+      .dj-now-playing {
+        text-align: center;
+        margin-bottom: 28px;
+        min-height: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .dj-now-playing-label {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--dj-muted);
+        margin-bottom: 8px;
+      }
+      .dj-now-playing-title {
+        font-family: 'Space Grotesk', Georgia, serif;
+        font-size: clamp(1.3rem, 3vw, 1.8rem);
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 0 0 20px var(--dj-pink-glow), 0 0 40px rgba(255, 45, 155, 0.2);
+        margin: 0 0 6px;
+        transition: opacity 0.3s;
+      }
+      .dj-now-playing-ep {
+        display: inline-block;
+        background: var(--dj-pink);
+        color: #fff;
+        font-size: 0.65rem;
+        font-weight: 700;
+        padding: 3px 10px;
+        border-radius: 20px;
+        letter-spacing: 0.06em;
+        margin-bottom: 8px;
+      }
+      .dj-now-playing-desc {
+        font-size: 0.85rem;
+        color: var(--dj-muted);
+        font-style: italic;
+        margin: 0;
+      }
+
+      /* === CONTROLS === */
+      .dj-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+      .dj-controls button {
+        background: none;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        transition: background 0.2s, transform 0.15s, color 0.2s;
+        padding: 0;
+      }
+      .dj-controls button:hover {
+        background: var(--dj-pink-subtle);
+        transform: scale(1.08);
+      }
+      .dj-controls button:active {
+        transform: scale(0.95);
+      }
+      .dj-btn-prev, .dj-btn-next {
+        width: 48px; height: 48px;
+        font-size: 1.2rem;
+      }
+      .dj-btn-play {
+        width: 68px; height: 68px;
+        font-size: 1.6rem;
+        background: rgba(255, 45, 155, 0.2) !important;
+        border: 2px solid var(--dj-pink) !important;
+        box-shadow: 0 0 20px rgba(255, 45, 155, 0.3);
+      }
+      .dj-btn-play:hover {
+        background: rgba(255, 45, 155, 0.35) !important;
+        box-shadow: 0 0 30px var(--dj-pink-glow);
+      }
+      .dj-btn-repeat {
+        width: 44px; height: 44px;
+        font-size: 1rem;
+        color: var(--dj-muted);
+      }
+      .dj-btn-repeat.is-active {
+        color: var(--dj-pink);
+        text-shadow: 0 0 8px var(--dj-pink-glow);
+      }
+
+      /* === PROGRESS BAR === */
+      .dj-progress-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 36px;
+      }
+      .dj-progress-time {
+        font-size: 0.72rem;
+        color: var(--dj-muted);
+        font-variant-numeric: tabular-nums;
+        min-width: 36px;
+        font-family: 'JetBrains Mono', monospace;
+      }
+      .dj-progress-bar-wrap {
+        flex: 1;
+        position: relative;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+        cursor: pointer;
+        overflow: hidden;
+      }
+      .dj-progress-bar-fill {
+        position: absolute;
+        top: 0; left: 0; bottom: 0;
+        width: 0%;
+        background: linear-gradient(90deg, var(--dj-pink), #ff6ec4);
+        border-radius: 3px;
+        transition: width 0.1s linear;
+        box-shadow: 0 0 8px var(--dj-pink-glow);
+      }
+      .dj-progress-bar-wrap input[type="range"] {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+        margin: 0;
+      }
+
+      /* === TRACK LIST === */
+      .dj-tracklist-section {
+        margin-bottom: 48px;
+      }
+      .dj-tracklist-section h2 {
+        font-family: 'Space Grotesk', Georgia, serif;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--dj-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 16px;
+      }
+      .dj-track-card {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 16px 18px;
+        background: var(--dj-card);
+        border: 1.5px solid rgba(255, 45, 155, 0.15);
+        border-radius: 12px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: background 0.2s, border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+        color: #fff;
+        text-decoration: none;
+      }
+      .dj-track-card:hover {
+        background: rgba(255, 45, 155, 0.06);
+        border-color: rgba(255, 45, 155, 0.4);
+        transform: translateX(4px);
+        box-shadow: 0 4px 20px rgba(255, 45, 155, 0.1);
+      }
+      .dj-track-card.is-active {
+        background: rgba(255, 45, 155, 0.1);
+        border-color: var(--dj-pink);
+        box-shadow: 0 0 20px rgba(255, 45, 155, 0.15), inset 0 0 20px rgba(255, 45, 155, 0.05);
+      }
+      .dj-track-card-number {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.7rem;
+        color: var(--dj-muted);
+        min-width: 20px;
+      }
+      .dj-track-card.is-active .dj-track-card-number {
+        color: var(--dj-pink);
+      }
+      .dj-track-card-badge {
+        display: inline-block;
+        background: rgba(255, 45, 155, 0.15);
+        color: var(--dj-pink);
+        font-size: 0.6rem;
+        font-weight: 800;
+        padding: 3px 8px;
+        border-radius: 4px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .dj-track-card-info {
+        flex: 1;
+        min-width: 0;
+      }
+      .dj-track-card-title {
+        font-size: 0.92rem;
+        font-weight: 600;
+        margin-bottom: 3px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .dj-track-card-desc {
+        font-size: 0.75rem;
+        color: var(--dj-muted);
+        font-style: italic;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .dj-track-card-duration {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.7rem;
+        color: var(--dj-muted);
+        white-space: nowrap;
+      }
+
+      /* === SPOTIFY SECTION === */
+      .dj-spotify-section {
+        margin-bottom: 48px;
+        text-align: center;
+      }
+      .dj-spotify-section h2 {
+        font-family: 'Space Grotesk', Georgia, serif;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--dj-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 20px;
+      }
+      .dj-spotify-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        justify-content: center;
+      }
+      .dj-spotify-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 24px;
+        background: var(--dj-card);
+        border: 1.5px solid rgba(255, 45, 155, 0.25);
+        border-radius: 50px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 600;
+        transition: background 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+      }
+      .dj-spotify-btn:hover {
+        background: rgba(255, 45, 155, 0.1);
+        border-color: var(--dj-pink);
+        box-shadow: 0 4px 24px rgba(255, 45, 155, 0.2);
+        transform: translateY(-2px);
+      }
+      .dj-spotify-btn svg {
+        width: 20px; height: 20px;
+        fill: #1DB954;
+      }
+
+      /* === BACK LINK === */
+      .dj-back-link {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+      .dj-back-link a {
+        color: var(--dj-pink);
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 10px 20px;
+        border: 1.5px solid var(--dj-line);
+        border-radius: 8px;
+        transition: background 0.2s, border-color 0.2s;
+      }
+      .dj-back-link a:hover {
+        background: var(--dj-pink-subtle);
+        border-color: rgba(255, 45, 155, 0.5);
+      }
+
+      /* === FOOTER OVERRIDE === */
+      .site-footer {
+        background: var(--dj-bg) !important;
+        border-top: 1px solid var(--dj-line) !important;
+        color: var(--dj-muted) !important;
+      }
+      .site-footer a { color: var(--dj-muted) !important; }
+      .site-footer a:hover { color: var(--dj-pink) !important; }
+
+      /* === RESPONSIVE === */
+      @media (max-width: 600px) {
+        .dj-visual-row { flex-direction: column; gap: 20px; }
+        .dj-vinyl-wrap { width: 120px; height: 120px; }
+        .dj-vinyl { width: 120px; height: 120px; }
+        .dj-vinyl::before { width: 34px; height: 34px; margin: -17px 0 0 -17px; }
+        .dj-vinyl-grooves { inset: 18px; }
+        .dj-hero img { height: 220px; }
+        .dj-equalizer { height: 50px; }
+        .dj-eq-bar { width: 6px; }
+        .dj-track-card { padding: 12px 14px; gap: 10px; }
+        .dj-spotify-buttons { flex-direction: column; align-items: center; }
+      }
+    </style>
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <button onclick="history.back()" style="background: none; border: none; color: var(--dj-pink); font-size: 0.85rem; cursor: pointer; padding: 4px 8px; text-decoration: underline;" aria-label="Go back">&larr; Back</button>
+      <a class="brand" href="../index.html" aria-label="lAIdies home">
+        <img src="../assets/laidies-logo-wordmark.png" alt="LAIDIES" />
+      </a>
+      <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=this.nextElementSibling;if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'\u2630':'\u2715';this.setAttribute('aria-expanded',!isOpen);">&#9776;</button>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="../episodes.html">Episodes</a>
+        <a href="../learn.html">Learn</a>
+        <a href="../clubhouse.html">Clubhouse</a>
+        <a href="../community.html">Community</a>
+        <a href="../clubhouse.html#dj-booth-inline">Listen</a>
+        <a href="../this-week.html">This Week</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <div class="dj-hero">
+        <img src="../assets/house-dj-mixdesk.png" alt="Neon-lit DJ mixing desk with turntables and faders" />
+      </div>
+
+      <!-- TITLE -->
+      <section class="dj-title-section">
+        <span class="eyebrow">The Listening Room</span>
+        <h1>DJ JAIDY&rsquo;s Booth</h1>
+        <p>Weekly AI-made songs for each episode. Press play, turn it up, pretend you&rsquo;re headlining.</p>
+      </section>
+
+      <!-- PLAYER CONTAINER -->
+      <div class="dj-player-container" id="djApp">
+
+        <!-- VINYL + EQUALIZER -->
+        <div class="dj-visual-row" id="djVisualRow">
+          <div class="dj-vinyl-wrap">
+            <div class="dj-vinyl">
+              <div class="dj-vinyl-grooves"></div>
+            </div>
+          </div>
+          <div class="dj-equalizer">
+            <div class="dj-eq-bar"></div>
+            <div class="dj-eq-bar"></div>
+            <div class="dj-eq-bar"></div>
+            <div class="dj-eq-bar"></div>
+            <div class="dj-eq-bar"></div>
+            <div class="dj-eq-bar"></div>
+            <div class="dj-eq-bar"></div>
+          </div>
+        </div>
+
+        <!-- NOW PLAYING -->
+        <div class="dj-now-playing" id="djNowPlaying">
+          <span class="dj-now-playing-label">Now Playing</span>
+          <span class="dj-now-playing-ep" id="djNpEp" style="display:none;"></span>
+          <h2 class="dj-now-playing-title" id="djNpTitle">Press play to start</h2>
+          <p class="dj-now-playing-desc" id="djNpDesc"></p>
+        </div>
+
+        <!-- CONTROLS -->
+        <div class="dj-controls">
+          <button type="button" class="dj-btn-prev" id="djPrev" aria-label="Previous track" title="Previous">&#9198;</button>
+          <button type="button" class="dj-btn-play" id="djPlay" aria-label="Play" title="Play">&#9654;&#65039;</button>
+          <button type="button" class="dj-btn-next" id="djNext" aria-label="Next track" title="Next">&#9197;</button>
+          <button type="button" class="dj-btn-repeat" id="djRepeat" aria-label="Repeat mode" title="Repeat off">&#128257;</button>
+        </div>
+
+        <!-- PROGRESS -->
+        <div class="dj-progress-row">
+          <span class="dj-progress-time" id="djTime">0:00</span>
+          <div class="dj-progress-bar-wrap" id="djProgressWrap">
+            <div class="dj-progress-bar-fill" id="djProgressFill"></div>
+            <input type="range" id="djSeek" min="0" max="1000" value="0" step="1" aria-label="Seek" />
+          </div>
+          <span class="dj-progress-time" id="djDuration">0:00</span>
+        </div>
+
+        <!-- TRACK LIST -->
+        <section class="dj-tracklist-section">
+          <h2>Tracklist</h2>
+          <div id="djTracklist"></div>
+        </section>
+
+        <!-- SPOTIFY -->
+        <section class="dj-spotify-section">
+          <h2>Full Playlists on Spotify</h2>
+          <div class="dj-spotify-buttons">
+            <a href="https://open.spotify.com/playlist/0otpKZoGiISkRo3Pxutc6R" target="_blank" rel="noopener noreferrer" class="dj-spotify-btn">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+              LAIDIES Jams Vol. 1
+            </a>
+            <a href="https://open.spotify.com/playlist/2r39nbnpuxb7L0TcAovpwq" target="_blank" rel="noopener noreferrer" class="dj-spotify-btn">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+              LAIDIES Jams Vol. 2
+            </a>
+          </div>
+        </section>
+
+        <!-- BACK LINK -->
+        <div class="dj-back-link">
+          <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        <span class="footer-brand"><span class="wordmark" aria-label="lAIdies trademark"><span>l</span><strong>AI</strong><span>dies</span></span><sup class="legal-mark">&trade;</sup></span>
+        <span class="footer-legal">&copy; 2026 Ali Eakin. All rights reserved.</span>
+      </p>
+      <div>
+        <a href="https://www.instagram.com/we.are.laidies/" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="../community.html">The Room</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../terms.html">Terms</a>
+      </div>
+    </footer>
+
+    <script>
+    (function() {
+      // === TRACK DATA ===
+      var tracks = [
+        {
+          ep: "EP 1",
+          title: "On Wednesday We Do AI",
+          src: "../content/music/dj-jaidy-week-01-on-wednesday-we-do-ai.mp3",
+          desc: "The anthem that started it all."
+        },
+        {
+          ep: "EP 2",
+          title: "Tell Me What You Want",
+          src: "../content/music/dj-jaidy-week-02-tell-me-what-you-want.mp3",
+          desc: "When your prompt game is strong."
+        },
+        {
+          ep: "BONUS",
+          title: "Impossible to Underestimate You",
+          src: "../content/music/dj-jaidy-impossible-to-underestimate-you.mp3",
+          desc: "For the woman who works with a mansplainer."
+        },
+        {
+          ep: "BONUS",
+          title: "Tomorrow\u2019s Problem",
+          src: "../content/music/debs-tomorrow-problem.mp3",
+          desc: "Deb\u2019s anthem for procrastinators everywhere."
+        }
+      ];
+
+      // === ELEMENTS ===
+      var audio = new Audio();
+      audio.preload = "metadata";
+      var currentTrack = -1;
+      var repeatMode = 0; // 0=off, 1=all, 2=one
+      var isPlaying = false;
+
+      var visualRow = document.getElementById("djVisualRow");
+      var playBtn = document.getElementById("djPlay");
+      var prevBtn = document.getElementById("djPrev");
+      var nextBtn = document.getElementById("djNext");
+      var repeatBtn = document.getElementById("djRepeat");
+      var seekBar = document.getElementById("djSeek");
+      var progressFill = document.getElementById("djProgressFill");
+      var timeEl = document.getElementById("djTime");
+      var durationEl = document.getElementById("djDuration");
+      var npTitle = document.getElementById("djNpTitle");
+      var npEp = document.getElementById("djNpEp");
+      var npDesc = document.getElementById("djNpDesc");
+      var tracklistEl = document.getElementById("djTracklist");
+
+      // === BUILD TRACKLIST ===
+      tracks.forEach(function(t, i) {
+        var card = document.createElement("div");
+        card.className = "dj-track-card";
+        card.setAttribute("data-track", i);
+        card.setAttribute("role", "button");
+        card.setAttribute("tabindex", "0");
+        card.innerHTML =
+          '<span class="dj-track-card-number">' + String(i + 1).padStart(2, "0") + '</span>' +
+          '<span class="dj-track-card-badge">' + t.ep + '</span>' +
+          '<div class="dj-track-card-info">' +
+            '<div class="dj-track-card-title">' + t.title + '</div>' +
+            '<div class="dj-track-card-desc">' + t.desc + '</div>' +
+          '</div>' +
+          '<span class="dj-track-card-duration" data-dur-idx="' + i + '"></span>';
+        card.addEventListener("click", function() { playTrack(i); });
+        card.addEventListener("keydown", function(e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); playTrack(i); } });
+        tracklistEl.appendChild(card);
+      });
+
+      // === HELPERS ===
+      function formatTime(s) {
+        if (!s || isNaN(s)) return "0:00";
+        var m = Math.floor(s / 60);
+        var sec = Math.floor(s % 60);
+        return m + ":" + (sec < 10 ? "0" : "") + sec;
+      }
+
+      function updatePlayState() {
+        if (isPlaying) {
+          visualRow.classList.add("is-playing");
+          playBtn.innerHTML = "&#9208;&#65039;";
+          playBtn.setAttribute("aria-label", "Pause");
+          playBtn.title = "Pause";
+        } else {
+          visualRow.classList.remove("is-playing");
+          playBtn.innerHTML = "&#9654;&#65039;";
+          playBtn.setAttribute("aria-label", "Play");
+          playBtn.title = "Play";
+        }
+      }
+
+      function setActiveCard(index) {
+        var cards = tracklistEl.querySelectorAll(".dj-track-card");
+        cards.forEach(function(c, i) {
+          c.classList.toggle("is-active", i === index);
+        });
+      }
+
+      function loadTrack(index) {
+        currentTrack = index;
+        var t = tracks[index];
+        audio.src = t.src;
+        npTitle.textContent = t.title;
+        npEp.textContent = t.ep;
+        npEp.style.display = "inline-block";
+        npDesc.textContent = t.desc;
+        setActiveCard(index);
+        progressFill.style.width = "0%";
+        seekBar.value = 0;
+        timeEl.textContent = "0:00";
+      }
+
+      function playTrack(index) {
+        if (index < 0 || index >= tracks.length) return;
+        loadTrack(index);
+        audio.play().catch(function() {});
+        isPlaying = true;
+        updatePlayState();
+      }
+
+      // === CONTROLS ===
+      playBtn.addEventListener("click", function() {
+        if (currentTrack === -1) { playTrack(0); return; }
+        if (isPlaying) {
+          audio.pause();
+          isPlaying = false;
+        } else {
+          audio.play().catch(function() {});
+          isPlaying = true;
+        }
+        updatePlayState();
+      });
+
+      prevBtn.addEventListener("click", function() {
+        if (currentTrack === -1) { playTrack(0); return; }
+        if (audio.currentTime > 3) { audio.currentTime = 0; return; }
+        var prev = currentTrack - 1;
+        if (prev < 0) prev = tracks.length - 1;
+        playTrack(prev);
+      });
+
+      nextBtn.addEventListener("click", function() {
+        var next = (currentTrack === -1 ? 0 : currentTrack + 1);
+        if (next >= tracks.length) next = 0;
+        playTrack(next);
+      });
+
+      repeatBtn.addEventListener("click", function() {
+        repeatMode = (repeatMode + 1) % 3;
+        var labels = ["\u{1F501}", "\u{1F501}", "\u{1F502}"];
+        var titles = ["Repeat off", "Repeat all", "Repeat one"];
+        repeatBtn.textContent = labels[repeatMode];
+        repeatBtn.title = titles[repeatMode];
+        repeatBtn.classList.toggle("is-active", repeatMode > 0);
+      });
+
+      // === AUDIO EVENTS ===
+      audio.addEventListener("ended", function() {
+        if (repeatMode === 2) { audio.currentTime = 0; audio.play(); return; }
+        var next = currentTrack + 1;
+        if (next >= tracks.length) {
+          if (repeatMode === 1) { playTrack(0); }
+          else { isPlaying = false; updatePlayState(); }
+        } else {
+          playTrack(next);
+        }
+      });
+
+      audio.addEventListener("timeupdate", function() {
+        if (!audio.duration) return;
+        var pct = (audio.currentTime / audio.duration) * 100;
+        progressFill.style.width = pct + "%";
+        seekBar.value = Math.round((audio.currentTime / audio.duration) * 1000);
+        timeEl.textContent = formatTime(audio.currentTime);
+      });
+
+      audio.addEventListener("loadedmetadata", function() {
+        durationEl.textContent = formatTime(audio.duration);
+        // Update card duration
+        var durEl = document.querySelector('[data-dur-idx="' + currentTrack + '"]');
+        if (durEl) durEl.textContent = formatTime(audio.duration);
+      });
+
+      seekBar.addEventListener("input", function() {
+        if (audio.duration) {
+          audio.currentTime = (seekBar.value / 1000) * audio.duration;
+          progressFill.style.width = (seekBar.value / 10) + "%";
+        }
+      });
+
+      // === PRELOAD DURATIONS ===
+      tracks.forEach(function(t, i) {
+        var tempAudio = new Audio();
+        tempAudio.preload = "metadata";
+        tempAudio.src = t.src;
+        tempAudio.addEventListener("loadedmetadata", function() {
+          var durEl = document.querySelector('[data-dur-idx="' + i + '"]');
+          if (durEl) durEl.textContent = formatTime(tempAudio.duration);
+        });
+      });
+
+    })();
+    </script>
+  </body>
+</html>

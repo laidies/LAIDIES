@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Weekly Fun Pack | LAIDIES Clubhouse</title>
+    <meta name="description" content="This week's activity bundle: quiz, trading cards, try-on, and printables — all tied to the current episode." />
+    <meta name="theme-color" content="#ff2d9b" />
+    <link rel="icon" type="image/png" href="../assets/laidies-logo-square.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --hot-pink: #ff2d9b;
+        --dark-bg: #0d0611;
+        --card-bg: linear-gradient(145deg, #1a0a12, #2d0f1f);
+        --pink-border: rgba(255, 45, 155, 0.4);
+        --muted: rgba(255, 255, 255, 0.5);
+        --teal: #247b83;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: 'Inter', -apple-system, sans-serif;
+        background: var(--dark-bg);
+        color: #fff;
+        min-height: 100vh;
+        line-height: 1.5;
+      }
+      a { color: var(--hot-pink); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      /* Site Header */
+      .site-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px clamp(14px, 3vw, 32px);
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        background: rgba(13, 6, 17, 0.95);
+        backdrop-filter: blur(8px);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .site-header .brand img { height: 28px; display: block; }
+      .site-header nav { display: flex; gap: 16px; margin-left: auto; font-size: 0.82rem; }
+      .site-header nav a { color: rgba(255,255,255,0.7); }
+      .site-header nav a:hover { color: #fff; }
+      .hamburger-btn { display: none; background: none; border: none; color: #fff; font-size: 1.4rem; cursor: pointer; }
+      @media (max-width: 680px) {
+        .site-header nav { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--dark-bg); padding: 16px; border-bottom: 1px solid var(--pink-border); }
+        .hamburger-btn { display: block; margin-left: auto; }
+      }
+
+      /* Page Layout */
+      .game-page-wrap {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: clamp(24px, 4vw, 48px) clamp(14px, 3vw, 32px);
+      }
+      .game-page-header {
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+      .game-page-header a {
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+      .eyebrow {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--hot-pink);
+        font-weight: 700;
+      }
+
+      /* Title Section */
+      .page-title-section {
+        text-align: center;
+        margin-bottom: 36px;
+      }
+      .page-title-section h1 {
+        font-family: Georgia, serif;
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.1;
+        margin: 8px 0 12px;
+      }
+      .page-title-section .subtitle {
+        color: var(--muted);
+        font-size: 1rem;
+        max-width: 520px;
+        margin: 0 auto;
+      }
+
+      /* Episode Selector */
+      .episode-selector {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+      }
+      .ep-btn {
+        padding: 8px 16px;
+        border-radius: 20px;
+        border: 1.5px solid var(--pink-border);
+        background: transparent;
+        color: rgba(255,255,255,0.7);
+        font-size: 0.82rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .ep-btn:hover {
+        border-color: var(--hot-pink);
+        color: #fff;
+      }
+      .ep-btn.is-active {
+        background: var(--hot-pink);
+        border-color: var(--hot-pink);
+        color: #fff;
+      }
+
+      /* Activity Grid */
+      .activity-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        margin-bottom: 40px;
+      }
+      @media (max-width: 560px) {
+        .activity-grid { grid-template-columns: 1fr; }
+      }
+
+      .activity-card {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid var(--pink-border);
+        border-radius: 16px;
+        background: var(--card-bg);
+        overflow: hidden;
+        text-decoration: none;
+        color: #fff;
+        transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      }
+      .activity-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(255, 45, 155, 0.25);
+        border-color: var(--hot-pink);
+        text-decoration: none;
+      }
+      .activity-card-image {
+        position: relative;
+        width: 100%;
+        height: 160px;
+        overflow: hidden;
+      }
+      .activity-card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .activity-card-time {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(0,0,0,0.7);
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: var(--hot-pink);
+      }
+      .activity-card-body {
+        padding: 18px 16px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        flex: 1;
+      }
+      .activity-card-body h3 {
+        font-family: Georgia, serif;
+        font-size: 1.05rem;
+        line-height: 1.2;
+      }
+      .activity-card-body p {
+        font-size: 0.8rem;
+        color: rgba(255,255,255,0.6);
+        line-height: 1.4;
+        flex: 1;
+      }
+      .activity-card-body .card-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        margin-top: 10px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: var(--hot-pink);
+        transition: gap 0.2s;
+      }
+      .activity-card:hover .card-cta { gap: 8px; }
+
+      /* Episode info card */
+      .episode-info {
+        background: var(--card-bg);
+        border: 1px solid var(--pink-border);
+        border-radius: 12px;
+        padding: 20px 24px;
+        margin-bottom: 32px;
+        text-align: center;
+      }
+      .episode-info h2 {
+        font-family: Georgia, serif;
+        font-size: 1.1rem;
+        margin-bottom: 4px;
+      }
+      .episode-info p {
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+
+      /* Footer */
+      .back-link {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: 1px solid var(--pink-border);
+        border-radius: 8px;
+        font-size: 0.85rem;
+        color: rgba(255,255,255,0.7);
+        transition: border-color 0.2s, color 0.2s;
+      }
+      .back-link:hover { border-color: var(--hot-pink); color: #fff; text-decoration: none; }
+    </style>
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="lAIdies home">
+        <img src="../assets/laidies-logo-wordmark.png" alt="LAIDIES" />
+      </a>
+      <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=this.nextElementSibling;if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'\u2630':'\u2715';this.setAttribute('aria-expanded',!isOpen);">&#9776;</button>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="../episodes.html">Episodes</a>
+        <a href="../learn.html">Learn</a>
+        <a href="../clubhouse.html">Clubhouse</a>
+        <a href="../community.html">Community</a>
+        <a href="../clubhouse.html#dj-booth-inline">Listen</a>
+        <a href="../this-week.html">This Week</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="game-page-wrap">
+        <div class="game-page-header">
+          <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
+        </div>
+
+        <!-- Title -->
+        <section class="page-title-section">
+          <p class="eyebrow">Clubhouse &bull; Fun Pack</p>
+          <h1>Weekly Fun Pack</h1>
+          <p class="subtitle">This week&rsquo;s activities tied to Episode 2. Quiz, collect, try, print &mdash; all five minutes or less.</p>
+        </section>
+
+        <!-- Episode Selector -->
+        <div class="episode-selector" role="group" aria-label="Select episode fun pack">
+          <button class="ep-btn" data-ep="issue01" type="button">Issue 01</button>
+          <button class="ep-btn is-active" data-ep="issue02" type="button">Issue 02</button>
+        </div>
+
+        <!-- Episode Context -->
+        <div class="episode-info" id="episodeInfo">
+          <h2 id="epTitle">Episode 2: Tell Me What You Want</h2>
+          <p id="epDesc">The one where she learns to write specific, context-rich prompts that produce usable work output.</p>
+        </div>
+
+        <!-- Activity Grid -->
+        <div class="activity-grid" id="activityGrid">
+          <!-- Magazine Quiz -->
+          <a href="../learn.html#quiz" class="activity-card" data-activity="quiz">
+            <div class="activity-card-image">
+              <img src="../assets/quiz-teen-magazine.png" alt="Retro teen magazine quiz page with pink accents" loading="lazy" />
+              <span class="activity-card-time">~3 min</span>
+            </div>
+            <div class="activity-card-body">
+              <h3>Magazine Quiz</h3>
+              <p>Match the analogy to the AI concept and earn a digital sticker for your card. 10 questions, no Scantron.</p>
+              <span class="card-cta">Take the quiz &rarr;</span>
+            </div>
+          </a>
+
+          <!-- Trading Cards -->
+          <a href="trading-cards.html" class="activity-card" data-activity="cards">
+            <div class="activity-card-image">
+              <img src="../assets/trading-card-pack.webp" alt="Shiny pink foil trading card pack with AI concept cards" loading="lazy" />
+              <span class="activity-card-time">~2 min</span>
+            </div>
+            <div class="activity-card-body">
+              <h3>Trading Cards</h3>
+              <p>Rip open the foil pack, flip each card to learn the concept, and collect them all in your binder.</p>
+              <span class="card-cta">Open a pack &rarr;</span>
+            </div>
+          </a>
+
+          <!-- Five-Minute Try-On -->
+          <a href="../this-week.html#playbook" class="activity-card" data-activity="tryon">
+            <div class="activity-card-image">
+              <img src="../assets/five-minute-try-on-game.webp" alt="Five-minute try-on game spinner board" loading="lazy" />
+              <span class="activity-card-time">~5 min</span>
+            </div>
+            <div class="activity-card-body">
+              <h3>Five-Minute Try-On</h3>
+              <p>One small work dare pulled from this week&rsquo;s episode. Low stakes, immediate payoff.</p>
+              <span class="card-cta">Spin the board &rarr;</span>
+            </div>
+          </a>
+
+          <!-- Printable Cheat Sheet -->
+          <a href="../assets/prompt-cheat-sheet-issue02.pdf" download class="activity-card" data-activity="printable">
+            <div class="activity-card-image">
+              <img src="../assets/trading-card-specificity.webp" alt="Neon pink cheat sheet card about prompting specificity" loading="lazy" />
+              <span class="activity-card-time">~1 min</span>
+            </div>
+            <div class="activity-card-body">
+              <h3>Printable Cheat Sheet</h3>
+              <p>A one-page prompt formula card. Print it, stick it on your monitor, and never stare at a blank chat box again.</p>
+              <span class="card-cta">Download PDF &darr;</span>
+            </div>
+          </a>
+        </div>
+
+        <a class="back-link" href="../clubhouse.html">&larr; Back to Clubhouse</a>
+      </div>
+    </main>
+
+    <script>
+    (function() {
+      'use strict';
+
+      const episodes = {
+        issue01: {
+          title: 'Episode 1: On Wednesdays We Use AI',
+          desc: 'The one where she opens the AI tab for the first time without making it a whole personality crisis.',
+          quiz: '../learn.html#quiz',
+          cards: 'trading-cards.html',
+          tryon: '../this-week.html#playbook',
+          printable: '../assets/prompt-cheat-sheet-issue01.pdf',
+          quizImg: '../assets/quiz-teen-magazine.png',
+          cardsImg: '../assets/trading-card-pack.webp',
+          tryonImg: '../assets/five-minute-try-on-game.webp',
+          printImg: '../assets/ugh-as-if.png',
+        },
+        issue02: {
+          title: 'Episode 2: Tell Me What You Want',
+          desc: 'The one where she learns to write specific, context-rich prompts that produce usable work output.',
+          quiz: '../learn.html#quiz',
+          cards: 'trading-cards.html',
+          tryon: '../this-week.html#playbook',
+          printable: '../assets/prompt-cheat-sheet-issue02.pdf',
+          quizImg: '../assets/quiz-teen-magazine.png',
+          cardsImg: '../assets/trading-card-pack.webp',
+          tryonImg: '../assets/five-minute-try-on-game.webp',
+          printImg: '../assets/trading-card-specificity.webp',
+        }
+      };
+
+      const epBtns = document.querySelectorAll('.ep-btn');
+      const epTitle = document.getElementById('epTitle');
+      const epDesc = document.getElementById('epDesc');
+
+      function switchEpisode(ep) {
+        const data = episodes[ep];
+        if (!data) return;
+
+        epBtns.forEach(b => b.classList.toggle('is-active', b.dataset.ep === ep));
+        epTitle.textContent = data.title;
+        epDesc.textContent = data.desc;
+
+        // Update links
+        const grid = document.getElementById('activityGrid');
+        const cards = grid.querySelectorAll('.activity-card');
+        const links = [data.quiz, data.cards, data.tryon, data.printable];
+        cards.forEach((card, i) => {
+          if (links[i]) card.href = links[i];
+        });
+      }
+
+      epBtns.forEach(btn => {
+        btn.addEventListener('click', () => switchEpisode(btn.dataset.ep));
+      });
+    })();
+    </script>
+  </body>
+</html>

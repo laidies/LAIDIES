@@ -7,103 +7,606 @@
     <meta name="description" content="Ask the crystal ball for a career and life reading. Practical advice, late-night-commercial drama." />
     <meta name="theme-color" content="#ff2d9b" />
     <link rel="icon" type="image/png" href="../assets/laidies-logo-square.png" />
-    <link rel="stylesheet" href="../styles.css?v=games-extract-1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Georgia&family=Dancing+Script:wght@400;700&family=JetBrains+Mono:wght@400&family=Inter:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="../styles.css?v=games-extract-2" />
     <style>
-      .game-page-wrap { max-width: 680px; margin: 0 auto; padding: clamp(18px, 4vw, 48px) clamp(14px, 3vw, 32px); }
-      .game-page-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
-      .game-page-header a { font-size: 0.85rem; font-weight: 600; text-decoration: none; color: var(--hot-pink); }
-      .game-page-header a:hover { text-decoration: underline; }
-      .game-page-title { display: grid; gap: 8px; margin-bottom: 32px; }
-      .game-page-title h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.1; }
-      .game-page-title p { color: var(--muted); max-width: 600px; }
+      :root {
+        --hotline-pink: #ff2d9b;
+        --hotline-gold: #ffd700;
+        --hotline-dark: #1a0a12;
+        --hotline-plum: #2d0f1f;
+        --hotline-card-bg: rgba(20, 5, 15, 0.92);
+        --hotline-card-border: linear-gradient(135deg, #ffd700, #ff2d9b, #ffd700);
+      }
 
-      .psychic-stage { text-align: center; margin-bottom: 24px; }
-      .psychic-stage img { max-width: 260px; width: 100%; height: auto; filter: drop-shadow(0 8px 24px rgba(255, 45, 155, 0.25)); }
+      body {
+        background: linear-gradient(160deg, #1a0a12, #2d0f1f, #1a0a12) !important;
+        min-height: 100vh;
+        font-family: 'Inter', sans-serif;
+        color: #f0e6ec;
+      }
+
+      /* ===== Site Header ===== */
+      .site-header {
+        background: rgba(26, 10, 18, 0.95);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid rgba(255, 45, 155, 0.15);
+      }
+      .site-header .nav a { color: #f0e6ec; }
+      .site-header .nav a:hover { color: var(--hotline-pink); }
+
+      /* ===== Call Counter Badge ===== */
+      .call-counter {
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        background: rgba(20, 5, 15, 0.9);
+        border: 1px solid rgba(255, 215, 0, 0.4);
+        border-radius: 20px;
+        padding: 6px 14px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--hotline-gold);
+        letter-spacing: 0.05em;
+        z-index: 100;
+        box-shadow: 0 2px 12px rgba(255, 215, 0, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .call-counter.pulse {
+        animation: counterPulse 0.5s ease;
+      }
+      @keyframes counterPulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.15); box-shadow: 0 2px 20px rgba(255, 215, 0, 0.4); }
+        100% { transform: scale(1); }
+      }
+
+      /* ===== Main Content ===== */
+      .game-page-wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: clamp(18px, 4vw, 48px) clamp(14px, 3vw, 32px);
+      }
+      .game-page-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(255, 45, 155, 0.15);
+      }
+      .game-page-header a {
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: var(--hotline-pink);
+      }
+      .game-page-header a:hover { text-decoration: underline; }
+
+      .game-page-title {
+        display: grid;
+        gap: 8px;
+        margin-bottom: 32px;
+        text-align: center;
+      }
+      .game-page-title .eyebrow {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--hotline-gold);
+        font-weight: 700;
+      }
+      .game-page-title h1 {
+        font-family: 'Georgia', serif;
+        font-size: clamp(2.2rem, 5vw, 3.4rem);
+        line-height: 1.1;
+        background: linear-gradient(135deg, var(--hotline-pink), var(--hotline-gold), var(--hotline-pink));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: none;
+      }
+      .game-page-title .subtitle {
+        color: rgba(240, 230, 236, 0.7);
+        font-size: 1rem;
+        font-style: italic;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      /* ===== Psychic Stage with Crystal Ball Glow ===== */
+      .psychic-stage {
+        text-align: center;
+        margin-bottom: 32px;
+        position: relative;
+      }
+
+      .crystal-ball-container {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 24px;
+      }
+
+      /* Crystal ball glow pulse */
+      .crystal-ball-container::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 85%;
+        height: 85%;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 45, 155, 0.3), rgba(128, 0, 128, 0.15), transparent 70%);
+        animation: crystalGlow 3s ease-in-out infinite;
+        z-index: 0;
+        filter: blur(20px);
+      }
+
+      @keyframes crystalGlow {
+        0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+        50% { opacity: 1; transform: translate(-50%, -50%) scale(1.12); }
+      }
+
+      /* Sparkle decorations */
+      .crystal-ball-container::after {
+        content: '✦';
+        position: absolute;
+        top: 10%;
+        right: 5%;
+        font-size: 1.2rem;
+        color: var(--hotline-gold);
+        animation: sparkleRotate 4s ease-in-out infinite;
+        z-index: 3;
+      }
+
+      .sparkle-1, .sparkle-2, .sparkle-3, .sparkle-4 {
+        position: absolute;
+        color: var(--hotline-gold);
+        font-size: 0.9rem;
+        z-index: 3;
+        pointer-events: none;
+      }
+      .sparkle-1 {
+        top: 5%;
+        left: 10%;
+        animation: sparkleFloat 3.5s ease-in-out infinite 0.5s;
+      }
+      .sparkle-2 {
+        bottom: 15%;
+        right: 8%;
+        animation: sparkleFloat 2.8s ease-in-out infinite 1s;
+      }
+      .sparkle-3 {
+        top: 40%;
+        left: 2%;
+        animation: sparkleFloat 4s ease-in-out infinite 0.2s;
+      }
+      .sparkle-4 {
+        bottom: 25%;
+        left: 5%;
+        animation: sparkleFloat 3.2s ease-in-out infinite 1.5s;
+      }
+
+      @keyframes sparkleRotate {
+        0%, 100% { opacity: 0.4; transform: rotate(0deg) scale(0.8); }
+        50% { opacity: 1; transform: rotate(180deg) scale(1.2); }
+      }
+      @keyframes sparkleFloat {
+        0%, 100% { opacity: 0.3; transform: translateY(0) scale(0.7); }
+        50% { opacity: 1; transform: translateY(-6px) scale(1.1); }
+      }
+
+      .crystal-ball-container img {
+        position: relative;
+        z-index: 1;
+        max-width: 280px;
+        width: 100%;
+        height: auto;
+        filter: drop-shadow(0 8px 32px rgba(255, 45, 155, 0.35));
+        transition: transform 0.3s ease;
+      }
+      .crystal-ball-container:hover img {
+        transform: scale(1.02);
+      }
+
+      /* ===== Call Button with Pulsing Glow ===== */
       .call-button {
         display: inline-block;
-        margin-top: 16px;
-        padding: 14px 32px;
-        border: 3px solid var(--hot-pink);
-        border-radius: 40px;
-        background: linear-gradient(135deg, var(--plum), var(--ink));
+        margin-top: 8px;
+        padding: 16px 40px;
+        border: none;
+        border-radius: 50px;
+        background: linear-gradient(135deg, #ff2d9b, #d4006a);
         color: white;
-        font-size: 1.1rem;
+        font-size: 1.15rem;
         font-weight: 700;
-        letter-spacing: 0.02em;
+        letter-spacing: 0.03em;
         cursor: pointer;
+        text-transform: uppercase;
         transition: transform 0.15s, box-shadow 0.2s;
-        box-shadow: var(--glow);
+        box-shadow: 0 0 20px rgba(255, 45, 155, 0.4), 0 0 60px rgba(255, 45, 155, 0.15);
+        animation: buttonPulse 2.5s ease-in-out infinite;
+        position: relative;
+        overflow: hidden;
       }
-      .call-button:hover { transform: scale(1.04); box-shadow: 0 0 28px rgba(255, 45, 155, 0.5); }
+      .call-button::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        animation: buttonShine 3s ease-in-out infinite;
+      }
+      @keyframes buttonPulse {
+        0%, 100% { box-shadow: 0 0 20px rgba(255, 45, 155, 0.4), 0 0 60px rgba(255, 45, 155, 0.15); }
+        50% { box-shadow: 0 0 30px rgba(255, 45, 155, 0.6), 0 0 80px rgba(255, 45, 155, 0.25); }
+      }
+      @keyframes buttonShine {
+        0% { transform: translateX(-100%) rotate(45deg); }
+        30%, 100% { transform: translateX(100%) rotate(45deg); }
+      }
+      .call-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 35px rgba(255, 45, 155, 0.7), 0 0 90px rgba(255, 45, 155, 0.3);
+      }
       .call-button:active { transform: scale(0.97); }
+      .call-button:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+        animation: none;
+      }
 
+      /* ===== Calling Transition ===== */
+      .calling-state {
+        display: none;
+        text-align: center;
+        padding: 32px 20px;
+        margin-top: 24px;
+      }
+      .calling-state.is-visible { display: block; animation: fadeIn 0.3s ease; }
+      .calling-text {
+        font-family: 'Georgia', serif;
+        font-size: 1.1rem;
+        color: var(--hotline-pink);
+        font-style: italic;
+      }
+      .calling-dots {
+        display: inline-block;
+        animation: dotPulse 1.2s steps(4, end) infinite;
+      }
+      @keyframes dotPulse {
+        0% { content: ''; }
+        25% { content: '.'; }
+        50% { content: '..'; }
+        75% { content: '...'; }
+      }
+      .calling-dots::after {
+        content: '';
+        animation: dotsAnim 1.5s steps(4, end) infinite;
+      }
+      @keyframes dotsAnim {
+        0% { content: ''; }
+        25% { content: '.'; }
+        50% { content: '..'; }
+        75%, 100% { content: '...'; }
+      }
+      .calling-stars {
+        margin-top: 12px;
+        font-size: 1.3rem;
+        animation: starsFloat 1.5s ease-in-out infinite;
+      }
+      @keyframes starsFloat {
+        0%, 100% { opacity: 0.5; transform: translateY(0); }
+        50% { opacity: 1; transform: translateY(-4px); }
+      }
+
+      /* ===== Fortune Card — Premium Dark Tarot Style ===== */
       .fortune-card {
         margin-top: 28px;
-        padding: 24px;
-        border: 2px solid var(--hot-pink);
-        border-radius: 14px;
-        background: linear-gradient(145deg, var(--paper), var(--mist));
+        padding: 28px 24px;
+        border-radius: 16px;
+        background: var(--hotline-card-bg);
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        position: relative;
         display: none;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 215, 0, 0.1);
       }
-      .fortune-card.is-visible { display: block; animation: cardReveal 0.4s ease; }
-      @keyframes cardReveal { 0% { opacity: 0; transform: translateY(12px) scale(0.97); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
-      .fortune-card-name { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--hot-pink); margin-bottom: 8px; }
-      .fortune-card h3 { font-size: 1.3rem; margin: 0 0 12px; line-height: 1.3; }
-      .fortune-card-section { margin-top: 12px; }
-      .fortune-card-section strong { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); display: block; margin-bottom: 4px; }
-      .fortune-card-section p { margin: 0; line-height: 1.55; }
-      .fortune-card-move { margin-top: 16px; padding: 12px 16px; background: rgba(255, 45, 155, 0.08); border-radius: 8px; border-left: 3px solid var(--hot-pink); }
-      .fortune-card-move strong { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--hot-pink); display: block; margin-bottom: 4px; }
+      .fortune-card::before {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        border-radius: 18px;
+        background: linear-gradient(135deg, var(--hotline-gold), var(--hotline-pink), var(--hotline-gold));
+        z-index: -1;
+        opacity: 0.8;
+      }
+      .fortune-card.is-visible {
+        display: block;
+        animation: cardReveal 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      @keyframes cardReveal {
+        0% { opacity: 0; transform: translateY(20px) scale(0.95) rotateX(5deg); }
+        100% { opacity: 1; transform: translateY(0) scale(1) rotateX(0); }
+      }
+      @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
 
-      .microcopy { font-size: 0.82rem; color: var(--muted); margin-top: 16px; text-align: center; }
-      .reading-count { text-align: center; margin-top: 12px; font-size: 0.82rem; color: var(--muted); }
-      .badge-reveal { margin-top: 20px; padding: 14px; border: 2px dashed var(--hot-pink); border-radius: 10px; text-align: center; display: none; }
+      .fortune-card-flourish {
+        text-align: center;
+        font-size: 0.8rem;
+        color: var(--hotline-gold);
+        margin-bottom: 12px;
+        opacity: 0;
+        animation: flourishIn 0.5s ease 0.4s forwards;
+        letter-spacing: 0.05em;
+      }
+      @keyframes flourishIn {
+        0% { opacity: 0; transform: scale(0.8); }
+        100% { opacity: 1; transform: scale(1); }
+      }
+
+      .fortune-card-name {
+        font-family: 'Georgia', serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--hotline-gold);
+        text-align: center;
+        margin-bottom: 16px;
+        text-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+      }
+
+      .fortune-card-section {
+        margin-top: 16px;
+        padding: 14px 16px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 10px;
+        border-left: 3px solid rgba(255, 45, 155, 0.5);
+      }
+      .fortune-card-section strong {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--hotline-pink);
+        display: block;
+        margin-bottom: 6px;
+      }
+      .fortune-card-section p {
+        margin: 0;
+        line-height: 1.6;
+        color: #f0e6ec;
+        font-size: 0.95rem;
+      }
+
+      .fortune-card-move {
+        margin-top: 16px;
+        padding: 16px;
+        background: rgba(255, 215, 0, 0.06);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 215, 0, 0.2);
+        border-left: 3px solid var(--hotline-gold);
+      }
+      .fortune-card-move strong {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--hotline-gold);
+        display: block;
+        margin-bottom: 6px;
+      }
+      .fortune-card-move p {
+        margin: 0;
+        line-height: 1.6;
+        color: #f0e6ec;
+        font-size: 0.95rem;
+      }
+
+      /* ===== Call History ===== */
+      .call-history {
+        margin-top: 40px;
+        display: grid;
+        gap: 12px;
+      }
+      .call-history-title {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: rgba(240, 230, 236, 0.4);
+        margin-bottom: 4px;
+      }
+      .history-card {
+        padding: 14px 16px;
+        background: rgba(20, 5, 15, 0.6);
+        border: 1px solid rgba(255, 45, 155, 0.12);
+        border-radius: 10px;
+        opacity: 0.6;
+        transition: opacity 0.2s;
+      }
+      .history-card:hover { opacity: 0.85; }
+      .history-card-name {
+        font-family: 'Georgia', serif;
+        font-size: 0.9rem;
+        color: var(--hotline-gold);
+        margin-bottom: 4px;
+      }
+      .history-card-text {
+        font-size: 0.82rem;
+        color: rgba(240, 230, 236, 0.6);
+        line-height: 1.4;
+      }
+
+      /* ===== Microcopy & Badge ===== */
+      .reading-progress {
+        text-align: center;
+        margin-top: 24px;
+        font-size: 0.82rem;
+        color: rgba(240, 230, 236, 0.5);
+      }
+      .progress-bar {
+        width: 200px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        margin: 8px auto 0;
+        overflow: hidden;
+      }
+      .progress-bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--hotline-pink), var(--hotline-gold));
+        border-radius: 4px;
+        transition: width 0.5s ease;
+        width: 0%;
+      }
+
+      .microcopy {
+        font-size: 0.82rem;
+        color: rgba(240, 230, 236, 0.4);
+        margin-top: 16px;
+        text-align: center;
+      }
+
+      .badge-reveal {
+        margin-top: 24px;
+        padding: 18px;
+        border: 2px solid var(--hotline-gold);
+        border-radius: 14px;
+        text-align: center;
+        display: none;
+        background: rgba(255, 215, 0, 0.05);
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+        animation: badgeGlow 2s ease-in-out infinite;
+      }
       .badge-reveal.is-visible { display: block; }
-      .badge-reveal strong { color: var(--hot-pink); }
+      @keyframes badgeGlow {
+        0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.1); }
+        50% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.2); }
+      }
+      .badge-reveal strong { color: var(--hotline-gold); font-size: 1.05rem; }
+      .badge-reveal p { color: rgba(240, 230, 236, 0.7); margin-top: 8px; font-size: 0.9rem; }
+
+      /* ===== Footer link ===== */
+      .back-link-wrap {
+        text-align: center;
+        padding: 32px 20px 48px;
+      }
+      .back-link-wrap a {
+        display: inline-block;
+        padding: 10px 24px;
+        border: 1px solid rgba(255, 45, 155, 0.3);
+        border-radius: 24px;
+        color: var(--hotline-pink);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: background 0.2s, border-color 0.2s;
+      }
+      .back-link-wrap a:hover {
+        background: rgba(255, 45, 155, 0.1);
+        border-color: var(--hotline-pink);
+      }
+
+      /* ===== Ambient background stars ===== */
+      .bg-stars {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+      }
+      .bg-star {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: var(--hotline-gold);
+        border-radius: 50%;
+        animation: twinkle var(--dur) ease-in-out infinite var(--delay);
+      }
+      @keyframes twinkle {
+        0%, 100% { opacity: 0.1; }
+        50% { opacity: 0.7; }
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 600px) {
+        .call-counter {
+          position: static;
+          text-align: center;
+          margin-bottom: 12px;
+          display: inline-block;
+        }
+        .crystal-ball-container img { max-width: 220px; }
+        .fortune-card { padding: 20px 16px; }
+      }
     </style>
     <!-- Privacy-friendly analytics by Plausible -->
-<script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
-<script>
-  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
-</script>
-</head>
+    <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+  </head>
   <body>
+    <!-- Ambient background stars -->
+    <div class="bg-stars" id="bgStars"></div>
+
     <header class="site-header">
-      <button onclick="history.back()" style="background: none; border: none; color: var(--hot-pink); font-size: 0.85rem; cursor: pointer; padding: 4px 8px; text-decoration: underline;" aria-label="Go back">← Back</button>
-        <a class="brand" href="../index.html" aria-label="lAIdies home">
+      <button onclick="history.back()" style="background: none; border: none; color: var(--hotline-pink, #ff2d9b); font-size: 0.85rem; cursor: pointer; padding: 4px 8px; text-decoration: underline;" aria-label="Go back">← Back</button>
+      <a class="brand" href="../index.html" aria-label="lAIdies home">
         <img src="../assets/laidies-logo-wordmark.png" alt="LAIDIES" />
       </a>
-      <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=this.nextElementSibling;if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'☰':'✕';this.setAttribute('aria-expanded',!isOpen);">☰</button>
-        <nav class="nav" aria-label="Primary navigation">
+      <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+      <nav class="nav" aria-label="Primary navigation">
         <a href="../episodes.html">Episodes</a>
         <a href="../learn.html">Learn</a>
         <a href="../clubhouse.html">Clubhouse</a>
         <a href="../community.html">Community</a>
-    <a href="../clubhouse.html#dj-booth-inline">Listen</a>
+        <a href="../clubhouse.html#dj-booth-inline">Listen</a>
         <a href="../this-week.html">This Week</a>
       </nav>
     </header>
+
+    <!-- Call Counter -->
+    <div class="call-counter" id="callCounter">📞 Call #0</div>
 
     <main>
       <div class="game-page-wrap">
         <div class="game-page-header">
           <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
         </div>
+
         <div class="game-page-title">
-          <p class="eyebrow">Psychic Hotline</p>
+          <p class="eyebrow">✨ Psychic Hotline ✨</p>
           <h1>Madame CLAI-O</h1>
-          <p>Ask the crystal ball for a career and life reading. Practical advice, late-night-commercial drama. Each card gives you the read, the message, and the next move.</p>
+          <p class="subtitle">Practical advice, late-night-commercial drama.</p>
         </div>
 
+        <!-- Psychic Stage -->
         <div class="psychic-stage">
-          <img src="../assets/madame-claio-crystal-phone-v3.png" alt="Madame CLAI-O crystal ball phone" />
+          <div class="crystal-ball-container">
+            <span class="sparkle-1">✦</span>
+            <span class="sparkle-2">✧</span>
+            <span class="sparkle-3">⋆</span>
+            <span class="sparkle-4">✦</span>
+            <img src="../assets/madame-claio-character-v1.png" alt="Madame CLAI-O" />
+          </div>
           <div>
-            <button class="call-button" type="button" id="fortuneButton">Call now for your reading</button>
+            <button class="call-button" type="button" id="fortuneButton">📞 CALL NOW FOR YOUR READING</button>
           </div>
         </div>
 
+        <!-- Calling Transition -->
+        <div class="calling-state" id="callingState">
+          <p class="calling-text">Connecting to the psychic hotline<span class="calling-dots"></span></p>
+          <p class="calling-stars">✨ 🔮 ✨</p>
+        </div>
+
+        <!-- Fortune Card -->
         <div class="fortune-card" id="fortuneCard">
+          <p class="fortune-card-flourish" id="fortuneFlourish">🔮 <em>crystal ball activates</em> 🔮</p>
           <p class="fortune-card-name" id="fortuneCardName"></p>
           <div class="fortune-card-section">
             <strong>The Read</strong>
@@ -114,41 +617,99 @@
             <p id="fortuneMessage"></p>
           </div>
           <div class="fortune-card-move">
-            <strong>Your Next Move</strong>
+            <strong>✦ Your Next Move</strong>
             <p id="fortuneMove"></p>
           </div>
         </div>
 
-        <p class="reading-count" id="readingCount">Readings: 0</p>
+        <!-- Progress toward badge -->
+        <div class="reading-progress" id="readingProgress">
+          <span id="progressText">0 / 5 calls to unlock Hotline Regular 🔮</span>
+          <div class="progress-bar">
+            <div class="progress-bar-fill" id="progressFill"></div>
+          </div>
+        </div>
+
         <p class="microcopy">Madame CLAI-O has 60 cards in her deck. Keep calling for new readings.</p>
 
+        <!-- Call History -->
+        <div class="call-history" id="callHistory" style="display: none;">
+          <p class="call-history-title">📜 Recent Readings</p>
+        </div>
+
+        <!-- Badge Reveal -->
         <div class="badge-reveal" id="badgeReveal">
           <strong>🔮 Hotline Regular merit badge unlocked!</strong>
           <p>You have called more times than Cher changed outfits before her driver's test. Madame CLAI-O recognizes your number.</p>
         </div>
       </div>
-    
-    <div style="text-align: center; padding: 32px 20px 48px;">
-      <a class="button secondary" href="../index.html">← Back to Home</a>
-    </div>
-  </main>
+
+      <div class="back-link-wrap">
+        <a href="../clubhouse.html">← Back to Clubhouse</a>
+      </div>
+    </main>
 
     <script>
       // Fortune cards — the full 60-card deck
-      const fortuneCards=[{card:"The Butterfly Clip",read:"You are overthinking something that only needs one cute, decisive move.",message:"The room does not need a ten-point thesis. It needs you to say the thing clearly.",move:"Send the shorter version before your brain adds a subplot."},{card:"The Away Message",read:"You are technically available, spiritually buffering.",message:"Your calendar is not a personality. Protect one hour like it is your AIM password.",move:"Block the time, name the task, and stop apologizing to the air."},{card:"The Mall Directory",read:"You are not lost. You are standing next to the map refusing to admit you need it.",message:"Ask for the direction, the example, the template, or the intro. Mystery is not a management style.",move:"Ask one specific person one specific question today."},{card:"The Glitter Gel Pen",read:"You want the work to feel more fun because the current version has beige conference-room lighting.",message:"Add a hook, a joke, a sharper title, or a visual. Professional does not have to mean flavorless.",move:"Change the first line. If the first line gets better, the whole thing wakes up."},{card:"The Platform Sandal",read:"You are ready for a bigger step, but you keep pretending this is about comfort.",message:"It is allowed to feel awkward and still be correct. Growth rarely arrives in sensible flats.",move:"Make the ask. The wobble is not evidence against you."},{card:"The Clear Hotline Phone",read:"The answer is not hiding. It is ringing loudly on a transparent phone from 1999.",message:"Pick up before your brain sends the call to voicemail and calls it strategy.",move:"Name the decision, the deadline, and the person who needs to hear it."},{card:"The Caboodle",read:"Your tools are everywhere, and your patience is under a butterfly clip somewhere.",message:"The problem is not that you have no resources. The problem is that none of them have a home.",move:"Put one prompt, one template, and one useful link in the same place today."},{card:"The Roll-On Glitter",read:"You are trying to make a dull thing delightful, and frankly, correct.",message:"A little sparkle is not the opposite of substance. It is how people remember the substance.",move:"Add one memorable phrase, example, or visual before you send it."},{card:"The AIM Door Slam",read:"Someone has exited the conversation emotionally, but the window is still open.",message:"Do not keep typing into silence. Ask for the decision, the owner, or the next step.",move:"Send one clean follow-up with a deadline and no apology confetti."},{card:"The Burned CD",read:"You are curating too many tracks and calling it a plan.",message:"Sequencing matters. Put the opener first, the banger second, and the deep cut after they trust you.",move:"Reorder the work so the first three points tell the story."},{card:"The Pink Razr",read:"You want to be reachable, but not available to every tiny emergency wearing lip gloss.",message:"Access to you is not the same thing as ownership of your attention.",move:"Set one boundary in writing before the day gets louder."},{card:"The Claw Clip",read:"You are holding the whole thing together with one plastic hinge and prayer.",message:"This is not sustainable just because it has technically worked before.",move:"Pick one task to delegate, delete, or turn into a template."},{card:"The Low-Rise Jeans",read:"The current plan is technically on, but nobody should have to live like this.",message:"If the process only works when everyone holds their breath, it does not fit.",move:"Fix the waistband: scope, timeline, owner, or expectation."},{card:"The Claire's Receipt",read:"Tiny purchases have become a pattern, and the pattern has receipts.",message:"The small things are telling you the real story. Listen before it becomes a quarterly issue.",move:"Write down the repeat friction and ask what system would prevent it."},{card:"The Trucker Hat",read:"You are trying on an identity before you are ready to admit it looks good.",message:"Sometimes the role feels costume-y because it is new, not because it is wrong.",move:"Do one thing today as the person who already has the title."},{card:"The Newsboy Cap",read:"You are giving 'casual Friday' to a situation that needs actual editorial judgment.",message:"Cute angle, but the story still needs a headline, a point, and a reason to keep reading.",move:"Rewrite the title so a busy woman knows why she should care."},{card:"The Lip Smacker",read:"The idea is good, but the delivery needs flavor.",message:"Useful does not have to be dry. Dry is how good advice ends up unread in a tab cemetery.",move:"Add the analogy that would make your smartest friend laugh and nod."},{card:"The Mall Fountain",read:"You keep tossing wishes into the same water and calling it momentum.",message:"A wish is not a plan. A plan has a next action and usually fewer coins.",move:"Turn the wish into one sentence that starts with 'Today I will.'"},{card:"The Food Court Table",read:"Everyone has opinions, one person has napkins, and somehow this is where clarity happens.",message:"Bring the messy version to the table. The polished version is not required for useful feedback.",move:"Ask the group for one improvement, not a standing ovation."},{card:"The Blockbuster Return Slot",read:"There is something overdue that you keep pretending is still within the rental period.",message:"The late fee is emotional now. Return the thing, close the loop, or ask for more time.",move:"Send the status update before someone has to ask."},{card:"The Lava Lamp",read:"The answer is moving slowly, dramatically, and with more mood lighting than necessary.",message:"Not every decision gets faster because you stare at it. Some things need time and a container.",move:"Set a review date, then stop poking it every twelve minutes."},{card:"The Tamagotchi",read:"A tiny obligation is beeping because you ignored it for too long.",message:"Maintenance is not glamorous, but neither is explaining why the whole thing died.",move:"Feed the system: update the tracker, reply to the message, or clean the data."},{card:"The Magic 8 Ball",read:"You already know the answer, but you would like a plastic orb to take liability.",message:"Outlook good, but only if you stop outsourcing your judgment to anything round and mysterious.",move:"Write the recommendation and the reason. Then send it to one reviewer."},{card:"The Scrunchie",read:"You need flexibility, not a full reinvention with a launch plan.",message:"Pull the work back, twist once, and make it manageable. Not everything needs a blowout.",move:"Create the simpler version that still gets the job done."},{card:"The Spice Rack",read:"You are saying you want flavor, but the prompt is giving plain oatmeal.",message:"Specificity is seasoning. Add audience, tone, examples, and what good looks like.",move:"Rewrite one vague ask with five concrete details."},{card:"The Denim Jacket",read:"You do not need a new personality. You need one reliable layer.",message:"Build a reusable frame for the work you keep doing from scratch.",move:"Turn your last good email, prompt, or summary into a template."},{card:"The Platform Sneaker",read:"You want height without admitting you are ambitious. Interesting.",message:"Wanting more does not make you difficult. It makes you awake.",move:"Say the ambition plainly in one sentence and do not laugh it off."},{card:"The Yearbook Caption",read:"You are worried about how this will look later, which means you care about the story.",message:"Good. Now make the caption accurate, not self-deprecating.",move:"Describe the win without shrinking it for comfort."},{card:"The Locker Mirror",read:"You are checking everyone else's reaction before checking your own face.",message:"External validation is not a project plan. It is lip gloss lighting.",move:"Ask yourself what you would recommend if this were your friend's problem."},{card:"The Glitter Body Spray",read:"The room can tell when something is covering up panic with sparkle.",message:"Polish is lovely. Clarity is better. Use both, in that order.",move:"Cut the decorative paragraph and keep the sentence with the point."},{card:"The Dance Mix Volume 4",read:"You have energy, but it is not yet arranged into a tracklist.",message:"Momentum without sequencing becomes noise with a beat.",move:"Put the next five tasks in the order they actually need to happen."},{card:"The Jelly Sandal",read:"This looks fun, but there may be a blister by 3 p.m.",message:"A shiny opportunity still needs a friction check.",move:"Ask what support, scope, and authority come with the yes."},{card:"The Blue Eyeshadow",read:"You are making a bold choice, and part of you knows it.",message:"Bold is fine. Just blend the edges so the idea can survive office lighting.",move:"Pair the big idea with one practical next step."},{card:"The VHS Tracking Line",read:"The message is almost clear, but the screen keeps wobbling.",message:"This needs adjustment, not abandonment.",move:"Ask AI or a smart friend: 'What is the clearest version of this?'"},{card:"The Polaroid",read:"You are judging the picture before it has had time to develop.",message:"Not every first draft is evidence. Some are just chemistry in progress.",move:"Wait ten minutes, then edit with taste instead of panic."},{card:"The Pager",read:"Something keeps interrupting you with a code you never agreed to learn.",message:"Translate the signal. Is it urgent, important, political, or just loud?",move:"Sort the interruption before you respond to it."},{card:"The Beaded Curtain",read:"There is a threshold here, and you are making it more dramatic than it needs to be.",message:"Walk through. The beads will make noise. That is their whole job.",move:"Take the first visible step and let the drama be decorative."},{card:"The CD Skip",read:"You keep landing on the same part of the problem.",message:"That is not a coincidence. That is the scratch.",move:"Fix the recurring issue instead of replaying the whole meeting."},{card:"The Rhinestone Belt",read:"You are trying to make structure look optional. It is not.",message:"The sparkle works because the belt is holding something together.",move:"Add the structure: owner, date, decision, and next step."},{card:"The Lip Gloss Wand",read:"You are one swipe away from making the draft presentable.",message:"Do not rebuild the whole thing. Finish the surface pass and move on.",move:"Fix the opener, remove one hedge, and send the cleaner version."},{card:"The Portable CD Player",read:"You are trying to move fast while holding something delicate and emotionally important.",message:"That is possible, but you need anti-skip protection.",move:"Build in one review point before the work goes public."},{card:"The Charm Bracelet",read:"Every little win is starting to add up, even if it jingles when you type.",message:"Stop dismissing small progress because it is not a full transformation montage.",move:"Write down three things you can do now that felt impossible last month."},{card:"The Glitter Folder",read:"Your receipts exist. They are just not organized enough to defend you yet.",message:"A win you cannot find is still a win, but it is less useful in a meeting.",move:"Create one brag file and add the last three useful receipts."},{card:"The Orange Couch",read:"The group needs a place to sit with the weird question.",message:"You do not have to solve it alone in a hallway monologue.",move:"Bring the question to the room with what you tried and what is stuck."},{card:"The Ceramic Flat Iron",read:"You are applying heat to something that only needed a comb.",message:"Not every issue needs maximum intensity. Some need a calmer tool.",move:"Choose the least dramatic fix that still works."},{card:"The Mini Backpack",read:"You are carrying too much in a bag designed for lip gloss and vibes from 2001.",message:"Capacity matters. Stop calling overload a time management issue.",move:"Remove one commitment before adding another shiny thing."},{card:"The Frosted Lipstick",read:"The idea is very visible, but the tone may be doing too much.",message:"Shine is good. Frostbite is not the goal.",move:"Make the message warmer, shorter, and less like it was typed during a weather event."},{card:"The Group Project Poster",read:"You are doing everyone's letters in bubble font again.",message:"Being reliable is not the same as volunteering to absorb the entire mess.",move:"Ask who owns which piece, by when, in writing."},{card:"The Scholastic Order Form",read:"You want six things, but the budget, time, and attention only cover two.",message:"Choose like a woman with standards and a finite backpack.",move:"Pick the two highest-value items and circle them in hot pink."},{card:"The Sequin Tank",read:"You are wondering if it is too much. It might be. That may be the point.",message:"If the room is too beige, a little shine can be public service.",move:"Keep the bold part and cut the part that is just nervous decoration."},{card:"The Delia's Catalog",read:"You have too many options and every one of them is wearing a different tiny tank top.",message:"Choice is only powerful once you stop circling everything on the page.",move:"Pick one direction, one backup, and one thing you are officially not buying."},{card:"The AOL Dial-Up Tone",read:"The connection is happening, but everyone involved is making alarming noises.",message:"Slow does not mean broken. It means the system is trying to connect through seventeen layers of old wiring.",move:"Give the process a cleaner input and one minute to load."},{card:"The Frosted Hair Streaks",read:"You are making a small change that everyone is going to notice immediately.",message:"That does not make it wrong. It makes it visible.",move:"Prepare the one-sentence explanation before you walk into the room."},{card:"The Trapper Keeper",read:"Your brain has tabs, pockets, stickers, and exactly one loose permission slip.",message:"Organization is not a moral failing. It is how good ideas survive Tuesdays.",move:"Make one home for the notes, links, and decisions before they become hallway folklore."},{card:"The Bulletin Board Border",read:"The content is fine, but the edges are doing absolutely nothing for you.",message:"Presentation matters because busy people decide whether to care before they decide whether to agree.",move:"Add the headline, the spacing, and the one visual cue that says where to look."},{card:"The Gel Pen That Ran Out",read:"You started with flair and are now writing in emergency pencil.",message:"Running out of energy halfway through does not mean the idea was bad. It means the format was too long.",move:"Cut the draft by one-third and keep the sentence with the pulse."},{card:"The Babysitters Club Notebook",read:"The group needs roles, not more enthusiasm in matching handwriting.",message:"Friendship is lovely. Accountability is how the flyer actually gets printed.",move:"Write down who owns the plan, the backup, the message, and the snacks."},{card:"The Capri Pant",read:"This solution is almost full-length but keeps stopping at a confusing place.",message:"Half a process can be worse than no process if everyone trips over the missing part.",move:"Name what happens before, during, and after the handoff."},{card:"The Glitter Eyeshadow Palette",read:"You are tempted to use every color because every color is technically available.",message:"Restraint is not boring. It is why the sparkle lands instead of becoming a craft accident.",move:"Choose one main point, one accent, and leave the rest in the palette."},{card:"The Nokia Brick",read:"You are underestimating the plain sturdy thing because it does not look glamorous.",message:"Durable beats dramatic when the week is already doing parkour.",move:"Use the simple system that survives being dropped."},{card:"The Lisa Frank Binder",read:"Your idea is loud, colorful, and more structured than people expect.",message:"Do not flatten it to look serious. Make the structure obvious and let the color do its job.",move:"Lead with the practical outcome, then let the personality through."}];
+      const fortuneCards=[{card:"The Butterfly Clip",read:"You are overthinking something that only needs one cute, decisive move.",message:"The room does not need a ten-point thesis. It needs you to say the thing clearly.",move:"Send the shorter version before your brain adds a subplot."},{card:"The Away Message",read:"You are technically available, spiritually buffering.",message:"Your calendar is not a personality. Protect one hour like it is your AIM password.",move:"Block the time, name the task, and stop apologizing to the air."},{card:"The Mall Directory",read:"You are not lost. You are standing next to the map refusing to admit you need it.",message:"Ask for the direction, the example, the template, or the intro. Mystery is not a management style.",move:"Ask one specific person one specific question today."},{card:"The Glitter Gel Pen",read:"You want the work to feel more fun because the current version has beige conference-room lighting.",message:"Add a hook, a joke, a sharper title, or a visual. Professional does not have to mean flavorless.",move:"Change the first line. If the first line gets better, the whole thing wakes up."},{card:"The Platform Sandal",read:"You are ready for a bigger step, but you keep pretending this is about comfort.",message:"It is allowed to feel awkward and still be correct. Growth rarely arrives in sensible flats.",move:"Make the ask. The wobble is not evidence against you."},{card:"The Clear Hotline Phone",read:"The answer is not hiding. It is ringing loudly on a transparent phone from 1999.",message:"Pick up before your brain sends the call to voicemail and calls it strategy.",move:"Name the decision, the deadline, and the person who needs to hear it."},{card:"The Caboodle",read:"Your tools are everywhere, and your patience is under a butterfly clip somewhere.",message:"The problem is not that you have no resources. The problem is that none of them have a home.",move:"Put one prompt, one template, and one useful link in the same place today."},{card:"The Roll-On Glitter",read:"You are trying to make a dull thing delightful, and frankly, correct.",message:"A little sparkle is not the opposite of substance. It is how people remember the substance.",move:"Add one memorable phrase, example, or visual before you send it."},{card:"The AIM Door Slam",read:"Someone has exited the conversation emotionally, but the window is still open.",message:"Do not keep typing into silence. Ask for the decision, the owner, or the next step.",move:"Send one clean follow-up with a deadline and no apology confetti."},{card:"The Burned CD",read:"You are curating too many tracks and calling it a plan.",message:"Sequencing matters. Put the opener first, the banger second, and the deep cut after they trust you.",move:"Reorder the work so the first three points tell the story."},{card:"The Pink Razr",read:"You want to be reachable, but not available to every tiny emergency wearing lip gloss.",message:"Access to you is not the same thing as ownership of your attention.",move:"Set one boundary in writing before the day gets louder."},{card:"The Claw Clip",read:"You are holding the whole thing together with one plastic hinge and prayer.",message:"This is not sustainable just because it has technically worked before.",move:"Pick one task to delegate, delete, or turn into a template."},{card:"The Low-Rise Jeans",read:"The current plan is technically on, but nobody should have to live like this.",message:"If the process only works when everyone holds their breath, it does not fit.",move:"Fix the waistband: scope, timeline, owner, or expectation."},{card:"The Claire\'s Receipt",read:"Tiny purchases have become a pattern, and the pattern has receipts.",message:"The small things are telling you the real story. Listen before it becomes a quarterly issue.",move:"Write down the repeat friction and ask what system would prevent it."},{card:"The Trucker Hat",read:"You are trying on an identity before you are ready to admit it looks good.",message:"Sometimes the role feels costume-y because it is new, not because it is wrong.",move:"Do one thing today as the person who already has the title."},{card:"The Newsboy Cap",read:"You are giving \'casual Friday\' to a situation that needs actual editorial judgment.",message:"Cute angle, but the story still needs a headline, a point, and a reason to keep reading.",move:"Rewrite the title so a busy woman knows why she should care."},{card:"The Lip Smacker",read:"The idea is good, but the delivery needs flavor.",message:"Useful does not have to be dry. Dry is how good advice ends up unread in a tab cemetery.",move:"Add the analogy that would make your smartest friend laugh and nod."},{card:"The Mall Fountain",read:"You keep tossing wishes into the same water and calling it momentum.",message:"A wish is not a plan. A plan has a next action and usually fewer coins.",move:"Turn the wish into one sentence that starts with \'Today I will.\'"},{card:"The Food Court Table",read:"Everyone has opinions, one person has napkins, and somehow this is where clarity happens.",message:"Bring the messy version to the table. The polished version is not required for useful feedback.",move:"Ask the group for one improvement, not a standing ovation."},{card:"The Blockbuster Return Slot",read:"There is something overdue that you keep pretending is still within the rental period.",message:"The late fee is emotional now. Return the thing, close the loop, or ask for more time.",move:"Send the status update before someone has to ask."},{card:"The Lava Lamp",read:"The answer is moving slowly, dramatically, and with more mood lighting than necessary.",message:"Not every decision gets faster because you stare at it. Some things need time and a container.",move:"Set a review date, then stop poking it every twelve minutes."},{card:"The Tamagotchi",read:"A tiny obligation is beeping because you ignored it for too long.",message:"Maintenance is not glamorous, but neither is explaining why the whole thing died.",move:"Feed the system: update the tracker, reply to the message, or clean the data."},{card:"The Magic 8 Ball",read:"You already know the answer, but you would like a plastic orb to take liability.",message:"Outlook good, but only if you stop outsourcing your judgment to anything round and mysterious.",move:"Write the recommendation and the reason. Then send it to one reviewer."},{card:"The Scrunchie",read:"You need flexibility, not a full reinvention with a launch plan.",message:"Pull the work back, twist once, and make it manageable. Not everything needs a blowout.",move:"Create the simpler version that still gets the job done."},{card:"The Spice Rack",read:"You are saying you want flavor, but the prompt is giving plain oatmeal.",message:"Specificity is seasoning. Add audience, tone, examples, and what good looks like.",move:"Rewrite one vague ask with five concrete details."},{card:"The Denim Jacket",read:"You do not need a new personality. You need one reliable layer.",message:"Build a reusable frame for the work you keep doing from scratch.",move:"Turn your last good email, prompt, or summary into a template."},{card:"The Platform Sneaker",read:"You want height without admitting you are ambitious. Interesting.",message:"Wanting more does not make you difficult. It makes you awake.",move:"Say the ambition plainly in one sentence and do not laugh it off."},{card:"The Yearbook Caption",read:"You are worried about how this will look later, which means you care about the story.",message:"Good. Now make the caption accurate, not self-deprecating.",move:"Describe the win without shrinking it for comfort."},{card:"The Locker Mirror",read:"You are checking everyone else\'s reaction before checking your own face.",message:"External validation is not a project plan. It is lip gloss lighting.",move:"Ask yourself what you would recommend if this were your friend\'s problem."},{card:"The Glitter Body Spray",read:"The room can tell when something is covering up panic with sparkle.",message:"Polish is lovely. Clarity is better. Use both, in that order.",move:"Cut the decorative paragraph and keep the sentence with the point."},{card:"The Dance Mix Volume 4",read:"You have energy, but it is not yet arranged into a tracklist.",message:"Momentum without sequencing becomes noise with a beat.",move:"Put the next five tasks in the order they actually need to happen."},{card:"The Jelly Sandal",read:"This looks fun, but there may be a blister by 3 p.m.",message:"A shiny opportunity still needs a friction check.",move:"Ask what support, scope, and authority come with the yes."},{card:"The Blue Eyeshadow",read:"You are making a bold choice, and part of you knows it.",message:"Bold is fine. Just blend the edges so the idea can survive office lighting.",move:"Pair the big idea with one practical next step."},{card:"The VHS Tracking Line",read:"The message is almost clear, but the screen keeps wobbling.",message:"This needs adjustment, not abandonment.",move:"Ask AI or a smart friend: \'What is the clearest version of this?\'\n"},{card:"The Polaroid",read:"You are judging the picture before it has had time to develop.",message:"Not every first draft is evidence. Some are just chemistry in progress.",move:"Wait ten minutes, then edit with taste instead of panic."},{card:"The Pager",read:"Something keeps interrupting you with a code you never agreed to learn.",message:"Translate the signal. Is it urgent, important, political, or just loud?",move:"Sort the interruption before you respond to it."},{card:"The Beaded Curtain",read:"There is a threshold here, and you are making it more dramatic than it needs to be.",message:"Walk through. The beads will make noise. That is their whole job.",move:"Take the first visible step and let the drama be decorative."},{card:"The CD Skip",read:"You keep landing on the same part of the problem.",message:"That is not a coincidence. That is the scratch.",move:"Fix the recurring issue instead of replaying the whole meeting."},{card:"The Rhinestone Belt",read:"You are trying to make structure look optional. It is not.",message:"The sparkle works because the belt is holding something together.",move:"Add the structure: owner, date, decision, and next step."},{card:"The Lip Gloss Wand",read:"You are one swipe away from making the draft presentable.",message:"Do not rebuild the whole thing. Finish the surface pass and move on.",move:"Fix the opener, remove one hedge, and send the cleaner version."},{card:"The Portable CD Player",read:"You are trying to move fast while holding something delicate and emotionally important.",message:"That is possible, but you need anti-skip protection.",move:"Build in one review point before the work goes public."},{card:"The Charm Bracelet",read:"Every little win is starting to add up, even if it jingles when you type.",message:"Stop dismissing small progress because it is not a full transformation montage.",move:"Write down three things you can do now that felt impossible last month."},{card:"The Glitter Folder",read:"Your receipts exist. They are just not organized enough to defend you yet.",message:"A win you cannot find is still a win, but it is less useful in a meeting.",move:"Create one brag file and add the last three useful receipts."},{card:"The Orange Couch",read:"The group needs a place to sit with the weird question.",message:"You do not have to solve it alone in a hallway monologue.",move:"Bring the question to the room with what you tried and what is stuck."},{card:"The Ceramic Flat Iron",read:"You are applying heat to something that only needed a comb.",message:"Not every issue needs maximum intensity. Some need a calmer tool.",move:"Choose the least dramatic fix that still works."},{card:"The Mini Backpack",read:"You are carrying too much in a bag designed for lip gloss and vibes from 2001.",message:"Capacity matters. Stop calling overload a time management issue.",move:"Remove one commitment before adding another shiny thing."},{card:"The Frosted Lipstick",read:"The idea is very visible, but the tone may be doing too much.",message:"Shine is good. Frostbite is not the goal.",move:"Make the message warmer, shorter, and less like it was typed during a weather event."},{card:"The Group Project Poster",read:"You are doing everyone\'s letters in bubble font again.",message:"Being reliable is not the same as volunteering to absorb the entire mess.",move:"Ask who owns which piece, by when, in writing."},{card:"The Scholastic Order Form",read:"You want six things, but the budget, time, and attention only cover two.",message:"Choose like a woman with standards and a finite backpack.",move:"Pick the two highest-value items and circle them in hot pink."},{card:"The Sequin Tank",read:"You are wondering if it is too much. It might be. That may be the point.",message:"If the room is too beige, a little shine can be public service.",move:"Keep the bold part and cut the part that is just nervous decoration."},{card:"The Delia\'s Catalog",read:"You have too many options and every one of them is wearing a different tiny tank top.",message:"Choice is only powerful once you stop circling everything on the page.",move:"Pick one direction, one backup, and one thing you are officially not buying."},{card:"The AOL Dial-Up Tone",read:"The connection is happening, but everyone involved is making alarming noises.",message:"Slow does not mean broken. It means the system is trying to connect through seventeen layers of old wiring.",move:"Give the process a cleaner input and one minute to load."},{card:"The Frosted Hair Streaks",read:"You are making a small change that everyone is going to notice immediately.",message:"That does not make it wrong. It makes it visible.",move:"Prepare the one-sentence explanation before you walk into the room."},{card:"The Trapper Keeper",read:"Your brain has tabs, pockets, stickers, and exactly one loose permission slip.",message:"Organization is not a moral failing. It is how good ideas survive Tuesdays.",move:"Make one home for the notes, links, and decisions before they become hallway folklore."},{card:"The Bulletin Board Border",read:"The content is fine, but the edges are doing absolutely nothing for you.",message:"Presentation matters because busy people decide whether to care before they decide whether to agree.",move:"Add the headline, the spacing, and the one visual cue that says where to look."},{card:"The Gel Pen That Ran Out",read:"You started with flair and are now writing in emergency pencil.",message:"Running out of energy halfway through does not mean the idea was bad. It means the format was too long.",move:"Cut the draft by one-third and keep the sentence with the pulse."},{card:"The Babysitters Club Notebook",read:"The group needs roles, not more enthusiasm in matching handwriting.",message:"Friendship is lovely. Accountability is how the flyer actually gets printed.",move:"Write down who owns the plan, the backup, the message, and the snacks."},{card:"The Capri Pant",read:"This solution is almost full-length but keeps stopping at a confusing place.",message:"Half a process can be worse than no process if everyone trips over the missing part.",move:"Name what happens before, during, and after the handoff."},{card:"The Glitter Eyeshadow Palette",read:"You are tempted to use every color because every color is technically available.",message:"Restraint is not boring. It is why the sparkle lands instead of becoming a craft accident.",move:"Choose one main point, one accent, and leave the rest in the palette."},{card:"The Nokia Brick",read:"You are underestimating the plain sturdy thing because it does not look glamorous.",message:"Durable beats dramatic when the week is already doing parkour.",move:"Use the simple system that survives being dropped."},{card:"The Lisa Frank Binder",read:"Your idea is loud, colorful, and more structured than people expect.",message:"Do not flatten it to look serious. Make the structure obvious and let the color do its job.",move:"Lead with the practical outcome, then let the personality through."}];
 
       let lastIndex = -1;
-      let readingCount = 0;
-      const BADGE_THRESHOLD = 10;
+      let readingCount = parseInt(localStorage.getItem('claio-call-count') || '0');
+      let callHistory = JSON.parse(localStorage.getItem('claio-call-history') || '[]');
+      const BADGE_THRESHOLD = 5;
 
-      const button = document.querySelector("#fortuneButton");
-      const cardEl = document.querySelector("#fortuneCard");
-      const cardName = document.querySelector("#fortuneCardName");
-      const readEl = document.querySelector("#fortuneRead");
-      const messageEl = document.querySelector("#fortuneMessage");
-      const moveEl = document.querySelector("#fortuneMove");
-      const countEl = document.querySelector("#readingCount");
-      const badgeEl = document.querySelector("#badgeReveal");
+      const button = document.getElementById("fortuneButton");
+      const callingState = document.getElementById("callingState");
+      const cardEl = document.getElementById("fortuneCard");
+      const cardName = document.getElementById("fortuneCardName");
+      const flourishEl = document.getElementById("fortuneFlourish");
+      const readEl = document.getElementById("fortuneRead");
+      const messageEl = document.getElementById("fortuneMessage");
+      const moveEl = document.getElementById("fortuneMove");
+      const counterEl = document.getElementById("callCounter");
+      const progressText = document.getElementById("progressText");
+      const progressFill = document.getElementById("progressFill");
+      const historyEl = document.getElementById("callHistory");
+      const badgeEl = document.getElementById("badgeReveal");
+
+      // Initialize display
+      updateCounter();
+      renderHistory();
+      updateProgress();
+
+      function updateCounter() {
+        counterEl.textContent = `📞 Call #${readingCount}`;
+      }
+
+      function updateProgress() {
+        if (readingCount >= BADGE_THRESHOLD) {
+          document.getElementById('readingProgress').style.display = 'none';
+          badgeEl.classList.add('is-visible');
+        } else {
+          const pct = Math.min((readingCount / BADGE_THRESHOLD) * 100, 100);
+          progressFill.style.width = pct + '%';
+          progressText.textContent = `${readingCount} / ${BADGE_THRESHOLD} calls to unlock Hotline Regular 🔮`;
+        }
+      }
+
+      function renderHistory() {
+        // Clear old history cards (keep the title)
+        const existingCards = historyEl.querySelectorAll('.history-card');
+        existingCards.forEach(c => c.remove());
+
+        if (callHistory.length === 0) {
+          historyEl.style.display = 'none';
+          return;
+        }
+        historyEl.style.display = 'grid';
+        const recent = callHistory.slice(-3).reverse();
+        recent.forEach(item => {
+          const div = document.createElement('div');
+          div.className = 'history-card';
+          div.innerHTML = `<p class="history-card-name">${item.card}</p><p class="history-card-text">${item.read}</p>`;
+          historyEl.appendChild(div);
+        });
+      }
 
       function nextIndex(length, prev) {
         if (length <= 1) return 0;
@@ -158,64 +719,113 @@
       }
 
       button?.addEventListener("click", () => {
-        lastIndex = nextIndex(fortuneCards.length, lastIndex);
-        const fortune = fortuneCards[lastIndex];
-
-        cardName.textContent = fortune.card;
-        readEl.textContent = fortune.read;
-        messageEl.textContent = fortune.message;
-        moveEl.textContent = fortune.move;
-
+        // Hide previous card
         cardEl.classList.remove("is-visible");
-        void cardEl.offsetWidth;
-        cardEl.classList.add("is-visible");
+        // Show calling state
+        callingState.classList.add("is-visible");
+        button.disabled = true;
+        button.textContent = "☎️ CALLING...";
 
-        readingCount++;
-        countEl.textContent = `Readings: ${readingCount}`;
+        // After 1.5s transition, show the reading
+        setTimeout(() => {
+          callingState.classList.remove("is-visible");
+          button.disabled = false;
+          button.textContent = "📞 CALL AGAIN";
 
-        if (readingCount >= BADGE_THRESHOLD) {
-          badgeEl.classList.add("is-visible");
-          try {
-            const badges = JSON.parse(localStorage.getItem("laidiesSecretBadges") || "{}");
-            if (!badges["hotline-regular"]) {
-              badges["hotline-regular"] = {
-                id: "hotline-regular",
-                title: "Hotline Regular merit badge",
-                sticker: "CLAI-O",
-                unlockedAt: new Date().toISOString(),
-                source: "Madame CLAI-O",
-              };
-              localStorage.setItem("laidiesSecretBadges", JSON.stringify(badges));
-            }
-          } catch(e) {}
-        }
+          lastIndex = nextIndex(fortuneCards.length, lastIndex);
+          const fortune = fortuneCards[lastIndex];
+
+          cardName.textContent = fortune.card;
+          readEl.textContent = fortune.read;
+          messageEl.textContent = fortune.message;
+          moveEl.textContent = fortune.move;
+
+          // Reset flourish animation
+          flourishEl.style.animation = 'none';
+          void flourishEl.offsetWidth;
+          flourishEl.style.animation = '';
+
+          cardEl.classList.add("is-visible");
+
+          readingCount++;
+          localStorage.setItem('claio-call-count', readingCount.toString());
+
+          // Update call history
+          callHistory.push({ card: fortune.card, read: fortune.read });
+          if (callHistory.length > 10) callHistory = callHistory.slice(-10);
+          localStorage.setItem('claio-call-history', JSON.stringify(callHistory));
+
+          updateCounter();
+          updateProgress();
+          renderHistory();
+
+          // Pulse the counter
+          counterEl.classList.remove('pulse');
+          void counterEl.offsetWidth;
+          counterEl.classList.add('pulse');
+
+          // Badge check
+          if (readingCount >= BADGE_THRESHOLD) {
+            badgeEl.classList.add("is-visible");
+            try {
+              const badges = JSON.parse(localStorage.getItem("laidiesSecretBadges") || "{}");
+              if (!badges["hotline-regular"]) {
+                badges["hotline-regular"] = {
+                  id: "hotline-regular",
+                  title: "Hotline Regular merit badge",
+                  sticker: "CLAI-O",
+                  unlockedAt: new Date().toISOString(),
+                  source: "Madame CLAI-O",
+                };
+                localStorage.setItem("laidiesSecretBadges", JSON.stringify(badges));
+              }
+            } catch(e) {}
+          }
+
+          // Scroll to card
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 1500);
       });
+
+      // Generate ambient background stars
+      (function() {
+        const container = document.getElementById('bgStars');
+        for (let i = 0; i < 30; i++) {
+          const star = document.createElement('div');
+          star.className = 'bg-star';
+          star.style.left = Math.random() * 100 + '%';
+          star.style.top = Math.random() * 100 + '%';
+          star.style.setProperty('--dur', (2 + Math.random() * 4) + 's');
+          star.style.setProperty('--delay', (Math.random() * 3) + 's');
+          container.appendChild(star);
+        }
+      })();
     </script>
-  <script>
-(function(){
-  var btn = document.querySelector(".hamburger-btn");
-  var nav = document.querySelector(".site-header .nav");
-  if (!btn || !nav) return;
-  btn.addEventListener("click", function() {
-    var open = nav.classList.toggle("is-open");
-    btn.setAttribute("aria-expanded", open);
-    btn.textContent = open ? "✕" : "☰";
-  });
-  nav.addEventListener("click", function(e) {
-    if (e.target.tagName === "A") {
-      nav.classList.remove("is-open");
-      btn.setAttribute("aria-expanded", "false");
-      btn.textContent = "☰";
-    }
-  });
-  document.addEventListener("click", function(e) {
-    if (!btn.contains(e.target) && !nav.contains(e.target) && nav.classList.contains("is-open")) {
-      nav.classList.remove("is-open");
-      btn.setAttribute("aria-expanded", "false");
-      btn.textContent = "☰";
-    }
-  });
-})();
-</script>
-</body>
+    <script>
+      (function(){
+        var btn = document.querySelector(".hamburger-btn");
+        var nav = document.querySelector(".site-header .nav");
+        if (!btn || !nav) return;
+        btn.addEventListener("click", function() {
+          var open = nav.classList.toggle("is-open");
+          btn.setAttribute("aria-expanded", open);
+          btn.textContent = open ? "✕" : "☰";
+        });
+        nav.addEventListener("click", function(e) {
+          if (e.target.tagName === "A") {
+            nav.classList.remove("is-open");
+            btn.setAttribute("aria-expanded", "false");
+            btn.textContent = "☰";
+          }
+        });
+        document.addEventListener("click", function(e) {
+          if (!btn.contains(e.target) && !nav.contains(e.target) && nav.classList.contains("is-open")) {
+            nav.classList.remove("is-open");
+            btn.setAttribute("aria-expanded", "false");
+            btn.textContent = "☰";
+          }
+        });
+      })();
+    </script>
+  </body>
 </html>

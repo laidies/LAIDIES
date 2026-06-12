@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Businesswomen's Special | LAIDIES Clubhouse</title>
+    <meta name="description" content="Paper fortune teller picks your drink order. Choose cocktails or spirit-free, pick a mood, and open your drink fortune." />
+    <meta property="og:title" content="Businesswomen's Special | LAIDIES" />
+    <meta property="og:description" content="The coven has a reservation at 7. Paper fortune teller meets premium cocktail bar." />
+    <meta name="theme-color" content="#ff2d9b" />
+    <link rel="icon" type="image/png" href="../assets/laidies-logo-square.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap">
+    <link rel="stylesheet" href="../styles.css?v=bws-enhanced-1" />
+    <style>
+      :root {
+        --bws-pink: #ff2d9b;
+        --bws-gold: #d4a853;
+        --bws-amber: #f5a623;
+        --bws-dark: #0d0509;
+        --bws-plum: #1a0a12;
+        --bws-plum-mid: #2d0f1f;
+        --bws-card-bg: rgba(20, 5, 15, 0.92);
+        --bws-card-border: rgba(212, 168, 83, 0.3);
+        --bws-glow-pink: rgba(255, 45, 155, 0.4);
+        --bws-glow-gold: rgba(212, 168, 83, 0.3);
+        --bws-text: #f0e6ec;
+        --bws-text-muted: rgba(240, 230, 236, 0.6);
+      }
+
+      body {
+        background: linear-gradient(160deg, var(--bws-dark) 0%, var(--bws-plum) 30%, var(--bws-plum-mid) 60%, var(--bws-dark) 100%) !important;
+        min-height: 100vh;
+        font-family: 'Inter', sans-serif;
+        color: var(--bws-text);
+        overflow-x: hidden;
+      }
+
+      /* ===== Site Header ===== */
+      .site-header {
+        background: rgba(13, 5, 9, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 45, 155, 0.12);
+      }
+      .site-header .nav a { color: var(--bws-text); }
+      .site-header .nav a:hover { color: var(--bws-pink); }
+
+      /* ===== Page Layout ===== */
+      .game-page-wrap {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: clamp(20px, 5vw, 60px) clamp(16px, 4vw, 40px);
+      }
+
+      /* ===== Hero Section ===== */
+      .bws-hero {
+        text-align: center;
+        margin-bottom: 48px;
+        position: relative;
+      }
+      .bws-hero-image {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 28px;
+      }
+      .bws-hero-image img {
+        max-width: 280px;
+        width: 100%;
+        height: auto;
+        filter: drop-shadow(0 0 30px rgba(255, 45, 155, 0.15));
+        transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      .bws-hero-image.is-animating img {
+        animation: fortuneFold 1.2s ease-in-out;
+      }
+      @keyframes fortuneFold {
+        0% { transform: scale(1) rotateY(0deg); }
+        15% { transform: scale(0.95) rotateY(8deg); }
+        30% { transform: scale(0.9) rotateY(-6deg); }
+        45% { transform: scale(0.95) rotateY(5deg); }
+        60% { transform: scale(0.9) rotateY(-4deg); }
+        75% { transform: scale(0.95) rotateY(3deg); }
+        90% { transform: scale(0.98) rotateY(-1deg); }
+        100% { transform: scale(1) rotateY(0deg); }
+      }
+      .bws-hero-glow {
+        position: absolute;
+        top: 50%; left: 50%;
+        width: 300px; height: 300px;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(circle, rgba(255, 45, 155, 0.08) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+      }
+      .bws-hero h1 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        margin: 0 0 8px;
+        background: linear-gradient(135deg, #fff 0%, var(--bws-gold) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .bws-hero .subtitle {
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
+        color: var(--bws-text-muted);
+        font-style: italic;
+        margin: 0;
+      }
+
+      /* ===== Step Sections ===== */
+      .bws-step {
+        margin-bottom: 32px;
+      }
+      .bws-step-label {
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--bws-gold);
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .bws-step-label::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, var(--bws-gold), transparent);
+        opacity: 0.3;
+      }
+
+      /* ===== Lane Selection ===== */
+      .bws-lane-buttons {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .bws-lane-btn {
+        flex: 1;
+        min-width: 160px;
+        padding: 16px 20px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 2px solid rgba(255, 255, 255, 0.12);
+        border-radius: 14px;
+        cursor: pointer;
+        text-align: center;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+      .bws-lane-btn::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 50%;
+        width: 0; height: 3px;
+        background: var(--bws-pink);
+        border-radius: 2px;
+        transform: translateX(-50%);
+        transition: width 0.3s ease, box-shadow 0.3s ease;
+      }
+      .bws-lane-btn:hover {
+        border-color: rgba(255, 45, 155, 0.3);
+        background: rgba(255, 45, 155, 0.04);
+      }
+      .bws-lane-btn.is-selected {
+        border-color: var(--bws-pink);
+        background: rgba(255, 45, 155, 0.08);
+        box-shadow: 0 0 20px rgba(255, 45, 155, 0.15), inset 0 0 20px rgba(255, 45, 155, 0.05);
+      }
+      .bws-lane-btn.is-selected::after {
+        width: 60%;
+        box-shadow: 0 0 12px var(--bws-pink), 0 0 24px rgba(255, 45, 155, 0.3);
+      }
+      .bws-lane-btn strong {
+        display: block;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 4px;
+      }
+      .bws-lane-btn span {
+        font-size: 0.78rem;
+        color: var(--bws-text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      /* ===== Mood Grid ===== */
+      .bws-mood-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      @media (min-width: 540px) {
+        .bws-mood-grid { grid-template-columns: repeat(4, 1fr); }
+      }
+      .bws-mood-btn {
+        position: relative;
+        padding: 24px 16px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        cursor: pointer;
+        text-align: center;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+      .bws-mood-btn:hover {
+        transform: translateY(-2px);
+        border-color: rgba(255, 255, 255, 0.25);
+      }
+      .bws-mood-btn.is-selected {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      }
+      .bws-mood-icon {
+        font-size: 1.8rem;
+        display: block;
+        margin-bottom: 4px;
+        transition: transform 0.3s ease;
+      }
+      .bws-mood-btn:hover .bws-mood-icon { transform: scale(1.1); }
+      .bws-mood-btn strong {
+        display: block;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #fff;
+      }
+      .bws-mood-btn span {
+        font-size: 0.72rem;
+        color: var(--bws-text-muted);
+        line-height: 1.3;
+      }
+
+      /* Mood-specific colors */
+      .bws-mood-btn--bubble:hover, .bws-mood-btn--bubble.is-selected {
+        border-color: #f5c6d0;
+        background: rgba(245, 198, 208, 0.08);
+        box-shadow: 0 4px 20px rgba(245, 198, 208, 0.15);
+      }
+      .bws-mood-btn--citrus:hover, .bws-mood-btn--citrus.is-selected {
+        border-color: #ffd700;
+        background: rgba(255, 215, 0, 0.06);
+        box-shadow: 0 4px 20px rgba(255, 215, 0, 0.12);
+      }
+      .bws-mood-btn--classic:hover, .bws-mood-btn--classic.is-selected {
+        border-color: var(--bws-gold);
+        background: rgba(212, 168, 83, 0.06);
+        box-shadow: 0 4px 20px rgba(212, 168, 83, 0.12);
+      }
+      .bws-mood-btn--after-dark:hover, .bws-mood-btn--after-dark.is-selected {
+        border-color: #9b59b6;
+        background: rgba(155, 89, 182, 0.08);
+        box-shadow: 0 4px 20px rgba(155, 89, 182, 0.15);
+      }
+
+      /* ===== Drink Reveal Area ===== */
+      .bws-reveal-area {
+        min-height: 80px;
+        margin: 32px 0;
+        perspective: 1000px;
+      }
+      .bws-drink-card {
+        position: relative;
+        background: linear-gradient(145deg, rgba(20, 8, 14, 0.95), rgba(35, 15, 25, 0.95));
+        border: 1.5px solid var(--bws-card-border);
+        border-radius: 20px;
+        padding: 32px 28px;
+        opacity: 0;
+        transform: rotateX(90deg) translateY(20px);
+        transform-origin: center bottom;
+        transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        box-shadow:
+          0 16px 48px rgba(0, 0, 0, 0.4),
+          0 0 0 1px rgba(212, 168, 83, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      }
+      .bws-drink-card.is-visible {
+        opacity: 1;
+        transform: rotateX(0deg) translateY(0);
+      }
+      .bws-drink-card::before {
+        content: '';
+        position: absolute;
+        top: -1px; left: -1px; right: -1px; bottom: -1px;
+        border-radius: 21px;
+        background: linear-gradient(135deg, var(--bws-gold), transparent 40%, var(--bws-pink), transparent 80%);
+        opacity: 0.15;
+        z-index: -1;
+        pointer-events: none;
+      }
+      .bws-drink-number {
+        position: absolute;
+        top: 16px; right: 20px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.7rem;
+        color: var(--bws-gold);
+        opacity: 0.6;
+        letter-spacing: 0.1em;
+      }
+      .bws-drink-flap {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--bws-pink);
+        margin-bottom: 8px;
+        display: inline-block;
+        padding: 3px 10px;
+        background: rgba(255, 45, 155, 0.08);
+        border-radius: 4px;
+      }
+      .bws-drink-name {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+        font-weight: 700;
+        color: #fff;
+        margin: 0 0 16px;
+        line-height: 1.15;
+      }
+      .bws-drink-vibe {
+        font-size: 0.92rem;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 16px;
+        line-height: 1.5;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .bws-drink-section-label {
+        font-size: 0.65rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--bws-gold);
+        margin-bottom: 6px;
+      }
+      .bws-drink-order {
+        font-size: 0.88rem;
+        color: rgba(255, 255, 255, 0.85);
+        margin-bottom: 16px;
+        line-height: 1.5;
+      }
+      .bws-drink-note {
+        font-size: 0.82rem;
+        color: var(--bws-text-muted);
+        line-height: 1.5;
+        padding-top: 12px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      /* ===== Choose For Me Button ===== */
+      .bws-random-wrap {
+        text-align: center;
+        margin: 28px 0;
+      }
+      .bws-random-btn {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 32px;
+        background: linear-gradient(135deg, var(--bws-pink), #d4237a);
+        border: none;
+        border-radius: 50px;
+        color: #fff;
+        font-size: 0.95rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(255, 45, 155, 0.3);
+        overflow: hidden;
+      }
+      .bws-random-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 32px rgba(255, 45, 155, 0.4);
+      }
+      .bws-random-btn:active {
+        transform: translateY(0);
+      }
+      .bws-random-btn.is-shuffling {
+        pointer-events: none;
+      }
+      .bws-random-btn.is-shuffling .bws-random-icon {
+        animation: shuffleSpin 0.6s ease-in-out infinite;
+      }
+      @keyframes shuffleSpin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      .bws-random-icon {
+        font-size: 1.2rem;
+        transition: transform 0.3s ease;
+      }
+
+      /* ===== Main Character Spritz Card ===== */
+      .bws-signature {
+        margin-top: 48px;
+        padding: 28px 24px;
+        background: linear-gradient(135deg, rgba(255, 45, 155, 0.06), rgba(212, 168, 83, 0.04));
+        border: 1.5px solid rgba(255, 45, 155, 0.25);
+        border-radius: 18px;
+        position: relative;
+        overflow: hidden;
+      }
+      .bws-signature::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--bws-pink), var(--bws-gold), var(--bws-pink));
+        opacity: 0.6;
+      }
+      .bws-signature-badge {
+        font-size: 0.6rem;
+        font-weight: 800;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--bws-pink);
+        margin-bottom: 8px;
+      }
+      .bws-signature h3 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #fff;
+        margin: 0 0 10px;
+      }
+      .bws-signature-recipe {
+        font-size: 0.88rem;
+        color: rgba(255, 255, 255, 0.75);
+        margin-bottom: 8px;
+        line-height: 1.5;
+      }
+      .bws-signature-note {
+        font-size: 0.78rem;
+        color: var(--bws-text-muted);
+        font-style: italic;
+      }
+
+      /* ===== Back Link ===== */
+      .bws-back {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .bws-back a {
+        color: var(--bws-pink);
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 600;
+        transition: color 0.2s;
+      }
+      .bws-back a:hover { color: #fff; text-decoration: underline; }
+
+      /* ===== Animations for counting state ===== */
+      .bws-hero-image.is-counting img {
+        animation: fortuneCount 0.5s ease-in-out 3;
+      }
+      @keyframes fortuneCount {
+        0%, 100% { transform: scaleX(1); }
+        50% { transform: scaleX(0.85) scaleY(1.02); }
+      }
+
+      /* ===== Shuffle overlay on drink card ===== */
+      .bws-shuffle-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(13, 5, 9, 0.85);
+        border-radius: 20px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+        z-index: 5;
+      }
+      .bws-shuffle-overlay.is-active {
+        opacity: 1;
+      }
+      .bws-shuffle-text {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.4rem;
+        color: var(--bws-gold);
+        animation: shuffleFlicker 0.15s infinite alternate;
+      }
+      @keyframes shuffleFlicker {
+        0% { opacity: 0.5; }
+        100% { opacity: 1; }
+      }
+
+      /* ===== Badge ===== */
+      .bws-badge-reveal {
+        margin-top: 20px;
+        padding: 14px 18px;
+        border: 2px dashed var(--bws-gold);
+        border-radius: 12px;
+        text-align: center;
+        display: none;
+        animation: badgePop 0.4s ease;
+      }
+      .bws-badge-reveal.is-visible { display: block; }
+      @keyframes badgePop {
+        0% { opacity: 0; transform: scale(0.9); }
+        100% { opacity: 1; transform: scale(1); }
+      }
+      .bws-badge-reveal strong { color: var(--bws-gold); }
+      .bws-badge-reveal span { font-size: 0.82rem; color: var(--bws-text-muted); display: block; margin-top: 4px; }
+
+      /* ===== Mobile nav fix ===== */
+      @media (max-width: 700px) {
+        .site-header .nav {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0; right: 0;
+          background: rgba(13, 5, 9, 0.98);
+          padding: 16px;
+          flex-direction: column;
+          gap: 12px;
+          border-bottom: 1px solid rgba(255, 45, 155, 0.15);
+          z-index: 200;
+        }
+        .site-header .nav.is-open { display: flex; }
+      }
+      @media (min-width: 701px) {
+        .hamburger-btn { display: none; }
+      }
+
+      /* ===== State gating: hide mood until lane selected ===== */
+      .bws-step--mood {
+        opacity: 0.4;
+        pointer-events: none;
+        transition: opacity 0.3s;
+      }
+      .bws-step--mood.is-active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    </style>
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+    <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+  </head>
+  <body>
+    <header class="site-header">
+      <button onclick="history.back()" style="background:none;border:none;color:var(--bws-pink);font-size:0.85rem;cursor:pointer;padding:4px 8px;text-decoration:underline;" aria-label="Go back">← Back</button>
+      <a class="brand" href="../index.html" aria-label="lAIdies home">
+        <img src="../assets/laidies-logo-wordmark.png" alt="LAIDIES" />
+      </a>
+      <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="../episodes.html">Episodes</a>
+        <a href="../learn.html">Learn</a>
+        <a href="../clubhouse.html">Clubhouse</a>
+        <a href="../community.html">Community</a>
+        <a href="../clubhouse.html#dj-booth-inline">Listen</a>
+        <a href="../this-week.html">This Week</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="game-page-wrap">
+
+        <!-- Hero -->
+        <section class="bws-hero">
+          <div class="bws-hero-glow"></div>
+          <div class="bws-hero-image" id="bwsHeroImage">
+            <img
+              src="../assets/businesswomen-special-fortune-teller-v1.png"
+              alt="Paper fortune teller for the Businesswomen's Special cocktail game"
+              id="bwsFortuneImg"
+              data-closed-src="../assets/businesswomen-special-fortune-teller-v1.png"
+              data-open-src="../assets/businesswomen-special-fortune-teller-open-v1.png"
+            />
+          </div>
+          <h1>Businesswomen's Special</h1>
+          <p class="subtitle">The coven has a reservation at 7.</p>
+        </section>
+
+        <!-- Step 1: Lane -->
+        <section class="bws-step">
+          <div class="bws-step-label">Step 1 — Choose your lane</div>
+          <div class="bws-lane-buttons" id="bwsLaneButtons">
+            <button class="bws-lane-btn is-selected" type="button" data-lane="cocktail">
+              <strong>Summon Spirits</strong>
+              <span>Cocktails</span>
+            </button>
+            <button class="bws-lane-btn" type="button" data-lane="spiritFree">
+              <strong>Ghostbusters</strong>
+              <span>Spirit-Free</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Step 2: Mood -->
+        <section class="bws-step bws-step--mood is-active" id="bwsMoodStep">
+          <div class="bws-step-label">Step 2 — Pick the mood</div>
+          <div class="bws-mood-grid" id="bwsMoodGrid">
+            <button class="bws-mood-btn bws-mood-btn--bubble" type="button" data-flap="0">
+              <span class="bws-mood-icon">🫧</span>
+              <strong>Bubble</strong>
+              <span>sparkly / easy</span>
+            </button>
+            <button class="bws-mood-btn bws-mood-btn--citrus" type="button" data-flap="1">
+              <span class="bws-mood-icon">🍋</span>
+              <strong>Citrus</strong>
+              <span>bright / tart</span>
+            </button>
+            <button class="bws-mood-btn bws-mood-btn--classic" type="button" data-flap="2">
+              <span class="bws-mood-icon">🥂</span>
+              <strong>Classic</strong>
+              <span>polished / iconic</span>
+            </button>
+            <button class="bws-mood-btn bws-mood-btn--after-dark" type="button" data-flap="3">
+              <span class="bws-mood-icon">🌙</span>
+              <strong>After Dark</strong>
+              <span>bitter / bold</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Drink Reveal -->
+        <section class="bws-reveal-area" id="bwsRevealArea">
+          <div class="bws-drink-card" id="bwsDrinkCard">
+            <div class="bws-shuffle-overlay" id="bwsShuffleOverlay">
+              <span class="bws-shuffle-text" id="bwsShuffleText">...</span>
+            </div>
+            <span class="bws-drink-number" id="bwsDrinkNumber"></span>
+            <div class="bws-drink-flap" id="bwsDrinkFlap"></div>
+            <h2 class="bws-drink-name" id="bwsDrinkName"></h2>
+            <p class="bws-drink-vibe" id="bwsDrinkVibe"></p>
+            <p class="bws-drink-section-label">Order</p>
+            <p class="bws-drink-order" id="bwsDrinkOrder"></p>
+            <p class="bws-drink-section-label">Garnish Notes</p>
+            <p class="bws-drink-note" id="bwsDrinkNote"></p>
+          </div>
+          <div class="bws-badge-reveal" id="bwsBadge">
+            <strong>🏆 Coven Reservation Unlocked</strong>
+            <span>You've explored all 4 moods. The whole menu is yours.</span>
+          </div>
+        </section>
+
+        <!-- Choose For Me -->
+        <div class="bws-random-wrap">
+          <button class="bws-random-btn" type="button" id="bwsRandomBtn">
+            <span class="bws-random-icon">🎲</span>
+            Choose for me
+          </button>
+        </div>
+
+        <!-- Main Character Spritz -->
+        <section class="bws-signature">
+          <p class="bws-signature-badge">✦ The LAIDIES House Cocktail</p>
+          <h3>Main Character Spritz</h3>
+          <p class="bws-signature-recipe">Blanco tequila, Aperol, lemon, simple syrup, rocks, Prosecco, orange zest.</p>
+          <p class="bws-signature-note">Developed exclusively for lAIdies by Ryan C at CHAR No.5. Ask for Ryan and tell him Ali sent you.</p>
+        </section>
+
+        <!-- Back -->
+        <div class="bws-back">
+          <a href="../clubhouse.html">← Back to Clubhouse</a>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../content/site/supabase-config.js"></script>
+    <script src="../content/site/site-data.js"></script>
+    <script src="../script.js"></script>
+    <script>
+    (function() {
+      /* ===== DOM refs ===== */
+      const heroImage = document.getElementById('bwsHeroImage');
+      const fortuneImg = document.getElementById('bwsFortuneImg');
+      const laneButtons = document.getElementById('bwsLaneButtons');
+      const moodStep = document.getElementById('bwsMoodStep');
+      const moodGrid = document.getElementById('bwsMoodGrid');
+      const drinkCard = document.getElementById('bwsDrinkCard');
+      const shuffleOverlay = document.getElementById('bwsShuffleOverlay');
+      const shuffleText = document.getElementById('bwsShuffleText');
+      const drinkNumber = document.getElementById('bwsDrinkNumber');
+      const drinkFlap = document.getElementById('bwsDrinkFlap');
+      const drinkName = document.getElementById('bwsDrinkName');
+      const drinkVibe = document.getElementById('bwsDrinkVibe');
+      const drinkOrder = document.getElementById('bwsDrinkOrder');
+      const drinkNote = document.getElementById('bwsDrinkNote');
+      const randomBtn = document.getElementById('bwsRandomBtn');
+      const badge = document.getElementById('bwsBadge');
+
+      let activeLane = 'cocktail';
+      let activeFlap = -1;
+      let flapsUsed = new Set();
+      let isAnimating = false;
+
+      /* ===== Lane buttons ===== */
+      laneButtons.addEventListener('click', function(e) {
+        const btn = e.target.closest('.bws-lane-btn');
+        if (!btn) return;
+        const lane = btn.dataset.lane;
+        activeLane = lane;
+        laneButtons.querySelectorAll('.bws-lane-btn').forEach(b => b.classList.remove('is-selected'));
+        btn.classList.add('is-selected');
+        moodStep.classList.add('is-active');
+        // Sync with script.js
+        if (window.setActiveCocktailType) window.setActiveCocktailType(lane);
+      });
+
+      /* ===== Mood buttons ===== */
+      moodGrid.addEventListener('click', function(e) {
+        const btn = e.target.closest('.bws-mood-btn');
+        if (!btn || isAnimating) return;
+        const flapIndex = Number(btn.dataset.flap);
+        activeFlap = flapIndex;
+        flapsUsed.add(flapIndex);
+
+        // Visual select
+        moodGrid.querySelectorAll('.bws-mood-btn').forEach(b => b.classList.remove('is-selected'));
+        btn.classList.add('is-selected');
+
+        revealDrink(activeLane, flapIndex);
+      });
+
+      /* ===== Random button ===== */
+      randomBtn.addEventListener('click', function() {
+        if (isAnimating) return;
+        const flapIndex = Math.floor(Math.random() * 4);
+        activeFlap = flapIndex;
+        flapsUsed.add(flapIndex);
+
+        // Visual select the mood button
+        const moodBtns = moodGrid.querySelectorAll('.bws-mood-btn');
+        moodBtns.forEach(b => b.classList.remove('is-selected'));
+
+        // Animate shuffle
+        randomBtn.classList.add('is-shuffling');
+        isAnimating = true;
+
+        // Shuffle through moods visually
+        let shuffleCount = 0;
+        const shuffleInterval = setInterval(() => {
+          const rndFlap = shuffleCount % 4;
+          moodBtns.forEach((b, i) => {
+            b.classList.toggle('is-selected', i === rndFlap);
+          });
+          shuffleCount++;
+        }, 100);
+
+        setTimeout(() => {
+          clearInterval(shuffleInterval);
+          moodBtns.forEach(b => b.classList.remove('is-selected'));
+          moodBtns[flapIndex].classList.add('is-selected');
+          randomBtn.classList.remove('is-shuffling');
+          revealDrink(activeLane, flapIndex);
+        }, 800);
+      });
+
+      /* ===== Core reveal function ===== */
+      function revealDrink(type, flapIndex) {
+        isAnimating = true;
+
+        // Animate fortune teller
+        heroImage.classList.add('is-counting');
+        if (fortuneImg.dataset.closedSrc) fortuneImg.src = fortuneImg.dataset.closedSrc;
+
+        // Hide card during counting
+        drinkCard.classList.remove('is-visible');
+
+        // Get drink from script.js data
+        const menu = (typeof cocktailMenus !== 'undefined') ? (cocktailMenus[type] || cocktailMenus.cocktail) : null;
+        const flaps = (typeof cocktailFortuneFlaps !== 'undefined') ? cocktailFortuneFlaps : null;
+
+        if (!menu || !flaps) {
+          // Fallback if script.js data not available
+          isAnimating = false;
+          heroImage.classList.remove('is-counting');
+          return;
+        }
+
+        const flap = flaps[flapIndex];
+        const drinkPool = flap.drinks[type] || flap.drinks.cocktail;
+        const drinkIndex = drinkPool[Math.floor(Math.random() * drinkPool.length)];
+        const drink = menu[drinkIndex];
+
+        setTimeout(() => {
+          heroImage.classList.remove('is-counting');
+          heroImage.classList.add('is-animating');
+
+          // Switch to open image
+          if (fortuneImg.dataset.openSrc) fortuneImg.src = fortuneImg.dataset.openSrc;
+
+          // Populate card
+          drinkNumber.textContent = String(drinkIndex + 1).padStart(2, '0');
+          drinkFlap.textContent = flap.label + ' — ' + flap.description;
+          drinkName.textContent = drink.name;
+          drinkVibe.textContent = drink.vibe;
+          drinkOrder.textContent = drink.order;
+          drinkNote.textContent = drink.note;
+
+          // Reveal card with flip
+          setTimeout(() => {
+            drinkCard.classList.add('is-visible');
+            isAnimating = false;
+            heroImage.classList.remove('is-animating');
+          }, 200);
+
+          // Check badge
+          if (flapsUsed.size >= 4) {
+            badge.classList.add('is-visible');
+            if (typeof unlockSecretBadge === 'function') {
+              unlockSecretBadge('coven-reservation', "Businesswomen\'s Special");
+            }
+          }
+        }, 600);
+
+        // Also call script.js spinCocktail for state sync
+        if (window.spinCocktail) {
+          try { window.spinCocktail(type, flapIndex); } catch(e) {}
+        }
+      }
+
+      /* ===== Hamburger menu ===== */
+      var hamburger = document.querySelector('.hamburger-btn');
+      var nav = document.querySelector('.site-header .nav');
+      if (hamburger && nav) {
+        hamburger.addEventListener('click', function() {
+          var isOpen = nav.classList.toggle('is-open');
+          hamburger.setAttribute('aria-expanded', isOpen);
+          hamburger.textContent = isOpen ? '✕' : '☰';
+        });
+        nav.addEventListener('click', function(e) {
+          if (e.target.tagName === 'A') {
+            nav.classList.remove('is-open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            hamburger.textContent = '☰';
+          }
+        });
+      }
+    })();
+    </script>
+  </body>
+</html>

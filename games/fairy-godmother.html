@@ -1,0 +1,943 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>fAIry Godmother | LAIDIES Clubhouse</title>
+    <meta name="description" content="LAIDY gives advice like a wise, glamorous fairy who actually helps with real work problems. Wave the wand." />
+    <meta property="og:title" content="fAIry Godmother | LAIDIES" />
+    <meta property="og:description" content="Tap or wave the wand for advice you didn't know you needed." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://wearelaidies.com/assets/laidy-fairy-godmother-portrait-v1.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#ff2d9b" />
+    <link rel="icon" type="image/png" href="../assets/laidies-logo-square.png" />
+    <link rel="stylesheet" href="../styles.css?v=games-extract-1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&family=Inter:wght@400;600;700&display=swap">
+    <style>
+      /* === PAGE BACKGROUND === */
+      body {
+        background: linear-gradient(165deg, #1a0520 0%, #2d0a2a 30%, #3d1028 60%, #1a0a18 100%);
+        min-height: 100vh;
+        color: #fff;
+      }
+
+      /* === FLOATING GLITTER PARTICLES === */
+      .glitter-field {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 0;
+      }
+      .glitter-dot {
+        position: absolute;
+        width: var(--size, 4px);
+        height: var(--size, 4px);
+        border-radius: 50%;
+        background: var(--color, #ffd700);
+        opacity: 0;
+        animation: glitterFloat var(--duration, 6s) var(--delay, 0s) infinite ease-in-out;
+      }
+      @keyframes glitterFloat {
+        0% { opacity: 0; transform: translateY(100vh) scale(0.3); }
+        20% { opacity: 0.8; }
+        50% { opacity: 0.5; transform: translateY(40vh) scale(1); }
+        80% { opacity: 0.3; }
+        100% { opacity: 0; transform: translateY(-20px) scale(0.2); }
+      }
+
+      /* === GAME PAGE LAYOUT === */
+      .game-page-wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: clamp(18px, 4vw, 48px) clamp(14px, 3vw, 32px);
+        position: relative;
+        z-index: 1;
+      }
+      .game-page-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(255, 182, 218, 0.2);
+      }
+      .game-page-header a {
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: #ffb6da;
+      }
+      .game-page-header a:hover { text-decoration: underline; }
+
+      /* === HERO SECTION === */
+      .fairy-hero {
+        text-align: center;
+        margin-bottom: 36px;
+        position: relative;
+      }
+      .fairy-hero .eyebrow {
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #ffd700;
+        margin-bottom: 8px;
+      }
+      .fairy-hero h1 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(2.2rem, 5vw, 3.2rem);
+        line-height: 1.1;
+        background: linear-gradient(135deg, #ffd700 0%, #ff8fd8 50%, #ffd700 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin: 0 0 8px;
+      }
+      .fairy-hero .subtitle {
+        color: rgba(255, 220, 240, 0.7);
+        font-size: 1rem;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      /* === CHARACTER IMAGE WITH SPARKLE EFFECTS === */
+      .fairy-character-wrap {
+        position: relative;
+        display: inline-block;
+        margin: 28px auto 24px;
+      }
+      .fairy-character-wrap img {
+        max-width: 280px;
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        filter: drop-shadow(0 8px 32px rgba(255, 182, 218, 0.3))
+                drop-shadow(0 0 20px rgba(255, 215, 0, 0.15));
+        animation: gentleFloat 4s ease-in-out infinite;
+      }
+      @keyframes gentleFloat {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+      }
+
+      /* Sparkle stars around the character/wand */
+      .sparkle-field {
+        position: absolute;
+        inset: -30px;
+        pointer-events: none;
+      }
+      .sparkle {
+        position: absolute;
+        width: var(--spark-size, 8px);
+        height: var(--spark-size, 8px);
+        opacity: 0;
+        animation: sparkleAnim var(--spark-dur, 2s) var(--spark-delay, 0s) infinite ease-in-out;
+      }
+      .sparkle::before, .sparkle::after {
+        content: '';
+        position: absolute;
+        background: var(--spark-color, #ffd700);
+        border-radius: 2px;
+      }
+      .sparkle::before {
+        width: 100%;
+        height: 2px;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+      .sparkle::after {
+        width: 2px;
+        height: 100%;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+      }
+      @keyframes sparkleAnim {
+        0%, 100% { opacity: 0; transform: scale(0.3) rotate(0deg); }
+        30% { opacity: 1; transform: scale(1) rotate(20deg); }
+        60% { opacity: 0.6; transform: scale(0.8) rotate(40deg); }
+        80% { opacity: 0; transform: scale(0.2) rotate(60deg); }
+      }
+
+      /* Wand trail dots */
+      .wand-trail {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #ffd700, transparent);
+        box-shadow: 0 0 6px 2px rgba(255, 215, 0, 0.5);
+        opacity: 0;
+        animation: wandTrailAnim var(--trail-dur, 3s) var(--trail-delay, 0s) infinite;
+      }
+      @keyframes wandTrailAnim {
+        0% { opacity: 0; transform: scale(0); }
+        20% { opacity: 1; transform: scale(1.2); }
+        50% { opacity: 0.5; transform: scale(0.8) translate(var(--trail-dx, 10px), var(--trail-dy, -10px)); }
+        100% { opacity: 0; transform: scale(0) translate(var(--trail-dx2, 20px), var(--trail-dy2, -20px)); }
+      }
+
+      /* === INTERACTION AREA === */
+      .fairy-console {
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 182, 218, 0.04));
+        border: 1.5px solid rgba(255, 182, 218, 0.25);
+        border-radius: 20px;
+        padding: clamp(20px, 4vw, 36px);
+        margin-bottom: 28px;
+        backdrop-filter: blur(8px);
+      }
+      .fairy-console label {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #ffb6da;
+        margin-bottom: 8px;
+        letter-spacing: 0.02em;
+      }
+      .fairy-console textarea {
+        width: 100%;
+        min-height: 90px;
+        padding: 14px 16px;
+        border: 1.5px solid rgba(255, 182, 218, 0.3);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.05);
+        color: #fff;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        resize: vertical;
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+      .fairy-console textarea::placeholder {
+        color: rgba(255, 200, 230, 0.4);
+      }
+      .fairy-console textarea:focus {
+        outline: none;
+        border-color: #ffd700;
+        box-shadow: 0 0 16px rgba(255, 215, 0, 0.15);
+      }
+      .fairy-console select {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1.5px solid rgba(255, 182, 218, 0.3);
+        border-radius: 12px;
+        background: rgba(30, 10, 25, 0.8);
+        color: #fff;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.9rem;
+        cursor: pointer;
+        margin-bottom: 16px;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23ffb6da' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 16px center;
+      }
+      .fairy-console select:focus {
+        outline: none;
+        border-color: #ffd700;
+      }
+
+      .fairy-buttons {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+      }
+
+      .wand-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 28px;
+        border: 2.5px solid #ffd700;
+        border-radius: 40px;
+        background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 143, 216, 0.1));
+        color: #ffd700;
+        font-size: 1.05rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        cursor: pointer;
+        transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
+        box-shadow: 0 0 18px rgba(255, 215, 0, 0.2);
+        font-family: 'Inter', sans-serif;
+      }
+      .wand-button:hover {
+        transform: scale(1.04);
+        box-shadow: 0 0 32px rgba(255, 215, 0, 0.4);
+        background: linear-gradient(135deg, rgba(255, 215, 0, 0.25), rgba(255, 143, 216, 0.15));
+      }
+      .wand-button:active { transform: scale(0.97); }
+      .wand-button .wand-icon {
+        font-size: 1.3em;
+        display: inline-block;
+        animation: wandWiggle 2s ease-in-out infinite;
+      }
+      @keyframes wandWiggle {
+        0%, 100% { transform: rotate(-5deg); }
+        25% { transform: rotate(8deg); }
+        50% { transform: rotate(-3deg); }
+        75% { transform: rotate(6deg); }
+      }
+
+      .random-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 12px 22px;
+        border: 1.5px solid rgba(255, 182, 218, 0.4);
+        border-radius: 40px;
+        background: rgba(255, 255, 255, 0.04);
+        color: #ffb6da;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.15s, border-color 0.2s;
+        font-family: 'Inter', sans-serif;
+      }
+      .random-button:hover {
+        transform: scale(1.03);
+        border-color: #ffb6da;
+      }
+
+      /* === WISDOM COUNTER === */
+      .wisdom-counter {
+        text-align: center;
+        margin: 16px 0 8px;
+        font-size: 0.82rem;
+        color: rgba(255, 215, 0, 0.7);
+        letter-spacing: 0.04em;
+      }
+      .wisdom-counter strong {
+        color: #ffd700;
+      }
+
+      /* === ADVICE OUTPUT — PARCHMENT/SCROLL CARD === */
+      .advice-scroll {
+        position: relative;
+        margin-top: 28px;
+        padding: 0;
+        display: none;
+      }
+      .advice-scroll.is-visible {
+        display: block;
+        animation: scrollReveal 0.5s ease;
+      }
+      @keyframes scrollReveal {
+        0% { opacity: 0; transform: translateY(16px) scale(0.96); }
+        100% { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      .scroll-card {
+        background: linear-gradient(155deg, #fef8f0 0%, #fff5eb 30%, #fdf0e8 60%, #faf4ef 100%);
+        border: 2px solid #d4a574;
+        border-radius: 16px;
+        padding: clamp(24px, 4vw, 36px);
+        box-shadow: 0 8px 32px rgba(160, 100, 50, 0.15), inset 0 0 40px rgba(212, 165, 116, 0.08);
+        color: #3a2010;
+        position: relative;
+        overflow: hidden;
+      }
+      .scroll-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #d4a574, #ffd700, #d4a574);
+        opacity: 0.6;
+      }
+      .scroll-card-header {
+        font-family: 'Dancing Script', cursive;
+        font-size: clamp(1.3rem, 3vw, 1.7rem);
+        color: #8b4513;
+        margin-bottom: 4px;
+        text-align: center;
+      }
+      .scroll-card-mode {
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #b8860b;
+        text-align: center;
+        margin-bottom: 14px;
+      }
+      .scroll-card-body {
+        font-size: 0.92rem;
+        line-height: 1.7;
+        white-space: pre-wrap;
+        color: #4a3020;
+      }
+      .scroll-card-body strong {
+        color: #8b4513;
+      }
+      .scroll-card-footer {
+        margin-top: 16px;
+        padding-top: 12px;
+        border-top: 1px dashed rgba(180, 130, 80, 0.3);
+        font-size: 0.78rem;
+        color: rgba(100, 60, 30, 0.6);
+        text-align: right;
+        font-style: italic;
+      }
+
+      /* === PROMPT FEEDBACK === */
+      .prompt-feedback {
+        margin-top: 16px;
+        padding: 14px 18px;
+        background: rgba(255, 215, 0, 0.06);
+        border: 1px solid rgba(255, 215, 0, 0.2);
+        border-radius: 12px;
+        font-size: 0.82rem;
+        color: rgba(255, 230, 180, 0.8);
+        display: none;
+      }
+      .prompt-feedback.is-visible { display: block; }
+      .prompt-feedback strong {
+        color: #ffd700;
+        display: block;
+        margin-bottom: 4px;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      /* === HISTORY OF PAST ADVICE === */
+      .advice-history {
+        margin-top: 32px;
+      }
+      .advice-history h4 {
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: rgba(255, 182, 218, 0.5);
+        margin-bottom: 12px;
+      }
+      .history-item {
+        padding: 14px 16px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 182, 218, 0.12);
+        border-radius: 10px;
+        margin-bottom: 10px;
+        opacity: 0.6;
+        transition: opacity 0.2s;
+      }
+      .history-item:hover { opacity: 0.9; }
+      .history-item:nth-child(2) { opacity: 0.45; }
+      .history-item:nth-child(3) { opacity: 0.3; }
+      .history-item .history-q {
+        font-size: 0.78rem;
+        color: #ffd700;
+        margin-bottom: 4px;
+        font-weight: 600;
+      }
+      .history-item .history-a {
+        font-size: 0.8rem;
+        color: rgba(255, 248, 252, 0.7);
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* === BADGE REVEAL === */
+      .badge-reveal {
+        margin-top: 24px;
+        padding: 16px;
+        border: 2px dashed #ffd700;
+        border-radius: 12px;
+        text-align: center;
+        display: none;
+        background: rgba(255, 215, 0, 0.05);
+      }
+      .badge-reveal.is-visible { display: block; animation: scrollReveal 0.4s ease; }
+      .badge-reveal strong { color: #ffd700; }
+      .badge-reveal p { color: rgba(255, 248, 252, 0.7); font-size: 0.85rem; margin-top: 4px; }
+
+      /* === FOOTER === */
+      .fairy-footer {
+        text-align: center;
+        padding: 32px 20px 48px;
+        position: relative;
+        z-index: 1;
+      }
+      .fairy-footer .button {
+        display: inline-block;
+        padding: 12px 24px;
+        border: 1.5px solid rgba(255, 182, 218, 0.4);
+        border-radius: 8px;
+        color: #ffb6da;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: border-color 0.2s, transform 0.15s;
+      }
+      .fairy-footer .button:hover {
+        border-color: #ffb6da;
+        transform: translateY(-2px);
+      }
+
+      /* === RESPONSIVE === */
+      @media (max-width: 560px) {
+        .fairy-character-wrap img { max-width: 200px; }
+        .fairy-buttons { flex-direction: column; }
+        .wand-button, .random-button { width: 100%; justify-content: center; }
+      }
+    </style>
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+  </head>
+  <body>
+    <!-- Floating glitter particles -->
+    <div class="glitter-field" id="glitterField" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <button onclick="history.back()" style="background: none; border: none; color: #ffb6da; font-size: 0.85rem; cursor: pointer; padding: 4px 8px; text-decoration: underline;" aria-label="Go back">&#8592; Back</button>
+      <a class="brand" href="../index.html" aria-label="lAIdies home">
+        <img src="../assets/laidies-logo-wordmark.png" alt="LAIDIES" />
+      </a>
+      <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="../episodes.html">Episodes</a>
+        <a href="../learn.html">Learn</a>
+        <a href="../clubhouse.html">Clubhouse</a>
+        <a href="../community.html">Community</a>
+        <a href="../clubhouse.html#dj-booth-inline">Listen</a>
+        <a href="../this-week.html">This Week</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="game-page-wrap">
+        <div class="game-page-header">
+          <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
+        </div>
+
+        <!-- HERO -->
+        <section class="fairy-hero">
+          <p class="eyebrow">Ask LAIDY</p>
+          <h1>fAIry Godmother</h1>
+          <p class="subtitle">Tap or wave the wand for advice you didn&rsquo;t know you needed.</p>
+
+          <div class="fairy-character-wrap">
+            <img src="../assets/laidy-fairy-godmother-portrait-v1.png" alt="LAIDY the fAIry Godmother" />
+            <!-- Sparkle stars around wand area -->
+            <div class="sparkle-field" id="sparkleField"></div>
+          </div>
+        </section>
+
+        <!-- INTERACTION CONSOLE -->
+        <section class="fairy-console">
+          <label for="fairyQuestion">What do you need help with?</label>
+          <textarea id="fairyQuestion" rows="3" placeholder="Example: I need to ask my VP for more time without sounding chaotic."></textarea>
+
+          <label for="fairyMode" style="margin-top: 14px;">Pick the energy</label>
+          <select id="fairyMode">
+            <option value="auto" selected>LAIDY picks the right energy &#10024;</option>
+            <option value="dolly">Dolly Energy &mdash; warm &amp; direct</option>
+            <option value="miranda">Miranda Polish &mdash; executive clean</option>
+            <option value="elle">Elle Evidence &mdash; facts in heels</option>
+            <option value="cher">Cher Closet Check &mdash; needs a better outfit</option>
+            <option value="sophia">Sophia Says &mdash; wise &amp; short</option>
+            <option value="david">David Specificity &mdash; be particular</option>
+            <option value="buffy">Buffy Courage &mdash; slayer briefing</option>
+          </select>
+
+          <div class="fairy-buttons">
+            <button class="wand-button" type="button" id="wandButton">
+              <span class="wand-icon">&#10024;</span> Wave the Wand
+            </button>
+            <button class="random-button" type="button" id="randomButton">
+              &#127775; Surprise me (random wisdom)
+            </button>
+          </div>
+        </section>
+
+        <!-- WISDOM COUNTER -->
+        <p class="wisdom-counter">Wisdom #<strong id="wisdomCount">0</strong></p>
+
+        <!-- ADVICE OUTPUT — SCROLL CARD -->
+        <div class="advice-scroll" id="adviceScroll">
+          <div class="scroll-card">
+            <p class="scroll-card-header" id="scrollHeader">A note from your fairy godmother</p>
+            <p class="scroll-card-mode" id="scrollMode"></p>
+            <div class="scroll-card-body" id="scrollBody"></div>
+            <p class="scroll-card-footer" id="scrollFooter"></p>
+          </div>
+        </div>
+
+        <!-- PROMPT FEEDBACK -->
+        <div class="prompt-feedback" id="promptFeedback">
+          <strong>Prompt Check</strong>
+          <span id="promptFeedbackText"></span>
+        </div>
+
+        <!-- HISTORY -->
+        <div class="advice-history" id="adviceHistory" style="display: none;">
+          <h4>&#128220; Past Wisdom</h4>
+          <div id="historyList"></div>
+        </div>
+
+        <!-- BADGE -->
+        <div class="badge-reveal" id="badgeReveal">
+          <strong>&#10024; Fairy Godmother&rsquo;s Favorite merit badge unlocked!</strong>
+          <p>You have asked more questions than Dorothy, Cinderella, and Elle Woods combined. LAIDY recognizes your main character energy.</p>
+        </div>
+      </div>
+
+      <div class="fairy-footer">
+        <a class="button" href="../clubhouse.html">&larr; Back to Clubhouse</a>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../content/site/supabase-config.js"></script>
+    <script src="../content/site/site-data.js"></script>
+    <script>
+    // ===== LAIDY ADVICE ENGINE (standalone) =====
+    const laidyModes = {
+      dolly: { label: "Dolly Energy", opener: "Cup of ambition check:", nudge: "Be warm, be direct, and do not confuse nervous with unqualified. A woman can be gracious and still ask for the money." },
+      miranda: { label: "Miranda Polish", opener: "Executive read:", nudge: "Remove the apology tour. Lead with the business case, not the emotional weather report." },
+      elle: { label: "Elle Evidence", opener: "Pink legal pad version:", nudge: "Confidence is cute. Evidence is cuter. Bring the facts, then let the facts wear the heels." },
+      cher: { label: "Cher Closet Check", opener: "Closet computer says:", nudge: "This needs a better outfit: goal, context, audience, and the exact response you want." },
+      sophia: { label: "Sophia Says", opener: "Picture it:", nudge: "The wise move is usually shorter than the spiral. Say the true thing, then stop decorating it." },
+      david: { label: "David Specificity", opener: "Be very particular, please:", nudge: "Vague is how we get beige results. Specific is how we get the good sweater." },
+      buffy: { label: "Buffy Courage", opener: "Slayer briefing:", nudge: "You do not need to feel fearless. You need a plan, a stake, and a calendar invite." },
+    };
+
+    function normalizeLaidyText(text) { return String(text || "").trim().replace(/\s+/g, " "); }
+
+    function findLaidyPattern(text, patterns, fallback = "") {
+      return patterns.find(({ pattern }) => pattern.test(text))?.label || fallback;
+    }
+
+    function getLaidyTopicType(text) {
+      const n = text.toLowerCase();
+      if (/\b(raise|promotion|salary|pay|compensation|bonus|level|title)\b/.test(n)) return "raise";
+      if (/\b(deadline|extension|more time|late|delay|delayed|behind|timeline|due)\b/.test(n)) return "deadline";
+      if (/\b(email|message|reply|respond|slack|teams|note|send|write)\b/.test(n)) return "message";
+      if (/\b(meeting|agenda|prep|debrief|follow-up|follow up|minutes|talking points)\b/.test(n)) return "meeting";
+      if (/\b(conflict|pushback|difficult|frustrated|angry|disagree|tension|awkward)\b/.test(n)) return "conflict";
+      if (/\b(no|boundary|boundaries|too much|capacity|overloaded|overwhelmed|prioritize|priority)\b/.test(n)) return "boundary";
+      if (/\b(feedback|review|critique|performance|mistake|messed up|error|problem)\b/.test(n)) return "feedback";
+      if (/\b(ai|chatgpt|claude|gemini|prompt|tool|model|output)\b/.test(n)) return "ai";
+      if (/\b(nervous|scared|anxious|worried|afraid|confidence|imposter|impostor)\b/.test(n)) return "confidence";
+      if (/\b(idea|pitch|proposal|approve|approval|buy-in|buy in|stakeholder)\b/.test(n)) return "pitch";
+      return "general";
+    }
+
+    function getLaidySignals(question) {
+      const normalized = question.toLowerCase();
+      const audience = findLaidyPattern(normalized, [
+        { pattern: /\b(vp|vice president)\b/, label: "your VP" },
+        { pattern: /\b(director)\b/, label: "your director" },
+        { pattern: /\b(manager|boss|lead)\b/, label: "your manager" },
+        { pattern: /\b(team|group)\b/, label: "your team" },
+        { pattern: /\b(client|customer)\b/, label: "the client" },
+        { pattern: /\b(stakeholder|stakeholders)\b/, label: "the stakeholders" },
+        { pattern: /\b(peer|colleague|coworker|co-worker)\b/, label: "your colleague" },
+      ], "the person who needs to act");
+      const need = findLaidyPattern(normalized, [
+        { pattern: /\b(more time|extension|delay|deadline)\b/, label: "more time" },
+        { pattern: /\b(approve|approval|sign off|sign-off|buy-in|buy in)\b/, label: "approval" },
+        { pattern: /\b(reply|respond|answer)\b/, label: "a response" },
+        { pattern: /\b(feedback|review|critique)\b/, label: "feedback" },
+        { pattern: /\b(no|decline|push back|pushback|boundary)\b/, label: "a boundary" },
+        { pattern: /\b(priority|prioritize|capacity|overwhelmed|too much)\b/, label: "prioritization" },
+        { pattern: /\b(prompt|ai|chatgpt|claude|gemini|tool|output)\b/, label: "a better AI ask" },
+      ], "a clear next step");
+      const risk = findLaidyPattern(normalized, [
+        { pattern: /\b(vp|director|executive|leadership|board|client|customer)\b/, label: "high-visibility" },
+        { pattern: /\b(legal|tax|finance|hr|privacy|security|compliance|policy)\b/, label: "receipts-required" },
+        { pattern: /\b(urgent|today|tomorrow|asap|immediately)\b/, label: "time-sensitive" },
+      ], "normal-human-work-chaos");
+      const tone = findLaidyPattern(normalized, [
+        { pattern: /\b(warm|nice|kind|gentle|soft)\b/, label: "warm" },
+        { pattern: /\b(firm|direct|clear|executive|professional)\b/, label: "direct" },
+        { pattern: /\b(not sounding|without sounding|avoid sounding)\b/, label: "careful" },
+      ], "clear");
+      return { audience, need, risk, tone, topicType: getLaidyTopicType(question) };
+    }
+
+    function getLaidyModeFrame(modeKey) {
+      const frames = {
+        dolly: { move: "Make it warm, make it clear, and do not apologize for needing the thing.", signoff: "Cup of ambition, but with a calendar invite." },
+        miranda: { move: "Lead with the business point. Feelings can sit in the passenger seat with a seatbelt.", signoff: "Executive-clean, no apology tour." },
+        elle: { move: "Bring the facts in a cute binder. Confidence is better when it has tabs.", signoff: "Pink legal pad, real receipts." },
+        cher: { move: "Give the ask a better outfit: context, audience, constraint, and the exact thing you want.", signoff: "Closet computer says the prompt needs tailoring." },
+        sophia: { move: "Say the true thing, skip the spiral, and eat something with protein after.", signoff: "Shorter, wiser, less hallway monologue." },
+        david: { move: "Be very particular. Vague is how work comes back wearing the wrong sweater.", signoff: "Specificity is the whole outfit." },
+        buffy: { move: "You do not need to feel fearless. You need a plan and the first sentence.", signoff: "Slayer briefing, not season-long villain arc." },
+      };
+      return frames[modeKey] || frames.dolly;
+    }
+
+    function getLaidyAutoMode(topicType) {
+      const modes = { raise: "dolly", deadline: "miranda", message: "cher", meeting: "miranda", conflict: "sophia", boundary: "sophia", feedback: "elle", ai: "david", confidence: "buffy", pitch: "miranda", general: "cher" };
+      return modes[topicType] || "cher";
+    }
+
+    function getLaidyTopicAdvice(topicType, signals) {
+      const advice = {
+        raise: { read: "This is not a favor request. It is a value conversation with " + signals.audience + ".", next: "Build the one-page brag receipt: outcomes, scope, praise, money saved or made, and responsibilities that quietly became yours.", line: "Over the past [time period], I have delivered [results] and my scope now includes [expanded work]. I would like to discuss adjusting my compensation/title to reflect that impact. What would you need to see to move this forward?" },
+        deadline: { read: "You need " + signals.need + " from " + signals.audience + ", and the trick is to make it sound managed, not messy.", next: "Send the note before they have to chase you. Include what changed, what is still on track, the new date, and the tradeoff if the date cannot move.", line: "I want to flag this early: [what changed]. I can still deliver [piece] by [date], but I need until [new date] for [reason]. If that timing creates an issue, I can prioritize [option A] and move [option B]." },
+        message: { read: "You are not writing a novel. You are sending " + signals.audience + " the clean version of what needs to happen.", next: "Use four pieces: context, ask, deadline, and why it matters. Then stop before the email starts wearing a tiny backpack purse.", line: "Quick context: [one sentence]. I need [specific ask] by [date] so we can [business reason]. My recommendation is [recommendation]." },
+        meeting: { read: "This meeting needs a point before it needs more people pretending to be available.", next: "Define the decision, the prep, and what a good outcome looks like. If there is no decision, it may be an email in kitten heels.", line: "For this meeting, the decision we need is [decision]. Please review [material] in advance. A good outcome is [outcome], with owners and next steps confirmed before we leave." },
+        conflict: { read: "There is tension here, but tension is not automatically a fire drill with lip gloss.", next: "Separate facts from feelings, name the impact, and ask for the next workable behavior. Do not litigate the entire group chat.", line: "I want to reset on this. The issue I am seeing is [fact/impact]. What I need next is [specific action]. Can we align on that path?" },
+        boundary: { read: "Your capacity is not a community Caboodle where everyone gets to store their loose glitter.", next: "Name the tradeoff. A real boundary gives options instead of silently absorbing the mess.", line: "I can take on [option A] by [date], or [option B] by [date], but I cannot do both at the current quality bar. Which should I prioritize?" },
+        feedback: { read: "This needs receipts, not a shame montage.", next: "Ask what good looks like, what needs to change, and what the next check-in should cover. Keep it specific enough to act on.", line: "I want to make sure I am addressing this properly. Can you share the specific gap, what good would look like, and the next milestone you want me to hit?" },
+        ai: { read: "The AI is not psychic. It is more like a very fast intern who needs the good gossip.", next: "Give it audience, context, constraints, examples, what good looks like, and what not to include. If the output is beige, the prompt arrived underdressed.", line: "I need help with [task]. The audience is [audience]. The context is [context]. The answer should be [tone/format/length]. Do not include [exclusions]. Ask me three questions before drafting." },
+        confidence: { read: "Nerves are data, not directions. Your inner critic has opened a second tab and it is not helping.", next: "Shrink the task until it has handles: one sentence, one receipt, one next step. Do that before confidence arrives wearing platform sandals.", line: "The next useful move is [small action]. I do not need to solve the whole season today; I need to complete this scene." },
+        pitch: { read: "You have an idea, but " + signals.audience + " needs to know what changes, why now, and what you need from them.", next: "Pitch the outcome, not the entire scrapbook. Lead with the problem, the recommendation, the ask, and the risk of doing nothing.", line: "I recommend [idea] because [business reason]. The decision I need is [approval/next step]. The risk of waiting is [risk]." },
+        general: { read: "This is currently swirl wearing work clothes.", next: "Turn it into a brief: desired outcome, person who needs to act, blocker, standard for good, and next move by Friday.", line: "The outcome I want is [outcome]. The person who needs to act is [person]. The blocker is [blocker]. The next move is [specific action]." },
+      };
+      return advice[topicType] || advice.general;
+    }
+
+    function buildLaidyAdvice(rawQuestion, modeKey) {
+      const question = normalizeLaidyText(rawQuestion);
+      if (!question) {
+        return { text: "Cup of ambition check: Tell me the actual situation first. LAIDY can do many things, but she cannot read a blank text box through a Claire\u2019s mood ring.\n\nTry: \"I need to ask my VP for more time without sounding chaotic\" or \"I need to push back on a meeting request without sounding unhelpful.\"", mode: "" };
+      }
+      const signals = getLaidySignals(question);
+      const effectiveModeKey = modeKey === "auto" ? getLaidyAutoMode(signals.topicType) : modeKey;
+      const mode = laidyModes[effectiveModeKey] || laidyModes.cher;
+      const frame = getLaidyModeFrame(effectiveModeKey);
+      const topicAdvice = getLaidyTopicAdvice(signals.topicType, signals);
+      const contextLine = "I heard: " + signals.need + " for " + signals.audience + ". Risk level: " + signals.risk + ". Tone target: " + signals.tone + ".";
+      const text = mode.opener + " " + mode.nudge + "\n\n" + contextLine + "\n\nRead: " + topicAdvice.read + "\n\nDo this: " + topicAdvice.next + " " + frame.move + "\n\nTry this line: \"" + topicAdvice.line + "\"\n\nCaboodle note: " + frame.signoff;
+      return { text, mode: mode.label };
+    }
+
+    function buildLaidyPromptFeedback(rawQuestion) {
+      const question = normalizeLaidyText(rawQuestion);
+      if (!question) return "";
+      const words = question.split(" ").length;
+      const hasAudience = /\b(vp|director|manager|boss|team|client|stakeholder|colleague|peer|lead)\b/i.test(question);
+      const hasContext = words > 12;
+      const hasBoundary = /\b(without|not|avoid|don't|don\u2019t)\b/i.test(question);
+      if (!hasContext) return "Prompt check: needs more context. Give LAIDY a sentence about what happened, who is involved, and what outcome you actually want.";
+      if (!hasAudience) return "Prompt check: who are you talking to? Adding the audience gives LAIDY better advice calibration.";
+      if (hasAudience && hasContext && hasBoundary) return "Prompt check: strong ask. You gave LAIDY enough job, audience, context, and boundaries to work with. The next level is adding an example of what good looks like.";
+      return "Prompt check: decent ask. Try adding what you do NOT want the result to sound like, or give an example of good.";
+    }
+
+    // Random wisdom nuggets (for "surprise me" button)
+    const randomWisdom = [
+      "If Sophia Petrillo can tell a story that starts in Sicily and ends with life advice, you can type a question into ChatGPT.",
+      "Your idea does not need to be dressed for a keynote to be worth saying in a meeting.",
+      "Clarity is the highest-ROI outfit change you can make to any email.",
+      "A prompt without context is a request wearing a trench coat and no shoes.",
+      "If the meeting has no agenda, it is not a meeting. It is a group hallway moment wearing a calendar invite.",
+      "The difference between a good ask and a great one is usually three more details.",
+      "You are allowed to be warm and still ask for the money, the credit, or the timeline.",
+      "Nobody ever got a raise by being quietly excellent in a room with the door closed.",
+      "Your boundaries are not mean. They are the reason you still have capacity to do good work.",
+      "Start the email with what you need. Then explain why. Not the other way around.",
+      "A woman who explains her logic is not defensive. She is building a case with better lighting.",
+      "If you would not let your best friend accept that workload, do not silently absorb it yourself.",
+      "Useful does not have to be dry. Dry is how good advice ends up unread in a tab cemetery.",
+      "Your confidence does not need to arrive before you start. Start, and confidence will see itself in.",
+      "Push back is not a personality flaw. It is how good ideas survive bad timelines.",
+      "One clear no is more professional than three vague yeses and a missed deadline.",
+      "Professional does not mean beige. Professional means clear, useful, and considerate of everyone\u2019s time.",
+      "The AI is not judging your grammar. Give it the messy version and let it hand you back the polished one.",
+      "Stop decorating the ask. Say what you need, who needs to act, and by when.",
+      "If the draft makes you cringe, it is probably because you are being honest. That is the version to send.",
+    ];
+
+    // ===== STATE =====
+    let wisdomCount = 0;
+    let adviceHistory = [];
+    let lastAdvice = "";
+    const BADGE_THRESHOLD = 10;
+
+    // ===== DOM =====
+    const questionEl = document.getElementById("fairyQuestion");
+    const modeEl = document.getElementById("fairyMode");
+    const wandBtn = document.getElementById("wandButton");
+    const randomBtn = document.getElementById("randomButton");
+    const scrollEl = document.getElementById("adviceScroll");
+    const scrollHeader = document.getElementById("scrollHeader");
+    const scrollMode = document.getElementById("scrollMode");
+    const scrollBody = document.getElementById("scrollBody");
+    const scrollFooter = document.getElementById("scrollFooter");
+    const countEl = document.getElementById("wisdomCount");
+    const feedbackEl = document.getElementById("promptFeedback");
+    const feedbackText = document.getElementById("promptFeedbackText");
+    const historySection = document.getElementById("adviceHistory");
+    const historyList = document.getElementById("historyList");
+    const badgeEl = document.getElementById("badgeReveal");
+
+    function showAdvice(text, modeLabel, question) {
+      wisdomCount++;
+      countEl.textContent = wisdomCount;
+      scrollHeader.textContent = question ? "A note from your fairy godmother" : "\u2728 A random sparkle of wisdom";
+      scrollMode.textContent = modeLabel || "Random Wisdom";
+      scrollBody.textContent = text;
+      scrollFooter.textContent = "Wisdom #" + wisdomCount + " \u2022 " + new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+      scrollEl.classList.remove("is-visible");
+      void scrollEl.offsetWidth;
+      scrollEl.classList.add("is-visible");
+
+      // Prompt feedback
+      if (question) {
+        const fb = buildLaidyPromptFeedback(question);
+        if (fb) {
+          feedbackText.textContent = fb;
+          feedbackEl.classList.add("is-visible");
+        }
+      } else {
+        feedbackEl.classList.remove("is-visible");
+      }
+
+      // History
+      if (text !== lastAdvice) {
+        adviceHistory.unshift({ q: question || "\u2728 Random wisdom", a: text.split("\n")[0] });
+        if (adviceHistory.length > 3) adviceHistory.pop();
+        renderHistory();
+      }
+      lastAdvice = text;
+
+      // Badge
+      if (wisdomCount >= BADGE_THRESHOLD) {
+        badgeEl.classList.add("is-visible");
+        try {
+          const badges = JSON.parse(localStorage.getItem("laidiesSecretBadges") || "{}");
+          if (!badges["fairy-favorite"]) {
+            badges["fairy-favorite"] = { id: "fairy-favorite", title: "Fairy Godmother\u2019s Favorite", sticker: "LAIDY", unlockedAt: new Date().toISOString(), source: "fAIry Godmother" };
+            localStorage.setItem("laidiesSecretBadges", JSON.stringify(badges));
+          }
+        } catch(e) {}
+      }
+    }
+
+    function renderHistory() {
+      if (adviceHistory.length === 0) { historySection.style.display = "none"; return; }
+      historySection.style.display = "block";
+      historyList.innerHTML = adviceHistory.map(item =>
+        '<div class="history-item"><p class="history-q">' + escapeHtml(item.q) + '</p><p class="history-a">' + escapeHtml(item.a) + '</p></div>'
+      ).join("");
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    }
+
+    // Wave the Wand — ask with typed question
+    wandBtn.addEventListener("click", () => {
+      const q = questionEl.value.trim();
+      const mode = modeEl.value || "auto";
+      const result = buildLaidyAdvice(q, mode);
+      showAdvice(result.text, result.mode, q);
+    });
+
+    // Surprise me — random wisdom
+    randomBtn.addEventListener("click", () => {
+      const idx = Math.floor(Math.random() * randomWisdom.length);
+      showAdvice(randomWisdom[idx], "Random Wisdom", "");
+    });
+
+    // Allow Enter (Ctrl+Enter) to submit
+    questionEl.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault();
+        wandBtn.click();
+      }
+    });
+
+    // ===== SPARKLE FIELD GENERATION =====
+    (function generateSparkles() {
+      const field = document.getElementById("sparkleField");
+      if (!field) return;
+      const sparklePositions = [
+        { top: "8%", left: "10%", size: 10, dur: 2.2, delay: 0, color: "#ffd700" },
+        { top: "15%", right: "8%", size: 7, dur: 1.8, delay: 0.4, color: "#ff8fd8" },
+        { top: "60%", left: "5%", size: 9, dur: 2.5, delay: 0.8, color: "#ffd700" },
+        { top: "75%", right: "12%", size: 6, dur: 2, delay: 1.2, color: "#ffb6da" },
+        { top: "30%", left: "85%", size: 8, dur: 1.9, delay: 0.6, color: "#ffd700" },
+        { top: "45%", left: "2%", size: 11, dur: 2.4, delay: 1, color: "#ff8fd8" },
+        { top: "85%", left: "80%", size: 7, dur: 2.1, delay: 0.3, color: "#ffd700" },
+        { top: "5%", left: "50%", size: 6, dur: 1.7, delay: 1.5, color: "#ffb6da" },
+        { top: "50%", right: "3%", size: 9, dur: 2.3, delay: 0.9, color: "#ffd700" },
+        { top: "90%", left: "40%", size: 5, dur: 2, delay: 1.8, color: "#ff8fd8" },
+      ];
+      sparklePositions.forEach(s => {
+        const el = document.createElement("div");
+        el.className = "sparkle";
+        el.style.cssText = "top:" + s.top + ";left:" + (s.left||"auto") + ";right:" + (s.right||"auto") + ";--spark-size:" + s.size + "px;--spark-dur:" + s.dur + "s;--spark-delay:" + s.delay + "s;--spark-color:" + s.color + ";";
+        field.appendChild(el);
+      });
+      // Wand trail dots
+      const trailPositions = [
+        { top: "20%", left: "70%", dur: 3, delay: 0.2, dx: "15px", dy: "-12px", dx2: "25px", dy2: "-20px" },
+        { top: "35%", left: "75%", dur: 3.5, delay: 0.7, dx: "10px", dy: "-8px", dx2: "18px", dy2: "-15px" },
+        { top: "50%", left: "80%", dur: 2.8, delay: 1.1, dx: "12px", dy: "-15px", dx2: "22px", dy2: "-25px" },
+        { top: "25%", left: "65%", dur: 3.2, delay: 1.5, dx: "-8px", dy: "-10px", dx2: "-14px", dy2: "-18px" },
+        { top: "40%", left: "72%", dur: 2.9, delay: 0.5, dx: "8px", dy: "-6px", dx2: "16px", dy2: "-12px" },
+      ];
+      trailPositions.forEach(t => {
+        const el = document.createElement("div");
+        el.className = "wand-trail";
+        el.style.cssText = "top:" + t.top + ";left:" + t.left + ";--trail-dur:" + t.dur + "s;--trail-delay:" + t.delay + "s;--trail-dx:" + t.dx + ";--trail-dy:" + t.dy + ";--trail-dx2:" + t.dx2 + ";--trail-dy2:" + t.dy2 + ";";
+        field.appendChild(el);
+      });
+    })();
+
+    // ===== FLOATING GLITTER BACKGROUND =====
+    (function generateGlitter() {
+      const field = document.getElementById("glitterField");
+      if (!field) return;
+      const colors = ["#ffd700", "#ffb6da", "#ff8fd8", "#ffe4f0", "#ffeaa7", "#fff"];
+      for (let i = 0; i < 35; i++) {
+        const dot = document.createElement("div");
+        dot.className = "glitter-dot";
+        const size = 2 + Math.random() * 4;
+        const left = Math.random() * 100;
+        const duration = 5 + Math.random() * 8;
+        const delay = Math.random() * 10;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        dot.style.cssText = "left:" + left + "%;--size:" + size + "px;--duration:" + duration + "s;--delay:" + delay + "s;--color:" + color + ";";
+        field.appendChild(dot);
+      }
+    })();
+
+    // ===== HAMBURGER NAV =====
+    (function(){
+      var btn = document.querySelector(".hamburger-btn");
+      var nav = document.querySelector(".site-header .nav");
+      if (!btn || !nav) return;
+      btn.addEventListener("click", function() {
+        var open = nav.classList.toggle("is-open");
+        btn.setAttribute("aria-expanded", open);
+        btn.textContent = open ? "\u2715" : "\u2630";
+      });
+      nav.addEventListener("click", function(e) {
+        if (e.target.tagName === "A") {
+          nav.classList.remove("is-open");
+          btn.setAttribute("aria-expanded", "false");
+          btn.textContent = "\u2630";
+        }
+      });
+      document.addEventListener("click", function(e) {
+        if (!btn.contains(e.target) && !nav.contains(e.target) && nav.classList.contains("is-open")) {
+          nav.classList.remove("is-open");
+          btn.setAttribute("aria-expanded", "false");
+          btn.textContent = "\u2630";
+        }
+      });
+    })();
+    </script>
+  </body>
+</html>
