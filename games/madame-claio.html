@@ -351,8 +351,8 @@
       }
 
       .fortune-card-name {
-        font-family: 'Georgia', serif;
-        font-size: 1.4rem;
+        font-family: 'Dancing Script', cursive;
+        font-size: 2rem;
         font-weight: 700;
         color: var(--hotline-gold);
         text-align: center;
@@ -360,28 +360,24 @@
         text-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
       }
 
-      .fortune-card-section {
-        margin-top: 16px;
-        padding: 14px 16px;
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 10px;
-        border-left: 3px solid rgba(255, 45, 155, 0.5);
-      }
-      .fortune-card-section strong {
-        font-size: 0.72rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: var(--hotline-pink);
-        display: block;
-        margin-bottom: 6px;
-      }
-      .fortune-card-section p {
-        margin: 0;
+      .fortune-card-read {
+        margin: 16px 0 0;
+        font-size: 1.2rem;
+        font-style: italic;
         line-height: 1.6;
-        color: #f0e6ec;
-        font-size: 0.95rem;
+        color: #fff;
+        text-align: center;
+        text-shadow: 0 0 20px rgba(255, 45, 155, 0.15);
       }
-
+      .fortune-card-message {
+        margin: 14px 0 0;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: rgba(255, 248, 252, 0.82);
+        padding: 12px 16px;
+        border-left: 2px solid rgba(255, 215, 0, 0.3);
+        font-style: normal;
+      }
       .fortune-card-move {
         margin-top: 16px;
         padding: 16px;
@@ -608,16 +604,10 @@
         <div class="fortune-card" id="fortuneCard">
           <p class="fortune-card-flourish" id="fortuneFlourish">🔮 <em>crystal ball activates</em> 🔮</p>
           <p class="fortune-card-name" id="fortuneCardName"></p>
-          <div class="fortune-card-section">
-            <strong>The Read</strong>
-            <p id="fortuneRead"></p>
-          </div>
-          <div class="fortune-card-section">
-            <strong>The Message</strong>
-            <p id="fortuneMessage"></p>
-          </div>
+          <p class="fortune-card-read" id="fortuneRead"></p>
+          <p class="fortune-card-message" id="fortuneMessage"></p>
           <div class="fortune-card-move">
-            <strong>✦ Your Next Move</strong>
+            <strong>🃏 Madame says do this:</strong>
             <p id="fortuneMove"></p>
           </div>
         </div>
