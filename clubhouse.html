@@ -199,6 +199,7 @@
         <a href="learn.html">Learn</a>
         <a href="clubhouse.html">Clubhouse</a>
         <a href="community.html">Community</a>
+    <a href="clubhouse.html#dj-booth-inline">Listen</a>
         <a href="this-week.html">This Week</a>
       </nav>
     </header>
@@ -719,28 +720,162 @@
             <img class="game-hero-img" src="assets/house-dj-mixdesk.png" alt="" loading="lazy" />
             <span>Live</span>
             <h3>DJ JAIDY's Booth</h3>
-            <p>Weekly AI-made songs for each episode. Press play — the mini player appears at the bottom.</p>
-            <div style="display: grid; gap: 10px; margin-top: 8px;">
-              <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="width: 140px; flex-shrink: 0;"><span style="color: var(--hot-pink); font-size: 0.7rem; font-weight: 700;">EP 2</span><div style="color: #fff; font-size: 0.75rem; font-weight: 600; margin-top: 1px;">Tell Me What You Want</div></div>
-                <audio controls preload="metadata" src="content/music/dj-jaidy-week-02-tell-me-what-you-want.mp3" style="flex: 1; height: 32px;"></audio>
+            <p>Weekly AI-made songs for each episode. Built-in player below — or find us on Spotify.</p>
+            
+            <div class="dj-player" id="djPlayer">
+              <div class="dj-player-now-playing">
+                <span class="dj-player-label" id="djNowPlaying">Press play to start</span>
               </div>
-              <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="width: 140px; flex-shrink: 0;"><span style="color: var(--hot-pink); font-size: 0.7rem; font-weight: 700;">EP 1</span><div style="color: #fff; font-size: 0.75rem; font-weight: 600; margin-top: 1px;">On Wednesday We Do AI</div></div>
-                <audio controls preload="metadata" src="content/music/dj-jaidy-week-01-on-wednesday-we-do-ai.mp3" style="flex: 1; height: 32px;"></audio>
+              <div class="dj-player-controls">
+                <button type="button" id="djPrev" aria-label="Previous track" title="Previous">⏮</button>
+                <button type="button" id="djPlay" aria-label="Play" title="Play" class="dj-play-btn">▶</button>
+                <button type="button" id="djNext" aria-label="Next track" title="Next">⏭</button>
+                <button type="button" id="djRepeat" aria-label="Repeat mode" title="Repeat off" class="dj-mode-btn">🔁</button>
               </div>
-              <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="width: 140px; flex-shrink: 0;"><span style="color: var(--hot-pink); font-size: 0.7rem; font-weight: 700;">BONUS</span><div style="color: #fff; font-size: 0.75rem; font-weight: 600; margin-top: 1px;">Impossible to Underestimate You</div></div>
-                <audio controls preload="metadata" src="content/music/dj-jaidy-impossible-to-underestimate-you.mp3" style="flex: 1; height: 32px;"></audio>
+              <div class="dj-player-progress">
+                <span id="djTime">0:00</span>
+                <input type="range" id="djSeek" min="0" max="100" value="0" step="0.1" />
+                <span id="djDuration">0:00</span>
               </div>
-              <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="width: 140px; flex-shrink: 0;"><span style="color: var(--hot-pink); font-size: 0.7rem; font-weight: 700;">BONUS</span><div style="color: #fff; font-size: 0.75rem; font-weight: 600; margin-top: 1px;">Tomorrow's Problem</div></div>
-                <audio controls preload="metadata" src="content/music/debs-tomorrow-problem.mp3" style="flex: 1; height: 32px;"></audio>
+              <div class="dj-tracklist" id="djTracklist">
+                <button type="button" class="dj-track" data-track="0">
+                  <span class="dj-track-ep">EP 1</span>
+                  <span class="dj-track-title">On Wednesday We Do AI</span>
+                </button>
+                <button type="button" class="dj-track" data-track="1">
+                  <span class="dj-track-ep">EP 2</span>
+                  <span class="dj-track-title">Tell Me What You Want</span>
+                </button>
+                <button type="button" class="dj-track" data-track="2">
+                  <span class="dj-track-ep">BONUS</span>
+                  <span class="dj-track-title">Impossible to Underestimate You</span>
+                </button>
+                <button type="button" class="dj-track" data-track="3">
+                  <span class="dj-track-ep">BONUS</span>
+                  <span class="dj-track-title">Tomorrow's Problem</span>
+                </button>
               </div>
+              <a class="dj-spotify-link" href="this-week.html#playlist">🎧 Spotify Playlists →</a>
             </div>
-            <div style="margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap;">
-              <a class="button secondary" href="this-week.html#playlist" style="font-size: 0.8rem;">Spotify Playlists →</a>
-            </div>
+
+            <style>
+              .dj-player { background: rgba(16,8,5,0.6); border: 1.5px solid rgba(255,45,155,0.3); border-radius: 14px; padding: 16px; margin-top: 12px; }
+              .dj-player-now-playing { text-align: center; margin-bottom: 12px; }
+              .dj-player-label { font-size: 0.82rem; color: rgba(255,255,255,0.7); font-style: italic; }
+              .dj-player-controls { display: flex; justify-content: center; align-items: center; gap: 16px; margin-bottom: 12px; }
+              .dj-player-controls button { background: none; border: none; color: #fff; font-size: 1.3rem; cursor: pointer; padding: 8px; min-width: 40px; min-height: 40px; border-radius: 50%; transition: background 0.15s; }
+              .dj-player-controls button:hover { background: rgba(255,45,155,0.15); }
+              .dj-play-btn { font-size: 1.8rem !important; background: rgba(255,45,155,0.2) !important; }
+              .dj-play-btn:hover { background: rgba(255,45,155,0.35) !important; }
+              .dj-mode-btn.is-active { color: var(--hot-pink); text-shadow: 0 0 8px rgba(255,45,155,0.6); }
+              .dj-player-progress { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+              .dj-player-progress span { font-size: 0.7rem; color: rgba(255,255,255,0.5); min-width: 32px; font-variant-numeric: tabular-nums; }
+              .dj-player-progress input[type="range"] { flex: 1; height: 4px; accent-color: var(--hot-pink); cursor: pointer; }
+              .dj-tracklist { display: flex; flex-direction: column; gap: 4px; }
+              .dj-track { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: #fff; text-align: left; cursor: pointer; transition: background 0.15s, border-color 0.15s; font-family: inherit; font-size: 0.82rem; }
+              .dj-track:hover { background: rgba(255,45,155,0.08); border-color: rgba(255,45,155,0.25); }
+              .dj-track.is-playing { background: rgba(255,45,155,0.15); border-color: rgba(255,45,155,0.4); }
+              .dj-track-ep { font-size: 0.65rem; font-weight: 800; color: var(--hot-pink); min-width: 40px; letter-spacing: 0.05em; }
+              .dj-track-title { flex: 1; }
+              .dj-spotify-link { display: block; margin-top: 14px; text-align: center; color: var(--hot-pink); font-size: 0.85rem; font-weight: 700; text-decoration: none; padding: 10px; border: 1.5px solid rgba(255,45,155,0.3); border-radius: 8px; transition: background 0.15s; }
+              .dj-spotify-link:hover { background: rgba(255,45,155,0.08); }
+            </style>
+
+            <script>
+            (function() {
+              var tracks = [
+                { ep: "EP 1", title: "On Wednesday We Do AI", src: "content/music/dj-jaidy-week-01-on-wednesday-we-do-ai.mp3" },
+                { ep: "EP 2", title: "Tell Me What You Want", src: "content/music/dj-jaidy-week-02-tell-me-what-you-want.mp3" },
+                { ep: "BONUS", title: "Impossible to Underestimate You", src: "content/music/dj-jaidy-impossible-to-underestimate-you.mp3" },
+                { ep: "BONUS", title: "Tomorrow's Problem", src: "content/music/debs-tomorrow-problem.mp3" }
+              ];
+              var audio = new Audio();
+              var currentTrack = -1;
+              var repeatMode = 0; // 0=off, 1=all, 2=one
+              var isPlaying = false;
+              var playBtn = document.getElementById("djPlay");
+              var prevBtn = document.getElementById("djPrev");
+              var nextBtn = document.getElementById("djNext");
+              var repeatBtn = document.getElementById("djRepeat");
+              var seekBar = document.getElementById("djSeek");
+              var timeEl = document.getElementById("djTime");
+              var durationEl = document.getElementById("djDuration");
+              var nowPlayingEl = document.getElementById("djNowPlaying");
+              var trackBtns = document.querySelectorAll(".dj-track");
+
+              function formatTime(s) { var m=Math.floor(s/60); var sec=Math.floor(s%60); return m+":"+(sec<10?"0":"")+sec; }
+
+              function loadTrack(index) {
+                currentTrack = index;
+                audio.src = tracks[index].src;
+                nowPlayingEl.textContent = tracks[index].ep + " — " + tracks[index].title;
+                trackBtns.forEach(function(b,i){ b.classList.toggle("is-playing", i===index); });
+              }
+
+              function playTrack(index) {
+                if (index < 0 || index >= tracks.length) return;
+                loadTrack(index);
+                audio.play();
+                isPlaying = true;
+                playBtn.textContent = "⏸";
+              }
+
+              playBtn.addEventListener("click", function() {
+                if (currentTrack === -1) { playTrack(0); return; }
+                if (isPlaying) { audio.pause(); isPlaying = false; playBtn.textContent = "▶"; }
+                else { audio.play(); isPlaying = true; playBtn.textContent = "⏸"; }
+              });
+
+              prevBtn.addEventListener("click", function() {
+                if (audio.currentTime > 3) { audio.currentTime = 0; return; }
+                var prev = currentTrack - 1;
+                if (prev < 0) prev = tracks.length - 1;
+                playTrack(prev);
+              });
+
+              nextBtn.addEventListener("click", function() {
+                var next = currentTrack + 1;
+                if (next >= tracks.length) next = 0;
+                playTrack(next);
+              });
+
+              repeatBtn.addEventListener("click", function() {
+                repeatMode = (repeatMode + 1) % 3;
+                var labels = ["🔁", "🔁", "🔂"];
+                var titles = ["Repeat off", "Repeat all", "Repeat one"];
+                repeatBtn.textContent = labels[repeatMode];
+                repeatBtn.title = titles[repeatMode];
+                repeatBtn.classList.toggle("is-active", repeatMode > 0);
+              });
+
+              audio.addEventListener("ended", function() {
+                if (repeatMode === 2) { audio.currentTime = 0; audio.play(); return; }
+                var next = currentTrack + 1;
+                if (next >= tracks.length) {
+                  if (repeatMode === 1) { playTrack(0); }
+                  else { isPlaying = false; playBtn.textContent = "▶"; }
+                } else { playTrack(next); }
+              });
+
+              audio.addEventListener("timeupdate", function() {
+                if (!audio.duration) return;
+                seekBar.value = (audio.currentTime / audio.duration) * 100;
+                timeEl.textContent = formatTime(audio.currentTime);
+              });
+
+              audio.addEventListener("loadedmetadata", function() {
+                durationEl.textContent = formatTime(audio.duration);
+              });
+
+              seekBar.addEventListener("input", function() {
+                if (audio.duration) audio.currentTime = (seekBar.value / 100) * audio.duration;
+              });
+
+              trackBtns.forEach(function(btn) {
+                btn.addEventListener("click", function() { playTrack(Number(btn.dataset.track)); });
+              });
+            })();
+            </script>
           </article>
           <article class="game-card is-live game-panel-styled girl-talk-game clubhouse-revealable" data-clubhouse-layer="bottom">
             <img class="game-hero-img" src="assets/girl-talk-board.webp" alt="" loading="lazy" />
