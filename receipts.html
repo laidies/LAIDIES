@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Receipts — Evidence-Based FAQ | LAIDIES</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script defer data-domain="laidies.ai" src="https://plausible.io/js/script.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a25;
+            --bg-card-hover: #1f1f2e;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #6b6b80;
+            --accent-pink: #e91e8c;
+            --accent-pink-dim: rgba(233, 30, 140, 0.15);
+            --accent-gold: #f5c842;
+            --accent-blue: #4ea8de;
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --border-pink: rgba(233, 30, 140, 0.4);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* NAV */
+        .site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 15, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 0 2rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent-pink);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: color var(--transition);
+        }
+
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a.active { color: var(--accent-pink); }
+
+        .nav-signin {
+            background: var(--accent-pink);
+            color: white !important;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* BACK BUTTON */
+        .back-btn {
+            position: fixed;
+            top: 70px;
+            left: 2rem;
+            z-index: 999;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: color var(--transition);
+        }
+        .back-btn:hover { color: var(--accent-pink); }
+
+        /* HERO */
+        .hero {
+            padding: 140px 2rem 60px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            color: var(--accent-pink);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* SEARCH/FILTER */
+        .filter-bar {
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            padding: 0 2rem;
+        }
+
+        .filter-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color var(--transition), box-shadow var(--transition);
+        }
+
+        .filter-input::placeholder { color: var(--text-muted); }
+        .filter-input:focus {
+            border-color: var(--accent-pink);
+            box-shadow: 0 0 0 3px var(--accent-pink-dim);
+        }
+
+        /* MAIN CONTENT */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem 6rem;
+        }
+
+        /* CATEGORY */
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin: 3rem 0 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .category-header:first-child { margin-top: 0; }
+
+        .category-emoji {
+            font-size: 1.5rem;
+        }
+
+        .category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* FAQ CARD */
+        .faq-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-left: 3px solid var(--accent-pink);
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
+        }
+
+        .faq-card:hover {
+            background: var(--bg-card-hover);
+            box-shadow: var(--shadow);
+        }
+
+        .faq-card.open {
+            border-left-color: var(--accent-pink);
+            box-shadow: 0 8px 32px rgba(233, 30, 140, 0.1);
+        }
+
+        .faq-question {
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            user-select: none;
+        }
+
+        .faq-question-text {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            flex: 1;
+        }
+
+        .faq-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .confidence-badge {
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 0.25rem 0.6rem;
+            border-radius: 20px;
+            white-space: nowrap;
+            letter-spacing: 0.02em;
+        }
+
+        .confidence-solid {
+            background: rgba(78, 168, 222, 0.15);
+            color: var(--accent-blue);
+            border: 1px solid rgba(78, 168, 222, 0.3);
+        }
+
+        .confidence-early {
+            background: rgba(245, 200, 66, 0.12);
+            color: var(--accent-gold);
+            border: 1px solid rgba(245, 200, 66, 0.3);
+        }
+
+        .confidence-complicated {
+            background: rgba(200, 150, 255, 0.12);
+            color: #c896ff;
+            border: 1px solid rgba(200, 150, 255, 0.3);
+        }
+
+        .faq-chevron {
+            width: 20px;
+            height: 20px;
+            transition: transform var(--transition);
+            color: var(--text-muted);
+            flex-shrink: 0;
+        }
+
+        .faq-card.open .faq-chevron { transform: rotate(180deg); }
+
+        /* ANSWER */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+        }
+
+        .faq-card.open .faq-answer {
+            max-height: 2000px;
+        }
+
+        .faq-answer-inner {
+            padding: 0 1.5rem 1.5rem;
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 1.25rem;
+        }
+
+        .answer-short {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 1.25rem;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .answer-data-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            color: var(--accent-pink);
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .answer-data {
+            list-style: none;
+            margin-bottom: 1.25rem;
+        }
+
+        .answer-data li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.6rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .answer-data li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-pink);
+            font-weight: 600;
+        }
+
+        .answer-sources {
+            margin-top: 1.25rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .answer-sources-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .source-link {
+            display: inline-block;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.82rem;
+            margin-right: 1rem;
+            margin-bottom: 0.4rem;
+            transition: color var(--transition);
+            word-break: break-all;
+        }
+
+        .source-link:hover { color: var(--accent-pink); text-decoration: underline; }
+
+        .verified-stamp {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 0.02em;
+        }
+
+        .verified-dot {
+            width: 6px;
+            height: 6px;
+            background: #4ade80;
+            border-radius: 50%;
+        }
+
+        /* FOOTER */
+        .page-footer {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border-subtle);
+            text-align: center;
+        }
+
+        .footer-note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .footer-note strong {
+            color: var(--text-secondary);
+        }
+
+        /* HIDDEN STATE */
+        .faq-card.hidden { display: none; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .site-nav { padding: 0 1rem; }
+            .nav-links { gap: 0.8rem; }
+            .nav-links a { font-size: 0.75rem; }
+            .hero { padding: 120px 1.5rem 40px; }
+            .faq-container { padding: 0 1rem 4rem; }
+            .filter-bar { padding: 0 1rem; }
+            .faq-question { padding: 1rem 1.25rem; }
+            .faq-question-text { font-size: 0.95rem; }
+            .faq-answer-inner { padding: 0 1.25rem 1.25rem; padding-top: 1rem; }
+            .faq-meta { gap: 0.4rem; }
+            .confidence-badge { font-size: 0.65rem; padding: 0.2rem 0.5rem; }
+            .back-btn { top: 65px; left: 1rem; }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links a:not(.nav-signin) { display: none; }
+            .hero-title { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAV -->
+    <nav class="site-nav">
+        <a href="index.html" class="nav-brand">LAIDIES</a>
+        <ul class="nav-links">
+            <li><a href="episodes.html">Episodes</a></li>
+            <li><a href="learn.html">Learn</a></li>
+            <li><a href="clubhouse.html">Clubhouse</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="games/dj-booth.html">Listen</a></li>
+            <li><a href="this-week.html">This Week</a></li>
+            <li><a href="signin.html" class="nav-signin">Sign In</a></li>
+        </ul>
+    </nav>
+
+    <a href="learn.html" class="back-btn">← Back to Learn</a>
+
+    <!-- HERO -->
+    <section class="hero">
+        <p class="hero-eyebrow">Evidence-Based FAQ</p>
+        <h1 class="hero-title">The Receipts</h1>
+        <p class="hero-subtitle">Real questions. Real data. No vibes-only answers. Every claim has a source you can check.</p>
+    </section>
+
+    <!-- FILTER -->
+    <div class="filter-bar">
+        <input type="text" class="filter-input" id="faqFilter" placeholder="🔍  Search questions... (e.g. &quot;water&quot;, &quot;jobs&quot;, &quot;privacy&quot;)">
+    </div>
+
+    <!-- FAQ CONTENT -->
+    <main class="faq-container">
+
+        <!-- JOBS & WORK -->
+        <div class="category-header" data-category="jobs">
+            <span class="category-emoji">💼</span>
+            <h2 class="category-title">Jobs & Work</h2>
+        </div>
+
+        <div class="faq-card" data-keywords="jobs replacing work employment entry-level career">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span class="faq-question-text">"Is AI replacing jobs right now?"</span>
+                <div class="faq-meta">
+                    <span class="confidence-badge confidence-solid">📊 Solid data</span>
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+                </div>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    <p class="answer-short">Not wholesale — but entry-level roles in exposed fields are shrinking while experienced workers are doing just fine. The pattern isn't "robots take your job," it's "companies hire fewer juniors because AI handles the starter tasks."</p>
+                    <p class="answer-data-label">The Data</p>
+                    <ul class="answer-data">
+                        <li>Stanford AI Economic Indicators (June 2026) — early-career workers (ages 22–25) in AI-exposed occupations show measurable employment declines since ChatGPT's launch. Older workers in the same roles: no decline.</li>
+                        <li>McKinsey Global Institute estimates 12 million occupational transitions needed by 2030 in the US alone — not job losses, but role changes.</li>
+                        <li>The effect is concentrated in text/data-heavy roles, not across all industries equally.</li>
+                    </ul>
+                    <div class="answer-sources">
+                        <p class="answer-sources-label">Sources</p>
+                        <a href="https://digitaleconomy.stanford.edu/project/indicators/" target="_blank" rel="noopener" class="source-link">Stanford Digital Economy Lab — AI Economic Indicators</a>
+                        <a href="https://www.mckinsey.com/featured-insights/future-of-work" target="_blank" rel="noopener" class="source-link">McKinsey Global Institute — Future of Work</a>
+                        <div class="verified-stamp"><span class="verified-dot"></span> Last verified: June 2026</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-card" data-keywords="which jobs affected roles clerical coding copywriting customer service">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span class="faq-question-text">"Which jobs are most affected?"</span>
+                <div class="faq-meta">
+                    <span class="confidence-badge confidence-solid">📊 Solid data</span>
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+                </div>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    <p class="answer-short">Roles heavy on routine text and data work — data entry, basic copywriting, simple coding, customer service scripts. Meanwhile, creative + strategic + relationship-heavy roles are actually growing.</p>
+                    <p class="answer-data-label">The Data</p>
+                    <ul class="answer-data">
+                        <li>World Economic Forum Future of Jobs 2025 — AI and big data specialists are the <em>fastest-growing</em> role globally.</li>
+                        <li>Clerical and secretarial roles are declining fastest across all categories.</li>
+                        <li>The pattern: if your job is mostly "take information from A and put it in format B," that's where AI bites first.</li>
+                        <li>Roles requiring judgment calls, relationship management, and physical presence remain largely unaffected.</li>
+                    </ul>
+                    <div class="answer-sources">
+                        <p class="answer-sources-label">Sources</p>
+                        <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" rel="noopener" class="source-link">World Economic Forum — Future of Jobs Report 2025</a>
+                        <div class="verified-stamp"><span class="verified-dot"></span> Last verified: June 2026</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-card" data-keywords="replace me my job personally domain expertise judgment">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span class="faq-question-text">"Will AI replace ME specifically?"</span>
+                <div class="faq-meta">
+                    <span class="confidence-badge confidence-early">🔬 Early research</span>
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+                </div>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    <p class="answer-short">Probably not — but it will change what your job looks like. The emerging pattern is: AI does the first draft, you make it right. Your judgment gets amplified, not replaced.</p>
+                    <p class="answer-data-label">The Data</p>
+                    <ul class="answer-data">
+                        <li>Stanford/ADP data shows domain expertise + AI fluency = the winning combination employers are paying for.</li>
+                        <li>OpenAI/Thrive tax study: AI alone achieved 97% accuracy, but humans reviewing AI output pushed it even higher — the human-in-the-loop made it <em>better</em>, not worse.</li>
+                        <li>The honest answer: it varies wildly by field. A medical diagnostician's job looks very different from a data entry clerk's job in an AI world.</li>
+                    </ul>
+                    <div class="answer-sources">
+                        <p class="answer-sources-label">Sources</p>
+                        <a href="https://digitaleconomy.stanford.edu/project/indicators/" target="_blank" rel="noopener" class="source-link">Stanford Digital Economy Lab — AI Economic Indicators</a>
+                        <div class="verified-stamp"><span class="verified-dot"></span> Last verified: June 2026</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ENVIRONMENT -->
+        <div class="category-header" data-category="environment">
+            <span class="category-emoji">🌍</span>
+            <h2 class="category-title">Environment</h2>
+        </div>
+
+        <div class="faq-card" data-keywords="water use consumption data center cooling thirsty">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span class="faq-question-text">"How much water does AI use?"</span>
+                <div class="faq-meta">
+                    <span class="confidence-badge confidence-solid">📊 Solid data</span>
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+                </div>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    <p class="answer-short">A lot — and it's growing. Think of it this way: a single ChatGPT conversation uses about 500ml of water (one water bottle) for data center cooling. Multiply that by hundreds of millions of daily users.</p>
+                    <p class="answer-data-label">The Data</p>
+                    <ul class="answer-data">
+                        <li>University of California Riverside (2023) — GPT-4 training alone consumed approximately 700,000 liters of water.</li>
+                        <li>Each conversation with a large model: ~500ml of water for cooling.</li>
+                        <li>Google's water consumption up 20% year-over-year; Microsoft's up 34% (2022–2023) — largely attributed to AI infrastructure expansion.</li>
+                        <li>The water impact is location-dependent: data centers in water-stressed regions (like the American Southwest) are more problematic than those in water-rich areas.</li>
+                    </ul>
+                    <div class="answer-sources">
+                        <p class="answer-sources-label">Sources</p>
+                        <a href="https://arxiv.org/abs/2304.03271" target="_blank" rel="noopener" class="source-link">Li et al. — "Making AI Less Thirsty" (arXiv, 2023)</a>
+                        <a href="https://sustainability.google/reports/" target="_blank" rel="noopener" class="source-link">Google Environmental Report 2024</a>
+                        <a href="https://www.microsoft.com/en-us/corporate-responsibility/sustainability" target="_blank" rel="noopener" class="source-link">Microsoft Sustainability Report 2024</a>
+                        <div class="verified-stamp"><span class="verified-dot"></span> Last verified: June 2026</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-card" data-keywords="carbon footprint emissions CO2 energy training climate">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span class="faq-question-text">"What's AI's carbon footprint?"</span>
+                <div class="faq-meta">
+                    <span class="confidence-badge confidence-complicated">🤷‍♀️ It's complicated</span>
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+                </div>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    <p class="answer-short">Training a large model produces roughly the same emissions as 5 cars over their entire lifetime. But <em>using</em> it daily is much smaller — comparable to a few Google searches per query.</p>
+                    <p class="answer-data-label">The Data</p>
+                    <ul class="answer-data">
+                        <li>Strubell et al. (2019) — training one large NLP model: approximately 284 tonnes of CO2 equivalent.</li>
+                        <li>IEA (2024) — global data center energy demand projected to double by 2026.</li>
+                        <li>Inference (actual daily use) is far less intensive than training — but there are billions more inference calls than training runs.</li>
+                        <li>Net impact depends heavily on the energy mix of the data center's region. A model running on hydro power ≠ a model running on coal.</li>
+                    </ul>
+                    <div class="answer-sources">
+                        <p class="answer-sources-label">Sources</p>
+                        <a href="https://www.iea.org/reports/electricity-2024" target="_blank" rel="noopener" class="source-link">International Energy Agency — Electricity 2024</a>
+                        <a href="https://arxiv.org/abs/1906.02243" target="_blank" rel="noopener" class="source-link">Strubell et al. — Energy and Policy Considerations for NLP (2019)</a>
+                        <div class="verified-stamp"><span class="verified-dot"></span> Last verified: June 2026</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-card" data-keywords="getting better worse efficiency energy usage trend">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span class="faq-question-text">"Is it getting better or worse?"</span>
+                <div class="faq-meta">
+                    <span class="confidence-badge confidence-complicated">🤷‍♀️ It's complicated</span>
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+                </div>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    <p class="answer-short">Both — simultaneously. Individual models are getting more efficient (less energy per query), but total usage is skyrocketing so fast that net energy consumption is still climbing.</p>
+                    <p class="answer-data-label">The Data</p>
+                    <ul class="answer-data">
+                        <li>IEA projects data centers will consume 1,000 TWh by 2026 (up from 460 TWh in 2022) — that's more electricity than Japan uses.</li>
+                        <li>Per-query efficiency is improving roughly 2× per year (Epoch AI, 2024) — so each individual question costs less.</li>
+                        <li>But the number of queries is growing faster than efficiency gains — the "Jevons Paradox" in action.</li>
+                        <li>Some companies (Google, Microsoft) are investing heavily in renewable-powered data centers. Others... less so.</li>
+                    </ul>
+                    <div class="answer-sources">
+                        <p class="answer-sources-label">Sources</p>
+                        <a href="https://www.iea.org/reports/electricity-2024" target="_blank" rel="noopener" class="source-link">International Energy Agency — Electricity 2024</a>
+                        <a href="https://epochai.org/" target="_blank" rel="noopener" class="source-link">Epoch AI — Compute Trends</a>
+                        <div class="verified-stamp"><span class="verified-dot"></span> Last verified: June 2026</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRIVACY & TRUST -->
+        <div class="category-header" data-category="privacy">
+            <span class="category-emoji">🔒</span>
+            <h2 class="category-title">Privacy & Trust</h2>
+        </div>
+
+        <div class="faq-card" data-keywords="data training privacy conversations opt-out enterprise free tier">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span class="faq-question-text">"Is my data being used to train AI models?"</span>
+                <div class="faq-meta">
+                    <span class="confidence-badge confidence-solid">📊 Solid data</span>
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+                </div>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    <p class="answer-short">It depends which tool you're using and which plan you're on. Free tiers often train on your data. Paid and enterprise tiers usually don't. Always check your specific tool's policy.</p>
+                    <p class="answer-data-label">The Data</p>
+                    <ul class="answer-data">
+                        <li>OpenAI (2024) — ChatGPT Free: <em>can</em> use conversations for training (opt-out available in settings). ChatGPT Plus/Team/Enterprise: does NOT train on your data by default.</li>
+                        <li>Anthropic Claude: doesn't train on conversations by default on any tier.</li>
+                        <li>Google Gemini: depends on your Workspace admin settings and whether you're on a personal or enterprise account.</li>
+                        <li>Rule of thumb: if you're not paying for it, your conversations might be the product. If you are paying, read the data processing agreement.</li>
+                    </ul>
+                    <div class="answer-sources">
+                        <p class="answer-sources-label">Sources</p>
+                        <a href="https://openai.com/policies/terms-of-use" target="_blank" rel="noopener" class="source-link">OpenAI Terms of Use (Data Usage section)</a>
+                        <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener" class="source-link">Anthropic Privacy Policy</a>
+                        <div class="verified-stamp"><span class="verified-dot"></span> Last verified: June 2026</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-card" data-keywords="hallucination make stuff up wrong inaccurate lies fabricate">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span class="faq-question-text">"How often does AI make stuff up?"</span>
+                <div class="faq-meta">
+                    <span class="confidence-badge confidence-solid">📊 Solid data</span>
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+                </div>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    <p class="answer-short">More than you'd think — 3 to 10% of the time depending on the task and model. For anything high-stakes (medical, legal, financial), always verify independently.</p>
+                    <p class="answer-data-label">The Data</p>
+                    <ul class="answer-data">
+                        <li>Vectara Hallucination Leaderboard (2024) — rates range from 3% (best models on factual Q&A) to 27% (worst cases, complex reasoning tasks).</li>
+                        <li>GPT-4 and Claude 3: approximately 3–5% hallucination rate on straightforward factual tasks.</li>
+                        <li>All models perform significantly worse on niche, technical, or very recent topics — this is where verification matters most.</li>
+                        <li>The technical term is "hallucination" — the AI isn't lying, it's pattern-matching in a way that produces confident-sounding nonsense.</li>
+                    </ul>
+                    <div class="answer-sources">
+                        <p class="answer-sources-label">Sources</p>
+                        <a href="https://github.com/vectara/hallucination-leaderboard" target="_blank" rel="noopener" class="source-link">Vectara Hallucination Leaderboard (GitHub)</a>
+                        <div class="verified-stamp"><span class="verified-dot"></span> Last verified: June 2026</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ECONOMY -->
+        <div class="category-header" data-category="economy">
+            <span class="category-emoji">💰</span>
+            <h2 class="category-title">Economy</h2>
+        </div>
+
+        <div class="faq-card" data-keywords="productivity companies productive gains efficiency output">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span class="faq-question-text">"Is AI actually making companies more productive?"</span>
+                <div class="faq-meta">
+                    <span class="confidence-badge confidence-solid">📊 Solid data</span>
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+                </div>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    <p class="answer-short">Yes, but unevenly. Customer service and coding tasks see 20–40% gains. Strategy and creative work? Much smaller — and sometimes AI makes it <em>worse</em>.</p>
+                    <p class="answer-data-label">The Data</p>
+                    <ul class="answer-data">
+                        <li>MIT/Stanford (2023) — customer service agents saw +14% productivity with AI assistance, with the biggest gains for less-experienced workers.</li>
+                        <li>GitHub (2023) — developers complete tasks 55% faster with Copilot (their AI coding assistant).</li>
+                        <li>BUT — BCG/Harvard (2023): management consultants using AI on creative strategy tasks performed <em>worse</em> than those without it. AI seems to create a "ceiling" for creative work.</li>
+                        <li>The pattern: AI excels at well-defined tasks with clear right answers. It struggles with ambiguity, nuance, and true originality.</li>
+                    </ul>
+                    <div class="answer-sources">
+                        <p class="answer-sources-label">Sources</p>
+                        <a href="https://www.nber.org/papers/w31161" target="_blank" rel="noopener" class="source-link">Brynjolfsson et al. — Generative AI at Work (NBER, 2023)</a>
+                        <a href="https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/" target="_blank" rel="noopener" class="source-link">GitHub Copilot Productivity Research</a>
+                        <div class="verified-stamp"><span class="verified-dot"></span> Last verified: June 2026</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-card" data-keywords="benefiting financially money wealth inequality nvidia wages">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span class="faq-question-text">"Who's actually benefiting financially?"</span>
+                <div class="faq-meta">
+                    <span class="confidence-badge confidence-early">🔬 Early research</span>
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+                </div>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    <p class="answer-short">So far, mostly the companies building AI and the highest-skilled workers who know how to wield it. The broad "rising tide lifts all boats" economic gains? Haven't materialized yet.</p>
+                    <p class="answer-data-label">The Data</p>
+                    <ul class="answer-data">
+                        <li>Stanford Takeoff Tracker (2026) — "no decisive evidence of economic takeoff at present" despite massive AI investment.</li>
+                        <li>Nvidia revenue up +265% year-over-year — the "picks and shovels" of the AI gold rush.</li>
+                        <li>Median wage growth: flat. Total US productivity growth: modest at best.</li>
+                        <li>Historical pattern: it took 20+ years for electricity to show up in productivity statistics. AI might follow the same slow curve — or might not.</li>
+                    </ul>
+                    <div class="answer-sources">
+                        <p class="answer-sources-label">Sources</p>
+                        <a href="https://digitaleconomy.stanford.edu/project/indicators/" target="_blank" rel="noopener" class="source-link">Stanford Digital Economy Lab — Takeoff Tracker</a>
+                        <div class="verified-stamp"><span class="verified-dot"></span> Last verified: June 2026</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LEARNING & SKILLS -->
+        <div class="category-header" data-category="learning">
+            <span class="category-emoji">🎓</span>
+            <h2 class="category-title">Learning & Skills</h2>
+        </div>
+
+        <div class="faq-card" data-keywords="dumber critical thinking overreliance atrophy skills cognitive">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span class="faq-question-text">"Is AI making us dumber?"</span>
+                <div class="faq-meta">
+                    <span class="confidence-badge confidence-complicated">🤷‍♀️ It's complicated</span>
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+                </div>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    <p class="answer-short">The research is genuinely mixed. AI can atrophy skills you stop practicing (like mental math when you always use a calculator). But it can also let you tackle harder problems you wouldn't have attempted alone.</p>
+                    <p class="answer-data-label">The Data</p>
+                    <ul class="answer-data">
+                        <li>Microsoft Research (2024) — overreliance on AI correlates with reduced critical thinking on routine tasks. People stop checking the work.</li>
+                        <li>Nature Human Behaviour (2023) — AI-assisted workers attempt and successfully solve more complex problems than they would unassisted.</li>
+                        <li>It's a tool — like spell-check didn't make us illiterate, but it did make us lazier about proofreading. Outcomes depend on intentionality.</li>
+                        <li>Key insight: the risk isn't "AI makes you dumb" — it's "AI makes you <em>complacent</em> if you let it."</li>
+                    </ul>
+                    <div class="answer-sources">
+                        <p class="answer-sources-label">Sources</p>
+                        <a href="https://www.microsoft.com/en-us/research/" target="_blank" rel="noopener" class="source-link">Microsoft Research — AI and Critical Thinking (2024)</a>
+                        <a href="https://www.nature.com/nathumbehav/" target="_blank" rel="noopener" class="source-link">Nature Human Behaviour (2023)</a>
+                        <div class="verified-stamp"><span class="verified-dot"></span> Last verified: June 2026</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-card" data-keywords="skills learn what should prompting evaluation domain expertise upskill">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span class="faq-question-text">"What skills should I actually learn?"</span>
+                <div class="faq-meta">
+                    <span class="confidence-badge confidence-solid">📊 Solid data</span>
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+                </div>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    <p class="answer-short">Four things: prompting (talking to AI effectively), evaluation (knowing when output is good vs. garbage), workflow design (knowing where AI fits in your process), and your domain expertise (what makes YOU the expert). Not coding — unless you want to.</p>
+                    <p class="answer-data-label">The Data</p>
+                    <ul class="answer-data">
+                        <li>LinkedIn Jobs on the Rise 2025 — "AI literacy" appearing in 25% more job postings year-over-year.</li>
+                        <li>World Economic Forum Future of Jobs 2025: top skills = critical thinking, creative thinking, AI & big data literacy, curiosity, and resilience.</li>
+                        <li>Notice what's NOT on that list: "learning to code." The ability to evaluate and direct AI matters more than building it from scratch.</li>
+                        <li>The meta-skill: learning how to learn quickly. The tools change every 6 months — your adaptability is the constant.</li>
+                    </ul>
+                    <div class="answer-sources">
+                        <p class="answer-sources-label">Sources</p>
+                        <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" rel="noopener" class="source-link">World Economic Forum — Future of Jobs Report 2025</a>
+                        <a href="https://www.linkedin.com/pulse/jobs-rise-2025/" target="_blank" rel="noopener" class="source-link">LinkedIn — Jobs on the Rise 2025</a>
+                        <div class="verified-stamp"><span class="verified-dot"></span> Last verified: June 2026</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="page-footer">
+        <p class="footer-note">
+            <strong>About this page:</strong> The Receipts is a living reference, not a news feed. We update answers when the data changes — not on a schedule. Every source is linked so you can verify for yourself. That's the whole point.
+            <br><br>
+            Have a question we should add? <a href="community.html" style="color: var(--accent-pink);">Tell us in the Community</a>.
+        </p>
+    </footer>
+
+    <script>
+        // Toggle FAQ cards
+        function toggleFAQ(questionEl) {
+            const card = questionEl.closest('.faq-card');
+            const wasOpen = card.classList.contains('open');
+            
+            // Close all other cards (accordion behavior)
+            // document.querySelectorAll('.faq-card.open').forEach(c => c.classList.remove('open'));
+            
+            // Toggle clicked card
+            if (wasOpen) {
+                card.classList.remove('open');
+            } else {
+                card.classList.add('open');
+            }
+        }
+
+        // Filter/search functionality
+        const filterInput = document.getElementById('faqFilter');
+        const faqCards = document.querySelectorAll('.faq-card');
+        const categoryHeaders = document.querySelectorAll('.category-header');
+
+        filterInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase().trim();
+            
+            faqCards.forEach(card => {
+                const questionText = card.querySelector('.faq-question-text').textContent.toLowerCase();
+                const keywords = (card.dataset.keywords || '').toLowerCase();
+                const answerText = card.querySelector('.faq-answer-inner') ? 
+                    card.querySelector('.faq-answer-inner').textContent.toLowerCase() : '';
+                
+                const matches = !query || 
+                    questionText.includes(query) || 
+                    keywords.includes(query) || 
+                    answerText.includes(query);
+                
+                card.classList.toggle('hidden', !matches);
+            });
+
+            // Hide category headers if all their cards are hidden
+            categoryHeaders.forEach(header => {
+                let nextEl = header.nextElementSibling;
+                let hasVisibleCard = false;
+                
+                while (nextEl && !nextEl.classList.contains('category-header')) {
+                    if (nextEl.classList.contains('faq-card') && !nextEl.classList.contains('hidden')) {
+                        hasVisibleCard = true;
+                        break;
+                    }
+                    nextEl = nextEl.nextElementSibling;
+                }
+                
+                header.style.display = hasVisibleCard ? '' : 'none';
+            });
+        });
+
+        // Keyboard accessibility
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.setAttribute('tabindex', '0');
+            q.setAttribute('role', 'button');
+            q.setAttribute('aria-expanded', 'false');
+            
+            q.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleFAQ(this);
+                    this.setAttribute('aria-expanded', 
+                        this.closest('.faq-card').classList.contains('open'));
+                }
+            });
+        });
+    </script>
+</body>
+</html>
