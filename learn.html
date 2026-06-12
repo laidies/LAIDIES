@@ -62,7 +62,7 @@
       }
       .learn-hub-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 20px;
         max-width: 860px;
         margin: 0 auto;
@@ -295,10 +295,10 @@
           </a>
 
           <a class="hub-card" href="receipts.html">
-            <img src="assets/receipts-faq.png" alt="Evidence-based FAQ with data citations" />
+            <div style="height:160px;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(135deg,#1a0a2e,#2d1b4e);">📊</div>
             <div class="hub-card-body">
               <strong>The Receipts</strong>
-              <span>Every claim backed by data. Real questions about AI answered with sources you can check.</span>
+              <span>Real questions about AI answered with sources you can check. No vibes-only answers.</span>
               <span class="hub-card-cta">Check the receipts &rarr;</span>
             </div>
           </a>
