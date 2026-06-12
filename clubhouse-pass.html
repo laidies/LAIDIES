@@ -8,6 +8,9 @@
     <link rel="icon" type="image/png" href="assets/laidies-logo-square.png" />
     <link rel="stylesheet" href="styles.css?v=redesign-2" />
     <link rel="stylesheet" href="styles-new-sections.css?v=redesign-2" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&family=JetBrains+Mono:wght@400&family=Inter:wght@400;600;700&display=swap">
     <!-- Privacy-friendly analytics by Plausible -->
 <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
 <script>
@@ -83,6 +86,92 @@
       .pass-form-card .submit-btn:hover {
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(255,45,155,0.3);
+      }
+      .pass-form-card .submit-btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+      }
+      /* Confirmation card styles */
+      .member-pass-confirmation {
+        background: #1a0a12;
+        border: 2px solid #ff2d9b;
+        border-radius: 16px;
+        padding: 28px 24px;
+        margin-top: 16px;
+        text-align: center;
+        animation: confirmFadeIn 0.4s ease-out;
+      }
+      .member-pass-confirmation[hidden] {
+        display: none;
+      }
+      .member-pass-confirmation-title {
+        font-family: Georgia, serif;
+        font-size: 1.25rem;
+        color: #fff;
+        margin: 0 0 10px;
+        font-weight: 700;
+      }
+      .member-pass-confirmation-detail {
+        font-size: 0.92rem;
+        color: #fdf8fb;
+        line-height: 1.6;
+        margin: 0;
+      }
+      @keyframes confirmFadeIn {
+        from { opacity: 0; transform: translateY(8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      /* Email help / resend link */
+      .member-pass-email-help {
+        margin-top: 14px;
+        padding: 12px 16px;
+        background: linear-gradient(135deg, #fff8fc, #fce4f2);
+        border: 1px solid rgba(255,45,155,0.25);
+        border-radius: 10px;
+        font-size: 0.85rem;
+        color: var(--ink, #1a0a12);
+        line-height: 1.5;
+      }
+      .member-pass-email-help[hidden] {
+        display: none;
+      }
+      .member-pass-email-help a {
+        color: #ff2d9b;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      /* Detail and note status text */
+      .member-pass-detail {
+        font-size: 0.88rem;
+        color: var(--muted, #65515d);
+        line-height: 1.5;
+        margin-top: 10px;
+      }
+      .member-pass-note {
+        font-size: 0.82rem;
+        color: var(--muted, #65515d);
+        line-height: 1.4;
+        margin-top: 8px;
+        font-style: italic;
+      }
+      /* Link-sent state hides the form inputs */
+      .member-pass-panel.is-link-sent .member-pass-form-fields {
+        opacity: 0.5;
+        pointer-events: none;
+        transition: opacity 0.3s;
+      }
+      .member-pass-resend-link {
+        display: inline-block;
+        margin-top: 14px;
+        font-size: 0.85rem;
+        color: #ff2d9b;
+        text-decoration: underline;
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-family: inherit;
       }
       .pass-status {
         text-align: center;
@@ -193,15 +282,32 @@
         <p class="intro">Your card, your badges, your quiz scores, your stickers — all saved across devices. One email, no password. <strong>We send you a magic link every time you want in — even if you've signed up before. That's how it works. No password to remember, ever.</strong></p>
 
         <!-- THE FORM -->
-        <div class="pass-form-card">
-          <label for="memberPassEmail">Your email</label>
-          <input id="memberPassEmail" type="email" autocomplete="email" placeholder="yourname@email.com" />
-          <div class="newsletter-opt">
-            <input id="memberPassNewsletter" type="checkbox" />
-            <span>Also send me the Wednesday newsletter</span>
+        <div class="pass-form-card member-pass-panel">
+          <div class="member-pass-form-fields">
+            <label for="memberPassEmail">Your email</label>
+            <input id="memberPassEmail" type="email" autocomplete="email" placeholder="yourname@email.com" />
+            <div class="newsletter-opt">
+              <input id="memberPassNewsletter" type="checkbox" />
+              <span>Also send me the Wednesday newsletter</span>
+            </div>
           </div>
           <button class="submit-btn" type="button" id="saveMemberPassButton">Get my magic link</button>
           <div id="memberPassStatus" class="pass-status" aria-live="polite"></div>
+          <p id="memberPassDetail" class="member-pass-detail" aria-live="polite"></p>
+          <p id="memberPassNote" class="member-pass-note"></p>
+
+          <!-- Confirmation card (shown after magic link sent) -->
+          <div id="memberPassConfirmation" class="member-pass-confirmation" hidden aria-live="polite">
+            <p id="memberPassConfirmationTitle" class="member-pass-confirmation-title"></p>
+            <p id="memberPassConfirmationDetail" class="member-pass-confirmation-detail"></p>
+            <button type="button" class="member-pass-resend-link" id="memberPassResendLink" hidden>Didn't get it? Send another</button>
+          </div>
+
+          <!-- Email help (shown during pending state) -->
+          <div id="memberPassEmailHelp" class="member-pass-email-help" hidden>
+            <strong>✉️ Check your inbox</strong> (and spam/promotions). Open the newest email from <em>lAIdies</em> on this same device. It may say "confirm signup" or "sign in" — either one works.
+          </div>
+
           <p class="pass-privacy">We save your email + profile answers. Nothing else. Your card is yours to share or not. <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
         </div>
 
@@ -280,6 +386,47 @@
     <script src="content/site/supabase-config.js" defer></script>
     <script src="script.js" defer></script>
   
+<!-- Magic link confirmation state enhancement -->
+<script>
+(function() {
+  var resendTimer = null;
+
+  // Show resend link after 30s when confirmation becomes visible
+  var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(m) {
+      var confirmation = document.getElementById('memberPassConfirmation');
+      var resendLink = document.getElementById('memberPassResendLink');
+      if (!confirmation || !resendLink) return;
+      if (!confirmation.hidden) {
+        // Confirmation just became visible — start 30s timer for resend
+        resendLink.hidden = true;
+        clearTimeout(resendTimer);
+        resendTimer = setTimeout(function() {
+          resendLink.hidden = false;
+        }, 30000);
+      } else {
+        // Confirmation hidden — clear timer and hide resend
+        clearTimeout(resendTimer);
+        resendLink.hidden = true;
+      }
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var confirmation = document.getElementById('memberPassConfirmation');
+    if (confirmation) {
+      observer.observe(confirmation, { attributes: true, attributeFilter: ['hidden'] });
+    }
+    // Resend button triggers the same save button click
+    var resendLink = document.getElementById('memberPassResendLink');
+    var saveBtn = document.getElementById('saveMemberPassButton');
+    if (resendLink && saveBtn) {
+      resendLink.addEventListener('click', function() { saveBtn.click(); });
+    }
+  });
+})();
+</script>
+
 <footer style="text-align: center; padding: 24px; font-size: 0.8rem; color: var(--muted, #65515d);">
   <a href="index.html">← Back to homepage</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a>
 </footer>

@@ -3247,8 +3247,8 @@ function renderFortuneOutput(card) {
 fortuneButton?.addEventListener("click", () => {
   lastFortuneIndex = nextIndex(fortuneCards.length, lastFortuneIndex);
   const next = fortuneCards[lastFortuneIndex];
-  renderFortuneOutput(next);
   madameClaioCallsThisSession += 1;
+  renderFortuneOutput(next);
   const unlockMessage = madameClaioCallsThisSession >= 5 ? unlockSecretBadge("hotline-regular", "Madame CLAI-O") : "";
   if (unlockMessage && fortuneOutput) {
     const line = document.createElement("span");
@@ -3283,7 +3283,14 @@ function selectCocktailType(type = "cocktail") {
   syncCocktailFortuneMode(type);
   setCocktailFortuneState("closed");
   if (cocktailFortuneImage?.dataset.closedSrc) cocktailFortuneImage.src = cocktailFortuneImage.dataset.closedSrc;
-  cocktailWheel?.classList.remove("has-reveal", "is-counting");
+  const wheel = cocktailWheel || document.querySelector("#cocktailWheel");
+  wheel?.classList.remove("has-reveal", "is-counting");
+  const revealCard = wheel?.querySelector(".fortune-reveal-card");
+  if (revealCard) {
+    revealCard.setAttribute("aria-hidden", "true");
+    revealCard.style.display = "";
+    revealCard.style.opacity = "";
+  }
   if (cocktailFortuneNumber) cocktailFortuneNumber.textContent = "01";
   if (cocktailFortuneDrink) cocktailFortuneDrink.textContent = "Pick a mood";
   if (!cocktailOutput) return;
@@ -3335,15 +3342,18 @@ function syncCocktailWheelSelection(type) {
   const menu = cocktailMenus[type] || cocktailMenus.cocktail;
   const drink = menu[state.lastIndex];
   if (!drink) return;
-  if (cocktailFortuneNumber) cocktailFortuneNumber.textContent = String(state.lastIndex + 1).padStart(2, "0");
-  if (cocktailFortuneDrink) cocktailFortuneDrink.textContent = drink.name;
+  const numEl = cocktailFortuneNumber || document.querySelector("#cocktailFortuneNumber");
+  const drinkEl = cocktailFortuneDrink || document.querySelector("#cocktailFortuneDrink");
+  if (numEl) numEl.textContent = String(state.lastIndex + 1).padStart(2, "0");
+  if (drinkEl) drinkEl.textContent = drink.name;
 }
 
 function renderCocktailOutput(drink, index, flapIndex = -1) {
-  if (!cocktailOutput || !drink) return;
+  const output = cocktailOutput || document.querySelector("#cocktailOutput");
+  if (!output || !drink) return;
   const flap = cocktailFortuneFlaps[flapIndex];
 
-  cocktailOutput.replaceChildren();
+  output.replaceChildren();
 
   const title = document.createElement("strong");
   title.textContent = `${index + 1}. ${drink.name}`;
@@ -3357,7 +3367,7 @@ function renderCocktailOutput(drink, index, flapIndex = -1) {
   const note = document.createElement("span");
   note.textContent = drink.note;
 
-  cocktailOutput.append(title, vibe, order, note);
+  output.append(title, vibe, order, note);
 }
 
 function spinCocktail(type = activeCocktailType, flapIndex = -1) {
@@ -3367,15 +3377,23 @@ function spinCocktail(type = activeCocktailType, flapIndex = -1) {
   syncCocktailFortuneMode(type);
   setCocktailFortuneState("counting", selectedFlap);
   if (cocktailFortuneImage?.dataset.closedSrc) cocktailFortuneImage.src = cocktailFortuneImage.dataset.closedSrc;
-  cocktailWheel?.classList.remove("has-reveal");
-  cocktailWheel?.classList.add("is-counting");
+  const wheel = cocktailWheel || document.querySelector("#cocktailWheel");
+  wheel?.classList.remove("has-reveal");
+  wheel?.classList.add("is-counting");
+  const revealCard = wheel?.querySelector(".fortune-reveal-card");
+  if (revealCard) revealCard.setAttribute("aria-hidden", "true");
   state.lastIndex = flapIndex >= 0 ? getCocktailFortuneIndex(activeCocktailType, selectedFlap) : nextIndex(menu.length, state.lastIndex);
   const next = menu[state.lastIndex];
   state.turns += 1;
   window.setTimeout(() => {
     if (cocktailFortuneImage?.dataset.openSrc) cocktailFortuneImage.src = cocktailFortuneImage.dataset.openSrc;
-    cocktailWheel?.classList.remove("is-counting");
-    cocktailWheel?.classList.add("has-reveal");
+    wheel?.classList.remove("is-counting");
+    wheel?.classList.add("has-reveal");
+    if (revealCard) {
+      revealCard.setAttribute("aria-hidden", "false");
+      revealCard.style.display = "flex";
+      revealCard.style.opacity = "1";
+    }
     setCocktailFortuneState("open", selectedFlap);
     syncCocktailWheelSelection(activeCocktailType);
     renderCocktailOutput(next, state.lastIndex, selectedFlap);
@@ -3576,6 +3594,59 @@ function renderDreamPhoneSecretBadge() {
   renderQuizStickerShelf();
 }
 
+(function injectBadgeToastStyles() {
+  if (document.getElementById("badge-toast-styles")) return;
+  const style = document.createElement("style");
+  style.id = "badge-toast-styles";
+  style.textContent = `
+    .badge-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #1a1a1a;
+      border: 2px solid #ff69b4;
+      border-radius: 12px;
+      padding: 16px 24px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 14px;
+      line-height: 1.5;
+      z-index: 99999;
+      box-shadow: 0 4px 24px rgba(255, 105, 180, 0.3);
+      opacity: 0;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      max-width: 420px;
+      text-align: center;
+    }
+    .badge-toast.is-visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    .badge-toast .badge-toast-sticker {
+      display: inline-block;
+      background: #ff69b4;
+      color: #1a1a1a;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+  `;
+  document.head.appendChild(style);
+})();
+
+function showBadgeToast(badge) {
+  const el = document.createElement("div");
+  el.className = "badge-toast";
+  el.innerHTML = `<span class="badge-toast-sticker">${badge.sticker}</span><strong>${badge.title}</strong><br>${badge.unlockMessage}`;
+  document.body.appendChild(el);
+  requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add("is-visible")));
+  setTimeout(() => { el.classList.remove("is-visible"); setTimeout(() => el.remove(), 500); }, 5000);
+}
+
 function unlockSecretBadge(badgeId, sourceOverride = "") {
   const badge = hiddenMeritBadges[badgeId];
   if (!badge) return "";
@@ -3593,6 +3664,7 @@ function unlockSecretBadge(badgeId, sourceOverride = "") {
   storeSecretBadges(badges);
   renderSecretBadges();
   scheduleMemberRewardSync();
+  showBadgeToast(badge);
   return badge.unlockMessage;
 }
 
@@ -5332,3 +5404,17 @@ document.querySelectorAll("[data-butterfly-rating]").forEach((rating) => {
 });
 
 renderBoardPosts();
+
+// --- Room Visit Tracking (badges: room-first-post, room-tour) ---
+// Since community rooms are static HTML with no posting mechanism,
+// we trigger badges based on visiting the room pages instead.
+(function trackCommunityRoomVisit() {
+  const path = (window.location.pathname || "").toLowerCase();
+  const match = path.match(/community\/([a-z0-9-]+)\.html/);
+  if (!match) return;
+  const slug = match[1];
+  // Only track slugs that are actual chat rooms
+  if (!communityChatRooms[slug]) return;
+  // Reuse existing trackCommunityRoomPost which handles both badges
+  trackCommunityRoomPost(slug);
+})();

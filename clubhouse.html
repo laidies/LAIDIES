@@ -19,6 +19,9 @@
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="apple-touch-icon" href="assets/laidies-logo-square.png" />
     <link rel="stylesheet" href="styles.css?v=issue-02-live-1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&family=JetBrains+Mono:wght@400&family=Inter:wght@400;600;700&display=swap">
     <style>
       .clubhouse-menu { padding: clamp(24px, 4vw, 48px) clamp(18px, 5vw, 64px); }
       .fun-games { padding: clamp(24px, 4vw, 48px) clamp(18px, 5vw, 64px); }
@@ -213,7 +216,7 @@
     <header class="site-header">
       <button onclick="history.back()" style="background: none; border: none; color: var(--hot-pink); font-size: 0.85rem; cursor: pointer; padding: 4px 8px; text-decoration: underline;" aria-label="Go back">← Back</button>
         <a class="brand" href="index.html" aria-label="lAIdies home">
-        <img src="assets/laidies-logo-wordmark.png" alt="" />
+        <img src="assets/laidies-logo-wordmark.png" alt="LAIDIES" />
       </a>
       <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=this.nextElementSibling;if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'☰':'✕';this.setAttribute('aria-expanded',!isOpen);">☰</button>
         <nav class="nav" aria-label="Primary navigation">
@@ -360,7 +363,7 @@
         </style>
         <div class="nav-cards">
           <a href="#dreamPhoneToggle" class="nav-card" onclick="event.preventDefault(); document.querySelectorAll('.clubhouse-revealable').forEach(el => { if(el.classList.contains('dream-phone-game')) el.classList.add('is-clubhouse-revealed'); }); setTimeout(() => { const toggle = document.getElementById('dreamPhoneToggle'); if(toggle && toggle.getAttribute('aria-expanded') !== 'true') toggle.click(); else toggle?.scrollIntoView({behavior:'smooth', block:'start'}); }, 50);">
-            <img src="assets/dream-phone-cordless-crop.png" alt="Dream Phone" loading="lazy" />
+            <img src="assets/dream-phone-cordless-crop.png" alt="Pink retro cordless telephone with neon glow" loading="lazy" />
             <div class="nav-card-text">
               <strong>Dream Phone</strong>
               <span>Career advice line</span>
@@ -381,35 +384,35 @@
             </div>
           </a>
           <a href="games/girl-talk.html" class="nav-card">
-            <img src="assets/girl-talk-board.webp" alt="Girl Talk" loading="lazy" />
+            <img src="assets/girl-talk-board.webp" alt="Girl Talk game board with colorful conversation prompt cards" loading="lazy" />
             <div class="nav-card-text">
               <strong>Girl Talk</strong>
               <span>Conversation prompts</span>
             </div>
           </a>
           <a href="#card-pack" class="nav-card" onclick="event.preventDefault(); if(window.openGamePanel) openGamePanel('card-pack'); else { document.querySelectorAll('.clubhouse-revealable').forEach(el => { if(el.dataset.clubhouseLayer && el.dataset.clubhouseLayer.includes('top')) el.classList.add('is-clubhouse-revealed'); }); document.getElementById('card-pack')?.scrollIntoView({behavior:'smooth', block:'start'}); }">
-            <img src="assets/trading-card-pack.webp" alt="Trading Cards" loading="lazy" />
+            <img src="assets/trading-card-pack.webp" alt="Shiny pink foil trading card pack with cards peeking out" loading="lazy" />
             <div class="nav-card-text">
               <strong>Trading Cards</strong>
               <span>Flip &amp; collect</span>
             </div>
           </a>
           <a href="#laidy" class="nav-card" onclick="event.preventDefault(); if(window.openGamePanel) openGamePanel('laidy'); else { document.querySelectorAll('.clubhouse-revealable').forEach(el => { if(el.classList.contains('fairy-game')) el.classList.add('is-clubhouse-revealed'); }); document.getElementById('laidy')?.scrollIntoView({behavior:'smooth', block:'start'}); }">
-            <img src="assets/laidy-character-v1.png" alt="fAIry Godmother" loading="lazy" />
+            <img src="assets/laidy-character-v1.png" alt="LAIDY the fAIry Godmother character" loading="lazy" />
             <div class="nav-card-text">
               <strong>fAIry Godmother</strong>
               <span>Ask for advice</span>
             </div>
           </a>
           <a href="#issue-fun-packs" class="nav-card" onclick="event.preventDefault(); document.querySelectorAll('.clubhouse-revealable').forEach(el => { if(el.dataset.clubhouseLayer && el.dataset.clubhouseLayer.includes('top')) el.classList.add('is-clubhouse-revealed'); }); document.getElementById('issue-fun-packs')?.scrollIntoView({behavior:'smooth', block:'start'});">
-            <img src="assets/quiz-teen-magazine.png" alt="Fun Packs" loading="lazy" />
+            <img src="assets/quiz-teen-magazine.png" alt="Retro teen magazine quiz page with pink accents" loading="lazy" />
             <div class="nav-card-text">
               <strong>Weekly Fun Pack</strong>
               <span>Quiz + cards + try-on</span>
             </div>
           </a>
           <a href="#dj-booth-inline" class="nav-card" onclick="event.preventDefault(); document.querySelectorAll('.clubhouse-revealable').forEach(el => { if(el.classList.contains('house-dj-game')) el.classList.add('is-clubhouse-revealed'); }); document.getElementById('dj-booth-inline')?.scrollIntoView({behavior:'smooth', block:'start'});">
-            <img src="assets/house-dj-mixdesk.png" alt="DJ Booth" loading="lazy" />
+            <img src="assets/house-dj-mixdesk.png" alt="Neon-lit DJ mixing desk with turntables and faders" loading="lazy" />
             <div class="nav-card-text">
               <strong>DJ Booth</strong>
               <span>LAIDIES jams</span>
@@ -437,7 +440,7 @@
             <a class="button primary" href="#laidy" data-open-game-panel="laidy" onclick="event.preventDefault(); window.openGamePanel && window.openGamePanel('laidy');">Open LAIDY</a>
           </article>
           <article class="game-card is-live game-panel-styled signoff-game clubhouse-revealable" data-clubhouse-layer="bottom">
-            <img class="game-hero-img" src="assets/sign-off-generator.webp" alt="" loading="lazy" />
+            <img class="game-hero-img" src="assets/sign-off-generator.webp" alt="Glossy pink sign-off slip generator" loading="lazy" />
             <span>Live</span>
             <h3>Sign-Off Generator</h3>
             <p>Pull a glossy little closer for the end of the episode, the thread, or the group chat.</p>
@@ -451,7 +454,7 @@
             <a class="button secondary" href="this-week.html#challenge" data-open-game-panel="challenge">Generate one</a>
           </article>
           <article class="game-card is-live game-panel-styled try-on-game clubhouse-revealable" data-clubhouse-layer="bottom">
-            <img class="game-hero-img" src="assets/five-minute-try-on-game.webp" alt="" loading="lazy" />
+            <img class="game-hero-img" src="assets/five-minute-try-on-game.webp" alt="Five-minute try-on game spinner board" loading="lazy" />
             <span>Live</span>
             <h3>Five-Minute Try-On</h3>
             <p>Spin for one small work dare. Low stakes, less carrying the same task around all week.</p>
@@ -461,7 +464,7 @@
             <a class="button secondary" href="this-week.html#playbook" data-open-game-panel="playbook">Spin the board</a>
           </article>
           <article class="game-card is-live game-panel-styled cocktail-wheel-game clubhouse-revealable" data-clubhouse-layer="bottom" id="issue-fun-packs">
-            <img class="game-hero-img" src="assets/businesswomen-special-spinner-v3.png" alt="" loading="lazy" />
+            <img class="game-hero-img" src="assets/businesswomen-special-spinner-v3.png" alt="Businesswomen's Special cocktail fortune teller spinner" loading="lazy" />
             <span>Live</span>
             <h3>Businesswomen's Special</h3>
             <p>The Businesswomen's Special is now a paper fortune teller: the coven has a reservation at 7, so choose your lane, pick a mood, and open your drink fortune.</p>
@@ -543,7 +546,7 @@
           </div>
           <p class="fun-pack-status clubhouse-revealable" data-fun-pack-status aria-live="polite" data-clubhouse-layer="top">Issue 02 pack loaded: quiz, specificity cards, try-on, prompt cheat sheet, and article takeaways.</p>
           <article class="game-card is-live game-panel-styled trading-pack-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue01" data-fun-pack-kind="cards" data-clubhouse-layer="top">
-            <img class="game-hero-img" src="assets/trading-card-pack.webp" alt="" loading="lazy" />
+            <img class="game-hero-img" src="assets/trading-card-pack.webp" alt="Shiny pink foil trading card pack" loading="lazy" />
             <span>Live</span>
             <h3>Trading Card Pack</h3>
             <p>Rip open a Wednesday pack. Maybe you get the card you needed. Maybe you get three of the same one. Iconic.</p>
@@ -553,7 +556,7 @@
             <a class="button secondary" href="#card-pack" data-open-game-panel="card-pack">Open the pack</a>
           </article>
           <article class="game-card is-live game-panel-styled quiz-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue01" data-fun-pack-kind="quiz" data-clubhouse-layer="top">
-            <img class="game-hero-img" src="assets/quiz-teen-magazine.png" alt="" loading="lazy" />
+            <img class="game-hero-img" src="assets/quiz-teen-magazine.png" alt="Retro teen magazine quiz page with pink accents" loading="lazy" />
             <span>Live</span>
             <h3>Magazine Quiz</h3>
             <p>Match the analogy to the AI concept and earn a digital sticker for your <span class="wordmark laidies-inline-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Card.</p>
@@ -567,7 +570,7 @@
             <a class="button secondary" href="learn.html#quiz" data-open-game-panel="quiz">Take the quiz</a>
           </article>
           <article class="game-card is-live game-panel-styled issue-try-on-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue01" data-fun-pack-kind="try-on" data-clubhouse-layer="top">
-            <img class="game-hero-img" src="assets/five-minute-try-on-game.webp" alt="" loading="lazy" />
+            <img class="game-hero-img" src="assets/five-minute-try-on-game.webp" alt="Five-minute try-on game spinner board" loading="lazy" />
             <span>Pack Activity</span>
             <h3>Issue 01 Try-On</h3>
             <p>Use one real, low-risk work explanation to test ChatGPT, Claude, and Gemini side by side.</p>
@@ -657,7 +660,7 @@
             </div>
           </article>
           <article class="game-card is-live game-panel-styled printable-pack-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue01" data-fun-pack-kind="printables" data-clubhouse-layer="top">
-            <img class="game-hero-img" src="assets/reference-closet-open.png" alt="" loading="lazy" />
+            <img class="game-hero-img" src="assets/reference-closet-open.png" alt="Open reference closet with printable resources" loading="lazy" />
             <span>Printable</span>
             <h3>Issue 01 Printable Pack</h3>
             <p>Open the matching printables for the first issue: the quick prompt cheat sheet and the Issue 1 practice printable.</p>
@@ -670,7 +673,7 @@
             </div>
           </article>
           <article class="game-card is-live game-panel-styled trading-pack-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue02" data-fun-pack-kind="cards" data-clubhouse-layer="top">
-            <img class="game-hero-img" src="assets/trading-card-pack.webp" alt="" loading="lazy" />
+            <img class="game-hero-img" src="assets/trading-card-pack.webp" alt="Shiny pink foil trading card pack" loading="lazy" />
             <span>Live</span>
             <h3>Issue 02 Specificity Pack</h3>
             <p>Pull the cards for better asks: specificity, Girl Power prompting, try-on practice, rewrite remix, and receipts.</p>
@@ -680,7 +683,7 @@
             <a class="button secondary" href="#card-pack" data-open-game-panel="card-pack" data-card-pack-open="issue02">Open Issue 2 cards</a>
           </article>
           <article class="game-card is-live game-panel-styled quiz-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue02" data-fun-pack-kind="quiz" data-clubhouse-layer="top">
-            <img class="game-hero-img" src="assets/quiz-teen-magazine.png" alt="" loading="lazy" />
+            <img class="game-hero-img" src="assets/quiz-teen-magazine.png" alt="Retro teen magazine quiz page with pink accents" loading="lazy" />
             <span>Live</span>
             <h3>Issue 02 Magazine Quiz</h3>
             <p>Take the Tell Me What You Want quiz and prove the Spice Girls lesson stuck: AI needs the ask, not your hopes and vibes.</p>
@@ -694,7 +697,7 @@
             <a class="button secondary" href="learn.html#quiz" data-open-game-panel="quiz" data-quiz-open="issue02">Take Issue 2 quiz</a>
           </article>
           <article class="game-card is-live game-panel-styled issue-try-on-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue02" data-fun-pack-kind="try-on" data-clubhouse-layer="top">
-            <img class="game-hero-img" src="assets/five-minute-try-on-game.webp" alt="" loading="lazy" />
+            <img class="game-hero-img" src="assets/five-minute-try-on-game.webp" alt="Five-minute try-on game spinner board" loading="lazy" />
             <span>Pack Activity</span>
             <h3>Issue 02 Try-On</h3>
             <p>Take one vague ask and make it painfully useful: task, audience, context, standards, constraints, and one good example.</p>
@@ -712,7 +715,7 @@
             </div>
           </article>
           <article class="game-card is-live game-panel-styled printable-pack-game clubhouse-revealable" data-fun-pack-activity data-fun-pack-issue="issue02" data-fun-pack-kind="printables" data-clubhouse-layer="top">
-            <img class="game-hero-img" src="assets/reference-closet-open.png" alt="" loading="lazy" />
+            <img class="game-hero-img" src="assets/reference-closet-open.png" alt="Open reference closet with printable resources" loading="lazy" />
             <span>Printable</span>
             <h3>Issue 02 Prompt Cheat Sheet</h3>
             <p>Use the prompt cheat sheet as the no-drama checklist before you ask AI for anything important.</p>
@@ -738,8 +741,8 @@
             </div>
             <p class="game-output" id="fortuneOutput" aria-live="polite">Madame CLAI-O is on the line. Pick up for your card, message, and next move.</p>
           </article>
-          <article class="game-card is-live game-panel-styled house-dj-game clubhouse-revealable" id="dj-booth-inline">
-            <img class="game-hero-img" src="assets/house-dj-mixdesk.png" alt="" loading="lazy" />
+          <article class="game-card is-live game-panel-styled house-dj-game clubhouse-revealable" data-clubhouse-layer="bottom" id="dj-booth-inline">
+            <img class="game-hero-img" src="assets/house-dj-mixdesk.png" alt="Neon-lit DJ mixing desk with turntables and faders" loading="lazy" />
             <span>Live</span>
             <h3>DJ JAIDY's Booth</h3>
             <p>Weekly AI-made songs for each episode. Built-in player below — or find us on Spotify.</p>
@@ -789,7 +792,7 @@
               .dj-player-now-playing { text-align: center; margin-bottom: 12px; }
               .dj-player-label { font-size: 0.82rem; color: rgba(255,255,255,0.7); font-style: italic; }
               .dj-player-controls { display: flex; justify-content: center; align-items: center; gap: 16px; margin-bottom: 12px; }
-              .dj-player-controls button { background: none; border: none; color: #fff; font-size: 1.3rem; cursor: pointer; padding: 8px; min-width: 40px; min-height: 40px; border-radius: 50%; transition: background 0.15s; }
+              .dj-player-controls button { background: none; border: none; color: #fff; font-size: 1.3rem; cursor: pointer; padding: 10px; min-width: 44px; min-height: 44px; border-radius: 50%; transition: background 0.15s; }
               .dj-player-controls button:hover { background: rgba(255,45,155,0.15); }
               .dj-play-btn { font-size: 1.8rem !important; background: rgba(255,45,155,0.2) !important; }
               .dj-play-btn:hover { background: rgba(255,45,155,0.35) !important; }
@@ -798,7 +801,7 @@
               .dj-player-progress span { font-size: 0.7rem; color: rgba(255,255,255,0.5); min-width: 32px; font-variant-numeric: tabular-nums; }
               .dj-player-progress input[type="range"] { flex: 1; height: 4px; accent-color: var(--hot-pink); cursor: pointer; }
               .dj-tracklist { display: flex; flex-direction: column; gap: 4px; }
-              .dj-track { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: #fff; text-align: left; cursor: pointer; transition: background 0.15s, border-color 0.15s; font-family: inherit; font-size: 0.82rem; }
+              .dj-track { display: flex; align-items: center; gap: 10px; padding: 10px 12px; min-height: 48px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: #fff; text-align: left; cursor: pointer; transition: background 0.15s, border-color 0.15s; font-family: inherit; font-size: 0.82rem; }
               .dj-track:hover { background: rgba(255,45,155,0.08); border-color: rgba(255,45,155,0.25); }
               .dj-track.is-playing { background: rgba(255,45,155,0.15); border-color: rgba(255,45,155,0.4); }
               .dj-track-ep { font-size: 0.65rem; font-weight: 800; color: var(--hot-pink); min-width: 40px; letter-spacing: 0.05em; }
@@ -904,7 +907,7 @@
             </script>
           </article>
           <article class="game-card is-live game-panel-styled girl-talk-game clubhouse-revealable" data-clubhouse-layer="bottom">
-            <img class="game-hero-img" src="assets/girl-talk-board.webp" alt="" loading="lazy" />
+            <img class="game-hero-img" src="assets/girl-talk-board.webp" alt="Girl Talk game board with colorful conversation prompt cards" loading="lazy" />
             <span>Live</span>
             <h3>Girl Talk Prompt Deck</h3>
             <p>Draw a question card for work drama, ambition, confidence, or group-chat honesty.</p>
@@ -915,7 +918,7 @@
             <p class="game-output" id="girlTalkOutput" aria-live="polite">The deck is shuffled. Pick truth, dare, or professionally contained chaos.</p>
           </article>
           <article class="game-card is-live game-panel-styled dream-phone-game clubhouse-revealable" data-clubhouse-layer="bottom">
-            <img class="game-hero-img" src="assets/dream-phone-cordless-crop.png" alt="" loading="lazy" />
+            <img class="game-hero-img" src="assets/dream-phone-cordless-crop.png" alt="Pink retro cordless telephone with neon glow" loading="lazy" />
             <span>Live</span>
             <h3>Dream Phone</h3>
             <p>Dial a number by pressing the phone buttons or using your keyboard. Hyphens are optional; the phone will add them.</p>
@@ -941,145 +944,145 @@
               </div>
               <div class="dream-contact-grid">
                 <button class="dream-contact is-selected" type="button" data-dream-pick="mentor" data-dream-number="555-1995">
-                  <img class="dream-avatar" src="assets/dream-phone-mentor.webp" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-mentor.webp" alt="Mentor — career advice about job offers and negotiation" />
                   <span>1</span>
                   <strong>Mentor</strong>
                   <em>555-1995</em>
                 </button>
                 <button class="dream-contact" type="button" data-dream-pick="bestie" data-dream-number="555-2001">
-                  <img class="dream-avatar" src="assets/dream-phone-bestie.webp" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-bestie.webp" alt="Bestie — emotional support and honest perspective" />
                   <span>2</span>
                   <strong>Bestie</strong>
                   <em>555-2001</em>
                 </button>
                 <button class="dream-contact" type="button" data-dream-pick="boundary" data-dream-number="555-2003">
-                  <img class="dream-avatar" src="assets/dream-phone-boundary.webp" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-boundary.webp" alt="Boundary — setting limits and saying no with confidence" />
                   <span>3</span>
                   <strong>Boundary</strong>
                   <em>555-2003</em>
                 </button>
                 <button class="dream-contact" type="button" data-dream-pick="receipts" data-dream-number="555-2004">
-                  <img class="dream-avatar" src="assets/dream-phone-receipts.webp" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-receipts.webp" alt="Receipts — fact-checking and keeping documentation" />
                   <span>4</span>
                   <strong>Receipts</strong>
                   <em>555-2004</em>
                 </button>
                 <button class="dream-contact" type="button" data-dream-pick="hype" data-dream-number="555-2007">
-                  <img class="dream-avatar" src="assets/dream-phone-hype.webp" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-hype.webp" alt="Hype — confidence boosts and celebration energy" />
                   <span>5</span>
                   <strong>Hype</strong>
                   <em>555-2007</em>
                 </button>
                 <button class="dream-contact" type="button" data-dream-pick="steady" data-dream-number="555-2008">
-                  <img class="dream-avatar" src="assets/dream-phone-steady.webp" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-steady.webp" alt="Steady — calm grounding and long-term perspective" />
                   <span>6</span>
                   <strong>Steady</strong>
                   <em>555-2008</em>
                 </button>
                 <button class="dream-contact" type="button" data-dream-pick="strategist" data-dream-number="555-1999">
-                  <img class="dream-avatar" src="assets/dream-phone-strategist.webp" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-strategist.webp" alt="Strategist — planning moves and career positioning" />
                   <span>7</span>
                   <strong>Strategist</strong>
                   <em>555-1999</em>
                 </button>
                 <button class="dream-contact" type="button" data-dream-pick="bigbro" data-dream-number="555-2010">
-                  <img class="dream-avatar" src="assets/dream-phone-bigbro.webp" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-bigbro.webp" alt="Big Bro — protective advice and industry navigation" />
                   <span>8</span>
                   <strong>Big Bro</strong>
                   <em>555-2010</em>
                 </button>
                 <button class="dream-contact" type="button" data-dream-pick="wildcard" data-dream-number="555-2013">
-                  <img class="dream-avatar" src="assets/dream-phone-wildcard.webp" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-wildcard.webp" alt="Wildcard — unexpected ideas and creative disruption" />
                   <span>9</span>
                   <strong>Wildcard</strong>
                   <em>555-2013</em>
                 </button>
                 <button class="dream-contact" type="button" data-dream-pick="creative" data-dream-number="555-2016">
-                  <img class="dream-avatar" src="assets/dream-phone-creative.webp" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-creative.webp" alt="Creative — design thinking and artistic problem-solving" />
                   <span>10</span>
                   <strong>Creative</strong>
                   <em>555-2016</em>
                 </button>
                 <button class="dream-contact" type="button" data-dream-pick="research" data-dream-number="555-2024">
-                  <img class="dream-avatar" src="assets/dream-phone-research.webp" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-research.webp" alt="Research — deep dives and evidence-based decisions" />
                   <span>11</span>
                   <strong>Research</strong>
                   <em>555-2024</em>
                 </button>
                 <button class="dream-contact" type="button" data-dream-pick="aihelp" data-dream-number="555-2026">
-                  <img class="dream-avatar" src="assets/dream-phone-ai-help.webp" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-ai-help.webp" alt="AI Help — technical AI guidance and tool recommendations" />
                   <span>12</span>
                   <strong>AI Help</strong>
                   <em>555-2026</em>
                 </button>
                 <button class="dream-contact" type="button" data-dream-pick="boss" data-dream-number="555-2027">
-                  <img class="dream-avatar" src="assets/dream-phone-boss-ali.webp" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-boss-ali.webp" alt="Boss — leadership direction and accountability" />
                   <span>13</span>
                   <strong>Boss</strong>
                   <em>555-2027</em>
                 </button>
                 <button class="dream-contact" type="button" data-dream-pick="coach" data-dream-number="555-2028">
-                  <img class="dream-avatar" src="assets/dream-phone-coach.jpg" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-coach.jpg" alt="Coach — skill development and performance growth" />
                   <span>14</span>
                   <strong>Coach</strong>
                   <em>555-2028</em>
                 </button>
                 <button class="dream-contact" type="button" data-dream-pick="operator" data-dream-number="555-2029">
-                  <img class="dream-avatar" src="assets/dream-phone-operator.jpg" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-operator.jpg" alt="Operator — systems thinking and process optimization" />
                   <span>15</span>
                   <strong>Operator</strong>
                   <em>555-2029</em>
                 </button>
                 <button class="dream-contact" type="button" data-dream-pick="counsel" data-dream-number="555-2030">
-                  <img class="dream-avatar" src="assets/dream-phone-counsel.jpg" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-counsel.jpg" alt="Counsel — legal awareness and risk assessment" />
                   <span>16</span>
                   <strong>Counsel</strong>
                   <em>555-2030</em>
                 </button>
                 <button class="dream-contact" type="button" data-dream-pick="finance" data-dream-number="555-2031">
-                  <img class="dream-avatar" src="assets/dream-phone-finance.jpg" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-finance.jpg" alt="Finance — money strategy and business case building" />
                   <span>17</span>
                   <strong>Finance</strong>
                   <em>555-2031</em>
                 </button>
                 <button class="dream-contact" type="button" data-dream-pick="product" data-dream-number="555-2032">
-                  <img class="dream-avatar" src="assets/dream-phone-product.jpg" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-product.jpg" alt="Product — user-focused thinking and feature prioritization" />
                   <span>18</span>
                   <strong>Product</strong>
                   <em>555-2032</em>
                 </button>
                 <button class="dream-contact" type="button" data-dream-pick="comms" data-dream-number="555-2033">
-                  <img class="dream-avatar" src="assets/dream-phone-comms.jpg" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-comms.jpg" alt="Comms — messaging clarity and stakeholder communication" />
                   <span>19</span>
                   <strong>Comms</strong>
                   <em>555-2033</em>
                 </button>
                 <button class="dream-contact" type="button" data-dream-pick="data" data-dream-number="555-2034">
-                  <img class="dream-avatar" src="assets/dream-phone-data.jpg" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-data.jpg" alt="Data — analytics insight and metrics interpretation" />
                   <span>20</span>
                   <strong>Data</strong>
                   <em>555-2034</em>
                 </button>
                 <button class="dream-contact" type="button" data-dream-pick="founder" data-dream-number="555-2035">
-                  <img class="dream-avatar" src="assets/dream-phone-founder.jpg" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-founder.jpg" alt="Founder — entrepreneurial thinking and venture building" />
                   <span>21</span>
                   <strong>Founder</strong>
                   <em>555-2035</em>
                 </button>
                 <button class="dream-contact" type="button" data-dream-pick="sponsor" data-dream-number="555-2036">
-                  <img class="dream-avatar" src="assets/dream-phone-sponsor.jpg" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-sponsor.jpg" alt="Sponsor — advocacy and visibility in the room" />
                   <span>22</span>
                   <strong>Sponsor</strong>
                   <em>555-2036</em>
                 </button>
                 <button class="dream-contact" type="button" data-dream-pick="builder" data-dream-number="555-2037">
-                  <img class="dream-avatar" src="assets/dream-phone-builder.jpg" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-builder.jpg" alt="Builder — hands-on creation and shipping mindset" />
                   <span>23</span>
                   <strong>Builder</strong>
                   <em>555-2037</em>
                 </button>
                 <button class="dream-contact" type="button" data-dream-pick="closer" data-dream-number="555-2038">
-                  <img class="dream-avatar" src="assets/dream-phone-closer.jpg" alt="" />
+                  <img class="dream-avatar" src="assets/dream-phone-closer.jpg" alt="Closer — sealing deals and driving decisions to completion" />
                   <span>24</span>
                   <strong>Closer</strong>
                   <em>555-2038</em>
@@ -1157,6 +1160,8 @@
               if (picker) {
                 picker.classList.remove("is-counting");
                 picker.classList.add("has-reveal");
+                const revealCard = picker.querySelector(".fortune-reveal-card");
+                if (revealCard) { revealCard.setAttribute("aria-hidden", "false"); revealCard.style.display = "flex"; revealCard.style.opacity = "1"; }
                 const fortuneImage = document.querySelector("[data-fortune-image]");
                 if (fortuneImage?.dataset.openSrc) fortuneImage.src = fortuneImage.dataset.openSrc;
                 document.querySelector("#cocktailFortune")?.setAttribute("data-fortune-state", "open");
