@@ -135,6 +135,7 @@
       window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
       plausible.init()
     </script>
+    <link rel="stylesheet" href="content/site/mini-player.css" />
   </head>
   <body>
     <header class="site-header">
@@ -185,7 +186,7 @@
               <a class="clubhouse-hotspot" href="games/girl-talk.html" data-clubhouse-zone="girl-talk" aria-label="Girl Talk"></a>
               <a class="clubhouse-hotspot" href="games/trading-cards.html" data-clubhouse-zone="try-on" aria-label="Trading Cards"></a>
               <a class="clubhouse-hotspot" href="games/businesswomens-special.html" data-clubhouse-zone="business" aria-label="Businesswomen’s Special"></a>
-              <a class="clubhouse-hotspot" href="games/fairy-godmother.html" data-clubhouse-zone="fairy" aria-label="fAIry Godmother"></a>
+              <a class="clubhouse-hotspot" href="games/fairy-godmother.html" data-clubhouse-zone="fairy" aria-label="FAIRY Godmother"></a>
             </div>
           </div>
         </div>
@@ -234,9 +235,9 @@
             </div>
           </a>
           <a class="nav-card" href="games/fairy-godmother.html">
-            <img src="assets/laidy-character-v1.png" alt="fAIry Godmother" loading="lazy" />
+            <img src="assets/laidy-character-v1.png" alt="FAIRY Godmother" loading="lazy" />
             <div class="nav-card-body">
-              <strong>fAIry Godmother</strong>
+              <strong>f<span class="brand-ai">AI</span>ry Godmother</strong>
               <span>Ask for advice</span>
             </div>
           </a>
@@ -257,6 +258,41 @@
         </div>
       </section>
 
+
+      <!-- Theme Song Teaser -->
+      <div style="display: flex; justify-content: center; padding: 0 clamp(18px, 5vw, 64px) 32px;">
+        <div class="theme-teaser" id="themeTeaser" style="
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          background: linear-gradient(160deg, #1a0a12 0%, #2d0f1f 100%);
+          border: 1.5px solid rgba(255, 45, 155, 0.3);
+          border-radius: 40px;
+          padding: 10px 20px 10px 14px;
+          max-width: 360px;
+          width: 100%;
+          cursor: pointer;
+          transition: box-shadow 0.2s ease, transform 0.15s ease;
+          text-decoration: none;
+        " role="button" aria-label="Play theme song preview">
+          <span id="themeTeaserIcon" style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255, 45, 155, 0.15);
+            color: #ff2d9b;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+          ">▶</span>
+          <div style="flex: 1; min-width: 0;">
+            <div style="font-size: 0.82rem; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">On Wednesdays We Do AI</div>
+            <div style="font-size: 0.68rem; color: rgba(255, 248, 252, 0.55); margin-top: 1px;">LAIDIES Theme · <a href="games/dj-booth.html" style="color: #ff2d9b; text-decoration: none;">Full playlist →</a></div>
+          </div>
+        </div>
+      </div>
       <!-- Footer -->
       <footer class="hub-footer">
         <a href="index.html">← Back to Homepage</a>
@@ -289,6 +325,145 @@
           }
         });
       })();
+    </script>
+
+    <!-- Mini Player (persistent cross-page audio) -->
+    <script src="content/site/mini-player.js"></script>
+
+    <!-- Clubhouse Open State Memory + Sound Effects -->
+    <script>
+    (function() {
+      var KEY = 'laidies-clubhouse-open';
+
+      // --- Web Audio API: synthesized pop sounds ---
+      var audioCtx = null;
+      function getAudioCtx() {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        return audioCtx;
+      }
+
+      function playPop(direction) {
+        try {
+          var ctx = getAudioCtx();
+          if (ctx.state === 'suspended') ctx.resume();
+          var osc = ctx.createOscillator();
+          var gain = ctx.createGain();
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.type = 'sine';
+
+          var now = ctx.currentTime;
+          if (direction === 'open') {
+            // Ascending pop: 200Hz → 600Hz, 80ms
+            osc.frequency.setValueAtTime(200, now);
+            osc.frequency.exponentialRampToValueAtTime(600, now + 0.08);
+          } else {
+            // Descending pop: 600Hz → 200Hz, 80ms
+            osc.frequency.setValueAtTime(600, now);
+            osc.frequency.exponentialRampToValueAtTime(200, now + 0.08);
+          }
+
+          gain.gain.setValueAtTime(0.3, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+
+          osc.start(now);
+          osc.stop(now + 0.1);
+        } catch(e) {}
+      }
+
+      // --- State persistence ---
+      var openBtn = document.querySelector('[data-clubhouse-state-button="open"]');
+      var closeBtn = document.querySelector('[data-clubhouse-state-button="closed"]');
+
+      if (openBtn) {
+        openBtn.addEventListener('click', function() {
+          localStorage.setItem(KEY, 'true');
+          playPop('open');
+        });
+      }
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+          localStorage.removeItem(KEY);
+          playPop('close');
+        });
+      }
+
+      // Auto-open on page load if previously opened
+      if (localStorage.getItem(KEY) === 'true' && openBtn) {
+        setTimeout(function() {
+          openBtn.click();
+        }, 150);
+      }
+    })();
+    </script>
+
+    <!-- Theme Song Teaser -->
+    <script>
+    (function() {
+      var teaser = document.getElementById('themeTeaser');
+      var icon = document.getElementById('themeTeaserIcon');
+      if (!teaser) return;
+
+      var previewAudio = null;
+      var isPlaying = false;
+      var PREVIEW_DURATION = 15; // seconds
+      var THEME_SRC = 'content/music/dj-jaidy-week-01-on-wednesday-we-do-ai.mp3';
+
+      // Hover effect
+      teaser.addEventListener('mouseenter', function() {
+        teaser.style.boxShadow = '0 4px 20px rgba(255, 45, 155, 0.2)';
+        teaser.style.transform = 'translateY(-1px)';
+      });
+      teaser.addEventListener('mouseleave', function() {
+        teaser.style.boxShadow = 'none';
+        teaser.style.transform = 'none';
+      });
+
+      teaser.addEventListener('click', function(e) {
+        // Don't interfere with the "Full playlist" link
+        if (e.target.tagName === 'A') return;
+
+        if (isPlaying && previewAudio) {
+          previewAudio.pause();
+          previewAudio.currentTime = 0;
+          isPlaying = false;
+          icon.textContent = '▶';
+          return;
+        }
+
+        if (!previewAudio) {
+          previewAudio = new Audio(THEME_SRC);
+          previewAudio.dataset.lmpTitle = 'On Wednesdays We Do AI';
+
+          previewAudio.addEventListener('timeupdate', function() {
+            if (previewAudio.currentTime >= PREVIEW_DURATION) {
+              previewAudio.pause();
+              previewAudio.currentTime = 0;
+              isPlaying = false;
+              icon.textContent = '▶';
+            }
+          });
+
+          previewAudio.addEventListener('ended', function() {
+            isPlaying = false;
+            icon.textContent = '▶';
+          });
+
+          previewAudio.addEventListener('pause', function() {
+            isPlaying = false;
+            icon.textContent = '▶';
+          });
+        }
+
+        previewAudio.currentTime = 0;
+        previewAudio.play().then(function() {
+          isPlaying = true;
+          icon.textContent = '⏸';
+        }).catch(function() {});
+      });
+    })();
     </script>
   </body>
 </html>

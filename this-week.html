@@ -15,303 +15,601 @@
     <link rel="icon" type="image/png" href="assets/laidies-logo-square.png">
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="apple-touch-icon" href="assets/laidies-logo-square.png">
-    <link rel="stylesheet" href="styles.css?v=issue-02-live-1">
-    <link rel="stylesheet" href="content/hot-goss-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     <!-- Privacy-friendly analytics by Plausible -->
-<script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
-<script>
-  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
-</script>
+    <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+    <style>
+      :root {
+        --hot-pink: #ff2d9b;
+        --dark-bg: #0d0a12;
+        --card-bg: #1a1424;
+        --card-border: rgba(255, 45, 155, 0.2);
+        --text-primary: #fff8fc;
+        --text-muted: rgba(255, 248, 252, 0.6);
+        --cream: #fdf8f4;
+        --warm-dark: #100805;
+        --gold: #f5c842;
+        --font-body: 'Inter', -apple-system, sans-serif;
+        --font-heading: 'Playfair Display', Georgia, serif;
+        --font-mono: 'JetBrains Mono', monospace;
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: var(--font-body);
+        background: var(--dark-bg);
+        color: var(--text-primary);
+        line-height: 1.6;
+        min-height: 100vh;
+      }
 
+      /* ─── HEADER ─── */
+      .site-header {
+        display: flex;
+        align-items: center;
+        padding: 12px clamp(16px, 4vw, 48px);
+        background: rgba(13, 10, 18, 0.95);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 45, 155, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .site-header .brand { display: flex; align-items: center; }
+      .site-header .brand img { height: 28px; width: auto; }
+      .site-header .nav {
+        display: flex;
+        gap: 24px;
+        margin-left: auto;
+        align-items: center;
+      }
+      .site-header .nav a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        transition: color 0.2s;
+      }
+      .site-header .nav a:hover,
+      .site-header .nav a[aria-current] { color: var(--hot-pink); }
+      .hamburger-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 1.4rem;
+        cursor: pointer;
+        margin-left: auto;
+      }
+      @media (max-width: 768px) {
+        .hamburger-btn { display: block; }
+        .site-header .nav {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: rgba(13, 10, 18, 0.98);
+          padding: 16px 24px;
+          gap: 12px;
+          border-bottom: 1px solid rgba(255, 45, 155, 0.15);
+        }
+        .site-header .nav a { font-size: 0.9rem; padding: 6px 0; }
+      }
 
+      /* ─── HERO ─── */
+      .hero {
+        text-align: center;
+        padding: clamp(48px, 8vw, 96px) clamp(20px, 5vw, 64px) clamp(32px, 5vw, 56px);
+        background: linear-gradient(180deg, rgba(255, 45, 155, 0.04) 0%, transparent 100%);
+      }
+      .hero .eyebrow {
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--hot-pink);
+        margin-bottom: 12px;
+      }
+      .hero h1 {
+        font-family: var(--font-heading);
+        font-size: clamp(2.2rem, 5vw, 3.5rem);
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 8px;
+      }
+      .hero .date-range {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        font-weight: 400;
+      }
+
+      /* ─── QUICK-GLANCE CARDS ─── */
+      .quick-glance {
+        padding: 0 clamp(16px, 4vw, 64px) clamp(32px, 5vw, 56px);
+      }
+      .quick-glance-row {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 45, 155, 0.3) transparent;
+      }
+      .quick-glance-row::-webkit-scrollbar { height: 4px; }
+      .quick-glance-row::-webkit-scrollbar-thumb { background: rgba(255, 45, 155, 0.3); border-radius: 4px; }
+      .qg-card {
+        flex: 0 0 auto;
+        min-width: 180px;
+        max-width: 220px;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 14px;
+        padding: 16px 18px;
+        text-decoration: none;
+        color: var(--text-primary);
+        transition: all 0.25s ease;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        position: relative;
+        overflow: hidden;
+      }
+      .qg-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(255, 45, 155, 0.06) 0%, transparent 60%);
+        opacity: 0;
+        transition: opacity 0.25s;
+      }
+      .qg-card:hover::before { opacity: 1; }
+      .qg-card:hover {
+        border-color: rgba(255, 45, 155, 0.45);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(255, 45, 155, 0.12);
+      }
+      .qg-icon { font-size: 1.5rem; }
+      .qg-title {
+        font-size: 0.78rem;
+        font-weight: 700;
+        line-height: 1.35;
+        color: var(--text-primary);
+      }
+      .qg-subtitle {
+        font-size: 0.68rem;
+        color: var(--text-muted);
+        line-height: 1.35;
+      }
+      .qg-arrow {
+        font-size: 0.75rem;
+        color: var(--hot-pink);
+        margin-top: auto;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+      }
+      .qg-card:hover .qg-arrow { opacity: 1; }
+
+      /* ─── SECTION STYLING ─── */
+      .section-wrap {
+        padding: clamp(40px, 7vw, 80px) clamp(20px, 5vw, 64px);
+      }
+      .section-wrap + .section-wrap {
+        border-top: 1px solid rgba(255, 45, 155, 0.08);
+      }
+
+      /* ─── HOT GOSS ─── */
+      .hot-goss-header {
+        margin-bottom: 32px;
+      }
+      .hot-goss-header .eyebrow {
+        font-size: 0.68rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--hot-pink);
+        margin-bottom: 8px;
+      }
+      .hot-goss-header h2 {
+        font-family: var(--font-heading);
+        font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 6px;
+      }
+      .hot-goss-header blockquote {
+        font-family: var(--font-heading);
+        font-style: italic;
+        font-size: 1rem;
+        color: var(--text-muted);
+        padding-left: 16px;
+        border-left: 3px solid var(--hot-pink);
+        margin: 12px 0 0;
+      }
+      .hot-goss-meta {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        margin-top: 16px;
+        font-size: 0.72rem;
+        color: var(--text-muted);
+      }
+      .hot-goss-meta strong { color: var(--hot-pink); }
+
+      .goss-lanes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+      @media (max-width: 900px) {
+        .goss-lanes { grid-template-columns: 1fr; }
+      }
+      .goss-lane-title {
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--hot-pink);
+        margin-bottom: 16px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid rgba(255, 45, 155, 0.15);
+      }
+
+      /* Story cards */
+      .goss-story {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 14px;
+        padding: 20px 22px;
+        margin-bottom: 14px;
+        position: relative;
+        transition: border-color 0.3s, box-shadow 0.3s;
+      }
+      .goss-story:hover {
+        border-color: rgba(255, 45, 155, 0.4);
+        box-shadow: 0 4px 16px rgba(255, 45, 155, 0.08);
+      }
+      .goss-story .goss-number {
+        position: absolute;
+        top: 14px;
+        right: 18px;
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: rgba(255, 45, 155, 0.12);
+        font-family: var(--font-mono);
+      }
+      .goss-headline {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0 0 8px;
+        padding-right: 36px;
+        line-height: 1.4;
+      }
+      .goss-preview {
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: var(--text-muted);
+        margin: 0 0 10px;
+      }
+      .goss-expand-btn {
+        background: none;
+        border: none;
+        color: var(--hot-pink);
+        font-size: 0.72rem;
+        font-weight: 700;
+        cursor: pointer;
+        padding: 4px 0;
+        text-transform: lowercase;
+        letter-spacing: 0.02em;
+        transition: opacity 0.2s;
+      }
+      .goss-expand-btn:hover { opacity: 0.7; }
+      .goss-expanded {
+        display: none;
+        margin-top: 14px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(255, 45, 155, 0.1);
+      }
+      .goss-story.is-expanded .goss-expanded { display: block; }
+      .goss-story.is-expanded .goss-preview { display: none; }
+      .goss-body {
+        font-size: 0.84rem;
+        line-height: 1.6;
+        color: rgba(255, 248, 252, 0.75);
+        margin: 0 0 14px;
+      }
+      .goss-why-care, .goss-cocktail-party {
+        margin: 12px 0;
+        padding: 12px 16px;
+        border-radius: 10px;
+        font-size: 0.8rem;
+        line-height: 1.55;
+      }
+      .goss-why-care {
+        background: rgba(255, 45, 155, 0.06);
+        border-left: 3px solid rgba(255, 45, 155, 0.4);
+      }
+      .goss-cocktail-party {
+        background: rgba(245, 200, 66, 0.06);
+        border-left: 3px solid rgba(245, 200, 66, 0.4);
+      }
+      .goss-why-label, .goss-cocktail-label {
+        display: block;
+        font-size: 0.66rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 5px;
+        color: var(--text-muted);
+      }
+      .goss-why-care p, .goss-cocktail-party p {
+        margin: 0;
+        color: rgba(255, 248, 252, 0.7);
+      }
+      .goss-footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        margin-top: 14px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(255, 45, 155, 0.08);
+      }
+      .goss-source-link {
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: var(--hot-pink);
+        text-decoration: none;
+        padding: 3px 9px;
+        border-radius: 6px;
+        background: rgba(255, 45, 155, 0.08);
+        transition: background 0.2s;
+      }
+      .goss-source-link:hover { background: rgba(255, 45, 155, 0.16); }
+      .goss-site-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+      .goss-site-links a {
+        font-size: 0.66rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        text-decoration: none;
+        padding: 2px 7px;
+        border-radius: 5px;
+        background: rgba(255, 248, 252, 0.04);
+        border: 1px solid rgba(255, 248, 252, 0.1);
+        transition: all 0.2s;
+      }
+      .goss-site-links a:hover {
+        color: var(--hot-pink);
+        border-color: rgba(255, 45, 155, 0.35);
+        background: rgba(255, 45, 155, 0.06);
+      }
+      .goss-story.goss-daily { padding: 16px 18px; }
+      .goss-story.goss-daily .goss-headline { font-size: 0.88rem; }
+
+      /* ─── DRINK SECTION ─── */
+      .drink-card {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 18px;
+        padding: clamp(24px, 4vw, 40px);
+        max-width: 640px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 24px;
+        align-items: start;
+      }
+      @media (max-width: 600px) {
+        .drink-card { grid-template-columns: 1fr; }
+      }
+      .drink-card .eyebrow {
+        font-size: 0.66rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--gold);
+        margin-bottom: 6px;
+      }
+      .drink-card h3 {
+        font-family: var(--font-heading);
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 6px;
+      }
+      .drink-card .drink-concept {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        margin-bottom: 14px;
+        line-height: 1.5;
+      }
+      .drink-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .drink-card ul li {
+        font-size: 0.78rem;
+        color: rgba(255, 248, 252, 0.7);
+        padding: 3px 0;
+        border-bottom: 1px solid rgba(255, 248, 252, 0.04);
+      }
+      .drink-card ul li:last-child { border-bottom: none; }
+      .drink-card .drink-note {
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        margin-top: 12px;
+        font-style: italic;
+      }
+      .drink-emoji {
+        font-size: 3rem;
+        opacity: 0.8;
+      }
+
+      /* ─── FOOTER ─── */
+      .site-footer {
+        padding: 32px clamp(20px, 5vw, 64px);
+        border-top: 1px solid rgba(255, 45, 155, 0.1);
+        text-align: center;
+      }
+      .site-footer p {
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        margin-bottom: 10px;
+      }
+      .site-footer .footer-links {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .site-footer .footer-links a {
+        font-size: 0.7rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .site-footer .footer-links a:hover { color: var(--hot-pink); }
+      .wordmark span { color: inherit; }
+      .wordmark strong { color: var(--hot-pink); font-weight: 700; }
+
+      /* ─── MOBILE ─── */
+      @media (max-width: 600px) {
+        .qg-card { min-width: 155px; padding: 14px 15px; }
+        .goss-story { padding: 16px 14px; }
+        .goss-headline { padding-right: 30px; }
+        .goss-footer { flex-direction: column; align-items: flex-start; }
+      }
+    </style>
 </head>
-  <body>
+<body>
+    <!-- ─── HEADER ─── -->
     <header class="site-header">
-      <button onclick="history.back()" style="background: none; border: none; color: var(--hot-pink); font-size: 0.85rem; cursor: pointer; padding: 4px 8px; text-decoration: underline;" aria-label="Go back">&#x2190; Back</button>
-        <a class="brand" href="index.html" aria-label="lAIdies home">
+      <a class="brand" href="index.html" aria-label="lAIdies home">
         <img src="assets/laidies-logo-wordmark.png" alt="">
       </a>
-      <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=this.nextElementSibling;if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'&#x2630;':'&#x2715;';this.setAttribute('aria-expanded',!isOpen);">&#x2630;</button>
-        <nav class="nav" aria-label="Primary navigation">
+      <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=document.querySelector('.nav');if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'\u2630':'\u2715';this.setAttribute('aria-expanded',!isOpen);">&#x2630;</button>
+      <nav class="nav" aria-label="Primary navigation">
         <a href="episodes.html">Episodes</a>
         <a href="learn.html">Learn</a>
         <a href="clubhouse.html">Clubhouse</a>
         <a href="community.html">Community</a>
-    <a href="clubhouse.html#dj-booth-inline">Listen</a>
-        <a href="this-week.html">This Week</a>
+        <a href="games/dj-booth.html">Listen</a>
+        <a href="this-week.html" aria-current="page">This Week</a>
       </nav>
     </header>
 
-    <main id="top">
-      <section class="page-intro" aria-labelledby="page-title">
-        <p class="eyebrow">This Week</p>
-        <h1 id="page-title">What&#x2019;s happening in AI, what to try, what to play.</h1>
-        <p>The weekly drop: AI headlines worth bringing to the group chat, the cocktail party explanation, playlists, and a five-minute dare for when you have time to kill.</p>
+    <main>
+      <!-- ─── HERO ─── -->
+      <section class="hero">
+        <p class="eyebrow">Weekly Digest</p>
+        <h1>This Week</h1>
+        <p class="date-range">Week of June 10, 2026</p>
       </section>
 
-      <section class="hot-goss" id="hot-goss" aria-labelledby="hot-goss-title" style="padding: clamp(34px, 6vw, 72px) clamp(18px, 5vw, 64px);">
-        <div class="hot-goss-copy">
+      <!-- ─── QUICK-GLANCE CARDS ─── -->
+      <section class="quick-glance" aria-label="Quick glance at this week">
+        <div class="quick-glance-row">
+          <a href="issues/issue-02.html" class="qg-card">
+            <span class="qg-icon">&#x1F4EC;</span>
+            <span class="qg-title">Episode 2</span>
+            <span class="qg-subtitle">Tell Me What You Want</span>
+            <span class="qg-arrow">&rarr;</span>
+          </a>
+          <a href="games/fun-pack.html" class="qg-card">
+            <span class="qg-icon">&#x1F3B2;</span>
+            <span class="qg-title">Weekly Fun Pack</span>
+            <span class="qg-subtitle">Quiz, cards, try-on</span>
+            <span class="qg-arrow">&rarr;</span>
+          </a>
+          <a href="#hot-goss" class="qg-card">
+            <span class="qg-icon">&#x1F4F0;</span>
+            <span class="qg-title">Hot Goss</span>
+            <span class="qg-subtitle" id="gossCount">7 stories this week</span>
+            <span class="qg-arrow">&darr;</span>
+          </a>
+          <a href="games/dj-booth.html" class="qg-card">
+            <span class="qg-icon">&#x1F3B5;</span>
+            <span class="qg-title">New Track</span>
+            <span class="qg-subtitle">Tell Me What You Want &mdash; DJ JAIDY</span>
+            <span class="qg-arrow">&rarr;</span>
+          </a>
+          <a href="#drink" class="qg-card">
+            <span class="qg-icon">&#x1F378;</span>
+            <span class="qg-title">This Week&rsquo;s Drink</span>
+            <span class="qg-subtitle">Main Character Spritz</span>
+            <span class="qg-arrow">&darr;</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ─── HOT GOSS ─── -->
+      <section class="section-wrap" id="hot-goss" aria-labelledby="hot-goss-title">
+        <div class="hot-goss-header">
           <p class="eyebrow">TLDR. But make it fetch.</p>
           <h2 id="hot-goss-title">Hot Goss</h2>
-          <blockquote style="font-family: Georgia, serif; font-style: italic; font-size: 1.15rem; color: rgba(16,8,5,0.75); margin: 12px 0 8px; padding-left: 16px; border-left: 3px solid var(--hot-pink, #ff2d9b);">&#x201C;What&#x2019;s the 411? What has everybody been talking about?&#x201D;</blockquote>
-          <p class="hot-goss-note">AI news explained like your cool friend is catching you up. Headlines big enough to bring to the group chat.</p>
-          <div class="hot-goss-stamp" aria-label="Hot Goss update cadence">
-            <span>News desk</span>
-            <strong>Last updated: 2026-06-10</strong>
+          <blockquote>&ldquo;What&rsquo;s the 411? What has everybody been talking about?&rdquo;</blockquote>
+          <div class="hot-goss-meta">
+            <span>&#x1F4CB; News desk</span>
+            <strong id="gossLastUpdated">Last updated: loading&hellip;</strong>
             <em>Updated daily + weekly</em>
           </div>
-          <div class="hot-goss-visual" aria-hidden="true">
-            <img src="assets/hot-goss-desk-v2.png" alt="">
-          </div>
         </div>
-        <div class="goss-board" id="gossBoard">
-          <div class="goss-lane goss-lane-week">
-            <div class="goss-lane-heading">
-              <p class="eyebrow">Biggest This Week</p>
-              <h3>Stories big enough to survive the group chat.</h3>
+        <div class="goss-lanes">
+          <div>
+            <p class="goss-lane-title">&#x1F525; Biggest This Week</p>
+            <div id="gossWeeklyList">
+              <p style="color: var(--text-muted); font-size: 0.82rem;">Loading stories&hellip;</p>
             </div>
-            <div class="goss-list" id="gossWeeklyList"><article><span class="goss-number">01</span><p><strong>The government wants to preview AI models before you can.</strong> Trump signed an executive order giving federal agencies a 30-day sneak peek at powerful new AI models before they go public. It&#x2019;s voluntary &#x2014; no one&#x2019;s getting blocked &#x2014; but the vibe is clear: the bouncer wants to see the guest list before the doors open.</p><a href="https://www.cnbc.com/2026/06/02/trump-signs-ai-executive-order.html" target="_blank" rel="noreferrer">Read the receipt</a></article><article><span class="goss-number">02</span><p><strong>Anthropic&#x2019;s AI is now training itself. Yes, like that.</strong> Anthropic announced their AI systems are writing code for other AI systems &#x2014; a recursive improvement milestone. Think: the intern who got good enough to onboard next year&#x2019;s interns without supervision. Development velocity just got a booster shot.</p><a href="https://www.theneuron.ai/" target="_blank" rel="noreferrer">Read the receipt</a></article><article><span class="goss-number">03</span><p><strong>OpenAI shipped a product without writing a single line of code.</strong> Their team built an entire product using only AI coding agents. The humans didn&#x2019;t code &#x2014; they designed the environment the AI works in. It&#x2019;s called harness engineering. The model is talented, but the real magic is how you set up the room. Cher didn&#x2019;t pick outfits randomly. She built the closet computer first.</p><a href="https://www.fruition.net/frontier/" target="_blank" rel="noreferrer">Read the receipt</a></article><article><span class="goss-number">04</span><p><strong>An AI tax system processed 7,000 returns at 97% accuracy.</strong> OpenAI and Thrive launched a system that learns from accountant corrections in real time &#x2014; like an associate who actually remembers the feedback. It saved a third of prep time per return. The future of professional work isn&#x2019;t AI replacing you. It&#x2019;s AI that gets better because of you.</p><a href="https://www.theneuron.ai/" target="_blank" rel="noreferrer">Read the receipt</a></article></div>
           </div>
-          <aside class="goss-lane goss-lane-today" aria-labelledby="trending-today-title">
-            <div class="goss-lane-heading">
-              <p class="eyebrow">Trending Today</p>
-              <h3 id="trending-today-title">On the radar</h3>
+          <aside>
+            <p class="goss-lane-title">&#x26A1; Trending Today</p>
+            <div id="gossDailyList">
+              <p style="color: var(--text-muted); font-size: 0.82rem;">Loading stories&hellip;</p>
             </div>
-            <div id="gossDailyList"><article><p><strong>Google&#x2019;s Gemini 2.5 is now the default model everywhere.</strong> Every Google product quietly switched to Gemini 2.5 this week. Search, Docs, Gmail, Workspace &#x2014; all running the same model. The AI arms race just became the default-apps race.</p></article><article><p><strong>Apple announced &#x2018;Apple Intelligence&#x2019; is finally shipping in full.</strong> After months of staggered rollouts, all the promised features are live in iOS 19 beta. Siri can finally do things people have been asking for since 2016.</p></article><article><p><strong>Microsoft is charging $30/month for Copilot Pro. Corporates are balking.</strong> The per-seat cost of enterprise AI tools is becoming the budget conversation nobody prepared for. One CFO called it &#x2018;the new Salesforce creep.&#x2019;</p></article></div>
           </aside>
         </div>
-        <script src="content/hot-goss-render.js"></script>
       </section>
 
-
-
-      <section class="playlist-band game-tool-panel" id="playlist" style="padding: clamp(34px, 6vw, 72px) clamp(18px, 5vw, 64px);" aria-labelledby="playlist-title" data-game-panel="">
-        <div class="playlist-intro">
-          <p class="eyebrow">The Club Scene</p>
-          <h2 id="playlist-title">Every episode needs the place where the soundtrack finds you.</h2>
-          <p>
-            Buffy had The Bronze. Charmed had P3. Half the best 90s and 2000s episodes somehow ended up in a club with live music, low lighting, and a song you immediately needed to know. <span class="wordmark" aria-label="lAIdies"><span>l</span><strong>AI</strong><span>dies</span></span> gets the same treatment: playlists for the workday, member mix CDs, and DJ JAIDY&#x2019;s weekly episode tracks.
-          </p>
-          
-      <div style="max-width: 700px; margin: 24px auto;">
-        <p style="font-size: 0.8rem; font-weight: 700; color: var(--hot-pink); letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 12px;">&#x1F3A7; LAIDIES Playlists on Spotify</p>
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0otpKZoGiISkRo3Pxutc6R?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        <div style="margin-top: 16px;"><iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2r39nbnpuxb7L0TcAovpwq?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
-      </div>
-<div class="playlist-venue-note">
-            <span>House rule</span>
-            <p>Spotify holds the songs. This page holds the liner notes, the Wednesday drops, and the reason the mix belongs here.</p>
+      <!-- ─── THIS WEEK'S DRINK ─── -->
+      <section class="section-wrap" id="drink" aria-labelledby="drink-title">
+        <div class="drink-card">
+          <div>
+            <p class="eyebrow">The Cocktail Party Explanation</p>
+            <h3 id="drink-title">Main Character Spritz</h3>
+            <p class="drink-concept">This week&rsquo;s concept: <strong>Specificity</strong>. The more clearly you explain the task, audience, tone, constraints, and what &ldquo;good&rdquo; looks like, the less the AI has to guess. Vague prompt, vague output. David Rose would never.</p>
+            <ul>
+              <li>1 &frac12; oz blanco tequila</li>
+              <li>1 oz Aperol</li>
+              <li>&frac34; oz lemon juice</li>
+              <li>&frac34; oz simple syrup</li>
+              <li>Top with Prosecco</li>
+            </ul>
+            <p class="drink-note">Build over ice in a rocks glass, top with Prosecco, garnish with orange zest. Developed exclusively for <span class="wordmark"><span>l</span><strong>AI</strong><span>dies</span></span> by Ryan C at <a href="https://www.charfive.com/" target="_blank" rel="noreferrer" style="color: var(--hot-pink);">CHAR No.5</a>.</p>
           </div>
-          <img src="assets/playlist-mix-cd-v2.png" alt="A pink 90s desk scene with a portable CD player, handwritten tracklist, lip gloss, and a pink card that says could've been an email, made a playlist">
-        </div>
-        <div class="playlist-stack" aria-label="lAIdies starter playlists">
-          <article class="house-dj-card" id="house-dj" aria-labelledby="house-dj-title">
-            <img src="assets/house-dj-mixdesk.png" alt="Pink Y2K desk with headphones, CDs, glitter, neon lights, and a laptop showing music waveforms">
-            <div class="house-dj-copy">
-              <p class="eyebrow">The House DJ</p>
-              <h3 id="house-dj-title">DJ JAIDY is on the decks.</h3>
-              <p>
-                DJ JAIDY makes AI songs, sits on the AI steering committee, and has been cheering this whole thing on from the control booth. He is turning each Wednesday episode into its own club-scene track, because apparently the newsletter needed liner notes, a recurring venue, and someone emotionally prepared to DJ while the receipts load.
-              </p>
-              <div class="house-dj-tracklist" aria-label="House DJ weekly track slots">
-                <div class="house-dj-drop">
-                  <span>Episode 2</span>
-                  <strong>Tell Me What You Want</strong>
-                  <small>The one where she learns that the problem was never the tech &#x2014; it was the ask.</small>
-                  <audio controls preload="metadata" src="content/music/dj-jaidy-week-02-tell-me-what-you-want.mp3">
-                    <a href="content/music/dj-jaidy-week-02-tell-me-what-you-want.mp3">Play</a>
-                  </audio>
-                </div>
-                <div class="house-dj-drop">
-                  <span>Episode 1</span>
-                  <strong>On Wednesday We Do AI</strong>
-                  <small>The opening credits track. She opened the tab anyway.</small>
-                  <audio controls preload="metadata" src="content/music/dj-jaidy-week-01-on-wednesday-we-do-ai.mp3">
-                    <a href="content/music/dj-jaidy-week-01-on-wednesday-we-do-ai.mp3">Play</a>
-                  </audio>
-                </div>
-                <div class="house-dj-drop">
-                  <span>Bonus</span>
-                  <strong>Impossible to Underestimate You</strong>
-                  <small>For the woman who works with a mansplainer.</small>
-                  <audio controls preload="metadata" src="content/music/dj-jaidy-impossible-to-underestimate-you.mp3">
-                    <a href="content/music/dj-jaidy-impossible-to-underestimate-you.mp3">Play</a>
-                  </audio>
-                </div>
-                <div class="house-dj-drop">
-                  <span>Bonus</span>
-                  <strong>Deb&#x2019;s Tomorrow Problem</strong>
-                  <small>For the woman who survived every reorg and knows exactly where the forms are.</small>
-                  <audio controls preload="metadata" src="content/music/debs-tomorrow-problem.mp3">
-                    <a href="content/music/debs-tomorrow-problem.mp3">Play</a>
-                  </audio>
-                </div>
-              </div>
-              <p class="house-dj-note">DJ JAIDY&#x2019;s booth &#x2014; where the weekly custom AI tracks and the permanent playlist collection live.</p>
-            </div>
-          </article>
-          <article class="playlist-card" data-playlist-card="">
-            <p class="eyebrow">Tracklist Ready</p>
-            <h3>Big Meetings. Clear Agenda. Pink Pen.</h3>
-            <p class="playlist-note">For the walk from "why am I nervous?" to "I have the receipts." The opening-credit strut before the conference room scene.</p>
-            <ol>
-              <li>Dolly Parton - 9 to 5</li>
-              <li>Destiny&#x2019;s Child - Independent Women, Pt. 1</li>
-              <li>No Doubt - Just a Girl</li>
-              <li>Shania Twain - Man! I Feel Like a Woman!</li>
-              <li>Britney Spears - Stronger</li>
-              <li>Spice Girls - Spice Up Your Life</li>
-              <li>TLC - No Scrubs</li>
-              <li>Jennifer Lopez - Let&#x2019;s Get Loud</li>
-            </ol>
-            <div class="playlist-actions">
-              <button class="button secondary" type="button" data-copy-playlist="">Copy track list</button>
-              <a class="button ghost" href="https://open.spotify.com/search/Big%20Meetings%20Clear%20Agenda%20Pink%20Pen" target="_blank" rel="noreferrer">Search songs</a>
-            </div>
-          </article>
-          <article class="playlist-card" data-playlist-card="">
-            <p class="eyebrow">Tracklist Ready</p>
-            <h3>Cerulean Edits Only</h3>
-            <p class="playlist-note">For cutting the filler, fixing the first line, and refusing to send beige. Editing montage, but make it actually useful.</p>
-            <ol>
-              <li>The Cardigans - Lovefool</li>
-              <li>Natalie Imbruglia - Torn</li>
-              <li>Sixpence None the Richer - Kiss Me</li>
-              <li>Garbage - Stupid Girl</li>
-              <li>Alanis Morissette - You Learn</li>
-              <li>No Doubt - Don&#x2019;t Speak</li>
-              <li>Dido - Thank You</li>
-              <li>Madonna - Ray of Light</li>
-            </ol>
-            <div class="playlist-actions">
-              <button class="button secondary" type="button" data-copy-playlist="">Copy track list</button>
-              <a class="button ghost" href="https://open.spotify.com/search/Cerulean%20Edits%20Only" target="_blank" rel="noreferrer">Search songs</a>
-            </div>
-          </article>
-          <article class="playlist-card" data-playlist-card="">
-            <p class="eyebrow">Live Spotify Mix</p>
-            <h3>2000s Girl Power Chill Mix</h3>
-            <p class="playlist-note">For soft focus, big feelings, and the kind of work session where the pink pen is doing emotional support. Very "the band at The Bronze understood me."</p>
-            <ol>
-              <li>Michelle Branch - Goodbye to You</li>
-              <li>Michelle Branch - Breathe</li>
-              <li>Natalie Imbruglia - Torn</li>
-              <li>Vanessa Carlton - A Thousand Miles</li>
-              <li>Jewel - You Were Meant for Me</li>
-              <li>Shaye - Happy Baby</li>
-              <li>Michelle Branch - All You Wanted</li>
-              <li>Paula Cole - I Don&#x2019;t Want to Wait</li>
-              <li>Sixpence None the Richer - There She Goes</li>
-              <li>Vanessa Carlton - Ordinary Day</li>
-              <li>Lisa Loeb - Stay (I Missed You)</li>
-              <li>Sarah McLachlan - Building a Mystery</li>
-              <li>The Cranberries - Dreams</li>
-              <li>Sophie B. Hawkins - As I Lay Me Down</li>
-              <li>Shawn Colvin - Sunny Came Home</li>
-            </ol>
-            <div class="playlist-actions">
-              <button class="button secondary" type="button" data-copy-playlist="">Copy track list</button>
-              <a class="button ghost" href="https://open.spotify.com/playlist/2r39nbnpuxb7L0TcAovpwq" target="_blank" rel="noreferrer">Open Spotify</a>
-            </div>
-          </article>
-          <article class="playlist-card">
-            <p class="eyebrow">Live Spotify Mix</p>
-            <h3>The cute guy in your English class just asked you out.</h3>
-            <p class="playlist-note">For the full teen-drama hallway walk: soft eyeliner, spiral notebook, and the song playing while everyone pretends not to look back.</p>
-            <div class="playlist-actions">
-              <a class="button ghost" href="https://open.spotify.com/playlist/0otpKZoGiISkRo3Pxutc6R" target="_blank" rel="noreferrer">Open Spotify</a>
-            </div>
-          </article>
-          <article class="playlist-card" data-playlist-card="">
-            <p class="eyebrow">Tracklist Ready</p>
-            <h3>That Could Have Been an Email</h3>
-            <p class="playlist-note">For after the call, when the meeting was a lot and the notes need lipstick. Roll credits, but first: open the action items.</p>
-            <ol>
-              <li>Spice Girls - Wannabe</li>
-              <li>Destiny&#x2019;s Child - Survivor</li>
-              <li>NSYNC - Bye Bye Bye</li>
-              <li>Backstreet Boys - Larger Than Life</li>
-              <li>Kylie Minogue - Can&#x2019;t Get You Out of My Head</li>
-              <li>Len - Steal My Sunshine</li>
-              <li>TLC - Waterfalls</li>
-              <li>Nelly Furtado - I&#x2019;m Like a Bird</li>
-            </ol>
-            <div class="playlist-actions">
-              <button class="button secondary" type="button" data-copy-playlist="">Copy track list</button>
-              <a class="button ghost" href="https://open.spotify.com/search/That%20Could%20Have%20Been%20an%20Email" target="_blank" rel="noreferrer">Search songs</a>
-            </div>
-          </article>
-          <article class="playlist-card playlist-submit-card">
-            <p class="eyebrow">Community Mix CDs</p>
-            <h3>Made by the room, not an algorithm in a fleece vest.</h3>
-            <p class="playlist-note">Share your Spotify mix, add the liner notes, or put in a request for DJ JAIDY: give him the inspo, pick the 90s/Y2K style, and tell us when to press play.</p>
-            <div class="playlist-actions">
-              <a class="button primary" href="community/mix-cd-exchange.html">Share your mix</a>
-              <a class="button secondary" href="community/mix-cd-exchange.html">Request a song</a>
-            </div>
-          </article>
-          <p class="playlist-status" id="playlistStatus" aria-live="polite">New mix CDs and House DJ tracks can drop with Wednesday episodes, so the club scene keeps changing without turning the homepage into a jukebox nobody maintains.</p>
+          <span class="drink-emoji" aria-hidden="true">&#x1F378;</span>
         </div>
       </section>
+    </main>
 
-
-      <section class="interactive-band game-tool-panel" id="challenge" aria-labelledby="quote-title" data-game-panel="">
-        <div class="quote-panel">
-          <p class="eyebrow">The <span class="wordmark" aria-label="lAIdies"><span>l</span><strong>AI</strong><span>dies</span></span> Challenge</p>
-          <h2 id="quote-title">Remember, <span class="wordmark" aria-label="lAIdies"><span>l</span><strong>AI</strong><span>dies</span></span>:</h2>
-          <p class="quote-output" id="rememberQuote" aria-live="polite">
-            Dolly did not build Dollywood by waiting for permission. And she definitely did not take a 40-hour course first.
-          </p>
-          <div class="quote-actions">
-            <button class="button primary" type="button" id="newQuoteButton">Generate a sign-off</button>
-            <button class="button secondary" type="button" id="copyQuoteButton">Copy it</button>
-          </div>
-          <p class="microcopy" id="copyStatus" aria-live="polite">Steal the line, improve it, post yours publicly. We&#x2019;re trAIlblazers here.</p>
-        </div>
-        <div class="submission-panel">
-          <img src="assets/issue02-dont-pull-a-cher.png" alt="Clueless and Legally Blonde reference desk with notes about legal concepts">
-          <p class="eyebrow">Make Dolly proud</p>
-          <h3>Submit your best closer</h3>
-          <p>
-            The winning "Remember, <span class="wordmark" aria-label="lAIdies"><span>l</span><strong>AI</strong><span>dies</span></span>:" line gets featured in the next episode, with credit. Dry, specific, and a little too true usually wins.
-          </p>
-          <a class="button primary" href="community/try-on-debrief.html">Submit in the weekly thread</a>
-        </div>
-      </section>
-
-
-      <section class="brand-playbook game-tool-panel" id="playbook" aria-labelledby="playbook-title" data-game-panel="">
-        <div class="section-heading">
-          <p class="eyebrow">The Power Suit Playbook</p>
-          <h2 id="playbook-title">A few useful things between Wednesdays.</h2>
-          <p>
-            These are self-serve prompts, not newsletter assignments. Spin the board when you have five spare minutes and want one tiny dare that makes the work a little less stuck.
-          </p>
-        </div>
-        <div class="playbook-grid">
-          <article class="play-card try-on-play-card">
-            <img src="assets/five-minute-try-on-game.webp" alt="A pastel jewelry board game with a spinner, rings, beads, charms, and small game pieces">
-            <p class="eyebrow">Five-Minute Try-On</p>
-            <h3 id="promptChallenge">Send the shorter version of the message you have been over-editing.</h3>
-            <p class="microcopy" id="promptContext">A rotating bank of quick work dares, confidence moves, useful prompts, and tiny tasks for the admin nonsense that eats your calendar.</p>
-            <button class="icon-button" type="button" id="promptButton" aria-label="Generate a new five-minute try-on" onclick="window.shuffleTryOnIdea && window.shuffleTryOnIdea()">Shuffle idea</button>
-          </article>
-        </div>
-      </section>
-
-    
-    <div style="text-align: center; padding: 32px 20px 48px;">
-      <a class="button secondary" href="index.html">&#x2190; Back to Home</a>
-    </div>
-  </main>
-
+    <!-- ─── FOOTER ─── -->
     <footer class="site-footer">
       <p>
-        <span class="footer-brand"><span class="wordmark" aria-label="lAIdies trademark"><span>l</span><strong>AI</strong><span>dies</span></span><sup class="legal-mark">&#x2122;</sup></span>
-        <span class="footer-legal">&#x00A9; 2026 Ali Eakin. All rights reserved.</span>
+        <span class="wordmark"><span>l</span><strong>AI</strong><span>dies</span></span><sup>&trade;</sup>
+        &nbsp;&bull;&nbsp; &copy; 2026 Ali Eakin. All rights reserved.
       </p>
-      <div>
+      <div class="footer-links">
         <a href="https://www.instagram.com/we.are.laidies/" target="_blank" rel="noreferrer">Instagram</a>
         <a href="community.html">The Room</a>
         <a href="reference-closet.html">Reference Closet</a>
@@ -319,209 +617,86 @@
         <a href="terms.html">Terms</a>
       </div>
     </footer>
-    <script src="content/site/site-data.js?v=issue-02-live-1"></script>
-    <script src="content/site/supabase-config.js?v=issue-02-live-1"></script>
-    <script src="script.js?v=issue-02-live-1"></script>
-  
-<script>
-// Only one audio track plays at a time
-document.addEventListener('play', function(e) {
-  if (e.target.tagName === 'AUDIO') {
-    document.querySelectorAll('audio').forEach(function(audio) {
-      if (audio !== e.target) audio.pause();
-    });
-  }
-}, true);
-</script>
 
-<!-- Fixed Mini Player -->
-<div id="miniPlayer" class="mini-player" hidden>
-  <div class="mini-player-inner">
-    <button type="button" class="mini-player-btn" id="miniPlayerPrev" aria-label="Previous track">&#x23EE;</button>
-    <button type="button" class="mini-player-btn mini-player-play" id="miniPlayerPlay" aria-label="Play/Pause">&#x23F8;</button>
-    <button type="button" class="mini-player-btn" id="miniPlayerNext" aria-label="Next track">&#x23ED;</button>
-    <span class="mini-player-title" id="miniPlayerTitle">Now playing</span>
-    <button type="button" class="mini-player-close" id="miniPlayerClose" aria-label="Close player">&#x2715;</button>
-  </div>
-</div>
-<style>
-.mini-player {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-  background: linear-gradient(135deg, #1a0a12 0%, #2d0f1f 100%);
-  border-top: 2px solid rgba(255, 45, 155, 0.5);
-  padding: 10px 20px;
-  box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
-  animation: miniPlayerSlideUp 0.3s ease-out;
-}
-@keyframes miniPlayerSlideUp {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
-}
-.mini-player-inner {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  max-width: 600px;
-  margin: 0 auto;
-}
-.mini-player-btn {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1.2rem;
-  cursor: pointer;
-  padding: 6px;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s;
-}
-.mini-player-btn:hover {
-  background: rgba(255, 45, 155, 0.2);
-}
-.mini-player-play {
-  background: rgba(255, 45, 155, 0.3);
-  font-size: 1.3rem;
-  width: 42px;
-  height: 42px;
-}
-.mini-player-title {
-  flex: 1;
-  color: rgba(255, 248, 252, 0.9);
-  font-size: 0.8rem;
-  font-weight: 600;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.mini-player-close {
-  background: none;
-  border: none;
-  color: rgba(255, 248, 252, 0.5);
-  font-size: 1rem;
-  cursor: pointer;
-  padding: 6px;
-}
-.mini-player-close:hover {
-  color: #fff;
-}
-</style>
-<script>
-(() => {
-  const player = document.getElementById('miniPlayer');
-  const playBtn = document.getElementById('miniPlayerPlay');
-  const prevBtn = document.getElementById('miniPlayerPrev');
-  const nextBtn = document.getElementById('miniPlayerNext');
-  const closeBtn = document.getElementById('miniPlayerClose');
-  const titleEl = document.getElementById('miniPlayerTitle');
-  
-  const allAudio = Array.from(document.querySelectorAll('audio'));
-  let currentIndex = -1;
-  let activeAudio = null;
+    <!-- ─── INLINE HOT GOSS RENDERER ─── -->
+    <script>
+    (function() {
+      // Inline fetch + render — no external dependencies
+      fetch("content/hot-goss-feed.json?v=" + Date.now())
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          // Render weekly stories
+          var weeklyEl = document.getElementById("gossWeeklyList");
+          if (weeklyEl && data.weeklyStories && data.weeklyStories.length) {
+            weeklyEl.innerHTML = data.weeklyStories.map(function(story, i) {
+              return buildStoryCard(story, i + 1, false);
+            }).join("");
+          }
+          // Render daily headlines
+          var dailyEl = document.getElementById("gossDailyList");
+          if (dailyEl && data.dailyHeadlines && data.dailyHeadlines.length) {
+            dailyEl.innerHTML = data.dailyHeadlines.map(function(story) {
+              return buildStoryCard(story, null, true);
+            }).join("");
+          }
+          // Update last updated stamp
+          if (data.lastUpdated) {
+            var stamp = document.getElementById("gossLastUpdated");
+            if (stamp) stamp.textContent = "Last updated: " + data.lastUpdated;
+          }
+          // Update story count in quick-glance
+          var total = (data.weeklyStories ? data.weeklyStories.length : 0) + (data.dailyHeadlines ? data.dailyHeadlines.length : 0);
+          var countEl = document.getElementById("gossCount");
+          if (countEl) countEl.textContent = total + " stories this week";
+          // Wire up expand/collapse
+          document.querySelectorAll('.goss-expand-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+              var card = btn.closest('.goss-story');
+              var isExpanded = card.classList.contains('is-expanded');
+              card.classList.toggle('is-expanded');
+              btn.textContent = isExpanded ? 'read more \u2193' : 'less \u2191';
+            });
+          });
+        })
+        .catch(function(err) {
+          console.error("Hot Goss load error:", err);
+          var weeklyEl = document.getElementById("gossWeeklyList");
+          if (weeklyEl) weeklyEl.innerHTML = '<p style="color: var(--text-muted); font-size: 0.82rem;">Stories loading soon. Check back shortly.</p>';
+        });
 
-  // Track names from nearby labels
-  function getTrackName(audio) {
-    const parent = audio.closest('div');
-    const label = parent?.querySelector('div[style*="font-weight: 600"]');
-    if (label) return label.textContent;
-    const strong = parent?.closest('article, section, div')?.querySelector('strong');
-    if (strong) return strong.textContent;
-    const src = audio.src || '';
-    const filename = src.split('/').pop().replace(/\.mp3.*/, '').replace(/-/g, ' ');
-    return filename || 'Now playing';
-  }
+      function buildStoryCard(story, number, isDaily) {
+        var numberHtml = number ? '<span class="goss-number">' + String(number).padStart(2, '0') + '</span>' : '';
+        var sourceLink = story.source ? '<a href="' + story.source + '" target="_blank" rel="noreferrer" class="goss-source-link">Read the receipt \u2192</a>' : '';
 
-  // Show mini player when any audio plays
-  document.addEventListener('play', (e) => {
-    if (e.target.tagName !== 'AUDIO') return;
-    activeAudio = e.target;
-    currentIndex = allAudio.indexOf(activeAudio);
-    player.hidden = false;
-    playBtn.textContent = '\u23F8';
-    titleEl.textContent = getTrackName(activeAudio);
-  }, true);
+        var siteLinks = '';
+        if (story.siteLinks && story.siteLinks.length) {
+          siteLinks = '<div class="goss-site-links">' + story.siteLinks.map(function(link) {
+            var icon = link.type === 'episode' ? '\ud83d\udcf0' : link.type === 'glossary' ? '\ud83d\udcd6' : '\ud83d\udd17';
+            return '<a href="' + link.url + '">' + icon + ' ' + link.label + '</a>';
+          }).join('') + '</div>';
+        }
 
-  document.addEventListener('pause', (e) => {
-    if (e.target.tagName !== 'AUDIO') return;
-    if (e.target === activeAudio) {
-      playBtn.textContent = '\u25B6';
-    }
-  }, true);
+        var whyYouCare = story.whyYouCare ? '<div class="goss-why-care"><span class="goss-why-label">\ud83d\udca1 Why you\'d care:</span><p>' + story.whyYouCare + '</p></div>' : '';
+        var cocktailLabel = isDaily ? '\ud83c\udf78 One-liner:' : '\ud83c\udf78 The cocktail party version:';
+        var cocktailParty = story.cocktailParty ? '<div class="goss-cocktail-party"><span class="goss-cocktail-label">' + cocktailLabel + '</span><p>' + story.cocktailParty + '</p></div>' : '';
 
-  document.addEventListener('ended', (e) => {
-    if (e.target.tagName !== 'AUDIO') return;
-    if (e.target === activeAudio) {
-      playBtn.textContent = '\u25B6';
-    }
-  }, true);
+        var preview = story.preview || story.body.split('. ')[0] + '.';
+        var dailyClass = isDaily ? ' goss-daily' : '';
 
-  playBtn?.addEventListener('click', () => {
-    if (!activeAudio) return;
-    if (activeAudio.paused) {
-      activeAudio.play();
-    } else {
-      activeAudio.pause();
-    }
-  });
-
-  nextBtn?.addEventListener('click', () => {
-    if (allAudio.length === 0) return;
-    if (activeAudio) activeAudio.pause();
-    currentIndex = (currentIndex + 1) % allAudio.length;
-    activeAudio = allAudio[currentIndex];
-    activeAudio.play();
-  });
-
-  prevBtn?.addEventListener('click', () => {
-    if (allAudio.length === 0) return;
-    if (activeAudio) activeAudio.pause();
-    currentIndex = (currentIndex - 1 + allAudio.length) % allAudio.length;
-    activeAudio = allAudio[currentIndex];
-    activeAudio.play();
-  });
-
-  closeBtn?.addEventListener('click', () => {
-    if (activeAudio) activeAudio.pause();
-    player.hidden = true;
-    activeAudio = null;
-  });
-})();
-</script>
-
-<script>
-(function(){
-  var btn = document.querySelector(".hamburger-btn");
-  var nav = document.querySelector(".site-header .nav");
-  if (!btn || !nav) return;
-  btn.addEventListener("click", function() {
-    var open = nav.classList.toggle("is-open");
-    btn.setAttribute("aria-expanded", open);
-    btn.textContent = open ? "\u2715" : "\u2630";
-  });
-  nav.addEventListener("click", function(e) {
-    if (e.target.tagName === "A") {
-      nav.classList.remove("is-open");
-      btn.setAttribute("aria-expanded", "false");
-      btn.textContent = "\u2630";
-    }
-  });
-  document.addEventListener("click", function(e) {
-    if (!btn.contains(e.target) && !nav.contains(e.target) && nav.classList.contains("is-open")) {
-      nav.classList.remove("is-open");
-      btn.setAttribute("aria-expanded", "false");
-      btn.textContent = "\u2630";
-    }
-  });
-})();
-</script>
-
-
+        return '<article class="goss-story' + dailyClass + '">' +
+          numberHtml +
+          '<h4 class="goss-headline">' + story.headline + '</h4>' +
+          '<p class="goss-preview">' + preview + '</p>' +
+          '<button class="goss-expand-btn">read more \u2193</button>' +
+          '<div class="goss-expanded">' +
+            '<p class="goss-body">' + story.body + '</p>' +
+            whyYouCare +
+            cocktailParty +
+            '<div class="goss-footer">' + sourceLink + siteLinks + '</div>' +
+          '</div>' +
+        '</article>';
+      }
+    })();
+    </script>
 </body>
 </html>

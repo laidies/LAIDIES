@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" href="../assets/laidies-logo-square.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;600;700&family=Georgia&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;600;700&family=Georgia&display=swap" rel="stylesheet">
     <style>
       :root {
         --hot-pink: #ff2d9b;
@@ -32,43 +32,32 @@
       a { color: var(--hot-pink); text-decoration: none; }
       a:hover { text-decoration: underline; }
 
-      /* Site Header */
-      .site-header {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 14px clamp(14px, 3vw, 32px);
-        border-bottom: 1px solid rgba(255,255,255,0.06);
-        background: rgba(13, 6, 17, 0.95);
-        backdrop-filter: blur(8px);
+      /* Sticky Back to Clubhouse */
+      .sticky-back {
         position: sticky;
         top: 0;
-        z-index: 100;
+        z-index: 200;
+        background: rgba(13, 6, 17, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        padding: 12px clamp(14px, 3vw, 32px);
       }
-      .site-header .brand img { height: 28px; display: block; }
-      .site-header nav { display: flex; gap: 16px; margin-left: auto; font-size: 0.82rem; }
-      .site-header nav a { color: rgba(255,255,255,0.7); }
-      .site-header nav a:hover { color: #fff; }
-      .hamburger-btn { display: none; background: none; border: none; color: #fff; font-size: 1.4rem; cursor: pointer; }
-      @media (max-width: 680px) {
-        .site-header nav { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--dark-bg); padding: 16px; border-bottom: 1px solid var(--pink-border); }
-        .hamburger-btn { display: block; margin-left: auto; }
+      .sticky-back a {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: rgba(255,255,255,0.7);
+        transition: color 0.2s;
       }
+      .sticky-back a:hover { color: var(--hot-pink); text-decoration: none; }
 
       /* Page Layout */
       .game-page-wrap {
         max-width: 900px;
         margin: 0 auto;
         padding: clamp(24px, 4vw, 48px) clamp(14px, 3vw, 32px);
-      }
-      .game-page-header {
-        margin-bottom: 24px;
-        padding-bottom: 16px;
-        border-bottom: 1px solid rgba(255,255,255,0.08);
-      }
-      .game-page-header a {
-        font-size: 0.85rem;
-        font-weight: 600;
       }
       .eyebrow {
         font-size: 0.72rem;
@@ -89,17 +78,59 @@
       @media (max-width: 680px) {
         .hero-section { grid-template-columns: 1fr; gap: 20px; }
       }
+
+      /* Dramatic Hero Image */
       .hero-image {
         position: relative;
+        border-radius: 20px;
+        overflow: visible;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .hero-image::before {
+        content: '';
+        position: absolute;
+        inset: -4px;
+        border-radius: 22px;
+        background: linear-gradient(135deg, #ff2d9b, #7b2dff, #2dd4ff, #ffd700, #ff2d9b);
+        background-size: 400% 400%;
+        animation: holoShimmer 4s ease infinite;
+        z-index: 0;
+      }
+      .hero-image::after {
+        content: '';
+        position: absolute;
+        inset: -20px;
+        border-radius: 30px;
+        background: radial-gradient(ellipse at center, rgba(255,45,155,0.25) 0%, rgba(123,45,255,0.15) 40%, transparent 70%);
+        filter: blur(20px);
+        z-index: -1;
+        animation: pulseGlow 3s ease-in-out infinite alternate;
+      }
+      @keyframes pulseGlow {
+        from { opacity: 0.6; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1.05); }
+      }
+      .hero-image-inner {
+        position: relative;
+        z-index: 1;
         border-radius: 16px;
         overflow: hidden;
-        box-shadow: 0 8px 40px rgba(255, 45, 155, 0.2);
+        width: 100%;
+        transform: rotate(-2deg);
+        box-shadow: 0 12px 50px rgba(255, 45, 155, 0.35), 0 4px 20px rgba(0,0,0,0.5);
+        transition: transform 0.3s ease;
       }
-      .hero-image img {
+      .hero-image-inner:hover {
+        transform: rotate(0deg) scale(1.02);
+      }
+      .hero-image-inner img {
         width: 100%;
         height: auto;
         display: block;
       }
+
       .hero-copy h1 {
         font-family: Georgia, serif;
         font-size: clamp(1.8rem, 4vw, 2.6rem);
@@ -254,6 +285,7 @@
         justify-content: center;
         background: var(--panel-bg);
         position: relative;
+        padding: 20px;
       }
       .card-front::before {
         content: '';
@@ -296,13 +328,29 @@
         0% { background-position: -100% -100%; }
         100% { background-position: 200% 200%; }
       }
-      .card-front img {
-        width: 80%;
-        height: auto;
-        border-radius: 8px;
+      .card-front .card-title {
         position: relative;
         z-index: 3;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        font-family: Georgia, serif;
+        font-size: clamp(1rem, 2.5vw, 1.3rem);
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 10px;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      }
+      .card-front .card-hook {
+        position: relative;
+        z-index: 3;
+        font-size: 0.78rem;
+        color: rgba(255,255,255,0.65);
+        text-align: center;
+        font-style: italic;
+      }
+      .card-front .card-icon {
+        position: relative;
+        z-index: 3;
+        font-size: 2.4rem;
+        margin-bottom: 12px;
       }
       .card-front .card-issue-badge {
         position: absolute;
@@ -362,8 +410,9 @@
       .rarity-common .card-face { border-color: var(--hot-pink); }
       .rarity-rare .card-face { border-color: var(--gold); box-shadow: 0 0 12px rgba(255, 215, 0, 0.3); }
       .rarity-special .card-face {
-        border-image: linear-gradient(135deg, #ff2d9b, #7b2dff, #2dd4ff, #ff2d9b) 1;
-        box-shadow: 0 0 16px rgba(123, 45, 255, 0.3);
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        box-shadow: 0 0 16px rgba(123, 45, 255, 0.4), inset 0 0 0 2px rgba(123,45,255,0.6);
       }
       .rarity-badge {
         position: absolute;
@@ -425,7 +474,6 @@
         background: rgba(255,255,255,0.02);
         transition: border-color 0.3s, transform 0.2s;
         cursor: pointer;
-        perspective: 600px;
       }
       .binder-card.is-owned {
         border-color: var(--pink-border);
@@ -438,11 +486,25 @@
         opacity: 0.35;
         filter: grayscale(0.8);
       }
-      .binder-card img {
+      .binder-card-visual {
         width: 100%;
         aspect-ratio: 3/4;
-        object-fit: cover;
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--panel-bg);
+        position: relative;
+      }
+      .binder-card-visual .binder-icon {
+        font-size: 2rem;
+      }
+      .binder-card-visual::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(255,45,155,0.05), rgba(123,45,255,0.08), rgba(45,212,255,0.05));
+        background-size: 300% 300%;
+        animation: holoShimmer 5s ease infinite;
       }
       .binder-card-info {
         padding: 10px;
@@ -467,19 +529,6 @@
         padding: 2px 6px;
         border-radius: 8px;
       }
-
-      /* Footer */
-      .back-link {
-        display: inline-block;
-        margin-top: 40px;
-        padding: 10px 20px;
-        border: 1px solid var(--pink-border);
-        border-radius: 8px;
-        font-size: 0.85rem;
-        color: rgba(255,255,255,0.7);
-        transition: border-color 0.2s, color 0.2s;
-      }
-      .back-link:hover { border-color: var(--hot-pink); color: #fff; text-decoration: none; }
     </style>
     <!-- Privacy-friendly analytics by Plausible -->
     <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
@@ -487,44 +536,35 @@
       window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
       plausible.init()
     </script>
-  </head>
+      <link rel="stylesheet" href="../content/site/mini-player.css">
+</head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="../index.html" aria-label="lAIdies home">
-        <img src="../assets/laidies-logo-wordmark.png" alt="LAIDIES" />
-      </a>
-      <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=this.nextElementSibling;if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'\u2630':'\u2715';this.setAttribute('aria-expanded',!isOpen);">&#9776;</button>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="../episodes.html">Episodes</a>
-        <a href="../learn.html">Learn</a>
-        <a href="../clubhouse.html">Clubhouse</a>
-        <a href="../community.html">Community</a>
-        <a href="../clubhouse.html#dj-booth-inline">Listen</a>
-        <a href="../this-week.html">This Week</a>
-      </nav>
-    </header>
+
+    <!-- Sticky Back to Clubhouse -->
+    <div class="sticky-back">
+      <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
+    </div>
 
     <main>
       <div class="game-page-wrap">
-        <div class="game-page-header">
-          <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
-        </div>
 
         <!-- Hero -->
         <section class="hero-section">
           <div class="hero-image">
-            <img src="../assets/trading-card-pack.webp" alt="Shiny pink foil trading card pack with cards peeking out" />
+            <div class="hero-image-inner">
+              <img src="../assets/trading-card-pack.webp" alt="Shiny pink foil trading card pack with cards peeking out" />
+            </div>
           </div>
           <div class="hero-copy">
             <p class="eyebrow">The Card Pack</p>
             <h1>Trading Card Pack</h1>
-            <p class="subtitle">Flip & collect AI concept cards</p>
+            <p class="subtitle">Flip &amp; collect AI concept cards</p>
             <p style="color:rgba(255,255,255,0.5); font-size:0.85rem; margin-bottom: 20px;">Every Wednesday adds new cards to the collection. Pick an issue pack, rip it open, and flip each card to learn an AI concept. Duplicates count &mdash; just like the real thing.</p>
 
             <!-- Collection Progress -->
             <div class="collection-progress">
               <div class="progress-label">
-                <span>Cards collected: <strong id="progressCount">0/10</strong></span>
+                <span>Cards collected: <strong id="progressCount">0/15</strong></span>
                 <span id="progressPercent">0%</span>
               </div>
               <div class="progress-bar">
@@ -536,8 +576,8 @@
             <div class="pack-controls">
               <select class="pack-select" id="packSelect">
                 <option value="all">All released cards</option>
-                <option value="issue01">Issue 01 pack</option>
-                <option value="issue02">Issue 02 pack</option>
+                <option value="1">Issue 01 pack</option>
+                <option value="2">Issue 02 pack</option>
               </select>
               <button class="btn" id="openPackBtn">&#x1F4E6; Open Pack</button>
               <button class="btn btn-secondary" id="resetBtn">Reset</button>
@@ -547,7 +587,7 @@
         </section>
 
         <!-- Pack Opening Area -->
-        <section class="pack-opening-area" aria-label="Latest card pulls">
+        <section class="pack-opening-area" id="packOpeningArea" aria-label="Latest card pulls">
           <div class="pack-pulls" id="packPulls">
             <p class="pack-empty">Nothing in the wrapper yet. Open a pack and see what you pulled.</p>
           </div>
@@ -561,30 +601,153 @@
           <div class="binder-grid" id="binderGrid"></div>
         </section>
 
-        <a class="back-link" href="../clubhouse.html">&larr; Back to Clubhouse</a>
       </div>
     </main>
 
     <!-- Scripts -->
-    <script src="../content/site/supabase-config.js"></script>
-    <script src="../content/site/site-data.js"></script>
     <script>
     (function() {
       'use strict';
 
-      // === Card Data from site-data.js ===
-      const allCards = window.SITE_DATA?.cardPacks?.cards || [];
-
-      // Assign rarity based on issue (issue01 = common, issue02 has mixed)
-      const rarityMap = {
-        'issue01-room': 'rare',
-        'specificity': 'rare',
-        'receipts': 'special',
-        'girl-power': 'rare',
-      };
-      function getRarity(cardId) {
-        return rarityMap[cardId] || 'common';
-      }
+      // === INLINE CARD DATA ===
+      // Each card teaches an AI concept from the episodes
+      const allCards = [
+        {
+          id: 'prompt-engineering',
+          title: 'Prompt Engineering',
+          icon: '\u270D\uFE0F',
+          front: 'The art of asking so well that AI actually delivers.',
+          back: 'Prompt engineering is writing clear, specific instructions so AI gives you useful output instead of generic fluff. Think of it as delegating to a very literal intern\u2014the better your brief, the better the result.',
+          rarity: 'common',
+          episode: 2
+        },
+        {
+          id: 'hallucination',
+          title: 'Hallucination',
+          icon: '\uD83C\uDF00',
+          front: 'When AI says something confidently wrong and does not blush.',
+          back: 'A hallucination is when AI generates information that sounds authoritative but is completely made up\u2014fake sources, invented stats, confident nonsense. Always verify claims that matter.',
+          rarity: 'rare',
+          episode: 1
+        },
+        {
+          id: 'token',
+          title: 'Token',
+          icon: '\uD83C\uDFB0',
+          front: 'The tiny word-chunk AI actually reads.',
+          back: 'AI does not read words like you do. It breaks text into tokens\u2014fragments of words, sometimes whole words, sometimes pieces. \"Unbelievable\" might be three tokens. This matters because every AI has a token limit.',
+          rarity: 'common',
+          episode: 2
+        },
+        {
+          id: 'context-window',
+          title: 'Context Window',
+          icon: '\uD83D\uDDD7\uFE0F',
+          front: 'How much AI can hold in its head at once.',
+          back: 'The context window is the maximum amount of text (measured in tokens) an AI can consider in one conversation. Go past it and the AI starts forgetting the beginning\u2014like a meeting that ran too long.',
+          rarity: 'rare',
+          episode: 2
+        },
+        {
+          id: 'fine-tuning',
+          title: 'Fine-Tuning',
+          icon: '\uD83C\uDFAF',
+          front: 'Teaching AI new tricks after graduation.',
+          back: 'Fine-tuning is additional training on specific examples after the model\'s main education is done. It is like sending a generalist to a specialization bootcamp\u2014same brain, sharper focus.',
+          rarity: 'rare',
+          episode: 1
+        },
+        {
+          id: 'temperature',
+          title: 'Temperature',
+          icon: '\uD83C\uDF21\uFE0F',
+          front: 'The creativity dial\u2014low is safe, high is spicy.',
+          back: 'Temperature controls how creative or random AI\'s responses are. Low temperature (0) gives predictable, safe answers. High temperature (1+) gets more adventurous and surprising\u2014sometimes too surprising.',
+          rarity: 'common',
+          episode: 2
+        },
+        {
+          id: 'rag',
+          title: 'RAG',
+          icon: '\uD83D\uDCDA',
+          front: 'Retrieval-Augmented Generation. Fancy name for \u201Clook it up first.\u201D',
+          back: 'RAG is a technique where AI searches a knowledge base before answering, so it can cite real documents instead of guessing. It\'s like giving AI permission to check its notes before speaking.',
+          rarity: 'special',
+          episode: 2
+        },
+        {
+          id: 'embedding',
+          title: 'Embedding',
+          icon: '\uD83E\uDDF2',
+          front: 'Turning words into math so AI can measure meaning.',
+          back: 'An embedding converts text into a list of numbers that captures its meaning. Similar ideas end up close together in number-space. It\'s how AI knows \"happy\" and \"joyful\" are neighbors even though the letters are different.',
+          rarity: 'rare',
+          episode: 2
+        },
+        {
+          id: 'agent',
+          title: 'Agent',
+          icon: '\uD83E\uDD16',
+          front: 'AI that can actually do things, not just talk.',
+          back: 'An AI agent can take actions\u2014browse the web, run code, send emails\u2014not just generate text. Think of the difference between someone who gives advice and someone who also books the appointment.',
+          rarity: 'special',
+          episode: 1
+        },
+        {
+          id: 'chain-of-thought',
+          title: 'Chain of Thought',
+          icon: '\uD83D\uDD17',
+          front: 'Making AI show its work, step by step.',
+          back: 'Chain of thought is a prompting trick: ask AI to think step by step before answering. It forces the model to reason through a problem rather than jumping to conclusions. Works surprisingly well for complex tasks.',
+          rarity: 'common',
+          episode: 2
+        },
+        {
+          id: 'few-shot-learning',
+          title: 'Few-Shot Learning',
+          icon: '\uD83C\uDFAF',
+          front: 'Give AI a few examples and watch it catch on.',
+          back: 'Few-shot learning means showing AI 2\u20133 examples of what you want before asking for the real output. It\'s like showing someone a photo of the hairstyle instead of just saying \"make it cute.\"',
+          rarity: 'common',
+          episode: 2
+        },
+        {
+          id: 'system-prompt',
+          title: 'System Prompt',
+          icon: '\uD83D\uDCDD',
+          front: 'The secret backstage instructions AI follows.',
+          back: 'A system prompt is a hidden instruction set that defines AI\'s personality, rules, and behavior before you even type. It\'s why ChatGPT acts different from Claude\u2014different backstage notes, same stage.',
+          rarity: 'common',
+          episode: 1
+        },
+        {
+          id: 'guardrails',
+          title: 'Guardrails',
+          icon: '\uD83D\uDEE1\uFE0F',
+          front: 'The safety bumpers that keep AI in its lane.',
+          back: 'Guardrails are rules and filters that prevent AI from generating harmful, biased, or off-limits content. Think of them as the velvet ropes at a club\u2014they define where AI can and cannot go.',
+          rarity: 'common',
+          episode: 1
+        },
+        {
+          id: 'multimodal',
+          title: 'Multimodal',
+          icon: '\uD83D\uDC41\uFE0F',
+          front: 'AI that can see, hear, and read\u2014not just text.',
+          back: 'Multimodal AI can process multiple types of input\u2014text, images, audio, video. It\'s the difference between texting someone and FaceTiming them. More input types means richer understanding.',
+          rarity: 'rare',
+          episode: 1
+        },
+        {
+          id: 'inference',
+          title: 'Inference',
+          icon: '\u26A1',
+          front: 'The moment AI actually produces an answer.',
+          back: 'Inference is when a trained AI model processes your input and generates output. Training is learning; inference is performing. Every time you hit send on a prompt, you\'re triggering inference.',
+          rarity: 'common',
+          episode: 1
+        }
+      ];
 
       // === Local Storage ===
       const STORAGE_KEY = 'laidies_card_collection';
@@ -617,12 +780,13 @@
       const progressCount = document.getElementById('progressCount');
       const progressPercent = document.getElementById('progressPercent');
       const progressFill = document.getElementById('progressFill');
+      const packOpeningArea = document.getElementById('packOpeningArea');
 
       // === Get selected pack cards ===
       function getSelectedCards() {
         const val = packSelect.value;
         if (val === 'all') return allCards;
-        return allCards.filter(c => c.issue === val);
+        return allCards.filter(c => c.episode === parseInt(val));
       }
 
       // === Progress update ===
@@ -630,38 +794,39 @@
         const total = allCards.length;
         const owned = allCards.filter(c => (collection[c.id] || 0) > 0).length;
         const pct = total > 0 ? Math.round((owned / total) * 100) : 0;
-        progressCount.textContent = `${owned}/${total}`;
-        progressPercent.textContent = `${pct}%`;
-        progressFill.style.width = `${pct}%`;
+        progressCount.textContent = owned + '/' + total;
+        progressPercent.textContent = pct + '%';
+        progressFill.style.width = pct + '%';
       }
 
       // === Create pull card with 3D flip ===
       function createPullCard(card, delay) {
-        const rarity = getRarity(card.id);
         const el = document.createElement('div');
-        el.className = `trading-card rarity-${rarity}`;
-        el.style.animationDelay = `${delay}s`;
+        el.className = 'trading-card rarity-' + card.rarity;
+        el.style.animationDelay = delay + 's';
 
-        el.innerHTML = `
-          <div class="card-inner">
-            <div class="card-face card-front">
-              <span class="card-issue-badge">${card.issueLabel || card.issue}</span>
-              <span class="rarity-badge">${rarity}</span>
-              <img src="../${card.image}" alt="${card.alt}" />
-              ${card.isDuplicate ? '<span class="dup-badge">x' + card.count + '</span>' : ''}
-            </div>
-            <div class="card-face card-back">
-              <span class="card-unlock-label">${card.isDuplicate ? 'Duplicate pull' : 'New pull!'}</span>
-              <h3>${card.unlockTitle}</h3>
-              <p>${card.prompt}</p>
-              <p class="card-reward">${card.reward}</p>
-              <span class="flip-hint">Tap to flip</span>
-            </div>
-          </div>
-        `;
+        const issueLabel = 'Issue ' + (card.episode < 10 ? '0' : '') + card.episode;
 
-        // Flip on click
-        el.addEventListener('click', () => {
+        el.innerHTML =
+          '<div class="card-inner">' +
+            '<div class="card-face card-front">' +
+              '<span class="card-issue-badge">' + issueLabel + '</span>' +
+              '<span class="rarity-badge">' + card.rarity + '</span>' +
+              '<span class="card-icon">' + card.icon + '</span>' +
+              '<span class="card-title">' + card.title + '</span>' +
+              '<span class="card-hook">' + card.front + '</span>' +
+              (card.isDuplicate ? '<span class="dup-badge">x' + card.count + '</span>' : '') +
+            '</div>' +
+            '<div class="card-face card-back">' +
+              '<span class="card-unlock-label">' + (card.isDuplicate ? 'Duplicate pull' : 'New pull!') + '</span>' +
+              '<h3>' + card.title + '</h3>' +
+              '<p>' + card.back + '</p>' +
+              '<p class="card-reward">' + issueLabel + ' \u2022 ' + card.rarity.charAt(0).toUpperCase() + card.rarity.slice(1) + '</p>' +
+              '<span class="flip-hint">Tap to flip back</span>' +
+            '</div>' +
+          '</div>';
+
+        el.addEventListener('click', function() {
           el.classList.toggle('is-flipped');
         });
 
@@ -675,7 +840,7 @@
           packPulls.innerHTML = '<p class="pack-empty">Nothing in the wrapper yet. Open a pack and see what you pulled.</p>';
           return;
         }
-        pulls.forEach((card, i) => {
+        pulls.forEach(function(card, i) {
           packPulls.appendChild(createPullCard(card, i * 0.2));
         });
       }
@@ -688,14 +853,14 @@
           return;
         }
 
-        const pulls = Array.from({ length: 3 }, () => {
+        const pulls = Array.from({ length: 3 }, function() {
           return cards[Math.floor(Math.random() * cards.length)];
         });
 
-        const newPulls = pulls.map(card => {
+        const newPulls = pulls.map(function(card) {
           const prev = Number(collection[card.id] || 0);
           collection[card.id] = prev + 1;
-          return { ...card, isDuplicate: prev > 0, count: collection[card.id] };
+          return Object.assign({}, card, { isDuplicate: prev > 0, count: collection[card.id] });
         });
 
         saveCollection(collection);
@@ -704,11 +869,16 @@
         updateProgress();
         renderBinder();
 
-        const hasDupe = newPulls.some(c => c.isDuplicate);
+        const hasDupe = newPulls.some(function(c) { return c.isDuplicate; });
         const selectedLabel = packSelect.selectedOptions[0].textContent;
         packStatus.textContent = hasDupe
-          ? `Opened ${selectedLabel}. Duplicate drama detected — into the binder it goes.`
-          : `Opened ${selectedLabel}. Fresh stack, no doubles! Into the binder they go.`;
+          ? 'Opened ' + selectedLabel + '. Duplicate drama detected \u2014 into the binder it goes.'
+          : 'Opened ' + selectedLabel + '. Fresh stack, no doubles! Into the binder they go.';
+
+        // Auto-scroll to revealed cards
+        setTimeout(function() {
+          packOpeningArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
       }
 
       // === Reset ===
@@ -725,21 +895,24 @@
       // === Render Binder ===
       function renderBinder() {
         binderGrid.innerHTML = '';
-        allCards.forEach(card => {
+        allCards.forEach(function(card) {
           const count = collection[card.id] || 0;
           const owned = count > 0;
-          const rarity = getRarity(card.id);
           const el = document.createElement('div');
-          el.className = `binder-card ${owned ? 'is-owned' : 'is-missing'}`;
+          el.className = 'binder-card ' + (owned ? 'is-owned' : 'is-missing');
 
-          el.innerHTML = `
-            <img src="../${card.image}" alt="${card.alt}" />
-            <div class="binder-card-info">
-              <strong>${card.title}</strong>
-              <span>${card.issueLabel} • ${rarity}</span>
-            </div>
-            ${owned ? '<span class="binder-count-badge">x' + count + '</span>' : ''}
-          `;
+          const issueLabel = 'Issue ' + (card.episode < 10 ? '0' : '') + card.episode;
+
+          el.innerHTML =
+            '<div class="binder-card-visual">' +
+              '<span class="binder-icon">' + card.icon + '</span>' +
+            '</div>' +
+            '<div class="binder-card-info">' +
+              '<strong>' + card.title + '</strong>' +
+              '<span>' + issueLabel + ' \u2022 ' + card.rarity + '</span>' +
+            '</div>' +
+            (owned ? '<span class="binder-count-badge">x' + count + '</span>' : '');
+
           binderGrid.appendChild(el);
         });
       }
@@ -758,6 +931,6 @@
       }
     })();
     </script>
-    <script src="../script.js"></script>
-  </body>
+      <script src="../content/site/mini-player.js"></script>
+</body>
 </html>

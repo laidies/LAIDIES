@@ -7,276 +7,523 @@
     <meta name="description" content="Dial a number, pick a caller card, and get career, confidence, AI, or work advice from the lAIdies Dream Phone deck." />
     <meta name="theme-color" content="#ff2d9b" />
     <link rel="icon" type="image/png" href="../assets/laidies-logo-square.png" />
-    <link rel="stylesheet" href="../styles.css?v=games-extract-1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&family=JetBrains+Mono:wght@400&family=Inter:wght@400;600;700&display=swap">
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+    <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
     <style>
-      .game-page-wrap {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: clamp(18px, 4vw, 48px) clamp(14px, 3vw, 32px);
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      :root {
+        --bg-start: #1a0a12;
+        --bg-end: #2d0f1f;
+        --hot-pink: #ff2d9b;
+        --pink-glow: rgba(255, 45, 155, 0.4);
+        --pink-glow-soft: rgba(255, 45, 155, 0.15);
+        --card-bg: rgba(255, 255, 255, 0.04);
+        --card-border: rgba(255, 255, 255, 0.08);
+        --text-primary: #f8f0f4;
+        --text-muted: rgba(248, 240, 244, 0.55);
+        --text-secondary: rgba(248, 240, 244, 0.75);
+        --surface-elevated: rgba(255, 255, 255, 0.06);
       }
-      .game-page-header {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 24px;
-        padding-bottom: 16px;
-        border-bottom: 1px solid var(--line);
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: linear-gradient(165deg, var(--bg-start) 0%, var(--bg-end) 100%);
+        color: var(--text-primary);
+        min-height: 100vh;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
       }
-      .game-page-header a {
+
+      /* ── Sticky Back Nav ── */
+      .back-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 14px 24px;
+        background: rgba(26, 10, 18, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--card-border);
+      }
+      .back-nav a {
+        color: var(--hot-pink);
+        text-decoration: none;
         font-size: 0.85rem;
         font-weight: 600;
-        text-decoration: none;
-        color: var(--hot-pink);
+        letter-spacing: 0.01em;
+        transition: opacity 0.2s;
       }
-      .game-page-header a:hover { text-decoration: underline; }
-      .game-page-title {
-        display: grid;
-        gap: 8px;
-        margin-bottom: 32px;
+      .back-nav a:hover { opacity: 0.75; }
+
+      /* ── Main Container ── */
+      .page-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 80px 24px 80px;
       }
-      .game-page-title h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.1; }
-      .game-page-title p { color: var(--muted); max-width: 600px; }
-      .dream-phone-game { display: block; }
-      .dream-phone-stage { display: grid; gap: 16px; }
-      .dream-contact-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-        gap: 10px;
-      }
-      .dream-contact {
-        display: grid;
-        gap: 4px;
-        align-content: start;
-        padding: 10px 8px;
-        border: 2px solid var(--line);
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.7);
+
+      /* ── Hero Section ── */
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
+        padding: 48px 0 56px;
+        gap: 28px;
+      }
+
+      .hero-image-wrap {
+        position: relative;
+        width: 200px;
+        height: 200px;
+      }
+      .hero-image-wrap::before {
+        content: '';
+        position: absolute;
+        inset: -20px;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--pink-glow) 0%, transparent 70%);
+        animation: pulse-glow 3s ease-in-out infinite;
+      }
+      .hero-image-wrap img {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 3px solid var(--hot-pink);
+        box-shadow: 0 0 40px var(--pink-glow), 0 0 80px rgba(255, 45, 155, 0.15);
+        transform: rotate(-5deg);
+        transition: transform 0.4s ease;
+      }
+      .hero-image-wrap:hover img {
+        transform: rotate(0deg) scale(1.03);
+      }
+
+      @keyframes pulse-glow {
+        0%, 100% { opacity: 0.6; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.05); }
+      }
+
+      .hero-text h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(2.4rem, 6vw, 3.6rem);
+        font-weight: 700;
+        background: linear-gradient(135deg, #fff 0%, var(--hot-pink) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.1;
+        margin-bottom: 12px;
+      }
+      .hero-text p {
+        font-size: 1.05rem;
+        color: var(--text-secondary);
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      .hero-text .hint {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        margin-top: 8px;
+        font-style: italic;
+      }
+
+      /* ── Phone Section ── */
+      .phone-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        margin-bottom: 48px;
+      }
+
+      /* Keypad */
+      .keypad-wrap {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 24px;
+        padding: 32px;
+        backdrop-filter: blur(8px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      }
+      .keypad {
+        display: grid;
+        grid-template-columns: repeat(3, 72px);
+        gap: 12px;
+        justify-content: center;
+      }
+      .keypad button {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 45, 155, 0.35);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--text-primary);
+        font-size: 1.5rem;
+        font-weight: 700;
+        font-family: 'JetBrains Mono', monospace;
         cursor: pointer;
+        transition: all 0.15s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .keypad button::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: var(--hot-pink);
+        opacity: 0;
+        transition: opacity 0.15s;
+      }
+      .keypad button:hover {
+        border-color: var(--hot-pink);
+        box-shadow: 0 0 20px var(--pink-glow-soft);
+        transform: scale(1.05);
+      }
+      .keypad button:active {
+        transform: scale(0.92);
+        background: var(--hot-pink);
+        color: #fff;
+        box-shadow: 0 0 30px var(--pink-glow);
+      }
+      .keypad button:active::after {
+        opacity: 0.2;
+      }
+      .keypad-spacer {
+        width: 72px;
+        height: 72px;
+      }
+
+      /* Dialer Row */
+      .dialer-row {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        width: 100%;
+        max-width: 360px;
+      }
+      .dialer-row input {
+        flex: 1;
+        padding: 14px 18px;
+        border: 2px solid var(--card-border);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text-primary);
+        font-size: 1.3rem;
+        font-family: 'JetBrains Mono', monospace;
+        letter-spacing: 0.08em;
+        text-align: center;
+        outline: none;
         transition: border-color 0.2s, box-shadow 0.2s;
       }
-      .dream-contact:hover,
-      .dream-contact.is-selected {
+      .dialer-row input::placeholder { color: var(--text-muted); }
+      .dialer-row input:focus {
         border-color: var(--hot-pink);
-        box-shadow: 0 0 12px rgba(255, 45, 155, 0.25);
+        box-shadow: 0 0 16px var(--pink-glow-soft);
       }
-      .dream-avatar {
+      .dial-btn {
+        padding: 14px 24px;
+        border: none;
+        border-radius: 12px;
+        background: var(--hot-pink);
+        color: #fff;
+        font-size: 0.95rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.15s, box-shadow 0.2s;
+        white-space: nowrap;
+      }
+      .dial-btn:hover {
+        transform: scale(1.04);
+        box-shadow: 0 4px 20px var(--pink-glow);
+      }
+      .dial-btn:active { transform: scale(0.96); }
+
+      /* ── Caller Grid ── */
+      .callers-section {
+        margin-bottom: 48px;
+      }
+      .callers-section h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.4rem;
+        text-align: center;
+        margin-bottom: 20px;
+        color: var(--text-secondary);
+      }
+      .caller-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+        gap: 14px;
+        justify-items: center;
+      }
+      .caller-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        padding: 10px 6px;
+        border-radius: 14px;
+        border: 2px solid transparent;
+        background: transparent;
+        transition: all 0.2s ease;
+        text-align: center;
+        width: 100%;
+      }
+      .caller-card:hover {
+        background: var(--card-bg);
+        border-color: var(--card-border);
+      }
+      .caller-card.is-selected {
+        border-color: var(--hot-pink);
+        background: rgba(255, 45, 155, 0.08);
+        box-shadow: 0 0 16px var(--pink-glow-soft);
+      }
+      .caller-avatar {
         width: 52px;
         height: 52px;
         border-radius: 50%;
         object-fit: cover;
-        margin: 0 auto;
+        border: 2px solid rgba(255, 45, 155, 0.3);
+        transition: border-color 0.2s, box-shadow 0.2s;
       }
-      .dream-contact span { font-size: 0.7rem; color: var(--muted); }
-      .dream-contact strong { font-size: 0.82rem; }
-      .dream-contact em { font-size: 0.72rem; color: var(--muted); font-style: normal; }
-      .dream-handset {
-        display: grid;
-        gap: 14px;
-        justify-items: center;
+      .caller-card:hover .caller-avatar,
+      .caller-card.is-selected .caller-avatar {
+        border-color: var(--hot-pink);
+        box-shadow: 0 0 12px var(--pink-glow-soft);
       }
-      .dream-handset img {
-        width: clamp(120px, 20vw, 180px);
-        height: auto;
+      .caller-name {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--text-primary);
       }
-      .dream-phone-keypad {
-        display: grid;
-        grid-template-columns: repeat(3, 52px);
-        gap: 8px;
-        justify-content: center;
+      .caller-number {
+        font-size: 0.65rem;
+        color: var(--text-muted);
+        font-family: 'JetBrains Mono', monospace;
       }
-      .dream-phone-keypad button {
-        width: 52px;
-        height: 52px;
-        border-radius: 50%;
-        border: 2px solid var(--ink);
-        background: var(--paper);
-        font-size: 1.2rem;
-        font-weight: 700;
-        cursor: pointer;
-        transition: background 0.15s, transform 0.1s;
-      }
-      .dream-phone-keypad button:hover { background: var(--mist); }
-      .dream-phone-keypad button:active { transform: scale(0.92); }
-      .dream-special-cards {
+
+      /* ── Special Cards ── */
+      .special-cards {
         display: flex;
-        gap: 8px;
+        gap: 10px;
         flex-wrap: wrap;
-        margin-top: 12px;
+        justify-content: center;
+        margin-bottom: 40px;
       }
-      .dream-special-cards button {
-        padding: 8px 14px;
-        border: 2px solid var(--ink);
-        border-radius: 8px;
-        background: var(--paper);
+      .special-cards button {
+        padding: 10px 18px;
+        border: 2px solid var(--card-border);
+        border-radius: 10px;
+        background: var(--card-bg);
+        color: var(--text-secondary);
         font-size: 0.82rem;
         font-weight: 600;
         cursor: pointer;
+        transition: all 0.2s;
+        font-family: 'Inter', sans-serif;
       }
-      .dream-special-cards button.is-selected {
-        background: var(--hot-pink);
-        color: white;
+      .special-cards button:hover {
         border-color: var(--hot-pink);
+        color: var(--text-primary);
       }
-      .dream-dialer {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        margin-top: 16px;
+      .special-cards button.is-selected {
+        background: var(--hot-pink);
+        color: #fff;
+        border-color: var(--hot-pink);
+        box-shadow: 0 0 16px var(--pink-glow-soft);
       }
-      .dream-dialer input {
-        flex: 1;
-        padding: 10px 14px;
-        border: 2px solid var(--line);
-        border-radius: 8px;
-        font-size: 1.1rem;
-        font-family: inherit;
-        letter-spacing: 0.05em;
-      }
-      .dream-dialer input:focus { border-color: var(--hot-pink); outline: none; }
-      .game-output {
-        margin-top: 16px;
-        padding: 16px;
-        border-radius: 10px;
-        background: var(--mist);
-        line-height: 1.55;
+
+      /* ── Output Area ── */
+      .output-area {
+        background: var(--surface-elevated);
+        border: 1px solid var(--card-border);
+        border-radius: 16px;
+        padding: 24px 28px;
+        margin-bottom: 32px;
+        min-height: 80px;
+        line-height: 1.65;
         white-space: pre-wrap;
+        font-size: 1rem;
+        color: var(--text-secondary);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
       }
-      .dream-secret-badge {
-        margin-top: 16px;
-        padding: 14px;
-        border: 2px dashed var(--hot-pink);
-        border-radius: 10px;
+      .output-area.has-answer {
+        border-color: rgba(255, 45, 155, 0.2);
+        color: var(--text-primary);
+        box-shadow: 0 4px 32px rgba(255, 45, 155, 0.08);
+      }
+
+      /* ── Secret Badge ── */
+      .secret-badge {
         display: flex;
-        gap: 12px;
+        gap: 14px;
         align-items: center;
+        padding: 18px 22px;
+        border: 2px dashed var(--hot-pink);
+        border-radius: 14px;
+        background: rgba(255, 45, 155, 0.06);
+        margin-bottom: 32px;
       }
-      .dream-secret-badge span { font-size: 1.4rem; font-weight: 900; color: var(--hot-pink); }
-      .dream-secret-badge strong { display: block; }
-      .dream-secret-badge em { font-size: 0.82rem; color: var(--muted); }
-      .microcopy { font-size: 0.82rem; color: var(--muted); margin-top: 8px; }
+      .secret-badge[hidden] { display: none; }
+      .secret-badge .badge-icon {
+        font-size: 1.8rem;
+        font-weight: 900;
+        color: var(--hot-pink);
+        font-family: 'JetBrains Mono', monospace;
+      }
+      .secret-badge strong {
+        display: block;
+        color: var(--text-primary);
+        margin-bottom: 2px;
+      }
+      .secret-badge em {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        font-style: normal;
+      }
+
+      /* ── Responsive ── */
+      @media (max-width: 600px) {
+        .page-container { padding: 70px 16px 60px; }
+        .hero { padding: 32px 0 40px; }
+        .hero-image-wrap { width: 150px; height: 150px; }
+        .keypad { grid-template-columns: repeat(3, 60px); gap: 10px; }
+        .keypad button { width: 60px; height: 60px; font-size: 1.3rem; }
+        .keypad-spacer { width: 60px; height: 60px; }
+        .caller-grid { grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)); gap: 10px; }
+        .caller-avatar { width: 44px; height: 44px; }
+        .keypad-wrap { padding: 24px 20px; }
+      }
     </style>
-    <!-- Privacy-friendly analytics by Plausible -->
-<script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
-<script>
-  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
-</script>
+      <link rel="stylesheet" href="../content/site/mini-player.css">
 </head>
   <body>
-    <header class="site-header">
-      <button onclick="history.back()" style="background: none; border: none; color: var(--hot-pink); font-size: 0.85rem; cursor: pointer; padding: 4px 8px; text-decoration: underline;" aria-label="Go back">← Back</button>
-        <a class="brand" href="../index.html" aria-label="lAIdies home">
-        <img src="../assets/laidies-logo-wordmark.png" alt="LAIDIES" />
-      </a>
-      <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=this.nextElementSibling;if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'☰':'✕';this.setAttribute('aria-expanded',!isOpen);">☰</button>
-        <nav class="nav" aria-label="Primary navigation">
-        <a href="../episodes.html">Episodes</a>
-        <a href="../learn.html">Learn</a>
-        <a href="../clubhouse.html">Clubhouse</a>
-        <a href="../community.html">Community</a>
-    <a href="../clubhouse.html#dj-booth-inline">Listen</a>
-        <a href="../this-week.html">This Week</a>
-      </nav>
-    </header>
-
-    <main>
-      <div class="game-page-wrap">
-        <div class="game-page-header">
-          <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
-        </div>
-        <div class="game-page-title">
-          <p class="eyebrow">Clubhouse Game</p>
-          <h1>Dream Phone</h1>
-          <p>Dial a number by pressing the phone buttons or using your keyboard. Hyphens are optional; the phone will add them. Each caller gives different advice &mdash; career, drama, confidence, AI, leadership, operations, voice, or data.</p>
-          <p class="microcopy">Rumor has it one unlisted number unlocks a secret merit badge. Open your Clubhouse Pass so the phone knows where to pin it.</p>
-        </div>
-
-        <article class="dream-phone-game">
-          <div class="dream-phone-stage" aria-label="Dream Phone contact cards">
-            <div class="dream-handset">
-              <img src="../assets/dream-phone-cordless-crop.png" alt="" />
-              <div class="dream-phone-keypad" aria-label="Dream Phone keypad">
-                <button type="button" data-dream-key="1" aria-label="Dial 1">1</button>
-                <button type="button" data-dream-key="2" aria-label="Dial 2">2</button>
-                <button type="button" data-dream-key="3" aria-label="Dial 3">3</button>
-                <button type="button" data-dream-key="4" aria-label="Dial 4">4</button>
-                <button type="button" data-dream-key="5" aria-label="Dial 5">5</button>
-                <button type="button" data-dream-key="6" aria-label="Dial 6">6</button>
-                <button type="button" data-dream-key="7" aria-label="Dial 7">7</button>
-                <button type="button" data-dream-key="8" aria-label="Dial 8">8</button>
-                <button type="button" data-dream-key="9" aria-label="Dial 9">9</button>
-                <span aria-hidden="true"></span>
-                <button type="button" data-dream-key="0" aria-label="Dial 0">0</button>
-                <span aria-hidden="true"></span>
-              </div>
-            </div>
-            <div class="dream-contact-grid">
-              <button class="dream-contact is-selected" type="button" data-dream-pick="mentor" data-dream-number="555-1995"><img class="dream-avatar" src="../assets/dream-phone-mentor.webp" alt="Mentor — career advice about job offers and negotiation" /><span>1</span><strong>Mentor</strong><em>555-1995</em></button>
-              <button class="dream-contact" type="button" data-dream-pick="bestie" data-dream-number="555-2001"><img class="dream-avatar" src="../assets/dream-phone-bestie.webp" alt="Bestie — emotional support and honest perspective" /><span>2</span><strong>Bestie</strong><em>555-2001</em></button>
-              <button class="dream-contact" type="button" data-dream-pick="boundary" data-dream-number="555-2003"><img class="dream-avatar" src="../assets/dream-phone-boundary.webp" alt="Boundary — setting limits and saying no with confidence" /><span>3</span><strong>Boundary</strong><em>555-2003</em></button>
-              <button class="dream-contact" type="button" data-dream-pick="receipts" data-dream-number="555-2004"><img class="dream-avatar" src="../assets/dream-phone-receipts.webp" alt="Receipts — fact-checking and keeping documentation" /><span>4</span><strong>Receipts</strong><em>555-2004</em></button>
-              <button class="dream-contact" type="button" data-dream-pick="hype" data-dream-number="555-2007"><img class="dream-avatar" src="../assets/dream-phone-hype.webp" alt="Hype — confidence boosts and celebration energy" /><span>5</span><strong>Hype</strong><em>555-2007</em></button>
-              <button class="dream-contact" type="button" data-dream-pick="steady" data-dream-number="555-2008"><img class="dream-avatar" src="../assets/dream-phone-steady.webp" alt="Steady — calm grounding and long-term perspective" /><span>6</span><strong>Steady</strong><em>555-2008</em></button>
-              <button class="dream-contact" type="button" data-dream-pick="strategist" data-dream-number="555-1999"><img class="dream-avatar" src="../assets/dream-phone-strategist.webp" alt="Strategist — planning moves and career positioning" /><span>7</span><strong>Strategist</strong><em>555-1999</em></button>
-              <button class="dream-contact" type="button" data-dream-pick="bigbro" data-dream-number="555-2010"><img class="dream-avatar" src="../assets/dream-phone-bigbro.webp" alt="Big Bro — protective advice and industry navigation" /><span>8</span><strong>Big Bro</strong><em>555-2010</em></button>
-              <button class="dream-contact" type="button" data-dream-pick="wildcard" data-dream-number="555-2013"><img class="dream-avatar" src="../assets/dream-phone-wildcard.webp" alt="Wildcard — unexpected ideas and creative disruption" /><span>9</span><strong>Wildcard</strong><em>555-2013</em></button>
-              <button class="dream-contact" type="button" data-dream-pick="creative" data-dream-number="555-2016"><img class="dream-avatar" src="../assets/dream-phone-creative.webp" alt="Creative — design thinking and artistic problem-solving" /><span>10</span><strong>Creative</strong><em>555-2016</em></button>
-              <button class="dream-contact" type="button" data-dream-pick="research" data-dream-number="555-2024"><img class="dream-avatar" src="../assets/dream-phone-research.webp" alt="Research — deep dives and evidence-based decisions" /><span>11</span><strong>Research</strong><em>555-2024</em></button>
-              <button class="dream-contact" type="button" data-dream-pick="aihelp" data-dream-number="555-2026"><img class="dream-avatar" src="../assets/dream-phone-ai-help.webp" alt="AI Help — technical AI guidance and tool recommendations" /><span>12</span><strong>AI Help</strong><em>555-2026</em></button>
-              <button class="dream-contact" type="button" data-dream-pick="boss" data-dream-number="555-2027"><img class="dream-avatar" src="../assets/dream-phone-boss-ali.webp" alt="Boss — leadership direction and accountability" /><span>13</span><strong>Boss</strong><em>555-2027</em></button>
-              <button class="dream-contact" type="button" data-dream-pick="coach" data-dream-number="555-2028"><img class="dream-avatar" src="../assets/dream-phone-coach.jpg" alt="Coach — skill development and performance growth" /><span>14</span><strong>Coach</strong><em>555-2028</em></button>
-              <button class="dream-contact" type="button" data-dream-pick="operator" data-dream-number="555-2029"><img class="dream-avatar" src="../assets/dream-phone-operator.jpg" alt="Operator — systems thinking and process optimization" /><span>15</span><strong>Operator</strong><em>555-2029</em></button>
-              <button class="dream-contact" type="button" data-dream-pick="counsel" data-dream-number="555-2030"><img class="dream-avatar" src="../assets/dream-phone-counsel.jpg" alt="Counsel — legal awareness and risk assessment" /><span>16</span><strong>Counsel</strong><em>555-2030</em></button>
-              <button class="dream-contact" type="button" data-dream-pick="finance" data-dream-number="555-2031"><img class="dream-avatar" src="../assets/dream-phone-finance.jpg" alt="Finance — money strategy and business case building" /><span>17</span><strong>Finance</strong><em>555-2031</em></button>
-              <button class="dream-contact" type="button" data-dream-pick="product" data-dream-number="555-2032"><img class="dream-avatar" src="../assets/dream-phone-product.jpg" alt="Product — user-focused thinking and feature prioritization" /><span>18</span><strong>Product</strong><em>555-2032</em></button>
-              <button class="dream-contact" type="button" data-dream-pick="comms" data-dream-number="555-2033"><img class="dream-avatar" src="../assets/dream-phone-comms.jpg" alt="Comms — messaging clarity and stakeholder communication" /><span>19</span><strong>Comms</strong><em>555-2033</em></button>
-              <button class="dream-contact" type="button" data-dream-pick="data" data-dream-number="555-2034"><img class="dream-avatar" src="../assets/dream-phone-data.jpg" alt="Data — analytics insight and metrics interpretation" /><span>20</span><strong>Data</strong><em>555-2034</em></button>
-              <button class="dream-contact" type="button" data-dream-pick="founder" data-dream-number="555-2035"><img class="dream-avatar" src="../assets/dream-phone-founder.jpg" alt="Founder — entrepreneurial thinking and venture building" /><span>21</span><strong>Founder</strong><em>555-2035</em></button>
-              <button class="dream-contact" type="button" data-dream-pick="sponsor" data-dream-number="555-2036"><img class="dream-avatar" src="../assets/dream-phone-sponsor.jpg" alt="Sponsor — advocacy and visibility in the room" /><span>22</span><strong>Sponsor</strong><em>555-2036</em></button>
-              <button class="dream-contact" type="button" data-dream-pick="builder" data-dream-number="555-2037"><img class="dream-avatar" src="../assets/dream-phone-builder.jpg" alt="Builder — hands-on creation and shipping mindset" /><span>23</span><strong>Builder</strong><em>555-2037</em></button>
-              <button class="dream-contact" type="button" data-dream-pick="closer" data-dream-number="555-2038"><img class="dream-avatar" src="../assets/dream-phone-closer.jpg" alt="Closer — sealing deals and driving decisions to completion" /><span>24</span><strong>Closer</strong><em>555-2038</em></button>
-            </div>
-            <div class="dream-special-cards" aria-label="Dream Phone special cards">
-              <button type="button" data-dream-special="secret">Share a secret</button>
-              <button type="button" data-dream-special="speaker">Speaker phone</button>
-              <button type="button" data-dream-special="hangup">Mom says hang up!</button>
-            </div>
-          </div>
-          <div class="dream-dialer">
-            <input id="dreamPhoneNumber" type="tel" inputmode="numeric" autocomplete="off" placeholder="Dial a number" aria-label="Dial the number on a Dream Phone card. Hyphens are optional." />
-            <button class="button secondary" type="button" id="dreamPhoneButton">Dial</button>
-          </div>
-          <p class="game-output" id="dreamPhoneOutput" aria-live="polite">Pick a caller card, then dial the number with the phone buttons or your keyboard. Type 5551995 or 555-1995; both work.</p>
-          <div class="dream-secret-badge" id="dreamPhoneSecretBadge" hidden>
-            <span aria-hidden="true">867</span>
-            <div>
-              <strong>867 Club merit badge</strong>
-              <em>Secret Dream Phone sticker. Open your Clubhouse Pass to pin it to your lAIdies Card.</em>
-            </div>
-          </div>
-        </article>
-      </div>
-    
-    <div style="text-align: center; padding: 32px 20px 48px;">
-      <a class="button secondary" href="../index.html">← Back to Home</a>
+    <!-- Sticky Back Nav -->
+    <div class="back-nav">
+      <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
     </div>
-  </main>
 
+    <div class="page-container">
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-image-wrap">
+          <img src="../assets/dream-phone-cordless-crop.png" alt="Dream Phone" />
+        </div>
+        <div class="hero-text">
+          <h1>Dream Phone</h1>
+          <p>Dial a number. Get career advice from someone who gets it.</p>
+          <p class="hint">Rumor has it one unlisted number unlocks a secret merit badge.</p>
+        </div>
+      </section>
+
+      <!-- Phone Keypad -->
+      <section class="phone-section">
+        <div class="keypad-wrap">
+          <div class="keypad" aria-label="Dream Phone keypad">
+            <button type="button" data-dream-key="1" aria-label="Dial 1">1</button>
+            <button type="button" data-dream-key="2" aria-label="Dial 2">2</button>
+            <button type="button" data-dream-key="3" aria-label="Dial 3">3</button>
+            <button type="button" data-dream-key="4" aria-label="Dial 4">4</button>
+            <button type="button" data-dream-key="5" aria-label="Dial 5">5</button>
+            <button type="button" data-dream-key="6" aria-label="Dial 6">6</button>
+            <button type="button" data-dream-key="7" aria-label="Dial 7">7</button>
+            <button type="button" data-dream-key="8" aria-label="Dial 8">8</button>
+            <button type="button" data-dream-key="9" aria-label="Dial 9">9</button>
+            <div class="keypad-spacer"></div>
+            <button type="button" data-dream-key="0" aria-label="Dial 0">0</button>
+            <div class="keypad-spacer"></div>
+          </div>
+        </div>
+
+        <div class="dialer-row">
+          <input id="dreamPhoneNumber" type="tel" inputmode="numeric" autocomplete="off" placeholder="555-0000" aria-label="Dial the number on a Dream Phone card" />
+          <button class="dial-btn" type="button" id="dreamPhoneButton">Dial</button>
+        </div>
+      </section>
+
+      <!-- Output -->
+      <div class="output-area" id="dreamPhoneOutput" aria-live="polite">Pick a caller card, then dial the number with the phone buttons or your keyboard.</div>
+
+      <!-- Secret Badge -->
+      <div class="secret-badge" id="dreamPhoneSecretBadge" hidden>
+        <span class="badge-icon" aria-hidden="true">867</span>
+        <div>
+          <strong>867 Club merit badge</strong>
+          <em>Secret Dream Phone sticker. Open your Clubhouse Pass to pin it to your lAIdies Card.</em>
+        </div>
+      </div>
+
+      <!-- Caller Grid -->
+      <section class="callers-section">
+        <h2>Your Callers</h2>
+        <div class="caller-grid">
+          <button class="caller-card is-selected" type="button" data-dream-pick="mentor" data-dream-number="555-1995"><img class="caller-avatar" src="../assets/dream-phone-mentor.webp" alt="Mentor" /><span class="caller-name">Mentor</span><span class="caller-number">555-1995</span></button>
+          <button class="caller-card" type="button" data-dream-pick="bestie" data-dream-number="555-2001"><img class="caller-avatar" src="../assets/dream-phone-bestie.webp" alt="Bestie" /><span class="caller-name">Bestie</span><span class="caller-number">555-2001</span></button>
+          <button class="caller-card" type="button" data-dream-pick="boundary" data-dream-number="555-2003"><img class="caller-avatar" src="../assets/dream-phone-boundary.webp" alt="Boundary" /><span class="caller-name">Boundary</span><span class="caller-number">555-2003</span></button>
+          <button class="caller-card" type="button" data-dream-pick="receipts" data-dream-number="555-2004"><img class="caller-avatar" src="../assets/dream-phone-receipts.webp" alt="Receipts" /><span class="caller-name">Receipts</span><span class="caller-number">555-2004</span></button>
+          <button class="caller-card" type="button" data-dream-pick="hype" data-dream-number="555-2007"><img class="caller-avatar" src="../assets/dream-phone-hype.webp" alt="Hype" /><span class="caller-name">Hype</span><span class="caller-number">555-2007</span></button>
+          <button class="caller-card" type="button" data-dream-pick="steady" data-dream-number="555-2008"><img class="caller-avatar" src="../assets/dream-phone-steady.webp" alt="Steady" /><span class="caller-name">Steady</span><span class="caller-number">555-2008</span></button>
+          <button class="caller-card" type="button" data-dream-pick="strategist" data-dream-number="555-1999"><img class="caller-avatar" src="../assets/dream-phone-strategist.webp" alt="Strategist" /><span class="caller-name">Strategist</span><span class="caller-number">555-1999</span></button>
+          <button class="caller-card" type="button" data-dream-pick="bigbro" data-dream-number="555-2010"><img class="caller-avatar" src="../assets/dream-phone-bigbro.webp" alt="Big Bro" /><span class="caller-name">Big Bro</span><span class="caller-number">555-2010</span></button>
+          <button class="caller-card" type="button" data-dream-pick="wildcard" data-dream-number="555-2013"><img class="caller-avatar" src="../assets/dream-phone-wildcard.webp" alt="Wildcard" /><span class="caller-name">Wildcard</span><span class="caller-number">555-2013</span></button>
+          <button class="caller-card" type="button" data-dream-pick="creative" data-dream-number="555-2016"><img class="caller-avatar" src="../assets/dream-phone-creative.webp" alt="Creative" /><span class="caller-name">Creative</span><span class="caller-number">555-2016</span></button>
+          <button class="caller-card" type="button" data-dream-pick="research" data-dream-number="555-2024"><img class="caller-avatar" src="../assets/dream-phone-research.webp" alt="Research" /><span class="caller-name">Research</span><span class="caller-number">555-2024</span></button>
+          <button class="caller-card" type="button" data-dream-pick="aihelp" data-dream-number="555-2026"><img class="caller-avatar" src="../assets/dream-phone-ai-help.webp" alt="AI Help" /><span class="caller-name">AI Help</span><span class="caller-number">555-2026</span></button>
+          <button class="caller-card" type="button" data-dream-pick="boss" data-dream-number="555-2027"><img class="caller-avatar" src="../assets/dream-phone-boss-ali.webp" alt="Boss" /><span class="caller-name">Boss</span><span class="caller-number">555-2027</span></button>
+          <button class="caller-card" type="button" data-dream-pick="coach" data-dream-number="555-2028"><img class="caller-avatar" src="../assets/dream-phone-coach.jpg" alt="Coach" /><span class="caller-name">Coach</span><span class="caller-number">555-2028</span></button>
+          <button class="caller-card" type="button" data-dream-pick="operator" data-dream-number="555-2029"><img class="caller-avatar" src="../assets/dream-phone-operator.jpg" alt="Operator" /><span class="caller-name">Operator</span><span class="caller-number">555-2029</span></button>
+          <button class="caller-card" type="button" data-dream-pick="counsel" data-dream-number="555-2030"><img class="caller-avatar" src="../assets/dream-phone-counsel.jpg" alt="Counsel" /><span class="caller-name">Counsel</span><span class="caller-number">555-2030</span></button>
+          <button class="caller-card" type="button" data-dream-pick="finance" data-dream-number="555-2031"><img class="caller-avatar" src="../assets/dream-phone-finance.jpg" alt="Finance" /><span class="caller-name">Finance</span><span class="caller-number">555-2031</span></button>
+          <button class="caller-card" type="button" data-dream-pick="product" data-dream-number="555-2032"><img class="caller-avatar" src="../assets/dream-phone-product.jpg" alt="Product" /><span class="caller-name">Product</span><span class="caller-number">555-2032</span></button>
+          <button class="caller-card" type="button" data-dream-pick="comms" data-dream-number="555-2033"><img class="caller-avatar" src="../assets/dream-phone-comms.jpg" alt="Comms" /><span class="caller-name">Comms</span><span class="caller-number">555-2033</span></button>
+          <button class="caller-card" type="button" data-dream-pick="data" data-dream-number="555-2034"><img class="caller-avatar" src="../assets/dream-phone-data.jpg" alt="Data" /><span class="caller-name">Data</span><span class="caller-number">555-2034</span></button>
+          <button class="caller-card" type="button" data-dream-pick="founder" data-dream-number="555-2035"><img class="caller-avatar" src="../assets/dream-phone-founder.jpg" alt="Founder" /><span class="caller-name">Founder</span><span class="caller-number">555-2035</span></button>
+          <button class="caller-card" type="button" data-dream-pick="sponsor" data-dream-number="555-2036"><img class="caller-avatar" src="../assets/dream-phone-sponsor.jpg" alt="Sponsor" /><span class="caller-name">Sponsor</span><span class="caller-number">555-2036</span></button>
+          <button class="caller-card" type="button" data-dream-pick="builder" data-dream-number="555-2037"><img class="caller-avatar" src="../assets/dream-phone-builder.jpg" alt="Builder" /><span class="caller-name">Builder</span><span class="caller-number">555-2037</span></button>
+          <button class="caller-card" type="button" data-dream-pick="closer" data-dream-number="555-2038"><img class="caller-avatar" src="../assets/dream-phone-closer.jpg" alt="Closer" /><span class="caller-name">Closer</span><span class="caller-number">555-2038</span></button>
+        </div>
+      </section>
+
+      <!-- Special Cards -->
+      <div class="special-cards" aria-label="Dream Phone special cards">
+        <button type="button" data-dream-special="secret">Share a secret</button>
+        <button type="button" data-dream-special="speaker">Speaker phone</button>
+        <button type="button" data-dream-special="hangup">Mom says hang up!</button>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../content/site/supabase-config.js"></script>
+    <script src="../content/site/site-data.js"></script>
+    <script src="../script.js"></script>
     <script>
+      /* ── Dream Phone Game Logic (self-contained fallback) ── */
       const dreamPhoneMatches = {
         career: { friend: "Mentor", answers: ["Pick the door with more learning, more room to move, and fewer people who make chaos look like culture.","If the next step scares you and expands your options, it deserves a closer look.","The better move is the one you can explain without shrinking your standards.","Ask what this option gives Future You besides a better title and a new email signature.","If you keep waiting to feel ready, the opportunity will need forwarding instructions.","Name the tradeoff out loud. Mystery makes career decisions look more glamorous than they are.","Choose the path where your judgment gets sharper, not just your calendar gets fuller.","If the role needs you but cannot name the support, that is not a dream. That is a group project.","Do the receipts check: scope, pay, sponsor, learning, exit options. Cute offer letters still need math.","Say yes to growth, not to becoming the emergency contact for a broken system."] },
-        drama: { friend: "Bestie", answers: ["Document the facts, remove the adjectives, and do not let someone else's messy behavior become your unpaid internship.","Do not reply while activated. Draft it, walk away, then delete the sentence that sounds like a courtroom monologue.","If the story needs seven paragraphs to explain why it was fine, it probably was not fine.","Send the version that a calm person would be proud of tomorrow morning.","The group chat can hear the spicy version. Work gets the clean facts and the next step.","If someone keeps creating confusion, ask for the decision, owner, and date in writing.","Do not match the energy. Match the record.","Your boundary does not need a dissertation. It needs a sentence and a repeat button.","If everyone is whispering, ask the obvious question in the meeting with a neutral face.","Before you escalate, separate what happened, what changed, and what you need now."] },
+        drama: { friend: "Bestie", answers: ["Document the facts, remove the adjectives, and do not let someone else\u2019s messy behavior become your unpaid internship.","Do not reply while activated. Draft it, walk away, then delete the sentence that sounds like a courtroom monologue.","If the story needs seven paragraphs to explain why it was fine, it probably was not fine.","Send the version that a calm person would be proud of tomorrow morning.","The group chat can hear the spicy version. Work gets the clean facts and the next step.","If someone keeps creating confusion, ask for the decision, owner, and date in writing.","Do not match the energy. Match the record.","Your boundary does not need a dissertation. It needs a sentence and a repeat button.","If everyone is whispering, ask the obvious question in the meeting with a neutral face.","Before you escalate, separate what happened, what changed, and what you need now."] },
         confidence: { friend: "Hype", answers: ["Confidence is not a mood. It is a behavior. Put the sentence in the chat, book the meeting, wear the metaphorical platform sandal.","You are allowed to be new at something and still have standards. Revolutionary, apparently.","Say the thing like you expect to be taken seriously. Let everyone else catch up.","You do not need a personality transplant. You need the first sentence and a calendar invite.","The version of you who already knows how to do this is built by doing this.","Stop making your ask smaller so the room feels taller.","You can be warm and still be unambiguous. Dolly has been trying to tell us.","Act like your idea is allowed to take up space. Because, inconveniently for the doubters, it is.","Nerves are not a stop sign. They are just your body adding unnecessary percussion.","If you would hype a friend for doing this, please stop being weirdly rude to yourself."] },
         ai: { friend: "AI Help", answers: ["Make the tool useful by giving it context, examples, constraints, and your actual standard. Vague in, beige out.","Ask for three versions, then use your taste. The machine drafts; you decide.","If the answer sounds expensive but has no receipts, call it decorative and ask again.","Start with the task, audience, tone, length, and what good looks like. The model is not a mind reader in lip gloss.","Paste the messy version and ask for structure before polish. Sequencing matters, even when the tool is sparkly.","Use AI for the first pass, not the final judgment. Your name is still on the thing.","Ask what is missing, what is risky, and what a skeptical VP would question.","If the output is bland, add constraints. Boring prompts create beige little outfits.","For research, ask for sources, dates, uncertainty, and what changed recently.","When in doubt, ask it to make a checklist. A checklist is just chaos wearing a blazer."] },
-        leadership: { friend: "Boss", answers: ["Say the business reason first. The backstory can wait in the lobby with the old magazines.","If you want the room to decide, give them the decision, the tradeoff, and the recommendation.","Executive clean does not mean personality-free. It means the point survived the meeting.","Start with what changed, why it matters, and what you need by Friday.","If the slide cannot answer 'so what?' it is still getting ready in the bathroom.","Put the risk and the ask in the same outfit. Separating them makes everyone work too hard.","Lead with the version your VP can repeat without carrying your whole notebook.","Your idea is not too much. It is under-structured. Give it a spine and a closing line.","If the room needs context, give context. If the room needs a decision, stop touring the mall.","Make the recommendation before someone else makes a worse one with more confidence."] },
-        operations: { friend: "Operator", answers: ["Turn the chaos into a repeatable checklist before it becomes everyone's personality.","Name the owner, date, input, output, and receipt. It is not glamorous, which is why it works.","If the process only works when one tired woman remembers everything, the process is broken.","Build the template once. Stop re-living the same tiny office emergency in different lip gloss.","The workflow needs fewer heroic saves and more boring handoffs.","Ask what can be automated, delegated, documented, or deleted. The answer is rarely 'suffer prettier.'","Put the status where people can find it before the follow-up email starts breeding.","A good system should not require psychic powers, group chat archaeology, or one sacred spreadsheet.","If the task repeats, it deserves a recipe. If the recipe repeats, it deserves a tool.","Your calendar is not a project management system. It is just where the evidence goes to panic."] },
-        voice: { friend: "Comms", answers: ["Make the sentence sound like you, then make it impossible to misunderstand.","Warm is not vague. Direct is not rude. Beige is not a strategy.","If the message has three apologies before the ask, Cher would absolutely delete two.","Say what happened, what it means, and what you need next. Save the emotional director's cut for the group chat.","The first line should earn its spot. No throat-clearing in platform sandals.","If you are hiding the ask in paragraph four, the reader is not the problem.","Use one clean subject line, one clean ask, and one clean deadline. Revolutionary, apparently.","The tone can be kind and still have a spine.","If you would not say it in the meeting, do not let AI make it sound like you joined a consulting cult.","Make it shorter, clearer, and a little more you. That is the whole makeover montage."] },
+        leadership: { friend: "Boss", answers: ["Say the business reason first. The backstory can wait in the lobby with the old magazines.","If you want the room to decide, give them the decision, the tradeoff, and the recommendation.","Executive clean does not mean personality-free. It means the point survived the meeting.","Start with what changed, why it matters, and what you need by Friday.","If the slide cannot answer \u2018so what?\u2019 it is still getting ready in the bathroom.","Put the risk and the ask in the same outfit. Separating them makes everyone work too hard.","Lead with the version your VP can repeat without carrying your whole notebook.","Your idea is not too much. It is under-structured. Give it a spine and a closing line.","If the room needs context, give context. If the room needs a decision, stop touring the mall.","Make the recommendation before someone else makes a worse one with more confidence."] },
+        operations: { friend: "Operator", answers: ["Turn the chaos into a repeatable checklist before it becomes everyone\u2019s personality.","Name the owner, date, input, output, and receipt. It is not glamorous, which is why it works.","If the process only works when one tired woman remembers everything, the process is broken.","Build the template once. Stop re-living the same tiny office emergency in different lip gloss.","The workflow needs fewer heroic saves and more boring handoffs.","Ask what can be automated, delegated, documented, or deleted. The answer is rarely \u2018suffer prettier.\u2019","Put the status where people can find it before the follow-up email starts breeding.","A good system should not require psychic powers, group chat archaeology, or one sacred spreadsheet.","If the task repeats, it deserves a recipe. If the recipe repeats, it deserves a tool.","Your calendar is not a project management system. It is just where the evidence goes to panic."] },
+        voice: { friend: "Comms", answers: ["Make the sentence sound like you, then make it impossible to misunderstand.","Warm is not vague. Direct is not rude. Beige is not a strategy.","If the message has three apologies before the ask, Cher would absolutely delete two.","Say what happened, what it means, and what you need next. Save the emotional director\u2019s cut for the group chat.","The first line should earn its spot. No throat-clearing in platform sandals.","If you are hiding the ask in paragraph four, the reader is not the problem.","Use one clean subject line, one clean ask, and one clean deadline. Revolutionary, apparently.","The tone can be kind and still have a spine.","If you would not say it in the meeting, do not let AI make it sound like you joined a consulting cult.","Make it shorter, clearer, and a little more you. That is the whole makeover montage."] },
         evidence: { friend: "Data", answers: ["Bring the numbers, but also bring the sentence that explains why anyone should care.","A chart without a point is just a very organized screensaver.","Ask what the data proves, what it does not prove, and what would make your mind.","If the metric is doing all the work, make sure it is not lying in a cute font.","Separate signal from noise before the room starts decorating with anecdotes.","Receipts first, interpretation second, dramatic conclusion never.","The evidence needs a source, a date, and a reason it belongs in the conversation.","If you cannot explain the number in plain English, it is not ready for the grown-up table.","Do not let a dashboard become a Burn Book. Use data to clarify, not to gossip with columns.","Good analysis says what matters now and what to do next. Everything else is liner notes."] },
       };
       const dreamPhoneCallers = { mentor:{friend:"Mentor",type:"career"},strategist:{friend:"Strategist",type:"career"},steady:{friend:"Steady",type:"career"},bestie:{friend:"Bestie",type:"drama"},boundary:{friend:"Boundary",type:"drama"},receipts:{friend:"Receipts",type:"drama"},hype:{friend:"Hype",type:"confidence"},bigbro:{friend:"Big Bro",type:"confidence"},creative:{friend:"Creative",type:"confidence"},aihelp:{friend:"AI Help",type:"ai"},research:{friend:"Research",type:"ai"},wildcard:{friend:"Wildcard",type:"ai"},boss:{friend:"Boss",type:"leadership"},coach:{friend:"Coach",type:"confidence"},operator:{friend:"Operator",type:"operations"},counsel:{friend:"Counsel",type:"drama"},finance:{friend:"Finance",type:"evidence"},product:{friend:"Product",type:"operations"},comms:{friend:"Comms",type:"voice"},data:{friend:"Data",type:"evidence"},founder:{friend:"Founder",type:"leadership"},sponsor:{friend:"Sponsor",type:"career"},builder:{friend:"Builder",type:"ai"},closer:{friend:"Closer",type:"voice"} };
       const dreamPhoneNumbers = { 5551995:"mentor",5551999:"strategist",5552001:"bestie",5552003:"boundary",5552004:"receipts",5552007:"hype",5552008:"steady",5552010:"bigbro",5552013:"wildcard",5552016:"creative",5552024:"research",5552026:"aihelp",5552027:"boss",5552028:"coach",5552029:"operator",5552030:"counsel",5552031:"finance",5552032:"product",5552033:"comms",5552034:"data",5552035:"founder",5552036:"sponsor",5552037:"builder",5552038:"closer" };
-      const dreamPhoneSpecials = { secret:{label:"Share a Secret",prefix:"Secret:",extra:"The secret under the answer: name the thing everyone is politely stepping around."},speaker:{label:"Speaker Phone",prefix:"Speaker phone:",extra:"Say it in a version the whole room can hear: clear, calm, and impossible to misquote."},hangup:{label:"Mom Says Hang Up!",prefix:"Mom says hang up:",extra:"End the spiral. One sentence, one next step, then hang up before the overthinking gets a sequel."} };
+      const dreamPhoneSpecials = { secret:{label:"Share a Secret",prefix:"Secret shared \u2014 now flip the secret under the answer: name the thing everyone is politely stepping around."},speaker:{label:"Speaker Phone",prefix:"Speaker phone:",extra:"Say it in a version the whole room can hear: clear, calm, and impossible to misquote."},hangup:{label:"Mom Says Hang Up!",prefix:"Mom says hang up:",extra:"End the spiral. One sentence, one next step, then hang up before the overthinking gets a sequel."} };
       const dreamPhoneSecretBadges = { 8675309:{id:"867-club",title:"867 Club merit badge",baseMessage:"867-5309 connected. You found the secret Dream Phone line and earned the 867 Club merit badge. Open your Clubhouse Pass so the badge can stay pinned to your member card."} };
 
       let lastIndexes = {};
@@ -310,50 +557,35 @@
       function setCard(pick) { contactCards.forEach(c => c.classList.toggle("is-selected", c.dataset.dreamPick === pick)); }
       function setSpecial(key) { activeSpecial = dreamPhoneSpecials[key] ? key : ""; specialCards.forEach(c => c.classList.toggle("is-selected", Boolean(activeSpecial) && c.dataset.dreamSpecial === activeSpecial)); }
 
+      function scrollToOutput() {
+        setTimeout(() => { output.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 100);
+      }
+
+      function showAnswer(text) {
+        output.textContent = text;
+        output.classList.add('has-answer');
+        scrollToOutput();
+      }
+
       keypadButtons.forEach(btn => { btn.addEventListener("click", () => { const cur = normalizeDreamPhoneNumber(phoneNumber?.value); if (cur.length < 7) setNumber(cur + btn.dataset.dreamKey); }); });
 
-      contactCards.forEach(card => { card.addEventListener("click", () => { const pick = card.dataset.dreamPick; const num = card.dataset.dreamNumber?.replace(/-/g,"") || ""; setCard(pick); setNumber(num); output.textContent = getDreamPhoneAnswer(pick); }); });
+      contactCards.forEach(card => { card.addEventListener("click", () => { const pick = card.dataset.dreamPick; const num = card.dataset.dreamNumber?.replace(/-/g,"") || ""; setCard(pick); setNumber(num); showAnswer(getDreamPhoneAnswer(pick)); }); });
 
-      specialCards.forEach(card => { card.addEventListener("click", () => { const key = card.dataset.dreamSpecial; if (!lastBaseAnswer) { output.textContent = "Call someone first, then pull a remix card."; return; } setSpecial(key); const sp = dreamPhoneSpecials[key]; if (!sp) return; output.textContent = sp.prefix + " " + lastBaseAnswer + "\n" + sp.extra; }); });
+      specialCards.forEach(card => { card.addEventListener("click", () => { const key = card.dataset.dreamSpecial; if (!lastBaseAnswer) { output.textContent = "Call someone first, then pull a remix card."; return; } setSpecial(key); const sp = dreamPhoneSpecials[key]; if (!sp) return; showAnswer(sp.prefix + " " + lastBaseAnswer + (sp.extra ? "\n" + sp.extra : "")); }); });
 
       dialButton?.addEventListener("click", () => {
         const dialed = normalizeDreamPhoneNumber(phoneNumber?.value);
         const badge = dreamPhoneSecretBadges[parseInt(dialed)];
-        if (badge) { output.textContent = badge.baseMessage; if (secretBadge) secretBadge.hidden = false; try { const b = JSON.parse(localStorage.getItem("laidiesSecretBadges")||"{}"); if (!b[badge.id]) { b[badge.id]={id:badge.id,title:badge.title,unlockedAt:new Date().toISOString()}; localStorage.setItem("laidiesSecretBadges",JSON.stringify(b)); } } catch(e){} return; }
+        if (badge) { showAnswer(badge.baseMessage); if (secretBadge) secretBadge.hidden = false; try { const b = JSON.parse(localStorage.getItem("laidiesSecretBadges")||"{}"); if (!b[badge.id]) { b[badge.id]={id:badge.id,title:badge.title,unlockedAt:new Date().toISOString()}; localStorage.setItem("laidiesSecretBadges",JSON.stringify(b)); } } catch(e){} return; }
         const pick = dreamPhoneNumbers[dialed];
         if (!dialed) { output.textContent = "Dial the number on a caller card. The phone is cute, but it is not psychic."; return; }
         if (!pick) { output.textContent = "Busy signal. That number is not in this Dream Phone deck."; return; }
-        setCard(pick); output.textContent = getDreamPhoneAnswer(pick);
+        setCard(pick); showAnswer(getDreamPhoneAnswer(pick));
       });
 
       phoneNumber?.addEventListener("input", () => { setNumber(phoneNumber.value); });
       phoneNumber?.addEventListener("keydown", (e) => { if (e.key === "Enter") dialButton?.click(); });
     </script>
-  <script>
-(function(){
-  var btn = document.querySelector(".hamburger-btn");
-  var nav = document.querySelector(".site-header .nav");
-  if (!btn || !nav) return;
-  btn.addEventListener("click", function() {
-    var open = nav.classList.toggle("is-open");
-    btn.setAttribute("aria-expanded", open);
-    btn.textContent = open ? "✕" : "☰";
-  });
-  nav.addEventListener("click", function(e) {
-    if (e.target.tagName === "A") {
-      nav.classList.remove("is-open");
-      btn.setAttribute("aria-expanded", "false");
-      btn.textContent = "☰";
-    }
-  });
-  document.addEventListener("click", function(e) {
-    if (!btn.contains(e.target) && !nav.contains(e.target) && nav.classList.contains("is-open")) {
-      nav.classList.remove("is-open");
-      btn.setAttribute("aria-expanded", "false");
-      btn.textContent = "☰";
-    }
-  });
-})();
-</script>
+      <script src="../content/site/mini-player.js"></script>
 </body>
 </html>

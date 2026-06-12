@@ -223,18 +223,7 @@
         color: var(--muted);
       }
 
-      /* Footer */
-      .back-link {
-        display: inline-block;
-        margin-top: 20px;
-        padding: 10px 20px;
-        border: 1px solid var(--pink-border);
-        border-radius: 8px;
-        font-size: 0.85rem;
-        color: rgba(255,255,255,0.7);
-        transition: border-color 0.2s, color 0.2s;
-      }
-      .back-link:hover { border-color: var(--hot-pink); color: #fff; text-decoration: none; }
+      
     </style>
     <!-- Privacy-friendly analytics by Plausible -->
     <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
@@ -242,10 +231,12 @@
       window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
       plausible.init()
     </script>
-  </head>
+      <link rel="stylesheet" href="../content/site/mini-player.css">
+</head>
   <body>
     <header class="site-header">
-      <a class="brand" href="../index.html" aria-label="lAIdies home">
+      <a href="../clubhouse.html" style="color:#ff2d9b;text-decoration:none;font-size:0.85rem;font-weight:600;white-space:nowrap;">&larr; Back to Clubhouse</a>
+      <a class="brand" href="../index.html" aria-label="lAIdies home" style="margin-left:auto;">
         <img src="../assets/laidies-logo-wordmark.png" alt="LAIDIES" />
       </a>
       <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=this.nextElementSibling;if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'\u2630':'\u2715';this.setAttribute('aria-expanded',!isOpen);">&#9776;</button>
@@ -254,16 +245,14 @@
         <a href="../learn.html">Learn</a>
         <a href="../clubhouse.html">Clubhouse</a>
         <a href="../community.html">Community</a>
-        <a href="../clubhouse.html#dj-booth-inline">Listen</a>
+        <a href="../games/dj-booth.html">Listen</a>
         <a href="../this-week.html">This Week</a>
       </nav>
     </header>
 
     <main>
       <div class="game-page-wrap">
-        <div class="game-page-header">
-          <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
-        </div>
+        
 
         <!-- Title -->
         <section class="page-title-section">
@@ -339,7 +328,7 @@
           </a>
         </div>
 
-        <a class="back-link" href="../clubhouse.html">&larr; Back to Clubhouse</a>
+        
       </div>
     </main>
 
@@ -400,5 +389,6 @@
       });
     })();
     </script>
-  </body>
+      <script src="../content/site/mini-player.js"></script>
+</body>
 </html>

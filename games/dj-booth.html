@@ -55,8 +55,11 @@
       .site-header {
         background: rgba(10, 4, 9, 0.95) !important;
         border-bottom: 1px solid var(--dj-line) !important;
-        position: relative;
+        position: sticky;
+        top: 0;
         z-index: 100;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
       }
       .site-header .nav a { color: rgba(255,255,255,0.7) !important; }
       .site-header .nav a:hover { color: var(--dj-pink) !important; }
@@ -554,10 +557,11 @@
       window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
       plausible.init()
     </script>
-  </head>
+      <link rel="stylesheet" href="../content/site/mini-player.css">
+</head>
   <body>
     <header class="site-header">
-      <button onclick="history.back()" style="background: none; border: none; color: var(--dj-pink); font-size: 0.85rem; cursor: pointer; padding: 4px 8px; text-decoration: underline;" aria-label="Go back">&larr; Back</button>
+      <a href="../clubhouse.html" style="color: var(--dj-pink); font-size: 0.85rem; font-weight: 600; text-decoration: none; white-space: nowrap;">&larr; Back to Clubhouse</a>
       <a class="brand" href="../index.html" aria-label="lAIdies home">
         <img src="../assets/laidies-logo-wordmark.png" alt="LAIDIES" />
       </a>
@@ -567,7 +571,7 @@
         <a href="../learn.html">Learn</a>
         <a href="../clubhouse.html">Clubhouse</a>
         <a href="../community.html">Community</a>
-        <a href="../clubhouse.html#dj-booth-inline">Listen</a>
+        <a href="../games/dj-booth.html" class="current" aria-current="page">Listen</a>
         <a href="../this-week.html">This Week</a>
       </nav>
     </header>
@@ -654,9 +658,7 @@
         </section>
 
         <!-- BACK LINK -->
-        <div class="dj-back-link">
-          <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
-        </div>
+        
       </div>
     </main>
 
@@ -877,6 +879,14 @@
       });
 
     })();
+    </script>
+      <script src="../content/site/mini-player.js"></script>
+
+    <script>
+    // Single audio playback — only one audio at a time
+    document.addEventListener('play', function(e) {
+      document.querySelectorAll('audio').forEach(function(a) { if (a !== e.target) a.pause(); });
+    }, true);
     </script>
   </body>
 </html>

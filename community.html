@@ -1,632 +1,753 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Community | LAIDIES</title>
-    <meta
-      name="description"
-      content="LAIDIES is a Wednesday newsletter and community for women building practical AI fluency without pretending they have spare time."
-    />
-    <meta property="og:title" content="LAIDIES | Girl power meets machine power" />
-    <meta property="og:description" content="AI fluency for women with full calendars, high standards, and no patience for beige tech explanations." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://wearelaidies.com/" />
-    <meta property="og:image" content="https://wearelaidies.com/assets/laidies-logo.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#ff2d9b" />
-    <link rel="icon" type="image/png" href="assets/laidies-logo-square.png" />
-    <link rel="manifest" href="manifest.webmanifest" />
-    <link rel="apple-touch-icon" href="assets/laidies-logo-square.png" />
-    <link rel="stylesheet" href="styles.css?v=issue-02-live-1" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&family=JetBrains+Mono:wght@400&family=Inter:wght@400;600;700&display=swap">
-    <!-- Privacy-friendly analytics by Plausible -->
-<script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
-<script>
-  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
-</script>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Community | LAIDIES</title>
+  <meta name="description" content="LAIDIES is a Wednesday newsletter and community for women building practical AI fluency without pretending they have spare time." />
+  <meta property="og:title" content="LAIDIES | Girl power meets machine power" />
+  <meta property="og:description" content="AI fluency for women with full calendars, high standards, and no patience for beige tech explanations." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://wearelaidies.com/" />
+  <meta property="og:image" content="https://wearelaidies.com/assets/laidies-logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#ff2d9b" />
+  <link rel="icon" type="image/png" href="assets/laidies-logo-square.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="assets/laidies-logo-square.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Dancing+Script:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+  <style>
+    :root {
+      --hot-pink: #ff2d9b;
+      --paper: #fdf8fb;
+      --dark-bg: #1a0a14;
+      --card-dark: #2a1222;
+      --card-border: rgba(255,45,155,0.3);
+      --card-glow: rgba(255,45,155,0.15);
+      --muted: #8a7080;
+      --text: #2d1a26;
+      --white: #ffffff;
+    }
 
-    <style>
-/* Member card thumbnails — clean responsive grid */
-#laidiesCardGrid,
-.trading-card-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)) !important;
-  gap: 14px !important;
-  max-width: 900px !important;
-  margin: 0 auto !important;
-  justify-content: center !important;
-}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-#laidiesCardGrid .member-trading-card,
-.trading-card-grid .member-trading-card {
-  width: 100% !important;
-  max-width: 280px !important;
-  height: auto !important;
-  transform: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  overflow: hidden !important;
-  border-radius: 8px !important;
-}
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--paper);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
 
-.trading-card-grid .member-trading-card:hover {
-  transform: translateY(-3px) !important;
-  box-shadow: 0 8px 24px rgba(255,45,155,0.25) !important;
-}
+    /* === HEADER / NAV === */
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      background: var(--white);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .site-header .brand img {
+      height: 28px;
+    }
+    .site-header nav {
+      display: flex;
+      gap: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .site-header nav a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .site-header nav a:hover {
+      color: var(--hot-pink);
+    }
+    .hamburger-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--text);
+    }
+    @media (max-width: 700px) {
+      .site-header nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        padding: 16px 24px;
+        border-bottom: 1px solid rgba(0,0,0,0.06);
+        flex-direction: column;
+        gap: 12px;
+      }
+      .site-header nav.open { display: flex; }
+      .hamburger-btn { display: block; }
+    }
 
-/* Ribbon */
-.trading-card-grid .member-card-ribbon {
-  padding: 4px 8px !important;
-  font-size: 0.5rem !important;
-}
+    /* === SECTION 1: LAIDIES CARDS === */
+    .cards-section {
+      padding: 48px 24px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .cards-section .eyebrow {
+      color: var(--hot-pink);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      margin-bottom: 8px;
+    }
+    .cards-section h1 {
+      font-family: 'Space Grotesk', Georgia, serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .cards-section .subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
 
-/* Photo — centered face */
-.trading-card-grid .member-card-photo {
-  height: 110px !important;
-  aspect-ratio: auto !important;
-  overflow: hidden !important;
-}
-.trading-card-grid .member-card-photo img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center center !important;
-}
+    /* Filter buttons */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .filter-bar button {
+      background: var(--white);
+      border: 1.5px solid rgba(0,0,0,0.1);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--text);
+    }
+    .filter-bar button:hover {
+      border-color: var(--hot-pink);
+      color: var(--hot-pink);
+    }
+    .filter-bar button.active {
+      background: var(--hot-pink);
+      color: var(--white);
+      border-color: var(--hot-pink);
+    }
 
-/* Body */
-.trading-card-grid .member-card-body {
-  padding: 8px 10px 12px !important;
-}
-.trading-card-grid .member-card-body .member-card-kicker {
-  font-size: 0.55rem !important;
-  margin: 0 0 2px !important;
-}
-.trading-card-grid .member-card-body h3 {
-  font-size: 0.9rem !important;
-  margin: 0 0 4px !important;
-}
-.trading-card-grid .member-card-body p {
-  font-size: 0.65rem !important;
-  line-height: 1.3 !important;
-  margin: 0 0 4px !important;
-  display: -webkit-box !important;
-  -webkit-line-clamp: 2 !important;
-  -webkit-box-orient: vertical !important;
-  overflow: hidden !important;
-}
+    /* Card Grid — small thumbnails */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 14px;
+      margin-bottom: 28px;
+    }
 
-/* Tags — compact */
-.trading-card-grid .member-card-tags {
-  gap: 3px !important;
-  margin-top: 6px !important;
-}
-.trading-card-grid .member-card-tags span {
-  font-size: 0.5rem !important;
-  padding: 2px 5px !important;
-}
+    /* Individual thumbnail card */
+    .thumb-card {
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+    .thumb-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255,45,155,0.2);
+    }
+    .thumb-card .thumb-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+    }
+    .thumb-card .thumb-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+    }
+    .thumb-card .thumb-photo img.object-contain {
+      object-fit: contain;
+      object-position: center center;
+      padding: 10px;
+    }
+    .thumb-card .thumb-info {
+      padding: 8px 10px 10px;
+    }
+    .thumb-card .thumb-info h3 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+    .thumb-card .thumb-info .thumb-tag {
+      font-size: 0.65rem;
+      color: var(--hot-pink);
+      font-weight: 600;
+    }
+    .thumb-card[hidden] { display: none; }
 
-/* Hide heavy elements in thumbnail */
-.trading-card-grid .member-card-links,
-.trading-card-grid .member-card-reward-case,
-.trading-card-grid .member-card-meta {
-  display: none !important;
-}
+    /* CTA */
+    .cta-row {
+      text-align: center;
+      margin-top: 8px;
+    }
+    .cta-row a {
+      display: inline-block;
+      background: var(--hot-pink);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 12px 28px;
+      border-radius: 24px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-row a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255,45,155,0.35);
+    }
 
-/* Mobile: 2 columns */
-@media (max-width: 560px) {
-  #laidiesCardGrid,
-  .trading-card-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px !important;
-  }
-  .trading-card-grid .member-card-photo {
-    height: 80px !important;
-  }
-  .trading-card-grid .member-card-body h3 {
-    font-size: 0.8rem !important;
-  }
-  .trading-card-grid .member-card-body p {
-    -webkit-line-clamp: 1 !important;
-  }
-}
-</style>
-  
-<style>
-/* Force member card photos to show full face - inline override */
-.member-card-photo,
-.spotlight-photo-preview {
-  aspect-ratio: 1 / 1 !important;
-}
-.member-card-photo img {
-  object-fit: cover !important;
-  object-position: center 55% !important;
-  width: 100% !important;
-  height: 100% !important;
-}
-.member-card-photo--object img {
-  object-fit: contain !important;
-  object-position: center center !important;
-  padding: 12px !important;
-}
-</style>
+    /* === SECTION 2: CHAT ROOMS === */
+    .rooms-section {
+      padding: 48px 24px 56px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .rooms-section .eyebrow {
+      color: var(--hot-pink);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      margin-bottom: 8px;
+    }
+    .rooms-section h2 {
+      font-family: 'Space Grotesk', Georgia, serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+    .rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 700px) {
+      .rooms-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 460px) {
+      .rooms-grid { grid-template-columns: 1fr; }
+    }
+    .room-card {
+      background: var(--card-dark);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px 16px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .room-card:hover {
+      box-shadow: 0 4px 20px var(--card-glow);
+      transform: translateY(-2px);
+    }
+    .room-card h3 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .room-card p {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .room-card a {
+      font-size: 0.75rem;
+      color: var(--hot-pink);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .room-card a:hover { text-decoration: underline; }
 
-<style>
-/* Fix badge shelf: side by side layout, no blank space */
-.secret-badge-shelf {
-  display: grid !important;
-  grid-template-columns: 1fr !important;
-  gap: 24px !important;
-  padding: 24px !important;
-  max-width: 900px !important;
-}
-.secret-badge-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)) !important;
-  gap: 12px !important;
-}
-.clubhouse-pass-section {
-  display: block !important;
-  max-width: 1000px !important;
-  margin: 0 auto !important;
-  padding: 40px 24px !important;
-}
-.clubhouse-pass-section .section-heading {
-  position: static !important;
-  max-height: none !important;
-  overflow: visible !important;
-  background: none !important;
-  box-shadow: none !important;
-  margin-bottom: 24px !important;
-}
-.clubhouse-pass-section .game-card {
-  max-width: none !important;
-  width: 100% !important;
-}
-@media (max-width: 600px) {
-  .secret-badge-grid {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)) !important;
-  }
-}
-</style>
+    /* === OVERLAY / MODAL === */
+    .card-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,0.85);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .card-overlay.visible {
+      display: flex;
+      opacity: 1;
+    }
+    .card-overlay .overlay-card {
+      background: linear-gradient(160deg, #2a1222 0%, #1a0a14 100%);
+      border: 1.5px solid var(--card-border);
+      border-radius: 16px;
+      max-width: 400px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(255,45,155,0.15), 0 0 40px rgba(255,45,155,0.08);
+      transform: scale(0.92);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      position: relative;
+    }
+    .card-overlay.visible .overlay-card {
+      transform: scale(1);
+      opacity: 1;
+    }
+    .overlay-close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: var(--white);
+      font-size: 1.2rem;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      z-index: 2;
+    }
+    .overlay-close:hover { background: rgba(255,255,255,0.2); }
+    .overlay-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      border-radius: 14px 14px 0 0;
+    }
+    .overlay-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+    }
+    .overlay-photo img.object-contain {
+      object-fit: contain;
+      object-position: center center;
+      padding: 20px;
+    }
+    .overlay-body {
+      padding: 20px 22px 24px;
+    }
+    .overlay-body .overlay-era {
+      display: inline-block;
+      background: rgba(255,45,155,0.15);
+      color: var(--hot-pink);
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+    }
+    .overlay-body h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .overlay-body .overlay-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    .overlay-body .overlay-meta {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .overlay-body .overlay-meta strong { color: rgba(255,255,255,0.9); }
+    .overlay-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .overlay-tags span {
+      background: rgba(255,45,155,0.12);
+      color: var(--hot-pink);
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 12px;
+    }
 
-
+    /* Mobile adjustments */
+    @media (max-width: 560px) {
+      .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+      .thumb-card .thumb-info { padding: 6px 8px 8px; }
+      .thumb-card .thumb-info h3 { font-size: 0.75rem; }
+    }
+    @media (max-width: 380px) {
+      .card-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+    <link rel="stylesheet" href="/content/site/mini-player.css">
 </head>
-  <body>
-    <header class="site-header">
-      <button onclick="history.back()" style="background: none; border: none; color: var(--hot-pink); font-size: 0.85rem; cursor: pointer; padding: 4px 8px; text-decoration: underline;" aria-label="Go back">← Back</button>
-        <a class="brand" href="index.html" aria-label="lAIdies home">
-        <img src="assets/laidies-logo-wordmark.png" alt="LAIDIES" />
-      </a>
-      <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=this.nextElementSibling;if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'☰':'✕';this.setAttribute('aria-expanded',!isOpen);">☰</button>
-        <nav class="nav" aria-label="Primary navigation">
-        <a href="episodes.html">Episodes</a>
-        <a href="learn.html">Learn</a>
-        <a href="clubhouse.html">Clubhouse</a>
-        <a href="community.html">Community</a>
-    <a href="clubhouse.html#dj-booth-inline">Listen</a>
-        <a href="this-week.html">This Week</a>
-      </nav>
-    </header>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="lAIdies home">
+      <img src="assets/laidies-logo-wordmark.png" alt="LAIDIES" />
+    </a>
+    <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=document.querySelector('.site-header nav');var isOpen=n.classList.contains('open');n.classList.toggle('open');this.textContent=isOpen?'\u2630':'\u2715';this.setAttribute('aria-expanded',!isOpen);">&#x2630;</button>
+    <nav aria-label="Primary navigation">
+      <a href="episodes.html">Episodes</a>
+      <a href="learn.html">Learn</a>
+      <a href="clubhouse.html">Clubhouse</a>
+      <a href="community.html">Community</a>
+      <a href="games/dj-booth.html">Listen</a>
+      <a href="this-week.html">This Week</a>
+    </nav>
+  </header>
 
-    <main id="top">
-      <section class="page-intro" aria-labelledby="page-title">
-        <p class="eyebrow">The <span class="wordmark" aria-label="lAIdies"><span>l</span><strong>AI</strong><span>dies</span></span> Room</p>
-        <h1 id="page-title">The group chat you wish you had at work.</h1>
-        <p>Nine chat rooms. Ask all the questions, celebrate the small win, share the thing that actually worked. No one here is pretending to have it figured out.</p>
-      </section>
+  <main>
+    <!-- ============ SECTION 1: LAIDIES CARDS ============ -->
+    <section class="cards-section" id="laidies-cards">
+      <p class="eyebrow">lAIdies Cards</p>
+      <h1>The group chat you wish you had at work.</h1>
+      <p class="subtitle">Browse by journey stage. Click a card to see the full profile.</p>
 
-      <section class="community-board" id="community-board" aria-labelledby="board-title">
-        <div class="section-heading">
-          <p class="eyebrow">The <span class="wordmark" aria-label="lAIdies"><span>l</span><strong>AI</strong><span>dies</span></span> Room</p>
-          <h2 id="board-title">ICQ walked so these chat rooms could run.</h2>
-          <p>
-            Ask the messy question, drop the tiny win, request the reference, or leave the feedback before the whole thing becomes hallway folklore.
-          </p>
-          <p class="microcopy">Post in one chat room to earn the Room Key sticker. Post in every chat room to earn the Every Room, No Notes merit badge.</p>
-        </div>
-        <div class="board-tools">
-          <div class="board-grid">
-          <article class="board-card" data-board-card="Ask the Room">
-            <p class="eyebrow">Ask the Room</p>
-            <h3>Save your AI question</h3>
-            <p>What are you trying to do, what tool are you using, and where is it going off the rails?</p>
-            <a href="community/ask-the-room.html">Enter this chat room</a>
-          </article>
-          <article class="board-card" data-board-card="Chat Room Digest">
-            <p class="eyebrow">Receipts Desk</p>
-            <h3>Find the useful answers faster</h3>
-            <p>AI-assisted summaries of answered questions, unanswered asks, helpful tips, and anything that needs a human receipt-check before it becomes guidance.</p>
-            <a href="community/chat-room-digest.html">Open the digest</a>
-          </article>
-          <article class="board-card" data-board-card="Send It Energy">
-            <p class="eyebrow">Send It Energy</p>
-            <h3>Share what worked</h3>
-            <p>Drop the prompt, workflow, tool, useful article, screenshot, or tiny trick that saved you from a blank doc spiral. Glossy is welcome; evidence is the standard.</p>
-            <a href="community/send-it-energy.html">Enter this chat room</a>
-          </article>
-          <article class="board-card" data-board-card="The Try-On Debrief">
-            <p class="eyebrow">The Try-On Debrief</p>
-            <h3>What did you test this week?</h3>
-            <p>Tool used, task attempted, butterfly clip rating, and the one thing you learned. The messy attempts are useful. Especially those.</p>
-            <a href="community/try-on-debrief.html">Enter this chat room</a>
-          </article>
-          <details class="board-rooms-more"><summary>See all 9 chat rooms</summary>
-          <article class="board-card" data-board-card="Wins of the Week">
-            <p class="eyebrow">Wins of the Week</p>
-            <h3>AI not required</h3>
-            <p>Closed the loop, asked for the money, survived the meeting, made the deck better, left on time. We celebrate those too.</p>
-            <a href="community/wins.html">Enter this chat room</a>
-          </article>
-          <article class="board-card" data-board-card="Dear lAIdies">
-            <p class="eyebrow">Dear <span class="wordmark" aria-label="lAIdies"><span>l</span><strong>AI</strong><span>dies</span></span></p>
-            <h3>Ask for non-AI advice</h3>
-            <p>Office politics, wording the message, managing up, confidence wobbles, what to say when someone is being weird in a meeting.</p>
-            <a href="community/dear-laidies.html">Enter this chat room</a>
-          </article>
-          <article class="board-card" data-board-card="Put It in the Burn Book">
-            <p class="eyebrow">Put It in the Burn Book</p>
-            <h3>Request a reference</h3>
-            <p>Nominate the 90s/Y2K show, movie, singer, band, snack, beauty product, or office object that deserves a future AI analogy.</p>
-            <a href="community/burn-book.html">Enter this chat room</a>
-          </article>
-          <article class="board-card" data-board-card="Mix CD Exchange">
-            <p class="eyebrow">Mix CD Exchange</p>
-            <h3>Add your mix to the club wall</h3>
-            <p>Drop the public playlist link, the scene it belongs in, and the three songs that explain the whole assignment.</p>
-            <a href="community/mix-cd-exchange.html">Enter this chat room</a>
-          </article>
-          <article class="board-card" data-board-card="Comment Card">
-            <p class="eyebrow">Comment Card</p>
-            <h3>Tell us how it landed</h3>
-            <p>Too high-level, need more examples, loved the analogy, confused by the try-on? Drop the feedback before we keep walking in the wrong shoes.</p>
-            <a href="community/comment-card.html">Leave feedback</a>
-          </article>
-          </details>
+      <div class="filter-bar" role="toolbar" aria-label="Filter cards">
+        <button class="active" data-filter="all">All cards</button>
+        <button data-filter="stock">Stock cards</button>
+        <button data-filter="member">Members</button>
+        <button data-filter="help">Here to help</button>
+        <button data-filter="progress">Making progress</button>
+        <button data-filter="connect">Open to connect</button>
+      </div>
+
+      <div class="card-grid" id="cardGrid">
+        <!-- Card 1: Ali -->
+        <div class="thumb-card" data-type="member" data-tags="member help progress connect founder" data-card="ali">
+          <div class="thumb-photo">
+            <img src="assets/dream-phone-boss-ali.png" alt="Ali" />
+          </div>
+          <div class="thumb-info">
+            <h3>Ali</h3>
+            <span class="thumb-tag">Founder Era</span>
           </div>
         </div>
-      </section>
-
-
-
-      
-
-      <!-- MEMBER CARDS -->
-      <a id="member-cards"></a>
-      <section style="padding: 40px 20px; max-width: 1000px; margin: 0 auto;">
-        <p class="eyebrow" style="color: var(--hot-pink); font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.8rem;">lAIdies Cards</p>
-        <h2 style="font-family: Georgia, serif; font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 8px 0 12px;">Find your people.</h2>
-        <p style="color: var(--muted); margin-bottom: 20px;">Browse by journey stage, tools, what people need, and what they can offer. Click a card to see the full profile.</p>
-        
-        <div class="directory-filter-demo" aria-label="lAIdies Card filters">
-          <button type="button" class="is-active" data-card-filter="all">All cards</button>
-          <button type="button" data-card-filter="stock">Stock cards</button>
-          <button type="button" data-card-filter="member">Members</button>
-          <button type="button" data-card-filter="help">Here to help</button>
-          <button type="button" data-card-filter="progress">Making progress</button>
-          <button type="button" data-card-filter="connect">Open to connect</button>
-        </div>
-        <p class="directory-filter-status" style="font-size: 0.8rem; color: var(--muted); margin-bottom: 16px;" aria-live="polite"></p>
-        <div class="trading-card-grid" id="laidiesCardGrid">
-          <article class="member-trading-card card-founder is-founder" data-card-type="member" data-card-tags="member help progress connect founder tax community">
-            <div class="member-card-ribbon"><span>lAIdies Card</span><span>#001</span></div>
-            <div class="member-card-photo">
-              <img src="assets/dream-phone-boss-ali.png" alt="Ali's neon Dream Phone-style member portrait in a hot pink jacket" />
-            </div>
-            <div class="member-card-body">
-              <p class="member-card-kicker">Founder Era</p>
-              <h3>Ali</h3>
-              <p>Tax leader, Women-in-Tax builder, TEI contributor, and founder of <span class="wordmark laidies-inline-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span>, the room you are currently standing in.</p>
-              <p class="member-card-meta"><strong>AI journey:</strong> building in public, testing agents, and learning the technical pieces out loud.</p>
-              <p class="member-card-meta"><strong>Can help with:</strong> tax, community building, practical AI tests, messy first drafts, and work that refuses to stay beige.</p>
-              <div class="member-card-reward-case" aria-label="Founder reward shelf" id="founderBadgeShelf">
-                <!-- Dynamically populated by script.js — shows ALL available badges/stickers -->
-              </div>
-              <p class="member-card-kicker" style="margin-top: 12px; margin-bottom: 4px;">Tools & Interests</p>
-                <div class="member-card-tags"><span>Indirect Tax</span><span>Women-in-Tax</span><span>TEI</span><span>ChatGPT</span><span>Claude Code</span><span>Codex</span><span>Open to connect</span></div>
-              <div class="member-card-links">
-                <a href="https://ca.linkedin.com/in/alison-eakin-01b29621" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
-              </div>
-            </div>
-          </article>
-          <article class="member-trading-card card-closet" data-card-type="member" data-card-tags="member founder echo original-three">
-            <div class="member-card-ribbon"><span>lAIdies Card</span><span>#002</span></div>
-            <div class="member-card-photo">
-              <img src="assets/people/eugina-lim.jpg" alt="Eugina Lim member card photo" style="object-position: center 65% !important;" />
-            </div>
-            <div class="member-card-body">
-              <p class="member-card-kicker">Founding Spark Era</p>
-              <h3>Eugina</h3>
-              <p>The original Echo idea was hers. Part of the founding sisterhood that brought lAIdies to life.</p>
-              <p class="member-card-meta"><strong>Spark:</strong> the idea that started the conversation — what if we built something for us?</p>
-              <div class="member-card-tags"><span>OG lAIdy</span><span>Echo Architect</span><span>Original Three</span><span>WIT</span></div>
-            </div>
-          </article>
-          <article class="member-trading-card card-holo" data-card-type="member" data-card-tags="member founder original-three day-one">
-            <div class="member-card-ribbon"><span>lAIdies Card</span><span>#003</span></div>
-            <div class="member-card-photo">
-              <img src="assets/people/sara-baxter.png" alt="Sara Baxter member card photo" style="object-position: center 73% !important;" />
-            </div>
-            <div class="member-card-body">
-              <p class="member-card-kicker">Founding Spark Era</p>
-              <h3>Sara</h3>
-              <p>One of the original three. The group chat energy that made lAIdies go from idea to real thing.</p>
-              <p class="member-card-meta"><strong>Spark:</strong> the encouragement, the early hype, the "yes, do it" that every builder needs.</p>
-              <div class="member-card-tags"><span>OG lAIdy</span><span>Day One Energy</span><span>Original Three</span><span>WIT</span></div>
-            </div>
-          </article>
-          <article class="member-trading-card card-laser" data-card-type="member" data-card-tags="member crew wit-champion hackathon dj-jaidy">
-            <div class="member-card-ribbon"><span>lAIdies Card</span><span>#004</span></div>
-            <div class="member-card-photo">
-              <img src="assets/people/josh-hudson.png" alt="Josh Hudson member card photo" />
-            </div>
-            <div class="member-card-body">
-              <p class="member-card-kicker">The Crew · WIT Champion</p>
-              <h3>Josh</h3>
-              <p>The hype man. WIT champion, hackathon co-conspirator, and the reason the site has a soundtrack.</p>
-              <p class="member-card-meta"><strong>Known as:</strong> DJ JAIDY. Brings the energy, the support, and the beats.</p>
-              <div class="member-card-tags"><span>DJ JAIDY</span><span>WIT Champion</span><span>Hackathon Crew</span><span>GenAI Tax</span></div>
-            </div>
-          </article>
-          <article class="member-trading-card card-closet stock-card" data-card-type="stock" data-card-tags="stock help progress laidy fairy-godmother advice">
-            <div class="member-card-ribbon"><span>Stock Card</span><span>fAIry Godmother</span></div>
-            <div class="member-card-photo member-card-photo--object">
-              <img src="assets/laidy-character-v1.png" alt="Pink fairy wand representing LAIDY the fAIry Godmother" />
-            </div>
-            <div class="member-card-body">
-              <p class="member-card-kicker">fAIry Godmother Era</p>
-              <h3>LAIDY</h3>
-              <p>The fAIry Godmother who appears when your prompt has vibes, no verbs, and somehow three competing deadlines.</p>
-              <p class="member-card-meta"><strong>Special move:</strong> waves the wand, turns panic into one useful next step, and makes you add context before the draft leaves the house.</p>
-              <div class="member-card-tags"><span>fAIry Godmother</span><span>Prompt triage</span><span>Tough love</span><span>Here to help</span></div>
-              <div class="member-card-links">
-                <a href="clubhouse.html#laidy">Ask the fAIry Godmother</a>
-              </div>
-            </div>
-          </article>
-          <article class="member-trading-card card-press stock-card" data-card-type="stock" data-card-tags="stock help connect claio oracle">
-            <div class="member-card-ribbon"><span>Stock Card</span><span>Mme CLAI-O</span></div>
-            <div class="member-card-photo">
-              <img src="assets/madame-claio-character-v1.png" alt="Madame CLAI-O crystal ball and phone" />
-            </div>
-            <div class="member-card-body">
-              <p class="member-card-kicker">Psychic Hotline Era</p>
-              <h3>Mme CLAI-O</h3>
-              <p>Sees the future, notices the missing source, and refuses to bless a vague strategy deck.</p>
-              <p class="member-card-meta"><strong>Special move:</strong> delivers one omen, one receipt, and one small action before the meeting invite multiplies.</p>
-              <div class="member-card-tags"><span>Receipts</span><span>Clarity</span><span>Here to help</span></div>
-              <div class="member-card-links">
-                <a href="clubhouse.html#madame-claio">Call Mme CLAI-O</a>
-              </div>
-            </div>
-          </article>
-          <article class="member-trading-card card-desk stock-card" data-card-type="stock" data-card-tags="stock progress deb office music">
-            <div class="member-card-ribbon"><span>Stock Card</span><span>Deb</span></div>
-            <div class="member-card-photo">
-              <img src="assets/deb-80s-portrait-stare-v1.png" alt="Deb, a direct 80s-style office portrait with big curly hair, oversized glasses, and a loud silk shirt" />
-            </div>
-            <div class="member-card-body">
-              <p class="member-card-kicker">Early Retirement Era</p>
-              <h3>Deb</h3>
-              <p>Payroll legend. Reorg survivor. Emotionally unavailable to bad rollouts and men named Brad with urgent asks.</p>
-              <p class="member-card-meta"><strong>Special move:</strong> knows where the form is, who broke the printer, and exactly how many months until freedom.</p>
-              <div class="member-card-tags"><span>Office lore</span><span>DJ JAIDY canon</span><span>Making progress</span></div>
-              <div class="member-card-links">
-                <a href="this-week.html#playlist">Listen to DJ JAIDY</a>
-              </div>
-            </div>
-          </article>
+        <!-- Card 2: Eugina -->
+        <div class="thumb-card" data-type="member" data-tags="member founder" data-card="eugina">
+          <div class="thumb-photo">
+            <img src="assets/people/eugina-lim.jpg" alt="Eugina" style="object-position: center 35%;" />
           </div>
-        
-        <div style="text-align: center; margin-top: 24px;">
-          <a class="button primary" href="laidies-card.html">Create your own card →</a>
+          <div class="thumb-info">
+            <h3>Eugina</h3>
+            <span class="thumb-tag">Founding Spark</span>
+          </div>
         </div>
-      </section>
-
-      <section class="clubhouse-pass-section" aria-labelledby="pass-title">
-        <div class="section-heading">
-          <p class="eyebrow">Your Clubhouse Pass</p>
-          <h2 id="pass-title">Create your pass to save what you earn.</h2>
-          <p>Badges, stickers, card pulls, and quiz progress — your Clubhouse Pass keeps it all in one place.</p>
+        <!-- Card 3: Sara -->
+        <div class="thumb-card" data-type="member" data-tags="member founder" data-card="sara">
+          <div class="thumb-photo">
+            <img src="assets/people/sara-baxter.png" alt="Sara" style="object-position: center 30%;" />
+          </div>
+          <div class="thumb-info">
+            <h3>Sara</h3>
+            <span class="thumb-tag">Founding Spark</span>
+          </div>
         </div>
-                  <article class="game-card is-live member-pass-game" id="member-passport">
-            <span>Community</span>
-            <h3>Clubhouse Pass</h3>
-            <p>Create your Clubhouse Pass to save what you earn, build your <span class="wordmark laidies-inline-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Card, and make it easier to connect with other lAIdies when you are ready to share.</p>
-            <div class="member-pass-explainer" aria-label="Why create a Clubhouse Pass">
-              <strong>A Clubhouse Pass is the secret password. A <span class="wordmark member-pass-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Card is the hello.</strong>
-              <p>The pass remembers what you have tried. The card turns that into a fun, useful intro for the chat room: what lane you work in, where you are with AI, what you want to learn, and where you might be able to help. For now, members connect through the LinkedIn or website link they choose to share; direct chat can come later.</p>
-              <figure class="member-card-sample">
-                <img src="assets/clubhouse-pass-laidies-card-sample.png" alt="Sample lAIdies Card with blank fields for name, work lane, AI superpower, stickers, badges, and trading cards" />
-                <figcaption>Think trading card, not resume. Share it only if you want people to find you, then let LinkedIn handle the actual hello for now.</figcaption>
-              </figure>
-              <ul>
-                <li><b>Save your progress:</b> keep quiz scores, stickers, badges, and card-pack pulls in one place.</li>
-                <li><b>Build your <span class="wordmark laidies-inline-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Card:</b> make a shareable intro that feels more like a 90s trading card than another corporate bio.</li>
-                <li><b>Find the secret unlocks:</b> hidden merit badges are starting to appear around the site. Find one, earn the badge, and pin it to your Clubhouse Pass so your member card shows what you found.</li>
-                <li><b>Find your people:</b> connect around AI questions, useful shortcuts, and the work lanes where you actually live.</li>
-                <li><b>Shape the room:</b> your answers help future packs, events, and community features feel less generic.</li>
-              </ul>
-              <div class="secret-badge-shelf" aria-label="Hidden merit badge collection">
-                <div>
-                  <strong>Hidden merit badges</strong>
-                  <p>Earned badges fill in. Locked ones keep a dotted outline so your member card makes it clear what is still missing.</p>
-                </div>
-                <div class="secret-badge-grid" id="secretBadgeShelf" aria-live="polite"></div>
-                <div>
-                  <strong>Quiz stickers</strong>
-                  <p>Quiz stickers fill in as you earn them. Trading cards keep their full missing-sleeve binder in the card pack section.</p>
-                </div>
-                <div class="secret-badge-grid" id="quizStickerShelf" aria-live="polite"></div>
-              </div>
-            </div>
-            <div class="member-pass-panel" aria-label="Clubhouse Pass status">
-              <div>
-                <strong id="memberPassStatus">Create or open your Clubhouse Pass.</strong>
-                <p id="memberPassDetail">Badges, stickers, card pulls, and quiz progress belong on your member card. Sign in so the good stuff follows you.</p>
-              </div>
-              <div class="member-pass-steps" aria-label="Clubhouse Pass steps">
-                <span data-member-pass-step="profile">1 Create account</span>
-                <span data-member-pass-step="create">2 Set up card</span>
-                <span data-member-pass-step="share">3 Share card optional</span>
-              </div>
-              <div class="member-pass-confirmation" id="memberPassConfirmation" hidden aria-live="polite">
-                <strong id="memberPassConfirmationTitle">Check your email</strong>
-                <p id="memberPassConfirmationDetail">We sent the email. Open it from the same device to finish your Clubhouse Pass.</p>
-              </div>
-              <p class="member-pass-email-help" id="memberPassEmailHelp" hidden>Still no email? Check spam/promotions and wait a few minutes. Do not request another email right away, because repeat sends may be temporarily blocked.</p>
-              <label for="memberPassEmail">Email for your Clubhouse Pass</label>
-              <div class="member-pass-form">
-                <input id="memberPassEmail" type="email" autocomplete="email" placeholder="yourname@email.com" />
-              </div>
-              <label class="member-pass-newsletter" for="memberPassNewsletter">
-                <input id="memberPassNewsletter" type="checkbox" />
-                <span>Optional: email me the weekly newsletter too.</span>
-              </label>
-              <p class="member-pass-privacy">Clubhouse Pass saves your email, profile answers, and rewards like stickers, badges, and trading cards. Sharing your <span class="wordmark laidies-inline-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Card is encouraged, optional, and approval-based. <a href="privacy.html">Privacy</a> and <a href="terms.html">terms</a>.</p>
-              <div class="member-pass-profile" aria-label="Member profile options">
-                <details class="member-profile-group" data-member-profile-group="industry" open>
-                  <summary>Where do you do your thing?</summary>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="tax">Tax</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="finance">Finance</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="legal-compliance">Legal / Compliance</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="ops-product">Ops / Product</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="people-hr">People / HR</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="marketing-comms">Marketing / Comms</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="founder-consultant">Founder / Consultant</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="tech-engineering">Tech / Engineering</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="data-analytics">Data / Analytics</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="sales-bizdev">Sales / Biz Dev</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="education-training">Education / Training</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="health-life-sciences">Health / Life Sciences</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="government-public">Government / Public Sector</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="creative-media">Creative / Media</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="exploring">Exploring / Other</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="tps-reports">Filing TPS reports</button>
-                  <button type="button" data-member-profile="industry" data-member-profile-value="golden-girls">Retired in Florida with my 3 BFFs</button>
-                </details>
-                <details class="member-profile-group" data-member-profile-group="aiComfort">
-                  <summary>What is your AI main character energy?</summary>
-                  <button type="button" data-member-profile="aiComfort" data-member-profile-value="new">Brand new</button>
-                  <button type="button" data-member-profile="aiComfort" data-member-profile-value="prompting">Prompting sometimes</button>
-                  <button type="button" data-member-profile="aiComfort" data-member-profile-value="weekly-user">Using weekly</button>
-                  <button type="button" data-member-profile="aiComfort" data-member-profile-value="workflow-builder">Building workflows</button>
-                  <button type="button" data-member-profile="aiComfort" data-member-profile-value="agent-curious">Agent-curious</button>
-                  <button type="button" data-member-profile="aiComfort" data-member-profile-value="doesnt-go-here">AI? She doesn't even go here!</button>
-                  <button type="button" data-member-profile="aiComfort" data-member-profile-value="miranda-priestly">I am the Miranda Priestly of AI</button>
-                </details>
-                <details class="member-profile-group" data-member-profile-group="generation">
-                  <summary>Which group chat raised you?</summary>
-                  <button type="button" data-member-profile="generation" data-member-profile-value="gen-x">Gen X</button>
-                  <button type="button" data-member-profile="generation" data-member-profile-value="elder-millennial">Elder Millennial</button>
-                  <button type="button" data-member-profile="generation" data-member-profile-value="millennial">Millennial</button>
-                  <button type="button" data-member-profile="generation" data-member-profile-value="gen-z">Gen Z</button>
-                  <button type="button" data-member-profile="generation" data-member-profile-value="no-label">Age knows no bounds</button>
-                </details>
-                <details class="member-profile-group" data-member-profile-group="goals" data-member-profile-multiple="true">
-                  <summary class="member-profile-question">What are you here for, <span class="wordmark member-profile-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span>?</summary>
-                  <button type="button" data-member-profile="goals" data-member-profile-value="learn-basics">Learn the basics</button>
-                  <button type="button" data-member-profile="goals" data-member-profile-value="save-time">Save time</button>
-                  <button type="button" data-member-profile="goals" data-member-profile-value="write-better">Write better</button>
-                  <button type="button" data-member-profile="goals" data-member-profile-value="build-tools">Build tools</button>
-                  <button type="button" data-member-profile="goals" data-member-profile-value="lead-team">Lead my team</button>
-                  <button type="button" data-member-profile="goals" data-member-profile-value="find-community">Find community</button>
-                  <button type="button" data-member-profile="goals" data-member-profile-value="confidence">Build confidence</button>
-                  <button type="button" data-member-profile="goals" data-member-profile-value="templates">Get templates</button>
-                  <button type="button" data-member-profile="goals" data-member-profile-value="automate-work">Automate repeat work</button>
-                  <button type="button" data-member-profile="goals" data-member-profile-value="career-growth">Grow my career</button>
-                  <button type="button" data-member-profile="goals" data-member-profile-value="fun-games">I'm just here for the fun and games</button>
-                </details>
-              </div>
-              <div class="member-pass-submit-row">
-                <p>Ready? Finish here after you choose any answers you want.</p>
-                <button class="button primary" type="button" id="saveMemberPassButton">Save guest pass</button>
-                <button class="button secondary member-pass-signout" type="button" id="memberSignOutButton" hidden>Sign out</button>
-                <button class="button secondary" type="button" id="memberStartFreshButton">Reset and start over</button>
-              </div>
-              <p class="member-pass-note" id="memberPassNote" aria-live="polite">Your Clubhouse Pass keeps everything in one place — stickers, badges, card pulls, and quiz scores.</p>
-            </div>
-            <div class="member-pass-actions">
-              <a class="button primary" href="laidies-card.html?v=issue-02-live-1#spotlight-form-title">Create your lAIdies Card</a>
-              <a class="button secondary" href="community.html#member-cards">Browse lAIdies Cards</a>
-            </div>
-          </article>
-      </section>
+        <!-- Card 4: Josh -->
+        <div class="thumb-card" data-type="member" data-tags="member connect" data-card="josh">
+          <div class="thumb-photo">
+            <img src="assets/people/josh-hudson.png" alt="Josh" />
+          </div>
+          <div class="thumb-info">
+            <h3>Josh</h3>
+            <span class="thumb-tag">The Crew</span>
+          </div>
+        </div>
+        <!-- Card 5: LAIDY (stock) -->
+        <div class="thumb-card" data-type="stock" data-tags="stock help" data-card="laidy">
+          <div class="thumb-photo">
+            <img src="assets/laidy-character-v1.png" alt="LAIDY" class="object-contain" />
+          </div>
+          <div class="thumb-info">
+            <h3>LAIDY</h3>
+            <span class="thumb-tag">f<span class="brand-ai">AI</span>ry Godmother</span>
+          </div>
+        </div>
+        <!-- Card 6: Mme CLAI-O (stock) -->
+        <div class="thumb-card" data-type="stock" data-tags="stock help connect" data-card="claio">
+          <div class="thumb-photo">
+            <img src="assets/madame-claio-character-v1.png" alt="Mme CLAI-O" />
+          </div>
+          <div class="thumb-info">
+            <h3>Mme CLAI-O</h3>
+            <span class="thumb-tag">Psychic Hotline</span>
+          </div>
+        </div>
+        <!-- Card 7: Deb (stock) -->
+        <div class="thumb-card" data-type="stock" data-tags="stock progress" data-card="deb">
+          <div class="thumb-photo">
+            <img src="assets/deb-80s-portrait-stare-v1.png" alt="Deb" style="object-position: center 25%;" />
+          </div>
+          <div class="thumb-info">
+            <h3>Deb</h3>
+            <span class="thumb-tag">Early Retirement</span>
+          </div>
+        </div>
+      </div>
 
-    
-    
-      
+      <div class="cta-row">
+        <a href="laidies-card.html">Create your own card &rarr;</a>
+      </div>
+    </section>
 
-      <div style="text-align: center; padding: 32px 20px 48px;">
-      <a class="button secondary" href="index.html">← Back to Home</a>
-    </div>
+    <!-- ============ SECTION 2: CHAT ROOMS ============ -->
+    <section class="rooms-section" id="chat-rooms">
+      <p class="eyebrow">The lAIdies Room</p>
+      <h2>9 chat rooms. Pick the one that fits.</h2>
+
+      <div class="rooms-grid">
+        <div class="room-card">
+          <h3>Ask the Room</h3>
+          <p>Save your AI question for the group.</p>
+          <a href="community/ask-the-room.html">Enter &rarr;</a>
+        </div>
+        <div class="room-card">
+          <h3>Send It Energy</h3>
+          <p>Share the prompt or trick that worked.</p>
+          <a href="community/send-it-energy.html">Enter &rarr;</a>
+        </div>
+        <div class="room-card">
+          <h3>The Try-On Debrief</h3>
+          <p>What did you test this week?</p>
+          <a href="community/try-on-debrief.html">Enter &rarr;</a>
+        </div>
+        <div class="room-card">
+          <h3>Wins of the Week</h3>
+          <p>AI not required. We celebrate those too.</p>
+          <a href="community/wins.html">Enter &rarr;</a>
+        </div>
+        <div class="room-card">
+          <h3>Dear lAIdies</h3>
+          <p>Ask for non-AI advice.</p>
+          <a href="community/dear-laidies.html">Enter &rarr;</a>
+        </div>
+        <div class="room-card">
+          <h3>Burn Book</h3>
+          <p>Nominate a 90s reference for an analogy.</p>
+          <a href="community/burn-book.html">Enter &rarr;</a>
+        </div>
+        <div class="room-card">
+          <h3>Mix CD Exchange</h3>
+          <p>Drop your playlist link.</p>
+          <a href="community/mix-cd-exchange.html">Enter &rarr;</a>
+        </div>
+        <div class="room-card">
+          <h3>Comment Card</h3>
+          <p>Tell us how it landed.</p>
+          <a href="community/comment-card.html">Enter &rarr;</a>
+        </div>
+        <div class="room-card">
+          <h3>Receipts Desk</h3>
+          <p>AI-summarized answers from the room.</p>
+          <a href="community/chat-room-digest.html">Enter &rarr;</a>
+        </div>
+      </div>
+    </section>
   </main>
 
-    <footer class="site-footer">
-      <p>
-        <span class="footer-brand"><span class="wordmark" aria-label="lAIdies trademark"><span>l</span><strong>AI</strong><span>dies</span></span><sup class="legal-mark">&trade;</sup></span>
-        <span class="footer-legal">&copy; 2026 Ali Eakin. All rights reserved.</span>
-      </p>
-      <div>
-        <a href="https://www.instagram.com/we.are.laidies/" target="_blank" rel="noreferrer">Instagram</a>
-        <a href="community.html">The Room</a>
-        <a href="reference-closet.html">Reference Closet</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-      </div>
-    </footer>
-    <script src="content/site/site-data.js?v=issue-02-live-1"></script>
-    <script src="content/site/supabase-config.js?v=issue-02-live-1"></script>
-    <script src="script.js?v=issue-02-live-1"></script>
-  
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        var cards = document.querySelectorAll(".trading-card-grid .member-trading-card");
-        if (!cards.length) return;
-        var overlay = document.createElement("div");
-        overlay.className = "card-overlay";
-        overlay.innerHTML = '<div class="card-overlay-inner"><button class="card-overlay-close">&times;</button><div class="card-overlay-content"></div></div>';
-        document.body.appendChild(overlay);
-        var closeBtn = overlay.querySelector(".card-overlay-close");
-        var content = overlay.querySelector(".card-overlay-content");
-        function openCard(card) { content.innerHTML = card.outerHTML; overlay.classList.add("is-visible"); document.body.style.overflow = "hidden"; }
-        function closeCard() { overlay.classList.remove("is-visible"); document.body.style.overflow = ""; }
-        cards.forEach(function(card) { card.addEventListener("click", function() { openCard(card); }); });
-        closeBtn.addEventListener("click", closeCard);
-        overlay.addEventListener("click", function(e) { if (e.target === overlay) closeCard(); });
-        document.addEventListener("keydown", function(e) { if (e.key === "Escape") closeCard(); });
-      });
-    </script>
+  <!-- ============ OVERLAY MODAL ============ -->
+  <div class="card-overlay" id="cardOverlay" role="dialog" aria-modal="true" aria-label="Member card detail">
+    <div class="overlay-card" id="overlayCard">
+      <button class="overlay-close" id="overlayClose" aria-label="Close">&times;</button>
+      <div class="overlay-photo" id="overlayPhoto"></div>
+      <div class="overlay-body" id="overlayBody"></div>
+    </div>
+  </div>
+
   <script>
-(function(){
-  var btn = document.querySelector(".hamburger-btn");
-  var nav = document.querySelector(".site-header .nav");
-  if (!btn || !nav) return;
-  btn.addEventListener("click", function() {
-    var open = nav.classList.toggle("is-open");
-    btn.setAttribute("aria-expanded", open);
-    btn.textContent = open ? "✕" : "☰";
-  });
-  nav.addEventListener("click", function(e) {
-    if (e.target.tagName === "A") {
-      nav.classList.remove("is-open");
-      btn.setAttribute("aria-expanded", "false");
-      btn.textContent = "☰";
+  // === CARD DATA ===
+  const cardData = {
+    ali: {
+      photo: 'assets/dream-phone-boss-ali.png',
+      photoStyle: '',
+      name: 'Ali',
+      era: 'Founder Era',
+      desc: 'Tax leader, Women-in-Tax builder, TEI contributor, and founder of lAIdies — the room you are currently standing in.',
+      meta: '<strong>AI journey:</strong> building in public, testing agents, and learning the technical pieces out loud.<br><strong>Can help with:</strong> tax, community building, practical AI tests, messy first drafts, and work that refuses to stay beige.',
+      tags: ['Indirect Tax', 'Women-in-Tax', 'TEI', 'ChatGPT', 'Claude Code', 'Codex', 'Open to connect']
+    },
+    eugina: {
+      photo: 'assets/people/eugina-lim.jpg',
+      photoStyle: 'object-position: center 35%;',
+      name: 'Eugina',
+      era: 'Founding Spark Era',
+      desc: 'The original Echo idea was hers. Part of the founding sisterhood that brought lAIdies to life.',
+      meta: '<strong>Spark:</strong> the idea that started the conversation — what if we built something for us?',
+      tags: ['OG lAIdy', 'Echo Architect', 'Original Three', 'WIT']
+    },
+    sara: {
+      photo: 'assets/people/sara-baxter.png',
+      photoStyle: 'object-position: center 30%;',
+      name: 'Sara',
+      era: 'Founding Spark Era',
+      desc: 'One of the original three. The group chat energy that made lAIdies go from idea to real thing.',
+      meta: '<strong>Spark:</strong> the encouragement, the early hype, the "yes, do it" that every builder needs.',
+      tags: ['OG lAIdy', 'Day One Energy', 'Original Three', 'WIT']
+    },
+    josh: {
+      photo: 'assets/people/josh-hudson.png',
+      photoStyle: '',
+      name: 'Josh',
+      era: 'The Crew · WIT Champion',
+      desc: 'The hype man. WIT champion, hackathon co-conspirator, and the reason the site has a soundtrack.',
+      meta: '<strong>Known as:</strong> DJ JAIDY. Brings the energy, the support, and the beats.',
+      tags: ['DJ JAIDY', 'WIT Champion', 'Hackathon Crew', 'GenAI Tax']
+    },
+    laidy: {
+      photo: 'assets/laidy-character-v1.png',
+      photoStyle: '',
+      photoClass: 'object-contain',
+      name: 'LAIDY',
+      era: 'FAIRY Godmother Era',
+      desc: 'The FAIRY Godmother who appears when your prompt has vibes, no verbs, and somehow three competing deadlines.',
+      meta: '<strong>Special move:</strong> waves the wand, turns panic into one useful next step, and makes you add context before the draft leaves the house.',
+      tags: ['FAIRY Godmother', 'Prompt triage', 'Tough love', 'Here to help']
+    },
+    claio: {
+      photo: 'assets/madame-claio-character-v1.png',
+      photoStyle: '',
+      name: 'Mme CLAI-O',
+      era: 'Psychic Hotline Era',
+      desc: 'Sees the future, notices the missing source, and refuses to bless a vague strategy deck.',
+      meta: '<strong>Special move:</strong> delivers one omen, one receipt, and one small action before the meeting invite multiplies.',
+      tags: ['Receipts', 'Clarity', 'Here to help']
+    },
+    deb: {
+      photo: 'assets/deb-80s-portrait-stare-v1.png',
+      photoStyle: 'object-position: center 25%;',
+      name: 'Deb',
+      era: 'Early Retirement Era',
+      desc: 'Payroll legend. Reorg survivor. Emotionally unavailable to bad rollouts and men named Brad with urgent asks.',
+      meta: '<strong>Special move:</strong> knows where the form is, who broke the printer, and exactly how many months until freedom.',
+      tags: ['Office lore', 'DJ JAIDY canon', 'Making progress']
     }
+  };
+
+  // === FILTER LOGIC ===
+  const filterBtns = document.querySelectorAll('.filter-bar button');
+  const cards = document.querySelectorAll('.thumb-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        if (filter === 'all') {
+          card.hidden = false;
+        } else {
+          const tags = card.dataset.tags || '';
+          card.hidden = !tags.includes(filter);
+        }
+      });
+    });
   });
-  document.addEventListener("click", function(e) {
-    if (!btn.contains(e.target) && !nav.contains(e.target) && nav.classList.contains("is-open")) {
-      nav.classList.remove("is-open");
-      btn.setAttribute("aria-expanded", "false");
-      btn.textContent = "☰";
-    }
+
+  // === OVERLAY LOGIC ===
+  const overlay = document.getElementById('cardOverlay');
+  const overlayCard = document.getElementById('overlayCard');
+  const overlayPhoto = document.getElementById('overlayPhoto');
+  const overlayBody = document.getElementById('overlayBody');
+  const overlayClose = document.getElementById('overlayClose');
+
+  function openOverlay(cardId) {
+    const data = cardData[cardId];
+    if (!data) return;
+
+    const imgClass = data.photoClass ? ` class="${data.photoClass}"` : '';
+    const imgStyle = data.photoStyle ? ` style="${data.photoStyle}"` : '';
+    overlayPhoto.innerHTML = `<img src="${data.photo}"${imgClass}${imgStyle} alt="${data.name}" />`;
+
+    const tagsHtml = data.tags.map(t => `<span>${t}</span>`).join('');
+    overlayBody.innerHTML = `
+      <span class="overlay-era">${data.era}</span>
+      <h3>${data.name}</h3>
+      <p class="overlay-desc">${data.desc}</p>
+      <p class="overlay-meta">${data.meta}</p>
+      <div class="overlay-tags">${tagsHtml}</div>
+    `;
+
+    overlay.style.display = 'flex';
+    // Trigger reflow for animation
+    void overlay.offsetHeight;
+    overlay.classList.add('visible');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeOverlay() {
+    overlay.classList.remove('visible');
+    setTimeout(() => {
+      overlay.style.display = 'none';
+      overlayPhoto.innerHTML = '';
+      overlayBody.innerHTML = '';
+    }, 250);
+    document.body.style.overflow = '';
+  }
+
+  // Click cards to open
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      openOverlay(card.dataset.card);
+    });
   });
-})();
-</script>
+
+  // Close handlers
+  overlayClose.addEventListener('click', closeOverlay);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeOverlay();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('visible')) closeOverlay();
+  });
+  </script>
+    <script src="/content/site/mini-player.js"></script>
 </body>
 </html>

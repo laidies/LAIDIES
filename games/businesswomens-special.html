@@ -39,8 +39,12 @@
 
       /* ===== Site Header ===== */
       .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
         background: rgba(13, 5, 9, 0.95);
         backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         border-bottom: 1px solid rgba(255, 45, 155, 0.12);
       }
       .site-header .nav a { color: var(--bws-text); }
@@ -113,7 +117,7 @@
 
       /* ===== Step Sections ===== */
       .bws-step {
-        margin-bottom: 32px;
+        margin-bottom: 24px;
       }
       .bws-step-label {
         font-size: 0.7rem;
@@ -360,7 +364,7 @@
       /* ===== Choose For Me Button ===== */
       .bws-random-wrap {
         text-align: center;
-        margin: 28px 0;
+        margin: 14px 0 0;
       }
       .bws-random-btn {
         position: relative;
@@ -446,21 +450,7 @@
         font-style: italic;
       }
 
-      /* ===== Back Link ===== */
-      .bws-back {
-        text-align: center;
-        margin-top: 40px;
-        padding-top: 24px;
-        border-top: 1px solid rgba(255, 255, 255, 0.06);
-      }
-      .bws-back a {
-        color: var(--bws-pink);
-        text-decoration: none;
-        font-size: 0.88rem;
-        font-weight: 600;
-        transition: color 0.2s;
-      }
-      .bws-back a:hover { color: #fff; text-decoration: underline; }
+      
 
       /* ===== Animations for counting state ===== */
       .bws-hero-image.is-counting img {
@@ -551,10 +541,12 @@
     <!-- Privacy-friendly analytics by Plausible -->
     <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
     <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
-  </head>
+      <link rel="stylesheet" href="../content/site/mini-player.css">
+</head>
   <body>
     <header class="site-header">
       <button onclick="history.back()" style="background:none;border:none;color:var(--bws-pink);font-size:0.85rem;cursor:pointer;padding:4px 8px;text-decoration:underline;" aria-label="Go back">← Back</button>
+      <a href="../clubhouse.html" style="color:var(--bws-pink);text-decoration:none;font-size:0.85rem;font-weight:600;white-space:nowrap;">&larr; Back to Clubhouse</a>
       <a class="brand" href="../index.html" aria-label="lAIdies home">
         <img src="../assets/laidies-logo-wordmark.png" alt="LAIDIES" />
       </a>
@@ -564,7 +556,7 @@
         <a href="../learn.html">Learn</a>
         <a href="../clubhouse.html">Clubhouse</a>
         <a href="../community.html">Community</a>
-        <a href="../clubhouse.html#dj-booth-inline">Listen</a>
+        <a href="../games/dj-booth.html">Listen</a>
         <a href="../this-week.html">This Week</a>
       </nav>
     </header>
@@ -628,6 +620,12 @@
               <span>bitter / bold</span>
             </button>
           </div>
+          <div class="bws-random-wrap">
+            <button class="bws-random-btn" type="button" id="bwsRandomBtn">
+              <span class="bws-random-icon">🎲</span>
+              Choose for me
+            </button>
+          </div>
         </section>
 
         <!-- Drink Reveal -->
@@ -652,12 +650,7 @@
         </section>
 
         <!-- Choose For Me -->
-        <div class="bws-random-wrap">
-          <button class="bws-random-btn" type="button" id="bwsRandomBtn">
-            <span class="bws-random-icon">🎲</span>
-            Choose for me
-          </button>
-        </div>
+        
 
         <!-- Main Character Spritz -->
         <section class="bws-signature">
@@ -668,9 +661,7 @@
         </section>
 
         <!-- Back -->
-        <div class="bws-back">
-          <a href="../clubhouse.html">← Back to Clubhouse</a>
-        </div>
+        
 
       </div>
     </main>
@@ -813,6 +804,10 @@
             drinkCard.classList.add('is-visible');
             isAnimating = false;
             heroImage.classList.remove('is-animating');
+            // Auto-scroll to revealed drink card
+            setTimeout(function() {
+              drinkCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
           }, 200);
 
           // Check badge
@@ -849,5 +844,6 @@
       }
     })();
     </script>
-  </body>
+      <script src="../content/site/mini-player.js"></script>
+</body>
 </html>

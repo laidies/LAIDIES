@@ -1,0 +1,223 @@
+/* ═══════════════════════════════════════════════════════════════
+   LAIDIES Mini Player – Persistent Bottom Bar
+   ═══════════════════════════════════════════════════════════════ */
+
+#laidies-mini-player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: linear-gradient(90deg, #1a0a12, #2d0f1f);
+  border-top: 2px solid rgba(255, 45, 155, 0.5);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  box-shadow: 0 -4px 20px rgba(255, 45, 155, 0.2);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#laidies-mini-player.visible {
+  display: flex;
+}
+
+/* Progress bar along top edge */
+#laidies-mini-player .mp-progress-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+#laidies-mini-player .mp-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ff2d9b, #ff6ec7);
+  width: 0%;
+  transition: width 0.3s linear;
+  border-radius: 0 2px 2px 0;
+}
+
+#laidies-mini-player .mp-progress-wrap:hover .mp-progress-bar {
+  height: 5px;
+  margin-top: -1px;
+}
+
+/* Controls section */
+#laidies-mini-player .mp-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+#laidies-mini-player .mp-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 18px;
+  cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: color 0.2s ease, background 0.2s ease, transform 0.1s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+#laidies-mini-player .mp-btn:hover {
+  color: #ff2d9b;
+  background: rgba(255, 45, 155, 0.1);
+}
+
+#laidies-mini-player .mp-btn:active {
+  transform: scale(0.92);
+}
+
+#laidies-mini-player .mp-btn-play {
+  font-size: 24px;
+  min-width: 48px;
+  min-height: 48px;
+}
+
+/* Track info section */
+#laidies-mini-player .mp-track-info {
+  flex: 1;
+  overflow: hidden;
+  margin: 0 16px;
+  min-width: 0;
+}
+
+#laidies-mini-player .mp-track-title {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#laidies-mini-player .mp-track-title.scrolling {
+  animation: mp-scroll-title 12s linear infinite;
+  text-overflow: unset;
+  overflow: visible;
+  display: inline-block;
+}
+
+@keyframes mp-scroll-title {
+  0%   { transform: translateX(0%); }
+  10%  { transform: translateX(0%); }
+  90%  { transform: translateX(-100%); }
+  100% { transform: translateX(-100%); }
+}
+
+#laidies-mini-player .mp-track-artist {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+/* Close button */
+#laidies-mini-player .mp-btn-close {
+  font-size: 16px;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+#laidies-mini-player .mp-btn-close:hover {
+  opacity: 1;
+  color: #ff2d9b;
+}
+
+
+/* Repeat button states */
+#laidies-mini-player .mp-btn-repeat {
+  position: relative;
+  font-size: 16px;
+  opacity: 0.5;
+  transition: color 0.2s ease, opacity 0.2s ease, transform 0.15s ease, background 0.2s ease;
+  flex-shrink: 0;
+}
+
+#laidies-mini-player .mp-btn-repeat:hover {
+  background: rgba(255, 45, 155, 0.1);
+}
+
+#laidies-mini-player .mp-repeat-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ff2d9b;
+  color: #fff;
+  font-size: 0.55rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  line-height: 1;
+}
+
+#laidies-mini-player .mp-repeat-label {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.55rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ff2d9b;
+  pointer-events: none;
+}
+
+/* ── Mobile responsive ── */
+@media (max-width: 480px) {
+  #laidies-mini-player {
+    height: 72px;
+    flex-wrap: wrap;
+    padding: 4px 10px 8px;
+    align-content: center;
+  }
+
+  #laidies-mini-player .mp-controls {
+    order: 1;
+    gap: 2px;
+  }
+
+  #laidies-mini-player .mp-track-info {
+    order: 3;
+    flex-basis: 100%;
+    margin: 0;
+    text-align: center;
+  }
+
+  #laidies-mini-player .mp-btn-close {
+    order: 2;
+  }
+
+  #laidies-mini-player .mp-track-title {
+    font-size: 12px;
+  }
+}
+
+/* Ensure page content isn't hidden behind player */
+body.mp-active {
+  padding-bottom: 60px !important;
+}
+
+@media (max-width: 480px) {
+  body.mp-active {
+    padding-bottom: 76px !important;
+  }
+}

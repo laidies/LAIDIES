@@ -5,104 +5,320 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Girl Talk Prompt Deck | LAIDIES Clubhouse</title>
     <meta name="description" content="Draw a question card for work drama, ambition, confidence, or group-chat honesty." />
-    <meta name="theme-color" content="#ff2d9b" />
+    <meta name="theme-color" content="#1a0a12" />
     <link rel="icon" type="image/png" href="../assets/laidies-logo-square.png" />
-    <link rel="stylesheet" href="../styles.css?v=games-extract-1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <style>
-      .game-page-wrap { max-width: 680px; margin: 0 auto; padding: clamp(18px, 4vw, 48px) clamp(14px, 3vw, 32px); }
-      .game-page-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
-      .game-page-header a { font-size: 0.85rem; font-weight: 600; text-decoration: none; color: var(--hot-pink); }
-      .game-page-header a:hover { text-decoration: underline; }
-      .game-page-title { display: grid; gap: 8px; margin-bottom: 32px; }
-      .game-page-title h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.1; }
-      .game-page-title p { color: var(--muted); max-width: 600px; }
-      .girl-talk-stage { margin-bottom: 24px; border-radius: 14px; overflow: hidden; }
-      .girl-talk-stage img { width: 100%; height: auto; display: block; }
-      .girl-talk-card {
-        margin-top: 24px;
-        padding: 28px 24px;
-        border: 3px solid var(--hot-pink);
-        border-radius: 14px;
-        background: var(--mist);
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      :root {
+        --hot-pink: #ff2d9b;
+        --pink-glow: rgba(255, 45, 155, 0.5);
+        --pink-soft: rgba(255, 45, 155, 0.15);
+        --bg-dark: #1a0a12;
+        --bg-mid: #2d0f1f;
+        --card-bg: rgba(45, 15, 31, 0.85);
+        --card-border: rgba(255, 45, 155, 0.4);
+        --text-primary: #fff;
+        --text-secondary: rgba(255, 255, 255, 0.7);
+        --text-muted: rgba(255, 255, 255, 0.5);
+      }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: linear-gradient(180deg, #1a0a12 0%, #2d0f1f 50%, #1a0a12 100%);
+        background-attachment: fixed;
+        color: var(--text-primary);
+        min-height: 100vh;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Sticky Back Nav */
+      .sticky-back {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(26, 10, 18, 0.92);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 45, 155, 0.15);
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+      }
+      .sticky-back a {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--hot-pink);
+        text-decoration: none;
+        transition: opacity 0.2s;
+      }
+      .sticky-back a:hover { opacity: 0.8; text-decoration: underline; }
+
+      /* Main Content */
+      .game-page-wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 80px clamp(16px, 4vw, 40px) 60px;
+      }
+
+      /* Hero Image — Circular with Pink Glow */
+      .hero-image-wrap {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+        position: relative;
+      }
+      .hero-image-wrap::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 45, 155, 0.35) 0%, transparent 70%);
+        filter: blur(30px);
+        z-index: 0;
+      }
+      .hero-image-wrap img {
+        width: 240px;
+        height: 240px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 3px solid rgba(255, 45, 155, 0.4);
+        box-shadow:
+          0 0 30px rgba(255, 45, 155, 0.3),
+          0 0 60px rgba(255, 45, 155, 0.15),
+          inset 0 0 30px rgba(0, 0, 0, 0.3);
+        position: relative;
+        z-index: 1;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .hero-image-wrap img:hover {
+        transform: scale(1.03);
+        box-shadow:
+          0 0 40px rgba(255, 45, 155, 0.4),
+          0 0 80px rgba(255, 45, 155, 0.2),
+          inset 0 0 30px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Title Section */
+      .game-page-title {
         text-align: center;
-        font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-        line-height: 1.5;
-        min-height: 120px;
+        margin-bottom: 40px;
+      }
+      .game-page-title .eyebrow {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--hot-pink);
+        margin-bottom: 12px;
+      }
+      .game-page-title h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 16px;
+        background: linear-gradient(135deg, #fff 0%, #ffcce8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .game-page-title p {
+        color: var(--text-secondary);
+        font-size: 1.05rem;
+        max-width: 540px;
+        margin: 0 auto;
+      }
+
+      /* Card */
+      .girl-talk-card {
+        margin: 32px auto;
+        padding: 36px 28px;
+        max-width: 600px;
+        border: 2px solid var(--card-border);
+        border-radius: 16px;
+        background: var(--card-bg);
+        backdrop-filter: blur(8px);
+        text-align: center;
+        font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+        line-height: 1.6;
+        color: var(--text-primary);
+        min-height: 140px;
         display: grid;
         place-content: center;
-        transition: transform 0.2s;
+        box-shadow:
+          0 0 20px rgba(255, 45, 155, 0.1),
+          0 4px 30px rgba(0, 0, 0, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
-      .girl-talk-card.is-new { animation: cardFlip 0.3s ease; }
-      @keyframes cardFlip { 0% { transform: scale(0.95) rotateY(8deg); opacity: 0.6; } 100% { transform: scale(1) rotateY(0); opacity: 1; } }
-      .draw-button { margin-top: 20px; }
-      .microcopy { font-size: 0.82rem; color: var(--muted); margin-top: 12px; text-align: center; }
-      .badge-reveal { margin-top: 20px; padding: 14px; border: 2px dashed var(--hot-pink); border-radius: 10px; text-align: center; display: none; }
+      .girl-talk-card.is-new {
+        animation: cardFlip 0.35s ease;
+      }
+      @keyframes cardFlip {
+        0% { transform: scale(0.92) rotateY(10deg); opacity: 0.5; box-shadow: 0 0 40px rgba(255, 45, 155, 0.3); }
+        100% { transform: scale(1) rotateY(0); opacity: 1; }
+      }
+
+      /* Draw Button */
+      .draw-section { text-align: center; margin-top: 24px; }
+      .draw-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 16px 36px;
+        font-size: 1rem;
+        font-weight: 700;
+        font-family: inherit;
+        color: #fff;
+        background: linear-gradient(135deg, #ff2d9b, #e6007e);
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        box-shadow:
+          0 4px 20px rgba(255, 45, 155, 0.4),
+          0 0 40px rgba(255, 45, 155, 0.15);
+        text-transform: none;
+        letter-spacing: 0.01em;
+      }
+      .draw-button:hover {
+        transform: translateY(-2px) scale(1.03);
+        box-shadow:
+          0 6px 30px rgba(255, 45, 155, 0.55),
+          0 0 60px rgba(255, 45, 155, 0.25);
+      }
+      .draw-button:active {
+        transform: translateY(0) scale(0.98);
+      }
+
+      /* Microcopy */
+      .microcopy {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        margin-top: 16px;
+        text-align: center;
+      }
+
+      /* Badge Reveal */
+      .badge-reveal {
+        margin: 28px auto 0;
+        max-width: 500px;
+        padding: 18px 20px;
+        border: 2px dashed var(--hot-pink);
+        border-radius: 12px;
+        text-align: center;
+        display: none;
+        background: rgba(255, 45, 155, 0.08);
+        animation: badgePop 0.4s ease;
+      }
       .badge-reveal.is-visible { display: block; }
-      .badge-reveal strong { color: var(--hot-pink); }
+      .badge-reveal strong { color: var(--hot-pink); font-size: 1rem; }
+      .badge-reveal p { color: var(--text-secondary); font-size: 0.9rem; margin-top: 6px; }
+      @keyframes badgePop {
+        0% { transform: scale(0.9); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+      }
+
+      /* Ambient glow effects */
+      .game-page-wrap::before {
+        content: '';
+        position: fixed;
+        top: -200px;
+        right: -200px;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(255, 45, 155, 0.06) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: -1;
+      }
+      .game-page-wrap::after {
+        content: '';
+        position: fixed;
+        bottom: -150px;
+        left: -150px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(255, 45, 155, 0.04) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      /* Responsive */
+      @media (max-width: 480px) {
+        .hero-image-wrap img { width: 180px; height: 180px; }
+        .hero-image-wrap::before { width: 220px; height: 220px; }
+        .girl-talk-card { padding: 24px 18px; }
+        .draw-button { padding: 14px 28px; font-size: 0.95rem; }
+      }
     </style>
     <!-- Privacy-friendly analytics by Plausible -->
-<script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
-<script>
-  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
-</script>
+    <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+      <link rel="stylesheet" href="../content/site/mini-player.css">
 </head>
   <body>
-    <header class="site-header">
-      <button onclick="history.back()" style="background: none; border: none; color: var(--hot-pink); font-size: 0.85rem; cursor: pointer; padding: 4px 8px; text-decoration: underline;" aria-label="Go back">← Back</button>
-        <a class="brand" href="../index.html" aria-label="lAIdies home">
-        <img src="../assets/laidies-logo-wordmark.png" alt="LAIDIES" />
-      </a>
-      <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=this.nextElementSibling;if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'☰':'✕';this.setAttribute('aria-expanded',!isOpen);">☰</button>
-        <nav class="nav" aria-label="Primary navigation">
-        <a href="../episodes.html">Episodes</a>
-        <a href="../learn.html">Learn</a>
-        <a href="../clubhouse.html">Clubhouse</a>
-        <a href="../community.html">Community</a>
-    <a href="../clubhouse.html#dj-booth-inline">Listen</a>
-        <a href="../this-week.html">This Week</a>
-      </nav>
-    </header>
+    <!-- Sticky Back to Clubhouse -->
+    <div class="sticky-back">
+      <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
+    </div>
 
     <main>
       <div class="game-page-wrap">
-        <div class="game-page-header">
-          <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
+        <!-- Hero Image -->
+        <div class="hero-image-wrap">
+          <img src="../assets/girl-talk-board.webp" alt="Girl Talk game board" />
         </div>
+
+        <!-- Title -->
         <div class="game-page-title">
           <p class="eyebrow">Clubhouse Game</p>
           <h1>Girl Talk Prompt Deck</h1>
           <p>Draw a question card for work drama, ambition, confidence, or group-chat honesty. Truth or dare, but make it corporate.</p>
         </div>
 
-        <div class="girl-talk-stage" aria-hidden="true">
-          <img src="../assets/girl-talk-board.webp" alt="" />
-        </div>
-
+        <!-- Card Display -->
         <div class="girl-talk-card" id="girlTalkCard" aria-live="polite">
           The deck is shuffled. Pick truth, dare, or professionally contained chaos.
         </div>
 
-        <div style="text-align: center;">
-          <button class="button primary draw-button" type="button" id="drawButton">Draw a card</button>
+        <!-- Draw Button -->
+        <div class="draw-section">
+          <button class="draw-button" type="button" id="drawButton">&#x1F0CF; Draw a card</button>
         </div>
 
         <p class="microcopy" id="drawCount">Cards drawn: 0</p>
 
+        <!-- Badge -->
         <div class="badge-reveal" id="badgeReveal">
-          <strong>🏆 Group Chat Regular merit badge unlocked!</strong>
+          <strong>&#x1F3C6; Group Chat Regular merit badge unlocked!</strong>
           <p>You kept drawing cards until the deck started saving you a seat.</p>
         </div>
       </div>
-    
-    <div style="text-align: center; padding: 32px 20px 48px;">
-      <a class="button secondary" href="../index.html">← Back to Home</a>
-    </div>
-  </main>
+    </main>
 
+    <!-- Game Logic (preserved) -->
     <script>
       const girlTalkCards = [
-        "Truth: what are you calling 'busy' that is actually avoidance in a blazer?",
+        "Truth: what are you calling ‘busy’ that is actually avoidance in a blazer?",
         "Dare: ask for the thing in one sentence, no apology confetti.",
         "Truth: which meeting could have been a voice note and a lip gloss application?",
         "Dare: send one message that is 30 percent shorter and 80 percent clearer.",
@@ -138,6 +354,11 @@
         drawCount++;
         countEl.textContent = `Cards drawn: ${drawCount}`;
 
+        // Auto-scroll to card after draw
+        setTimeout(() => {
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 50);
+
         // Badge unlock after drawing all unique cards
         if (drawCount >= BADGE_THRESHOLD) {
           badgeEl.classList.add("is-visible");
@@ -157,31 +378,11 @@
         }
       });
     </script>
-  <script>
-(function(){
-  var btn = document.querySelector(".hamburger-btn");
-  var nav = document.querySelector(".site-header .nav");
-  if (!btn || !nav) return;
-  btn.addEventListener("click", function() {
-    var open = nav.classList.toggle("is-open");
-    btn.setAttribute("aria-expanded", open);
-    btn.textContent = open ? "✕" : "☰";
-  });
-  nav.addEventListener("click", function(e) {
-    if (e.target.tagName === "A") {
-      nav.classList.remove("is-open");
-      btn.setAttribute("aria-expanded", "false");
-      btn.textContent = "☰";
-    }
-  });
-  document.addEventListener("click", function(e) {
-    if (!btn.contains(e.target) && !nav.contains(e.target) && nav.classList.contains("is-open")) {
-      nav.classList.remove("is-open");
-      btn.setAttribute("aria-expanded", "false");
-      btn.textContent = "☰";
-    }
-  });
-})();
-</script>
+
+    <!-- Site scripts -->
+    <script src="../content/site/supabase-config.js"></script>
+    <script src="../content/site/site-data.js"></script>
+    <script src="../script.js"></script>
+      <script src="../content/site/mini-player.js"></script>
 </body>
 </html>

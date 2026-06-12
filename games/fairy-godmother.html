@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>fAIry Godmother | LAIDIES Clubhouse</title>
+    <title>Fairy Godmother | LAIDIES Clubhouse</title>
     <meta name="description" content="LAIDY gives advice like a wise, glamorous fairy who actually helps with real work problems. Wave the wand." />
-    <meta property="og:title" content="fAIry Godmother | LAIDIES" />
+    <meta property="og:title" content="Fairy Godmother | LAIDIES" />
     <meta property="og:description" content="Tap or wave the wand for advice you didn't know you needed." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://wearelaidies.com/assets/laidy-fairy-godmother-portrait-v1.png" />
+    <meta property="og:image" content="https://wearelaidies.com/assets/laidy-character-v1.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#ff2d9b" />
     <link rel="icon" type="image/png" href="../assets/laidies-logo-square.png" />
@@ -54,16 +54,23 @@
         max-width: 720px;
         margin: 0 auto;
         padding: clamp(18px, 4vw, 48px) clamp(14px, 3vw, 32px);
+        padding-top: 64px;
         position: relative;
         z-index: 1;
       }
       .game-page-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
         display: flex;
         align-items: center;
         gap: 12px;
-        margin-bottom: 24px;
-        padding-bottom: 16px;
+        padding: 12px clamp(14px, 3vw, 32px);
+        background: rgba(26, 5, 32, 0.92);
+        backdrop-filter: blur(12px);
         border-bottom: 1px solid rgba(255, 182, 218, 0.2);
+        z-index: 100;
       }
       .game-page-header a {
         font-size: 0.85rem;
@@ -97,6 +104,11 @@
         background-clip: text;
         margin: 0 0 8px;
       }
+      .fairy-hero h1 .ai-highlight {
+        -webkit-text-fill-color: #ffd700;
+        font-weight: 700;
+        text-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+      }
       .fairy-hero .subtitle {
         color: rgba(255, 220, 240, 0.7);
         font-size: 1rem;
@@ -111,13 +123,28 @@
         margin: 28px auto 24px;
       }
       .fairy-character-wrap img {
-        max-width: 280px;
+        max-width: 320px;
         width: 100%;
         height: auto;
-        border-radius: 20px;
-        filter: drop-shadow(0 8px 32px rgba(255, 182, 218, 0.3))
-                drop-shadow(0 0 20px rgba(255, 215, 0, 0.15));
+        border-radius: 50%;
+        border: 3px solid rgba(255, 215, 0, 0.4);
+        filter: drop-shadow(0 0 40px rgba(255, 143, 216, 0.5))
+                drop-shadow(0 0 80px rgba(255, 215, 0, 0.3))
+                drop-shadow(0 8px 32px rgba(255, 182, 218, 0.4));
         animation: gentleFloat 4s ease-in-out infinite;
+      }
+      .fairy-character-wrap::after {
+        content: '';
+        position: absolute;
+        inset: -12px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, rgba(255, 143, 216, 0.08) 40%, transparent 70%);
+        pointer-events: none;
+        animation: glowPulse 3s ease-in-out infinite;
+      }
+      @keyframes glowPulse {
+        0%, 100% { opacity: 0.7; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.04); }
       }
       @keyframes gentleFloat {
         0%, 100% { transform: translateY(0); }
@@ -486,7 +513,7 @@
 
       /* === RESPONSIVE === */
       @media (max-width: 560px) {
-        .fairy-character-wrap img { max-width: 200px; }
+        .fairy-character-wrap img { max-width: 240px; }
         .fairy-buttons { flex-direction: column; }
         .wand-button, .random-button { width: 100%; justify-content: center; }
       }
@@ -497,13 +524,14 @@
       window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
       plausible.init()
     </script>
-  </head>
+      <link rel="stylesheet" href="../content/site/mini-player.css">
+</head>
   <body>
     <!-- Floating glitter particles -->
     <div class="glitter-field" id="glitterField" aria-hidden="true"></div>
 
     <header class="site-header">
-      <button onclick="history.back()" style="background: none; border: none; color: #ffb6da; font-size: 0.85rem; cursor: pointer; padding: 4px 8px; text-decoration: underline;" aria-label="Go back">&#8592; Back</button>
+
       <a class="brand" href="../index.html" aria-label="lAIdies home">
         <img src="../assets/laidies-logo-wordmark.png" alt="LAIDIES" />
       </a>
@@ -513,7 +541,7 @@
         <a href="../learn.html">Learn</a>
         <a href="../clubhouse.html">Clubhouse</a>
         <a href="../community.html">Community</a>
-        <a href="../clubhouse.html#dj-booth-inline">Listen</a>
+        <a href="../games/dj-booth.html">Listen</a>
         <a href="../this-week.html">This Week</a>
       </nav>
     </header>
@@ -527,11 +555,11 @@
         <!-- HERO -->
         <section class="fairy-hero">
           <p class="eyebrow">Ask LAIDY</p>
-          <h1>fAIry Godmother</h1>
+          <h1>F<span class="ai-highlight">ai</span>ry Godmother</h1>
           <p class="subtitle">Tap or wave the wand for advice you didn&rsquo;t know you needed.</p>
 
           <div class="fairy-character-wrap">
-            <img src="../assets/laidy-fairy-godmother-portrait-v1.png" alt="LAIDY the fAIry Godmother" />
+            <img src="../assets/laidy-character-v1.png" alt="LAIDY — big blonde hair, rhinestones, pink sequin jacket, diamond tiara, bedazzled wand" />
             <!-- Sparkle stars around wand area -->
             <div class="sparkle-field" id="sparkleField"></div>
           </div>
@@ -539,10 +567,7 @@
 
         <!-- INTERACTION CONSOLE -->
         <section class="fairy-console">
-          <label for="fairyQuestion">What do you need help with?</label>
-          <textarea id="fairyQuestion" rows="3" placeholder="Example: I need to ask my VP for more time without sounding chaotic."></textarea>
-
-          <label for="fairyMode" style="margin-top: 14px;">Pick the energy</label>
+          <label for="fairyMode">Pick the energy</label>
           <select id="fairyMode">
             <option value="auto" selected>LAIDY picks the right energy &#10024;</option>
             <option value="dolly">Dolly Energy &mdash; warm &amp; direct</option>
@@ -553,6 +578,9 @@
             <option value="david">David Specificity &mdash; be particular</option>
             <option value="buffy">Buffy Courage &mdash; slayer briefing</option>
           </select>
+
+          <label for="fairyQuestion">What do you need help with?</label>
+          <textarea id="fairyQuestion" rows="3" placeholder="Example: I need to ask my VP for more time without sounding chaotic."></textarea>
 
           <div class="fairy-buttons">
             <button class="wand-button" type="button" id="wandButton">
@@ -596,9 +624,7 @@
         </div>
       </div>
 
-      <div class="fairy-footer">
-        <a class="button" href="../clubhouse.html">&larr; Back to Clubhouse</a>
-      </div>
+
     </main>
 
     <!-- Scripts -->
@@ -708,15 +734,15 @@
     function buildLaidyAdvice(rawQuestion, modeKey) {
       const question = normalizeLaidyText(rawQuestion);
       if (!question) {
-        return { text: "Cup of ambition check: Tell me the actual situation first. LAIDY can do many things, but she cannot read a blank text box through a Claire\u2019s mood ring.\n\nTry: \"I need to ask my VP for more time without sounding chaotic\" or \"I need to push back on a meeting request without sounding unhelpful.\"", mode: "" };
+        return { text: "Tell me the actual situation first, sugar. LAIDY can do many things, but she cannot read a blank text box through a Claire\u2019s mood ring.\n\nTry: \"I need to ask my VP for more time without sounding chaotic\" or \"I need to push back on a meeting request without sounding unhelpful.\"", mode: "" };
       }
       const signals = getLaidySignals(question);
       const effectiveModeKey = modeKey === "auto" ? getLaidyAutoMode(signals.topicType) : modeKey;
       const mode = laidyModes[effectiveModeKey] || laidyModes.cher;
       const frame = getLaidyModeFrame(effectiveModeKey);
       const topicAdvice = getLaidyTopicAdvice(signals.topicType, signals);
-      const contextLine = "I heard: " + signals.need + " for " + signals.audience + ". Risk level: " + signals.risk + ". Tone target: " + signals.tone + ".";
-      const text = mode.opener + " " + mode.nudge + "\n\n" + contextLine + "\n\nRead: " + topicAdvice.read + "\n\nDo this: " + topicAdvice.next + " " + frame.move + "\n\nTry this line: \"" + topicAdvice.line + "\"\n\nCaboodle note: " + frame.signoff;
+      // One clean flowing piece — like a handwritten note from a glamorous mentor
+      const text = mode.nudge + "\n\n" + topicAdvice.read + "\n\n" + topicAdvice.next + " " + frame.move + "\n\n" + topicAdvice.line + "\n\n\u2014 " + frame.signoff;
       return { text, mode: mode.label };
     }
 
@@ -791,6 +817,11 @@
       void scrollEl.offsetWidth;
       scrollEl.classList.add("is-visible");
 
+      // Auto-scroll to the advice card
+      setTimeout(() => {
+        scrollEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+
       // Prompt feedback
       if (question) {
         const fb = buildLaidyPromptFeedback(question);
@@ -816,7 +847,7 @@
         try {
           const badges = JSON.parse(localStorage.getItem("laidiesSecretBadges") || "{}");
           if (!badges["fairy-favorite"]) {
-            badges["fairy-favorite"] = { id: "fairy-favorite", title: "Fairy Godmother\u2019s Favorite", sticker: "LAIDY", unlockedAt: new Date().toISOString(), source: "fAIry Godmother" };
+            badges["fairy-favorite"] = { id: "fairy-favorite", title: "Fairy Godmother\u2019s Favorite", sticker: "LAIDY", unlockedAt: new Date().toISOString(), source: "FAIRY Godmother" };
             localStorage.setItem("laidiesSecretBadges", JSON.stringify(badges));
           }
         } catch(e) {}
@@ -849,9 +880,9 @@
       showAdvice(randomWisdom[idx], "Random Wisdom", "");
     });
 
-    // Allow Enter (Ctrl+Enter) to submit
+    // Enter = submit, Shift+Enter = new line
     questionEl.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) {
+      if (e.key === "Enter" && !e.shiftKey) {
         e.preventDefault();
         wandBtn.click();
       }
@@ -939,5 +970,6 @@
       });
     })();
     </script>
-  </body>
+      <script src="../content/site/mini-player.js"></script>
+</body>
 </html>
