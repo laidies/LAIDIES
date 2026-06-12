@@ -323,14 +323,16 @@
         <div class="hero-copy">
           <p class="eyebrow">New episodes every Wednesday, obviously</p>
           <h1 id="hero-title">AI fluency for women with full calendars, high standards, and no patience for beige tech explanations.</h1>
-          <p class="hero-quote hero-anthem" id="heroAnthem" onclick="playAnthem(this)" title="Plays music: the LAIDIES anthem" aria-label="Play or pause music: the LAIDIES anthem" style="cursor: pointer; transition: all 0.3s; position: relative; display: inline-block;">
-            <span class="anthem-play-hint" style="position: absolute; left: -28px; top: 50%; transform: translateY(-50%); opacity: 0.4; font-size: 0.7em; transition: opacity 0.3s;">▶</span>
+          <p class="hero-quote hero-anthem" id="heroAnthem" style="transition: all 0.3s; position: relative; display: inline-block;">
             Get in, loser. We’re learning <span class="hero-quote-ai">AI</span>.
           </p>
-          <p class="anthem-audio-cue" aria-hidden="true">▶ Plays music: the LAIDIES anthem</p>
+          <button class="anthem-play-button" type="button" onclick="playAnthem(this)" title="Play or pause the LAIDIES anthem" aria-label="Play or pause music: the LAIDIES anthem">
+            <span class="anthem-play-hint" aria-hidden="true">▶</span>
+            Play LAIDIES anthem
+          </button>
           <div class="hero-actions">
-            <a class="button primary" href="issues/issue-02.html">Read Current Episode</a>
-            <a class="button secondary" href="start-here.html">Start Here</a>
+            <a class="button primary" href="start-here.html">Start Here</a>
+            <a class="button secondary" href="issues/issue-02.html">Read Current Episode</a>
             <a class="button secondary" href="clubhouse.html">Go to Clubhouse</a>
           </div>
         </div>
@@ -354,7 +356,7 @@
             <div class="episode-links">
               <a class="button episode-archive-link" href="issues/issue-01.html">&larr; Episode 1</a>
               <a class="button episode-archive-link" href="episodes.html">Season roadmap</a>
-              <a class="button episode-archive-link" href="clubhouse.html#issue-fun-packs">Open this week's Fun Pack &rarr;</a>
+              <a class="button episode-archive-link" href="games/fun-pack.html">Open this week's Fun Pack &rarr;</a>
             </div>
             <p class="season-pitch-teaser" style="font-size: 0.8rem; color: rgba(16,8,5,0.5); margin-top: 14px; line-height: 1.4;">Twenty-four episodes. New one every Wednesday. <button type="button" class="season-pitch-toggle" style="background:none; border:none; color:inherit; font:inherit; cursor:pointer; text-decoration:underline; padding:0;" onclick="event.preventDefault(); this.parentElement.nextElementSibling.hidden = !this.parentElement.nextElementSibling.hidden; this.textContent = this.parentElement.nextElementSibling.hidden ? 'Read more…' : 'Less';">Read more…</button></p>
             <p class="season-pitch-full" hidden style="font-size: 0.8rem; color: rgba(16,8,5,0.5); margin-top: 4px; line-height: 1.5;">Like the glory days when TV actually let you fall in love with the characters before cancelling them after eight. No bingeing. The arc: she stops feeling behind, learns to delegate to machines, keeps her standards, builds her squad, and becomes the woman other people come to when the future gets confusing.</p>
