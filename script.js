@@ -3120,7 +3120,6 @@ function handleClubhouseRoute(button, event) {
 
   if (zone === "business") {
     scrollToClubhouseTarget(button.dataset.clubhouseTarget);
-    setTimeout(() => { if (window.spinCocktail) spinCocktail(); else if (window.spinCocktailFallback) spinCocktailFallback(); }, 120);
     return;
   }
 

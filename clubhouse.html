@@ -140,6 +140,15 @@
       .game-panel-styled .cocktail-menu-card li {
         color: rgba(255, 248, 252, 0.85) !important;
       }
+      
+      /* Hide drink reveal until user picks a mood */
+      .fortune-reveal-card {
+        display: none !important;
+      }
+      .has-reveal .fortune-reveal-card {
+        display: flex !important;
+      }
+
       .game-panel-styled .fortune-reveal-card {
         background: rgba(16, 8, 5, 0.5) !important;
         border-color: rgba(255, 45, 155, 0.4) !important;
@@ -500,6 +509,13 @@
               <em>Order: pending.</em>
               <span>No beige panic-ordering. No explaining yourself. The fold has range.</span>
             </p>
+          
+            <div style="margin-top: 20px; padding: 16px 18px; background: linear-gradient(135deg, rgba(255,45,155,0.08), rgba(255,45,155,0.02)); border: 1.5px solid rgba(255,45,155,0.3); border-radius: 12px;">
+              <p style="margin: 0 0 4px; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,45,155,0.8);">The LAIDIES House Cocktail</p>
+              <p style="margin: 0 0 6px; font-size: 1.05rem; font-weight: 700; color: #fff;">Main Character Spritz</p>
+              <p style="margin: 0 0 4px; font-size: 0.82rem; color: rgba(255,255,255,0.75); line-height: 1.4;">Blanco tequila, Aperol, lemon, simple syrup, rocks, Prosecco, orange zest.</p>
+              <p style="margin: 0; font-size: 0.75rem; color: rgba(255,255,255,0.5); font-style: italic;">Developed exclusively for lAIdies by Ryan C at CHAR No.5. Ask for Ryan and tell him Ali sent you.</p>
+            </div>
           </article>
           <div class="fun-pack-shelf clubhouse-revealable" aria-label="Available issue fun packs" data-fun-pack-list data-clubhouse-layer="top">
             <button class="fun-pack-card" type="button" data-fun-pack-toggle="issue01" aria-expanded="false" aria-controls="gamesGrid">
