@@ -1859,6 +1859,7 @@ const quizIssueTitle = document.querySelector("#quizIssueTitle");
 const quizRereadLink = document.querySelector("#quizRereadLink");
 const quizProgressList = document.querySelector("#quizProgressList");
 const quizStartPanel = document.querySelector("#quizStartPanel");
+const quizConsole = document.querySelector(".quiz-console");
 const quizIssueShelf = document.querySelector(".quiz-issue-shelf");
 const initialQuizIssueCards = Array.from(document.querySelectorAll("[data-quiz-open]"));
 const initialQuizIssueOptions = Array.from(quizIssueSelect?.options || []);
@@ -4010,7 +4011,7 @@ function createQuizIssueCard(issueKey, quiz) {
   label.textContent = initialQuizIssueMeta.get(issueKey)?.issueLabel || `Issue ${issueNumber}`;
 
   const title = document.createElement("strong");
-  setBrandText(title, getIssueCardTitle(issueKey, quiz));
+  title.textContent = getIssueCardTitle(issueKey, quiz);
 
   const length = document.createElement("em");
   length.textContent = quiz ? getQuizLengthLabel(quiz) : initialQuizIssueMeta.get(issueKey)?.length || "10 questions + 2 bonus";
@@ -4294,7 +4295,7 @@ function syncQuizIssueCards() {
     if (quiz && countLabel) {
       countLabel.textContent = getQuizLengthLabel(quiz);
     }
-    const isActive = card.dataset.quizOpen === activeQuizKey;
+    const isActive = quizIsOpen && card.dataset.quizOpen === activeQuizKey;
     card.classList.toggle("is-selected", isActive);
     card.setAttribute("aria-pressed", String(isActive));
   });
@@ -4338,7 +4339,7 @@ function renderQuizProgressList() {
     label.textContent = initialQuizIssueMeta.get(issueKey)?.issueLabel || (issueKey === "foundation" ? "Foundation" : `Issue ${String(getIssueSortNumber(issueKey)).padStart(2, "0")}`);
 
     const title = document.createElement("strong");
-    setBrandText(title, getIssueCardTitle(issueKey, quiz));
+    title.textContent = getIssueCardTitle(issueKey, quiz);
 
     const score = document.createElement("em");
     score.textContent = best ? `Latest ${latest}/${maxScore} | Best ${best}/${maxScore}` : "Not started";
@@ -4386,7 +4387,7 @@ function renderQuiz() {
     return;
   }
 
-  if (quizIssueLabel) quizIssueLabel.textContent = quiz.label;
+  if (quizIssueLabel) quizIssueLabel.textContent = `Selected quiz: ${quiz.label.replace(/\s+Quiz$/i, "")}`;
   setBrandText(quizIssueTitle, quiz.title);
   if (quizRereadLink) {
     quizRereadLink.href = resolveSiteUrl(quiz.rereadUrl);
@@ -4396,12 +4397,16 @@ function renderQuiz() {
   syncQuizIssueCards();
 
   if (!quizIsOpen) {
+    if (quizConsole) quizConsole.hidden = true;
+    if (quizStartPanel) quizStartPanel.hidden = false;
     if (quizForm) quizForm.hidden = true;
     quizQuestionsEl.replaceChildren();
     if (quizResult) quizResult.textContent = "Pick an issue above. The questions stay in the Caboodle until you open them.";
     return;
   }
 
+  if (quizConsole) quizConsole.hidden = false;
+  if (quizStartPanel) quizStartPanel.hidden = true;
   if (quizForm) quizForm.hidden = false;
   if (quizStartPanel) quizStartPanel.classList.add("is-open");
   if (quizResult) quizResult.textContent = quiz.intro;

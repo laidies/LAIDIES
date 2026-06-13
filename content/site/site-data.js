@@ -14,12 +14,12 @@ window.LAIDIES_SITE_DATA = {
       "siteLinks": [
         {
           "label": "Take the Issue 1 quiz",
-          "url": "learn.html#quiz",
+          "url": "learn/quiz.html",
           "type": "quiz"
         },
         {
           "label": "Open the Issue 1 card pack",
-          "url": "clubhouse.html#card-pack",
+          "url": "games/trading-cards.html",
           "type": "cardPack"
         },
         {
@@ -29,7 +29,7 @@ window.LAIDIES_SITE_DATA = {
         },
         {
           "label": "Review the starter glossary",
-          "url": "learn.html#glossary",
+          "url": "learn/glossary.html",
           "type": "glossary"
         },
         {
@@ -73,12 +73,12 @@ window.LAIDIES_SITE_DATA = {
       "siteLinks": [
         {
           "label": "Take the Issue 2 quiz",
-          "url": "learn.html#quiz",
+          "url": "learn/quiz.html",
           "type": "quiz"
         },
         {
           "label": "Open the Issue 2 card pack",
-          "url": "clubhouse.html#card-pack",
+          "url": "games/trading-cards.html",
           "type": "cardPack"
         },
         {
@@ -88,7 +88,7 @@ window.LAIDIES_SITE_DATA = {
         },
         {
           "label": "Review the glossary",
-          "url": "learn.html#glossary",
+          "url": "learn/glossary.html",
           "type": "glossary"
         },
         {

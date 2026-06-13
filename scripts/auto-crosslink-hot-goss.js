@@ -65,7 +65,7 @@ function main() {
     // Check features
     for (const feat of registry.features) {
       const matched = feat.keywords.some(kw => searchText.includes(kw.toLowerCase()));
-      if (matched && feat.url !== 'learn.html#glossary') { // avoid duplicate glossary links
+      if (matched && feat.url !== 'learn/glossary.html') { // avoid duplicate glossary links
         links.push({
           label: feat.name,
           url: feat.url,

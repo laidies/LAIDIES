@@ -50,7 +50,7 @@
         <h2>${title}</h2>
         <p>Now that the read is done, jump back into the quiz, card pack, printables, glossary, and chat-room pieces without leaving the lAIdies room.</p>
         <div class="issue-toolkit-grid">
-          <a href="../clubhouse.html#issue-fun-packs" data-link-type="cardPack">Open the full Fun Pack</a>
+          <a href="../games/fun-pack.html" data-link-type="cardPack">Open the full Fun Pack</a>
           ${linksHtml}
           <a href="../index.html" data-link-type="episodes">Back to homepage</a>
         </div>

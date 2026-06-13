@@ -30,7 +30,10 @@
         --surface-elevated: rgba(255, 255, 255, 0.06);
       }
 
-      html { scroll-behavior: smooth; }
+      html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
 
       body {
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -39,6 +42,7 @@
         min-height: 100vh;
         line-height: 1.6;
         -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
       }
 
       /* ── Sticky Back Nav ── */
@@ -67,6 +71,7 @@
       /* ── Main Container ── */
       .page-container {
         max-width: 900px;
+        width: 100%;
         margin: 0 auto;
         padding: 80px 24px 80px;
       }
@@ -153,6 +158,7 @@
         border: 1px solid var(--card-border);
         border-radius: 24px;
         padding: 32px;
+        max-width: 100%;
         backdrop-filter: blur(8px);
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
       }
@@ -212,9 +218,11 @@
         align-items: center;
         width: 100%;
         max-width: 360px;
+        min-width: 0;
       }
       .dialer-row input {
         flex: 1;
+        min-width: 0;
         padding: 14px 18px;
         border: 2px solid var(--card-border);
         border-radius: 12px;
@@ -406,6 +414,9 @@
         .caller-grid { grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)); gap: 10px; }
         .caller-avatar { width: 44px; height: 44px; }
         .keypad-wrap { padding: 24px 20px; }
+        .dialer-row { flex-wrap: wrap; }
+        .dialer-row input,
+        .dial-btn { width: 100%; }
       }
     </style>
       <link rel="stylesheet" href="../content/site/mini-player.css">
@@ -510,83 +521,8 @@
     <script src="../content/site/supabase-config.js"></script>
     <script src="../content/site/site-data.js"></script>
     <script src="../script.js"></script>
-    <script>
-      /* ── Dream Phone Game Logic (self-contained fallback) ── */
-      const dreamPhoneMatches = {
-        career: { friend: "Mentor", answers: ["Pick the door with more learning, more room to move, and fewer people who make chaos look like culture.","If the next step scares you and expands your options, it deserves a closer look.","The better move is the one you can explain without shrinking your standards.","Ask what this option gives Future You besides a better title and a new email signature.","If you keep waiting to feel ready, the opportunity will need forwarding instructions.","Name the tradeoff out loud. Mystery makes career decisions look more glamorous than they are.","Choose the path where your judgment gets sharper, not just your calendar gets fuller.","If the role needs you but cannot name the support, that is not a dream. That is a group project.","Do the receipts check: scope, pay, sponsor, learning, exit options. Cute offer letters still need math.","Say yes to growth, not to becoming the emergency contact for a broken system."] },
-        drama: { friend: "Bestie", answers: ["Document the facts, remove the adjectives, and do not let someone else\u2019s messy behavior become your unpaid internship.","Do not reply while activated. Draft it, walk away, then delete the sentence that sounds like a courtroom monologue.","If the story needs seven paragraphs to explain why it was fine, it probably was not fine.","Send the version that a calm person would be proud of tomorrow morning.","The group chat can hear the spicy version. Work gets the clean facts and the next step.","If someone keeps creating confusion, ask for the decision, owner, and date in writing.","Do not match the energy. Match the record.","Your boundary does not need a dissertation. It needs a sentence and a repeat button.","If everyone is whispering, ask the obvious question in the meeting with a neutral face.","Before you escalate, separate what happened, what changed, and what you need now."] },
-        confidence: { friend: "Hype", answers: ["Confidence is not a mood. It is a behavior. Put the sentence in the chat, book the meeting, wear the metaphorical platform sandal.","You are allowed to be new at something and still have standards. Revolutionary, apparently.","Say the thing like you expect to be taken seriously. Let everyone else catch up.","You do not need a personality transplant. You need the first sentence and a calendar invite.","The version of you who already knows how to do this is built by doing this.","Stop making your ask smaller so the room feels taller.","You can be warm and still be unambiguous. Dolly has been trying to tell us.","Act like your idea is allowed to take up space. Because, inconveniently for the doubters, it is.","Nerves are not a stop sign. They are just your body adding unnecessary percussion.","If you would hype a friend for doing this, please stop being weirdly rude to yourself."] },
-        ai: { friend: "AI Help", answers: ["Make the tool useful by giving it context, examples, constraints, and your actual standard. Vague in, beige out.","Ask for three versions, then use your taste. The machine drafts; you decide.","If the answer sounds expensive but has no receipts, call it decorative and ask again.","Start with the task, audience, tone, length, and what good looks like. The model is not a mind reader in lip gloss.","Paste the messy version and ask for structure before polish. Sequencing matters, even when the tool is sparkly.","Use AI for the first pass, not the final judgment. Your name is still on the thing.","Ask what is missing, what is risky, and what a skeptical VP would question.","If the output is bland, add constraints. Boring prompts create beige little outfits.","For research, ask for sources, dates, uncertainty, and what changed recently.","When in doubt, ask it to make a checklist. A checklist is just chaos wearing a blazer."] },
-        leadership: { friend: "Boss", answers: ["Say the business reason first. The backstory can wait in the lobby with the old magazines.","If you want the room to decide, give them the decision, the tradeoff, and the recommendation.","Executive clean does not mean personality-free. It means the point survived the meeting.","Start with what changed, why it matters, and what you need by Friday.","If the slide cannot answer \u2018so what?\u2019 it is still getting ready in the bathroom.","Put the risk and the ask in the same outfit. Separating them makes everyone work too hard.","Lead with the version your VP can repeat without carrying your whole notebook.","Your idea is not too much. It is under-structured. Give it a spine and a closing line.","If the room needs context, give context. If the room needs a decision, stop touring the mall.","Make the recommendation before someone else makes a worse one with more confidence."] },
-        operations: { friend: "Operator", answers: ["Turn the chaos into a repeatable checklist before it becomes everyone\u2019s personality.","Name the owner, date, input, output, and receipt. It is not glamorous, which is why it works.","If the process only works when one tired woman remembers everything, the process is broken.","Build the template once. Stop re-living the same tiny office emergency in different lip gloss.","The workflow needs fewer heroic saves and more boring handoffs.","Ask what can be automated, delegated, documented, or deleted. The answer is rarely \u2018suffer prettier.\u2019","Put the status where people can find it before the follow-up email starts breeding.","A good system should not require psychic powers, group chat archaeology, or one sacred spreadsheet.","If the task repeats, it deserves a recipe. If the recipe repeats, it deserves a tool.","Your calendar is not a project management system. It is just where the evidence goes to panic."] },
-        voice: { friend: "Comms", answers: ["Make the sentence sound like you, then make it impossible to misunderstand.","Warm is not vague. Direct is not rude. Beige is not a strategy.","If the message has three apologies before the ask, Cher would absolutely delete two.","Say what happened, what it means, and what you need next. Save the emotional director\u2019s cut for the group chat.","The first line should earn its spot. No throat-clearing in platform sandals.","If you are hiding the ask in paragraph four, the reader is not the problem.","Use one clean subject line, one clean ask, and one clean deadline. Revolutionary, apparently.","The tone can be kind and still have a spine.","If you would not say it in the meeting, do not let AI make it sound like you joined a consulting cult.","Make it shorter, clearer, and a little more you. That is the whole makeover montage."] },
-        evidence: { friend: "Data", answers: ["Bring the numbers, but also bring the sentence that explains why anyone should care.","A chart without a point is just a very organized screensaver.","Ask what the data proves, what it does not prove, and what would make your mind.","If the metric is doing all the work, make sure it is not lying in a cute font.","Separate signal from noise before the room starts decorating with anecdotes.","Receipts first, interpretation second, dramatic conclusion never.","The evidence needs a source, a date, and a reason it belongs in the conversation.","If you cannot explain the number in plain English, it is not ready for the grown-up table.","Do not let a dashboard become a Burn Book. Use data to clarify, not to gossip with columns.","Good analysis says what matters now and what to do next. Everything else is liner notes."] },
-      };
-      const dreamPhoneCallers = { mentor:{friend:"Mentor",type:"career"},strategist:{friend:"Strategist",type:"career"},steady:{friend:"Steady",type:"career"},bestie:{friend:"Bestie",type:"drama"},boundary:{friend:"Boundary",type:"drama"},receipts:{friend:"Receipts",type:"drama"},hype:{friend:"Hype",type:"confidence"},bigbro:{friend:"Big Bro",type:"confidence"},creative:{friend:"Creative",type:"confidence"},aihelp:{friend:"AI Help",type:"ai"},research:{friend:"Research",type:"ai"},wildcard:{friend:"Wildcard",type:"ai"},boss:{friend:"Boss",type:"leadership"},coach:{friend:"Coach",type:"confidence"},operator:{friend:"Operator",type:"operations"},counsel:{friend:"Counsel",type:"drama"},finance:{friend:"Finance",type:"evidence"},product:{friend:"Product",type:"operations"},comms:{friend:"Comms",type:"voice"},data:{friend:"Data",type:"evidence"},founder:{friend:"Founder",type:"leadership"},sponsor:{friend:"Sponsor",type:"career"},builder:{friend:"Builder",type:"ai"},closer:{friend:"Closer",type:"voice"} };
-      const dreamPhoneNumbers = { 5551995:"mentor",5551999:"strategist",5552001:"bestie",5552003:"boundary",5552004:"receipts",5552007:"hype",5552008:"steady",5552010:"bigbro",5552013:"wildcard",5552016:"creative",5552024:"research",5552026:"aihelp",5552027:"boss",5552028:"coach",5552029:"operator",5552030:"counsel",5552031:"finance",5552032:"product",5552033:"comms",5552034:"data",5552035:"founder",5552036:"sponsor",5552037:"builder",5552038:"closer" };
-      const dreamPhoneSpecials = { secret:{label:"Share a Secret",prefix:"Secret shared \u2014 now flip the secret under the answer: name the thing everyone is politely stepping around."},speaker:{label:"Speaker Phone",prefix:"Speaker phone:",extra:"Say it in a version the whole room can hear: clear, calm, and impossible to misquote."},hangup:{label:"Mom Says Hang Up!",prefix:"Mom says hang up:",extra:"End the spiral. One sentence, one next step, then hang up before the overthinking gets a sequel."} };
-      const dreamPhoneSecretBadges = { 8675309:{id:"867-club",title:"867 Club merit badge",baseMessage:"867-5309 connected. You found the secret Dream Phone line and earned the 867 Club merit badge. Open your Clubhouse Pass so the badge can stay pinned to your member card."} };
+    <!-- Dream Phone behavior is handled by ../script.js. -->
 
-      let lastIndexes = {};
-      let lastPick = "";
-      let lastBaseAnswer = "";
-      let activeSpecial = "";
-
-      function nextIndex(length, prev) { if (length <= 1) return 0; let i = prev; while (i === prev) { i = Math.floor(Math.random() * length); } return i; }
-      function normalizeDreamPhoneNumber(v) { return String(v || "").replace(/\D/g, ""); }
-      function formatDreamPhoneNumber(v) { const d = normalizeDreamPhoneNumber(v).slice(0,7); return d.length <= 3 ? d : d.slice(0,3)+"-"+d.slice(3); }
-
-      function getDreamPhoneAnswer(pick) {
-        const caller = dreamPhoneCallers[pick] || dreamPhoneCallers.mentor;
-        const bank = dreamPhoneMatches[caller.type] || dreamPhoneMatches.career;
-        lastIndexes[pick] = nextIndex(bank.answers.length, lastIndexes[pick] ?? -1);
-        lastPick = pick;
-        lastBaseAnswer = caller.friend + " | " + bank.answers[lastIndexes[pick]];
-        activeSpecial = "";
-        return lastBaseAnswer;
-      }
-
-      const phoneNumber = document.querySelector("#dreamPhoneNumber");
-      const dialButton = document.querySelector("#dreamPhoneButton");
-      const output = document.querySelector("#dreamPhoneOutput");
-      const secretBadge = document.querySelector("#dreamPhoneSecretBadge");
-      const contactCards = document.querySelectorAll("[data-dream-pick]");
-      const specialCards = document.querySelectorAll("[data-dream-special]");
-      const keypadButtons = document.querySelectorAll("[data-dream-key]");
-
-      function setNumber(v) { if (!phoneNumber) return; phoneNumber.value = formatDreamPhoneNumber(v); }
-      function setCard(pick) { contactCards.forEach(c => c.classList.toggle("is-selected", c.dataset.dreamPick === pick)); }
-      function setSpecial(key) { activeSpecial = dreamPhoneSpecials[key] ? key : ""; specialCards.forEach(c => c.classList.toggle("is-selected", Boolean(activeSpecial) && c.dataset.dreamSpecial === activeSpecial)); }
-
-      function scrollToOutput() {
-        setTimeout(() => { output.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 100);
-      }
-
-      function showAnswer(text) {
-        output.textContent = text;
-        output.classList.add('has-answer');
-        scrollToOutput();
-      }
-
-      keypadButtons.forEach(btn => { btn.addEventListener("click", () => { const cur = normalizeDreamPhoneNumber(phoneNumber?.value); if (cur.length < 7) setNumber(cur + btn.dataset.dreamKey); }); });
-
-      contactCards.forEach(card => { card.addEventListener("click", () => { const pick = card.dataset.dreamPick; const num = card.dataset.dreamNumber?.replace(/-/g,"") || ""; setCard(pick); setNumber(num); showAnswer(getDreamPhoneAnswer(pick)); }); });
-
-      specialCards.forEach(card => { card.addEventListener("click", () => { const key = card.dataset.dreamSpecial; if (!lastBaseAnswer) { output.textContent = "Call someone first, then pull a remix card."; return; } setSpecial(key); const sp = dreamPhoneSpecials[key]; if (!sp) return; showAnswer(sp.prefix + " " + lastBaseAnswer + (sp.extra ? "\n" + sp.extra : "")); }); });
-
-      dialButton?.addEventListener("click", () => {
-        const dialed = normalizeDreamPhoneNumber(phoneNumber?.value);
-        const badge = dreamPhoneSecretBadges[parseInt(dialed)];
-        if (badge) { showAnswer(badge.baseMessage); if (secretBadge) secretBadge.hidden = false; try { const b = JSON.parse(localStorage.getItem("laidiesSecretBadges")||"{}"); if (!b[badge.id]) { b[badge.id]={id:badge.id,title:badge.title,unlockedAt:new Date().toISOString()}; localStorage.setItem("laidiesSecretBadges",JSON.stringify(b)); } } catch(e){} return; }
-        const pick = dreamPhoneNumbers[dialed];
-        if (!dialed) { output.textContent = "Dial the number on a caller card. The phone is cute, but it is not psychic."; return; }
-        if (!pick) { output.textContent = "Busy signal. That number is not in this Dream Phone deck."; return; }
-        setCard(pick); showAnswer(getDreamPhoneAnswer(pick));
-      });
-
-      phoneNumber?.addEventListener("input", () => { setNumber(phoneNumber.value); });
-      phoneNumber?.addEventListener("keydown", (e) => { if (e.key === "Enter") dialButton?.click(); });
-    </script>
       <script src="../content/site/mini-player.js"></script>
 </body>
 </html>

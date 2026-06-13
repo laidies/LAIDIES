@@ -154,9 +154,25 @@
       box-shadow: 0 6px 24px rgba(255, 45, 155, 0.2);
       border-color: rgba(255, 45, 155, 0.7);
     }
-    .quiz-issue-card.active {
+    .quiz-issue-card.active,
+    .quiz-issue-card.is-selected {
       border-color: #ff2d9b;
       box-shadow: 0 0 20px rgba(255, 45, 155, 0.3);
+    }
+    .quiz-issue-card.is-selected::after {
+      content: "Selected";
+      display: inline-block;
+      width: fit-content;
+      margin-top: 8px;
+      padding: 4px 8px;
+      border: 1px solid rgba(255, 45, 155, 0.45);
+      border-radius: 999px;
+      color: #ff2d9b;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
     .quiz-issue-card span {
       font-family: 'JetBrains Mono', monospace;
@@ -171,6 +187,9 @@
       display: block;
       font-size: 0.92rem;
       margin-bottom: 4px;
+      line-height: 1.25;
+      overflow-wrap: normal;
+      word-break: normal;
     }
     .quiz-issue-card em {
       font-size: 0.75rem;
@@ -355,20 +374,25 @@
       <div class="quiz-issue-shelf" aria-label="Available issue quizzes">
         <button class="quiz-issue-card" type="button" data-quiz-open="foundation">
           <span>Foundation</span>
-          <strong>Why <span class="wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Exists</strong>
+          <strong>Why LAIDIES Exists</strong>
           <em>10 questions + 2 bonus</em>
         </button>
         <button class="quiz-issue-card" type="button" data-quiz-open="issue01">
-          <span>Issue 01</span>
+          <span>Issue 1</span>
           <strong>On Wednesdays We Use AI</strong>
+          <em>10 questions + 2 bonus</em>
+        </button>
+        <button class="quiz-issue-card" type="button" data-quiz-open="issue02">
+          <span>Issue 2</span>
+          <strong>Tell Me What You Want</strong>
           <em>10 questions + 2 bonus</em>
         </button>
       </div>
 
       <!-- Quiz Console -->
-      <div class="quiz-console">
+      <div class="quiz-console" hidden>
         <div class="quiz-console-header">
-          <p class="eyebrow" id="quizIssueLabel">Issue 01 Quiz</p>
+          <p class="eyebrow" id="quizIssueLabel">Selected quiz: Issue 1</p>
           <h3 id="quizIssueTitle">Opening the tab without making it a whole personality crisis.</h3>
         </div>
 
