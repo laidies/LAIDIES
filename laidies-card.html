@@ -1035,6 +1035,81 @@
     }
     .edit-back-btn:hover { color: rgba(255,255,255,0.8); text-decoration: underline; }
 
+    .why-strip,
+    .examples-section,
+    .builder-layout,
+    .bottom-cta,
+    .why-explainer,
+    .success-overlay {
+      display: none !important;
+    }
+    .glowup-panel {
+      max-width: 760px;
+      margin: 0 auto 80px;
+      padding: 0 20px;
+    }
+    .glowup-card {
+      background:
+        linear-gradient(145deg, rgba(255, 45, 155, 0.12), rgba(36, 123, 131, 0.08)),
+        rgba(30, 15, 35, 0.82);
+      border: 1.5px solid rgba(255, 45, 155, 0.35);
+      border-radius: 18px;
+      padding: clamp(24px, 5vw, 42px);
+      box-shadow: 0 20px 70px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+    .glowup-kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 14px;
+    }
+    .glowup-card h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.65rem, 4vw, 2.35rem);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .glowup-card p {
+      color: var(--text-secondary);
+      margin-bottom: 18px;
+    }
+    .glowup-card ul {
+      display: grid;
+      gap: 10px;
+      margin: 0 0 24px;
+      padding-left: 20px;
+      color: var(--text-secondary);
+    }
+    .glowup-card li::marker {
+      color: var(--pink);
+    }
+    .glowup-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .glowup-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .glowup-actions .primary-action {
+      background: var(--pink);
+      color: #fff;
+      box-shadow: 0 10px 28px rgba(255, 45, 155, 0.28);
+    }
+    .glowup-actions .secondary-action {
+      border: 1.5px solid rgba(255, 45, 155, 0.42);
+      color: var(--pink);
+    }
+
     </style>
 </head>
 <body>
@@ -1049,8 +1124,26 @@
 <!-- HERO -->
 <section class="hero">
   <p class="hero-eyebrow">Your LAIDIES Card</p>
-  <h1>This is how you show up.</h1>
-  <p>Your card is your name in the chat rooms, your face in the directory, and how other LAIDIES find you. <strong>No card = no posting.</strong> It takes 60 seconds and zero sign-up.</p>
+  <h1>The card is getting a premium glow-up.</h1>
+  <p>The LAIDIES Card is still the future home for progress, stickers, and member identity. The old avatar builder is paused while it becomes something more polished, more useful, and much more LAIDIES.</p>
+</section>
+
+<section class="glowup-panel" aria-labelledby="glowup-title">
+  <div class="glowup-card">
+    <p class="glowup-kicker">Getting a glow-up</p>
+    <h2 id="glowup-title">No cartoon avatars. No rushed profile builder. The next card should feel like a real membership moment.</h2>
+    <p>The redesign direction is a premium card built from initials, archetype, icon, background vibe, badge, and member number. It should help you save progress and join the group chat without making anyone feel like a sticker-sheet caricature.</p>
+    <ul>
+      <li>Browse the Community rooms while the card is being polished.</li>
+      <li>Use the Clubhouse Pass magic link when you want saved progress connected to your email.</li>
+      <li>Stickers, badges, quiz scores, and posting permissions will connect back here once the new card is ready.</li>
+    </ul>
+    <div class="glowup-actions">
+      <a class="primary-action" href="clubhouse-pass.html">Get a Clubhouse Pass</a>
+      <a class="secondary-action" href="community.html">Browse Community</a>
+      <a class="secondary-action" href="clubhouse.html">Back to Clubhouse</a>
+    </div>
+  </div>
 </section>
 
 <!-- WHY STRIP -->

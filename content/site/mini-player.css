@@ -213,11 +213,11 @@
 
 /* Ensure page content isn't hidden behind player */
 body.mp-active {
-  padding-bottom: 60px !important;
+  padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px)) !important;
 }
 
 @media (max-width: 480px) {
   body.mp-active {
-    padding-bottom: 76px !important;
+    padding-bottom: calc(104px + env(safe-area-inset-bottom, 0px)) !important;
   }
 }

@@ -3932,9 +3932,19 @@ function getIssueOptionLabel(issueKey, quiz) {
 }
 
 function getVisibleQuizIssueKeys() {
-  const keys = initialQuizIssueKeys.length ? initialQuizIssueKeys : Object.keys(issueQuizzes);
-  return keys
-    .sort((a, b) => getIssueSortNumber(a) - getIssueSortNumber(b));
+  const publishedIssueKeys = new Set(
+    (siteData.episodes || [])
+      .filter((episode) => episode.status === "published")
+      .map((episode) => `issue${String(episode.number).padStart(2, "0")}`)
+  );
+  const keys = new Set([...initialQuizIssueKeys, ...Object.keys(issueQuizzes)]);
+  return Array.from(keys)
+    .filter((issueKey) => issueKey === "foundation" || publishedIssueKeys.has(issueKey) || initialQuizIssueKeys.includes(issueKey))
+    .sort((a, b) => {
+      if (a === "foundation") return -1;
+      if (b === "foundation") return 1;
+      return getIssueSortNumber(a) - getIssueSortNumber(b);
+    });
 }
 
 function getQuizLengthLabel(quiz) {
@@ -3973,6 +3983,16 @@ function setBrandText(element, text) {
       element.append(document.createTextNode(part));
     }
   });
+}
+
+function getSiteRootUrl() {
+  const scriptSrc = document.querySelector('script[src$="script.js"], script[src*="script.js?"]')?.src || "script.js";
+  return new URL("./", scriptSrc);
+}
+
+function resolveSiteUrl(path) {
+  if (!path) return "";
+  return new URL(path, getSiteRootUrl()).toString();
 }
 
 function getIssueCardTitle(issueKey, quiz) {
@@ -4338,7 +4358,7 @@ function renderQuizProgressList() {
 async function hydrateQuizDataFromFile() {
   if (!initialQuizIssueKeys.length || typeof fetch !== "function") return;
   try {
-    const response = await fetch("content/site/quizzes.json?v=issue-02-live-1", { cache: "no-store" });
+    const response = await fetch(new URL("content/site/quizzes.json?v=issue-02-live-2", getSiteRootUrl()), { cache: "no-store" });
     if (!response.ok) return;
     const loadedQuizzes = await response.json();
     const visibleKeys = getVisibleQuizIssueKeys();
@@ -4369,7 +4389,7 @@ function renderQuiz() {
   if (quizIssueLabel) quizIssueLabel.textContent = quiz.label;
   setBrandText(quizIssueTitle, quiz.title);
   if (quizRereadLink) {
-    quizRereadLink.href = quiz.rereadUrl;
+    quizRereadLink.href = resolveSiteUrl(quiz.rereadUrl);
     setBrandText(quizRereadLink, quiz.rereadLabel);
   }
   if (quizIssueSelect) quizIssueSelect.value = activeQuizKey;
@@ -4494,7 +4514,7 @@ function gradeQuiz() {
       const reviewText = question.review.trim();
       const reviewLocation = reviewText.replace(/^find it in\s*/i, "").replace(/^find it\s*/i, "");
       review.textContent = `Where to find it: ${reviewLocation}`;
-      if (question.reviewUrl) review.href = question.reviewUrl;
+      if (question.reviewUrl) review.href = resolveSiteUrl(question.reviewUrl);
       explain.appendChild(review);
     }
     fieldset?.appendChild(explain);

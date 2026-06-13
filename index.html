@@ -68,6 +68,38 @@
       .hero-actions {
         margin-top: 8px !important;
       }
+      .new-visitor-callout {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 22px clamp(18px, 5vw, 64px) 0;
+      }
+      .new-visitor-card {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 18px;
+        align-items: center;
+        padding: 18px 22px;
+        border: 2px solid rgba(255, 45, 155, 0.28);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.72);
+        box-shadow: 0 10px 32px rgba(255, 45, 155, 0.08);
+      }
+      .new-visitor-card::before {
+        content: "new here?";
+        position: absolute;
+        top: -18px;
+        left: 18px;
+        font-family: 'Dancing Script', cursive;
+        font-size: 1.55rem;
+        color: var(--hot-pink);
+        transform: rotate(-4deg);
+      }
+      .new-visitor-card p {
+        margin: 0;
+        color: rgba(16, 8, 5, 0.7);
+        line-height: 1.5;
+      }
 
       /* ─── INTRO BAND ─── */
       .intro-band {
@@ -235,6 +267,10 @@
         .clubhouse-grid-card img {
           height: 180px;
         }
+        .new-visitor-card {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
       }
 
       /* Force section heading to not be sticky in clubhouse section */
@@ -332,9 +368,9 @@
             Play LAIDIES anthem
           </button>
           <div class="hero-actions">
-            <a class="button primary" href="start-here.html">Start Here</a>
-            <a class="button secondary" href="issues/issue-02.html">Read Current Episode</a>
-            <a class="button secondary" href="clubhouse.html">Go to Clubhouse</a>
+            <a class="button primary" href="issues/issue-02.html">Read Current Episode</a>
+            <a class="button secondary" href="clubhouse.html">Enter the Clubhouse</a>
+            <a class="button secondary" href="start-here.html">New here? Start with the Foundation</a>
           </div>
         </div>
         <figure class="hero-image">
@@ -342,8 +378,12 @@
         </figure>
       </section>
 
-      <!-- INTRO -->
-      
+      <section class="new-visitor-callout" aria-label="New visitor path">
+        <div class="new-visitor-card">
+          <p><strong>First time in the room?</strong> Start with the Foundation so the weekly episodes, quizzes, tools, and references have somewhere useful to land.</p>
+          <a class="button secondary" href="start-here.html">Start with the Foundation</a>
+        </div>
+      </section>
 
       <!-- CURRENT EPISODE -->
       <section id="episodes" style="padding: clamp(34px, 5vw, 64px) clamp(18px, 5vw, 64px);">
@@ -397,7 +437,7 @@
             <img loading="lazy" src="assets/clubhouse-pass-laidies-card-sample.png" alt="Sample LAIDIES Card with trading card layout" />
             <div class="card-text">
               <h3>LAIDIES Card</h3>
-              <p>Your name, your work lane, your AI superpower. Fill it in, make it yours.</p>
+              <p>The premium member card is getting a glow-up. No cartoon avatars, no rushed identity layer.</p>
             </div>
           </a>
           <a href="clubhouse.html" class="clubhouse-grid-card">
