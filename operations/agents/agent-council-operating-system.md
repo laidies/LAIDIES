@@ -30,6 +30,22 @@ Shared release standard:
 
 This standard protects Ali's reputation without making lAIdies beige. Playfulness must be polished, intentional, useful, and backed by substance.
 
+## Rescue Pass vs Gold-Standard UX Gate
+
+A rescue pass means broken, risky, misleading, or professionally embarrassing paths have been stabilized enough that the site is no longer in obvious danger. It does not mean the experience is gold-standard, launch-polished, or ready for Ali to treat as fully approved.
+
+A gold-standard UX council pass is a separate gate. It must happen after rescue work, with browser evidence and a fresh council review. The builder who implemented the fix cannot self-approve the result; another reviewer, council role, or Ali must confirm the page meets the higher standard.
+
+Homepage UX council checklist:
+
+- no duplicated CTAs above the fold or immediately after the hero
+- hero image crop feels intentional on desktop and mobile
+- primary reader journey is obvious in 5 seconds
+- new-reader path is present but not repetitive
+- no unfinished or draft experiences are promoted
+- desktop and mobile smoke checks show no horizontal overflow
+- console is free of new page-level errors
+
 ## Rescue Council Roles
 
 Use these roles for website rescue, weekly release review, and high-visibility product decisions. Each role can return `PASS`, `IMPROVE`, `BLOCK LAUNCH`, or `PARK`.

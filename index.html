@@ -52,55 +52,28 @@
         gap: 12px !important;
       }
       .hero-image {
-        max-height: 420px !important;
+        height: clamp(320px, 44vw, 560px) !important;
+        max-width: 980px;
+        max-height: none !important;
         overflow: hidden;
         border-radius: 12px;
         margin: 0 auto;
-        width: 100%;
+        width: min(100%, 980px);
       }
       .hero-image img {
-        max-height: 420px !important;
+        height: 100% !important;
+        max-height: none !important;
         width: 100% !important;
         object-fit: cover !important;
-        object-position: center 25%;
+        object-position: center 42%;
         border-radius: 12px;
       }
       .hero-actions {
         margin-top: 8px !important;
       }
-      .new-visitor-callout {
-        max-width: 980px;
-        margin: 0 auto;
-        padding: 22px clamp(18px, 5vw, 64px) 0;
+      .site-footer div {
+        flex-wrap: wrap;
       }
-      .new-visitor-card {
-        position: relative;
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 18px;
-        align-items: center;
-        padding: 18px 22px;
-        border: 2px solid rgba(255, 45, 155, 0.28);
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.72);
-        box-shadow: 0 10px 32px rgba(255, 45, 155, 0.08);
-      }
-      .new-visitor-card::before {
-        content: "new here?";
-        position: absolute;
-        top: -18px;
-        left: 18px;
-        font-family: 'Dancing Script', cursive;
-        font-size: 1.55rem;
-        color: var(--hot-pink);
-        transform: rotate(-4deg);
-      }
-      .new-visitor-card p {
-        margin: 0;
-        color: rgba(16, 8, 5, 0.7);
-        line-height: 1.5;
-      }
-
       /* ─── INTRO BAND ─── */
       .intro-band {
         padding: 28px 20px !important;
@@ -267,9 +240,17 @@
         .clubhouse-grid-card img {
           height: 180px;
         }
-        .new-visitor-card {
-          grid-template-columns: 1fr;
-          text-align: center;
+        .hero-image {
+          height: auto !important;
+          aspect-ratio: 4 / 3;
+          width: min(100%, 390px);
+        }
+        .hero-image img {
+          object-position: center center;
+        }
+        .site-footer div {
+          justify-content: center;
+          gap: 10px 14px;
         }
       }
 
@@ -376,13 +357,6 @@
         <figure class="hero-image">
           <img src="assets/lets-chat.png" alt="Stylish corporate woman on a pink phone surrounded by 90s pop culture references" />
         </figure>
-      </section>
-
-      <section class="new-visitor-callout" aria-label="New visitor path">
-        <div class="new-visitor-card">
-          <p><strong>First time in the room?</strong> Start with the Foundation so the weekly episodes, quizzes, tools, and references have somewhere useful to land.</p>
-          <a class="button secondary" href="start-here.html">Start with the Foundation</a>
-        </div>
       </section>
 
       <!-- CURRENT EPISODE -->
