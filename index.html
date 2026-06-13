@@ -323,14 +323,12 @@
         </a>
         <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=this.nextElementSibling;if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'☰':'✕';this.setAttribute('aria-expanded',!isOpen);">☰</button>
         <nav class="nav" aria-label="Primary navigation">
-          <a href="#top">Home</a>
           <a href="start-here.html">New? Start Here</a>
+          <a href="this-week.html">This Week</a>
           <a href="episodes.html">Episodes</a>
           <a href="learn.html">Learn</a>
           <a href="clubhouse.html">Clubhouse</a>
           <a href="community.html">Community</a>
-    <a href="games/dj-booth.html">Listen</a>
-          <a href="this-week.html">This Week</a>
           <a href="clubhouse-pass.html" style="font-size: 0.85rem; color: var(--hot-pink); margin-left: 12px; text-decoration: underline;">Sign In</a>
         </nav>
       </header>
@@ -350,8 +348,8 @@
           </button>
           <div class="hero-actions">
             <a class="button primary" href="issues/issue-02.html">Read Current Episode</a>
-            <a class="button secondary" href="clubhouse.html">Enter the Clubhouse</a>
             <a class="button secondary" href="start-here.html">New here? Start with the Foundation</a>
+            <a class="button secondary" href="clubhouse.html">Try Clubhouse activities</a>
           </div>
         </div>
         <figure class="hero-image">
@@ -371,6 +369,7 @@
             <div class="episode-links">
               <a class="button episode-archive-link" href="issues/issue-01.html">&larr; Episode 1</a>
               <a class="button episode-archive-link" href="episodes.html">Season roadmap</a>
+              <a class="button episode-archive-link" href="this-week.html">This week's dashboard</a>
               <a class="button episode-archive-link" href="games/fun-pack.html">Open this week's Fun Pack &rarr;</a>
             </div>
             <p class="season-pitch-teaser" style="font-size: 0.8rem; color: rgba(16,8,5,0.5); margin-top: 14px; line-height: 1.4;">Twenty-four episodes. New one every Wednesday. <button type="button" class="season-pitch-toggle" style="background:none; border:none; color:inherit; font:inherit; cursor:pointer; text-decoration:underline; padding:0;" onclick="event.preventDefault(); this.parentElement.nextElementSibling.hidden = !this.parentElement.nextElementSibling.hidden; this.textContent = this.parentElement.nextElementSibling.hidden ? 'Read more…' : 'Less';">Read more…</button></p>
@@ -396,29 +395,29 @@
       <!-- THE CLUBHOUSE -->
       <section class="fun-games" id="the-clubhouse" aria-labelledby="clubhouse-title">
         <div class="section-heading">
-          <p class="eyebrow">The Clubhouse</p>
-          <h2 id="clubhouse-title">Everything that makes the learning stick, the practice fun, and the room worth coming back to.</h2>
+          <p class="eyebrow">Practice tools, games, and weekly extras</p>
+          <h2 id="clubhouse-title">Read the issue first, then use these when you want the lesson to stick.</h2>
         </div>
         <div class="clubhouse-grid">
           <a href="clubhouse-pass.html" class="clubhouse-grid-card">
-            <img loading="lazy" src="assets/card-clubhouse-pass-v2.png" alt="Pink Clubhouse Pass membership card" />
+            <img loading="lazy" src="assets/card-clubhouse-pass-v2.png" alt="Pink Clubhouse Pass account card" />
             <div class="card-text">
               <h3>Clubhouse Pass</h3>
-              <p>Your card, your badges, your name in the chat rooms. One email. Nothing else required.</p>
+              <p>Sign in only when you want quiz scores, stickers, and progress to follow you across devices.</p>
             </div>
           </a>
           <a href="laidies-card.html" class="clubhouse-grid-card">
             <img loading="lazy" src="assets/clubhouse-pass-laidies-card-sample.png" alt="Sample LAIDIES Card with trading card layout" />
             <div class="card-text">
               <h3>LAIDIES Card Preview</h3>
-              <p>The premium member card is getting a glow-up. Preview where progress, stickers, and member identity are headed.</p>
+              <p>The premium progress-card direction is still getting polished. Peek if you are curious, but the issue is the main event.</p>
             </div>
           </a>
           <a href="clubhouse.html" class="clubhouse-grid-card">
             <img loading="lazy" src="assets/clubhouse-compact-closed-v1.png" alt="Closed pink Clubhouse compact with molded shell ridges" />
             <div class="card-text">
-              <h3>Enter Clubhouse</h3>
-              <p>Get a reading from Madame CLAI-O, call Dream Phone for career advice, ask your f<span class="brand-ai">AI</span>ry Godmother, listen to LAIDIES jams, open your weekly fun pack, or set your happy hour fortune.</p>
+              <h3>Clubhouse Games</h3>
+              <p>Open the weekly Fun Pack, collect cards, ask Madame CLAI-O, listen to the jams, or try one tiny practice move.</p>
             </div>
           </a>
           <a href="this-week.html#hot-goss" class="clubhouse-grid-card">
@@ -445,8 +444,8 @@
           <a href="community.html" class="clubhouse-grid-card clubhouse-room-card">
             <img loading="lazy" src="assets/send-it.png" alt="Corporate desk scene with a note saying Send It" />
             <div class="card-text">
-              <h3>The LAIDIES Chat Room</h3>
-              <p>Chat rooms for the group chat you wish you had at work. 9 chat rooms: ask AI questions, share wins, trade playlists, vent about meetings, and talk yourself into the brave thing.</p>
+              <h3>The LAIDIES Room</h3>
+              <p>A light place to answer the weekly prompt, debrief the Try-On, share a win, or ask the community.</p>
             </div>
           </a>
         </div>
@@ -473,7 +472,7 @@
             <button type="submit">Subscribe</button>
           </div>
           <p class="form-status" id="subscribeStatus" aria-live="polite">
-            Wednesday episodes, public-room prompts, and occasional useful detours. Unsubscribe anytime.
+            Wednesday episodes, community prompts, and occasional useful detours. Unsubscribe anytime.
           </p>
         </form>
         <iframe
@@ -499,7 +498,7 @@
             <span>Receipt</span>
             <h3>Five days from "I have never built a website" to a living, glitter-covered AI world.</h3>
             <p>
-              With AI, the idea stopped waiting for a traditional tech on-ramp. In under three weeks, the vision became a newsletter, website, visual system, quiz archive, games, agents, issue packs, and a public room people can actually use.
+              With AI, the idea stopped waiting for a traditional tech on-ramp. In under three weeks, the vision became a newsletter, website, visual system, quiz archive, games, agents, issue packs, and a community space people can actually use.
             </p>
           </div>
         </div>
@@ -508,13 +507,13 @@
             <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--hot-pink); font-weight: 800; margin: 0 0 12px;">Ali's LAIDIES Card Preview</p>
             <img loading="lazy" src="assets/dream-phone-boss-ali.png" alt="Ali Eakin — Founder of lAIdies" style="width: 100%; max-width: 380px; border-radius: 12px; box-shadow: 0 12px 40px rgba(255,45,155,0.25);" />
             <div style="margin-top: 16px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-              <a class="button primary" href="laidies-card.html">Preview the glow-up →</a>
-              <a class="button secondary" href="clubhouse-pass.html">Get a Clubhouse Pass</a>
+              <a class="button primary" href="laidies-card.html">Peek at the card glow-up →</a>
+              <a class="button secondary" href="clubhouse-pass.html">Sign in to save progress</a>
             </div>
           </div>
           <div style="background: linear-gradient(135deg, #1a0a12, #2d0f1f); border-radius: 12px; padding: 24px; color: #fff;">
             <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--hot-pink); margin: 0 0 12px;">The Founding Group Chat</p>
-            <p style="margin: 0 0 12px; font-size: 0.95rem; color: rgba(255,248,252,0.85); line-height: 1.6;"><strong>Ali Eakin</strong> — Founder of lAIdies. Writer, builder, and the woman who got tired of waiting for a traditional tech on-ramp. Created the newsletter, website, visuals, games, and public room with AI.</p>
+            <p style="margin: 0 0 12px; font-size: 0.95rem; color: rgba(255,248,252,0.85); line-height: 1.6;"><strong>Ali Eakin</strong> — Founder of lAIdies. Writer, builder, and the woman who got tired of waiting for a traditional tech on-ramp. Created the newsletter, website, visuals, games, and community space with AI.</p>
             <p style="margin: 0 0 12px; font-size: 0.95rem; color: rgba(255,248,252,0.85); line-height: 1.6;"><strong>Sara Baxter</strong> — Early reviewer, Echo hackathon teammate, feedback giver, and the group chat energy that made it feel worth building out loud.</p>
             <p style="margin: 0 0 12px; font-size: 0.95rem; color: rgba(255,248,252,0.85); line-height: 1.6;"><strong>Eugina Lim</strong> — Echo was her idea. One of Amazon Tax's AI experts, hackathon teammate, and part of where this whole thing is going next.</p>
             <p style="margin: 0; font-size: 0.95rem; color: rgba(255,248,252,0.85); line-height: 1.6;"><strong>Josh Hudson</strong> — You know him as DJ JAIDY. Girl dad, AI steering committee champion, huge supporter of the LAIDIES mission, weekly episode song maker, and the person who decided this project needed a House DJ.</p>
@@ -546,7 +545,7 @@
             <p class="eyebrow">Use it like an app</p>
             <h3 id="home-screen-title">Add <span class="wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> to your Home Screen.</h3>
             <p>
-              Keep weekly packs, quizzes, playlists, and <span class="wordmark laidies-inline-wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> Card progress one tap away. Until you sign in, scores and rewards are saved to the browser and device you use.
+              Keep the current episode, weekly dashboard, Fun Pack, quizzes, and playlists one tap away. Until you sign in, scores and rewards are saved to the browser and device you use.
             </p>
           </div>
           <div class="home-screen-steps" aria-label="Home screen instructions">

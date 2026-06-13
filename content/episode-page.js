@@ -21,7 +21,7 @@
   function renderToolkit(episode) {
     const links = episode?.siteLinks?.length ? episode.siteLinks : [];
     const issueLabel = episode?.number ? "Episode " + padIssue(episode.number) + " Fun Pack" : "Episode Fun Pack";
-    const title = episode?.title ? episode.title + ": keep playing." : "Keep playing after the read.";
+    const title = episode?.title ? episode.title + ": keep practicing." : "Keep practicing after the read.";
     const track = episodeTracks[issueNumber];
 
     toolkitMount.className = "issue-toolkit";
@@ -48,8 +48,9 @@
       <div class="issue-toolkit-inner">
         <p class="issue-toolkit-label">${issueLabel}</p>
         <h2>${title}</h2>
-        <p>Now that the read is done, jump back into the quiz, card pack, printables, glossary, and chat-room pieces without leaving the lAIdies room.</p>
+        <p>Now that the read is done, use the weekly dashboard, quiz, Fun Pack, printable, glossary, and prompt to make the issue stick.</p>
         <div class="issue-toolkit-grid">
+          <a href="../this-week.html" data-link-type="weekly">Open this week's dashboard</a>
           <a href="../games/fun-pack.html" data-link-type="cardPack">Open the full Fun Pack</a>
           ${linksHtml}
           <a href="../index.html" data-link-type="episodes">Back to homepage</a>

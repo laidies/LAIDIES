@@ -30,6 +30,8 @@ Shared release standard:
 
 This standard protects Ali's reputation without making lAIdies beige. Playfulness must be polished, intentional, useful, and backed by substance.
 
+LAIDIES brand safety rule: Because the visual identity uses neon pink/black and the brand name includes "ladies," avoid copy or UX patterns that could read as adult, suggestive, or "members-only nightlife." The tone should stay stylish, funny, smart, and women-centered, but clearly professional and educational.
+
 ## Rescue Pass vs Gold-Standard UX Gate
 
 A rescue pass means broken, risky, misleading, or professionally embarrassing paths have been stabilized enough that the site is no longer in obvious danger. It does not mean the experience is gold-standard, launch-polished, or ready for Ali to treat as fully approved.

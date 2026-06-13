@@ -582,25 +582,23 @@
       <img src="assets/laidies-logo-wordmark.png" alt="LAIDIES" />
     </a>
     <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=document.querySelector('.site-header nav');var isOpen=n.classList.contains('open');n.classList.toggle('open');this.textContent=isOpen?'\u2630':'\u2715';this.setAttribute('aria-expanded',!isOpen);">&#x2630;</button>
-    <nav aria-label="Primary navigation">
-      <a href="index.html">Home</a>
-      <a href="start-here.html">New? Start Here</a>
-      <a href="episodes.html">Episodes</a>
-      <a href="learn.html">Learn</a>
-      <a href="clubhouse.html">Clubhouse</a>
-      <a href="community.html">Community</a>
-      <a href="games/dj-booth.html">Listen</a>
-      <a href="this-week.html">This Week</a>
-      <a href="clubhouse-pass.html" style="color: #ff2d9b; text-decoration: underline; margin-left: 8px;">Sign In</a>
-</nav>
+    <nav class="nav" aria-label="Primary navigation">
+          <a href="start-here.html">New? Start Here</a>
+          <a href="this-week.html">This Week</a>
+          <a href="episodes.html">Episodes</a>
+          <a href="learn.html">Learn</a>
+          <a href="clubhouse.html">Clubhouse</a>
+          <a href="community.html" aria-current="page">Community</a>
+          <a href="clubhouse-pass.html" style="color: #ff2d9b; text-decoration: underline; margin-left: 8px;">Sign In</a>
+        </nav>
   </header>
 
   <main>
     <!-- ============ SECTION 1: LAIDIES CARDS ============ -->
     <section class="cards-section" id="laidies-cards">
       <p class="eyebrow">lAIdies Cards</p>
-      <h1>The group chat you wish you had at work.</h1>
-      <p class="subtitle">Browse by journey stage. Click a card to see the full profile.</p>
+      <h1>The light participation space.</h1>
+      <p class="subtitle">Answer the weekly prompt, debrief the Try-On, share a win, or ask the community. No need to make it a whole networking strategy.</p>
 
       <div class="filter-bar" role="toolbar" aria-label="Filter cards">
         <button class="active" data-filter="all">All cards</button>
@@ -685,60 +683,60 @@
       </div>
 
       <div class="cta-row">
-        <a href="laidies-card.html">Preview the LAIDIES Card glow-up &rarr;</a>
+        <a href="laidies-card.html">Peek at the LAIDIES Card glow-up &rarr;</a>
       </div>
     </section>
 
     <!-- ============ SECTION 2: CHAT ROOMS ============ -->
     <section class="rooms-section" id="chat-rooms">
-      <p class="eyebrow">The lAIdies Room</p>
-      <h2>9 chat rooms. Pick the one that fits.</h2>
+      <p class="eyebrow">Community Prompts</p>
+      <h2>Start with the weekly prompt. Browse the rest when it fits.</h2>
 
       <div class="rooms-grid">
         <div class="room-card">
           <h3>Ask the Room</h3>
           <p>Save your AI question for the group.</p>
-          <a href="community/ask-the-room.html">Enter &rarr;</a>
+          <a href="community/ask-the-room.html">Open &rarr;</a>
         </div>
         <div class="room-card">
           <h3>Send It Energy</h3>
           <p>Share the prompt or trick that worked.</p>
-          <a href="community/send-it-energy.html">Enter &rarr;</a>
+          <a href="community/send-it-energy.html">Open &rarr;</a>
         </div>
         <div class="room-card">
           <h3>The Try-On Debrief</h3>
-          <p>What did you test this week?</p>
-          <a href="community/try-on-debrief.html">Enter &rarr;</a>
+          <p>The easiest place to participate: what did you test this week?</p>
+          <a href="community/try-on-debrief.html">Open &rarr;</a>
         </div>
         <div class="room-card">
           <h3>Wins of the Week</h3>
           <p>AI not required. We celebrate those too.</p>
-          <a href="community/wins.html">Enter &rarr;</a>
+          <a href="community/wins.html">Open &rarr;</a>
         </div>
         <div class="room-card">
           <h3>Dear lAIdies</h3>
           <p>Ask for non-AI advice.</p>
-          <a href="community/dear-laidies.html">Enter &rarr;</a>
+          <a href="community/dear-laidies.html">Open &rarr;</a>
         </div>
         <div class="room-card">
           <h3>Burn Book</h3>
           <p>Nominate a 90s reference for an analogy.</p>
-          <a href="community/burn-book.html">Enter &rarr;</a>
+          <a href="community/burn-book.html">Open &rarr;</a>
         </div>
         <div class="room-card">
           <h3>Mix CD Exchange</h3>
           <p>Drop your playlist link.</p>
-          <a href="community/mix-cd-exchange.html">Enter &rarr;</a>
+          <a href="community/mix-cd-exchange.html">Open &rarr;</a>
         </div>
         <div class="room-card">
           <h3>Comment Card</h3>
           <p>Tell us how it landed.</p>
-          <a href="community/comment-card.html">Enter &rarr;</a>
+          <a href="community/comment-card.html">Open &rarr;</a>
         </div>
         <div class="room-card">
           <h3>Receipts Desk</h3>
-          <p>AI-summarized answers from the room.</p>
-          <a href="community/chat-room-digest.html">Enter &rarr;</a>
+          <p>AI-summarized answers from community prompts.</p>
+          <a href="community/chat-room-digest.html">Open &rarr;</a>
         </div>
       </div>
     </section>
@@ -746,8 +744,8 @@
     <!-- === CLUBHOUSE PASS CTA === -->
     <section style="max-width: 560px; margin: 32px auto 0; padding: 0 24px 48px;">
       <div style="background: var(--dark-bg); border: 1.5px solid var(--card-border); border-radius: 14px; padding: 20px 24px; text-align: center;">
-        <p style="font-size: 0.84rem; color: rgba(255,248,252,0.6); line-height: 1.5; margin-bottom: 10px;">Want saved progress across devices while the LAIDIES Card gets polished? Get a Clubhouse Pass &mdash; one email, no password, ever.</p>
-        <a href="clubhouse-pass.html" style="color: var(--hot-pink); font-size: 0.82rem; font-weight: 600; text-decoration: none;">Get my pass &rarr;</a>
+        <p style="font-size: 0.84rem; color: rgba(255,248,252,0.6); line-height: 1.5; margin-bottom: 10px;">Want saved progress across devices while the LAIDIES Card gets polished? Sign in with a Clubhouse Pass &mdash; one email, no password, ever.</p>
+        <a href="clubhouse-pass.html" style="color: var(--hot-pink); font-size: 0.82rem; font-weight: 600; text-decoration: none;">Sign in to save progress &rarr;</a>
       </div>
     </section>
 
@@ -770,7 +768,7 @@
       bgClass: 'card-bg-laser',
       name: 'Ali',
       era: 'Founder Era',
-      desc: 'Tax leader, Women-in-Tax builder, TEI contributor, and founder of lAIdies — the room you are currently standing in.',
+      desc: 'Tax leader, Women-in-Tax builder, TEI contributor, and founder of lAIdies — the site you are currently visiting.',
       meta: '<strong>AI journey:</strong> building in public, testing agents, and learning the technical pieces out loud.<br><strong>Can help with:</strong> tax, community building, practical AI tests, messy first drafts, and work that refuses to stay beige.',
       tags: ['Indirect Tax', 'Women-in-Tax', 'TEI', 'ChatGPT', 'Claude Code', 'Codex', 'Open to connect']
     },
