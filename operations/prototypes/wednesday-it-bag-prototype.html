@@ -1,0 +1,1587 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Wednesday Ritual | LAIDIES</title>
+  <style>
+    :root {
+      --ink: #21111f;
+      --plum: #32122f;
+      --blackberry: #160b17;
+      --cream: #fff3db;
+      --paper: #fff9ec;
+      --blush: #ffd9e9;
+      --pink: #ff3fa4;
+      --hot-pink: #ff1492;
+      --blue: #bde8ff;
+      --yellow: #ffe47a;
+      --gold: #dcae48;
+      --shadow: rgba(32, 10, 29, 0.35);
+      --radius-xl: 28px;
+      --radius-lg: 18px;
+      --radius-sm: 8px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-width: 0;
+      overflow-x: hidden;
+    }
+
+    body {
+      margin: 0;
+      min-width: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(255, 63, 164, 0.32), transparent 26rem),
+        radial-gradient(circle at 86% 12%, rgba(189, 232, 255, 0.2), transparent 24rem),
+        linear-gradient(135deg, #1a0a1b 0%, #3a1431 48%, #140914 100%);
+      color: var(--paper);
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 44px;
+    }
+
+    .ritual-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+      gap: clamp(18px, 4vw, 44px);
+      align-items: end;
+      margin-bottom: 22px;
+    }
+
+    .ritual-title {
+      display: grid;
+      gap: 12px;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      padding: 7px 13px;
+      background: rgba(255, 249, 236, 0.12);
+      color: var(--yellow);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 780px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.7rem, 7vw, 6.5rem);
+      line-height: 0.88;
+      color: var(--paper);
+      text-shadow: 0 12px 34px rgba(0, 0, 0, 0.36);
+    }
+
+    .lede {
+      max-width: 680px;
+      margin: 0;
+      color: rgba(255, 249, 236, 0.86);
+      font-size: clamp(1rem, 2.1vw, 1.28rem);
+      line-height: 1.5;
+    }
+
+    .stage-shell {
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius-xl);
+      padding: clamp(12px, 2vw, 18px);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.05)),
+        rgba(30, 9, 27, 0.62);
+      box-shadow: 0 28px 75px rgba(0, 0, 0, 0.42);
+      overflow: hidden;
+    }
+
+    .stage-shell::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border-radius: calc(var(--radius-xl) - 8px);
+      border: 1px solid rgba(255, 63, 164, 0.22);
+      pointer-events: none;
+    }
+
+    .scene {
+      position: relative;
+      isolation: isolate;
+      min-height: 460px;
+      border-radius: 22px;
+      overflow: hidden;
+      background: var(--blackberry);
+    }
+
+    .scene[hidden] {
+      display: none;
+    }
+
+    .image-stage {
+      position: relative;
+      min-height: 460px;
+      overflow: hidden;
+    }
+
+    .scene-image {
+      display: block;
+      width: 100%;
+      min-height: 460px;
+      object-fit: cover;
+      object-position: center;
+      user-select: none;
+    }
+
+    .closed-scene .scene-image {
+      object-position: center 48%;
+    }
+
+    .open-scene .scene-image {
+      object-position: center 52%;
+    }
+
+    .soft-scrim {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(90deg, rgba(22, 8, 20, 0.62), transparent 47%),
+        linear-gradient(0deg, rgba(22, 8, 20, 0.44), transparent 52%);
+      pointer-events: none;
+    }
+
+    .bag-hotspot {
+      position: absolute;
+      z-index: 3;
+      top: 12%;
+      right: 18%;
+      width: min(27%, 310px);
+      height: 68%;
+      border: 0;
+      border-radius: 0;
+      clip-path: polygon(34% 2%, 66% 2%, 77% 13%, 78% 24%, 88% 28%, 92% 45%, 88% 88%, 78% 98%, 22% 98%, 12% 88%, 8% 45%, 12% 28%, 22% 24%, 23% 13%);
+      background: rgba(255, 63, 164, 0.025);
+      box-shadow:
+        0 0 34px rgba(255, 20, 146, 0.24);
+      color: transparent;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .bag-hotspot::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      clip-path: inherit;
+      background:
+        linear-gradient(135deg, rgba(255, 63, 164, 0.9), rgba(255, 228, 122, 0.72));
+      opacity: 0.42;
+      mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      padding: 3px;
+      mask-composite: exclude;
+      -webkit-mask-composite: xor;
+      pointer-events: none;
+    }
+
+    .bag-hotspot:hover,
+    .bag-hotspot:focus-visible {
+      transform: translateY(-4px) rotate(-1deg);
+      background: rgba(255, 63, 164, 0.12);
+      box-shadow:
+        0 0 0 11px rgba(255, 228, 122, 0.14),
+        0 0 58px rgba(255, 20, 146, 0.66);
+      outline: none;
+    }
+
+    .bag-hotspot:hover::before,
+    .bag-hotspot:focus-visible::before {
+      opacity: 0.9;
+    }
+
+    .bag-hotspot::after {
+      content: "";
+      position: absolute;
+      inset: 9px;
+      clip-path: inherit;
+      background: rgba(255, 255, 255, 0.14);
+      opacity: 0;
+      transition: opacity 180ms ease;
+    }
+
+    .bag-hotspot:hover::after,
+    .bag-hotspot:focus-visible::after {
+      opacity: 1;
+    }
+
+    .ritual-control {
+      position: relative;
+      z-index: 4;
+      max-width: 340px;
+      color: var(--ink);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(255, 243, 219, 0.95)),
+        var(--paper);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 18px;
+      box-shadow: 0 20px 44px rgba(32, 10, 29, 0.3);
+    }
+
+    .ritual-control {
+      justify-self: end;
+      padding: 20px;
+      transform: rotate(-1.3deg);
+    }
+
+    .ritual-control::before {
+      content: "";
+      position: absolute;
+      top: -13px;
+      left: 24px;
+      width: 92px;
+      height: 24px;
+      border-radius: 4px;
+      background: rgba(255, 63, 164, 0.72);
+      box-shadow: 0 4px 16px rgba(255, 20, 146, 0.28);
+      transform: rotate(2.5deg);
+    }
+
+    .note-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 8px;
+      color: #8c1160;
+      font-size: 0.75rem;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .ritual-control h2 {
+      margin: 0 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.75rem, 3vw, 2.4rem);
+      line-height: 0.96;
+      color: var(--ink);
+    }
+
+    .ritual-control p {
+      margin: 0 0 16px;
+      line-height: 1.44;
+      color: rgba(33, 17, 31, 0.82);
+    }
+
+    .primary-button,
+    .reset-button,
+    .panel-close {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 17px;
+      background: linear-gradient(135deg, var(--hot-pink), #ff73c1);
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 950;
+      letter-spacing: 0.01em;
+      box-shadow: 0 12px 24px rgba(255, 20, 146, 0.28);
+      cursor: pointer;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .primary-button:hover,
+    .reset-button:hover,
+    .panel-close:hover,
+    .primary-button:focus-visible,
+    .reset-button:focus-visible,
+    .panel-close:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(255, 20, 146, 0.36);
+      outline: 3px solid rgba(255, 228, 122, 0.72);
+      outline-offset: 3px;
+    }
+
+    .control-state[hidden] {
+      display: none;
+    }
+
+    .reset-button {
+      margin-top: 2px;
+      background: linear-gradient(135deg, #2a0e27, #5a1c50);
+      box-shadow: 0 12px 24px rgba(32, 10, 29, 0.28);
+    }
+
+    .callout {
+      --hotspot-shape: polygon(8% 6%, 92% 0, 100% 86%, 10% 100%, 0 18%);
+      position: absolute;
+      z-index: 4;
+      display: block;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+      color: white;
+      background: transparent;
+      box-shadow: none;
+      font-size: 0;
+      cursor: pointer;
+      transition: background 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+    }
+
+    .callout::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border: 0;
+      border-radius: var(--hotspot-radius, 46% 54% 48% 52% / 44% 50% 50% 56%);
+      background:
+        radial-gradient(ellipse at 50% 52%, transparent 36%, rgba(255, 20, 146, 0.22) 48%, rgba(255, 20, 146, 0.08) 60%, transparent 72%),
+        radial-gradient(ellipse at 58% 42%, transparent 46%, rgba(255, 228, 122, 0.16) 58%, transparent 74%);
+      opacity: 0;
+      filter:
+        blur(4px)
+        drop-shadow(0 0 10px rgba(255, 20, 146, 0.22))
+        drop-shadow(0 0 18px rgba(255, 228, 122, 0.1));
+      padding: 0;
+      pointer-events: none;
+      transform: rotate(var(--hotspot-rotation, -2deg));
+      transition: opacity 160ms ease, filter 160ms ease, background 160ms ease, transform 160ms ease;
+    }
+
+    .callout::after {
+      content: attr(data-label);
+      display: none;
+      position: absolute;
+      left: 50%;
+      bottom: 100%;
+      min-width: max-content;
+      max-width: 160px;
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      border-radius: 9px 9px 9px 3px;
+      padding: 7px 10px;
+      background:
+        linear-gradient(135deg, rgba(16, 8, 5, 0.92), rgba(80, 20, 70, 0.94)),
+        var(--plum);
+      color: white;
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 63, 164, 0.3),
+        0 12px 22px rgba(33, 17, 31, 0.34),
+        0 0 18px rgba(255, 20, 146, 0.18);
+      font-size: 0.64rem;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      text-transform: uppercase;
+      transform: translate(-50%, 4px) rotate(-2deg);
+      pointer-events: none;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .callout:hover,
+    .callout:focus-visible {
+      background: transparent;
+      box-shadow: none;
+      outline: none;
+    }
+
+    .callout:hover::before,
+    .callout:focus-visible::before,
+    .callout.is-active::before {
+      opacity: 0.88;
+      background:
+        radial-gradient(ellipse at 50% 52%, transparent 34%, rgba(255, 20, 146, 0.34) 49%, rgba(255, 20, 146, 0.16) 62%, transparent 75%),
+        radial-gradient(ellipse at 58% 42%, transparent 44%, rgba(255, 228, 122, 0.24) 58%, transparent 76%);
+      filter:
+        blur(3px)
+        drop-shadow(0 0 13px rgba(255, 20, 146, 0.46))
+        drop-shadow(0 0 22px rgba(255, 228, 122, 0.18));
+      transform: rotate(var(--hotspot-rotation, -2deg)) scale(1.02);
+    }
+
+    .callout:hover::after,
+    .callout:focus-visible::after {
+      transform: translate(-50%, -2px) rotate(-1deg);
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.24),
+        0 15px 26px rgba(33, 17, 31, 0.4),
+        0 0 22px rgba(255, 20, 146, 0.32);
+    }
+
+    .article-entry {
+      --article-shape: polygon(5% 6%, 96% 0, 100% 88%, 9% 100%, 0 18%);
+      position: absolute;
+      z-index: 5;
+      top: 47%;
+      left: 21%;
+      width: min(300px, 26vw);
+      height: 31%;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+      color: white;
+      background: transparent;
+      box-shadow: none;
+      font-size: 0;
+      text-align: left;
+      cursor: pointer;
+      transform: rotate(-3deg);
+      transition: transform 160ms ease, filter 160ms ease;
+    }
+
+    .article-entry::before {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      border-radius: 42% 58% 50% 44% / 46% 42% 56% 50%;
+      background:
+        radial-gradient(ellipse at 50% 52%, transparent 35%, rgba(255, 20, 146, 0.24) 49%, rgba(255, 20, 146, 0.1) 62%, transparent 76%),
+        radial-gradient(ellipse at 67% 34%, transparent 42%, rgba(255, 228, 122, 0.14) 58%, transparent 76%);
+      opacity: 0;
+      filter:
+        blur(5px)
+        drop-shadow(0 0 10px rgba(255, 20, 146, 0.26))
+        drop-shadow(0 0 18px rgba(255, 228, 122, 0.1));
+      padding: 0;
+      pointer-events: none;
+      transition: opacity 160ms ease, filter 160ms ease, background 160ms ease;
+    }
+
+    .article-entry::after {
+      content: attr(data-label);
+      display: none;
+      position: absolute;
+      left: 50%;
+      bottom: 100%;
+      min-width: max-content;
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      border-radius: 9px 9px 9px 3px;
+      padding: 7px 10px;
+      background:
+        linear-gradient(135deg, rgba(16, 8, 5, 0.92), rgba(80, 20, 70, 0.94)),
+        var(--plum);
+      color: white;
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 63, 164, 0.3),
+        0 12px 22px rgba(33, 17, 31, 0.34),
+        0 0 18px rgba(255, 20, 146, 0.18);
+      font-size: 0.64rem;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      text-transform: uppercase;
+      transform: translate(-50%, 4px) rotate(-2deg);
+      pointer-events: none;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .article-entry:hover,
+    .article-entry:focus-visible {
+      transform: translateY(-4px) rotate(-2deg);
+      outline: none;
+    }
+
+    .article-entry:hover::before,
+    .article-entry:focus-visible::before,
+    .article-entry.is-active::before {
+      opacity: 0.68;
+      background:
+        radial-gradient(ellipse at 50% 52%, transparent 34%, rgba(255, 20, 146, 0.36) 49%, rgba(255, 20, 146, 0.17) 63%, transparent 77%),
+        radial-gradient(ellipse at 67% 34%, transparent 42%, rgba(255, 228, 122, 0.24) 58%, transparent 77%);
+      filter:
+        blur(3px)
+        drop-shadow(0 0 12px rgba(255, 20, 146, 0.48))
+        drop-shadow(0 0 20px rgba(255, 228, 122, 0.2));
+    }
+
+    .article-entry:hover::after,
+    .article-entry:focus-visible::after {
+      transform: translate(-50%, -2px) rotate(-1deg);
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.24),
+        0 15px 26px rgba(33, 17, 31, 0.4),
+        0 0 22px rgba(255, 20, 146, 0.32);
+    }
+
+    .article-entry .article-visual,
+    .article-entry .article-body {
+      display: none;
+    }
+
+    .article-kicker {
+      display: block;
+      margin-bottom: 6px;
+      color: #8c1160;
+      font-size: 0.64rem;
+      font-weight: 950;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .article-visual {
+      position: relative;
+      display: grid;
+      min-height: 108px;
+      align-content: center;
+      gap: 5px;
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(140, 17, 96, 0.18);
+      background:
+        radial-gradient(circle at 88% 14%, rgba(255, 20, 146, 0.7), transparent 5rem),
+        linear-gradient(135deg, #100805, #32122f 65%, #100805),
+        var(--plum);
+      overflow: hidden;
+    }
+
+    .article-visual-mark {
+      color: white;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      text-shadow: 0 0 14px rgba(255, 20, 146, 0.36);
+    }
+
+    .article-visual-mark span {
+      color: var(--hot-pink);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: 0.72em;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .article-visual-line {
+      display: inline-flex;
+      width: fit-content;
+      border: 1px solid rgba(255, 63, 164, 0.44);
+      border-radius: 999px;
+      padding: 4px 8px;
+      color: rgba(255, 249, 236, 0.88);
+      font-size: 0.54rem;
+      font-weight: 950;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .article-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, transparent 0 58%, rgba(255, 228, 122, 0.15)),
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 7px);
+      pointer-events: none;
+    }
+
+    .article-body {
+      display: block;
+      padding: 14px 16px 15px;
+    }
+
+    .article-entry strong {
+      display: block;
+      margin-bottom: 7px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.25rem, 2.3vw, 1.85rem);
+      line-height: 0.94;
+      color: var(--ink);
+    }
+
+    .article-entry em {
+      display: block;
+      margin-bottom: 11px;
+      color: rgba(33, 17, 31, 0.72);
+      font-size: 0.75rem;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 1.22;
+    }
+
+    .article-body span:last-child {
+      display: inline-flex;
+      min-height: 34px;
+      align-items: center;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: var(--hot-pink);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .callout.quiz {
+      --hotspot-shape: polygon(9% 0, 94% 8%, 88% 100%, 0 90%);
+      --hotspot-radius: 36% 58% 46% 52% / 36% 48% 58% 52%;
+      --hotspot-rotation: 2deg;
+      top: 50%;
+      left: 50%;
+      width: 20%;
+      height: 24%;
+    }
+
+    .callout.printable {
+      --hotspot-shape: polygon(10% 0, 100% 8%, 90% 100%, 0 89%);
+      --hotspot-radius: 35% 55% 48% 52% / 42% 48% 56% 50%;
+      --hotspot-rotation: 1deg;
+      top: 30%;
+      right: 17%;
+      width: 20%;
+      height: 23%;
+    }
+
+    .callout.dj {
+      --hotspot-shape: circle(44% at 50% 54%);
+      --hotspot-radius: 999px;
+      --hotspot-rotation: 0deg;
+      left: 49%;
+      bottom: 7%;
+      width: 18%;
+      height: 16%;
+    }
+
+    .callout.tryon {
+      --hotspot-shape: polygon(8% 0, 100% 0, 90% 92%, 0 100%);
+      --hotspot-radius: 44% 55% 46% 48% / 36% 46% 56% 58%;
+      --hotspot-rotation: -1deg;
+      right: 7%;
+      bottom: 11%;
+      width: 19%;
+      height: 19%;
+    }
+
+    .callout.community {
+      --hotspot-shape: polygon(6% 4%, 92% 0, 100% 82%, 14% 100%, 0 20%);
+      --hotspot-radius: 42% 58% 45% 55% / 38% 50% 54% 60%;
+      --hotspot-rotation: -5deg;
+      left: 8%;
+      top: 39%;
+      width: 13%;
+      height: 17%;
+    }
+
+    .callout.goss {
+      --hotspot-shape: polygon(8% 0, 100% 9%, 88% 100%, 0 86%);
+      --hotspot-radius: 42% 56% 50% 48% / 36% 48% 58% 56%;
+      --hotspot-rotation: -5deg;
+      left: 2%;
+      top: 28%;
+      width: 18%;
+      height: 19%;
+    }
+
+    .secret-hotspot {
+      position: absolute;
+      z-index: 5;
+      width: 40px;
+      height: 46px;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 999px;
+      background: transparent;
+      box-shadow: none;
+      cursor: pointer;
+      opacity: 0.02;
+      transition: transform 160ms ease, opacity 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+    }
+
+    .secret-hotspot:hover,
+    .secret-hotspot:focus-visible {
+      transform: translateY(-2px) scale(1.04);
+      opacity: 1;
+      border-color: rgba(255, 228, 122, 0.48);
+      box-shadow: 0 0 0 5px rgba(255, 228, 122, 0.11), 0 0 22px rgba(255, 63, 164, 0.18);
+      outline: none;
+    }
+
+    .secret-hotspot::after {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border-radius: 999px;
+      background: rgba(255, 228, 122, 0.3);
+      opacity: 0;
+      transition: opacity 160ms ease;
+    }
+
+    .secret-hotspot:hover::after,
+    .secret-hotspot:focus-visible::after {
+      opacity: 1;
+    }
+
+    .secret-tamagotchi {
+      top: 52.5%;
+      right: 21%;
+    }
+
+    .secret-razr {
+      bottom: 14%;
+      left: 34%;
+    }
+
+    .secret-compact {
+      bottom: 28%;
+      left: 14%;
+    }
+
+    .found-object {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .charm-reveal {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background:
+        radial-gradient(circle at 50% 36%, rgba(255, 63, 164, 0.32), transparent 18rem),
+        rgba(18, 4, 18, 0.72);
+      overflow: hidden;
+    }
+
+    .charm-reveal[hidden] {
+      display: none;
+    }
+
+    .charm-card {
+      position: relative;
+      z-index: 3;
+      width: min(430px, 100%);
+      border: 1px solid rgba(255, 255, 255, 0.66);
+      border-radius: 28px;
+      padding: 24px;
+      background:
+        linear-gradient(135deg, rgba(255, 249, 236, 0.96), rgba(255, 217, 233, 0.96)),
+        var(--paper);
+      color: var(--ink);
+      text-align: center;
+      box-shadow:
+        0 28px 80px rgba(0, 0, 0, 0.46),
+        0 0 44px rgba(255, 20, 146, 0.24);
+      transform: rotate(-0.6deg);
+    }
+
+    .charm-card::before {
+      content: "";
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      width: 112px;
+      height: 25px;
+      border-radius: 5px;
+      background: rgba(255, 63, 164, 0.74);
+      box-shadow: 0 5px 18px rgba(255, 20, 146, 0.28);
+      transform: translateX(-50%) rotate(1.5deg);
+    }
+
+    .charm-kicker {
+      display: inline-flex;
+      margin-bottom: 10px;
+      color: #8c1160;
+      font-size: 0.74rem;
+      font-weight: 950;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .charm-icon {
+      display: block;
+      width: min(160px, 48vw);
+      height: auto;
+      margin: 0 auto 12px;
+      filter:
+        drop-shadow(0 16px 22px rgba(140, 17, 96, 0.22))
+        drop-shadow(0 0 22px rgba(255, 20, 146, 0.22));
+    }
+
+    .charm-card h2 {
+      margin: 0 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 6vw, 3rem);
+      line-height: 0.95;
+      color: var(--ink);
+    }
+
+    .charm-card p {
+      margin: 0 auto 12px;
+      max-width: 32rem;
+      color: rgba(33, 17, 31, 0.78);
+      line-height: 1.45;
+    }
+
+    .charm-meta {
+      display: inline-flex;
+      margin: 4px 0 18px;
+      border: 1px solid rgba(255, 63, 164, 0.34);
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.48);
+      color: #8c1160;
+      font-size: 0.72rem;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .charm-close {
+      background: linear-gradient(135deg, var(--hot-pink), #ff73c1);
+    }
+
+    .charm-confetti {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .charm-confetti i {
+      position: absolute;
+      left: 50%;
+      top: 48%;
+      width: var(--piece-w, 8px);
+      height: var(--piece-h, 14px);
+      border-radius: 3px;
+      background: var(--piece-color, var(--hot-pink));
+      opacity: 0;
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.68));
+      transform: translate(-50%, -50%) rotate(0deg);
+      animation: charmConfetti 1500ms cubic-bezier(0.18, 0.86, 0.28, 1.02) forwards;
+      animation-delay: var(--piece-delay, 0ms);
+    }
+
+    @keyframes charmConfetti {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+      }
+      12% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform:
+          translate(calc(-50% + var(--piece-x, 0px)), calc(-50% + var(--piece-y, -160px)))
+          scale(1)
+          rotate(var(--piece-rotate, 220deg));
+      }
+    }
+
+    .found-token {
+      flex: 0 0 auto;
+      display: grid;
+      width: 46px;
+      height: 46px;
+      place-items: center;
+      border-radius: 13px;
+      background:
+        linear-gradient(135deg, #ffe47a, #ff87ca),
+        var(--yellow);
+      color: #6d0f50;
+      font-size: 0.62rem;
+      font-weight: 950;
+      line-height: 1;
+      text-align: center;
+      text-transform: uppercase;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.62), 0 10px 18px rgba(33, 17, 31, 0.18);
+    }
+
+    .mobile-actions {
+      display: grid;
+      position: relative;
+      z-index: 8;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 8px;
+      margin: 14px;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      background:
+        linear-gradient(135deg, rgba(255, 249, 236, 0.92), rgba(255, 217, 233, 0.86)),
+        var(--paper);
+      color: var(--ink);
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.42),
+        0 18px 36px rgba(33, 17, 31, 0.24);
+    }
+
+    .mobile-actions h2 {
+      grid-column: 1 / -1;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.25rem, 2vw, 1.6rem);
+      line-height: 1;
+    }
+
+    .mobile-actions p {
+      grid-column: 1 / -1;
+      margin: -2px 0 4px;
+      color: rgba(33, 17, 31, 0.72);
+      line-height: 1.38;
+    }
+
+    .mobile-action {
+      display: grid;
+      width: 100%;
+      min-height: 64px;
+      align-content: center;
+      gap: 5px;
+      border: 1px solid rgba(255, 63, 164, 0.28);
+      border-radius: 14px;
+      padding: 10px 11px;
+      background:
+        linear-gradient(135deg, #fff, #fff8ef 68%, #ffd9e9);
+      color: var(--ink);
+      font-weight: 950;
+      line-height: 1.08;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 8px 16px rgba(33, 17, 31, 0.12);
+      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease, background 160ms ease, color 160ms ease;
+    }
+
+    .mobile-action span {
+      color: #8c1160;
+      font-size: 0.72rem;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .mobile-action:hover,
+    .mobile-action:focus-visible,
+    .mobile-action.is-active {
+      transform: translateY(-3px);
+      border-color: var(--hot-pink);
+      background:
+        linear-gradient(135deg, #ff3fa4, #ff1492);
+      color: white;
+      box-shadow:
+        0 12px 22px rgba(255, 20, 146, 0.18),
+        0 0 0 4px rgba(255, 20, 146, 0.12),
+        0 0 28px rgba(255, 20, 146, 0.22);
+      outline: none;
+    }
+
+    .mobile-action:hover span,
+    .mobile-action:focus-visible span,
+    .mobile-action.is-active span {
+      color: rgba(255, 249, 236, 0.92);
+    }
+
+    .panel-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      background: rgba(18, 4, 18, 0.68);
+    }
+
+    .panel-backdrop[hidden] {
+      display: none;
+    }
+
+    .action-panel {
+      width: min(440px, 100%);
+      border: 1px solid rgba(255, 255, 255, 0.62);
+      border-radius: 22px;
+      padding: 22px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 243, 219, 0.98)),
+        var(--paper);
+      color: var(--ink);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
+    }
+
+    .action-panel h2 {
+      margin: 0 0 9px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      line-height: 0.98;
+    }
+
+    .action-panel p {
+      margin: 0 0 18px;
+      color: rgba(33, 17, 31, 0.76);
+      line-height: 1.48;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .status {
+      min-height: 1px;
+    }
+
+    @media (max-width: 860px) {
+      .page {
+        width: min(100% - 22px, 720px);
+        padding-top: 22px;
+      }
+
+      .ritual-header {
+        grid-template-columns: 1fr;
+      }
+
+      .ritual-control {
+        justify-self: stretch;
+        max-width: none;
+        transform: rotate(-0.6deg);
+      }
+
+      .stage-shell {
+        border-radius: 20px;
+        padding: 10px;
+      }
+
+      .scene {
+        min-height: 0;
+        border-radius: 16px;
+      }
+
+      .scene-image {
+        min-height: clamp(420px, 118vw, 620px);
+        object-position: center;
+      }
+
+      .closed-scene .scene-image {
+        object-position: 56% center;
+      }
+
+      .open-scene .scene-image {
+        min-height: 360px;
+      }
+
+      .image-stage {
+        min-height: 0;
+      }
+
+      .soft-scrim {
+        background:
+          linear-gradient(0deg, rgba(22, 8, 20, 0.62), transparent 56%),
+          linear-gradient(90deg, rgba(22, 8, 20, 0.24), transparent 48%);
+      }
+
+      .bag-hotspot {
+        top: 14%;
+        right: 16%;
+        width: 44%;
+        height: 62%;
+      }
+
+      .article-entry {
+        top: 38%;
+        left: 22%;
+        width: 31%;
+        height: 28%;
+        min-height: 0;
+        border: 0;
+        border-radius: 18px;
+        background: rgba(255, 63, 164, 0.02);
+        box-shadow: none;
+        transform: none;
+      }
+
+      .article-entry .article-visual,
+      .article-entry .article-body {
+        display: none;
+      }
+
+      .article-entry::after {
+        display: none;
+      }
+
+      .article-entry:hover,
+      .article-entry:focus-visible {
+        transform: none;
+        box-shadow: none;
+      }
+
+      .callout::after {
+        display: none;
+      }
+
+      .callout.quiz {
+        top: 43%;
+        left: 47%;
+        width: 27%;
+        height: 24%;
+      }
+
+      .callout.printable {
+        top: 25%;
+        right: 5%;
+        width: 27%;
+        height: 22%;
+      }
+
+      .callout.dj {
+        left: 44%;
+        bottom: 8%;
+        width: 18%;
+        height: 14%;
+      }
+
+      .callout.tryon {
+        right: 7%;
+        bottom: 12%;
+        width: 28%;
+        height: 18%;
+      }
+
+      .callout.community {
+        left: 5%;
+        top: 29%;
+        width: 20%;
+        height: 16%;
+      }
+
+      .callout.goss {
+        top: 31%;
+        left: 3%;
+        width: 24%;
+        height: 17%;
+      }
+
+      .secret-tamagotchi {
+        top: 43%;
+        right: 12%;
+      }
+
+      .secret-razr {
+        bottom: 21%;
+        left: 15%;
+      }
+
+      .secret-compact {
+        bottom: 33%;
+        left: 9%;
+      }
+
+      .mobile-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin: 10px;
+        padding: 14px;
+      }
+
+      .mobile-action {
+        min-height: 48px;
+        grid-template-columns: minmax(70px, 0.35fr) 1fr;
+        align-items: center;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .page {
+        width: min(100% - 16px, 410px);
+      }
+
+      .scene-image {
+        min-height: 410px;
+      }
+
+      .ritual-control h2 {
+        font-size: 1.65rem;
+      }
+
+      .ritual-control p {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="ritual-header">
+      <div class="ritual-title">
+        <span class="eyebrow">This Week</span>
+        <h1>The Wednesday Ritual</h1>
+        <p class="lede">Open the bag. Read the issue. Do the move. Save the good stuff.</p>
+      </div>
+      <div class="ritual-control" aria-live="polite">
+        <div class="control-state" id="closedControl">
+          <span class="note-kicker">Wednesday Bag</span>
+          <h2>Open the bag.</h2>
+          <p>The issue, quiz, printable, and extras are waiting inside.</p>
+          <button class="primary-button" id="openBagButton" type="button">Open this week's bag</button>
+        </div>
+        <div class="control-state" id="openControl" hidden>
+          <span class="note-kicker">Bag open</span>
+          <h2>This week's bag is open.</h2>
+          <p>Start with the issue, then take the quiz, save the cheat sheet, and peek at the extras.</p>
+          <button class="reset-button" id="closeBagButton" type="button">Close the bag</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="stage-shell" aria-label="The Wednesday Ritual interactive preview">
+      <div class="scene closed-scene" id="closedScene">
+        <img
+          class="scene-image"
+          src="../../assets/this-week/wednesday-it-bag-closed.jpg"
+          alt="A pink holographic Y2K mini backpack hanging in a warm LAIDIES bedroom-office, ready to open."
+        >
+        <div class="soft-scrim" aria-hidden="true"></div>
+        <button class="bag-hotspot" id="bagHotspot" type="button" aria-label="Open this week's bag">
+          <span class="sr-only">Open this week's bag</span>
+        </button>
+      </div>
+
+      <div class="scene open-scene" id="openScene" hidden>
+        <div class="image-stage">
+          <img
+            class="scene-image"
+            src="../../assets/this-week/wednesday-it-bag-open.jpg"
+            alt="The Wednesday bag opened with Issue 02, a quiz insert, a printable sleeve, and weekly extras arranged in the LAIDIES room."
+          >
+          <div class="soft-scrim" aria-hidden="true"></div>
+
+          <button class="article-entry" type="button" data-action="issue" data-title="Read Issue 02" data-body="Would open Issue 02: Tell Me What You Want." data-primary-action>
+            <span class="article-visual" aria-hidden="true">
+              <span class="article-visual-mark">l<span>AI</span>dies</span>
+              <span class="article-visual-line">AI fluency for women with full calendars</span>
+            </span>
+            <span class="article-body">
+              <span class="article-kicker">LAIDIES · Issue 02</span>
+              <strong>Tell Me What You Want</strong>
+              <em>The prompt specificity issue. Start here.</em>
+              <span>Read Issue 02</span>
+            </span>
+          </button>
+          <button class="callout quiz" type="button" data-action="quiz" data-label="Quiz" data-title="Take the Quiz" data-body="Would open the Issue 02 quiz." aria-label="Take the Quiz from the quiz insert">Take the Quiz</button>
+          <button class="callout printable" type="button" data-action="printable" data-label="Save" data-title="Print/Save Cheat Sheet" data-body="Would open or download the prompt specificity cheat sheet." aria-label="Print or save the cheat sheet from the blue sleeve">Print/Save Cheat Sheet</button>
+          <button class="callout dj" type="button" data-action="dj" data-label="Listen" data-title="DJ Booth" data-body="Would take you to this week's listening desk." aria-label="DJ Booth from the CD notes">DJ Booth</button>
+          <button class="callout tryon" type="button" data-action="tryon" data-label="Try" data-title="Try-On" data-body="Would show the Try-On exercise." aria-label="Try-On from the legal pad">Try-On</button>
+          <button class="callout community" type="button" data-action="community" data-label="Share" data-title="Community" data-body="Would show the community prompt." aria-label="Community from the AIM note">Community</button>
+          <button class="callout goss" type="button" data-action="goss" data-label="News" data-title="Hot Goss" data-body="Would show the news memo." aria-label="Hot Goss from the memo">Hot Goss</button>
+
+          <button class="secret-hotspot secret-tamagotchi" type="button" data-charm-id="issue-02-tamagotchi" data-charm-title="Tamagotchi Charm" data-charm-source="The Wednesday Ritual" aria-label="Hidden Tamagotchi charm"></button>
+          <button class="secret-hotspot secret-razr" type="button" data-title="Razr cue" data-body="Tiny find: flip-phone cue. A little reminder that better prompts are mostly better communication." data-token="Razr" aria-label="Hidden flip-phone cue"></button>
+          <button class="secret-hotspot secret-compact" type="button" data-title="Compact clue" data-body="Tiny find: clubhouse compact. Save this for the future collectible layer." data-token="Club" aria-label="Hidden compact clue"></button>
+        </div>
+
+        <div class="mobile-actions" aria-label="This week's actions">
+          <h2>This week's bag is open.</h2>
+          <p>Start with the issue, then take the quiz, save the cheat sheet, and peek at the extras.</p>
+          <button class="mobile-action" type="button" data-action="issue" data-title="Read Issue 02" data-body="Would open Issue 02: Tell Me What You Want."><span>Read this</span> Read Issue 02</button>
+          <button class="mobile-action" type="button" data-action="quiz" data-title="Take the Quiz" data-body="Would open the Issue 02 quiz."><span>Do this</span> Take the Quiz</button>
+          <button class="mobile-action" type="button" data-action="printable" data-title="Print/Save Cheat Sheet" data-body="Would open or download the prompt specificity cheat sheet."><span>Save this</span> Print/Save Cheat Sheet</button>
+          <button class="mobile-action" type="button" data-action="dj" data-title="DJ Booth" data-body="Would take you to this week's listening desk."><span>Listen to this</span> DJ Booth</button>
+          <button class="mobile-action" type="button" data-action="tryon" data-title="Try-On" data-body="Would show the Try-On exercise."><span>Try this once</span> Try-On</button>
+          <button class="mobile-action" type="button" data-action="community" data-title="Community" data-body="Would show the community prompt."><span>Share this</span> Community</button>
+          <button class="mobile-action" type="button" data-action="goss" data-title="Hot Goss" data-body="Would show the news memo."><span>Catch up</span> Hot Goss</button>
+        </div>
+      </div>
+    </section>
+
+    <p class="status sr-only" id="statusMessage" aria-live="polite"></p>
+  </main>
+
+  <div class="panel-backdrop" id="panelBackdrop" hidden>
+    <section class="action-panel" role="dialog" aria-modal="true" aria-labelledby="panelTitle" aria-describedby="panelBody">
+      <div class="found-object">
+        <span class="found-token" id="panelToken" hidden>Tiny</span>
+        <div>
+          <h2 id="panelTitle">Action</h2>
+          <p id="panelBody">This action would open in the live experience.</p>
+        </div>
+      </div>
+      <button class="panel-close" id="panelClose" type="button">Back to the bag</button>
+    </section>
+  </div>
+
+  <div class="charm-reveal" id="charmReveal" hidden>
+    <div class="charm-confetti" id="charmConfetti" aria-hidden="true"></div>
+    <section class="charm-card" role="dialog" aria-modal="true" aria-labelledby="charmTitle" aria-describedby="charmBody">
+      <span class="charm-kicker">Secret Charm Found</span>
+      <img class="charm-icon" src="../../assets/charms/tamagotchi-charm-256.png" alt="Pink mini digital pet charm sticker" width="256" height="256">
+      <h2 id="charmTitle">Tamagotchi Charm</h2>
+      <p id="charmBody">Your Wednesday habit wants attention, but in a cute way. Saved in this browser for the future LAIDY Card charm shelf.</p>
+      <span class="charm-meta">Charm 02 of 24 · Saved for LAIDY Card</span>
+      <button class="primary-button charm-close" id="charmClose" type="button">Back to the bag</button>
+    </section>
+  </div>
+
+  <script>
+    const closedScene = document.getElementById("closedScene");
+    const openScene = document.getElementById("openScene");
+    const closedControl = document.getElementById("closedControl");
+    const openControl = document.getElementById("openControl");
+    const bagHotspot = document.getElementById("bagHotspot");
+    const openBagButton = document.getElementById("openBagButton");
+    const closeBagButton = document.getElementById("closeBagButton");
+    const statusMessage = document.getElementById("statusMessage");
+    const panelBackdrop = document.getElementById("panelBackdrop");
+    const panelTitle = document.getElementById("panelTitle");
+    const panelBody = document.getElementById("panelBody");
+    const panelToken = document.getElementById("panelToken");
+    const panelClose = document.getElementById("panelClose");
+    const charmReveal = document.getElementById("charmReveal");
+    const charmConfetti = document.getElementById("charmConfetti");
+    const charmClose = document.getElementById("charmClose");
+    const SECRET_CHARM_SEASON_TOTAL = 24;
+    /*
+      Future collectible direction:
+      use "secret charms" instead of the older "merit badge" idea.
+      All 24 issue-world discoveries should use this same reveal/save flow,
+      then eventually appear on a LAIDY Card charm shelf, charm bracelet, or
+      similar collectible surface once that system is ready.
+    */
+    let lastPanelTrigger = null;
+    let lastCharmTrigger = null;
+
+    function setActiveAction(action) {
+      if (!action) {
+        return;
+      }
+
+      document.querySelectorAll("[data-action].is-active").forEach((element) => {
+        element.classList.remove("is-active");
+      });
+
+      document.querySelectorAll(`[data-action="${action}"]`).forEach((element) => {
+        element.classList.add("is-active");
+      });
+    }
+
+    function clearActiveAction(action) {
+      if (!action) {
+        return;
+      }
+
+      document.querySelectorAll(`[data-action="${action}"]`).forEach((element) => {
+        element.classList.remove("is-active");
+      });
+    }
+
+    function isMobileView() {
+      return window.matchMedia("(max-width: 860px)").matches;
+    }
+
+    function openBag() {
+      closedScene.hidden = true;
+      openScene.hidden = false;
+      closedControl.hidden = true;
+      openControl.hidden = false;
+      statusMessage.textContent = "The bag is open. This week's actions are ready.";
+
+      const firstAction = isMobileView()
+        ? openScene.querySelector(".mobile-action")
+        : openScene.querySelector("[data-primary-action]");
+
+      if (firstAction) {
+        firstAction.focus({ preventScroll: true });
+      }
+    }
+
+    function closeBag() {
+      closePanel();
+      openScene.hidden = true;
+      closedScene.hidden = false;
+      openControl.hidden = true;
+      closedControl.hidden = false;
+      statusMessage.textContent = "The bag is closed.";
+      bagHotspot.focus({ preventScroll: true });
+    }
+
+    function openPanel(trigger) {
+      lastPanelTrigger = trigger;
+      panelTitle.textContent = trigger.dataset.title || "This week's action";
+      panelBody.textContent = trigger.dataset.body || "This action would open in the live experience.";
+
+      if (trigger.dataset.token) {
+        panelToken.textContent = trigger.dataset.token;
+        panelToken.hidden = false;
+      } else {
+        panelToken.hidden = true;
+      }
+
+      panelBackdrop.hidden = false;
+      panelClose.focus({ preventScroll: true });
+    }
+
+    function closePanel() {
+      if (panelBackdrop.hidden) {
+        return;
+      }
+
+      panelBackdrop.hidden = true;
+
+      if (lastPanelTrigger) {
+        lastPanelTrigger.focus({ preventScroll: true });
+      }
+    }
+
+    function saveSecretCharm(trigger) {
+      const id = trigger.dataset.charmId || "issue-02-tamagotchi";
+      const charm = {
+        id,
+        title: trigger.dataset.charmTitle || "Tamagotchi Charm",
+        issue: 2,
+        seasonTotal: SECRET_CHARM_SEASON_TOTAL,
+        source: trigger.dataset.charmSource || "The Wednesday Ritual",
+        asset: "assets/charms/tamagotchi-charm-256.png",
+        type: "secret-charm",
+        cardSyncStatus: "pending-laidy-card",
+        unlockedAt: new Date().toISOString()
+      };
+
+      try {
+        const charms = JSON.parse(localStorage.getItem("laidiesSecretCharms") || "{}");
+        charms[id] = charms[id] || charm;
+        localStorage.setItem("laidiesSecretCharms", JSON.stringify(charms));
+
+        const cardQueue = JSON.parse(localStorage.getItem("laidiesCardPendingRewards") || "[]");
+        if (!cardQueue.some((reward) => reward.id === id)) {
+          cardQueue.push(charm);
+          localStorage.setItem("laidiesCardPendingRewards", JSON.stringify(cardQueue));
+        }
+      } catch (error) {
+        // Local prototype only; failing storage should not block the reveal.
+      }
+    }
+
+    function burstCharmConfetti() {
+      const colors = ["#ff1492", "#ff73c1", "#ffe47a", "#bde8ff", "#ffffff"];
+      charmConfetti.innerHTML = "";
+
+      for (let i = 0; i < 48; i += 1) {
+        const piece = document.createElement("i");
+        const angle = (Math.PI * 2 * i) / 48;
+        const distance = 120 + Math.random() * 190;
+        piece.style.setProperty("--piece-x", `${Math.cos(angle) * distance}px`);
+        piece.style.setProperty("--piece-y", `${Math.sin(angle) * distance - 110}px`);
+        piece.style.setProperty("--piece-rotate", `${Math.round(Math.random() * 520 - 260)}deg`);
+        piece.style.setProperty("--piece-delay", `${Math.round(Math.random() * 120)}ms`);
+        piece.style.setProperty("--piece-color", colors[i % colors.length]);
+        piece.style.setProperty("--piece-w", `${6 + Math.random() * 9}px`);
+        piece.style.setProperty("--piece-h", `${9 + Math.random() * 13}px`);
+        charmConfetti.appendChild(piece);
+      }
+    }
+
+    function openCharmReveal(trigger) {
+      lastCharmTrigger = trigger;
+      saveSecretCharm(trigger);
+      charmReveal.hidden = false;
+      burstCharmConfetti();
+      statusMessage.textContent = "Secret Tamagotchi charm found. Saved for the future LAIDY Card charm shelf.";
+      charmClose.focus({ preventScroll: true });
+    }
+
+    function closeCharmReveal() {
+      if (charmReveal.hidden) {
+        return;
+      }
+
+      charmReveal.hidden = true;
+      charmConfetti.innerHTML = "";
+
+      if (lastCharmTrigger) {
+        lastCharmTrigger.focus({ preventScroll: true });
+      }
+    }
+
+    bagHotspot.addEventListener("click", openBag);
+    openBagButton.addEventListener("click", openBag);
+    closeBagButton.addEventListener("click", closeBag);
+    panelClose.addEventListener("click", closePanel);
+    charmClose.addEventListener("click", closeCharmReveal);
+
+    document.querySelectorAll("[data-title][data-body]").forEach((button) => {
+      if (button.classList.contains("secret-hotspot")) {
+        return;
+      }
+
+      button.addEventListener("click", () => openPanel(button));
+    });
+
+    document.querySelectorAll(".secret-hotspot").forEach((button) => {
+      button.addEventListener("click", () => {
+        if (button.dataset.charmId) {
+          openCharmReveal(button);
+        } else {
+          openPanel(button);
+        }
+      });
+    });
+
+    document.querySelectorAll(".article-entry[data-action], .callout[data-action], .mobile-action[data-action]").forEach((button) => {
+      button.addEventListener("mouseenter", () => setActiveAction(button.dataset.action));
+      button.addEventListener("mouseleave", () => clearActiveAction(button.dataset.action));
+      button.addEventListener("focus", () => setActiveAction(button.dataset.action));
+      button.addEventListener("blur", () => clearActiveAction(button.dataset.action));
+    });
+
+    panelBackdrop.addEventListener("click", (event) => {
+      if (event.target === panelBackdrop) {
+        closePanel();
+      }
+    });
+
+    charmReveal.addEventListener("click", (event) => {
+      if (event.target === charmReveal) {
+        closeCharmReveal();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !panelBackdrop.hidden) {
+        closePanel();
+      }
+
+      if (event.key === "Escape" && !charmReveal.hidden) {
+        closeCharmReveal();
+      }
+    });
+  </script>
+</body>
+</html>
