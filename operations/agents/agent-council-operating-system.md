@@ -38,6 +38,20 @@ A rescue pass means broken, risky, misleading, or professionally embarrassing pa
 
 A gold-standard UX council pass is a separate gate. It must happen after rescue work, with browser evidence and a fresh council review. The builder who implemented the fix cannot self-approve the result; another reviewer, council role, or Ali must confirm the page meets the higher standard.
 
+Technical smoke checks are evidence, not approval. A feature can pass technical QA and still fail the LAIDIES experience standard. The Council must not treat "works locally," "no console errors," "no overflow," or "the prototype runs" as proof that the concept, interaction, brand expression, or reader journey is good enough.
+
+No builder, implementer, or Codex run may mark its own work `Council-approved`. The strongest valid self-assessment is `Technical pass`, `Prototype pass`, or `Council candidate`. `Ali-approved` and `Council-approved` require Ali's visual/taste review or an explicitly separate review gate Ali has authorized.
+
+Required approval gates for any high-visibility website, Phase 3, or weekly ritual surface:
+
+- Technical QA: page loads, assets resolve, no new console errors, no horizontal overflow, forms/links/interactions work as intended
+- UX clarity: the reader knows what to do first, what is optional, and what changed after each interaction
+- Brand/canon fidelity: the work feels unmistakably LAIDIES, protects the season/reference concept, and avoids generic retro styling
+- Interaction quality: the interaction feels like the promised concept, not a label placed on a generic card or box
+- Link/back-path review: links do not throw reviewers into broken, unfinished, or confusing flows; every linked side path has a clear way back to the originating experience
+- Mobile usability: mobile is intentionally designed, not merely squeezed; tap targets, text, sequence, and fallback actions are usable around 390px
+- Ali visual approval: Ali or a reviewer explicitly acting as Ali's taste gate confirms the work meets the LAIDIES visual and experiential bar
+
 Homepage UX council checklist:
 
 - no duplicated CTAs above the fold or immediately after the hero
@@ -47,6 +61,31 @@ Homepage UX council checklist:
 - no unfinished or draft experiences are promoted
 - desktop and mobile smoke checks show no horizontal overflow
 - console is free of new page-level errors
+
+## Phase 3 Object-World and Canon Rules
+
+LAIDIES Phase 3 work must protect the original object-world promise. Do not substitute card grids, CSS boxes, generic panels, or labels for object-world interfaces. If a concept is based on nostalgic objects, the objects must either be real/generated artwork, an actual interactive object, or a genuinely object-shaped interface that behaves like the reference. A card labeled "plastic sleeve" is not a plastic sleeve. A box labeled "drawer" is not a drawer.
+
+Reference as interface, not decoration. Nostalgic details must guide, organize, explain, reveal, or make learning more memorable. They should not be random stickers, props, or clutter that merely signal "retro." A reference earns its place when it helps the reader understand the task, remember the lesson, choose an action, trust the source, or feel a small discovery moment without losing clarity.
+
+Canon rule: LAIDIES is a 24-episode AI fluency season built around specific 90s/Y2K reference worlds and jokes. The site must preserve the episode/season joke, weekly reference logic, and original cultural specificity. It must not flatten the brand into generic retro styling, pink SaaS, random nostalgia, or "AI but girly" wallpaper.
+
+Wednesday Ritual rule: This Week is the practical page, but the higher-level experience is The Wednesday Ritual. The ideal ritual is: read the article, open or empty the weekly bag, take the quiz, save the printable/trading cards, get a reading/card, learn a term, visit the Reference Closet, read Hot Goss, get the happy-hour fortune/drink, listen to the weekly track, and post or share in the community. This Week should clarify and stage that ritual without promoting unfinished experiences or making every object/action equal weight.
+
+Brand safety rule for Phase 3: Avoid adult-site, nightclub, suggestive, or "members-only nightlife" energy. Avoid copy and UX patterns such as "come play," "private room," "after dark," vague "unlock," VIP/velvet-rope framing, or anything that makes Clubhouse/Pass/Sign In feel like adult membership. Keep LAIDIES stylish, professional, smart, educational, women-centered, and grown-woman.
+
+## Prototype Review Rules
+
+Prototypes are for testing concepts, not for routing reviewers through unfinished product flows. A prototype must make its review boundary clear without leaking internal process language into the user-facing experience.
+
+Prototype rules:
+
+- Do not route users into unfinished live pages during review.
+- Prototype actions should prefer inline panels, drawers, modals, mocked states, or clearly marked secondary links when the target flow is not ready.
+- If a prototype link opens another page, there must be a clear way back to the prototype or originating experience.
+- Remove internal language such as "prototype only," "Ali packed," implementation notes, process notes, or reviewer instructions from the user-facing prototype UI unless Ali explicitly asks to see that language.
+- Prototype links must be checked before review. Broken, stale, draft, or misleading routes are `BLOCK LAUNCH` for the prototype review.
+- A prototype can earn `Prototype pass` only after it proves the interaction concept, hierarchy, mobile fallback, link/back-path behavior, and brand direction. It still is not `Ali-approved` until Ali approves the visual/taste direction.
 
 ## Rescue Council Roles
 
