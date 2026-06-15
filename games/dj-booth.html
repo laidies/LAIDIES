@@ -527,6 +527,35 @@
         background: var(--dj-pink-subtle);
         border-color: rgba(255, 45, 155, 0.5);
       }
+      a[data-wednesday-return] {
+        position: fixed !important;
+        top: 76px !important;
+        left: clamp(14px, 3vw, 26px) !important;
+        right: auto !important;
+        bottom: auto !important;
+        z-index: 120 !important;
+        display: inline-flex !important;
+        max-width: calc(100% - 28px);
+        margin: 0 !important;
+        padding: 10px 14px !important;
+        border: 1px solid rgba(255,45,155,.42) !important;
+        border-radius: 999px !important;
+        background: rgba(20,8,24,.86) !important;
+        color: #ff8ccc !important;
+        font-weight: 850 !important;
+        text-decoration: none !important;
+        box-shadow: 0 12px 30px rgba(0,0,0,.28), 0 0 0 4px rgba(255,45,155,.1) !important;
+        backdrop-filter: blur(10px);
+      }
+      @media (max-width: 700px) {
+        a[data-wednesday-return] {
+          left: 14px !important;
+          right: auto !important;
+          top: 72px !important;
+          max-width: calc(100% - 28px);
+          justify-content: center;
+        }
+      }
 
       /* === FOOTER OVERRIDE === */
       .site-footer {
@@ -879,6 +908,31 @@
         });
       });
 
+      function focusRitualTrack() {
+        var params = new URLSearchParams(window.location.search || "");
+        if (params.get("from") !== "this-week") return;
+        var issue = String(params.get("issue") || "").match(/\d+/);
+        var app = document.getElementById("djApp");
+        if (app && !document.querySelector("[data-wednesday-return]")) {
+          var link = document.createElement("a");
+          link.dataset.wednesdayReturn = "true";
+          link.href = "../this-week.html" + (issue ? "?issue=" + encodeURIComponent(Number(issue[0])) + "&bag=open" : "?bag=open");
+          link.textContent = "\u2190 Back to the Bag";
+          link.style.cssText = "position:fixed;top:76px;left:clamp(14px,3vw,26px);right:auto;bottom:auto;z-index:120;display:inline-flex;max-width:calc(100% - 28px);margin:0;padding:10px 14px;border:1px solid rgba(255,45,155,.42);border-radius:999px;background:rgba(20,8,24,.86);color:#ff8ccc;font-weight:850;text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.28),0 0 0 4px rgba(255,45,155,.1);backdrop-filter:blur(10px);";
+          app.insertAdjacentElement("beforebegin", link);
+        }
+        if (issue) {
+          var targetEp = "EP " + Number(issue[0]);
+          var targetIndex = tracks.findIndex(function(track) { return track.ep === targetEp; });
+          if (targetIndex >= 0) loadTrack(targetIndex);
+        }
+        window.setTimeout(function() {
+          (document.querySelector("[data-wednesday-return]") || app)?.scrollIntoView({ block: "start" });
+        }, 80);
+      }
+
+      focusRitualTrack();
+
     })();
     </script>
       <script src="../content/site/mini-player.js"></script>
@@ -888,6 +942,19 @@
     document.addEventListener('play', function(e) {
       document.querySelectorAll('audio').forEach(function(a) { if (a !== e.target) a.pause(); });
     }, true);
+    </script>
+    <script>
+    (function() {
+      var params = new URLSearchParams(window.location.search || "");
+      if (params.get("from") !== "this-week" || document.querySelector("[data-wednesday-return]")) return;
+      var issue = String(params.get("issue") || "").match(/\d+/);
+      var link = document.createElement("a");
+      link.dataset.wednesdayReturn = "true";
+      link.href = "../this-week.html" + (issue ? "?issue=" + encodeURIComponent(Number(issue[0])) + "&bag=open" : "?bag=open");
+      link.textContent = "\u2190 Back to the Bag";
+      link.style.cssText = "position:fixed;top:76px;left:clamp(14px,3vw,26px);right:auto;bottom:auto;z-index:120;display:inline-flex;max-width:calc(100% - 28px);margin:0;padding:10px 14px;border:1px solid rgba(255,45,155,.42);border-radius:999px;background:rgba(20,8,24,.86);color:#ff8ccc;font-weight:850;text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.28),0 0 0 4px rgba(255,45,155,.1);backdrop-filter:blur(10px);";
+      document.querySelector("main")?.prepend(link);
+    })();
     </script>
   </body>
 </html>

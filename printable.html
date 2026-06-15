@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Printable Preview | LAIDIES</title>
+  <meta name="description" content="Preview and download the LAIDIES weekly printable.">
+  <link rel="icon" type="image/png" href="assets/laidies-logo-square.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --hot-pink: #ff2d9b;
+      --ink: #21111f;
+      --plum: #32122f;
+      --cream: #fff9ec;
+      --paper: #fffdf8;
+      --blush: #ffd9e9;
+      --blue: #bde8ff;
+      --yellow: #ffe47a;
+      --muted: rgba(255, 248, 252, 0.72);
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 16% 10%, rgba(255, 45, 155, 0.28), transparent 24rem),
+        radial-gradient(circle at 88% 4%, rgba(189, 232, 255, 0.18), transparent 24rem),
+        linear-gradient(135deg, #180918 0%, #3a1431 52%, #120912 100%);
+      color: #fff8fc;
+      font-family: var(--font-body);
+      line-height: 1.6;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 80;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 12px clamp(16px, 4vw, 48px);
+      border-bottom: 1px solid rgba(255, 45, 155, 0.12);
+      background: rgba(13, 10, 18, 0.95);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand img {
+      display: block;
+      width: auto;
+      height: 28px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-left: auto;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .nav a {
+      color: rgba(255, 248, 252, 0.68);
+      text-decoration: none;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      color: var(--hot-pink);
+      outline: none;
+    }
+
+    .hamburger-btn {
+      display: none;
+      margin-left: auto;
+      border: 0;
+      background: transparent;
+      color: #fff8fc;
+      font: inherit;
+      font-size: 1.35rem;
+      cursor: pointer;
+    }
+
+    .wednesday-return {
+      position: sticky;
+      top: 66px;
+      z-index: 70;
+      display: inline-flex;
+      width: fit-content;
+      margin: 14px 0 0 clamp(14px, 3vw, 28px);
+      padding: 10px 14px;
+      border: 1px solid rgba(255, 45, 155, 0.42);
+      border-radius: 999px;
+      background: rgba(20, 8, 24, 0.88);
+      color: #ff8ccc;
+      font-size: 0.84rem;
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28), 0 0 0 4px rgba(255, 45, 155, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .wednesday-return:hover,
+    .wednesday-return:focus-visible {
+      color: #fff8fc;
+      border-color: rgba(255, 45, 155, 0.72);
+      outline: none;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: clamp(28px, 6vw, 64px) 0 clamp(48px, 7vw, 84px);
+    }
+
+    .preview-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: clamp(18px, 4vw, 34px);
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 999px;
+      padding: 7px 12px;
+      background: rgba(255, 249, 236, 0.1);
+      color: var(--yellow);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      color: var(--cream);
+      font-family: var(--font-heading);
+      font-size: clamp(2.35rem, 6vw, 4.8rem);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .lede {
+      max-width: 650px;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: clamp(0.98rem, 2vw, 1.08rem);
+    }
+
+    .preview-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 45, 155, 0.34);
+      border-radius: 999px;
+      padding: 12px 18px;
+      background: linear-gradient(135deg, #ff3fa4, #ff1492);
+      color: white;
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow: 0 14px 28px rgba(255, 20, 146, 0.2);
+    }
+
+    .button.secondary {
+      background: rgba(255, 249, 236, 0.1);
+      color: #fff8fc;
+      box-shadow: none;
+    }
+
+    .printable-shell {
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 28px;
+      padding: clamp(14px, 3vw, 24px);
+      background:
+        linear-gradient(135deg, rgba(255, 249, 236, 0.12), rgba(255, 217, 233, 0.1)),
+        rgba(13, 6, 15, 0.54);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    }
+
+    .page-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(12px, 2vw, 18px);
+    }
+
+    .page-preview {
+      overflow: hidden;
+      border: 1px solid rgba(255, 45, 155, 0.16);
+      border-radius: 18px;
+      background: var(--paper);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+    }
+
+    .page-preview img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .unavailable {
+      border: 1px dashed rgba(255, 45, 155, 0.34);
+      border-radius: 22px;
+      padding: 24px;
+      background: rgba(255, 249, 236, 0.08);
+      color: var(--muted);
+    }
+
+    .site-footer {
+      padding: 28px 20px 34px;
+      border-top: 1px solid rgba(255, 45, 155, 0.12);
+      text-align: center;
+      color: rgba(255, 248, 252, 0.54);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 760px) {
+      .hamburger-btn { display: block; }
+      .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px 24px;
+        border-bottom: 1px solid rgba(255, 45, 155, 0.16);
+        background: rgba(13, 10, 18, 0.98);
+      }
+      .nav.is-open { display: flex; }
+      .wednesday-return {
+        top: 62px;
+        margin-left: 12px;
+      }
+      .preview-hero {
+        grid-template-columns: 1fr;
+      }
+      .preview-actions {
+        justify-content: stretch;
+      }
+      .button {
+        width: 100%;
+      }
+      .page-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="lAIdies home">
+      <img src="assets/laidies-logo-wordmark.png" alt="">
+    </a>
+    <button class="hamburger-btn" type="button" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="start-here.html">New? Start Here</a>
+      <a href="this-week.html">This Week</a>
+      <a href="episodes.html">Episodes</a>
+      <a href="learn.html">Learn</a>
+      <a href="clubhouse.html">Clubhouse</a>
+      <a href="community.html">Community</a>
+      <a href="clubhouse-pass.html" style="color:#ff2d9b;text-decoration:underline;">Sign In</a>
+    </nav>
+  </header>
+
+  <a class="wednesday-return" data-wednesday-return href="this-week.html?issue=2&bag=open">← Back to the Bag</a>
+
+  <main>
+    <section class="preview-hero" aria-labelledby="printableTitle">
+      <div>
+        <span class="eyebrow" id="printableEyebrow">Episode printable</span>
+        <h1 id="printableTitle">Printable Preview</h1>
+        <p class="lede" id="printableDescription">Preview the weekly printable first. Download it only when you are ready.</p>
+      </div>
+      <div class="preview-actions">
+        <a class="button" id="downloadPdf" href="#" download>Download PDF</a>
+        <a class="button secondary" id="funPackLink" href="games/fun-pack.html">Open Fun Pack</a>
+      </div>
+    </section>
+
+    <section class="printable-shell" aria-label="Printable preview pages">
+      <div class="page-grid" id="pageGrid"></div>
+      <p class="unavailable" id="unavailableMessage" hidden>This printable is not public yet. Try the current week's Bag instead.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>lAIdies</strong> &copy; 2026 Ali Eakin. All rights reserved.</p>
+  </footer>
+
+  <script>
+  (function() {
+    "use strict";
+
+    var printables = {
+      1: {
+        eyebrow: "Episode 01 printable",
+        title: "Open the Tab",
+        description: "A four-page desk reference for your first safe, useful AI reps.",
+        pdf: "assets/prompt-cheat-sheet-issue01.pdf",
+        filename: "prompt-cheat-sheet-issue01.pdf",
+        pages: [
+          "content/printables/previews/issue-01-open-the-tab-page-1.png",
+          "content/printables/previews/issue-01-open-the-tab-page-2.png",
+          "content/printables/previews/issue-01-open-the-tab-page-3.png",
+          "content/printables/previews/issue-01-open-the-tab-page-4.png"
+        ]
+      },
+      2: {
+        eyebrow: "Episode 02 printable",
+        title: "Prompt Specificity Cheat Sheet",
+        description: "A four-page prompt specificity cheat sheet for turning vague asks into useful work output.",
+        pdf: "assets/prompt-cheat-sheet-issue02.pdf",
+        filename: "prompt-cheat-sheet-issue02.pdf",
+        pages: [
+          "content/printables/previews/prompt-cheat-sheet-page-1.png",
+          "content/printables/previews/prompt-cheat-sheet-page-2.png",
+          "content/printables/previews/prompt-cheat-sheet-page-3.png",
+          "content/printables/previews/prompt-cheat-sheet-page-4.png"
+        ]
+      }
+    };
+
+    var params = new URLSearchParams(window.location.search || "");
+    var issueMatch = String(params.get("issue") || "2").match(/\d+/);
+    var issue = issueMatch ? Number(issueMatch[0]) : 2;
+    var printable = printables[issue];
+    var fromBag = params.get("from") === "this-week";
+    var returnLink = document.querySelector("[data-wednesday-return]");
+    var pageGrid = document.getElementById("pageGrid");
+    var unavailableMessage = document.getElementById("unavailableMessage");
+    var downloadPdf = document.getElementById("downloadPdf");
+    var funPackLink = document.getElementById("funPackLink");
+    var title = document.getElementById("printableTitle");
+    var eyebrow = document.getElementById("printableEyebrow");
+    var description = document.getElementById("printableDescription");
+
+    function addReturnParams(url) {
+      if (!fromBag) return url;
+      var separator = url.indexOf("?") === -1 ? "?" : "&";
+      return url + separator + "from=this-week&issue=" + encodeURIComponent(issue) + "&bag=open";
+    }
+
+    if (returnLink) {
+      returnLink.href = "this-week.html?issue=" + encodeURIComponent(issue) + "&bag=open";
+      if (!fromBag) returnLink.textContent = "← Back to This Week";
+    }
+
+    if (funPackLink) {
+      funPackLink.href = addReturnParams("games/fun-pack.html");
+    }
+
+    if (!printable) {
+      if (pageGrid) pageGrid.hidden = true;
+      if (unavailableMessage) unavailableMessage.hidden = false;
+      if (downloadPdf) {
+        downloadPdf.removeAttribute("href");
+        downloadPdf.setAttribute("aria-disabled", "true");
+      }
+      if (title) title.textContent = "Printable coming soon";
+      if (eyebrow) eyebrow.textContent = "Not public yet";
+      if (description) description.textContent = "This week's printable is not packed yet. The current Bag still works.";
+      return;
+    }
+
+    document.title = printable.title + " | LAIDIES Printable";
+    if (title) title.textContent = printable.title;
+    if (eyebrow) eyebrow.textContent = printable.eyebrow;
+    if (description) description.textContent = printable.description;
+    if (downloadPdf) {
+      downloadPdf.href = printable.pdf;
+      downloadPdf.setAttribute("download", printable.filename);
+    }
+
+    if (pageGrid) {
+      printable.pages.forEach(function(src, index) {
+        var figure = document.createElement("figure");
+        figure.className = "page-preview";
+        var image = document.createElement("img");
+        image.src = src;
+        image.alt = printable.title + " preview page " + (index + 1);
+        image.loading = index > 1 ? "lazy" : "eager";
+        figure.appendChild(image);
+        pageGrid.appendChild(figure);
+      });
+    }
+
+    document.querySelector(".hamburger-btn")?.addEventListener("click", function() {
+      var nav = document.querySelector(".nav");
+      if (!nav) return;
+      var open = nav.classList.toggle("is-open");
+      this.textContent = open ? "\u2715" : "\u2630";
+      this.setAttribute("aria-expanded", String(open));
+    });
+  })();
+  </script>
+</body>
+</html>

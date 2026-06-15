@@ -5,6 +5,27 @@
   const issueNumber = Number(document.body?.dataset.issueNumber || 0);
   const padIssue = (number) => String(number).padStart(2, "0");
 
+  function getWednesdayReturnUrl() {
+    const params = new URLSearchParams(window.location.search || "");
+    if (params.get("from") !== "this-week") return "";
+    const requestedIssue = String(params.get("issue") || issueNumber || "").match(/\d+/)?.[0] || "";
+    return "../this-week.html" + (requestedIssue ? "?issue=" + encodeURIComponent(Number(requestedIssue)) + "&bag=open" : "?bag=open");
+  }
+
+  function insertWednesdayReturnLink() {
+    const href = getWednesdayReturnUrl();
+    if (!href || document.querySelector("[data-wednesday-return]")) return;
+    const link = document.createElement("a");
+    link.dataset.wednesdayReturn = "true";
+    link.href = href;
+    link.textContent = "\u2190 Back to the Bag";
+    link.style.cssText = "position:fixed;top:76px;left:clamp(14px,3vw,26px);right:auto;bottom:auto;z-index:120;display:inline-flex;width:fit-content;max-width:calc(100% - 28px);margin:0;padding:10px 14px;border:1px solid rgba(255,45,155,.42);border-radius:999px;background:rgba(20,8,24,.86);color:#ff8ccc;font-weight:850;text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.28),0 0 0 4px rgba(255,45,155,.1);backdrop-filter:blur(10px);";
+    const nav = document.querySelector(".issue-site-nav");
+    if (nav?.parentNode) nav.insertAdjacentElement("afterend", link);
+  }
+
+  insertWednesdayReturnLink();
+
   /* Episode music tracks */
   const episodeTracks = {
     1: { title: "On Wednesday We Do AI", file: "content/music/dj-jaidy-week-01-on-wednesday-we-do-ai.mp3" },

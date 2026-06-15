@@ -84,6 +84,18 @@
     }
   });
 })();
+
+(function() {
+  var params = new URLSearchParams(window.location.search || "");
+  if (params.get("from") !== "this-week" || document.querySelector("[data-wednesday-return]")) return;
+  var issue = String(params.get("issue") || "").match(/\d+/);
+  var link = document.createElement("a");
+  link.dataset.wednesdayReturn = "true";
+  link.href = "../this-week.html" + (issue ? "?issue=" + encodeURIComponent(Number(issue[0])) + "&bag=open" : "?bag=open");
+  link.textContent = "\u2190 Back to the Bag";
+  link.style.cssText = "display:inline-flex;margin:18px clamp(18px,5vw,48px) 0;padding:10px 14px;border:1px solid rgba(255,45,155,.38);border-radius:999px;background:rgba(255,45,155,.12);color:#ff2d9b;font-weight:800;text-decoration:none;";
+  document.querySelector("main")?.prepend(link);
+})();
 </script>
 </body>
 </html>

@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hot Goss | LAIDIES</title>
+    <meta name="description" content="The LAIDIES Hot Goss preview desk: AI headlines, receipts, and source-backed context when it is packed." />
+    <link rel="icon" type="image/png" href="assets/laidies-logo-square.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="content/hot-goss-styles.css?v=ritual-qa-3" />
+    <style>
+      body {
+        background:
+          radial-gradient(circle at 28% 6%, rgba(255, 45, 155, 0.18), transparent 26rem),
+          linear-gradient(180deg, #130711 0%, #2c0d25 54%, #0d0611 100%);
+      }
+      .goss-page {
+        width: min(100% - 32px, 1040px);
+        margin: 0 auto;
+        padding: clamp(42px, 8vw, 86px) 0 clamp(54px, 8vw, 96px);
+      }
+      .goss-return {
+        display: none;
+        width: fit-content;
+        margin: 0;
+        border: 1px solid rgba(255, 45, 155, 0.38);
+        border-radius: 999px;
+        padding: 10px 14px;
+        background: rgba(20, 8, 24, 0.86);
+        color: #ff8ccc;
+        font-weight: 850;
+        text-decoration: none;
+        position: fixed;
+        top: 76px;
+        left: clamp(14px, 3vw, 26px);
+        right: auto;
+        bottom: auto;
+        z-index: 120;
+        backdrop-filter: blur(10px);
+        box-shadow:
+          0 12px 30px rgba(0, 0, 0, 0.28),
+          0 0 0 4px rgba(255, 45, 155, 0.1);
+      }
+      .goss-return.is-visible {
+        display: inline-flex;
+      }
+      .goss-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(220px, 340px);
+        gap: clamp(18px, 4vw, 34px);
+        align-items: end;
+        margin-bottom: 28px;
+        color: #fff9ec;
+      }
+      .goss-hero .eyebrow {
+        color: #ffe47a;
+        font-size: 0.72rem;
+        font-weight: 850;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .goss-hero h1 {
+        margin: 0;
+        max-width: 720px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(3rem, 8vw, 6rem);
+        line-height: 0.9;
+      }
+      .goss-hero p {
+        max-width: 680px;
+        margin: 0;
+        color: rgba(255, 249, 236, 0.82);
+        font-size: clamp(1rem, 2vw, 1.16rem);
+        line-height: 1.5;
+      }
+      .goss-hero blockquote {
+        max-width: 520px;
+        margin: 8px 0 0;
+        border-left: 3px solid #ff2d9b;
+        padding-left: 16px;
+        color: rgba(255, 249, 236, 0.7);
+        font-family: Georgia, "Times New Roman", serif;
+        font-style: italic;
+      }
+      .goss-desk-card {
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 18px;
+        background: rgba(255, 248, 252, 0.08);
+        box-shadow: 0 24px 58px rgba(0, 0, 0, 0.3);
+      }
+      .goss-desk-card img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+      }
+      .hot-goss-board {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 0.82fr);
+        gap: 24px;
+      }
+      .hot-goss-panel {
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 18px;
+        padding: clamp(18px, 3vw, 28px);
+        background: rgba(26, 20, 36, 0.92);
+        box-shadow: 0 24px 58px rgba(0, 0, 0, 0.24);
+      }
+      .hot-goss-panel h2 {
+        margin: 0 0 14px;
+        color: #fff9ec;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.7rem, 4vw, 2.5rem);
+      }
+      .hot-goss-stamp {
+        margin: 0 0 16px;
+        color: rgba(255, 249, 236, 0.66);
+        font-size: 0.82rem;
+        font-weight: 750;
+      }
+      @media (max-width: 820px) {
+        .goss-hero,
+        .hot-goss-board {
+          grid-template-columns: 1fr;
+        }
+        .goss-desk-card {
+          max-width: 420px;
+        }
+        .goss-return {
+          left: 14px;
+          right: auto;
+          top: 72px;
+          max-width: calc(100% - 28px);
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="lAIdies home">
+        <img src="assets/laidies-logo-wordmark.png" alt="">
+      </a>
+      <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=document.querySelector('.nav');if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'\u2630':'\u2715';this.setAttribute('aria-expanded',!isOpen);">&#x2630;</button>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="start-here.html">New? Start Here</a>
+        <a href="this-week.html">This Week</a>
+        <a href="episodes.html">Episodes</a>
+        <a href="learn.html">Learn</a>
+        <a href="clubhouse.html">Clubhouse</a>
+        <a href="community.html">Community</a>
+        <a href="clubhouse-pass.html" style="color: #ff2d9b; text-decoration: underline; margin-left: 8px;">Sign In</a>
+      </nav>
+    </header>
+
+    <main class="goss-page">
+      <a class="goss-return" href="this-week.html?issue=2&bag=open" data-wednesday-return>← Back to the Bag</a>
+
+      <section class="goss-hero">
+        <div>
+          <p class="eyebrow">News desk preview</p>
+          <h1>Hot Goss</h1>
+          <p>AI headlines and actual receipts first. When a story has source-backed LAIDIES context, the extra explanation appears inside the card.</p>
+          <blockquote>&ldquo;What&rsquo;s the 411? What has everybody been talking about?&rdquo;</blockquote>
+          <p class="hot-goss-stamp"><strong>Last updated: loading</strong></p>
+        </div>
+        <div class="goss-desk-card" aria-hidden="true">
+          <img src="assets/hot-goss-desk-v2.png" alt="">
+        </div>
+      </section>
+
+      <div class="hot-goss-board">
+        <section class="hot-goss-panel" aria-labelledby="weeklyGossHeading">
+          <h2 id="weeklyGossHeading">Biggest This Week</h2>
+          <div id="gossWeeklyList"></div>
+        </section>
+        <section class="hot-goss-panel" aria-labelledby="dailyGossHeading">
+          <h2 id="dailyGossHeading">Trending Today</h2>
+          <div id="gossDailyList"></div>
+        </section>
+      </div>
+    </main>
+
+    <script src="content/hot-goss-render.js?v=ritual-qa-3"></script>
+    <script>
+      (function() {
+        var params = new URLSearchParams(window.location.search || "");
+        var link = document.querySelector("[data-wednesday-return]");
+        if (!link || params.get("from") !== "this-week") return;
+        var issue = String(params.get("issue") || "").match(/\d+/);
+        link.href = "this-week.html" + (issue ? "?issue=" + encodeURIComponent(Number(issue[0])) + "&bag=open" : "?bag=open");
+        link.classList.add("is-visible");
+      })();
+    </script>
+  </body>
+</html>

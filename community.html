@@ -41,8 +41,11 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--paper);
-      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 4%, rgba(255,45,155,0.2), transparent 24rem),
+        radial-gradient(circle at 88% 18%, rgba(255,228,122,0.12), transparent 20rem),
+        linear-gradient(180deg, #120711 0%, #2c0d25 56%, #0d0611 100%);
+      color: #fff8fc;
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
@@ -176,11 +179,12 @@
       align-items: center;
       justify-content: space-between;
       padding: 12px 24px;
-      background: var(--white);
-      border-bottom: 1px solid rgba(0,0,0,0.06);
+      background: rgba(13, 6, 17, 0.95);
+      border-bottom: 1px solid rgba(255,45,155,0.18);
       position: sticky;
       top: 0;
       z-index: 100;
+      backdrop-filter: blur(10px);
     }
     .site-header .brand img {
       height: 28px;
@@ -192,20 +196,52 @@
       font-weight: 600;
     }
     .site-header nav a {
-      color: var(--text);
+      color: rgba(255,248,252,0.72);
       text-decoration: none;
       transition: color 0.2s;
     }
     .site-header nav a:hover {
       color: var(--hot-pink);
     }
+
+    .wednesday-return {
+      display: inline-flex;
+      width: fit-content;
+      margin: 0;
+      border: 1px solid rgba(255,45,155,0.42);
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: rgba(20, 8, 24, 0.86);
+      color: #ff8ccc;
+      font-weight: 800;
+      text-decoration: none;
+      position: fixed;
+      top: 76px;
+      left: clamp(14px, 3vw, 26px);
+      right: auto;
+      bottom: auto;
+      z-index: 120;
+      backdrop-filter: blur(10px);
+      box-shadow:
+        0 12px 30px rgba(0,0,0,0.28),
+        0 0 0 4px rgba(255,45,155,0.1);
+    }
+
+    .wednesday-return:hover,
+    .wednesday-return:focus-visible {
+      background: rgba(255,45,155,0.18);
+      color: var(--hot-pink);
+      outline: 3px solid rgba(255,45,155,0.2);
+      outline-offset: 2px;
+    }
+
     .hamburger-btn {
       display: none;
       background: none;
       border: none;
       font-size: 1.4rem;
       cursor: pointer;
-      color: var(--text);
+      color: #fff8fc;
     }
     @media (max-width: 700px) {
       .site-header nav {
@@ -214,21 +250,136 @@
         top: 100%;
         left: 0;
         right: 0;
-        background: var(--white);
+        background: rgba(13, 6, 17, 0.98);
         padding: 16px 24px;
-        border-bottom: 1px solid rgba(0,0,0,0.06);
+        border-bottom: 1px solid rgba(255,45,155,0.18);
         flex-direction: column;
         gap: 12px;
       }
       .site-header nav.open { display: flex; }
       .hamburger-btn { display: block; }
+      .wednesday-return {
+        left: 14px;
+        right: auto;
+        top: 72px;
+        max-width: calc(100% - 28px);
+        justify-content: center;
+      }
+    }
+
+    .community-ritual-entry {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 42px 24px 18px;
+    }
+    .community-ritual-entry .entry-card {
+      display: grid;
+      gap: 18px;
+      border: 1px solid rgba(255,45,155,0.22);
+      border-radius: 18px;
+      padding: clamp(20px, 4vw, 30px);
+      background:
+        radial-gradient(circle at top right, rgba(255,45,155,0.28), transparent 18rem),
+        linear-gradient(135deg, rgba(255,249,236,0.98), rgba(255,231,243,0.92));
+      color: var(--text);
+      box-shadow: 0 22px 54px rgba(0,0,0,0.22);
+    }
+    .community-ritual-entry .eyebrow {
+      color: var(--hot-pink);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+    }
+    .community-ritual-entry h1 {
+      max-width: 680px;
+      font-family: 'Space Grotesk', Georgia, serif;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      line-height: 0.98;
+      color: var(--text);
+    }
+    .community-ritual-entry p {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+    .room-preview-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .room-preview {
+      display: grid;
+      gap: 4px;
+      border: 1px solid rgba(255,45,155,0.22);
+      border-radius: 14px;
+      padding: 13px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.92), rgba(255,246,252,0.84));
+      color: var(--text);
+      text-decoration: none;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    .room-preview:hover,
+    .room-preview:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(255,45,155,0.5);
+      box-shadow: 0 12px 24px rgba(255,45,155,0.12);
+      outline: none;
+    }
+    .room-preview span {
+      display: block;
+      color: var(--hot-pink);
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .room-preview strong {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.9rem;
+    }
+    .room-preview em {
+      display: inline-flex;
+      width: fit-content;
+      margin-top: 4px;
+      color: #8c1160;
+      font-size: 0.72rem;
+      font-style: normal;
+      font-weight: 900;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .community-entry-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .community-entry-actions a {
+      color: var(--hot-pink);
+      font-weight: 800;
+      text-underline-offset: 4px;
+    }
+    @media (max-width: 700px) {
+      .room-preview-row { grid-template-columns: 1fr; }
+      .community-ritual-entry { padding-top: 28px; }
     }
 
     /* === SECTION 1: LAIDIES CARDS === */
     .cards-section {
-      padding: 48px 24px 40px;
-      max-width: 900px;
-      margin: 0 auto;
+      padding: 30px 24px 40px;
+      width: min(100% - 32px, 1180px);
+      max-width: none;
+      margin: 28px auto 0;
+      border: 1px solid rgba(255,45,155,0.22);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at top left, rgba(255,45,155,0.12), transparent 16rem),
+        rgba(255,249,236,0.95);
+      color: var(--text);
+      box-shadow: 0 20px 54px rgba(0,0,0,0.2);
     }
     .cards-section .eyebrow {
       color: var(--hot-pink);
@@ -376,8 +527,16 @@
     /* === SECTION 2: CHAT ROOMS === */
     .rooms-section {
       padding: 48px 24px 56px;
-      max-width: 900px;
-      margin: 0 auto;
+      width: min(100% - 32px, 1180px);
+      max-width: none;
+      margin: 28px auto 0;
+      border: 1px solid rgba(255,45,155,0.24);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at top right, rgba(255,228,122,0.18), transparent 16rem),
+        rgba(255,248,252,0.96);
+      color: var(--text);
+      box-shadow: 0 20px 54px rgba(0,0,0,0.18);
     }
     .rooms-section .eyebrow {
       color: var(--hot-pink);
@@ -594,11 +753,70 @@
   </header>
 
   <main>
+    <section class="community-ritual-entry" aria-labelledby="communityEntryTitle">
+      <div class="entry-card">
+        <p class="eyebrow">Community rooms</p>
+        <h1 id="communityEntryTitle">Bring one useful thing back to the room.</h1>
+        <p>The Wednesday Ritual does not need networking homework. Share the Try-On, ask the room, or drop the thing that worked so another busy woman can borrow the move.</p>
+        <div class="room-preview-row" aria-label="Featured community rooms">
+          <a class="room-preview" href="community/try-on-debrief.html">
+            <span>This week</span>
+            <strong>The Try-On Debrief</strong>
+            <em>Share your Try-On &rarr;</em>
+          </a>
+          <a class="room-preview" href="community/ask-the-room.html">
+            <span>Question</span>
+            <strong>Ask the Room</strong>
+            <em>Ask the Room &rarr;</em>
+          </a>
+          <a class="room-preview" href="community/send-it-energy.html">
+            <span>Win</span>
+            <strong>Send It Energy</strong>
+            <em>Share a Win &rarr;</em>
+          </a>
+          <a class="room-preview" href="community/wins.html">
+            <span>Celebrate</span>
+            <strong>Wins of the Week</strong>
+            <em>Celebrate a Win &rarr;</em>
+          </a>
+          <a class="room-preview" href="community/dear-laidies.html">
+            <span>Advice</span>
+            <strong>Dear lAIdies</strong>
+            <em>Ask Dear lAIdies &rarr;</em>
+          </a>
+          <a class="room-preview" href="community/burn-book.html">
+            <span>Reference</span>
+            <strong>Burn Book</strong>
+            <em>Nominate a Reference &rarr;</em>
+          </a>
+          <a class="room-preview" href="community/mix-cd-exchange.html">
+            <span>Playlist</span>
+            <strong>Mix CD Exchange</strong>
+            <em>Share a Track &rarr;</em>
+          </a>
+          <a class="room-preview" href="community/comment-card.html">
+            <span>Feedback</span>
+            <strong>Comment Card</strong>
+            <em>Leave a Comment &rarr;</em>
+          </a>
+          <a class="room-preview" href="community/chat-room-digest.html">
+            <span>Receipts</span>
+            <strong>Receipts Desk</strong>
+            <em>Check the Receipts &rarr;</em>
+          </a>
+        </div>
+        <div class="community-entry-actions">
+          <a href="#chat-rooms">Jump to all rooms &rarr;</a>
+          <a href="#laidies-cards">Browse LAIDIES cards &rarr;</a>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ SECTION 1: LAIDIES CARDS ============ -->
     <section class="cards-section" id="laidies-cards">
       <p class="eyebrow">lAIdies Cards</p>
-      <h1>The light participation space.</h1>
-      <p class="subtitle">Answer the weekly prompt, debrief the Try-On, share a win, or ask the community. No need to make it a whole networking strategy.</p>
+      <h1>The card shelf.</h1>
+      <p class="subtitle">Featured/founding cards live here while the full LAIDIES Card glow-up gets polished. The rooms above are the fast way to participate today.</p>
 
       <div class="filter-bar" role="toolbar" aria-label="Filter cards">
         <button class="active" data-filter="all">All cards</button>
@@ -696,47 +914,47 @@
         <div class="room-card">
           <h3>Ask the Room</h3>
           <p>Save your AI question for the group.</p>
-          <a href="community/ask-the-room.html">Open &rarr;</a>
+          <a href="community/ask-the-room.html">Ask the Room &rarr;</a>
         </div>
         <div class="room-card">
           <h3>Send It Energy</h3>
           <p>Share the prompt or trick that worked.</p>
-          <a href="community/send-it-energy.html">Open &rarr;</a>
+          <a href="community/send-it-energy.html">Share a Win &rarr;</a>
         </div>
         <div class="room-card">
           <h3>The Try-On Debrief</h3>
           <p>The easiest place to participate: what did you test this week?</p>
-          <a href="community/try-on-debrief.html">Open &rarr;</a>
+          <a href="community/try-on-debrief.html">Share Your Try-On &rarr;</a>
         </div>
         <div class="room-card">
           <h3>Wins of the Week</h3>
           <p>AI not required. We celebrate those too.</p>
-          <a href="community/wins.html">Open &rarr;</a>
+          <a href="community/wins.html">Celebrate a Win &rarr;</a>
         </div>
         <div class="room-card">
           <h3>Dear lAIdies</h3>
           <p>Ask for non-AI advice.</p>
-          <a href="community/dear-laidies.html">Open &rarr;</a>
+          <a href="community/dear-laidies.html">Ask Dear lAIdies &rarr;</a>
         </div>
         <div class="room-card">
           <h3>Burn Book</h3>
           <p>Nominate a 90s reference for an analogy.</p>
-          <a href="community/burn-book.html">Open &rarr;</a>
+          <a href="community/burn-book.html">Nominate a Reference &rarr;</a>
         </div>
         <div class="room-card">
           <h3>Mix CD Exchange</h3>
           <p>Drop your playlist link.</p>
-          <a href="community/mix-cd-exchange.html">Open &rarr;</a>
+          <a href="community/mix-cd-exchange.html">Share a Track &rarr;</a>
         </div>
         <div class="room-card">
           <h3>Comment Card</h3>
           <p>Tell us how it landed.</p>
-          <a href="community/comment-card.html">Open &rarr;</a>
+          <a href="community/comment-card.html">Leave a Comment &rarr;</a>
         </div>
         <div class="room-card">
           <h3>Receipts Desk</h3>
           <p>AI-summarized answers from community prompts.</p>
-          <a href="community/chat-room-digest.html">Open &rarr;</a>
+          <a href="community/chat-room-digest.html">Check the Receipts &rarr;</a>
         </div>
       </div>
     </section>
@@ -972,6 +1190,30 @@
 
   // Load member cards on page ready
   loadMemberCards();
+  </script>
+  <script>
+  (function() {
+    const params = new URLSearchParams(window.location.search || '');
+    if (params.get('from') !== 'this-week' || document.querySelector('[data-wednesday-return]')) return;
+    const issue = String(params.get('issue') || '').match(/\d+/);
+    const issueValue = issue ? Number(issue[0]) : '';
+    const link = document.createElement('a');
+    link.dataset.wednesdayReturn = 'true';
+    link.className = 'wednesday-return';
+    link.href = 'this-week.html' + (issueValue ? '?issue=' + encodeURIComponent(issueValue) + '&bag=open' : '?bag=open');
+    link.textContent = '\u2190 Back to the Bag';
+    document.querySelector('main')?.prepend(link);
+
+    if (!issueValue) return;
+    document.querySelectorAll('a[href^="community/"]').forEach((roomLink) => {
+      const hashIndex = roomLink.getAttribute('href').indexOf('#');
+      const href = roomLink.getAttribute('href');
+      const hash = hashIndex >= 0 ? href.slice(hashIndex) : '';
+      const base = hashIndex >= 0 ? href.slice(0, hashIndex) : href;
+      const separator = base.includes('?') ? '&' : '?';
+      roomLink.href = base + separator + 'from=this-week&issue=' + encodeURIComponent(issueValue) + '&bag=open' + hash;
+    });
+  })();
   </script>
   <script src="/content/site/mini-player.js"></script>
 </body>

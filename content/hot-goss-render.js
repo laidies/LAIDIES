@@ -2,7 +2,7 @@
  * Hot Goss Renderer — Enhanced Format with Collapsible Cards
  * 
  * Stories show headline + preview by default.
- * Click "read more" to expand full body + whyYouCare + cocktailParty + links.
+ * Click "read more" to expand source-provided body + LAIDIES explanation fields when present.
  * 
  * Auto-links to glossary terms and episodes based on siteLinks in JSON.
  */
@@ -44,34 +44,68 @@
       if (weeklyEl) weeklyEl.innerHTML = '<p style="color: var(--muted);">Stories loading soon. Check back shortly.</p>';
     });
 
+  function escapeHtml(value) {
+    return String(value || '').replace(/[&<>"']/g, function(char) {
+      return {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      }[char];
+    });
+  }
+
+  function getFirstField(story, names) {
+    for (var i = 0; i < names.length; i += 1) {
+      var value = story && story[names[i]];
+      if (value) return value;
+    }
+    return '';
+  }
+
+  function buildNoteBlock(label, value, className) {
+    if (!value) return '';
+    return '<div class="goss-note-block ' + className + '">' +
+      '<span>' + escapeHtml(label) + '</span>' +
+      '<p>' + escapeHtml(value) + '</p>' +
+    '</div>';
+  }
+
   function buildStoryCard(story, number, isDaily) {
     var numberHtml = number ? '<span class="goss-number">' + String(number).padStart(2, '0') + '</span>' : '';
-    var sourceLink = story.source ? '<a href="' + story.source + '" target="_blank" rel="noreferrer" class="goss-source-link">Read the receipt \u2192</a>' : '';
+    var sourceUrl = story.url || story.source;
+    var sourceLink = sourceUrl ? '<a href="' + escapeHtml(sourceUrl) + '" target="_blank" rel="noreferrer" class="goss-source-link">Read the receipt \u2192</a>' : '';
     
     var siteLinks = '';
     if (story.siteLinks && story.siteLinks.length) {
       siteLinks = '<div class="goss-site-links">' + story.siteLinks.map(function(link) {
-        var icon = link.type === 'episode' ? '\ud83d\udcf0' : link.type === 'glossary' ? '\ud83d\udcd6' : '\ud83d\udd17';
-        return '<a href="' + link.url + '">' + icon + ' ' + link.label + '</a>';
+        return '<a href="' + escapeHtml(link.url) + '">' + escapeHtml(link.label || 'Related LAIDIES link') + '</a>';
       }).join('') + '</div>';
     }
-    
-    var whyYouCare = story.whyYouCare ? '<div class="goss-why-care"><span class="goss-why-label">\ud83d\udca1 Why you\'d care:</span><p>' + story.whyYouCare + '</p></div>' : '';
-    var cocktailLabel = isDaily ? '\ud83c\udf78 One-liner:' : '\ud83c\udf78 The cocktail party version:';
-    var cocktailParty = story.cocktailParty ? '<div class="goss-cocktail-party"><span class="goss-cocktail-label">' + cocktailLabel + '</span><p>' + story.cocktailParty + '</p></div>' : '';
-    
-    var preview = story.preview || story.body.split('. ')[0] + '.';
+
+    var whatHappened = getFirstField(story, ['whatHappened', 'summary', 'body']);
+    var whyCare = getFirstField(story, ['whyYouCare', 'whyWeCare', 'whyItMatters', 'whyCare']);
+    var dealRating = getFirstField(story, ['dealRating', 'impactRating', 'howBigADeal', 'rating']);
+    var translation = getFirstField(story, ['laidiesTranslation', 'translation', 'groupChatTranslation']);
+    var takeaway = getFirstField(story, ['smartBusyWomanTakeaway', 'takeaway', 'groupChatTakeaway', 'workTakeaway']);
+    var cocktailParty = getFirstField(story, ['cocktailParty', 'oneLiner', 'meetingOneLiner']);
+
+    var preview = story.preview || (story.body ? story.body.split('. ')[0] + '.' : 'Receipt ready.');
     var dailyClass = isDaily ? ' goss-daily' : '';
     
     return '<article class="goss-story' + dailyClass + '">' +
       numberHtml +
-      '<h4 class="goss-headline">' + story.headline + '</h4>' +
-      '<p class="goss-preview">' + preview + '</p>' +
+      '<h4 class="goss-headline">' + escapeHtml(story.headline) + '</h4>' +
+      '<p class="goss-preview">' + escapeHtml(preview) + '</p>' +
       '<button class="goss-expand-btn">read more \u2193</button>' +
       '<div class="goss-expanded">' +
-        '<p class="goss-body">' + story.body + '</p>' +
-        whyYouCare +
-        cocktailParty +
+        buildNoteBlock('What happened?', whatHappened, 'goss-note-what') +
+        buildNoteBlock('Why do we care?', whyCare, 'goss-note-why') +
+        buildNoteBlock('How big a deal?', dealRating, 'goss-note-rating') +
+        buildNoteBlock('LAIDIES translation', translation, 'goss-note-translation') +
+        buildNoteBlock('Smart busy woman takeaway', takeaway, 'goss-note-takeaway') +
+        buildNoteBlock(isDaily ? 'One-liner' : 'The cocktail party version', cocktailParty, 'goss-note-cocktail') +
         '<div class="goss-footer">' + sourceLink + siteLinks + '</div>' +
       '</div>' +
     '</article>';

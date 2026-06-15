@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Try-On | LAIDIES</title>
+  <meta name="description" content="Do the weekly LAIDIES Try-On exercise and save your notes on this device.">
+  <link rel="icon" type="image/png" href="assets/laidies-logo-square.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --hot-pink: #ff2d9b;
+      --ink: #21111f;
+      --plum: #32122f;
+      --cream: #fff9ec;
+      --paper: #fffdf8;
+      --blush: #ffd9e9;
+      --blue: #bde8ff;
+      --yellow: #ffe47a;
+      --muted: rgba(255, 248, 252, 0.72);
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(255, 45, 155, 0.28), transparent 23rem),
+        radial-gradient(circle at 88% 10%, rgba(189, 232, 255, 0.18), transparent 22rem),
+        linear-gradient(135deg, #180918 0%, #3a1431 52%, #120912 100%);
+      color: #fff8fc;
+      font-family: var(--font-body);
+      line-height: 1.6;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 80;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 12px clamp(16px, 4vw, 48px);
+      border-bottom: 1px solid rgba(255, 45, 155, 0.12);
+      background: rgba(13, 10, 18, 0.95);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand img {
+      display: block;
+      width: auto;
+      height: 28px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-left: auto;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .nav a {
+      color: rgba(255, 248, 252, 0.68);
+      text-decoration: none;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      color: var(--hot-pink);
+      outline: none;
+    }
+
+    .hamburger-btn {
+      display: none;
+      margin-left: auto;
+      border: 0;
+      background: transparent;
+      color: #fff8fc;
+      font: inherit;
+      font-size: 1.35rem;
+      cursor: pointer;
+    }
+
+    .wednesday-return {
+      position: sticky;
+      top: 66px;
+      z-index: 70;
+      display: inline-flex;
+      width: fit-content;
+      max-width: calc(100% - 28px);
+      margin: 14px 0 0 clamp(14px, 3vw, 28px);
+      padding: 10px 14px;
+      border: 1px solid rgba(255, 45, 155, 0.42);
+      border-radius: 999px;
+      background: rgba(20, 8, 24, 0.88);
+      color: #ff8ccc;
+      font-size: 0.84rem;
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28), 0 0 0 4px rgba(255, 45, 155, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .wednesday-return:hover,
+    .wednesday-return:focus-visible {
+      color: #fff8fc;
+      border-color: rgba(255, 45, 155, 0.72);
+      outline: none;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: clamp(28px, 6vw, 64px) 0 clamp(48px, 7vw, 84px);
+    }
+
+    .tryon-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+      gap: clamp(18px, 4vw, 36px);
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow,
+    .step-kicker {
+      display: inline-flex;
+      width: fit-content;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 999px;
+      padding: 7px 12px;
+      background: rgba(255, 249, 236, 0.1);
+      color: var(--yellow);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 12px 0 0;
+      color: var(--cream);
+      font-family: var(--font-heading);
+      font-size: clamp(2.6rem, 7vw, 5rem);
+      line-height: 0.92;
+      letter-spacing: 0;
+    }
+
+    .lede {
+      max-width: 650px;
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: clamp(0.98rem, 2vw, 1.08rem);
+    }
+
+    .desk-note {
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.62);
+      border-radius: 20px;
+      padding: 20px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 249, 236, 0.96)),
+        var(--paper);
+      color: var(--ink);
+      box-shadow: 0 20px 44px rgba(32, 10, 29, 0.28);
+      transform: rotate(-0.8deg);
+    }
+
+    .desk-note::before {
+      content: "";
+      position: absolute;
+      top: -12px;
+      left: 26px;
+      width: 92px;
+      height: 24px;
+      border-radius: 4px;
+      background: rgba(255, 45, 155, 0.7);
+      box-shadow: 0 4px 16px rgba(255, 20, 146, 0.26);
+      transform: rotate(2deg);
+    }
+
+    .desk-note strong {
+      display: block;
+      color: #8c1160;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .desk-note p {
+      margin: 8px 0 0;
+      color: rgba(33, 17, 31, 0.8);
+      font-weight: 700;
+    }
+
+    .tryon-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(320px, 1fr);
+      gap: clamp(16px, 3vw, 24px);
+      align-items: start;
+    }
+
+    .exercise-card,
+    .save-card {
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 28px;
+      padding: clamp(18px, 3vw, 28px);
+      background:
+        linear-gradient(135deg, rgba(255, 249, 236, 0.12), rgba(255, 217, 233, 0.1)),
+        rgba(13, 6, 15, 0.54);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    }
+
+    .exercise-card h2,
+    .save-card h2 {
+      margin: 12px 0 8px;
+      color: var(--cream);
+      font-family: var(--font-heading);
+      font-size: clamp(1.65rem, 3vw, 2.2rem);
+      line-height: 1;
+    }
+
+    .exercise-card p,
+    .save-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .tryon-steps {
+      display: grid;
+      gap: 12px;
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: tryon-step;
+    }
+
+    .tryon-steps li {
+      counter-increment: tryon-step;
+      display: grid;
+      grid-template-columns: 40px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      border: 1px solid rgba(255, 45, 155, 0.2);
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(255, 249, 236, 0.08);
+      color: rgba(255, 248, 252, 0.9);
+      font-weight: 750;
+    }
+
+    .tryon-steps li::before {
+      content: counter(tryon-step, decimal-leading-zero);
+      display: grid;
+      width: 40px;
+      height: 40px;
+      place-items: center;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--hot-pink), #ff87ca);
+      color: white;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 900;
+      box-shadow: 0 0 0 4px rgba(255, 45, 155, 0.12);
+    }
+
+    .tryon-form {
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: rgba(255, 249, 236, 0.86);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 160px;
+      resize: vertical;
+      border: 1px solid rgba(255, 45, 155, 0.22);
+      border-radius: 18px;
+      padding: 14px 16px;
+      background: rgba(255, 253, 248, 0.96);
+      color: var(--ink);
+      font: inherit;
+      line-height: 1.5;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.66);
+    }
+
+    textarea:focus-visible,
+    input[type="range"]:focus-visible,
+    .button:focus-visible {
+      outline: 3px solid rgba(255, 45, 155, 0.28);
+      outline-offset: 3px;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--hot-pink);
+    }
+
+    .rating-output {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .rating-score {
+      color: var(--cream);
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+    .rating-description {
+      color: var(--yellow);
+      font-weight: 850;
+    }
+
+    .clip-row {
+      display: grid;
+      grid-template-columns: repeat(10, minmax(18px, 1fr));
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .clip-row img {
+      width: 100%;
+      max-width: 34px;
+      justify-self: center;
+      filter: saturate(0.2) brightness(0.72);
+      opacity: 0.32;
+      transform: rotate(-6deg);
+      transition: filter 160ms ease, opacity 160ms ease, transform 160ms ease;
+    }
+
+    .clip-row img:nth-child(even) {
+      transform: rotate(7deg);
+    }
+
+    .clip-row img.is-active {
+      filter: saturate(1.15) brightness(1.06) drop-shadow(0 0 10px rgba(255, 45, 155, 0.34));
+      opacity: 1;
+      transform: translateY(-2px) rotate(-4deg);
+    }
+
+    .clip-row img:nth-child(even).is-active {
+      transform: translateY(-2px) rotate(6deg);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 45, 155, 0.34);
+      border-radius: 999px;
+      padding: 12px 18px;
+      background: linear-gradient(135deg, #ff3fa4, #ff1492);
+      color: white;
+      font: inherit;
+      font-weight: 900;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 14px 28px rgba(255, 20, 146, 0.2);
+    }
+
+    .button.secondary {
+      background: rgba(255, 249, 236, 0.1);
+      color: #fff8fc;
+      box-shadow: none;
+    }
+
+    .save-note,
+    .save-status {
+      margin: 0;
+      color: rgba(255, 248, 252, 0.7);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .save-status {
+      color: var(--yellow);
+    }
+
+    .site-footer {
+      padding: 28px 20px 34px;
+      border-top: 1px solid rgba(255, 45, 155, 0.12);
+      text-align: center;
+      color: rgba(255, 248, 252, 0.54);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 860px) {
+      .tryon-hero,
+      .tryon-shell {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .hamburger-btn { display: block; }
+      .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px 24px;
+        border-bottom: 1px solid rgba(255, 45, 155, 0.16);
+        background: rgba(13, 10, 18, 0.98);
+      }
+      .nav.is-open { display: flex; }
+      .wednesday-return {
+        top: 62px;
+        margin-left: 12px;
+      }
+      main {
+        width: min(100% - 24px, 620px);
+      }
+      .desk-note {
+        transform: none;
+      }
+      .button,
+      .button-row {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="lAIdies home">
+      <img src="assets/laidies-logo-wordmark.png" alt="">
+    </a>
+    <button class="hamburger-btn" type="button" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="start-here.html">New? Start Here</a>
+      <a href="this-week.html">This Week</a>
+      <a href="episodes.html">Episodes</a>
+      <a href="learn.html">Learn</a>
+      <a href="clubhouse.html">Clubhouse</a>
+      <a href="community.html">Community</a>
+      <a href="clubhouse-pass.html" style="color:#ff2d9b;text-decoration:underline;">Sign In</a>
+    </nav>
+  </header>
+
+  <a class="wednesday-return" data-wednesday-return href="this-week.html?issue=2&bag=open">&larr; Back to the Bag</a>
+
+  <main>
+    <section class="tryon-hero" aria-labelledby="tryonTitle">
+      <div>
+        <span class="eyebrow" id="episodeEyebrow">Episode Try-On</span>
+        <h1 id="tryonTitle">Try it once.</h1>
+        <p class="lede" id="tryonLede">The five-minute move from this week's Bag. One real task, two prompts, useful evidence.</p>
+      </div>
+      <aside class="desk-note" aria-label="Try-On reminder">
+        <strong>Five-minute fit check</strong>
+        <p>Do not make this a whole productivity arc. One task. One before. One after. That is the point.</p>
+      </aside>
+    </section>
+
+    <section class="tryon-shell">
+      <article class="exercise-card" aria-labelledby="exerciseTitle">
+        <span class="step-kicker">The exercise</span>
+        <h2 id="exerciseTitle">Give AI a better outfit for the task.</h2>
+        <p id="episodeInstruction">Pick one real task. Ask AI vaguely once. Ask again with audience, context, tone, length, and what good looks like. Compare the outputs.</p>
+        <ol class="tryon-steps" id="tryonSteps">
+          <li>Pick one real task from your actual week.</li>
+          <li>Ask AI vaguely once.</li>
+          <li>Ask again with audience, context, tone, length, and what good looks like.</li>
+          <li>Compare the outputs and save what changed.</li>
+        </ol>
+      </article>
+
+      <section class="save-card" aria-labelledby="saveTitle">
+        <span class="step-kicker">Save the fit check</span>
+        <h2 id="saveTitle">How much better did it get?</h2>
+        <form class="tryon-form" id="tryonForm">
+          <div>
+            <label for="tryonNotes">Quick notes</label>
+            <textarea id="tryonNotes" placeholder="What changed when you added audience, context, tone, length, and what good looks like?"></textarea>
+          </div>
+
+          <div>
+            <label for="tryonRating">Butterfly-clip rating</label>
+            <input id="tryonRating" type="range" min="0" max="10" step="1" value="5">
+            <div class="rating-output" aria-live="polite">
+              <span class="rating-score" id="ratingScore">5 / 10 butterfly clips</span>
+              <span class="rating-description" id="ratingDescription">Half-up, half-helpful.</span>
+            </div>
+            <div class="clip-row" id="clipRow" aria-hidden="true"></div>
+          </div>
+
+          <div class="button-row">
+            <button class="button" id="saveButton" type="submit">Save Try-On</button>
+            <a class="button secondary" id="communityLink" href="community.html?from=this-week&issue=2&bag=open">Share in Community</a>
+          </div>
+          <p class="save-note">For now, this saves on this device. Clubhouse Pass saving is coming.</p>
+          <p class="save-status" id="saveStatus" aria-live="polite" hidden></p>
+        </form>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>lAIdies</strong> &copy; 2026 Ali Eakin. All rights reserved.</p>
+  </footer>
+
+  <script>
+  (function() {
+    "use strict";
+
+    var completionStorageKey = "laidiesWednesdayRitualVisits";
+    var tryOnStorageKey = "laidiesWednesdayTryOnNotes";
+    var clipAsset = "assets/butterfly-clip-rating-token.png";
+    var ratingDescriptions = [
+      "Ouch. Stepped on a broken butterfly clip.",
+      "Barely clipped.",
+      "Holding on by one tiny claw.",
+      "Cute idea, chaotic execution.",
+      "Better, but still giving flyaway bangs.",
+      "Half-up, half-helpful.",
+      "Workable with a little hairspray.",
+      "Calendar-ready.",
+      "Actually useful.",
+      "Main character hold.",
+      "Almost enough for a full hairstyle."
+    ];
+
+    var issues = {
+      1: {
+        pad: "01",
+        title: "On Wednesdays We Use AI",
+        instruction: "Pick one real task. Ask AI vaguely once. Ask again with audience, context, tone, length, and what good looks like. Compare the outputs.",
+        steps: [
+          "Pick one real task from your actual week.",
+          "Ask AI vaguely once.",
+          "Ask again with audience, context, tone, length, and what good looks like.",
+          "Compare the outputs and save what changed."
+        ]
+      },
+      2: {
+        pad: "02",
+        title: "Tell Me What You Want",
+        instruction: "Give AI the same real task twice: once vaguely, then once with audience, context, tone, length, and what not to include. Compare the outputs.",
+        steps: [
+          "Pick one real task from your actual week.",
+          "Ask AI vaguely once.",
+          "Ask again with audience, context, tone, length, and what not to include.",
+          "Compare the outputs and save what got more useful."
+        ]
+      }
+    };
+
+    var params = new URLSearchParams(window.location.search || "");
+    var issueMatch = String(params.get("issue") || "2").match(/\d+/);
+    var issue = issueMatch ? Number(issueMatch[0]) : 2;
+    if (!issues[issue]) issue = 2;
+    var config = issues[issue];
+    var issueKey = "issue-" + config.pad;
+
+    var episodeEyebrow = document.getElementById("episodeEyebrow");
+    var tryonLede = document.getElementById("tryonLede");
+    var episodeInstruction = document.getElementById("episodeInstruction");
+    var tryonSteps = document.getElementById("tryonSteps");
+    var tryonNotes = document.getElementById("tryonNotes");
+    var tryonRating = document.getElementById("tryonRating");
+    var ratingScore = document.getElementById("ratingScore");
+    var ratingDescription = document.getElementById("ratingDescription");
+    var clipRow = document.getElementById("clipRow");
+    var saveStatus = document.getElementById("saveStatus");
+    var communityLink = document.getElementById("communityLink");
+    var returnLink = document.querySelector("[data-wednesday-return]");
+    var navButton = document.querySelector(".hamburger-btn");
+
+    function readJson(key, fallback) {
+      try {
+        return JSON.parse(localStorage.getItem(key) || JSON.stringify(fallback));
+      } catch (error) {
+        return fallback;
+      }
+    }
+
+    function writeJson(key, value) {
+      try {
+        localStorage.setItem(key, JSON.stringify(value));
+      } catch (error) {
+        // Local save is helpful, not worth blocking the Try-On.
+      }
+    }
+
+    function setIssueContent() {
+      document.title = "Episode " + config.pad + " Try-On | LAIDIES";
+      if (episodeEyebrow) episodeEyebrow.textContent = "Episode " + config.pad + " Try-On";
+      if (tryonLede) tryonLede.textContent = "A five-minute Try-On for " + config.title + ". One real task, two prompts, useful evidence.";
+      if (episodeInstruction) episodeInstruction.textContent = config.instruction;
+      if (returnLink) returnLink.href = "this-week.html?issue=" + encodeURIComponent(issue) + "&bag=open";
+      if (communityLink) communityLink.href = "community.html?from=this-week&issue=" + encodeURIComponent(issue) + "&bag=open";
+      if (tryonSteps) {
+        tryonSteps.replaceChildren();
+        config.steps.forEach(function(step) {
+          var item = document.createElement("li");
+          item.textContent = step;
+          tryonSteps.appendChild(item);
+        });
+      }
+    }
+
+    function updateRating(value) {
+      var score = Math.max(0, Math.min(10, Number(value) || 0));
+      if (ratingScore) ratingScore.textContent = score + " / 10 butterfly clip" + (score === 1 ? "" : "s");
+      if (ratingDescription) ratingDescription.textContent = ratingDescriptions[score] || ratingDescriptions[0];
+      if (clipRow) {
+        clipRow.replaceChildren();
+        for (var i = 1; i <= 10; i += 1) {
+          var clip = document.createElement("img");
+          clip.src = clipAsset;
+          clip.alt = "";
+          if (i <= score) clip.classList.add("is-active");
+          clipRow.appendChild(clip);
+        }
+      }
+    }
+
+    function loadSavedTryOn() {
+      var map = readJson(tryOnStorageKey, {});
+      var record = map[issueKey] || {};
+      var rating = typeof record.rating === "number" ? record.rating : 5;
+      if (tryonRating) tryonRating.value = String(rating);
+      if (tryonNotes) tryonNotes.value = record.notes || "";
+      updateRating(rating);
+      if (record.savedAt && saveStatus) {
+        saveStatus.hidden = false;
+        saveStatus.textContent = "Saved to this device for now.";
+      }
+    }
+
+    function markTryOnComplete() {
+      var completionMap = readJson(completionStorageKey, {});
+      completionMap[issueKey] = completionMap[issueKey] || {};
+      completionMap[issueKey].tryon = new Date().toISOString();
+      writeJson(completionStorageKey, completionMap);
+    }
+
+    function saveTryOn() {
+      var rating = tryonRating ? Math.max(0, Math.min(10, Number(tryonRating.value) || 0)) : 0;
+      var map = readJson(tryOnStorageKey, {});
+      map[issueKey] = {
+        rating: rating,
+        notes: tryonNotes ? tryonNotes.value.trim() : "",
+        ratingDescription: ratingDescriptions[rating] || "",
+        savedAt: new Date().toISOString()
+      };
+      writeJson(tryOnStorageKey, map);
+      markTryOnComplete();
+      if (saveStatus) {
+        saveStatus.hidden = false;
+        saveStatus.textContent = "Saved to this device for now.";
+      }
+    }
+
+    setIssueContent();
+    loadSavedTryOn();
+
+    if (tryonRating) {
+      tryonRating.addEventListener("input", function() {
+        updateRating(tryonRating.value);
+      });
+    }
+
+    document.getElementById("tryonForm")?.addEventListener("submit", function(event) {
+      event.preventDefault();
+      saveTryOn();
+      document.getElementById("saveButton")?.focus({ preventScroll: true });
+    });
+
+    navButton?.addEventListener("click", function() {
+      var nav = document.querySelector(".nav");
+      if (!nav) return;
+      var open = nav.classList.toggle("is-open");
+      this.textContent = open ? "\u2715" : "\u2630";
+      this.setAttribute("aria-expanded", String(open));
+    });
+  })();
+  </script>
+</body>
+</html>

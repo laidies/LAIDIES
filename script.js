@@ -1849,14 +1849,24 @@ const cardApprovalSteps = document.querySelectorAll(".card-approval-steps span")
 const quizForm = document.querySelector("#quizForm");
 const quizQuestionsEl = document.querySelector("#quizQuestions");
 const quizResult = document.querySelector("#quizResult");
+const quizSubmitButton = document.querySelector("#quizSubmitButton");
 const quizResetButton = document.querySelector("#quizResetButton");
 const quizRewardTitle = document.querySelector("#quizRewardTitle");
 const quizBestScore = document.querySelector("#quizBestScore");
 const quizSticker = document.querySelector("#quizSticker");
+const quizStickerCard = document.querySelector("#quizStickerCard");
+const quizScoreRow = document.querySelector("#quizScoreRow");
+const quizRewardMessage = document.querySelector("#quizRewardMessage");
+const quizButterflyRating = document.querySelector("#quizButterflyRating");
+const quizCelebration = document.querySelector("#quizCelebration");
 const quizIssueSelect = document.querySelector("#quizIssueSelect");
 const quizIssueLabel = document.querySelector("#quizIssueLabel");
 const quizIssueTitle = document.querySelector("#quizIssueTitle");
 const quizRereadLink = document.querySelector("#quizRereadLink");
+const quizRitualControls = document.querySelector("#quizRitualControls");
+const quizPrevQuestion = document.querySelector("#quizPrevQuestion");
+const quizNextQuestion = document.querySelector("#quizNextQuestion");
+const quizRitualProgress = document.querySelector("#quizRitualProgress");
 const quizProgressList = document.querySelector("#quizProgressList");
 const quizStartPanel = document.querySelector("#quizStartPanel");
 const quizConsole = document.querySelector(".quiz-console");
@@ -2838,8 +2848,11 @@ renderEpisodeIssueCards();
 if (!consumeMemberPassResetUrl()) renderMemberPass();
 initMemberAuth();
 
-let activeQuizKey = quizIssueSelect?.value || Object.keys(issueQuizzes)[0] || "issue01";
-let quizIsOpen = false;
+const requestedQuizIssueKey = getRequestedQuizIssueKey();
+let activeQuizKey = requestedQuizIssueKey || quizIssueSelect?.value || Object.keys(issueQuizzes)[0] || "issue01";
+let quizIsOpen = Boolean(requestedQuizIssueKey);
+let ritualQuizIndex = 0;
+let ritualQuizReviewMode = false;
 let fairyWandTimer = null;
 let activeGlossaryIndex = 0;
 let referenceClosetOpen = false;
@@ -3923,13 +3936,19 @@ function getIssueSortNumber(issueKey) {
   return match ? Number(match[0]) : 0;
 }
 
+function toPublicEpisodeLabel(label) {
+  return String(label || "")
+    .replace(/\bIssue\b/g, "Episode")
+    .replace(/\bEpisode\s+(\d)(?!\d)/g, "Episode 0$1");
+}
+
 function getIssueOptionLabel(issueKey, quiz) {
-  if (quiz?.optionLabel) return quiz.optionLabel;
+  if (quiz?.optionLabel) return toPublicEpisodeLabel(quiz.optionLabel);
   const fallback = initialQuizIssueMeta.get(issueKey);
-  if (fallback?.optionLabel) return fallback.optionLabel;
+  if (fallback?.optionLabel) return toPublicEpisodeLabel(fallback.optionLabel);
   const number = String(getIssueSortNumber(issueKey)).padStart(2, "0");
   const title = fallback?.title || quiz?.rereadLabel?.replace(/^Reread\s+/i, "") || quiz?.title || issueKey;
-  return `Issue ${number}: ${title.replace(/^Issue\s+\d+:\s*/i, "")}`;
+  return `Episode ${number}: ${toPublicEpisodeLabel(title).replace(/^Episode\s+\d+:\s*/i, "")}`;
 }
 
 function getVisibleQuizIssueKeys() {
@@ -3996,8 +4015,61 @@ function resolveSiteUrl(path) {
   return new URL(path, getSiteRootUrl()).toString();
 }
 
+function getQuizReturnConfig() {
+  const params = new URLSearchParams(window.location.search || "");
+  const source = params.get("from");
+  if (source === "this-week") {
+    const issue = String(params.get("issue") || "").match(/\d+/)?.[0] || "";
+    const href = issue ? `this-week.html?issue=${encodeURIComponent(Number(issue))}&bag=open` : "this-week.html?bag=open";
+    return {
+      source,
+      href: new URL(href, getSiteRootUrl()).toString(),
+      label: "\u2190 Back to the Bag",
+      bodyClass: "from-wednesday-bag",
+    };
+  }
+  if (source === "start-here") {
+    return {
+      source,
+      href: new URL("start-here.html", getSiteRootUrl()).toString(),
+      label: "\u2190 Back to Start Here",
+      bodyClass: "from-start-here",
+    };
+  }
+  return null;
+}
+
+function insertQuizReturnLink() {
+  const config = getQuizReturnConfig();
+  if (!config?.href || document.querySelector("[data-quiz-return]")) return;
+  document.body?.classList.add(config.bodyClass);
+  document.body?.classList.add("focused-quiz-mode");
+  const link = document.createElement("a");
+  link.dataset.quizReturn = config.source;
+  link.className = "quiz-return-link";
+  link.href = config.href;
+  link.textContent = config.label;
+  const main = document.querySelector("main");
+  if (main) main.prepend(link);
+}
+
+function getRequestedQuizIssueKey() {
+  const params = new URLSearchParams(window.location.search || "");
+  const source = params.get("from");
+  const type = params.get("type");
+  if (source === "start-here" && type === "foundational") {
+    return getVisibleQuizIssueKeys().includes("foundation") ? "foundation" : "";
+  }
+  const issue = String(params.get("issue") || "").match(/\d+/)?.[0];
+  if (!issue) return "";
+  const issueKey = `issue${String(Number(issue)).padStart(2, "0")}`;
+  return getVisibleQuizIssueKeys().includes(issueKey) ? issueKey : "";
+}
+
+insertQuizReturnLink();
+
 function getIssueCardTitle(issueKey, quiz) {
-  return initialQuizIssueMeta.get(issueKey)?.title || getIssueOptionLabel(issueKey, quiz).replace(/^Issue\s+\d+:\s*/i, "");
+  return initialQuizIssueMeta.get(issueKey)?.title || getIssueOptionLabel(issueKey, quiz).replace(/^Episode\s+\d+:\s*/i, "");
 }
 
 function createQuizIssueCard(issueKey, quiz) {
@@ -4008,7 +4080,7 @@ function createQuizIssueCard(issueKey, quiz) {
 
   const issueNumber = String(getIssueSortNumber(issueKey)).padStart(2, "0");
   const label = document.createElement("span");
-  label.textContent = initialQuizIssueMeta.get(issueKey)?.issueLabel || `Issue ${issueNumber}`;
+  label.textContent = toPublicEpisodeLabel(initialQuizIssueMeta.get(issueKey)?.issueLabel || `Episode ${issueNumber}`);
 
   const title = document.createElement("strong");
   title.textContent = getIssueCardTitle(issueKey, quiz);
@@ -4049,7 +4121,42 @@ function renderQuizIssueShelf() {
   if (!quizIssueShelf) return;
   const visibleKeys = getVisibleQuizIssueKeys();
   if (!visibleKeys.length) return;
-  quizIssueShelf.replaceChildren(...visibleKeys.map((issueKey) => createQuizIssueCard(issueKey, issueQuizzes[issueKey])));
+  const groups = [
+    {
+      title: "Foundational Quiz",
+      helper: "Evergreen basics before you jump into the weekly episodes.",
+      keys: visibleKeys.filter((issueKey) => issueKey === "foundation"),
+    },
+    {
+      title: "Episode Quizzes",
+      helper: "Take the quiz after you read the episode.",
+      keys: visibleKeys.filter((issueKey) => issueKey !== "foundation"),
+    },
+  ].filter((group) => group.keys.length);
+
+  const fragments = groups.map((group) => {
+    const section = document.createElement("section");
+    section.className = "quiz-issue-group";
+
+    const label = document.createElement("div");
+    label.className = "quiz-issue-group-label";
+    const title = document.createElement("strong");
+    title.textContent = group.title;
+    const helper = document.createElement("span");
+    helper.textContent = group.helper;
+    label.append(title, helper);
+
+    const row = document.createElement("div");
+    row.className = "quiz-issue-row";
+    group.keys.forEach((issueKey) => {
+      row.appendChild(createQuizIssueCard(issueKey, issueQuizzes[issueKey]));
+    });
+
+    section.append(label, row);
+    return section;
+  });
+
+  quizIssueShelf.replaceChildren(...fragments);
   quizIssueCards = Array.from(quizIssueShelf.querySelectorAll("[data-quiz-open]"));
   bindQuizIssueCards();
 }
@@ -4073,7 +4180,7 @@ function renderCardPackIssueOptions() {
   issueKeys.forEach((issueKey) => {
     const option = document.createElement("option");
     option.value = issueKey;
-    option.textContent = `Issue ${String(getIssueSortNumber(issueKey)).padStart(2, "0")} pack`;
+    option.textContent = `Episode ${String(getIssueSortNumber(issueKey)).padStart(2, "0")} pack`;
     cardPackIssueSelect.appendChild(option);
   });
 
@@ -4288,6 +4395,123 @@ function getQuizReward(score, maxScore, bonusScore = 0) {
   };
 }
 
+function getQuizButterflyRating(coreScore, maxScore) {
+  const capped = Math.max(0, Math.min(Number(coreScore || 0), Number(maxScore || 10)));
+  const clips = Math.round(capped);
+  if (clips >= 10) return { clips: 10, title: "Almost enough for a full hairstyle.", tone: "perfect" };
+  if (clips >= 8) return { clips, title: "Main character hold.", tone: "high" };
+  if (clips >= 6) return { clips, title: "Calendar-ready.", tone: "high" };
+  if (clips >= 4) return { clips, title: "Half-up, half-helpful.", tone: "mid" };
+  if (clips >= 2) return { clips, title: "Barely clipped, but showing effort.", tone: "low" };
+  return { clips: Math.max(clips, 1), title: "Ouch. Stepped on a broken butterfly clip.", tone: "low" };
+}
+
+const quizStickerAssetManifest = {
+  butterfly: { label: "Butterfly Clip Incident" },
+  participation: { label: "Participation Lip Gloss" },
+  montage: { label: "Montage Mode" },
+  caboodle: { label: "Caboodle Scholar" },
+  receipts: { label: "Receipts Queen" },
+  double: { label: "Double Sticker Drop" },
+};
+
+function getQuizStickerAsset(reward) {
+  return quizStickerAssetManifest[reward?.tier] || { label: reward?.sticker || "Sticker Drop" };
+}
+
+function renderButterflyRating(coreScore, quiz) {
+  if (!quizButterflyRating) return;
+  const rating = getQuizButterflyRating(coreScore, Number(quiz?.maxScore || 10));
+  const label = document.createElement("strong");
+  label.textContent = `${rating.clips}/10 butterfly clips · ${rating.title}`;
+  const clips = Array.from({ length: 10 }, (_, index) => {
+    const clip = document.createElement("span");
+    clip.className = "butterfly-clip";
+    clip.classList.toggle("is-filled", index < rating.clips);
+    clip.setAttribute("aria-hidden", "true");
+    return clip;
+  });
+  quizButterflyRating.replaceChildren(label, ...clips);
+  quizButterflyRating.dataset.ratingTone = rating.tone;
+  quizButterflyRating.setAttribute("aria-label", "Butterfly-clip rating: " + rating.title);
+}
+
+function renderStickerDrop(reward, options = {}) {
+  if (!quizSticker || !quizStickerCard || !quizScoreRow) return;
+  const earned = options.earned !== false;
+  const stickerAsset = getQuizStickerAsset(reward);
+  quizStickerCard.replaceChildren();
+  if (earned) {
+    const sheet = document.createElement("img");
+    sheet.className = "quiz-sticker-sheet";
+    sheet.src = resolveSiteUrl("assets/quiz-sticker-sheet.png");
+    sheet.alt = "LAIDIES glossy sticker sheet reward preview";
+    sheet.loading = "lazy";
+    sheet.decoding = "async";
+    const badge = document.createElement("span");
+    badge.className = "quiz-sticker-pending";
+    badge.textContent = "Glossy sticker drop";
+    const name = document.createElement("span");
+    name.className = "quiz-sticker-name";
+    name.textContent = stickerAsset.label;
+    quizStickerCard.append(sheet, badge, name);
+  } else {
+    const pending = document.createElement("span");
+    pending.className = "quiz-sticker-pending";
+    pending.textContent = "Sticker Drop locked";
+    quizStickerCard.appendChild(pending);
+  }
+  quizStickerCard.classList.toggle("is-double", reward?.tier === "double");
+  quizScoreRow.className = "quiz-score-row";
+  quizScoreRow.classList.toggle("is-empty", !earned);
+  quizScoreRow.classList.toggle("is-earned", earned);
+  if (reward?.tier) quizScoreRow.classList.add("tier-" + reward.tier);
+}
+
+function renderQuizCelebration(score, quiz) {
+  if (!quizCelebration) return;
+  const bonusScore = Number(quiz?.bonusScore || 0);
+  const totalScore = Number(quiz?.maxScore || 10) + bonusScore;
+  const ratio = totalScore ? score / totalScore : 0;
+  const count = ratio >= 1 ? 34 : ratio >= 0.8 ? 18 : ratio >= 0.5 ? 9 : 3;
+  quizScoreRow?.classList.add("is-celebrating");
+  quizCelebration.replaceChildren();
+  for (let index = 0; index < count; index += 1) {
+    const sparkle = document.createElement("span");
+    sparkle.textContent = index % 4 === 0 ? "✦" : index % 3 === 0 ? "★" : "+";
+    sparkle.style.left = `${8 + Math.random() * 84}%`;
+    sparkle.style.top = `${16 + Math.random() * 64}%`;
+    sparkle.style.animationDelay = `${index * 45}ms`;
+    quizCelebration.appendChild(sparkle);
+  }
+  window.setTimeout(() => {
+    quizScoreRow?.classList.remove("is-celebrating");
+  }, ratio >= 1 ? 2600 : 1900);
+}
+
+function renderQuizResult(score, quiz, reward, coreScore = score) {
+  if (!quizResult) return;
+  const bonusScore = Number(quiz?.bonusScore || 0);
+  const maxScore = Number(quiz?.maxScore || 10);
+  const rating = getQuizButterflyRating(coreScore, maxScore);
+  quizResult.replaceChildren();
+
+  const card = document.createElement("div");
+  card.className = "quiz-result-card";
+
+  const scoreLine = document.createElement("strong");
+  scoreLine.textContent = `Score: ${score}/${maxScore}`;
+
+  const ratingLine = document.createElement("span");
+  ratingLine.textContent = `Butterfly-clip rating: ${rating.clips}/10 · ${rating.title}`;
+
+  const message = document.createElement("p");
+  message.textContent = `${reward.title}. ${reward.message} ${bonusScore ? "Bonus points show in the score, but butterfly clips stay on the 10-question scale. " : ""}Open your Clubhouse Pass to pin this quiz sticker to your card when you are ready.`;
+
+  card.append(scoreLine, ratingLine, message);
+  quizResult.appendChild(card);
+}
+
 function syncQuizIssueCards() {
   quizIssueCards.forEach((card) => {
     const quiz = issueQuizzes[card.dataset.quizOpen];
@@ -4303,20 +4527,28 @@ function syncQuizIssueCards() {
 
 function renderQuizProgress() {
   if (!quizRewardTitle || !quizBestScore || !quizSticker) return;
-  const quiz = issueQuizzes[activeQuizKey] || issueQuizzes.issue01;
+  const quiz = getActiveQuiz();
   if (!quiz) return;
   const progress = getQuizProgressRecords();
   const record = progress[activeQuizKey];
   const best = Number(record?.bestScore || getQuizBestScores()[activeQuizKey] || 0);
   const bonusScore = Number(quiz.bonusScore || 0);
-  const reward = best > 0 ? getQuizReward(best, quiz.maxScore, bonusScore) : { tier: "empty", sticker: "?", title: "No sticker yet" };
+  const reward = best > 0
+    ? getQuizReward(best, quiz.maxScore, bonusScore)
+    : { tier: "empty", sticker: "?", title: "Sticker Drop locked", message: "Take this quiz to earn a sticker drop." };
 
   quizRewardTitle.textContent = reward.title;
   quizBestScore.textContent = best > 0
-    ? `Best score: ${best}/${quiz.maxScore}${bonusScore ? ` (+${bonusScore} bonus)` : ""}${record?.attempts ? ` | ${record.attempts} attempt${record.attempts === 1 ? "" : "s"}` : ""}`
+    ? `Best score: ${best}/${quiz.maxScore}${bonusScore ? ` (${bonusScore} bonus possible)` : ""}${record?.attempts ? ` | ${record.attempts} attempt${record.attempts === 1 ? "" : "s"}` : ""}`
     : "Best score: not taken";
-  quizSticker.textContent = reward.sticker;
-  quizSticker.dataset.stickerTier = reward.tier;
+  if (quizRewardMessage) quizRewardMessage.textContent = reward.message || "Take this quiz to earn a sticker drop.";
+  if (best > 0) {
+    renderStickerDrop(reward, { earned: true });
+    renderButterflyRating(Number(record?.bestCoreScore || Math.min(best, quiz.maxScore)), quiz);
+  } else {
+    renderStickerDrop(reward, { earned: false });
+    quizButterflyRating?.replaceChildren();
+  }
   renderQuizProgressList();
 }
 
@@ -4329,6 +4561,7 @@ function renderQuizProgressList() {
     const best = Number(record?.bestScore || 0);
     const latest = Number(record?.latestScore || 0);
     const maxScore = Number(quiz?.maxScore || record?.maxScore || 10);
+    const bonusScore = Number(quiz?.bonusScore || record?.bonusScore || 0);
     const completed = formatQuizProgressDate(record?.completedAt);
 
     const card = document.createElement("article");
@@ -4336,13 +4569,13 @@ function renderQuizProgressList() {
     card.classList.toggle("is-complete", Boolean(best));
 
     const label = document.createElement("span");
-    label.textContent = initialQuizIssueMeta.get(issueKey)?.issueLabel || (issueKey === "foundation" ? "Foundation" : `Issue ${String(getIssueSortNumber(issueKey)).padStart(2, "0")}`);
+    label.textContent = toPublicEpisodeLabel(initialQuizIssueMeta.get(issueKey)?.issueLabel || (issueKey === "foundation" ? "Foundation" : `Episode ${String(getIssueSortNumber(issueKey)).padStart(2, "0")}`));
 
     const title = document.createElement("strong");
     title.textContent = getIssueCardTitle(issueKey, quiz);
 
     const score = document.createElement("em");
-    score.textContent = best ? `Latest ${latest}/${maxScore} | Best ${best}/${maxScore}` : "Not started";
+    score.textContent = best ? `Latest ${latest}/${maxScore} | Best ${best}/${maxScore}${bonusScore ? ` (+${bonusScore} bonus possible)` : ""}` : "Not started";
 
     const meta = document.createElement("p");
     meta.textContent = best
@@ -4369,29 +4602,119 @@ async function hydrateQuizDataFromFile() {
     });
     issueQuizzes = nextQuizzes;
     renderQuizIssueControls();
+    if (requestedQuizIssueKey && issueQuizzes[requestedQuizIssueKey] && getVisibleQuizIssueKeys().includes(requestedQuizIssueKey)) {
+      activeQuizKey = requestedQuizIssueKey;
+      quizIsOpen = true;
+    }
     if (!issueQuizzes[activeQuizKey]) {
       activeQuizKey = visibleKeys.find((issueKey) => issueQuizzes[issueKey]) || activeQuizKey;
     }
     renderQuiz();
     renderQuizProgress();
+    if (requestedQuizIssueKey && isFocusedQuizMode()) {
+      window.setTimeout(() => {
+        quizConsole?.scrollIntoView({ block: "start" });
+      }, 80);
+    }
   } catch {
     renderQuizIssueControls();
   }
 }
 
+function isWednesdayQuizMode() {
+  return Boolean(document.body?.classList.contains("from-wednesday-bag"));
+}
+
+function isFocusedQuizMode() {
+  return Boolean(document.body?.classList.contains("focused-quiz-mode"));
+}
+
+function getActiveQuiz() {
+  if (activeQuizKey) return issueQuizzes[activeQuizKey] || null;
+  return issueQuizzes.issue01 || null;
+}
+
+function isQuizQuestionAnswered(index) {
+  const quiz = getActiveQuiz();
+  const question = quiz?.questions?.[index];
+  if (!question) return false;
+  const fieldset = quizQuestionsEl?.querySelector(`[data-quiz-question="${question.id}"]`);
+  return Boolean(fieldset?.querySelector(`input[name="quiz-${question.id}"]:checked`));
+}
+
+function updateRitualQuizView(options = {}) {
+  const quiz = getActiveQuiz();
+  const focusedMode = Boolean(quiz && quizIsOpen && isFocusedQuizMode());
+  const questions = Array.from(quizQuestionsEl?.querySelectorAll(".quiz-question") || []);
+
+  if (!focusedMode) {
+    if (quizRitualControls) quizRitualControls.hidden = true;
+    quizForm?.classList.remove("is-reviewing");
+    quizConsole?.classList.remove("is-reviewing");
+    questions.forEach((question) => {
+      question.classList.remove("is-current", "is-review");
+      question.removeAttribute("tabindex");
+    });
+    return;
+  }
+
+  const total = questions.length || quiz.questions?.length || 0;
+  ritualQuizIndex = Math.max(0, Math.min(ritualQuizIndex, Math.max(total - 1, 0)));
+  const reviewing = Boolean(ritualQuizReviewMode);
+
+  if (quizRitualControls) quizRitualControls.hidden = reviewing || !total;
+  quizForm?.classList.toggle("is-reviewing", reviewing);
+  quizConsole?.classList.toggle("is-reviewing", reviewing);
+  questions.forEach((question, index) => {
+    const isCurrent = !reviewing && index === ritualQuizIndex;
+    question.classList.toggle("is-current", isCurrent);
+    question.classList.toggle("is-review", reviewing);
+    if (isCurrent) question.setAttribute("tabindex", "-1");
+    else question.removeAttribute("tabindex");
+  });
+
+  if (quizRitualProgress) {
+    quizRitualProgress.textContent = total ? "Question " + (ritualQuizIndex + 1) + " of " + total : "";
+  }
+  const isFinalQuestion = ritualQuizIndex >= total - 1;
+  const currentAnswered = isQuizQuestionAnswered(ritualQuizIndex);
+  if (quizPrevQuestion) quizPrevQuestion.disabled = ritualQuizIndex <= 0;
+  if (quizNextQuestion) {
+    quizNextQuestion.textContent = isFinalQuestion ? "Check my score" : "Next \u2192";
+    quizNextQuestion.disabled = !currentAnswered;
+  }
+  quizForm?.classList.toggle("is-final-question", isFinalQuestion);
+
+  if (options.focusCurrent) {
+    window.setTimeout(function() {
+      var current = quizQuestionsEl?.querySelector(".quiz-question.is-current");
+      current?.focus({ preventScroll: true });
+      quizConsole?.scrollIntoView({ block: "start" });
+    }, 40);
+  }
+}
+
+function setRitualQuizIndex(nextIndex) {
+  const quiz = getActiveQuiz();
+  const total = quiz?.questions?.length || 0;
+  ritualQuizIndex = Math.max(0, Math.min(Number(nextIndex) || 0, Math.max(total - 1, 0)));
+  ritualQuizReviewMode = false;
+  updateRitualQuizView({ focusCurrent: true });
+}
+
 function renderQuiz() {
   if (!quizQuestionsEl) return;
-  const quiz = issueQuizzes[activeQuizKey] || issueQuizzes.issue01;
+  const quiz = getActiveQuiz();
   if (!quiz) {
     if (quizResult) quizResult.textContent = "Quiz data is not loaded yet.";
     return;
   }
 
-  if (quizIssueLabel) quizIssueLabel.textContent = `Selected quiz: ${quiz.label.replace(/\s+Quiz$/i, "")}`;
+  if (quizIssueLabel) quizIssueLabel.textContent = `Selected quiz: ${toPublicEpisodeLabel(quiz.label).replace(/\s+Quiz$/i, "")}`;
   setBrandText(quizIssueTitle, quiz.title);
   if (quizRereadLink) {
     quizRereadLink.href = resolveSiteUrl(quiz.rereadUrl);
-    setBrandText(quizRereadLink, quiz.rereadLabel);
+    setBrandText(quizRereadLink, toPublicEpisodeLabel(quiz.rereadLabel));
   }
   if (quizIssueSelect) quizIssueSelect.value = activeQuizKey;
   syncQuizIssueCards();
@@ -4402,6 +4725,8 @@ function renderQuiz() {
     if (quizForm) quizForm.hidden = true;
     quizQuestionsEl.replaceChildren();
     if (quizResult) quizResult.textContent = "Pick an issue above. The questions stay in the Caboodle until you open them.";
+    quizCelebration?.replaceChildren();
+    updateRitualQuizView();
     return;
   }
 
@@ -4409,8 +4734,10 @@ function renderQuiz() {
   if (quizStartPanel) quizStartPanel.hidden = true;
   if (quizForm) quizForm.hidden = false;
   if (quizStartPanel) quizStartPanel.classList.add("is-open");
-  if (quizResult) quizResult.textContent = quiz.intro;
+  if (quizResult) quizResult.textContent = toPublicEpisodeLabel(quiz.intro);
+  quizCelebration?.replaceChildren();
   quizQuestionsEl.replaceChildren();
+  ritualQuizIndex = Math.max(0, Math.min(ritualQuizIndex, Math.max(quiz.questions.length - 1, 0)));
   quiz.questions.forEach((question, index) => {
     const fieldset = document.createElement("fieldset");
     fieldset.className = `quiz-question${question.bonus ? " is-bonus" : ""}`;
@@ -4441,12 +4768,20 @@ function renderQuiz() {
     fieldset.append(legend, options);
     quizQuestionsEl.appendChild(fieldset);
   });
+  updateRitualQuizView();
+  if (isFocusedQuizMode() && !ritualQuizReviewMode) {
+    window.setTimeout(function() {
+      quizConsole?.scrollIntoView({ block: "start" });
+    }, 60);
+  }
 }
 
 function openQuizIssue(issueKey) {
   if (!issueQuizzes[issueKey]) return;
   activeQuizKey = issueKey;
   quizIsOpen = true;
+  ritualQuizIndex = 0;
+  ritualQuizReviewMode = false;
   quizForm?.reset();
   clearQuizFeedback();
   renderQuiz();
@@ -4455,7 +4790,7 @@ function openQuizIssue(issueKey) {
 
 function clearQuizFeedback() {
   quizQuestionsEl?.querySelectorAll(".quiz-question").forEach((question) => {
-    question.classList.remove("is-answered-correct", "is-answered-wrong");
+    question.classList.remove("is-answered-correct", "is-answered-wrong", "is-review");
   });
   quizQuestionsEl?.querySelectorAll(".quiz-option").forEach((option) => {
     option.classList.remove("is-correct", "is-wrong");
@@ -4464,9 +4799,10 @@ function clearQuizFeedback() {
 }
 
 function gradeQuiz() {
-  const quiz = issueQuizzes[activeQuizKey] || issueQuizzes.issue01;
+  const quiz = getActiveQuiz();
   if (!quiz) return;
   let score = 0;
+  let coreScore = 0;
   let answered = 0;
 
   clearQuizFeedback();
@@ -4479,6 +4815,13 @@ function gradeQuiz() {
 
   if (answered < quiz.questions.length && quizResult) {
     quizResult.textContent = `You answered ${answered}/${quiz.questions.length}. Finish the page before we hand out stickers. Then the quiz will show what each answer means and where to reread it.`;
+    if (isFocusedQuizMode()) {
+      const firstUnanswered = quiz.questions.findIndex((question) => {
+        const fieldset = quizQuestionsEl?.querySelector(`[data-quiz-question="${question.id}"]`);
+        return !fieldset?.querySelector(`input[name="quiz-${question.id}"]:checked`);
+      });
+      setRitualQuizIndex(firstUnanswered >= 0 ? firstUnanswered : ritualQuizIndex);
+    }
     return;
   }
 
@@ -4492,6 +4835,7 @@ function gradeQuiz() {
     fieldset?.classList.add(isCorrect ? "is-answered-correct" : "is-answered-wrong");
     if (isCorrect) {
       score += question.points;
+      if (!question.bonus) coreScore += question.points;
       selected.closest(".quiz-option")?.classList.add("is-correct");
     } else {
       selected?.closest(".quiz-option")?.classList.add("is-wrong");
@@ -4537,6 +4881,8 @@ function gradeQuiz() {
     attempts: Number(current.attempts || 0) + 1,
     latestScore: score,
     bestScore: Math.max(Number(current.bestScore || 0), score),
+    latestCoreScore: coreScore,
+    bestCoreScore: Math.max(Number(current.bestCoreScore || 0), coreScore),
     maxScore: quiz.maxScore,
     bonusScore: Number(quiz.bonusScore || 0),
     completedAt: new Date().toISOString(),
@@ -4545,10 +4891,21 @@ function gradeQuiz() {
   };
   saveQuizProgressRecords(progress);
 
-  if (quizResult) {
-    quizResult.textContent = `${score}/${quiz.maxScore}: ${reward.title}. ${reward.message} Open your Clubhouse Pass to pin this to your member card.`;
-  }
   renderQuizProgress();
+  renderQuizResult(score, quiz, reward, coreScore);
+  renderStickerDrop(reward, { earned: true });
+  renderButterflyRating(coreScore, quiz);
+  if (quizRewardTitle) quizRewardTitle.textContent = reward.title;
+  if (quizBestScore) {
+    quizBestScore.textContent = `This score: ${score}/${quiz.maxScore}. Best saved score: ${progress[activeQuizKey].bestScore}/${quiz.maxScore}.`;
+  }
+  if (quizRewardMessage) quizRewardMessage.textContent = reward.message;
+  renderQuizCelebration(score, quiz);
+  if (isFocusedQuizMode()) {
+    ritualQuizReviewMode = true;
+    updateRitualQuizView();
+    quizResult?.scrollIntoView({ block: "center" });
+  }
   renderQuizStickerShelf();
   scheduleMemberRewardSync();
 }
@@ -4560,6 +4917,8 @@ hydrateQuizDataFromFile();
 quizIssueSelect?.addEventListener("change", () => {
   activeQuizKey = quizIssueSelect.value;
   quizIsOpen = true;
+  ritualQuizIndex = 0;
+  ritualQuizReviewMode = false;
   quizForm?.reset();
   clearQuizFeedback();
   renderQuiz();
@@ -4571,12 +4930,36 @@ quizForm?.addEventListener("submit", (event) => {
   gradeQuiz();
 });
 
+quizQuestionsEl?.addEventListener("change", (event) => {
+  if (event.target?.matches('input[type="radio"]')) {
+    updateRitualQuizView();
+  }
+});
+
 quizResetButton?.addEventListener("click", () => {
   quizForm?.reset();
   clearQuizFeedback();
+  ritualQuizIndex = 0;
+  ritualQuizReviewMode = false;
   if (quizResult) {
     quizResult.textContent = "Retake approved. Magazine quizzes were built for second chances and better pens.";
   }
+  quizCelebration?.replaceChildren();
+  updateRitualQuizView({ focusCurrent: true });
+});
+
+quizPrevQuestion?.addEventListener("click", () => {
+  setRitualQuizIndex(ritualQuizIndex - 1);
+});
+
+quizNextQuestion?.addEventListener("click", () => {
+  const quiz = getActiveQuiz();
+  const total = quiz?.questions?.length || 0;
+  if (isFocusedQuizMode() && ritualQuizIndex >= total - 1) {
+    gradeQuiz();
+    return;
+  }
+  setRitualQuizIndex(ritualQuizIndex + 1);
 });
 
 function getStoredCardCollection() {

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Weekly Fun Pack | LAIDIES Clubhouse</title>
-    <meta name="description" content="This week's activity bundle: quiz, trading cards, try-on, and printables — all tied to the current episode." />
+    <meta name="description" content="A weekly LAIDIES bonus pack of cards, readings, prompts, tracks, and tiny useful things that make the episode stick." />
     <meta name="theme-color" content="#ff2d9b" />
     <link rel="icon" type="image/png" href="../assets/laidies-logo-square.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -204,6 +204,66 @@
       }
       .activity-card:hover .card-cta { gap: 8px; }
 
+      .print-panel-backdrop[hidden] { display: none; }
+      .print-panel-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 300;
+        display: grid;
+        place-items: center;
+        padding: 18px;
+        background: rgba(13, 6, 17, 0.78);
+      }
+      .print-panel {
+        width: min(430px, 100%);
+        border: 1px solid rgba(255,255,255,0.55);
+        border-radius: 22px;
+        padding: 22px;
+        background:
+          linear-gradient(145deg, rgba(255,248,252,0.98), rgba(255,232,245,0.94)),
+          #fff8fc;
+        color: #1a0a12;
+        box-shadow: 0 28px 80px rgba(0,0,0,0.42);
+      }
+      .print-panel h2 {
+        font-family: Georgia, serif;
+        font-size: 1.55rem;
+        line-height: 1.1;
+        margin-bottom: 8px;
+      }
+      .print-panel p {
+        color: rgba(26,10,18,0.7);
+        font-size: 0.9rem;
+        line-height: 1.45;
+        margin-bottom: 16px;
+      }
+      .print-panel-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .print-panel-actions a,
+      .print-panel-actions button {
+        display: inline-flex;
+        min-height: 42px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255,45,155,0.35);
+        border-radius: 999px;
+        padding: 10px 15px;
+        background: #fff;
+        color: #8c1160;
+        font: inherit;
+        font-size: 0.84rem;
+        font-weight: 800;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .print-panel-actions a:first-child {
+        background: var(--hot-pink);
+        color: #fff;
+      }
+
       /* Episode info card */
       .episode-info {
         background: var(--card-bg);
@@ -259,18 +319,18 @@
         <section class="page-title-section">
           <p class="eyebrow">Clubhouse &bull; Fun Pack</p>
           <h1>Weekly Fun Pack</h1>
-          <p class="subtitle">This week&rsquo;s activities tied to Episode 2. Quiz, collect, try, print &mdash; all five minutes or less.</p>
+          <p class="subtitle">Before subscription boxes, there was the Fun Pack. A weekly bonus pack of cards, readings, prompts, tracks, and tiny useful things to make the episode stick.</p>
         </section>
 
         <!-- Episode Selector -->
         <div class="episode-selector" role="group" aria-label="Select episode fun pack">
-          <button class="ep-btn" data-ep="issue01" type="button">Issue 01</button>
-          <button class="ep-btn is-active" data-ep="issue02" type="button">Issue 02</button>
+          <button class="ep-btn" data-ep="issue01" type="button">Episode 01</button>
+          <button class="ep-btn is-active" data-ep="issue02" type="button">Episode 02</button>
         </div>
 
         <!-- Episode Context -->
         <div class="episode-info" id="episodeInfo">
-          <h2 id="epTitle">Episode 2: Tell Me What You Want</h2>
+          <h2 id="epTitle">Episode 02: Tell Me What You Want</h2>
           <p id="epDesc">The one where she learns to write specific, context-rich prompts that produce usable work output.</p>
         </div>
 
@@ -284,7 +344,7 @@
             </div>
             <div class="activity-card-body">
               <h3>Magazine Quiz</h3>
-              <p>Match the analogy to the AI concept and earn a digital sticker for your card. 10 questions, no Scantron.</p>
+              <p>The Bag sends you straight to the weekly quiz. This shortcut keeps the check-your-learning piece close when you want the whole bonus pack.</p>
               <span class="card-cta">Take the quiz &rarr;</span>
             </div>
           </a>
@@ -310,21 +370,21 @@
             </div>
             <div class="activity-card-body">
               <h3>Five-Minute Try-On</h3>
-              <p>One small work dare pulled from this week&rsquo;s episode. Low stakes, immediate payoff.</p>
+              <p>The Bag gives you the core Try-On. This bonus door is here when you want the debrief and a little more ritual around it.</p>
               <span class="card-cta">Spin the board &rarr;</span>
             </div>
           </a>
 
           <!-- Printable Cheat Sheet -->
-          <a href="../assets/prompt-cheat-sheet-issue02.pdf" download class="activity-card" data-activity="printable">
+          <a href="../printable.html?issue=2" class="activity-card" data-activity="printable">
             <div class="activity-card-image">
               <img src="../assets/trading-card-specificity.webp" alt="Neon pink cheat sheet card about prompting specificity" loading="lazy" />
               <span class="activity-card-time">~1 min</span>
             </div>
             <div class="activity-card-body">
               <h3>Printable Cheat Sheet</h3>
-              <p>A one-page prompt formula card. Print it, stick it on your monitor, and never stare at a blank chat box again.</p>
-              <span class="card-cta">Download PDF &darr;</span>
+              <p>The printable lives in the Bag essentials. Keep this as the spare copy in the pack, because of course you need one for the binder.</p>
+              <span class="card-cta">Preview printable &rarr;</span>
             </div>
           </a>
         </div>
@@ -339,24 +399,24 @@
 
       const episodes = {
         issue01: {
-          title: 'Episode 1: On Wednesdays We Use AI',
+          title: 'Episode 01: On Wednesdays We Use AI',
           desc: 'The one where she opens the AI tab for the first time without making it a whole personality crisis.',
           quiz: '../learn/quiz.html',
           cards: 'trading-cards.html',
           tryon: '../community/try-on-debrief.html',
-          printable: '../assets/prompt-cheat-sheet-issue01.pdf',
+          printable: '../printable.html?issue=1',
           quizImg: '../assets/quiz-teen-magazine.png',
           cardsImg: '../assets/trading-card-pack.webp',
           tryonImg: '../assets/five-minute-try-on-game.webp',
           printImg: '../assets/ugh-as-if.png',
         },
         issue02: {
-          title: 'Episode 2: Tell Me What You Want',
+          title: 'Episode 02: Tell Me What You Want',
           desc: 'The one where she learns to write specific, context-rich prompts that produce usable work output.',
           quiz: '../learn/quiz.html',
           cards: 'trading-cards.html',
           tryon: '../community/try-on-debrief.html',
-          printable: '../assets/prompt-cheat-sheet-issue02.pdf',
+          printable: '../printable.html?issue=2',
           quizImg: '../assets/quiz-teen-magazine.png',
           cardsImg: '../assets/trading-card-pack.webp',
           tryonImg: '../assets/five-minute-try-on-game.webp',
@@ -367,10 +427,29 @@
       const epBtns = document.querySelectorAll('.ep-btn');
       const epTitle = document.getElementById('epTitle');
       const epDesc = document.getElementById('epDesc');
+      const params = new URLSearchParams(window.location.search || '');
+      const fromBag = params.get('from') === 'this-week';
+      let currentEpisodeKey = 'issue02';
+
+      function episodeNumberFromKey(ep) {
+        const match = String(ep || '').match(/\d+/);
+        return match ? Number(match[0]) : 2;
+      }
+
+      function withRitualReturn(url, ep) {
+        if (!fromBag || !url) return url;
+        const issue = encodeURIComponent(episodeNumberFromKey(ep));
+        const hashIndex = url.indexOf('#');
+        const hash = hashIndex >= 0 ? url.slice(hashIndex) : '';
+        const base = hashIndex >= 0 ? url.slice(0, hashIndex) : url;
+        const separator = base.indexOf('?') === -1 ? '?' : '&';
+        return base + separator + 'from=this-week&issue=' + issue + '&bag=open' + hash;
+      }
 
       function switchEpisode(ep) {
         const data = episodes[ep];
         if (!data) return;
+        currentEpisodeKey = ep;
 
         epBtns.forEach(b => b.classList.toggle('is-active', b.dataset.ep === ep));
         epTitle.textContent = data.title;
@@ -379,7 +458,7 @@
         // Update links
         const grid = document.getElementById('activityGrid');
         const cards = grid.querySelectorAll('.activity-card');
-        const links = [data.quiz, data.cards, data.tryon, data.printable];
+        const links = [withRitualReturn(data.quiz, ep), data.cards, withRitualReturn(data.tryon, ep), data.printable];
         cards.forEach((card, i) => {
           if (links[i]) card.href = links[i];
         });
@@ -388,6 +467,22 @@
       epBtns.forEach(btn => {
         btn.addEventListener('click', () => switchEpisode(btn.dataset.ep));
       });
+
+      const ritualIssue = String(params.get('issue') || '').match(/\d+/);
+      if (ritualIssue) {
+        switchEpisode('issue' + String(Number(ritualIssue[0])).padStart(2, '0'));
+      }
+
+      (function insertWednesdayReturnLink() {
+        if (params.get('from') !== 'this-week' || document.querySelector('[data-wednesday-return]')) return;
+        const issue = String(params.get('issue') || '').match(/\d+/);
+        const link = document.createElement('a');
+        link.dataset.wednesdayReturn = 'true';
+        link.href = '../this-week.html' + (issue ? '?issue=' + encodeURIComponent(Number(issue[0])) + '&bag=open' : '?bag=open');
+        link.textContent = '\u2190 Back to the Bag';
+        link.style.cssText = 'position:fixed;top:76px;left:clamp(14px,3vw,26px);right:auto;bottom:auto;z-index:120;display:inline-flex;max-width:calc(100% - 28px);margin:0;padding:10px 14px;border:1px solid rgba(255,45,155,.42);border-radius:999px;background:rgba(20,8,24,.86);color:#ff8ccc;font-weight:850;text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.28),0 0 0 4px rgba(255,45,155,.1);backdrop-filter:blur(10px);';
+        document.querySelector('main')?.prepend(link);
+      })();
     })();
     </script>
       <script src="../content/site/mini-player.js"></script>
