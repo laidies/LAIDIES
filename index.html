@@ -3,18 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LAIDIES | AI Fluency Newsletter for Women | New Episode Every Wednesday</title>
-    <meta name="description" content="LAIDIES is a Wednesday newsletter and community for women building practical AI fluency without pretending they have spare time." />
-    <meta property="og:title" content="LAIDIES | Girl power meets machine power" />
+    <title>LAiDIES | AI Fluency Newsletter for Women | New Episode Every Wednesday</title>
+    <meta name="description" content="LAiDIES is a Wednesday newsletter and community for women building practical AI fluency without pretending they have spare time." />
+    <meta property="og:title" content="LAiDIES | Girl power meets machine power" />
     <meta property="og:description" content="AI fluency for women with full calendars, high standards, and no patience for beige tech explanations." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://wearelaidies.com/" />
-    <meta property="og:image" content="https://wearelaidies.com/assets/laidies-logo.png" />
+    <meta property="og:image" content="https://wearelaidies.com/assets/brand/laidies-masthead-object-world-v4.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#ff2d9b" />
-    <link rel="icon" type="image/png" href="assets/laidies-logo-square.png" />
+    <meta name="theme-color" content="#4b2148" />
+    <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
     <link rel="manifest" href="manifest.webmanifest" />
-    <link rel="apple-touch-icon" href="assets/laidies-logo-square.png" />
+    <link rel="apple-touch-icon" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
     <link rel="stylesheet" href="styles.css?v=redesign-2" />
     <link rel="stylesheet" href="styles-new-sections.css?v=redesign-2" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +28,7 @@
 </script>
     <style>
       /* ═══════════════════════════════════════════════
-         LAIDIES HOMEPAGE
+         LAiDIES HOMEPAGE
          ═══════════════════════════════════════════════ */
 
       /* ─── HERO SIZING ─── */
@@ -96,21 +96,20 @@
         color: inherit;
         border-radius: 20px;
         overflow: hidden;
-        border: 2.5px solid rgba(255, 45, 155, 0.4);
-        background: linear-gradient(180deg, #1a0a12 0%, #2d0f1f 100%);
+        border: 1px solid rgba(75, 33, 72, 0.18);
+        background: rgba(255, 253, 251, 0.9);
         box-shadow:
-          0 4px 20px rgba(255, 45, 155, 0.12),
-          inset 0 1px 0 rgba(255, 255, 255, 0.05);
+          0 20px 44px rgba(75, 33, 72, 0.12),
+          inset 0 1px 0 rgba(255, 255, 255, 0.52);
         transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
       }
 
       .clubhouse-grid-card:hover {
         transform: translateY(-6px) scale(1.02);
-        border-color: var(--hot-pink);
+        border-color: rgba(111, 38, 63, 0.36);
         box-shadow:
-          0 20px 60px rgba(255, 45, 155, 0.25),
-          0 0 30px rgba(255, 45, 155, 0.15),
-          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+          0 24px 56px rgba(75, 33, 72, 0.16),
+          inset 0 1px 0 rgba(255, 255, 255, 0.68);
       }
 
       /* Image fills entire top — no padding, edge to edge */
@@ -130,7 +129,7 @@
       .clubhouse-grid-card .card-text {
         padding: 20px 20px 24px;
         text-align: center;
-        background: linear-gradient(180deg, rgba(26, 10, 18, 0.95) 0%, rgba(45, 15, 31, 0.98) 100%);
+        background: linear-gradient(180deg, rgba(255, 253, 251, 0.96) 0%, rgba(247, 238, 238, 0.98) 100%);
       }
 
       .clubhouse-grid-card h3 {
@@ -138,14 +137,14 @@
         font-family: Georgia, "Times New Roman", serif;
         font-size: 1.3rem;
         font-weight: 700;
-        color: #fff;
-        text-shadow: 0 0 12px rgba(255, 45, 155, 0.3);
+        color: var(--plum);
+        text-shadow: none;
       }
 
       .clubhouse-grid-card p {
         margin: 0;
         font-size: 0.85rem;
-        color: rgba(255, 248, 252, 0.7);
+        color: var(--muted);
         line-height: 1.5;
       }
 
@@ -189,9 +188,12 @@
 
       /* ─── THE CLUBHOUSE section header ─── */
       #the-clubhouse {
-        background: linear-gradient(165deg, #1f0e18 0%, #2a1222 40%, #1a0a12 100%) !important;
-        color: #fff;
-        border-radius: 32px;
+        background:
+          radial-gradient(circle at 18% 14%, rgba(200, 220, 224, 0.26), transparent 24rem),
+          linear-gradient(165deg, #fffdfb 0%, #f7eeee 54%, rgba(232, 197, 200, 0.28) 100%) !important;
+        color: var(--ink);
+        border: 1px solid rgba(75, 33, 72, 0.12);
+        border-radius: 18px;
         margin: 32px clamp(8px, 2vw, 24px);
         padding: clamp(40px, 6vw, 80px) clamp(18px, 5vw, 64px) !important;
       }
@@ -201,19 +203,19 @@
         border: none !important;
       }
       #the-clubhouse .section-heading h2 {
-        color: #fff;
-        text-shadow: 0 0 20px rgba(255, 45, 155, 0.2);
+        color: var(--plum);
+        text-shadow: none;
       }
       #the-clubhouse .section-heading .eyebrow {
         letter-spacing: 0.15em;
-        color: var(--hot-pink);
+        color: var(--wine);
         font-weight: 800;
       }
       #the-clubhouse .clubhouse-grid-card-body p {
-        color: rgba(255, 248, 252, 0.7);
+        color: var(--muted);
       }
       #the-clubhouse .clubhouse-grid-card-body strong {
-        color: #fff;
+        color: var(--plum);
       }
 
       /* ─── Responsive ─── */
@@ -265,17 +267,17 @@
 
       /* Ensure dark card bg wins over styles.css */
       .clubhouse-grid-card {
-        background: linear-gradient(180deg, #1a0a12 0%, #2d0f1f 100%) !important;
-        border-color: rgba(255, 45, 155, 0.4) !important;
+        background: rgba(255, 253, 251, 0.9) !important;
+        border-color: rgba(75, 33, 72, 0.18) !important;
       }
       .clubhouse-grid-card .card-text {
-        background: linear-gradient(180deg, rgba(26, 10, 18, 0.95) 0%, rgba(45, 15, 31, 0.98) 100%) !important;
+        background: linear-gradient(180deg, rgba(255, 253, 251, 0.96) 0%, rgba(247, 238, 238, 0.98) 100%) !important;
       }
       .clubhouse-grid-card h3 {
-        color: #fff !important;
+        color: var(--plum) !important;
       }
       .clubhouse-grid-card p {
-        color: rgba(255, 248, 252, 0.7) !important;
+        color: var(--muted) !important;
       }
 
       /* About section responsive */
@@ -304,12 +306,12 @@
     <link rel="stylesheet" href="/content/site/mini-player.css">
 
     <style>
-    .hero-anthem:hover { text-shadow: 0 0 12px rgba(255,45,155,0.3); }
+    .hero-anthem:hover { text-shadow: none; }
     .hero-anthem:hover .anthem-play-hint { opacity: 1 !important; }
     .hero-anthem.is-playing { animation: anthemPulse 2s ease-in-out infinite; }
     @keyframes anthemPulse {
-      0%, 100% { text-shadow: 0 0 20px rgba(255,45,155,0.4); }
-      50% { text-shadow: 0 0 30px rgba(255,45,155,0.7), 0 0 60px rgba(255,45,155,0.2); }
+      0%, 100% { text-shadow: none; }
+      50% { text-shadow: 0 10px 24px rgba(75,33,72,0.1); }
     }
     </style>
 
@@ -318,8 +320,8 @@
     <main id="top">
       <!-- HEADER -->
       <header class="site-header">
-        <a class="brand" href="#top" aria-label="lAIdies home">
-          <img src="assets/laidies-logo-wordmark.png" alt="LAIDIES" />
+        <a class="brand" href="#top" aria-label="LAiDIES home">
+          <img src="assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
         </a>
         <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=this.nextElementSibling;if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'☰':'✕';this.setAttribute('aria-expanded',!isOpen);">☰</button>
         <nav class="nav" aria-label="Primary navigation">
@@ -329,23 +331,39 @@
           <a href="learn.html">Learn</a>
           <a href="clubhouse.html">Clubhouse</a>
           <a href="community.html">Community</a>
-          <a href="clubhouse-pass.html" style="font-size: 0.85rem; color: var(--hot-pink); margin-left: 12px; text-decoration: underline;">Sign In</a>
+          <a href="clubhouse-pass.html" style="font-size: 0.85rem; color: var(--wine, #6f263f); margin-left: 12px; text-decoration: underline;">Sign In</a>
         </nav>
       </header>
 
       <!-- HERO -->
       <section class="hero" aria-labelledby="hero-title">
-        <img class="hero-logo" src="assets/laidies-logo.png" alt="LAIDIES — Girl power meets machine power" />
+        <div class="hero-logo hero-masthead-layered" aria-label="LAiDIES — girl power meets machine power masthead with Burn Book, poof pen, flip phone, and aqua computer">
+          <img class="hero-masthead-scene" src="assets/brand/laidies-masthead-object-world-v4.png" alt="" aria-hidden="true" />
+          <div class="hero-masthead-type" aria-hidden="true">
+            <img class="hero-masthead-logo-mark" src="assets/brand/laidies-logo-masthead-approved-v3.png" alt="" />
+            <p class="hero-masthead-motto">girl power <em>meets</em> machine power</p>
+          </div>
+        </div>
         <div class="hero-copy">
           <p class="eyebrow">New episodes every Wednesday, obviously</p>
           <h1 id="hero-title">AI fluency for women with full calendars, high standards, and no patience for beige tech explanations.</h1>
           <p class="hero-quote hero-anthem" id="heroAnthem" style="transition: all 0.3s; position: relative; display: inline-block;">
             Get in, loser. We’re learning <span class="hero-quote-ai">AI</span>.
           </p>
-          <button class="anthem-play-button" type="button" onclick="playAnthem(this)" title="Play or pause the LAIDIES anthem" aria-label="Play or pause music: the LAIDIES anthem">
+          <button class="anthem-play-button" type="button" onclick="playAnthem(this)" title="Play or pause the LAiDIES anthem" aria-label="Play or pause music: the LAiDIES anthem">
             <span class="anthem-play-hint" aria-hidden="true">▶</span>
-            Play LAIDIES anthem
+            Play LAiDIES anthem
           </button>
+          <div class="anthem-charm-reveal" id="anthemCharmReveal" hidden>
+            <section class="anthem-charm-card" role="dialog" aria-modal="true" aria-labelledby="anthemCharmTitle" aria-describedby="anthemCharmBody">
+              <span class="anthem-charm-kicker">Secret Charm Found</span>
+              <img src="assets/charms/teal-mini-disc-charm.svg" alt="Teal mini-disc charm sticker" width="112" height="112">
+              <h2 id="anthemCharmTitle">LAiDIES Anthem Mini-Disc Charm</h2>
+              <p id="anthemCharmBody">You listened long enough for the chorus to find you. Saved in this browser for the future LAiDIES Card charm bracelet.</p>
+              <a class="anthem-charm-link" href="clubhouse-pass.html">Save charms with a Clubhouse Pass</a>
+              <button class="anthem-charm-close" id="anthemCharmClose" type="button">Back to the homepage</button>
+            </section>
+          </div>
           <div class="hero-actions">
             <a class="button primary" href="issues/issue-02.html">Read Current Episode</a>
             <a class="button secondary" href="start-here.html">New here? Start with the Foundation</a>
@@ -407,9 +425,9 @@
             </div>
           </a>
           <a href="laidies-card.html" class="clubhouse-grid-card">
-            <img loading="lazy" src="assets/clubhouse-pass-laidies-card-sample.png" alt="Sample LAIDIES Card with trading card layout" />
+            <img loading="lazy" src="assets/clubhouse-pass-laidies-card-sample.png" alt="Sample LAiDIES Card with trading card layout" />
             <div class="card-text">
-              <h3>LAIDIES Card Preview</h3>
+              <h3>LAiDIES Card Preview</h3>
               <p>The premium progress-card direction is still getting polished. Peek if you are curious, but the issue is the main event.</p>
             </div>
           </a>
@@ -444,7 +462,7 @@
           <a href="community.html" class="clubhouse-grid-card clubhouse-room-card">
             <img loading="lazy" src="assets/send-it.png" alt="Corporate desk scene with a note saying Send It" />
             <div class="card-text">
-              <h3>The LAIDIES Room</h3>
+              <h3>The LAiDIES Room</h3>
               <p>A light place to answer the weekly prompt, debrief the Try-On, share a win, or ask the community.</p>
             </div>
           </a>
@@ -478,7 +496,7 @@
         <iframe
           class="subscribe-frame"
           name="laidiesSubscribeFrame"
-          title="lAIdies subscription response"
+          title="LAiDIES subscription response"
           aria-hidden="true"
         ></iframe>
       </section>
@@ -492,7 +510,7 @@
             Six months ago, I could not get an Amazon Women-in-Tax newsletter to send properly via email. I work in tax, not tech. I am not a developer. The ideas were there, but they kept getting stuck behind someone else's time, budget, or availability.
           </p>
           <p>
-            Then I started using AI. Since then, I have built a personal command centre, designed AI agents for research and operations, entered an Amazon Women-in-Tax hackathon with a team that built Echo, an AI product VPs now want to bring to production, made amazing <span class="wordmark" aria-label="lAIdies"><span>l</span><strong>AI</strong><span>dies</span></span> friends, and created the newsletter, website, images, and brand you are looking at now.
+            Then I started using AI. Since then, I have built a personal command centre, designed AI agents for research and operations, entered an Amazon Women-in-Tax hackathon with a team that built Echo, an AI product VPs now want to bring to production, made amazing LAiDIES friends, and created the newsletter, website, images, and brand you are looking at now.
           </p>
           <div class="origin-proof-card" aria-label="Origin story proof point">
             <span>Receipt</span>
@@ -504,19 +522,19 @@
         </div>
         <div style="display: flex; flex-direction: column; gap: 24px; position: sticky; top: 120px;">
           <div style="text-align: center;">
-            <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--hot-pink); font-weight: 800; margin: 0 0 12px;">Ali's LAIDIES Card Preview</p>
-            <img loading="lazy" src="assets/dream-phone-boss-ali.png" alt="Ali Eakin — Founder of lAIdies" style="width: 100%; max-width: 380px; border-radius: 12px; box-shadow: 0 12px 40px rgba(255,45,155,0.25);" />
+            <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--hot-pink); font-weight: 800; margin: 0 0 12px;">Ali's LAiDIES Card Preview</p>
+            <img loading="lazy" src="assets/dream-phone-boss-ali.png" alt="Ali Eakin — Founder of LAiDIES" style="width: 100%; max-width: 380px; border-radius: 12px; box-shadow: 0 12px 40px rgba(185,93,120,0.25);" />
             <div style="margin-top: 16px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
               <a class="button primary" href="laidies-card.html">Peek at the card glow-up →</a>
               <a class="button secondary" href="clubhouse-pass.html">Sign in to save progress</a>
             </div>
           </div>
-          <div style="background: linear-gradient(135deg, #1a0a12, #2d0f1f); border-radius: 12px; padding: 24px; color: #fff;">
+          <div style="background: linear-gradient(145deg, #fffdfb, #f8eef2); border: 1px solid rgba(75,33,72,0.14); border-radius: 12px; padding: 24px; color: #4b2148; box-shadow: 0 16px 45px rgba(75,33,72,0.1);">
             <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--hot-pink); margin: 0 0 12px;">The Founding Group Chat</p>
-            <p style="margin: 0 0 12px; font-size: 0.95rem; color: rgba(255,248,252,0.85); line-height: 1.6;"><strong>Ali Eakin</strong> — Founder of lAIdies. Writer, builder, and the woman who got tired of waiting for a traditional tech on-ramp. Created the newsletter, website, visuals, games, and community space with AI.</p>
-            <p style="margin: 0 0 12px; font-size: 0.95rem; color: rgba(255,248,252,0.85); line-height: 1.6;"><strong>Sara Baxter</strong> — Early reviewer, Echo hackathon teammate, feedback giver, and the group chat energy that made it feel worth building out loud.</p>
-            <p style="margin: 0 0 12px; font-size: 0.95rem; color: rgba(255,248,252,0.85); line-height: 1.6;"><strong>Eugina Lim</strong> — Echo was her idea. One of Amazon Tax's AI experts, hackathon teammate, and part of where this whole thing is going next.</p>
-            <p style="margin: 0; font-size: 0.95rem; color: rgba(255,248,252,0.85); line-height: 1.6;"><strong>Josh Hudson</strong> — You know him as DJ JAIDY. Girl dad, AI steering committee champion, huge supporter of the LAIDIES mission, weekly episode song maker, and the person who decided this project needed a House DJ.</p>
+            <p style="margin: 0 0 12px; font-size: 0.95rem; color: rgba(75,33,72,0.78); line-height: 1.6;"><strong>Ali Eakin</strong> — Founder of LAiDIES. Writer, builder, and the woman who got tired of waiting for a traditional tech on-ramp. Created the newsletter, website, visuals, games, and community space with AI.</p>
+            <p style="margin: 0 0 12px; font-size: 0.95rem; color: rgba(75,33,72,0.78); line-height: 1.6;"><strong>Sara Baxter</strong> — Early reviewer, Echo hackathon teammate, feedback giver, and the group chat energy that made it feel worth building out loud.</p>
+            <p style="margin: 0 0 12px; font-size: 0.95rem; color: rgba(75,33,72,0.78); line-height: 1.6;"><strong>Eugina Lim</strong> — Echo was her idea. One of Amazon Tax's AI experts, hackathon teammate, and part of where this whole thing is going next.</p>
+            <p style="margin: 0; font-size: 0.95rem; color: rgba(75,33,72,0.78); line-height: 1.6;"><strong>Josh Hudson</strong> — You know him as DJ JAIDY. Girl dad, AI steering committee champion, huge supporter of the LAiDIES mission, weekly episode song maker, and the person who decided this project needed a House DJ.</p>
           </div>
         </div>
           <p style="font-style: italic; font-size: 0.9rem; color: var(--muted); text-align: center; margin-top: 16px;">
@@ -543,7 +561,7 @@
         <div class="home-screen-card home-screen-card--social" aria-labelledby="home-screen-title">
           <div class="home-screen-copy">
             <p class="eyebrow">Use it like an app</p>
-            <h3 id="home-screen-title">Add <span class="wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span> to your Home Screen.</h3>
+            <h3 id="home-screen-title">Add <span class="wordmark" aria-label="LAiDIES"><span>l</span><b>AI</b><span>dies</span></span> to your Home Screen.</h3>
             <p>
               Keep the current episode, weekly dashboard, Fun Pack, quizzes, and playlists one tap away. Until you sign in, scores and rewards are saved to the browser and device you use.
             </p>
@@ -555,7 +573,7 @@
                 <li>Open the site in Safari.</li>
                 <li>Tap Share. On newer iOS versions, tap the Share button in the toolbar or open the More menu first.</li>
                 <li>Choose Add to Home Screen. If you see Open as Web App, leave it on.</li>
-                <li>Name it <span class="wordmark" aria-label="lAIdies"><span>l</span><b>AI</b><span>dies</span></span>, then tap Add.</li>
+                <li>Name it <span class="wordmark" aria-label="LAiDIES"><span>l</span><b>AI</b><span>dies</span></span>, then tap Add.</li>
               </ol>
             </article>
             <article>
@@ -575,7 +593,7 @@
 
     <!-- FOOTER -->
     <footer class="site-footer" id="site-end">
-      <p><span class="wordmark" aria-label="lAIdies"><span>l</span><strong>AI</strong><span>dies</span></span></p>
+      <p>LAiDIES</p>
       <div>
         <a href="https://www.instagram.com/we.are.laidies/" target="_blank" rel="noreferrer">Instagram</a>
         <a href="start-here.html">Start Here</a>
@@ -631,24 +649,125 @@
       var hint = el.querySelector('.anthem-play-hint');
       if (a.paused) {
         a.play();
+        scheduleAnthemCharmUnlock();
         if (hint) hint.textContent = '⏸';
         if (hint) hint.style.opacity = '1';
-        el.style.textShadow = '0 0 20px rgba(255,45,155,0.6)';
+        el.style.textShadow = '0 0 20px rgba(185,93,120,0.6)';
         el.classList.add('is-playing');
       } else {
         a.pause();
+        clearAnthemCharmTimer();
         if (hint) hint.textContent = '▶';
         if (hint) hint.style.opacity = '0.4';
         el.style.textShadow = '';
         el.classList.remove('is-playing');
       }
       a.onended = function() {
+        unlockAnthemCharm();
         if (hint) hint.textContent = '▶';
         if (hint) hint.style.opacity = '0.4';
         el.style.textShadow = '';
         el.classList.remove('is-playing');
       };
     }
+
+    var anthemCharmTimer = null;
+    var anthemCharmId = "site-anthem-mini-disc-charm";
+
+    function clearAnthemCharmTimer() {
+      if (anthemCharmTimer) {
+        window.clearTimeout(anthemCharmTimer);
+        anthemCharmTimer = null;
+      }
+    }
+
+    function scheduleAnthemCharmUnlock() {
+      clearAnthemCharmTimer();
+      if (hasAnthemCharm()) return;
+      anthemCharmTimer = window.setTimeout(unlockAnthemCharm, 12000);
+    }
+
+    function hasAnthemCharm() {
+      try {
+        var charms = JSON.parse(localStorage.getItem("laidiesSecretCharms") || "{}");
+        return Boolean(charms[anthemCharmId]);
+      } catch (error) {
+        return false;
+      }
+    }
+
+    function pushUniqueReward(key, reward) {
+      try {
+        var queue = JSON.parse(localStorage.getItem(key) || "[]");
+        if (!queue.some(function(item) { return item.id === reward.id; })) {
+          queue.push(reward);
+          localStorage.setItem(key, JSON.stringify(queue));
+        }
+      } catch (error) {
+        // Reward storage should never block the reader from seeing the charm.
+      }
+    }
+
+    function unlockAnthemCharm() {
+      clearAnthemCharmTimer();
+      var reward = {
+        id: anthemCharmId,
+        title: "LAiDIES Anthem Mini-Disc Charm",
+        body: "Earned by listening to the LAiDIES anthem.",
+        source: "Homepage anthem",
+        asset: "assets/charms/teal-mini-disc-charm.svg",
+        alt: "Teal mini-disc charm sticker",
+        type: "secret-charm",
+        rewardType: "charm",
+        charmKind: "site-charm",
+        braceletSlot: "site-anthem",
+        braceletStatus: "pending-charm-bracelet",
+        cardSurface: "charm-bracelet",
+        earnedAt: new Date().toISOString()
+      };
+      try {
+        var charms = JSON.parse(localStorage.getItem("laidiesSecretCharms") || "{}");
+        charms[anthemCharmId] = charms[anthemCharmId] || reward;
+        localStorage.setItem("laidiesSecretCharms", JSON.stringify(charms));
+
+        var bracelet = JSON.parse(localStorage.getItem("laidiesCharmBracelet") || "{}");
+        bracelet[anthemCharmId] = bracelet[anthemCharmId] || reward;
+        localStorage.setItem("laidiesCharmBracelet", JSON.stringify(bracelet));
+      } catch (error) {
+        // Browser-only storage may be unavailable; still show the reward moment.
+      }
+      pushUniqueReward("laidiesCharmBraceletPendingRewards", reward);
+      pushUniqueReward("laidiesCardPendingRewards", reward);
+      showAnthemCharmReveal();
+    }
+
+    function showAnthemCharmReveal() {
+      var reveal = document.getElementById("anthemCharmReveal");
+      var close = document.getElementById("anthemCharmClose");
+      if (!reveal || !close) return;
+      reveal.hidden = false;
+      close.focus({ preventScroll: true });
+    }
+
+    function closeAnthemCharmReveal() {
+      var reveal = document.getElementById("anthemCharmReveal");
+      if (reveal) reveal.hidden = true;
+    }
+
+    (function setupAnthemCharmReveal() {
+      var reveal = document.getElementById("anthemCharmReveal");
+      var close = document.getElementById("anthemCharmClose");
+      if (!reveal || !close) return;
+      close.addEventListener("click", closeAnthemCharmReveal);
+      reveal.addEventListener("click", function(event) {
+        if (event.target === reveal) closeAnthemCharmReveal();
+      });
+      document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape" && !reveal.hidden) closeAnthemCharmReveal();
+      });
+    })();
+    window.playAnthem = playAnthem;
+    window.unlockAnthemCharm = unlockAnthemCharm;
     </script>
 
 </body>

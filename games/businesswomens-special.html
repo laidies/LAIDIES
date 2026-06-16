@@ -3,34 +3,43 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Businesswomen's Special | LAIDIES Clubhouse</title>
+    <title>Businesswomen's Special | LAiDIES Clubhouse</title>
     <meta name="description" content="Paper fortune teller picks your drink order. Choose cocktails or spirit-free, pick a mood, and open your drink fortune." />
-    <meta property="og:title" content="Businesswomen's Special | LAIDIES" />
+    <meta property="og:title" content="Businesswomen's Special | LAiDIES" />
     <meta property="og:description" content="The coven has a reservation at 7. Paper fortune teller meets premium cocktail bar." />
-    <meta name="theme-color" content="#ff2d9b" />
-    <link rel="icon" type="image/png" href="../assets/laidies-logo-square.png" />
+    <meta name="theme-color" content="#b95d78" />
+    <link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap">
     <link rel="stylesheet" href="../styles.css?v=bws-enhanced-1" />
     <style>
       :root {
-        --bws-pink: #ff2d9b;
+        --bws-pink: #b95d78;
         --bws-gold: #d4a853;
-        --bws-amber: #f5a623;
-        --bws-dark: #0d0509;
-        --bws-plum: #1a0a12;
-        --bws-plum-mid: #2d0f1f;
-        --bws-card-bg: rgba(20, 5, 15, 0.92);
+        --bws-amber: #c98f3f;
+        --bws-dark: #fffdfb;
+        --bws-plum: #4b2148;
+        --bws-plum-mid: #f7eeee;
+        --bws-card-bg: rgba(255, 253, 251, 0.9);
         --bws-card-border: rgba(212, 168, 83, 0.3);
-        --bws-glow-pink: rgba(255, 45, 155, 0.4);
-        --bws-glow-gold: rgba(212, 168, 83, 0.3);
-        --bws-text: #f0e6ec;
-        --bws-text-muted: rgba(240, 230, 236, 0.6);
+        --bws-glow-pink: rgba(185, 93, 120, 0.18);
+        --bws-glow-gold: rgba(212, 168, 83, 0.18);
+        --bws-text: #4b2148;
+        --bws-text-muted: rgba(75, 33, 72, 0.64);
+      }
+
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: clip;
       }
 
       body {
-        background: linear-gradient(160deg, var(--bws-dark) 0%, var(--bws-plum) 30%, var(--bws-plum-mid) 60%, var(--bws-dark) 100%) !important;
+        background:
+          radial-gradient(circle at 12% 0%, rgba(200, 220, 224, 0.24), transparent 24rem),
+          radial-gradient(circle at 88% 10%, rgba(212, 168, 83, 0.16), transparent 22rem),
+          linear-gradient(180deg, var(--bws-dark) 0%, var(--bws-plum-mid) 58%, var(--bws-dark) 100%) !important;
         min-height: 100vh;
         font-family: 'Inter', sans-serif;
         color: var(--bws-text);
@@ -42,10 +51,11 @@
         position: sticky;
         top: 0;
         z-index: 100;
-        background: rgba(13, 5, 9, 0.95);
+        background: rgba(255, 253, 251, 0.96);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(255, 45, 155, 0.12);
+        border-bottom: 1px solid rgba(75, 33, 72, 0.16);
+        box-shadow: 0 12px 28px rgba(75, 33, 72, 0.08);
       }
       .site-header .nav a { color: var(--bws-text); }
       .site-header .nav a:hover { color: var(--bws-pink); }
@@ -72,7 +82,7 @@
         max-width: 280px;
         width: 100%;
         height: auto;
-        filter: drop-shadow(0 0 30px rgba(255, 45, 155, 0.15));
+        filter: drop-shadow(0 0 30px rgba(185, 93, 120, 0.15));
         transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
       }
       .bws-hero-image.is-animating img {
@@ -93,7 +103,7 @@
         top: 50%; left: 50%;
         width: 300px; height: 300px;
         transform: translate(-50%, -50%);
-        background: radial-gradient(circle, rgba(255, 45, 155, 0.08) 0%, transparent 70%);
+        background: radial-gradient(circle, rgba(185, 93, 120, 0.08) 0%, transparent 70%);
         pointer-events: none;
         z-index: 0;
       }
@@ -103,7 +113,7 @@
         font-weight: 900;
         letter-spacing: -0.02em;
         margin: 0 0 8px;
-        background: linear-gradient(135deg, #fff 0%, var(--bws-gold) 100%);
+        background: linear-gradient(135deg, var(--bws-plum) 0%, var(--bws-pink) 58%, var(--bws-gold) 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -148,8 +158,8 @@
         flex: 1;
         min-width: 160px;
         padding: 16px 20px;
-        background: rgba(255, 255, 255, 0.03);
-        border: 2px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 253, 251, 0.82);
+        border: 2px solid rgba(75, 33, 72, 0.14);
         border-radius: 14px;
         cursor: pointer;
         text-align: center;
@@ -168,23 +178,23 @@
         transition: width 0.3s ease, box-shadow 0.3s ease;
       }
       .bws-lane-btn:hover {
-        border-color: rgba(255, 45, 155, 0.3);
-        background: rgba(255, 45, 155, 0.04);
+        border-color: rgba(185, 93, 120, 0.36);
+        background: rgba(255, 253, 251, 0.96);
       }
       .bws-lane-btn.is-selected {
         border-color: var(--bws-pink);
-        background: rgba(255, 45, 155, 0.08);
-        box-shadow: 0 0 20px rgba(255, 45, 155, 0.15), inset 0 0 20px rgba(255, 45, 155, 0.05);
+        background: rgba(185, 93, 120, 0.12);
+        box-shadow: 0 12px 26px rgba(75, 33, 72, 0.08), inset 0 0 20px rgba(185, 93, 120, 0.04);
       }
       .bws-lane-btn.is-selected::after {
         width: 60%;
-        box-shadow: 0 0 12px var(--bws-pink), 0 0 24px rgba(255, 45, 155, 0.3);
+        box-shadow: 0 0 12px var(--bws-pink), 0 0 24px rgba(185, 93, 120, 0.3);
       }
       .bws-lane-btn strong {
         display: block;
         font-size: 1.1rem;
         font-weight: 700;
-        color: #fff;
+        color: var(--bws-plum);
         margin-bottom: 4px;
       }
       .bws-lane-btn span {
@@ -206,8 +216,8 @@
       .bws-mood-btn {
         position: relative;
         padding: 24px 16px;
-        background: rgba(255, 255, 255, 0.03);
-        border: 2px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 253, 251, 0.84);
+        border: 2px solid rgba(75, 33, 72, 0.13);
         border-radius: 16px;
         cursor: pointer;
         text-align: center;
@@ -219,11 +229,11 @@
       }
       .bws-mood-btn:hover {
         transform: translateY(-2px);
-        border-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(185, 93, 120, 0.34);
       }
       .bws-mood-btn.is-selected {
         transform: translateY(-3px);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        box-shadow: 0 14px 28px rgba(75, 33, 72, 0.1);
       }
       .bws-mood-icon {
         font-size: 1.8rem;
@@ -236,7 +246,7 @@
         display: block;
         font-size: 0.95rem;
         font-weight: 700;
-        color: #fff;
+        color: var(--bws-plum);
       }
       .bws-mood-btn span {
         font-size: 0.72rem;
@@ -319,7 +329,7 @@
         margin-bottom: 8px;
         display: inline-block;
         padding: 3px 10px;
-        background: rgba(255, 45, 155, 0.08);
+        background: rgba(185, 93, 120, 0.08);
         border-radius: 4px;
       }
       .bws-drink-name {
@@ -372,7 +382,7 @@
         align-items: center;
         gap: 10px;
         padding: 14px 32px;
-        background: linear-gradient(135deg, var(--bws-pink), #d4237a);
+        background: linear-gradient(135deg, var(--bws-plum), var(--bws-pink));
         border: none;
         border-radius: 50px;
         color: #fff;
@@ -380,12 +390,12 @@
         font-weight: 700;
         cursor: pointer;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 20px rgba(255, 45, 155, 0.3);
+        box-shadow: 0 4px 20px rgba(185, 93, 120, 0.3);
         overflow: hidden;
       }
       .bws-random-btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 32px rgba(255, 45, 155, 0.4);
+        box-shadow: 0 8px 32px rgba(185, 93, 120, 0.4);
       }
       .bws-random-btn:active {
         transform: translateY(0);
@@ -409,8 +419,8 @@
       .bws-signature {
         margin-top: 48px;
         padding: 28px 24px;
-        background: linear-gradient(135deg, rgba(255, 45, 155, 0.06), rgba(212, 168, 83, 0.04));
-        border: 1.5px solid rgba(255, 45, 155, 0.25);
+        background: linear-gradient(135deg, rgba(185, 93, 120, 0.06), rgba(212, 168, 83, 0.04));
+        border: 1.5px solid rgba(185, 93, 120, 0.25);
         border-radius: 18px;
         position: relative;
         overflow: hidden;
@@ -435,12 +445,12 @@
         font-family: 'Playfair Display', Georgia, serif;
         font-size: 1.4rem;
         font-weight: 700;
-        color: #fff;
+        color: var(--bws-plum);
         margin: 0 0 10px;
       }
       .bws-signature-recipe {
         font-size: 0.88rem;
-        color: rgba(255, 255, 255, 0.75);
+        color: rgba(75, 33, 72, 0.72);
         margin-bottom: 8px;
         line-height: 1.5;
       }
@@ -514,12 +524,13 @@
           position: absolute;
           top: 100%;
           left: 0; right: 0;
-          background: rgba(13, 5, 9, 0.98);
+          background: rgba(255, 253, 251, 0.98);
           padding: 16px;
           flex-direction: column;
           gap: 12px;
-          border-bottom: 1px solid rgba(255, 45, 155, 0.15);
+          border-bottom: 1px solid rgba(75, 33, 72, 0.16);
           z-index: 200;
+          box-shadow: 0 18px 34px rgba(75, 33, 72, 0.12);
         }
         .site-header .nav.is-open { display: flex; }
       }
@@ -547,8 +558,8 @@
     <header class="site-header">
       <button onclick="history.back()" style="background:none;border:none;color:var(--bws-pink);font-size:0.85rem;cursor:pointer;padding:4px 8px;text-decoration:underline;" aria-label="Go back">← Back</button>
       <a href="../clubhouse.html" style="color:var(--bws-pink);text-decoration:none;font-size:0.85rem;font-weight:600;white-space:nowrap;">&larr; Back to Clubhouse</a>
-      <a class="brand" href="../index.html" aria-label="lAIdies home">
-        <img src="../assets/laidies-logo-wordmark.png" alt="LAIDIES" />
+      <a class="brand" href="../index.html" aria-label="LAiDIES home">
+        <img src="../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
       </a>
       <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false">☰</button>
       <nav class="nav" aria-label="Primary navigation">
@@ -558,7 +569,7 @@
         <a href="../community.html">Community</a>
         <a href="../games/dj-booth.html">Listen</a>
         <a href="../this-week.html">This Week</a>
-        <a href="../clubhouse-pass.html" style="color: #ff2d9b; text-decoration: underline; margin-left: 8px;">Sign In</a>
+        <a href="../clubhouse-pass.html" style="color: #b95d78; text-decoration: underline; margin-left: 8px;">Sign In</a>
 </nav>
     </header>
 
@@ -655,10 +666,10 @@
 
         <!-- Main Character Spritz -->
         <section class="bws-signature">
-          <p class="bws-signature-badge">✦ The LAIDIES House Cocktail</p>
+          <p class="bws-signature-badge">✦ The LAiDIES House Cocktail</p>
           <h3>Main Character Spritz</h3>
           <p class="bws-signature-recipe">Blanco tequila, Aperol, lemon, simple syrup, rocks, Prosecco, orange zest.</p>
-          <p class="bws-signature-note">Developed exclusively for lAIdies by Ryan C at CHAR No.5. Ask for Ryan and tell him Ali sent you.</p>
+          <p class="bws-signature-note">Developed exclusively for LAiDIES by Ryan C at CHAR No.5. Ask for Ryan and tell him Ali sent you.</p>
         </section>
 
         <!-- Back -->

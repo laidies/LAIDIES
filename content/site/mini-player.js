@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   LAIDIES Mini Player – Persistent Cross-Page Music Player
+   LAiDIES Mini Player – Persistent Cross-Page Music Player
    Single-track enforcement + Spotify pause + localStorage state
    ═══════════════════════════════════════════════════════════════ */
 
@@ -7,7 +7,7 @@
   'use strict';
 
   // ── Playlist ──────────────────────────────────────────────────
-  const LAIDIES_TRACKS = [
+  const LAiDIES_TRACKS = [
     { src: '/content/music/dj-jaidy-week-01-on-wednesday-we-do-ai.mp3', title: 'On Wednesdays We Do AI' },
     { src: '/content/music/dj-jaidy-week-02-tell-me-what-you-want.mp3', title: 'Tell Me What You Want' },
     { src: '/content/music/dj-jaidy-impossible-to-underestimate-you.mp3', title: 'Impossible to Underestimate You' },
@@ -124,24 +124,24 @@
       btn.title = 'Repeat: Off';
     } else if (repeatMode === 'all') {
       btn.style.opacity = '1';
-      btn.style.color = '#ff2d9b';
+      btn.style.color = '#b95d78';
       btn.title = 'Repeat: All';
       // Add "ALL" label below
       var label = document.createElement('span');
       label.className = 'mp-repeat-label';
       label.textContent = 'ALL';
-      label.style.cssText = 'position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);font-size:0.55rem;font-weight:700;text-transform:uppercase;color:#ff2d9b;pointer-events:none;';
+      label.style.cssText = 'position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);font-size:0.55rem;font-weight:700;text-transform:uppercase;color:#b95d78;pointer-events:none;';
       btn.style.position = 'relative';
       btn.appendChild(label);
     } else if (repeatMode === 'one') {
       btn.style.opacity = '1';
-      btn.style.color = '#ff2d9b';
+      btn.style.color = '#b95d78';
       btn.title = 'Repeat: One';
       // Add "1" badge (small circle)
       var badge = document.createElement('span');
       badge.className = 'mp-repeat-badge';
       badge.textContent = '1';
-      badge.style.cssText = 'position:absolute;top:2px;right:2px;width:14px;height:14px;border-radius:50%;background:#ff2d9b;color:#fff;font-size:0.55rem;font-weight:700;display:flex;align-items:center;justify-content:center;pointer-events:none;line-height:1;';
+      badge.style.cssText = 'position:absolute;top:2px;right:2px;width:14px;height:14px;border-radius:50%;background:#b95d78;color:#fff;font-size:0.55rem;font-weight:700;display:flex;align-items:center;justify-content:center;pointer-events:none;line-height:1;';
       btn.style.position = 'relative';
       btn.appendChild(badge);
     }
@@ -169,17 +169,17 @@
   // ── Prev / Next ───────────────────────────────────────────────
   function findCurrentIndex() {
     const normalized = normalizeSrc(currentSrc);
-    for (let i = 0; i < LAIDIES_TRACKS.length; i++) {
-      if (normalized.indexOf(LAIDIES_TRACKS[i].src) !== -1 ||
-          LAIDIES_TRACKS[i].src.indexOf(normalized.split('/').pop()) !== -1 ||
-          normalized.endsWith(LAIDIES_TRACKS[i].src)) {
+    for (let i = 0; i < LAiDIES_TRACKS.length; i++) {
+      if (normalized.indexOf(LAiDIES_TRACKS[i].src) !== -1 ||
+          LAiDIES_TRACKS[i].src.indexOf(normalized.split('/').pop()) !== -1 ||
+          normalized.endsWith(LAiDIES_TRACKS[i].src)) {
         return i;
       }
     }
     // Try matching by filename
     const filename = normalized.split('/').pop();
-    for (let i = 0; i < LAIDIES_TRACKS.length; i++) {
-      if (LAIDIES_TRACKS[i].src.split('/').pop() === filename) return i;
+    for (let i = 0; i < LAiDIES_TRACKS.length; i++) {
+      if (LAiDIES_TRACKS[i].src.split('/').pop() === filename) return i;
     }
     return -1;
   }
@@ -194,22 +194,22 @@
   }
 
   function playTrackByIndex(idx) {
-    if (idx < 0 || idx >= LAIDIES_TRACKS.length) return;
-    const track = LAIDIES_TRACKS[idx];
+    if (idx < 0 || idx >= LAiDIES_TRACKS.length) return;
+    const track = LAiDIES_TRACKS[idx];
     loadAndPlay(track.src, track.title, 0, true);
   }
 
   function playPrev() {
     const idx = findCurrentIndex();
     if (idx === -1) return;
-    const prev = (idx - 1 + LAIDIES_TRACKS.length) % LAIDIES_TRACKS.length;
+    const prev = (idx - 1 + LAiDIES_TRACKS.length) % LAiDIES_TRACKS.length;
     playTrackByIndex(prev);
   }
 
   function playNext() {
     const idx = findCurrentIndex();
     if (idx === -1) return;
-    const next = (idx + 1) % LAIDIES_TRACKS.length;
+    const next = (idx + 1) % LAiDIES_TRACKS.length;
     playTrackByIndex(next);
   }
 
@@ -243,7 +243,7 @@
         // Auto-advance to next track (or loop playlist if repeat all)
         const idx = findCurrentIndex();
         if (idx !== -1) {
-          const next = (idx + 1) % LAIDIES_TRACKS.length;
+          const next = (idx + 1) % LAiDIES_TRACKS.length;
           if (repeatMode === 'off' && next === 0) {
             // Don't loop back to beginning if repeat is off
             saveState();
@@ -348,14 +348,14 @@
 
     // 2. Check playlist
     const src = normalizeSrc(audioEl.src || audioEl.currentSrc);
-    for (let i = 0; i < LAIDIES_TRACKS.length; i++) {
-      if (src.endsWith(LAIDIES_TRACKS[i].src) || src.indexOf(LAIDIES_TRACKS[i].src) !== -1) {
-        return LAIDIES_TRACKS[i].title;
+    for (let i = 0; i < LAiDIES_TRACKS.length; i++) {
+      if (src.endsWith(LAiDIES_TRACKS[i].src) || src.indexOf(LAiDIES_TRACKS[i].src) !== -1) {
+        return LAiDIES_TRACKS[i].title;
       }
       // Match by filename
-      const trackFile = LAIDIES_TRACKS[i].src.split('/').pop();
+      const trackFile = LAiDIES_TRACKS[i].src.split('/').pop();
       const srcFile = src.split('/').pop();
-      if (trackFile === srcFile) return LAIDIES_TRACKS[i].title;
+      if (trackFile === srcFile) return LAiDIES_TRACKS[i].title;
     }
 
     // 3. Closest text element
@@ -420,7 +420,7 @@
           updateUI();
           const idx = findCurrentIndex();
           if (idx !== -1) {
-            const next = (idx + 1) % LAIDIES_TRACKS.length;
+            const next = (idx + 1) % LAiDIES_TRACKS.length;
             if (repeatMode === 'off' && next === 0) {
               saveState();
               return;
@@ -510,7 +510,7 @@
         updateUI();
         const idx = findCurrentIndex();
         if (idx !== -1) {
-          const next = (idx + 1) % LAIDIES_TRACKS.length;
+          const next = (idx + 1) % LAiDIES_TRACKS.length;
           if (repeatMode === 'off' && next === 0) {
             saveState();
             return;

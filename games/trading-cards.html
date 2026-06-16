@@ -3,29 +3,33 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Trading Card Pack | LAIDIES Clubhouse</title>
+    <title>Trading Card Pack | LAiDIES Clubhouse</title>
     <meta name="description" content="Flip & collect AI concept trading cards. Open packs, discover rare cards, and build your binder." />
-    <meta name="theme-color" content="#ff2d9b" />
-    <link rel="icon" type="image/png" href="../assets/laidies-logo-square.png" />
+    <meta name="theme-color" content="#b95d78" />
+    <link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;600;700&family=Georgia&display=swap" rel="stylesheet">
     <style>
       :root {
-        --hot-pink: #ff2d9b;
-        --dark-bg: #0d0611;
-        --card-bg: #1a0a12;
-        --panel-bg: linear-gradient(160deg, #1a0a12 0%, #2d0f1f 100%);
+        --hot-pink: #b95d78;
+        --plum: #4b2148;
+        --wine: #6f263f;
+        --dark-bg: #fbf6f5;
+        --card-bg: #fffdfb;
+        --panel-bg: linear-gradient(160deg, #fffdfb 0%, #f7eeee 100%);
         --muted: #65515d;
-        --gold: #ffd700;
-        --pink-border: rgba(255, 45, 155, 0.4);
-        --holographic: linear-gradient(135deg, #ff2d9b, #7b2dff, #2dd4ff, #ff2d9b);
+        --gold: #d4a853;
+        --pink-border: rgba(185, 93, 120, 0.4);
+        --holographic: linear-gradient(135deg, #b95d78, #7b2dff, #2dd4ff, #b95d78);
       }
       * { box-sizing: border-box; margin: 0; padding: 0; }
       body {
         font-family: 'Inter', -apple-system, sans-serif;
-        background: var(--dark-bg);
-        color: #fff;
+        background:
+          radial-gradient(circle at 88% 0%, rgba(200, 220, 224, 0.24), transparent 22rem),
+          linear-gradient(180deg, #fffdfb 0%, var(--dark-bg) 48%, #fffdfb 100%);
+        color: var(--plum);
         min-height: 100vh;
         line-height: 1.5;
       }
@@ -37,21 +41,59 @@
         position: sticky;
         top: 0;
         z-index: 200;
-        background: rgba(13, 6, 17, 0.92);
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        min-height: 82px;
+        background: rgba(255, 253, 251, 0.96);
         backdrop-filter: blur(12px);
-        border-bottom: 1px solid rgba(255,255,255,0.06);
-        padding: 12px clamp(14px, 3vw, 32px);
+        border-bottom: 1px solid rgba(75, 33, 72, 0.16);
+        box-shadow: 0 12px 28px rgba(75, 33, 72, 0.08);
+        padding: 12px clamp(16px, 4vw, 32px);
       }
-      .sticky-back a {
+      .sticky-back .brand {
+        display: inline-flex;
+        line-height: 0;
+        overflow: visible;
+      }
+      .sticky-back .brand img {
+        display: block;
+        width: clamp(120px, 11.5vw, 164px);
+        height: auto;
+        filter: drop-shadow(0 10px 20px rgba(75, 33, 72, 0.1));
+      }
+      .sticky-back .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 14px;
+        margin-left: auto;
+      }
+      .sticky-back a:not(.brand) {
         display: inline-flex;
         align-items: center;
         gap: 6px;
         font-size: 0.85rem;
-        font-weight: 600;
-        color: rgba(255,255,255,0.7);
+        font-weight: 800;
+        color: var(--plum);
         transition: color 0.2s;
       }
       .sticky-back a:hover { color: var(--hot-pink); text-decoration: none; }
+
+      @media (max-width: 560px) {
+        .sticky-back {
+          align-items: flex-start;
+          gap: 10px;
+          min-height: 76px;
+        }
+        .sticky-back .brand img {
+          width: clamp(106px, 30vw, 134px);
+        }
+        .sticky-back .nav-links {
+          gap: 10px;
+        }
+      }
 
       /* Page Layout */
       .game-page-wrap {
@@ -93,7 +135,7 @@
         position: absolute;
         inset: -4px;
         border-radius: 22px;
-        background: linear-gradient(135deg, #ff2d9b, #7b2dff, #2dd4ff, #ffd700, #ff2d9b);
+        background: linear-gradient(135deg, #b95d78, #7b2dff, #2dd4ff, #ffd700, #b95d78);
         background-size: 400% 400%;
         animation: holoShimmer 4s ease infinite;
         z-index: 0;
@@ -103,7 +145,7 @@
         position: absolute;
         inset: -20px;
         border-radius: 30px;
-        background: radial-gradient(ellipse at center, rgba(255,45,155,0.25) 0%, rgba(123,45,255,0.15) 40%, transparent 70%);
+        background: radial-gradient(ellipse at center, rgba(185,93,120,0.25) 0%, rgba(123,45,255,0.15) 40%, transparent 70%);
         filter: blur(20px);
         z-index: -1;
         animation: pulseGlow 3s ease-in-out infinite alternate;
@@ -119,7 +161,7 @@
         overflow: hidden;
         width: 100%;
         transform: rotate(-2deg);
-        box-shadow: 0 12px 50px rgba(255, 45, 155, 0.35), 0 4px 20px rgba(0,0,0,0.5);
+        box-shadow: 0 12px 50px rgba(185, 93, 120, 0.35), 0 4px 20px rgba(0,0,0,0.5);
         transition: transform 0.3s ease;
       }
       .hero-image-inner:hover {
@@ -138,7 +180,7 @@
         margin-bottom: 8px;
       }
       .hero-copy .subtitle {
-        color: rgba(255,255,255,0.6);
+        color: var(--muted);
         font-size: 1rem;
         margin-bottom: 16px;
       }
@@ -151,13 +193,13 @@
         display: flex;
         justify-content: space-between;
         font-size: 0.82rem;
-        color: rgba(255,255,255,0.6);
+        color: var(--muted);
         margin-bottom: 6px;
       }
       .progress-label strong { color: var(--hot-pink); }
       .progress-bar {
         height: 8px;
-        background: rgba(255,255,255,0.08);
+        background: rgba(75, 33, 72, 0.1);
         border-radius: 4px;
         overflow: hidden;
       }
@@ -178,12 +220,12 @@
         padding: 8px 14px;
         border-radius: 8px;
         border: 1px solid var(--pink-border);
-        background: rgba(255,255,255,0.04);
-        color: #fff;
+        background: rgba(255, 253, 251, 0.92);
+        color: var(--plum);
         font-size: 0.85rem;
         cursor: pointer;
       }
-      .pack-select option { background: #1a0a12; }
+      .pack-select option { background: #fffdfb; color: var(--plum); }
 
       /* Buttons */
       .btn {
@@ -202,21 +244,22 @@
       }
       .btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(255, 45, 155, 0.4);
+        box-shadow: 0 6px 20px rgba(185, 93, 120, 0.4);
       }
       .btn:active { transform: translateY(0); }
       .btn-secondary {
         background: transparent;
-        border-color: rgba(255,255,255,0.3);
+        border-color: rgba(75, 33, 72, 0.24);
+        color: var(--plum);
       }
       .btn-secondary:hover {
         border-color: var(--hot-pink);
-        box-shadow: 0 4px 16px rgba(255,45,155,0.2);
+        box-shadow: 0 4px 16px rgba(185,93,120,0.2);
       }
 
       .pack-status {
         font-size: 0.82rem;
-        color: rgba(255,255,255,0.5);
+        color: var(--muted);
         margin-top: 8px;
       }
 
@@ -236,7 +279,7 @@
       }
       .pack-empty {
         text-align: center;
-        color: rgba(255,255,255,0.3);
+        color: rgba(75, 33, 72, 0.42);
         font-style: italic;
         padding: 60px 20px;
         grid-column: 1 / -1;
@@ -293,11 +336,11 @@
         inset: 0;
         background: linear-gradient(
           135deg,
-          rgba(255, 45, 155, 0.1) 0%,
+          rgba(185, 93, 120, 0.1) 0%,
           rgba(123, 45, 255, 0.15) 25%,
           rgba(45, 212, 255, 0.1) 50%,
           rgba(255, 215, 0, 0.1) 75%,
-          rgba(255, 45, 155, 0.1) 100%
+          rgba(185, 93, 120, 0.1) 100%
         );
         background-size: 400% 400%;
         animation: holoShimmer 4s ease infinite;
@@ -336,13 +379,14 @@
         font-weight: 700;
         text-align: center;
         margin-bottom: 10px;
-        text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        color: var(--plum);
+        text-shadow: 0 1px 0 rgba(255, 253, 251, 0.72);
       }
       .card-front .card-hook {
         position: relative;
         z-index: 3;
         font-size: 0.78rem;
-        color: rgba(255,255,255,0.65);
+        color: var(--muted);
         text-align: center;
         font-style: italic;
       }
@@ -362,7 +406,7 @@
         letter-spacing: 0.06em;
         padding: 3px 8px;
         border-radius: 4px;
-        background: rgba(0,0,0,0.5);
+        background: rgba(255, 253, 251, 0.82);
         color: var(--hot-pink);
         z-index: 4;
       }
@@ -374,7 +418,7 @@
         flex-direction: column;
         gap: 10px;
         padding: 20px 16px;
-        background: linear-gradient(160deg, #1a0a12, #2d0f1f);
+        background: linear-gradient(160deg, #fffdfb, #f7eeee);
         text-align: center;
         justify-content: center;
       }
@@ -392,18 +436,18 @@
       }
       .card-back p {
         font-size: 0.8rem;
-        color: rgba(255,255,255,0.7);
+        color: var(--muted);
         line-height: 1.4;
       }
       .card-back .card-reward {
         font-size: 0.72rem;
-        color: rgba(255,255,255,0.4);
+        color: rgba(75, 33, 72, 0.52);
         font-style: italic;
         margin-top: auto;
       }
       .card-back .flip-hint {
         font-size: 0.68rem;
-        color: rgba(255,255,255,0.3);
+        color: rgba(75, 33, 72, 0.42);
       }
 
       /* Rarity Borders */
@@ -438,8 +482,8 @@
         font-weight: 700;
         padding: 2px 7px;
         border-radius: 10px;
-        background: rgba(255,255,255,0.15);
-        color: rgba(255,255,255,0.7);
+        background: rgba(75, 33, 72, 0.1);
+        color: rgba(75, 33, 72, 0.7);
         z-index: 5;
       }
 
@@ -453,7 +497,7 @@
         margin-bottom: 6px;
       }
       .binder-section > p {
-        color: rgba(255,255,255,0.5);
+        color: var(--muted);
         font-size: 0.85rem;
         margin-bottom: 20px;
       }
@@ -470,8 +514,8 @@
         position: relative;
         border-radius: 12px;
         overflow: hidden;
-        border: 2px solid rgba(255,255,255,0.08);
-        background: rgba(255,255,255,0.02);
+        border: 2px solid rgba(75, 33, 72, 0.12);
+        background: rgba(255, 253, 251, 0.72);
         transition: border-color 0.3s, transform 0.2s;
         cursor: pointer;
       }
@@ -502,7 +546,7 @@
         content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(135deg, rgba(255,45,155,0.05), rgba(123,45,255,0.08), rgba(45,212,255,0.05));
+        background: linear-gradient(135deg, rgba(185,93,120,0.05), rgba(123,45,255,0.08), rgba(45,212,255,0.05));
         background-size: 300% 300%;
         animation: holoShimmer 5s ease infinite;
       }
@@ -516,7 +560,7 @@
       }
       .binder-card-info span {
         font-size: 0.65rem;
-        color: rgba(255,255,255,0.4);
+        color: rgba(75, 33, 72, 0.58);
       }
       .binder-count-badge {
         position: absolute;
@@ -541,10 +585,16 @@
   <body>
 
     <!-- Sticky Back to Clubhouse -->
-    <div class="sticky-back">
-      <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
-      <a href="../clubhouse-pass.html" style="color: #ff2d9b; text-decoration: underline; margin-left: 8px;">Sign In</a>
-    </div>
+    <header class="sticky-back">
+      <a class="brand" href="../index.html" aria-label="LAiDIES home">
+        <img src="../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
+      </a>
+      <nav class="nav-links" aria-label="Trading Card Pack navigation">
+        <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
+        <a href="../games/dj-booth.html">Listen</a>
+        <a href="../clubhouse-pass.html">Sign In</a>
+      </nav>
+    </header>
 
     <main>
       <div class="game-page-wrap">
@@ -560,7 +610,7 @@
             <p class="eyebrow">The Card Pack</p>
             <h1>Trading Card Pack</h1>
             <p class="subtitle">Flip &amp; collect AI concept cards</p>
-            <p style="color:rgba(255,255,255,0.5); font-size:0.85rem; margin-bottom: 20px;">Every Wednesday adds new cards to the collection. Pick an issue pack, rip it open, and flip each card to learn an AI concept. Duplicates count &mdash; just like the real thing.</p>
+            <p style="color:rgba(75,33,72,0.68); font-size:0.85rem; margin-bottom: 20px;">Every Wednesday adds new cards to the collection. Pick an issue pack, rip it open, and flip each card to learn an AI concept. Duplicates count &mdash; just like the real thing.</p>
 
             <!-- Collection Progress -->
             <div class="collection-progress">
@@ -933,5 +983,6 @@
     })();
     </script>
       <script src="../content/site/mini-player.js"></script>
+    <script src="../content/site/brand-polish.js" defer></script>
 </body>
 </html>

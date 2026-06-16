@@ -19,7 +19,7 @@
 .current-episode .issue-card img {
   width: 100%;
   border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(255, 45, 155, 0.15);
+  box-shadow: 0 8px 32px rgba(185, 93, 120, 0.15);
 }
 .current-episode .microcopy {
   text-align: center;
@@ -130,7 +130,7 @@
   border-radius: 8px;
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(252, 228, 242, 0.94)),
-    repeating-linear-gradient(135deg, rgba(255, 45, 155, 0.12) 0 8px, rgba(36, 123, 131, 0.1) 8px 16px);
+    repeating-linear-gradient(135deg, rgba(185, 93, 120, 0.12) 0 8px, rgba(36, 123, 131, 0.1) 8px 16px);
   box-shadow: 6px 6px 0 var(--ink);
   overflow: hidden;
   text-decoration: none;
@@ -326,15 +326,15 @@
   font-size: 0.78rem;
   padding: 8px 16px;
   min-height: 36px;
-  background: rgba(255, 45, 155, 0.12);
+  background: rgba(185, 93, 120, 0.12);
   color: #3a0928;
-  border-color: rgba(255, 45, 155, 0.3);
+  border-color: rgba(185, 93, 120, 0.3);
   animation: softPinkPulse 5.4s ease-in-out infinite;
   border-radius: 999px;
 }
 .button.episode-archive-link:hover {
-  background: rgba(255, 45, 155, 0.22);
-  border-color: rgba(255, 45, 155, 0.5);
+  background: rgba(185, 93, 120, 0.22);
+  border-color: rgba(185, 93, 120, 0.5);
 }
 
 /* All secondary buttons get a subtle version of the glow */
@@ -357,4 +357,57 @@
   .game-card.is-live {
     animation: none;
   }
+}
+
+/* === LAIDIES Brand Polish: homepage modules === */
+.fun-shelf {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(200, 220, 224, 0.34), transparent 24rem),
+    linear-gradient(170deg, rgba(255, 253, 251, 0.98), rgba(247, 238, 238, 0.92) 46%, rgba(232, 197, 200, 0.24));
+}
+
+.fun-shelf-card {
+  border: 1px solid rgba(75, 33, 72, 0.18);
+  background: rgba(255, 253, 251, 0.88);
+  box-shadow: 0 20px 44px rgba(75, 33, 72, 0.12);
+  animation: none;
+}
+
+.fun-shelf-card:hover,
+.fun-shelf-card:focus-visible {
+  border-color: rgba(111, 38, 63, 0.38);
+  box-shadow: 0 24px 52px rgba(75, 33, 72, 0.16);
+}
+
+.fun-shelf-card img {
+  border-bottom: 1px solid rgba(75, 33, 72, 0.16);
+}
+
+.community-room-preview span {
+  border-color: rgba(75, 33, 72, 0.2);
+  background: rgba(255, 253, 251, 0.72);
+  color: var(--wine);
+}
+
+.community-teaser-image img,
+.reference-closet-teaser-image img {
+  border: 1px solid rgba(75, 33, 72, 0.18);
+  box-shadow: 0 20px 44px rgba(75, 33, 72, 0.12);
+}
+
+.button.primary,
+.button.secondary,
+.button.episode-archive-link {
+  animation: none;
+}
+
+.button.episode-archive-link {
+  background: rgba(255, 253, 251, 0.72);
+  border-color: rgba(75, 33, 72, 0.2);
+  color: var(--wine);
+}
+
+.button.episode-archive-link:hover {
+  background: rgba(232, 197, 200, 0.22);
+  border-color: rgba(111, 38, 63, 0.36);
 }

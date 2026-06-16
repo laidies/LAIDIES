@@ -2,7 +2,7 @@
  * Hot Goss Renderer — Enhanced Format with Collapsible Cards
  * 
  * Stories show headline + preview by default.
- * Click "read more" to expand source-provided body + LAIDIES explanation fields when present.
+ * Click "read more" to expand source-provided body + LAiDIES explanation fields when present.
  * 
  * Auto-links to glossary terms and episodes based on siteLinks in JSON.
  */
@@ -80,7 +80,7 @@
     var siteLinks = '';
     if (story.siteLinks && story.siteLinks.length) {
       siteLinks = '<div class="goss-site-links">' + story.siteLinks.map(function(link) {
-        return '<a href="' + escapeHtml(link.url) + '">' + escapeHtml(link.label || 'Related LAIDIES link') + '</a>';
+        return '<a href="' + escapeHtml(link.url) + '">' + escapeHtml(link.label || 'Related LAiDIES link') + '</a>';
       }).join('') + '</div>';
     }
 
@@ -103,7 +103,7 @@
         buildNoteBlock('What happened?', whatHappened, 'goss-note-what') +
         buildNoteBlock('Why do we care?', whyCare, 'goss-note-why') +
         buildNoteBlock('How big a deal?', dealRating, 'goss-note-rating') +
-        buildNoteBlock('LAIDIES translation', translation, 'goss-note-translation') +
+        buildNoteBlock('LAiDIES translation', translation, 'goss-note-translation') +
         buildNoteBlock('Smart busy woman takeaway', takeaway, 'goss-note-takeaway') +
         buildNoteBlock(isDaily ? 'One-liner' : 'The cocktail party version', cocktailParty, 'goss-note-cocktail') +
         '<div class="goss-footer">' + sourceLink + siteLinks + '</div>' +

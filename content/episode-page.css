@@ -6,40 +6,51 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 10px clamp(16px, 4vw, 44px);
-  background:
-    radial-gradient(circle at 14% 28%, rgba(255, 45, 155, 0.28) 0 2px, transparent 3px),
-    radial-gradient(circle at 72% 22%, rgba(255, 45, 155, 0.2) 0 2px, transparent 3px),
-    #150b08;
-  border-bottom: 2px solid #ff2d9b;
-  box-shadow: 0 8px 22px rgba(16, 8, 5, 0.18);
+  min-height: 88px;
+  padding: 14px clamp(16px, 4vw, 44px);
+  background: rgba(255, 253, 251, 0.94);
+  border-bottom: 1px solid rgba(75, 33, 72, 0.18);
+  box-shadow: 0 12px 28px rgba(75, 33, 72, 0.1);
+  backdrop-filter: blur(14px);
+  overflow: visible;
 }
 
 .issue-site-nav a {
-  color: #fff;
-  border-bottom-color: rgba(255, 255, 255, 0.35);
+  color: #4b2148;
+  border-bottom-color: rgba(75, 33, 72, 0.22);
   font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 0.01em;
 }
 
 .issue-site-nav a:hover {
-  color: #ff2d9b;
-  border-bottom-color: #ff2d9b;
+  color: #6f263f;
+  border-bottom-color: #6f263f;
 }
 
 .issue-site-nav .issue-back-link {
-  color: #ff2d9b;
-  border-bottom-color: rgba(255, 45, 155, 0.45);
+  color: #6f263f;
+  border-bottom-color: rgba(111, 38, 63, 0.38);
 }
 
 .issue-site-nav .issue-brand-link {
-  font-family: "Dancing Script", cursive;
-  font-size: clamp(1.35rem, 4vw, 2rem);
-  line-height: 1;
-  color: #ff2d9b;
-  text-shadow: 0 0 14px rgba(255, 45, 155, 0.9);
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
   border-bottom: 0;
+  text-decoration: none;
+  overflow: visible;
+  padding: 4px 0 6px;
+}
+
+.issue-site-nav .issue-brand-link img {
+  display: block;
+  width: clamp(148px, 18vw, 190px);
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 10px 20px rgba(75, 33, 72, 0.1));
 }
 
 .issue-site-nav .issue-nav-links {
@@ -58,17 +69,277 @@
   z-index: 3;
 }
 
-.issue-toolkit-inner {
-  background: linear-gradient(135deg, #fff 0%, #fff1f8 62%, #fce4f2 100%);
-  border: 2px solid #ff2d9b;
+.article-masthead-link {
+  position: relative;
+}
+
+.header-content .article-masthead-link {
+  display: grid !important;
+  width: min(1180px, 100%);
+  margin: 0 auto !important;
+  overflow: hidden;
+  line-height: 1.2 !important;
+  background:
+    radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.98), rgba(251, 247, 245, 0.98) 58%, rgba(245, 239, 238, 0.96)),
+    linear-gradient(135deg, #fffdfb, #f7f0f0);
+  border: 1px solid rgba(75, 33, 72, 0.14);
   border-radius: 18px;
-  box-shadow: 8px 8px 0 #100805, 0 16px 36px rgba(255, 45, 155, 0.16);
+  box-shadow: 0 22px 54px rgba(75, 33, 72, 0.14);
+}
+
+.episode-masthead-brand-overlay {
+  position: relative !important;
+  order: 1;
+  z-index: 2;
+  top: auto !important;
+  left: auto !important;
+  width: 100% !important;
+  transform: none !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(14px, 2.2vw, 24px) clamp(18px, 3vw, 36px) clamp(8px, 1vw, 12px);
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.98), rgba(255, 253, 251, 0.86) 66%, rgba(247, 241, 240, 0.76)),
+    linear-gradient(135deg, rgba(255, 253, 251, 0.94), rgba(247, 240, 240, 0.82));
+  box-shadow: none;
+  pointer-events: none;
+}
+
+.episode-masthead-brand-overlay img {
+  display: block;
+  width: min(52%, 600px);
+  height: auto;
+  filter: drop-shadow(0 8px 16px rgba(75, 33, 72, 0.08));
+}
+
+.episode-masthead-brand-motto {
+  display: block;
+  margin-top: clamp(1px, 0.35vw, 5px);
+  color: #3f172b;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(0.58rem, 1.02vw, 0.9rem);
+  line-height: 1.1;
+  letter-spacing: 0.14em;
+  text-align: center;
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+
+.episode-masthead-brand-motto em {
+  color: #9b3f5f;
+  font-style: italic;
+  letter-spacing: 0.08em;
+}
+
+.episode-masthead-copy {
+  position: relative !important;
+  order: 2;
+  left: auto !important;
+  top: auto !important;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 12px;
+  width: 100% !important;
+  pointer-events: none;
+  color: #3f1737;
+  background: linear-gradient(90deg, rgba(255, 253, 251, 0.92), rgba(247, 239, 239, 0.78));
+  border-top: 1px solid rgba(75, 33, 72, 0.12);
+  border-bottom: 1px solid rgba(75, 33, 72, 0.1);
+  padding: 10px clamp(16px, 3vw, 34px) 11px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255, 253, 251, 0.52);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.episode-masthead-phone {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.42em;
+  color: #fffdfb;
+  background: #6f263f;
+  border-radius: 999px;
+  padding: 5px 8px 4px;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: clamp(0.56rem, 0.95vw, 0.76rem);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+  box-shadow: 0 8px 16px rgba(75, 33, 72, 0.12);
+}
+
+.episode-masthead-phone strong {
+  color: #fffdfb !important;
+  font-weight: 900;
+}
+
+.episode-masthead-note {
+  display: block;
+  color: #3f1737;
+  font-family: "Playfair Display", Didot, "Bodoni 72", Georgia, serif;
+  font-size: clamp(1rem, 1.6vw, 1.42rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.episode-masthead-date {
+  display: block;
+  color: #6f263f;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: clamp(0.52rem, 0.92vw, 0.7rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.article-masthead-link .episode-masthead-banner {
+  order: 3;
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: clamp(330px, 34vw, 405px) !important;
+  margin: 0 !important;
+  object-fit: cover;
+  object-position: center bottom;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 640px) {
+  .header-content .article-masthead-link {
+    border-radius: 16px;
+  }
+
+  .episode-masthead-brand-overlay {
+    padding: 12px 14px 7px;
+  }
+
+  .episode-masthead-brand-overlay img {
+    width: min(74%, 246px);
+  }
+
+  .episode-masthead-brand-motto {
+    margin-top: 1px;
+    font-size: clamp(0.44rem, 1.7vw, 0.58rem);
+    letter-spacing: 0.08em;
+  }
+
+  .episode-masthead-copy {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100% !important;
+    margin: 0;
+    gap: 5px;
+    padding: 11px 12px 12px;
+    border-left: 0;
+    background: linear-gradient(135deg, rgba(255, 253, 251, 0.92), rgba(247, 238, 238, 0.7));
+    border-top: 1px solid rgba(75, 33, 72, 0.16);
+    box-shadow: none;
+    text-align: left;
+  }
+
+  .episode-masthead-note {
+    font-size: clamp(1.08rem, 5.8vw, 1.44rem);
+  }
+
+  .episode-masthead-phone,
+  .episode-masthead-date {
+    font-size: clamp(0.54rem, 2.8vw, 0.72rem);
+  }
+
+  .article-masthead-link .episode-masthead-banner {
+    height: 180px !important;
+  }
+}
+
+/* Article mastheads: the approved object-world art already includes the masthead
+   wordmark and motto. Hide the duplicate live logo layer so the page does not
+   show a floating card or double wordmarks. */
+.header-content .article-masthead-link {
+  display: block !important;
+  width: auto;
+  overflow: visible;
+  line-height: 0 !important;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.episode-masthead-brand-overlay {
+  display: none !important;
+}
+
+.article-masthead-link .episode-masthead-banner {
+  display: block;
+  width: min(1180px, 100%) !important;
+  max-width: 100% !important;
+  height: auto !important;
+  margin: 0 auto !important;
+  object-fit: contain;
+  object-position: center;
+  border: 1px solid rgba(75, 33, 72, 0.14) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 22px 54px rgba(75, 33, 72, 0.14) !important;
+}
+
+.episode-masthead-copy {
+  position: absolute !important;
+  left: clamp(16px, 3vw, 42px) !important;
+  top: clamp(16px, 3.2vw, 36px) !important;
+  display: grid;
+  gap: 6px;
+  width: min(24%, 282px) !important;
+  padding: 12px 12px 13px 14px;
+  text-align: left;
+  border-left: 4px solid #b95d78;
+  border-top: 1px solid rgba(75, 33, 72, 0.18);
+  border-bottom: 0;
+  background:
+    linear-gradient(135deg, rgba(255, 253, 251, 0.78), rgba(255, 253, 251, 0.18) 62%, rgba(255, 253, 251, 0));
+  box-shadow: -10px 0 28px rgba(255, 253, 251, 0.32);
+  backdrop-filter: blur(1.5px);
+}
+
+@media (max-width: 640px) {
+  .header-content .article-masthead-link {
+    border-radius: 0;
+  }
+
+  .episode-masthead-copy {
+    position: static !important;
+    width: auto !important;
+    margin: 12px 0 0;
+    gap: 5px;
+    padding: 11px 12px 12px;
+    border-left-width: 3px;
+    border-bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 253, 251, 0.92), rgba(247, 238, 238, 0.7));
+    border-top: 1px solid rgba(75, 33, 72, 0.16);
+    box-shadow: 0 12px 28px rgba(75, 33, 72, 0.08);
+  }
+}
+
+.issue-toolkit-inner {
+  background: linear-gradient(135deg, #fffdfb 0%, #f7eeee 62%, rgba(232, 197, 200, 0.42) 100%);
+  border: 1px solid rgba(75, 33, 72, 0.18);
+  border-radius: 12px;
+  box-shadow: 0 22px 48px rgba(75, 33, 72, 0.12);
   padding: clamp(18px, 4vw, 26px);
 }
 
 .issue-toolkit-label {
   margin: 0 0 6px;
-  color: #13777f;
+  color: #6f263f;
   font-family: "JetBrains Mono", monospace;
   font-size: 0.72rem;
   font-weight: 800;
@@ -78,7 +349,7 @@
 
 .issue-toolkit h2 {
   margin: 0 0 8px;
-  color: #3a0626;
+  color: #4b2148;
   font-family: "Playfair Display", serif;
   font-size: clamp(1.45rem, 4vw, 2rem);
   line-height: 1.05;
@@ -86,7 +357,7 @@
 
 .issue-toolkit p {
   margin: 0 0 16px;
-  color: #5a4b57;
+  color: #766171;
   font-size: 0.92rem;
   line-height: 1.55;
 }
@@ -103,41 +374,169 @@
   min-height: 52px;
   padding: 10px 12px;
   background: #fff;
-  border: 1px solid #100805;
-  color: #100805;
+  border: 1px solid rgba(75, 33, 72, 0.2);
+  color: #211820;
   font-size: 0.78rem;
   font-weight: 900;
   line-height: 1.2;
   text-decoration: none;
-  box-shadow: 3px 3px 0 #ff2d9b;
+  box-shadow: 0 12px 24px rgba(75, 33, 72, 0.08);
 }
 
 .issue-toolkit-grid a:hover {
-  color: #100805;
+  color: #211820;
   transform: translate(-1px, -1px);
-  box-shadow: 5px 5px 0 #ff2d9b;
+  box-shadow: 0 16px 30px rgba(75, 33, 72, 0.12);
 }
 
 .issue-toolkit-grid a[data-link-type="quiz"],
 .issue-toolkit-grid a[data-link-type="cardPack"] {
-  background: #ff2d9b;
-  color: #fff;
-  border-color: #ff2d9b;
-  box-shadow: 3px 3px 0 #100805;
+  background: #4b2148;
+  color: #fffdfb;
+  border-color: #4b2148;
+  box-shadow: 0 14px 28px rgba(75, 33, 72, 0.16);
 }
 
 @media (max-width: 640px) {
   .issue-site-nav {
     align-items: flex-start;
     flex-direction: column;
+    min-height: 150px;
+    padding-top: 18px;
+    padding-bottom: 18px;
   }
 
   .issue-site-nav .issue-nav-links {
     justify-content: flex-start;
   }
 
+  .issue-site-nav .issue-brand-link img {
+    width: clamp(150px, 48vw, 190px);
+    max-height: none;
+  }
+
   .issue-toolkit {
     margin-top: -14px;
     padding: 0 16px;
+  }
+}
+
+/* Final article masthead composition: approved logo + motto, then object-world art. */
+.header-content .article-masthead-link {
+  display: grid !important;
+  width: min(1180px, 100%) !important;
+  margin: 0 auto !important;
+  overflow: hidden !important;
+  line-height: 1.15 !important;
+  background:
+    radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.98), rgba(251, 247, 245, 0.98) 58%, rgba(245, 239, 238, 0.96)),
+    linear-gradient(135deg, #fffdfb, #f7f0f0);
+  border: 1px solid rgba(75, 33, 72, 0.14) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 22px 54px rgba(75, 33, 72, 0.14) !important;
+}
+
+.episode-masthead-brand-bar {
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(14px, 2.3vw, 26px) clamp(18px, 4vw, 44px) clamp(7px, 1vw, 12px);
+  background:
+    radial-gradient(circle at 50% 14%, rgba(255, 255, 255, 0.98), rgba(255, 253, 251, 0.9) 66%, rgba(247, 241, 240, 0.78)),
+    linear-gradient(135deg, rgba(255, 253, 251, 0.95), rgba(247, 240, 240, 0.82));
+  border-bottom: 1px solid rgba(75, 33, 72, 0.1);
+  pointer-events: none;
+}
+
+.episode-masthead-brand-bar img {
+  display: block;
+  width: min(54%, 620px);
+  height: auto;
+  filter: drop-shadow(0 8px 16px rgba(75, 33, 72, 0.08));
+}
+
+.episode-masthead-brand-bar .episode-masthead-brand-motto {
+  display: block;
+  margin-top: clamp(1px, 0.35vw, 5px);
+  color: #3f172b;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(0.58rem, 1.02vw, 0.9rem);
+  line-height: 1.1;
+  letter-spacing: 0.14em;
+  text-align: center;
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+
+.episode-masthead-brand-bar .episode-masthead-brand-motto em {
+  color: #9b3f5f;
+  font-style: italic;
+  letter-spacing: 0.08em;
+}
+
+.article-masthead-link .episode-masthead-banner {
+  order: 2;
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: clamp(150px, 29vw, 326px) !important;
+  margin: 0 !important;
+  object-fit: cover;
+  object-position: center;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.episode-masthead-copy {
+  order: 3;
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 14px;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 12px clamp(16px, 3vw, 34px) 13px;
+  border: 0 !important;
+  border-top: 1px solid rgba(75, 33, 72, 0.12) !important;
+  background: linear-gradient(90deg, rgba(255, 253, 251, 0.94), rgba(247, 239, 239, 0.8));
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  text-align: left;
+}
+
+.issue-site-nav .issue-sign-in-link {
+  color: #8a2e4f;
+  font-weight: 900;
+}
+
+@media (max-width: 640px) {
+  .header-content .article-masthead-link {
+    border-radius: 16px !important;
+  }
+
+  .episode-masthead-brand-bar {
+    padding: 12px 14px 7px;
+  }
+
+  .episode-masthead-brand-bar img {
+    width: min(74%, 246px);
+  }
+
+  .episode-masthead-brand-bar .episode-masthead-brand-motto {
+    margin-top: 1px;
+    font-size: clamp(0.44rem, 1.7vw, 0.58rem);
+    letter-spacing: 0.08em;
+  }
+
+  .episode-masthead-copy {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    padding: 11px 12px 12px;
   }
 }

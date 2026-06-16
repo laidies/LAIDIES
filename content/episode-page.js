@@ -1,9 +1,50 @@
 (function () {
   const toolkitMount = document.querySelector("[data-episode-toolkit]");
-  if (!toolkitMount) return;
+  const mastheadMount = document.querySelector("[data-episode-masthead-copy]");
+  if (!toolkitMount && !mastheadMount) return;
 
   const issueNumber = Number(document.body?.dataset.issueNumber || 0);
   const padIssue = (number) => String(number).padStart(2, "0");
+
+  function formatReleaseDate(dateString) {
+    if (!dateString) return "";
+    const date = new Date(dateString + "T12:00:00");
+    if (Number.isNaN(date.getTime())) return dateString;
+    return new Intl.DateTimeFormat("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric"
+    }).format(date);
+  }
+
+  function renderMasthead(episode) {
+    if (!mastheadMount || !episode) return;
+    const numberEl = mastheadMount.querySelector("[data-episode-masthead-number]");
+    const titleEl = mastheadMount.querySelector("[data-episode-masthead-title]");
+    const dateEl = mastheadMount.querySelector("[data-episode-masthead-date]");
+    if (numberEl) numberEl.textContent = "#" + padIssue(episode.number || issueNumber);
+    if (titleEl) titleEl.textContent = episode.title || "";
+    if (dateEl) dateEl.textContent = formatReleaseDate(episode.releaseDate);
+  }
+
+  function getMastheadFallback() {
+    if (!mastheadMount) return null;
+    return {
+      number: Number(mastheadMount.dataset.episodeNumber || issueNumber),
+      title: mastheadMount.dataset.episodeTitle || "",
+      releaseDate: mastheadMount.dataset.episodeReleaseDate || ""
+    };
+  }
+
+  function mergeMastheadEpisode(episode) {
+    const fallback = getMastheadFallback();
+    if (!episode) return fallback;
+    return {
+      ...fallback,
+      ...episode,
+      releaseDate: episode.releaseDate || fallback?.releaseDate || ""
+    };
+  }
 
   function getWednesdayReturnUrl() {
     const params = new URLSearchParams(window.location.search || "");
@@ -19,12 +60,13 @@
     link.dataset.wednesdayReturn = "true";
     link.href = href;
     link.textContent = "\u2190 Back to the Bag";
-    link.style.cssText = "position:fixed;top:76px;left:clamp(14px,3vw,26px);right:auto;bottom:auto;z-index:120;display:inline-flex;width:fit-content;max-width:calc(100% - 28px);margin:0;padding:10px 14px;border:1px solid rgba(255,45,155,.42);border-radius:999px;background:rgba(20,8,24,.86);color:#ff8ccc;font-weight:850;text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.28),0 0 0 4px rgba(255,45,155,.1);backdrop-filter:blur(10px);";
+    link.style.cssText = "position:fixed;top:76px;left:clamp(14px,3vw,26px);right:auto;bottom:auto;z-index:120;display:inline-flex;width:fit-content;max-width:calc(100% - 28px);margin:0;padding:10px 14px;border:1px solid rgba(185,93,120,.42);border-radius:999px;background:rgba(20,8,24,.86);color:#ff8ccc;font-weight:850;text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.28),0 0 0 4px rgba(185,93,120,.1);backdrop-filter:blur(10px);";
     const nav = document.querySelector(".issue-site-nav");
     if (nav?.parentNode) nav.insertAdjacentElement("afterend", link);
   }
 
   insertWednesdayReturnLink();
+  renderMasthead(getMastheadFallback());
 
   /* Episode music tracks */
   const episodeTracks = {
@@ -40,6 +82,7 @@
   }
 
   function renderToolkit(episode) {
+    if (!toolkitMount) return;
     const links = episode?.siteLinks?.length ? episode.siteLinks : [];
     const issueLabel = episode?.number ? "Episode " + padIssue(episode.number) + " Fun Pack" : "Episode Fun Pack";
     const title = episode?.title ? episode.title + ": keep practicing." : "Keep practicing after the read.";
@@ -52,7 +95,7 @@
     }
 
     const trackHtml = track ? `
-      <div style="margin-top: 16px; padding: 14px 16px; background: rgba(255,45,155,0.08); border-radius: 10px; border: 1px solid rgba(255,45,155,0.2);">
+      <div style="margin-top: 16px; padding: 14px 16px; background: rgba(185,93,120,0.08); border-radius: 10px; border: 1px solid rgba(185,93,120,0.2);">
         <p style="margin: 0 0 8px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #247b83;">\ud83c\udfb5 This episode\u2019s track \u2014 DJ JAIDY</p>
         <audio controls preload="metadata" src="../${track.file}" style="width: 100%; max-width: 400px; display: block;">
           <a href="../${track.file}">Play "${track.title}"</a>
@@ -81,14 +124,18 @@
     `;
   }
 
-  fetch("../content/episode-index.json")
+  fetch("../content/episode-index.json?v=masthead-data-1")
     .then((response) => {
       if (!response.ok) throw new Error("Episode index unavailable");
       return response.json();
     })
     .then((data) => {
       const episode = data.episodes?.find((item) => Number(item.number) === issueNumber);
+      renderMasthead(mergeMastheadEpisode(episode));
       renderToolkit(episode);
     })
-    .catch(() => renderToolkit(null));
+    .catch(() => {
+      renderMasthead(getMastheadFallback());
+      renderToolkit(null);
+    });
 })();

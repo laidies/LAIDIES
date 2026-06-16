@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Printable Preview | LAIDIES</title>
-  <meta name="description" content="Preview and download the LAIDIES weekly printable.">
-  <link rel="icon" type="image/png" href="assets/laidies-logo-square.png">
+  <title>Printable Preview | LAiDIES</title>
+  <meta name="description" content="Preview and download the LAiDIES weekly printable.">
+  <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --hot-pink: #ff2d9b;
-      --ink: #21111f;
-      --plum: #32122f;
-      --cream: #fff9ec;
-      --paper: #fffdf8;
-      --blush: #ffd9e9;
-      --blue: #bde8ff;
-      --yellow: #ffe47a;
-      --muted: rgba(255, 248, 252, 0.72);
+      --hot-pink: #9b3f5f;
+      --ink: #211820;
+      --plum: #4b2148;
+      --cream: #fffdfb;
+      --paper: #fbf6f5;
+      --blush: #e8c5c8;
+      --blue: #c8dce0;
+      --yellow: #b49764;
+      --muted: #766171;
       --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       --font-heading: 'Playfair Display', Georgia, serif;
       --font-mono: 'JetBrains Mono', monospace;
@@ -32,10 +32,10 @@
       min-height: 100vh;
       overflow-x: hidden;
       background:
-        radial-gradient(circle at 16% 10%, rgba(255, 45, 155, 0.28), transparent 24rem),
-        radial-gradient(circle at 88% 4%, rgba(189, 232, 255, 0.18), transparent 24rem),
-        linear-gradient(135deg, #180918 0%, #3a1431 52%, #120912 100%);
-      color: #fff8fc;
+        radial-gradient(circle at 16% 10%, rgba(200, 220, 224, 0.34), transparent 24rem),
+        radial-gradient(circle at 88% 4%, rgba(232, 197, 200, 0.28), transparent 24rem),
+        linear-gradient(135deg, #fffdfb 0%, #f7eeee 58%, #fbf6f5 100%);
+      color: var(--ink);
       font-family: var(--font-body);
       line-height: 1.6;
     }
@@ -47,16 +47,20 @@
       display: flex;
       align-items: center;
       gap: 24px;
+      min-height: 78px;
       padding: 12px clamp(16px, 4vw, 48px);
-      border-bottom: 1px solid rgba(255, 45, 155, 0.12);
-      background: rgba(13, 10, 18, 0.95);
+      border-bottom: 1px solid rgba(75, 33, 72, 0.18);
+      background: rgba(255, 253, 251, 0.94);
       backdrop-filter: blur(12px);
+      overflow: visible;
     }
 
     .brand img {
       display: block;
-      width: auto;
-      height: 28px;
+      width: clamp(146px, 18vw, 190px);
+      height: auto;
+      max-height: none;
+      object-fit: contain;
     }
 
     .nav {
@@ -69,13 +73,13 @@
     }
 
     .nav a {
-      color: rgba(255, 248, 252, 0.68);
+      color: var(--plum);
       text-decoration: none;
     }
 
     .nav a:hover,
     .nav a:focus-visible {
-      color: var(--hot-pink);
+      color: #6f263f;
       outline: none;
     }
 
@@ -84,7 +88,7 @@
       margin-left: auto;
       border: 0;
       background: transparent;
-      color: #fff8fc;
+      color: var(--plum);
       font: inherit;
       font-size: 1.35rem;
       cursor: pointer;
@@ -98,21 +102,21 @@
       width: fit-content;
       margin: 14px 0 0 clamp(14px, 3vw, 28px);
       padding: 10px 14px;
-      border: 1px solid rgba(255, 45, 155, 0.42);
+      border: 1px solid rgba(75, 33, 72, 0.22);
       border-radius: 999px;
-      background: rgba(20, 8, 24, 0.88);
-      color: #ff8ccc;
+      background: rgba(255, 253, 251, 0.88);
+      color: #6f263f;
       font-size: 0.84rem;
       font-weight: 900;
       text-decoration: none;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28), 0 0 0 4px rgba(255, 45, 155, 0.1);
+      box-shadow: 0 12px 30px rgba(75, 33, 72, 0.1);
       backdrop-filter: blur(10px);
     }
 
     .wednesday-return:hover,
     .wednesday-return:focus-visible {
-      color: #fff8fc;
-      border-color: rgba(255, 45, 155, 0.72);
+      color: var(--plum);
+      border-color: rgba(111, 38, 63, 0.42);
       outline: none;
     }
 
@@ -134,11 +138,11 @@
       display: inline-flex;
       width: fit-content;
       margin-bottom: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.28);
+      border: 1px solid rgba(180, 151, 100, 0.28);
       border-radius: 999px;
       padding: 7px 12px;
-      background: rgba(255, 249, 236, 0.1);
-      color: var(--yellow);
+      background: rgba(255, 253, 251, 0.72);
+      color: #7b6040;
       font-family: var(--font-mono);
       font-size: 0.72rem;
       font-weight: 900;
@@ -149,7 +153,7 @@
     h1 {
       max-width: 760px;
       margin: 0;
-      color: var(--cream);
+      color: var(--plum);
       font-family: var(--font-heading);
       font-size: clamp(2.35rem, 6vw, 4.8rem);
       line-height: 0.95;
@@ -175,30 +179,30 @@
       min-height: 46px;
       align-items: center;
       justify-content: center;
-      border: 1px solid rgba(255, 45, 155, 0.34);
+      border: 1px solid rgba(155, 63, 95, 0.34);
       border-radius: 999px;
       padding: 12px 18px;
-      background: linear-gradient(135deg, #ff3fa4, #ff1492);
+      background: linear-gradient(135deg, #9b3f5f, #7a2742);
       color: white;
       font-weight: 900;
       text-decoration: none;
-      box-shadow: 0 14px 28px rgba(255, 20, 146, 0.2);
+      box-shadow: 0 14px 28px rgba(75, 33, 72, 0.18);
     }
 
     .button.secondary {
-      background: rgba(255, 249, 236, 0.1);
-      color: #fff8fc;
+      background: rgba(255, 253, 251, 0.72);
+      color: var(--plum);
       box-shadow: none;
     }
 
     .printable-shell {
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(75, 33, 72, 0.14);
       border-radius: 28px;
       padding: clamp(14px, 3vw, 24px);
       background:
-        linear-gradient(135deg, rgba(255, 249, 236, 0.12), rgba(255, 217, 233, 0.1)),
-        rgba(13, 6, 15, 0.54);
-      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+        linear-gradient(135deg, rgba(255, 253, 251, 0.78), rgba(247, 238, 238, 0.66)),
+        rgba(75, 33, 72, 0.2);
+      box-shadow: 0 28px 70px rgba(75, 33, 72, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.24);
     }
 
     .page-grid {
@@ -209,7 +213,7 @@
 
     .page-preview {
       overflow: hidden;
-      border: 1px solid rgba(255, 45, 155, 0.16);
+      border: 1px solid rgba(155, 63, 95, 0.16);
       border-radius: 18px;
       background: var(--paper);
       box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
@@ -222,7 +226,7 @@
     }
 
     .unavailable {
-      border: 1px dashed rgba(255, 45, 155, 0.34);
+      border: 1px dashed rgba(155, 63, 95, 0.34);
       border-radius: 22px;
       padding: 24px;
       background: rgba(255, 249, 236, 0.08);
@@ -231,13 +235,23 @@
 
     .site-footer {
       padding: 28px 20px 34px;
-      border-top: 1px solid rgba(255, 45, 155, 0.12);
+      border-top: 1px solid rgba(155, 63, 95, 0.12);
       text-align: center;
-      color: rgba(255, 248, 252, 0.54);
+      color: rgba(75, 33, 72, 0.64);
       font-size: 0.78rem;
     }
 
     @media (max-width: 760px) {
+      .site-header {
+        min-height: 70px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      .brand img {
+        width: clamp(132px, 42vw, 176px);
+        height: auto;
+        max-height: none;
+      }
       .hamburger-btn { display: block; }
       .nav {
         display: none;
@@ -249,8 +263,8 @@
         align-items: flex-start;
         gap: 12px;
         padding: 16px 24px;
-        border-bottom: 1px solid rgba(255, 45, 155, 0.16);
-        background: rgba(13, 10, 18, 0.98);
+        border-bottom: 1px solid rgba(155, 63, 95, 0.16);
+        background: rgba(255, 253, 251, 0.98);
       }
       .nav.is-open { display: flex; }
       .wednesday-return {
@@ -274,8 +288,8 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="lAIdies home">
-      <img src="assets/laidies-logo-wordmark.png" alt="">
+    <a class="brand" href="index.html" aria-label="LAiDIES home">
+      <img src="assets/brand/laidies-logo-header-approved-v6.png" alt="">
     </a>
     <button class="hamburger-btn" type="button" aria-label="Open menu" aria-expanded="false">&#9776;</button>
     <nav class="nav" aria-label="Primary navigation">
@@ -285,7 +299,7 @@
       <a href="learn.html">Learn</a>
       <a href="clubhouse.html">Clubhouse</a>
       <a href="community.html">Community</a>
-      <a href="clubhouse-pass.html" style="color:#ff2d9b;text-decoration:underline;">Sign In</a>
+      <a href="clubhouse-pass.html" style="color:#6f263f;text-decoration:underline;">Sign In</a>
     </nav>
   </header>
 
@@ -311,7 +325,7 @@
   </main>
 
   <footer class="site-footer">
-    <p><strong>lAIdies</strong> &copy; 2026 Ali Eakin. All rights reserved.</p>
+    <p><strong>LAiDIES</strong> &copy; 2026 Ali Eakin. All rights reserved.</p>
   </footer>
 
   <script>
@@ -389,7 +403,7 @@
       return;
     }
 
-    document.title = printable.title + " | LAIDIES Printable";
+    document.title = printable.title + " | LAiDIES Printable";
     if (title) title.textContent = printable.title;
     if (eyebrow) eyebrow.textContent = printable.eyebrow;
     if (description) description.textContent = printable.description;
@@ -420,5 +434,6 @@
     });
   })();
   </script>
+    <script src="content/site/brand-polish.js" defer></script>
 </body>
 </html>

@@ -1,3 +1,94 @@
+function applyLAiDIESInlineWordmark(root) {
+  const scope = root || document.body;
+  if (!scope) return;
+
+  const brandRegex = /\b(?:LAiDIES|LAIDIES|lAIdies|Laidies)\b/g;
+  const skipTags = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "INPUT", "CODE", "PRE", "SVG"]);
+
+  function makeWordmark() {
+    const outer = document.createElement("span");
+    outer.className = "laidies-inline-wordmark";
+    outer.setAttribute("aria-label", "LAiDIES");
+
+    const visual = document.createElement("span");
+    visual.setAttribute("aria-hidden", "true");
+
+    const plumStart = document.createElement("span");
+    plumStart.dataset.laidiesPart = "plum";
+    plumStart.textContent = "L";
+
+    const rose = document.createElement("span");
+    rose.dataset.laidiesPart = "rose";
+    rose.textContent = "Ai";
+
+    const plumEnd = document.createElement("span");
+    plumEnd.dataset.laidiesPart = "plum";
+    plumEnd.textContent = "DIES";
+
+    visual.append(plumStart, rose, plumEnd);
+    outer.append(visual);
+    return outer;
+  }
+
+  scope.querySelectorAll(".wordmark").forEach((element) => {
+    const normalized = element.textContent.replace(/\s+/g, "").toLowerCase();
+    if (normalized !== "laidies") return;
+    const wordmark = makeWordmark();
+    element.classList.add("laidies-inline-wordmark");
+    element.setAttribute("aria-label", "LAiDIES");
+    element.replaceChildren(...Array.from(wordmark.childNodes));
+  });
+
+  function replaceTextNode(node) {
+    const value = node.nodeValue;
+    if (!brandRegex.test(value)) return;
+    brandRegex.lastIndex = 0;
+
+    const fragment = document.createDocumentFragment();
+    let cursor = 0;
+    let match;
+    while ((match = brandRegex.exec(value)) !== null) {
+      if (match.index > cursor) {
+        fragment.append(document.createTextNode(value.slice(cursor, match.index)));
+      }
+      fragment.append(makeWordmark());
+      cursor = match.index + match[0].length;
+    }
+    if (cursor < value.length) {
+      fragment.append(document.createTextNode(value.slice(cursor)));
+    }
+    node.parentNode.replaceChild(fragment, node);
+  }
+
+  const walker = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      const parent = node.parentElement;
+      if (!parent || skipTags.has(parent.tagName)) return NodeFilter.FILTER_REJECT;
+      if (parent.closest(".laidies-inline-wordmark, .hero-masthead-layered")) return NodeFilter.FILTER_REJECT;
+      if (!brandRegex.test(node.nodeValue)) return NodeFilter.FILTER_REJECT;
+      brandRegex.lastIndex = 0;
+      return NodeFilter.FILTER_ACCEPT;
+    },
+  });
+
+  const textNodes = [];
+  while (walker.nextNode()) textNodes.push(walker.currentNode);
+  textNodes.forEach(replaceTextNode);
+
+  scope.querySelectorAll("[aria-label], [alt], [title]").forEach((element) => {
+    ["aria-label", "alt", "title"].forEach((attribute) => {
+      if (!element.hasAttribute(attribute)) return;
+      element.setAttribute(attribute, element.getAttribute(attribute).replace(brandRegex, "LAiDIES"));
+    });
+  });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => applyLAiDIESInlineWordmark());
+} else {
+  applyLAiDIESInlineWordmark();
+}
+
 const rememberQuotes = [
   "You'll need to pour yourself more than a cup of ambition to keep up in the male-dominated world of AI, but lucky for you, this series comes in small sips.",
   "The Spice Girls did not say \"tell me what you vaguely want, what you sort of generally want.\" And neither should you. Be specific. Be bold. Be David Rose about it.",
@@ -741,7 +832,7 @@ const cocktailMenus = {
       name: "Main Character Spritz",
       vibe: "For when the table needs tequila, bubbles, and a drink with its own entrance.",
       order: "Blanco tequila, Aperol, lemon, simple syrup, rocks, Prosecco, orange zest.",
-      note: "Developed exclusively for lAIdies by Ryan C at CHAR No.5. Ask for Ryan and tell him Ali sent you.",
+      note: "Developed exclusively for LAiDIES by Ryan C at CHAR No.5. Ask for Ryan and tell him Ali sent you.",
     },
     {
       name: "Maid in Cuba",
@@ -964,7 +1055,7 @@ const cocktailWheelLabels = {
 };
 
 const cocktailWheelPalette = [
-  "#ff2d9b",
+  "#b95d78",
   "#12b6c4",
   "#fff25c",
   "#b756d8",
@@ -2106,7 +2197,7 @@ function getMemberRedirectUrl() {
   return url.toString();
 }
 
-function getLaidiesAssetVersion() {
+function getLAiDIESAssetVersion() {
   const script = Array.from(document.scripts || []).find((item) => item.src?.includes("script.js"));
   if (!script?.src) return "";
   try {
@@ -2118,7 +2209,7 @@ function getLaidiesAssetVersion() {
 
 function getMemberCardBuilderUrl() {
   const url = new URL("community/laidy-spotlight.html", window.location.href);
-  const version = getLaidiesAssetVersion();
+  const version = getLAiDIESAssetVersion();
   if (version) url.searchParams.set("v", version);
   url.hash = "spotlight-form-title";
   return url.toString();
@@ -2291,7 +2382,7 @@ function renderMemberPass(statusOverride = "") {
   if (saveMemberPassButton) {
     saveMemberPassButton.disabled = isLoading || pendingStep === "email";
     saveMemberPassButton.textContent = isSignedIn
-      ? "Create your lAIdies Card"
+      ? "Create your LAiDIES Card"
       : isLoading
         ? "Sending..."
       : pendingStep === "email"
@@ -2701,7 +2792,7 @@ async function initMemberAuth() {
       removeStoredJson(memberAuthPendingStorageKey);
       await syncMemberRewards("Signed in. Your stickers, badges, cards, and quiz progress are connected to your Clubhouse Pass.");
       if (returningToMemberPass) {
-        renderMemberPass("Clubhouse Pass opened. Taking you to your lAIdies Card next.");
+        renderMemberPass("Clubhouse Pass opened. Taking you to your LAiDIES Card next.");
         openMemberCardBuilder(450);
         return;
       }
@@ -2745,7 +2836,7 @@ saveMemberPassButton?.addEventListener("click", async () => {
 
   if (memberAuthSession?.user) {
     try {
-      await syncMemberRewards("Clubhouse Pass opened. Taking you to your lAIdies Card next.");
+      await syncMemberRewards("Clubhouse Pass opened. Taking you to your LAiDIES Card next.");
       submitNewsletterOptIn(email);
       openMemberCardBuilder(150);
     } catch (error) {
@@ -3209,7 +3300,7 @@ quoteButton?.addEventListener("click", () => {
 });
 
 copyButton?.addEventListener("click", async () => {
-  const text = `Remember, lAIdies: ${quoteEl.textContent}`;
+  const text = `Remember, LAiDIES: ${quoteEl.textContent}`;
   try {
     await navigator.clipboard.writeText(text);
     copyStatus.textContent = "Copied. Send it, improve it, make Dolly proud.";
@@ -3687,7 +3778,7 @@ const communityChatRooms = {
   "send-it-energy": "Send It Energy",
   "try-on-debrief": "The Try-On Debrief",
   wins: "Wins of the Week",
-  "dear-laidies": "Dear lAIdies",
+  "dear-laidies": "Dear LAiDIES",
   "burn-book": "Put It in the Burn Book",
   "mix-cd-exchange": "Mix CD Exchange",
 };
@@ -3697,7 +3788,7 @@ const communityRoomAliases = {
   "Send It Energy": "send-it-energy",
   "The Try-On Debrief": "try-on-debrief",
   "Wins of the Week": "wins",
-  "Dear lAIdies": "dear-laidies",
+  "Dear LAiDIES": "dear-laidies",
   "Put It in the Burn Book": "burn-book",
   "Mix CD Exchange": "mix-cd-exchange",
 };
@@ -3918,7 +4009,7 @@ renderDreamPhoneSecretBadge();
 copyPlaylistButtons.forEach((button) => {
   button.addEventListener("click", async () => {
     const card = button.closest("[data-playlist-card]");
-    const title = card?.querySelector("h3")?.textContent?.trim() || "lAIdies playlist";
+    const title = card?.querySelector("h3")?.textContent?.trim() || "LAiDIES playlist";
     const tracks = Array.from(card?.querySelectorAll("ol li") || []).map((item, index) => `${index + 1}. ${item.textContent.trim()}`);
     const text = [title, "", ...tracks].join("\n");
 
@@ -3977,14 +4068,14 @@ function getQuizLengthLabel(quiz) {
 function createInlineWordmark(useBold = false) {
   const wordmark = document.createElement("span");
   wordmark.className = "wordmark";
-  wordmark.setAttribute("aria-label", "lAIdies");
+  wordmark.setAttribute("aria-label", "LAiDIES");
 
   const lead = document.createElement("span");
-  lead.textContent = "l";
+  lead.textContent = "L";
   const ai = document.createElement(useBold ? "b" : "strong");
-  ai.textContent = "AI";
+  ai.textContent = "Ai";
   const tail = document.createElement("span");
-  tail.textContent = "dies";
+  tail.textContent = "DIES";
 
   wordmark.append(lead, ai, tail);
   return wordmark;
@@ -3993,11 +4084,11 @@ function createInlineWordmark(useBold = false) {
 function setBrandText(element, text) {
   if (!element) return;
   const useBold = element.tagName === "STRONG";
-  const parts = String(text || "").split(/(\b(?:Laidies|lAIdies|LAIDIES)\b)/g);
+  const parts = String(text || "").split(/(\b(?:LAiDIES|LAIDIES|lAIdies|Laidies)\b)/g);
   element.replaceChildren();
   parts.forEach((part) => {
     if (!part) return;
-    if (/^(?:Laidies|lAIdies|LAIDIES)$/.test(part)) {
+    if (/^(?:LAiDIES|LAIDIES|lAIdies|Laidies)$/.test(part)) {
       element.append(createInlineWordmark(useBold));
     } else {
       element.append(document.createTextNode(part));
@@ -4445,7 +4536,7 @@ function renderStickerDrop(reward, options = {}) {
     const sheet = document.createElement("img");
     sheet.className = "quiz-sticker-sheet";
     sheet.src = resolveSiteUrl("assets/quiz-sticker-sheet.png");
-    sheet.alt = "LAIDIES glossy sticker sheet reward preview";
+    sheet.alt = "LAiDIES glossy sticker sheet reward preview";
     sheet.loading = "lazy";
     sheet.decoding = "async";
     const badge = document.createElement("span");
@@ -5429,7 +5520,7 @@ feedbackForm?.addEventListener("submit", (event) => {
   const contact = String(formData.get("contact") || "No reply requested").trim();
 
   const body = [
-    "lAIdies comment card",
+    "LAiDIES comment card",
     "",
     `Episode/page: ${episode}`,
     `Quick read: ${landing}`,
@@ -5438,10 +5529,10 @@ feedbackForm?.addEventListener("submit", (event) => {
     `Notes: ${notes || "No extra notes"}`,
     `Contact: ${contact || "No reply requested"}`,
     "",
-    "Sent from the lAIdies Comment Card.",
+    "Sent from the LAiDIES Comment Card.",
   ].join("\n");
 
-  const mailto = `mailto:wednesday.laidies@gmail.com?subject=${encodeURIComponent(`lAIdies feedback: ${episode}`)}&body=${encodeURIComponent(body)}`;
+  const mailto = `mailto:wednesday.laidies@gmail.com?subject=${encodeURIComponent(`LAiDIES feedback: ${episode}`)}&body=${encodeURIComponent(body)}`;
   window.location.href = mailto;
   if (feedbackStatus) {
     feedbackStatus.textContent = "Email draft opened. Hit send there so the comment card actually leaves the building.";
@@ -5655,7 +5746,7 @@ function buildSpotlightDraft(formData) {
     ? `\n\nFeature opt-in: yes\nWhat to celebrate: ${proud}\nWhat she is excited about: ${excited}\nFeature angle: ${featureAngle}\n\nDraft feature caption:\nMeet ${name}. She is ${role}, currently ${journey.toLowerCase()}, and she is building AI confidence without pretending the learning curve is glamorous. She is working through ${struggles}, learning ${learn}, and bringing ${energy} to the room. Small sips, big moves.`
     : "\n\nFeature opt-in: no for now. Keep this as a card draft unless she opts in later.";
 
-  return `Member trading card\n${name} is ${role}.${locationLine}\nAI journey: ${journey}\nTools in the rotation: ${tools}\nWorking through: ${struggles}\nHoping to learn: ${learn}\nCan offer help with: ${help}${helpOtherLine}\nWould love support with: ${support}${supportOtherLine}\nCurrent lAIdies energy: ${energy}\nVisibility: ${visibility}${connectionLine}${photoLine}${cardStyleLine}${approvalLine}${linkLine}${featureBlock}`;
+  return `Member trading card\n${name} is ${role}.${locationLine}\nAI journey: ${journey}\nTools in the rotation: ${tools}\nWorking through: ${struggles}\nHoping to learn: ${learn}\nCan offer help with: ${help}${helpOtherLine}\nWould love support with: ${support}${supportOtherLine}\nCurrent LAiDIES energy: ${energy}\nVisibility: ${visibility}${connectionLine}${photoLine}${cardStyleLine}${approvalLine}${linkLine}${featureBlock}`;
 }
 
 function updateFeatureFields() {
@@ -5674,7 +5765,7 @@ function setCardApprovalStep(activeIndex, doneIndexes = []) {
   });
 }
 
-function filterLaidiesCards(filter = "all") {
+function filterLAiDIESCards(filter = "all") {
   const cards = laidiesCardGrid ? Array.from(laidiesCardGrid.querySelectorAll("[data-card-tags]")) : [];
   let visibleCount = 0;
   cards.forEach((card) => {
@@ -5704,11 +5795,11 @@ function filterLaidiesCards(filter = "all") {
 featureOptIn?.addEventListener("change", updateFeatureFields);
 updateFeatureFields();
 setCardApprovalStep(0);
-filterLaidiesCards("all");
+filterLAiDIESCards("all");
 
 directoryFilterButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    filterLaidiesCards(button.dataset.cardFilter || "all");
+    filterLAiDIESCards(button.dataset.cardFilter || "all");
   });
 });
 

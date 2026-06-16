@@ -3,25 +3,25 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Clubhouse | LAIDIES</title>
-    <meta name="description" content="LAIDIES is a Wednesday newsletter and community for women building practical AI fluency without pretending they have spare time." />
-    <meta property="og:title" content="LAIDIES | Girl power meets machine power" />
+    <title>Clubhouse | LAiDIES</title>
+    <meta name="description" content="LAiDIES is a Wednesday newsletter and community for women building practical AI fluency without pretending they have spare time." />
+    <meta property="og:title" content="LAiDIES | Girl power meets machine power" />
     <meta property="og:description" content="AI fluency for women with full calendars, high standards, and no patience for beige tech explanations." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://wearelaidies.com/" />
-    <meta property="og:image" content="https://wearelaidies.com/assets/laidies-logo.png" />
+    <meta property="og:image" content="https://wearelaidies.com/assets/brand/laidies-masthead-object-world-v4.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#ff2d9b" />
-    <link rel="icon" type="image/png" href="assets/laidies-logo-square.png" />
+    <meta name="theme-color" content="#b95d78" />
+    <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
     <link rel="manifest" href="manifest.webmanifest" />
-    <link rel="apple-touch-icon" href="assets/laidies-logo-square.png" />
+    <link rel="apple-touch-icon" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
     <link rel="stylesheet" href="styles.css?v=issue-02-live-1" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Dancing+Script:wght@400;700&family=JetBrains+Mono:wght@400&family=Inter:wght@400;600;700&display=swap">
     <style>
       /* === Clamshell spacing === */
-      .clubhouse-compact-live { margin: 0 clamp(18px, 5vw, 64px); }
+      .clubhouse-compact-live { margin: clamp(18px, 3.5vw, 34px) clamp(18px, 5vw, 64px) 0; }
 
       /* === Hub intro === */
       .hub-intro {
@@ -51,21 +51,23 @@
         margin: 0 auto;
       }
 
-      /* === Dark Premium Nav Cards === */
+      /* === Pearl Editorial Nav Cards === */
       .nav-card {
         display: flex;
         flex-direction: column;
-        background: linear-gradient(160deg, #1a0a12 0%, #2d0f1f 100%);
-        border: 2.5px solid rgba(255, 45, 155, 0.4);
+        background: linear-gradient(180deg, rgba(255, 253, 251, 0.98) 0%, rgba(247, 238, 238, 0.9) 100%);
+        border: 1.5px solid rgba(75, 33, 72, 0.18);
         border-radius: 16px;
         overflow: hidden;
         text-decoration: none;
-        color: #fff;
-        transition: transform 200ms ease, box-shadow 200ms ease;
+        color: var(--plum);
+        box-shadow: 0 18px 38px rgba(75, 33, 72, 0.1);
+        transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
       }
       .nav-card:hover {
         transform: translateY(-4px);
-        box-shadow: 0 8px 32px rgba(255, 45, 155, 0.25);
+        border-color: rgba(111, 38, 63, 0.34);
+        box-shadow: 0 22px 44px rgba(75, 33, 72, 0.14);
       }
       .nav-card img {
         width: 100%;
@@ -81,10 +83,11 @@
         display: block;
         font-size: 1.05rem;
         margin-bottom: 4px;
+        color: var(--plum);
       }
       .nav-card-body span {
         font-size: 0.82rem;
-        color: rgba(255, 248, 252, 0.7);
+        color: rgba(75, 33, 72, 0.68);
         line-height: 1.4;
       }
 
@@ -140,8 +143,8 @@
   <body>
     <header class="site-header">
       <button onclick="history.back()" style="background: none; border: none; color: var(--hot-pink); font-size: 0.85rem; cursor: pointer; padding: 4px 8px; text-decoration: underline;" aria-label="Go back">← Back</button>
-      <a class="brand" href="index.html" aria-label="lAIdies home">
-        <img src="assets/laidies-logo-wordmark.png" alt="LAIDIES" />
+      <a class="brand" href="index.html" aria-label="LAiDIES home">
+        <img src="assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
       </a>
       <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false">☰</button>
       <nav class="nav" aria-label="Primary navigation">
@@ -151,7 +154,7 @@
           <a href="learn.html">Learn</a>
           <a href="clubhouse.html" aria-current="page">Clubhouse</a>
           <a href="community.html">Community</a>
-          <a href="clubhouse-pass.html" style="color: #ff2d9b; text-decoration: underline; margin-left: 8px;">Sign In</a>
+          <a href="clubhouse-pass.html" style="color: #b95d78; text-decoration: underline; margin-left: 8px;">Sign In</a>
         </nav>
     </header>
 
@@ -160,7 +163,7 @@
       <article class="clubhouse-compact-live" aria-labelledby="clubhouse-compact-title" data-clubhouse-compact data-state="closed">
         <div class="clubhouse-compact-copy">
           <p class="eyebrow">Games and practice</p>
-          <h3 id="clubhouse-compact-title">LAIDIES Clubhouse</h3>
+          <h3 id="clubhouse-compact-title">LAiDIES Clubhouse</h3>
           <p>Click open, then use the compact like a map for practice tools, learning games, music, and weekly extras.</p>
           <div class="clubhouse-compact-actions" aria-label="Clubhouse compact controls">
             <button class="button secondary is-active" type="button" data-clubhouse-state-button="closed" aria-pressed="true">Close Clubhouse</button>
@@ -172,8 +175,8 @@
         </div>
         <div class="clubhouse-compact-stage">
           <div class="clubhouse-compact-image-wrap">
-            <img data-clubhouse-image="closed" src="assets/clubhouse-compact-closed-v1.png" style="cursor: pointer;" onclick="document.querySelector('[data-clubhouse-state-button=open]').click();" alt="Closed pink LAIDIES Clubhouse compact with molded shell ridges, latch, and plaque" />
-            <img data-clubhouse-image="open" src="assets/clubhouse-compact-open-v4.png" alt="Open pink LAIDIES Clubhouse compact with rooms and fixtures" hidden />
+            <img data-clubhouse-image="closed" src="assets/clubhouse-compact-closed-v1.png" style="cursor: pointer;" onclick="document.querySelector('[data-clubhouse-state-button=open]').click();" alt="Closed pink LAiDIES Clubhouse compact with molded shell ridges, latch, and plaque" />
+            <img data-clubhouse-image="open" src="assets/clubhouse-compact-open-v4.png" alt="Open pink LAiDIES Clubhouse compact with rooms and fixtures" hidden />
             <div class="clubhouse-hotspot-layer" aria-label="Clubhouse compact clickable areas">
               <a class="clubhouse-hotspot" href="games/fun-pack.html" data-clubhouse-zone="weekly-fun-pack" aria-label="Open Weekly Fun Pack"></a>
               <a class="clubhouse-hotspot" href="games/dj-booth.html" data-clubhouse-zone="weekly-jams" aria-label="Weekly Jams"></a>
@@ -253,7 +256,7 @@
             <img src="assets/house-dj-mixdesk.png" alt="DJ Booth" loading="lazy" />
             <div class="nav-card-body">
               <strong>DJ Booth</strong>
-              <span>LAIDIES jams</span>
+              <span>LAiDIES jams</span>
             </div>
           </a>
         </div>
@@ -266,8 +269,8 @@
           display: flex;
           align-items: center;
           gap: 12px;
-          background: linear-gradient(160deg, #1a0a12 0%, #2d0f1f 100%);
-          border: 1.5px solid rgba(255, 45, 155, 0.3);
+          background: linear-gradient(180deg, rgba(255, 253, 251, 0.96), rgba(247, 238, 238, 0.9));
+          border: 1.5px solid rgba(75, 33, 72, 0.18);
           border-radius: 40px;
           padding: 10px 20px 10px 14px;
           max-width: 360px;
@@ -283,14 +286,14 @@
             width: 32px;
             height: 32px;
             border-radius: 50%;
-            background: rgba(255, 45, 155, 0.15);
-            color: #ff2d9b;
+            background: rgba(185, 93, 120, 0.15);
+            color: #b95d78;
             font-size: 0.9rem;
             flex-shrink: 0;
           ">▶</span>
           <div style="flex: 1; min-width: 0;">
-            <div style="font-size: 0.82rem; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">On Wednesdays We Do AI</div>
-            <div style="font-size: 0.68rem; color: rgba(255, 248, 252, 0.55); margin-top: 1px;">LAIDIES Theme · <a href="games/dj-booth.html" style="color: #ff2d9b; text-decoration: none;">Full playlist →</a></div>
+            <div style="font-size: 0.82rem; font-weight: 700; color: #4b2148; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">On Wednesdays We Do AI</div>
+            <div style="font-size: 0.68rem; color: rgba(75, 33, 72, 0.62); margin-top: 1px;">LAiDIES Theme · <a href="games/dj-booth.html" style="color: #6f263f; text-decoration: none;">Full playlist →</a></div>
           </div>
         </div>
       </div>
@@ -414,7 +417,7 @@
 
       // Hover effect
       teaser.addEventListener('mouseenter', function() {
-        teaser.style.boxShadow = '0 4px 20px rgba(255, 45, 155, 0.2)';
+        teaser.style.boxShadow = '0 4px 20px rgba(185, 93, 120, 0.2)';
         teaser.style.transform = 'translateY(-1px)';
       });
       teaser.addEventListener('mouseleave', function() {

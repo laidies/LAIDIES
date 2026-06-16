@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LAIDIES Card Preview | LAIDIES</title>
+  <title>LAiDIES Card Preview | LAiDIES</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -18,12 +18,12 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --pink: #ff2d9b;
-      --pink-glow: rgba(255, 45, 155, 0.4);
-      --pink-soft: rgba(255, 45, 155, 0.12);
+      --pink: #b95d78;
+      --pink-glow: rgba(185, 93, 120, 0.4);
+      --pink-soft: rgba(185, 93, 120, 0.12);
       --bg-deep: #0d0611;
       --bg-card: rgba(30, 15, 35, 0.8);
-      --bg-card-border: rgba(255, 45, 155, 0.15);
+      --bg-card-border: rgba(185, 93, 120, 0.15);
       --text-primary: #f5eef8;
       --text-secondary: #b8a0c4;
       --text-muted: #7a6088;
@@ -52,7 +52,7 @@
       justify-content: space-between;
       background: rgba(13, 6, 17, 0.9);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255, 45, 155, 0.08);
+      border-bottom: 1px solid rgba(185, 93, 120, 0.08);
     }
     .sticky-nav a {
       color: var(--pink);
@@ -234,7 +234,7 @@
       transition: border-color 0.3s;
     }
     .form-card:hover {
-      border-color: rgba(255, 45, 155, 0.25);
+      border-color: rgba(185, 93, 120, 0.25);
     }
     .form-card-title {
       font-family: 'JetBrains Mono', monospace;
@@ -248,7 +248,7 @@
 
     /* === PHOTO UPLOAD === */
     .photo-drop-zone {
-      border: 2px dashed rgba(255, 45, 155, 0.3);
+      border: 2px dashed rgba(185, 93, 120, 0.3);
       border-radius: var(--radius-lg);
       padding: 40px 20px;
       text-align: center;
@@ -265,8 +265,8 @@
     .photo-drop-zone:hover,
     .photo-drop-zone.drag-over {
       border-color: var(--pink);
-      background: rgba(255, 45, 155, 0.04);
-      box-shadow: 0 0 30px rgba(255, 45, 155, 0.1);
+      background: rgba(185, 93, 120, 0.04);
+      box-shadow: 0 0 30px rgba(185, 93, 120, 0.1);
     }
     .photo-drop-zone.has-photo {
       border-style: solid;
@@ -319,7 +319,7 @@
     .remove-bg-actions.visible { display: block; }
     .remove-bg-btn {
       background: rgba(30, 15, 35, 0.9);
-      border: 1.5px solid rgba(255, 45, 155, 0.3);
+      border: 1.5px solid rgba(185, 93, 120, 0.3);
       border-radius: 24px;
       padding: 8px 18px;
       font-size: 0.8rem;
@@ -331,8 +331,8 @@
     }
     .remove-bg-btn:hover:not(:disabled) {
       border-color: var(--pink);
-      background: rgba(255, 45, 155, 0.08);
-      box-shadow: 0 0 14px rgba(255, 45, 155, 0.15);
+      background: rgba(185, 93, 120, 0.08);
+      box-shadow: 0 0 14px rgba(185, 93, 120, 0.15);
     }
     .remove-bg-btn:disabled {
       opacity: 0.7;
@@ -390,7 +390,7 @@
       white-space: nowrap;
     }
     .photo-tab-btn:hover {
-      border-color: rgba(255, 45, 155, 0.4);
+      border-color: rgba(185, 93, 120, 0.4);
       color: var(--text-primary);
     }
     .photo-tab-btn.active {
@@ -435,7 +435,7 @@
     .avatar-option:hover {
       transform: scale(1.05);
       box-shadow: 0 0 15px var(--pink-glow);
-      border-color: rgba(255, 45, 155, 0.4);
+      border-color: rgba(185, 93, 120, 0.4);
     }
     .avatar-option.selected {
       border: 3px solid var(--pink);
@@ -477,7 +477,7 @@
     }
     .builder-color-circle:hover {
       transform: scale(1.1);
-      border-color: rgba(255, 45, 155, 0.4);
+      border-color: rgba(185, 93, 120, 0.4);
     }
     .builder-color-circle.selected {
       border: 3px solid var(--pink);
@@ -494,7 +494,7 @@
       transition: all 0.2s;
     }
     .builder-style-btn:hover {
-      border-color: rgba(255, 45, 155, 0.4);
+      border-color: rgba(185, 93, 120, 0.4);
       color: var(--text-primary);
     }
     .builder-style-btn.selected {
@@ -534,7 +534,7 @@
       -webkit-overflow-scrolling: touch;
     }
     .bg-strip::-webkit-scrollbar { height: 4px; }
-    .bg-strip::-webkit-scrollbar-thumb { background: rgba(255, 45, 155, 0.3); border-radius: 4px; }
+    .bg-strip::-webkit-scrollbar-thumb { background: rgba(185, 93, 120, 0.3); border-radius: 4px; }
     .bg-swatch {
       flex-shrink: 0;
       width: 60px;
@@ -580,7 +580,7 @@
     .field-input:focus {
       outline: none;
       border-color: var(--pink);
-      box-shadow: 0 0 12px rgba(255, 45, 155, 0.15);
+      box-shadow: 0 0 12px rgba(185, 93, 120, 0.15);
       background: rgba(255, 255, 255, 0.06);
     }
 
@@ -602,15 +602,15 @@
       user-select: none;
     }
     .vibe-pill:hover {
-      border-color: rgba(255, 45, 155, 0.4);
-      background: rgba(255, 45, 155, 0.06);
+      border-color: rgba(185, 93, 120, 0.4);
+      background: rgba(185, 93, 120, 0.06);
     }
     .vibe-pill.selected {
       border-color: var(--pink);
-      background: rgba(255, 45, 155, 0.15);
+      background: rgba(185, 93, 120, 0.15);
       color: var(--pink);
       font-weight: 600;
-      box-shadow: 0 0 12px rgba(255, 45, 155, 0.2);
+      box-shadow: 0 0 12px rgba(185, 93, 120, 0.2);
     }
 
     /* === OPTIONAL TOGGLE === */
@@ -778,7 +778,7 @@
       margin: 0 auto;
       border-radius: var(--radius-lg);
       overflow: hidden;
-      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 45, 155, 0.1);
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5), 0 0 20px rgba(185, 93, 120, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.06);
       transition: box-shadow 0.3s;
     }
@@ -895,7 +895,7 @@
     /* === CARD BACKGROUNDS (CSS PATTERNS) === */
     .card-bg-laser {
       background:
-        repeating-linear-gradient(135deg, transparent, transparent 8px, rgba(255,45,155,0.3) 8px, rgba(255,45,155,0.3) 9px),
+        repeating-linear-gradient(135deg, transparent, transparent 8px, rgba(185,93,120,0.3) 8px, rgba(185,93,120,0.3) 9px),
         repeating-linear-gradient(45deg, transparent, transparent 12px, rgba(0,200,255,0.25) 12px, rgba(0,200,255,0.25) 13px),
         linear-gradient(160deg, #2d0a3e 0%, #1a0028 40%, #0d001a 100%);
     }
@@ -909,7 +909,7 @@
     .card-bg-lightning {
       background:
         conic-gradient(from 0deg at 20% 80%, transparent 0deg, rgba(255,255,0,0.15) 10deg, transparent 20deg),
-        conic-gradient(from 120deg at 80% 20%, transparent 0deg, rgba(255,45,155,0.2) 15deg, transparent 30deg),
+        conic-gradient(from 120deg at 80% 20%, transparent 0deg, rgba(185,93,120,0.2) 15deg, transparent 30deg),
         radial-gradient(circle at 15% 25%, rgba(255,255,0,0.2) 0%, transparent 30%),
         radial-gradient(circle at 85% 75%, rgba(255,0,200,0.2) 0%, transparent 30%),
         linear-gradient(180deg, #1a0033 0%, #0a001a 100%);
@@ -917,7 +917,7 @@
     .card-bg-doodle {
       background:
         radial-gradient(circle at 20% 30%, rgba(0,255,200,0.25) 0%, rgba(0,255,200,0.25) 4px, transparent 4px),
-        radial-gradient(circle at 70% 20%, rgba(255,45,155,0.3) 0%, rgba(255,45,155,0.3) 3px, transparent 3px),
+        radial-gradient(circle at 70% 20%, rgba(185,93,120,0.3) 0%, rgba(185,93,120,0.3) 3px, transparent 3px),
         radial-gradient(circle at 50% 70%, rgba(255,200,0,0.25) 0%, rgba(255,200,0,0.25) 5px, transparent 5px),
         radial-gradient(circle at 85% 60%, rgba(0,200,255,0.3) 0%, rgba(0,200,255,0.3) 3px, transparent 3px),
         radial-gradient(circle at 30% 80%, rgba(180,0,255,0.25) 0%, rgba(180,0,255,0.25) 4px, transparent 4px),
@@ -926,7 +926,7 @@
     .card-bg-sunset {
       background:
         radial-gradient(ellipse at 50% 120%, rgba(255,100,0,0.3) 0%, transparent 60%),
-        linear-gradient(180deg, #ff6b35 0%, #ff2d9b 35%, #9b30ff 65%, #2d0066 100%);
+        linear-gradient(180deg, #ff6b35 0%, #b95d78 35%, #9b30ff 65%, #2d0066 100%);
     }
     .card-bg-arcade {
       background:
@@ -937,12 +937,12 @@
     }
     .card-bg-confetti {
       background:
-        radial-gradient(circle at 10% 20%, #ff2d9b 0%, #ff2d9b 3px, transparent 3px),
+        radial-gradient(circle at 10% 20%, #b95d78 0%, #b95d78 3px, transparent 3px),
         radial-gradient(circle at 30% 50%, #00e5ff 0%, #00e5ff 2px, transparent 2px),
         radial-gradient(circle at 55% 15%, #ffdd00 0%, #ffdd00 3px, transparent 3px),
         radial-gradient(circle at 75% 45%, #7b2dff 0%, #7b2dff 2px, transparent 2px),
         radial-gradient(circle at 90% 25%, #00ff88 0%, #00ff88 3px, transparent 3px),
-        linear-gradient(160deg, #ff69b4 0%, #ff2d9b 100%);
+        linear-gradient(160deg, #ff69b4 0%, #b95d78 100%);
     }
     .card-bg-chrome {
       background:
@@ -976,8 +976,8 @@
     /* === EXISTING CARD BANNER === */
     .existing-card-banner {
       display: none;
-      background: rgba(255, 45, 155, 0.08);
-      border: 1px solid rgba(255, 45, 155, 0.2);
+      background: rgba(185, 93, 120, 0.08);
+      border: 1px solid rgba(185, 93, 120, 0.2);
       border-radius: var(--radius-sm);
       padding: 12px 16px;
       margin-bottom: 20px;
@@ -1007,7 +1007,7 @@
       color: rgba(255,255,255,0.8);
     }
     .publish-btn {
-      background: #ff2d9b;
+      background: #b95d78;
       color: #fff;
       border: none;
       padding: 16px 28px;
@@ -1019,7 +1019,7 @@
       width: 100%;
       max-width: 420px;
     }
-    .publish-btn:hover { transform: scale(1.02); box-shadow: 0 6px 24px rgba(255,45,155,0.4); }
+    .publish-btn:hover { transform: scale(1.02); box-shadow: 0 6px 24px rgba(185,93,120,0.4); }
     .edit-back-btn {
       background: none;
       border: none;
@@ -1050,9 +1050,9 @@
     }
     .glowup-card {
       background:
-        linear-gradient(145deg, rgba(255, 45, 155, 0.12), rgba(36, 123, 131, 0.08)),
+        linear-gradient(145deg, rgba(185, 93, 120, 0.12), rgba(36, 123, 131, 0.08)),
         rgba(30, 15, 35, 0.82);
-      border: 1.5px solid rgba(255, 45, 155, 0.35);
+      border: 1.5px solid rgba(185, 93, 120, 0.35);
       border-radius: 18px;
       padding: clamp(24px, 5vw, 42px);
       box-shadow: 0 20px 70px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.06);
@@ -1103,10 +1103,10 @@
     .glowup-actions .primary-action {
       background: var(--pink);
       color: #fff;
-      box-shadow: 0 10px 28px rgba(255, 45, 155, 0.28);
+      box-shadow: 0 10px 28px rgba(185, 93, 120, 0.28);
     }
     .glowup-actions .secondary-action {
-      border: 1.5px solid rgba(255, 45, 155, 0.42);
+      border: 1.5px solid rgba(185, 93, 120, 0.42);
       color: var(--pink);
     }
 
@@ -1117,15 +1117,15 @@
 <!-- STICKY NAV -->
 <nav class="sticky-nav">
   <a href="javascript:history.back()">← Back</a>
-  <a href="index.html" class="nav-brand"><img src="assets/laidies-logo-wordmark.png" alt="LAIDIES" /></a>
+  <a href="index.html" class="nav-brand"><img src="assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" /></a>
   <a href="clubhouse-pass.html" class="nav-signin">Sign In</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <p class="hero-eyebrow">Your LAIDIES Card</p>
+  <p class="hero-eyebrow">Your LAiDIES Card</p>
   <h1>The card is getting a premium glow-up.</h1>
-  <p>The LAIDIES Card is still the future home for progress, stickers, and member identity. The old avatar builder is paused while it becomes something more polished, more useful, and much more LAIDIES.</p>
+  <p>The LAiDIES Card is still the future home for progress, stickers, and member identity. The old avatar builder is paused while it becomes something more polished, more useful, and much more LAiDIES.</p>
 </section>
 
 <section class="glowup-panel" aria-labelledby="glowup-title">
@@ -1651,7 +1651,7 @@
       <path d="M155 85 Q155 130 145 160" fill="#F5D76E"/>
       <ellipse cx="82" cy="105" rx="4" ry="5" fill="#2c3e50"/>
       <ellipse cx="118" cy="105" rx="4" ry="5" fill="#2c3e50"/>
-      <path d="M88 128 Q100 136 112 128" stroke="#ff2d9b" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M88 128 Q100 136 112 128" stroke="#b95d78" stroke-width="4" fill="none" stroke-linecap="round"/>
       <path d="M65 160 Q100 175 135 160 L140 200 H60 Z" fill="#DAA520"/>
     </svg>`,
     // 3. Boss - sleek bob, glasses, purple
@@ -1690,7 +1690,7 @@
       <ellipse cx="118" cy="108" rx="5" ry="6" fill="#2c3e50"/>
       <circle cx="82" cy="106" r="2" fill="#fff"/>
       <circle cx="118" cy="106" r="2" fill="#fff"/>
-      <path d="M88 132 Q100 140 112 132" stroke="#ff2d9b" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M88 132 Q100 140 112 132" stroke="#b95d78" stroke-width="3" fill="none" stroke-linecap="round"/>
       <circle cx="70" cy="95" r="3" fill="#FFD700" opacity="0.7"/>
       <circle cx="135" cy="90" r="2" fill="#FFD700" opacity="0.7"/>
       <circle cx="105" cy="70" r="2.5" fill="#FFD700" opacity="0.6"/>
@@ -1836,7 +1836,7 @@
         accPath = `<rect x="68" y="102" width="26" height="18" rx="9" fill="none" stroke="#333" stroke-width="2.5"/><rect x="106" y="102" width="26" height="18" rx="9" fill="none" stroke="#333" stroke-width="2.5"/><line x1="94" y1="111" x2="106" y2="111" stroke="#333" stroke-width="2"/><line x1="68" y1="109" x2="58" y2="105" stroke="#333" stroke-width="2"/><line x1="132" y1="109" x2="142" y2="105" stroke="#333" stroke-width="2"/>`;
         break;
       case 'headband':
-        accPath = `<path d="M48 82 Q100 68 152 82" stroke="#ff2d9b" stroke-width="6" fill="none" stroke-linecap="round"/><circle cx="130" cy="72" r="8" fill="#ff2d9b"/><circle cx="122" cy="68" r="6" fill="#ff69b4"/>`;
+        accPath = `<path d="M48 82 Q100 68 152 82" stroke="#b95d78" stroke-width="6" fill="none" stroke-linecap="round"/><circle cx="130" cy="72" r="8" fill="#b95d78"/><circle cx="122" cy="68" r="6" fill="#ff69b4"/>`;
         break;
     }
 
@@ -2028,7 +2028,7 @@
   });
 
   function launchConfetti() {
-    const colors = ['#ff2d9b', '#7b2dff', '#00e5ff', '#ffdd00', '#00ff88', '#ff6b35'];
+    const colors = ['#b95d78', '#7b2dff', '#00e5ff', '#ffdd00', '#00ff88', '#ff6b35'];
     for (let i = 0; i < 50; i++) {
       const piece = document.createElement('div');
       piece.classList.add('confetti-piece');

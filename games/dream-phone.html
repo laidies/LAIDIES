@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Dream Phone | LAIDIES Clubhouse</title>
-    <meta name="description" content="Dial a number, pick a caller card, and get career, confidence, AI, or work advice from the lAIdies Dream Phone deck." />
-    <meta name="theme-color" content="#ff2d9b" />
-    <link rel="icon" type="image/png" href="../assets/laidies-logo-square.png" />
+    <title>Dream Phone | LAiDIES Clubhouse</title>
+    <meta name="description" content="Dial a number, pick a caller card, and get career, confidence, AI, or work advice from the LAiDIES Dream Phone deck." />
+    <meta name="theme-color" content="#b95d78" />
+    <link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&family=JetBrains+Mono:wght@400&family=Inter:wght@400;600;700&display=swap">
@@ -17,17 +17,19 @@
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
       :root {
-        --bg-start: #1a0a12;
-        --bg-end: #2d0f1f;
-        --hot-pink: #ff2d9b;
-        --pink-glow: rgba(255, 45, 155, 0.4);
-        --pink-glow-soft: rgba(255, 45, 155, 0.15);
-        --card-bg: rgba(255, 255, 255, 0.04);
-        --card-border: rgba(255, 255, 255, 0.08);
-        --text-primary: #f8f0f4;
-        --text-muted: rgba(248, 240, 244, 0.55);
-        --text-secondary: rgba(248, 240, 244, 0.75);
-        --surface-elevated: rgba(255, 255, 255, 0.06);
+        --bg-start: #fffdfb;
+        --bg-end: #fbf6f5;
+        --hot-pink: #b95d78;
+        --wine: #6f263f;
+        --plum: #4b2148;
+        --pink-glow: rgba(185, 93, 120, 0.28);
+        --pink-glow-soft: rgba(185, 93, 120, 0.15);
+        --card-bg: rgba(255, 253, 251, 0.88);
+        --card-border: rgba(75, 33, 72, 0.16);
+        --text-primary: #4b2148;
+        --text-muted: rgba(75, 33, 72, 0.58);
+        --text-secondary: rgba(75, 33, 72, 0.74);
+        --surface-elevated: rgba(255, 253, 251, 0.92);
       }
 
       html {
@@ -37,7 +39,9 @@
 
       body {
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        background: linear-gradient(165deg, var(--bg-start) 0%, var(--bg-end) 100%);
+        background:
+          radial-gradient(circle at 88% 4%, rgba(200, 220, 224, 0.28), transparent 22rem),
+          linear-gradient(165deg, var(--bg-start) 0%, var(--bg-end) 100%);
         color: var(--text-primary);
         min-height: 100vh;
         line-height: 1.6;
@@ -45,24 +49,47 @@
         overflow-x: hidden;
       }
 
-      /* ── Sticky Back Nav ── */
+      /* ── Sticky LAiDIES shell nav ── */
       .back-nav {
-        position: fixed;
+        position: sticky;
         top: 0;
         left: 0;
         right: 0;
         z-index: 1000;
-        padding: 14px 24px;
-        background: rgba(26, 10, 18, 0.85);
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        min-height: 82px;
+        padding: 12px clamp(16px, 4vw, 32px);
+        background: rgba(255, 253, 251, 0.96);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border-bottom: 1px solid var(--card-border);
+        box-shadow: 0 12px 28px rgba(75, 33, 72, 0.08);
       }
-      .back-nav a {
-        color: var(--hot-pink);
+      .back-nav .brand {
+        display: inline-flex;
+        line-height: 0;
+        overflow: visible;
+      }
+      .back-nav .brand img {
+        display: block;
+        width: clamp(120px, 11.5vw, 164px);
+        height: auto;
+        filter: drop-shadow(0 10px 20px rgba(75, 33, 72, 0.1));
+      }
+      .back-nav .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 14px;
+        margin-left: auto;
+      }
+      .back-nav a:not(.brand) {
+        color: var(--plum);
         text-decoration: none;
         font-size: 0.85rem;
-        font-weight: 600;
+        font-weight: 800;
         letter-spacing: 0.01em;
         transition: opacity 0.2s;
       }
@@ -73,7 +100,7 @@
         max-width: 900px;
         width: 100%;
         margin: 0 auto;
-        padding: 80px 24px 80px;
+        padding: clamp(32px, 5vw, 56px) 24px 80px;
       }
 
       /* ── Hero Section ── */
@@ -106,7 +133,7 @@
         object-fit: cover;
         border-radius: 50%;
         border: 3px solid var(--hot-pink);
-        box-shadow: 0 0 40px var(--pink-glow), 0 0 80px rgba(255, 45, 155, 0.15);
+        box-shadow: 0 0 40px var(--pink-glow), 0 0 80px rgba(185, 93, 120, 0.15);
         transform: rotate(-5deg);
         transition: transform 0.4s ease;
       }
@@ -123,7 +150,7 @@
         font-family: 'Playfair Display', serif;
         font-size: clamp(2.4rem, 6vw, 3.6rem);
         font-weight: 700;
-        background: linear-gradient(135deg, #fff 0%, var(--hot-pink) 100%);
+        background: linear-gradient(135deg, var(--plum) 0%, var(--hot-pink) 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -172,8 +199,8 @@
         width: 72px;
         height: 72px;
         border-radius: 50%;
-        border: 2px solid rgba(255, 45, 155, 0.35);
-        background: rgba(255, 255, 255, 0.03);
+        border: 2px solid rgba(185, 93, 120, 0.35);
+        background: rgba(255, 253, 251, 0.72);
         color: var(--text-primary);
         font-size: 1.5rem;
         font-weight: 700;
@@ -226,7 +253,7 @@
         padding: 14px 18px;
         border: 2px solid var(--card-border);
         border-radius: 12px;
-        background: rgba(255, 255, 255, 0.04);
+        background: rgba(255, 253, 251, 0.82);
         color: var(--text-primary);
         font-size: 1.3rem;
         font-family: 'JetBrains Mono', monospace;
@@ -295,7 +322,7 @@
       }
       .caller-card.is-selected {
         border-color: var(--hot-pink);
-        background: rgba(255, 45, 155, 0.08);
+        background: rgba(185, 93, 120, 0.08);
         box-shadow: 0 0 16px var(--pink-glow-soft);
       }
       .caller-avatar {
@@ -303,7 +330,7 @@
         height: 52px;
         border-radius: 50%;
         object-fit: cover;
-        border: 2px solid rgba(255, 45, 155, 0.3);
+        border: 2px solid rgba(185, 93, 120, 0.3);
         transition: border-color 0.2s, box-shadow 0.2s;
       }
       .caller-card:hover .caller-avatar,
@@ -366,12 +393,12 @@
         font-size: 1rem;
         color: var(--text-secondary);
         transition: all 0.3s ease;
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 18px 38px rgba(75, 33, 72, 0.08);
       }
       .output-area.has-answer {
-        border-color: rgba(255, 45, 155, 0.2);
+        border-color: rgba(185, 93, 120, 0.2);
         color: var(--text-primary);
-        box-shadow: 0 4px 32px rgba(255, 45, 155, 0.08);
+        box-shadow: 0 4px 32px rgba(185, 93, 120, 0.08);
       }
 
       /* ── Secret Badge ── */
@@ -382,7 +409,7 @@
         padding: 18px 22px;
         border: 2px dashed var(--hot-pink);
         border-radius: 14px;
-        background: rgba(255, 45, 155, 0.06);
+        background: rgba(185, 93, 120, 0.06);
         margin-bottom: 32px;
       }
       .secret-badge[hidden] { display: none; }
@@ -405,7 +432,19 @@
 
       /* ── Responsive ── */
       @media (max-width: 600px) {
-        .page-container { padding: 70px 16px 60px; }
+        .back-nav {
+          align-items: flex-start;
+          gap: 10px;
+          min-height: 76px;
+        }
+        .back-nav .brand img {
+          width: clamp(106px, 30vw, 134px);
+        }
+        .back-nav .nav-links {
+          justify-content: flex-end;
+          gap: 10px;
+        }
+        .page-container { padding: 30px 16px 60px; }
         .hero { padding: 32px 0 40px; }
         .hero-image-wrap { width: 150px; height: 150px; }
         .keypad { grid-template-columns: repeat(3, 60px); gap: 10px; }
@@ -423,10 +462,16 @@
 </head>
   <body>
     <!-- Sticky Back Nav -->
-    <div class="back-nav">
-      <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
-      <a href="../clubhouse-pass.html" style="color: #ff2d9b; text-decoration: underline; margin-left: 8px;">Sign In</a>
-    </div>
+    <header class="back-nav">
+      <a class="brand" href="../index.html" aria-label="LAiDIES home">
+        <img src="../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
+      </a>
+      <nav class="nav-links" aria-label="Dream Phone navigation">
+        <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
+        <a href="../games/dj-booth.html">Listen</a>
+        <a href="../clubhouse-pass.html">Sign In</a>
+      </nav>
+    </header>
 
     <div class="page-container">
       <!-- Hero -->
@@ -474,7 +519,7 @@
         <span class="badge-icon" aria-hidden="true">867</span>
         <div>
           <strong>867 Club merit badge</strong>
-          <em>Secret Dream Phone sticker. Open your Clubhouse Pass to pin it to your lAIdies Card.</em>
+          <em>Secret Dream Phone sticker. Open your Clubhouse Pass to pin it to your LAiDIES Card.</em>
         </div>
       </div>
 

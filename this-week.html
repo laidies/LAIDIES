@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>This Week | LAIDIES</title>
-    <meta name="description" content="LAIDIES is a Wednesday newsletter and community for women building practical AI fluency without pretending they have spare time.">
-    <meta property="og:title" content="LAIDIES | Girl power meets machine power">
+    <title>This Week | LAiDIES</title>
+    <meta name="description" content="LAiDIES is a Wednesday newsletter and community for women building practical AI fluency without pretending they have spare time.">
+    <meta property="og:title" content="LAiDIES | Girl power meets machine power">
     <meta property="og:description" content="AI fluency for women with full calendars, high standards, and no patience for beige tech explanations.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wearelaidies.com/">
-    <meta property="og:image" content="https://wearelaidies.com/assets/laidies-logo.png">
+    <meta property="og:image" content="https://wearelaidies.com/assets/brand/laidies-masthead-object-world-v4.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="theme-color" content="#ff2d9b">
-    <link rel="icon" type="image/png" href="assets/laidies-logo-square.png">
+    <meta name="theme-color" content="#4b2148">
+    <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png">
     <link rel="manifest" href="manifest.webmanifest">
-    <link rel="apple-touch-icon" href="assets/laidies-logo-square.png">
+    <link rel="apple-touch-icon" href="assets/brand/laidies-logo-square-pearl-512-v1.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
@@ -26,23 +26,23 @@
     </script>
     <style>
       :root {
-        --hot-pink: #ff2d9b;
-        --dark-bg: #0d0a12;
-        --card-bg: #1a1424;
-        --card-border: rgba(255, 45, 155, 0.2);
-        --text-primary: #fff8fc;
-        --text-muted: rgba(255, 248, 252, 0.6);
-        --ink: #21111f;
-        --plum: #32122f;
-        --blackberry: #160b17;
-        --cream: #fdf8f4;
-        --paper: #fff9ec;
-        --blush: #ffd9e9;
-        --blue: #bde8ff;
-        --yellow: #ffe47a;
+        --hot-pink: #9b3f5f;
+        --dark-bg: #fffdfb;
+        --card-bg: rgba(255, 253, 251, 0.92);
+        --card-border: rgba(75, 33, 72, 0.18);
+        --text-primary: #211820;
+        --text-muted: #5f4558;
+        --ink: #211820;
+        --plum: #3f1737;
+        --blackberry: #2a1728;
+        --cream: #fffdfb;
+        --paper: #fbf6f5;
+        --blush: #e8c5c8;
+        --blue: #c8dce0;
+        --yellow: #b49764;
         --warm-dark: #100805;
-        --gold: #f5c842;
-        --shadow: rgba(32, 10, 29, 0.35);
+        --gold: #b49764;
+        --shadow: rgba(75, 33, 72, 0.14);
         --radius-xl: 28px;
         --radius-lg: 18px;
         --radius-sm: 8px;
@@ -55,9 +55,9 @@
       body {
         font-family: var(--font-body);
         background:
-          radial-gradient(circle at 18% 8%, rgba(255, 45, 155, 0.28), transparent 26rem),
-          radial-gradient(circle at 86% 12%, rgba(189, 232, 255, 0.18), transparent 24rem),
-          linear-gradient(135deg, #1a0a1b 0%, #3a1431 48%, #140914 100%);
+          radial-gradient(circle at 18% 8%, rgba(200, 220, 224, 0.34), transparent 26rem),
+          radial-gradient(circle at 86% 12%, rgba(232, 197, 200, 0.22), transparent 24rem),
+          linear-gradient(135deg, #fffdfb 0%, #f7eeee 48%, #fbf6f5 100%);
         color: var(--text-primary);
         line-height: 1.6;
         min-height: 100vh;
@@ -69,16 +69,18 @@
       .site-header {
         display: flex;
         align-items: center;
-        padding: 12px clamp(16px, 4vw, 48px);
-        background: rgba(13, 10, 18, 0.95);
+        min-height: 70px;
+        padding: 10px clamp(16px, 4vw, 48px);
+        background: rgba(255, 253, 251, 0.94);
         backdrop-filter: blur(12px);
-        border-bottom: 1px solid rgba(255, 45, 155, 0.1);
+        border-bottom: 1px solid rgba(75, 33, 72, 0.18);
         position: sticky;
         top: 0;
         z-index: 100;
       }
-      .site-header .brand { display: flex; align-items: center; }
-      .site-header .brand img { height: 28px; width: auto; }
+      .site-header .brand { display: flex; align-items: center; line-height: 0; overflow: visible; }
+      .site-header .brand img { width: clamp(146px, 18vw, 190px);
+        height: auto; max-height: none; object-fit: contain; }
       .site-header .nav {
         display: flex;
         gap: 24px;
@@ -112,10 +114,10 @@
           top: 100%;
           left: 0;
           right: 0;
-          background: rgba(13, 10, 18, 0.98);
+          background: rgba(255, 253, 251, 0.98);
           padding: 16px 24px;
           gap: 12px;
-          border-bottom: 1px solid rgba(255, 45, 155, 0.15);
+          border-bottom: 1px solid rgba(75, 33, 72, 0.18);
         }
         .site-header .nav a { font-size: 0.9rem; padding: 6px 0; }
       }
@@ -124,7 +126,7 @@
       .hero {
         text-align: center;
         padding: clamp(48px, 8vw, 96px) clamp(20px, 5vw, 64px) clamp(32px, 5vw, 56px);
-        background: linear-gradient(180deg, rgba(255, 45, 155, 0.04) 0%, transparent 100%);
+        background: linear-gradient(180deg, rgba(232, 197, 200, 0.18) 0%, transparent 100%);
       }
       .hero .eyebrow {
         font-size: 0.7rem;
@@ -157,10 +159,10 @@
         overflow-x: auto;
         padding-bottom: 8px;
         scrollbar-width: thin;
-        scrollbar-color: rgba(255, 45, 155, 0.3) transparent;
+        scrollbar-color: rgba(111, 38, 63, 0.3) transparent;
       }
       .quick-glance-row::-webkit-scrollbar { height: 4px; }
-      .quick-glance-row::-webkit-scrollbar-thumb { background: rgba(255, 45, 155, 0.3); border-radius: 4px; }
+      .quick-glance-row::-webkit-scrollbar-thumb { background: rgba(111, 38, 63, 0.3); border-radius: 4px; }
       .qg-card {
         flex: 0 0 auto;
         min-width: 195px;
@@ -192,13 +194,13 @@
         content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(180deg, rgba(13,10,18,0.2) 0%, rgba(13,10,18,0.85) 65%);
+        background: linear-gradient(180deg, rgba(75,33,72,0.08) 0%, rgba(75,33,72,0.68) 72%);
         z-index: 1;
         border-radius: 14px;
       }
       /* Episode card — warm pink/coral gradient */
       .qg-card--episode::before {
-        background: linear-gradient(135deg, #ff2d9b 0%, #ff6b4a 50%, #f5c842 100%);
+        background: linear-gradient(135deg, #e8c5c8 0%, #9b3f5f 54%, #6f263f 100%);
       }
       /* Fun Pack — playful purple/blue gradient */
       .qg-card--funpack::before {
@@ -214,7 +216,7 @@
       }
       /* Drink — cocktail gradient */
       .qg-card--drink::before {
-        background: linear-gradient(135deg, #ff2d9b 0%, #f5c842 60%, #ff6b4a 100%);
+        background: linear-gradient(135deg, #c8dce0 0%, #e8c5c8 58%, #b49764 100%);
       }
       /* Receipts — data/evidence gradient */
       .qg-card--receipts::before {
@@ -222,12 +224,12 @@
       }
       .qg-card > * { position: relative; z-index: 2; }
       .qg-card:hover {
-        border-color: rgba(255, 45, 155, 0.55);
+        border-color: rgba(111, 38, 63, 0.4);
         transform: translateY(-3px);
-        box-shadow: 0 10px 30px rgba(255, 45, 155, 0.15);
+        box-shadow: 0 16px 34px rgba(75, 33, 72, 0.14);
       }
       .qg-card:hover::after {
-        background: linear-gradient(180deg, rgba(13,10,18,0.1) 0%, rgba(13,10,18,0.75) 65%);
+        background: linear-gradient(180deg, rgba(75,33,72,0.04) 0%, rgba(75,33,72,0.62) 72%);
       }
       .qg-icon {
         font-size: 1.6rem;
@@ -256,11 +258,11 @@
       }
       .qg-arrow {
         font-size: 0.75rem;
-        color: var(--hot-pink);
+        color: #f7eeee;
         margin-top: auto;
         opacity: 0.8;
         transition: opacity 0.2s;
-        text-shadow: 0 0 6px rgba(255, 45, 155, 0.4);
+        text-shadow: none;
       }
       .qg-card:hover .qg-arrow { opacity: 1; }
 
@@ -269,7 +271,7 @@
         padding: clamp(40px, 7vw, 80px) clamp(20px, 5vw, 64px);
       }
       .section-wrap + .section-wrap {
-        border-top: 1px solid rgba(255, 45, 155, 0.08);
+        border-top: 1px solid rgba(75, 33, 72, 0.1);
       }
 
       /* ─── HOT GOSS ─── */
@@ -326,7 +328,7 @@
         color: var(--hot-pink);
         margin-bottom: 16px;
         padding-bottom: 8px;
-        border-bottom: 1px solid rgba(255, 45, 155, 0.15);
+        border-bottom: 1px solid rgba(155, 63, 95, 0.15);
       }
 
       /* Story cards */
@@ -340,8 +342,8 @@
         transition: border-color 0.3s, box-shadow 0.3s;
       }
       .goss-story:hover {
-        border-color: rgba(255, 45, 155, 0.4);
-        box-shadow: 0 4px 16px rgba(255, 45, 155, 0.08);
+        border-color: rgba(155, 63, 95, 0.4);
+        box-shadow: 0 4px 16px rgba(155, 63, 95, 0.08);
       }
       .goss-story .goss-number {
         position: absolute;
@@ -349,7 +351,7 @@
         right: 18px;
         font-size: 1.6rem;
         font-weight: 800;
-        color: rgba(255, 45, 155, 0.12);
+        color: rgba(155, 63, 95, 0.12);
         font-family: var(--font-mono);
       }
       .goss-headline {
@@ -383,7 +385,7 @@
         display: none;
         margin-top: 14px;
         padding-top: 14px;
-        border-top: 1px solid rgba(255, 45, 155, 0.1);
+        border-top: 1px solid rgba(155, 63, 95, 0.1);
       }
       .goss-story.is-expanded .goss-expanded { display: block; }
       .goss-story.is-expanded .goss-preview { display: none; }
@@ -401,8 +403,8 @@
         line-height: 1.55;
       }
       .goss-why-care {
-        background: rgba(255, 45, 155, 0.06);
-        border-left: 3px solid rgba(255, 45, 155, 0.4);
+        background: rgba(155, 63, 95, 0.06);
+        border-left: 3px solid rgba(155, 63, 95, 0.4);
       }
       .goss-cocktail-party {
         background: rgba(245, 200, 66, 0.06);
@@ -428,7 +430,7 @@
         gap: 8px;
         margin-top: 14px;
         padding-top: 12px;
-        border-top: 1px solid rgba(255, 45, 155, 0.08);
+        border-top: 1px solid rgba(155, 63, 95, 0.08);
       }
       .goss-source-link {
         display: inline-block;
@@ -446,7 +448,7 @@
         display: block;
         margin-top: 14px;
         padding-top: 12px;
-        border-top: 1px solid rgba(255, 45, 155, 0.08);
+        border-top: 1px solid rgba(155, 63, 95, 0.08);
       }
       .goss-read-full a {
         font-size: 0.78rem;
@@ -475,8 +477,8 @@
       }
       .goss-site-links a:hover {
         color: var(--hot-pink);
-        border-color: rgba(255, 45, 155, 0.35);
-        background: rgba(255, 45, 155, 0.06);
+        border-color: rgba(155, 63, 95, 0.35);
+        background: rgba(155, 63, 95, 0.06);
       }
       .goss-story.goss-daily { padding: 16px 18px; }
       .goss-story.goss-daily .goss-headline { font-size: 0.88rem; }
@@ -543,7 +545,7 @@
       /* ─── FOOTER ─── */
       .site-footer {
         padding: 32px clamp(20px, 5vw, 64px);
-        border-top: 1px solid rgba(255, 45, 155, 0.1);
+        border-top: 1px solid rgba(155, 63, 95, 0.1);
         text-align: center;
       }
       .site-footer p {
@@ -597,11 +599,11 @@
 
       .ritual-eyebrow {
         width: fit-content;
-        border: 1px solid rgba(255, 255, 255, 0.35);
+        border: 1px solid rgba(75, 33, 72, 0.18);
         border-radius: 999px;
         padding: 7px 13px;
-        background: rgba(255, 249, 236, 0.12);
-        color: var(--yellow);
+        background: rgba(255, 253, 251, 0.72);
+        color: #6f263f;
         font-size: 0.76rem;
         font-weight: 900;
         letter-spacing: 0.08em;
@@ -614,14 +616,14 @@
         font-family: var(--font-heading);
         font-size: clamp(3rem, 6.3vw, 5.15rem);
         line-height: 0.88;
-        color: var(--paper);
-        text-shadow: 0 12px 34px rgba(0, 0, 0, 0.36);
+        color: var(--plum);
+        text-shadow: none;
       }
 
       .ritual-lede {
         max-width: 680px;
         margin: 0;
-        color: rgba(255, 249, 236, 0.86);
+        color: var(--muted);
         font-size: clamp(1rem, 1.8vw, 1.16rem);
         line-height: 1.5;
       }
@@ -633,7 +635,7 @@
       }
 
       .week-picker-label {
-        color: rgba(255, 249, 236, 0.68);
+        color: rgba(75, 33, 72, 0.62);
         font-size: 0.76rem;
         font-weight: 950;
         letter-spacing: 0.08em;
@@ -650,14 +652,14 @@
         flex-wrap: wrap;
         align-items: center;
         gap: 8px;
-        border-left: 2px solid rgba(255, 45, 155, 0.34);
+        border-left: 2px solid rgba(111, 38, 63, 0.28);
         padding-left: 10px;
       }
 
       .week-picker-group-label {
         flex: 0 0 auto;
         min-width: 124px;
-        color: rgba(255, 228, 122, 0.9);
+        color: #b49764;
         font-size: 0.66rem;
         font-weight: 900;
         letter-spacing: 0.08em;
@@ -666,11 +668,11 @@
 
       .week-picker-button {
         min-height: 34px;
-        border: 1px solid rgba(255, 255, 255, 0.24);
+        border: 1px solid rgba(75, 33, 72, 0.18);
         border-radius: 999px;
         padding: 8px 12px;
-        background: rgba(255, 249, 236, 0.1);
-        color: rgba(255, 249, 236, 0.82);
+        background: rgba(255, 253, 251, 0.72);
+        color: var(--plum);
         font: inherit;
         font-size: 0.82rem;
         font-weight: 900;
@@ -681,18 +683,18 @@
       .week-picker-button:hover,
       .week-picker-button:focus-visible {
         transform: translateY(-1px);
-        border-color: rgba(255, 228, 122, 0.68);
-        background: rgba(255, 249, 236, 0.18);
-        color: var(--paper);
-        outline: 3px solid rgba(255, 228, 122, 0.2);
+        border-color: rgba(111, 38, 63, 0.34);
+        background: rgba(232, 197, 200, 0.2);
+        color: var(--wine);
+        outline: 3px solid rgba(200, 220, 224, 0.28);
         outline-offset: 2px;
       }
 
       .week-picker-button.is-selected {
-        border-color: rgba(255, 45, 155, 0.78);
-        background: linear-gradient(135deg, rgba(255, 45, 155, 0.92), rgba(255, 115, 193, 0.88));
-        color: white;
-        box-shadow: 0 10px 22px rgba(255, 20, 146, 0.24);
+        border-color: rgba(111, 38, 63, 0.42);
+        background: linear-gradient(135deg, #4b2148, #6f263f);
+        color: #fffdfb;
+        box-shadow: 0 14px 28px rgba(75, 33, 72, 0.16);
       }
 
       .ritual-control {
@@ -700,14 +702,14 @@
         z-index: 4;
         justify-self: end;
         max-width: 310px;
-        border: 1px solid rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(75, 33, 72, 0.14);
         border-radius: 18px;
         padding: 17px;
         background:
           linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(255, 243, 219, 0.95)),
           var(--paper);
         color: var(--ink);
-        box-shadow: 0 20px 44px rgba(32, 10, 29, 0.3);
+        box-shadow: 0 20px 44px rgba(75, 33, 72, 0.13);
         transform: rotate(-1.3deg);
       }
 
@@ -719,8 +721,8 @@
         width: 92px;
         height: 24px;
         border-radius: 4px;
-        background: rgba(255, 45, 155, 0.72);
-        box-shadow: 0 4px 16px rgba(255, 20, 146, 0.28);
+        background: rgba(155, 63, 95, 0.72);
+        box-shadow: 0 4px 16px rgba(75, 33, 72, 0.16);
         transform: rotate(2.5deg);
       }
 
@@ -838,7 +840,7 @@
         position: absolute;
         inset: 10px;
         border-radius: calc(var(--radius-xl) - 8px);
-        border: 1px solid rgba(255, 45, 155, 0.22);
+        border: 1px solid rgba(155, 63, 95, 0.22);
         pointer-events: none;
       }
 
@@ -893,7 +895,7 @@
         height: 68%;
         border: 0;
         clip-path: polygon(34% 2%, 66% 2%, 77% 13%, 78% 24%, 88% 28%, 92% 45%, 88% 88%, 78% 98%, 22% 98%, 12% 88%, 8% 45%, 12% 28%, 22% 24%, 23% 13%);
-        background: rgba(255, 45, 155, 0.025);
+        background: rgba(155, 63, 95, 0.025);
         box-shadow: 0 0 34px rgba(255, 20, 146, 0.24);
         color: transparent;
         cursor: pointer;
@@ -906,7 +908,7 @@
         inset: 0;
         clip-path: inherit;
         padding: 3px;
-        background: linear-gradient(135deg, rgba(255, 45, 155, 0.9), rgba(255, 228, 122, 0.72));
+        background: linear-gradient(135deg, rgba(155, 63, 95, 0.9), rgba(255, 228, 122, 0.72));
         opacity: 0.42;
         mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
         -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
@@ -918,7 +920,7 @@
       .bag-hotspot:hover,
       .bag-hotspot:focus-visible {
         transform: translateY(-4px) rotate(-1deg);
-        background: rgba(255, 45, 155, 0.12);
+        background: rgba(155, 63, 95, 0.12);
         box-shadow:
           0 0 0 11px rgba(255, 228, 122, 0.14),
           0 0 58px rgba(255, 20, 146, 0.66);
@@ -1074,7 +1076,7 @@
         transform: translateY(-2px) scale(1.04);
         opacity: 1;
         border-color: rgba(255, 228, 122, 0.48);
-        box-shadow: 0 0 0 5px rgba(255, 228, 122, 0.11), 0 0 22px rgba(255, 45, 155, 0.18);
+        box-shadow: 0 0 0 5px rgba(255, 228, 122, 0.11), 0 0 22px rgba(155, 63, 95, 0.18);
         outline: none;
       }
 
@@ -1143,7 +1145,7 @@
         min-height: 64px;
         align-content: center;
         gap: 5px;
-        border: 1px solid rgba(255, 45, 155, 0.28);
+        border: 1px solid rgba(155, 63, 95, 0.28);
         border-radius: 14px;
         padding: 10px 11px;
         background: linear-gradient(135deg, #fff, #fff8ef 68%, #ffd9e9);
@@ -1219,7 +1221,7 @@
         color: white;
         font-size: 0.72rem;
         line-height: 1;
-        box-shadow: 0 0 12px rgba(255, 45, 155, 0.34);
+        box-shadow: 0 0 12px rgba(155, 63, 95, 0.34);
       }
 
       .ritual-action.is-disabled,
@@ -1233,7 +1235,7 @@
       .ritual-action[aria-disabled="true"]:hover,
       .ritual-action[aria-disabled="true"]:focus-visible {
         transform: none;
-        border-color: rgba(255, 45, 155, 0.28);
+        border-color: rgba(155, 63, 95, 0.28);
         background: linear-gradient(135deg, #fff, #fff8ef 68%, #ffd9e9);
         color: var(--ink);
         box-shadow: 0 8px 16px rgba(33, 17, 31, 0.12);
@@ -1248,7 +1250,7 @@
         position: relative;
         grid-column: 1 / -1;
         margin: 2px 0 0;
-        border: 1px dashed rgba(255, 45, 155, 0.28);
+        border: 1px dashed rgba(155, 63, 95, 0.28);
         border-radius: 12px;
         padding: 9px 38px 9px 12px;
         background: rgba(255, 249, 236, 0.62);
@@ -1268,7 +1270,7 @@
 
       .ritual-charm-status.is-complete {
         border-style: solid;
-        border-color: rgba(255, 45, 155, 0.46);
+        border-color: rgba(155, 63, 95, 0.46);
         background: linear-gradient(135deg, rgba(255, 249, 236, 0.9), rgba(255, 217, 233, 0.76));
       }
 
@@ -1311,7 +1313,7 @@
         min-height: 58px;
         align-content: center;
         gap: 4px;
-        border: 1px solid rgba(255, 45, 155, 0.3);
+        border: 1px solid rgba(155, 63, 95, 0.3);
         border-radius: 13px;
         padding: 8px 7px;
         background: linear-gradient(135deg, #fff, #fff7ef 70%, #ffd9e9);
@@ -1365,12 +1367,12 @@
         z-index: 8;
         grid-column: 1 / -1;
         margin: 0 14px 14px;
-        border: 1px solid rgba(255, 45, 155, 0.28);
-        border-left: 8px solid rgba(255, 45, 155, 0.82);
+        border: 1px solid rgba(155, 63, 95, 0.28);
+        border-left: 8px solid rgba(155, 63, 95, 0.82);
         border-radius: 26px 18px 26px 18px;
         padding: clamp(20px, 3vw, 30px) clamp(22px, 3.6vw, 42px);
         background:
-          radial-gradient(circle at top right, rgba(255, 45, 155, 0.13), transparent 16rem),
+          radial-gradient(circle at top right, rgba(155, 63, 95, 0.13), transparent 16rem),
           linear-gradient(135deg, rgba(255, 252, 246, 0.99), rgba(255, 232, 245, 0.96) 58%, rgba(236, 248, 255, 0.88)),
           var(--paper);
         color: rgba(33, 17, 31, 0.82);
@@ -1380,7 +1382,7 @@
         box-shadow:
           inset 0 0 0 1px rgba(255, 255, 255, 0.42),
           0 18px 38px rgba(33, 17, 31, 0.2),
-          0 0 26px rgba(255, 45, 155, 0.1);
+          0 0 26px rgba(155, 63, 95, 0.1);
         transform: rotate(-0.4deg);
       }
 
@@ -1393,7 +1395,7 @@
         height: 20px;
         border: 1px solid rgba(255, 255, 255, 0.55);
         border-radius: 999px;
-        background: linear-gradient(135deg, rgba(255, 45, 155, 0.72), rgba(255, 228, 122, 0.62));
+        background: linear-gradient(135deg, rgba(155, 63, 95, 0.72), rgba(255, 228, 122, 0.62));
         box-shadow: 0 4px 12px rgba(255, 20, 146, 0.18);
         transform: rotate(-2deg);
       }
@@ -1513,7 +1515,7 @@
         align-items: center;
         justify-content: center;
         margin: 0 10px 16px 0;
-        border: 1px solid rgba(255, 45, 155, 0.32);
+        border: 1px solid rgba(155, 63, 95, 0.32);
         border-radius: 999px;
         padding: 10px 14px;
         background: linear-gradient(135deg, #ff3fa4, #ff1492);
@@ -1521,7 +1523,7 @@
         font-size: 0.82rem;
         font-weight: 950;
         text-decoration: none;
-        box-shadow: 0 10px 22px rgba(255, 45, 155, 0.18);
+        box-shadow: 0 10px 22px rgba(155, 63, 95, 0.18);
       }
 
       #panelSecondaryLink {
@@ -1534,7 +1536,7 @@
         display: grid;
         gap: 6px;
         margin: 12px 0 16px;
-        border: 1px solid rgba(255, 45, 155, 0.2);
+        border: 1px solid rgba(155, 63, 95, 0.2);
         border-radius: 14px;
         padding: 12px;
         background: rgba(255, 245, 251, 0.74);
@@ -1575,7 +1577,7 @@
 
       .tryon-rating-control input[type="range"] {
         width: 100%;
-        accent-color: #ff2d9b;
+        accent-color: #9b3f5f;
       }
 
       .tryon-rating-output {
@@ -1603,7 +1605,7 @@
 
       .tryon-clip-row i.is-active {
         opacity: 1;
-        filter: drop-shadow(0 3px 8px rgba(255, 45, 155, 0.35));
+        filter: drop-shadow(0 3px 8px rgba(155, 63, 95, 0.35));
       }
 
       .tryon-rating-description {
@@ -1627,7 +1629,7 @@
         width: 100%;
         min-height: 88px;
         resize: vertical;
-        border: 1px solid rgba(255, 45, 155, 0.24);
+        border: 1px solid rgba(155, 63, 95, 0.24);
         border-radius: 14px;
         padding: 10px 12px;
         background: rgba(255, 255, 255, 0.78);
@@ -1664,13 +1666,13 @@
         border: 0;
         border-radius: 999px;
         padding: 10px 15px;
-        background: linear-gradient(135deg, #ff2d9b, #ff73c1);
+        background: linear-gradient(135deg, #9b3f5f, #ff73c1);
         color: #fff;
         font: inherit;
         font-size: 0.82rem;
         font-weight: 950;
         cursor: pointer;
-        box-shadow: 0 10px 20px rgba(255, 45, 155, 0.22);
+        box-shadow: 0 10px 20px rgba(155, 63, 95, 0.22);
       }
 
       .panel-mark-button[hidden] {
@@ -1687,7 +1689,7 @@
         flex: 0 0 auto;
         width: 74px;
         aspect-ratio: 3 / 4;
-        border: 1px solid rgba(255, 45, 155, 0.28);
+        border: 1px solid rgba(155, 63, 95, 0.28);
         border-radius: 12px;
         object-fit: cover;
         background: #fff;
@@ -1699,7 +1701,7 @@
       .charm-reveal {
         z-index: 210;
         background:
-          radial-gradient(circle at 50% 36%, rgba(255, 45, 155, 0.32), transparent 18rem),
+          radial-gradient(circle at 50% 36%, rgba(155, 63, 95, 0.32), transparent 18rem),
           rgba(18, 4, 18, 0.72);
         overflow: hidden;
       }
@@ -1730,7 +1732,7 @@
         width: 112px;
         height: 25px;
         border-radius: 5px;
-        background: rgba(255, 45, 155, 0.74);
+        background: rgba(155, 63, 95, 0.74);
         box-shadow: 0 5px 18px rgba(255, 20, 146, 0.28);
         transform: translateX(-50%) rotate(1.5deg);
       }
@@ -1773,7 +1775,7 @@
       .charm-meta {
         display: inline-flex;
         margin: 4px 0 18px;
-        border: 1px solid rgba(255, 45, 155, 0.34);
+        border: 1px solid rgba(155, 63, 95, 0.34);
         border-radius: 999px;
         padding: 8px 12px;
         background: rgba(255, 255, 255, 0.48);
@@ -1790,7 +1792,7 @@
         align-items: center;
         justify-content: center;
         margin: 0 auto 12px;
-        border: 1px solid rgba(255, 45, 155, 0.38);
+        border: 1px solid rgba(155, 63, 95, 0.38);
         border-radius: 999px;
         padding: 11px 16px;
         background: linear-gradient(135deg, #fff, #ffe7f3);
@@ -2035,8 +2037,8 @@
 <body>
     <!-- ─── HEADER ─── -->
     <header class="site-header">
-      <a class="brand" href="index.html" aria-label="lAIdies home">
-        <img src="assets/laidies-logo-wordmark.png" alt="">
+      <a class="brand" href="index.html" aria-label="LAiDIES home">
+        <img src="assets/brand/laidies-logo-header-approved-v6.png" alt="">
       </a>
       <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=document.querySelector('.nav');if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'\u2630':'\u2715';this.setAttribute('aria-expanded',!isOpen);">&#x2630;</button>
       <nav class="nav" aria-label="Primary navigation">
@@ -2046,7 +2048,7 @@
           <a href="learn.html">Learn</a>
           <a href="clubhouse.html">Clubhouse</a>
           <a href="community.html">Community</a>
-          <a href="clubhouse-pass.html" style="color: #ff2d9b; text-decoration: underline; margin-left: 8px;">Sign In</a>
+          <a href="clubhouse-pass.html" style="color: #6f263f; text-decoration: underline; margin-left: 8px;">Sign In</a>
         </nav>
     </header>
 
@@ -2081,7 +2083,7 @@
           <img
             class="ritual-scene-image"
             src="assets/this-week/wednesday-it-bag-closed.jpg"
-            alt="A pink holographic Y2K mini backpack hanging in a warm LAIDIES bedroom-office, ready to open."
+            alt="A pink holographic Y2K mini backpack hanging in a warm LAiDIES bedroom-office, ready to open."
           >
           <div class="soft-scrim" aria-hidden="true"></div>
           <button class="bag-hotspot" id="bagHotspot" type="button" aria-label="Open this week's bag">
@@ -2100,7 +2102,7 @@
             <img
               class="ritual-scene-image"
               src="assets/this-week/wednesday-it-bag-open.jpg"
-              alt="The Wednesday bag opened with Episode 02, a quiz insert, a printable sleeve, and weekly extras arranged in the LAIDIES room."
+              alt="The Wednesday bag opened with Episode 02, a quiz insert, a printable sleeve, and weekly extras arranged in the LAiDIES room."
             >
             <div class="soft-scrim" aria-hidden="true"></div>
 
@@ -2109,7 +2111,7 @@
             <a class="object-link object-printable" href="printable.html?from=this-week&issue=2&bag=open" data-action="printable" aria-label="Open the Episode 02 prompt specificity printable">Cheat Sheet</a>
             <a class="object-link object-dj" href="games/dj-booth.html?v=ritual-qa-2&from=this-week&issue=2&bag=open#djApp" data-action="dj" aria-label="Open the DJ Booth from the CD notes">DJ Booth</a>
             <a class="object-link object-tryon" href="try-on.html?from=this-week&issue=2&bag=open" data-action="tryon" data-complete-on-click="false" aria-label="Open the Episode 02 Try-On exercise from the legal pad">Try it once</a>
-            <a class="object-link object-community" href="community.html?from=this-week&issue=2&bag=open" data-action="community" aria-label="Open the LAIDIES community">Community</a>
+            <a class="object-link object-community" href="community.html?from=this-week&issue=2&bag=open" data-action="community" aria-label="Open the LAiDIES community">Community</a>
             <a class="object-link object-goss" href="hot-goss.html?v=ritual-qa-3&from=this-week&issue=2&bag=open" data-action="goss" aria-label="Preview Hot Goss news memo">News Preview</a>
 
             <button class="secret-hotspot secret-tamagotchi" type="button" aria-label="Hidden weekly charm"></button>
@@ -2174,7 +2176,7 @@
         <span class="charm-kicker">Secret Charm Found</span>
         <img class="charm-icon" src="assets/charms/tamagotchi-charm-256.png" alt="Pink mini digital pet charm sticker" width="256" height="256">
         <h2 id="charmTitle">Episode 02 Tamagotchi Charm</h2>
-        <p id="charmBody">You found this week&rsquo;s hidden charm. Saved in this browser for the future LAIDIES Card charm bracelet.</p>
+        <p id="charmBody">You found this week&rsquo;s hidden charm. Saved in this browser for the future LAiDIES Card charm bracelet.</p>
         <span class="charm-meta" id="charmMeta">Episode 02 charm &middot; Saved for future charm bracelet</span>
         <a class="charm-pass-link" id="charmPassLink" href="clubhouse-pass.html">Save charms with a Clubhouse Pass</a>
         <button class="primary-button charm-close" id="charmClose" type="button">← Back to the Bag</button>
@@ -2184,7 +2186,7 @@
     <!-- ─── FOOTER ─── -->
     <footer class="site-footer">
       <p>
-        <span class="wordmark"><span>l</span><strong>AI</strong><span>dies</span></span><sup>&trade;</sup>
+        LAiDIES<sup>&trade;</sup>
         &nbsp;&bull;&nbsp; &copy; 2026 Ali Eakin. All rights reserved.
       </p>
       <div class="footer-links">
@@ -2484,7 +2486,7 @@
         button.dataset.charmId = "issue-" + issuePad + "-" + config.idSuffix;
         button.dataset.charmIssue = String(issue);
         button.dataset.charmTitle = config.title;
-        button.dataset.charmBody = config.objectLabel + " found. Saved in this browser for the future LAIDIES Card charm bracelet.";
+        button.dataset.charmBody = config.objectLabel + " found. Saved in this browser for the future LAiDIES Card charm bracelet.";
         button.dataset.charmMeta = "Episode " + issuePad + " charm - Save charms with a Clubhouse Pass";
         button.dataset.charmKind = "issue-charm";
         button.dataset.charmSlot = "issue-" + issuePad;
@@ -2797,7 +2799,7 @@
           element.setAttribute("aria-label", "Open the Episode " + issuePad + " Weekly Fun Pack");
         });
         document.querySelectorAll('[data-action="community"]').forEach(function(element) {
-          element.setAttribute("aria-label", "Open the LAIDIES community");
+          element.setAttribute("aria-label", "Open the LAiDIES community");
         });
         document.querySelectorAll('[data-action="goss"]').forEach(function(element) {
           element.setAttribute("aria-label", "Preview Hot Goss news memo");
@@ -2819,13 +2821,13 @@
           element.hidden = !rememberLine;
           if (!rememberLine) return;
           var label = document.createElement("span");
-          label.textContent = "Remember, lAIdies:";
+          label.textContent = "Remember, LAiDIES:";
           element.append(label, document.createTextNode(" " + rememberLine));
         });
 
         document.querySelectorAll(".open-scene .ritual-scene-image").forEach(function(image) {
           // Phase 3A uses Issue 02-specific proof-of-concept bag artwork; future issues need issue-specific art or a more reusable generic bag image.
-          image.alt = "The Wednesday bag opened with the selected issue, quiz, printable sleeve, and weekly extras arranged in the LAIDIES room.";
+          image.alt = "The Wednesday bag opened with the selected issue, quiz, printable sleeve, and weekly extras arranged in the LAiDIES room.";
         });
 
         // Future issue scenes can replace this map with the specific hidden object packed for that week's artwork.
@@ -3049,7 +3051,7 @@
           seasonTotal: SECRET_CHARM_SEASON_TOTAL,
           source: trigger.dataset.charmSource || "The Wednesday Ritual",
           asset: trigger.dataset.charmAsset || "assets/charms/tamagotchi-charm-256.png",
-          alt: trigger.dataset.charmAlt || "LAIDIES hidden charm sticker",
+          alt: trigger.dataset.charmAlt || "LAiDIES hidden charm sticker",
           type: trigger.dataset.charmKind || "issue-charm",
           rewardType: "charm",
           charmKind: trigger.dataset.charmKind || "issue-charm",
@@ -3107,11 +3109,11 @@
         lastCharmTrigger = trigger;
         saveSecretCharm(trigger);
         var title = trigger.dataset.charmTitle || "Wednesday Charm";
-        var body = trigger.dataset.charmBody || "Saved in this browser for the future LAIDIES Card charm bracelet.";
+        var body = trigger.dataset.charmBody || "Saved in this browser for the future LAiDIES Card charm bracelet.";
         var meta = trigger.dataset.charmMeta || "Saved for future charm bracelet";
         if (charmIcon) {
           charmIcon.src = trigger.dataset.charmAsset || "assets/charms/tamagotchi-charm-256.png";
-          charmIcon.alt = trigger.dataset.charmAlt || "LAIDIES hidden charm sticker";
+          charmIcon.alt = trigger.dataset.charmAlt || "LAiDIES hidden charm sticker";
         }
         if (charmTitle) charmTitle.textContent = title;
         if (charmBody) charmBody.textContent = body;
@@ -3119,7 +3121,7 @@
         charmReveal.hidden = false;
         markActionComplete("charm");
         burstCharmConfetti();
-        statusMessage.textContent = title + " found. Saved for the future LAIDIES Card charm bracelet.";
+        statusMessage.textContent = title + " found. Saved for the future LAiDIES Card charm bracelet.";
         charmClose.focus({ preventScroll: true });
       }
 
@@ -3280,5 +3282,6 @@
       });
     })();
     </script>
+    <script src="content/site/brand-polish.js" defer></script>
 </body>
 </html>

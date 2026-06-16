@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Glossary | LAIDIES</title>
-  <meta name="description" content="AI terms in plain English. No vests, no maxxing, no condescension. The LAIDIES glossary." />
-  <meta property="og:title" content="Glossary | LAIDIES" />
+  <title>Glossary | LAiDIES</title>
+  <meta name="description" content="AI terms in plain English. No vests, no maxxing, no condescension. The LAiDIES glossary." />
+  <meta property="og:title" content="Glossary | LAiDIES" />
   <meta property="og:description" content="The glossary for AI and computer confidence." />
   <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#ff2d9b" />
-  <link rel="icon" type="image/png" href="../assets/laidies-logo-square.png" />
+  <meta name="theme-color" content="#b95d78" />
+  <link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
   <link rel="manifest" href="../manifest.webmanifest" />
-  <link rel="apple-touch-icon" href="../assets/laidies-logo-square.png" />
+  <link rel="apple-touch-icon" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&family=JetBrains+Mono:wght@400&family=Inter:wght@400;600;700&display=swap">
@@ -48,14 +48,14 @@
       justify-content: space-between;
     }
     .back-bar a {
-      color: #ff2d9b;
+      color: #b95d78;
       text-decoration: none;
       font-size: 0.85rem;
       font-weight: 600;
       transition: opacity 0.2s;
     }
     .back-bar a:hover { opacity: 0.75; }
-    .back-bar .brand img { height: 24px; }
+    .back-bar .brand img { width: clamp(146px, 18vw, 190px); height: auto; max-height: none; object-fit: contain; }
 
     /* === NAV === */
     .site-nav {
@@ -69,7 +69,7 @@
       text-decoration: none;
       transition: color 0.2s;
     }
-    .site-nav a:hover { color: #ff2d9b; }
+    .site-nav a:hover { color: #b95d78; }
     .hamburger-btn {
       display: none;
       background: none;
@@ -107,7 +107,7 @@
       font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: #ff2d9b;
+      color: #b95d78;
       margin-bottom: 12px;
     }
     .glossary-hero h1 {
@@ -147,8 +147,8 @@
     }
     .glossary-filter input:focus {
       outline: none;
-      border-color: #ff2d9b;
-      box-shadow: 0 0 0 3px rgba(255, 45, 155, 0.08);
+      border-color: #b95d78;
+      box-shadow: 0 0 0 3px rgba(185, 93, 120, 0.08);
     }
     .glossary-filter input::placeholder {
       color: #a08a96;
@@ -178,8 +178,8 @@
       transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
     }
     .glossary-card:hover {
-      border-color: rgba(255, 45, 155, 0.4);
-      box-shadow: 0 4px 18px rgba(255, 45, 155, 0.08);
+      border-color: rgba(185, 93, 120, 0.4);
+      box-shadow: 0 4px 18px rgba(185, 93, 120, 0.08);
       transform: translateY(-2px);
     }
     .glossary-card.hidden { display: none; }
@@ -217,7 +217,7 @@
       text-decoration: none;
       margin: 0 8px;
     }
-    .site-footer a:hover { color: #ff2d9b; }
+    .site-footer a:hover { color: #b95d78; }
   </style>
 </head>
 <body>
@@ -225,8 +225,8 @@
   <!-- Sticky Back Bar -->
   <header class="back-bar">
     <a href="../learn.html">&larr; Back to Learn</a>
-    <a class="brand" href="../index.html" aria-label="lAIdies home">
-      <img src="../assets/laidies-logo-wordmark.png" alt="LAIDIES" />
+    <a class="brand" href="../index.html" aria-label="LAiDIES home">
+      <img src="../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
     </a>
     <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
     <nav class="site-nav" aria-label="Primary navigation">
@@ -236,7 +236,7 @@
       <a href="../learn.html">Learn</a>
       <a href="../clubhouse.html">Clubhouse</a>
       <a href="../community.html">Community</a>
-      <a href="../clubhouse-pass.html" style="color: #ff2d9b; text-decoration: underline; margin-left: 8px;">Sign In</a>
+      <a href="../clubhouse-pass.html" style="color: #b95d78; text-decoration: underline; margin-left: 8px;">Sign In</a>
     </nav>
   </header>
 
@@ -276,6 +276,34 @@
         <p><b>What it is:</b> When AI gives an answer that sounds polished but is wrong or made up.</p>
         <p><b>Where it comes up:</b> Names, dates, laws, links, quotes, sources, numbers, or anything high-stakes.</p>
         <p class="analogy"><b>Analogy:</b> Regina George confidence, zero receipts. Verify before you forward.</p>
+      </article>
+
+      <article class="glossary-card" data-term="source">
+        <strong>Source</strong>
+        <p><b>What it is:</b> The place a claim comes from, such as an official page, policy, contract, meeting note, report, or person who owns the decision.</p>
+        <p><b>Where it comes up:</b> When AI gives you a fact, date, price, quote, policy summary, or recommendation you may rely on.</p>
+        <p class="analogy"><b>Analogy:</b> The receipt, not the story about the receipt.</p>
+      </article>
+
+      <article class="glossary-card" data-term="citation">
+        <strong>Citation</strong>
+        <p><b>What it is:</b> A pointer to the source behind a claim. It might be a link, document name, page number, or quoted reference.</p>
+        <p><b>Where it comes up:</b> Research summaries, vendor comparisons, policy notes, legal-sounding claims, and anything AI says came from somewhere specific.</p>
+        <p class="analogy"><b>Analogy:</b> A name tag for the claim. Helpful, but you still check whether the person is actually on the list.</p>
+      </article>
+
+      <article class="glossary-card" data-term="verification">
+        <strong>Verification</strong>
+        <p><b>What it is:</b> Checking whether an AI claim is accurate, current, relevant, and supported before you use it.</p>
+        <p><b>Where it comes up:</b> Before sending AI output in an email, deck, client note, policy question, budget discussion, or anything high-stakes.</p>
+        <p class="analogy"><b>Analogy:</b> Elle Woods checking the evidence before anyone gets to act confident.</p>
+      </article>
+
+      <article class="glossary-card" data-term="assumption">
+        <strong>Assumption</strong>
+        <p><b>What it is:</b> Something AI filled in because the prompt or source material did not explicitly say it.</p>
+        <p><b>Where it comes up:</b> When AI turns a possibility into a decision, guesses context, blends similar companies, or answers like it knows your workplace.</p>
+        <p class="analogy"><b>Analogy:</b> The part of the Burn Book entry that sounds plausible until someone asks who actually said that.</p>
       </article>
 
       <article class="glossary-card" data-term="model">
@@ -382,7 +410,7 @@
 
   <footer class="site-footer">
     <p>
-      <span class="wordmark" aria-label="lAIdies trademark"><span>l</span><strong>AI</strong><span>dies</span></span>&trade;
+      LAiDIES&trade;
       &copy; 2026 Ali Eakin. All rights reserved.
     </p>
     <div>

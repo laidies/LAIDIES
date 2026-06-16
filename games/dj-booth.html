@@ -3,66 +3,93 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>DJ JAIDY's Booth | LAIDIES Clubhouse</title>
-    <meta name="description" content="DJ JAIDY makes custom AI-generated songs for each LAIDIES episode. Step into the booth and listen." />
-    <meta property="og:title" content="DJ JAIDY's Booth | LAIDIES" />
-    <meta property="og:description" content="Custom AI-generated songs for each LAIDIES episode. Weekly jams from the booth." />
+    <title>DJ JAIDY's Booth | LAiDIES Clubhouse</title>
+    <meta name="description" content="DJ JAIDY makes custom AI-generated songs for each LAiDIES episode. Step into the booth and listen." />
+    <meta property="og:title" content="DJ JAIDY's Booth | LAiDIES" />
+    <meta property="og:description" content="Custom AI-generated songs for each LAiDIES episode. Weekly jams from the booth." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://wearelaidies.com/assets/house-dj-mixdesk.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#ff2d9b" />
-    <link rel="icon" type="image/png" href="../assets/laidies-logo-square.png" />
+    <meta name="theme-color" content="#b95d78" />
+    <link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
     <link rel="manifest" href="../manifest.webmanifest" />
-    <link rel="apple-touch-icon" href="../assets/laidies-logo-square.png" />
+    <link rel="apple-touch-icon" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
     <link rel="stylesheet" href="../styles.css?v=dj-booth-standalone-1" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <style>
-      /* === DJ BOOTH — DARK MOODY OVERRIDE === */
+      /* === DJ BOOTH — PEARL EDITORIAL SHELL === */
       :root {
-        --dj-bg: #0a0409;
-        --dj-surface: #140810;
-        --dj-card: #1a0c12;
-        --dj-pink: #ff2d9b;
-        --dj-pink-glow: rgba(255, 45, 155, 0.6);
-        --dj-pink-subtle: rgba(255, 45, 155, 0.12);
-        --dj-text: #fff;
-        --dj-muted: rgba(255, 255, 255, 0.55);
-        --dj-line: rgba(255, 45, 155, 0.2);
+        --dj-bg: #fbf6f5;
+        --dj-surface: #fffdfb;
+        --dj-card: #fffdfb;
+        --dj-pink: #b95d78;
+        --dj-pink-glow: rgba(185, 93, 120, 0.24);
+        --dj-pink-subtle: rgba(185, 93, 120, 0.12);
+        --dj-text: #4b2148;
+        --dj-muted: rgba(75, 33, 72, 0.66);
+        --dj-line: rgba(75, 33, 72, 0.16);
       }
 
       body {
         background: var(--dj-bg) !important;
         color: var(--dj-text);
         min-height: 100vh;
+        overflow-x: hidden;
       }
 
-      /* Ambient pink glow on body */
+      /* Soft editorial atmosphere */
       body::before {
         content: '';
         position: fixed;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(ellipse at 50% 20%, rgba(255, 45, 155, 0.04) 0%, transparent 60%),
-                    radial-gradient(ellipse at 80% 80%, rgba(255, 45, 155, 0.02) 0%, transparent 40%);
+        inset: 0;
+        width: auto;
+        height: auto;
+        background: radial-gradient(ellipse at 18% 4%, rgba(200, 220, 224, 0.18) 0%, transparent 56%),
+                    radial-gradient(ellipse at 80% 80%, rgba(232, 197, 200, 0.14) 0%, transparent 42%);
         pointer-events: none;
         z-index: 0;
       }
 
       .site-header {
-        background: rgba(10, 4, 9, 0.95) !important;
+        background: rgba(255, 253, 251, 0.96) !important;
         border-bottom: 1px solid var(--dj-line) !important;
         position: sticky;
         top: 0;
         z-index: 100;
+        width: 100%;
+        max-width: 100vw;
+        box-sizing: border-box;
+        gap: 12px;
+        flex-wrap: wrap;
+        overflow: clip;
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
       }
-      .site-header .nav a { color: rgba(255,255,255,0.7) !important; }
-      .site-header .nav a:hover { color: var(--dj-pink) !important; }
+      .site-header::before,
+      .site-header::after {
+        display: none !important;
+      }
+      .site-header > * {
+        min-width: 0;
+      }
+      .site-header .brand {
+        flex: 0 0 auto;
+      }
+      .site-header .nav {
+        flex: 1 1 620px;
+        min-width: 0;
+        max-width: 100%;
+        overflow: hidden;
+        justify-content: flex-end;
+        gap: 14px !important;
+      }
+      .site-header .nav a {
+        min-width: max-content;
+      }
+      .site-header .nav a { color: rgba(75, 33, 72, 0.78) !important; }
+      .site-header .nav a:hover { color: #6f263f !important; }
 
       main { position: relative; z-index: 1; }
 
@@ -80,14 +107,14 @@
         object-fit: cover;
         object-position: center 30%;
         display: block;
-        filter: brightness(0.6) saturate(1.2);
+        filter: brightness(0.86) saturate(0.96);
       }
       .dj-hero::after {
         content: '';
         position: absolute;
         bottom: 0; left: 0; right: 0;
         height: 60%;
-        background: linear-gradient(to bottom, transparent, var(--dj-bg));
+        background: linear-gradient(to bottom, transparent, rgba(251, 246, 245, 0.98));
         pointer-events: none;
       }
 
@@ -107,11 +134,11 @@
         display: block;
       }
       .dj-title-section h1 {
-        font-family: 'Space Grotesk', Georgia, serif;
+        font-family: 'Playfair Display', Didot, Georgia, serif;
         font-size: clamp(2.2rem, 5vw, 3.6rem);
         font-weight: 700;
-        color: #fff;
-        text-shadow: 0 0 40px var(--dj-pink-glow), 0 0 80px rgba(255, 45, 155, 0.3);
+        color: var(--dj-text);
+        text-shadow: none;
         margin: 0 0 12px;
         line-height: 1.1;
       }
@@ -159,7 +186,7 @@
           #0d0d0d 300deg, #222 330deg,
           #111 360deg
         );
-        box-shadow: 0 0 0 3px #333, 0 0 30px rgba(0,0,0,0.8), 0 0 60px rgba(255, 45, 155, 0.15);
+        box-shadow: 0 0 0 3px #333, 0 0 30px rgba(0,0,0,0.8), 0 0 60px rgba(185, 93, 120, 0.15);
         animation: spin 2.5s linear infinite;
         animation-play-state: paused;
         position: relative;
@@ -258,11 +285,11 @@
         margin-bottom: 8px;
       }
       .dj-now-playing-title {
-        font-family: 'Space Grotesk', Georgia, serif;
+        font-family: 'Playfair Display', Didot, Georgia, serif;
         font-size: clamp(1.3rem, 3vw, 1.8rem);
         font-weight: 700;
         color: #fff;
-        text-shadow: 0 0 20px var(--dj-pink-glow), 0 0 40px rgba(255, 45, 155, 0.2);
+        text-shadow: 0 0 20px var(--dj-pink-glow), 0 0 40px rgba(185, 93, 120, 0.2);
         margin: 0 0 6px;
         transition: opacity 0.3s;
       }
@@ -317,12 +344,12 @@
       .dj-btn-play {
         width: 68px; height: 68px;
         font-size: 1.6rem;
-        background: rgba(255, 45, 155, 0.2) !important;
+        background: rgba(185, 93, 120, 0.2) !important;
         border: 2px solid var(--dj-pink) !important;
-        box-shadow: 0 0 20px rgba(255, 45, 155, 0.3);
+        box-shadow: 0 0 20px rgba(185, 93, 120, 0.3);
       }
       .dj-btn-play:hover {
-        background: rgba(255, 45, 155, 0.35) !important;
+        background: rgba(185, 93, 120, 0.35) !important;
         box-shadow: 0 0 30px var(--dj-pink-glow);
       }
       .dj-btn-repeat {
@@ -382,7 +409,7 @@
         margin-bottom: 48px;
       }
       .dj-tracklist-section h2 {
-        font-family: 'Space Grotesk', Georgia, serif;
+        font-family: 'Playfair Display', Didot, Georgia, serif;
         font-size: 1rem;
         font-weight: 700;
         color: var(--dj-muted);
@@ -396,7 +423,7 @@
         gap: 14px;
         padding: 16px 18px;
         background: var(--dj-card);
-        border: 1.5px solid rgba(255, 45, 155, 0.15);
+        border: 1.5px solid rgba(185, 93, 120, 0.15);
         border-radius: 12px;
         margin-bottom: 10px;
         cursor: pointer;
@@ -405,15 +432,15 @@
         text-decoration: none;
       }
       .dj-track-card:hover {
-        background: rgba(255, 45, 155, 0.06);
-        border-color: rgba(255, 45, 155, 0.4);
+        background: rgba(185, 93, 120, 0.06);
+        border-color: rgba(185, 93, 120, 0.4);
         transform: translateX(4px);
-        box-shadow: 0 4px 20px rgba(255, 45, 155, 0.1);
+        box-shadow: 0 4px 20px rgba(185, 93, 120, 0.1);
       }
       .dj-track-card.is-active {
-        background: rgba(255, 45, 155, 0.1);
+        background: rgba(185, 93, 120, 0.1);
         border-color: var(--dj-pink);
-        box-shadow: 0 0 20px rgba(255, 45, 155, 0.15), inset 0 0 20px rgba(255, 45, 155, 0.05);
+        box-shadow: 0 0 20px rgba(185, 93, 120, 0.15), inset 0 0 20px rgba(185, 93, 120, 0.05);
       }
       .dj-track-card-number {
         font-family: 'JetBrains Mono', monospace;
@@ -426,7 +453,7 @@
       }
       .dj-track-card-badge {
         display: inline-block;
-        background: rgba(255, 45, 155, 0.15);
+        background: rgba(185, 93, 120, 0.15);
         color: var(--dj-pink);
         font-size: 0.6rem;
         font-weight: 800;
@@ -469,7 +496,7 @@
         text-align: center;
       }
       .dj-spotify-section h2 {
-        font-family: 'Space Grotesk', Georgia, serif;
+        font-family: 'Playfair Display', Didot, Georgia, serif;
         font-size: 1rem;
         font-weight: 700;
         color: var(--dj-muted);
@@ -489,7 +516,7 @@
         gap: 10px;
         padding: 14px 24px;
         background: var(--dj-card);
-        border: 1.5px solid rgba(255, 45, 155, 0.25);
+        border: 1.5px solid rgba(185, 93, 120, 0.25);
         border-radius: 50px;
         color: #fff;
         text-decoration: none;
@@ -498,9 +525,9 @@
         transition: background 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.15s;
       }
       .dj-spotify-btn:hover {
-        background: rgba(255, 45, 155, 0.1);
+        background: rgba(185, 93, 120, 0.1);
         border-color: var(--dj-pink);
-        box-shadow: 0 4px 24px rgba(255, 45, 155, 0.2);
+        box-shadow: 0 4px 24px rgba(185, 93, 120, 0.2);
         transform: translateY(-2px);
       }
       .dj-spotify-btn svg {
@@ -525,7 +552,7 @@
       }
       .dj-back-link a:hover {
         background: var(--dj-pink-subtle);
-        border-color: rgba(255, 45, 155, 0.5);
+        border-color: rgba(185, 93, 120, 0.5);
       }
       a[data-wednesday-return] {
         position: fixed !important;
@@ -538,13 +565,13 @@
         max-width: calc(100% - 28px);
         margin: 0 !important;
         padding: 10px 14px !important;
-        border: 1px solid rgba(255,45,155,.42) !important;
+        border: 1px solid rgba(185,93,120,.42) !important;
         border-radius: 999px !important;
-        background: rgba(20,8,24,.86) !important;
-        color: #ff8ccc !important;
+        background: rgba(255, 253, 251, 0.92) !important;
+        color: var(--dj-text) !important;
         font-weight: 850 !important;
         text-decoration: none !important;
-        box-shadow: 0 12px 30px rgba(0,0,0,.28), 0 0 0 4px rgba(255,45,155,.1) !important;
+        box-shadow: 0 12px 30px rgba(75,33,72,.12), 0 0 0 4px rgba(185,93,120,.08) !important;
         backdrop-filter: blur(10px);
       }
       @media (max-width: 700px) {
@@ -564,7 +591,7 @@
         color: var(--dj-muted) !important;
       }
       .site-footer a { color: var(--dj-muted) !important; }
-      .site-footer a:hover { color: var(--dj-pink) !important; }
+      .site-footer a:hover { color: #6f263f !important; }
 
       /* === RESPONSIVE === */
       @media (max-width: 600px) {
@@ -590,9 +617,9 @@
 </head>
   <body>
     <header class="site-header">
-      <a href="../clubhouse.html" style="color: var(--dj-pink); font-size: 0.85rem; font-weight: 600; text-decoration: none; white-space: nowrap;">&larr; Back to Clubhouse</a>
-      <a class="brand" href="../index.html" aria-label="lAIdies home">
-        <img src="../assets/laidies-logo-wordmark.png" alt="LAIDIES" />
+      <a href="../clubhouse.html" style="color: #6f263f; font-size: 0.85rem; font-weight: 700; text-decoration: none; white-space: nowrap;">&larr; Back to Clubhouse</a>
+      <a class="brand" href="../index.html" aria-label="LAiDIES home">
+        <img src="../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
       </a>
       <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=this.nextElementSibling;if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'\u2630':'\u2715';this.setAttribute('aria-expanded',!isOpen);">&#9776;</button>
       <nav class="nav" aria-label="Primary navigation">
@@ -602,7 +629,7 @@
         <a href="../learn.html">Learn</a>
         <a href="../clubhouse.html">Clubhouse</a>
         <a href="../community.html">Community</a>
-        <a href="../clubhouse-pass.html" style="color: #ff2d9b; text-decoration: underline; margin-left: 8px;">Sign In</a>
+        <a href="../clubhouse-pass.html" style="color: #b95d78; text-decoration: underline; margin-left: 8px;">Sign In</a>
       </nav>
     </header>
 
@@ -678,11 +705,11 @@
           <div class="dj-spotify-buttons">
             <a href="https://open.spotify.com/playlist/0otpKZoGiISkRo3Pxutc6R" target="_blank" rel="noopener noreferrer" class="dj-spotify-btn">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-              LAIDIES Jams Vol. 1
+              LAiDIES Jams Vol. 1
             </a>
             <a href="https://open.spotify.com/playlist/2r39nbnpuxb7L0TcAovpwq" target="_blank" rel="noopener noreferrer" class="dj-spotify-btn">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-              LAIDIES Jams Vol. 2
+              LAiDIES Jams Vol. 2
             </a>
           </div>
         </section>
@@ -694,7 +721,7 @@
 
     <footer class="site-footer">
       <p>
-        <span class="footer-brand"><span class="wordmark" aria-label="lAIdies trademark"><span>l</span><strong>AI</strong><span>dies</span></span><sup class="legal-mark">&trade;</sup></span>
+        <span class="footer-brand"><span class="wordmark" aria-label="LAiDIES trademark">LAiDIES</span><sup class="legal-mark">&trade;</sup></span>
         <span class="footer-legal">&copy; 2026 Ali Eakin. All rights reserved.</span>
       </p>
       <div>
@@ -918,7 +945,7 @@
           link.dataset.wednesdayReturn = "true";
           link.href = "../this-week.html" + (issue ? "?issue=" + encodeURIComponent(Number(issue[0])) + "&bag=open" : "?bag=open");
           link.textContent = "\u2190 Back to the Bag";
-          link.style.cssText = "position:fixed;top:76px;left:clamp(14px,3vw,26px);right:auto;bottom:auto;z-index:120;display:inline-flex;max-width:calc(100% - 28px);margin:0;padding:10px 14px;border:1px solid rgba(255,45,155,.42);border-radius:999px;background:rgba(20,8,24,.86);color:#ff8ccc;font-weight:850;text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.28),0 0 0 4px rgba(255,45,155,.1);backdrop-filter:blur(10px);";
+          link.style.cssText = "position:fixed;top:76px;left:clamp(14px,3vw,26px);right:auto;bottom:auto;z-index:120;display:inline-flex;max-width:calc(100% - 28px);margin:0;padding:10px 14px;border:1px solid rgba(185,93,120,.42);border-radius:999px;background:rgba(255,253,251,.92);color:#4b2148;font-weight:850;text-decoration:none;box-shadow:0 12px 30px rgba(75,33,72,.12),0 0 0 4px rgba(185,93,120,.08);backdrop-filter:blur(10px);";
           app.insertAdjacentElement("beforebegin", link);
         }
         if (issue) {
@@ -952,9 +979,10 @@
       link.dataset.wednesdayReturn = "true";
       link.href = "../this-week.html" + (issue ? "?issue=" + encodeURIComponent(Number(issue[0])) + "&bag=open" : "?bag=open");
       link.textContent = "\u2190 Back to the Bag";
-      link.style.cssText = "position:fixed;top:76px;left:clamp(14px,3vw,26px);right:auto;bottom:auto;z-index:120;display:inline-flex;max-width:calc(100% - 28px);margin:0;padding:10px 14px;border:1px solid rgba(255,45,155,.42);border-radius:999px;background:rgba(20,8,24,.86);color:#ff8ccc;font-weight:850;text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.28),0 0 0 4px rgba(255,45,155,.1);backdrop-filter:blur(10px);";
+      link.style.cssText = "position:fixed;top:76px;left:clamp(14px,3vw,26px);right:auto;bottom:auto;z-index:120;display:inline-flex;max-width:calc(100% - 28px);margin:0;padding:10px 14px;border:1px solid rgba(185,93,120,.42);border-radius:999px;background:rgba(255,253,251,.92);color:#4b2148;font-weight:850;text-decoration:none;box-shadow:0 12px 30px rgba(75,33,72,.12),0 0 0 4px rgba(185,93,120,.08);backdrop-filter:blur(10px);";
       document.querySelector("main")?.prepend(link);
     })();
     </script>
-  </body>
+      <script src="../content/site/brand-polish.js" defer></script>
+</body>
 </html>
