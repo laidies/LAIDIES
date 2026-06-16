@@ -9,7 +9,7 @@
     <meta property="og:description" content="AI fluency for women with full calendars, high standards, and no patience for beige tech explanations." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://wearelaidies.com/" />
-    <meta property="og:image" content="https://wearelaidies.com/assets/brand/laidies-masthead-object-world-v4.png" />
+    <meta property="og:image" content="https://wearelaidies.com/assets/brand/laidies-masthead-object-world-issue-01-objects-v1.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#4b2148" />
     <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
@@ -323,7 +323,7 @@
         <a class="brand" href="#top" aria-label="LAiDIES home">
           <img src="assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
         </a>
-        <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=this.nextElementSibling;if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'☰':'✕';this.setAttribute('aria-expanded',!isOpen);">☰</button>
+        <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false">☰</button>
         <nav class="nav" aria-label="Primary navigation">
           <a href="start-here.html">New? Start Here</a>
           <a href="this-week.html">This Week</a>
@@ -338,7 +338,7 @@
       <!-- HERO -->
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-logo hero-masthead-layered" aria-label="LAiDIES — girl power meets machine power masthead with Burn Book, poof pen, flip phone, and aqua computer">
-          <img class="hero-masthead-scene" src="assets/brand/laidies-masthead-object-world-v4.png" alt="" aria-hidden="true" />
+          <img class="hero-masthead-scene" src="assets/brand/laidies-masthead-object-world-issue-01-objects-v1.png" alt="" aria-hidden="true" />
           <div class="hero-masthead-type" aria-hidden="true">
             <img class="hero-masthead-logo-mark" src="assets/brand/laidies-logo-masthead-approved-v3.png" alt="" />
             <p class="hero-masthead-motto">girl power <em>meets</em> machine power</p>
@@ -608,32 +608,39 @@
     <script src="content/site/supabase-config.js" defer></script>
     <script src="content/site/site-data.js" defer></script>
     <script src="script.js" defer></script>
-  <script>
-(function(){
-  var btn = document.querySelector(".hamburger-btn");
-  var nav = document.querySelector(".site-header .nav");
-  if (!btn || !nav) return;
-  btn.addEventListener("click", function() {
-    var open = nav.classList.toggle("is-open");
-    btn.setAttribute("aria-expanded", open);
-    btn.textContent = open ? "✕" : "☰";
-  });
-  nav.addEventListener("click", function(e) {
-    if (e.target.tagName === "A") {
-      nav.classList.remove("is-open");
-      btn.setAttribute("aria-expanded", "false");
-      btn.textContent = "☰";
-    }
-  });
-  document.addEventListener("click", function(e) {
-    if (!btn.contains(e.target) && !nav.contains(e.target) && nav.classList.contains("is-open")) {
-      nav.classList.remove("is-open");
-      btn.setAttribute("aria-expanded", "false");
-      btn.textContent = "☰";
-    }
-  });
-})();
-</script>
+    <script>
+      (function(){
+        var btn = document.querySelector(".hamburger-btn");
+        var nav = document.querySelector(".site-header .nav");
+        if (!btn || !nav) return;
+        nav.style.display = "";
+        btn.addEventListener("click", function() {
+          var open = nav.classList.toggle("is-open");
+          nav.style.display = "";
+          btn.setAttribute("aria-expanded", open);
+          btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+          btn.textContent = open ? "✕" : "☰";
+        });
+        nav.addEventListener("click", function(e) {
+          if (e.target.tagName === "A") {
+            nav.classList.remove("is-open");
+            nav.style.display = "";
+            btn.setAttribute("aria-expanded", "false");
+            btn.setAttribute("aria-label", "Open menu");
+            btn.textContent = "☰";
+          }
+        });
+        document.addEventListener("click", function(e) {
+          if (!btn.contains(e.target) && !nav.contains(e.target) && nav.classList.contains("is-open")) {
+            nav.classList.remove("is-open");
+            nav.style.display = "";
+            btn.setAttribute("aria-expanded", "false");
+            btn.setAttribute("aria-label", "Open menu");
+            btn.textContent = "☰";
+          }
+        });
+      })();
+    </script>
     <script src="/content/site/mini-player.js"></script>
 
     <script>

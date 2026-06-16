@@ -9,7 +9,7 @@
     <meta property="og:description" content="AI fluency for women with full calendars, high standards, and no patience for beige tech explanations.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wearelaidies.com/">
-    <meta property="og:image" content="https://wearelaidies.com/assets/brand/laidies-masthead-object-world-v4.png">
+    <meta property="og:image" content="https://wearelaidies.com/assets/brand/laidies-masthead-object-world-issue-01-objects-v1.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#4b2148">
     <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png">
@@ -2140,7 +2140,7 @@
     <div class="panel-backdrop" id="panelBackdrop" hidden>
       <section class="action-panel" role="dialog" aria-modal="true" aria-labelledby="panelTitle" aria-describedby="panelBody">
         <div class="found-object">
-          <img class="panel-preview" id="panelPreview" alt="" hidden>
+          <img class="panel-preview" id="panelPreview" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="" hidden>
           <div>
             <h2 id="panelTitle">This week's action</h2>
             <p id="panelBody">This action is ready inside the Wednesday Ritual.</p>
@@ -2216,6 +2216,7 @@
       var panelTitle = document.getElementById("panelTitle");
       var panelBody = document.getElementById("panelBody");
       var panelPreview = document.getElementById("panelPreview");
+      var blankPanelPreviewSrc = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
       var panelRating = document.getElementById("panelRating");
       var tryonRatingRange = document.getElementById("tryonRatingRange");
       var tryonRatingOutput = document.getElementById("tryonRatingOutput");
@@ -2942,7 +2943,7 @@
           panelPreview.hidden = false;
         } else if (panelPreview) {
           panelPreview.hidden = true;
-          panelPreview.removeAttribute("src");
+          panelPreview.src = blankPanelPreviewSrc;
           panelPreview.alt = "";
         }
 
