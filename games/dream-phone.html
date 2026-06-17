@@ -467,7 +467,7 @@
         <img src="../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
       </a>
       <nav class="nav-links" aria-label="Dream Phone navigation">
-        <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
+        <a href="../clubhouse.html" data-weekly-return-link>&larr; Back to Clubhouse</a>
         <a href="../games/dj-booth.html">Listen</a>
         <a href="../clubhouse-pass.html">Sign In</a>
       </nav>
@@ -567,6 +567,25 @@
     <script src="../content/site/site-data.js"></script>
     <script src="../script.js"></script>
     <!-- Dream Phone behavior is handled by ../script.js. -->
+    <script>
+      (function() {
+        var params = new URLSearchParams(window.location.search || "");
+        if (params.get("from") !== "this-week") return;
+        var issue = String(params.get("issue") || "").match(/\d+/);
+        var draftParam = params.get("draft") === "1" ? "&draft=1" : "";
+        var group = /^(fun|connect|realworld|practice)$/.test(params.get("group") || "") ? params.get("group") : "fun";
+        var labels = {
+          fun: "Back to Weekly Fun Pack",
+          connect: "Back to Meet & Celebrate",
+          realworld: "Back to the Book of Receipts",
+          practice: "Back to Weekly Study Pack"
+        };
+        var link = document.querySelector("[data-weekly-return-link]");
+        if (!link) return;
+        link.href = "../this-week.html" + (issue ? "?issue=" + encodeURIComponent(Number(issue[0])) + "&bag=open&group=" + encodeURIComponent(group) + draftParam : "?bag=open&group=" + encodeURIComponent(group) + draftParam);
+        link.textContent = "\u2190 " + (labels[group] || "Back to the Bag");
+      })();
+    </script>
 
       <script src="../content/site/mini-player.js"></script>
 </body>

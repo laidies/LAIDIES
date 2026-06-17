@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Madame CLAI-O | LAiDIES Clubhouse</title>
+  <title>Madame CLAi-O | LAiDIES Clubhouse</title>
     <meta name="description" content="Ask the crystal ball for a career and life reading. Practical advice, late-night-commercial drama." />
     <meta name="theme-color" content="#b95d78" />
     <link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
@@ -569,12 +569,12 @@
     <main>
       <div class="game-page-wrap">
         <div class="game-page-header">
-          <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
+          <a href="../clubhouse.html" data-weekly-return-link>&larr; Back to Clubhouse</a>
         </div>
 
         <div class="game-page-title">
           <p class="eyebrow">✨ Psychic Hotline ✨</p>
-          <h1>Madame CLAI-O</h1>
+          <h1>Madame CLAi-O</h1>
           <p class="subtitle">Practical advice, late-night-commercial drama.</p>
         </div>
 
@@ -585,7 +585,7 @@
             <span class="sparkle-2">✧</span>
             <span class="sparkle-3">⋆</span>
             <span class="sparkle-4">✦</span>
-            <img src="../assets/madame-claio-character-v1.png" alt="Madame CLAI-O" />
+            <img src="../assets/madame-claio-character-v1.png" alt="Madame CLAi-O" />
           </div>
           <div>
             <button class="call-button" type="button" id="fortuneButton">📞 CALL NOW FOR YOUR READING</button>
@@ -618,7 +618,7 @@
           </div>
         </div>
 
-        <p class="microcopy">Madame CLAI-O has 100 cards in her deck. Keep calling for new readings.</p>
+        <p class="microcopy">Madame CLAi-O has 100 cards in her deck. Keep calling for new readings.</p>
 
         <!-- Call History -->
         <div class="call-history" id="callHistory" style="display: none;">
@@ -628,7 +628,7 @@
         <!-- Badge Reveal -->
         <div class="badge-reveal" id="badgeReveal">
           <strong>🔮 Hotline Regular merit badge unlocked!</strong>
-          <p>You have called more times than Cher changed outfits before her driver's test. Madame CLAI-O recognizes your number.</p>
+          <p>You have called more times than Cher changed outfits before her driver's test. Madame CLAi-O recognizes your number.</p>
         </div>
       </div>
 
@@ -860,9 +860,9 @@
                 badges["hotline-regular"] = {
                   id: "hotline-regular",
                   title: "Hotline Regular merit badge",
-                  sticker: "CLAI-O",
+                  sticker: "Mme CLAi-O",
                   unlockedAt: new Date().toISOString(),
-                  source: "Madame CLAI-O",
+                  source: "Madame CLAi-O",
                 };
                 localStorage.setItem("laidiesSecretBadges", JSON.stringify(badges));
               }
@@ -889,6 +889,25 @@
       })();
     </script>
     <script>
+      (function() {
+        var params = new URLSearchParams(window.location.search || "");
+        if (params.get("from") !== "this-week") return;
+        var issue = String(params.get("issue") || "").match(/\d+/);
+        var draftParam = params.get("draft") === "1" ? "&draft=1" : "";
+        var group = /^(fun|connect|realworld|practice)$/.test(params.get("group") || "") ? params.get("group") : "fun";
+        var labels = {
+          fun: "Back to Weekly Fun Pack",
+          connect: "Back to Meet & Celebrate",
+          realworld: "Back to the Book of Receipts",
+          practice: "Back to Weekly Study Pack"
+        };
+        var link = document.querySelector("[data-weekly-return-link]");
+        if (link) {
+          link.href = "../this-week.html" + (issue ? "?issue=" + encodeURIComponent(Number(issue[0])) + "&bag=open&group=" + encodeURIComponent(group) + draftParam : "?bag=open&group=" + encodeURIComponent(group) + draftParam);
+          link.textContent = "\u2190 " + (labels[group] || "Back to the Bag");
+        }
+      })();
+
       (function(){
         var btn = document.querySelector(".hamburger-btn");
         var nav = document.querySelector(".site-header .nav");

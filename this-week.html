@@ -784,6 +784,38 @@
         font-size: 0.82rem;
       }
 
+      .ritual-control-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 9px;
+      }
+
+      .ritual-control-link {
+        display: inline-flex;
+        min-height: 34px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(75, 33, 72, 0.2);
+        border-radius: 999px;
+        padding: 8px 11px;
+        background: rgba(255, 253, 251, 0.78);
+        color: var(--plum);
+        font: inherit;
+        font-size: 0.76rem;
+        font-weight: 900;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .ritual-control-link:hover,
+      .ritual-control-link:focus-visible {
+        border-color: rgba(111, 38, 63, 0.42);
+        color: #8c1160;
+        outline: 3px solid rgba(200, 220, 224, 0.25);
+        outline-offset: 2px;
+      }
+
       .primary-button,
       .reset-button,
       .panel-close {
@@ -1256,6 +1288,28 @@
           0 12px 22px rgba(255, 20, 146, 0.22),
           0 0 0 4px rgba(255, 228, 122, 0.18),
           0 0 30px rgba(255, 20, 146, 0.26);
+      }
+
+      .ritual-choice-panel:not([hidden]) .ritual-mini-action {
+        position: relative;
+        overflow: hidden;
+        min-height: 74px;
+        padding-left: 50px;
+        text-align: left;
+      }
+
+      .ritual-choice-panel:not([hidden]) .ritual-mini-action::before {
+        content: "";
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        width: 24px;
+        height: 24px;
+        border-radius: 8px;
+        background:
+          linear-gradient(135deg, rgba(255, 20, 146, 0.92), rgba(255, 228, 122, 0.78));
+        box-shadow: 0 6px 16px rgba(140, 17, 96, 0.18);
+        transform: translateY(-50%) rotate(-7deg);
       }
 
       .ritual-action.is-complete,
@@ -2366,13 +2420,11 @@
       </a>
       <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=document.querySelector('.nav');if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'\u2630':'\u2715';this.setAttribute('aria-expanded',!isOpen);">&#x2630;</button>
       <nav class="nav" aria-label="Primary navigation">
-          <a href="start-here.html">New? Start Here</a>
-          <a href="this-week.html" aria-current="page">This Week</a>
-          <a href="episodes.html">Episodes</a>
-          <a href="learn.html">Learn</a>
-          <a href="clubhouse.html">Clubhouse</a>
-          <a href="community.html">Community</a>
-          <a href="clubhouse-pass.html" style="color: #6f263f; text-decoration: underline; margin-left: 8px;">Sign In</a>
+          <a href="this-week.html?issue=3&amp;bag=open" aria-current="page">Current Bag</a>
+          <a href="issues/issue-03.html">Read Current</a>
+          <a href="hot-goss.html">Hot Goss</a>
+          <a href="start-here.html">How LAiDIES Works</a>
+          <a href="clubhouse-pass.html" style="color: #6f263f; text-decoration: underline; margin-left: 8px;">Join</a>
         </nav>
     </header>
 
@@ -2398,6 +2450,10 @@
             <span class="note-kicker">Bag open</span>
             <h2 id="openIssueLoaded">Episode 02 loaded.</h2>
             <button class="reset-button" id="closeBagButton" type="button">Close the bag</button>
+            <div class="ritual-control-actions" aria-label="Bag shortcuts">
+              <a class="ritual-control-link" href="index.html">Back to Home</a>
+              <button class="ritual-control-link" id="copyBagLinkTopButton" type="button">Copy Link</button>
+            </div>
           </div>
         </div>
       </header>
@@ -2467,7 +2523,7 @@
             <a class="ritual-action" href="games/fun-pack.html?from=this-week&issue=2&bag=open" data-action="funpack">
               <span>4. Weekly Fun</span>
               <strong data-action-label>Weekly Fun Pack</strong>
-              <em>CLAI-O, Fairy Godmother, Dream Phone, and Girl Talk.</em>
+              <em>Madame CLAi-O, Fairy Godmother, Dream Phone, and Girl Talk.</em>
             </a>
 
             <button class="ritual-action" type="button" data-action="connect" data-choice-open="connect" data-complete-on-click="false" aria-expanded="false" aria-controls="connectDrawer">
@@ -2687,6 +2743,7 @@
       var charmClose = document.getElementById("charmClose");
       var shareBagButton = document.getElementById("shareBagButton");
       var copyBagLinkButton = document.getElementById("copyBagLinkButton");
+      var copyBagLinkTopButton = document.getElementById("copyBagLinkTopButton");
       var shareBagStatus = document.getElementById("shareBagStatus");
       var shareBagUrl = document.getElementById("shareBagUrl");
       var ritualChoiceShelf = document.getElementById("ritualChoiceShelf");
@@ -2835,6 +2892,12 @@
         return params.get("bag") === "open";
       }
 
+      function getRequestedGroup() {
+        var params = new URLSearchParams(window.location.search || "");
+        var group = params.get("group") || "";
+        return /^(practice|connect|realworld|fun)$/.test(group) ? group : "";
+      }
+
       function getSiteLink(episode, type) {
         return (episode.siteLinks || []).find(function(link) {
           return link && link.type === type && link.url;
@@ -2854,7 +2917,7 @@
       }
 
       function getPrintablePageUrl(issue) {
-        return addRitualReturnParams("printable.html", issue);
+        return addRitualReturnParams("printable.html", issue, "practice");
       }
 
       function shouldPreserveDraftForIssue(issue) {
@@ -2869,14 +2932,15 @@
         return tryOn ? core + " Episode note: " + tryOn : core;
       }
 
-      function addRitualReturnParams(url, issue) {
+      function addRitualReturnParams(url, issue, group) {
         if (!url || /^(https?:|mailto:|tel:|#)/i.test(url)) return url || "";
         var hashIndex = url.indexOf("#");
         var hash = hashIndex >= 0 ? url.slice(hashIndex) : "";
         var base = hashIndex >= 0 ? url.slice(0, hashIndex) : url;
         var separator = base.indexOf("?") === -1 ? "?" : "&";
         var draftParam = shouldPreserveDraftForIssue(issue) ? "&draft=1" : "";
-        return base + separator + "from=this-week&issue=" + encodeURIComponent(issue) + "&bag=open" + draftParam + hash;
+        var groupParam = group ? "&group=" + encodeURIComponent(group) : "";
+        return base + separator + "from=this-week&issue=" + encodeURIComponent(issue) + "&bag=open" + groupParam + draftParam + hash;
       }
 
       function updatePanelAction(action, options) {
@@ -3249,16 +3313,16 @@
           ? "operations/review-packets/episode-03-reader-preview.html?v=bag-return&from=this-week&issue=" + encodeURIComponent(issue) + "&bag=open&draft=1#top"
           : addRitualReturnParams(issueUrl, issue);
         var quizReturnUrl = addRitualReturnParams("learn/quiz.html#quiz-start", issue);
-        var communityReturnUrl = addRitualReturnParams(communityUrl, issue);
-        var tryOnReturnUrl = addRitualReturnParams("try-on.html", issue);
+        var communityReturnUrl = addRitualReturnParams(communityUrl, issue, "connect");
+        var tryOnReturnUrl = addRitualReturnParams("try-on.html", issue, "practice");
         var djReturnUrl = addRitualReturnParams("games/dj-booth.html?v=ritual-qa-2#djApp", issue);
-        var funPackReturnUrl = addRitualReturnParams("games/fun-pack.html", issue);
-        var gossReturnUrl = addRitualReturnParams("hot-goss.html?v=ritual-qa-3", issue);
-        var glossaryReturnUrl = addRitualReturnParams(((getSiteLink(episode, "glossary") || {}).url || "learn/glossary.html"), issue);
-        var cardPackReturnUrl = addRitualReturnParams(((getSiteLink(episode, "cardPack") || {}).url || "games/trading-cards.html"), issue);
-        var happyHourReturnUrl = addRitualReturnParams("games/businesswomens-special.html", issue);
-        var referenceReturnUrl = addRitualReturnParams("reference-closet.html", issue);
-        var whosWhoReturnUrl = addRitualReturnParams("community/laidy-spotlight.html", issue);
+        var funPackReturnUrl = addRitualReturnParams("games/fun-pack.html", issue, "fun");
+        var gossReturnUrl = addRitualReturnParams("hot-goss.html?v=ritual-qa-3", issue, "realworld");
+        var glossaryReturnUrl = addRitualReturnParams(((getSiteLink(episode, "glossary") || {}).url || "learn/glossary.html"), issue, "realworld");
+        var cardPackReturnUrl = addRitualReturnParams(((getSiteLink(episode, "cardPack") || {}).url || "games/trading-cards.html"), issue, "practice");
+        var happyHourReturnUrl = addRitualReturnParams("games/businesswomens-special.html", issue, "connect");
+        var referenceReturnUrl = addRitualReturnParams("reference-closet.html", issue, "realworld");
+        var whosWhoReturnUrl = addRitualReturnParams("community/laidy-spotlight.html", issue, "realworld");
         var printablePageUrl = getPrintablePageUrl(issue);
 
         currentIssueNumber = issue;
@@ -3454,7 +3518,10 @@
         var nextUrl = new URL(window.location.href);
         nextUrl.searchParams.set("issue", String(currentIssueNumber || ISSUE_FALLBACK.number));
         if (open) nextUrl.searchParams.set("bag", "open");
-        else nextUrl.searchParams.delete("bag");
+        else {
+          nextUrl.searchParams.delete("bag");
+          nextUrl.searchParams.delete("group");
+        }
         window.history.replaceState({ issue: currentIssueNumber, bag: open ? "open" : "closed" }, "", nextUrl.pathname + nextUrl.search + nextUrl.hash);
       }
 
@@ -3464,6 +3531,7 @@
         nextUrl.searchParams.set("issue", String(issue));
         nextUrl.searchParams.set("bag", "open");
         nextUrl.searchParams.delete("v");
+        nextUrl.searchParams.delete("group");
         if (shouldPreserveDraftForIssue(issue)) nextUrl.searchParams.set("draft", "1");
         nextUrl.hash = "";
         return nextUrl.toString();
@@ -3561,6 +3629,13 @@
             ritualChoiceShelf.scrollIntoView({ behavior: "smooth", block: "nearest" });
           }, 40);
         }
+        if (window.history && window.history.replaceState) {
+          var nextUrl = new URL(window.location.href);
+          nextUrl.searchParams.set("issue", String(currentIssueNumber || ISSUE_FALLBACK.number));
+          nextUrl.searchParams.set("bag", "open");
+          nextUrl.searchParams.set("group", name);
+          window.history.replaceState({ issue: currentIssueNumber, bag: "open", group: name }, "", nextUrl.pathname + nextUrl.search + nextUrl.hash);
+        }
         statusMessage.textContent = ACTION_LABELS[name] + " drawer is open.";
       }
 
@@ -3575,6 +3650,11 @@
           button.setAttribute("aria-expanded", "false");
         });
         statusMessage.textContent = "Back to the main Bag ritual.";
+        if (window.history && window.history.replaceState) {
+          var nextUrl = new URL(window.location.href);
+          nextUrl.searchParams.delete("group");
+          window.history.replaceState({ issue: currentIssueNumber, bag: bagIsOpen ? "open" : "closed" }, "", nextUrl.pathname + nextUrl.search + nextUrl.hash);
+        }
         if (lastChoiceTrigger) lastChoiceTrigger.focus({ preventScroll: true });
       }
 
@@ -3884,6 +3964,10 @@
         copyBagLinkButton.addEventListener("click", copyBagLink);
       }
 
+      if (copyBagLinkTopButton) {
+        copyBagLinkTopButton.addEventListener("click", copyBagLink);
+      }
+
       if (shareBagButton) {
         shareBagButton.addEventListener("click", shareBagLink);
       }
@@ -3964,13 +4048,29 @@
         var requested = getRequestedIssueNumber();
         var latest = publishedEpisodes[publishedEpisodes.length - 1] || ISSUE_FALLBACK;
         selectWeeklyIssue(requested || latest.number || ISSUE_FALLBACK.number, { updateUrl: false }).then(function() {
-          if (shouldOpenBagFromUrl()) openBag();
+          if (shouldOpenBagFromUrl()) {
+            openBag();
+            var requestedGroup = getRequestedGroup();
+            if (requestedGroup && requestedGroup !== "fun") {
+              window.setTimeout(function() {
+                openChoiceDrawer(requestedGroup, document.querySelector('[data-choice-open="' + requestedGroup + '"]'));
+              }, 80);
+            }
+          }
           else if (bagIsOpen) closeBag();
         });
       });
 
       loadWeeklyIssueData().then(function() {
-        if (shouldOpenBagFromUrl()) openBag();
+        if (shouldOpenBagFromUrl()) {
+          openBag();
+          var requestedGroup = getRequestedGroup();
+          if (requestedGroup && requestedGroup !== "fun") {
+            window.setTimeout(function() {
+              openChoiceDrawer(requestedGroup, document.querySelector('[data-choice-open="' + requestedGroup + '"]'));
+            }, 80);
+          }
+        }
       });
 
       panelBackdrop.addEventListener("click", function(event) {

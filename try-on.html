@@ -1169,10 +1169,18 @@
       }
       if (receiptSaveFields) receiptSaveFields.hidden = !config.showReceiptFields;
       var draftParam = params.get("draft") === "1" ? "&draft=1" : "";
-      var returnHref = "this-week.html?issue=" + encodeURIComponent(issue) + "&bag=open" + draftParam;
-      if (returnLink) returnLink.href = returnHref;
-      if (portalReturnLink) portalReturnLink.href = returnHref;
-      if (communityLink) communityLink.href = "community.html?from=this-week&issue=" + encodeURIComponent(issue) + "&bag=open" + draftParam;
+      var returnGroup = params.get("group") || "practice";
+      var groupParam = returnGroup ? "&group=" + encodeURIComponent(returnGroup) : "";
+      var returnHref = "this-week.html?issue=" + encodeURIComponent(issue) + "&bag=open" + groupParam + draftParam;
+      if (returnLink) {
+        returnLink.href = returnHref;
+        returnLink.textContent = returnGroup === "practice" ? "\u2190 Back to Weekly Study Pack" : "\u2190 Back to the Bag";
+      }
+      if (portalReturnLink) {
+        portalReturnLink.href = returnHref;
+        portalReturnLink.textContent = returnGroup === "practice" ? "Back to Weekly Study Pack" : "Back to the Bag";
+      }
+      if (communityLink) communityLink.href = "community.html?from=this-week&issue=" + encodeURIComponent(issue) + "&bag=open&group=connect" + draftParam;
       if (tryonSteps) {
         tryonSteps.replaceChildren();
         config.steps.forEach(function(step) {

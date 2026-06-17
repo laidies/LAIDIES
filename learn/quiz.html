@@ -630,7 +630,8 @@
       box-shadow: 0 14px 38px rgba(155, 63, 95, 0.14);
     }
     .quiz-score-row.tier-double,
-    .quiz-score-row.tier-receipts {
+    .quiz-score-row.tier-receipts,
+    .quiz-score-row.tier-receipts-plus {
       border-color: rgba(255, 228, 122, 0.72);
       box-shadow:
         0 18px 48px rgba(155, 63, 95, 0.2),
@@ -638,6 +639,7 @@
     }
     .quiz-score-row.tier-double::before,
     .quiz-score-row.tier-receipts::before,
+    .quiz-score-row.tier-receipts-plus::before,
     .quiz-score-row.is-celebrating::before {
       opacity: 1;
       animation: quizRewardGlow 1800ms ease-out;
@@ -751,7 +753,8 @@
         0 0 18px rgba(255, 228, 122, 0.72);
     }
     .quiz-score-row.tier-double .quiz-celebration span,
-    .quiz-score-row.tier-receipts .quiz-celebration span {
+    .quiz-score-row.tier-receipts .quiz-celebration span,
+    .quiz-score-row.tier-receipts-plus .quiz-celebration span {
       font-size: 2.05rem;
       animation-duration: 1900ms;
     }

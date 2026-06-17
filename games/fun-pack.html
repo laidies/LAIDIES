@@ -442,12 +442,12 @@
           <!-- Weekly Reading -->
           <a href="madame-claio.html" class="activity-card" data-activity="madame">
             <div class="activity-card-image">
-              <img src="../assets/madame-claio-character-v1.png" alt="Madame CLAI-O in a pink Y2K fortune-teller setup" loading="lazy" />
+              <img src="../assets/madame-claio-character-v1.png" alt="Madame CLAi-O in a pink Y2K fortune-teller setup" loading="lazy" />
               <span class="activity-card-time">~3 min</span>
             </div>
             <div class="activity-card-body">
               <h3>Weekly Reading</h3>
-              <p>Ask Madame CLAI-O for the tiny dramatic forecast you needed before opening another tab.</p>
+              <p>Ask Madame CLAi-O for the tiny dramatic forecast you needed before opening another tab.</p>
               <span class="card-cta">Get your reading &rarr;</span>
             </div>
           </a>
@@ -628,7 +628,7 @@
         const draftParam = params.get('draft') === '1' ? '&draft=1' : '';
         const link = document.createElement('a');
         link.dataset.wednesdayReturn = 'true';
-        link.href = '../this-week.html' + (issue ? '?issue=' + encodeURIComponent(Number(issue[0])) + '&bag=open' + draftParam : '?bag=open' + draftParam);
+        link.href = '../this-week.html' + (issue ? '?issue=' + encodeURIComponent(Number(issue[0])) + '&bag=open&group=fun' + draftParam : '?bag=open&group=fun' + draftParam);
         link.textContent = '\u2190 Back to the Bag';
         link.style.cssText = 'position:fixed;bottom:calc(16px + env(safe-area-inset-bottom));left:clamp(14px,3vw,26px);right:auto;z-index:120;display:inline-flex;align-items:center;justify-content:center;max-width:calc(100% - 28px);margin:0;padding:10px 14px;border:1px solid rgba(185,93,120,.42);border-radius:999px;background:rgba(255,253,251,.94);color:#4b2148;font-weight:850;text-decoration:none;box-shadow:0 12px 30px rgba(75,33,72,.12),0 0 0 4px rgba(185,93,120,.08);backdrop-filter:blur(10px);';
         document.querySelector('main')?.prepend(link);

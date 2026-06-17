@@ -632,6 +632,8 @@
       .article-card blockquote {
         position: relative;
         clear: both;
+        display: block;
+        isolation: isolate;
         max-width: min(94%, 760px);
         margin: clamp(3.1rem, 7vw, 5rem) auto;
         padding: clamp(1.35rem, 3vw, 1.9rem) clamp(1.55rem, 4vw, 2.35rem) clamp(1.35rem, 3vw, 1.9rem) clamp(5.2rem, 13vw, 8.8rem);
@@ -769,6 +771,48 @@
         display: none;
       }
 
+      @media (min-width: 980px) {
+        .article-card blockquote.pullquote-side {
+          float: right;
+          clear: right;
+          width: min(39%, 360px);
+          max-width: 360px;
+          margin: 0.4rem 0 1.45rem 2rem;
+          padding: 1.1rem 1rem 1.2rem 3.2rem;
+          font-size: clamp(1.24rem, 1.45vw, 1.58rem);
+        }
+
+        .article-card blockquote.pullquote-left {
+          float: left;
+          clear: left;
+          margin: 0.35rem 2rem 1.45rem 0;
+        }
+
+        .article-card blockquote.pullquote-compact {
+          width: min(46%, 460px);
+          max-width: 460px;
+        }
+
+        .article-card blockquote.pullquote-feature,
+        .article-card blockquote.pullquote-sticker {
+          clear: both;
+        }
+      }
+
+      .article-card h2#last-week-on-laidies,
+      .article-card h2#on-this-episode {
+        margin: clamp(2.4rem, 5vw, 3.8rem) 0 1.15rem;
+        padding: clamp(1rem, 2.2vw, 1.4rem) clamp(1rem, 2.8vw, 1.7rem);
+        background:
+          linear-gradient(90deg, rgba(252, 228, 242, 0.78), rgba(255, 253, 251, 0.12)),
+          linear-gradient(180deg, rgba(255, 253, 251, 0.92), rgba(247, 238, 238, 0.78));
+        border-left: 5px solid rgba(185, 93, 120, 0.64);
+        border-radius: 0 16px 16px 0;
+        font-style: italic;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+
       .article-card pre {
         white-space: pre-wrap;
         margin: 1.2rem 0 1.35rem;
@@ -886,11 +930,39 @@
         gap: 14px;
       }
 
-      .section-nav {
+      .section-nav-details {
         padding: 16px;
         background: rgba(255, 253, 251, 0.9);
         border: 1px solid var(--line);
         border-radius: 8px;
+      }
+
+      .section-nav-details summary {
+        color: var(--plum);
+        cursor: pointer;
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+        list-style: none;
+        text-transform: uppercase;
+      }
+
+      .section-nav-details summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .section-nav-details summary::after {
+        content: "+";
+        float: right;
+        color: var(--wine);
+      }
+
+      .section-nav-details[open] summary::after {
+        content: "-";
+      }
+
+      .section-nav {
+        margin-top: 10px;
       }
 
       .section-nav a {
@@ -953,6 +1025,16 @@
         font-size: 0.86rem;
         font-weight: 650;
         line-height: 1.45;
+      }
+
+      .ritual-side-note {
+        margin-top: 12px;
+        border-top: 1px solid rgba(75, 33, 72, 0.12);
+        padding-top: 12px;
+        color: #6f263f;
+        font-size: 0.78rem;
+        font-weight: 850;
+        line-height: 1.4;
       }
 
       .ritual-side-primary {
@@ -1160,7 +1242,7 @@
   </head>
   <body>
     <div class="preview-ribbon public-ribbon">
-      <span><strong>LAiDIES Issue 03.</strong> The Burn Book Problem is now live.</span>
+      <span><strong>ISSUE 03</strong> &middot; THE BURN BOOK PROBLEM</span>
       <nav aria-label="Article sections">
         <a href="../this-week.html?issue=3&amp;bag=open">Back to the Bag</a>
         <a href="#article">Article</a>
@@ -1190,8 +1272,8 @@
           <p data-field="tryOn">Open your own AI tool, paste Prompt Like Elle, add a low-risk task or source notes, then verify at least three claims before using it.</p>
         </article>
         <article class="kit-card">
-          <span class="label">Main Character Energy</span>
-          <p data-field="mainCharacterEnergy">If the output has no receipts, I am not putting my name on it.</p>
+          <span class="label">This Week's Rule</span>
+          <p data-field="mainCharacterEnergy">Use the draft. Check the alibi.</p>
         </article>
       </section>
 
@@ -1204,16 +1286,23 @@
           <div class="ritual-side-card" aria-label="Finish the weekly ritual">
             <span class="label">After The Read</span>
             <h3>Finish the weekly ritual</h3>
-            <p>Do the quiz, grab the Elle printable, run the Try-On, and listen from the DJ booth without scrolling to the bottom of the issue.</p>
+            <p>Take the quiz, grab the Elle printable, run the Try-On, and play this week's anthem.</p>
             <a class="ritual-side-primary" href="../this-week.html?issue=3&amp;bag=open">Open the Episode 03 Bag</a>
             <div class="ritual-side-links">
-              <a href="../learn/quiz.html?from=this-week&amp;issue=3&amp;bag=open">Quiz</a>
-              <a href="../printable.html?issue=3&amp;from=this-week&amp;bag=open">Printable</a>
-              <a href="../try-on.html?from=this-week&amp;issue=3&amp;bag=open">Try-On</a>
-              <a href="../games/dj-booth.html?from=this-week&amp;issue=3&amp;bag=open#djApp">Jam</a>
+              <a href="../learn/quiz.html?from=this-week&amp;issue=3&amp;bag=open#quiz-start">Quiz</a>
+              <a href="../printable.html?issue=3&amp;from=this-week&amp;bag=open&amp;group=practice">Cheat Sheet</a>
+              <a href="../try-on.html?from=this-week&amp;issue=3&amp;bag=open&amp;group=practice">Try-On</a>
+              <a href="../games/trading-cards.html?from=this-week&amp;issue=3&amp;bag=open&amp;group=practice">Cards</a>
+              <a href="../games/dj-booth.html?from=this-week&amp;issue=3&amp;bag=open#djApp">Anthem</a>
+              <a href="../games/fun-pack.html?from=this-week&amp;issue=3&amp;bag=open&amp;group=fun">Weekly Fun</a>
+              <a href="../community.html?from=this-week&amp;issue=3&amp;bag=open&amp;group=connect">Room</a>
             </div>
+            <p class="ritual-side-note">Start with the article, then use the Bag to choose the next object.</p>
           </div>
-          <nav class="section-nav" data-section-nav aria-label="Article sections"></nav>
+          <details class="section-nav-details">
+            <summary>Jump to a section</summary>
+            <nav class="section-nav" data-section-nav aria-label="Article sections"></nav>
+          </details>
         </aside>
       </section>
 
@@ -1355,7 +1444,7 @@
           const heading = line.match(/^##\s+(.+)$/);
 
           if (/^#\s+/.test(line)) continue;
-          if (/^(Source metadata|Draft page gate|Release target|Status):/i.test(line)) continue;
+          if (/^(Source metadata|Draft page gate|Public page|Release target|Status):/i.test(line)) continue;
 
           if (heading) {
             hidden = allowedHiddenSections.has(heading[1].trim());

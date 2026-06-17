@@ -1287,10 +1287,10 @@ const hiddenMeritBadges = {
   "hotline-regular": {
     id: "hotline-regular",
     title: "Hotline Regular merit badge",
-    sticker: "CLAI-O",
-    source: "Madame CLAI-O",
+    sticker: "Mme CLAi-O",
+    source: "Madame CLAi-O",
     unlockMessage:
-      "Hotline Regular unlocked. You have called more times than Cher changed outfits before her driver's test. Madame CLAI-O recognizes your number.",
+      "Hotline Regular unlocked. You have called more times than Cher changed outfits before her driver's test. Madame CLAi-O recognizes your number.",
   },
   "remix-scholar": {
     id: "remix-scholar",
@@ -3060,7 +3060,7 @@ const clubhouseZoneMessages = {
   "fun-pack-19-24": "<strong>Fun Packs 19-24:</strong> Reserved for the full-season archive.",
   "weekly-jams": "<strong>Weekly Jams:</strong> DJ JAIDY's weekly AI song lives beside the issue packs.",
   "mix-cds": "<strong>Mix CDs:</strong> Open the DJ Booth for playlists, mix CDs, and weekly track slots.",
-  psychic: "<strong>Call Psychic Hotline:</strong> Jump to Madame CLAI-O for the crystal-phone reading.",
+  psychic: "<strong>Call Psychic Hotline:</strong> Jump to Madame CLAi-O for the crystal-phone reading.",
   "dream-phone": "<strong>Call Dream Phone:</strong> Open the Dream Phone nook and dial a card.",
   "girl-talk": "<strong>Open Girl Talk:</strong> Draw a prompt card from the Girl Talk board.",
   "try-on": "<strong>5min Try-On:</strong> Open the Power Suit Playbook for quick practice prompts.",
@@ -3324,7 +3324,7 @@ window.shuffleTryOnIdea = shuffleTryOnIdea;
 function renderFortuneOutput(card) {
   if (!fortuneOutput) return;
   const lines = [
-    ["Madame CLAI-O's Reading", ""],
+    ["Madame CLAi-O's Reading", ""],
     ["Your card is:", card.card],
     ["Reading:", card.read],
     ["Message:", card.message],
@@ -3354,7 +3354,7 @@ fortuneButton?.addEventListener("click", () => {
   const next = fortuneCards[lastFortuneIndex];
   madameClaioCallsThisSession += 1;
   renderFortuneOutput(next);
-  const unlockMessage = madameClaioCallsThisSession >= 5 ? unlockSecretBadge("hotline-regular", "Madame CLAI-O") : "";
+  const unlockMessage = madameClaioCallsThisSession >= 5 ? unlockSecretBadge("hotline-regular", "Madame CLAi-O") : "";
   if (unlockMessage && fortuneOutput) {
     const line = document.createElement("span");
     line.className = "fortune-line fortune-line--unlock";
@@ -4133,11 +4133,19 @@ function getQuizReturnConfig() {
   if (source === "this-week") {
     const issue = String(params.get("issue") || "").match(/\d+/)?.[0] || "";
     const draftFlag = params.get("draft") === "1" ? "&draft=1" : "";
-    const href = issue ? `this-week.html?issue=${encodeURIComponent(Number(issue))}&bag=open${draftFlag}` : "this-week.html?bag=open";
+    const group = /^(practice|connect|realworld|fun)$/.test(params.get("group") || "") ? params.get("group") : "";
+    const groupFlag = group ? `&group=${encodeURIComponent(group)}` : "";
+    const href = issue ? `this-week.html?issue=${encodeURIComponent(Number(issue))}&bag=open${groupFlag}${draftFlag}` : `this-week.html?bag=open${groupFlag}${draftFlag}`;
+    const groupLabels = {
+      practice: "Back to Weekly Study Pack",
+      connect: "Back to Meet & Celebrate",
+      realworld: "Back to the Book of Receipts",
+      fun: "Back to Weekly Fun Pack",
+    };
     return {
       source,
       href: new URL(href, getSiteRootUrl()).toString(),
-      label: "\u2190 Back to the Bag",
+      label: "\u2190 " + (groupLabels[group] || "Back to the Bag"),
       bodyClass: "from-wednesday-bag",
     };
   }
@@ -4496,10 +4504,13 @@ function formatQuizProgressDate(value) {
 }
 
 function getQuizReward(score, maxScore, bonusScore = 0) {
-  const totalScore = maxScore + bonusScore;
-  const percent = maxScore ? Math.min(score, maxScore) / maxScore : 0;
+  const numericScore = Number(score || 0);
+  const coreMax = Number(maxScore || 10);
+  const bonusMax = Number(bonusScore || 0);
+  const totalScore = coreMax + bonusMax;
+  const percent = coreMax ? Math.min(numericScore, coreMax) / coreMax : 0;
 
-  if (bonusScore && score >= totalScore) {
+  if (bonusMax && numericScore >= totalScore) {
     return {
       tier: "double",
       sticker: "2 Sticker Drop",
@@ -4507,7 +4518,15 @@ function getQuizReward(score, maxScore, bonusScore = 0) {
       message: "12/10. You get two stickers, one for the quiz and one for reading next week's diary early. Very limited-edition energy.",
     };
   }
-  if (score >= maxScore) {
+  if (bonusMax && numericScore > coreMax) {
+    return {
+      tier: "receipts-plus",
+      sticker: "Receipts Queen + Bonus Clip",
+      title: "Receipts Queen Extra Credit Sticker",
+      message: "11/10. Perfect core score plus one bonus receipt. You found the tiny timeline detail and still had time to fix your lip gloss.",
+    };
+  }
+  if (numericScore >= coreMax) {
     return {
       tier: "receipts",
       sticker: "Receipts Queen",
@@ -4547,10 +4566,15 @@ function getQuizReward(score, maxScore, bonusScore = 0) {
   };
 }
 
-function getQuizButterflyRating(coreScore, maxScore) {
-  const capped = Math.max(0, Math.min(Number(coreScore || 0), Number(maxScore || 10)));
+function getQuizButterflyRating(score, maxScore, bonusScore = 0) {
+  const coreMax = Number(maxScore || 10);
+  const totalMax = coreMax + Number(bonusScore || 0);
+  const visualMax = Math.max(coreMax, totalMax);
+  const capped = Math.max(0, Math.min(Number(score || 0), visualMax));
   const clips = Math.round(capped);
-  if (clips >= 10) return { clips: 10, title: "Almost enough for a full hairstyle.", tone: "perfect" };
+  if (bonusScore && clips >= totalMax) return { clips, title: "Full extra-credit hairstyle.", tone: "perfect" };
+  if (bonusScore && clips > coreMax) return { clips, title: "Extra-credit clip secured.", tone: "perfect" };
+  if (clips >= coreMax) return { clips: coreMax, title: "Almost enough for a full hairstyle.", tone: "perfect" };
   if (clips >= 8) return { clips, title: "Main character hold.", tone: "high" };
   if (clips >= 6) return { clips, title: "Calendar-ready.", tone: "high" };
   if (clips >= 4) return { clips, title: "Half-up, half-helpful.", tone: "mid" };
@@ -4564,6 +4588,7 @@ const quizStickerAssetManifest = {
   montage: { label: "Montage Mode" },
   caboodle: { label: "Caboodle Scholar" },
   receipts: { label: "Receipts Queen" },
+  "receipts-plus": { label: "Receipts Queen Extra Credit" },
   double: { label: "Double Sticker Drop" },
 };
 
@@ -4571,12 +4596,14 @@ function getQuizStickerAsset(reward) {
   return quizStickerAssetManifest[reward?.tier] || { label: reward?.sticker || "Sticker Drop" };
 }
 
-function renderButterflyRating(coreScore, quiz) {
+function renderButterflyRating(score, quiz) {
   if (!quizButterflyRating) return;
-  const rating = getQuizButterflyRating(coreScore, Number(quiz?.maxScore || 10));
+  const maxScore = Number(quiz?.maxScore || 10);
+  const bonusScore = Number(quiz?.bonusScore || 0);
+  const rating = getQuizButterflyRating(score, maxScore, bonusScore);
   const label = document.createElement("strong");
-  label.textContent = `${rating.clips}/10 butterfly clips · ${rating.title}`;
-  const clips = Array.from({ length: 10 }, (_, index) => {
+  label.textContent = `${rating.clips}/${maxScore} butterfly clips · ${rating.title}`;
+  const clips = Array.from({ length: Math.max(maxScore, rating.clips) }, (_, index) => {
     const clip = document.createElement("span");
     clip.className = "butterfly-clip";
     clip.classList.toggle("is-filled", index < rating.clips);
@@ -4645,7 +4672,7 @@ function renderQuizResult(score, quiz, reward, coreScore = score) {
   if (!quizResult) return;
   const bonusScore = Number(quiz?.bonusScore || 0);
   const maxScore = Number(quiz?.maxScore || 10);
-  const rating = getQuizButterflyRating(coreScore, maxScore);
+  const rating = getQuizButterflyRating(score, maxScore, bonusScore);
   quizResult.replaceChildren();
 
   const card = document.createElement("div");
@@ -4655,10 +4682,10 @@ function renderQuizResult(score, quiz, reward, coreScore = score) {
   scoreLine.textContent = `Score: ${score}/${maxScore}`;
 
   const ratingLine = document.createElement("span");
-  ratingLine.textContent = `Butterfly-clip rating: ${rating.clips}/10 · ${rating.title}`;
+  ratingLine.textContent = `Butterfly-clip rating: ${rating.clips}/${maxScore} · ${rating.title}`;
 
   const message = document.createElement("p");
-  message.textContent = `${reward.title}. ${reward.message} ${bonusScore ? "Bonus points show in the score, but butterfly clips stay on the 10-question scale. " : ""}Open your Clubhouse Pass to pin this quiz sticker to your card when you are ready.`;
+  message.textContent = `${reward.title}. ${reward.message} Open your Clubhouse Pass to pin this quiz sticker to your card when you are ready.`;
 
   card.append(scoreLine, ratingLine, message);
   quizResult.appendChild(card);
@@ -4696,7 +4723,7 @@ function renderQuizProgress() {
   if (quizRewardMessage) quizRewardMessage.textContent = reward.message || "Take this quiz to earn a sticker drop.";
   if (best > 0) {
     renderStickerDrop(reward, { earned: true });
-    renderButterflyRating(Number(record?.bestCoreScore || Math.min(best, quiz.maxScore)), quiz);
+    renderButterflyRating(best, quiz);
   } else {
     renderStickerDrop(reward, { earned: false });
     quizButterflyRating?.replaceChildren();
@@ -5048,7 +5075,7 @@ function gradeQuiz() {
   renderQuizProgress();
   renderQuizResult(score, quiz, reward, coreScore);
   renderStickerDrop(reward, { earned: true });
-  renderButterflyRating(coreScore, quiz);
+  renderButterflyRating(score, quiz);
   if (quizRewardTitle) quizRewardTitle.textContent = reward.title;
   if (quizBestScore) {
     quizBestScore.textContent = `This score: ${score}/${quiz.maxScore}. Best saved score: ${progress[activeQuizKey].bestScore}/${quiz.maxScore}.`;
@@ -5696,7 +5723,7 @@ function resolveSpotlightCardStyle(value) {
     }
     return {
       ...spotlightCardStyles[spotlightSurpriseChoices[selected]],
-      surpriseLabel: selected === "laidy-surprise" ? "LAIDY picked" : "Mme CLAI-O picked",
+      surpriseLabel: selected === "laidy-surprise" ? "LAIDY picked" : "Mme CLAi-O picked",
     };
   }
 

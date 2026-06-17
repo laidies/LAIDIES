@@ -950,8 +950,16 @@
         if (app && !document.querySelector("[data-wednesday-return]")) {
           var link = document.createElement("a");
           link.dataset.wednesdayReturn = "true";
-          link.href = "../this-week.html" + (issue ? "?issue=" + encodeURIComponent(Number(issue[0])) + "&bag=open" + draftParam : "?bag=open" + draftParam);
-          link.textContent = "\u2190 Back to the Bag";
+          var group = /^(fun|connect|realworld|practice)$/.test(params.get("group") || "") ? params.get("group") : "";
+          var groupParam = group ? "&group=" + encodeURIComponent(group) : "";
+          var labels = {
+            fun: "Back to Weekly Fun Pack",
+            connect: "Back to Meet & Celebrate",
+            realworld: "Back to the Book of Receipts",
+            practice: "Back to Weekly Study Pack"
+          };
+          link.href = "../this-week.html" + (issue ? "?issue=" + encodeURIComponent(Number(issue[0])) + "&bag=open" + groupParam + draftParam : "?bag=open" + groupParam + draftParam);
+          link.textContent = "\u2190 " + (labels[group] || "Back to the Bag");
           link.style.cssText = "position:fixed;top:76px;left:clamp(14px,3vw,26px);right:auto;bottom:auto;z-index:120;display:inline-flex;max-width:calc(100% - 28px);margin:0;padding:10px 14px;border:1px solid rgba(185,93,120,.42);border-radius:999px;background:rgba(255,253,251,.92);color:#4b2148;font-weight:850;text-decoration:none;box-shadow:0 12px 30px rgba(75,33,72,.12),0 0 0 4px rgba(185,93,120,.08);backdrop-filter:blur(10px);";
           app.insertAdjacentElement("beforebegin", link);
         }
@@ -985,8 +993,16 @@
       var draftParam = params.get("draft") === "1" ? "&draft=1" : "";
       var link = document.createElement("a");
       link.dataset.wednesdayReturn = "true";
-      link.href = "../this-week.html" + (issue ? "?issue=" + encodeURIComponent(Number(issue[0])) + "&bag=open" + draftParam : "?bag=open" + draftParam);
-      link.textContent = "\u2190 Back to the Bag";
+      var group = /^(fun|connect|realworld|practice)$/.test(params.get("group") || "") ? params.get("group") : "";
+      var groupParam = group ? "&group=" + encodeURIComponent(group) : "";
+      var labels = {
+        fun: "Back to Weekly Fun Pack",
+        connect: "Back to Meet & Celebrate",
+        realworld: "Back to the Book of Receipts",
+        practice: "Back to Weekly Study Pack"
+      };
+      link.href = "../this-week.html" + (issue ? "?issue=" + encodeURIComponent(Number(issue[0])) + "&bag=open" + groupParam + draftParam : "?bag=open" + groupParam + draftParam);
+      link.textContent = "\u2190 " + (labels[group] || "Back to the Bag");
       link.style.cssText = "position:fixed;top:76px;left:clamp(14px,3vw,26px);right:auto;bottom:auto;z-index:120;display:inline-flex;max-width:calc(100% - 28px);margin:0;padding:10px 14px;border:1px solid rgba(185,93,120,.42);border-radius:999px;background:rgba(255,253,251,.92);color:#4b2148;font-weight:850;text-decoration:none;box-shadow:0 12px 30px rgba(75,33,72,.12),0 0 0 4px rgba(185,93,120,.08);backdrop-filter:blur(10px);";
       document.querySelector("main")?.prepend(link);
     })();

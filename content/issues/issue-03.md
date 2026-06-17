@@ -1,9 +1,9 @@
 # Issue 03: The Burn Book Problem
 
 Source metadata: `content/episodes/issue-03.json`
-Draft page gate: `issues/issue-03.html`
+Public page: `issues/issue-03.html`
 Release target: Wednesday June 17, 2026
-Status: draft, not live
+Status: published, live
 
 ## Episode Banner Direction
 
@@ -97,7 +97,7 @@ It brought the wrong ID but somehow made it past the door.
 
 That is a U.S. HR answer in a Canadian workplace. A pricing page from last year wearing this year's lip gloss. A summary of what usually happens in the industry instead of what this client actually said. A meeting recap that turns "we talked about it" into "we decided." A policy answer that is technically true, except for the part where the exception is the entire point.
 
-That is the moment for the pink hoodie and oversized sunglasses. Context check, but make it Spring Fling.
+That is when you stand up in the back in your pink hoodie and oversized sunglasses and yell: she doesn't even go here.
 
 It is not just a classic line. It is a quality control standard.
 
@@ -157,9 +157,9 @@ If it says a number increased, increased from what, over what timeframe, and acc
 
 If it says "best practice," whose practice? Best for whom? Under what constraints? In what jurisdiction? For which customer? With what risk if it is wrong?
 
-Do not let the answer survive because it sounded calm twice.
+Do not be Chutney on the stand. Be Elle with the timeline.
 
-Be Elle with the timeline.
+Do not let the answer survive because it sounded calm twice.
 
 ## Cher's Closet Can Pick The Outfit. You Check The Dress Code.
 
@@ -174,6 +174,8 @@ AI is like that. It is excellent for shape.
 Let it draft the outline. Let it turn notes into a first pass. Let it make a checklist. Let it give you questions you should ask. Let it translate a messy thought into something you can edit.
 
 But do not confuse a good outfit with the right place to wear it. That distinction is the whole wardrobe check.
+
+A draft is an outfit. A claim is an alibi. Dress accordingly.
 
 > A draft is an outfit. A claim is an alibi. Dress accordingly.
 
@@ -329,7 +331,7 @@ You need ten minutes and enough self-respect not to let Chutney handle the timel
 
 > You do not need red string. You need ten minutes and enough self-respect not to let Chutney handle the timeline.
 
-Main Character Energy:
+This Week's Rule:
 
 ```text
 I can use the draft. I still check the alibi.

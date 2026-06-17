@@ -237,7 +237,9 @@
         var link = document.querySelector("[data-wednesday-return]");
         if (!link || params.get("from") !== "this-week") return;
         var issue = String(params.get("issue") || "").match(/\d+/);
-        link.href = "this-week.html" + (issue ? "?issue=" + encodeURIComponent(Number(issue[0])) + "&bag=open" : "?bag=open");
+        var draftParam = params.get("draft") === "1" ? "&draft=1" : "";
+        link.href = "this-week.html" + (issue ? "?issue=" + encodeURIComponent(Number(issue[0])) + "&bag=open&group=realworld" + draftParam : "?bag=open&group=realworld" + draftParam);
+        link.textContent = "\u2190 Back to the Book of Receipts";
         link.classList.add("is-visible");
       })();
     </script>

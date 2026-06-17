@@ -894,7 +894,8 @@
       const returnLink = document.querySelector('[data-wednesday-return]');
       if (returnLink && params.get('from') === 'this-week') {
         const draftParam = params.get('draft') === '1' ? '&draft=1' : '';
-        returnLink.href = '../this-week.html' + (issueMatch ? '?issue=' + encodeURIComponent(Number(issueMatch[0])) + '&bag=open' + draftParam : '?bag=open' + draftParam);
+        returnLink.href = '../this-week.html' + (issueMatch ? '?issue=' + encodeURIComponent(Number(issueMatch[0])) + '&bag=open&group=practice' + draftParam : '?bag=open&group=practice' + draftParam);
+        returnLink.textContent = '\u2190 Back to Weekly Study Pack';
         returnLink.hidden = false;
       }
       if (issueMatch && packSelect.querySelector('option[value="' + Number(issueMatch[0]) + '"]')) {

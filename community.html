@@ -34,6 +34,7 @@
       --card-glow: rgba(185,93,120,0.15);
       --muted: #5f4558;
       --text: #3f1737;
+      --plum: #3f1737;
       --white: #ffffff;
     }
 
@@ -214,22 +215,24 @@
     }
 
     .wednesday-return {
+      position: fixed;
+      bottom: calc(16px + env(safe-area-inset-bottom));
+      left: clamp(14px, 3vw, 26px);
+      right: auto;
+      z-index: 120;
       display: inline-flex;
+      align-items: center;
+      justify-content: center;
       width: fit-content;
+      max-width: calc(100% - 28px);
       margin: 0;
       border: 1px solid rgba(185,93,120,0.42);
       border-radius: 999px;
       padding: 10px 14px;
-      background: rgba(255, 253, 251, 0.92);
+      background: rgba(255, 253, 251, 0.94);
       color: var(--plum);
       font-weight: 800;
       text-decoration: none;
-      position: fixed;
-      top: 76px;
-      left: clamp(14px, 3vw, 26px);
-      right: auto;
-      bottom: auto;
-      z-index: 120;
       backdrop-filter: blur(10px);
       box-shadow:
         0 12px 30px rgba(75, 33, 72, 0.12),
@@ -269,9 +272,9 @@
       .hamburger-btn { display: block; }
       .wednesday-return {
         left: 14px;
-        right: auto;
-        top: 72px;
-        max-width: calc(100% - 28px);
+        right: 14px;
+        bottom: calc(12px + env(safe-area-inset-bottom));
+        width: auto;
         justify-content: center;
       }
     }
@@ -887,13 +890,13 @@
             <span class="thumb-tag">f<span style="color:var(--hot-pink);font-weight:800;">AI</span>ry Godmother</span>
           </div>
         </div>
-        <!-- Card 6: Mme CLAI-O (stock) — sunset bg -->
+        <!-- Card 6: Mme CLAi-O (stock) — sunset bg -->
         <div class="thumb-card" data-type="stock" data-tags="stock help connect" data-card="claio">
           <div class="thumb-bg card-bg-sunset">
-            <img class="thumb-photo" src="assets/madame-claio-character-v1.png" alt="Mme CLAI-O" />
+            <img class="thumb-photo" src="assets/madame-claio-character-v1.png" alt="Mme CLAi-O" />
           </div>
           <div class="thumb-info">
-            <h3>Mme CLAI-O</h3>
+            <h3>Mme CLAi-O</h3>
             <span class="thumb-tag">Psychic Hotline</span>
           </div>
         </div>
@@ -1038,7 +1041,7 @@
     claio: {
       photo: 'assets/madame-claio-character-v1.png',
       bgClass: 'card-bg-sunset',
-      name: 'Mme CLAI-O',
+      name: 'Mme CLAi-O',
       era: 'Psychic Hotline Era',
       desc: 'Sees the future, notices the missing source, and refuses to bless a vague strategy deck.',
       meta: '<strong>Special move:</strong> delivers one omen, one receipt, and one small action before the meeting invite multiplies.',
@@ -1206,11 +1209,12 @@
     if (params.get('from') !== 'this-week' || document.querySelector('[data-wednesday-return]')) return;
     const issue = String(params.get('issue') || '').match(/\d+/);
     const issueValue = issue ? Number(issue[0]) : '';
+    const draftParam = params.get('draft') === '1' ? '&draft=1' : '';
     const link = document.createElement('a');
     link.dataset.wednesdayReturn = 'true';
     link.className = 'wednesday-return';
-    link.href = 'this-week.html' + (issueValue ? '?issue=' + encodeURIComponent(issueValue) + '&bag=open' : '?bag=open');
-    link.textContent = '\u2190 Back to the Bag';
+    link.href = 'this-week.html' + (issueValue ? '?issue=' + encodeURIComponent(issueValue) + '&bag=open&group=connect' + draftParam : '?bag=open&group=connect' + draftParam);
+    link.textContent = '\u2190 Back to Meet & Celebrate';
     document.querySelector('main')?.prepend(link);
 
     if (!issueValue) return;
@@ -1220,7 +1224,7 @@
       const hash = hashIndex >= 0 ? href.slice(hashIndex) : '';
       const base = hashIndex >= 0 ? href.slice(0, hashIndex) : href;
       const separator = base.includes('?') ? '&' : '?';
-      roomLink.href = base + separator + 'from=this-week&issue=' + encodeURIComponent(issueValue) + '&bag=open' + hash;
+      roomLink.href = base + separator + 'from=this-week&issue=' + encodeURIComponent(issueValue) + '&bag=open&group=connect' + draftParam + hash;
     });
   })();
   </script>

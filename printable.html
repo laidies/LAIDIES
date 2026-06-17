@@ -398,12 +398,12 @@
     function addReturnParams(url) {
       if (!fromBag) return url;
       var separator = url.indexOf("?") === -1 ? "?" : "&";
-      return url + separator + "from=this-week&issue=" + encodeURIComponent(issue) + "&bag=open" + draftParam;
+      return url + separator + "from=this-week&issue=" + encodeURIComponent(issue) + "&bag=open&group=practice" + draftParam;
     }
 
     if (returnLink) {
-      returnLink.href = "this-week.html?issue=" + encodeURIComponent(issue) + "&bag=open" + draftParam;
-      if (!fromBag) returnLink.textContent = "← Back to This Week";
+      returnLink.href = "this-week.html?issue=" + encodeURIComponent(issue) + "&bag=open&group=practice" + draftParam;
+      returnLink.textContent = fromBag ? "← Back to Weekly Study Pack" : "← Back to This Week";
     }
 
     if (funPackLink) {
