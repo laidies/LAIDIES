@@ -99,17 +99,20 @@
     }
 
     .wednesday-return {
-      position: sticky;
-      top: 66px;
-      z-index: 70;
+      position: fixed;
+      bottom: calc(16px + env(safe-area-inset-bottom));
+      left: clamp(14px, 3vw, 28px);
+      z-index: 140;
       display: inline-flex;
+      align-items: center;
+      justify-content: center;
       width: fit-content;
       max-width: calc(100% - 28px);
-      margin: 14px 0 0 clamp(14px, 3vw, 28px);
+      margin: 0;
       padding: 10px 14px;
       border: 1px solid rgba(75, 33, 72, 0.22);
       border-radius: 999px;
-      background: rgba(255, 253, 251, 0.88);
+      background: rgba(255, 253, 251, 0.94);
       color: #6f263f;
       font-size: 0.84rem;
       font-weight: 900;
@@ -223,19 +226,19 @@
 
     .exercise-card,
     .save-card {
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 28px;
+      border: 1px solid rgba(75, 33, 72, 0.18);
+      border-radius: 22px;
       padding: clamp(18px, 3vw, 28px);
       background:
-        linear-gradient(135deg, rgba(255, 249, 236, 0.12), rgba(255, 217, 233, 0.1)),
-        rgba(13, 6, 15, 0.54);
-      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+        radial-gradient(circle at 90% 0%, rgba(200, 220, 224, 0.18), transparent 18rem),
+        linear-gradient(145deg, rgba(255, 253, 251, 0.96), rgba(247, 238, 238, 0.84));
+      box-shadow: 0 22px 52px rgba(75, 33, 72, 0.12);
     }
 
     .exercise-card h2,
     .save-card h2 {
       margin: 12px 0 8px;
-      color: var(--cream);
+      color: var(--plum);
       font-family: var(--font-heading);
       font-size: clamp(1.65rem, 3vw, 2.2rem);
       line-height: 1;
@@ -265,8 +268,8 @@
       border: 1px solid rgba(155, 63, 95, 0.2);
       border-radius: 18px;
       padding: 14px;
-      background: rgba(255, 249, 236, 0.08);
-      color: rgba(255, 248, 252, 0.9);
+      background: rgba(255, 253, 251, 0.72);
+      color: var(--plum);
       font-weight: 750;
     }
 
@@ -285,6 +288,207 @@
       box-shadow: 0 0 0 4px rgba(155, 63, 95, 0.12);
     }
 
+    .tryon-prompt-block {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+      border: 1px solid rgba(75, 33, 72, 0.16);
+      border-radius: 20px;
+      padding: clamp(16px, 3vw, 22px);
+      background:
+        linear-gradient(135deg, rgba(255, 253, 251, 0.94), rgba(232, 197, 200, 0.18)),
+        rgba(255, 253, 251, 0.82);
+    }
+
+    .tryon-prompt-block[hidden] {
+      display: none;
+    }
+
+    .tryon-prompt-block p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .tryon-prompt-block h3 {
+      margin: 0;
+      color: var(--plum);
+      font-family: var(--font-heading);
+      font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+      line-height: 1.05;
+    }
+
+    .mini-example {
+      display: grid;
+      gap: 14px;
+      border: 1px solid rgba(155, 63, 95, 0.16);
+      border-radius: 20px;
+      padding: clamp(14px, 3vw, 18px);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(200, 220, 224, 0.24), transparent 16rem),
+        rgba(255, 253, 251, 0.72);
+    }
+
+    .mini-example-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .mini-example-card {
+      border: 1px solid rgba(75, 33, 72, 0.14);
+      border-radius: 16px;
+      padding: 12px;
+      background: rgba(255, 253, 251, 0.82);
+    }
+
+    .mini-example-card strong,
+    .form-label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--wine);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .mini-example-card p,
+    .mini-example-card li {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 750;
+      line-height: 1.38;
+    }
+
+    .mini-example-card ul {
+      display: grid;
+      gap: 7px;
+      margin: 0;
+      padding-left: 1.05rem;
+    }
+
+    .hand-note {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      line-height: 1.45;
+    }
+
+    .prompt-workbench {
+      display: grid;
+      gap: 14px;
+    }
+
+    .prompt-builder {
+      display: grid;
+      gap: 12px;
+      border: 1px solid rgba(155, 63, 95, 0.18);
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(255, 253, 251, 0.74);
+    }
+
+    .prompt-step-card {
+      display: grid;
+      gap: 8px;
+      border: 1px solid rgba(75, 33, 72, 0.12);
+      border-radius: 16px;
+      padding: 12px;
+      background: rgba(255, 253, 248, 0.84);
+    }
+
+    .prompt-step-card p,
+    .prompt-helper {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 750;
+      line-height: 1.4;
+    }
+
+    .prompt-builder textarea {
+      min-height: 150px;
+      border-radius: 14px;
+    }
+
+    .prompt-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .prompt-details {
+      border: 1px solid rgba(75, 33, 72, 0.14);
+      border-radius: 16px;
+      background: rgba(255, 253, 251, 0.7);
+      overflow: hidden;
+    }
+
+    .prompt-details summary {
+      cursor: pointer;
+      padding: 12px 14px;
+      color: var(--wine);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .prompt-details summary:focus-visible {
+      outline: 3px solid rgba(155, 63, 95, 0.28);
+      outline-offset: 2px;
+    }
+
+    .tryon-prompt-block pre {
+      white-space: pre-wrap;
+      margin: 0;
+      max-height: 360px;
+      overflow: auto;
+      border: 1px solid rgba(155, 63, 95, 0.18);
+      border-radius: 16px;
+      padding: 14px 16px;
+      background: rgba(255, 253, 248, 0.96);
+      color: var(--ink);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      line-height: 1.55;
+    }
+
+    .receipt-mini-guide {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .receipt-mini-guide div {
+      border: 1px solid rgba(75, 33, 72, 0.14);
+      border-radius: 16px;
+      padding: 12px;
+      background: rgba(255, 253, 251, 0.72);
+    }
+
+    .receipt-mini-guide strong {
+      display: block;
+      color: var(--plum);
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .receipt-mini-guide span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 750;
+      line-height: 1.35;
+    }
+
     .tryon-form {
       display: grid;
       gap: 18px;
@@ -294,7 +498,7 @@
     label {
       display: block;
       margin-bottom: 8px;
-      color: rgba(255, 249, 236, 0.86);
+      color: var(--wine);
       font-family: var(--font-mono);
       font-size: 0.72rem;
       font-weight: 900;
@@ -314,6 +518,15 @@
       font: inherit;
       line-height: 1.5;
       box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.66);
+    }
+
+    #receiptSaveFields {
+      display: grid;
+      gap: 18px;
+    }
+
+    #receiptSaveFields[hidden] {
+      display: none;
     }
 
     textarea:focus-visible,
@@ -337,13 +550,13 @@
     }
 
     .rating-score {
-      color: var(--cream);
+      color: var(--plum);
       font-size: 1rem;
       font-weight: 900;
     }
 
     .rating-description {
-      color: var(--yellow);
+      color: var(--wine);
       font-weight: 850;
     }
 
@@ -393,7 +606,7 @@
       border: 1px solid rgba(155, 63, 95, 0.34);
       border-radius: 999px;
       padding: 12px 18px;
-      background: linear-gradient(135deg, #ff3fa4, #ff1492);
+      background: var(--plum);
       color: white;
       font: inherit;
       font-weight: 900;
@@ -403,21 +616,61 @@
     }
 
     .button.secondary {
-      background: rgba(255, 249, 236, 0.1);
-      color: #fff8fc;
+      background: rgba(255, 253, 251, 0.78);
+      color: var(--wine);
       box-shadow: none;
     }
 
+    .button.small {
+      min-height: 40px;
+      padding: 9px 13px;
+      font-size: 0.82rem;
+    }
+
     .save-note,
-    .save-status {
+    .save-status,
+    .copy-status {
       margin: 0;
-      color: rgba(255, 248, 252, 0.7);
+      color: var(--muted);
       font-size: 0.86rem;
       font-weight: 700;
     }
 
     .save-status {
-      color: var(--yellow);
+      color: var(--wine);
+    }
+
+    .tryon-portal-note {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 0 24px;
+      border: 1px solid rgba(75, 33, 72, 0.16);
+      border-radius: 18px;
+      padding: clamp(16px, 3vw, 22px);
+      background:
+        radial-gradient(circle at 92% 8%, rgba(200, 220, 224, 0.2), transparent 18rem),
+        linear-gradient(145deg, rgba(255, 253, 251, 0.96), rgba(247, 238, 238, 0.84));
+      box-shadow: 0 18px 42px rgba(75, 33, 72, 0.1);
+    }
+
+    .tryon-portal-note span {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--wine);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .tryon-portal-note p {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
     }
 
     .site-footer {
@@ -448,12 +701,15 @@
         gap: 12px;
         padding: 16px 24px;
         border-bottom: 1px solid rgba(155, 63, 95, 0.16);
-        background: rgba(13, 10, 18, 0.98);
+        background: rgba(255, 253, 251, 0.98);
+        box-shadow: 0 18px 34px rgba(75, 33, 72, 0.12);
       }
       .nav.is-open { display: flex; }
       .wednesday-return {
-        top: 62px;
-        margin-left: 12px;
+        right: 12px;
+        bottom: calc(12px + env(safe-area-inset-bottom));
+        left: 12px;
+        width: auto;
       }
       main {
         width: min(100% - 24px, 620px);
@@ -464,6 +720,20 @@
       .button,
       .button-row {
         width: 100%;
+      }
+      .prompt-tools {
+        align-items: stretch;
+        flex-direction: column;
+      }
+      .receipt-mini-guide {
+        grid-template-columns: 1fr;
+      }
+      .mini-example-grid {
+        grid-template-columns: 1fr;
+      }
+      .tryon-portal-note {
+        align-items: stretch;
+        flex-direction: column;
       }
     }
   </style>
@@ -491,14 +761,22 @@
     <section class="tryon-hero" aria-labelledby="tryonTitle">
       <div>
         <span class="eyebrow" id="episodeEyebrow">Episode Try-On</span>
-        <h1 id="tryonTitle">Try it once.</h1>
-        <p class="lede" id="tryonLede">The five-minute move from this week's Bag. One real task, two prompts, useful evidence.</p>
+        <h1 id="tryonTitle">The Try-On fitting room.</h1>
+        <p class="lede" id="tryonLede">The five-minute move from this week&rsquo;s Bag. Try the lesson on one real work task, compare the fit, and save what changed.</p>
       </div>
       <aside class="desk-note" aria-label="Try-On reminder">
         <strong>Five-minute fit check</strong>
         <p>Do not make this a whole productivity arc. One task. One before. One after. That is the point.</p>
       </aside>
     </section>
+
+    <aside class="tryon-portal-note" aria-label="How Try-On fits LAiDIES">
+      <div>
+        <span>Ritual connection</span>
+        <p>The episode explains the idea. The Try-On is where you apply it to actual work before the week becomes another open tab.</p>
+      </div>
+      <a class="button secondary" href="this-week.html?issue=2&bag=open">Back to the Bag</a>
+    </aside>
 
     <section class="tryon-shell">
       <article class="exercise-card" aria-labelledby="exerciseTitle">
@@ -511,6 +789,67 @@
           <li>Ask again with audience, context, tone, length, and what good looks like.</li>
           <li>Compare the outputs and save what changed.</li>
         </ol>
+        <div class="tryon-prompt-block" id="tryonPromptBlock" hidden>
+          <span class="step-kicker">The Try-On</span>
+          <h3 id="promptIntroTitle">Prompt Like Elle.</h3>
+          <p id="promptIntro">That is the copy-paste move. Not AI cosplay; an instruction you paste into your own AI tool so the draft comes back with claims, support, missing receipts, fragile details, uncertainty, and a safer version before anything borrows your name.</p>
+          <div class="mini-example" aria-label="Mini example">
+            <span class="step-kicker">Mini example</span>
+            <h3>Here were the notes. Here is what AI made too tidy.</h3>
+            <div class="mini-example-grid">
+              <div class="mini-example-card">
+                <strong>Messy notes</strong>
+                <p class="hand-note">July could work if procurement clears by Friday.<br>Training might move to phase two.<br>Final approval: account owner to confirm.</p>
+              </div>
+              <div class="mini-example-card">
+                <strong>AI answer</strong>
+                <p>The client approved a July rollout and asked us to remove the training module from scope.</p>
+              </div>
+              <div class="mini-example-card">
+                <strong>Receipts pass catches</strong>
+                <ul>
+                  <li>&ldquo;Could work&rdquo; is not approved.</li>
+                  <li>&ldquo;Phase two&rdquo; is not removed.</li>
+                  <li>The account owner still has the timeline.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-workbench">
+            <div class="prompt-builder">
+              <div class="prompt-step-card">
+                <span class="form-label">Step 1</span>
+                <p>Open your approved AI tool in another tab or app. This box will not answer anything; it only helps you copy the prompt.</p>
+                <button class="button small" id="copyPromptButton" type="button">Copy Prompt Like Elle</button>
+              </div>
+              <div class="prompt-step-card">
+                <label for="answerToCheck">Step 2: paste this under the prompt</label>
+                <textarea id="answerToCheck" placeholder="Example task: Turn these notes into a client-ready project update. Notes: July could work if procurement clears by Friday. Training might move to phase two. Final approval: account owner to confirm."></textarea>
+                <p class="prompt-helper">After you paste Prompt Like Elle into your AI tool, paste this task or notes under the line that says: Paste what you want AI to answer here.</p>
+                <div class="prompt-tools">
+                  <button class="button secondary small" id="sampleAnswerButton" type="button">Use the mini example</button>
+                  <button class="button secondary small" id="copyTaskButton" type="button">Copy my task/notes</button>
+                </div>
+              </div>
+              <p class="copy-status" id="copyStatus" aria-live="polite" hidden></p>
+            </div>
+            <details class="prompt-details">
+              <summary>Show the full prompt you are copying</summary>
+              <span class="form-label">Prompt Like Elle</span>
+              <pre id="tryonPromptText" tabindex="0"></pre>
+            </details>
+            <div class="receipt-mini-guide" aria-label="What to do after AI answers">
+              <div>
+                <strong>What AI does</strong>
+                <span>Drafts or revises inside clear boundaries, labels uncertainty, and separates supported claims from claims that still need receipts.</span>
+              </div>
+              <div>
+                <strong>What you do</strong>
+                <span>Check the source, date, quote, number, policy, person, or meeting note yourself.</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </article>
 
       <section class="save-card" aria-labelledby="saveTitle">
@@ -518,8 +857,20 @@
         <h2 id="saveTitle">How much better did it get?</h2>
         <form class="tryon-form" id="tryonForm">
           <div>
-            <label for="tryonNotes">Quick notes</label>
+            <label for="tryonNotes" id="tryonNotesLabel">Quick notes</label>
             <textarea id="tryonNotes" placeholder="What changed when you added audience, context, tone, length, and what good looks like?"></textarea>
+          </div>
+
+          <div id="receiptSaveFields" hidden>
+            <div>
+              <label for="receiptsChecked">Three receipts I checked</label>
+              <textarea id="receiptsChecked" placeholder="1. Source/date/quote/number checked...&#10;2. Stale or context-dependent detail checked...&#10;3. Detail I would not want to say without a receipt..."></textarea>
+            </div>
+
+            <div>
+              <label for="saferVersion">Safer version I can use</label>
+              <textarea id="saferVersion" placeholder="Rewrite the usable version here with unsupported claims removed, softened, or marked [needs receipt]."></textarea>
+            </div>
           </div>
 
           <div>
@@ -572,6 +923,7 @@
       1: {
         pad: "01",
         title: "On Wednesdays We Use AI",
+        exerciseTitle: "Give AI a better outfit for the task.",
         instruction: "Pick one real task. Ask AI vaguely once. Ask again with audience, context, tone, length, and what good looks like. Compare the outputs.",
         steps: [
           "Pick one real task from your actual week.",
@@ -583,12 +935,68 @@
       2: {
         pad: "02",
         title: "Tell Me What You Want",
+        exerciseTitle: "Give AI a clearer brief.",
         instruction: "Give AI the same real task twice: once vaguely, then once with audience, context, tone, length, and what not to include. Compare the outputs.",
         steps: [
           "Pick one real task from your actual week.",
           "Ask AI vaguely once.",
           "Ask again with audience, context, tone, length, and what not to include.",
           "Compare the outputs and save what got more useful."
+        ]
+      },
+      3: {
+        pad: "03",
+        title: "The Burn Book Problem",
+        lede: "A five-minute fitting-room Try-On for The Burn Book Problem. One low-risk work task, one Prompt Like Elle pass, one safer version.",
+        exerciseTitle: "Prompt Like Elle.",
+        instruction: "Use this before AI drafts. Bring a low-risk, non-confidential work task or notes, open your approved AI tool, paste Prompt Like Elle, then paste the task underneath it. Check the receipts yourself before anything borrows your name.",
+        notesPlaceholder: "What did the receipts pass catch? Which claim needed a source, date, policy, person, or meeting note?",
+        saveTitle: "What did the receipts pass catch?",
+        notesLabel: "The almost-true detail",
+        showReceiptFields: true,
+        includeAnswerInPrompt: false,
+        sampleAnswer: "Task: Turn these notes into a client-ready project update.\n\nNotes:\nJuly could work if procurement clears by Friday.\nTraining might move to phase two.\nFinal approval: account owner to confirm.",
+        promptTemplate: [
+          "Prompt Like Elle.",
+          "",
+          "I am using this for a low-risk work task. Help me reduce unsupported or hallucinated claims before I use it.",
+          "",
+          "By \"Prompt Like Elle,\" I mean: do not just make the answer sound polished. Put it on the stand. Separate what is supported from what is assumed, identify the fragile detail that could make the answer fall apart, and tell me exactly what receipt to check.",
+          "",
+          "First, read the task or notes under \"Paste what you want AI to answer here.\" Then follow the rules.",
+          "",
+          "Paste what you want AI to answer here:",
+          "{{ANSWER_TO_CHECK}}",
+          "",
+          "Rules:",
+          "- Use only the information I provided unless I explicitly included a source to check.",
+          "- If the provided material does not support a claim, mark it [needs receipt].",
+          "- If a detail may be stale, jurisdiction-specific, company-specific, customer-specific, or context-dependent, mark it [verify].",
+          "- Do not invent sources, links, quotes, dates, numbers, policies, people, or confidence.",
+          "- Do not say a claim is verified unless the provided material includes the receipt.",
+          "- If you are unsure, say what is uncertain and what would be needed to resolve it.",
+          "- If there is not enough information, ask up to three clarifying questions instead of guessing.",
+          "- Do not smooth over uncertainty to make the answer sound more finished.",
+          "",
+          "Return:",
+          "1. A concise usable draft or safer rewrite.",
+          "2. A receipt tray table with these columns:",
+          "   - Claim or detail",
+          "   - What supports it from the provided material",
+          "   - What is missing or uncertain",
+          "   - Receipt to check next",
+          "   - Risk if wrong",
+          "3. Assumptions or inferences you made.",
+          "4. The ordinary-looking detail most likely to make the answer fall apart if wrong.",
+          "5. Three human checks I should do before using this: source/date/quote/number, stale or context-specific detail, and the detail I would be embarrassed to repeat without support.",
+          "6. A final version with unsupported claims removed, softened, or marked [needs receipt]."
+        ].join("\n"),
+        steps: [
+          "Choose a low-risk work task or source notes you might actually use.",
+          "Paste the task or notes into the workbench, then copy Prompt Like Elle into your approved AI tool.",
+          "Use the returned receipt tray as a checklist, not proof.",
+          "Independently check three claims: one source/date/quote/number, one stale or context-dependent detail, and one detail you would be embarrassed to say without a receipt.",
+          "Save the safer version and what changed before it borrows your name."
         ]
       }
     };
@@ -602,9 +1010,22 @@
 
     var episodeEyebrow = document.getElementById("episodeEyebrow");
     var tryonLede = document.getElementById("tryonLede");
+    var exerciseTitle = document.getElementById("exerciseTitle");
     var episodeInstruction = document.getElementById("episodeInstruction");
     var tryonSteps = document.getElementById("tryonSteps");
+    var tryonPromptBlock = document.getElementById("tryonPromptBlock");
+    var tryonPromptText = document.getElementById("tryonPromptText");
+    var answerToCheck = document.getElementById("answerToCheck");
+    var sampleAnswerButton = document.getElementById("sampleAnswerButton");
+    var copyPromptButton = document.getElementById("copyPromptButton");
+    var copyTaskButton = document.getElementById("copyTaskButton");
+    var copyStatus = document.getElementById("copyStatus");
+    var saveTitle = document.getElementById("saveTitle");
     var tryonNotes = document.getElementById("tryonNotes");
+    var tryonNotesLabel = document.getElementById("tryonNotesLabel");
+    var receiptSaveFields = document.getElementById("receiptSaveFields");
+    var receiptsChecked = document.getElementById("receiptsChecked");
+    var saferVersion = document.getElementById("saferVersion");
     var tryonRating = document.getElementById("tryonRating");
     var ratingScore = document.getElementById("ratingScore");
     var ratingDescription = document.getElementById("ratingDescription");
@@ -612,6 +1033,7 @@
     var saveStatus = document.getElementById("saveStatus");
     var communityLink = document.getElementById("communityLink");
     var returnLink = document.querySelector("[data-wednesday-return]");
+    var portalReturnLink = document.querySelector(".tryon-portal-note .button.secondary");
     var navButton = document.querySelector(".hamburger-btn");
 
     function readJson(key, fallback) {
@@ -630,13 +1052,127 @@
       }
     }
 
+    function getPromptAnswerText() {
+      var value = answerToCheck ? answerToCheck.value.trim() : "";
+      return value || "[paste what you want AI to answer here]";
+    }
+
+    function getRenderedPrompt() {
+      if (!config.promptTemplate) return "";
+      var promptSlot = config.includeAnswerInPrompt === false ? "[paste what you want AI to answer here]" : getPromptAnswerText();
+      return config.promptTemplate.replace("{{ANSWER_TO_CHECK}}", promptSlot);
+    }
+
+    function renderPrompt() {
+      if (!tryonPromptText || !config.promptTemplate) return;
+      tryonPromptText.textContent = getRenderedPrompt();
+    }
+
+    function showCopyStatus(message) {
+      if (!copyStatus) return;
+      copyStatus.hidden = false;
+      copyStatus.textContent = message;
+    }
+
+    function fallbackCopy(text) {
+      var helper = document.createElement("textarea");
+      helper.value = text;
+      helper.setAttribute("readonly", "");
+      helper.style.position = "fixed";
+      helper.style.top = "-999px";
+      document.body.appendChild(helper);
+      helper.focus();
+      helper.select();
+      helper.setSelectionRange(0, helper.value.length);
+      var ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (error) {
+        ok = false;
+      }
+      helper.remove();
+      return ok;
+    }
+
+    function selectPromptText() {
+      if (!tryonPromptText || !window.getSelection) return false;
+      var range = document.createRange();
+      range.selectNodeContents(tryonPromptText);
+      var selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      tryonPromptText.focus({ preventScroll: true });
+      return true;
+    }
+
+    async function copyReceiptPrompt() {
+      var text = getRenderedPrompt();
+      if (!text) return;
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+        } else if (!fallbackCopy(text)) {
+          throw new Error("copy failed");
+        }
+        showCopyStatus("Copied. Paste Prompt Like Elle into your AI tool first, then paste your task or notes under the prompt.");
+      } catch (error) {
+        if (selectPromptText()) {
+          showCopyStatus("Copy was blocked, so the prompt is selected. Press Cmd+C, then paste your task or notes under the prompt in your AI tool.");
+        } else {
+          showCopyStatus("Copy did not work in this browser. Select the prompt text and copy it manually.");
+        }
+      }
+    }
+
+    async function copyTaskNotes() {
+      var text = answerToCheck ? answerToCheck.value.trim() : "";
+      if (!text) {
+        showCopyStatus("Add the task or notes first, then paste them under Prompt Like Elle in your AI tool.");
+        if (answerToCheck) answerToCheck.focus({ preventScroll: true });
+        return;
+      }
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+        } else if (!fallbackCopy(text)) {
+          throw new Error("copy failed");
+        }
+        showCopyStatus("Copied your task/notes. Paste them under the Prompt Like Elle instructions in your AI tool.");
+      } catch (error) {
+        if (answerToCheck) {
+          answerToCheck.focus({ preventScroll: true });
+          answerToCheck.select();
+          showCopyStatus("Copy was blocked, so your task/notes are selected. Press Cmd+C, then paste them under the prompt.");
+        } else {
+          showCopyStatus("Copy did not work in this browser. Select your task/notes and copy them manually.");
+        }
+      }
+    }
+
     function setIssueContent() {
       document.title = "Episode " + config.pad + " Try-On | LAiDIES";
       if (episodeEyebrow) episodeEyebrow.textContent = "Episode " + config.pad + " Try-On";
-      if (tryonLede) tryonLede.textContent = "A five-minute Try-On for " + config.title + ". One real task, two prompts, useful evidence.";
+      if (tryonLede) tryonLede.textContent = config.lede || ("A five-minute fitting-room Try-On for " + config.title + ". One real task, two prompts, useful evidence.");
+      if (exerciseTitle) exerciseTitle.textContent = config.exerciseTitle || "The weekly Try-On.";
       if (episodeInstruction) episodeInstruction.textContent = config.instruction;
-      if (returnLink) returnLink.href = "this-week.html?issue=" + encodeURIComponent(issue) + "&bag=open";
-      if (communityLink) communityLink.href = "community.html?from=this-week&issue=" + encodeURIComponent(issue) + "&bag=open";
+      if (saveTitle) saveTitle.textContent = config.saveTitle || "How much better did it get?";
+      if (tryonNotesLabel) tryonNotesLabel.textContent = config.notesLabel || "Quick notes";
+      if (tryonNotes && config.notesPlaceholder) tryonNotes.placeholder = config.notesPlaceholder;
+      if (tryonPromptBlock && tryonPromptText) {
+        if (config.promptTemplate) {
+          renderPrompt();
+          tryonPromptBlock.hidden = false;
+        } else {
+          tryonPromptText.textContent = "";
+          tryonPromptBlock.hidden = true;
+        }
+      }
+      if (receiptSaveFields) receiptSaveFields.hidden = !config.showReceiptFields;
+      var draftParam = params.get("draft") === "1" ? "&draft=1" : "";
+      var returnHref = "this-week.html?issue=" + encodeURIComponent(issue) + "&bag=open" + draftParam;
+      if (returnLink) returnLink.href = returnHref;
+      if (portalReturnLink) portalReturnLink.href = returnHref;
+      if (communityLink) communityLink.href = "community.html?from=this-week&issue=" + encodeURIComponent(issue) + "&bag=open" + draftParam;
       if (tryonSteps) {
         tryonSteps.replaceChildren();
         config.steps.forEach(function(step) {
@@ -669,8 +1205,13 @@
       var rating = typeof record.rating === "number" ? record.rating : 5;
       if (tryonRating) tryonRating.value = String(rating);
       if (tryonNotes) tryonNotes.value = record.notes || "";
+      if (answerToCheck) answerToCheck.value = record.answerToCheck || "";
+      if (receiptsChecked) receiptsChecked.value = record.receiptsChecked || "";
+      if (saferVersion) saferVersion.value = record.saferVersion || "";
+      renderPrompt();
       updateRating(rating);
-      if (record.savedAt && saveStatus) {
+      var hasSavedContent = Boolean(record.notes || record.answerToCheck || record.receiptsChecked || record.saferVersion);
+      if (record.savedAt && hasSavedContent && saveStatus) {
         saveStatus.hidden = false;
         saveStatus.textContent = "Saved to this device for now.";
       }
@@ -689,14 +1230,18 @@
       map[issueKey] = {
         rating: rating,
         notes: tryonNotes ? tryonNotes.value.trim() : "",
+        answerToCheck: answerToCheck ? answerToCheck.value.trim() : "",
+        receiptsChecked: receiptsChecked ? receiptsChecked.value.trim() : "",
+        saferVersion: saferVersion ? saferVersion.value.trim() : "",
         ratingDescription: ratingDescriptions[rating] || "",
         savedAt: new Date().toISOString()
       };
       writeJson(tryOnStorageKey, map);
       markTryOnComplete();
       if (saveStatus) {
-        saveStatus.hidden = false;
-        saveStatus.textContent = "Saved to this device for now.";
+        var hasContent = Boolean(map[issueKey].notes || map[issueKey].answerToCheck || map[issueKey].receiptsChecked || map[issueKey].saferVersion);
+        saveStatus.hidden = !hasContent;
+        saveStatus.textContent = hasContent ? "Saved to this device for now." : "";
       }
     }
 
@@ -708,6 +1253,16 @@
         updateRating(tryonRating.value);
       });
     }
+
+    answerToCheck?.addEventListener("input", renderPrompt);
+    sampleAnswerButton?.addEventListener("click", function() {
+      if (!answerToCheck || !config.sampleAnswer) return;
+      answerToCheck.value = config.sampleAnswer;
+      renderPrompt();
+      answerToCheck.focus({ preventScroll: true });
+    });
+    copyPromptButton?.addEventListener("click", copyReceiptPrompt);
+    copyTaskButton?.addEventListener("click", copyTaskNotes);
 
     document.getElementById("tryonForm")?.addEventListener("submit", function(event) {
       event.preventDefault();

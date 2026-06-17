@@ -1,34 +1,67 @@
 Subject: lAIdies #03: The Burn Book Problem
 
-Preview: Hallucinations, verification, and why polished output still needs receipts.
+Preview: AI can say it thrice. Elle still checks the timeline.
 
 # The Burn Book Problem
 
-The one in which AI says something confidently wrong and she learns to ask for receipts before forwarding it to a VP.
+The one in which she gets an answer with full Regina George confidence, almost uses it, then notices one tiny Chutney detail tugging at the story.
 
-This week:
+This week in LAiDIES:
 
-What hallucinations are and how to verify names, dates, links, numbers, quotes, and high-stakes claims.
+AI can be useful and wrong in the same paragraph.
 
-Try this:
+Not always obviously wrong. Not always "made out with a hot dog" wrong. Sometimes the answer has structure, tone, bullets, and one quiet little claim that cannot survive a timeline check.
 
-Ask AI for an answer with sources, then verify at least three claims yourself before using it.
+That is the Burn Book Problem.
 
-Main Character Energy:
+Same page. Same marker. Same confidence. A true thing, a stale thing, an assumption, a rumor, and something fully invented can all look equally finished if nobody asks where the receipt is.
 
-> If the output has no receipts, I am not putting my name on it.
+## The Elle Woods Check
 
-Keep playing on the website:
+Before an AI answer leaves your laptop, do not just ask, "Are you sure?"
 
-- [Take the Issue 3 receipts quiz](https://wearelaidies.com/index.html#quiz)
-- [Open the Issue 3 card pack](https://wearelaidies.com/index.html#card-pack)
+Chutney can say it thrice.
+
+Elle still checks the timeline.
+
+Ask:
+
+1. What claim am I relying on?
+2. What detail would make this fall apart?
+3. What source, date, quote, number, policy, or domain rule checks it?
+4. What did AI infer instead of know?
+5. Do I have the receipt?
+
+## Try This
+
+Pick one low-risk AI answer you might actually use at work: a meeting prep note, a summary of a public page, a draft reply, a comparison table, or a list of questions for a call.
+
+Ask AI to separate:
+
+- draft language you can use
+- claims that need a source
+- assumptions it made
+- details that would make the answer fall apart if wrong
+- the receipt you should check for each claim
+
+Then verify three things yourself:
+
+- one name, date, number, link, or quote
+- one claim that could be stale, jurisdiction-specific, or context-dependent
+- one claim you would be embarrassed to say out loud if someone asked, "Where did that come from?"
+
+No panic spiral. No doom loop.
+
+Just enough Elle Woods energy to keep the paragraph from getting on the stand with your name on it.
+
+## Keep Going On The Website
+
+- [Read Issue 03: The Burn Book Problem](https://wearelaidies.com/issues/issue-03.html)
+- [Take the Episode 03 receipts quiz](https://wearelaidies.com/learn/quiz.html)
+- [Open the Episode 03 card pack](https://wearelaidies.com/games/trading-cards.html)
 - [Bring a suspicious answer to the Burn Book](https://wearelaidies.com/community/burn-book.html)
-- [Review the glossary](https://wearelaidies.com/index.html#glossary)
-- [Read this week's Hot Goss](https://wearelaidies.com/index.html#hot-goss)
+- [Review the glossary](https://wearelaidies.com/learn/glossary.html)
 
 Remember, lAIdies:
 
-Regina George confidence is only useful when you have receipts.
-
-Read the full issue:
-https://wearelaidies.com/issues/issue-03.html
+AI can write like Regina George. You still need to check like Elle Woods.

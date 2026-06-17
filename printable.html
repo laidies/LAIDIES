@@ -95,16 +95,20 @@
     }
 
     .wednesday-return {
-      position: sticky;
-      top: 66px;
-      z-index: 70;
+      position: fixed;
+      bottom: calc(16px + env(safe-area-inset-bottom));
+      left: clamp(14px, 3vw, 28px);
+      z-index: 140;
       display: inline-flex;
+      align-items: center;
+      justify-content: center;
       width: fit-content;
-      margin: 14px 0 0 clamp(14px, 3vw, 28px);
+      max-width: calc(100% - 28px);
+      margin: 0;
       padding: 10px 14px;
       border: 1px solid rgba(75, 33, 72, 0.22);
       border-radius: 999px;
-      background: rgba(255, 253, 251, 0.88);
+      background: rgba(255, 253, 251, 0.94);
       color: #6f263f;
       font-size: 0.84rem;
       font-weight: 900;
@@ -268,8 +272,10 @@
       }
       .nav.is-open { display: flex; }
       .wednesday-return {
-        top: 62px;
-        margin-left: 12px;
+        right: 12px;
+        bottom: calc(12px + env(safe-area-inset-bottom));
+        left: 12px;
+        width: auto;
       }
       .preview-hero {
         grid-template-columns: 1fr;
@@ -358,12 +364,26 @@
           "content/printables/previews/prompt-cheat-sheet-page-3.png",
           "content/printables/previews/prompt-cheat-sheet-page-4.png"
         ]
+      },
+      3: {
+        eyebrow: "Episode 03 printable",
+        title: "The Elle Woods Receipts Pass",
+        description: "A four-page receipts pass for checking claims, timelines, domain rules, contradictions, and sources before the paragraph borrows your name.",
+        pdf: "assets/prompt-cheat-sheet-issue03.pdf",
+        filename: "prompt-cheat-sheet-issue03.pdf",
+        pages: [
+          "content/printables/previews/issue-03-elle-receipts-pass-page-1.png",
+          "content/printables/previews/issue-03-elle-receipts-pass-page-2.png",
+          "content/printables/previews/issue-03-elle-receipts-pass-page-3.png",
+          "content/printables/previews/issue-03-elle-receipts-pass-page-4.png"
+        ]
       }
     };
 
     var params = new URLSearchParams(window.location.search || "");
     var issueMatch = String(params.get("issue") || "2").match(/\d+/);
     var issue = issueMatch ? Number(issueMatch[0]) : 2;
+    var draftParam = params.get("draft") === "1" ? "&draft=1" : "";
     var printable = printables[issue];
     var fromBag = params.get("from") === "this-week";
     var returnLink = document.querySelector("[data-wednesday-return]");
@@ -378,11 +398,11 @@
     function addReturnParams(url) {
       if (!fromBag) return url;
       var separator = url.indexOf("?") === -1 ? "?" : "&";
-      return url + separator + "from=this-week&issue=" + encodeURIComponent(issue) + "&bag=open";
+      return url + separator + "from=this-week&issue=" + encodeURIComponent(issue) + "&bag=open" + draftParam;
     }
 
     if (returnLink) {
-      returnLink.href = "this-week.html?issue=" + encodeURIComponent(issue) + "&bag=open";
+      returnLink.href = "this-week.html?issue=" + encodeURIComponent(issue) + "&bag=open" + draftParam;
       if (!fromBag) returnLink.textContent = "← Back to This Week";
     }
 

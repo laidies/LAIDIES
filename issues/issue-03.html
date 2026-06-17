@@ -3,78 +3,1609 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Issue 03 is not live yet | LAIDIES</title>
-    <meta name="description" content="Issue 03 is still getting checked, polished, and receipt-ready. Read the current LAIDIES episode instead." />
-    <meta name="robots" content="noindex, nofollow" />
-    <link rel="stylesheet" href="../styles.css?v=draft-contained-1" />
+    <title>LAiDIES #3: The Burn Book Problem</title>
+    <meta name="description" content="AI judgment, hallucinations, and why polished output still needs receipts." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --paper: #fffaf7;
+        --pearl: #f8f1ee;
+        --cream: #fff7ed;
+        --profile-blush: #fce4f2;
+        --ink: #2a1625;
+        --plum: #4b2148;
+        --wine: #6f263f;
+        --rose: #b95d78;
+        --pink: #df7fa5;
+        --blue: #b9d7dc;
+        --silver: #d8d4d0;
+        --line: rgba(75, 33, 72, 0.16);
+        --shadow: 0 28px 70px rgba(75, 33, 72, 0.16);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          linear-gradient(180deg, rgba(255, 250, 247, 0.98), rgba(248, 241, 238, 0.94) 44%, rgba(255, 253, 251, 0.98)),
+          var(--paper);
+        font-family: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 17px;
+        line-height: 1.7;
+      }
+
+      a {
+        color: var(--wine);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.22em;
+      }
+
+      .preview-ribbon {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 11px clamp(16px, 4vw, 44px);
+        background: rgba(255, 253, 251, 0.94);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 12px 30px rgba(75, 33, 72, 0.08);
+        backdrop-filter: blur(16px);
+      }
+
+      .preview-ribbon strong {
+        color: var(--plum);
+      }
+
+      .preview-ribbon span {
+        color: #6e5c68;
+        font-size: 0.86rem;
+        line-height: 1.3;
+      }
+
+      .preview-ribbon nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+
+      .preview-ribbon nav a,
+      .button-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 36px;
+        padding: 8px 12px;
+        color: var(--plum);
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid rgba(111, 38, 63, 0.22);
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.01em;
+        text-decoration: none;
+      }
+
+      .button-link.is-disabled {
+        cursor: not-allowed;
+        color: rgba(75, 33, 72, 0.58);
+        background: rgba(255, 255, 255, 0.46);
+        border-style: dashed;
+      }
+
+      .reader-hero {
+        position: relative;
+        min-height: min(86vh, 820px);
+        display: grid;
+        align-items: end;
+        overflow: hidden;
+        isolation: isolate;
+        background: var(--plum);
+      }
+
+      .reader-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        background-image:
+          linear-gradient(90deg, rgba(28, 9, 26, 0.74) 0%, rgba(28, 9, 26, 0.46) 38%, rgba(28, 9, 26, 0.04) 76%),
+          linear-gradient(180deg, rgba(28, 9, 26, 0.1), rgba(28, 9, 26, 0.66)),
+          url("../assets/issue-03-hero.png");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .reader-hero::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 34%;
+        z-index: -1;
+        background: linear-gradient(0deg, var(--paper), rgba(255, 250, 247, 0));
+      }
+
+      .hero-inner {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 96px 0 54px;
+      }
+
+      .brand-lockup {
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        max-width: 84vw;
+        margin: 0 0 clamp(22px, 4vw, 42px);
+        padding: 24px 26px 28px;
+        background: rgba(252, 228, 242, 0.78);
+        border: 1px solid rgba(255, 248, 252, 0.64);
+        border-radius: 8px;
+        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.22);
+        filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.12));
+        line-height: 0;
+        overflow: visible;
+      }
+
+      .brand-lockup img {
+        display: block;
+        width: min(340px, calc(84vw - 52px));
+        height: auto;
+        max-height: none;
+        object-fit: contain;
+        object-position: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        width: fit-content;
+        margin: 0 0 16px;
+        padding: 8px 11px;
+        color: var(--profile-blush);
+        background: rgba(75, 33, 72, 0.72);
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .hero-title {
+        max-width: 900px;
+        margin: 0;
+        color: var(--profile-blush);
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(3.45rem, 11vw, 8.7rem);
+        line-height: 0.86;
+        letter-spacing: 0;
+        text-shadow: 0 16px 46px rgba(0, 0, 0, 0.42);
+      }
+
+      .dek {
+        max-width: 760px;
+        margin: 22px 0 0;
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(1.25rem, 2.6vw, 2.05rem);
+        line-height: 1.12;
+        text-wrap: balance;
+        text-shadow:
+          0 1px 0 rgba(255, 253, 251, 0.72),
+          0 12px 28px rgba(75, 33, 72, 0.18);
+      }
+
+      .preview-shell {
+        width: min(1100px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 30px 0 80px;
+      }
+
+      .reader-kit {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin: -38px 0 34px;
+        position: relative;
+        z-index: 3;
+      }
+
+      .kit-card,
+      .activity-card,
+      .launch-card,
+      .status-card {
+        background: rgba(255, 253, 251, 0.92);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: 0 18px 42px rgba(75, 33, 72, 0.1);
+      }
+
+      .kit-card {
+        padding: 18px 18px 20px;
+      }
+
+      .label {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--wine);
+        font-size: 0.7rem;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .kit-card p,
+      .activity-card p,
+      .launch-card p,
+      .status-card p {
+        margin: 0;
+        color: #4c3b46;
+        line-height: 1.52;
+      }
+
+      .activity-section {
+        scroll-margin-top: 96px;
+        margin: 0 0 42px;
+        padding: clamp(22px, 4vw, 30px);
+        background:
+          radial-gradient(circle at 92% 12%, rgba(185, 215, 220, 0.18), transparent 20rem),
+          linear-gradient(135deg, rgba(255, 253, 251, 0.92), rgba(248, 241, 238, 0.78));
+        border: 1px solid rgba(75, 33, 72, 0.12);
+        border-radius: 8px;
+        box-shadow: 0 18px 42px rgba(75, 33, 72, 0.08);
+      }
+
+      .activity-section-header {
+        display: grid;
+        gap: 8px;
+        max-width: 760px;
+        margin-bottom: 18px;
+      }
+
+      .activity-section-header h2 {
+        margin: 0;
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(2rem, 4vw, 3.6rem);
+        line-height: 0.95;
+      }
+
+      .activity-section-header p {
+        margin: 0;
+        color: #4c3b46;
+        max-width: 660px;
+        line-height: 1.48;
+      }
+
+      .activity-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .activity-card {
+        position: relative;
+        display: grid;
+        gap: 10px;
+        min-height: 168px;
+        padding: 18px;
+        color: var(--plum);
+        text-decoration: none;
+        transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+      }
+
+      .activity-card[href]:hover,
+      .activity-card[href]:focus-visible {
+        transform: translateY(-2px);
+        border-color: rgba(185, 93, 120, 0.44);
+        box-shadow: 0 22px 48px rgba(75, 33, 72, 0.14);
+        text-decoration: none;
+      }
+
+      .activity-card strong {
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(1.25rem, 2vw, 1.62rem);
+        line-height: 1.02;
+      }
+
+      .activity-card em {
+        align-self: end;
+        color: var(--rose);
+        font-size: 0.75rem;
+        font-style: normal;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .activity-card.is-pending {
+        color: rgba(75, 33, 72, 0.68);
+        background: rgba(255, 253, 251, 0.58);
+        border-style: dashed;
+        box-shadow: none;
+      }
+
+      .activity-card--primary {
+        background:
+          radial-gradient(circle at 88% 12%, rgba(185, 215, 220, 0.28), transparent 10rem),
+          linear-gradient(135deg, rgba(252, 228, 242, 0.96), rgba(255, 253, 251, 0.98));
+        border-color: rgba(185, 93, 120, 0.36);
+      }
+
+      .review-shortcuts {
+        margin-top: 18px;
+        color: #4c3b46;
+      }
+
+      .review-shortcuts summary {
+        cursor: pointer;
+        color: var(--plum);
+        font-weight: 900;
+      }
+
+      .review-shortcut-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .article-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 720px) minmax(220px, 280px);
+        gap: clamp(24px, 4vw, 52px);
+        align-items: start;
+      }
+
+      .article-card {
+        padding: 0;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .laidies-inline-wordmark {
+        display: inline;
+        white-space: nowrap;
+        font: inherit;
+        letter-spacing: inherit;
+      }
+
+      .laidies-inline-wordmark [data-laidies-part="plum"] {
+        color: var(--plum);
+      }
+
+      .laidies-inline-wordmark [data-laidies-part="rose"] {
+        color: var(--rose);
+      }
+
+      .article-card h2 {
+        scroll-margin-top: 130px;
+        margin: 2.25rem 0 0.7rem;
+        padding: 0 0 0.18em;
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(1.95rem, 3.35vw, 2.8rem);
+        font-weight: 700;
+        line-height: 1.08;
+        letter-spacing: 0;
+        border-top: 0;
+        text-shadow: 0 1px 0 rgba(255, 248, 252, 0.9);
+        background:
+          linear-gradient(180deg, transparent 62%, rgba(252, 228, 242, 0.86) 62%, rgba(252, 228, 242, 0.86) 91%, transparent 91%);
+      }
+
+      .article-card h2:first-child {
+        margin-top: 0;
+      }
+
+      .article-card h2::before {
+        content: "";
+        display: block;
+        width: 86px;
+        height: 9px;
+        margin: 0 0 1.05rem;
+        background:
+          linear-gradient(90deg, var(--rose), var(--blue));
+        border-radius: 999px;
+        box-shadow:
+          22px 0 0 rgba(252, 228, 242, 0.9),
+          44px 0 0 rgba(111, 38, 63, 0.12);
+      }
+
+      .article-card h2:first-child::before {
+        display: none;
+      }
+
+      .article-card h3 {
+        margin: 1.6rem 0 0.55rem;
+        color: var(--wine);
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(1.18rem, 1.7vw, 1.35rem);
+        line-height: 1.24;
+      }
+
+      .article-card p,
+      .article-card li {
+        color: #1d121b;
+        font-size: clamp(1rem, 1.15vw, 1.06rem);
+        line-height: 1.62;
+      }
+
+      .article-card p {
+        margin: 0 0 0.95em;
+      }
+
+      .article-card ul,
+      .article-card ol {
+        margin: 0.4rem 0 1.25rem;
+        padding-left: 0;
+      }
+
+      .article-card li {
+        position: relative;
+        margin-bottom: 0.62rem;
+        padding-left: 1.15rem;
+        list-style: none;
+      }
+
+      .article-card li::before {
+        content: "";
+        position: absolute;
+        top: 0.76em;
+        left: 0;
+        width: 7px;
+        height: 7px;
+        background: var(--wine);
+        border-radius: 50%;
+      }
+
+      .article-card h2,
+      .article-card h3,
+      .section-image,
+      .article-card pre {
+        clear: both;
+      }
+
+      .signoff-showpiece {
+        clear: both;
+        position: relative;
+        overflow: hidden;
+        margin: clamp(3rem, 7vw, 5rem) 0 clamp(2rem, 5vw, 3.5rem);
+        color: var(--plum);
+        text-align: center;
+      }
+
+      .signoff-showpiece::before {
+        content: "";
+        display: block;
+        width: min(360px, 72%);
+        height: 10px;
+        margin: 0 auto 22px;
+        background: linear-gradient(90deg, transparent, var(--rose), var(--blue), rgba(252, 228, 242, 0.96), transparent);
+        border-radius: 999px;
+      }
+
+      .signoff-banner {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(34px, 6vw, 58px) clamp(24px, 5vw, 46px);
+        background:
+          radial-gradient(circle at 10% 18%, rgba(185, 215, 220, 0.36), transparent 10rem),
+          radial-gradient(circle at 92% 82%, rgba(185, 93, 120, 0.22), transparent 12rem),
+          linear-gradient(135deg, rgba(252, 228, 242, 0.98), rgba(255, 253, 251, 0.96) 48%, rgba(248, 241, 238, 0.96));
+        border: 1px solid rgba(111, 38, 63, 0.18);
+        border-radius: 8px;
+        box-shadow: 0 24px 52px rgba(75, 33, 72, 0.16);
+      }
+
+      .signoff-banner::before,
+      .signoff-banner::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+      }
+
+      .signoff-banner::before {
+        inset: 18px;
+        border: 1px solid rgba(255, 253, 251, 0.76);
+        border-radius: 6px;
+      }
+
+      .signoff-banner::after {
+        right: clamp(14px, 4vw, 36px);
+        bottom: clamp(10px, 3vw, 24px);
+        width: clamp(72px, 14vw, 118px);
+        height: clamp(72px, 14vw, 118px);
+        opacity: 0.2;
+        background:
+          linear-gradient(90deg, var(--rose) 50%, transparent 50%) 0 0 / 20px 20px,
+          linear-gradient(var(--rose) 50%, transparent 50%) 0 0 / 20px 20px;
+        transform: rotate(-8deg);
+      }
+
+      .signoff-remember {
+        position: relative;
+        z-index: 1;
+        display: block;
+        margin-bottom: 14px;
+        color: var(--rose);
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(1.4rem, 3vw, 2.05rem);
+        font-style: italic;
+        font-weight: 700;
+        line-height: 1.08;
+      }
+
+      .signoff-line {
+        position: relative;
+        z-index: 1;
+        display: block;
+        max-width: 640px;
+        margin: 0 auto;
+        color: #1d121b;
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(1.55rem, 3.3vw, 2.35rem);
+        font-weight: 700;
+        line-height: 1.18;
+      }
+
+      .signoff-sips {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 22px;
+        padding: 9px 15px;
+        color: var(--wine);
+        background: rgba(255, 253, 251, 0.68);
+        border: 1px solid rgba(111, 38, 63, 0.16);
+        border-radius: 999px;
+        font-size: 0.76rem;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .signoff-sips::before,
+      .signoff-sips::after {
+        content: "";
+        width: 9px;
+        height: 9px;
+        background: var(--rose);
+        border-radius: 50%;
+      }
+
+      .signoff-bottom {
+        display: grid;
+        gap: 14px;
+        margin: 22px auto 0;
+        max-width: 640px;
+      }
+
+      .challenge-box {
+        padding: 22px clamp(18px, 4vw, 30px);
+        background: rgba(255, 253, 251, 0.84);
+        border: 2px solid rgba(185, 93, 120, 0.48);
+        border-radius: 8px;
+        box-shadow: 0 14px 32px rgba(75, 33, 72, 0.08);
+      }
+
+      .challenge-title {
+        margin-bottom: 8px;
+        color: var(--wine);
+        font-size: 0.76rem;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .challenge-box p,
+      .signoff-share {
+        margin: 0;
+        color: #4c3b46;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .signoff-share {
+        font-weight: 800;
+      }
+
+      .article-card blockquote {
+        position: relative;
+        clear: both;
+        max-width: min(94%, 760px);
+        margin: clamp(3.1rem, 7vw, 5rem) auto;
+        padding: clamp(1.35rem, 3vw, 1.9rem) clamp(1.55rem, 4vw, 2.35rem) clamp(1.35rem, 3vw, 1.9rem) clamp(5.2rem, 13vw, 8.8rem);
+        color: var(--plum);
+        background:
+          linear-gradient(90deg, rgba(185, 93, 120, 0.7), rgba(185, 93, 120, 0.7)) 0 0 / 46% 2px no-repeat,
+          linear-gradient(180deg, rgba(185, 93, 120, 0.7), rgba(185, 93, 120, 0.7)) 0 0 / 2px 100% no-repeat,
+          linear-gradient(270deg, rgba(185, 215, 220, 0.85), rgba(185, 215, 220, 0.85)) 100% 100% / 38% 2px no-repeat,
+          linear-gradient(0deg, rgba(185, 215, 220, 0.85), rgba(185, 215, 220, 0.85)) 100% 100% / 2px 54% no-repeat;
+        border: 0;
+        box-shadow: none;
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(1.38rem, 2.35vw, 2rem);
+        font-style: italic;
+        font-weight: 600;
+        line-height: 1.18;
+        overflow: visible;
+        text-wrap: balance;
+      }
+
+      .article-card blockquote.pullquote-side {
+        width: min(82%, 650px);
+        max-width: min(82%, 650px);
+        float: none;
+        margin: clamp(3rem, 6.4vw, 4.75rem) 0 clamp(3rem, 6.4vw, 4.9rem) auto;
+        padding: clamp(1.15rem, 3vw, 1.65rem) clamp(1.45rem, 4vw, 2.1rem) clamp(1.15rem, 3vw, 1.65rem) clamp(4.9rem, 12vw, 7.8rem);
+        font-size: clamp(1.28rem, 2.2vw, 1.86rem);
+        line-height: 1.2;
+        text-align: left;
+      }
+
+      .article-card blockquote.pullquote-left {
+        margin-left: 0;
+        margin-right: auto;
+        text-align: left;
+      }
+
+      .article-card blockquote.pullquote-compact {
+        max-width: min(86%, 610px);
+        margin: clamp(3rem, 6.4vw, 4.7rem) auto;
+        padding: clamp(1.45rem, 3.5vw, 2rem) clamp(1.55rem, 4vw, 2.25rem) clamp(1.35rem, 3vw, 1.9rem) clamp(4.35rem, 11vw, 6.4rem);
+        text-align: left;
+        background:
+          linear-gradient(90deg, rgba(185, 93, 120, 0.78), rgba(185, 93, 120, 0.78)) 0 0 / 44% 2px no-repeat,
+          linear-gradient(180deg, rgba(185, 93, 120, 0.78), rgba(185, 93, 120, 0.78)) 0 0 / 2px 100% no-repeat,
+          linear-gradient(270deg, rgba(185, 215, 220, 0.92), rgba(185, 215, 220, 0.92)) 100% 100% / 44% 2px no-repeat,
+          linear-gradient(0deg, rgba(185, 215, 220, 0.92), rgba(185, 215, 220, 0.92)) 100% 100% / 2px 54% no-repeat;
+        font-size: clamp(1.28rem, 2.18vw, 1.86rem);
+      }
+
+      .article-card blockquote.pullquote-sticker {
+        max-width: min(92%, 720px);
+        margin: clamp(3.2rem, 6.6vw, 5rem) auto;
+        padding: clamp(2.3rem, 5vw, 3rem) clamp(1.4rem, 4vw, 2.2rem) clamp(1.2rem, 3vw, 1.75rem);
+        background:
+          linear-gradient(90deg, rgba(185, 93, 120, 0), rgba(185, 93, 120, 0.42), rgba(185, 215, 220, 0.55), rgba(185, 93, 120, 0)) 50% 100% / 62% 2px no-repeat;
+        border: 0;
+        transform: none;
+        font-size: clamp(1.38rem, 2.42vw, 2.08rem);
+        text-align: center;
+      }
+
+      .article-card blockquote::before {
+        content: "\201C";
+        position: absolute;
+        left: clamp(0.4rem, 1.4vw, 0.8rem);
+        top: 50%;
+        transform: translateY(-50%);
+        width: auto;
+        height: auto;
+        color: rgba(185, 93, 120, 0.26);
+        background: transparent;
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(5.8rem, 14vw, 11rem);
+        font-style: normal;
+        font-weight: 900;
+        line-height: 0.72;
+        pointer-events: none;
+      }
+
+      .article-card blockquote::after {
+        content: "";
+        position: absolute;
+        right: clamp(0.7rem, 2vw, 1.2rem);
+        bottom: clamp(0.52rem, 1.4vw, 0.85rem);
+        width: clamp(28px, 7vw, 64px);
+        height: clamp(28px, 7vw, 64px);
+        border-right: 2px solid rgba(185, 215, 220, 0.78);
+        border-bottom: 2px solid rgba(185, 215, 220, 0.78);
+        background: transparent;
+        pointer-events: none;
+      }
+
+      .article-card blockquote.pullquote-compact::before {
+        left: clamp(0.55rem, 1.6vw, 0.95rem);
+        top: 50%;
+        color: rgba(185, 93, 120, 0.26);
+        font-size: clamp(4.8rem, 12vw, 8.4rem);
+        transform: translateY(-50%);
+      }
+
+      .article-card blockquote.pullquote-compact::after {
+        content: "";
+        display: block;
+        right: clamp(0.65rem, 2vw, 1.05rem);
+        bottom: clamp(0.55rem, 1.5vw, 0.9rem);
+        width: clamp(24px, 7vw, 58px);
+        height: clamp(24px, 7vw, 58px);
+        border-right: 2px solid rgba(185, 215, 220, 0.78);
+        border-bottom: 2px solid rgba(185, 215, 220, 0.78);
+        transform: none;
+      }
+
+      .article-card blockquote.pullquote-sticker::before {
+        content: "\201C";
+        position: absolute;
+        display: block;
+        left: 50%;
+        top: -0.54em;
+        width: auto;
+        height: auto;
+        color: rgba(185, 93, 120, 0.26);
+        background: transparent;
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(4.6rem, 10vw, 7.4rem);
+        font-style: normal;
+        font-weight: 900;
+        letter-spacing: 0;
+        line-height: 1;
+        text-transform: none;
+        transform: translateX(-50%);
+      }
+
+      .article-card blockquote.pullquote-sticker::after {
+        display: none;
+      }
+
+      .article-card pre {
+        white-space: pre-wrap;
+        margin: 1.2rem 0 1.35rem;
+        padding: 20px 22px;
+        color: #24111f;
+        background: rgba(255, 253, 251, 0.94);
+        border: 1px solid rgba(111, 38, 63, 0.18);
+        border-radius: 8px;
+        overflow: auto;
+        box-shadow: 0 10px 28px rgba(75, 33, 72, 0.07);
+      }
+
+      .article-card pre.handwritten-notes {
+        position: relative;
+        width: min(92%, 560px);
+        margin: 1.35rem 0 1.65rem 1rem;
+        padding: 34px 24px 22px 28px;
+        overflow: visible;
+        color: #4d253f;
+        background:
+          repeating-linear-gradient(
+            180deg,
+            rgba(255, 248, 232, 0.96) 0,
+            rgba(255, 248, 232, 0.96) 29px,
+            rgba(185, 93, 120, 0.2) 30px
+          );
+        border: 1px solid rgba(185, 93, 120, 0.2);
+        border-radius: 3px;
+        box-shadow: 0 16px 32px rgba(75, 33, 72, 0.12);
+        transform: rotate(-0.7deg);
+      }
+
+      .article-card pre.handwritten-notes::before {
+        content: "Actual notes";
+        position: absolute;
+        top: -12px;
+        left: 22px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(252, 228, 242, 0.96);
+        color: var(--wine);
+        font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+        font-size: 0.66rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        box-shadow: 0 8px 18px rgba(75, 33, 72, 0.12);
+      }
+
+      .article-card pre.handwritten-notes::after {
+        content: "";
+        position: absolute;
+        top: -8px;
+        right: 28px;
+        width: 74px;
+        height: 20px;
+        border-radius: 4px;
+        background: rgba(185, 215, 220, 0.64);
+        box-shadow: 0 4px 14px rgba(75, 33, 72, 0.1);
+        transform: rotate(3deg);
+      }
+
+      .article-card pre.handwritten-notes code {
+        display: block;
+        font-family: "Bradley Hand", "Marker Felt", "Segoe Print", "Comic Sans MS", cursive;
+        font-size: clamp(1.08rem, 2vw, 1.34rem);
+        font-weight: 700;
+        line-height: 1.48;
+        letter-spacing: 0.01em;
+      }
+
+      .article-card code {
+        font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.86em;
+      }
+
+      .section-image {
+        margin: 1rem 0 1.15rem;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .section-image img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border: 1px solid rgba(111, 38, 63, 0.13);
+        border-radius: 12px;
+        box-shadow: 0 16px 34px rgba(75, 33, 72, 0.1);
+      }
+
+      .section-image figcaption {
+        margin-top: 8px;
+        color: #765d6d;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .section-dek {
+        color: var(--wine) !important;
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(1.02rem, 1.45vw, 1.18rem) !important;
+        font-style: italic;
+        line-height: 1.35 !important;
+        margin: -0.2rem 0 1rem !important;
+      }
+
+      .side-rail {
+        position: sticky;
+        top: 84px;
+        display: grid;
+        gap: 14px;
+      }
+
+      .section-nav {
+        padding: 16px;
+        background: rgba(255, 253, 251, 0.9);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      .section-nav a {
+        display: block;
+        padding: 9px 0;
+        color: var(--plum);
+        border-bottom: 1px solid rgba(75, 33, 72, 0.1);
+        font-size: 0.86rem;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .section-nav a:last-child {
+        border-bottom: 0;
+      }
+
+      .ritual-side-card {
+        position: relative;
+        overflow: hidden;
+        padding: 18px;
+        color: var(--plum);
+        background:
+          radial-gradient(circle at 88% 2%, rgba(185, 215, 220, 0.38), transparent 8rem),
+          radial-gradient(circle at 8% 96%, rgba(252, 228, 242, 0.86), transparent 9rem),
+          linear-gradient(145deg, rgba(255, 253, 251, 0.98), rgba(247, 238, 238, 0.9));
+        border: 1px solid rgba(185, 93, 120, 0.28);
+        border-radius: 10px;
+        box-shadow: 0 20px 44px rgba(75, 33, 72, 0.12);
+      }
+
+      .ritual-side-card::before {
+        content: "";
+        display: block;
+        width: 86px;
+        height: 8px;
+        margin-bottom: 14px;
+        background:
+          linear-gradient(90deg, var(--rose), var(--blue));
+        border-radius: 999px;
+        box-shadow:
+          24px 0 0 rgba(252, 228, 242, 0.96),
+          48px 0 0 rgba(75, 33, 72, 0.1);
+      }
+
+      .ritual-side-card .label {
+        color: var(--wine);
+      }
+
+      .ritual-side-card h3 {
+        margin: 8px 0 8px;
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(1.45rem, 2.2vw, 1.95rem);
+        line-height: 0.96;
+      }
+
+      .ritual-side-card p {
+        margin: 0 0 14px;
+        color: #5d4856;
+        font-size: 0.86rem;
+        font-weight: 650;
+        line-height: 1.45;
+      }
+
+      .ritual-side-primary {
+        display: inline-flex;
+        width: 100%;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 12px;
+        padding: 10px 14px;
+        color: #fffdfb;
+        background: var(--plum);
+        border: 1px solid rgba(75, 33, 72, 0.22);
+        border-radius: 999px;
+        font-size: 0.82rem;
+        font-weight: 900;
+        text-align: center;
+        text-decoration: none;
+        box-shadow: 0 14px 28px rgba(75, 33, 72, 0.18);
+      }
+
+      .ritual-side-primary:hover,
+      .ritual-side-primary:focus-visible {
+        background: var(--wine);
+        text-decoration: none;
+        outline: none;
+      }
+
+      .ritual-side-links {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .ritual-side-links a {
+        display: inline-flex;
+        min-height: 36px;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 9px;
+        color: var(--wine);
+        background: rgba(255, 253, 251, 0.76);
+        border: 1px solid rgba(185, 93, 120, 0.22);
+        border-radius: 999px;
+        font-size: 0.74rem;
+        font-weight: 900;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      .ritual-side-links a:hover,
+      .ritual-side-links a:focus-visible {
+        color: var(--plum);
+        border-color: rgba(185, 93, 120, 0.48);
+        text-decoration: none;
+        outline: none;
+      }
+
+      .launch-section {
+        margin-top: 50px;
+        padding-top: 42px;
+        border-top: 1px solid var(--line);
+      }
+
+      .section-heading {
+        margin: 0 0 18px;
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(2.2rem, 5vw, 4.8rem);
+        line-height: 0.92;
+        letter-spacing: 0;
+      }
+
+      .launch-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .launch-card {
+        padding: 18px;
+      }
+
+      .launch-card h3,
+      .status-card h3 {
+        margin: 0 0 10px;
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: 1.35rem;
+        line-height: 1.05;
+      }
+
+      .launch-card strong {
+        color: var(--wine);
+      }
+
+      .status-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      .status-card {
+        padding: 18px;
+      }
+
+      .status-card.ready {
+        border-color: rgba(36, 123, 131, 0.28);
+      }
+
+      .status-card.review {
+        border-color: rgba(185, 93, 120, 0.38);
+      }
+
+      .status-card.blocked {
+        border-color: rgba(111, 38, 63, 0.38);
+      }
+
+      .loading,
+      .error {
+        padding: 32px;
+        background: rgba(255, 253, 251, 0.9);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      @media (max-width: 900px) {
+        .preview-ribbon {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .preview-ribbon nav {
+          justify-content: flex-start;
+        }
+
+        .reader-kit,
+        .activity-grid,
+        .article-layout,
+        .launch-grid,
+        .status-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .side-rail {
+          position: relative;
+          top: auto;
+          order: -1;
+        }
+
+        .section-nav {
+          display: none;
+        }
+
+        .ritual-side-card {
+          margin-bottom: 8px;
+        }
+
+      }
+
+      @media (max-width: 660px) {
+        .article-card blockquote.pullquote-side,
+        .article-card blockquote.pullquote-left,
+        .article-card blockquote.pullquote-right,
+        .article-card blockquote.pullquote-sticker,
+        .article-card blockquote.pullquote-compact {
+          float: none;
+          width: auto;
+          max-width: none;
+          margin: 1.45rem 0 1.6rem;
+          transform: none;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .reader-hero {
+          min-height: 78vh;
+        }
+
+        .reader-hero::before {
+          background-image:
+            linear-gradient(180deg, rgba(28, 9, 26, 0.35), rgba(28, 9, 26, 0.78)),
+            url("../assets/issue-03-hero.png");
+          background-position: 57% center;
+        }
+
+        .hero-inner {
+          padding-bottom: 38px;
+        }
+
+        .hero-title {
+          font-size: clamp(3.1rem, 18vw, 5.2rem);
+        }
+
+        .reader-kit {
+          margin-top: 0;
+        }
+
+        .article-card {
+          padding: 0;
+        }
+      }
+    </style>
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="../index.html" aria-label="lAIdies home">
-        <img src="../assets/laidies-logo-wordmark.png" alt="" />
-      </a>
-      <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false">☰</button>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="../index.html">Home</a>
-        <a href="../start-here.html">New? Start Here</a>
-        <a href="../episodes.html">Episodes</a>
-        <a href="../learn.html">Learn</a>
-        <a href="../clubhouse.html">Clubhouse</a>
-        <a href="../community.html">Community</a>
-        <a href="../games/dj-booth.html">Listen</a>
-        <a href="../this-week.html">This Week</a>
-        <a href="../clubhouse-pass.html" style="color: #ff2d9b; text-decoration: underline; margin-left: 8px;">Sign In</a>
+    <div class="preview-ribbon public-ribbon">
+      <span><strong>LAiDIES Issue 03.</strong> The Burn Book Problem is now live.</span>
+      <nav aria-label="Article sections">
+        <a href="../this-week.html?issue=3&amp;bag=open">Back to the Bag</a>
+        <a href="#article">Article</a>
+        <a href="#issue-kit">Weekly Ritual</a>
       </nav>
+    </div>
+
+    <header class="reader-hero" id="top">
+      <div class="hero-inner">
+        <span class="brand-lockup">
+          <img src="../assets/brand/laidies-logo-masthead-approved-v3.png" alt="LAiDIES" />
+        </span>
+        <p class="eyebrow">Issue 03</p>
+        <h1 class="hero-title">The Burn Book Problem</h1>
+        <p class="dek">AI judgment, hallucinations, and why polished output still needs receipts.</p>
+      </div>
     </header>
 
-    <main class="page-shell" style="min-height: 70vh; display: grid; place-items: center; padding: 120px 24px 80px;">
-      <section class="hero-copy" style="max-width: 760px; text-align: center;">
-        <p class="eyebrow">Still in the glam room</p>
-        <h1>Issue 03 is not live yet.</h1>
-        <p>
-          This one is still getting checked, polished, and receipt-ready. Very LAIDIES, very necessary.
-          For now, read the current episode or start from the Foundation.
-        </p>
-        <div class="hero-actions" style="justify-content: center; margin-top: 28px;">
-          <a class="button primary" href="../issues/issue-02.html">Read Current Episode</a>
-          <a class="button secondary" href="../start-here.html">Start with the Foundation</a>
-          <a class="button secondary" href="../episodes.html">Back to Episodes</a>
+    <main class="preview-shell">
+      <section class="reader-kit" aria-label="Episode summary">
+        <article class="kit-card">
+          <span class="label">The Lesson</span>
+          <p data-field="lesson">How to check, challenge, source, and contain AI output when it sounds confident but may be wrong, missing context, or not relevant to the real work.</p>
+        </article>
+        <article class="kit-card">
+          <span class="label">Try-On</span>
+          <p data-field="tryOn">Open your own AI tool, paste Prompt Like Elle, add a low-risk task or source notes, then verify at least three claims before using it.</p>
+        </article>
+        <article class="kit-card">
+          <span class="label">Main Character Energy</span>
+          <p data-field="mainCharacterEnergy">If the output has no receipts, I am not putting my name on it.</p>
+        </article>
+      </section>
+
+      <section class="article-layout" id="article">
+        <article class="article-card" data-article>
+          <div class="loading">Loading Episode 03...</div>
+        </article>
+
+        <aside class="side-rail" aria-label="Reader tools">
+          <div class="ritual-side-card" aria-label="Finish the weekly ritual">
+            <span class="label">After The Read</span>
+            <h3>Finish the weekly ritual</h3>
+            <p>Do the quiz, grab the Elle printable, run the Try-On, and listen from the DJ booth without scrolling to the bottom of the issue.</p>
+            <a class="ritual-side-primary" href="../this-week.html?issue=3&amp;bag=open">Open the Episode 03 Bag</a>
+            <div class="ritual-side-links">
+              <a href="../learn/quiz.html?from=this-week&amp;issue=3&amp;bag=open">Quiz</a>
+              <a href="../printable.html?issue=3&amp;from=this-week&amp;bag=open">Printable</a>
+              <a href="../try-on.html?from=this-week&amp;issue=3&amp;bag=open">Try-On</a>
+              <a href="../games/dj-booth.html?from=this-week&amp;issue=3&amp;bag=open#djApp">Jam</a>
+            </div>
+          </div>
+          <nav class="section-nav" data-section-nav aria-label="Article sections"></nav>
+        </aside>
+      </section>
+
+      <section class="activity-section" id="issue-kit" aria-label="Episode 03 weekly ritual">
+        <div class="activity-section-header">
+          <span class="label">What's In The Bag</span>
+          <h2>Episode 03 weekly ritual</h2>
+          <p>Step 1 is this article. After that, the Wednesday Bag is the trackable version of the ritual: it remembers what readers opened, keeps the charm hunt in the scene, and holds the rest of the week in order.</p>
+        </div>
+        <div class="activity-grid">
+          <article class="activity-card">
+            <span class="label">01 / Read</span>
+            <strong>The Burn Book Problem</strong>
+            <p>Start here. The issue teaches the receipt habit before anything turns into a quiz, printable, prompt, or charm.</p>
+            <em>You are here</em>
+          </article>
+          <a class="activity-card activity-card--primary" href="../this-week.html?issue=3&amp;bag=open">
+            <span class="label">02 / Return</span>
+            <strong>Open the Episode 03 Bag</strong>
+            <p>This is the home base for the order, completion checks, hidden weekly charm, and the rest of the weekly objects.</p>
+            <em>Tracked ritual hub</em>
+          </a>
+          <a class="activity-card" href="../learn/quiz.html?from=this-week&amp;issue=3">
+            <span class="label">03 / Check</span>
+            <strong>Receipts Quiz</strong>
+            <p>Make sure the Burn Book / Elle verification lesson actually stuck before the answer gets a blazer.</p>
+            <em>Ready</em>
+          </a>
+          <a class="activity-card" href="../printable.html?issue=3&amp;from=this-week&amp;bag=open">
+            <span class="label">04 / Save</span>
+            <strong>Elle Woods Receipts Pass</strong>
+            <p>The worksheet for claim, timeline, contradiction, source, and the tiny detail that makes the story fall apart.</p>
+            <em>Ready</em>
+          </a>
+          <a class="activity-card" href="../try-on.html?from=this-week&amp;issue=3&amp;bag=open">
+            <span class="label">05 / Try</span>
+            <strong>Prompt Like Elle</strong>
+            <p>Use a low-risk task or source notes, then separate reusable language from claims that need receipts.</p>
+            <em>Ready</em>
+          </a>
+          <a class="activity-card" href="../community.html?from=this-week&amp;issue=3&amp;bag=open#chat-rooms">
+            <span class="label">06 / Bring Back</span>
+            <strong>The LAiDIES Room</strong>
+            <p>Choose the right room for the week: Try-On debrief, Ask the Room, Burn Book references, wins, or receipts.</p>
+            <em>Ready</em>
+          </a>
+          <a class="activity-card" href="../games/fun-pack.html?from=this-week&amp;issue=3&amp;bag=open">
+            <span class="label">07 / Bonus</span>
+            <strong>Weekly Fun Pack</strong>
+            <p>The extra practice layer for the week, including the card-pack path and weekly play objects.</p>
+            <em>Ready</em>
+          </a>
+          <a class="activity-card" href="../games/dj-booth.html?from=this-week&amp;issue=3&amp;bag=open#djApp">
+            <span class="label">08 / Listen + Goss</span>
+            <strong>Don't Be Chutney on the Stand</strong>
+            <p>Play the Episode 03 DJ JAIDY track in the DJ Booth, then come back to the Bag for the rest of the weekly ritual.</p>
+            <em>Ready</em>
+          </a>
+          <a class="activity-card" href="../this-week.html?issue=3&amp;bag=open">
+            <span class="label">Hidden / Charm</span>
+            <strong>Find the weekly charm</strong>
+            <p>Open the Episode 03 Bag scene and find the hidden weekly charm in the photo.</p>
+            <em>In the Bag</em>
+          </a>
         </div>
       </section>
+
     </main>
 
-    <footer class="site-footer">
-      <p>
-        <span class="footer-brand"><span class="wordmark" aria-label="lAIdies trademark"><span>l</span><strong>AI</strong><span>dies</span></span><sup class="legal-mark">&trade;</sup></span>
-        <span class="footer-legal">&copy; 2026 Ali Eakin. All rights reserved.</span>
-      </p>
-      <div>
-        <a href="../episodes.html">Episodes</a>
-        <a href="../community.html">Community</a>
-        <a href="../index.html#signup">Subscribe</a>
-        <a href="../privacy.html">Privacy</a>
-        <a href="../terms.html">Terms</a>
-      </div>
-    </footer>
-
     <script>
-      (function(){
-        var btn = document.querySelector(".hamburger-btn");
-        var nav = document.querySelector(".site-header .nav");
-        if (!btn || !nav) return;
-        btn.addEventListener("click", function() {
-          var open = nav.classList.toggle("is-open");
-          btn.setAttribute("aria-expanded", open);
-          btn.textContent = open ? "✕" : "☰";
-        });
-        nav.addEventListener("click", function(e) {
-          if (e.target.tagName === "A") {
-            nav.classList.remove("is-open");
-            btn.setAttribute("aria-expanded", "false");
-            btn.textContent = "☰";
+      const articleMount = document.querySelector("[data-article]");
+      const navMount = document.querySelector("[data-section-nav]");
+      const allowedHiddenSections = new Set([
+        "Episode Banner Direction",
+        "Website Modules",
+        "Editorial Receipts Needed Before Publish"
+      ]);
+      const sectionImages = {
+        "i-couldnt-help-but-wonder": {
+          src: "../assets/issue-03-section-receipts-pass.png",
+          alt: "Translucent pink OUT tray holding flat paper documents and a circled AI draft beside SOURCE, DATE, LINK, and DETAIL DOESN'T FIT notes, an Exhibit A folder, a timeline card, pink gel pen, flip phone, comb, and butterfly clip.",
+          caption: "Before it borrows your name"
+        },
+        "the-burn-book-problem": {
+          src: "../assets/issue-03-section-burn-book.png",
+          alt: "Burn Book evidence board showing one data point and a super-jumbo clue leaping to a big claim stamped not a receipt, with a heavy flow correction card and case closed stamp.",
+          caption: "One clue is not a conclusion"
+        },
+        "she-doesnt-even-go-here": {
+          src: "../assets/issue-03-section-wrong-room.png",
+          alt: "Client folder with a sticky note reading she doesn't even go here, plus wrong room and last year labels.",
+          caption: "Plausible is not the same as relevant"
+        },
+        "elle-woods-would-like-to-see-the-file": {
+          src: "../assets/issue-03-section-receipts-pass.png",
+          alt: "Evidence kit desk with cards labeled claim, timeline, domain rule, contradiction, receipt, plus a perm timeline tab, source, date, apply here labels, gel pen, and butterfly clip.",
+          caption: "Timeline beats polish"
+        },
+        "chers-closet-can-pick-the-outfit-you-check-the-dress-code": {
+          src: "../assets/issue-03-section-try-on.png",
+          alt: "Retro closet computer suggesting a yellow plaid outfit, with matching blazer and skirt, white slip dress, Mary Janes, knee socks, pink mini backpack, and a dress-code receipts checklist.",
+          caption: "Trust the right layer"
+        },
+        "chutney-can-say-it-thrice-elle-still-checks-the-timeline": {
+          src: "../assets/issue-03-section-receipts-pass.png",
+          alt: "Three alibi cards each say a different version of washing hair, beside a timeline, source tab, receipt drawer, Bronze ticket, notebook, gel pen, and butterfly clip.",
+          caption: "Ask for the assignment"
+        },
+        "the-receipts-pass-study-montage": {
+          src: "../assets/issue-03-section-try-on.png",
+          alt: "Receipts pass worksheet with check one name, check one date, check one claim, and do not post the tea.",
+          caption: "Try it before it wears your name"
+        }
+      };
+      const escapeHtml = (value) => String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+
+      const slugify = (value) => String(value || "")
+        .toLowerCase()
+        .replace(/['"’]/g, "")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+
+      function renderBrandWordmark() {
+        return '<span class="laidies-inline-wordmark" aria-label="LAiDIES"><span aria-hidden="true"><span data-laidies-part="plum">L</span><span data-laidies-part="rose">Ai</span><span data-laidies-part="plum">DIES</span></span></span>';
+      }
+
+      function stripInternalMarkdown(markdown) {
+        const lines = markdown.split(/\r?\n/);
+        const kept = [];
+        let hidden = false;
+
+        for (const raw of lines) {
+          const line = raw.trimEnd();
+          const heading = line.match(/^##\s+(.+)$/);
+
+          if (/^#\s+/.test(line)) continue;
+          if (/^(Source metadata|Draft page gate|Release target|Status):/i.test(line)) continue;
+
+          if (heading) {
+            hidden = allowedHiddenSections.has(heading[1].trim());
+            if (hidden) continue;
           }
-        });
-      })();
+
+          if (!hidden) kept.push(raw);
+        }
+
+        return kept.join("\n").trim();
+      }
+
+      function renderInline(value) {
+        return escapeHtml(value)
+          .replace(/`([^`]+)`/g, "<code>$1</code>")
+          .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+          .replace(/\*([^*]+)\*/g, "<em>$1</em>")
+          .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+          .replace(/\b(?:LAiDIES|LAIDIES|lAIdies|Laidies)\b/g, renderBrandWordmark());
+      }
+
+      function renderSectionImage(image) {
+        return `<figure class="section-image"><img src="${image.src}" alt="${escapeHtml(image.alt)}" loading="lazy" /></figure>`;
+      }
+
+      function renderSignoff(value) {
+        const text = String(value || "").trim();
+        const match = text.match(/^Remember,\s*(?:LAiDIES|LAIDIES|lAIdies|Laidies):\s*(.+)$/i);
+        const line = match ? match[1] : text;
+        return `
+          <section class="signoff-showpiece" id="sign-off">
+            <div class="signoff-banner">
+              <span class="signoff-remember">Remember, ${renderBrandWordmark()}:</span>
+              <span class="signoff-line">${renderInline(line)}</span>
+              <span class="signoff-sips">Burn Book confidence. Elle Woods standards.</span>
+            </div>
+            <div class="signoff-bottom">
+              <div class="challenge-box">
+                <div class="challenge-title">The ${renderBrandWordmark()} Challenge</div>
+                <p>Got a better "Remember, ${renderBrandWordmark()}:" line for the receipt drawer? Bring it to the Room. We feature good ideas with credit, because stealing without receipts is very Burn Book.</p>
+              </div>
+              <p class="signoff-share">If this saved someone from a Chutney-level timeline problem, send it to her before the meeting.</p>
+            </div>
+          </section>
+        `;
+      }
+
+      function markdownToHtml(markdown) {
+        const lines = stripInternalMarkdown(markdown).split(/\r?\n/);
+        const html = [];
+        let paragraph = [];
+        let list = [];
+        let ordered = [];
+        let code = [];
+        let inCode = false;
+        let pendingSectionImage = null;
+        let pendingSignoff = false;
+        let quoteIndex = 0;
+        const headings = [];
+        const pullQuoteClasses = [
+          "pullquote-feature",
+          "pullquote-side pullquote-right",
+          "pullquote-compact",
+          "pullquote-compact",
+          "pullquote-sticker",
+          "pullquote-side pullquote-right",
+          "pullquote-feature",
+          "pullquote-compact"
+        ];
+
+        function flushParagraph() {
+          if (!paragraph.length) return;
+          if (pendingSignoff) {
+            html.push(renderSignoff(paragraph.join(" ")));
+            paragraph = [];
+            pendingSignoff = false;
+            return;
+          }
+          html.push(`<p>${renderInline(paragraph.join(" "))}</p>`);
+          paragraph = [];
+          if (pendingSectionImage) {
+            html.push(renderSectionImage(pendingSectionImage));
+            pendingSectionImage = null;
+          }
+        }
+
+        function flushList() {
+          if (list.length) {
+            html.push("<ul>");
+            for (const item of list) html.push(`<li>${renderInline(item)}</li>`);
+            html.push("</ul>");
+            list = [];
+          }
+          if (ordered.length) {
+            html.push("<ol>");
+            for (const item of ordered) html.push(`<li>${renderInline(item)}</li>`);
+            html.push("</ol>");
+            ordered = [];
+          }
+        }
+
+        function flushCode() {
+          if (!code.length) return;
+          html.push(`<pre><code>${escapeHtml(code.join("\n"))}</code></pre>`);
+          code = [];
+        }
+
+        for (const raw of lines) {
+          const line = raw.trimEnd();
+
+          if (/^```/.test(line)) {
+            if (inCode) {
+              flushCode();
+              inCode = false;
+            } else {
+              flushParagraph();
+              flushList();
+              inCode = true;
+            }
+            continue;
+          }
+
+          if (inCode) {
+            code.push(raw);
+            continue;
+          }
+
+          if (!line.trim()) {
+            flushParagraph();
+            flushList();
+            continue;
+          }
+
+          const heading = line.match(/^(#{2,3})\s+(.+)$/);
+          if (heading) {
+            flushParagraph();
+            flushList();
+            const level = heading[1].length;
+            const text = heading[2].trim();
+            const id = slugify(text);
+            if (level === 2) headings.push({ id, text });
+            if (level === 2 && id === "sign-off") {
+              pendingSignoff = true;
+              continue;
+            }
+            html.push(`<h${level} id="${id}">${renderInline(text)}</h${level}>`);
+            if (level === 2 && sectionImages[id]) {
+              pendingSectionImage = sectionImages[id];
+            }
+            continue;
+          }
+
+          const bullet = line.match(/^-\s+(.+)$/);
+          if (bullet) {
+            flushParagraph();
+            ordered = [];
+            list.push(bullet[1]);
+            continue;
+          }
+
+          const numbered = line.match(/^\d+\.\s+(.+)$/);
+          if (numbered) {
+            flushParagraph();
+            list = [];
+            ordered.push(numbered[1]);
+            continue;
+          }
+
+          const quote = line.match(/^>\s+(.+)$/);
+          if (quote) {
+            flushParagraph();
+            flushList();
+            const quoteClass = pullQuoteClasses[quoteIndex % pullQuoteClasses.length];
+            quoteIndex += 1;
+            html.push(`<blockquote class="${quoteClass}">${renderInline(quote[1])}</blockquote>`);
+            continue;
+          }
+
+          paragraph.push(line.trim());
+        }
+
+        flushParagraph();
+        flushList();
+        flushCode();
+        return { html: html.join("\n"), headings };
+      }
+
+      function populateEpisodeFields(episode) {
+        for (const el of document.querySelectorAll("[data-field]")) {
+          const key = el.dataset.field;
+          if (episode && episode[key]) el.textContent = episode[key];
+        }
+      }
+
+      function renderSectionNav(headings) {
+        navMount.innerHTML = headings
+          .map((heading) => `<a href="#${heading.id}">${escapeHtml(heading.text)}</a>`)
+          .join("");
+      }
+
+      function decorateArticleBlocks() {
+        for (const paragraph of articleMount.querySelectorAll("p")) {
+          if (paragraph.textContent.trim().toLowerCase() !== "here were the notes:") continue;
+          let node = paragraph.nextElementSibling;
+          while (node && node.tagName !== "PRE" && node.tagName !== "H2" && node.tagName !== "H3") {
+            node = node.nextElementSibling;
+          }
+          if (node && node.tagName === "PRE") node.classList.add("handwritten-notes");
+        }
+      }
+
+      function restoreHashScroll() {
+        const id = decodeURIComponent(location.hash.replace(/^#/, ""));
+        if (!id) return;
+        const target = document.getElementById(id);
+        if (target) {
+          requestAnimationFrame(() => {
+            const offset = document.querySelector(".preview-ribbon")?.offsetHeight || 0;
+            const top = target.getBoundingClientRect().top + window.scrollY - offset - 24;
+            window.scrollTo({ top, behavior: "auto" });
+          });
+        }
+      }
+
+      async function init() {
+        try {
+          const previewVersion = new URLSearchParams(location.search).get("v") || "episode-03-review";
+          const [episodeResponse, markdownResponse] = await Promise.all([
+            fetch(`../content/episodes/issue-03.json?v=${encodeURIComponent(previewVersion)}`),
+            fetch(`../content/issues/issue-03.md?v=${encodeURIComponent(previewVersion)}`)
+          ]);
+
+          if (!episodeResponse.ok || !markdownResponse.ok) {
+            throw new Error("Episode source files unavailable");
+          }
+
+          const episode = await episodeResponse.json();
+          const markdown = await markdownResponse.text();
+          const rendered = markdownToHtml(markdown);
+          populateEpisodeFields(episode);
+          articleMount.innerHTML = rendered.html;
+          decorateArticleBlocks();
+          renderSectionNav(rendered.headings);
+          restoreHashScroll();
+        } catch (error) {
+          articleMount.innerHTML = '<div class="error"><strong>Issue could not load.</strong><p>Refresh the page or return to the Wednesday Bag.</p></div>';
+        }
+      }
+
+      init();
     </script>
   </body>
 </html>

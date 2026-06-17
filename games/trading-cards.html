@@ -80,6 +80,16 @@
         transition: color 0.2s;
       }
       .sticky-back a:hover { color: var(--hot-pink); text-decoration: none; }
+      .sticky-back .wednesday-return-nav {
+        padding: 8px 12px;
+        border: 1px solid rgba(185, 93, 120, 0.42);
+        border-radius: 999px;
+        background: rgba(255, 253, 251, 0.9);
+        box-shadow: 0 10px 24px rgba(75, 33, 72, 0.08);
+      }
+      .sticky-back .wednesday-return-nav[hidden] {
+        display: none;
+      }
 
       @media (max-width: 560px) {
         .sticky-back {
@@ -590,6 +600,7 @@
         <img src="../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
       </a>
       <nav class="nav-links" aria-label="Trading Card Pack navigation">
+        <a class="wednesday-return-nav" data-wednesday-return href="../this-week.html?issue=2&amp;bag=open" hidden>&larr; Back to the Bag</a>
         <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
         <a href="../games/dj-booth.html">Listen</a>
         <a href="../clubhouse-pass.html">Sign In</a>
@@ -629,6 +640,7 @@
                 <option value="all">All released cards</option>
                 <option value="1">Issue 01 pack</option>
                 <option value="2">Issue 02 pack</option>
+                <option value="3">Issue 03 pack</option>
               </select>
               <button class="btn" id="openPackBtn">&#x1F4E6; Open Pack</button>
               <button class="btn btn-secondary" id="resetBtn">Reset</button>
@@ -763,6 +775,51 @@
           episode: 2
         },
         {
+          id: 'receipts-check',
+          title: 'Receipts Check',
+          icon: '\uD83E\uDDFE',
+          front: 'Open the source before the answer borrows your name.',
+          back: 'A receipt is the thing that can actually support a claim: source, date, quote, number, policy, person, meeting note, or domain rule. Confidence is not a receipt. Same answer thrice is still not a solid alibi.',
+          rarity: 'common',
+          episode: 3
+        },
+        {
+          id: 'burn-book-sourcing',
+          title: 'Burn Book Sourcing',
+          icon: '\uD83D\uDC8B',
+          front: 'One clue, no context, enormous conclusion.',
+          back: 'Bad sourcing is when one data point gets promoted into a whole character verdict. The Burn Book problem is not just false claims; it is confident claims with trash evidence and social authority.',
+          rarity: 'rare',
+          episode: 3
+        },
+        {
+          id: 'chutney-detail',
+          title: 'Chutney Detail',
+          icon: '\uD83D\uDD0E',
+          front: 'The ordinary detail that makes the whole story collapse.',
+          back: 'A Chutney detail is the tiny timeline, source, policy, quote, or domain-rule mismatch that exposes a confident answer. It is the fresh perm in the shower alibi.',
+          rarity: 'special',
+          episode: 3
+        },
+        {
+          id: 'grounding',
+          title: 'Grounding',
+          icon: '\uD83D\uDCCC',
+          front: 'Bring the source into the room.',
+          back: 'Grounding means giving AI access to the material it should use: a document, approved source, search/grounding tool, database, or transcript. It lowers the odds of nonsense; it does not eliminate the need to check.',
+          rarity: 'rare',
+          episode: 3
+        },
+        {
+          id: 'elle-prompt',
+          title: 'Elle Prompt',
+          icon: '\uD83D\uDCBC',
+          front: 'Put the paragraph on the stand before you use it.',
+          back: 'The Elle Prompt asks AI to separate draft language, claims, assumptions, fragile details, and receipts. It turns one smooth paragraph into a receipt tray you can verify.',
+          rarity: 'common',
+          episode: 3
+        },
+        {
           id: 'system-prompt',
           title: 'System Prompt',
           icon: '\uD83D\uDCDD',
@@ -832,12 +889,27 @@
       const progressPercent = document.getElementById('progressPercent');
       const progressFill = document.getElementById('progressFill');
       const packOpeningArea = document.getElementById('packOpeningArea');
+      const params = new URLSearchParams(window.location.search || '');
+      const issueMatch = String(params.get('issue') || '').match(/\d+/);
+      const returnLink = document.querySelector('[data-wednesday-return]');
+      if (returnLink && params.get('from') === 'this-week') {
+        const draftParam = params.get('draft') === '1' ? '&draft=1' : '';
+        returnLink.href = '../this-week.html' + (issueMatch ? '?issue=' + encodeURIComponent(Number(issueMatch[0])) + '&bag=open' + draftParam : '?bag=open' + draftParam);
+        returnLink.hidden = false;
+      }
+      if (issueMatch && packSelect.querySelector('option[value="' + Number(issueMatch[0]) + '"]')) {
+        packSelect.value = String(Number(issueMatch[0]));
+      }
 
       // === Get selected pack cards ===
       function getSelectedCards() {
         const val = packSelect.value;
         if (val === 'all') return allCards;
         return allCards.filter(c => c.episode === parseInt(val));
+      }
+      function setReadyStatusForSelectedPack() {
+        const selectedLabel = packSelect.selectedOptions[0] ? packSelect.selectedOptions[0].textContent : 'selected pack';
+        packStatus.textContent = selectedLabel + ' is selected. Open it to see what is in the wrapper.';
       }
 
       // === Progress update ===
@@ -971,14 +1043,25 @@
       // === Init ===
       openPackBtn.addEventListener('click', openPack);
       resetBtn.addEventListener('click', resetCollection);
+      packSelect.addEventListener('change', function() {
+        renderPulls([]);
+        setReadyStatusForSelectedPack();
+      });
 
       updateProgress();
       renderBinder();
 
       // Restore last pulls
       const lastPulls = getLastPulls();
-      if (lastPulls.length) {
+      const selectedEpisode = parseInt(packSelect.value, 10);
+      const lastPullsMatchSelectedPack = packSelect.value === 'all' || lastPulls.every(function(card) {
+        return Number(card.episode) === selectedEpisode;
+      });
+      if (lastPulls.length && lastPullsMatchSelectedPack) {
         renderPulls(lastPulls);
+      } else if (lastPulls.length) {
+        renderPulls([]);
+        setReadyStatusForSelectedPack();
       }
     })();
     </script>

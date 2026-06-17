@@ -5,166 +5,269 @@ Source file: `content/episodes/issue-03.json`
 ## Episode Snapshot
 
 - Title: The Burn Book Problem
-- Lesson: What hallucinations are and how to verify names, dates, links, numbers, quotes, and high-stakes claims.
-- Emotional beat: First betrayal: AI sounded certain, she caught it, and now she trusts herself more.
-- Issue URL: issues/issue-03.html
-- CTA: Save this before you put AI output in a deck.
+- Core message: AI can sound confident and still be wrong. Check the alibi before it gets on the stand with your name on it.
+- Lesson: Use AI for drafts and structure, then verify claims with sources, dates, quotes, numbers, context, and domain rules.
+- Emotional beat: First betrayal: AI sounded certain, she caught the Chutney detail, and now she trusts her judgment more.
+- Issue URL: https://wearelaidies.com/issues/issue-03.html
+- CTA: Read Issue 03, then try the Elle Woods receipts pass.
 
-## Reel 1: Episode Hook
+## Production Notes
 
-On-screen hook:
+- Visual world: grown-up Burn Book investigation desk, not teen scrapbook.
+- Objects: glossy notebook, legal pad, receipts, source tabs, highlighter, glitter pen, flip phone, tiny butterfly clip, lip gloss, courtroom sticky notes, one Spring Fling-style ID check.
+- Palette: pearl/cream, plum, muted rose, icy blue, silver, tiny highlighter yellow.
+- Keep real copy as editable type. Do not bury the lesson inside generated image text.
+- Use labels, crossed-out claims, receipt strips, timeline arrows, and pink-circled evidence.
+- Avoid fearmongering, generic AI safety lecture, tech-bro certainty, or "women need cute references" energy.
+
+## Carousel: Chutney Can Say It Thrice. Elle Still Checks The Timeline.
+
+10 slides max. Use large editorial type, short lines, and plenty of negative space.
+
+### Slide 01
 
 ```text
-AI can have Regina George confidence.
+AI can sound confident
+and still be wrong.
 ```
 
-Script:
+Styling notes:
+- Italicize `sound confident`.
+- Add small label sticker: `ISSUE 03`
+- Footer tag: `THE BURN BOOK PROBLEM`
+- Visual: Burn Book desk crop with one receipt strip peeking out.
+
+### Slide 02
 
 ```text
-AI can have Regina George confidence.
+The risky answer is not always nonsense.
 
-This week on lAIdies: The one in which she asks AI something, gets back a confident lie, catches it, and realizes the tool can have Regina George energy without Regina George receipts.
-
-The actual lesson: What hallucinations are and how to verify names, dates, links, numbers, quotes, and high-stakes claims.
-
-Try this in under 10 minutes:
-Ask AI for an answer with sources, then verify at least three claims yourself before using it.
+Sometimes it has bullets,
+tone,
+and one tiny Chutney detail.
 ```
 
-Caption:
+Styling notes:
+- Cross out `nonsense` lightly.
+- Circle `one tiny Chutney detail` in pink.
+- Visual: polished paragraph with one highlighted date/link/quote.
+
+### Slide 03
 
 ```text
-AI can be useful and wrong at the same time. That is why judgment still matters.
+The Burn Book Problem:
 
-Try-On:
-Ask AI for an answer with sources, then verify at least three claims yourself before using it.
-
-Save this before you put AI output in a deck.
-
-#lAIdies #AIForWomen #AIFluency #WomenInAI #WomenAtWork
+same marker,
+same confidence,
+wildly different evidence.
 ```
 
-## Reel 2: Practical Takeaway
+Styling notes:
+- Put `true`, `stale`, `assumed`, `made up` on tabs.
+- Add sticker: `SOCIAL AUTHORITY IS NOT A SOURCE`
+- Visual: Burn Book-style page, but adult editorial and source-checking focused.
 
-On-screen hook:
+### Slide 04
 
 ```text
-If the output has no receipts, do not forward it.
+One private data point
+is not a whole character verdict.
 ```
 
-Script:
+Styling notes:
+- Small handwritten label: `BETHANY BYRD RECEIPT CHECK`
+- Put `one clue` -> `huge conclusion` as an arrow, then cross out the arrow.
+- Visual: clue card, receipt card, magnifying glass, not explicit or crude.
+
+### Slide 05
 
 ```text
-If the output has no receipts, do not forward it.
+Sometimes the answer
+doesn't even go here.
 
-The useful work move is:
-If the output has no receipts, I am not putting my name on it.
-
-Do this:
-Ask AI for an answer with sources, then verify at least three claims yourself before using it.
+Right tone.
+Wrong company.
+Wrong country.
+Wrong date.
+Wrong meeting.
 ```
 
-Caption:
+Styling notes:
+- Sticker: `SHE DOESN'T EVEN GO HERE`
+- Use ID-check visual treatment.
+- Cross out one `wrong` word per line with a thin plum line.
+
+### Slide 06
 
 ```text
-Save this for the next time AI comes up at work:
+Cher's closet can pick the outfit.
 
-"If the output has no receipts, I am not putting my name on it."
-
-Save this before you put AI output in a deck.
-
-#AIForWork #CareerConfidence #PromptTips #lAIdies
+You still check the dress code.
 ```
 
-## Reel 3: Community Prompt
+Styling notes:
+- Label `DRAFT` on outfit pieces.
+- Label `CLAIM` on the dress-code note.
+- Label `RECEIPT` on the source tab.
+- Visual: closet/interface meets meeting invite, with a receipt pinned beside it.
 
-On-screen hook:
+### Slide 07
 
 ```text
-Polished does not mean true.
+Do not ask only:
+"Are you sure?"
+
+Chutney can say it thrice.
+Elle still checks the timeline.
 ```
 
-Script:
+Styling notes:
+- Cross out `"Are you sure?"`
+- Make `thrice` playful but readable.
+- Visual: three identical answer cards, one timeline card circled.
+
+### Slide 08
 
 ```text
-The lAIdies Room question this week:
+Ask:
 
-What is the most confident wrong AI answer you have seen?
-
-Post the version before it turns into a second job in your head. Someone else is probably stuck at the same locker.
+What claim am I relying on?
+What source checks it?
+What date matters?
+What did AI infer?
+What detail would make this fall apart?
 ```
 
-Caption:
+Styling notes:
+- Style as courtroom exhibit labels.
+- Add tiny sticker: `ELLE WOODS THIS ANSWER`
+- Use one highlighted timeline line.
+
+### Slide 09
 
 ```text
-Community prompt:
-What is the most confident wrong AI answer you have seen?
+To prevent the mess:
 
-Ask the rooms. Share the attempt. Bring the receipts.
-
-#WomenAtWork #CareerCommunity #AIForWomen #lAIdies
+bring the source,
+set the boundary,
+make uncertainty allowed,
+ask for exact lines,
+check independently.
 ```
 
-## Carousel: The Receipts Checklist: what to verify before trusting AI.
+Styling notes:
+- Use five receipt strips.
+- Add crossed-out note: `don't hallucinate` with label `not enough`.
+- Visual: source folder, uploaded file tab, exact quote card.
 
-Slide 1:
-
-```text
-The Receipts Checklist: what to verify before trusting AI.
-```
-
-Slide 2:
+### Slide 10
 
 ```text
-The episode:
+Main Character Energy:
+
+I can use the draft.
+I still check the alibi.
+
+Read Issue 03:
 The Burn Book Problem
 ```
 
-Slide 3:
+Styling notes:
+- Make the two-line quote the hero.
+- Italicize `draft` and `alibi`.
+- CTA sticker: `READ THE ISSUE`
+- Footer: `wearelaidies.com`
+
+## Instagram Caption
 
 ```text
-What you learn:
-What hallucinations are and how to verify names, dates, links, numbers, quotes, and high-stakes claims.
+AI can sound confident and still be wrong.
+
+Not always obviously wrong. Sometimes the answer is useful, polished, and almost ready to send. Then one detail does a full Chutney Windham on the stand.
+
+That is Episode 03 of LAiDIES: The Burn Book Problem.
+
+The lesson is not "never trust AI."
+
+The lesson is: use the draft, then check the alibi.
+
+Before an AI answer goes into your email, deck, client note, meeting prep, policy question, budget conversation, or anything with your name on it, ask:
+
+1. What claim am I relying on?
+2. What source checks it?
+3. What date, quote, number, policy, or domain rule matters?
+4. What did AI infer instead of know?
+5. What detail would make this fall apart?
+
+Chutney can say it thrice. Elle still checks the timeline.
+
+Read Issue 03: The Burn Book Problem.
+
+#LAiDIES #AIForWork #AIFluency #WomenInAI #FutureOfWork #WomenAtWork #AISkills
 ```
 
-Slide 4:
+## Reel Option 1: Episode Hook
+
+On-screen hook:
 
 ```text
-Say this in a meeting:
-"If the output has no receipts, I am not putting my name on it."
+AI can have Regina George confidence.
 ```
 
-Slide 5:
+Script:
 
 ```text
-Try this:
-Ask AI for an answer with sources, then verify at least three claims yourself before using it.
+AI can have Regina George confidence.
+
+It can give you structure, tone, bullets, and one quiet little claim that does not survive a timeline check.
+
+That is the Burn Book Problem.
+
+Same confidence. Different evidence.
+
+This week in LAiDIES, we are not panicking about hallucinations. We are learning to be harder to embarrass.
+
+Use the draft. Check the alibi. Find the receipt before the paragraph gets on the stand with your name on it.
 ```
 
-Slide 6:
+Caption CTA:
 
 ```text
-Remember, lAIdies:
-Regina George confidence is only useful when you have receipts.
+Read Issue 03, then try the Elle Woods receipts pass before your next AI-assisted work draft.
 ```
 
-Slide 7:
+## Reel Option 2: The Work Move
+
+On-screen hook:
 
 ```text
-Read Issue 03.
-Then bring your answer to the room.
+"Are you sure?" is not verification.
 ```
 
-Caption:
+Script:
 
 ```text
-Issue 03: The Burn Book Problem
+Asking AI "are you sure?" can help.
 
-The one in which AI says something confidently wrong and she learns to ask for receipts before forwarding it to a VP.
+But sometimes it just gives you the same wrong answer in two popped-collar polos, only with the colors reversed.
 
-Save this, try the prompt, and send it to the friend who is learning AI between meetings.
+Instead, ask it to separate:
 
-#lAIdies #AIForWomen #AIFluency #WomenInAI #FutureOfWork
+What is draft language.
+What claims need a source.
+What it assumed.
+What would change the answer.
+What receipt you should check.
+
+Chutney can say it thrice.
+
+Elle still checks the timeline.
+```
+
+Caption CTA:
+
+```text
+Save this before an AI answer gets into your meeting notes with no alibi.
 ```
 
 ## Stories
@@ -172,42 +275,83 @@ Save this, try the prompt, and send it to the friend who is learning AI between 
 Frame 1:
 
 ```text
-New lAIdies episode is live:
+New LAiDIES episode:
 The Burn Book Problem
 ```
 
-Frame 2:
+Sticker:
 
 ```text
-This week:
-What hallucinations are and how to verify names, dates, links, numbers, quotes, and high-stakes claims.
+AI CAN SOUND CONFIDENT AND STILL BE WRONG
 ```
 
-Frame 3:
+Frame 2:
 
 ```text
 Poll:
 Have you ever caught AI making something up?
 ```
 
+Poll options:
+
+```text
+Yes, instantly.
+Yes, after I almost sent it.
+```
+
+Frame 3:
+
+```text
+Question:
+What was the Chutney detail?
+```
+
+Sticker prompt:
+
+```text
+date / link / quote / number / source / policy / context
+```
+
 Frame 4:
 
 ```text
-10-minute Try-On:
-Ask AI for an answer with sources, then verify at least three claims yourself before using it.
+The Elle check:
+
+claim
+timeline
+domain rule
+contradiction
+receipt
 ```
 
 Frame 5:
 
 ```text
-Read the episode.
-Then tell us how it went.
+Read Issue 03.
+Then bring your lesson to the Burn Book.
 ```
 
 Link sticker:
 
 ```text
-issues/issue-03.html
+https://wearelaidies.com/issues/issue-03.html
+```
+
+## Optional "Ask Me Your AI Questions" Caption
+
+```text
+Ask me your AI questions.
+
+Especially the ones that sound like:
+
+"Can I trust this?"
+"What should I verify?"
+"Is asking AI again enough?"
+"How do I stop it from making things up?"
+
+Episode 03 is about the first betrayal moment: when AI sounds useful, polished, and confident, and then one name, date, link, quote, source, policy, or timeline detail does not hold.
+
+Drop the question you want an Elle Woods receipts pass for. No confidential workplace details. We are checking the lesson, not exposing the tea.
 ```
 
 ## Tags To Carry Forward
@@ -217,11 +361,16 @@ Glossary terms:
 - Source
 - Citation
 - Verification
+- Assumption
 
 References:
-- Mean Girls
-- Legally Blonde
-- The Devil Wears Prada
+- Mean Girls / Burn Book: social authority, bad sourcing, unsupported claims
+- Bethany Byrd: one clue becoming an enormous conclusion
+- She Doesn't Even Go Here: relevance and context check
+- Legally Blonde / Elle Woods: timeline, domain knowledge, contradiction, receipts
+- Clueless / Cher's closet: useful output that still needs situational judgment
+- Buffy / The Bronze: too-good-to-be-true claims
+- Charmed / Book of Shadows: check the source before declaring what you are dealing with
 
 Tools:
 - ChatGPT

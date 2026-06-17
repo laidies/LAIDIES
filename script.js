@@ -4048,9 +4048,11 @@ function getVisibleQuizIssueKeys() {
       .filter((episode) => episode.status === "published")
       .map((episode) => `issue${String(episode.number).padStart(2, "0")}`)
   );
+  const privateReviewIssueKey = getPrivateReviewQuizIssueKey();
   const keys = new Set([...initialQuizIssueKeys, ...Object.keys(issueQuizzes)]);
+  if (privateReviewIssueKey) keys.add(privateReviewIssueKey);
   return Array.from(keys)
-    .filter((issueKey) => issueKey === "foundation" || publishedIssueKeys.has(issueKey) || initialQuizIssueKeys.includes(issueKey))
+    .filter((issueKey) => issueKey === "foundation" || publishedIssueKeys.has(issueKey) || initialQuizIssueKeys.includes(issueKey) || issueKey === privateReviewIssueKey)
     .sort((a, b) => {
       if (a === "foundation") return -1;
       if (b === "foundation") return 1;
@@ -4109,9 +4111,29 @@ function resolveSiteUrl(path) {
 function getQuizReturnConfig() {
   const params = new URLSearchParams(window.location.search || "");
   const source = params.get("from");
+  if (source === "episode-03-preview") {
+    const fallbackHref = new URL("operations/review-packets/episode-03-reader-preview.html#issue-kit", getSiteRootUrl()).toString();
+    let href = fallbackHref;
+    const returnPath = params.get("return");
+    if (returnPath) {
+      try {
+        const candidate = new URL(returnPath, window.location.href);
+        if (candidate.origin === window.location.origin) href = candidate.toString();
+      } catch {
+        href = fallbackHref;
+      }
+    }
+    return {
+      source,
+      href,
+      label: `\u2190 ${params.get("returnLabel") || "Back to Episode 03 preview"}`,
+      bodyClass: "from-episode-preview",
+    };
+  }
   if (source === "this-week") {
     const issue = String(params.get("issue") || "").match(/\d+/)?.[0] || "";
-    const href = issue ? `this-week.html?issue=${encodeURIComponent(Number(issue))}&bag=open` : "this-week.html?bag=open";
+    const draftFlag = params.get("draft") === "1" ? "&draft=1" : "";
+    const href = issue ? `this-week.html?issue=${encodeURIComponent(Number(issue))}&bag=open${draftFlag}` : "this-week.html?bag=open";
     return {
       source,
       href: new URL(href, getSiteRootUrl()).toString(),
@@ -4130,11 +4152,26 @@ function getQuizReturnConfig() {
   return null;
 }
 
+function syncQuizBackLink(config) {
+  const backLink = document.querySelector("[data-quiz-back-link]");
+  if (!backLink || !config?.href) return;
+  if (config.source === "this-week") {
+    backLink.hidden = true;
+    return;
+  }
+  backLink.hidden = false;
+  backLink.href = config.href;
+  backLink.textContent = config.label;
+}
+
 function insertQuizReturnLink() {
   const config = getQuizReturnConfig();
-  if (!config?.href || document.querySelector("[data-quiz-return]")) return;
+  syncQuizBackLink(config);
+  if (!config?.href) return;
   document.body?.classList.add(config.bodyClass);
   document.body?.classList.add("focused-quiz-mode");
+  if (document.querySelector("[data-quiz-return]")) return;
+  if (document.querySelector("[data-quiz-back-link]") && config.source !== "this-week") return;
   const link = document.createElement("a");
   link.dataset.quizReturn = config.source;
   link.className = "quiz-return-link";
@@ -4142,6 +4179,30 @@ function insertQuizReturnLink() {
   link.textContent = config.label;
   const main = document.querySelector("main");
   if (main) main.prepend(link);
+}
+
+function getPrivateReviewQuizIssueKey() {
+  const params = new URLSearchParams(window.location.search || "");
+  const source = params.get("from");
+  const preview = params.get("preview");
+  const draft = params.get("draft");
+  const allowsDraftQuiz = source === "episode-03-preview" || preview === "1" || draft === "1";
+  if (!allowsDraftQuiz) return "";
+  const issue = String(params.get("issue") || params.get("quiz") || "").match(/\d+/)?.[0];
+  if (!issue) return "";
+  return `issue${String(Number(issue)).padStart(2, "0")}`;
+}
+
+function getPrivateReviewArticleHref() {
+  const config = getQuizReturnConfig();
+  if (!config?.href) return "";
+  try {
+    const url = new URL(config.href);
+    url.hash = "article";
+    return url.toString();
+  } catch {
+    return config.href.replace("#issue-kit", "#article");
+  }
 }
 
 function getRequestedQuizIssueKey() {
@@ -4804,7 +4865,7 @@ function renderQuiz() {
   if (quizIssueLabel) quizIssueLabel.textContent = `Selected quiz: ${toPublicEpisodeLabel(quiz.label).replace(/\s+Quiz$/i, "")}`;
   setBrandText(quizIssueTitle, quiz.title);
   if (quizRereadLink) {
-    quizRereadLink.href = resolveSiteUrl(quiz.rereadUrl);
+    quizRereadLink.href = activeQuizKey === getPrivateReviewQuizIssueKey() ? getPrivateReviewArticleHref() : resolveSiteUrl(quiz.rereadUrl);
     setBrandText(quizRereadLink, toPublicEpisodeLabel(quiz.rereadLabel));
   }
   if (quizIssueSelect) quizIssueSelect.value = activeQuizKey;
@@ -4954,7 +5015,9 @@ function gradeQuiz() {
       const reviewText = question.review.trim();
       const reviewLocation = reviewText.replace(/^find it in\s*/i, "").replace(/^find it\s*/i, "");
       review.textContent = `Where to find it: ${reviewLocation}`;
-      if (question.reviewUrl) review.href = resolveSiteUrl(question.reviewUrl);
+      if (question.reviewUrl) {
+        review.href = activeQuizKey === getPrivateReviewQuizIssueKey() ? getPrivateReviewArticleHref() : resolveSiteUrl(question.reviewUrl);
+      }
       explain.appendChild(review);
     }
     fieldset?.appendChild(explain);
