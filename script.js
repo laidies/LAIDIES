@@ -4744,7 +4744,7 @@ function renderQuizProgressList() {
 async function hydrateQuizDataFromFile() {
   if (!initialQuizIssueKeys.length || typeof fetch !== "function") return;
   try {
-    const response = await fetch(new URL("content/site/quizzes.json?v=issue-02-live-2", getSiteRootUrl()), { cache: "no-store" });
+    const response = await fetch(new URL("content/site/quizzes.json?v=issue-03-live-1", getSiteRootUrl()), { cache: "no-store" });
     if (!response.ok) return;
     const loadedQuizzes = await response.json();
     const visibleKeys = getVisibleQuizIssueKeys();
