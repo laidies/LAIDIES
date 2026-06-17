@@ -1059,7 +1059,7 @@
 
       .secret-hotspot {
         position: absolute;
-        z-index: 5;
+        z-index: 6;
         width: 40px;
         height: 46px;
         border: 1px solid rgba(255, 255, 255, 0.8);
@@ -1107,12 +1107,28 @@
         height: 58px;
       }
 
+      .secret-receipt-drawer {
+        right: 18.3%;
+        bottom: 34.5%;
+        width: 68px;
+        height: 64px;
+      }
+
+      .secret-plaid-photo {
+        top: 7%;
+        right: 3.4%;
+        width: 9.5%;
+        height: 18%;
+        border-radius: 8px;
+        transform: rotate(2deg);
+      }
+
       .ritual-actions {
         display: grid;
         position: relative;
         z-index: 8;
         grid-template-columns: repeat(7, minmax(0, 1fr));
-        gap: 8px;
+        gap: 10px;
         margin: 14px;
         padding: 14px;
         border: 1px solid rgba(255, 255, 255, 0.2);
@@ -1139,7 +1155,8 @@
         display: none;
       }
 
-      .ritual-action {
+      .ritual-action,
+      .ritual-mini-action {
         display: grid;
         width: 100%;
         min-height: 64px;
@@ -1161,7 +1178,32 @@
         transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease, background 160ms ease, color 160ms ease;
       }
 
-      .ritual-action span {
+      .ritual-action strong,
+      .ritual-mini-action strong,
+      .ritual-action em,
+      .ritual-mini-action em {
+        display: block;
+        min-width: 0;
+      }
+
+      .ritual-action strong,
+      .ritual-mini-action strong {
+        font-size: inherit;
+        line-height: 1.08;
+      }
+
+      .ritual-action em,
+      .ritual-mini-action em {
+        color: rgba(33, 17, 31, 0.68);
+        font-size: 0.72rem;
+        font-style: normal;
+        font-weight: 780;
+        line-height: 1.18;
+      }
+
+      .ritual-action span,
+      .ritual-mini-action span,
+      .ritual-group-kicker {
         color: #8c1160;
         font-family: var(--font-mono);
         font-size: 0.64rem;
@@ -1174,7 +1216,11 @@
       .ritual-action:hover,
       .ritual-action:focus-visible,
       .ritual-action.is-active,
-      .ritual-action.is-selected {
+      .ritual-action.is-selected,
+      .ritual-mini-action:hover,
+      .ritual-mini-action:focus-visible,
+      .ritual-mini-action.is-active,
+      .ritual-mini-action.is-selected {
         transform: translateY(-3px);
         border-color: var(--hot-pink);
         background: linear-gradient(135deg, #ff3fa4, #ff1492);
@@ -1189,7 +1235,19 @@
       .ritual-action:hover span,
       .ritual-action:focus-visible span,
       .ritual-action.is-active span,
-      .ritual-action.is-selected span {
+      .ritual-action.is-selected span,
+      .ritual-mini-action:hover span,
+      .ritual-mini-action:focus-visible span,
+      .ritual-mini-action.is-active span,
+      .ritual-mini-action.is-selected span,
+      .ritual-action:hover em,
+      .ritual-action:focus-visible em,
+      .ritual-action.is-active em,
+      .ritual-action.is-selected em,
+      .ritual-mini-action:hover em,
+      .ritual-mini-action:focus-visible em,
+      .ritual-mini-action.is-active em,
+      .ritual-mini-action.is-selected em {
         color: rgba(255, 249, 236, 0.92);
       }
 
@@ -1201,11 +1259,13 @@
       }
 
       .ritual-action.is-complete,
+      .ritual-mini-action.is-complete,
       .mobile-priority-action.is-complete {
         position: relative;
       }
 
       .ritual-action.is-complete::after,
+      .ritual-mini-action.is-complete::after,
       .mobile-priority-action.is-complete::after {
         content: "\2713";
         position: absolute;
@@ -1225,7 +1285,9 @@
       }
 
       .ritual-action.is-disabled,
-      .ritual-action[aria-disabled="true"] {
+      .ritual-action[aria-disabled="true"],
+      .ritual-mini-action.is-disabled,
+      .ritual-mini-action[aria-disabled="true"] {
         opacity: 0.58;
         cursor: not-allowed;
       }
@@ -1233,7 +1295,11 @@
       .ritual-action.is-disabled:hover,
       .ritual-action.is-disabled:focus-visible,
       .ritual-action[aria-disabled="true"]:hover,
-      .ritual-action[aria-disabled="true"]:focus-visible {
+      .ritual-action[aria-disabled="true"]:focus-visible,
+      .ritual-mini-action.is-disabled:hover,
+      .ritual-mini-action.is-disabled:focus-visible,
+      .ritual-mini-action[aria-disabled="true"]:hover,
+      .ritual-mini-action[aria-disabled="true"]:focus-visible {
         transform: none;
         border-color: rgba(155, 63, 95, 0.28);
         background: linear-gradient(135deg, #fff, #fff8ef 68%, #ffd9e9);
@@ -1242,8 +1308,169 @@
       }
 
       .ritual-action.is-disabled span,
-      .ritual-action[aria-disabled="true"] span {
+      .ritual-action[aria-disabled="true"] span,
+      .ritual-mini-action.is-disabled span,
+      .ritual-mini-action[aria-disabled="true"] span {
         color: rgba(140, 17, 96, 0.62);
+      }
+
+      .ritual-action-group {
+        display: grid;
+        grid-column: span 2;
+        gap: 10px;
+        border: 1px solid rgba(155, 63, 95, 0.24);
+        border-radius: 16px;
+        padding: 12px;
+        background:
+          radial-gradient(circle at 92% 8%, rgba(36, 123, 131, 0.12), transparent 10rem),
+          linear-gradient(135deg, rgba(255, 253, 251, 0.96), rgba(255, 241, 248, 0.88));
+        box-shadow: 0 8px 18px rgba(33, 17, 31, 0.1);
+      }
+
+      .ritual-action-group--wide {
+        grid-column: span 3;
+      }
+
+      .ritual-group-heading {
+        display: grid;
+        gap: 4px;
+      }
+
+      .ritual-group-heading strong {
+        color: var(--ink);
+        font-size: 0.98rem;
+        font-weight: 950;
+        line-height: 1.08;
+      }
+
+      .ritual-group-heading p {
+        color: rgba(33, 17, 31, 0.68);
+        font-size: 0.76rem;
+        font-weight: 760;
+        line-height: 1.25;
+      }
+
+      .ritual-card-stack {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .ritual-mini-action {
+        min-height: 54px;
+        padding: 9px 10px;
+        font-size: 0.82rem;
+        box-shadow: 0 6px 12px rgba(33, 17, 31, 0.1);
+      }
+
+      .ritual-choice-shelf {
+        display: grid;
+        grid-column: 1 / -1;
+        gap: 10px;
+        border: 1px solid rgba(155, 63, 95, 0.26);
+        border-radius: 18px;
+        padding: 12px;
+        background:
+          radial-gradient(circle at 12% 0%, rgba(255, 228, 122, 0.2), transparent 11rem),
+          radial-gradient(circle at 100% 100%, rgba(36, 123, 131, 0.13), transparent 10rem),
+          linear-gradient(135deg, rgba(255, 253, 251, 0.98), rgba(255, 241, 248, 0.9));
+        box-shadow:
+          inset 0 0 0 1px rgba(255, 255, 255, 0.48),
+          0 10px 22px rgba(33, 17, 31, 0.12);
+      }
+
+      .ritual-choice-shelf[hidden],
+      .ritual-choice-panel[hidden] {
+        display: none;
+      }
+
+      .ritual-choice-panel {
+        display: grid;
+        gap: 10px;
+      }
+
+      .ritual-drawer-back {
+        justify-self: start;
+        border: 1px solid rgba(155, 63, 95, 0.3);
+        border-radius: 999px;
+        padding: 8px 12px;
+        background: rgba(255, 253, 251, 0.9);
+        color: var(--ink);
+        font-family: inherit;
+        font-size: 0.76rem;
+        font-weight: 950;
+        cursor: pointer;
+        box-shadow: 0 6px 12px rgba(33, 17, 31, 0.08);
+      }
+
+      .ritual-drawer-back:hover,
+      .ritual-drawer-back:focus-visible {
+        border-color: var(--hot-pink);
+        outline: 3px solid rgba(255, 228, 122, 0.48);
+        outline-offset: 2px;
+      }
+
+      .ritual-share-actions {
+        display: flex;
+        grid-column: 1 / -1;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        justify-content: center;
+        border-top: 1px solid rgba(155, 63, 95, 0.16);
+        padding-top: 10px;
+      }
+
+      .ritual-share-button {
+        display: inline-flex;
+        min-height: 38px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(155, 63, 95, 0.32);
+        border-radius: 999px;
+        padding: 8px 13px;
+        background: #4b2148;
+        color: #fffdfb;
+        font-family: inherit;
+        font-size: 0.78rem;
+        font-weight: 950;
+        cursor: pointer;
+        box-shadow: 0 8px 18px rgba(33, 17, 31, 0.14);
+      }
+
+      .ritual-share-button--quiet {
+        background: rgba(255, 253, 251, 0.86);
+        color: var(--ink);
+      }
+
+        .ritual-share-status {
+        flex: 1 1 100%;
+        min-height: 1em;
+        color: rgba(33, 17, 31, 0.72);
+        font-size: 0.72rem;
+        font-weight: 800;
+        text-align: center;
+      }
+
+      .ritual-share-url {
+        flex: 1 1 100%;
+        min-width: 0;
+        border: 1px solid rgba(155, 63, 95, 0.26);
+        border-radius: 12px;
+        padding: 9px 10px;
+        background: rgba(255, 253, 251, 0.9);
+        color: var(--ink);
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        font-weight: 800;
+      }
+
+      .ritual-share-url[hidden] {
+        display: none;
+      }
+
+      .ritual-share-url:not([hidden]) {
+        display: block;
       }
 
       .ritual-charm-status {
@@ -1456,6 +1683,28 @@
           padding: 8px 10px;
           font-size: 0.86rem;
           line-height: 1.08;
+          text-align: left;
+        }
+
+        .open-scene:not([hidden]) .ritual-action-group,
+        .open-scene:not([hidden]) .ritual-action-group--wide {
+          grid-column: 1 / -1;
+          gap: 8px;
+          padding: 10px;
+        }
+
+        .open-scene:not([hidden]) .ritual-card-stack {
+          grid-template-columns: 1fr;
+          gap: 7px;
+        }
+
+        .open-scene:not([hidden]) .ritual-mini-action {
+          min-height: 44px;
+          grid-template-columns: 84px minmax(0, 1fr);
+          align-items: center;
+          gap: 8px;
+          padding: 8px 10px;
+          font-size: 0.82rem;
           text-align: left;
         }
 
@@ -1892,6 +2141,11 @@
           border-radius: 16px;
         }
 
+        .open-scene:not([hidden]) {
+          display: flex;
+          flex-direction: column;
+        }
+
         .ritual-scene-image {
           height: auto;
           min-height: clamp(420px, 118vw, 620px);
@@ -1904,11 +2158,13 @@
 
         .open-scene .ritual-scene-image {
           height: auto;
-          min-height: 300px;
+          min-height: 0;
+          object-fit: contain;
         }
 
         .image-stage {
           min-height: 0;
+          order: 1;
         }
 
         .soft-scrim {
@@ -1974,29 +2230,97 @@
           height: 17%;
         }
 
+        .open-scene .image-stage .object-link,
+        .open-scene .image-stage .object-button {
+          pointer-events: none;
+        }
+
+        .open-scene .image-stage .secret-hotspot {
+          pointer-events: auto;
+          touch-action: manipulation;
+        }
+
         .secret-tamagotchi {
           top: 43%;
           right: 12%;
+          width: 54px;
+          height: 58px;
         }
 
         .secret-razr {
           bottom: 18%;
           left: 28%;
+          width: 64px;
+          height: 68px;
         }
 
-        .mobile-priority-rail {
-          display: grid;
+        .secret-receipt-drawer {
+          right: 18%;
+          bottom: 34%;
+          width: 52px;
+          height: 50px;
+        }
+
+        .secret-plaid-photo {
+          top: 6.6%;
+          right: 2.8%;
+          width: 13%;
+          height: 19%;
         }
 
         .ritual-actions {
-          display: none;
+          display: grid;
+          order: 2;
+          grid-template-columns: 1fr;
+          gap: 8px;
+          margin: 10px;
+          padding: 10px;
+          border-radius: 18px;
         }
 
-        .ritual-action {
+        .ritual-actions h2 {
+          display: block;
+          color: var(--ink);
+          font-size: 1rem;
+          line-height: 1.1;
+        }
+
+        .ritual-actions > p:not(.ritual-signoff) {
+          display: block;
+          color: rgba(33, 17, 31, 0.7);
+          font-size: 0.78rem;
+          line-height: 1.35;
+        }
+
+        .ritual-action-group,
+        .ritual-action-group--wide {
+          grid-column: 1 / -1;
+        }
+
+        .ritual-card-stack {
+          grid-template-columns: 1fr;
+        }
+
+        .ritual-action,
+        .ritual-mini-action {
           min-height: 48px;
-          grid-template-columns: minmax(80px, 0.35fr) 1fr;
-          align-items: center;
-          text-align: left;
+          padding: 9px 8px;
+          font-size: 0.82rem;
+          text-align: center;
+        }
+
+        .ritual-action span,
+        .ritual-mini-action span,
+        .ritual-group-kicker {
+          font-size: 0.56rem;
+        }
+
+        .ritual-share-actions {
+          justify-content: stretch;
+        }
+
+        .ritual-share-button {
+          flex: 1 1 150px;
         }
       }
 
@@ -2057,7 +2381,7 @@
         <div class="ritual-title">
           <span class="ritual-eyebrow">This Week</span>
           <h1>The Wednesday Ritual</h1>
-          <p class="ritual-lede">Open the bag. Read the issue. Do the move. Save the good stuff.</p>
+          <p class="ritual-lede">The Wednesday Bag is this week&rsquo;s AI fluency kit: read the issue, check the concept, save the useful piece, try it on real work, then bring one thing back to the Room.</p>
           <div class="week-picker" aria-label="Choose a Wednesday bag">
             <span class="week-picker-label">Choose your bag</span>
             <div class="week-picker-buttons" id="weekPickerButtons"></div>
@@ -2067,7 +2391,7 @@
           <div class="control-state" id="closedControl">
             <span class="note-kicker">Wednesday Bag</span>
             <h2>Open the bag.</h2>
-            <p>The issue, quiz, printable, and weekly extras are waiting inside.</p>
+            <p>The weekly ritual starts here. Essentials first, playful extras after the core move is clear.</p>
             <button class="primary-button" id="openBagButton" type="button">Open this week's bag</button>
           </div>
           <div class="control-state" id="openControl" hidden>
@@ -2083,6 +2407,8 @@
           <img
             class="ritual-scene-image"
             src="assets/this-week/wednesday-it-bag-closed.jpg"
+            width="1448"
+            height="1086"
             alt="A pink holographic Y2K mini backpack hanging in a warm LAiDIES bedroom-office, ready to open."
           >
           <div class="soft-scrim" aria-hidden="true"></div>
@@ -2092,16 +2418,12 @@
         </div>
 
         <div class="ritual-scene open-scene" id="openScene" hidden>
-          <div class="mobile-priority-rail" aria-label="Priority weekly actions">
-            <a class="mobile-priority-action" href="issues/issue-02.html?from=this-week&issue=2&bag=open" data-action="issue"><span>Read</span> Episode 02</a>
-            <a class="mobile-priority-action" href="learn/quiz.html?from=this-week&issue=2" data-action="quiz"><span>Do</span> Take Quiz</a>
-            <a class="mobile-priority-action" href="printable.html?from=this-week&issue=2&bag=open" data-action="printable"><span>Save</span> Cheat Sheet</a>
-          </div>
-
           <div class="image-stage">
             <img
               class="ritual-scene-image"
               src="assets/this-week/wednesday-it-bag-open.jpg"
+              width="1448"
+              height="1086"
               alt="The Wednesday bag opened with Episode 02, a quiz insert, a printable sleeve, and weekly extras arranged in the LAiDIES room."
             >
             <div class="soft-scrim" aria-hidden="true"></div>
@@ -2112,23 +2434,148 @@
             <a class="object-link object-dj" href="games/dj-booth.html?v=ritual-qa-2&from=this-week&issue=2&bag=open#djApp" data-action="dj" aria-label="Open the DJ Booth from the CD notes">DJ Booth</a>
             <a class="object-link object-tryon" href="try-on.html?from=this-week&issue=2&bag=open" data-action="tryon" data-complete-on-click="false" aria-label="Open the Episode 02 Try-On exercise from the legal pad">Try it once</a>
             <a class="object-link object-community" href="community.html?from=this-week&issue=2&bag=open" data-action="community" aria-label="Open the LAiDIES community">Community</a>
-            <a class="object-link object-goss" href="hot-goss.html?v=ritual-qa-3&from=this-week&issue=2&bag=open" data-action="goss" aria-label="Preview Hot Goss news memo">News Preview</a>
+            <a class="object-link object-goss" href="hot-goss.html?v=ritual-qa-3&from=this-week&issue=2&bag=open" data-action="goss" aria-label="Open Hot Goss news memo">Hot Goss</a>
 
             <button class="secret-hotspot secret-tamagotchi" type="button" aria-label="Hidden weekly charm"></button>
             <button class="secret-hotspot secret-razr" type="button" aria-label="Hidden weekly charm" hidden></button>
+            <button class="secret-hotspot secret-receipt-drawer" type="button" aria-label="Hidden weekly charm" hidden></button>
+            <button class="secret-hotspot secret-plaid-photo" type="button" aria-label="Hidden weekly charm" hidden></button>
           </div>
 
-            <div class="ritual-actions" aria-label="This week's actions">
+          <div class="ritual-actions" aria-label="This week's actions">
             <h2>This week's bag is open.</h2>
-            <p>Start with the Episode, take the quiz, save the cheat sheet, then choose your weekly extras.</p>
-            <a class="ritual-action" href="issues/issue-02.html?from=this-week&issue=2&bag=open" data-action="issue"><span>Read this</span> Read Episode 02</a>
-            <a class="ritual-action" href="learn/quiz.html?from=this-week&issue=2" data-action="quiz"><span>Do this</span> Take the Quiz</a>
-            <a class="ritual-action" href="printable.html?from=this-week&issue=2&bag=open" data-action="printable"><span>Save this</span> Cheat Sheet</a>
-            <a class="ritual-action" href="try-on.html?from=this-week&issue=2&bag=open" data-action="tryon" data-complete-on-click="false"><span>Try this once</span> Try-On</a>
-            <a class="ritual-action" href="community.html?from=this-week&issue=2&bag=open" data-action="community"><span>Connect</span> Community</a>
-            <a class="ritual-action" href="games/fun-pack.html?from=this-week&issue=2&bag=open" data-action="funpack"><span>Bonus pack</span> Weekly Fun Pack</a>
-            <a class="ritual-action" href="games/dj-booth.html?v=ritual-qa-2&from=this-week&issue=2&bag=open#djApp" data-action="dj"><span>Listen to this</span> DJ Booth</a>
+            <p>Open this week's bag in order. Read it, try it, check yourself, then go have fun.</p>
+
+            <a class="ritual-action" href="issues/issue-02.html?from=this-week&issue=2&bag=open" data-action="issue" data-primary-action>
+              <span>1. Read</span>
+              <strong data-action-label>Read Episode 02</strong>
+              <em>Start with the episode.</em>
+            </a>
+
+            <button class="ritual-action" type="button" data-action="practice" data-choice-open="practice" data-complete-on-click="false" aria-expanded="false" aria-controls="practiceDrawer">
+              <span>2. Practice</span>
+              <strong data-action-label>Weekly Study Pack</strong>
+              <em>Try-On, cheat sheet, and weekly cards.</em>
+            </button>
+
+            <a class="ritual-action" href="learn/quiz.html?from=this-week&issue=2" data-action="quiz">
+              <span>3. Quiz</span>
+              <strong data-action-label>Take the Quiz</strong>
+              <em>Check yourself.</em>
+            </a>
+
+            <a class="ritual-action" href="games/fun-pack.html?from=this-week&issue=2&bag=open" data-action="funpack">
+              <span>4. Weekly Fun</span>
+              <strong data-action-label>Weekly Fun Pack</strong>
+              <em>CLAI-O, Fairy Godmother, Dream Phone, and Girl Talk.</em>
+            </a>
+
+            <button class="ritual-action" type="button" data-action="connect" data-choice-open="connect" data-complete-on-click="false" aria-expanded="false" aria-controls="connectDrawer">
+              <span>5. Connect</span>
+              <strong data-action-label>Meet &amp; Celebrate</strong>
+              <em>Community and Happy Hour.</em>
+            </button>
+
+            <a class="ritual-action" href="games/dj-booth.html?v=ritual-qa-2&from=this-week&issue=2&bag=open#djApp" data-action="dj">
+              <span>6. Listen</span>
+              <strong data-action-label>DJ Booth</strong>
+              <em>Play the weekly anthem.</em>
+            </a>
+
+            <button class="ritual-action" type="button" data-action="realworld" data-choice-open="realworld" data-complete-on-click="false" aria-expanded="false" aria-controls="realWorldDrawer">
+              <span>7. Real World</span>
+              <strong data-action-label>The Book of Receipts</strong>
+              <em>AI news, receipts, references, who's who.</em>
+            </button>
+
+            <div class="ritual-choice-shelf" id="ritualChoiceShelf" hidden>
+              <section class="ritual-choice-panel" id="practiceDrawer" data-choice-panel="practice" hidden aria-label="Practice options">
+                <div class="ritual-group-heading">
+                  <span class="ritual-group-kicker">Weekly Study Pack</span>
+                  <strong>Pick the work object you need.</strong>
+                  <p>Try it, save it, or collect the weekly practice prompts.</p>
+                </div>
+                <div class="ritual-card-stack">
+                  <a class="ritual-mini-action" href="try-on.html?from=this-week&issue=2&bag=open" data-action="tryon" data-complete-on-click="false">
+                    <span>Try-On</span>
+                    <strong data-action-label>Try-On</strong>
+                    <em>Put it to work.</em>
+                  </a>
+                  <a class="ritual-mini-action" href="printable.html?from=this-week&issue=2&bag=open" data-action="printable">
+                    <span>Cheat Sheet</span>
+                    <strong data-action-label>Cheat Sheet</strong>
+                    <em>Save the receipt.</em>
+                  </a>
+                  <a class="ritual-mini-action" href="games/trading-cards.html?from=this-week&issue=2&bag=open" data-action="cardpack">
+                    <span>Cards</span>
+                    <strong data-action-label>Practice Cards</strong>
+                    <em>Collect the weekly prompts.</em>
+                  </a>
+                </div>
+                <button class="ritual-drawer-back" type="button" data-choice-close>← Back to Bag</button>
+              </section>
+
+              <section class="ritual-choice-panel" id="connectDrawer" data-choice-panel="connect" hidden aria-label="Connect options">
+                <div class="ritual-group-heading">
+                  <span class="ritual-group-kicker">Meet &amp; Celebrate</span>
+                  <strong>Bring it back to the Room.</strong>
+                  <p>Create your card, then plan the Businesswomen's Special.</p>
+                </div>
+                <div class="ritual-card-stack">
+                  <a class="ritual-mini-action" href="community.html?from=this-week&issue=2&bag=open" data-action="community">
+                    <span>Community</span>
+                    <strong data-action-label>Community Card</strong>
+                    <em>Connect with LAiDIES.</em>
+                  </a>
+                  <a class="ritual-mini-action" href="games/businesswomens-special.html?from=this-week&issue=2&bag=open" data-action="happyhour">
+                    <span>Happy Hour</span>
+                    <strong data-action-label>Businesswomen's Special</strong>
+                    <em>Pick the drink, start the chat.</em>
+                  </a>
+                </div>
+                <button class="ritual-drawer-back" type="button" data-choice-close>← Back to Bag</button>
+              </section>
+
+              <section class="ritual-choice-panel" id="realWorldDrawer" data-choice-panel="realworld" hidden aria-label="Real world AI options">
+                <div class="ritual-group-heading">
+                  <span class="ritual-group-kicker">The Book of Receipts</span>
+                  <strong>See what's happening in AI.</strong>
+                  <p>News, receipts, references, and who's who for the week.</p>
+                </div>
+                <div class="ritual-card-stack">
+                  <a class="ritual-mini-action" href="hot-goss.html?v=ritual-qa-3&from=this-week&issue=2&bag=open" data-action="goss">
+                    <span>Hot Goss</span>
+                    <strong data-action-label>Current AI News</strong>
+                    <em>Read the latest.</em>
+                  </a>
+                  <a class="ritual-mini-action" href="learn/glossary.html?from=this-week&issue=2&bag=open" data-action="glossary">
+                    <span>Receipts</span>
+                    <strong data-action-label>Glossary</strong>
+                    <em>Check the terms.</em>
+                  </a>
+                  <a class="ritual-mini-action" href="reference-closet.html?from=this-week&issue=2&bag=open" data-action="reference">
+                    <span>Closet</span>
+                    <strong data-action-label>Reference Closet</strong>
+                    <em>Find the canon.</em>
+                  </a>
+                  <a class="ritual-mini-action" href="community/laidy-spotlight.html?from=this-week&issue=2&bag=open" data-action="whoswho">
+                    <span>Who's Who</span>
+                    <strong data-action-label>Who's Who</strong>
+                    <em>Meet the LAiDIES.</em>
+                  </a>
+                </div>
+                <button class="ritual-drawer-back" type="button" data-choice-close>← Back to Bag</button>
+              </section>
+            </div>
+
             <p class="ritual-charm-status" data-action="charm"><span>Hidden charm</span> Find this week's charm in the bag scene.</p>
+
+            <div class="ritual-share-actions" aria-label="Share this week's bag">
+              <button class="ritual-share-button" id="shareBagButton" type="button">Send to the Group Chat</button>
+              <button class="ritual-share-button ritual-share-button--quiet" id="copyBagLinkButton" type="button">Copy Link</button>
+              <span class="ritual-share-status" id="shareBagStatus" role="status" aria-live="polite"></span>
+              <input class="ritual-share-url" id="shareBagUrl" type="text" readonly hidden aria-label="Bag link">
+            </div>
           </div>
           <p class="ritual-signoff" hidden></p>
         </div>
@@ -2203,6 +2650,7 @@
     (function() {
       var closedScene = document.getElementById("closedScene");
       var openScene = document.getElementById("openScene");
+      var stageShell = document.querySelector(".stage-shell");
       var closedControl = document.getElementById("closedControl");
       var openControl = document.getElementById("openControl");
       var bagHotspot = document.getElementById("bagHotspot");
@@ -2237,8 +2685,14 @@
       var charmBody = document.getElementById("charmBody");
       var charmMeta = document.getElementById("charmMeta");
       var charmClose = document.getElementById("charmClose");
+      var shareBagButton = document.getElementById("shareBagButton");
+      var copyBagLinkButton = document.getElementById("copyBagLinkButton");
+      var shareBagStatus = document.getElementById("shareBagStatus");
+      var shareBagUrl = document.getElementById("shareBagUrl");
+      var ritualChoiceShelf = document.getElementById("ritualChoiceShelf");
       var SECRET_CHARM_SEASON_TOTAL = 24;
       var lastPanelTrigger = null;
+      var lastChoiceTrigger = null;
       var lastCharmTrigger = null;
       var selectedAction = "issue";
       var currentIssueNumber = 2;
@@ -2255,11 +2709,19 @@
         issue: "Read Episode 02",
         quiz: "Take Episode 02 Quiz",
         printable: "Cheat Sheet",
+        practice: "Weekly Study Pack",
         dj: "DJ Booth",
         tryon: "Try-On",
+        connect: "Meet & Celebrate",
         community: "Community",
+        glossary: "Glossary",
+        cardpack: "Card Pack",
         funpack: "Weekly Fun Pack",
-        goss: "News Preview"
+        goss: "Hot Goss",
+        happyhour: "Businesswomen's Special",
+        reference: "Reference Closet",
+        realworld: "The Book of Receipts",
+        whoswho: "Who's Who"
       };
 
       var ISSUE_FALLBACK = {
@@ -2280,9 +2742,9 @@
           selector: ".secret-razr",
           idSuffix: "cell-phone-charm",
           title: "Episode 01 Charm",
-          asset: "assets/charms/cell-phone-charm.svg",
-          alt: "Silver Y2K flip phone charm sticker",
-          objectLabel: "Cell Phone / Razr Charm"
+          asset: "assets/charms/cell-phone-charm.svg?v=pink-flip-1",
+          alt: "Glossy pink Y2K flip phone charm sticker",
+          objectLabel: "Pink Flip Phone Charm"
         },
         2: {
           selector: ".secret-tamagotchi",
@@ -2291,6 +2753,14 @@
           asset: "assets/charms/tamagotchi-charm-256.png",
           alt: "Pink mini digital pet charm sticker",
           objectLabel: "Tamagotchi Charm"
+        },
+        3: {
+          selector: ".secret-plaid-photo",
+          idSuffix: "yellow-plaid-jacket-charm",
+          title: "Episode 03 Charm",
+          asset: "assets/charms/plaid-photo-charm.svg?v=yellow-jacket-1",
+          alt: "Glossy yellow plaid jacket charm sticker",
+          objectLabel: "Yellow Plaid Jacket Charm"
         }
       };
 
@@ -2355,6 +2825,11 @@
         return match ? Number(match[0]) : null;
       }
 
+      function shouldAllowDraftIssue() {
+        var params = new URLSearchParams(window.location.search || "");
+        return params.get("draft") === "1" || params.get("preview") === "1" || params.get("from") === "episode-03-preview";
+      }
+
       function shouldOpenBagFromUrl() {
         var params = new URLSearchParams(window.location.search || "");
         return params.get("bag") === "open";
@@ -2367,17 +2842,26 @@
       }
 
       function normalizeCommunityUrl(url) {
-        return "community.html";
+        if (!url || /^(https?:|mailto:|tel:)/i.test(url)) return "community.html";
+        return url;
       }
 
       function getPrintablePreview(issue) {
         if (Number(issue) === 1) return "content/printables/previews/issue-01-open-the-tab-page-1.png";
         if (Number(issue) === 2) return "content/printables/previews/prompt-cheat-sheet-page-1.png";
+        if (Number(issue) === 3) return "content/printables/previews/issue-03-elle-receipts-pass-page-1.png";
         return "";
       }
 
       function getPrintablePageUrl(issue) {
         return addRitualReturnParams("printable.html", issue);
+      }
+
+      function shouldPreserveDraftForIssue(issue) {
+        var selected = publishedEpisodes.find(function(episode) {
+          return Number(episode.number) === Number(issue);
+        });
+        return Boolean(selected && selected.status && selected.status !== "published" && shouldAllowDraftIssue());
       }
 
       function getTryOnPanelBody(tryOn) {
@@ -2391,7 +2875,8 @@
         var hash = hashIndex >= 0 ? url.slice(hashIndex) : "";
         var base = hashIndex >= 0 ? url.slice(0, hashIndex) : url;
         var separator = base.indexOf("?") === -1 ? "?" : "&";
-        return base + separator + "from=this-week&issue=" + encodeURIComponent(issue) + "&bag=open" + hash;
+        var draftParam = shouldPreserveDraftForIssue(issue) ? "&draft=1" : "";
+        return base + separator + "from=this-week&issue=" + encodeURIComponent(issue) + "&bag=open" + draftParam + hash;
       }
 
       function updatePanelAction(action, options) {
@@ -2494,7 +2979,12 @@
         button.dataset.charmSource = "The Wednesday Ritual: Episode " + issuePad;
         button.dataset.charmAsset = config.asset;
         button.dataset.charmAlt = config.alt;
-        button.setAttribute("aria-label", "Hidden Episode " + issuePad + " " + config.objectLabel + " charm");
+        button.setAttribute("aria-label", "Hidden weekly charm");
+        document.querySelectorAll(".ritual-charm-status").forEach(function(status) {
+          var label = status.querySelector("span") || document.createElement("span");
+          label.textContent = "Hidden charm";
+          status.replaceChildren(label, document.createTextNode(" Find the hidden weekly charm in the photo to unlock your Episode Charm!"));
+        });
       }
 
       function updateWeekPicker(selectedIssue) {
@@ -2717,6 +3207,12 @@
             return;
           }
 
+          var labelTarget = element.querySelector("[data-action-label]");
+          if (labelTarget) {
+            labelTarget.textContent = element.classList.contains("mobile-priority-action") && compactLabel ? compactLabel : label;
+            return;
+          }
+
           var span = element.querySelector("span");
           if (!span) {
             element.textContent = label;
@@ -2748,13 +3244,21 @@
         var issueUrl = episode.issueUrl || ISSUE_FALLBACK.issueUrl;
         var communityUrl = normalizeCommunityUrl((episode.websiteModules && episode.websiteModules.communityThread) || (getSiteLink(episode, "community") || {}).url || "community.html");
         var rememberLine = episode.rememberLine || ISSUE_FALLBACK.rememberLine;
-        var issueReturnUrl = addRitualReturnParams(issueUrl, issue);
-        var quizReturnUrl = "learn/quiz.html?from=this-week&issue=" + encodeURIComponent(issue);
+        var isDraftIssue = episode.status && episode.status !== "published";
+        var issueReturnUrl = isDraftIssue
+          ? "operations/review-packets/episode-03-reader-preview.html?v=bag-return&from=this-week&issue=" + encodeURIComponent(issue) + "&bag=open&draft=1#top"
+          : addRitualReturnParams(issueUrl, issue);
+        var quizReturnUrl = addRitualReturnParams("learn/quiz.html", issue);
         var communityReturnUrl = addRitualReturnParams(communityUrl, issue);
         var tryOnReturnUrl = addRitualReturnParams("try-on.html", issue);
         var djReturnUrl = addRitualReturnParams("games/dj-booth.html?v=ritual-qa-2#djApp", issue);
         var funPackReturnUrl = addRitualReturnParams("games/fun-pack.html", issue);
         var gossReturnUrl = addRitualReturnParams("hot-goss.html?v=ritual-qa-3", issue);
+        var glossaryReturnUrl = addRitualReturnParams(((getSiteLink(episode, "glossary") || {}).url || "learn/glossary.html"), issue);
+        var cardPackReturnUrl = addRitualReturnParams(((getSiteLink(episode, "cardPack") || {}).url || "games/trading-cards.html"), issue);
+        var happyHourReturnUrl = addRitualReturnParams("games/businesswomens-special.html", issue);
+        var referenceReturnUrl = addRitualReturnParams("reference-closet.html", issue);
+        var whosWhoReturnUrl = addRitualReturnParams("community/laidy-spotlight.html", issue);
         var printablePageUrl = getPrintablePageUrl(issue);
 
         currentIssueNumber = issue;
@@ -2764,31 +3268,55 @@
         ACTION_LABELS.issue = "Read Episode " + issuePad;
         ACTION_LABELS.quiz = "Take Episode " + issuePad + " Quiz";
         ACTION_LABELS.printable = "Cheat Sheet";
+        ACTION_LABELS.practice = "Weekly Study Pack";
         ACTION_LABELS.tryon = "Try-On";
+        ACTION_LABELS.connect = "Meet & Celebrate";
         ACTION_LABELS.community = "Community";
+        ACTION_LABELS.glossary = "Glossary";
+        ACTION_LABELS.cardpack = "Card Pack";
         ACTION_LABELS.funpack = "Weekly Fun Pack";
-        ACTION_LABELS.goss = "News Preview";
+        ACTION_LABELS.goss = "Hot Goss";
+        ACTION_LABELS.happyhour = "Businesswomen's Special";
+        ACTION_LABELS.reference = "Reference Closet";
+        ACTION_LABELS.realworld = "The Book of Receipts";
+        ACTION_LABELS.whoswho = "Who's Who";
 
         setActionCopy("issue", ACTION_LABELS.issue, "Episode " + issuePad);
+        setActionCopy("practice", ACTION_LABELS.practice, "Study Pack");
         setActionCopy("quiz", quizAvailable ? ACTION_LABELS.quiz : "Quiz coming soon", quizAvailable ? "Take Quiz" : "Coming soon");
         setActionCopy("printable", printableUrl ? ACTION_LABELS.printable : "Cheat sheet coming soon", printableUrl ? "Cheat Sheet" : "Coming soon");
         setActionCopy("tryon", ACTION_LABELS.tryon, "Try-On");
         setActionCopy("dj", ACTION_LABELS.dj, "DJ Booth");
-        setActionCopy("community", ACTION_LABELS.community, "Community");
+        setActionCopy("connect", ACTION_LABELS.connect, "Meet");
+        setActionCopy("community", "Community Card", "Community");
+        setActionCopy("glossary", ACTION_LABELS.glossary, "Glossary");
+        setActionCopy("cardpack", "Practice Cards", "Cards");
         setActionCopy("funpack", ACTION_LABELS.funpack, "Fun Pack");
-        setActionCopy("goss", ACTION_LABELS.goss, "News Preview");
+        setActionCopy("goss", "Current AI News", "Hot Goss");
+        setActionCopy("happyhour", ACTION_LABELS.happyhour, "Happy Hour");
+        setActionCopy("reference", ACTION_LABELS.reference, "Reference");
+        setActionCopy("realworld", ACTION_LABELS.realworld, "Book of Receipts");
+        setActionCopy("whoswho", ACTION_LABELS.whoswho, "Who's Who");
 
         updateActionLink("issue", issueReturnUrl, {});
         updateActionLink("quiz", quizAvailable ? quizReturnUrl : "", {});
         updateActionLink("tryon", tryOnReturnUrl, {});
         updateActionLink("dj", djReturnUrl, {});
         updateActionLink("community", communityReturnUrl, {});
+        updateActionLink("glossary", glossaryReturnUrl, {});
+        updateActionLink("cardpack", cardPackReturnUrl, {});
         updateActionLink("funpack", funPackReturnUrl, {});
         updateActionLink("goss", gossReturnUrl, {});
         updateActionLink("printable", printableUrl ? printablePageUrl : "", {});
+        updateActionLink("happyhour", happyHourReturnUrl, {});
+        updateActionLink("reference", referenceReturnUrl, {});
+        updateActionLink("whoswho", whosWhoReturnUrl, {});
 
         document.querySelectorAll('[data-action="issue"]').forEach(function(element) {
           element.setAttribute("aria-label", "Read Episode " + issuePad + ": " + issueTitle);
+        });
+        document.querySelectorAll('[data-action="practice"]').forEach(function(element) {
+          element.setAttribute("aria-label", "Open practice options for Episode " + issuePad);
         });
         document.querySelectorAll('[data-action="quiz"]').forEach(function(element) {
           element.setAttribute("aria-label", quizAvailable ? "Take the Episode " + issuePad + " quiz" : "Episode " + issuePad + " quiz is coming soon");
@@ -2797,13 +3325,34 @@
           element.setAttribute("aria-label", printableUrl ? "Open the Episode " + issuePad + " printable cheat sheet" : "Episode " + issuePad + " cheat sheet is coming soon");
         });
         document.querySelectorAll('[data-action="funpack"]').forEach(function(element) {
-          element.setAttribute("aria-label", "Open the Episode " + issuePad + " Weekly Fun Pack");
+          element.setAttribute("aria-label", "Open Weekly Fun for Episode " + issuePad);
         });
         document.querySelectorAll('[data-action="community"]').forEach(function(element) {
           element.setAttribute("aria-label", "Open the LAiDIES community");
         });
+        document.querySelectorAll('[data-action="connect"]').forEach(function(element) {
+          element.setAttribute("aria-label", "Open community and happy hour options");
+        });
+        document.querySelectorAll('[data-action="glossary"]').forEach(function(element) {
+          element.setAttribute("aria-label", "Review the Episode " + issuePad + " glossary terms");
+        });
+        document.querySelectorAll('[data-action="cardpack"]').forEach(function(element) {
+          element.setAttribute("aria-label", "Open the Episode " + issuePad + " card pack");
+        });
         document.querySelectorAll('[data-action="goss"]').forEach(function(element) {
-          element.setAttribute("aria-label", "Preview Hot Goss news memo");
+          element.setAttribute("aria-label", "Open Hot Goss and current AI news");
+        });
+        document.querySelectorAll('[data-action="happyhour"]').forEach(function(element) {
+          element.setAttribute("aria-label", "Open the Businesswomen's Special happy hour game");
+        });
+        document.querySelectorAll('[data-action="reference"]').forEach(function(element) {
+          element.setAttribute("aria-label", "Open the LAiDIES Reference Closet");
+        });
+        document.querySelectorAll('[data-action="realworld"]').forEach(function(element) {
+          element.setAttribute("aria-label", "Open real world AI options");
+        });
+        document.querySelectorAll('[data-action="whoswho"]').forEach(function(element) {
+          element.setAttribute("aria-label", "Open Who's Who in the LAiDIES community");
         });
 
         document.querySelectorAll('[data-action="tryon"]').forEach(function(element) {
@@ -2845,8 +3394,17 @@
           publishedEpisodes = (index.episodes || []).filter(function(episode) {
             return episode && episode.status === "published" && episode.number && episode.issueUrl;
           });
-          publishedEpisodes.sort(function(a, b) { return Number(a.number) - Number(b.number); });
           var requested = getRequestedIssueNumber();
+          if (requested && shouldAllowDraftIssue()) {
+            var draftEpisode = (index.episodes || []).find(function(episode) {
+              return episode && Number(episode.number) === Number(requested) && episode.status === "draft" && episode.issueUrl;
+            });
+            var hasRequestedDraft = publishedEpisodes.some(function(episode) {
+              return Number(episode.number) === Number(requested);
+            });
+            if (draftEpisode && !hasRequestedDraft) publishedEpisodes.push(draftEpisode);
+          }
+          publishedEpisodes.sort(function(a, b) { return Number(a.number) - Number(b.number); });
           var selected = publishedEpisodes.find(function(episode) { return Number(episode.number) === requested; }) || publishedEpisodes[publishedEpisodes.length - 1] || ISSUE_FALLBACK;
           await selectWeeklyIssue(selected.number || ISSUE_FALLBACK.number, { updateUrl: false });
         } catch (error) {
@@ -2900,6 +3458,126 @@
         window.history.replaceState({ issue: currentIssueNumber, bag: open ? "open" : "closed" }, "", nextUrl.pathname + nextUrl.search + nextUrl.hash);
       }
 
+      function getBagShareUrl() {
+        var nextUrl = new URL(window.location.href);
+        var issue = currentIssueNumber || ISSUE_FALLBACK.number;
+        nextUrl.searchParams.set("issue", String(issue));
+        nextUrl.searchParams.set("bag", "open");
+        nextUrl.searchParams.delete("v");
+        if (shouldPreserveDraftForIssue(issue)) nextUrl.searchParams.set("draft", "1");
+        nextUrl.hash = "";
+        return nextUrl.toString();
+      }
+
+      function setShareStatus(message) {
+        if (shareBagStatus) shareBagStatus.textContent = message;
+        if (statusMessage) statusMessage.textContent = message;
+      }
+
+      function showShareUrl(url) {
+        if (!shareBagUrl) return;
+        shareBagUrl.value = url;
+        shareBagUrl.hidden = false;
+        shareBagUrl.focus({ preventScroll: true });
+        shareBagUrl.select();
+      }
+
+      function hideShareUrl() {
+        if (!shareBagUrl) return;
+        shareBagUrl.hidden = true;
+        shareBagUrl.value = "";
+      }
+
+      function fallbackCopyText(text) {
+        var textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.left = "-9999px";
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+          document.execCommand("copy");
+          return true;
+        } catch (error) {
+          return false;
+        } finally {
+          document.body.removeChild(textarea);
+        }
+      }
+
+      async function copyBagLink() {
+        var url = getBagShareUrl();
+        hideShareUrl();
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(url);
+          } else if (!fallbackCopyText(url)) {
+            throw new Error("Clipboard unavailable");
+          }
+          setShareStatus("Copied. Bag link ready for the group chat.");
+        } catch (error) {
+          showShareUrl(url);
+          setShareStatus("Copy is blocked here, so the bag link is selected below.");
+        }
+      }
+
+      async function shareBagLink() {
+        var url = getBagShareUrl();
+        if (navigator.share) {
+          try {
+            await navigator.share({
+              title: "LAiDIES Wednesday Bag",
+              text: "Open this week's LAiDIES bag.",
+              url: url
+            });
+            setShareStatus("Bag link shared.");
+            return;
+          } catch (error) {
+            if (error && error.name === "AbortError") return;
+          }
+        }
+        await copyBagLink();
+      }
+
+      function openChoiceDrawer(name, trigger) {
+        if (!ritualChoiceShelf || !name) return;
+        var panel = ritualChoiceShelf.querySelector('[data-choice-panel="' + name + '"]');
+        if (!panel) return;
+        lastChoiceTrigger = trigger || document.querySelector('[data-choice-open="' + name + '"]');
+        ritualChoiceShelf.hidden = false;
+        ritualChoiceShelf.querySelectorAll("[data-choice-panel]").forEach(function(section) {
+          section.hidden = section !== panel;
+        });
+        document.querySelectorAll("[data-choice-open]").forEach(function(button) {
+          var isOpen = button.dataset.choiceOpen === name;
+          button.classList.toggle("is-selected", isOpen);
+          button.setAttribute("aria-expanded", String(isOpen));
+        });
+        var firstChoice = panel.querySelector("a, button");
+        if (firstChoice) firstChoice.focus({ preventScroll: true });
+        if (isMobileView()) {
+          window.setTimeout(function() {
+            ritualChoiceShelf.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          }, 40);
+        }
+        statusMessage.textContent = ACTION_LABELS[name] + " drawer is open.";
+      }
+
+      function closeChoiceDrawer() {
+        if (!ritualChoiceShelf) return;
+        ritualChoiceShelf.hidden = true;
+        ritualChoiceShelf.querySelectorAll("[data-choice-panel]").forEach(function(section) {
+          section.hidden = true;
+        });
+        document.querySelectorAll("[data-choice-open]").forEach(function(button) {
+          button.classList.remove("is-selected");
+          button.setAttribute("aria-expanded", "false");
+        });
+        statusMessage.textContent = "Back to the main Bag ritual.";
+        if (lastChoiceTrigger) lastChoiceTrigger.focus({ preventScroll: true });
+      }
+
       function openBag() {
         closedScene.hidden = true;
         openScene.hidden = false;
@@ -2912,9 +3590,14 @@
         syncBagUrl(true);
         statusMessage.textContent = "The bag is open. This week's actions are ready.";
         var firstAction = isMobileView()
-          ? openScene.querySelector(".mobile-priority-action")
+          ? openScene.querySelector(".ritual-action")
           : openScene.querySelector("[data-primary-action]");
         if (firstAction) firstAction.focus({ preventScroll: true });
+        if (isMobileView() && stageShell) {
+          window.setTimeout(function() {
+            stageShell.scrollIntoView({ behavior: "smooth", block: "start" });
+          }, 40);
+        }
       }
 
       function closeBag() {
@@ -3195,6 +3878,27 @@
         if (!disabledAction) return;
         event.preventDefault();
         statusMessage.textContent = "That piece is not packed for this issue yet.";
+      });
+
+      if (copyBagLinkButton) {
+        copyBagLinkButton.addEventListener("click", copyBagLink);
+      }
+
+      if (shareBagButton) {
+        shareBagButton.addEventListener("click", shareBagLink);
+      }
+
+      document.querySelectorAll("[data-choice-open]").forEach(function(button) {
+        button.addEventListener("click", function(event) {
+          event.preventDefault();
+          openChoiceDrawer(button.dataset.choiceOpen, button);
+        });
+      });
+
+      document.querySelectorAll("[data-choice-close]").forEach(function(button) {
+        button.addEventListener("click", function() {
+          closeChoiceDrawer();
+        });
       });
 
       document.querySelectorAll("[data-panel-title][data-panel-body]").forEach(function(button) {

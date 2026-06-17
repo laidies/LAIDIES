@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Weekly Fun Pack | LAiDIES Clubhouse</title>
-    <meta name="description" content="A weekly LAiDIES bonus pack of cards, readings, prompts, tracks, and tiny useful things that make the episode stick." />
+    <meta name="description" content="A weekly LAiDIES fun pack of readings, notes, calls, and tiny playful things that make the ritual feel alive." />
     <meta name="theme-color" content="#9b3f5f" />
     <link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -138,7 +138,51 @@
       .ep-btn.is-active {
         background: var(--hot-pink);
         border-color: var(--hot-pink);
-        color: #4b2148;
+        color: #fffdfb;
+      }
+
+      .fun-pack-purpose {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 0 26px;
+        border: 1px solid rgba(75,33,72,0.16);
+        border-radius: 18px;
+        padding: clamp(16px, 3vw, 22px);
+        background:
+          radial-gradient(circle at 92% 8%, rgba(36,123,131,0.14), transparent 18rem),
+          linear-gradient(145deg, rgba(255,253,251,0.96), rgba(247,238,238,0.84));
+        box-shadow: 0 18px 42px rgba(75,33,72,0.1);
+      }
+      .fun-pack-purpose span {
+        display: block;
+        margin-bottom: 5px;
+        color: #6f263f;
+        font-size: 0.68rem;
+        font-weight: 900;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+      .fun-pack-purpose p {
+        max-width: 620px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .fun-pack-purpose a {
+        display: inline-flex;
+        min-height: 42px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(75,33,72,0.22);
+        border-radius: 999px;
+        padding: 10px 15px;
+        background: #3f1737;
+        color: #fffdfb;
+        font-size: 0.8rem;
+        font-weight: 900;
+        text-decoration: none;
       }
 
       /* Activity Grid */
@@ -302,6 +346,37 @@
         color: var(--muted);
       }
 
+      .site-footer {
+        padding: 32px 24px 44px;
+        border-top: 1px solid rgba(75,33,72,0.16);
+        background:
+          radial-gradient(circle at 86% 0%, rgba(36,123,131,0.12), transparent 22rem),
+          linear-gradient(180deg, rgba(255,253,251,0.98), rgba(247,238,238,0.72));
+        color: rgba(75,33,72,0.72);
+        text-align: center;
+        font-size: 0.78rem;
+      }
+      .site-footer div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 16px;
+        margin-top: 10px;
+      }
+      .site-footer a {
+        color: #6f263f;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .site-footer a:hover { text-decoration: underline; }
+
+      @media (max-width: 560px) {
+        .fun-pack-purpose {
+          align-items: stretch;
+          flex-direction: column;
+        }
+      }
+
       
     </style>
     <!-- Privacy-friendly analytics by Plausible -->
@@ -336,15 +411,24 @@
 
         <!-- Title -->
         <section class="page-title-section">
-          <p class="eyebrow">Clubhouse &bull; Fun Pack</p>
+          <p class="eyebrow">Clubhouse / Weekly Fun Pack</p>
           <h1>Weekly Fun Pack</h1>
-          <p class="subtitle">Before subscription boxes, there was the Fun Pack. A weekly bonus pack of cards, readings, prompts, tracks, and tiny useful things to make the episode stick.</p>
+          <p class="subtitle">Before subscription boxes, there was the Fun Pack. This is where the playful weekly ritual lives after you read, practice, and quiz yourself.</p>
         </section>
+
+        <aside class="fun-pack-purpose" aria-label="How the Fun Pack fits the weekly ritual">
+          <div>
+            <span>Ritual connection</span>
+            <p>The Wednesday Bag holds the essentials. The Weekly Fun Pack is the extra layer: readings, notes, calls, and board-game energy once the core path is clear.</p>
+          </div>
+          <a href="../this-week.html?bag=open">Open the Bag first</a>
+        </aside>
 
         <!-- Episode Selector -->
         <div class="episode-selector" role="group" aria-label="Select episode fun pack">
           <button class="ep-btn" data-ep="issue01" type="button">Episode 01</button>
           <button class="ep-btn is-active" data-ep="issue02" type="button">Episode 02</button>
+          <button class="ep-btn" data-ep="issue03" type="button">Episode 03</button>
         </div>
 
         <!-- Episode Context -->
@@ -355,62 +439,77 @@
 
         <!-- Activity Grid -->
         <div class="activity-grid" id="activityGrid">
-          <!-- Magazine Quiz -->
-          <a href="../learn/quiz.html" class="activity-card" data-activity="quiz">
+          <!-- Weekly Reading -->
+          <a href="madame-claio.html" class="activity-card" data-activity="madame">
             <div class="activity-card-image">
-              <img src="../assets/quiz-teen-magazine.png" alt="Retro teen magazine quiz page with pink accents" loading="lazy" />
+              <img src="../assets/madame-claio-character-v1.png" alt="Madame CLAI-O in a pink Y2K fortune-teller setup" loading="lazy" />
               <span class="activity-card-time">~3 min</span>
             </div>
             <div class="activity-card-body">
-              <h3>Magazine Quiz</h3>
-              <p>The Bag sends you straight to the weekly quiz. This shortcut keeps the check-your-learning piece close when you want the whole bonus pack.</p>
-              <span class="card-cta">Take the quiz &rarr;</span>
+              <h3>Weekly Reading</h3>
+              <p>Ask Madame CLAI-O for the tiny dramatic forecast you needed before opening another tab.</p>
+              <span class="card-cta">Get your reading &rarr;</span>
             </div>
           </a>
 
-          <!-- Trading Cards -->
-          <a href="trading-cards.html" class="activity-card" data-activity="cards">
+          <!-- Fairy Godmother -->
+          <a href="fairy-godmother.html" class="activity-card" data-activity="fairy">
             <div class="activity-card-image">
-              <img src="../assets/trading-card-pack.webp" alt="Shiny pink foil trading card pack with AI concept cards" loading="lazy" />
+              <img src="../assets/laidy-fairy-godmother-portrait-v1.png" alt="LAiDIES fairy godmother portrait with pink sparkle styling" loading="lazy" />
               <span class="activity-card-time">~2 min</span>
             </div>
             <div class="activity-card-body">
-              <h3>Trading Cards</h3>
-              <p>Rip open the foil pack, flip each card to learn the concept, and collect them all in your binder.</p>
-              <span class="card-cta">Open a pack &rarr;</span>
+              <h3>Fairy Godmother Note</h3>
+              <p>Get one useful nudge from LAIDY when your work brain needs sparkle with actual instructions.</p>
+              <span class="card-cta">Get your note &rarr;</span>
             </div>
           </a>
 
-          <!-- Five-Minute Try-On -->
-          <a href="../community/try-on-debrief.html" class="activity-card" data-activity="tryon">
+          <!-- Dream Phone -->
+          <a href="dream-phone.html" class="activity-card" data-activity="dream">
             <div class="activity-card-image">
-              <img src="../assets/five-minute-try-on-game.webp" alt="Five-minute try-on game spinner board" loading="lazy" />
-              <span class="activity-card-time">~5 min</span>
+              <img src="../assets/dream-phone-cordless-crop.png" alt="Pink cordless Dream Phone on a Y2K desk" loading="lazy" />
+              <span class="activity-card-time">~3 min</span>
             </div>
             <div class="activity-card-body">
-              <h3>Five-Minute Try-On</h3>
-              <p>The Bag gives you the core Try-On. This bonus door is here when you want the debrief and a little more ritual around it.</p>
-              <span class="card-cta">Spin the board &rarr;</span>
+              <h3>Dream Phone</h3>
+              <p>Call the right kind of help: bestie, mentor, receipts, boundary, or whoever needs to pick up.</p>
+              <span class="card-cta">Call the Dream Phone &rarr;</span>
             </div>
           </a>
 
-          <!-- Printable Cheat Sheet -->
-          <a href="../printable.html?issue=2" class="activity-card" data-activity="printable">
+          <!-- Girl Talk -->
+          <a href="girl-talk.html" class="activity-card" data-activity="girltalk">
             <div class="activity-card-image">
-              <img src="../assets/trading-card-specificity.webp" alt="Neon pink cheat sheet card about prompting specificity" loading="lazy" />
-              <span class="activity-card-time">~1 min</span>
+              <img src="../assets/girl-talk-board.webp" alt="Retro Girl Talk board game styled for LAiDIES prompts" loading="lazy" />
+              <span class="activity-card-time">~4 min</span>
             </div>
             <div class="activity-card-body">
-              <h3>Printable Cheat Sheet</h3>
-              <p>The printable lives in the Bag essentials. Keep this as the spare copy in the pack, because of course you need one for the binder.</p>
-              <span class="card-cta">Preview printable &rarr;</span>
+              <h3>Girl Talk</h3>
+              <p>Spin into a prompt, question, or tiny confession that makes the weekly lesson less theoretical.</p>
+              <span class="card-cta">Do Girl Talk &rarr;</span>
             </div>
           </a>
+
         </div>
 
         
       </div>
     </main>
+
+    <footer class="site-footer">
+      <p><strong>LAiDIES</strong>&trade; &copy; 2026 Ali Eakin. All rights reserved.</p>
+      <div>
+        <a href="https://www.instagram.com/we.are.laidies/" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="../start-here.html">Start Here</a>
+        <a href="../this-week.html">This Week</a>
+        <a href="../clubhouse.html">Clubhouse</a>
+        <a href="../community.html">The Room</a>
+        <a href="../reference-closet.html">Reference Closet</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../terms.html">Terms</a>
+      </div>
+    </footer>
 
     <script>
     (function() {
@@ -420,26 +519,38 @@
         issue01: {
           title: 'Episode 01: On Wednesdays We Use AI',
           desc: 'The one where she opens the AI tab for the first time without making it a whole personality crisis.',
-          quiz: '../learn/quiz.html',
-          cards: 'trading-cards.html',
-          tryon: '../community/try-on-debrief.html',
-          printable: '../printable.html?issue=1',
-          quizImg: '../assets/quiz-teen-magazine.png',
-          cardsImg: '../assets/trading-card-pack.webp',
-          tryonImg: '../assets/five-minute-try-on-game.webp',
-          printImg: '../assets/ugh-as-if.png',
+          madame: 'madame-claio.html',
+          fairy: 'fairy-godmother.html',
+          dream: 'dream-phone.html',
+          girltalk: 'girl-talk.html',
+          madameImg: '../assets/madame-claio-character-v1.png',
+          fairyImg: '../assets/laidy-fairy-godmother-portrait-v1.png',
+          dreamImg: '../assets/dream-phone-cordless-crop.png',
+          girltalkImg: '../assets/girl-talk-board.webp',
         },
         issue02: {
           title: 'Episode 02: Tell Me What You Want',
           desc: 'The one where she learns to write specific, context-rich prompts that produce usable work output.',
-          quiz: '../learn/quiz.html',
-          cards: 'trading-cards.html',
-          tryon: '../community/try-on-debrief.html',
-          printable: '../printable.html?issue=2',
-          quizImg: '../assets/quiz-teen-magazine.png',
-          cardsImg: '../assets/trading-card-pack.webp',
-          tryonImg: '../assets/five-minute-try-on-game.webp',
-          printImg: '../assets/trading-card-specificity.webp',
+          madame: 'madame-claio.html',
+          fairy: 'fairy-godmother.html',
+          dream: 'dream-phone.html',
+          girltalk: 'girl-talk.html',
+          madameImg: '../assets/madame-claio-character-v1.png',
+          fairyImg: '../assets/laidy-fairy-godmother-portrait-v1.png',
+          dreamImg: '../assets/dream-phone-cordless-crop.png',
+          girltalkImg: '../assets/girl-talk-board.webp',
+        },
+        issue03: {
+          title: 'Episode 03: The Burn Book Problem',
+          desc: 'The one where she stops mistaking polish for proof and checks the alibi before it gets on the stand.',
+          madame: 'madame-claio.html',
+          fairy: 'fairy-godmother.html',
+          dream: 'dream-phone.html',
+          girltalk: 'girl-talk.html',
+          madameImg: '../assets/madame-claio-character-v1.png',
+          fairyImg: '../assets/laidy-fairy-godmother-portrait-v1.png',
+          dreamImg: '../assets/dream-phone-cordless-crop.png',
+          girltalkImg: '../assets/girl-talk-board.webp',
         }
       };
 
@@ -456,13 +567,24 @@
       }
 
       function withRitualReturn(url, ep) {
-        if (!fromBag || !url) return url;
+        if (!url) return url;
         const issue = encodeURIComponent(episodeNumberFromKey(ep));
         const hashIndex = url.indexOf('#');
         const hash = hashIndex >= 0 ? url.slice(hashIndex) : '';
-        const base = hashIndex >= 0 ? url.slice(0, hashIndex) : url;
-        const separator = base.indexOf('?') === -1 ? '?' : '&';
-        return base + separator + 'from=this-week&issue=' + issue + '&bag=open' + hash;
+        let base = hashIndex >= 0 ? url.slice(0, hashIndex) : url;
+        if (!/[?&]issue=/.test(base)) {
+          base += (base.indexOf('?') === -1 ? '?' : '&') + 'issue=' + issue;
+        }
+        if (fromBag && !/[?&]from=/.test(base)) {
+          base += (base.indexOf('?') === -1 ? '?' : '&') + 'from=this-week';
+        }
+        if (fromBag && !/[?&]bag=/.test(base)) {
+          base += '&bag=open';
+        }
+        if (fromBag && params.get('draft') === '1' && !/[?&]draft=/.test(base)) {
+          base += '&draft=1';
+        }
+        return base + hash;
       }
 
       function switchEpisode(ep) {
@@ -477,9 +599,17 @@
         // Update links
         const grid = document.getElementById('activityGrid');
         const cards = grid.querySelectorAll('.activity-card');
-        const links = [withRitualReturn(data.quiz, ep), data.cards, withRitualReturn(data.tryon, ep), data.printable];
+        const links = [
+          withRitualReturn(data.madame, ep),
+          withRitualReturn(data.fairy, ep),
+          withRitualReturn(data.dream, ep),
+          withRitualReturn(data.girltalk, ep)
+        ];
+        const imageKeys = ['madameImg', 'fairyImg', 'dreamImg', 'girltalkImg'];
         cards.forEach((card, i) => {
           if (links[i]) card.href = links[i];
+          const image = card.querySelector('img');
+          if (image && data[imageKeys[i]]) image.src = data[imageKeys[i]];
         });
       }
 
@@ -495,11 +625,12 @@
       (function insertWednesdayReturnLink() {
         if (params.get('from') !== 'this-week' || document.querySelector('[data-wednesday-return]')) return;
         const issue = String(params.get('issue') || '').match(/\d+/);
+        const draftParam = params.get('draft') === '1' ? '&draft=1' : '';
         const link = document.createElement('a');
         link.dataset.wednesdayReturn = 'true';
-        link.href = '../this-week.html' + (issue ? '?issue=' + encodeURIComponent(Number(issue[0])) + '&bag=open' : '?bag=open');
+        link.href = '../this-week.html' + (issue ? '?issue=' + encodeURIComponent(Number(issue[0])) + '&bag=open' + draftParam : '?bag=open' + draftParam);
         link.textContent = '\u2190 Back to the Bag';
-        link.style.cssText = 'position:fixed;top:76px;left:clamp(14px,3vw,26px);right:auto;bottom:auto;z-index:120;display:inline-flex;max-width:calc(100% - 28px);margin:0;padding:10px 14px;border:1px solid rgba(185,93,120,.42);border-radius:999px;background:rgba(255,253,251,.92);color:#4b2148;font-weight:850;text-decoration:none;box-shadow:0 12px 30px rgba(75,33,72,.12),0 0 0 4px rgba(185,93,120,.08);backdrop-filter:blur(10px);';
+        link.style.cssText = 'position:fixed;bottom:calc(16px + env(safe-area-inset-bottom));left:clamp(14px,3vw,26px);right:auto;z-index:120;display:inline-flex;align-items:center;justify-content:center;max-width:calc(100% - 28px);margin:0;padding:10px 14px;border:1px solid rgba(185,93,120,.42);border-radius:999px;background:rgba(255,253,251,.94);color:#4b2148;font-weight:850;text-decoration:none;box-shadow:0 12px 30px rgba(75,33,72,.12),0 0 0 4px rgba(185,93,120,.08);backdrop-filter:blur(10px);';
         document.querySelector('main')?.prepend(link);
       })();
     })();
