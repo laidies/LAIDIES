@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Fairy Godmother | LAiDIES Clubhouse</title>
-    <meta name="description" content="LAIDY gives advice like a wise, glamorous fairy who actually helps with real work problems. Wave the wand." />
+    <title>FAiRY GODMOTHER | LAiDIES Clubhouse</title>
+    <meta name="description" content="LAiDY gives advice like a wise, glamorous fairy who actually helps with real work problems. Wave the wand." />
     <meta property="og:title" content="FAiRY GODMOTHER | LAiDIES" />
     <meta property="og:description" content="Tap or wave the wand for advice you didn't know you needed." />
     <meta property="og:type" content="website" />
@@ -93,6 +93,9 @@
         letter-spacing: 0.12em;
         color: #ffd700;
         margin-bottom: 8px;
+      }
+      .fairy-hero .eyebrow.brand-preserve-case {
+        text-transform: none;
       }
       .fairy-hero h1 {
         font-family: 'Playfair Display', Georgia, serif;
@@ -556,12 +559,12 @@
 
         <!-- HERO -->
         <section class="fairy-hero">
-          <p class="eyebrow">Ask LAIDY</p>
-          <h1>F<span class="ai-highlight">ai</span>ry Godmother</h1>
+          <p class="eyebrow brand-preserve-case">Ask LAiDY</p>
+          <h1>FA<span class="ai-highlight">i</span>RY GODMOTHER</h1>
           <p class="subtitle">Tap or wave the wand for advice you didn&rsquo;t know you needed.</p>
 
           <div class="fairy-character-wrap">
-            <img src="../assets/laidy-character-v1.png" alt="LAIDY — big blonde hair, rhinestones, pink sequin jacket, diamond tiara, bedazzled wand" />
+            <img src="../assets/laidy-character-v1.png" alt="LAiDY — big blonde hair, rhinestones, pink sequin jacket, diamond tiara, bedazzled wand" />
             <!-- Sparkle stars around wand area -->
             <div class="sparkle-field" id="sparkleField"></div>
           </div>
@@ -571,7 +574,7 @@
         <section class="fairy-console">
           <label for="fairyMode">Pick the energy</label>
           <select id="fairyMode">
-            <option value="auto" selected>LAIDY picks the right energy &#10024;</option>
+            <option value="auto" selected>LAiDY picks the right energy &#10024;</option>
             <option value="dolly">Dolly Energy &mdash; warm &amp; direct</option>
             <option value="miranda">Miranda Polish &mdash; executive clean</option>
             <option value="elle">Elle Evidence &mdash; facts in heels</option>
@@ -600,7 +603,7 @@
         <!-- ADVICE OUTPUT — SCROLL CARD -->
         <div class="advice-scroll" id="adviceScroll">
           <div class="scroll-card">
-            <p class="scroll-card-header" id="scrollHeader">A note from your fairy godmother</p>
+            <p class="scroll-card-header" id="scrollHeader">A note from FAiRY GODMOTHER</p>
             <p class="scroll-card-mode" id="scrollMode"></p>
             <div class="scroll-card-body" id="scrollBody"></div>
             <p class="scroll-card-footer" id="scrollFooter"></p>
@@ -621,8 +624,8 @@
 
         <!-- BADGE -->
         <div class="badge-reveal" id="badgeReveal">
-          <strong>&#10024; Fairy Godmother&rsquo;s Favorite merit badge unlocked!</strong>
-          <p>You have asked more questions than Dorothy, Cinderella, and Elle Woods combined. LAIDY recognizes your main character energy.</p>
+          <strong>&#10024; FAiRY GODMOTHER&rsquo;s Favorite merit badge unlocked!</strong>
+          <p>You have asked more questions than Dorothy, Cinderella, and Elle Woods combined. LAiDY recognizes your main character energy.</p>
         </div>
       </div>
 
@@ -633,7 +636,7 @@
     <script src="../content/site/supabase-config.js"></script>
     <script src="../content/site/site-data.js"></script>
     <script>
-    // ===== LAIDY ADVICE ENGINE (standalone) =====
+    // ===== LAiDY ADVICE ENGINE (standalone) =====
     const laidyModes = {
       dolly: { label: "Dolly Energy", opener: "Cup of ambition check:", nudge: "Be warm, be direct, and do not confuse nervous with unqualified. A woman can be gracious and still ask for the money." },
       miranda: { label: "Miranda Polish", opener: "Executive read:", nudge: "Remove the apology tour. Lead with the business case, not the emotional weather report." },
@@ -736,7 +739,7 @@
     function buildLaidyAdvice(rawQuestion, modeKey) {
       const question = normalizeLaidyText(rawQuestion);
       if (!question) {
-        return { text: "Tell me the actual situation first, sugar. LAIDY can do many things, but she cannot read a blank text box through a Claire\u2019s mood ring.\n\nTry: \"I need to ask my VP for more time without sounding chaotic\" or \"I need to push back on a meeting request without sounding unhelpful.\"", mode: "" };
+        return { text: "Tell me the actual situation first, sugar. LAiDY can do many things, but she cannot read a blank text box through a Claire\u2019s mood ring.\n\nTry: \"I need to ask my VP for more time without sounding chaotic\" or \"I need to push back on a meeting request without sounding unhelpful.\"", mode: "" };
       }
       const signals = getLaidySignals(question);
       const effectiveModeKey = modeKey === "auto" ? getLaidyAutoMode(signals.topicType) : modeKey;
@@ -755,9 +758,9 @@
       const hasAudience = /\b(vp|director|manager|boss|team|client|stakeholder|colleague|peer|lead)\b/i.test(question);
       const hasContext = words > 12;
       const hasBoundary = /\b(without|not|avoid|don't|don\u2019t)\b/i.test(question);
-      if (!hasContext) return "Prompt check: needs more context. Give LAIDY a sentence about what happened, who is involved, and what outcome you actually want.";
-      if (!hasAudience) return "Prompt check: who are you talking to? Adding the audience gives LAIDY better advice calibration.";
-      if (hasAudience && hasContext && hasBoundary) return "Prompt check: strong ask. You gave LAIDY enough job, audience, context, and boundaries to work with. The next level is adding an example of what good looks like.";
+      if (!hasContext) return "Prompt check: needs more context. Give LAiDY a sentence about what happened, who is involved, and what outcome you actually want.";
+      if (!hasAudience) return "Prompt check: who are you talking to? Adding the audience gives LAiDY better advice calibration.";
+      if (hasAudience && hasContext && hasBoundary) return "Prompt check: strong ask. You gave LAiDY enough job, audience, context, and boundaries to work with. The next level is adding an example of what good looks like.";
       return "Prompt check: decent ask. Try adding what you do NOT want the result to sound like, or give an example of good.";
     }
 
@@ -811,7 +814,7 @@
     function showAdvice(text, modeLabel, question) {
       wisdomCount++;
       countEl.textContent = wisdomCount;
-      scrollHeader.textContent = question ? "A note from your fairy godmother" : "\u2728 A random sparkle of wisdom";
+      scrollHeader.textContent = question ? "A note from FAiRY GODMOTHER" : "\u2728 A random sparkle of wisdom";
       scrollMode.textContent = modeLabel || "Random Wisdom";
       scrollBody.textContent = text;
       scrollFooter.textContent = "Wisdom #" + wisdomCount + " \u2022 " + new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
@@ -849,7 +852,7 @@
         try {
           const badges = JSON.parse(localStorage.getItem("laidiesSecretBadges") || "{}");
           if (!badges["fairy-favorite"]) {
-            badges["fairy-favorite"] = { id: "fairy-favorite", title: "FAiRY GODMOTHER\u2019s Favorite", sticker: "LAIDY", unlockedAt: new Date().toISOString(), source: "FAiRY GODMOTHER" };
+            badges["fairy-favorite"] = { id: "fairy-favorite", title: "FAiRY GODMOTHER\u2019s Favorite", sticker: "LAiDY", unlockedAt: new Date().toISOString(), source: "FAiRY GODMOTHER" };
             localStorage.setItem("laidiesSecretBadges", JSON.stringify(badges));
           }
         } catch(e) {}

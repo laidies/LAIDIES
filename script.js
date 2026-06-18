@@ -1800,7 +1800,7 @@ function buildLaidyAdvice(rawQuestion, modeKey) {
   const question = normalizeLaidyText(rawQuestion);
 
   if (!question) {
-    return `Cup of ambition check: Tell me the actual situation first. LAIDY can do many things, but she cannot read a blank text box through a Claire's mood ring.\n\nTry: "I need to ask my VP for more time without sounding chaotic" or "I need to push back on a meeting request without sounding unhelpful."`;
+    return `Cup of ambition check: Tell me the actual situation first. LAiDY can do many things, but she cannot read a blank text box through a Claire's mood ring.\n\nTry: "I need to ask my VP for more time without sounding chaotic" or "I need to push back on a meeting request without sounding unhelpful."`;
   }
 
   const signals = getLaidySignals(question);
@@ -1830,7 +1830,7 @@ function buildLaidyPromptFeedback(rawQuestion) {
   const score = checks.filter(Boolean).length;
 
   if (score >= 4) {
-    return "Prompt check: strong ask. You gave LAIDY enough job, audience, context, and boundaries to work with. The next level is adding an example of what good looks like.";
+    return "Prompt check: strong ask. You gave LAiDY enough job, audience, context, and boundaries to work with. The next level is adding an example of what good looks like.";
   }
 
   if (score >= 2) {
@@ -3065,7 +3065,7 @@ const clubhouseZoneMessages = {
   "girl-talk": "<strong>Open Girl Talk:</strong> Draw a prompt card from the Girl Talk board.",
   "try-on": "<strong>5min Try-On:</strong> Open the Power Suit Playbook for quick practice prompts.",
   business: "<strong>Businesswomen's Special:</strong> Jump to the paper fortune teller drink picker.",
-  fairy: "<strong>Ask fAIry Godmother:</strong> Open LAIDY's advice console.",
+  fairy: "<strong>Ask FAiRY GODMOTHER:</strong> Open LAiDY's advice console.",
 };
 
 const clubhouseRevealSelectorsByZone = {
@@ -5460,7 +5460,7 @@ laidyButton?.addEventListener("click", () => {
   const promptFeedback = buildLaidyPromptFeedback(cleanedQuestion);
 
   if (next === lastLaidyAdvice) {
-    laidyAdviceEl.textContent = `${next}\n\nSame advice because LAIDY meant it. Annoying, but efficient.`;
+    laidyAdviceEl.textContent = `${next}\n\nSame advice because LAiDY meant it. Annoying, but efficient.`;
   } else {
     laidyAdviceEl.textContent = next;
   }
@@ -5723,7 +5723,7 @@ function resolveSpotlightCardStyle(value) {
     }
     return {
       ...spotlightCardStyles[spotlightSurpriseChoices[selected]],
-      surpriseLabel: selected === "laidy-surprise" ? "LAIDY picked" : "Mme CLAi-O picked",
+      surpriseLabel: selected === "laidy-surprise" ? "LAiDY picked" : "Mme CLAi-O picked",
     };
   }
 
