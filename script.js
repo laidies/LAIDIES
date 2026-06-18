@@ -1348,6 +1348,14 @@ const hiddenMeritBadges = {
     unlockMessage:
       "Every Room, No Notes unlocked. You posted in every chat room. The ICQ door is open, the buddy list is awake, and your member card has receipts.",
   },
+  "issue-03-full-ritual-merit-badge": {
+    id: "issue-03-full-ritual-merit-badge",
+    title: "CHECKED THE ALIBI merit badge",
+    sticker: "ALIBI",
+    source: "The Wednesday Ritual",
+    unlockMessage:
+      "CHECKED THE ALIBI unlocked. You read, practiced, checked yourself, saved the useful pieces, opened THE EXTRA CREDIT, and played the anthem. Elle would allow it.",
+  },
 };
 
 const quizStickerAwards = [
@@ -3053,11 +3061,11 @@ window.openGamePanel = openGamePanel;
 setupGamePanelDock();
 
 const clubhouseZoneMessages = {
-  "weekly-fun-pack": "<strong>Weekly Fun Packs:</strong> Open the issue pack shelf for the current released activities.",
-  "fun-pack-1-6": "<strong>Fun Packs 1-6:</strong> Issues 1 and 2 are available now. More shelf space opens as the season drops.",
-  "fun-pack-7-12": "<strong>Fun Packs 7-12:</strong> Reserved for future weekly packs once those issues exist.",
-  "fun-pack-13-18": "<strong>Fun Packs 13-18:</strong> Reserved for later archive browsing.",
-  "fun-pack-19-24": "<strong>Fun Packs 19-24:</strong> Reserved for the full-season archive.",
+  "weekly-fun-pack": "<strong>THE EXTRA CREDIT:</strong> Open the issue shelf for the current released extras.",
+  "fun-pack-1-6": "<strong>Extra Credit 1-6:</strong> Issues 1 and 2 are available now. More shelf space opens as the season drops.",
+  "fun-pack-7-12": "<strong>Extra Credit 7-12:</strong> Reserved for future weekly extras once those issues exist.",
+  "fun-pack-13-18": "<strong>Extra Credit 13-18:</strong> Reserved for later archive browsing.",
+  "fun-pack-19-24": "<strong>Extra Credit 19-24:</strong> Reserved for the full-season archive.",
   "weekly-jams": "<strong>Weekly Jams:</strong> DJ JAIDY's weekly AI song lives beside the issue packs.",
   "mix-cds": "<strong>Mix CDs:</strong> Open the DJ Booth for playlists, mix CDs, and weekly track slots.",
   psychic: "<strong>Call Psychic Hotline:</strong> Jump to Madame CLAi-O for the crystal-phone reading.",
@@ -3149,7 +3157,7 @@ function revealClubhouseLayer(layer, { scroll = true } = {}) {
   });
   if (clubhouseStatus) {
     const statusMessages = {
-      top: "<strong>Weekly fun and games open:</strong> Weekly Fun Packs and DJ JAIDY's Weekly Jams are available below.",
+      top: "<strong>THE EXTRA CREDIT is open:</strong> Weekly extras and DJ JAIDY's Weekly Jams are available below.",
       bottom: "<strong>Always-open fun and games open:</strong> Clubhouse classics are available below. The weekly shelf can stay open too.",
       all: "<strong>All fun and games open:</strong> Weekly drops and always-open Clubhouse classics are available below.",
     };
@@ -4140,7 +4148,7 @@ function getQuizReturnConfig() {
       practice: "Back to Weekly Study Pack",
       connect: "Back to Meet & Celebrate",
       realworld: "Back to the Book of Receipts",
-      fun: "Back to Weekly Fun Pack",
+      fun: "Back to The Extra Credit",
     };
     return {
       source,
@@ -4977,6 +4985,17 @@ function clearQuizFeedback() {
   quizQuestionsEl?.querySelectorAll(".quiz-explain").forEach((item) => item.remove());
 }
 
+function markWednesdayRitualActionCompleteFromQuiz(issueKey) {
+  const match = String(issueKey || "").match(/\d+/);
+  if (!match) return;
+  const issuePad = String(Number(match[0]) || 0).padStart(2, "0");
+  const completion = getStoredJson("laidiesWednesdayRitualVisits", {});
+  const key = `issue-${issuePad}`;
+  completion[key] = completion[key] || {};
+  completion[key].quiz = new Date().toISOString();
+  setStoredJson("laidiesWednesdayRitualVisits", completion);
+}
+
 function gradeQuiz() {
   const quiz = getActiveQuiz();
   if (!quiz) return;
@@ -5071,6 +5090,7 @@ function gradeQuiz() {
     stickerTier: reward.tier,
   };
   saveQuizProgressRecords(progress);
+  markWednesdayRitualActionCompleteFromQuiz(activeQuizKey);
 
   renderQuizProgress();
   renderQuizResult(score, quiz, reward, coreScore);

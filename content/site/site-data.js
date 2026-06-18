@@ -134,7 +134,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "Open the tab and try one small thing",
           "explain": "Issue 1 is about starting small. Ten minutes beats waiting for a mythical free weekend.",
-          "review": "Find it in the opening and the Issue 1 Fun Pack Try-On.",
+          "review": "Find it in the opening and the Issue 1 Extra Credit Try-On.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -209,7 +209,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "Try one manageable move instead of waiting to feel ready",
           "explain": "The series is meant to make AI practice small enough that people actually do it.",
-          "review": "Find it in the Issue 1 Fun Pack Try-On and issue promise.",
+          "review": "Find it in the Issue 1 Extra Credit Try-On and issue promise.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -224,7 +224,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "To see which tool feels most useful for the same low-risk task",
           "explain": "Same ask, different tools, better comparison. It is a try-on, not a final exam.",
-          "review": "Find it in the Issue 1 Fun Pack Try-On.",
+          "review": "Find it in the Issue 1 Extra Credit Try-On.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -254,7 +254,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "A low-risk work explanation or draft you can judge",
           "explain": "The first try should be useful, small, and safe enough that you can learn without handing it the car keys.",
-          "review": "Find it in the Issue 1 Fun Pack Try-On.",
+          "review": "Find it in the Issue 1 Extra Credit Try-On.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -463,7 +463,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "Give AI the same real task twice: once vague, once specific",
           "explain": "The point is to see the difference. Same task, better brief, much better odds.",
-          "review": "Find it in the Issue 2 Fun Pack Try-On.",
+          "review": "Find it in the Issue 2 Extra Credit Try-On.",
           "reviewUrl": "issues/issue-02.html"
         },
         {
