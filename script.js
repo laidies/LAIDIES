@@ -5649,7 +5649,7 @@ const miniSubscribeForm = document.querySelector(".mini-subscribe-form");
 const miniSubscribeStatus = document.querySelector("#miniSubscribeStatus");
 miniSubscribeForm?.addEventListener("submit", () => {
   if (miniSubscribeStatus) {
-    miniSubscribeStatus.textContent = "You\u2019re in! Check your inbox \u2713";
+    miniSubscribeStatus.textContent = "Request sent to Buttondown. Check your inbox to confirm.";
     miniSubscribeStatus.classList.add("is-success");
   }
 });

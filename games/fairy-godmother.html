@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Fairy Godmother | LAiDIES Clubhouse</title>
     <meta name="description" content="LAIDY gives advice like a wise, glamorous fairy who actually helps with real work problems. Wave the wand." />
-    <meta property="og:title" content="Fairy Godmother | LAiDIES" />
+    <meta property="og:title" content="FAiRY GODMOTHER | LAiDIES" />
     <meta property="og:description" content="Tap or wave the wand for advice you didn't know you needed." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://wearelaidies.com/assets/laidy-character-v1.png" />
@@ -74,9 +74,9 @@
       }
       .game-page-header a {
         font-size: 0.85rem;
-        font-weight: 600;
+        font-weight: 800;
         text-decoration: none;
-        color: #ffb6da;
+        color: #ffe6f1;
       }
       .game-page-header a:hover { text-decoration: underline; }
 
@@ -110,7 +110,7 @@
         text-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
       }
       .fairy-hero .subtitle {
-        color: rgba(255, 220, 240, 0.7);
+        color: rgba(255, 244, 249, 0.92);
         font-size: 1rem;
         max-width: 480px;
         margin: 0 auto;
@@ -211,29 +211,30 @@
 
       /* === INTERACTION AREA === */
       .fairy-console {
-        background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 182, 218, 0.04));
-        border: 1.5px solid rgba(255, 182, 218, 0.25);
+        background: linear-gradient(145deg, rgba(255, 253, 251, 0.96), rgba(255, 235, 245, 0.93));
+        border: 1.5px solid rgba(255, 182, 218, 0.62);
         border-radius: 20px;
         padding: clamp(20px, 4vw, 36px);
         margin-bottom: 28px;
-        backdrop-filter: blur(8px);
+        box-shadow: 0 18px 46px rgba(26, 5, 32, 0.22);
       }
       .fairy-console label {
         display: block;
         font-size: 0.85rem;
-        font-weight: 600;
-        color: #ffb6da;
+        font-weight: 800;
+        color: #4b2148;
         margin-bottom: 8px;
-        letter-spacing: 0.02em;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
       .fairy-console textarea {
         width: 100%;
         min-height: 90px;
         padding: 14px 16px;
-        border: 1.5px solid rgba(255, 182, 218, 0.3);
+        border: 1.5px solid rgba(111, 38, 63, 0.28);
         border-radius: 12px;
-        background: rgba(255, 255, 255, 0.05);
-        color: #fff;
+        background: #fffdfb;
+        color: #2d1729;
         font-family: 'Inter', sans-serif;
         font-size: 0.95rem;
         line-height: 1.5;
@@ -241,32 +242,33 @@
         transition: border-color 0.2s, box-shadow 0.2s;
       }
       .fairy-console textarea::placeholder {
-        color: rgba(255, 200, 230, 0.4);
+        color: rgba(75, 33, 72, 0.62);
       }
       .fairy-console textarea:focus {
         outline: none;
-        border-color: #ffd700;
-        box-shadow: 0 0 16px rgba(255, 215, 0, 0.15);
+        border-color: #c75b86;
+        box-shadow: 0 0 0 4px rgba(199, 91, 134, 0.16);
       }
       .fairy-console select {
         width: 100%;
         padding: 12px 16px;
-        border: 1.5px solid rgba(255, 182, 218, 0.3);
+        border: 1.5px solid rgba(111, 38, 63, 0.28);
         border-radius: 12px;
-        background: rgba(30, 10, 25, 0.8);
-        color: #fff;
+        background: #fffdfb;
+        color: #3f1737;
         font-family: 'Inter', sans-serif;
         font-size: 0.9rem;
         cursor: pointer;
         margin-bottom: 16px;
         appearance: none;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23ffb6da' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234b2148' stroke-width='2' fill='none'/%3E%3C/svg%3E");
         background-repeat: no-repeat;
         background-position: right 16px center;
       }
       .fairy-console select:focus {
         outline: none;
-        border-color: #ffd700;
+        border-color: #c75b86;
+        box-shadow: 0 0 0 4px rgba(199, 91, 134, 0.16);
       }
 
       .fairy-buttons {
@@ -281,22 +283,22 @@
         align-items: center;
         gap: 8px;
         padding: 14px 28px;
-        border: 2.5px solid #ffd700;
+        border: 2px solid #4b2148;
         border-radius: 40px;
-        background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 143, 216, 0.1));
-        color: #ffd700;
+        background: #4b2148;
+        color: #fffdfb;
         font-size: 1.05rem;
         font-weight: 700;
         letter-spacing: 0.02em;
         cursor: pointer;
         transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
-        box-shadow: 0 0 18px rgba(255, 215, 0, 0.2);
+        box-shadow: 0 12px 30px rgba(75, 33, 72, 0.22);
         font-family: 'Inter', sans-serif;
       }
       .wand-button:hover {
         transform: scale(1.04);
-        box-shadow: 0 0 32px rgba(255, 215, 0, 0.4);
-        background: linear-gradient(135deg, rgba(255, 215, 0, 0.25), rgba(255, 143, 216, 0.15));
+        box-shadow: 0 18px 38px rgba(75, 33, 72, 0.3);
+        background: #6f263f;
       }
       .wand-button:active { transform: scale(0.97); }
       .wand-button .wand-icon {
@@ -316,10 +318,10 @@
         align-items: center;
         gap: 6px;
         padding: 12px 22px;
-        border: 1.5px solid rgba(255, 182, 218, 0.4);
+        border: 1.5px solid rgba(111, 38, 63, 0.28);
         border-radius: 40px;
-        background: rgba(255, 255, 255, 0.04);
-        color: #ffb6da;
+        background: #fffdfb;
+        color: #4b2148;
         font-size: 0.9rem;
         font-weight: 600;
         cursor: pointer;
@@ -328,7 +330,7 @@
       }
       .random-button:hover {
         transform: scale(1.03);
-        border-color: #ffb6da;
+        border-color: #c75b86;
       }
 
       /* === WISDOM COUNTER === */
@@ -421,7 +423,7 @@
         border: 1px solid rgba(255, 215, 0, 0.2);
         border-radius: 12px;
         font-size: 0.82rem;
-        color: rgba(255, 230, 180, 0.8);
+        color: rgba(255, 246, 225, 0.94);
         display: none;
       }
       .prompt-feedback.is-visible { display: block; }
@@ -443,7 +445,7 @@
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.08em;
-        color: rgba(255, 182, 218, 0.5);
+        color: rgba(255, 230, 242, 0.82);
         margin-bottom: 12px;
       }
       .history-item {
@@ -466,7 +468,7 @@
       }
       .history-item .history-a {
         font-size: 0.8rem;
-        color: rgba(255, 248, 252, 0.7);
+        color: rgba(255, 248, 252, 0.88);
         line-height: 1.4;
         display: -webkit-box;
         -webkit-line-clamp: 2;
@@ -486,7 +488,7 @@
       }
       .badge-reveal.is-visible { display: block; animation: scrollReveal 0.4s ease; }
       .badge-reveal strong { color: #ffd700; }
-      .badge-reveal p { color: rgba(255, 248, 252, 0.7); font-size: 0.85rem; margin-top: 4px; }
+      .badge-reveal p { color: rgba(255, 248, 252, 0.9); font-size: 0.85rem; margin-top: 4px; }
 
       /* === FOOTER === */
       .fairy-footer {
@@ -500,7 +502,7 @@
         padding: 12px 24px;
         border: 1.5px solid rgba(255, 182, 218, 0.4);
         border-radius: 8px;
-        color: #ffb6da;
+        color: #ffe6f1;
         text-decoration: none;
         font-size: 0.9rem;
         font-weight: 600;
@@ -537,13 +539,12 @@
       </a>
       <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
       <nav class="nav" aria-label="Primary navigation">
-        <a href="../episodes.html">Episodes</a>
-        <a href="../learn.html">Learn</a>
-        <a href="../clubhouse.html">Clubhouse</a>
-        <a href="../community.html">Community</a>
-        <a href="../games/dj-booth.html">Listen</a>
-        <a href="../this-week.html">This Week</a>
-        <a href="../clubhouse-pass.html" style="color: #b95d78; text-decoration: underline; margin-left: 8px;">Sign In</a>
+        <a href="../issues/issue-03.html">LATEST</a>
+        <a href="../start-here.html">START HERE</a>
+        <a href="../episodes.html">SEASON</a>
+        <a href="../hot-goss.html">THE BOOK</a>
+        <a href="../clubhouse.html">CLUBHOUSE</a>
+        <a href="../community.html">JOIN</a>
 </nav>
     </header>
 
@@ -848,7 +849,7 @@
         try {
           const badges = JSON.parse(localStorage.getItem("laidiesSecretBadges") || "{}");
           if (!badges["fairy-favorite"]) {
-            badges["fairy-favorite"] = { id: "fairy-favorite", title: "Fairy Godmother\u2019s Favorite", sticker: "LAIDY", unlockedAt: new Date().toISOString(), source: "FAIRY Godmother" };
+            badges["fairy-favorite"] = { id: "fairy-favorite", title: "FAiRY GODMOTHER\u2019s Favorite", sticker: "LAIDY", unlockedAt: new Date().toISOString(), source: "FAiRY GODMOTHER" };
             localStorage.setItem("laidiesSecretBadges", JSON.stringify(badges));
           }
         } catch(e) {}

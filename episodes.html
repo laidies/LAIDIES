@@ -46,13 +46,12 @@
       </a>
       <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=this.nextElementSibling;if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'☰':'✕';this.setAttribute('aria-expanded',!isOpen);">☰</button>
         <nav class="nav" aria-label="Primary navigation">
-          <a href="start-here.html">New? Start Here</a>
-          <a href="this-week.html">This Week</a>
-          <a href="episodes.html" aria-current="page">Episodes</a>
-          <a href="learn.html">Learn</a>
-          <a href="clubhouse.html">Clubhouse</a>
-          <a href="community.html">Community</a>
-          <a href="clubhouse-pass.html" style="color: #b95d78; text-decoration: underline; margin-left: 8px;">Sign In</a>
+          <a href="issues/issue-03.html">LATEST</a>
+          <a href="start-here.html">START HERE</a>
+          <a href="episodes.html" aria-current="page">SEASON</a>
+          <a href="hot-goss.html">THE BOOK</a>
+          <a href="clubhouse.html">CLUBHOUSE</a>
+          <a href="community.html">JOIN</a>
         </nav>
     </header>
 
@@ -185,6 +184,8 @@
             <button type="submit">Subscribe</button>
           </div>
         </form>
+        <p id="miniSubscribeStatus" aria-live="polite"></p>
+        <p class="subscribe-fallback" style="margin:8px 0 0;font-size:0.82rem;"><a href="https://buttondown.com/laidies" target="_blank" rel="noopener" style="color:#6f263f;font-weight:800;">Subscribe through Buttondown</a></p>
         <iframe class="subscribe-frame" name="laidiesMiniSubscribeFrame" title="Mini subscription response" aria-hidden="true"></iframe>
       </aside>
 
@@ -202,8 +203,8 @@
       </p>
       <div>
         <a href="https://www.instagram.com/we.are.laidies/" target="_blank" rel="noreferrer">Instagram</a>
-        <a href="community.html">The Room</a>
-        <a href="reference-closet.html">Reference Closet</a>
+        <a href="community.html">Join</a>
+        <a href="reference-closet.html">Lore Closet</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
       </div>
