@@ -39,17 +39,72 @@
 
       /* ─── HERO SIZING ─── */
       .home-masthead-banner {
-        width: min(100%, 1080px);
-        margin: 0 auto clamp(18px, 4vw, 34px);
-        padding: 0 clamp(8px, 2vw, 18px);
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100vw;
+        min-height: clamp(390px, 40vw, 720px);
+        margin: calc(-1 * clamp(34px, 6vw, 78px)) calc(50% - 50vw) clamp(22px, 3vw, 34px);
+        padding: clamp(34px, 5vw, 76px) clamp(20px, 6.8vw, 126px);
+        overflow: hidden;
+        background: #f8e6ee url("assets/brand/laidies-homepage-masthead-bg-approved-v1.png") center / cover no-repeat;
       }
-      .home-masthead-banner img {
+      .home-masthead-banner::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 14%;
+        background: linear-gradient(180deg, transparent, rgba(248, 230, 239, 0.22));
+        pointer-events: none;
+      }
+      .home-masthead-copy {
+        position: relative;
+        z-index: 1;
+        width: min(48vw, 760px);
+        max-width: 760px;
+        color: var(--plum);
+      }
+      .home-masthead-logo {
         display: block;
-        width: 100%;
+        width: min(31vw, 560px);
         height: auto;
-        max-height: 230px;
-        object-fit: contain;
-        filter: drop-shadow(0 18px 34px rgba(75, 33, 72, 0.1));
+        margin: 0 0 clamp(28px, 4.1vw, 66px);
+        border-radius: 0;
+        filter: drop-shadow(0 12px 24px rgba(255, 253, 251, 0.28));
+      }
+      .hero .home-masthead-copy h1 {
+        max-width: 760px !important;
+        margin: 0;
+        color: var(--plum);
+        font-family: var(--font-display);
+        font-size: clamp(2.35rem, 4.2vw, 4.8rem) !important;
+        font-weight: 700;
+        line-height: 0.92 !important;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+      .home-masthead-rule {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: min(100%, 740px);
+        margin: clamp(20px, 3vw, 42px) 0 clamp(16px, 2.4vw, 34px);
+      }
+      .home-masthead-rule span {
+        display: block;
+        height: 3px;
+      }
+      .home-masthead-rule span:nth-child(1) {
+        flex: 1 1 auto;
+        background: #a64d73;
+      }
+      .home-masthead-rule span:nth-child(2) {
+        flex: 0 0 clamp(72px, 7vw, 134px);
+        background: #9edfe1;
+      }
+      .home-masthead-rule span:nth-child(3) {
+        flex: 0 0 clamp(94px, 10vw, 184px);
+        background: rgba(255, 253, 251, 0.94);
       }
       .hero-logo {
         max-width: 560px !important;
@@ -78,6 +133,16 @@
         font-size: clamp(1rem, 1.8vw, 1.18rem) !important;
         line-height: 1.55 !important;
       }
+      .home-masthead-copy .hero-text {
+        max-width: 660px !important;
+        margin: 0 !important;
+        color: var(--plum) !important;
+        font-family: var(--font-display);
+        font-size: clamp(1.02rem, 1.45vw, 1.35rem) !important;
+        font-style: italic;
+        font-weight: 700;
+        line-height: 1.18 !important;
+      }
       .hero-quote {
         font-size: clamp(1.1rem, 2vw, 1.4rem) !important;
       }
@@ -91,6 +156,9 @@
         margin: 0 auto;
         gap: 12px !important;
       }
+      .hero-copy--actions {
+        width: min(100%, 760px);
+      }
       .hero-actions {
         justify-content: center;
         margin-top: 12px !important;
@@ -99,18 +167,53 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        min-width: min(100%, 280px);
         min-height: 42px;
-        color: var(--plum);
+        border: 1px solid rgba(142, 194, 198, 0.78);
+        border-radius: 999px;
+        padding: 0.95rem 1.35rem;
+        background:
+          linear-gradient(135deg, rgba(220, 245, 245, 0.98), rgba(190, 224, 226, 0.9));
+        color: var(--plum) !important;
         font-size: 0.78rem;
         font-weight: 900;
         letter-spacing: 0.08em;
-        text-decoration: underline;
+        text-decoration: none;
         text-transform: uppercase;
-        text-underline-offset: 5px;
+        box-shadow:
+          0 14px 32px rgba(75, 33, 72, 0.1),
+          inset 0 1px 0 rgba(255, 253, 251, 0.7);
+        transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+      }
+      .hero-secondary-link:hover,
+      .hero-secondary-link:focus-visible {
+        transform: translateY(-2px);
+        border-color: rgba(142, 194, 198, 1);
+        box-shadow:
+          0 18px 38px rgba(75, 33, 72, 0.14),
+          inset 0 1px 0 rgba(255, 253, 251, 0.82);
+        outline: none;
       }
       .home-route-note {
         max-width: 580px;
         margin: 0 auto;
+      }
+      .home-start-ritual-cue {
+        display: inline-flex;
+        width: fit-content;
+        margin-bottom: 2px;
+        border: 1px solid rgba(142, 194, 198, 0.66);
+        border-radius: 999px;
+        padding: 5px 9px;
+        background: rgba(220, 245, 245, 0.56);
+        color: var(--plum);
+        font-family: var(--font-body);
+        font-size: 0.66rem;
+        font-style: normal;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        line-height: 1;
+        text-transform: uppercase;
       }
       .home-current-episode {
         padding: clamp(44px, 7vw, 86px) clamp(18px, 5vw, 64px);
@@ -674,11 +777,40 @@
       }
       @media (max-width: 520px) {
         .home-masthead-banner {
-          padding: 0;
-          margin-bottom: 12px;
+          min-height: 430px;
+          margin-bottom: 18px;
+          padding: 26px 22px 34px;
+          align-items: flex-start;
+          background-position: 64% center;
         }
-        .home-masthead-banner img {
-          max-height: 150px;
+        .home-masthead-copy {
+          width: min(100%, 335px);
+          padding-top: 8px;
+        }
+        .home-masthead-logo {
+          width: min(72vw, 295px);
+          margin-bottom: 30px;
+        }
+        .hero .home-masthead-copy h1 {
+          max-width: 320px !important;
+          font-size: clamp(2.35rem, 11vw, 3.45rem) !important;
+          line-height: 0.9 !important;
+        }
+        .home-masthead-rule {
+          width: min(100%, 320px);
+          gap: 6px;
+          margin: 22px 0 18px;
+        }
+        .home-masthead-rule span:nth-child(2) {
+          flex-basis: 54px;
+        }
+        .home-masthead-rule span:nth-child(3) {
+          flex-basis: 72px;
+        }
+        .home-masthead-copy .hero-text {
+          max-width: 315px !important;
+          font-size: clamp(1rem, 5.1vw, 1.18rem) !important;
+          line-height: 1.18 !important;
         }
         .hero h1 {
           font-size: clamp(2.25rem, 15vw, 4.35rem) !important;
@@ -880,15 +1012,20 @@
       <!-- HERO -->
       <section class="hero" aria-labelledby="hero-title">
         <div class="home-masthead-banner" aria-label="LAiDIES masthead">
-          <img src="assets/brand/laidies-logo-masthead-approved-v3.png" alt="LAiDIES" />
+          <div class="home-masthead-copy">
+            <img class="home-masthead-logo" src="assets/brand/laidies-logo-masthead-approved-v3.png" alt="LAiDIES" />
+            <h1 id="hero-title">GIRL POWER MEETS<br />MACHINE POWER</h1>
+            <div class="home-masthead-rule" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <p class="hero-text">AI fluency for women with full calendars and high standards, not beige tech explanations.</p>
+          </div>
         </div>
-        <div class="hero-copy">
-          <p class="eyebrow">NEW EPISODES EVERY WEDNESDAY, OBVIOUSLY</p>
-          <h1 id="hero-title">GIRL POWER MEETS MACHINE POWER</h1>
-          <p class="hero-motto">90s/Y2K shaped us. AI is shaping now. LAiDIES is where they meet.</p>
-          <p class="hero-text">
-            AI fluency for women with full calendars, high standards, and no patience for beige tech explanations.
-          </p>
+        <div class="hero-copy hero-copy--actions">
+          <p class="hero-motto">90s/Y2K defined us. AI is shaping now. LAiDIES is where they meet.</p>
+          <p class="home-route-note">New episodes every Wednesday, obviously.</p>
           <p class="hero-quote hero-anthem" id="heroAnthem" style="transition: all 0.3s; position: relative; display: inline-block;">
             Get in, loser. We’re learning <span class="hero-quote-ai">AI</span>.
           </p>
@@ -907,7 +1044,7 @@
             </section>
           </div>
           <div class="hero-actions">
-            <a class="button primary" href="issues/issue-03.html">READ LATEST ISSUE</a>
+            <a class="button primary" href="issues/issue-03.html">READ LATEST EPISODE</a>
             <a class="hero-secondary-link" href="this-week.html?issue=3&amp;bag=open">OPEN THIS WEEK&rsquo;S BAG</a>
           </div>
           <p class="home-route-note"><strong>New here?</strong> <a href="this-week.html?issue=1&amp;bag=open">Start from the beginning.</a></p>
@@ -954,9 +1091,10 @@
             <p>Want the magazine first and the extras later? Read the episodes straight through.</p>
           </a>
           <a class="home-start-card" href="this-week.html?issue=3&amp;bag=open">
-            <span>3. Full ritual</span>
+            <em class="home-start-ritual-cue">On Wednesdays We Do AI</em>
+            <span>3. Wednesday ritual</span>
             <strong>DO THE WEEKLY RITUAL</strong>
-            <p>Open the Bag when you want the issue, Try-On, quiz, printable, song, charms, and weekly extras together.</p>
+            <p>Open the Bag when you want the episode, Try-On, quiz, printable, song, charms, and weekly extras in one place.</p>
           </a>
         </div>
       </section>
