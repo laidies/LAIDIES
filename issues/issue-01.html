@@ -126,6 +126,13 @@
         .signoff-bottom .brand-name,
         .challenge-box .brand-name { color: var(--text); }
 
+        .article-card p .brand-name,
+        .article-card li .brand-name {
+            font: inherit;
+            letter-spacing: 0;
+            white-space: normal;
+        }
+
         /* --- ARTICLE --- */
         .article-container {
             max-width: 720px;
@@ -167,41 +174,78 @@
 
         /* --- PULL QUOTE --- */
         .pull-quote {
-            text-align: center;
-            margin: 2.5em 0;
-            padding: 0 20px;
+            position: relative;
+            clear: both;
+            display: block;
+            isolation: isolate;
+            max-width: min(94%, 760px);
+            margin: clamp(3.1rem, 7vw, 5rem) auto;
+            padding: clamp(1.35rem, 3vw, 1.9rem) clamp(1.55rem, 4vw, 2.35rem) clamp(1.35rem, 3vw, 1.9rem) clamp(5.2rem, 13vw, 8.8rem);
+            color: #4b2148;
+            background:
+                linear-gradient(90deg, rgba(185, 93, 120, 0.72), rgba(185, 93, 120, 0.72)) 0 0 / 46% 2px no-repeat,
+                linear-gradient(180deg, rgba(185, 93, 120, 0.72), rgba(185, 93, 120, 0.72)) 0 0 / 2px 100% no-repeat,
+                linear-gradient(270deg, rgba(185, 215, 220, 0.86), rgba(185, 215, 220, 0.86)) 100% 100% / 38% 2px no-repeat,
+                linear-gradient(0deg, rgba(185, 215, 220, 0.86), rgba(185, 215, 220, 0.86)) 100% 100% / 2px 54% no-repeat;
+            border: 0;
+            box-shadow: none;
+            font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+            font-size: clamp(1.34rem, 2.35vw, 1.92rem);
+            font-style: italic;
+            font-weight: 600;
+            line-height: 1.18;
+            overflow: visible;
+            text-align: left;
+            text-wrap: balance;
         }
 
         .pull-quote p {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-style: italic;
-            color: var(--primary);
-            line-height: 1.5;
+            color: inherit;
+            font: inherit;
+            line-height: inherit;
             margin-bottom: 0;
         }
 
-        .pull-quote .attribution {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
-            font-style: normal;
-            color: var(--text-light);
-            margin-top: 10px;
-            letter-spacing: 0.5px;
-        }
-
-        .pull-quote::before,
-        .pull-quote::after {
-            content: '';
+        .pull-quote cite {
             display: block;
-            width: 200px;
-            height: 2px;
-            background: linear-gradient(to right, transparent, var(--neon-pink), transparent);
-            margin: 0 auto 20px;
+            margin-top: 1rem;
+            color: var(--text-light);
+            font-family: "Inter", sans-serif;
+            font-size: 0.78rem;
+            font-style: normal;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            line-height: 1.4;
+            text-transform: uppercase;
+        }
+
+        .pull-quote::before {
+            content: "\201C";
+            position: absolute;
+            left: clamp(0.4rem, 1.4vw, 0.8rem);
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(185, 93, 120, 0.26);
+            background: transparent;
+            font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+            font-size: clamp(5.8rem, 14vw, 11rem);
+            font-style: normal;
+            font-weight: 900;
+            line-height: 0.72;
+            pointer-events: none;
         }
 
         .pull-quote::after {
-            margin: 20px auto 0;
+            content: "";
+            position: absolute;
+            right: clamp(0.7rem, 2vw, 1.2rem);
+            bottom: clamp(0.52rem, 1.4vw, 0.85rem);
+            width: clamp(28px, 7vw, 64px);
+            height: clamp(28px, 7vw, 64px);
+            border-right: 2px solid rgba(185, 215, 220, 0.78);
+            border-bottom: 2px solid rgba(185, 215, 220, 0.78);
+            background: transparent;
+            pointer-events: none;
         }
 
         /* --- SIDE PULL QUOTE (magazine style) --- */
@@ -255,17 +299,11 @@
 
         /* --- SECTION DIVIDER --- */
         .section-divider {
-            text-align: center;
-            margin: 3.5rem 0 2rem;
+            margin: clamp(2.4rem, 6vw, 3.6rem) 0 0;
         }
 
         .section-divider::before {
-            content: '';
-            display: block;
-            width: 120px;
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--neon-pink), transparent);
-            margin: 0 auto;
+            display: none;
         }
 
         /* --- SECTION IMAGES --- */
@@ -1178,11 +1216,17 @@
 
         .article-card h2 {
             scroll-margin-top: 130px;
+            margin: 2.35em 0 0.85em;
+            padding: clamp(0.82rem, 2vw, 1.08rem) clamp(0.95rem, 2.4vw, 1.25rem);
             color: #4b2148;
             font-size: clamp(1.95rem, 3.35vw, 2.8rem);
             line-height: 1.08;
-            background:
-                linear-gradient(180deg, transparent 62%, rgba(252, 228, 242, 0.82) 62%, rgba(252, 228, 242, 0.82) 91%, transparent 91%);
+            background: linear-gradient(135deg, rgba(252, 228, 242, 0.92), rgba(255, 253, 251, 0.96));
+            border-left: 5px solid #b95d78;
+            border-radius: 8px;
+            box-shadow:
+                inset 0 0 0 1px rgba(111, 38, 63, 0.1),
+                0 16px 34px rgba(75, 33, 72, 0.07);
         }
 
         .article-card h2::after {
@@ -1208,6 +1252,51 @@
 
         .article-card h3 {
             color: #6f263f;
+        }
+
+        .episode-intro-card {
+            padding: clamp(24px, 5vw, 36px) clamp(18px, 5vw, 32px) !important;
+            margin-bottom: 2.3em !important;
+            text-align: center;
+        }
+
+        .article-card .episode-intro-label {
+            display: block;
+            margin: 0 0 14px;
+            color: var(--primary);
+            font-family: "Dancing Script", cursive;
+            font-size: clamp(1.75rem, 4.8vw, 2.18rem);
+            font-weight: 700;
+            letter-spacing: 0;
+            line-height: 1.05;
+        }
+
+        .article-card .episode-intro-copy {
+            max-width: 610px;
+            margin: 0 auto 12px;
+            color: var(--text);
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        .article-card .episode-intro-copy:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-card .article-subheading {
+            margin: 2em 0 1.2em;
+            color: var(--primary);
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(1.2rem, 2.4vw, 1.34rem);
+            line-height: 1.16;
+        }
+
+        .article-card .section-subhed {
+            margin: -0.15rem 0 1.2em;
+            color: var(--text-light);
+            font-size: 0.94rem;
+            font-style: italic;
+            line-height: 1.55;
         }
 
         .season-preview-block,
@@ -1504,6 +1593,26 @@
                 padding-top: 24px;
             }
 
+            .article-card h2 {
+                padding: 0.82rem 0.9rem;
+                font-size: clamp(1.64rem, 8vw, 2.08rem);
+                line-height: 1.08;
+            }
+
+            .article-card h2::before {
+                width: 72px;
+                height: 8px;
+                margin-bottom: 0.85rem;
+            }
+
+            .episode-intro-card {
+                padding: 24px 18px !important;
+            }
+
+            .article-card .episode-intro-label {
+                font-size: clamp(1.7rem, 8vw, 2.04rem);
+            }
+
             .activity-card {
                 min-height: 148px;
             }
@@ -1579,15 +1688,15 @@
         <article class="article-card article-container">
 
     <!-- Season Preview -->
-    <div class="season-preview-block" style="text-align: center; margin-bottom: 2em; padding: 28px 20px; border-bottom: 1px solid var(--border);">
-        <p style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.55rem; font-weight: 700; color: var(--primary); letter-spacing: 0; margin-bottom: 16px;">This Season On <span class="brand-name">LAiDIES</span>...</p>
-        <p style="font-size: 0.95rem; line-height: 1.7; max-width: 600px; margin: 0 auto 12px; color: var(--text);">This is a 24-episode season. Like the glory days, when TV actually let you fall in love with the characters before cancelling them after eight. No bingeing. New episode every Wednesday. And every skill you pick up here? It's all leading somewhere. Think of it like Cher's outfit planner building one look at a time. By the finale, you'll have built your own squad of AI employees, each named after a woman from our favourite era of pop culture.</p>
-        <p style="font-size: 0.95rem; line-height: 1.7; max-width: 600px; margin: 0 auto; color: var(--text);">The arc: she stops feeling behind, learns to delegate to machines, keeps her standards, builds her squad, and becomes the woman other people come to when the future gets confusing. That's where we're headed. One Wednesday at a time.</p>
+    <div class="season-preview-block episode-intro-card">
+        <p class="episode-intro-label">On This Season...</p>
+        <p class="episode-intro-copy">This is a 24-episode season. Like the glory days, when TV actually let you fall in love with the characters before cancelling them after eight. No bingeing. New episode every Wednesday. And every skill you pick up here? It's all leading somewhere. Think of it like Cher's outfit planner building one look at a time. By the finale, you'll have built your own squad of AI employees, each named after a woman from our favourite era of pop culture.</p>
+        <p class="episode-intro-copy">The arc: she stops feeling behind, learns to delegate to machines, keeps her standards, builds her squad, and becomes the woman other people come to when the future gets confusing. That's where we're headed. One Wednesday at a time.</p>
     </div>
 
-    <div class="tldr-section">
-        <h3>On This Episode...</h3>
-        <p style="color: var(--text); font-size: 0.95rem; line-height: 1.7;">The one in which our heroine admits she put off learning AI for an embarrassingly long time, discovers the gender gap is a physics problem not a confidence problem, learns that for every 100 men using AI only 78 women do (and it's not because we can't &mdash; we're already drowning), compares AI to Regina George (uncanny), explains the whole thing in 90 seconds using Cher's closet from Clueless, and points to a 10-minute Club Pack try-on that takes less time than ordering an espresso martini. Nobody here knows what they're doing. We're all figuring it out together, every Wednesday. Dolly would approve. Miranda Priestly might even give this the nod. You know the one. Oh, and there are Easter eggs hidden in the images and text. If you spot them all, you can sit with us.</p>
+    <div class="tldr-section episode-intro-card">
+        <h3 class="episode-intro-label">On This Episode...</h3>
+        <p class="episode-intro-copy">The one in which our heroine admits she put off learning AI for an embarrassingly long time, discovers the gender gap is a physics problem not a confidence problem, learns that for every 100 men using AI only 78 women do (and it's not because we can't &mdash; we're already drowning), compares AI to Regina George (uncanny), explains the whole thing in 90 seconds using Cher's closet from Clueless, and points to a 10-minute Club Pack try-on that takes less time than ordering an espresso martini. Nobody here knows what they're doing. We're all figuring it out together, every Wednesday. Dolly would approve. Miranda Priestly might even give this the nod. You know the one. Oh, and there are Easter eggs hidden in the images and text. If you spot them all, you can sit with us.</p>
     </div>
 
     <h2 style="margin-top: 0;">I couldn't help but wonder...</h2>
@@ -1663,10 +1772,10 @@
 
     <p>Fei-Fei Li, the Stanford professor known as the &ldquo;Godmother of AI,&rdquo; said it plainly:</p>
 
-    <div class="pull-quote">
-        <p>&ldquo;If we don't get women involved in AI, we're going to have a future that's built by half the population for all of the population.&rdquo;</p>
-        <div class="attribution">&mdash; Fei-Fei Li, Stanford AI Lab</div>
-    </div>
+    <blockquote class="pull-quote">
+        <p>If we don't get women involved in AI, we're going to have a future that's built by half the population for all of the population.</p>
+        <cite>Fei-Fei Li, Stanford AI Lab</cite>
+    </blockquote>
 
     <p>And this isn't just about fairness. Harvard research found that when women don't use AI, the tools literally get worse for everyone because they learn from a skewed pool of users. The less women use them, the less they work for women, and the cycle keeps going. Getting women involved in AI isn't charity. It makes the technology better for all of us.</p>
 
@@ -1688,7 +1797,7 @@
     </div>
 
     <h2>The Dress Code</h2>
-    <p style="font-size: 0.9rem; color: var(--text-light); font-style: italic; margin-top: -0.8em; margin-bottom: 1.2em;">What to expect. What not to expect. What to wear is your business — but whatever it is, we're sure it's fabulous.</p>
+    <p class="section-subhed">What to expect. What not to expect. What to wear is your business — but whatever it is, we're sure it's fabulous.</p>
 
     <p>I started <span class="brand-name">LAiDIES</span> because the on-ramp I needed didn't exist. Everything was either too technical (written for people who wanted to build models, not use them), too shallow (listicles with all the nutritional value of a rice cake), or too time-consuming (40-hour courses marketed to people who apparently don't have jobs, children, or a standing Thursday businesswomen's special happy hour with friends).</p>
 
@@ -1704,7 +1813,7 @@
     </div>
 
     <h2>The Cocktail Party Explanation</h2>
-    <p style="font-size: 0.9rem; color: var(--text-light); font-style: italic; margin-top: -0.8em; margin-bottom: 1.2em;">What you'd say if someone asked you "so what IS AI?" over drinks.</p>
+    <p class="section-subhed">What you'd say if someone asked you "so what IS AI?" over drinks.</p>
 
     <p>Before next week, I want you armed with a mental model solid enough to hold up at any dinner table, boardroom, or group chat where someone says &ldquo;AI&rdquo; like they know what they're talking about.</p>
 
@@ -1722,8 +1831,8 @@
         <p style="margin-bottom: 0;"><strong>Your job is knowing which parts to trust and which to push back on. You've been doing that with other people's work your entire career. This is no different.</strong></p>
     </div>
 
-    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-top: 2em; margin-bottom: 1.2em; color: var(--primary);">So You Don't Pull a Cher</h3>
-        <p style="font-size: 0.9rem; color: var(--text-light); font-style: italic; margin-bottom: 1.2em;">Quick definitions so you can use these words confidently in a meeting without accidentally arguing that it doesn't say RSVP on the Statue of Liberty.</p>
+    <h3 class="article-subheading">So You Don't Pull a Cher</h3>
+        <p class="section-subhed">Quick definitions so you can use these words confidently in a meeting without accidentally arguing that it doesn't say RSVP on the Statue of Liberty.</p>
 
     <div class="glossary-term">
         <div class="term-name">Generative AI</div>
