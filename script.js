@@ -2039,14 +2039,14 @@ const memberProfileGroups = document.querySelectorAll(".member-profile-group");
 const memberPassSteps = document.querySelectorAll("[data-member-pass-step]");
 const issueFunPackMeta = {
   issue01: {
-    label: "Issue 01",
+    label: "Episode 01",
     title: "Start Here Pack",
-    status: "Issue 01 pack loaded: quiz, trading cards, try-on, and printables.",
+    status: "Episode 01 pack loaded: quiz, trading cards, try-on, and printables.",
   },
   issue02: {
-    label: "Issue 02",
+    label: "Episode 02",
     title: "Tell Me What You Want",
-    status: "Issue 02 pack loaded: quiz, specificity cards, try-on, prompt cheat sheet, and article takeaways.",
+    status: "Episode 02 pack loaded: quiz, specificity cards, try-on, prompt cheat sheet, and article takeaways.",
   },
 };
 
@@ -3072,12 +3072,12 @@ window.openGamePanel = openGamePanel;
 setupGamePanelDock();
 
 const clubhouseZoneMessages = {
-  "weekly-fun-pack": "<strong>THE EXTRA CREDIT:</strong> Open the issue shelf for the current released extras.",
-  "fun-pack-1-6": "<strong>Extra Credit 1-6:</strong> Issues 1 and 2 are available now. More shelf space opens as the season drops.",
+  "weekly-fun-pack": "<strong>THE EXTRA CREDIT:</strong> Open the Episode shelf for the current released extras.",
+  "fun-pack-1-6": "<strong>Extra Credit 1-6:</strong> Episodes 1 and 2 are available now. More shelf space opens as the season drops.",
   "fun-pack-7-12": "<strong>Extra Credit 7-12:</strong> Reserved for future weekly extras once those issues exist.",
   "fun-pack-13-18": "<strong>Extra Credit 13-18:</strong> Reserved for later archive browsing.",
   "fun-pack-19-24": "<strong>Extra Credit 19-24:</strong> Reserved for the full-season archive.",
-  "weekly-jams": "<strong>Weekly Jams:</strong> DJ JAIDY's weekly AI song lives beside the issue packs.",
+  "weekly-jams": "<strong>Weekly Jams:</strong> DJ JAIDY's weekly AI song lives beside the Episode packs.",
   "mix-cds": "<strong>Mix CDs:</strong> Open the DJ Booth for playlists, mix CDs, and weekly track slots.",
   psychic: "<strong>Call Psychic Hotline:</strong> Jump to Madame CLAi-O for the crystal-phone reading.",
   "dream-phone": "<strong>Call Dream Phone:</strong> Open the Dream Phone nook and dial a card.",
@@ -4438,7 +4438,7 @@ function createIssueCard(episode, isFeatured) {
   const copy = document.createElement("div");
   const meta = document.createElement("p");
   meta.className = "issue-meta";
-  meta.textContent = `Issue #${episode.number}`;
+  meta.textContent = `Episode ${episode.number}`;
 
   const title = document.createElement("h3");
   title.textContent = episode.title;
@@ -4447,7 +4447,8 @@ function createIssueCard(episode, isFeatured) {
   description.textContent = episode.oneLineDescription;
 
   const link = document.createElement("a");
-  link.href = episode.issueUrl;
+  const issueUrlSeparator = String(episode.issueUrl || "").includes("?") ? "&" : "?";
+  link.href = `${episode.issueUrl}${issueUrlSeparator}from=season&issue=${encodeURIComponent(episode.number)}`;
   link.textContent = `Read episode ${episode.number}`;
 
   copy.append(meta, title, description, link);
@@ -4581,7 +4582,7 @@ function getQuizReward(score, maxScore, bonusScore = 0) {
     tier: "butterfly",
     sticker: "Butterfly Clip Incident",
     title: "Butterfly Clip Incident Sticker",
-    message: "Low score, but survivable. You stepped on a butterfly clip in the dark. Reread the issue, shake it off, and retake it.",
+    message: "Low score, but survivable. You stepped on a butterfly clip in the dark. Reread the Episode, shake it off, and retake it.",
   };
 }
 
@@ -4922,7 +4923,7 @@ function renderQuiz() {
     if (quizStartPanel) quizStartPanel.hidden = false;
     if (quizForm) quizForm.hidden = true;
     quizQuestionsEl.replaceChildren();
-    if (quizResult) quizResult.textContent = "Pick an issue above. The questions stay in the Caboodle until you open them.";
+    if (quizResult) quizResult.textContent = "Pick an Episode above. The questions stay in the Caboodle until you open them.";
     quizCelebration?.replaceChildren();
     updateRitualQuizView();
     return;
@@ -5193,7 +5194,7 @@ function getPackCards() {
     id: card.dataset.packCard,
     packIssue: card.dataset.packIssue || "all",
     title: card.dataset.packTitle || card.querySelector("h3")?.textContent?.trim() || "Mystery Card",
-    issue: card.querySelector(".episode-card-front span")?.textContent?.trim() || "Issue",
+    issue: card.querySelector(".episode-card-front span")?.textContent?.trim() || "Episode",
     image: card.querySelector(".episode-card-front img")?.getAttribute("src") || "",
     alt: card.querySelector(".episode-card-front img")?.getAttribute("alt") || "",
   }));

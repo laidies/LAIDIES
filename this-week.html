@@ -2431,7 +2431,7 @@
       <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=document.querySelector('.nav');if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'\u2630':'\u2715';this.setAttribute('aria-expanded',!isOpen);">&#x2630;</button>
       <nav class="nav" aria-label="Primary navigation">
           <a href="this-week.html?issue=3&amp;bag=open" aria-current="page">Current Bag</a>
-          <a href="issues/issue-03.html">Read Current</a>
+          <a href="issues/issue-03.html?from=this-week&amp;issue=3&amp;bag=open">Read Current</a>
           <a href="hot-goss.html">Hot Goss</a>
           <a href="start-here.html">How LAiDIES Works</a>
           <a href="clubhouse-pass.html" style="color: #6f263f; text-decoration: underline; margin-left: 8px;">Join The Club</a>
@@ -2443,7 +2443,7 @@
         <div class="ritual-title">
           <span class="ritual-eyebrow">This Week</span>
           <h1>The Wednesday Ritual</h1>
-          <p class="ritual-lede">The Wednesday Bag is this week&rsquo;s AI fluency kit: read the issue, check the concept, save the useful piece, try it on real work, then bring one thing back to the Room.</p>
+          <p class="ritual-lede">The Wednesday Bag is this week&rsquo;s AI fluency kit: read the episode, check the concept, save the useful piece, try it on real work, then bring one thing back to the Room.</p>
           <div class="week-picker" aria-label="Choose a Wednesday bag">
             <span class="week-picker-label">Choose your bag</span>
             <div class="week-picker-buttons" id="weekPickerButtons"></div>
@@ -3517,7 +3517,7 @@
 
         document.querySelectorAll(".open-scene .ritual-scene-image").forEach(function(image) {
           // Phase 3A uses Issue 02-specific proof-of-concept bag artwork; future issues need issue-specific art or a more reusable generic bag image.
-          image.alt = "The Wednesday bag opened with the selected issue, quiz, printable sleeve, and weekly extras arranged in the LAiDIES room.";
+          image.alt = "The Wednesday bag opened with the selected episode, quiz, printable sleeve, and weekly extras arranged in the LAiDIES room.";
         });
 
         // Future issue scenes can replace this map with the specific hidden object packed for that week's artwork.
@@ -4033,7 +4033,7 @@
         var disabledAction = event.target.closest('[aria-disabled="true"]');
         if (!disabledAction) return;
         event.preventDefault();
-        statusMessage.textContent = "That piece is not packed for this issue yet.";
+        statusMessage.textContent = "That piece is not packed for this episode yet.";
       });
 
       if (copyBagLinkButton) {

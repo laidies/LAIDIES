@@ -399,15 +399,28 @@
 
 @media (max-width: 640px) {
   .issue-site-nav {
-    align-items: flex-start;
-    flex-direction: column;
-    min-height: 150px;
-    padding-top: 18px;
-    padding-bottom: 18px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    min-height: 92px;
+    padding: 12px 14px;
+  }
+
+  .issue-site-nav .issue-back-link {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  .issue-site-nav .issue-brand-link {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
   }
 
   .issue-site-nav .issue-nav-links {
-    justify-content: flex-start;
+    display: none;
   }
 
   .issue-site-nav .issue-brand-link img {

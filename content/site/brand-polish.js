@@ -151,16 +151,24 @@
 
     function getReturnConfig() {
       if (isHome) return null;
-      var fromThisWeek = params.get("from") === "this-week";
+      var source = params.get("from") || "";
+      var fromBag = source === "this-week" || source === "bag";
       var group = /^(practice|fun|connect|realworld)$/.test(params.get("group") || "") ? params.get("group") : "";
+      var isIssuePage = /^issue-\d+\.html$/.test(filename);
       var groupLabels = {
         practice: "Back to Weekly Study Pack",
         fun: "Back to THE EXTRA CREDIT",
         connect: "Back to Meet & Celebrate",
         realworld: "Back to the Book of Receipts",
       };
-      if (fromThisWeek || group) {
+      if (fromBag || group) {
         var normalizedGroup = group || inferGroupFromPage();
+        if (isIssuePage) {
+          return {
+            href: local("this-week.html") + contextQuery("", getCurrentIssue()),
+            label: "← Back to the Bag",
+          };
+        }
         if (filename === "fun-pack.html") {
           return {
             href: local("this-week.html") + contextQuery("fun"),
@@ -172,10 +180,22 @@
           label: "← " + (groupLabels[normalizedGroup] || "Back to the Bag"),
         };
       }
-      if (/^issue-\d+\.html$/.test(filename)) {
+      if (isIssuePage) {
+        if (source === "start-here") {
+          return {
+            href: local("start-here.html"),
+            label: "← Back to Start Here",
+          };
+        }
+        if (source === "home") {
+          return {
+            href: local("index.html"),
+            label: "← Back to LAiDIES",
+          };
+        }
         return {
-          href: local("this-week.html") + contextQuery("", getCurrentIssue()),
-          label: "← Back to the Bag",
+          href: local("episodes.html"),
+          label: "← Back to the Season",
         };
       }
       if (/^(quiz|try-on|printable|trading-cards)\.html$/.test(filename)) {
@@ -262,7 +282,7 @@
         {
           title: "CURRENT",
           links: [
-            ["Read Latest Issue", local("issues/issue-" + currentIssueSlug + ".html") + "?issue=" + encodeURIComponent(currentIssue) + draftQueryPart()],
+            ["Read Latest Episode", local("issues/issue-" + currentIssueSlug + ".html") + "?from=season&issue=" + encodeURIComponent(currentIssue) + draftQueryPart()],
             ["Open This Week's Bag", local("this-week.html") + "?issue=" + encodeURIComponent(currentIssue) + "&bag=open"],
             ["Take Current Quiz", local("learn/quiz.html") + "?from=this-week&issue=" + encodeURIComponent(currentIssue) + "&bag=open&group=practice#quiz-start"],
             ["Try-On / Practice", local("try-on.html") + "?from=this-week&issue=" + encodeURIComponent(currentIssue) + "&bag=open&group=practice"],

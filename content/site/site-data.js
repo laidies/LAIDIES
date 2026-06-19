@@ -13,12 +13,12 @@ window.LAIDIES_SITE_DATA = {
       "emotionalBeat": "Private embarrassment becomes permission to start.",
       "siteLinks": [
         {
-          "label": "Take the Issue 1 quiz",
+          "label": "Take the Episode 1 quiz",
           "url": "learn/quiz.html",
           "type": "quiz"
         },
         {
-          "label": "Open the Issue 1 card pack",
+          "label": "Open the Episode 1 card pack",
           "url": "games/trading-cards.html",
           "type": "cardPack"
         },
@@ -72,12 +72,12 @@ window.LAIDIES_SITE_DATA = {
       "emotionalBeat": "First tiny win: that took eight minutes?",
       "siteLinks": [
         {
-          "label": "Take the Issue 2 quiz",
+          "label": "Take the Episode 2 quiz",
           "url": "learn/quiz.html",
           "type": "quiz"
         },
         {
-          "label": "Open the Issue 2 card pack",
+          "label": "Open the Episode 2 card pack",
           "url": "games/trading-cards.html",
           "type": "cardPack"
         },
@@ -113,19 +113,19 @@ window.LAIDIES_SITE_DATA = {
   ],
   "quizzes": {
     "issue01": {
-      "label": "Issue 01 Quiz",
-      "optionLabel": "Issue 01: On Wednesdays We Use AI",
+      "label": "Episode 01 Quiz",
+      "optionLabel": "Episode 01: On Wednesdays We Use AI",
       "title": "Opening the tab without making it a whole personality crisis.",
       "rereadUrl": "issues/issue-01.html",
-      "rereadLabel": "Reread Issue 01",
-      "intro": "Answer ten Issue 1 questions, then try the two bonus questions from next week's locker. A perfect 12/10 gets two stickers because we are not monsters.",
+      "rereadLabel": "Reread Episode 01",
+      "intro": "Answer ten Episode 1 questions, then try the two bonus questions from next week's locker. A perfect 12/10 gets two stickers because we are not monsters.",
       "maxScore": 10,
       "bonusScore": 2,
       "questions": [
         {
           "id": "first-step",
           "points": 1,
-          "prompt": "What is the actual first move in Issue 1?",
+          "prompt": "What is the actual first move in Episode 1?",
           "options": [
             "Take a 40-hour course first",
             "Open the tab and try one small thing",
@@ -133,8 +133,8 @@ window.LAIDIES_SITE_DATA = {
             "Pretend Cher's closet computer never happened"
           ],
           "answer": "Open the tab and try one small thing",
-          "explain": "Issue 1 is about starting small. Ten minutes beats waiting for a mythical free weekend.",
-          "review": "Find it in the opening and the Issue 1 Extra Credit Try-On.",
+          "explain": "Episode 1 is about starting small. Ten minutes beats waiting for a mythical free weekend.",
+          "review": "Find it in the opening and the Episode 1 Extra Credit Try-On.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -178,7 +178,7 @@ window.LAIDIES_SITE_DATA = {
             "It always knows the truth"
           ],
           "answer": "It can create a new first pass from your instructions",
-          "explain": "Issue 1 frames AI as something that can draft, summarize, compare, translate tone, and organize, not just search.",
+          "explain": "Episode 1 frames AI as something that can draft, summarize, compare, translate tone, and organize, not just search.",
           "review": "Find it in the Core Lesson.",
           "reviewUrl": "issues/issue-01.html"
         },
@@ -209,13 +209,13 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "Try one manageable move instead of waiting to feel ready",
           "explain": "The series is meant to make AI practice small enough that people actually do it.",
-          "review": "Find it in the Issue 1 Extra Credit Try-On and issue promise.",
+          "review": "Find it in the Episode 1 Extra Credit Try-On and Episode promise.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
           "id": "same-prompt",
           "points": 1,
-          "prompt": "Why does Issue 1 ask you to try the same prompt in ChatGPT, Claude, and Gemini?",
+          "prompt": "Why does Episode 1 ask you to try the same prompt in ChatGPT, Claude, and Gemini?",
           "options": [
             "To see which tool feels most useful for the same low-risk task",
             "To prove one tool is always best",
@@ -224,7 +224,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "To see which tool feels most useful for the same low-risk task",
           "explain": "Same ask, different tools, better comparison. It is a try-on, not a final exam.",
-          "review": "Find it in the Issue 1 Extra Credit Try-On.",
+          "review": "Find it in the Episode 1 Extra Credit Try-On.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -245,7 +245,7 @@ window.LAIDIES_SITE_DATA = {
         {
           "id": "low-risk",
           "points": 1,
-          "prompt": "What kind of first task belongs in the Issue 1 try-on?",
+          "prompt": "What kind of first task belongs in the Episode 1 try-on?",
           "options": [
             "A low-risk work explanation or draft you can judge",
             "A confidential legal conclusion",
@@ -254,7 +254,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "A low-risk work explanation or draft you can judge",
           "explain": "The first try should be useful, small, and safe enough that you can learn without handing it the car keys.",
-          "review": "Find it in the Issue 1 Extra Credit Try-On.",
+          "review": "Find it in the Episode 1 Extra Credit Try-On.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -284,15 +284,15 @@ window.LAIDIES_SITE_DATA = {
             "A search bar wearing lip gloss"
           ],
           "answer": "Delegating with context",
-          "explain": "Issue 2 is about prompting as delegation: task, audience, context, standards, and constraints.",
-          "review": "Preview Issue 2 when you are ready.",
+          "explain": "Episode 2 is about prompting as delegation: task, audience, context, standards, and constraints.",
+          "review": "Preview Episode 2 when you are ready.",
           "reviewUrl": "issues/issue-02.html"
         },
         {
           "id": "bonus-specificity",
           "points": 1,
           "bonus": true,
-          "prompt": "Bonus: who becomes the patron saint of specificity in Issue 2?",
+          "prompt": "Bonus: who becomes the patron saint of specificity in Episode 2?",
           "options": [
             "David Rose",
             "Ross Geller",
@@ -301,18 +301,18 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "David Rose",
           "explain": "David Rose is the reminder that specific is not fussy. Specific is useful.",
-          "review": "Preview Issue 2's David Rose section.",
+          "review": "Preview Episode 2's David Rose section.",
           "reviewUrl": "issues/issue-02.html"
         }
       ]
     },
     "issue02": {
-      "label": "Issue 02 Quiz",
-      "optionLabel": "Issue 02: Tell Me What You Want",
+      "label": "Episode 02 Quiz",
+      "optionLabel": "Episode 02: Tell Me What You Want",
       "title": "Tell me what you want, but make it painfully specific.",
       "rereadUrl": "issues/issue-02.html",
-      "rereadLabel": "Reread Issue 02",
-      "intro": "Answer ten Issue 2 questions, then try the two Burn Book bonus questions. The score is out of 10, but the extra credit girls can still get 12/10.",
+      "rereadLabel": "Reread Episode 02",
+      "intro": "Answer ten Episode 2 questions, then try the two Burn Book bonus questions. The score is out of 10, but the extra credit girls can still get 12/10.",
       "maxScore": 10,
       "bonusScore": 2,
       "questions": [
@@ -327,7 +327,7 @@ window.LAIDIES_SITE_DATA = {
             "It automatically knows your office politics"
           ],
           "answer": "It gives you vague output",
-          "explain": "Issue 2 is the Spice Girls lesson: tell it what you want, not what you hope it guesses.",
+          "explain": "Episode 2 is the Spice Girls lesson: tell it what you want, not what you hope it guesses.",
           "review": "Find it in the opening and 'Tell Me What You Want' section.",
           "reviewUrl": "issues/issue-02.html"
         },
@@ -454,7 +454,7 @@ window.LAIDIES_SITE_DATA = {
         {
           "id": "prompt-tryon",
           "points": 1,
-          "prompt": "What was the Issue 2 try-on?",
+          "prompt": "What was the Episode 2 try-on?",
           "options": [
             "Memorize every AI product name",
             "Build an app before lunch",
@@ -463,14 +463,14 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "Give AI the same real task twice: once vague, once specific",
           "explain": "The point is to see the difference. Same task, better brief, much better odds.",
-          "review": "Find it in the Issue 2 Extra Credit Try-On.",
+          "review": "Find it in the Episode 2 Extra Credit Try-On.",
           "reviewUrl": "issues/issue-02.html"
         },
         {
           "id": "bonus-hallucination",
           "points": 1,
           "bonus": true,
-          "prompt": "Bonus: next week's Burn Book issue is about what AI problem?",
+          "prompt": "Bonus: next week's Burn Book episode is about what AI problem?",
           "options": [
             "AI hallucinations",
             "Keyboard shortcuts",
@@ -478,8 +478,8 @@ window.LAIDIES_SITE_DATA = {
             "Spreadsheet tabs"
           ],
           "answer": "AI hallucinations",
-          "explain": "Issue 3 is about confident output that may be wrong, unsupported, outdated, or made up.",
-          "review": "Preview the next issue once it drops."
+          "explain": "Episode 3 is about confident output that may be wrong, unsupported, outdated, or made up.",
+          "review": "Preview the next Episode once it drops."
         },
         {
           "id": "bonus-receipts",
@@ -494,7 +494,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "Receipts",
           "explain": "If the claim matters, the source matters. Confidence is not a citation.",
-          "review": "Preview the next issue once it drops."
+          "review": "Preview the next Episode once it drops."
         }
       ]
     }
@@ -504,7 +504,7 @@ window.LAIDIES_SITE_DATA = {
       {
         "id": "issue01-open-the-tab",
         "issue": "issue01",
-        "issueLabel": "Issue 01",
+        "issueLabel": "Episode 01",
         "title": "Open the Tab Card",
         "image": "assets/ugh-as-if.png",
         "alt": "A pink 90s desk scene about opening the AI tab anyway",
@@ -516,7 +516,7 @@ window.LAIDIES_SITE_DATA = {
       {
         "id": "issue01-small-sips",
         "issue": "issue01",
-        "issueLabel": "Issue 01",
+        "issueLabel": "Episode 01",
         "title": "Small Sips Card",
         "image": "assets/9-to-5-chaos.png",
         "alt": "A pink 9 to 5 workday scene with notes, coffee, and AI practice energy",
@@ -528,7 +528,7 @@ window.LAIDIES_SITE_DATA = {
       {
         "id": "issue01-cher-closet",
         "issue": "issue01",
-        "issueLabel": "Issue 01",
+        "issueLabel": "Episode 01",
         "title": "Cher Closet Card",
         "image": "assets/lets-chat.png",
         "alt": "A stylish 90s inspired phone and desk scene with pop culture references",
@@ -540,7 +540,7 @@ window.LAIDIES_SITE_DATA = {
       {
         "id": "issue01-judgment",
         "issue": "issue01",
-        "issueLabel": "Issue 01",
+        "issueLabel": "Episode 01",
         "title": "Judgment Card",
         "image": "assets/send-it.png",
         "alt": "A pink corporate desk scene about deciding what is ready to send",
@@ -552,7 +552,7 @@ window.LAIDIES_SITE_DATA = {
       {
         "id": "issue01-room",
         "issue": "issue01",
-        "issueLabel": "Issue 01",
+        "issueLabel": "Episode 01",
         "title": "Room Key Card",
         "image": "assets/laidies-logo.png",
         "alt": "The lAIdies neon logo",
@@ -564,7 +564,7 @@ window.LAIDIES_SITE_DATA = {
       {
         "id": "specificity",
         "issue": "issue02",
-        "issueLabel": "Issue 02",
+        "issueLabel": "Episode 02",
         "title": "Specificity Card",
         "image": "assets/trading-card-specificity.webp",
         "alt": "A neon pink trading card scene with a note that says Be Specific",
@@ -576,7 +576,7 @@ window.LAIDIES_SITE_DATA = {
       {
         "id": "girl-power",
         "issue": "issue02",
-        "issueLabel": "Issue 02",
+        "issueLabel": "Episode 02",
         "title": "Girl Power Prompt",
         "image": "assets/trading-card-girl-power.webp",
         "alt": "A bright Y2K trading card scene with two women improving a prompt together",
@@ -588,7 +588,7 @@ window.LAIDIES_SITE_DATA = {
       {
         "id": "try-on",
         "issue": "issue02",
-        "issueLabel": "Issue 02",
+        "issueLabel": "Episode 02",
         "title": "Try-On Card",
         "image": "assets/trading-card-try-on.webp",
         "alt": "A pastel board game trading card scene with a spinner, rings, and a Try It On note",
@@ -600,7 +600,7 @@ window.LAIDIES_SITE_DATA = {
       {
         "id": "rewrite-remix",
         "issue": "issue02",
-        "issueLabel": "Issue 02",
+        "issueLabel": "Episode 02",
         "title": "Rewrite Remix",
         "image": "assets/trading-card-rewrite-remix.webp",
         "alt": "A glam Y2K trading card scene with a laptop, flip phone, and three rewrite cards",
@@ -612,7 +612,7 @@ window.LAIDIES_SITE_DATA = {
       {
         "id": "receipts",
         "issue": "issue02",
-        "issueLabel": "Issue 02",
+        "issueLabel": "Episode 02",
         "title": "Receipts Card",
         "image": "assets/trading-card-receipts.webp",
         "alt": "A pink evidence desk trading card scene with a magnifying glass and receipts note",

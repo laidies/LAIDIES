@@ -1,4 +1,4 @@
-# Issue 03: The Burn Book Problem
+# Episode 03: The Burn Book Problem
 
 Source metadata: `content/episodes/issue-03.json`
 Public page: `issues/issue-03.html`
@@ -7,9 +7,9 @@ Status: published, live
 
 ## Episode Banner Direction
 
-Use the Burn Book concept as the visual world for Episode 3 and the seed for the ongoing LAIDIES episode format, but do not make the notebook image carry the whole page header by itself. The top of the article should feel like a magazine-style feature heading: issue number, article title, dek, and a controlled image treatment all visible and editable. The Burn Book notebook can become a section/feature image, while the hero/header uses live text plus a cropped supporting visual.
+Use the Burn Book concept as the visual world for Episode 3 and the seed for the ongoing LAIDIES episode format, but do not make the notebook image carry the whole page header by itself. The top of the article should feel like a magazine-style feature heading: Episode number, article title, dek, and a controlled image treatment all visible and editable. The Burn Book notebook can become a section/feature image, while the hero/header uses live text plus a cropped supporting visual.
 
-The banner/header should feel like a grown-up 90s/Y2K magazine feature, not a teen scrapbook. Think live LAIDIES masthead/issue treatment, large readable article title, deck/dek copy, and a polished cropped visual using translucent plastic tabs, cream receipts, icy blue and silver accents, glossy notebook textures, sticky notes, highlighters, magnifying glass, and one tiny butterfly clip. The Burn Book reference should be unmistakable somewhere in the visual system, but the header itself must remain readable, professional, and editable.
+The banner/header should feel like a grown-up 90s/Y2K magazine feature, not a teen scrapbook. Think live LAIDIES masthead/Episode treatment, large readable article title, deck/dek copy, and a polished cropped visual using translucent plastic tabs, cream receipts, icy blue and silver accents, glossy notebook textures, sticky notes, highlighters, magnifying glass, and one tiny butterfly clip. The Burn Book reference should be unmistakable somewhere in the visual system, but the header itself must remain readable, professional, and editable.
 
 No readable fake text. No robots. No circuit-board wallpaper. No Halloween. No childish diary clutter. Avoid heavy black/pink dominance; use pink as an accent, not the whole room.
 
@@ -19,9 +19,9 @@ She learned that prompting is delegation. AI was not being mysterious; it was Da
 
 Once she got specific about the audience, context, tone, length, constraints, and what "good" looked like, the output changed. Same tool. Better brief. Less beige.
 
-Issue 2 was: explain the cheese.
+Episode 2 was: explain the cheese.
 
-Issue 3 is: check the alibi before it gets on the stand.
+Episode 3 is: check the alibi before it gets on the stand.
 
 ## On This Episode...
 
@@ -258,7 +258,7 @@ For now: do not let the same witness validate herself. Get the answer on the sta
 
 This is the handoff, not the homework page.
 
-The article gives you the rule: keep the useful draft, cross-examine the claims. The Bag is where you actually do it.
+The Episode gives you the rule: keep the useful draft, cross-examine the claims. The Bag is where you actually do it.
 
 After you read, the weekly ritual goes like this:
 
@@ -356,15 +356,15 @@ I can use the draft. I still check the alibi.
 - Card pack: `issue03` cards exist in `content/site/card-packs.json` and have been aligned to the revised references.
 - Burn Book: `community/burn-book.html`
 - Glossary hooks: Hallucination, Source, Citation, Verification, Assumption
-- Hot Goss: homepage-only until Issue 03 launch
+- Hot Goss: homepage-only until Episode 03 launch
 
 ## Editorial Receipts Needed Before Publish
 
-- Ali review needed on the exact Bethany Byrd wording and whether the tampon-size line is the right edge for the public issue.
+- Ali review needed on the exact Bethany Byrd wording and whether the tampon-size line is the right edge for the public Episode.
 - Legally Blonde / Chutney perm-timeline details are paraphrased; final line review should confirm comfort and accuracy.
 - Source links are included in Receipts Drawer; run final browser QA before launch.
-- Issue 03 quiz and card-pack language should get a final skim after Ali approves the final article.
-- Public issue page remains draft-gated until launch approval.
+- Episode 03 quiz and card-pack language should get a final skim after Ali approves the final article.
+- Public Episode page remains draft-gated until launch approval.
 
 ## Sign-Off
 

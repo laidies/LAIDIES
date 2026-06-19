@@ -46,26 +46,56 @@
     };
   }
 
-  function getWednesdayReturnUrl() {
+  function getArticleReturnConfig() {
     const params = new URLSearchParams(window.location.search || "");
-    if (params.get("from") !== "this-week") return "";
     const requestedIssue = String(params.get("issue") || issueNumber || "").match(/\d+/)?.[0] || "";
-    return "../this-week.html" + (requestedIssue ? "?issue=" + encodeURIComponent(Number(requestedIssue)) + "&bag=open" : "?bag=open");
+    const source = params.get("from") || "";
+    if (source === "this-week" || source === "bag") {
+      const draftFlag = params.get("draft") === "1" ? "&draft=1" : "";
+      const group = /^(practice|connect|realworld|fun)$/.test(params.get("group") || "") ? params.get("group") : "";
+      const groupFlag = group ? "&group=" + encodeURIComponent(group) : "";
+      return {
+        href: "../this-week.html" + (requestedIssue ? "?issue=" + encodeURIComponent(Number(requestedIssue)) + "&bag=open" : "?bag=open") + groupFlag + draftFlag,
+        label: "\u2190 Back to the Bag",
+      };
+    }
+    if (source === "start-here") {
+      return {
+        href: "../start-here.html",
+        label: "\u2190 Back to Start Here",
+      };
+    }
+    if (source === "home") {
+      return {
+        href: "../index.html",
+        label: "\u2190 Back to LAiDIES",
+      };
+    }
+    return {
+      href: "../episodes.html",
+      label: "\u2190 Back to the Season",
+    };
   }
 
-  function insertWednesdayReturnLink() {
-    const href = getWednesdayReturnUrl();
-    if (!href || document.querySelector("[data-wednesday-return]")) return;
+  function applyArticleReturnLink() {
+    const config = getArticleReturnConfig();
+    const existing = document.querySelector(".issue-back-link");
+    if (existing) {
+      existing.href = config.href;
+      existing.textContent = config.label;
+      return;
+    }
+    if (document.querySelector("[data-wednesday-return]")) return;
     const link = document.createElement("a");
     link.dataset.wednesdayReturn = "true";
-    link.href = href;
-    link.textContent = "\u2190 Back to the Bag";
+    link.href = config.href;
+    link.textContent = config.label;
     link.style.cssText = "position:fixed;top:76px;left:clamp(14px,3vw,26px);right:auto;bottom:auto;z-index:120;display:inline-flex;width:fit-content;max-width:calc(100% - 28px);margin:0;padding:10px 14px;border:1px solid rgba(185,93,120,.42);border-radius:999px;background:rgba(20,8,24,.86);color:#ff8ccc;font-weight:850;text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.28),0 0 0 4px rgba(185,93,120,.1);backdrop-filter:blur(10px);";
     const nav = document.querySelector(".issue-site-nav");
     if (nav?.parentNode) nav.insertAdjacentElement("afterend", link);
   }
 
-  insertWednesdayReturnLink();
+  applyArticleReturnLink();
   renderMasthead(getMastheadFallback());
 
   /* Episode music tracks */
@@ -112,7 +142,7 @@
       <div class="issue-toolkit-inner">
         <p class="issue-toolkit-label">${issueLabel}</p>
         <h2>${title}</h2>
-        <p>Now that the read is done, use the weekly dashboard, quiz, Fun Pack, printable, glossary, and prompt to make the issue stick.</p>
+        <p>Now that the read is done, use the weekly dashboard, quiz, Fun Pack, printable, glossary, and prompt to make the Episode stick.</p>
         <div class="issue-toolkit-grid">
           <a href="../this-week.html" data-link-type="weekly">Open this week's dashboard</a>
           <a href="../games/fun-pack.html" data-link-type="cardPack">Open the full Fun Pack</a>
