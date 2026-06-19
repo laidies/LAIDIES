@@ -479,83 +479,174 @@
 
         /* --- SIGN-OFF --- */
         .signoff {
-            text-align: center;
+            clear: both;
+            position: relative;
+            overflow: hidden;
+            margin: clamp(3rem, 7vw, 5rem) auto clamp(2rem, 5vw, 3.5rem);
             padding: 0;
-            margin-top: 3em;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .signoff::before {
+            content: "";
+            display: block;
+            width: min(360px, 72%);
+            height: 10px;
+            margin: 0 auto 22px;
+            background: linear-gradient(90deg, transparent, var(--neon-pink), var(--accent-blue), rgba(252, 228, 242, 0.96), transparent);
+            border-radius: 999px;
         }
 
         .signoff-banner {
-            background: var(--accent-light);
-            padding: 50px 30px;
-            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            max-width: 760px;
             margin: 0 auto;
-            max-width: 720px;
+            padding: clamp(34px, 6vw, 58px) clamp(24px, 5vw, 46px);
+            background:
+                radial-gradient(circle at 10% 18%, rgba(185, 215, 220, 0.34), transparent 10rem),
+                radial-gradient(circle at 92% 82%, rgba(185, 93, 120, 0.22), transparent 12rem),
+                linear-gradient(135deg, rgba(252, 228, 242, 0.98), rgba(255, 253, 251, 0.96) 48%, rgba(248, 241, 238, 0.96));
+            border: 1px solid rgba(111, 38, 63, 0.18);
+            border-radius: 8px;
+            box-shadow: 0 24px 52px rgba(75, 33, 72, 0.16);
         }
 
-        .signoff-banner .tagline {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: clamp(1.3rem, 3vw, 1.7rem);
-            color: var(--text);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.7;
+        .signoff-banner::before,
+        .signoff-banner::after {
+            content: "";
+            position: absolute;
+            pointer-events: none;
         }
 
-        .signoff-banner .tagline .remember {
-            display: block;
-            font-family: 'Dancing Script', cursive;
-            font-style: normal;
-            font-size: 1.4em;
-            color: var(--neon-pink);
-            margin-bottom: 12px;
+        .signoff-banner::before {
+            inset: 18px;
+            border: 1px solid rgba(255, 253, 251, 0.76);
+            border-radius: 6px;
         }
 
-        .signoff-banner .tagline .sips {
-            display: block;
-            margin-top: 12px;
-            font-style: normal;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 0.65em;
-            letter-spacing: 2px;
+        .signoff-banner::after {
+            right: clamp(14px, 4vw, 36px);
+            bottom: clamp(10px, 3vw, 24px);
+            width: clamp(72px, 14vw, 118px);
+            height: clamp(72px, 14vw, 118px);
+            opacity: 0.18;
+            background:
+                linear-gradient(90deg, var(--neon-pink) 50%, transparent 50%) 0 0 / 20px 20px,
+                linear-gradient(var(--neon-pink) 50%, transparent 50%) 0 0 / 20px 20px;
+            transform: rotate(-8deg);
+        }
+
+        .signoff-kicker,
+        .signoff-remember,
+        .signoff-line,
+        .signoff-sips {
+            position: relative;
+            z-index: 1;
+        }
+
+        .signoff-kicker {
+            display: inline-flex;
+            margin-bottom: 14px;
+            padding: 7px 10px 6px;
+            color: #fffdfb;
+            background: var(--primary);
+            border-radius: 999px;
+            font-size: 0.74rem;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            line-height: 1;
             text-transform: uppercase;
-            color: var(--neon-pink);
+        }
+
+        .signoff-remember {
+            display: block;
+            margin-bottom: 14px;
+            color: var(--accent-dark);
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(1.4rem, 3vw, 2.05rem);
+            font-style: italic;
+            font-weight: 700;
+            line-height: 1.08;
+        }
+
+        .signoff-line {
+            display: block;
+            max-width: 650px;
+            margin: 0 auto;
+            color: #1d121b;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(1.55rem, 3.3vw, 2.35rem);
+            font-weight: 700;
+            letter-spacing: 0;
+            line-height: 1.18;
+        }
+
+        .signoff-sips {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 22px;
+            padding: 9px 15px;
+            color: var(--accent-dark);
+            background: rgba(255, 253, 251, 0.72);
+            border: 1px solid rgba(111, 38, 63, 0.16);
+            border-radius: 999px;
+            font-size: 0.76rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .signoff-sips::before,
+        .signoff-sips::after {
+            content: "";
+            width: 9px;
+            height: 9px;
+            background: var(--neon-pink);
+            border-radius: 50%;
         }
 
         .signoff-bottom {
-            padding: 36px 20px;
+            display: grid;
+            gap: 14px;
+            max-width: 650px;
+            margin: 22px auto 0;
+            padding: 0;
         }
 
         .challenge-box {
-            background: var(--bg-warm);
-            border: 2px solid var(--neon-pink);
-            border-radius: 12px;
-            padding: 32px 32px;
-            margin: 30px auto;
-            max-width: 580px;
+            background: rgba(255, 253, 251, 0.86);
+            border: 2px solid rgba(185, 93, 120, 0.48);
+            border-radius: 8px;
+            box-shadow: 0 14px 32px rgba(75, 33, 72, 0.08);
+            padding: 22px clamp(18px, 4vw, 30px);
+            margin: 0;
             text-align: center;
         }
 
         .challenge-box .challenge-title {
-            font-family: 'Dancing Script', cursive;
-            font-weight: 700;
-            color: var(--neon-pink);
-            font-size: 1.4rem;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
+            color: var(--accent-dark);
+            font-family: "Inter", sans-serif;
+            font-size: 0.76rem;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
         }
 
-        .challenge-box p {
+        .challenge-box p,
+        .share-cta {
+            margin: 0;
+            color: #4c3b46;
             font-size: 0.95rem !important;
-            color: var(--text-light) !important;
-            margin-bottom: 0 !important;
+            line-height: 1.5;
         }
 
         .share-cta {
-            font-weight: 500;
             color: var(--accent-dark);
-            font-size: 1rem;
-            margin-top: 28px;
+            font-weight: 800;
         }
 
         /* --- RESOURCES --- */
@@ -883,12 +974,12 @@
         .header-content .episode-01-masthead-banner {
             position: relative;
             display: flex !important;
-            align-items: center;
-            min-height: clamp(420px, 46vw, 720px);
-            padding: clamp(34px, 5.6vw, 82px) clamp(22px, 6.8vw, 104px);
-            color: #4b2148;
+            align-items: end;
+            min-height: min(86vh, 820px);
+            padding: clamp(72px, 8vw, 112px) clamp(22px, 6.8vw, 104px) clamp(44px, 6vw, 68px);
+            color: #fffdfb;
             overflow: hidden;
-            background: #f8e6ee;
+            background: #4b2148;
             border-radius: 8px;
         }
 
@@ -897,8 +988,8 @@
             position: absolute;
             inset: 0;
             background:
-                linear-gradient(90deg, rgba(255, 250, 247, 0.92) 0%, rgba(255, 250, 247, 0.76) 34%, rgba(255, 250, 247, 0.24) 58%, rgba(255, 250, 247, 0) 76%),
-                linear-gradient(180deg, rgba(255, 250, 247, 0.18), rgba(75, 33, 72, 0.12));
+                linear-gradient(90deg, rgba(28, 9, 26, 0.76) 0%, rgba(28, 9, 26, 0.48) 38%, rgba(28, 9, 26, 0.08) 76%),
+                linear-gradient(180deg, rgba(28, 9, 26, 0.06), rgba(28, 9, 26, 0.68));
             pointer-events: none;
         }
 
@@ -912,7 +1003,7 @@
             object-fit: cover;
             object-position: 56% center;
             border: 0;
-            filter: saturate(0.98) contrast(0.98);
+            filter: saturate(0.96) contrast(0.98) brightness(0.86);
         }
 
         .episode-01-masthead-copy {
@@ -920,20 +1011,23 @@
             z-index: 2;
             display: grid;
             justify-items: start;
-            width: min(46vw, 640px);
-            max-width: 650px;
+            width: min(760px, 100%);
+            max-width: 760px;
             pointer-events: none;
         }
 
         .episode-01-masthead-copy .episode-masthead-brand-bar {
             position: static;
-            display: grid;
-            gap: 8px;
-            justify-items: start;
+            display: inline-flex;
+            align-items: center;
             margin: 0 0 clamp(28px, 4.1vw, 58px);
-            padding: 0;
-            background: transparent;
-            box-shadow: none;
+            padding: clamp(18px, 2.4vw, 24px) clamp(20px, 2.8vw, 28px) clamp(20px, 2.8vw, 30px);
+            background: rgba(252, 228, 242, 0.82);
+            border: 1px solid rgba(255, 248, 252, 0.64);
+            border-radius: 8px;
+            box-shadow: 0 18px 38px rgba(0, 0, 0, 0.22);
+            filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.12));
+            line-height: 0;
         }
 
         .episode-01-masthead-copy .episode-masthead-brand-bar img {
@@ -941,17 +1035,11 @@
             width: min(31vw, 480px);
             max-width: 100%;
             height: auto;
-            filter: drop-shadow(0 12px 24px rgba(255, 253, 251, 0.3));
+            filter: none;
         }
 
         .episode-01-masthead-copy .episode-masthead-brand-motto {
-            color: #3f1737;
-            font-family: "Playfair Display", Georgia, serif;
-            font-size: clamp(0.62rem, 0.95vw, 0.82rem);
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            line-height: 1.1;
-            text-transform: lowercase;
+            display: none;
         }
 
         .episode-01-masthead-copy .episode-masthead-copy {
@@ -960,7 +1048,7 @@
             gap: 12px;
             width: 100% !important;
             padding: 0;
-            color: #4b2148;
+            color: #fffdfb;
             background: transparent;
             border: 0;
             box-shadow: none;
@@ -969,35 +1057,61 @@
 
         .episode-01-masthead-copy .episode-masthead-phone {
             gap: 0.42em;
-            color: #fffdfb;
-            background: #6f263f;
-            padding: 7px 10px 6px;
-            font-size: clamp(0.62rem, 0.92vw, 0.8rem);
-        }
-
-        .episode-01-masthead-copy .episode-masthead-note {
-            color: #4b2148;
-            font-family: "Playfair Display", Georgia, serif;
-            font-size: clamp(2.45rem, 5.2vw, 5.55rem);
-            font-weight: 700;
-            line-height: 0.9;
+            width: fit-content;
+            color: #fce4f2;
+            background: rgba(75, 33, 72, 0.78);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            border-radius: 999px;
+            padding: 8px 11px;
+            font-size: clamp(0.68rem, 0.92vw, 0.82rem);
+            font-weight: 900;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
         }
 
+        .episode-01-masthead-copy .episode-masthead-note {
+            display: block;
+            width: 100%;
+            max-width: 900px;
+            color: #fce4f2;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(3.15rem, 8.2vw, 7.4rem);
+            font-weight: 700;
+            letter-spacing: 0;
+            line-height: 0.86;
+            overflow-wrap: break-word;
+            text-shadow: 0 16px 46px rgba(0, 0, 0, 0.42);
+            text-wrap: balance;
+            text-transform: none;
+        }
+
         .episode-01-masthead-copy .episode-masthead-date {
-            color: #6f263f;
+            width: fit-content;
+            color: #fce4f2;
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            text-shadow: 0 8px 22px rgba(0, 0, 0, 0.32);
+            text-transform: uppercase;
         }
 
         .episode-masthead-premise {
-            flex-basis: 100%;
-            max-width: 610px;
+            display: block;
+            width: fit-content;
+            max-width: 680px;
+            margin-top: 2px;
+            padding: clamp(12px, 2vw, 16px) clamp(14px, 2.4vw, 20px);
             color: #4b2148;
+            background: rgba(255, 253, 251, 0.82);
+            border: 1px solid rgba(255, 248, 252, 0.64);
+            border-radius: 8px;
+            box-shadow: 0 18px 38px rgba(0, 0, 0, 0.16);
             font-family: "Playfair Display", Georgia, serif;
-            font-size: clamp(1rem, 1.45vw, 1.3rem);
-            font-style: italic;
+            font-size: clamp(1.08rem, 1.75vw, 1.48rem);
+            font-style: normal;
             font-weight: 700;
             letter-spacing: 0;
-            line-height: 1.18;
+            line-height: 1.16;
             text-transform: none;
         }
 
@@ -1339,19 +1453,19 @@
 
         @media (max-width: 640px) {
             .header-content .episode-01-masthead-banner {
-                min-height: 520px;
-                padding: 24px 18px 30px;
+                min-height: 78vh;
+                padding: 28px 18px 36px;
                 align-items: end;
             }
 
             .episode-01-masthead-banner::after {
                 background:
-                    linear-gradient(180deg, rgba(255, 250, 247, 0.04) 0%, rgba(255, 250, 247, 0.46) 44%, rgba(255, 250, 247, 0.94) 100%),
-                    linear-gradient(90deg, rgba(75, 33, 72, 0.08), rgba(75, 33, 72, 0));
+                    linear-gradient(180deg, rgba(28, 9, 26, 0.28), rgba(28, 9, 26, 0.82)),
+                    linear-gradient(90deg, rgba(28, 9, 26, 0.2), rgba(28, 9, 26, 0));
             }
 
             .episode-01-masthead-image {
-                object-position: 50% center;
+                object-position: 52% center;
             }
 
             .episode-01-masthead-copy {
@@ -1360,15 +1474,22 @@
 
             .episode-01-masthead-copy .episode-masthead-brand-bar {
                 margin-bottom: 20px;
+                padding: 16px 18px 18px;
             }
 
             .episode-01-masthead-copy .episode-masthead-brand-bar img {
-                width: min(78vw, 320px);
+                width: min(72vw, 300px);
             }
 
             .episode-01-masthead-copy .episode-masthead-note {
-                font-size: clamp(2.08rem, 10.4vw, 3rem);
-                line-height: 0.96;
+                max-width: 19rem;
+                font-size: clamp(2.5rem, 12vw, 3.42rem);
+                line-height: 0.94;
+            }
+
+            .episode-masthead-premise {
+                font-size: 1.02rem;
+                line-height: 1.2;
             }
 
             .preview-shell {
@@ -1723,17 +1844,16 @@
 <!-- Sign-off -->
 <section class="signoff">
     <div class="signoff-banner">
-        <p class="tagline">
-            <span class="remember">Remember, <span class="brand-name">LAiDIES</span>:</span>
-            You'll need to pour yourself more than a cup of ambition to keep up in the male-dominated world of AI &mdash; but lucky for you, this series comes in small sips.
-            <span class="sips">&#9749; Small sips. Big moves.</span>
-        </p>
+        <span class="signoff-kicker">Final Sip</span>
+        <span class="signoff-remember">Remember, LAiDIES:</span>
+        <span class="signoff-line">You'll need more than a cup of ambition to keep up in the male-dominated world of AI. Lucky for you, this series comes in small sips.</span>
+        <span class="signoff-sips">Small sips. Big moves.</span>
     </div>
 
     <div class="signoff-bottom">
         <div class="challenge-box">
-            <div class="challenge-title">The <span class="brand-name">LAiDIES</span> Challenge</div>
-            <p>Got a better &ldquo;Remember, <span class="brand-name">LAiDIES</span>:&rdquo; sign-off that would make Dolly proud? Drop yours in the comments. The one with the most likes gets featured (with credit) in next week's Episode. We're tr<span class="brand-name">AI</span>lblazers here, not idea thieves.</p>
+            <div class="challenge-title">The LAiDIES Challenge</div>
+            <p>Got a sharper &ldquo;Remember, LAiDIES:&rdquo; line that would make Dolly proud? Drop yours in the comments. The favorite gets featured, with credit, in next week's Episode. We're trailblazers here, not idea thieves.</p>
         </div>
 
         <p class="share-cta">If this resonated, send it to a woman who's been wondering where she'd find the time to start.<br><strong>This is where.</strong></p>
