@@ -109,6 +109,71 @@ window.LAIDIES_SITE_DATA = {
         "hotGossPlacement": "homepage-only"
       },
       "issuePageStatus": "manual-page-kept"
+    },
+    {
+      "number": 3,
+      "slug": "the-burn-book-problem",
+      "title": "The Burn Book Problem",
+      "status": "published",
+      "releaseDate": "2026-06-17",
+      "issueUrl": "issues/issue-03.html",
+      "heroImage": "assets/issue-03-hero.png",
+      "oneLineDescription": "The one in which she gets a Regina George-confident answer, catches the Chutney detail, and checks the timeline before it borrows her name.",
+      "act": "Act 1: The Awakening",
+      "lesson": "How to check, challenge, source, and contain AI output when it sounds confident but may be wrong, missing context, or not relevant to the real work.",
+      "emotionalBeat": "First betrayal: AI sounded certain, she caught it, and now she trusts herself more.",
+      "siteLinks": [
+        {
+          "label": "Take the Episode 03 receipts quiz",
+          "url": "learn/quiz.html",
+          "type": "quiz"
+        },
+        {
+          "label": "Open the Episode 03 card pack",
+          "url": "games/trading-cards.html",
+          "type": "cardPack"
+        },
+        {
+          "label": "Bring a suspicious answer to the Burn Book",
+          "url": "community/burn-book.html",
+          "type": "community"
+        },
+        {
+          "label": "Review the glossary",
+          "url": "learn/glossary.html",
+          "type": "glossary"
+        },
+        {
+          "label": "Read this week's Hot Goss",
+          "url": "hot-goss.html",
+          "type": "hotGoss"
+        },
+        {
+          "label": "Listen to Don't Be Chutney on the Stand",
+          "url": "games/dj-booth.html#djApp",
+          "type": "djBooth"
+        }
+      ],
+      "websiteModules": {
+        "quiz": "issue03",
+        "cardPack": "issue03",
+        "communityThread": "community/burn-book.html",
+        "glossaryTerms": [
+          "Hallucination",
+          "Source",
+          "Citation",
+          "Verification",
+          "Assumption"
+        ],
+        "weeklySong": {
+          "title": "Don't Be Chutney on the Stand",
+          "artist": "DJ JAIDY",
+          "file": "content/music/dj-jaidy-week-03-dont-be-chutney-on-the-stand.mp3",
+          "playerUrl": "games/dj-booth.html#djApp"
+        },
+        "hotGossPlacement": "homepage-only"
+      },
+      "issuePageStatus": "manual-page-kept"
     }
   ],
   "quizzes": {
