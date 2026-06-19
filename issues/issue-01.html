@@ -868,6 +868,526 @@
             text-shadow: none !important;
         }
 
+        /* Episode 01 reader system alignment */
+        body {
+            background:
+                radial-gradient(circle at 8% 8%, rgba(252, 228, 242, 0.44), transparent 24rem),
+                radial-gradient(circle at 88% 18%, rgba(185, 215, 220, 0.2), transparent 22rem),
+                linear-gradient(180deg, #fffaf7 0%, #f8eeee 46%, #fffdfb 100%);
+        }
+
+        .episode-01-reader-hero {
+            padding: clamp(22px, 4vw, 48px) clamp(12px, 2vw, 22px) clamp(36px, 6vw, 68px);
+        }
+
+        .header-content .episode-01-masthead-banner {
+            position: relative;
+            display: flex !important;
+            align-items: center;
+            min-height: clamp(420px, 46vw, 720px);
+            padding: clamp(34px, 5.6vw, 82px) clamp(22px, 6.8vw, 104px);
+            color: #4b2148;
+            overflow: hidden;
+            background: #f8e6ee;
+            border-radius: 8px;
+        }
+
+        .episode-01-masthead-banner::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(255, 250, 247, 0.92) 0%, rgba(255, 250, 247, 0.76) 34%, rgba(255, 250, 247, 0.24) 58%, rgba(255, 250, 247, 0) 76%),
+                linear-gradient(180deg, rgba(255, 250, 247, 0.18), rgba(75, 33, 72, 0.12));
+            pointer-events: none;
+        }
+
+        .episode-01-masthead-image {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 56% center;
+            border: 0;
+            filter: saturate(0.98) contrast(0.98);
+        }
+
+        .episode-01-masthead-copy {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            justify-items: start;
+            width: min(46vw, 640px);
+            max-width: 650px;
+            pointer-events: none;
+        }
+
+        .episode-01-masthead-copy .episode-masthead-brand-bar {
+            position: static;
+            display: grid;
+            gap: 8px;
+            justify-items: start;
+            margin: 0 0 clamp(28px, 4.1vw, 58px);
+            padding: 0;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .episode-01-masthead-copy .episode-masthead-brand-bar img {
+            display: block;
+            width: min(31vw, 480px);
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 12px 24px rgba(255, 253, 251, 0.3));
+        }
+
+        .episode-01-masthead-copy .episode-masthead-brand-motto {
+            color: #3f1737;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(0.62rem, 0.95vw, 0.82rem);
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            line-height: 1.1;
+            text-transform: lowercase;
+        }
+
+        .episode-01-masthead-copy .episode-masthead-copy {
+            position: static !important;
+            display: grid;
+            gap: 12px;
+            width: 100% !important;
+            padding: 0;
+            color: #4b2148;
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+            text-align: left;
+        }
+
+        .episode-01-masthead-copy .episode-masthead-phone {
+            gap: 0.42em;
+            color: #fffdfb;
+            background: #6f263f;
+            padding: 7px 10px 6px;
+            font-size: clamp(0.62rem, 0.92vw, 0.8rem);
+        }
+
+        .episode-01-masthead-copy .episode-masthead-note {
+            color: #4b2148;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(2.45rem, 5.2vw, 5.55rem);
+            font-weight: 700;
+            line-height: 0.9;
+            text-transform: uppercase;
+        }
+
+        .episode-01-masthead-copy .episode-masthead-date {
+            color: #6f263f;
+        }
+
+        .episode-masthead-premise {
+            flex-basis: 100%;
+            max-width: 610px;
+            color: #4b2148;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(1rem, 1.45vw, 1.3rem);
+            font-style: italic;
+            font-weight: 700;
+            letter-spacing: 0;
+            line-height: 1.18;
+            text-transform: none;
+        }
+
+        .preview-shell {
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 0 0 clamp(48px, 7vw, 88px);
+        }
+
+        .reader-kit {
+            position: relative;
+            z-index: 4;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin: clamp(-48px, -4vw, -18px) 0 clamp(24px, 4vw, 40px);
+        }
+
+        .kit-card,
+        .ritual-side-card,
+        .section-nav-details,
+        .activity-section,
+        .activity-card {
+            background: rgba(255, 253, 251, 0.92);
+            border: 1px solid rgba(75, 33, 72, 0.14);
+            border-radius: 8px;
+            box-shadow: 0 18px 42px rgba(75, 33, 72, 0.1);
+        }
+
+        .kit-card {
+            padding: 18px 18px 20px;
+        }
+
+        .label {
+            display: block;
+            margin-bottom: 8px;
+            color: #6f263f;
+            font-size: 0.7rem;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .kit-card p,
+        .ritual-side-card p,
+        .activity-card p {
+            margin: 0;
+            color: #4c3b46;
+            line-height: 1.52;
+        }
+
+        .article-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 720px) minmax(230px, 300px);
+            gap: clamp(24px, 4vw, 52px);
+            align-items: start;
+        }
+
+        .article-layout .article-container {
+            max-width: none;
+            margin: 0;
+            padding: clamp(30px, 4vw, 52px) 0 clamp(52px, 7vw, 80px);
+        }
+
+        .article-card h2 {
+            scroll-margin-top: 130px;
+            color: #4b2148;
+            font-size: clamp(1.95rem, 3.35vw, 2.8rem);
+            line-height: 1.08;
+            background:
+                linear-gradient(180deg, transparent 62%, rgba(252, 228, 242, 0.82) 62%, rgba(252, 228, 242, 0.82) 91%, transparent 91%);
+        }
+
+        .article-card h2::after {
+            display: none;
+        }
+
+        .article-card h2::before {
+            content: "";
+            display: block;
+            width: 86px;
+            height: 9px;
+            margin: 0 0 1.05rem;
+            background: linear-gradient(90deg, #b95d78, #b9d7dc);
+            border-radius: 999px;
+            box-shadow:
+                22px 0 0 rgba(252, 228, 242, 0.9),
+                44px 0 0 rgba(111, 38, 63, 0.12);
+        }
+
+        .article-card h2:first-of-type::before {
+            display: none;
+        }
+
+        .article-card h3 {
+            color: #6f263f;
+        }
+
+        .season-preview-block,
+        .article-card .tldr-section,
+        .article-card .stat-block,
+        .article-card .highlight-box,
+        .article-card .next-week,
+        .article-card .tryon-bridge {
+            border-radius: 8px !important;
+            border-color: rgba(75, 33, 72, 0.14) !important;
+            background:
+                radial-gradient(circle at 92% 12%, rgba(185, 215, 220, 0.14), transparent 12rem),
+                linear-gradient(135deg, rgba(255, 253, 251, 0.92), rgba(248, 238, 238, 0.72)) !important;
+            box-shadow: 0 16px 36px rgba(75, 33, 72, 0.08);
+        }
+
+        .article-card .section-image {
+            border-radius: 8px;
+            border: 1px solid rgba(75, 33, 72, 0.12);
+            box-shadow: 0 18px 42px rgba(75, 33, 72, 0.1);
+        }
+
+        .side-rail {
+            position: sticky;
+            top: 94px;
+            display: grid;
+            gap: 14px;
+            padding-top: clamp(30px, 4vw, 52px);
+        }
+
+        .ritual-side-card {
+            position: relative;
+            overflow: hidden;
+            padding: 18px;
+            color: #4b2148;
+            background:
+                radial-gradient(circle at 88% 2%, rgba(185, 215, 220, 0.38), transparent 8rem),
+                radial-gradient(circle at 8% 96%, rgba(252, 228, 242, 0.82), transparent 9rem),
+                linear-gradient(145deg, rgba(255, 253, 251, 0.98), rgba(247, 238, 238, 0.9));
+            border-color: rgba(185, 93, 120, 0.28);
+        }
+
+        .ritual-side-card h3 {
+            margin: 0 0 10px;
+            color: #4b2148;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(1.35rem, 2vw, 1.65rem);
+            line-height: 1.06;
+        }
+
+        .ritual-side-primary,
+        .ritual-side-links a,
+        .button-link {
+            display: inline-flex;
+            align-items: center;
+            min-height: 36px;
+            padding: 8px 12px;
+            color: #4b2148;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(111, 38, 63, 0.22);
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 850;
+            letter-spacing: 0.01em;
+            text-decoration: none;
+        }
+
+        .ritual-side-primary {
+            width: 100%;
+            justify-content: center;
+            margin: 14px 0 12px;
+            color: #fffdfb;
+            background: #6f263f;
+            border-color: #6f263f;
+        }
+
+        .ritual-side-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .ritual-side-note {
+            margin-top: 12px !important;
+            color: rgba(75, 33, 72, 0.68) !important;
+            font-size: 0.83rem;
+        }
+
+        .section-nav-details {
+            padding: 16px;
+            box-shadow: none;
+        }
+
+        .section-nav-details summary {
+            color: #4b2148;
+            cursor: pointer;
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            list-style: none;
+            text-transform: uppercase;
+        }
+
+        .section-nav-details summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .section-nav-details summary::after {
+            content: "+";
+            float: right;
+            color: #6f263f;
+        }
+
+        .section-nav-details[open] summary::after {
+            content: "-";
+        }
+
+        .section-nav {
+            margin-top: 10px;
+        }
+
+        .section-nav a {
+            display: block;
+            padding: 9px 0;
+            color: #4b2148;
+            border-bottom: 1px solid rgba(75, 33, 72, 0.1);
+            font-size: 0.86rem;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .section-nav a:last-child {
+            border-bottom: 0;
+        }
+
+        .activity-section {
+            scroll-margin-top: 96px;
+            margin: 0 0 42px;
+            padding: clamp(22px, 4vw, 30px);
+            background:
+                radial-gradient(circle at 92% 12%, rgba(185, 215, 220, 0.18), transparent 20rem),
+                linear-gradient(135deg, rgba(255, 253, 251, 0.92), rgba(248, 241, 238, 0.78));
+        }
+
+        .activity-section-header {
+            display: grid;
+            gap: 8px;
+            max-width: 760px;
+            margin-bottom: 18px;
+        }
+
+        .activity-section-header h2 {
+            margin: 0;
+            color: #4b2148;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(2rem, 4vw, 3.6rem);
+            line-height: 0.95;
+        }
+
+        .activity-section-header p {
+            margin: 0;
+            color: #4c3b46;
+            max-width: 670px;
+            line-height: 1.48;
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .activity-card {
+            position: relative;
+            display: grid;
+            gap: 10px;
+            min-height: 168px;
+            padding: 18px;
+            color: #4b2148;
+            text-decoration: none;
+            transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+        }
+
+        .activity-card[href]:hover,
+        .activity-card[href]:focus-visible,
+        .ritual-side-links a:hover,
+        .ritual-side-links a:focus-visible,
+        .ritual-side-primary:hover,
+        .ritual-side-primary:focus-visible {
+            transform: translateY(-2px);
+            border-color: rgba(185, 93, 120, 0.44);
+            box-shadow: 0 22px 48px rgba(75, 33, 72, 0.14);
+            text-decoration: none;
+        }
+
+        .activity-card strong {
+            color: #4b2148;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(1.25rem, 2vw, 1.62rem);
+            line-height: 1.02;
+        }
+
+        .activity-card em {
+            align-self: end;
+            color: #b95d78;
+            font-size: 0.75rem;
+            font-style: normal;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .activity-card--primary {
+            background:
+                radial-gradient(circle at 88% 12%, rgba(185, 215, 220, 0.28), transparent 10rem),
+                linear-gradient(135deg, rgba(252, 228, 242, 0.96), rgba(255, 253, 251, 0.98));
+            border-color: rgba(185, 93, 120, 0.36);
+        }
+
+        .signoff,
+        .resources-section {
+            margin-inline: auto;
+        }
+
+        @media (max-width: 920px) {
+            .reader-kit,
+            .article-layout,
+            .activity-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .side-rail {
+                position: relative;
+                top: auto;
+                order: -1;
+                padding-top: 0;
+            }
+
+            .section-nav {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .header-content .episode-01-masthead-banner {
+                min-height: 520px;
+                padding: 24px 18px 30px;
+                align-items: end;
+            }
+
+            .episode-01-masthead-banner::after {
+                background:
+                    linear-gradient(180deg, rgba(255, 250, 247, 0.04) 0%, rgba(255, 250, 247, 0.46) 44%, rgba(255, 250, 247, 0.94) 100%),
+                    linear-gradient(90deg, rgba(75, 33, 72, 0.08), rgba(75, 33, 72, 0));
+            }
+
+            .episode-01-masthead-image {
+                object-position: 50% center;
+            }
+
+            .episode-01-masthead-copy {
+                width: 100%;
+            }
+
+            .episode-01-masthead-copy .episode-masthead-brand-bar {
+                margin-bottom: 20px;
+            }
+
+            .episode-01-masthead-copy .episode-masthead-brand-bar img {
+                width: min(78vw, 320px);
+            }
+
+            .episode-01-masthead-copy .episode-masthead-note {
+                font-size: clamp(2.08rem, 10.4vw, 3rem);
+                line-height: 0.96;
+            }
+
+            .preview-shell {
+                width: min(100% - 28px, 1120px);
+            }
+
+            .reader-kit {
+                margin-top: 18px;
+            }
+
+            .article-layout .article-container {
+                padding-top: 24px;
+            }
+
+            .activity-card {
+                min-height: 148px;
+            }
+        }
+
     </style>
   <!-- Privacy-friendly analytics by Plausible -->
 <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
@@ -897,30 +1417,48 @@
   </div>
 </nav>
 
-<header class="header">
+<header class="header episode-01-reader-hero">
     <div class="header-content">
-        <a class="article-masthead-link" href="../index.html" aria-label="LAiDIES home">
-            <span class="episode-masthead-brand-bar" aria-hidden="true">
-                <img src="../assets/brand/laidies-logo-masthead-approved-v3.png" alt="">
-                <span class="episode-masthead-brand-motto">girl power <em>meets</em> machine power</span>
-            </span>
-            <img src="../assets/brand/laidies-masthead-object-world-issue-01-objects-v1.png" alt="LAiDIES editorial object-world masthead with Episode 01 note: On Wednesdays we do AI" class="episode-masthead-banner">
-            <span class="episode-masthead-copy" data-episode-masthead-copy data-episode-number="1" data-episode-title="On Wednesdays We Use AI" data-episode-release-date="2026-06-03">
-                <span class="episode-masthead-phone"><span>Episode</span><strong data-episode-masthead-number></strong></span>
-                <span class="episode-masthead-note" data-episode-masthead-title></span>
-                <span class="episode-masthead-date" data-episode-masthead-date></span>
+        <a class="article-masthead-link episode-01-masthead-banner" href="../index.html" aria-label="LAiDIES home">
+            <img src="../assets/ugh-as-if.png" alt="Episode 01 object-world masthead with a translucent iMac, pink Burn Book, lip phone, headphones, and Ugh, as if on the screen" class="episode-01-masthead-image">
+            <span class="episode-01-masthead-copy">
+                <span class="episode-masthead-brand-bar" aria-hidden="true">
+                    <img src="../assets/brand/laidies-logo-masthead-approved-v3.png" alt="">
+                    <span class="episode-masthead-brand-motto">girl power <em>meets</em> machine power</span>
+                </span>
+                <span class="episode-masthead-copy" data-episode-masthead-copy data-episode-number="1" data-episode-title="On Wednesdays We Use AI" data-episode-release-date="2026-06-03">
+                    <span class="episode-masthead-phone"><span>Episode</span><strong data-episode-masthead-number></strong></span>
+                    <span class="episode-masthead-note" data-episode-masthead-title></span>
+                    <span class="episode-masthead-premise">A gentle first tab for women with full calendars, high standards, and no patience for beige AI explanations.</span>
+                    <span class="episode-masthead-date" data-episode-masthead-date></span>
+                </span>
             </span>
         </a>
         <h1 class="visually-hidden-title">Episode 1: On Wednesdays We Use AI</h1>
     </div>
 </header>
 
-<div data-episode-toolkit></div>
+<main class="preview-shell">
+    <section class="reader-kit" aria-label="Episode 01 summary">
+        <article class="kit-card">
+            <span class="label">The Lesson</span>
+            <p>AI fluency starts with one useful, low-risk rep. The gap is not confidence. It is time, context, and tools that were never explained for women already carrying too much.</p>
+        </article>
+        <article class="kit-card">
+            <span class="label">Try-On</span>
+            <p>Open one AI tool, give it a small real task, compare the answer to your own judgment, and notice what would make it more useful next time.</p>
+        </article>
+        <article class="kit-card">
+            <span class="label">This Week's Rule</span>
+            <p>Get in, loser. We're learning AI. Ten minutes counts when it is pointed at a real thing you actually need.</p>
+        </article>
+    </section>
 
-<article class="article-container">
+    <section class="article-layout" id="article">
+        <article class="article-card article-container">
 
     <!-- Season Preview -->
-    <div style="text-align: center; margin-bottom: 2em; padding: 28px 20px; border-bottom: 1px solid var(--border);">
+    <div class="season-preview-block" style="text-align: center; margin-bottom: 2em; padding: 28px 20px; border-bottom: 1px solid var(--border);">
         <p style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.55rem; font-weight: 700; color: var(--primary); letter-spacing: 0; margin-bottom: 16px;">This Season On <span class="brand-name">LAiDIES</span>...</p>
         <p style="font-size: 0.95rem; line-height: 1.7; max-width: 600px; margin: 0 auto 12px; color: var(--text);">This is a 24-episode season. Like the glory days, when TV actually let you fall in love with the characters before cancelling them after eight. No bingeing. New episode every Wednesday. And every skill you pick up here? It's all leading somewhere. Think of it like Cher's outfit planner building one look at a time. By the finale, you'll have built your own squad of AI employees, each named after a woman from our favourite era of pop culture.</p>
         <p style="font-size: 0.95rem; line-height: 1.7; max-width: 600px; margin: 0 auto; color: var(--text);">The arc: she stops feeling behind, learns to delegate to machines, keeps her standards, builds her squad, and becomes the woman other people come to when the future gets confusing. That's where we're headed. One Wednesday at a time.</p>
@@ -1092,7 +1630,95 @@
         <p>She learns to actually talk to AI so it gives her something useful back. Turns out, prompting is just delegation. And you already know how to do that.</p>
     </div>
 
-</article>
+        </article>
+
+        <aside class="side-rail" aria-label="Episode 01 reader tools">
+            <div class="ritual-side-card" aria-label="Finish the weekly ritual">
+                <span class="label">After The Read</span>
+                <h3>Finish the Episode 01 ritual</h3>
+                <p>Open the Bag, take the quiz, save the printable, try one small task, and play this week's DJ JAIDY track.</p>
+                <a class="ritual-side-primary" href="../this-week.html?issue=1&amp;bag=open">Open the Episode 01 Bag</a>
+                <div class="ritual-side-links">
+                    <a href="../learn/quiz.html?from=this-week&amp;issue=1&amp;bag=open#quiz-start">Quiz</a>
+                    <a href="../printable.html?issue=1&amp;from=this-week&amp;bag=open&amp;group=practice">Printable</a>
+                    <a href="../try-on.html?from=this-week&amp;issue=1&amp;bag=open&amp;group=practice">Try-On</a>
+                    <a href="../games/trading-cards.html?from=this-week&amp;issue=1&amp;bag=open&amp;group=practice">Cards</a>
+                    <a href="../games/dj-booth.html?from=this-week&amp;issue=1&amp;bag=open#djApp">Anthem</a>
+                    <a href="../games/fun-pack.html?from=this-week&amp;issue=1&amp;bag=open&amp;group=fun">Extra Credit</a>
+                    <a href="../community.html?from=this-week&amp;issue=1&amp;bag=open&amp;group=connect">Room</a>
+                </div>
+                <p class="ritual-side-note">Start with the article, then use the Bag to choose the next object.</p>
+            </div>
+            <details class="section-nav-details">
+                <summary>Jump to a section</summary>
+                <nav class="section-nav" data-section-nav aria-label="Article sections"></nav>
+            </details>
+        </aside>
+    </section>
+
+    <section class="activity-section" id="issue-kit" aria-label="Episode 01 weekly ritual">
+        <div class="activity-section-header">
+            <span class="label">What's In The Bag</span>
+            <h2>Episode 01 weekly ritual</h2>
+            <p>Step 1 is this article. After that, the Wednesday Bag keeps the first AI rep small, practical, and connected to the rest of the LAiDIES world.</p>
+        </div>
+        <div class="activity-grid">
+            <article class="activity-card">
+                <span class="label">01 / Read</span>
+                <strong>On Wednesdays We Use AI</strong>
+                <p>Start here. The Episode explains why the first move is small, useful, and allowed to be imperfect.</p>
+                <em>You are here</em>
+            </article>
+            <a class="activity-card activity-card--primary" href="../this-week.html?issue=1&amp;bag=open">
+                <span class="label">02 / Return</span>
+                <strong>Open the Episode 01 Bag</strong>
+                <p>The tracked ritual hub for the weekly objects, hidden charm, and next step.</p>
+                <em>Ready</em>
+            </a>
+            <a class="activity-card" href="../learn/quiz.html?from=this-week&amp;issue=1#quiz-start">
+                <span class="label">03 / Check</span>
+                <strong>Episode 01 Quiz</strong>
+                <p>Make sure the AI basics, confidence gap, and first-use mindset actually stuck.</p>
+                <em>Ready</em>
+            </a>
+            <a class="activity-card" href="../printable.html?issue=1&amp;from=this-week&amp;bag=open">
+                <span class="label">04 / Save</span>
+                <strong>Open the Tab</strong>
+                <p>The four-page printable for your first safe, useful AI reps.</p>
+                <em>Ready</em>
+            </a>
+            <a class="activity-card" href="../try-on.html?from=this-week&amp;issue=1&amp;bag=open">
+                <span class="label">05 / Try</span>
+                <strong>One Useful Rep</strong>
+                <p>Give AI a tiny real task, then use your judgment to decide what improves it.</p>
+                <em>Ready</em>
+            </a>
+            <a class="activity-card" href="../community.html?from=this-week&amp;issue=1&amp;bag=open#chat-rooms">
+                <span class="label">06 / Bring Back</span>
+                <strong>The LAiDIES Room</strong>
+                <p>Share what you tried, what felt useful, or what made you say, yes, no, absolutely not.</p>
+                <em>Ready</em>
+            </a>
+            <a class="activity-card" href="../games/fun-pack.html?from=this-week&amp;issue=1&amp;bag=open">
+                <span class="label">07 / Bonus</span>
+                <strong>The Extra Credit</strong>
+                <p>The bonus-credit shelf for the week, including the card-pack path and weekly ritual objects.</p>
+                <em>Ready</em>
+            </a>
+            <a class="activity-card" href="../games/dj-booth.html?from=this-week&amp;issue=1&amp;bag=open#djApp">
+                <span class="label">08 / Listen + Goss</span>
+                <strong>On Wednesday We Do AI</strong>
+                <p>Play the Episode 01 DJ JAIDY track, then come back to the Bag for the rest of the ritual.</p>
+                <em>Ready</em>
+            </a>
+            <a class="activity-card" href="../this-week.html?issue=1&amp;bag=open">
+                <span class="label">Hidden / Charm</span>
+                <strong>Find the weekly charm</strong>
+                <p>Open the Episode 01 Bag scene and find the hidden weekly charm.</p>
+                <em>In the Bag</em>
+            </a>
+        </div>
+    </section>
 
 <!-- Sign-off -->
 <section class="signoff">
@@ -1146,6 +1772,8 @@
     </div>
 </section>
 
+</main>
+
 <!-- Footer -->
 <footer class="footer">
     <img src="../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" class="logo-footer">
@@ -1158,6 +1786,35 @@
     <div class="copyright">&copy; 2026 LAiDIES&trade; / Ali Eakin. All rights reserved.</div>
     <div class="hashtags">#LAiDIES &nbsp; #WomenInAI &nbsp; #AIForEveryone &nbsp; #AIFluency &nbsp; #trAIlblazers</div>
 </footer>
+
+<script>
+(() => {
+  const navMount = document.querySelector("[data-section-nav]");
+  const article = document.querySelector(".article-card");
+  if (!navMount || !article) return;
+
+  const slugCounts = new Map();
+  const slugify = (text) => text
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 72) || "section";
+
+  Array.from(article.querySelectorAll("h2")).forEach((heading) => {
+    if (!heading.id) {
+      const base = slugify(heading.textContent || "");
+      const count = slugCounts.get(base) || 0;
+      slugCounts.set(base, count + 1);
+      heading.id = count ? `${base}-${count + 1}` : base;
+    }
+    const link = document.createElement("a");
+    link.href = `#${heading.id}`;
+    link.textContent = heading.textContent.trim();
+    navMount.appendChild(link);
+  });
+})();
+</script>
 
 <script src="../content/episode-page.js?v=device-screen-5"></script>
 
