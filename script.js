@@ -89,6 +89,17 @@ if (document.readyState === "loading") {
   applyLAiDIESInlineWordmark();
 }
 
+(function requestSharedBrandPolish() {
+  if (window.__laidiesBrandPolishRequested || document.querySelector('script[src*="brand-polish.js"]')) return;
+  const currentScript = document.currentScript || Array.from(document.scripts).find((script) => script.src?.includes("script.js"));
+  if (!currentScript?.src) return;
+  window.__laidiesBrandPolishRequested = true;
+  const polishScript = document.createElement("script");
+  polishScript.src = new URL("content/site/brand-polish.js", currentScript.src).toString();
+  polishScript.defer = true;
+  document.head.appendChild(polishScript);
+})();
+
 const rememberQuotes = [
   "You'll need to pour yourself more than a cup of ambition to keep up in the male-dominated world of AI, but lucky for you, this series comes in small sips.",
   "The Spice Girls did not say \"tell me what you vaguely want, what you sort of generally want.\" And neither should you. Be specific. Be bold. Be David Rose about it.",
