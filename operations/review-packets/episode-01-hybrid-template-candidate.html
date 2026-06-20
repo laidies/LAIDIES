@@ -1,0 +1,1737 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Episode 1 Hybrid Template Candidate | LAiDIES Review</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --ink: #21151b;
+        --plum: #4b2037;
+        --berry: #9b3f5f;
+        --rose: #d7829d;
+        --blush: #f9e2ea;
+        --pearl: #fff6fa;
+        --paper: #fff9fc;
+        --shell: #fff8fb;
+        --lilac: #f8eef6;
+        --petal: #fff6fa;
+        --blush-wash: #fff2f7;
+        --teal: #5f9f8d;
+        --iris: #73608a;
+        --gold: #b9879a;
+        --shadow: 0 24px 70px rgba(48, 23, 37, 0.2);
+        --line: rgba(75, 32, 55, 0.18);
+        --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+        --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+        --font-ui: Inter, "Avenir Next", Avenir, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --max: 1180px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: var(--font-body);
+        background-color: #fff8fb;
+        background:
+          radial-gradient(circle at 14% 4%, rgba(249, 226, 234, 0.16), transparent 34%),
+          linear-gradient(135deg, #fff9fc 0%, #fff8fb 66%, #fff4f8 100%);
+        line-height: 1.68;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .review-banner {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 18px;
+        align-items: center;
+        min-height: 58px;
+        padding: 10px clamp(16px, 3vw, 32px);
+        color: var(--paper);
+        background: rgba(36, 17, 29, 0.94);
+        border-bottom: 1px solid rgba(255, 250, 253, 0.2);
+        backdrop-filter: blur(18px);
+        font-family: var(--font-ui);
+      }
+
+      .review-banner strong {
+        font-size: 0.76rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .review-banner-meta {
+        display: grid;
+        gap: 3px;
+        min-width: 0;
+      }
+
+      .review-banner span {
+        display: block;
+      }
+
+      .review-note {
+        color: rgba(255, 250, 253, 0.76);
+        font-size: 0.78rem;
+        line-height: 1.2;
+      }
+
+      .episode-meta-line {
+        color: var(--paper);
+        font-size: clamp(0.92rem, 1.4vw, 1.05rem);
+        font-weight: 800;
+        line-height: 1.28;
+      }
+
+      .episode-meta-line time {
+        display: inline-block;
+        margin-left: 0.45em;
+        color: rgba(255, 250, 253, 0.72);
+        font-weight: 700;
+      }
+
+      .review-banner nav {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .review-banner a {
+        border: 1px solid rgba(255, 250, 253, 0.28);
+        border-radius: 999px;
+        padding: 7px 11px;
+        text-decoration: none;
+        font-size: 0.78rem;
+        line-height: 1;
+      }
+
+      .review-banner .return-link {
+        border-color: rgba(255, 250, 253, 0.48);
+        background: rgba(255, 250, 253, 0.08);
+      }
+
+      .progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 40;
+        width: 100%;
+        height: 4px;
+        background: transparent;
+      }
+
+      .progress span {
+        display: block;
+        width: 0;
+        height: 100%;
+        background: linear-gradient(90deg, var(--berry), var(--rose), var(--teal));
+      }
+
+      .site-nav {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        align-items: center;
+        gap: 18px;
+        width: min(var(--max), calc(100% - 32px));
+        margin: 12px auto 0;
+      }
+
+      .site-nav img {
+        width: clamp(112px, 13vw, 154px);
+        height: auto;
+      }
+
+      .site-nav .mini-link {
+        color: var(--plum);
+        font-family: var(--font-ui);
+        font-size: 0.84rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .site-nav .mini-links {
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .reader-hero {
+        width: min(var(--max), calc(100% - 32px));
+        margin: 12px auto 0;
+        min-height: clamp(460px, 64vh, 620px);
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(75, 32, 55, 0.18);
+        border-radius: 0;
+        box-shadow: var(--shadow);
+        background: linear-gradient(135deg, #fff9fc, var(--petal), var(--blush-wash));
+        isolation: isolate;
+      }
+
+      .reader-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background:
+          radial-gradient(circle at 16% 18%, rgba(249, 226, 234, 0.14), transparent 38%),
+          linear-gradient(100deg, rgba(255, 249, 252, 0.78) 0%, rgba(255, 248, 251, 0.64) 52%, rgba(255, 244, 248, 0.48) 100%);
+      }
+
+      .reader-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        background:
+          linear-gradient(0deg, rgba(75, 32, 55, 0.04) 0%, transparent 34%),
+          linear-gradient(90deg, rgba(255, 249, 252, 0.34) 0%, rgba(249, 226, 234, 0.08) 50%, rgba(255, 248, 251, 0.28) 100%);
+      }
+
+      .hero-image {
+        width: 100%;
+        height: 100%;
+        min-height: inherit;
+        object-fit: cover;
+        object-position: 50% center;
+        filter: saturate(1.04) contrast(0.98) brightness(1.08);
+        opacity: 0.76;
+      }
+
+      .hero-copy {
+        position: absolute;
+        inset: auto auto 54px 54px;
+        z-index: 3;
+        width: min(620px, calc(100% - 80px));
+        color: var(--plum);
+      }
+
+      .brand-mark {
+        display: block;
+        width: min(180px, 48vw);
+        margin-bottom: 18px;
+      }
+
+      .brand-mark img {
+        width: 100%;
+        filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.24));
+      }
+
+      .eyebrow,
+      .label {
+        margin: 0;
+        color: var(--berry);
+        font-family: var(--font-ui);
+        font-size: 0.76rem;
+        font-weight: 900;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .reader-hero .eyebrow {
+        color: var(--berry);
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        color: var(--plum);
+        line-height: 1.02;
+        font-family: var(--font-display);
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+
+      h1 {
+        color: var(--plum);
+        font-size: clamp(3.05rem, 9.2vw, 6.15rem);
+        max-width: 9.4ch;
+        text-wrap: balance;
+      }
+
+      .dek {
+        max-width: 36rem;
+        margin: 18px 0 0;
+        font-family: var(--font-body);
+        font-size: clamp(1.08rem, 2.1vw, 1.3rem);
+        line-height: 1.38;
+        text-wrap: balance;
+      }
+
+      .content-shell {
+        width: min(var(--max), calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .episode-brief {
+        position: relative;
+        z-index: 5;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin: 24px auto 30px;
+      }
+
+      .brief-card {
+        min-height: 0;
+        padding: 18px 0;
+        color: var(--plum);
+        background: transparent;
+        border-top: 1px solid rgba(75, 32, 55, 0.2);
+        border-bottom: 1px solid rgba(75, 32, 55, 0.1);
+        box-shadow: none;
+      }
+
+      .brief-card:first-child {
+        background: transparent;
+        color: var(--plum);
+      }
+
+      .brief-card summary {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: center;
+        color: var(--plum);
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-style: italic;
+        font-weight: 700;
+        line-height: 1.12;
+        cursor: pointer;
+      }
+
+      .brief-card summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .brief-card summary::after {
+        content: "+";
+        flex: 0 0 auto;
+        font-family: var(--font-body);
+        font-size: 1.2rem;
+      }
+
+      .brief-card[open] summary::after {
+        content: "-";
+      }
+
+      .brief-card p {
+        margin: 10px 0 0;
+        font-size: 1rem;
+        line-height: 1.58;
+      }
+
+      .episode-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 760px) minmax(240px, 292px);
+        gap: clamp(28px, 5vw, 58px);
+        align-items: start;
+      }
+
+      .article-card,
+      .side-card,
+      .recommendation-card {
+        background: rgba(255, 250, 253, 0.82);
+        border: 1px solid var(--line);
+        box-shadow: none;
+      }
+
+      .article-card {
+        padding: 0;
+        background: transparent;
+        border: 0;
+      }
+
+      .article-meta {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 26px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 32px;
+        padding: 7px 12px;
+        color: var(--plum);
+        background: rgba(249, 226, 234, 0.18);
+        border: 1px solid rgba(36, 123, 131, 0.18);
+        border-radius: 999px;
+        font-family: var(--font-ui);
+        font-size: 0.78rem;
+        font-weight: 850;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .article-card h2 {
+        margin: 2.55rem 0 0.78rem;
+        padding: 0.04em 0.16em 0.12em;
+        font-size: clamp(2rem, 3.45vw, 2.9rem);
+        line-height: 1.08;
+        background: rgba(248, 219, 228, 0.52);
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        text-wrap: balance;
+        text-shadow: 0 1px 0 rgba(255, 250, 253, 0.9);
+      }
+
+      .article-card h2:first-of-type {
+        margin-top: 0;
+      }
+
+      .article-card h2::before {
+        content: "";
+        display: block;
+        width: 96px;
+        height: 8px;
+        margin: 0 0 1.02rem;
+        background: linear-gradient(90deg, var(--berry), var(--rose), var(--teal));
+        border-radius: 999px;
+        box-shadow:
+          22px 0 0 rgba(248, 219, 228, 0.76),
+          44px 0 0 rgba(95, 159, 141, 0.16);
+      }
+
+      .section-kicker {
+        display: inline;
+        padding: 0.05em 0.24em 0.08em;
+        background: linear-gradient(180deg, transparent 16%, rgba(255, 234, 242, 0.92) 16%, rgba(255, 234, 242, 0.92) 92%, transparent 92%);
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+      }
+
+      .article-card p {
+        margin: 0 0 1.04em;
+        max-width: 66ch;
+        font-size: clamp(1.04rem, 1.18vw, 1.12rem);
+        line-height: 1.66;
+      }
+
+      .lead,
+      .lead-paragraph {
+        color: #3a2230;
+        font-size: clamp(1.12rem, 1.9vw, 1.28rem) !important;
+        line-height: 1.58;
+      }
+
+      .section-divider {
+        display: none;
+      }
+
+      .article-card h3,
+      .article-subheading {
+        margin: 34px 0 8px;
+        color: var(--plum);
+        font-family: var(--font-display);
+        font-size: clamp(1.58rem, 3vw, 2.28rem);
+        font-weight: 700;
+        line-height: 1.08;
+      }
+
+      .section-subhed {
+        margin-top: 6px !important;
+        color: rgba(75, 32, 55, 0.72);
+        font-family: var(--font-body);
+        font-size: clamp(1.02rem, 1.45vw, 1.12rem) !important;
+        font-style: italic;
+        font-weight: 400;
+        line-height: 1.48 !important;
+      }
+
+      .section-image {
+        margin: 34px 0;
+        border: 1px solid rgba(75, 32, 55, 0.14);
+        box-shadow: 0 18px 40px rgba(48, 23, 37, 0.12);
+        overflow: hidden;
+      }
+
+      .section-image img {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .section-image--wide img {
+        aspect-ratio: 1672 / 479;
+      }
+
+      .pull-quote {
+        position: relative;
+        isolation: isolate;
+        max-width: min(94%, 760px);
+        margin: clamp(3rem, 7vw, 4.8rem) auto;
+        padding: clamp(1.35rem, 3vw, 1.9rem) clamp(1.5rem, 4vw, 2.25rem) clamp(1.35rem, 3vw, 1.9rem) clamp(4.8rem, 12vw, 7.4rem);
+        color: var(--plum);
+        background:
+          linear-gradient(90deg, rgba(155, 63, 95, 0.7), rgba(155, 63, 95, 0.7)) 0 0 / 46% 2px no-repeat,
+          linear-gradient(180deg, rgba(155, 63, 95, 0.7), rgba(155, 63, 95, 0.7)) 0 0 / 2px 100% no-repeat,
+          linear-gradient(270deg, rgba(95, 159, 141, 0.7), rgba(95, 159, 141, 0.7)) 100% 100% / 38% 2px no-repeat,
+          linear-gradient(0deg, rgba(95, 159, 141, 0.7), rgba(95, 159, 141, 0.7)) 100% 100% / 2px 54% no-repeat;
+        border: 0;
+        box-shadow: none;
+        text-wrap: balance;
+      }
+
+      .pull-quote::before {
+        content: "\201C";
+        position: absolute;
+        left: clamp(0.42rem, 1.4vw, 0.82rem);
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgba(155, 63, 95, 0.24);
+        background: transparent;
+        font-family: var(--font-display);
+        font-size: clamp(5.4rem, 13vw, 9.4rem);
+        font-style: normal;
+        font-weight: 700;
+        line-height: 0.72;
+        pointer-events: none;
+      }
+
+      .pull-quote::after {
+        content: "";
+        position: absolute;
+        right: clamp(0.7rem, 2vw, 1.2rem);
+        bottom: clamp(0.52rem, 1.4vw, 0.85rem);
+        width: clamp(28px, 7vw, 64px);
+        height: clamp(28px, 7vw, 64px);
+        border-right: 2px solid rgba(95, 159, 141, 0.68);
+        border-bottom: 2px solid rgba(95, 159, 141, 0.68);
+        background: transparent;
+        pointer-events: none;
+      }
+
+      .pull-quote p {
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: clamp(1.38rem, 2.45vw, 2.05rem);
+        font-style: italic;
+        font-weight: 400;
+        line-height: 1.18;
+      }
+
+      .pull-quote cite {
+        display: block;
+        margin-top: 16px;
+        color: rgba(75, 32, 55, 0.74);
+        font-family: var(--font-ui);
+        font-size: 0.86rem;
+        font-style: normal;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .note-panel {
+        margin: 34px 0;
+        padding: 24px;
+        border-left: 7px solid var(--gold);
+        background: linear-gradient(135deg, rgba(255, 250, 253, 0.94), rgba(255, 234, 242, 0.76));
+      }
+
+      .note-panel strong {
+        color: var(--plum);
+      }
+
+      .stat-block,
+      .highlight-box,
+      .next-week {
+        margin: 34px 0;
+        padding: clamp(22px, 4vw, 34px);
+        border: 1px solid rgba(75, 32, 55, 0.16);
+        background: linear-gradient(135deg, rgba(255, 250, 253, 0.94), rgba(255, 234, 242, 0.72));
+      }
+
+      .stat-number,
+      .stat-card .number {
+        color: var(--plum);
+        font-family: var(--font-display);
+        font-size: clamp(2.25rem, 9vw, 4.5rem);
+        font-weight: 700;
+        line-height: 0.95;
+      }
+
+      .stat-label,
+      .stat-card .label {
+        margin-top: 10px;
+        color: rgba(75, 32, 55, 0.76);
+        font-family: var(--font-ui);
+        font-size: 0.96rem;
+        font-weight: 780;
+        line-height: 1.42;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin: 26px 0;
+      }
+
+      .stat-card {
+        min-height: 160px;
+        padding: 20px;
+        border: 1px solid rgba(75, 32, 55, 0.14);
+        background: rgba(255, 250, 253, 0.8);
+      }
+
+      .highlight-box {
+        border-left: 8px solid var(--gold);
+      }
+
+      .concept-definitions {
+        margin: 40px 0;
+        padding: clamp(22px, 4vw, 34px);
+        border: 1px solid rgba(75, 32, 55, 0.16);
+        border-left: 8px solid var(--teal);
+        background: linear-gradient(135deg, rgba(255, 250, 253, 0.96), rgba(255, 234, 242, 0.72));
+      }
+
+      .concept-definitions .article-subheading {
+        margin-top: 0;
+      }
+
+      .concept-definitions .section-subhed {
+        max-width: 60ch;
+      }
+
+      .glossary-term {
+        margin: 18px 0;
+        padding: 20px;
+        border: 1px solid rgba(75, 32, 55, 0.14);
+        background: rgba(255, 250, 253, 0.82);
+      }
+
+      .glossary-term summary {
+        list-style: none;
+        cursor: pointer;
+      }
+
+      .glossary-term summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .glossary-term summary:focus-visible {
+        outline: 3px solid rgba(99, 174, 156, 0.58);
+        outline-offset: 6px;
+      }
+
+      .term-name {
+        color: var(--plum);
+        font-family: var(--font-display);
+        font-size: 1.55rem;
+        font-weight: 700;
+      }
+
+      .term-preview {
+        display: -webkit-box;
+        margin-top: 8px;
+        max-width: 62ch;
+        overflow: hidden;
+        color: #3a2230;
+        font-size: clamp(1rem, 2vw, 1.08rem);
+        line-height: 1.5;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+
+      .term-toggle {
+        display: inline-flex;
+        margin-top: 14px;
+        color: var(--berry);
+        font-family: var(--font-ui);
+        font-size: 0.75rem;
+        font-weight: 850;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .term-toggle .when-open {
+        display: none;
+      }
+
+      .glossary-term[open] .term-preview {
+        display: none;
+      }
+
+      .glossary-term[open] .term-toggle .when-closed {
+        display: none;
+      }
+
+      .glossary-term[open] .term-toggle .when-open {
+        display: inline;
+      }
+
+      .term-def {
+        margin-top: 8px;
+        color: #3a2230;
+        font-size: clamp(1rem, 2vw, 1.08rem);
+        line-height: 1.62;
+      }
+
+      .next-week h3 {
+        margin-top: 0;
+      }
+
+      .side-rail {
+        position: sticky;
+        top: 84px;
+        display: grid;
+        gap: 14px;
+      }
+
+      .side-card {
+        padding: 22px;
+      }
+
+      .side-card h3 {
+        margin-top: 8px;
+        font-size: 1.76rem;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .side-card p {
+        margin: 10px 0 0;
+        font-size: 0.95rem;
+        line-height: 1.52;
+      }
+
+      .side-primary {
+        display: flex;
+        justify-content: center;
+        margin-top: 16px;
+        padding: 12px;
+        color: var(--paper);
+        background: var(--plum);
+        border: 1px solid var(--plum);
+        font-family: var(--font-ui);
+        text-decoration: none;
+        font-weight: 900;
+        font-size: 0.86rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .side-links {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .side-links a,
+      .section-jump a {
+        display: flex;
+        min-height: 38px;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+        border: 1px solid rgba(75, 32, 55, 0.16);
+        color: var(--plum);
+        background: rgba(255, 250, 253, 0.72);
+        font-family: var(--font-ui);
+        text-align: center;
+        text-decoration: none;
+        font-size: 0.78rem;
+        font-weight: 850;
+      }
+
+      .section-jump {
+        display: grid;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .mobile-kit {
+        display: none;
+      }
+
+      .ritual-section,
+      .recommendation-section {
+        margin: 34px 0 0;
+      }
+
+      .section-header {
+        max-width: 760px;
+        margin-bottom: 16px;
+      }
+
+      .section-header h2 {
+        margin-top: 8px;
+        font-size: clamp(2.35rem, 6vw, 4.2rem);
+      }
+
+      .section-header p:not(.label),
+      .recommendation-card > p:not(.label) {
+        max-width: 68ch;
+        font-size: clamp(1rem, 1.45vw, 1.08rem);
+        line-height: 1.68;
+      }
+
+      .ritual-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .ritual-card {
+        min-height: 190px;
+        padding: 20px;
+        color: var(--plum);
+        background: rgba(255, 250, 253, 0.9);
+        border: 1px solid var(--line);
+        text-decoration: none;
+        box-shadow: 0 18px 42px rgba(48, 23, 37, 0.1);
+      }
+
+      .ritual-card strong {
+        display: block;
+        margin-top: 10px;
+        font-family: var(--font-display);
+        font-size: 1.38rem;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .ritual-card p {
+        margin: 10px 0 0;
+        font-size: 0.92rem;
+        line-height: 1.45;
+      }
+
+      .ritual-card.primary {
+        color: var(--paper);
+        background: linear-gradient(135deg, var(--plum), var(--berry));
+      }
+
+      .ritual-card.primary .label,
+      .ritual-card.primary strong {
+        color: var(--paper);
+      }
+
+      .signoff {
+        margin-top: 42px;
+        padding: clamp(28px, 5vw, 44px);
+        color: var(--paper);
+        background: linear-gradient(135deg, var(--plum), #22121b);
+        border: 1px solid rgba(255, 250, 253, 0.18);
+      }
+
+      .signoff h2 {
+        color: var(--paper);
+        font-size: clamp(2.4rem, 8vw, 4.7rem);
+      }
+
+      .signoff .supporting-line {
+        display: inline-block;
+        margin-top: 18px;
+        padding: 6px 10px;
+        color: var(--plum);
+        background: var(--paper);
+        font-family: var(--font-display);
+        font-size: clamp(1.28rem, 4vw, 1.8rem);
+        font-weight: 700;
+        line-height: 1.1;
+      }
+
+      .signoff p {
+        max-width: 720px;
+      }
+
+      .signoff-banner,
+      .signoff-bottom {
+        display: grid;
+        gap: 14px;
+      }
+
+      .signoff-kicker {
+        color: rgba(255, 250, 253, 0.74);
+        font-family: var(--font-ui);
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .signoff-remember {
+        color: var(--paper);
+        font-family: var(--font-display);
+        font-size: clamp(2.4rem, 10vw, 5.25rem);
+        font-weight: 700;
+        line-height: 0.94;
+      }
+
+      .signoff-line {
+        max-width: 780px;
+        color: rgba(255, 250, 253, 0.92);
+        font-size: clamp(1.08rem, 2vw, 1.28rem);
+        line-height: 1.42;
+      }
+
+      .signoff-sips {
+        justify-self: start;
+        padding: 7px 11px;
+        color: var(--plum);
+        background: var(--paper);
+        font-family: var(--font-display);
+        font-size: clamp(1.28rem, 4vw, 1.8rem);
+        font-weight: 700;
+        line-height: 1.1;
+      }
+
+      .challenge-box {
+        margin-top: 22px;
+        padding: 20px;
+        color: var(--plum);
+        background: rgba(255, 250, 253, 0.92);
+        border-left: 8px solid var(--gold);
+      }
+
+      .challenge-title {
+        font-family: var(--font-display);
+        font-size: 1.55rem;
+        font-weight: 700;
+      }
+
+      .reader-next {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+        gap: 14px;
+        margin: 24px 0 0;
+      }
+
+      .reader-next-card {
+        padding: clamp(18px, 3vw, 26px);
+        color: var(--plum);
+        border: 1px solid rgba(75, 32, 55, 0.14);
+        background: rgba(255, 250, 253, 0.92);
+      }
+
+      .reader-next-card.featured {
+        background: linear-gradient(135deg, rgba(255, 250, 253, 0.96), rgba(255, 234, 242, 0.76));
+        border-left: 8px solid var(--rose);
+      }
+
+      .reader-next-card .label {
+        margin-bottom: 7px;
+      }
+
+      .reader-next-card h3 {
+        margin: 0;
+        color: var(--plum);
+        font-family: var(--font-display);
+        font-size: clamp(1.72rem, 4vw, 2.45rem);
+        line-height: 0.98;
+      }
+
+      .reader-next-card p {
+        margin: 10px 0 0;
+        color: rgba(58, 34, 48, 0.86);
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .reader-signup-form {
+        display: grid;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .reader-signup-form label {
+        color: rgba(75, 32, 55, 0.78);
+        font-family: var(--font-ui);
+        font-size: 0.78rem;
+        font-weight: 850;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .reader-signup-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px;
+      }
+
+      .reader-signup-row input,
+      .share-url-fallback {
+        width: 100%;
+        min-width: 0;
+        border: 1px solid rgba(75, 32, 55, 0.2);
+        border-radius: 0;
+        padding: 12px 13px;
+        color: var(--plum);
+        background: rgba(255, 250, 253, 0.94);
+        font: 800 0.92rem/1.2 var(--font-ui);
+      }
+
+      .reader-signup-row input::placeholder {
+        color: rgba(75, 32, 55, 0.36);
+        opacity: 1;
+      }
+
+      .reader-signup-row input:focus::placeholder {
+        color: rgba(75, 32, 55, 0.24);
+      }
+
+      .reader-signup-row button,
+      .reader-action,
+      .reader-link-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        border: 1px solid var(--plum);
+        border-radius: 999px;
+        padding: 11px 16px;
+        color: var(--paper);
+        background: var(--plum);
+        font-family: var(--font-ui);
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+        line-height: 1;
+        text-decoration: none;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .reader-link-button,
+      .reader-action.secondary {
+        color: var(--plum);
+        background: transparent;
+      }
+
+      .reader-action-grid {
+        display: grid;
+        gap: 9px;
+        margin-top: 16px;
+      }
+
+      .share-status,
+      .reader-form-note {
+        min-height: 1.3em;
+        margin: 8px 0 0;
+        color: rgba(75, 32, 55, 0.72);
+        font-family: var(--font-ui);
+        font-size: 0.82rem;
+        line-height: 1.35;
+      }
+
+      .reader-form-note a {
+        color: var(--berry);
+        font-weight: 850;
+      }
+
+      .share-url-fallback[hidden],
+      .reader-subscribe-frame {
+        display: none;
+      }
+
+      .recommendation-card {
+        padding: clamp(24px, 4vw, 42px);
+      }
+
+      .recommendation-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .recommendation-item {
+        min-height: 170px;
+        padding: 18px;
+        border: 1px solid rgba(75, 32, 55, 0.14);
+        background: rgba(255, 250, 253, 0.74);
+      }
+
+      .recommendation-item strong {
+        display: block;
+        color: var(--plum);
+        font-family: var(--font-display);
+        font-size: 1.34rem;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .recommendation-item p {
+        margin: 9px 0 0;
+        font-size: 0.93rem;
+        line-height: 1.45;
+      }
+
+      .verdict {
+        margin-top: 18px;
+        padding: 18px;
+        border-left: 7px solid var(--teal);
+        background: rgba(249, 226, 234, 0.16);
+      }
+
+      footer {
+        width: min(var(--max), calc(100% - 32px));
+        margin: 38px auto;
+        color: rgba(75, 32, 55, 0.78);
+        font-size: 0.86rem;
+      }
+
+      @media (max-width: 980px) {
+        .site-nav {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .site-nav .mini-links {
+          justify-content: center;
+        }
+
+        .site-nav img {
+          margin: 0 auto;
+        }
+
+        .episode-brief,
+        .episode-layout,
+        .reader-next,
+        .ritual-grid,
+        .stats-grid,
+        .recommendation-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .episode-brief {
+          margin-top: 18px;
+        }
+
+        .side-rail {
+          position: static;
+        }
+
+        .desktop-only {
+          display: none;
+        }
+
+        .mobile-kit {
+          display: block;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .review-banner {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+
+        .review-banner nav {
+          justify-content: flex-start;
+        }
+
+        .site-nav {
+          width: min(100% - 24px, var(--max));
+          margin-top: 10px;
+        }
+
+        .site-nav .mini-links {
+          display: none;
+        }
+
+        .reader-hero {
+          width: 100%;
+          min-height: 540px;
+          margin-top: 10px;
+          border-left: 0;
+          border-right: 0;
+        }
+
+        .reader-hero::before {
+          background:
+            radial-gradient(circle at 18% 12%, rgba(249, 226, 234, 0.16), transparent 34%),
+            linear-gradient(0deg, rgba(255, 249, 252, 0.8) 0%, rgba(255, 248, 251, 0.68) 54%, rgba(255, 244, 248, 0.34) 100%),
+            linear-gradient(90deg, rgba(255, 249, 252, 0.44), rgba(249, 226, 234, 0.08));
+        }
+
+        .reader-hero::after {
+          background:
+            linear-gradient(0deg, rgba(255, 250, 253, 0.72) 0%, transparent 38%),
+            linear-gradient(90deg, rgba(249, 226, 234, 0.08), rgba(255, 248, 251, 0.18) 74%);
+        }
+
+        .hero-image {
+          object-position: 50% center;
+        }
+
+        .hero-copy {
+          inset: auto 18px 26px 18px;
+          width: auto;
+        }
+
+        .brand-mark {
+          width: min(128px, 42vw);
+          margin-bottom: 12px;
+        }
+
+        h1 {
+          max-width: 9.8ch;
+          font-size: clamp(2.55rem, 11.6vw, 3.18rem);
+        }
+
+        .dek {
+          font-size: 1.06rem;
+        }
+
+        .content-shell {
+          width: min(100% - 24px, var(--max));
+        }
+
+        .brief-card,
+        .article-card,
+        .side-card,
+        .reader-next-card,
+        .recommendation-card,
+        .ritual-card {
+          box-shadow: 0 12px 30px rgba(48, 23, 37, 0.1);
+        }
+
+        .brief-card {
+          padding: 14px 16px;
+        }
+
+        .brief-card:not([open]) p {
+          display: none;
+        }
+
+        .article-card {
+          padding: 26px 18px;
+        }
+
+        .article-card h2 {
+          font-size: clamp(2rem, 9vw, 2.85rem);
+        }
+
+        .article-meta {
+          gap: 7px;
+        }
+
+        .pill {
+          font-size: 0.72rem;
+        }
+
+        .pullquote {
+          padding: 30px 18px 26px 24px;
+        }
+
+        .pullquote p {
+          font-size: clamp(1.34rem, 8vw, 1.88rem);
+        }
+
+        .side-links {
+          grid-template-columns: 1fr;
+        }
+
+        .reader-signup-row {
+          grid-template-columns: 1fr;
+        }
+
+        .recommendation-item,
+        .ritual-card {
+          min-height: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="review-banner" role="banner">
+      <div class="review-banner-meta">
+        <span class="review-note"><strong>Review mock only</strong> Episode 1 hybrid template candidate, not live production</span>
+        <span class="episode-meta-line">Episode 01: On Wednesdays We Use AI <time datetime="2026-06-03">June 3, 2026</time></span>
+      </div>
+      <nav aria-label="Episode navigation model">
+        <a class="return-link" href="../../episodes.html">Return to The Season</a>
+        <a href="#top">Top</a>
+        <a href="#article">Article</a>
+        <a href="#study-pack">Study Pack</a>
+        <a href="#weekly-ritual">Weekly Ritual</a>
+      </nav>
+    </div>
+    <div class="progress" aria-hidden="true"><span data-progress></span></div>
+
+    <nav class="site-nav" aria-label="Episode review navigation">
+      <a href="../../index.html" aria-label="LAiDIES home">
+        <img src="../../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES">
+      </a>
+      <div class="mini-links">
+        <a class="mini-link" href="../../this-week.html">This Week</a>
+        <a class="mini-link" href="../../learn.html">Learn</a>
+        <a class="mini-link" href="../../clubhouse.html">Clubhouse</a>
+      </div>
+    </nav>
+
+    <header class="reader-hero" id="top">
+      <img class="hero-image" src="assets/episode-01-hybrid-template-candidate/episode-01-what-like-its-hard.png" alt="Episode 1 article image with a pink iMac, What Like It's Hard on the screen, First Step neon sign, keyboard, Harvard Law School application, and Y2K desk objects">
+      <div class="hero-copy">
+        <a class="brand-mark" href="../../index.html" aria-label="LAiDIES home">
+          <img src="../../assets/brand/laidies-logo-masthead-approved-v3.png" alt="LAiDIES">
+        </a>
+        <p class="eyebrow">Episode 01</p>
+        <h1>On Wednesdays We Use AI</h1>
+        <p class="dek">Get in loser, we're learning AI. One Wednesday at a time.</p>
+      </div>
+    </header>
+
+    <main class="content-shell">
+      <section class="episode-brief" aria-label="Episode 1 editorial framing">
+        <details class="brief-card">
+          <summary>On This Season...</summary>
+          <p class="episode-intro-copy">This is a 24-episode season. Like the glory days, when TV actually let you fall in love with the characters before cancelling them after eight. No bingeing. New episode every Wednesday. And every skill you pick up here? It's all leading somewhere. Think of it like Cher's outfit planner building one look at a time. By the finale, you'll have built your own squad of AI employees, each named after a woman from our favourite era of pop culture.</p>
+        <p class="episode-intro-copy">The arc: she stops feeling behind, learns to delegate to machines, keeps her standards, builds her squad, and becomes the woman other people come to when the future gets confusing. That's where we're headed. One Wednesday at a time.</p>
+        </details>
+        <details class="brief-card">
+          <summary>On This Episode...</summary>
+          <p class="episode-intro-copy">The one in which our heroine admits she put off learning AI for an embarrassingly long time, discovers the gender gap is a physics problem not a confidence problem, learns that for every 100 men using AI only 78 women do (and it's not because we can't &mdash; we're already drowning), compares AI to Regina George (uncanny), explains the whole thing in 90 seconds using Cher's closet from Clueless, and points to a 10-minute Club Pack try-on that takes less time than ordering an espresso martini. Nobody here knows what they're doing. We're all figuring it out together, every Wednesday. Dolly would approve. Miranda Priestly might even give this the nod. You know the one. Oh, and there are Easter eggs hidden in the images and text. If you spot them all, you can sit with us.</p>
+        </details>
+      </section>
+
+      <section class="episode-layout" id="article" aria-label="Episode 1 hybrid article layout">
+        <article class="article-card article-container">
+    <h2>I couldn't help but wonder...</h2>
+
+    <p class="lead-paragraph">...why every AI resource I found was either written by men in fleece vests (say no more), or so surface-level it basically amounted to &ldquo;AI is transformative!&rdquo; AI is transformative? <em>Groundbreaking...</em></p>
+
+    <p>I have a full-time job, a team to manage, and a calendar that is perpetually a Tetris game I'm losing. The idea of adding &ldquo;become AI-literate&rdquo; to that pile felt about as realistic as Miranda Priestly asking me to get her the unpublished Harry Potter manuscript. Technically possible, but at what personal cost?</p>
+
+    <p>Meanwhile I was watching people build AI tools that weren't solving the right problems because they weren't asking the right questions. And I kept thinking: I know what the right questions are. I just don't know how to use this thing yet.</p>
+
+    <p>So eventually I stopped waiting and started tinkering. I built something small that actually helped with my real job. It wasn't pretty. It definitely wasn't perfect. But it worked well enough to make me realize: oh. I can do this. The thing stopping me wasn't ability. It was that nobody had explained it in a way that made me want to start.</p>
+
+    <p>I want to be clear: I am no AI Slayer. There is no Watcher guiding me through a prophecy, no ancient training montage that happened off-screen. I'm further down the path than I was, but I'm still learning, still getting things wrong, still googling stuff mid-conversation.</p>
+
+    <p>But I got tired of waiting for something that didn't exist. So I'm writing it. For me. And for you. And I'm not doing it alone. Throughout this series you'll hear from other women who are figuring this out in real time alongside me. This isn't a lecture. It's a group chat.</p>
+
+    <p><strong>If any of that sounds familiar: get in loser, we're learning AI.</strong></p>
+
+    <!-- ═══ SECTION 2 ═══ -->
+    <div class="section-divider"></div>
+
+    <h2>The Invisible Load Has an AI Layer Now</h2>
+
+    <div class="section-image">
+        <img src="../../assets/9-to-5-chaos.png" alt="Girl Power Energy 9 to 5 Chaos desk scene with lime iBook, phone, coffee, planner, magazines, and stacked work objects">
+    </div>
+
+    <p>There's a growing body of research on why women are less engaged with AI than men, and the commentary loves to focus on confidence and imposter syndrome. Those are real, but they're not what I experienced and they're not what I hear from the women I talk to. What I hear is: I'm already drowning. I have no idea where to start. And even if I did, when exactly am I supposed to do this?</p>
+
+    <p>You cannot add hours to a day that's already over-subscribed. And women in corporate roles are already carrying more context, more logistics, more emotional labor, more &ldquo;office housework&rdquo; than their male peers. You know how there's always one person who preps the deck before the meeting, remembers the feedback from last time, follows up on the action items nobody else tracked, and also somehow delivers her own work on time? That person is usually not named Steve. No offense to all the Steves out there fightin' the good fight.</p>
+
+    <p><strong>It's not a confidence problem. It's a physics problem.</strong></p>
+
+    <div class="stat-block">
+        <div class="stat-number">78 : 100</div>
+        <div class="stat-label">For every 100 men using generative AI tools, only 78 women do. Even when you control for job type, age, education, and access. Same tools, same desks, different adoption rates.</div>
+        <div class="stat-label" style="margin-top: 10px; font-size: 0.8rem; opacity: 0.5;">Harvard Digital Data Design Institute, 2024 &middot; 140,000 participants globally</div>
+    </div>
+
+    <p>Lean In's 2026 survey gets into the specifics and they're uncomfortable enough to be useful:</p>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="number">23%</div>
+            <div class="label">more likely men are encouraged by managers to use AI</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">27%</div>
+            <div class="label">more likely men are praised when they use AI</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">32%</div>
+            <div class="label">more likely women worry AI use looks like cutting corners</div>
+        </div>
+    </div>
+
+    <p>That last stat hit me like Samantha Jones delivering an uncomfortable truth over brunch. It captures something real about how women have been conditioned in professional environments. We've spent entire careers building credibility through preparation, thoroughness, and visible effort. Now there's a tool that makes hard things look easy, and some part of our brain calculates (correctly, based on historical data) that &ldquo;easy&rdquo; might get held against us.</p>
+
+    <p><strong>It's not imposter syndrome. It's pattern recognition.</strong> (Ironic, given what AI actually is, but we'll get there.)</p>
+
+    <p>And here's the cruel part: the tool that could give you time back requires time you don't have to learn. So you don't start. The gap compounds week over week. And a year from now the distance between you and your colleague who started six months ago isn't a gap. It's a canyon.</p>
+
+    <p>And as Dolly would say, you better get to building your own bridge, because ain't nobody building it for you, honey.</p>
+
+    <!-- ═══ SECTION 3 ═══ -->
+    <div class="section-divider"></div>
+
+    <div class="section-image">
+        <img src="assets/episode-01-hybrid-template-candidate/episode-01-inline-article-image.jpg" alt="Hand grabbing pink Motorola Razr, Spice Girls magazine, GO GET IT sticky note — she's making moves">
+    </div>
+
+    <h2>Why You Can't Afford the Glacial Pace</h2>
+
+    <p>Fei-Fei Li, the Stanford professor known as the &ldquo;Godmother of AI,&rdquo; said it plainly:</p>
+
+    <blockquote class="pull-quote">
+        <p>If we don't get women involved in AI, we're going to have a future that's built by half the population for all of the population.</p>
+        <cite>Fei-Fei Li, Stanford AI Lab</cite>
+    </blockquote>
+
+    <p>And this isn't just about fairness. Harvard research found that when women don't use AI, the tools literally get worse for everyone because they learn from a skewed pool of users. The less women use them, the less they work for women, and the cycle keeps going. Getting women involved in AI isn't charity. It makes the technology better for all of us.</p>
+
+    <p>And right now? That's exactly what's happening. The colleague who got encouraged to try AI while you were organizing the team offsite or prepping your VP presentation is already six months ahead.</p>
+
+    <p>Here's what it actually looks like when women start using AI: they draft the board memo in twenty minutes instead of two hours. They prep for a meeting by having AI summarize the last three months of project updates so they walk in already knowing what everyone else forgot. They get a first pass on that awkward email to the difficult stakeholder, tweak it with their own judgment, and send it in five minutes instead of agonizing over it for thirty. The work doesn't get worse. It gets done faster, and the time you get back is yours. Is it perfect every time? No. Sometimes AI gives you something useless and you start over. But even then, you've lost five minutes instead of an hour.</p>
+
+    <div class="highlight-box">
+        <p style="margin-bottom: 0;"><strong>BCG found that senior women who actually break through the initial hesitation don't just catch up to men. They lead them by 14 percentage points.</strong> Fourteen. The women who get past the &ldquo;when would I even do this&rdquo; phase become the power users, because they bring something AI fundamentally cannot replicate: fifteen years of professional judgment. The ability to ask the right question before opening the tool. The instinct that tells you something is off in a document before you can even articulate why.</p>
+    </div>
+
+    <p>This isn't about becoming technical. It's about not leaving a genuinely useful tool sitting unopened on your desk while everyone else figures out what it can do.</p>
+
+    <!-- ═══ SECTION 4 ═══ -->
+    <div class="section-divider"></div>
+
+    <div class="section-image">
+        <img src="assets/episode-01-hybrid-template-candidate/episode-01-inline-article-image-02.jpg" alt="Pink journal with fluffy pen, espresso martini, and Girl Talk board game on dark marble">
+    </div>
+
+    <h2>The Dress Code</h2>
+    <p class="section-subhed">What to expect. What not to expect. What to wear is your business — but whatever it is, we're sure it's fabulous.</p>
+
+    <p>I started <span class="brand-name">LAiDIES</span> because the on-ramp I needed didn't exist. Everything was either too technical (written for people who wanted to build models, not use them), too shallow (listicles with all the nutritional value of a rice cake), or too time-consuming (40-hour courses marketed to people who apparently don't have jobs, children, or a standing Thursday businesswomen's special happy hour with friends).</p>
+
+    <p>So I made something different. Posted every Wednesday (as if we would choose any other day), written for women in corporate roles who are already competent, already busy, and just need someone to explain this in a way that connects to actual work rather than theoretical computer science.</p>
+
+    <p>Think of it like Elle Woods' approach to Harvard Law. She didn't show up knowing everything. She showed up being underestimated, learned the system faster than anyone expected, and won her case because she brought a different kind of intelligence that nobody in that room had thought to apply. You don't need a technical background. You just need someone to explain it clearly and a group of women to figure it out with.</p>
+
+    <!-- ═══ SECTION 5 ═══ -->
+    <div class="section-divider"></div>
+
+    <div class="section-image">
+        <img src="assets/episode-01-hybrid-template-candidate/episode-01-inline-article-image-03.jpg" alt="Retro iMac G3 with glowing pink screen, Burn Book, cassette tapes, and 90s nostalgia">
+    </div>
+
+    <h2>The Cocktail Party Explanation</h2>
+    <p class="section-subhed">What you'd say if someone asked you "so what IS AI?" over drinks.</p>
+
+    <p>Before next week, I want you armed with a mental model solid enough to hold up at any dinner table, boardroom, or group chat where someone says &ldquo;AI&rdquo; like they know what they're talking about.</p>
+
+    <p><strong>Here's what AI actually is, stripped of everything unnecessary:</strong></p>
+
+    <p>Imagine someone who has absorbed an enormous amount of human writing &mdash; books, articles, websites, forums, manuals &mdash; billions of documents, but has never lived a single day of real life. No job, no relationships, no consequences, no awkward moment at a holiday party that taught them something about human nature. They can sound incredibly knowledgeable because they've absorbed enormous volumes of how language works, how ideas connect, how arguments are typically structured. But they don't understand any of it the way you do &mdash; through experience, through getting things wrong, through building judgment one decision at a time over a career.</p>
+
+    <p>When you type something into ChatGPT or Claude or Gemini, you're not talking to an intelligence. You're prompting a very sophisticated pattern-completion engine that predicts, word by word, what text should come next based on everything it absorbed during training. It's autocomplete at a scale that feels like thought but isn't.</p>
+
+    <p>Think of it like Cher's closet computer from <em>Clueless</em> &mdash; it can match patterns and generate outfit combinations all day long, but it has absolutely no idea that you can't wear white after Labor Day to a conservative client meeting where you're already fighting to be taken seriously. That contextual judgment? It's yours. AI will never have it. It's the Louboutins of the professional world. Anyone can buy a shoe, but not everyone knows how to walk in them.</p>
+
+    <p>But AI can also be confidently, spectacularly wrong. It doesn't verify whether what it generates is true &mdash; it only knows whether it's <em>plausible</em>. It's the Burn Book from <em>Mean Girls</em>: a collection of observations written with absolute authority, some accurate, some completely fabricated, all presented with the same unbothered confidence. &ldquo;Made out with a hot dog&rdquo;? AI would generate that statement with the exact same certainty as an actual fact, because it has no mechanism for distinguishing between the two. <strong>Regina George energy, but make it software.</strong></p>
+
+    <div class="highlight-box">
+        <p style="margin-bottom: 0;"><strong>Your job is knowing which parts to trust and which to push back on. You've been doing that with other people's work your entire career. This is no different.</strong></p>
+    </div>
+
+    <section class="concept-definitions" id="study-pack" aria-label="Three core concept definitions">
+    <h3 class="article-subheading">So You Don't Pull a Cher</h3>
+        <p class="section-subhed">Quick definitions so you can use these words confidently in a meeting without accidentally arguing that it doesn't say RSVP on the Statue of Liberty.</p>
+
+    <details class="glossary-term">
+        <summary>
+            <span class="term-name">Generative AI</span>
+            <span class="term-preview">Think of it like having a Carrie Bradshaw in your laptop. Not one that finds you articles to read (that's Google). One that actually writes the column for you.</span>
+            <span class="term-toggle"><span class="when-closed">Read full definition</span><span class="when-open">Show less</span></span>
+        </summary>
+        <div class="term-def">Think of it like having a Carrie Bradshaw in your laptop. Not one that finds you articles to read (that's Google). One that actually writes the column for you. Generative AI creates new content &mdash; text, images, code, summaries, first drafts &mdash; instead of just searching, sorting, or analyzing what already exists. In most office conversations in 2026, when someone says &ldquo;AI,&rdquo; this is what they mean.</div>
+    </details>
+
+    <details class="glossary-term">
+        <summary>
+            <span class="term-name">Model</span>
+            <span class="term-preview">ChatGPT, Claude, and Gemini are products &mdash; the apps you open. The model is the trained brain powering each one.</span>
+            <span class="term-toggle"><span class="when-closed">Read full definition</span><span class="when-open">Show less</span></span>
+        </summary>
+        <div class="term-def">ChatGPT, Claude, and Gemini are products &mdash; the apps you open. The model is the trained brain powering each one. Same way Vogue, Elle, and Harper's Bazaar are all fashion magazines, but each has a different editor-in-chief with different taste, judgment, and style. You give the same brief to all three and get back wildly different results. That's the model difference. (ChatGPT runs on GPT models from OpenAI. Claude runs on Anthropic's models. Gemini is Google.)</div>
+    </details>
+
+    <details class="glossary-term">
+        <summary>
+            <span class="term-name">Hallucination</span>
+            <span class="term-preview">When AI produces something that sounds confident and polished but is factually wrong or completely made up. It''s not lying &mdash; lying requires intent.</span>
+            <span class="term-toggle"><span class="when-closed">Read full definition</span><span class="when-open">Show less</span></span>
+        </summary>
+        <div class="term-def">When AI produces something that sounds confident and polished but is factually wrong or completely made up. It''s not lying &mdash; lying requires intent. It just has no built-in &ldquo;hold on, do we have receipts for this?&rdquo; mechanism. Think of it as your most confident friend who will answer any question with total authority whether they actually know or not. (&ldquo;I''m not a regular mom, I''m a cool mom&rdquo; &mdash; AI trying to be helpful and completely misreading the room, every single time.)</div>
+    </details>
+    </section>
+
+    <!-- Club Pack Try-On -->
+    <div class="section-divider"></div>
+
+    
+
+    <!-- Next Week -->
+    <div class="next-week">
+        <h3>Next Wednesday: <span class="brand-name">LAiDIES</span> #2</h3>
+        <p>She learns to actually talk to AI so it gives her something useful back. Turns out, prompting is just delegation. And you already know how to do that.</p>
+    </div>
+
+<!-- Sign-off -->
+<section class="signoff">
+    <div class="signoff-banner">
+        <span class="signoff-kicker">Final Sip</span>
+        <span class="signoff-remember">Remember, LAiDIES:</span>
+        <span class="signoff-line">You'll need more than a cup of ambition to keep up in the male-dominated world of AI. Lucky for you, this series comes in small sips.</span>
+        <span class="signoff-sips">Small sips. Big moves.</span>
+    </div>
+
+    <div class="signoff-bottom">
+        <div class="challenge-box">
+            <div class="challenge-title">The LAiDIES Challenge</div>
+            <p>Got a sharper &ldquo;Remember, LAiDIES:&rdquo; line that would make Dolly proud? Drop yours in the comments. The favorite gets featured, with credit, in next week's Episode. We're trailblazers here, not idea thieves.</p>
+        </div>
+    </div>
+
+    <section class="reader-next" aria-label="Share, subscribe, and follow LAiDIES">
+        <div class="reader-next-card featured">
+            <p class="label">New Episodes Every Wednesday</p>
+            <h3>Get the next one in your inbox.</h3>
+            <p>One useful Episode a week, plus the occasional excellent detour. No spam. No homework spiral.</p>
+            <form class="reader-signup-form" action="https://buttondown.com/api/emails/embed-subscribe/laidies" method="post" target="episodeSubscribeFrame">
+                <label for="episodeSignupEmail">Email address</label>
+                <div class="reader-signup-row">
+                    <input id="episodeSignupEmail" name="email" type="email" placeholder="itsbritneybitch@icon.com" required>
+                    <button type="submit">Subscribe</button>
+                </div>
+                <p class="reader-form-note">Powered by Buttondown. <a href="https://buttondown.com/laidies" target="_blank" rel="noopener">Open Buttondown directly</a>.</p>
+            </form>
+            <iframe class="reader-subscribe-frame" name="episodeSubscribeFrame" title="LAiDIES subscription response" aria-hidden="true"></iframe>
+        </div>
+
+        <div class="reader-next-card">
+            <p class="label">Send It Energy</p>
+            <h3>Bring a friend.</h3>
+            <p>Share this Episode with the woman in your group chat who has been meaning to start.</p>
+            <div class="reader-action-grid" aria-label="Share Episode 1">
+                <button class="reader-action" id="shareEpisodeButton" type="button">Share Article</button>
+                <button class="reader-action secondary" id="copyEpisodeLinkButton" type="button">Copy Link</button>
+                <a class="reader-link-button" href="https://www.instagram.com/we.are.laidies/" target="_blank" rel="noreferrer">Instagram</a>
+                <span class="share-status" id="shareEpisodeStatus" role="status" aria-live="polite"></span>
+                <input class="share-url-fallback" id="shareEpisodeUrl" type="text" readonly hidden aria-label="Episode 1 share link">
+            </div>
+        </div>
+    </section>
+</section>
+        </article>
+
+        <aside class="side-rail" aria-label="Episode reader tools">
+          <details class="side-card mobile-kit" open>
+            <summary><strong>Weekly Ritual</strong></summary>
+            <p>For mobile, this becomes the compact command center: the article first, the weekly objects second.</p>
+          </details>
+
+          <div class="side-card">
+            <span class="label">After The Read</span>
+            <h3>Finish the Episode 01 ritual</h3>
+            <p>Open the Bag, take the quiz, save the printable, try one small task, and play this week's DJ JAIDY track.</p>
+            <a class="side-primary" href="../../this-week.html?issue=1&amp;bag=open">Open the Episode 01 Bag</a>
+            <div class="side-links">
+              <a href="../../learn/quiz.html?from=this-week&amp;issue=1&amp;bag=open#quiz-start">Quiz</a>
+              <a href="../../printable.html?issue=1&amp;from=this-week&amp;bag=open">Printable</a>
+              <a href="../../try-on.html?from=this-week&amp;issue=1&amp;bag=open">Try-On</a>
+              <a href="../../games/dj-booth.html?from=this-week&amp;issue=1&amp;bag=open#djApp">Anthem</a>
+            </div>
+          </div>
+
+          <div class="side-card desktop-only">
+            <span class="label">Jump</span>
+            <h3>Read by section</h3>
+            <nav class="section-jump" aria-label="Article section shortcuts">
+              <a href="#article">Opening</a>
+              <a href="#study-pack">Study Pack</a>
+              <a href="#weekly-ritual">Weekly Ritual</a>
+              <a href="#recommendations">Template notes</a>
+            </nav>
+          </div>
+
+          <div class="side-card">
+            <span class="label">New feature</span>
+            <h3>Progress and return path</h3>
+            <p>The reading bar and persistent return links make the article feel more premium and easier to finish on mobile.</p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="ritual-section" id="weekly-ritual" aria-label="Episode 1 weekly ritual">
+        <div class="section-header">
+          <p class="label">What's In The Bag</p>
+          <h2>Weekly Ritual</h2>
+          <p>The best Episode 3 system idea is the connected weekly ritual. The refinement here is making it secondary to the read, then giving it one clean path after the article.</p>
+        </div>
+        <div class="ritual-grid">
+          <article class="ritual-card primary">
+            <span class="label">01 / Read</span>
+            <strong>On Wednesdays We Use AI</strong>
+            <p>Start here. This page is the editorial center of the Episode.</p>
+          </article>
+          <a class="ritual-card" href="../../this-week.html?issue=1&amp;bag=open">
+            <span class="label">02 / Return</span>
+            <strong>Open the Episode Bag</strong>
+            <p>The weekly hub should remember the objects and give readers the next action.</p>
+          </a>
+          <a class="ritual-card" href="../../learn/quiz.html?from=this-week&amp;issue=1#quiz-start">
+            <span class="label">03 / Check</span>
+            <strong>Quick Quiz</strong>
+            <p>Confirm the core idea without making the reader feel like she is doing homework.</p>
+          </a>
+          <a class="ritual-card" href="../../try-on.html?from=this-week&amp;issue=1&amp;bag=open">
+            <span class="label">04 / Try</span>
+            <strong>Ten Minute Start</strong>
+            <p>One real, low-risk task that proves the Episode is useful immediately.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="recommendation-section" id="recommendations" aria-label="Template recommendation">
+        <div class="recommendation-card">
+          <p class="label">Recommendation</p>
+          <h2>Best-elements template direction</h2>
+          <p>This candidate keeps Episode 1's voice, uses the Episode 1 article image as the masthead source with a blush wash, adopts Episode 3's stronger reader system, and adds missing UX scaffolding so the page feels premium without making the reader work to understand it.</p>
+
+          <div class="recommendation-grid">
+            <article class="recommendation-item">
+              <strong>Use the top bar as the reading action.</strong>
+              <p>The live Episode bar should show Top, Article, Study Pack, and Weekly Ritual. That makes the masthead feel editorial without needing extra hero buttons.</p>
+            </article>
+            <article class="recommendation-item">
+              <strong>Make Weekly Ritual compact on mobile.</strong>
+              <p>Keep the connected Bag, quiz, Try-On, printable, and song, but present them after the read or as a compact drawer, not as a wall of cards before the article.</p>
+            </article>
+            <article class="recommendation-item">
+              <strong>Use only approved Episode art.</strong>
+              <p>Every Episode masthead should use one existing image from that Episode, treated like the homepage masthead. Do not fill gaps with adjacent object-world or printable art unless Ali approves it for that Episode.</p>
+            </article>
+            <article class="recommendation-item">
+              <strong>Standardize quote treatment.</strong>
+              <p>Use Episode 3's premium quote frame across Episodes. It feels editorial and branded without looking like a generic blockquote.</p>
+            </article>
+            <article class="recommendation-item">
+              <strong>Require three core definitions.</strong>
+              <p>Every Episode should include a "So You Don't Pull a Cher" section with three concepts from that article. Episode 3 is missing this and should be revised before the template is considered complete.</p>
+            </article>
+            <article class="recommendation-item">
+              <strong>Standardize section headings.</strong>
+              <p>Use the colored bar plus full text highlight. Remove tiny centered separators when the colored divider is already present.</p>
+            </article>
+            <article class="recommendation-item">
+              <strong>Standardize recap framing.</strong>
+              <p>Episode 1 can use italic "On This Season..." and "On This Episode..." framing. Later Episodes should use italic "Previously on..." and "On this Episode..." framing.</p>
+            </article>
+            <article class="recommendation-item">
+              <strong>Add progress and a clearer return path.</strong>
+              <p>A slim reading bar, Return to The Season, and top-bar links to Article, Study Pack, and Weekly Ritual make the page easier to complete on mobile.</p>
+            </article>
+          </div>
+
+          <div class="verdict">
+            <strong>Recommendation for next slice:</strong> create a reusable Episode template standard from this direction before aligning Episode 2. Then apply it to Episode 1 and Episode 2 with each Episode's own image, article copy preserved, and no invented masthead copy.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Review artifact only. Do not implement from this file directly without Ali approval and a reusable template extraction plan.
+    </footer>
+
+    <script>
+      const progress = document.querySelector("[data-progress]");
+      const shareEpisodeButton = document.getElementById("shareEpisodeButton");
+      const copyEpisodeLinkButton = document.getElementById("copyEpisodeLinkButton");
+      const shareEpisodeStatus = document.getElementById("shareEpisodeStatus");
+      const shareEpisodeUrl = document.getElementById("shareEpisodeUrl");
+      const episodeShareLink = "https://wearelaidies.com/issues/issue-01.html";
+
+      function updateProgress() {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0;
+        progress.style.width = `${pct}%`;
+      }
+
+      updateProgress();
+      window.addEventListener("scroll", updateProgress, { passive: true });
+
+      function setShareStatus(message) {
+        if (shareEpisodeStatus) shareEpisodeStatus.textContent = message;
+      }
+
+      function showShareFallback() {
+        if (!shareEpisodeUrl) return;
+        shareEpisodeUrl.value = episodeShareLink;
+        shareEpisodeUrl.hidden = false;
+        shareEpisodeUrl.focus({ preventScroll: true });
+        shareEpisodeUrl.select();
+      }
+
+      async function copyEpisodeLink() {
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(episodeShareLink);
+            setShareStatus("Link copied.");
+            return;
+          }
+        } catch (error) {
+          // Fall through to the visible copy field.
+        }
+
+        showShareFallback();
+        setShareStatus("Copy this link.");
+      }
+
+      async function shareEpisode() {
+        if (navigator.share) {
+          try {
+            await navigator.share({
+              title: "LAiDIES Episode 01: On Wednesdays We Use AI",
+              text: "Read LAiDIES Episode 01: On Wednesdays We Use AI.",
+              url: episodeShareLink
+            });
+            setShareStatus("Article shared.");
+            return;
+          } catch (error) {
+            if (error && error.name === "AbortError") return;
+          }
+        }
+
+        await copyEpisodeLink();
+      }
+
+      if (shareEpisodeButton) shareEpisodeButton.addEventListener("click", shareEpisode);
+      if (copyEpisodeLinkButton) copyEpisodeLinkButton.addEventListener("click", copyEpisodeLink);
+    </script>
+  </body>
+</html>
