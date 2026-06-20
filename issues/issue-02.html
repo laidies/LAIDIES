@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LAiDIES #2: Tell Me What You Want</title>
+    <title>LAiDIES Episode 02: Tell Me What You Want</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../content/episode-page.css?v=brand-missed-pages-4">
     <style>
         :root {
@@ -22,12 +22,14 @@
             --bg-warm: #fdf8fb;
             --border: #f0e0eb;
             --gold: #c9a84c;
+            --accent-blue: #b9d7dc;
+            --teal: #5f9f8d;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
             color: var(--text);
             background: var(--bg);
             line-height: 1.7;
@@ -126,6 +128,13 @@
         .signoff-bottom .brand-name,
         .challenge-box .brand-name { color: var(--text); }
 
+        .article-card p .brand-name,
+        .article-card li .brand-name {
+            font: inherit;
+            letter-spacing: 0;
+            white-space: normal;
+        }
+
         /* --- ARTICLE --- */
         .article-container {
             max-width: 720px;
@@ -167,41 +176,78 @@
 
         /* --- PULL QUOTE --- */
         .pull-quote {
-            text-align: center;
-            margin: 2.5em 0;
-            padding: 0 20px;
+            position: relative;
+            clear: both;
+            display: block;
+            isolation: isolate;
+            max-width: min(94%, 760px);
+            margin: clamp(3.1rem, 7vw, 5rem) auto;
+            padding: clamp(1.35rem, 3vw, 1.9rem) clamp(1.55rem, 4vw, 2.35rem) clamp(1.35rem, 3vw, 1.9rem) clamp(5.2rem, 13vw, 8.8rem);
+            color: #4b2148;
+            background:
+                linear-gradient(90deg, rgba(185, 93, 120, 0.72), rgba(185, 93, 120, 0.72)) 0 0 / 46% 2px no-repeat,
+                linear-gradient(180deg, rgba(185, 93, 120, 0.72), rgba(185, 93, 120, 0.72)) 0 0 / 2px 100% no-repeat,
+                linear-gradient(270deg, rgba(185, 215, 220, 0.86), rgba(185, 215, 220, 0.86)) 100% 100% / 38% 2px no-repeat,
+                linear-gradient(0deg, rgba(185, 215, 220, 0.86), rgba(185, 215, 220, 0.86)) 100% 100% / 2px 54% no-repeat;
+            border: 0;
+            box-shadow: none;
+            font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+            font-size: clamp(1.34rem, 2.35vw, 1.92rem);
+            font-style: italic;
+            font-weight: 600;
+            line-height: 1.18;
+            overflow: visible;
+            text-align: left;
+            text-wrap: balance;
         }
 
         .pull-quote p {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-style: italic;
-            color: var(--primary);
-            line-height: 1.5;
+            color: inherit;
+            font: inherit;
+            line-height: inherit;
             margin-bottom: 0;
         }
 
-        .pull-quote .attribution {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
-            font-style: normal;
-            color: var(--text-light);
-            margin-top: 10px;
-            letter-spacing: 0.5px;
-        }
-
-        .pull-quote::before,
-        .pull-quote::after {
-            content: '';
+        .pull-quote cite {
             display: block;
-            width: 200px;
-            height: 2px;
-            background: linear-gradient(to right, transparent, var(--neon-pink), transparent);
-            margin: 0 auto 20px;
+            margin-top: 1rem;
+            color: var(--text-light);
+            font-family: "Inter", sans-serif;
+            font-size: 0.78rem;
+            font-style: normal;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            line-height: 1.4;
+            text-transform: uppercase;
+        }
+
+        .pull-quote::before {
+            content: "\201C";
+            position: absolute;
+            left: clamp(0.4rem, 1.4vw, 0.8rem);
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(185, 93, 120, 0.26);
+            background: transparent;
+            font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+            font-size: clamp(5.8rem, 14vw, 11rem);
+            font-style: normal;
+            font-weight: 900;
+            line-height: 0.72;
+            pointer-events: none;
         }
 
         .pull-quote::after {
-            margin: 20px auto 0;
+            content: "";
+            position: absolute;
+            right: clamp(0.7rem, 2vw, 1.2rem);
+            bottom: clamp(0.52rem, 1.4vw, 0.85rem);
+            width: clamp(28px, 7vw, 64px);
+            height: clamp(28px, 7vw, 64px);
+            border-right: 2px solid rgba(185, 215, 220, 0.78);
+            border-bottom: 2px solid rgba(185, 215, 220, 0.78);
+            background: transparent;
+            pointer-events: none;
         }
 
         /* --- SIDE PULL QUOTE (magazine style) --- */
@@ -255,17 +301,11 @@
 
         /* --- SECTION DIVIDER --- */
         .section-divider {
-            text-align: center;
-            margin: 3.5rem 0 2rem;
+            margin: clamp(2.4rem, 6vw, 3.6rem) 0 0;
         }
 
         .section-divider::before {
-            content: '';
-            display: block;
-            width: 120px;
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--neon-pink), transparent);
-            margin: 0 auto;
+            display: none;
         }
 
         /* --- SECTION IMAGES --- */
@@ -479,83 +519,345 @@
 
         /* --- SIGN-OFF --- */
         .signoff {
-            text-align: center;
+            clear: both;
+            position: relative;
+            overflow: hidden;
+            width: min(var(--episode-endcap-width, 900px), 100%);
+            margin: clamp(3rem, 7vw, 5rem) auto clamp(2rem, 5vw, 3.5rem);
             padding: 0;
-            margin-top: 3em;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .signoff::before {
+            content: "";
+            display: block;
+            width: min(360px, 72%);
+            height: 10px;
+            margin: 0 auto 22px;
+            background: linear-gradient(90deg, transparent, var(--neon-pink), var(--accent-blue), rgba(252, 228, 242, 0.96), transparent);
+            border-radius: 999px;
         }
 
         .signoff-banner {
-            background: var(--accent-light);
-            padding: 50px 30px;
-            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
             margin: 0 auto;
-            max-width: 720px;
+            padding: clamp(34px, 6vw, 58px) clamp(24px, 5vw, 46px);
+            background:
+                radial-gradient(circle at 10% 18%, rgba(185, 215, 220, 0.34), transparent 10rem),
+                radial-gradient(circle at 92% 82%, rgba(185, 93, 120, 0.22), transparent 12rem),
+                linear-gradient(135deg, rgba(252, 228, 242, 0.98), rgba(255, 253, 251, 0.96) 48%, rgba(248, 241, 238, 0.96));
+            border: 1px solid rgba(111, 38, 63, 0.18);
+            border-radius: 8px;
+            box-shadow: 0 24px 52px rgba(75, 33, 72, 0.16);
         }
 
-        .signoff-banner .tagline {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: clamp(1.3rem, 3vw, 1.7rem);
-            color: var(--text);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.7;
+        .signoff-banner::before,
+        .signoff-banner::after {
+            content: "";
+            position: absolute;
+            pointer-events: none;
         }
 
-        .signoff-banner .tagline .remember {
-            display: block;
-            font-family: 'Dancing Script', cursive;
-            font-style: normal;
-            font-size: 1.4em;
-            color: var(--neon-pink);
-            margin-bottom: 12px;
+        .signoff-banner::before {
+            inset: 18px;
+            border: 1px solid rgba(255, 253, 251, 0.76);
+            border-radius: 6px;
         }
 
-        .signoff-banner .tagline .sips {
-            display: block;
-            margin-top: 12px;
-            font-style: normal;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 0.65em;
-            letter-spacing: 2px;
+        .signoff-banner::after {
+            display: none;
+        }
+
+        .signoff-kicker,
+        .signoff-remember,
+        .signoff-line,
+        .signoff-sips {
+            position: relative;
+            z-index: 1;
+        }
+
+        .signoff-kicker {
+            display: inline-flex;
+            margin-bottom: 14px;
+            padding: 7px 10px 6px;
+            color: #fffdfb;
+            background: var(--primary);
+            border-radius: 999px;
+            font-size: 0.74rem;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            line-height: 1;
             text-transform: uppercase;
-            color: var(--neon-pink);
+        }
+
+        .signoff-remember {
+            display: block;
+            margin-bottom: 14px;
+            color: var(--accent-dark);
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(1.4rem, 3vw, 2.05rem);
+            font-style: italic;
+            font-weight: 700;
+            line-height: 1.08;
+        }
+
+        .signoff-line {
+            display: block;
+            max-width: 650px;
+            margin: 0 auto;
+            color: #1d121b;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(1.55rem, 3.3vw, 2.35rem);
+            font-weight: 700;
+            letter-spacing: 0;
+            line-height: 1.18;
+        }
+
+        .signoff-sips {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 22px;
+            padding: 9px 15px;
+            color: var(--accent-dark);
+            background: rgba(255, 253, 251, 0.72);
+            border: 1px solid rgba(111, 38, 63, 0.16);
+            border-radius: 999px;
+            font-size: 0.76rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .signoff-sips::before,
+        .signoff-sips::after {
+            content: "";
+            width: 9px;
+            height: 9px;
+            background: var(--neon-pink);
+            border-radius: 50%;
         }
 
         .signoff-bottom {
-            padding: 36px 20px;
+            display: grid;
+            gap: 14px;
+            width: 100%;
+            margin: 22px auto 0;
+            padding: 0;
         }
 
         .challenge-box {
-            background: var(--bg-warm);
-            border: 2px solid var(--neon-pink);
-            border-radius: 12px;
-            padding: 32px 32px;
-            margin: 30px auto;
-            max-width: 580px;
+            background: rgba(255, 253, 251, 0.86);
+            border: 2px solid rgba(185, 93, 120, 0.48);
+            border-radius: 8px;
+            box-shadow: 0 14px 32px rgba(75, 33, 72, 0.08);
+            padding: 22px clamp(18px, 4vw, 30px);
+            margin: 0;
             text-align: center;
         }
 
         .challenge-box .challenge-title {
-            font-family: 'Dancing Script', cursive;
-            font-weight: 700;
-            color: var(--neon-pink);
-            font-size: 1.4rem;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
+            color: var(--accent-dark);
+            font-family: "Inter", sans-serif;
+            font-size: 0.76rem;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .challenge-box p,
+        .share-cta {
+            margin: 0;
+            color: #4c3b46;
+            font-size: 0.95rem !important;
+            line-height: 1.5;
         }
 
         .challenge-box p {
-            font-size: 0.95rem !important;
-            color: var(--text-light) !important;
-            margin-bottom: 0 !important;
+            max-width: 650px;
+            margin-inline: auto;
         }
 
         .share-cta {
-            font-weight: 500;
             color: var(--accent-dark);
-            font-size: 1rem;
-            margin-top: 28px;
+            font-weight: 800;
+        }
+
+        .reader-next {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+            gap: 14px;
+            width: 100%;
+            margin: 24px auto 0;
+            text-align: left;
+        }
+
+        .reader-next-card {
+            padding: clamp(18px, 3vw, 26px);
+            color: #4b2148;
+            border: 1px solid rgba(75, 33, 72, 0.14);
+            border-radius: 8px;
+            background: rgba(255, 253, 251, 0.92);
+            box-shadow: 0 14px 32px rgba(75, 33, 72, 0.08);
+        }
+
+        .reader-next-card.featured {
+            background:
+                radial-gradient(circle at 90% 8%, rgba(252, 228, 242, 0.48), transparent 10rem),
+                linear-gradient(135deg, rgba(255, 253, 251, 0.96), rgba(255, 244, 248, 0.78));
+            border-left: 8px solid #b95d78;
+        }
+
+        .reader-next-card.after-hours {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: center;
+            gap: clamp(14px, 3vw, 26px);
+            background:
+                radial-gradient(circle at 96% 18%, rgba(185, 215, 220, 0.42), transparent 11rem),
+                radial-gradient(circle at 8% 98%, rgba(252, 228, 242, 0.7), transparent 12rem),
+                rgba(255, 253, 251, 0.94);
+        }
+
+        .reader-next-card .label {
+            margin-bottom: 7px;
+        }
+
+        .reader-next-card h3 {
+            margin: 0;
+            color: #4b2148;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(1.7rem, 4vw, 2.45rem);
+            line-height: 0.98;
+        }
+
+        .reader-next-card p {
+            margin: 10px 0 0;
+            color: rgba(58, 34, 48, 0.86);
+            font-size: 1rem !important;
+            line-height: 1.5;
+        }
+
+        .reader-signup-form {
+            display: grid;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .reader-signup-form label {
+            color: rgba(75, 33, 72, 0.78);
+            font-family: "Inter", sans-serif;
+            font-size: 0.78rem;
+            font-weight: 850;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .reader-signup-row {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 8px;
+        }
+
+        .reader-signup-row input,
+        .share-url-fallback {
+            width: 100%;
+            min-width: 0;
+            border: 1px solid rgba(75, 33, 72, 0.2);
+            border-radius: 0;
+            padding: 12px 13px;
+            color: #4b2148;
+            background: rgba(255, 253, 251, 0.94);
+            font: 800 0.92rem/1.2 "Inter", sans-serif;
+        }
+
+        .reader-signup-row input::placeholder {
+            color: rgba(75, 33, 72, 0.3);
+            opacity: 1;
+        }
+
+        .reader-signup-row input:focus::placeholder {
+            color: rgba(75, 33, 72, 0.2);
+        }
+
+        .reader-signup-row button,
+        .reader-action,
+        .reader-link-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            border: 1px solid #4b2148;
+            border-radius: 999px;
+            padding: 11px 16px;
+            color: #fffdfb;
+            background: #4b2148;
+            font-family: "Inter", sans-serif;
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            line-height: 1;
+            text-decoration: none;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .reader-link-button,
+        .reader-action.secondary {
+            color: #4b2148;
+            background: transparent;
+        }
+
+        .reader-link-button.primary {
+            color: #fffdfb;
+            background: #4b2148;
+        }
+
+        .reader-action-grid {
+            display: grid;
+            gap: 9px;
+            margin-top: 16px;
+        }
+
+        .share-status,
+        .reader-form-note {
+            min-height: 1.3em;
+            margin: 8px 0 0;
+            color: rgba(75, 33, 72, 0.72);
+            font-family: "Inter", sans-serif;
+            font-size: 0.82rem !important;
+            line-height: 1.35 !important;
+        }
+
+        .reader-form-note a {
+            color: #9b3f5f;
+            font-weight: 850;
+        }
+
+        .share-url-fallback[hidden],
+        .reader-subscribe-frame {
+            display: none;
+        }
+
+        .issue-site-nav.issue-episode-nav a:focus-visible,
+        details.episode-intro-card summary:focus-visible,
+        .section-nav-details summary:focus-visible,
+        .article-card details.glossary-term summary:focus-visible,
+        .reader-signup-row input:focus-visible,
+        .reader-signup-row button:focus-visible,
+        .reader-action:focus-visible,
+        .reader-link-button:focus-visible,
+        .ritual-side-primary:focus-visible,
+        .ritual-side-links a:focus-visible,
+        .activity-card:focus-visible,
+        .resource-card:focus-visible {
+            outline: 3px solid rgba(95, 159, 141, 0.62);
+            outline-offset: 4px;
         }
 
         /* --- RESOURCES --- */
@@ -600,21 +902,56 @@
         }
 
         .resources-section {
-            background: var(--bg-warm);
-            padding: 48px 24px;
-            margin-top: 3em;
+            position: relative;
+            width: min(var(--episode-endcap-width, 900px), 100%);
+            margin: 3em auto 0;
+            padding: clamp(28px, 4.5vw, 44px) clamp(22px, 4vw, 36px);
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 92% 8%, rgba(185, 215, 220, 0.22), transparent 16rem),
+                radial-gradient(circle at 8% 94%, rgba(252, 228, 242, 0.58), transparent 16rem),
+                linear-gradient(135deg, rgba(255, 253, 251, 0.96), rgba(255, 244, 248, 0.82));
+            border: 1px solid rgba(185, 93, 120, 0.3);
+            border-left: 8px solid #b95d78;
+            border-radius: 8px;
+            box-shadow: 0 20px 44px rgba(75, 33, 72, 0.1);
         }
 
         .resources-inner {
-            max-width: 720px;
+            max-width: 760px;
             margin: 0 auto;
         }
 
         .resources-section h3 {
+            margin: 0 0 0.85em;
+            padding: clamp(0.82rem, 2vw, 1.08rem) clamp(0.95rem, 2.4vw, 1.25rem);
+            color: #4b2148;
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 20px;
+            font-size: clamp(1.95rem, 3.35vw, 2.8rem);
+            line-height: 1.08;
+            background: linear-gradient(135deg, rgba(252, 228, 242, 0.92), rgba(255, 253, 251, 0.96));
+            border-left: 5px solid #b95d78;
+            border-radius: 8px;
+            box-shadow:
+                inset 0 0 0 1px rgba(111, 38, 63, 0.1),
+                0 16px 34px rgba(75, 33, 72, 0.07);
+        }
+
+        .resources-section h3::before {
+            content: "";
+            display: block;
+            width: 86px;
+            height: 9px;
+            margin: 0 0 1.05rem;
+            background: linear-gradient(90deg, #b95d78, #b9d7dc);
+            border-radius: 999px;
+            box-shadow:
+                22px 0 0 rgba(252, 228, 242, 0.9),
+                44px 0 0 rgba(111, 38, 63, 0.12);
+        }
+
+        .resources-section h3:not(:first-of-type) {
+            margin-top: clamp(28px, 4vw, 42px);
         }
 
         .resources-section .citation {
@@ -670,45 +1007,6 @@
             font-size: 0.8rem;
             color: var(--text-light);
             margin-top: 3px;
-        }
-
-        .site-links {
-            background: var(--bg-warm);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 28px;
-            margin: 2.5em 0;
-        }
-
-        .site-links h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        .site-link-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 12px;
-            margin-top: 18px;
-        }
-
-        .site-link-grid a {
-            display: block;
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 14px 16px;
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .site-link-grid a:hover {
-            border-color: var(--neon-pink);
-            color: var(--accent-dark);
         }
 
         /* --- FOOTER --- */
@@ -812,9 +1110,26 @@
         }
 
         .article-masthead-link {
+            position: relative;
             display: block;
             line-height: 0;
             text-decoration: none;
+        }
+
+        .episode-masthead-logo-overlay {
+            position: absolute;
+            top: clamp(18px, 5vw, 58px);
+            left: 50%;
+            width: min(48%, 560px);
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+
+        .episode-masthead-logo-overlay img {
+            display: block;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 14px 26px rgba(75, 33, 72, 0.12));
         }
 
         .visually-hidden-title {
@@ -890,6 +1205,1093 @@
             text-shadow: none !important;
         }
 
+        /* Episode 02 reader system alignment */
+        body {
+            background:
+                radial-gradient(circle at 8% 8%, rgba(252, 228, 242, 0.24), transparent 25rem),
+                radial-gradient(circle at 86% 12%, rgba(255, 248, 251, 0.44), transparent 24rem),
+                linear-gradient(180deg, #fffaf8 0%, #fff8fb 48%, #fffdfb 100%);
+        }
+
+        .issue-site-nav.issue-episode-nav {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 10px 18px;
+            align-items: center;
+            min-height: 64px;
+            padding: 10px clamp(16px, 3vw, 32px);
+            color: #fffdfb;
+            background: rgba(36, 17, 29, 0.94);
+            border-bottom: 1px solid rgba(255, 253, 251, 0.18);
+            box-shadow: 0 12px 30px rgba(75, 33, 72, 0.16);
+            backdrop-filter: blur(16px);
+        }
+
+        .issue-episode-meta {
+            display: grid;
+            gap: 2px;
+            min-width: 0;
+            color: #fffdfb;
+            font-family: "Inter", sans-serif;
+            line-height: 1.24;
+        }
+
+        .issue-episode-kicker {
+            color: rgba(255, 253, 251, 0.68);
+            font-size: 0.68rem;
+            font-weight: 900;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .issue-episode-title {
+            display: block;
+            overflow: hidden;
+            color: #fffdfb;
+            font-size: clamp(0.9rem, 1.55vw, 1.05rem);
+            font-weight: 850;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .issue-episode-title time {
+            display: inline-block;
+            margin-left: 0.4em;
+            color: rgba(255, 253, 251, 0.68);
+            font-weight: 750;
+        }
+
+        .issue-episode-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: flex-end;
+        }
+
+        .issue-site-nav.issue-episode-nav a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 34px;
+            padding: 7px 11px;
+            color: #fffdfb;
+            background: rgba(255, 253, 251, 0.06);
+            border: 1px solid rgba(255, 253, 251, 0.28);
+            border-radius: 999px;
+            font-family: "Inter", sans-serif;
+            font-size: 0.76rem;
+            font-weight: 850;
+            letter-spacing: 0.01em;
+            line-height: 1;
+            text-decoration: none;
+        }
+
+        .issue-site-nav.issue-episode-nav a:hover,
+        .issue-site-nav.issue-episode-nav a:focus-visible {
+            color: #fffdfb;
+            background: rgba(255, 253, 251, 0.14);
+            border-color: rgba(255, 253, 251, 0.52);
+        }
+
+        .issue-site-nav.issue-episode-nav .issue-return-link {
+            background: rgba(252, 228, 242, 0.14);
+            border-color: rgba(252, 228, 242, 0.45);
+        }
+
+        #article,
+        #study-pack,
+        #final-sip,
+        #laidies-challenge,
+        #after-read-actions,
+        #issue-kit,
+        .episode-intro-card {
+            scroll-margin-top: 112px;
+        }
+
+        .episode-02-reader-hero {
+            padding: clamp(22px, 4vw, 48px) clamp(12px, 2vw, 22px) clamp(36px, 6vw, 68px);
+        }
+
+        .header-content .episode-02-masthead-banner {
+            position: relative;
+            display: flex !important;
+            align-items: end;
+            min-height: min(86vh, 820px);
+            padding: clamp(72px, 8vw, 112px) clamp(22px, 6.8vw, 104px) clamp(44px, 6vw, 68px);
+            color: #4b2148;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 18% 16%, rgba(252, 228, 242, 0.24), transparent 24rem),
+                linear-gradient(135deg, #fff9fc, #fff8fb 58%, #fff4f8);
+            border-radius: 8px;
+        }
+
+        .episode-02-masthead-banner::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background:
+                linear-gradient(0deg, rgba(255, 253, 251, 0.76) 0%, rgba(255, 249, 252, 0.42) 40%, rgba(255, 249, 252, 0.2) 100%),
+                linear-gradient(96deg, rgba(255, 249, 252, 0.78) 0%, rgba(255, 248, 251, 0.56) 54%, rgba(255, 244, 248, 0.34) 100%);
+            pointer-events: none;
+        }
+
+        .episode-02-masthead-image {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% center;
+            border: 0;
+            filter: saturate(1.04) contrast(0.98) brightness(1.08);
+            opacity: 0.76;
+        }
+
+        .episode-02-masthead-copy {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            justify-items: start;
+            width: min(760px, 100%);
+            max-width: 760px;
+            pointer-events: none;
+        }
+
+        .episode-02-masthead-copy .episode-masthead-brand-bar {
+            position: static;
+            display: inline-flex;
+            align-items: center;
+            margin: 0 0 clamp(28px, 4.1vw, 58px);
+            padding: clamp(18px, 2.4vw, 24px) clamp(20px, 2.8vw, 28px) clamp(20px, 2.8vw, 30px);
+            background: rgba(252, 228, 242, 0.68);
+            border: 1px solid rgba(255, 248, 252, 0.64);
+            border-radius: 8px;
+            box-shadow: 0 18px 38px rgba(0, 0, 0, 0.22);
+            filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.12));
+            line-height: 0;
+        }
+
+        .episode-02-masthead-copy .episode-masthead-brand-bar img {
+            display: block;
+            width: min(31vw, 480px);
+            max-width: 100%;
+            height: auto;
+            filter: none;
+        }
+
+        .episode-02-masthead-copy .episode-masthead-brand-motto {
+            display: none;
+        }
+
+        .episode-02-masthead-copy .episode-masthead-copy {
+            position: static !important;
+            display: grid;
+            gap: 12px;
+            width: 100% !important;
+            padding: 0;
+            color: #4b2148;
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+            text-align: left;
+        }
+
+        .episode-02-masthead-copy .episode-masthead-phone {
+            gap: 0.42em;
+            width: fit-content;
+            color: #9b3f5f;
+            background: rgba(255, 253, 251, 0.76);
+            border: 1px solid rgba(111, 38, 63, 0.18);
+            border-radius: 999px;
+            padding: 8px 11px;
+            font-size: clamp(0.68rem, 0.92vw, 0.82rem);
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .episode-02-masthead-copy .episode-masthead-phone strong {
+            color: #9b3f5f !important;
+        }
+
+        .episode-02-masthead-copy .episode-masthead-note {
+            display: block;
+            width: 100%;
+            max-width: 900px;
+            color: #4b2148;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(3.15rem, 8.2vw, 7.4rem);
+            font-weight: 700;
+            letter-spacing: 0;
+            line-height: 0.86;
+            overflow-wrap: break-word;
+            text-shadow: 0 1px 0 rgba(255, 253, 251, 0.88);
+            text-wrap: balance;
+            text-transform: none;
+        }
+
+        .episode-02-masthead-copy .episode-masthead-date {
+            width: fit-content;
+            color: #6f263f;
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            text-shadow: 0 1px 0 rgba(255, 253, 251, 0.8);
+            text-transform: uppercase;
+        }
+
+        .episode-masthead-premise {
+            display: block;
+            width: fit-content;
+            max-width: 680px;
+            margin-top: 2px;
+            padding: clamp(12px, 2vw, 16px) clamp(14px, 2.4vw, 20px);
+            color: #4b2148;
+            background: rgba(255, 253, 251, 0.76);
+            border: 1px solid rgba(255, 248, 252, 0.64);
+            border-radius: 8px;
+            box-shadow: 0 18px 38px rgba(75, 33, 72, 0.1);
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(1.08rem, 1.75vw, 1.48rem);
+            font-style: normal;
+            font-weight: 700;
+            letter-spacing: 0;
+            line-height: 1.16;
+            text-transform: none;
+        }
+
+        .preview-shell {
+            --episode-endcap-width: 900px;
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 0 0 clamp(48px, 7vw, 88px);
+        }
+
+        .reader-kit {
+            position: relative;
+            z-index: 4;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin: clamp(-48px, -4vw, -18px) 0 clamp(24px, 4vw, 40px);
+        }
+
+        .kit-card,
+        .ritual-side-card,
+        .section-nav-details,
+        .activity-section,
+        .activity-card {
+            background: rgba(255, 253, 251, 0.92);
+            border: 1px solid rgba(75, 33, 72, 0.14);
+            border-radius: 8px;
+            box-shadow: 0 18px 42px rgba(75, 33, 72, 0.1);
+        }
+
+        .kit-card {
+            padding: 18px 18px 20px;
+        }
+
+        .label {
+            display: block;
+            margin-bottom: 8px;
+            color: #6f263f;
+            font-size: 0.7rem;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .kit-card p,
+        .ritual-side-card p,
+        .activity-card p {
+            margin: 0;
+            color: #4c3b46;
+            line-height: 1.52;
+        }
+
+        .article-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 720px) minmax(230px, 300px);
+            gap: clamp(24px, 4vw, 52px);
+            align-items: start;
+        }
+
+        .article-layout .article-container {
+            max-width: none;
+            margin: 0;
+            padding: clamp(30px, 4vw, 52px) 0 clamp(52px, 7vw, 80px);
+        }
+
+        .article-card h2 {
+            scroll-margin-top: 130px;
+            margin: 2.35em 0 0.85em;
+            padding: clamp(0.82rem, 2vw, 1.08rem) clamp(0.95rem, 2.4vw, 1.25rem);
+            color: #4b2148;
+            font-size: clamp(1.95rem, 3.35vw, 2.8rem);
+            line-height: 1.08;
+            background: linear-gradient(135deg, rgba(252, 228, 242, 0.92), rgba(255, 253, 251, 0.96));
+            border-left: 5px solid #b95d78;
+            border-radius: 8px;
+            box-shadow:
+                inset 0 0 0 1px rgba(111, 38, 63, 0.1),
+                0 16px 34px rgba(75, 33, 72, 0.07);
+        }
+
+        .article-card h2::after {
+            display: none;
+        }
+
+        .article-card h2::before {
+            content: "";
+            display: block;
+            width: 86px;
+            height: 9px;
+            margin: 0 0 1.05rem;
+            background: linear-gradient(90deg, #b95d78, #b9d7dc);
+            border-radius: 999px;
+            box-shadow:
+                22px 0 0 rgba(252, 228, 242, 0.9),
+                44px 0 0 rgba(111, 38, 63, 0.12);
+        }
+
+        .article-card h3 {
+            color: #6f263f;
+        }
+
+        .episode-intro-card {
+            padding: clamp(24px, 5vw, 36px) clamp(18px, 5vw, 32px) !important;
+            margin-bottom: 2.3em !important;
+            text-align: center;
+        }
+
+        .article-card .episode-intro-label {
+            display: block;
+            margin: 0 0 14px;
+            color: var(--primary);
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(1.75rem, 4.8vw, 2.18rem);
+            font-style: italic;
+            font-weight: 700;
+            letter-spacing: 0;
+            line-height: 1.05;
+        }
+
+        .article-card .episode-intro-copy {
+            max-width: 610px;
+            margin: 0 auto 12px;
+            color: var(--text);
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        .article-card .episode-intro-copy:last-child {
+            margin-bottom: 0;
+        }
+
+        details.episode-intro-card {
+            display: block;
+            cursor: default;
+        }
+
+        details.episode-intro-card summary {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 8px 14px;
+            color: #4b2148;
+            cursor: pointer;
+            list-style: none;
+            text-align: left;
+        }
+
+        details.episode-intro-card summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details.episode-intro-card summary::after {
+            content: "+";
+            display: inline-grid;
+            place-items: center;
+            flex: 0 0 auto;
+            width: 36px;
+            height: 36px;
+            color: #6f263f;
+            background: rgba(252, 228, 242, 0.86);
+            border: 1px solid rgba(111, 38, 63, 0.16);
+            border-radius: 999px;
+            font-family: "Inter", sans-serif;
+            font-size: 1.18rem;
+            font-weight: 850;
+            line-height: 1;
+        }
+
+        details.episode-intro-card[open] summary::after {
+            content: "-";
+        }
+
+        .episode-intro-summary-copy {
+            display: -webkit-box;
+            grid-column: 1;
+            max-width: 62ch;
+            overflow: hidden;
+            color: #4c3b46;
+            font-size: 0.98rem;
+            line-height: 1.46;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+
+        details.episode-intro-card[open] .episode-intro-summary-copy {
+            display: none;
+        }
+
+        .article-card .article-subheading {
+            margin: 2em 0 1.2em;
+            color: var(--primary);
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(1.2rem, 2.4vw, 1.34rem);
+            line-height: 1.16;
+        }
+
+        .article-card .section-subhed {
+            margin: -0.15rem 0 1.2em;
+            color: var(--text-light);
+            font-size: 0.94rem;
+            font-style: italic;
+            line-height: 1.55;
+        }
+
+        .season-preview-block,
+        .article-card .tldr-section,
+        .article-card .stat-block,
+        .article-card .highlight-box,
+        .article-card .next-week,
+        .article-card .tryon-bridge {
+            border-radius: 8px !important;
+            border-color: rgba(75, 33, 72, 0.14) !important;
+            background:
+                radial-gradient(circle at 92% 12%, rgba(185, 215, 220, 0.14), transparent 12rem),
+                linear-gradient(135deg, rgba(255, 253, 251, 0.92), rgba(248, 238, 238, 0.72)) !important;
+            box-shadow: 0 16px 36px rgba(75, 33, 72, 0.08);
+        }
+
+        .article-card .next-week {
+            position: relative;
+            overflow: hidden;
+            border: 1.5px solid rgba(185, 93, 120, 0.36) !important;
+            background:
+                radial-gradient(circle at 92% 10%, rgba(185, 215, 220, 0.18), transparent 12rem),
+                radial-gradient(circle at 10% 100%, rgba(252, 228, 242, 0.7), transparent 13rem),
+                linear-gradient(135deg, rgba(255, 253, 251, 0.96), rgba(255, 244, 248, 0.82)) !important;
+            box-shadow:
+                inset 0 0 0 1px rgba(255, 253, 251, 0.82),
+                0 20px 42px rgba(75, 33, 72, 0.1);
+        }
+
+        .article-card .next-week::before {
+            content: "";
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 6px;
+            background: linear-gradient(180deg, #b95d78, #b9d7dc);
+        }
+
+        .article-card .section-image {
+            border-radius: 8px;
+            border: 1px solid rgba(75, 33, 72, 0.12);
+            box-shadow: 0 18px 42px rgba(75, 33, 72, 0.1);
+        }
+
+        .concept-definitions {
+            margin: 2.4em 0;
+            padding: clamp(22px, 4vw, 34px);
+            border: 1px solid rgba(75, 33, 72, 0.16);
+            border-left: 8px solid var(--teal);
+            border-radius: 8px;
+            background:
+                radial-gradient(circle at 92% 12%, rgba(185, 215, 220, 0.14), transparent 12rem),
+                linear-gradient(135deg, rgba(255, 253, 251, 0.96), rgba(255, 242, 247, 0.68));
+            box-shadow: 0 16px 36px rgba(75, 33, 72, 0.08);
+        }
+
+        .concept-definitions .article-subheading {
+            margin-top: 0;
+            font-size: clamp(1.75rem, 4.6vw, 2.5rem);
+            line-height: 1.04;
+        }
+
+        .concept-definitions .section-subhed {
+            max-width: 62ch;
+        }
+
+        .article-card details.glossary-term {
+            margin: 18px 0;
+            padding: 20px;
+            border: 1px solid rgba(75, 33, 72, 0.14);
+            border-left: 0;
+            border-radius: 8px;
+            background: rgba(255, 253, 251, 0.84);
+        }
+
+        .article-card details.glossary-term summary {
+            list-style: none;
+            cursor: pointer;
+        }
+
+        .article-card details.glossary-term summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .article-card details.glossary-term .term-name {
+            display: block;
+            color: #4b2148;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(1.36rem, 2.5vw, 1.68rem);
+            font-weight: 700;
+            line-height: 1.08;
+        }
+
+        .term-preview {
+            display: -webkit-box;
+            margin-top: 8px;
+            max-width: 62ch;
+            overflow: hidden;
+            color: #3a2230;
+            font-size: clamp(0.98rem, 1.45vw, 1.08rem);
+            line-height: 1.5;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+
+        .term-toggle {
+            display: inline-flex;
+            margin-top: 14px;
+            color: #9b3f5f;
+            font-family: "Inter", sans-serif;
+            font-size: 0.74rem;
+            font-weight: 850;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .term-toggle .when-open,
+        details.glossary-term[open] .term-toggle .when-closed {
+            display: none;
+        }
+
+        details.glossary-term[open] .term-preview {
+            display: none;
+        }
+
+        details.glossary-term[open] .term-toggle .when-open {
+            display: inline;
+        }
+
+        .article-card details.glossary-term .term-def {
+            margin-top: 8px;
+            color: #3a2230;
+            font-size: clamp(0.98rem, 1.45vw, 1.08rem);
+            line-height: 1.62;
+        }
+
+        .side-rail {
+            position: sticky;
+            top: 94px;
+            display: grid;
+            gap: 14px;
+            padding-top: clamp(30px, 4vw, 52px);
+        }
+
+        .ritual-side-card {
+            position: relative;
+            overflow: hidden;
+            padding: 18px;
+            color: #4b2148;
+            background:
+                radial-gradient(circle at 88% 2%, rgba(185, 215, 220, 0.38), transparent 8rem),
+                radial-gradient(circle at 8% 96%, rgba(252, 228, 242, 0.82), transparent 9rem),
+                linear-gradient(145deg, rgba(255, 253, 251, 0.98), rgba(247, 238, 238, 0.9));
+            border-color: rgba(185, 93, 120, 0.28);
+        }
+
+        .ritual-side-card h3 {
+            margin: 0 0 10px;
+            color: #4b2148;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(1.2rem, 1.75vw, 1.45rem);
+            line-height: 1.06;
+        }
+
+        .ritual-side-primary,
+        .ritual-side-links a,
+        .button-link {
+            display: inline-flex;
+            align-items: center;
+            min-height: 36px;
+            padding: 8px 12px;
+            color: #4b2148;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(111, 38, 63, 0.22);
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 850;
+            letter-spacing: 0.01em;
+            text-decoration: none;
+        }
+
+        .ritual-side-primary {
+            width: 100%;
+            justify-content: center;
+            margin: 14px 0 12px;
+            color: #fffdfb;
+            background: #6f263f;
+            border-color: #6f263f;
+        }
+
+        .ritual-side-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .ritual-side-note {
+            margin-top: 12px !important;
+            color: rgba(75, 33, 72, 0.68) !important;
+            font-size: 0.83rem;
+        }
+
+        .section-nav-details {
+            padding: 16px;
+            box-shadow: none;
+        }
+
+        .section-nav-details summary {
+            color: #4b2148;
+            cursor: pointer;
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            list-style: none;
+            text-transform: uppercase;
+        }
+
+        .section-nav-details summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .section-nav-details summary::after {
+            content: "+";
+            float: right;
+            color: #6f263f;
+        }
+
+        .section-nav-details[open] summary::after {
+            content: "-";
+        }
+
+        .section-nav {
+            margin-top: 10px;
+        }
+
+        .section-nav a {
+            display: block;
+            padding: 9px 0;
+            color: #4b2148;
+            border-bottom: 1px solid rgba(75, 33, 72, 0.1);
+            font-size: 0.86rem;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .section-nav a:last-child {
+            border-bottom: 0;
+        }
+
+        .activity-section {
+            scroll-margin-top: 96px;
+            width: min(var(--episode-endcap-width, 900px), 100%);
+            margin: 0 auto 42px;
+            padding: clamp(22px, 4vw, 30px);
+            background:
+                radial-gradient(circle at 92% 12%, rgba(185, 215, 220, 0.18), transparent 20rem),
+                linear-gradient(135deg, rgba(255, 253, 251, 0.92), rgba(248, 241, 238, 0.78));
+        }
+
+        .activity-section-header {
+            display: grid;
+            gap: 8px;
+            max-width: 760px;
+            margin-bottom: 18px;
+        }
+
+        .activity-section-header h2 {
+            margin: 0;
+            color: #4b2148;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(2rem, 4vw, 3.6rem);
+            line-height: 0.95;
+        }
+
+        .activity-section-header p {
+            margin: 0;
+            color: #4c3b46;
+            max-width: 670px;
+            line-height: 1.48;
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .ritual-preview-grid {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .ritual-bridge-actions {
+            display: grid;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .ritual-extra-grid {
+            margin-top: 14px;
+        }
+
+        .ritual-bag-pill,
+        .ritual-full-details summary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            width: 100%;
+            border-radius: 999px;
+            font-family: "Inter", sans-serif;
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            line-height: 1.1;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .ritual-bag-pill {
+            color: #fffdfb;
+            background: #6f263f;
+            border: 1px solid #6f263f;
+        }
+
+        .ritual-full-details summary {
+            flex-direction: column;
+            gap: 7px;
+            color: #6f263f;
+            background: rgba(255, 253, 251, 0.78);
+            border: 1px solid rgba(111, 38, 63, 0.18);
+            cursor: pointer;
+            list-style: none;
+        }
+
+        .ritual-full-details summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .ritual-expand-icon {
+            display: inline-grid;
+            place-items: center;
+            width: 32px;
+            height: 32px;
+            color: #6f263f;
+            background: rgba(252, 228, 242, 0.86);
+            border: 1px solid rgba(111, 38, 63, 0.16);
+            border-radius: 999px;
+            font-size: 1.12rem;
+            line-height: 1;
+        }
+
+        .ritual-expand-icon::before {
+            content: "+";
+        }
+
+        .ritual-full-details[open] .ritual-expand-text {
+            font-size: 0;
+        }
+
+        .ritual-full-details[open] .ritual-expand-text::before {
+            content: "Hide full ritual";
+            font-size: 0.78rem;
+        }
+
+        .ritual-full-details[open] .ritual-expand-icon::before {
+            content: "-";
+        }
+
+        .activity-card {
+            position: relative;
+            display: grid;
+            gap: 10px;
+            min-height: 168px;
+            padding: 18px;
+            color: #4b2148;
+            text-decoration: none;
+            transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+        }
+
+        .activity-card[href]:hover,
+        .activity-card[href]:focus-visible,
+        .ritual-side-links a:hover,
+        .ritual-side-links a:focus-visible,
+        .ritual-side-primary:hover,
+        .ritual-side-primary:focus-visible {
+            transform: translateY(-2px);
+            border-color: rgba(185, 93, 120, 0.44);
+            box-shadow: 0 22px 48px rgba(75, 33, 72, 0.14);
+            text-decoration: none;
+        }
+
+        .activity-card strong {
+            color: #4b2148;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(1.25rem, 2vw, 1.62rem);
+            line-height: 1.02;
+        }
+
+        .activity-card em {
+            align-self: end;
+            color: #b95d78;
+            font-size: 0.75rem;
+            font-style: normal;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .activity-card--primary {
+            background:
+                radial-gradient(circle at 88% 12%, rgba(185, 215, 220, 0.28), transparent 10rem),
+                linear-gradient(135deg, rgba(252, 228, 242, 0.96), rgba(255, 253, 251, 0.98));
+            border-color: rgba(185, 93, 120, 0.36);
+        }
+
+        .signoff,
+        .resources-section {
+            margin-inline: auto;
+        }
+
+        @media (max-width: 920px) {
+            .reader-kit,
+            .article-layout,
+            .activity-grid,
+            .reader-next {
+                grid-template-columns: 1fr;
+            }
+
+            .reader-next-card.after-hours {
+                grid-template-columns: 1fr;
+            }
+
+            .side-rail {
+                display: none;
+            }
+
+            .section-nav {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .issue-site-nav.issue-episode-nav {
+                grid-template-columns: 1fr;
+                gap: 6px;
+                min-height: 0;
+                padding: 8px 12px 9px;
+            }
+
+            .issue-episode-kicker {
+                display: none;
+            }
+
+            .issue-episode-title {
+                font-size: 0.8rem;
+                white-space: normal;
+            }
+
+            .issue-episode-title time {
+                margin-left: 0.28em;
+            }
+
+            .issue-episode-actions {
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                gap: 6px;
+                max-width: 100%;
+                overflow-x: visible;
+                padding-bottom: 2px;
+                scrollbar-width: none;
+            }
+
+            .issue-episode-actions::-webkit-scrollbar {
+                display: none;
+            }
+
+            .issue-site-nav.issue-episode-nav a {
+                flex: 0 0 auto;
+                min-height: 30px;
+                padding: 6px 7px;
+                font-size: 0.66rem;
+                white-space: nowrap;
+            }
+
+            .issue-site-nav.issue-episode-nav .issue-return-link {
+                font-size: 0;
+            }
+
+            .issue-site-nav.issue-episode-nav .issue-return-link::after {
+                content: "Season";
+                font-size: 0.66rem;
+            }
+
+            .header-content .episode-02-masthead-banner {
+                min-height: 78vh;
+                padding: 28px 18px 36px;
+                align-items: end;
+            }
+
+            .episode-02-masthead-banner::after {
+                background:
+                    linear-gradient(0deg, rgba(255, 253, 251, 0.82) 0%, rgba(255, 249, 252, 0.54) 52%, rgba(255, 249, 252, 0.2) 100%),
+                    linear-gradient(90deg, rgba(255, 249, 252, 0.4), rgba(255, 248, 251, 0.16));
+            }
+
+            .episode-02-masthead-image {
+                object-position: 50% center;
+            }
+
+            .episode-02-masthead-copy {
+                width: 100%;
+            }
+
+            .episode-02-masthead-copy .episode-masthead-brand-bar {
+                margin-bottom: 20px;
+                padding: 16px 18px 18px;
+            }
+
+            .episode-02-masthead-copy .episode-masthead-brand-bar img {
+                width: min(72vw, 300px);
+            }
+
+            .episode-02-masthead-copy .episode-masthead-note {
+                max-width: 19rem;
+                font-size: clamp(2.5rem, 12vw, 3.42rem);
+                line-height: 0.94;
+            }
+
+            .episode-masthead-premise {
+                font-size: 1.02rem;
+                line-height: 1.2;
+            }
+
+            .preview-shell {
+                width: min(100% - 28px, 1120px);
+            }
+
+            .reader-kit {
+                margin-top: 18px;
+            }
+
+            .article-layout .article-container {
+                padding-top: 24px;
+            }
+
+            .article-card h2 {
+                padding: 0.82rem 0.9rem;
+                font-size: clamp(1.64rem, 8vw, 2.08rem);
+                line-height: 1.08;
+            }
+
+            .article-card h2::before {
+                width: 72px;
+                height: 8px;
+                margin-bottom: 0.85rem;
+            }
+
+            .episode-intro-card {
+                padding: 18px 18px !important;
+            }
+
+            details.episode-intro-card:not([open]) .episode-intro-copy {
+                display: none;
+            }
+
+            .article-card .episode-intro-label {
+                font-size: clamp(1.7rem, 8vw, 2.04rem);
+            }
+
+            .episode-intro-summary-copy {
+                font-size: 0.95rem;
+            }
+
+            .reader-signup-row {
+                grid-template-columns: 1fr;
+            }
+
+            .activity-card {
+                min-height: 148px;
+            }
+        }
+
+        .issue-site-nav.issue-episode-nav.laidies-nav-enhanced {
+            display: grid !important;
+            grid-template-columns: minmax(0, 1fr) auto !important;
+            grid-template-rows: auto !important;
+            align-items: center !important;
+            gap: 10px 18px !important;
+            min-height: 64px !important;
+            padding: 10px clamp(16px, 3vw, 32px) !important;
+            color: #fffdfb !important;
+            background: rgba(36, 17, 29, 0.94) !important;
+            border-bottom: 1px solid rgba(255, 253, 251, 0.18) !important;
+        }
+
+        .issue-site-nav.issue-episode-nav > .laidies-context-return,
+        .issue-site-nav.issue-episode-nav > .hamburger-btn,
+        .issue-site-nav.issue-episode-nav > .laidies-menu-panel {
+            display: none !important;
+        }
+
+        body[data-issue-number="2"] nav.issue-site-nav.issue-episode-nav.laidies-nav-enhanced > a.laidies-context-return,
+        body[data-issue-number="2"] nav.issue-site-nav.issue-episode-nav.laidies-nav-enhanced > button.hamburger-btn,
+        body[data-issue-number="2"] nav.issue-site-nav.issue-episode-nav.laidies-nav-enhanced > aside.laidies-menu-panel {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        @media (max-width: 640px) {
+            .issue-site-nav.issue-episode-nav.laidies-nav-enhanced {
+                grid-template-columns: 1fr !important;
+                gap: 6px !important;
+                min-height: 0 !important;
+                padding: 8px 12px 9px !important;
+            }
+        }
+
+
+        .episode-02-masthead-image {
+            object-position: 50% center;
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 640px) {
+            .episode-02-masthead-image {
+                object-position: 48% center;
+                transform: scale(1.08);
+            }
+        }
     </style>
   <!-- Privacy-friendly analytics by Plausible -->
 <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
@@ -903,63 +2305,79 @@
 </head>
 <body data-issue-number="2">
 
-<nav class="issue-site-nav">
-  <a class="issue-back-link" href="../episodes.html">&larr; Back to the Season</a>
-  <a class="issue-brand-link" href="../index.html" aria-label="LAiDIES home">
-    <img src="../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" width="190" style="width: clamp(146px, 18vw, 190px); max-width: 48vw; height: auto; max-height: none; object-fit: contain; object-position: center; display: block;">
-  </a>
-  <div class="issue-nav-links">
-    <a href="../start-here.html">New? Start Here</a>
-    <a href="../this-week.html">This Week</a>
-    <a href="../episodes.html">Episodes</a>
-    <a href="../learn.html">Learn</a>
-    <a href="../clubhouse.html">Clubhouse</a>
-    <a href="../community.html">Community</a>
-    <a class="issue-sign-in-link" href="../clubhouse-pass.html">Sign In</a>
+<nav class="issue-site-nav issue-episode-nav" aria-label="Episode navigation">
+  <div class="issue-episode-meta">
+    <span class="issue-episode-kicker">Episode Reader</span>
+    <span class="issue-episode-title">Episode 02: Tell Me What You Want <time datetime="2026-06-10">June 10, 2026</time></span>
+  </div>
+  <div class="issue-episode-actions">
+    <a class="issue-return-link issue-back-link" href="../episodes.html">Return to The Season</a>
+    <a href="#top">Top</a>
+    <a href="#article">Article</a>
+    <a href="#study-pack">Study Pack</a>
+    <a href="#issue-kit">Weekly Ritual</a>
   </div>
 </nav>
 
-<header class="header">
+<header class="header episode-02-reader-hero" id="top">
     <div class="header-content">
-        <a class="article-masthead-link" href="../index.html" aria-label="LAiDIES home">
-            <span class="episode-masthead-brand-bar" aria-hidden="true">
-                <img src="../assets/brand/laidies-logo-masthead-approved-v3.png" alt="">
-                <span class="episode-masthead-brand-motto">girl power <em>meets</em> machine power</span>
-            </span>
-            <img src="../assets/brand/laidies-masthead-object-world-issue-02-objects-v1.png" alt="LAiDIES editorial object-world masthead with Episode 02 note: Tell me what you want" class="episode-masthead-banner">
-            <span class="episode-masthead-copy" data-episode-masthead-copy data-episode-number="2" data-episode-title="Tell Me What You Want" data-episode-release-date="2026-06-10">
-                <span class="episode-masthead-phone"><span>Episode</span><strong data-episode-masthead-number></strong></span>
-                <span class="episode-masthead-note" data-episode-masthead-title></span>
-                <span class="episode-masthead-date" data-episode-masthead-date></span>
+        <a class="article-masthead-link episode-02-masthead-banner" href="../index.html" aria-label="LAiDIES home">
+            <img src="../assets/issue-02-hero.png" alt="Episode 02 masthead with laptop, ChatGPT prompt, Spice Girls, Britney, Schitt's Creek, and notes about being more specific" class="episode-02-masthead-image">
+            <span class="episode-02-masthead-copy">
+                <span class="episode-masthead-brand-bar" aria-hidden="true">
+                    <img src="../assets/brand/laidies-logo-masthead-approved-v3.png" alt="">
+                    <span class="episode-masthead-brand-motto">girl power <em>meets</em> machine power</span>
+                </span>
+                <span class="episode-masthead-copy" data-episode-masthead-copy data-episode-number="2" data-episode-title="Tell Me What You Want" data-episode-release-date="2026-06-10">
+                    <span class="episode-masthead-phone"><span>Episode</span><strong data-episode-masthead-number></strong></span>
+                    <span class="episode-masthead-note" data-episode-masthead-title></span>
+                    <span class="episode-masthead-premise">Prompting is not coding. It is delegation.</span>
+                    <span class="episode-masthead-date" data-episode-masthead-date></span>
+                </span>
             </span>
         </a>
         <h1 class="visually-hidden-title">Episode 2: Tell Me What You Want</h1>
     </div>
 </header>
 
-<div data-episode-toolkit></div>
+<main class="preview-shell">
+    <section class="reader-kit" aria-label="Episode 02 summary">
+        <article class="kit-card">
+            <span class="label">The Lesson</span>
+            <p>Useful AI output starts with a useful ask: audience, context, tone, length, constraints, and what good looks like.</p>
+        </article>
+        <article class="kit-card">
+            <span class="label">Try-On</span>
+            <p>Give AI the same real task twice: once vaguely, then once with audience, context, tone, length, and what not to include.</p>
+        </article>
+        <article class="kit-card">
+            <span class="label">This Week's Rule</span>
+            <p>Tell it what you want, what you really really want. Specificity is delegation.</p>
+        </article>
+    </section>
 
-<article class="article-container">
+    <section class="article-layout" id="article">
+        <article class="article-card article-container">
 
-    <!-- Season Preview (shortened for Issue 2+) -->
-    <div style="text-align: center; margin-bottom: 2em; padding: 24px; border: 2px solid var(--neon-pink); border-radius: 12px;">
-        <p style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.45rem; font-weight: 700; color: var(--primary); letter-spacing: 0; margin-bottom: 10px;">This Season On <span class="brand-name">LAiDIES</span>...</p>
-        <p style="font-size: 0.9rem; line-height: 1.6; max-width: 550px; margin: 0 auto; color: var(--text);">24 episodes. New one every Wednesday. By the finale, you'll have built your own squad of AI employees. But first, we learn the basics. (<a href="issue-01.html">Start from Episode 1</a>)</p>
-    </div>
+    <details class="season-preview-block episode-intro-card">
+        <summary>
+            <span class="episode-intro-label">Previously On LAiDIES...</span>
+            <span class="episode-intro-summary-copy">She opened all three tools. Typed the same thing into each. Rated them on the butterfly clip scale. Picked her favourite.</span>
+        </summary>
+        <p class="episode-intro-copy">She opened all three tools. Typed the same thing into each. Rated them on the butterfly clip scale. Picked her favourite. Survived entirely. (<a href="issue-01.html">Episode 1: On Wednesdays We Use AI</a>)</p>
+    </details>
 
-    <!-- Previously On -->
-    <p style="font-size: 0.85rem; color: var(--text-light); font-style: italic; text-align: center; margin-bottom: 1.5em;"><strong>Previously on <span class="brand-name">LAiDIES</span>:</strong> She opened all three tools. Typed the same thing into each. Rated them on the butterfly clip scale. Picked her favourite. Survived entirely. (<a href="issue-01.html">Episode 1: On Wednesdays We Use AI</a>)</p>
+    <details class="tldr-section episode-intro-card">
+        <summary>
+            <span class="episode-intro-label">On This Episode...</span>
+            <span class="episode-intro-summary-copy">The one in which she types something vague into ChatGPT, gets back the world's most useless paragraph, channels her inner David Rose.</span>
+        </summary>
+        <p class="episode-intro-copy">The one in which she types something vague into ChatGPT, gets back the world's most useless paragraph, channels her inner David Rose demanding very specific things, tries again with actual context, and watches AI produce something she'd genuinely send to her VP. She discovers that prompting isn't coding. It's delegation. And the Spice Girls were onto something.</p>
+    </details>
 
-    <!-- Episode TLDR -->
-    <div class="tldr-section">
-        <h3>On This Episode...</h3>
-        <p style="color: var(--text); font-size: 0.95rem; line-height: 1.7;">The one in which she types something vague into ChatGPT, gets back the world's most useless paragraph, channels her inner David Rose demanding very specific things, tries again with actual context, and watches AI produce something she'd genuinely send to her VP. She discovers that prompting isn't coding. It's delegation. And the Spice Girls were onto something.</p>
-    </div>
+    <h2 id="opening" style="margin-top: 0;">I couldn't help but wonder...</h2>
 
-    <!-- Opening -->
-    <h2 style="margin-top: 0;">I couldn't help but wonder...</h2>
-
-    <p>...why AI reads my mind sometimes and completely ignores me other times.</p>
+    <p class="lead-paragraph">...why AI reads my mind sometimes and completely ignores me other times.</p>
 
     <div class="section-image">
         <img src="../assets/issue-02-hero.png" alt="WWDRD desk with Spice Girls, Britney, Schitt's Creek, and BE MORE SPECIFIC Post-Its">
@@ -971,15 +2389,14 @@
 
     <p>I spent an embarrassing amount of time thinking the tool was inconsistent before I realized the variable was me. What I was giving it determined what I got back. Almost without exception.</p>
 
-    <!-- Section: The Drawing Game -->
     <div class="section-divider"></div>
 
     <div class="section-image">
         <img src="../assets/issue02-drawing-game-spice-girls.png" alt="Stick figure house vs detailed Victorian mansion with Spice Girls, Clueless, and BE SPECIFIC OR GET STICK FIGURES">
     </div>
 
-    <h2>Tell Me What You Want, What You Really Really Want</h2>
-    <p style="font-size: 0.9rem; color: var(--text-light); font-style: italic; margin-top: -0.8em; margin-bottom: 1.2em;">Why AI gives you garbage and what to do about it.</p>
+    <h2 id="tell-me-what-you-want">Tell Me What You Want, What You Really Really Want</h2>
+    <p class="section-subhed">Why AI gives you garbage and what to do about it.</p>
 
     <p>You know the party game where one person describes something and the other person has to draw it based only on the description? You say "draw a house" and you get a child's crayon box with a triangle roof. You say "draw the Victorian from Practical Magic with the wraparound porch, the widow's walk, and the overgrown garden" and suddenly the picture looks like something.</p>
 
@@ -987,15 +2404,14 @@
 
     <p>The Spice Girls had it figured out decades ago: tell me what you want, what you really really want. (Also, decades?! Yikes, that is a jagged little pill to swallow.) They weren't asking for vague gestures toward a general desire. They wanted specifics. AI wants the same thing. It will zig-a-zig-ah all day long if you let it, but it produces useful work only when you tell it exactly what you need.</p>
 
-    <!-- Section: David Rose -->
     <div class="section-divider"></div>
 
     <div class="section-image">
         <img src="../assets/issue02-david-rose-specificity.png" alt="Rose Apothecary master list, cheese grater, A GENERAL STORE BUT MAKE IT SPECIFIC, What Would David Do">
     </div>
 
-    <h2>The David Rose School of Prompting</h2>
-    <p style="font-size: 0.9rem; color: var(--text-light); font-style: italic; margin-top: -0.8em; margin-bottom: 1.2em;">How to actually fold in the cheese.</p>
+    <h2 id="david-rose-school">The David Rose School of Prompting</h2>
+    <p class="section-subhed">How to actually fold in the cheese.</p>
 
     <p>If you've watched Schitt's Creek, you know David Rose is impossibly, almost pathologically specific about what he wants. The wine has to be a very specific wine. The sweater has to drape a very specific way. The brand aesthetic must be "a general store but make it specific." He's exhausting in life but he would be absolutely brilliant at prompting AI.</p>
 
@@ -1007,19 +2423,18 @@
 
     <p>The shift happened when I started talking to it the way I'd delegate to a smart new hire on their first week. Not dumbing things down, but giving context. Who is this for? What do they care about? What's the tone? What does success look like? How long should this be? What should it absolutely NOT include? What am I actually looking for here? Have we done anything similar before that it can use as a reference?</p>
 
-    <!-- Section: Proof -->
     <div class="section-divider"></div>
 
     <div class="section-image">
         <img src="../assets/issue02-its-britney-bitch.png" alt="Split before and after - chaos vs confidence, Dear Team I hope this finds you well vs NAILED IT">
     </div>
 
-    <h2>It's Britney, Bitch</h2>
-    <p style="font-size: 0.9rem; color: var(--text-light); font-style: italic; margin-top: -0.8em; margin-bottom: 1.2em;">Same task. Two approaches. Watch what happens.</p>
+    <h2 id="its-britney-bitch">It's Britney, Bitch</h2>
+    <p class="section-subhed">Same task. Two approaches. Watch what happens.</p>
 
     <p>Picture this. Silicon Valley, 2026. You have a 12-page policy change document that needs to get to your stakeholders before a meeting. You paste the full document into the chat and type:</p>
 
-    <p><strong>The vague version (what you'd be doing without <span class="brand-name">LAiDIES</span>):</strong></p>
+    <p><strong>The vague version (what you'd be doing without LAiDIES):</strong></p>
 
     <div class="prompt-example">"Summarize this policy change for my stakeholders."</div>
 
@@ -1051,63 +2466,222 @@
         <div class="stat-label" style="margin-top: 10px; font-size: 0.8rem; opacity: 0.5;">BCG x Harvard Business School, 2023 &middot; 758 consultants</div>
     </div>
 
-    <p>And here's what's interesting about that. The skills that made the difference weren't technical. They were the same ones you use to delegate, to brief a new team member, to tell someone exactly what you need without micromanaging. Ethan Mollick, the Wharton professor everyone in AI cites, called it: <strong>"The skills so often dismissed as 'soft' turned out to be the hard ones."</strong> Turns out the woman who writes a thorough project brief is better at prompting than the engineer who types three words and expects the machine to read between the lines.</p>
+    <p>And here's what's interesting about that. The skills that made the difference weren't technical. They were the same ones you use to delegate, to brief a new team member, to tell someone exactly what you need without micromanaging. Ethan Mollick, the Wharton professor everyone in AI cites, called it:</p>
 
-    <!-- So You Don't Pull a Cher -->
+    <blockquote class="pull-quote">
+        <p>The skills so often dismissed as 'soft' turned out to be the hard ones.</p>
+        <cite>Ethan Mollick, One Useful Thing</cite>
+    </blockquote>
+
+    <p>Turns out the woman who writes a thorough project brief is better at prompting than the engineer who types three words and expects the machine to read between the lines.</p>
+
     <div class="section-divider"></div>
 
     <div class="section-image">
         <img src="../assets/issue02-dont-pull-a-cher.png" alt="Clueless DVD, Legally Blonde, globe, Whatever sticker, KNOW THESE TRUST ME, 90s study session">
     </div>
 
-    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-top: 2em; margin-bottom: 0.5em; color: var(--primary);">So You Don't Pull a Cher</h3>
-    <p style="font-size: 0.9rem; color: var(--text-light); font-style: italic; margin-bottom: 1.2em;">Quick definitions so you can use these words confidently in a meeting without accidentally arguing that it doesn't say RSVP on the Statue of Liberty.</p>
+    <section class="concept-definitions" id="study-pack" aria-label="Three core concept definitions">
+    <h3 class="article-subheading">So You Don't Pull a Cher</h3>
+        <p class="section-subhed">Quick definitions so you can use these words confidently in a meeting without accidentally arguing that it doesn't say RSVP on the Statue of Liberty.</p>
 
-    <div class="glossary-term">
-        <div class="term-name">Prompt</div>
+    <details class="glossary-term">
+        <summary>
+            <span class="term-name">Prompt</span>
+            <span class="term-preview">What you type into the chat box. Remember Elle Woods' Harvard application video essay? She didn't just say "let me in."</span>
+            <span class="term-toggle"><span class="when-closed">Read full definition</span><span class="when-open">Show less</span></span>
+        </summary>
         <div class="term-def">What you type into the chat box. Remember Elle Woods' Harvard application video essay? She didn't just say "let me in." She was specific, personal, tailored to her audience, and impossible to ignore. That's a good prompt. It's not code. It's not a spell. It's you being clear about who this is for, what you need, and what "good" looks like. You've been writing prompts since last week. You just didn't know it had a name.</div>
-    </div>
+    </details>
 
-    <div class="glossary-term">
-        <div class="term-name">Context</div>
+    <details class="glossary-term">
+        <summary>
+            <span class="term-name">Context</span>
+            <span class="term-preview">The background information that makes AI understand YOUR situation, not just the generic version. Remember Miranda Priestly's cerulean speech?</span>
+            <span class="term-toggle"><span class="when-closed">Read full definition</span><span class="when-open">Show less</span></span>
+        </summary>
         <div class="term-def">The background information that makes AI understand YOUR situation, not just the generic version. Remember Miranda Priestly's cerulean speech? Andy thinks she's just wearing a blue sweater. Miranda traces the entire history of that specific shade through Oscar de la Renta, Yves Saint Laurent, eight different designers, and a clearance bin to explain why "blue" is never just "blue." That's what context does for AI. When you say "this is for senior managers who have 2 minutes and don't care about the backstory," you've just given it the cerulean speech. Without context, AI gives you generic blue. With it, you get cerulean.</div>
-    </div>
+    </details>
 
+    <details class="glossary-term">
+        <summary>
+            <span class="term-name">Token</span>
+            <span class="term-preview">A chunk of text the model processes. You do not need to obsess over tokens yet; just know that more context has a cost and tools have limits.</span>
+            <span class="term-toggle"><span class="when-closed">Read full definition</span><span class="when-open">Show less</span></span>
+        </summary>
+        <div class="term-def">A chunk of text the model processes. You do not need to obsess over tokens yet; you just need to know that more context has a cost and tools have limits. If a chat starts acting forgetful, vague, or suddenly less aware of what you already said, it may be because the conversation has more material than the tool can comfortably hold at once.</div>
+    </details>
+    </section>
 
-    <!-- Club Pack Try-On -->
     <div class="section-divider"></div>
 
+    <div class="section-image">
+        <img src="../assets/issue02-tryon-homework.png" alt="Episode 02 Try-On homework desk with prompt notes and Y2K office objects">
+    </div>
 
+    <div class="next-week">
+        <h3>Next Time On LAiDIES...</h3>
+        <p>She learns why AI can sound polished, confident, and completely wrong. The Burn Book Problem is waiting.</p>
+    </div>
 
+        </article>
 
-</article>
-
+        <aside class="side-rail" aria-label="Episode 02 reader tools">
+            <div class="ritual-side-card" aria-label="Weekly Bag shortcut">
+                <span class="label">After The Read</span>
+                <h3>Open the Weekly Bag</h3>
+                <p>Ready for the next object? Use this shortcut, or finish with the full ritual at the bottom.</p>
+                <a class="ritual-side-primary" href="../this-week.html?issue=2&amp;bag=open">Go to the Weekly Bag</a>
+                <div class="ritual-side-links">
+                    <a href="../learn/quiz.html?from=this-week&amp;issue=2&amp;bag=open#quiz-start">Take the Quiz</a>
+                    <a href="../printable.html?issue=2&amp;from=this-week&amp;bag=open&amp;group=practice">Cheat Sheet</a>
+                    <a href="../try-on.html?from=this-week&amp;issue=2&amp;bag=open&amp;group=practice">Try-On</a>
+                    <a href="../games/trading-cards.html?from=this-week&amp;issue=2&amp;bag=open&amp;group=practice">Practice Cards</a>
+                    <a href="../games/dj-booth.html?v=ritual-qa-2&amp;from=this-week&amp;issue=2&amp;bag=open#djApp">DJ Booth</a>
+                    <a href="../games/fun-pack.html?from=this-week&amp;issue=2&amp;bag=open&amp;group=fun">Extra Credit</a>
+                    <a href="../community.html?from=this-week&amp;issue=2&amp;bag=open&amp;group=connect">Community</a>
+                </div>
+                <p class="ritual-side-note">Shortcut only. The full ritual handoff lives below the article.</p>
+            </div>
+            <details class="section-nav-details">
+                <summary>Jump to a section</summary>
+                <nav class="section-nav" data-section-nav aria-label="Article sections"></nav>
+            </details>
+        </aside>
+    </section>
 
 <!-- Sign-off -->
-<section class="signoff">
+<section class="signoff" id="final-sip">
     <div class="signoff-banner">
-        <p class="tagline">
-            <span class="remember">Remember, <span class="brand-name">LAiDIES</span>:</span>
-            The Spice Girls didn't say "tell me what you vaguely want, what you sort of generally want." And neither should you.
-            <span class="sips">Be specific. Be bold. Be David Rose about it.</span>
-        </p>
+        <span class="signoff-kicker">Final Sip</span>
+        <span class="signoff-remember">Remember, LAiDIES:</span>
+        <span class="signoff-line">The Spice Girls didn't say "tell me what you vaguely want, what you sort of generally want." And neither should you.</span>
+        <span class="signoff-sips">Be specific. Be bold. Be David Rose about it.</span>
     </div>
 
     <div class="signoff-bottom">
-        <div class="challenge-box">
-            <div class="challenge-title">The <span class="brand-name">LAiDIES</span> Challenge</div>
-            <p>Got a better &ldquo;Remember, <span class="brand-name">LAiDIES</span>:&rdquo; sign-off that would make Dolly proud? Post it in the <a href="../community/try-on-debrief.html" target="_blank">Try-On Debrief</a>. The one with the most likes can get featured later, with credit. We're tr<span class="brand-name">AI</span>lblazers here, not idea thieves.</p>
+        <div class="challenge-box" id="laidies-challenge">
+            <div class="challenge-title">The LAiDIES Challenge</div>
+            <p>Got a better &ldquo;Remember, LAiDIES:&rdquo; sign-off that would make Dolly proud? Post it in the <a href="../community/try-on-debrief.html">Try-On Debrief</a>. The one with the most likes can get featured later, with credit. We're trailblazers here, not idea thieves.</p>
+        </div>
+    </div>
+
+    <section class="reader-next" id="after-read-actions" aria-label="Share, subscribe, and follow LAiDIES">
+        <div class="reader-next-card featured">
+            <p class="label">New Episodes Every Wednesday</p>
+            <h3>Get the next one in your inbox.</h3>
+            <p>One useful Episode a week, plus the occasional excellent detour. No spam. No homework spiral.</p>
+            <form class="reader-signup-form" action="https://buttondown.com/api/emails/embed-subscribe/laidies" method="post" target="episodeSubscribeFrame">
+                <label for="episodeSignupEmail">Email address</label>
+                <div class="reader-signup-row">
+                    <input id="episodeSignupEmail" name="email" type="email" placeholder="itsbritneybitch@icon.com" required>
+                    <button type="submit">Subscribe</button>
+                </div>
+                <p class="reader-form-note">Powered by Buttondown. <a href="https://buttondown.com/laidies" target="_blank" rel="noopener">Open Buttondown directly</a>.</p>
+            </form>
+            <iframe class="reader-subscribe-frame" name="episodeSubscribeFrame" title="LAiDIES subscription response" aria-hidden="true"></iframe>
         </div>
 
-        <p class="share-cta">If this resonated, send it to a woman who'd get something out of it.</p>
-    </div>
+        <div class="reader-next-card">
+            <p class="label">Send It Energy</p>
+            <h3>Bring a friend.</h3>
+            <p>Share this Episode with the woman in your group chat who has been meaning to start.</p>
+            <div class="reader-action-grid" aria-label="Share Episode 2">
+                <button class="reader-action" id="shareEpisodeButton" type="button">Share Article</button>
+                <button class="reader-action secondary" id="copyEpisodeLinkButton" type="button">Copy Link</button>
+                <span class="share-status" id="shareEpisodeStatus" role="status" aria-live="polite"></span>
+                <input class="share-url-fallback" id="shareEpisodeUrl" type="text" readonly hidden aria-label="Episode 2 share link">
+            </div>
+        </div>
+
+        <div class="reader-next-card after-hours">
+            <div>
+                <p class="label">LAiDIES After Hours</p>
+                <h3>Come sit with us.</h3>
+                <p>Follow @we.are.laidies for extra posts, behind-the-scenes notes, reminders, and the bits that keep going after the Episode.</p>
+            </div>
+            <div class="reader-action-grid" aria-label="Follow LAiDIES on social media">
+                <a class="reader-link-button primary" href="https://www.instagram.com/we.are.laidies/" target="_blank" rel="noreferrer">Open Instagram</a>
+                <a class="reader-link-button" href="https://www.linkedin.com/company/wearelaidies/?viewAsMember=true" target="_blank" rel="noreferrer">Open LinkedIn</a>
+            </div>
+        </div>
+    </section>
 </section>
+
+    <section class="activity-section" id="issue-kit" aria-label="Episode 02 weekly ritual">
+        <div class="activity-section-header">
+            <span class="label">What's In The Bag</span>
+            <h2>Complete the Weekly Ritual</h2>
+            <p>Step 1 is this article. After that, the Wednesday Bag keeps prompt practice small, practical, and connected to the rest of the LAiDIES world.</p>
+        </div>
+        <div class="activity-grid ritual-preview-grid">
+            <article class="activity-card">
+                <span class="label">01 / Read</span>
+                <strong>Read Episode 02</strong>
+                <p><em>Tell Me What You Want</em> explains why prompting is really delegation: context, constraints, and the ask.</p>
+                <em>You are here</em>
+            </article>
+        </div>
+        <div class="ritual-bridge-actions" aria-label="Continue the Episode 02 weekly ritual">
+            <a class="ritual-bag-pill" href="../this-week.html?issue=2&amp;bag=open">Go to the Weekly Bag</a>
+            <details class="ritual-full-details">
+                <summary>
+                    <span class="ritual-expand-text">See full ritual</span>
+                    <span class="ritual-expand-icon" aria-hidden="true"></span>
+                </summary>
+                <div class="activity-grid ritual-extra-grid">
+                    <a class="activity-card activity-card--primary" href="../this-week.html?issue=2&amp;bag=open&amp;group=practice">
+                        <span class="label">02 / Practice</span>
+                        <strong>Weekly Study Pack</strong>
+                        <p>Try-On, Cheat Sheet, and Practice Cards live together inside the Bag.</p>
+                        <em>Ready</em>
+                    </a>
+                    <a class="activity-card" href="../learn/quiz.html?from=this-week&amp;issue=2#quiz-start">
+                        <span class="label">03 / Quiz</span>
+                        <strong>Take the Quiz</strong>
+                        <p>Check whether prompting, context, specificity, and the David Rose rule actually stuck.</p>
+                        <em>Ready</em>
+                    </a>
+                    <a class="activity-card" href="../games/fun-pack.html?from=this-week&amp;issue=2&amp;bag=open">
+                        <span class="label">04 / Extra Credit</span>
+                        <strong>Extra Credit</strong>
+                        <p>Bonus activities, playful tools, and optional detours live here when you want more than the core practice.</p>
+                        <em>Ready</em>
+                    </a>
+                    <a class="activity-card" href="../this-week.html?issue=2&amp;bag=open&amp;group=connect">
+                        <span class="label">05 / Connect</span>
+                        <strong>Meet &amp; Celebrate</strong>
+                        <p>Bring it back to the Room and connect with LAiDIES after the work object is done.</p>
+                        <em>Ready</em>
+                    </a>
+                    <a class="activity-card" href="../games/dj-booth.html?v=ritual-qa-2&amp;from=this-week&amp;issue=2&amp;bag=open#djApp">
+                        <span class="label">06 / Listen</span>
+                        <strong>DJ Booth</strong>
+                        <p>Play the weekly anthem, then come back to the Bag for the rest of the ritual.</p>
+                        <em>Ready</em>
+                    </a>
+                    <a class="activity-card" href="../this-week.html?issue=2&amp;bag=open&amp;group=realworld">
+                        <span class="label">07 / Real World</span>
+                        <strong>The Book of Receipts</strong>
+                        <p>Use the real-world shelf for Hot Goss, terms, references, canon, and who's who.</p>
+                        <em>Ready</em>
+                    </a>
+                    <a class="activity-card" href="../this-week.html?issue=2&amp;bag=open">
+                        <span class="label">Hidden / Charm</span>
+                        <strong>Hidden Charm</strong>
+                        <p>Open the Episode 02 Bag scene and find the hidden weekly charm.</p>
+                        <em>In the Bag</em>
+                    </a>
+                </div>
+            </details>
+        </div>
+    </section>
 
 <!-- References -->
 <section class="resources-section">
     <div class="resources-inner">
-        <h3>What's in the Prompting Purse</h3>
-        <p style="font-size: 0.85rem; color: var(--text-light); font-style: italic; margin-bottom: 1em;">This week's links are for the David Rose skill: getting specific enough that the output stops being tragically beige. The living glossary and bigger toolkit live on the website.</p>
+        <h3>Gimme, Gimme More</h3>
+        <p style="font-size: 0.85rem; color: var(--text-light); font-style: italic; margin-bottom: 1em;">If you want to keep going after this.</p>
 
         <div class="go-deeper">
             <a href="https://www.oneusefulthing.org/p/how-to-use-ai-to-do-practical-stuff" class="resource-card" target="_blank" rel="noreferrer">
@@ -1124,7 +2698,7 @@
             </a>
         </div>
 
-        <h3 style="margin-top: 28px;">The Receipts</h3>
+        <h3>The Receipts</h3>
         <p style="font-size: 0.85rem; color: var(--text-light); font-style: italic; margin-bottom: 1em;">We did the reading so you don't have to.</p>
 
         <div class="citation"><a href="https://www.hbs.edu/faculty/Pages/item.aspx?num=64700" target="_blank" rel="noreferrer">Dell'Acqua, F. et al. (2023). &ldquo;Navigating the Jagged Technological Frontier.&rdquo; Harvard Business School x BCG.</a></div>
@@ -1132,22 +2706,112 @@
     </div>
 </section>
 
+</main>
+
 <!-- Footer -->
 <footer class="footer">
     <img src="../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" class="logo-footer">
     <div class="authors">
-        <strong>Created by <a href="https://www.linkedin.com/in/alison-eakin" target="_blank" style="color: rgba(255,255,255,0.8); border-bottom-color: rgba(255,255,255,0.3);">Alison Eakin</a> for <span class="brand-name">LAiDIES</span><sup class="legal-mark">&trade;</sup></strong><br>
-        Founder, writer, builder, and person currently learning in public
+        <strong>The Women of LAiDIES<sup class="legal-mark">&trade;</sup></strong><br>
+        <a href="https://www.linkedin.com/in/alison-eakin" target="_blank" style="color: rgba(255,255,255,0.8); border-bottom-color: rgba(255,255,255,0.3);">Alison Eakin</a> &mdash; Founder and Contributor<br>
+        <a href="https://www.linkedin.com/in/savina-alves/" target="_blank" style="color: rgba(255,255,255,0.8); border-bottom-color: rgba(255,255,255,0.3);">Savina Alves</a> &mdash; Marketing and Contributor
     </div>
-    <div style="margin-bottom: 12px;"><a href="https://www.instagram.com/we.are.laidies" target="_blank" style="color: rgba(255,255,255,0.6); border-bottom-color: rgba(255,255,255,0.2); font-size: 0.8rem;">@we.are.laidies</a></div>
+    <div style="margin-bottom: 12px;"><a href="https://www.instagram.com/we.are.laidies/" target="_blank" style="color: rgba(255,255,255,0.6); border-bottom-color: rgba(255,255,255,0.2); font-size: 0.8rem;">@we.are.laidies</a> &nbsp; <a href="https://www.linkedin.com/company/wearelaidies/?viewAsMember=true" target="_blank" style="color: rgba(255,255,255,0.6); border-bottom-color: rgba(255,255,255,0.2); font-size: 0.8rem;">LAiDIES on LinkedIn</a></div>
     <div class="copyright">&copy; 2026 LAiDIES&trade; / Ali Eakin. All rights reserved.</div>
-    <div class="hashtags">#LAiDIES &nbsp; #WomenInAI &nbsp; #AIForEveryone &nbsp; #AIFluency &nbsp; #trAIlblazers</div>
+    <div class="hashtags">#LAiDIES &nbsp; #WomenInAI &nbsp; #AIForEveryone &nbsp; #AIFluency &nbsp; #trailblazers</div>
 </footer>
+
+<script>
+(() => {
+  const navMount = document.querySelector("[data-section-nav]");
+  const article = document.querySelector(".article-card");
+  if (!navMount || !article) return;
+
+  const slugCounts = new Map();
+  const slugify = (text) => text
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 72) || "section";
+
+  Array.from(article.querySelectorAll("h2")).forEach((heading) => {
+    if (!heading.id) {
+      const base = slugify(heading.textContent || "");
+      const count = slugCounts.get(base) || 0;
+      slugCounts.set(base, count + 1);
+      heading.id = count ? `${base}-${count + 1}` : base;
+    }
+    const link = document.createElement("a");
+    link.href = `#${heading.id}`;
+    link.textContent = heading.textContent.trim();
+    navMount.appendChild(link);
+  });
+})();
+</script>
+
+<script>
+(() => {
+  const shareEpisodeButton = document.getElementById("shareEpisodeButton");
+  const copyEpisodeLinkButton = document.getElementById("copyEpisodeLinkButton");
+  const shareEpisodeStatus = document.getElementById("shareEpisodeStatus");
+  const shareEpisodeUrl = document.getElementById("shareEpisodeUrl");
+  const episodeShareLink = "https://wearelaidies.com/issues/issue-02.html";
+
+  function setShareStatus(message) {
+    if (shareEpisodeStatus) shareEpisodeStatus.textContent = message;
+  }
+
+  function showShareFallback() {
+    if (!shareEpisodeUrl) return;
+    shareEpisodeUrl.value = episodeShareLink;
+    shareEpisodeUrl.hidden = false;
+    shareEpisodeUrl.focus({ preventScroll: true });
+    shareEpisodeUrl.select();
+  }
+
+  async function copyEpisodeLink() {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(episodeShareLink);
+        setShareStatus("Link copied.");
+        return;
+      }
+    } catch (error) {
+      // Fall through to the visible copy field.
+    }
+
+    showShareFallback();
+    setShareStatus("Copy this link.");
+  }
+
+  async function shareEpisode() {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "LAiDIES Episode 02: Tell Me What You Want",
+          text: "Read LAiDIES Episode 02: Tell Me What You Want.",
+          url: episodeShareLink
+        });
+        setShareStatus("Article shared.");
+        return;
+      } catch (error) {
+        if (error && error.name === "AbortError") return;
+      }
+    }
+
+    await copyEpisodeLink();
+  }
+
+  if (shareEpisodeButton) shareEpisodeButton.addEventListener("click", shareEpisode);
+  if (copyEpisodeLinkButton) copyEpisodeLinkButton.addEventListener("click", copyEpisodeLink);
+})();
+</script>
 
 <script src="../content/episode-page.js?v=device-screen-5"></script>
 
     <div style="text-align: center; padding: 32px 20px 48px;">
-      <a class="button secondary" href="../index.html">← Back to Home</a>
+      <a class="button secondary" href="../index.html">&larr; Back to Home</a>
     </div>
   
 <!-- Fixed Mini Player -->
@@ -1242,7 +2906,6 @@
   let currentIndex = -1;
   let activeAudio = null;
 
-  // Track names from nearby labels
   function getTrackName(audio) {
     const parent = audio.closest('div');
     const label = parent?.querySelector('div[style*="font-weight: 600"]');
@@ -1254,7 +2917,6 @@
     return filename || 'Now playing';
   }
 
-  // Show mini player when any audio plays
   document.addEventListener('play', (e) => {
     if (e.target.tagName !== 'AUDIO') return;
     activeAudio = e.target;
