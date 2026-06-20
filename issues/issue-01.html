@@ -522,6 +522,7 @@
             clear: both;
             position: relative;
             overflow: hidden;
+            width: min(var(--episode-endcap-width, 900px), 100%);
             margin: clamp(3rem, 7vw, 5rem) auto clamp(2rem, 5vw, 3.5rem);
             padding: 0;
             color: var(--primary);
@@ -541,7 +542,7 @@
         .signoff-banner {
             position: relative;
             overflow: hidden;
-            max-width: 760px;
+            width: 100%;
             margin: 0 auto;
             padding: clamp(34px, 6vw, 58px) clamp(24px, 5vw, 46px);
             background:
@@ -567,15 +568,7 @@
         }
 
         .signoff-banner::after {
-            right: clamp(14px, 4vw, 36px);
-            bottom: clamp(10px, 3vw, 24px);
-            width: clamp(72px, 14vw, 118px);
-            height: clamp(72px, 14vw, 118px);
-            opacity: 0.18;
-            background:
-                linear-gradient(90deg, var(--neon-pink) 50%, transparent 50%) 0 0 / 20px 20px,
-                linear-gradient(var(--neon-pink) 50%, transparent 50%) 0 0 / 20px 20px;
-            transform: rotate(-8deg);
+            display: none;
         }
 
         .signoff-kicker,
@@ -651,7 +644,7 @@
         .signoff-bottom {
             display: grid;
             gap: 14px;
-            max-width: 650px;
+            width: 100%;
             margin: 22px auto 0;
             padding: 0;
         }
@@ -684,6 +677,11 @@
             line-height: 1.5;
         }
 
+        .challenge-box p {
+            max-width: 650px;
+            margin-inline: auto;
+        }
+
         .share-cta {
             color: var(--accent-dark);
             font-weight: 800;
@@ -693,7 +691,7 @@
             display: grid;
             grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
             gap: 14px;
-            max-width: 900px;
+            width: 100%;
             margin: 24px auto 0;
             text-align: left;
         }
@@ -712,6 +710,18 @@
                 radial-gradient(circle at 90% 8%, rgba(252, 228, 242, 0.48), transparent 10rem),
                 linear-gradient(135deg, rgba(255, 253, 251, 0.96), rgba(255, 244, 248, 0.78));
             border-left: 8px solid #b95d78;
+        }
+
+        .reader-next-card.after-hours {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: center;
+            gap: clamp(14px, 3vw, 26px);
+            background:
+                radial-gradient(circle at 96% 18%, rgba(185, 215, 220, 0.42), transparent 11rem),
+                radial-gradient(circle at 8% 98%, rgba(252, 228, 242, 0.7), transparent 12rem),
+                rgba(255, 253, 251, 0.94);
         }
 
         .reader-next-card .label {
@@ -803,6 +813,11 @@
             background: transparent;
         }
 
+        .reader-link-button.primary {
+            color: #fffdfb;
+            background: #4b2148;
+        }
+
         .reader-action-grid {
             display: grid;
             gap: 9px;
@@ -887,21 +902,56 @@
         }
 
         .resources-section {
-            background: var(--bg-warm);
-            padding: 48px 24px;
-            margin-top: 3em;
+            position: relative;
+            width: min(var(--episode-endcap-width, 900px), 100%);
+            margin: 3em auto 0;
+            padding: clamp(28px, 4.5vw, 44px) clamp(22px, 4vw, 36px);
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 92% 8%, rgba(185, 215, 220, 0.22), transparent 16rem),
+                radial-gradient(circle at 8% 94%, rgba(252, 228, 242, 0.58), transparent 16rem),
+                linear-gradient(135deg, rgba(255, 253, 251, 0.96), rgba(255, 244, 248, 0.82));
+            border: 1px solid rgba(185, 93, 120, 0.3);
+            border-left: 8px solid #b95d78;
+            border-radius: 8px;
+            box-shadow: 0 20px 44px rgba(75, 33, 72, 0.1);
         }
 
         .resources-inner {
-            max-width: 720px;
+            max-width: 760px;
             margin: 0 auto;
         }
 
         .resources-section h3 {
+            margin: 0 0 0.85em;
+            padding: clamp(0.82rem, 2vw, 1.08rem) clamp(0.95rem, 2.4vw, 1.25rem);
+            color: #4b2148;
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 20px;
+            font-size: clamp(1.95rem, 3.35vw, 2.8rem);
+            line-height: 1.08;
+            background: linear-gradient(135deg, rgba(252, 228, 242, 0.92), rgba(255, 253, 251, 0.96));
+            border-left: 5px solid #b95d78;
+            border-radius: 8px;
+            box-shadow:
+                inset 0 0 0 1px rgba(111, 38, 63, 0.1),
+                0 16px 34px rgba(75, 33, 72, 0.07);
+        }
+
+        .resources-section h3::before {
+            content: "";
+            display: block;
+            width: 86px;
+            height: 9px;
+            margin: 0 0 1.05rem;
+            background: linear-gradient(90deg, #b95d78, #b9d7dc);
+            border-radius: 999px;
+            box-shadow:
+                22px 0 0 rgba(252, 228, 242, 0.9),
+                44px 0 0 rgba(111, 38, 63, 0.12);
+        }
+
+        .resources-section h3:not(:first-of-type) {
+            margin-top: clamp(28px, 4vw, 42px);
         }
 
         .resources-section .citation {
@@ -1317,7 +1367,7 @@
             align-items: center;
             margin: 0 0 clamp(28px, 4.1vw, 58px);
             padding: clamp(18px, 2.4vw, 24px) clamp(20px, 2.8vw, 28px) clamp(20px, 2.8vw, 30px);
-            background: rgba(252, 228, 242, 0.82);
+            background: rgba(252, 228, 242, 0.68);
             border: 1px solid rgba(255, 248, 252, 0.64);
             border-radius: 8px;
             box-shadow: 0 18px 38px rgba(0, 0, 0, 0.22);
@@ -1362,6 +1412,10 @@
             font-weight: 900;
             letter-spacing: 0.14em;
             text-transform: uppercase;
+        }
+
+        .episode-01-masthead-copy .episode-masthead-phone strong {
+            color: #9b3f5f !important;
         }
 
         .episode-01-masthead-copy .episode-masthead-note {
@@ -1411,6 +1465,7 @@
         }
 
         .preview-shell {
+            --episode-endcap-width: 900px;
             width: min(1120px, calc(100% - 32px));
             margin: 0 auto;
             padding: 0 0 clamp(48px, 7vw, 88px);
@@ -1503,10 +1558,6 @@
                 44px 0 0 rgba(111, 38, 63, 0.12);
         }
 
-        .article-card h2:first-of-type::before {
-            display: none;
-        }
-
         .article-card h3 {
             color: #6f263f;
         }
@@ -1547,13 +1598,14 @@
         }
 
         details.episode-intro-card summary {
-            display: flex;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
             align-items: center;
-            justify-content: space-between;
-            gap: 14px;
+            gap: 8px 14px;
             color: #4b2148;
             cursor: pointer;
             list-style: none;
+            text-align: left;
         }
 
         details.episode-intro-card summary::-webkit-details-marker {
@@ -1562,15 +1614,39 @@
 
         details.episode-intro-card summary::after {
             content: "+";
+            display: inline-grid;
+            place-items: center;
             flex: 0 0 auto;
+            width: 36px;
+            height: 36px;
             color: #6f263f;
-            font-family: "Source Serif 4", Georgia, serif;
-            font-size: 1.2rem;
+            background: rgba(252, 228, 242, 0.86);
+            border: 1px solid rgba(111, 38, 63, 0.16);
+            border-radius: 999px;
+            font-family: "Inter", sans-serif;
+            font-size: 1.18rem;
+            font-weight: 850;
             line-height: 1;
         }
 
         details.episode-intro-card[open] summary::after {
             content: "-";
+        }
+
+        .episode-intro-summary-copy {
+            display: -webkit-box;
+            grid-column: 1;
+            max-width: 62ch;
+            overflow: hidden;
+            color: #4c3b46;
+            font-size: 0.98rem;
+            line-height: 1.46;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+
+        details.episode-intro-card[open] .episode-intro-summary-copy {
+            display: none;
         }
 
         .article-card .article-subheading {
@@ -1603,6 +1679,27 @@
             box-shadow: 0 16px 36px rgba(75, 33, 72, 0.08);
         }
 
+        .article-card .next-week {
+            position: relative;
+            overflow: hidden;
+            border: 1.5px solid rgba(185, 93, 120, 0.36) !important;
+            background:
+                radial-gradient(circle at 92% 10%, rgba(185, 215, 220, 0.18), transparent 12rem),
+                radial-gradient(circle at 10% 100%, rgba(252, 228, 242, 0.7), transparent 13rem),
+                linear-gradient(135deg, rgba(255, 253, 251, 0.96), rgba(255, 244, 248, 0.82)) !important;
+            box-shadow:
+                inset 0 0 0 1px rgba(255, 253, 251, 0.82),
+                0 20px 42px rgba(75, 33, 72, 0.1);
+        }
+
+        .article-card .next-week::before {
+            content: "";
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 6px;
+            background: linear-gradient(180deg, #b95d78, #b9d7dc);
+        }
+
         .article-card .section-image {
             border-radius: 8px;
             border: 1px solid rgba(75, 33, 72, 0.12);
@@ -1623,6 +1720,8 @@
 
         .concept-definitions .article-subheading {
             margin-top: 0;
+            font-size: clamp(1.75rem, 4.6vw, 2.5rem);
+            line-height: 1.04;
         }
 
         .concept-definitions .section-subhed {
@@ -1723,7 +1822,7 @@
             margin: 0 0 10px;
             color: #4b2148;
             font-family: "Playfair Display", Georgia, serif;
-            font-size: clamp(1.35rem, 2vw, 1.65rem);
+            font-size: clamp(1.2rem, 1.75vw, 1.45rem);
             line-height: 1.06;
         }
 
@@ -1814,7 +1913,8 @@
 
         .activity-section {
             scroll-margin-top: 96px;
-            margin: 0 0 42px;
+            width: min(var(--episode-endcap-width, 900px), 100%);
+            margin: 0 auto 42px;
             padding: clamp(22px, 4vw, 30px);
             background:
                 radial-gradient(circle at 92% 12%, rgba(185, 215, 220, 0.18), transparent 20rem),
@@ -1847,6 +1947,88 @@
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 14px;
+        }
+
+        .ritual-preview-grid {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .ritual-bridge-actions {
+            display: grid;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .ritual-extra-grid {
+            margin-top: 14px;
+        }
+
+        .ritual-bag-pill,
+        .ritual-full-details summary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            width: 100%;
+            border-radius: 999px;
+            font-family: "Inter", sans-serif;
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            line-height: 1.1;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .ritual-bag-pill {
+            color: #fffdfb;
+            background: #6f263f;
+            border: 1px solid #6f263f;
+        }
+
+        .ritual-full-details summary {
+            flex-direction: column;
+            gap: 7px;
+            color: #6f263f;
+            background: rgba(255, 253, 251, 0.78);
+            border: 1px solid rgba(111, 38, 63, 0.18);
+            cursor: pointer;
+            list-style: none;
+        }
+
+        .ritual-full-details summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .ritual-expand-icon {
+            display: inline-grid;
+            place-items: center;
+            width: 32px;
+            height: 32px;
+            color: #6f263f;
+            background: rgba(252, 228, 242, 0.86);
+            border: 1px solid rgba(111, 38, 63, 0.16);
+            border-radius: 999px;
+            font-size: 1.12rem;
+            line-height: 1;
+        }
+
+        .ritual-expand-icon::before {
+            content: "+";
+        }
+
+        .ritual-full-details[open] .ritual-expand-text {
+            font-size: 0;
+        }
+
+        .ritual-full-details[open] .ritual-expand-text::before {
+            content: "Hide full ritual";
+            font-size: 0.78rem;
+        }
+
+        .ritual-full-details[open] .ritual-expand-icon::before {
+            content: "-";
         }
 
         .activity-card {
@@ -1906,6 +2088,10 @@
             .article-layout,
             .activity-grid,
             .reader-next {
+                grid-template-columns: 1fr;
+            }
+
+            .reader-next-card.after-hours {
                 grid-template-columns: 1fr;
             }
 
@@ -2046,6 +2232,10 @@
                 font-size: clamp(1.7rem, 8vw, 2.04rem);
             }
 
+            .episode-intro-summary-copy {
+                font-size: 0.95rem;
+            }
+
             .reader-signup-row {
                 grid-template-columns: 1fr;
             }
@@ -2159,13 +2349,19 @@
 
     <!-- Season Preview -->
     <details class="season-preview-block episode-intro-card">
-        <summary><span class="episode-intro-label">On This Season...</span></summary>
+        <summary>
+            <span class="episode-intro-label">On This Season...</span>
+            <span class="episode-intro-summary-copy">This is a 24-episode season. Like the glory days, when TV actually let you fall in love with the characters before cancelling them after eight.</span>
+        </summary>
         <p class="episode-intro-copy">This is a 24-episode season. Like the glory days, when TV actually let you fall in love with the characters before cancelling them after eight. No bingeing. New episode every Wednesday. And every skill you pick up here? It's all leading somewhere. Think of it like Cher's outfit planner building one look at a time. By the finale, you'll have built your own squad of AI employees, each named after a woman from our favourite era of pop culture.</p>
         <p class="episode-intro-copy">The arc: she stops feeling behind, learns to delegate to machines, keeps her standards, builds her squad, and becomes the woman other people come to when the future gets confusing. That's where we're headed. One Wednesday at a time.</p>
     </details>
 
     <details class="tldr-section episode-intro-card">
-        <summary><span class="episode-intro-label">On This Episode...</span></summary>
+        <summary>
+            <span class="episode-intro-label">On This Episode...</span>
+            <span class="episode-intro-summary-copy">The one in which our heroine admits she put off learning AI for an embarrassingly long time, discovers the gender gap is a physics problem not a confidence problem.</span>
+        </summary>
         <p class="episode-intro-copy">The one in which our heroine admits she put off learning AI for an embarrassingly long time, discovers the gender gap is a physics problem not a confidence problem, learns that for every 100 men using AI only 78 women do (and it's not because we can't &mdash; we're already drowning), compares AI to Regina George (uncanny), explains the whole thing in 90 seconds using Cher's closet from Clueless, and points to a 10-minute Club Pack try-on that takes less time than ordering an espresso martini. Nobody here knows what they're doing. We're all figuring it out together, every Wednesday. Dolly would approve. Miranda Priestly might even give this the nod. You know the one. Oh, and there are Easter eggs hidden in the images and text. If you spot them all, you can sit with us.</p>
     </details>
 
@@ -2301,6 +2497,10 @@
         <p style="margin-bottom: 0;"><strong>Your job is knowing which parts to trust and which to push back on. You've been doing that with other people's work your entire career. This is no different.</strong></p>
     </div>
 
+    <div class="section-image">
+        <img src="../assets/episodes/issue-01/episode-01-what-like-its-hard.png" alt="Pink iMac with What, Like It's Hard on the screen, First Step neon sign, keyboard, Harvard Law School application, and Y2K desk objects">
+    </div>
+
     <section class="concept-definitions" id="study-pack" aria-label="Three core concept definitions">
     <h3 class="article-subheading">So You Don't Pull a Cher</h3>
         <p class="section-subhed">Quick definitions so you can use these words confidently in a meeting without accidentally arguing that it doesn't say RSVP on the Statue of Liberty.</p>
@@ -2340,28 +2540,28 @@
 
     <!-- Next Week -->
     <div class="next-week">
-        <h3>Next Wednesday: Episode 02</h3>
+        <h3>Next Time On LAiDIES...</h3>
         <p>She learns to actually talk to AI so it gives her something useful back. Turns out, prompting is just delegation. And you already know how to do that.</p>
     </div>
 
         </article>
 
         <aside class="side-rail" aria-label="Episode 01 reader tools">
-            <div class="ritual-side-card" aria-label="Finish the weekly ritual">
+            <div class="ritual-side-card" aria-label="Weekly Bag shortcut">
                 <span class="label">After The Read</span>
-                <h3>Finish the Episode 01 ritual</h3>
-                <p>Open the Bag, take the quiz, save the printable, try one small task, and play this week's DJ JAIDY track.</p>
-                <a class="ritual-side-primary" href="../this-week.html?issue=1&amp;bag=open">Open the Episode 01 Bag</a>
+                <h3>Open the Weekly Bag</h3>
+                <p>Ready for the next object? Use this shortcut, or finish with the full ritual at the bottom.</p>
+                <a class="ritual-side-primary" href="../this-week.html?issue=1&amp;bag=open">Go to the Weekly Bag</a>
                 <div class="ritual-side-links">
-                    <a href="../learn/quiz.html?from=this-week&amp;issue=1&amp;bag=open#quiz-start">Quiz</a>
-                    <a href="../printable.html?issue=1&amp;from=this-week&amp;bag=open&amp;group=practice">Printable</a>
+                    <a href="../learn/quiz.html?from=this-week&amp;issue=1&amp;bag=open#quiz-start">Take the Quiz</a>
+                    <a href="../printable.html?issue=1&amp;from=this-week&amp;bag=open&amp;group=practice">Cheat Sheet</a>
                     <a href="../try-on.html?from=this-week&amp;issue=1&amp;bag=open&amp;group=practice">Try-On</a>
-                    <a href="../games/trading-cards.html?from=this-week&amp;issue=1&amp;bag=open&amp;group=practice">Cards</a>
-                    <a href="../games/dj-booth.html?from=this-week&amp;issue=1&amp;bag=open#djApp">Anthem</a>
+                    <a href="../games/trading-cards.html?from=this-week&amp;issue=1&amp;bag=open&amp;group=practice">Practice Cards</a>
+                    <a href="../games/dj-booth.html?from=this-week&amp;issue=1&amp;bag=open#djApp">DJ Booth</a>
                     <a href="../games/fun-pack.html?from=this-week&amp;issue=1&amp;bag=open&amp;group=fun">Extra Credit</a>
-                    <a href="../community.html?from=this-week&amp;issue=1&amp;bag=open&amp;group=connect">Room</a>
+                    <a href="../community.html?from=this-week&amp;issue=1&amp;bag=open&amp;group=connect">Community</a>
                 </div>
-                <p class="ritual-side-note">Start with the article, then use the Bag to choose the next object.</p>
+                <p class="ritual-side-note">Shortcut only. The full ritual handoff lives below the article.</p>
             </div>
             <details class="section-nav-details">
                 <summary>Jump to a section</summary>
@@ -2409,9 +2609,20 @@
             <div class="reader-action-grid" aria-label="Share Episode 1">
                 <button class="reader-action" id="shareEpisodeButton" type="button">Share Article</button>
                 <button class="reader-action secondary" id="copyEpisodeLinkButton" type="button">Copy Link</button>
-                <a class="reader-link-button" href="https://www.instagram.com/we.are.laidies/" target="_blank" rel="noreferrer">Instagram</a>
                 <span class="share-status" id="shareEpisodeStatus" role="status" aria-live="polite"></span>
                 <input class="share-url-fallback" id="shareEpisodeUrl" type="text" readonly hidden aria-label="Episode 1 share link">
+            </div>
+        </div>
+
+        <div class="reader-next-card after-hours">
+            <div>
+                <p class="label">LAiDIES After Hours</p>
+                <h3>Come sit with us.</h3>
+                <p>Follow @we.are.laidies for extra posts, behind-the-scenes notes, reminders, and the bits that keep going after the Episode.</p>
+            </div>
+            <div class="reader-action-grid" aria-label="Follow LAiDIES on social media">
+                <a class="reader-link-button primary" href="https://www.instagram.com/we.are.laidies/" target="_blank" rel="noreferrer">Open Instagram</a>
+                <a class="reader-link-button" href="https://www.linkedin.com/company/wearelaidies/?viewAsMember=true" target="_blank" rel="noreferrer">Open LinkedIn</a>
             </div>
         </div>
     </section>
@@ -2420,64 +2631,69 @@
     <section class="activity-section" id="issue-kit" aria-label="Episode 01 weekly ritual">
         <div class="activity-section-header">
             <span class="label">What's In The Bag</span>
-            <h2>Episode 01 weekly ritual</h2>
+            <h2>Complete the Weekly Ritual</h2>
             <p>Step 1 is this article. After that, the Wednesday Bag keeps the first AI move small, practical, and connected to the rest of the LAiDIES world.</p>
         </div>
-        <div class="activity-grid">
+        <div class="activity-grid ritual-preview-grid">
             <article class="activity-card">
                 <span class="label">01 / Read</span>
-                <strong>On Wednesdays We Use AI</strong>
-                <p>Start here. The Episode explains why the first move is small, useful, and allowed to be imperfect.</p>
+                <strong>Read Episode 01</strong>
+                <p><em>On Wednesdays We Use AI</em> explains why the first move is small, useful, and allowed to be imperfect.</p>
                 <em>You are here</em>
             </article>
-            <a class="activity-card activity-card--primary" href="../this-week.html?issue=1&amp;bag=open">
-                <span class="label">02 / Return</span>
-                <strong>Open the Episode 01 Bag</strong>
-                <p>The tracked ritual hub for the weekly objects, hidden charm, and next step.</p>
-                <em>Ready</em>
-            </a>
-            <a class="activity-card" href="../learn/quiz.html?from=this-week&amp;issue=1#quiz-start">
-                <span class="label">03 / Check</span>
-                <strong>Episode 01 Quiz</strong>
-                <p>Make sure the AI basics, confidence gap, and first-use mindset actually stuck.</p>
-                <em>Ready</em>
-            </a>
-            <a class="activity-card" href="../printable.html?issue=1&amp;from=this-week&amp;bag=open">
-                <span class="label">04 / Save</span>
-                <strong>Open the Tab</strong>
-                <p>The four-page printable for your first safe, useful AI moves.</p>
-                <em>Ready</em>
-            </a>
-            <a class="activity-card" href="../try-on.html?from=this-week&amp;issue=1&amp;bag=open">
-                <span class="label">05 / Try</span>
-                <strong>One Useful Move</strong>
-                <p>Give AI a tiny real task, then use your judgment to decide what improves it.</p>
-                <em>Ready</em>
-            </a>
-            <a class="activity-card" href="../community.html?from=this-week&amp;issue=1&amp;bag=open#chat-rooms">
-                <span class="label">06 / Bring Back</span>
-                <strong>The LAiDIES Room</strong>
-                <p>Share what you tried, what felt useful, or what made you say, yes, no, absolutely not.</p>
-                <em>Ready</em>
-            </a>
-            <a class="activity-card" href="../games/fun-pack.html?from=this-week&amp;issue=1&amp;bag=open">
-                <span class="label">07 / Bonus</span>
-                <strong>The Extra Credit</strong>
-                <p>The bonus-credit shelf for the week, including the card-pack path and weekly ritual objects.</p>
-                <em>Ready</em>
-            </a>
-            <a class="activity-card" href="../games/dj-booth.html?from=this-week&amp;issue=1&amp;bag=open#djApp">
-                <span class="label">08 / Listen + Goss</span>
-                <strong>On Wednesday We Do AI</strong>
-                <p>Play the Episode 01 DJ JAIDY track, then come back to the Bag for the rest of the ritual.</p>
-                <em>Ready</em>
-            </a>
-            <a class="activity-card" href="../this-week.html?issue=1&amp;bag=open">
-                <span class="label">Hidden / Charm</span>
-                <strong>Find the weekly charm</strong>
-                <p>Open the Episode 01 Bag scene and find the hidden weekly charm.</p>
-                <em>In the Bag</em>
-            </a>
+        </div>
+        <div class="ritual-bridge-actions" aria-label="Continue the Episode 01 weekly ritual">
+            <a class="ritual-bag-pill" href="../this-week.html?issue=1&amp;bag=open">Go to the Weekly Bag</a>
+            <details class="ritual-full-details">
+                <summary>
+                    <span class="ritual-expand-text">See full ritual</span>
+                    <span class="ritual-expand-icon" aria-hidden="true"></span>
+                </summary>
+                <div class="activity-grid ritual-extra-grid">
+                    <a class="activity-card activity-card--primary" href="../this-week.html?issue=1&amp;bag=open&amp;group=practice">
+                        <span class="label">02 / Practice</span>
+                        <strong>Weekly Study Pack</strong>
+                        <p>Try-On, Cheat Sheet, and Practice Cards live together inside the Bag.</p>
+                        <em>Ready</em>
+                    </a>
+                    <a class="activity-card" href="../learn/quiz.html?from=this-week&amp;issue=1#quiz-start">
+                        <span class="label">03 / Quiz</span>
+                        <strong>Take the Quiz</strong>
+                        <p>Check whether the AI basics, confidence gap, and first-use mindset actually stuck.</p>
+                        <em>Ready</em>
+                    </a>
+                    <a class="activity-card" href="../games/fun-pack.html?from=this-week&amp;issue=1&amp;bag=open">
+                        <span class="label">04 / Extra Credit</span>
+                        <strong>Extra Credit</strong>
+                        <p>Madame CLAi-O, FAiRY GODMOTHER, Dream Phone, Girl Talk, and other bonus paths.</p>
+                        <em>Ready</em>
+                    </a>
+                    <a class="activity-card" href="../this-week.html?issue=1&amp;bag=open&amp;group=connect">
+                        <span class="label">05 / Connect</span>
+                        <strong>Meet &amp; Celebrate</strong>
+                        <p>Bring it back to the Room and connect with LAiDIES after the work object is done.</p>
+                        <em>Ready</em>
+                    </a>
+                    <a class="activity-card" href="../games/dj-booth.html?from=this-week&amp;issue=1&amp;bag=open#djApp">
+                        <span class="label">06 / Listen</span>
+                        <strong>DJ Booth</strong>
+                        <p>Play the weekly anthem, then come back to the Bag for the rest of the ritual.</p>
+                        <em>Ready</em>
+                    </a>
+                    <a class="activity-card" href="../this-week.html?issue=1&amp;bag=open&amp;group=realworld">
+                        <span class="label">07 / Real World</span>
+                        <strong>The Book of Receipts</strong>
+                        <p>Use the real-world shelf for Hot Goss, terms, references, canon, and who's who.</p>
+                        <em>Ready</em>
+                    </a>
+                    <a class="activity-card" href="../this-week.html?issue=1&amp;bag=open">
+                        <span class="label">Hidden / Charm</span>
+                        <strong>Hidden Charm</strong>
+                        <p>Open the Episode 01 Bag scene and find the hidden weekly charm.</p>
+                        <em>In the Bag</em>
+                    </a>
+                </div>
+            </details>
         </div>
     </section>
 
@@ -2502,7 +2718,7 @@
             </a>
         </div>
 
-        <h3 style="margin-top: 28px;">The Receipts</h3>
+        <h3>The Receipts</h3>
         <p style="font-size: 0.85rem; color: var(--text-light); font-style: italic; margin-bottom: 1em;">We did the reading so you don't have to.</p>
 
         <div class="citation"><a href="https://aiinstitute.hbs.edu/the-gender-divide-in-generative-ai-a-global-challenge/" target="_blank">Otis, N. et al. (2024). &ldquo;The Gender Divide in Generative AI: A Global Challenge.&rdquo; Harvard Business School.</a></div>
@@ -2523,7 +2739,7 @@
         <a href="https://www.linkedin.com/in/alison-eakin" target="_blank" style="color: rgba(255,255,255,0.8); border-bottom-color: rgba(255,255,255,0.3);">Alison Eakin</a> &mdash; Founder and Contributor<br>
         <a href="https://www.linkedin.com/in/savina-alves/" target="_blank" style="color: rgba(255,255,255,0.8); border-bottom-color: rgba(255,255,255,0.3);">Savina Alves</a> &mdash; Marketing and Contributor
     </div>
-    <div style="margin-bottom: 12px;"><a href="https://www.instagram.com/we.are.laidies" target="_blank" style="color: rgba(255,255,255,0.6); border-bottom-color: rgba(255,255,255,0.2); font-size: 0.8rem;">@we.are.laidies</a></div>
+    <div style="margin-bottom: 12px;"><a href="https://www.instagram.com/we.are.laidies/" target="_blank" style="color: rgba(255,255,255,0.6); border-bottom-color: rgba(255,255,255,0.2); font-size: 0.8rem;">@we.are.laidies</a> &nbsp; <a href="https://www.linkedin.com/company/wearelaidies/?viewAsMember=true" target="_blank" style="color: rgba(255,255,255,0.6); border-bottom-color: rgba(255,255,255,0.2); font-size: 0.8rem;">LAiDIES on LinkedIn</a></div>
     <div class="copyright">&copy; 2026 LAiDIES&trade; / Ali Eakin. All rights reserved.</div>
     <div class="hashtags">#LAiDIES &nbsp; #WomenInAI &nbsp; #AIForEveryone &nbsp; #AIFluency &nbsp; #trAIlblazers</div>
 </footer>
