@@ -1207,9 +1207,11 @@
 
         /* Episode 02 reader system alignment */
         body {
+            --episode-endcap-width: 1120px;
             background:
-                radial-gradient(circle at 8% 8%, rgba(252, 228, 242, 0.24), transparent 25rem),
-                radial-gradient(circle at 86% 12%, rgba(255, 248, 251, 0.44), transparent 24rem),
+                radial-gradient(circle at 4% 18%, rgba(252, 228, 242, 0.34), transparent 31rem),
+                radial-gradient(circle at 96% 14%, rgba(185, 215, 220, 0.18), transparent 30rem),
+                radial-gradient(circle at 88% 58%, rgba(255, 244, 248, 0.52), transparent 34rem),
                 linear-gradient(180deg, #fffaf8 0%, #fff8fb 48%, #fffdfb 100%);
         }
 
@@ -1309,13 +1311,18 @@
         }
 
         .episode-02-reader-hero {
-            padding: clamp(22px, 4vw, 48px) clamp(12px, 2vw, 22px) clamp(36px, 6vw, 68px);
+            padding: clamp(22px, 4vw, 48px) clamp(22px, 5vw, 72px) clamp(36px, 6vw, 68px);
+        }
+
+        .episode-02-reader-hero .header-content {
+            max-width: 100%;
         }
 
         .header-content .episode-02-masthead-banner {
             position: relative;
             display: flex !important;
             align-items: end;
+            width: 100% !important;
             min-height: min(86vh, 820px);
             padding: clamp(72px, 8vw, 112px) clamp(22px, 6.8vw, 104px) clamp(44px, 6vw, 68px);
             color: #4b2148;
@@ -1390,17 +1397,22 @@
         .episode-02-masthead-copy .episode-masthead-copy {
             position: static !important;
             display: grid;
-            gap: 12px;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 10px clamp(16px, 2.4vw, 28px);
+            align-items: end;
             width: 100% !important;
             padding: 0;
             color: #4b2148;
-            background: transparent;
-            border: 0;
-            box-shadow: none;
+            background: transparent !important;
+            border: 0 !important;
+            border-top: 0 !important;
+            border-bottom: 0 !important;
+            box-shadow: none !important;
             text-align: left;
         }
 
         .episode-02-masthead-copy .episode-masthead-phone {
+            grid-column: 1 / -1;
             gap: 0.42em;
             width: fit-content;
             color: #9b3f5f;
@@ -1420,6 +1432,7 @@
 
         .episode-02-masthead-copy .episode-masthead-note {
             display: block;
+            grid-column: 1 / -1;
             width: 100%;
             max-width: 900px;
             color: #4b2148;
@@ -1435,7 +1448,11 @@
         }
 
         .episode-02-masthead-copy .episode-masthead-date {
+            grid-column: 2;
+            justify-self: end;
+            align-self: end;
             width: fit-content;
+            margin-bottom: clamp(12px, 2vw, 18px);
             color: #6f263f;
             font-size: 0.78rem;
             font-weight: 900;
@@ -1445,11 +1462,13 @@
         }
 
         .episode-masthead-premise {
+            position: relative;
+            grid-column: 1;
             display: block;
             width: fit-content;
             max-width: 680px;
-            margin-top: 2px;
-            padding: clamp(12px, 2vw, 16px) clamp(14px, 2.4vw, 20px);
+            margin-top: clamp(10px, 1.7vw, 18px);
+            padding: clamp(24px, 3vw, 30px) clamp(14px, 2.4vw, 20px) clamp(12px, 2vw, 16px);
             color: #4b2148;
             background: rgba(255, 253, 251, 0.76);
             border: 1px solid rgba(255, 248, 252, 0.64);
@@ -1464,9 +1483,23 @@
             text-transform: none;
         }
 
+        .episode-02-masthead-copy .episode-masthead-premise::before {
+            content: "";
+            position: absolute;
+            left: clamp(14px, 2.4vw, 20px);
+            top: 12px;
+            width: 92px;
+            height: 9px;
+            background: linear-gradient(90deg, #b95d78, #b9d7dc);
+            border-radius: 999px;
+            box-shadow:
+                24px 0 0 rgba(252, 228, 242, 0.9),
+                48px 0 0 rgba(111, 38, 63, 0.12);
+        }
+
         .preview-shell {
-            --episode-endcap-width: 900px;
-            width: min(1120px, calc(100% - 32px));
+            --episode-endcap-width: 1120px;
+            width: min(1320px, calc(100% - 48px));
             margin: 0 auto;
             padding: 0 0 clamp(48px, 7vw, 88px);
         }
@@ -1515,9 +1548,10 @@
 
         .article-layout {
             display: grid;
-            grid-template-columns: minmax(0, 720px) minmax(230px, 300px);
-            gap: clamp(24px, 4vw, 52px);
+            grid-template-columns: minmax(0, 860px) minmax(260px, 320px);
+            gap: clamp(32px, 3.8vw, 56px);
             align-items: start;
+            justify-content: center;
         }
 
         .article-layout .article-container {
@@ -2083,6 +2117,65 @@
             margin-inline: auto;
         }
 
+        @media (min-width: 921px) {
+            .episode-02-reader-hero {
+                padding-inline: clamp(32px, 4vw, 64px);
+            }
+
+            .episode-02-reader-hero .header-content {
+                width: 100%;
+                max-width: min(1320px, calc(100vw - 96px));
+            }
+
+            .header-content .episode-02-masthead-banner {
+                width: 100% !important;
+                max-width: none !important;
+                min-height: clamp(560px, 60vh, 720px);
+                margin-inline: auto !important;
+            }
+
+            .preview-shell {
+                --episode-endcap-width: min(1180px, calc(100vw - 96px));
+                width: min(1320px, calc(100vw - 96px));
+            }
+
+            .article-layout {
+                grid-template-columns: minmax(0, 860px) minmax(280px, 320px);
+                gap: clamp(32px, 3.2vw, 56px);
+                justify-content: center;
+            }
+
+            .article-container p,
+            .lead-paragraph,
+            .article-card .episode-intro-copy,
+            .article-card .section-subhed,
+            .prompt-example,
+            .article-card .highlight-box p,
+            .article-card .stat-label,
+            .article-card details.glossary-term .term-def,
+            .term-preview {
+                max-width: 76ch;
+                font-size: clamp(1.08rem, 0.6vw + 0.9rem, 1.15rem) !important;
+                line-height: 1.68;
+            }
+
+            .kit-card p,
+            .ritual-side-card p,
+            .activity-card p,
+            .episode-intro-summary-copy {
+                font-size: clamp(1.04rem, 0.88vw, 1.16rem);
+                line-height: 1.58;
+            }
+
+            .article-card h2 {
+                font-size: clamp(2.45rem, 3vw, 3.35rem);
+            }
+
+            .article-card .episode-intro-label {
+                font-size: clamp(2.15rem, 2.5vw, 2.9rem);
+            }
+        }
+
         @media (max-width: 920px) {
             .reader-kit,
             .article-layout,
@@ -2176,6 +2269,10 @@
                 width: 100%;
             }
 
+            .episode-02-masthead-copy .episode-masthead-copy {
+                grid-template-columns: 1fr;
+            }
+
             .episode-02-masthead-copy .episode-masthead-brand-bar {
                 margin-bottom: 20px;
                 padding: 16px 18px 18px;
@@ -2192,8 +2289,16 @@
             }
 
             .episode-masthead-premise {
+                grid-column: 1;
+                justify-self: start;
                 font-size: 1.02rem;
                 line-height: 1.2;
+            }
+
+            .episode-02-masthead-copy .episode-masthead-date {
+                grid-column: 1;
+                justify-self: start;
+                margin-bottom: 0;
             }
 
             .preview-shell {
@@ -2331,7 +2436,7 @@
                 <span class="episode-masthead-copy" data-episode-masthead-copy data-episode-number="2" data-episode-title="Tell Me What You Want" data-episode-release-date="2026-06-10">
                     <span class="episode-masthead-phone"><span>Episode</span><strong data-episode-masthead-number></strong></span>
                     <span class="episode-masthead-note" data-episode-masthead-title></span>
-                    <span class="episode-masthead-premise">Prompting is not coding. It is delegation.</span>
+                    <span class="episode-masthead-premise">AI can't read your mind. Be David Rose about it.</span>
                     <span class="episode-masthead-date" data-episode-masthead-date></span>
                 </span>
             </span>
