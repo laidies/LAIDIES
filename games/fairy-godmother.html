@@ -406,11 +406,102 @@
       .scroll-card-body {
         font-size: 0.92rem;
         line-height: 1.7;
-        white-space: pre-wrap;
         color: #4a3020;
       }
       .scroll-card-body strong {
         color: #8b4513;
+      }
+      .coach-output {
+        display: grid;
+        gap: 16px;
+      }
+      .coach-section {
+        padding: 14px 16px;
+        border: 1px solid rgba(139, 69, 19, 0.16);
+        border-radius: 14px;
+        background: rgba(255, 253, 251, 0.68);
+      }
+      .coach-section-title {
+        display: block;
+        margin-bottom: 7px;
+        color: #7a2742;
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .coach-section p {
+        margin: 0;
+      }
+      .coach-section ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+      .coach-section li + li {
+        margin-top: 6px;
+      }
+      .coach-quality {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        margin-bottom: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(199, 91, 134, 0.14);
+        color: #7a2742;
+        font-size: 0.76rem;
+        font-weight: 900;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+      }
+      .better-prompt-box {
+        display: block;
+        padding: 14px;
+        border: 1px dashed rgba(122, 39, 66, 0.28);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.72);
+        color: #2d1729;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.9rem;
+        line-height: 1.62;
+        white-space: pre-wrap;
+      }
+      .coach-actions {
+        display: none;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-top: 16px;
+      }
+      .coach-actions.is-visible {
+        display: flex;
+      }
+      .coach-action-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 10px 16px;
+        border-radius: 999px;
+        border: 1.5px solid rgba(122, 39, 66, 0.3);
+        background: rgba(255, 253, 251, 0.88);
+        color: #4b2148;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.82rem;
+        font-weight: 850;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+      .coach-action-button.primary {
+        background: #4b2148;
+        color: #fffdfb;
+        border-color: #4b2148;
+      }
+      .coach-copy-status {
+        color: rgba(75, 33, 72, 0.74);
+        font-size: 0.82rem;
+        font-weight: 700;
       }
       .scroll-card-footer {
         margin-top: 16px;
@@ -447,6 +538,12 @@
         display: block;
         color: #3f1737;
         line-height: 1.55;
+      }
+      .fairy-disclosure {
+        margin: 10px 0 0;
+        color: rgba(75, 33, 72, 0.72);
+        font-size: 0.82rem;
+        line-height: 1.5;
       }
 
       /* === HISTORY OF PAST ADVICE === */
@@ -595,6 +692,7 @@
 
           <label for="fairyQuestion">What do you need help with?</label>
           <textarea id="fairyQuestion" rows="3" placeholder="Example: I need to ask my VP for more time without sounding chaotic."></textarea>
+          <p class="fairy-disclosure">Rules-based LAiDY prompt coaching. Do not paste confidential details; anonymize anything sensitive.</p>
 
           <div class="fairy-buttons">
             <button class="wand-button" type="button" id="wandButton">
@@ -616,6 +714,11 @@
             <p class="scroll-card-mode" id="scrollMode"></p>
             <div class="scroll-card-body" id="scrollBody"></div>
             <p class="scroll-card-footer" id="scrollFooter"></p>
+          </div>
+          <div class="coach-actions" id="coachActions">
+            <button class="coach-action-button primary" type="button" id="copyBetterPromptButton">Copy Better Prompt</button>
+            <button class="coach-action-button" type="button" id="resetPromptButton">Try Another Prompt</button>
+            <span class="coach-copy-status" id="coachCopyStatus" aria-live="polite"></span>
           </div>
         </div>
 
@@ -645,132 +748,300 @@
     <script src="../content/site/supabase-config.js"></script>
     <script src="../content/site/site-data.js"></script>
     <script>
-    // ===== LAiDY ADVICE ENGINE (standalone) =====
+    // ===== LAiDY PROMPT COACH (rules-based, standalone) =====
     const laidyModes = {
-      dolly: { label: "Dolly Energy", opener: "Cup of ambition check:", nudge: "Be warm, be direct, and do not confuse nervous with unqualified. A woman can be gracious and still ask for the money." },
-      miranda: { label: "Miranda Polish", opener: "Executive read:", nudge: "Remove the apology tour. Lead with the business case, not the emotional weather report." },
-      elle: { label: "Elle Evidence", opener: "Pink legal pad version:", nudge: "Confidence is cute. Evidence is cuter. Bring the facts, then let the facts wear the heels." },
-      cher: { label: "Cher Closet Check", opener: "Closet computer says:", nudge: "This needs a better outfit: goal, context, audience, and the exact response you want." },
-      sophia: { label: "Sophia Says", opener: "Picture it:", nudge: "The wise move is usually shorter than the spiral. Say the true thing, then stop decorating it." },
-      david: { label: "David Specificity", opener: "Be very particular, please:", nudge: "Vague is how we get beige results. Specific is how we get the good sweater." },
-      buffy: { label: "Buffy Courage", opener: "Slayer briefing:", nudge: "You do not need to feel fearless. You need a plan, a stake, and a calendar invite." },
+      dolly: {
+        label: "Dolly Energy",
+        behavior: "Supportive",
+        frame: "Warm, practical, and confidence-building.",
+        rewrite: "Use warm, clear language. Make the ask feel doable without apologizing for needing help.",
+        note: "Cup of ambition, but make it actionable."
+      },
+      miranda: {
+        label: "Miranda Polish",
+        behavior: "Polished / Executive",
+        frame: "Executive-clean and business-ready.",
+        rewrite: "Lead with the business outcome. Remove apology language, extra backstory, and emotional weather.",
+        note: "No apology tour. Just the point, beautifully pressed."
+      },
+      elle: {
+        label: "Elle Evidence",
+        behavior: "Receipts / Evidence",
+        frame: "Fact-forward with pink legal-pad standards.",
+        rewrite: "Separate facts from assumptions, ask for sources, and flag what needs verification before using it.",
+        note: "Confidence is cute. Receipts are cuter."
+      },
+      cher: {
+        label: "Cher Closet Check",
+        behavior: "Funny / Hype",
+        frame: "Useful, witty, and dressed for the right room.",
+        rewrite: "Keep the tone bright, but make the task, audience, constraints, and desired output impossible to miss.",
+        note: "Closet computer says the prompt needs tailoring."
+      },
+      sophia: {
+        label: "Sophia Says",
+        behavior: "Direct / No-nonsense",
+        frame: "Short, wise, and allergic to spiraling.",
+        rewrite: "Say the task plainly. Ask for the next useful answer. Skip the decorative panic.",
+        note: "Picture it: one clear ask."
+      },
+      david: {
+        label: "David Specificity",
+        behavior: "Specificity",
+        frame: "Precise, particular, and deeply suspicious of beige output.",
+        rewrite: "Add audience, output format, length, tone, examples, and what not to include.",
+        note: "Specificity is the whole outfit."
+      },
+      buffy: {
+        label: "Buffy Courage",
+        behavior: "Emergency",
+        frame: "Fast, prioritized, and ready to slay the first step.",
+        rewrite: "Prioritize the first useful action, keep the answer short, and make the next move unmistakable.",
+        note: "Slayer briefing, not a season-long villain arc."
+      },
     };
 
-    function normalizeLaidyText(text) { return String(text || "").trim().replace(/\s+/g, " "); }
+    const taskTypes = {
+      empty: {
+        label: "Empty input",
+        read: "There is not enough here for LAiDY to coach yet. A blank box is not a prompt; it is a mood.",
+        betterPrompt: "I need help with [specific task].\nAudience: [who this is for]\nContext: [what happened / what I have]\nOutput: [email, outline, table, checklist, draft]\nTone: [warm, direct, executive, funny, etc.]\nConstraints: [length, deadline, must include, must avoid]\nBefore drafting, ask me up to three clarifying questions.",
+        nextQuestion: "What are you trying to make, for whom, and by when?"
+      },
+      vague: {
+        label: "Very vague input",
+        read: "The intent is probably real, but the prompt is too broad. It needs a job, a room, and a dress code.",
+        betterPrompt: "Help me with [specific AI task]. I am trying to [outcome]. The audience is [audience]. I already have [materials/context]. Please give me [format] in [tone] and ask clarifying questions before drafting if anything important is missing.",
+        nextQuestion: "What is the actual thing you want AI to make or improve?"
+      },
+      email: {
+        label: "Email / message / reply",
+        read: "You want a message that gets the right person to understand the ask and take the next step.",
+        betterPrompt: "Write a [email / Slack / reply] to [audience] about [situation]. The goal is [desired outcome]. Include: [key facts], [deadline], and [specific ask]. Tone should be [tone]. Keep it [length]. Do not sound [what to avoid].",
+        nextQuestion: "What do you want the person to do after reading it?"
+      },
+      meeting: {
+        label: "Meeting notes / summary",
+        read: "You want messy discussion turned into decisions, owners, and next steps, not a transcript wearing a blazer.",
+        betterPrompt: "Summarize these meeting notes into: 1) decisions made, 2) open questions, 3) action items with owners and deadlines, 4) risks or blockers, and 5) a short follow-up message I can send. If something is unclear, label it as an assumption.",
+        nextQuestion: "Do you need a summary, a follow-up email, or a decision log?"
+      },
+      deck: {
+        label: "Presentation / deck",
+        read: "You want a deck with a point of view, not a decorative pile of slides.",
+        betterPrompt: "Create a presentation outline for [topic] for [audience]. The goal is [decision / understanding / buy-in]. Include a strong opening, 5-7 slide titles, the key message for each slide, suggested visuals, and speaker notes. Tone: [tone]. Constraints: [time/length].",
+        nextQuestion: "What decision or feeling should the audience leave with?"
+      },
+      brainstorm: {
+        label: "Brainstorm / ideas",
+        read: "You want options, but the good ones need a box to push against.",
+        betterPrompt: "Brainstorm [number] ideas for [goal]. Audience: [audience]. Constraints: [budget/time/brand/format]. Make the ideas [tone/style]. For each idea, include why it works, what makes it LAiDIES, and the first step to test it.",
+        nextQuestion: "What would make an idea unusable, even if it sounds cute?"
+      },
+      explain: {
+        label: "Explain something",
+        read: "You want a clean explanation that respects your intelligence and skips the beige tech lecture.",
+        betterPrompt: "Explain [topic] to [audience] using plain language and one memorable analogy. Include what it is, why it matters, one example, one common mistake, and a short recap. Avoid jargon unless you define it.",
+        nextQuestion: "Who needs to understand this, and what do they already know?"
+      },
+      research: {
+        label: "Research / verify / receipts",
+        read: "You are asking for facts, claims, stats, or sources. That means receipts before confidence.",
+        betterPrompt: "Research [topic/question]. Use current, reputable sources and include links, dates, and source quality notes. Separate confirmed facts from uncertainty. Flag anything that needs manual verification before I use it in public.",
+        nextQuestion: "How current does this need to be, and what sources count as trustworthy?"
+      },
+      workplace: {
+        label: "Workplace situation",
+        read: "You are trying to navigate people, power, timing, or tone at work. The prompt needs the stakes, not just the stress.",
+        betterPrompt: "Help me handle this workplace situation: [what happened]. People involved: [roles, anonymized]. Goal: [what I want next]. Constraints: [politics/timing/risk]. Give me a recommended approach, exact wording, and what not to say.",
+        nextQuestion: "What outcome are you optimizing for: clarity, relationship, speed, or protection?"
+      },
+      social: {
+        label: "Social post / caption",
+        read: "You want something shareable, but it still needs audience, platform, and point.",
+        betterPrompt: "Write [number] [platform] captions about [topic] for [audience]. Voice: [voice]. Include a hook, useful takeaway, and gentle call to action. Keep it [length]. Avoid generic hype and hashtags unless they are useful.",
+        nextQuestion: "Where is this going, and what should someone do after reading it?"
+      },
+      executive: {
+        label: "Make this sound more executive",
+        read: "You want the same thought with less nervous furniture and more decision-ready polish.",
+        betterPrompt: "Rewrite the text below to sound clear, concise, and executive without losing warmth. Lead with the business point, remove apologies, preserve the key facts, and give me three versions: direct, diplomatic, and very short.\n\nText: [paste text]",
+        nextQuestion: "Should it sound warmer, firmer, or more senior?"
+      },
+      planning: {
+        label: "Planning / project management",
+        read: "You want the swirl turned into a sequence with owners, dates, and fewer haunted tabs.",
+        betterPrompt: "Turn this project into a simple plan. Goal: [goal]. Deadline: [date]. People involved: [roles]. Constraints: [budget/time/tools]. Output a milestone plan, owners, risks, dependencies, and the first three actions.",
+        nextQuestion: "What is the deadline or decision date?"
+      },
+      home: {
+        label: "Home-life admin",
+        read: "You want life logistics made smaller and less shouty.",
+        betterPrompt: "Help me plan [home-life task] for [number of people / constraints]. Include a realistic checklist, timing, substitutions, and one easy fallback option. Keep it practical and low-drama.",
+        nextQuestion: "What constraints matter most: time, budget, preferences, or energy?"
+      },
+      coding: {
+        label: "Coding / site task",
+        read: "This sounds like code or website work. Chat can help plan, but real codebase changes belong in Codex, Claude Code, or a development workflow where files can be inspected and tested.",
+        betterPrompt: "I need help with a code/site task in [project]. Goal: [what should change]. Current behavior: [what happens now]. Desired behavior: [what should happen]. Relevant files or URLs: [paths]. Constraints: [do not touch / must preserve]. Please inspect first, propose a safe plan, implement narrowly, and run QA.",
+        nextQuestion: "Is this a planning question, or do you need a coding tool to edit and test the files?"
+      },
+      hallucination: {
+        label: "Hallucination / verification concern",
+        read: "You are worried the output may sound confident without being true. Correct instinct. We are checking the timeline before anybody calls it iconic.",
+        betterPrompt: "Check this output for possible hallucinations. Separate claims into: supported, unsupported, needs source, and likely wrong. For each claim, explain what evidence would verify it and what I should avoid saying until confirmed.\n\nOutput to check: [paste text]",
+        nextQuestion: "What claims would be risky if they were wrong?"
+      },
+      general: {
+        label: "General prompt coaching",
+        read: "There is a usable task in here, but it needs more structure before it will give you a useful result.",
+        betterPrompt: "Help me with [task]. Context: [what is happening]. Audience: [who this is for]. Output: [format]. Tone: [tone]. Constraints: [length, deadline, must include, must avoid]. Ask clarifying questions before drafting if anything important is missing.",
+        nextQuestion: "What would a good answer let you do next?"
+      }
+    };
 
-    function findLaidyPattern(text, patterns, fallback = "") {
-      return patterns.find(({ pattern }) => pattern.test(text))?.label || fallback;
+    function normalizeLaidyText(text) {
+      return String(text || "").trim().replace(/\s+/g, " ");
     }
 
-    function getLaidyTopicType(text) {
-      const n = text.toLowerCase();
-      if (/\b(raise|promotion|salary|pay|compensation|bonus|level|title)\b/.test(n)) return "raise";
-      if (/\b(deadline|extension|more time|late|delay|delayed|behind|timeline|due)\b/.test(n)) return "deadline";
-      if (/\b(email|message|reply|respond|slack|teams|note|send|write)\b/.test(n)) return "message";
-      if (/\b(meeting|agenda|prep|debrief|follow-up|follow up|minutes|talking points)\b/.test(n)) return "meeting";
-      if (/\b(conflict|pushback|difficult|frustrated|angry|disagree|tension|awkward)\b/.test(n)) return "conflict";
-      if (/\b(no|boundary|boundaries|too much|capacity|overloaded|overwhelmed|prioritize|priority)\b/.test(n)) return "boundary";
-      if (/\b(feedback|review|critique|performance|mistake|messed up|error|problem)\b/.test(n)) return "feedback";
-      if (/\b(ai|chatgpt|claude|gemini|prompt|tool|model|output)\b/.test(n)) return "ai";
-      if (/\b(nervous|scared|anxious|worried|afraid|confidence|imposter|impostor)\b/.test(n)) return "confidence";
-      if (/\b(idea|pitch|proposal|approve|approval|buy-in|buy in|stakeholder)\b/.test(n)) return "pitch";
+    function hasAny(text, words) {
+      return words.some(function(word) { return word.test(text); });
+    }
+
+    function getLaidyTaskType(question) {
+      const q = normalizeLaidyText(question);
+      const n = q.toLowerCase();
+      const words = q ? q.split(" ").length : 0;
+      if (!q) return "empty";
+      if (/^(email|message|reply|slack)$/i.test(q)) return "email";
+      if (/^(help|ai|prompt|ideas|website)$/i.test(q) || /\b(help me with ai|use ai|learn ai)\b/i.test(n)) return "vague";
+      if (/\bhallucinat|\bmade up\b|\bis this true\b|\bverify this\b|\bfact check\b|\bfact-check\b|\bwrong answer\b/.test(n)) return "hallucination";
+      if (/\b(code|coding|website|site|html|css|javascript|bug|fix my website|repo|github|deploy)\b/.test(n)) return "coding";
+      if (/\b(research|source|sources|stats|statistics|data|cite|citation|claim|claims|verify|current|latest|receipt|receipts)\b/.test(n)) return "research";
+      if (/\b(more executive|sound executive|polish this|make this professional|senior|leadership-ready|leadership ready)\b/.test(n)) return "executive";
+      if (/\b(email|message|reply|respond|slack|teams|note|send|write)\b/.test(n)) return "email";
+      if (/\b(meeting|agenda|minutes|notes|summary|summarize|follow-up|follow up|debrief|talking points)\b/.test(n)) return "meeting";
+      if (/\b(presentation|deck|slides|keynote|powerpoint|q[1-4]|quarterly|results)\b/.test(n)) return "deck";
+      if (/\b(social|instagram|linkedin|caption|post|thread|reel)\b/.test(n)) return "social";
+      if (/\b(brainstorm|ideas|come up with|ideate|name|names|concepts|offsite)\b/.test(n)) return "brainstorm";
+      if (/\b(lunch|school|kids|meal|groceries|home|family|calendar|chores|errands)\b/.test(n)) return "home";
+      if (/\b(plan|timeline|project|roadmap|milestone|launch|workflow|organize)\b/.test(n)) return "planning";
+      if (/\b(boss|manager|vp|director|client|stakeholder|team|coworker|colleague|raise|promotion|deadline|feedback|pushback|boundary|conflict)\b/.test(n)) return "workplace";
+      if (/\b(explain|what is|teach me|define|help me understand)\b/.test(n)) return "explain";
+      if (words < 5) return "vague";
       return "general";
     }
 
     function getLaidySignals(question) {
-      const normalized = question.toLowerCase();
-      const audience = findLaidyPattern(normalized, [
-        { pattern: /\b(vp|vice president)\b/, label: "your VP" },
-        { pattern: /\b(director)\b/, label: "your director" },
-        { pattern: /\b(manager|boss|lead)\b/, label: "your manager" },
-        { pattern: /\b(team|group)\b/, label: "your team" },
-        { pattern: /\b(client|customer)\b/, label: "the client" },
-        { pattern: /\b(stakeholder|stakeholders)\b/, label: "the stakeholders" },
-        { pattern: /\b(peer|colleague|coworker|co-worker)\b/, label: "your colleague" },
-      ], "the person who needs to act");
-      const need = findLaidyPattern(normalized, [
-        { pattern: /\b(more time|extension|delay|deadline)\b/, label: "more time" },
-        { pattern: /\b(approve|approval|sign off|sign-off|buy-in|buy in)\b/, label: "approval" },
-        { pattern: /\b(reply|respond|answer)\b/, label: "a response" },
-        { pattern: /\b(feedback|review|critique)\b/, label: "feedback" },
-        { pattern: /\b(no|decline|push back|pushback|boundary)\b/, label: "a boundary" },
-        { pattern: /\b(priority|prioritize|capacity|overwhelmed|too much)\b/, label: "prioritization" },
-        { pattern: /\b(prompt|ai|chatgpt|claude|gemini|tool|output)\b/, label: "a better AI ask" },
-      ], "a clear next step");
-      const risk = findLaidyPattern(normalized, [
-        { pattern: /\b(vp|director|executive|leadership|board|client|customer)\b/, label: "high-visibility" },
-        { pattern: /\b(legal|tax|finance|hr|privacy|security|compliance|policy)\b/, label: "receipts-required" },
-        { pattern: /\b(urgent|today|tomorrow|asap|immediately)\b/, label: "time-sensitive" },
-      ], "normal-human-work-chaos");
-      const tone = findLaidyPattern(normalized, [
-        { pattern: /\b(warm|nice|kind|gentle|soft)\b/, label: "warm" },
-        { pattern: /\b(firm|direct|clear|executive|professional)\b/, label: "direct" },
-        { pattern: /\b(not sounding|without sounding|avoid sounding)\b/, label: "careful" },
-      ], "clear");
-      return { audience, need, risk, tone, topicType: getLaidyTopicType(question) };
-    }
-
-    function getLaidyModeFrame(modeKey) {
-      const frames = {
-        dolly: { move: "Make it warm, make it clear, and do not apologize for needing the thing.", signoff: "Cup of ambition, but with a calendar invite." },
-        miranda: { move: "Lead with the business point. Feelings can sit in the passenger seat with a seatbelt.", signoff: "Executive-clean, no apology tour." },
-        elle: { move: "Bring the facts in a cute binder. Confidence is better when it has tabs.", signoff: "Pink legal pad, real receipts." },
-        cher: { move: "Give the ask a better outfit: context, audience, constraint, and the exact thing you want.", signoff: "Closet computer says the prompt needs tailoring." },
-        sophia: { move: "Say the true thing, skip the spiral, and eat something with protein after.", signoff: "Shorter, wiser, less hallway monologue." },
-        david: { move: "Be very particular. Vague is how work comes back wearing the wrong sweater.", signoff: "Specificity is the whole outfit." },
-        buffy: { move: "You do not need to feel fearless. You need a plan and the first sentence.", signoff: "Slayer briefing, not season-long villain arc." },
+      const q = normalizeLaidyText(question);
+      const n = q.toLowerCase();
+      const words = q ? q.split(" ").length : 0;
+      return {
+        words,
+        hasAudience: /\b(vp|director|manager|boss|team|client|customer|stakeholder|colleague|coworker|co-worker|peer|lead|audience|reader|users|students|parents|kids|executives)\b/i.test(q),
+        hasOutputFormat: /\b(email|reply|message|outline|table|checklist|deck|slides|summary|caption|post|plan|script|draft|bullets|paragraph|template)\b/i.test(q),
+        hasContext: words >= 10,
+        hasConstraint: /\b(without|avoid|do not|don't|don\u2019t|must|should|deadline|by |under|less than|tone|length|include|exclude|not sound)\b/i.test(q),
+        hasTone: /\b(warm|direct|executive|professional|friendly|funny|polished|firm|gentle|clear|confident)\b/i.test(q),
+        hasDeadline: /\b(today|tomorrow|friday|monday|deadline|due|asap|this week|next week|by )\b/i.test(q),
+        hasReceiptsAsk: /\b(source|sources|stats|statistics|data|cite|citation|verify|current|latest|research|receipt|receipts|claim|claims)\b/i.test(q),
+        hasPrivateData: /\b(confidential|private|client|customer|patient|medical|diagnosis|salary|compensation|legal|lawyer|contract|hr|human resources|disciplinary|security|password|ssn|sin|address|phone number|personal data|child|children|student|financial|bank|credit card)\b/i.test(q),
+        asksToRewrite: /\b(rewrite|make this|polish|improve|sound|tone)\b/i.test(q),
       };
-      return frames[modeKey] || frames.dolly;
     }
 
-    function getLaidyAutoMode(topicType) {
-      const modes = { raise: "dolly", deadline: "miranda", message: "cher", meeting: "miranda", conflict: "sophia", boundary: "sophia", feedback: "elle", ai: "david", confidence: "buffy", pitch: "miranda", general: "cher" };
-      return modes[topicType] || "cher";
+    function getLaidyAutoMode(taskType, signals) {
+      if (signals.hasPrivateData) return "elle";
+      if (taskType === "coding" || taskType === "hallucination" || taskType === "research") return "elle";
+      if (taskType === "executive" || taskType === "deck" || taskType === "planning") return "miranda";
+      if (taskType === "email" || taskType === "vague") return "david";
+      if (taskType === "workplace") return signals.hasDeadline ? "buffy" : "sophia";
+      if (taskType === "social" || taskType === "brainstorm") return "cher";
+      if (taskType === "home") return "dolly";
+      return "david";
     }
 
-    function getLaidyTopicAdvice(topicType, signals) {
-      const advice = {
-        raise: { read: "This is not a favor request. It is a value conversation with " + signals.audience + ".", next: "Build the one-page brag receipt: outcomes, scope, praise, money saved or made, and responsibilities that quietly became yours.", line: "Over the past [time period], I have delivered [results] and my scope now includes [expanded work]. I would like to discuss adjusting my compensation/title to reflect that impact. What would you need to see to move this forward?" },
-        deadline: { read: "You need " + signals.need + " from " + signals.audience + ", and the trick is to make it sound managed, not messy.", next: "Send the note before they have to chase you. Include what changed, what is still on track, the new date, and the tradeoff if the date cannot move.", line: "I want to flag this early: [what changed]. I can still deliver [piece] by [date], but I need until [new date] for [reason]. If that timing creates an issue, I can prioritize [option A] and move [option B]." },
-        message: { read: "You are not writing a novel. You are sending " + signals.audience + " the clean version of what needs to happen.", next: "Use four pieces: context, ask, deadline, and why it matters. Then stop before the email starts wearing a tiny backpack purse.", line: "Quick context: [one sentence]. I need [specific ask] by [date] so we can [business reason]. My recommendation is [recommendation]." },
-        meeting: { read: "This meeting needs a point before it needs more people pretending to be available.", next: "Define the decision, the prep, and what a good outcome looks like. If there is no decision, it may be an email in kitten heels.", line: "For this meeting, the decision we need is [decision]. Please review [material] in advance. A good outcome is [outcome], with owners and next steps confirmed before we leave." },
-        conflict: { read: "There is tension here, but tension is not automatically a fire drill with lip gloss.", next: "Separate facts from feelings, name the impact, and ask for the next workable behavior. Do not litigate the entire group chat.", line: "I want to reset on this. The issue I am seeing is [fact/impact]. What I need next is [specific action]. Can we align on that path?" },
-        boundary: { read: "Your capacity is not a community Caboodle where everyone gets to store their loose glitter.", next: "Name the tradeoff. A real boundary gives options instead of silently absorbing the mess.", line: "I can take on [option A] by [date], or [option B] by [date], but I cannot do both at the current quality bar. Which should I prioritize?" },
-        feedback: { read: "This needs receipts, not a shame montage.", next: "Ask what good looks like, what needs to change, and what the next check-in should cover. Keep it specific enough to act on.", line: "I want to make sure I am addressing this properly. Can you share the specific gap, what good would look like, and the next milestone you want me to hit?" },
-        ai: { read: "The AI is not psychic. It is more like a very fast intern who needs the good gossip.", next: "Give it audience, context, constraints, examples, what good looks like, and what not to include. If the output is beige, the prompt arrived underdressed.", line: "I need help with [task]. The audience is [audience]. The context is [context]. The answer should be [tone/format/length]. Do not include [exclusions]. Ask me three questions before drafting." },
-        confidence: { read: "Nerves are data, not directions. Your inner critic has opened a second tab and it is not helping.", next: "Shrink the task until it has handles: one sentence, one receipt, one next step. Do that before confidence arrives wearing platform sandals.", line: "The next useful move is [small action]. I do not need to solve the whole season today; I need to complete this scene." },
-        pitch: { read: "You have an idea, but " + signals.audience + " needs to know what changes, why now, and what you need from them.", next: "Pitch the outcome, not the entire scrapbook. Lead with the problem, the recommendation, the ask, and the risk of doing nothing.", line: "I recommend [idea] because [business reason]. The decision I need is [approval/next step]. The risk of waiting is [risk]." },
-        general: { read: "This is currently swirl wearing work clothes.", next: "Turn it into a brief: desired outcome, person who needs to act, blocker, standard for good, and next move by Friday.", line: "The outcome I want is [outcome]. The person who needs to act is [person]. The blocker is [blocker]. The next move is [specific action]." },
-      };
-      return advice[topicType] || advice.general;
+    function getQualityLabel(taskType, signals, missing) {
+      if (taskType === "empty") return "Needs an actual prompt";
+      if (signals.hasPrivateData) return "Privacy check first";
+      if (taskType === "vague") return "Too broad";
+      if (taskType === "research" || taskType === "hallucination") return "Receipts required";
+      if (signals.words <= 2) return "Needs audience + output format";
+      if (missing.length >= 3) return "Good start, needs context";
+      if (missing.length > 0) return signals.hasReceiptsAsk ? "Strong bones, missing receipts" : "Strong bones, needs one more detail";
+      return "Ready for first draft";
+    }
+
+    function getMissingDetails(taskType, signals) {
+      if (taskType === "empty") return ["The task itself", "Who the answer is for", "What format you want back"];
+      const missing = [];
+      if (!signals.hasAudience && ["email", "deck", "explain", "social", "workplace", "executive", "general"].includes(taskType)) missing.push("Audience: who needs to read, hear, approve, or use this.");
+      if (!signals.hasOutputFormat && !["hallucination", "research", "home"].includes(taskType)) missing.push("Output format: email, bullets, outline, plan, caption, table, or draft.");
+      if (!signals.hasContext && taskType !== "vague") missing.push("Context: what happened, what you already have, or why this matters.");
+      if (!signals.hasConstraint && ["email", "deck", "executive", "coding", "planning", "social"].includes(taskType)) missing.push("Constraints: length, tone, deadline, must-include, or what to avoid.");
+      if (!signals.hasReceiptsAsk && ["research", "hallucination"].includes(taskType)) missing.push("Receipt standard: what counts as a trustworthy source and how current it needs to be.");
+      if (signals.hasPrivateData) missing.unshift("Privacy pass: anonymize names, companies, salary, legal, medical, client, HR, or personal details.");
+      if (missing.length === 0) missing.push("Optional upgrade: add one example of what good looks like so the answer has taste.");
+      return missing.slice(0, 4);
+    }
+
+    function adaptPromptForMode(prompt, modeKey) {
+      const mode = laidyModes[modeKey] || laidyModes.david;
+      return prompt + "\n\nEnergy: " + mode.rewrite;
+    }
+
+    function getReceiptsPrivacyCheck(taskType, signals) {
+      const notes = [];
+      if (signals.hasPrivateData) {
+        notes.push("Privacy first: remove or mask names, company details, salary, HR/legal/medical/client facts, and anything you would not put on a sticky note in an elevator.");
+      } else {
+        notes.push("Do not paste confidential details. Use roles and placeholders until you are ready to use an approved tool.");
+      }
+      if (taskType === "research" || taskType === "hallucination" || signals.hasReceiptsAsk) {
+        notes.push("Receipts required: ask for sources, dates, links, and uncertainty. Verify important claims before using them in public.");
+      }
+      if (taskType === "coding") {
+        notes.push("Codebase work should happen in a development workflow where files can be inspected, edited, tested, and reviewed.");
+      }
+      return notes.join(" ");
+    }
+
+    function buildPromptRead(taskType, signals, modeKey) {
+      const task = taskTypes[taskType] || taskTypes.general;
+      const mode = laidyModes[modeKey] || laidyModes.david;
+      if (taskType === "empty") return task.read;
+      return task.read + " LAiDY is reading this through " + mode.behavior.toLowerCase() + " energy: " + mode.frame;
     }
 
     function buildLaidyAdvice(rawQuestion, modeKey) {
       const question = normalizeLaidyText(rawQuestion);
-      if (!question) {
-        return { text: "Tell me the actual situation first, sugar. LAiDY can do many things, but she cannot read a blank text box through a Claire\u2019s mood ring.\n\nTry: \"I need to ask my VP for more time without sounding chaotic\" or \"I need to push back on a meeting request without sounding unhelpful.\"", mode: "" };
-      }
+      const taskType = getLaidyTaskType(question);
       const signals = getLaidySignals(question);
-      const effectiveModeKey = modeKey === "auto" ? getLaidyAutoMode(signals.topicType) : modeKey;
-      const mode = laidyModes[effectiveModeKey] || laidyModes.cher;
-      const frame = getLaidyModeFrame(effectiveModeKey);
-      const topicAdvice = getLaidyTopicAdvice(signals.topicType, signals);
-      // One clean flowing piece — like a handwritten note from a glamorous mentor
-      const text = mode.nudge + "\n\n" + topicAdvice.read + "\n\n" + topicAdvice.next + " " + frame.move + "\n\n" + topicAdvice.line + "\n\n\u2014 " + frame.signoff;
-      return { text, mode: mode.label };
+      const effectiveModeKey = modeKey === "auto" ? getLaidyAutoMode(taskType, signals) : modeKey;
+      const mode = laidyModes[effectiveModeKey] || laidyModes.david;
+      const task = taskTypes[taskType] || taskTypes.general;
+      const missing = getMissingDetails(taskType, signals);
+      const quality = getQualityLabel(taskType, signals, missing);
+      const betterPrompt = adaptPromptForMode(task.betterPrompt, effectiveModeKey);
+      return {
+        kind: "coach",
+        taskType,
+        taskLabel: task.label,
+        mode: mode.label,
+        modeBehavior: mode.behavior,
+        promptRead: buildPromptRead(taskType, signals, effectiveModeKey),
+        quality,
+        missing,
+        betterPrompt,
+        nextQuestion: task.nextQuestion,
+        receiptsPrivacy: getReceiptsPrivacyCheck(taskType, signals),
+        signoff: mode.note
+      };
     }
 
-    function buildLaidyPromptFeedback(rawQuestion) {
-      const question = normalizeLaidyText(rawQuestion);
-      if (!question) return "";
-      const words = question.split(" ").length;
-      const hasAudience = /\b(vp|director|manager|boss|team|client|stakeholder|colleague|peer|lead)\b/i.test(question);
-      const hasContext = words > 12;
-      const hasBoundary = /\b(without|not|avoid|don't|don\u2019t)\b/i.test(question);
-      if (!hasContext) return "Prompt check: needs more context. Give LAiDY a sentence about what happened, who is involved, and what outcome you actually want.";
-      if (!hasAudience) return "Prompt check: who are you talking to? Adding the audience gives LAiDY better advice calibration.";
-      if (hasAudience && hasContext && hasBoundary) return "Prompt check: strong ask. You gave LAiDY enough job, audience, context, and boundaries to work with. The next level is adding an example of what good looks like.";
-      return "Prompt check: decent ask. Try adding what you do NOT want the result to sound like, or give an example of good.";
+    function buildLaidyPromptFeedback(result) {
+      if (!result || result.kind !== "coach") return "";
+      return "Rules-based prompt coaching. No backend/API response was used. Task read: " + result.taskLabel + ". Energy: " + result.modeBehavior + ". Copy the Better Prompt into an approved AI tool after removing confidential details.";
     }
 
     // Random wisdom nuggets (for "surprise me" button)
@@ -801,6 +1072,7 @@
     let wisdomCount = 0;
     let adviceHistory = [];
     let lastAdvice = "";
+    let lastBetterPrompt = "";
     const BADGE_THRESHOLD = 10;
 
     // ===== DOM =====
@@ -816,16 +1088,71 @@
     const countEl = document.getElementById("wisdomCount");
     const feedbackEl = document.getElementById("promptFeedback");
     const feedbackText = document.getElementById("promptFeedbackText");
+    const coachActions = document.getElementById("coachActions");
+    const copyBetterPromptButton = document.getElementById("copyBetterPromptButton");
+    const resetPromptButton = document.getElementById("resetPromptButton");
+    const coachCopyStatus = document.getElementById("coachCopyStatus");
     const historySection = document.getElementById("adviceHistory");
     const historyList = document.getElementById("historyList");
     const badgeEl = document.getElementById("badgeReveal");
 
-    function showAdvice(text, modeLabel, question) {
+    function renderCoachOutput(result) {
+      const missingItems = result.missing.map(function(item) {
+        return "<li>" + escapeHtml(item) + "</li>";
+      }).join("");
+      scrollBody.innerHTML = [
+        '<div class="coach-output">',
+          '<section class="coach-section">',
+            '<strong class="coach-section-title">Prompt Read</strong>',
+            '<p>' + escapeHtml(result.promptRead) + '</p>',
+          '</section>',
+          '<section class="coach-section">',
+            '<strong class="coach-section-title">Prompt Quality</strong>',
+            '<span class="coach-quality">' + escapeHtml(result.quality) + '</span>',
+            '<p>' + escapeHtml(result.signoff) + '</p>',
+          '</section>',
+          '<section class="coach-section">',
+            '<strong class="coach-section-title">What&rsquo;s Missing</strong>',
+            '<ul>' + missingItems + '</ul>',
+          '</section>',
+          '<section class="coach-section">',
+            '<strong class="coach-section-title">Better Prompt</strong>',
+            '<code class="better-prompt-box">' + escapeHtml(result.betterPrompt) + '</code>',
+          '</section>',
+          '<section class="coach-section">',
+            '<strong class="coach-section-title">Next Question</strong>',
+            '<p>' + escapeHtml(result.nextQuestion) + '</p>',
+          '</section>',
+          '<section class="coach-section">',
+            '<strong class="coach-section-title">Receipts / Privacy Check</strong>',
+            '<p>' + escapeHtml(result.receiptsPrivacy) + '</p>',
+          '</section>',
+        '</div>'
+      ].join("");
+      lastBetterPrompt = result.betterPrompt;
+      if (coachCopyStatus) coachCopyStatus.textContent = "";
+      if (coachActions) coachActions.classList.add("is-visible");
+    }
+
+    function renderWisdomText(text) {
+      scrollBody.innerHTML = '<p>' + escapeHtml(text) + '</p>';
+      lastBetterPrompt = "";
+      if (coachActions) coachActions.classList.remove("is-visible");
+      if (coachCopyStatus) coachCopyStatus.textContent = "";
+    }
+
+    function showAdvice(result, modeLabel, question) {
       wisdomCount++;
       countEl.textContent = wisdomCount;
-      scrollHeader.textContent = question ? "A note from FAiRY GODMOTHER" : "\u2728 A random sparkle of wisdom";
-      scrollMode.textContent = modeLabel || "Random Wisdom";
-      scrollBody.textContent = text;
+      const isCoach = result && typeof result === "object" && result.kind === "coach";
+      const summaryText = isCoach ? result.quality + " - " + result.taskLabel : String(result || "");
+      scrollHeader.textContent = isCoach ? "LAiDY Prompt Coach" : "\u2728 A random sparkle of wisdom";
+      scrollMode.textContent = isCoach ? result.mode + " / " + result.taskLabel : (modeLabel || "Random Wisdom");
+      if (isCoach) {
+        renderCoachOutput(result);
+      } else {
+        renderWisdomText(summaryText);
+      }
       scrollFooter.textContent = "Wisdom #" + wisdomCount + " \u2022 " + new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
       scrollEl.classList.remove("is-visible");
       void scrollEl.offsetWidth;
@@ -837,8 +1164,8 @@
       }, 100);
 
       // Prompt feedback
-      if (question) {
-        const fb = buildLaidyPromptFeedback(question);
+      if (isCoach) {
+        const fb = buildLaidyPromptFeedback(result);
         if (fb) {
           feedbackText.textContent = fb;
           feedbackEl.classList.add("is-visible");
@@ -848,12 +1175,12 @@
       }
 
       // History
-      if (text !== lastAdvice) {
-        adviceHistory.unshift({ q: question || "\u2728 Random wisdom", a: text.split("\n")[0] });
+      if (summaryText !== lastAdvice) {
+        adviceHistory.unshift({ q: isCoach ? (question || "Blank prompt") : "\u2728 Random wisdom", a: summaryText });
         if (adviceHistory.length > 3) adviceHistory.pop();
         renderHistory();
       }
-      lastAdvice = text;
+      lastAdvice = summaryText;
 
       // Badge
       if (wisdomCount >= BADGE_THRESHOLD) {
@@ -877,7 +1204,7 @@
     }
 
     function escapeHtml(str) {
-      return str.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+      return String(str || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
     }
 
     // Wave the Wand — ask with typed question
@@ -885,7 +1212,7 @@
       const q = questionEl.value.trim();
       const mode = modeEl.value || "auto";
       const result = buildLaidyAdvice(q, mode);
-      showAdvice(result.text, result.mode, q);
+      showAdvice(result, result.mode, q);
     });
 
     // Surprise me — random wisdom
@@ -893,6 +1220,35 @@
       const idx = Math.floor(Math.random() * randomWisdom.length);
       showAdvice(randomWisdom[idx], "Random Wisdom", "");
     });
+
+    if (copyBetterPromptButton) {
+      copyBetterPromptButton.addEventListener("click", async () => {
+        if (!lastBetterPrompt) return;
+        try {
+          await navigator.clipboard.writeText(lastBetterPrompt);
+          if (coachCopyStatus) coachCopyStatus.textContent = "Copied.";
+        } catch (e) {
+          const helper = document.createElement("textarea");
+          helper.value = lastBetterPrompt;
+          helper.setAttribute("readonly", "");
+          helper.style.position = "fixed";
+          helper.style.left = "-9999px";
+          document.body.appendChild(helper);
+          helper.select();
+          document.execCommand("copy");
+          helper.remove();
+          if (coachCopyStatus) coachCopyStatus.textContent = "Copied.";
+        }
+      });
+    }
+
+    if (resetPromptButton) {
+      resetPromptButton.addEventListener("click", () => {
+        questionEl.value = "";
+        questionEl.focus();
+        if (coachCopyStatus) coachCopyStatus.textContent = "";
+      });
+    }
 
     // Enter = submit, Shift+Enter = new line
     questionEl.addEventListener("keydown", (e) => {
