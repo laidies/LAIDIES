@@ -9,14 +9,14 @@
     <meta property="og:description" content="AI judgment, hallucinations, and why polished output still needs receipts." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://wearelaidies.com/issues/issue-03.html" />
-    <meta property="og:image" content="https://wearelaidies.com/assets/issue-03-hero.png" />
-    <meta property="og:image:width" content="1774" />
-    <meta property="og:image:height" content="887" />
-    <meta property="og:image:alt" content="Pink Burn Book notebook with receipts objects for Episode 3" />
+    <meta property="og:image" content="https://wearelaidies.com/assets/episodes/issue-03/section-dont-pull-a-cher-v1.png" />
+    <meta property="og:image:width" content="1672" />
+    <meta property="og:image:height" content="941" />
+    <meta property="og:image:alt" content="Pink gavel objection desk with Burn Book, receipts checklist, and plaid clue for Episode 3" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="LAiDIES #3: The Burn Book Problem" />
     <meta name="twitter:description" content="AI judgment, hallucinations, and why polished output still needs receipts." />
-    <meta name="twitter:image" content="https://wearelaidies.com/assets/issue-03-hero.png" />
+    <meta name="twitter:image" content="https://wearelaidies.com/assets/episodes/issue-03/section-dont-pull-a-cher-v1.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -135,7 +135,7 @@
         background-image:
           linear-gradient(90deg, rgba(28, 9, 26, 0.74) 0%, rgba(28, 9, 26, 0.46) 38%, rgba(28, 9, 26, 0.04) 76%),
           linear-gradient(180deg, rgba(28, 9, 26, 0.1), rgba(28, 9, 26, 0.66)),
-          url("../assets/issue-03-hero.png");
+          url("../assets/episodes/issue-03/section-dont-pull-a-cher-v1.png");
         background-size: cover;
         background-position: center;
       }
@@ -1230,7 +1230,7 @@
         .reader-hero::before {
           background-image:
             linear-gradient(180deg, rgba(28, 9, 26, 0.35), rgba(28, 9, 26, 0.78)),
-            url("../assets/issue-03-hero.png");
+            url("../assets/episodes/issue-03/section-dont-pull-a-cher-v1.png");
           background-position: 57% center;
         }
 
@@ -1691,7 +1691,8 @@
 
       .concept-definitions,
       .article-receipts-panel,
-      .next-week {
+      .next-week,
+      .weekly-rule-card {
         margin: 2.4em 0;
         padding: clamp(22px, 4vw, 34px);
         border: 1px solid rgba(75, 33, 72, 0.16);
@@ -1819,6 +1820,31 @@
         margin-inline: auto;
       }
 
+      .weekly-rule-card {
+        border-color: rgba(185, 93, 120, 0.34);
+        border-left-color: var(--rose);
+        text-align: center;
+      }
+
+      .weekly-rule-label {
+        margin: 0 0 0.55rem !important;
+        color: var(--wine) !important;
+        font-size: 0.75rem !important;
+        font-weight: 900 !important;
+        letter-spacing: 0.14em;
+        line-height: 1.2 !important;
+        text-transform: uppercase;
+      }
+
+      .weekly-rule-card h3 {
+        max-width: 28ch;
+        margin: 0 auto;
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: clamp(1.65rem, 3vw, 2.35rem);
+        line-height: 1.08;
+      }
+
       .reader-next {
         display: grid;
         grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
@@ -1869,6 +1895,129 @@
         color: rgba(58, 34, 48, 0.86);
         font-size: 1rem;
         line-height: 1.5;
+      }
+
+      .resources-section {
+        position: relative;
+        width: min(var(--episode-endcap-width), calc(100% - 32px));
+        margin: 3em auto 0;
+        padding: clamp(28px, 4.5vw, 44px) clamp(22px, 4vw, 36px);
+        overflow: hidden;
+        color: var(--plum);
+        background:
+          radial-gradient(circle at 92% 8%, rgba(185, 215, 220, 0.22), transparent 16rem),
+          radial-gradient(circle at 8% 94%, rgba(252, 228, 242, 0.58), transparent 16rem),
+          linear-gradient(135deg, rgba(255, 253, 251, 0.96), rgba(255, 244, 248, 0.82));
+        border: 1px solid rgba(185, 93, 120, 0.3);
+        border-left: 8px solid var(--rose);
+        border-radius: 8px;
+        box-shadow: 0 20px 44px rgba(75, 33, 72, 0.1);
+      }
+
+      .resources-inner {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+
+      .resources-section h3 {
+        margin: 0 0 0.85em;
+        padding: clamp(0.82rem, 2vw, 1.08rem) clamp(0.95rem, 2.4vw, 1.25rem);
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: clamp(1.95rem, 3.35vw, 2.8rem);
+        line-height: 1.08;
+        background: linear-gradient(135deg, rgba(252, 228, 242, 0.92), rgba(255, 253, 251, 0.96));
+        border-left: 5px solid var(--rose);
+        border-radius: 8px;
+        box-shadow:
+          inset 0 0 0 1px rgba(111, 38, 63, 0.1),
+          0 16px 34px rgba(75, 33, 72, 0.07);
+      }
+
+      .resources-section h3::before {
+        content: "";
+        display: block;
+        width: 86px;
+        height: 9px;
+        margin: 0 0 1.05rem;
+        background: linear-gradient(90deg, var(--rose), var(--blue));
+        border-radius: 999px;
+        box-shadow:
+          22px 0 0 rgba(252, 228, 242, 0.9),
+          44px 0 0 rgba(111, 38, 63, 0.12);
+      }
+
+      .resources-section h3:not(:first-of-type) {
+        margin-top: clamp(28px, 4vw, 42px);
+      }
+
+      .resource-note {
+        margin: -0.2rem 0 1.4rem;
+        color: #765d6d;
+        font-size: 0.92rem;
+        font-style: italic;
+        line-height: 1.5;
+      }
+
+      .go-deeper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+        margin: 20px 0 26px;
+      }
+
+      .resource-card {
+        display: block;
+        min-height: 100%;
+        padding: 16px;
+        color: inherit;
+        background: rgba(255, 253, 251, 0.82);
+        border: 1px solid rgba(75, 33, 72, 0.13);
+        border-radius: 8px;
+        text-decoration: none;
+        box-shadow: 0 12px 26px rgba(75, 33, 72, 0.06);
+      }
+
+      .resource-card:hover,
+      .resource-card:focus-visible {
+        border-color: rgba(185, 93, 120, 0.46);
+        transform: translateY(-1px);
+      }
+
+      .resource-name {
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: 1.14rem;
+        font-weight: 800;
+        line-height: 1.05;
+      }
+
+      .resource-desc {
+        margin-top: 8px;
+        color: rgba(58, 34, 48, 0.78);
+        font-size: 0.88rem;
+        line-height: 1.42;
+      }
+
+      .resources-section .citation {
+        margin-bottom: 10px;
+        padding-left: 16px;
+        color: #765d6d;
+        font-size: 0.86rem;
+        line-height: 1.45;
+        border-left: 2px solid rgba(185, 93, 120, 0.3);
+      }
+
+      .resources-section .citation a {
+        color: #9b3f5f;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(185, 93, 120, 0.26);
+      }
+
+      .resources-section .citation a:hover,
+      .resources-section .citation a:focus-visible {
+        color: var(--plum);
+        border-bottom-color: var(--plum);
       }
 
       .reader-signup-form {
@@ -2011,12 +2160,15 @@
       }
 
       .ritual-full-details summary {
-        flex-direction: column;
-        gap: 7px;
+        width: 100%;
+        justify-content: space-between;
+        gap: 12px;
+        padding-inline: 18px 12px;
         color: var(--wine);
         background: rgba(255, 253, 251, 0.78);
         border: 1px solid rgba(111, 38, 63, 0.18);
         list-style: none;
+        text-align: left;
       }
 
       .ritual-full-details summary::-webkit-details-marker {
@@ -2024,6 +2176,7 @@
       }
 
       .ritual-expand-icon {
+        flex: 0 0 auto;
         display: inline-grid;
         place-items: center;
         width: 32px;
@@ -2275,7 +2428,7 @@
     <header class="reader-hero episode-03-reader-hero" id="top">
       <div class="hero-inner">
         <div class="episode-03-masthead-banner">
-          <img src="../assets/issue-03-hero.png" alt="Episode 03 Burn Book notebook with receipts objects, magnifying glass, checklist, and glossy LAiDIES evidence-desk details" class="episode-03-masthead-image" />
+          <img src="../assets/episodes/issue-03/section-dont-pull-a-cher-v1.png" alt="Episode 03 pink gavel objection desk with Burn Book, receipts checklist, plaid clue, and LAiDIES evidence objects" class="episode-03-masthead-image" />
           <div class="episode-03-masthead-copy">
             <span class="episode-masthead-brand-bar" aria-hidden="true">
               <img src="../assets/brand/laidies-logo-masthead-approved-v3.png" alt="" />
@@ -2409,7 +2562,7 @@
               <a class="activity-card" href="../learn/quiz.html?from=this-week&amp;issue=3#quiz-start">
                 <span class="label">03 / Quiz</span>
                 <strong>Take the Quiz</strong>
-                <p>Check whether hallucinations, receipts, and verification actually stuck.</p>
+                <p>Check whether hallucinations, grounding, and retrieval actually stuck.</p>
                 <em>Ready</em>
               </a>
               <a class="activity-card" href="../games/fun-pack.html?from=this-week&amp;issue=3&amp;bag=open">
@@ -2447,6 +2600,42 @@
         </div>
       </section>
 
+      <section class="resources-section" aria-label="Further reading and receipts">
+        <div class="resources-inner">
+          <h3>Gimme, Gimme More</h3>
+          <p class="resource-note">If you want to keep going after this.</p>
+
+          <div class="go-deeper">
+            <a href="https://www.oneusefulthing.org/p/centaurs-and-cyborgs-on-the-jagged" class="resource-card" target="_blank" rel="noreferrer">
+              <div class="resource-name">The Jagged Frontier</div>
+              <div class="resource-desc">A plain-English way to understand why AI can be brilliant at one task and confidently wrong at the next.</div>
+            </a>
+            <a href="https://cor.stanford.edu/" class="resource-card" target="_blank" rel="noreferrer">
+              <div class="resource-name">Source-Checking Questions</div>
+              <div class="resource-desc">Stanford's practical habit for asking who is behind a claim, what the evidence is, and what other sources say.</div>
+            </a>
+            <a href="https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations" class="resource-card" target="_blank" rel="noreferrer">
+              <div class="resource-name">Grounded Answers</div>
+              <div class="resource-desc">A useful guide to making AI show its support, admit uncertainty, and answer from provided material.</div>
+            </a>
+          </div>
+
+          <h3>The Receipts</h3>
+          <p class="resource-note">We did the reading so you don't have to.</p>
+
+          <div class="citation"><a href="https://www.hbs.edu/faculty/Pages/item.aspx?num=64700" target="_blank" rel="noreferrer">Harvard/BCG jagged frontier study: where AI helps, where it hurts, and why confident wrong answers are dangerous.</a></div>
+          <div class="citation"><a href="https://www.oneusefulthing.org/p/centaurs-and-cyborgs-on-the-jagged" target="_blank" rel="noreferrer">One Useful Thing on the jagged frontier: an accessible explanation of the study and what it means in practice.</a></div>
+          <div class="citation"><a href="https://www.nature.com/articles/s41586-026-10549-w" target="_blank" rel="noreferrer">Nature on hallucinations and model evaluation: why systems can be rewarded for guessing instead of admitting uncertainty.</a></div>
+          <div class="citation"><a href="https://hai.stanford.edu/ai-index/2026-ai-index-report/responsible-ai" target="_blank" rel="noreferrer">Stanford AI Index 2026 Responsible AI chapter: current hallucination and reliability context.</a></div>
+          <div class="citation"><a href="https://dho.stanford.edu/wp-content/uploads/Legal_RAG_Hallucinations.pdf" target="_blank" rel="noreferrer">Stanford study on legal AI research tools: source-connected systems still need human checking.</a></div>
+          <div class="citation"><a href="https://techcrunch.com/2026/06/13/kpmg-pulls-report-on-ai-usage-due-to-apparent-hallucinations/" target="_blank" rel="noreferrer">TechCrunch on KPMG pulling an AI report after disputed claims: a real-world polished-output cautionary tale.</a></div>
+          <div class="citation"><a href="https://cdn.openai.com/pdf/d04913be-3f6f-4d2b-b283-ff432ef4aaa5/why-language-models-hallucinate.pdf" target="_blank" rel="noreferrer">OpenAI paper on why language models hallucinate: why models may guess when uncertainty should be allowed.</a></div>
+          <div class="citation"><a href="https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations" target="_blank" rel="noreferrer">Anthropic guidance on reducing hallucinations: grounding, uncertainty, and evidence visibility.</a></div>
+          <div class="citation"><a href="https://ai.google.dev/gemini-api/docs/google-search" target="_blank" rel="noreferrer">Google Gemini grounding with Search: source-connected grounding for current, verifiable answers.</a></div>
+          <div class="citation"><a href="https://cor.stanford.edu/" target="_blank" rel="noreferrer">Stanford Civic Online Reasoning: practical source-checking questions for online claims.</a></div>
+        </div>
+      </section>
+
     </main>
 
     <script>
@@ -2459,24 +2648,44 @@
       ]);
       const sectionImages = {
         "the-burn-book-problem": {
-          src: "../assets/issue-03-section-burn-book.png",
-          alt: "Burn Book evidence board showing one data point and a super-jumbo clue leaping to a big claim stamped not a receipt, with a heavy flow correction card and case closed stamp.",
-          caption: "One clue is not a conclusion"
+          src: "../assets/episodes/issue-03/section-burn-book-problem-v3.png",
+          alt: "Episode 3 Burn Book desk with one data point, big claim, not a receipt, case closed, and need context cards.",
+          caption: "Burn Book confidence is not evidence"
         },
         "she-doesnt-even-go-here": {
-          src: "../assets/issue-03-section-wrong-room.png",
-          alt: "Client folder with a sticky note reading she doesn't even go here, plus wrong room and last year labels.",
+          src: "../assets/episodes/issue-03/section-wrong-room-v1.png",
+          alt: "Episode 3 wrong room folder labeled she doesn't even go here with last year, wrong room, and out of context notes.",
           caption: "Plausible is not the same as relevant"
         },
         "elle-woods-would-like-to-see-the-file": {
-          src: "../assets/issue-03-section-receipts-pass.png",
-          alt: "Evidence kit desk with cards labeled claim, timeline, domain rule, contradiction, receipt, plus a perm timeline tab, source, date, apply here labels, gel pen, and butterfly clip.",
+          src: "../assets/episodes/issue-03/section-read-the-file-v2.png",
+          alt: "Episode 3 Read The File board with source, date, and apply here checks beside a Burn Book-style receipts desk.",
           caption: "Timeline beats polish"
         },
         "chers-closet-can-pick-the-outfit-you-check-the-dress-code": {
-          src: "../assets/issue-03-section-try-on.png",
-          alt: "Retro closet computer suggesting a yellow plaid outfit, with matching blazer and skirt, white slip dress, Mary Janes, knee socks, pink mini backpack, and a dress-code receipts checklist.",
+          src: "../assets/episodes/issue-03/section-trust-layers-v4.png",
+          alt: "Episode 3 Cher's closet-inspired computer showing a yellow plaid outfit with a dress-code checklist and receipt shelf.",
           caption: "Trust the right layer"
+        },
+        "chutney-can-say-it-thrice-elle-still-checks-the-timeline": {
+          src: "../assets/episodes/issue-03/section-chutney-thrice-v2.png",
+          alt: "Episode 3 alibi cards and timeline receipts arranged on a pink evidence desk.",
+          caption: "Check the timeline"
+        },
+        "chutney-can-say-it-thrice": {
+          src: "../assets/episodes/issue-03/section-chutney-thrice-v2.png",
+          alt: "Episode 3 alibi cards and timeline receipts arranged on a pink evidence desk.",
+          caption: "Check the timeline"
+        },
+        "david-meet-elle": {
+          src: "../assets/episodes/issue-03/section-show-your-work-v2.png",
+          alt: "Episode 3 confidence is not evidence desk with show your work board and source-check trays.",
+          caption: "Confidence is not evidence"
+        },
+        "the-receipts-pass-study-montage": {
+          src: "../assets/episodes/issue-03/section-try-on-receipts-pass-v2.png",
+          alt: "Episode 3 Receipts Pass desk with one draft, three receipts, check three claims, and no shame notes.",
+          caption: "Three checks before it borrows your name"
         }
       };
       const escapeHtml = (value) => String(value || "")
@@ -2492,24 +2701,48 @@
         .replace(/[^a-z0-9]+/g, "-")
         .replace(/^-+|-+$/g, "");
 
-      function renderBrandWordmark() {
-        return '<span class="laidies-inline-wordmark" aria-label="LAiDIES"><span aria-hidden="true"><span data-laidies-part="plum">L</span><span data-laidies-part="rose">Ai</span><span data-laidies-part="plum">DIES</span></span></span>';
+      const brandNamePattern = /\b(?:Madame CLAi-O|Mme CLAi-O|FAiRY GODMOTHER|LAiDIES|LAIDIES|lAIdies|Laidies|LAiDY)\b/g;
+
+      function getBrandWordmarkParts(value = "LAiDIES") {
+        switch (value) {
+          case "LAIDIES":
+          case "lAIdies":
+          case "Laidies":
+          case "LAiDIES":
+            return { label: "LAiDIES", parts: ["L", "Ai", "DIES"] };
+          case "LAiDY":
+            return { label: "LAiDY", parts: ["L", "Ai", "DY"] };
+          case "Mme CLAi-O":
+            return { label: "Mme CLAi-O", parts: ["Mme CL", "Ai", "-O"] };
+          case "Madame CLAi-O":
+            return { label: "Madame CLAi-O", parts: ["Madame CL", "Ai", "-O"] };
+          case "FAiRY GODMOTHER":
+            return { label: "FAiRY GODMOTHER", parts: ["F", "Ai", "RY GODMOTHER"] };
+          default:
+            return { label: "LAiDIES", parts: ["L", "Ai", "DIES"] };
+        }
+      }
+
+      function renderBrandWordmark(value = "LAiDIES") {
+        const brand = getBrandWordmarkParts(value);
+        return `<span class="laidies-inline-wordmark" aria-label="${brand.label}"><span aria-hidden="true"><span data-laidies-part="plum">${brand.parts[0]}</span><span data-laidies-part="rose">${brand.parts[1]}</span><span data-laidies-part="plum">${brand.parts[2]}</span></span></span>`;
       }
 
       function stripInternalMarkdown(markdown) {
         const lines = markdown.split(/\r?\n/);
         const kept = [];
         let hidden = false;
+        const hiddenContentSections = new Set([...allowedHiddenSections, "Receipts Drawer"]);
 
         for (const raw of lines) {
           const line = raw.trimEnd();
-          const heading = line.match(/^##\s+(.+)$/);
+          const heading = line.match(/^(#{2,3})\s+(.+)$/);
 
           if (/^#\s+/.test(line)) continue;
           if (/^(Source metadata|Draft page gate|Public page|Release target|Status):/i.test(line)) continue;
 
           if (heading) {
-            hidden = allowedHiddenSections.has(heading[1].trim());
+            hidden = hiddenContentSections.has(heading[2].trim());
             if (hidden) continue;
           }
 
@@ -2525,7 +2758,7 @@
           .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
           .replace(/\*([^*]+)\*/g, "<em>$1</em>")
           .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
-          .replace(/\b(?:LAiDIES|LAIDIES|lAIdies|Laidies)\b/g, renderBrandWordmark());
+          .replace(brandNamePattern, (match) => renderBrandWordmark(match));
       }
 
       function renderSectionImage(image) {
@@ -2570,7 +2803,7 @@
         const details = document.createElement("details");
         details.className = "episode-intro-card";
         const summary = document.createElement("summary");
-        summary.innerHTML = `<span class="episode-intro-label">${label}</span><span class="episode-intro-summary-copy">${escapeHtml(preview)}</span>`;
+        summary.innerHTML = `<span class="episode-intro-label">${renderInline(label)}</span><span class="episode-intro-summary-copy">${escapeHtml(preview)}</span>`;
         const body = document.createElement("div");
         body.className = "episode-intro-body";
         for (const item of nodes) {
@@ -2583,32 +2816,35 @@
 
       function renderDefinitions() {
         return `
+          <figure class="section-image study-pack-bridge-image">
+            <img src="../assets/episodes/issue-03/section-dont-pull-a-cher-v1.png" alt="Episode 3 pink gavel objection desk with Burn Book, plaid clue, and legal receipts objects" loading="lazy" />
+          </figure>
           <section class="concept-definitions" id="study-pack" aria-label="Three core concept definitions">
             <h3 class="article-subheading">So You Don't Pull a Cher</h3>
             <p class="section-subhed">Quick definitions so you can use the Burn Book lesson without accidentally putting Chutney on company letterhead.</p>
             <details class="glossary-term">
               <summary>
                 <span class="term-name">Hallucination</span>
-                <span class="term-preview">When AI fills a gap with language that sounds plausible, polished, and confident, but is not supported by the facts.</span>
+                <span class="term-preview">When AI gives you an answer that sounds polished and confident but includes something unsupported, misread, outdated, or made up.</span>
                 <span class="term-toggle"><span class="when-closed">Read full definition</span><span class="when-open">Show less</span></span>
               </summary>
-              <div class="term-def">When AI fills a gap with language that sounds plausible, polished, and confident, but is not supported by the facts, source, date, or context. In Episode 3 terms: Burn Book confidence without Elle Woods standards. It can be useful and wrong in the same answer, which is why the smoothest sentence is often the one that needs the receipt.</div>
+              <div class="term-def">When AI gives you an answer that sounds polished and confident but includes something unsupported, misread, outdated, or made up. It is not lying, because lying requires intent. It is more like a Burn Book entry written with Regina George confidence before Elle Woods checks the file. The answer can still be useful, but any name, date, number, quote, source, or conclusion needs a receipt before it borrows your name.</div>
             </details>
             <details class="glossary-term">
               <summary>
-                <span class="term-name">Receipts</span>
-                <span class="term-preview">The source, file, date, quote, link, transcript, policy owner, or exact line you can point to when someone asks where that came from.</span>
+                <span class="term-name">Grounding</span>
+                <span class="term-preview">Giving AI something specific to answer from, like a document, transcript, policy, search result, or pasted source material.</span>
                 <span class="term-toggle"><span class="when-closed">Read full definition</span><span class="when-open">Show less</span></span>
               </summary>
-              <div class="term-def">The source, file, date, quote, link, transcript, policy owner, or exact line you can point to when someone asks where that came from. A receipt does not have to be fancy. It just has to be outside the same confident paragraph that made the claim. If the answer cannot show the receipt, treat that claim like it showed up at Spring Fling with no student ID.</div>
+              <div class="term-def">Giving AI something specific to answer from, like a document, transcript, policy, search result, or pasted source material. Instead of asking it to perform from memory, you are handing it the folder and saying, "Use this." Grounding can make an answer more useful and easier to check, but it does not make it automatically true. You still have to ask whether the source is real, current, relevant, and actually supports the claim.</div>
             </details>
             <details class="glossary-term">
               <summary>
-                <span class="term-name">Verification</span>
-                <span class="term-preview">The independent check before a claim borrows your name: source, date, context, and the fragile detail that could break the story.</span>
+                <span class="term-name">Retrieval</span>
+                <span class="term-preview">When an AI system goes looking for outside material and brings it into the answer before it writes.</span>
                 <span class="term-toggle"><span class="when-closed">Read full definition</span><span class="when-open">Show less</span></span>
               </summary>
-              <div class="term-def">The independent check before a claim borrows your name. You compare the answer against the source of truth, the date, the real context, and the one fragile detail that would make the story fall apart. Asking the same chat if it is sure can help sometimes, but it is not enough. Do not let the same witness validate herself.</div>
+              <div class="term-def">When an AI system goes looking for outside material and brings it into the answer before it writes. That material might be search results, files, database records, or snippets from a knowledge base. Retrieval is the part that fetches the possible receipts. It is helpful, but it can still pull the wrong file, stale context, or something that does not actually prove the point. Think of it as sending someone to the closet. You still check the outfit before it walks into the meeting.</div>
             </details>
           </section>
         `;
@@ -2617,10 +2853,35 @@
       function renderNextTimeCard() {
         return `
           <div class="next-week">
-            <h3>Next Time On LAiDIES...</h3>
+            <h3>Next Time On ${renderBrandWordmark("LAiDIES")}...</h3>
             <p>She turns the receipt habit into a repeatable workflow, because judgment gets easier when the process is not living entirely in your head.</p>
           </div>
         `;
+      }
+
+      function styleWeeklyRule() {
+        const ruleLabel = Array.from(articleMount.querySelectorAll("p")).find((paragraph) => {
+          const normalized = paragraph.textContent.trim().replace(/[’']/g, "'");
+          return normalized === "This Week's Rule:";
+        });
+        if (!ruleLabel) return;
+
+        let ruleBlock = ruleLabel.nextElementSibling;
+        while (ruleBlock && ruleBlock.tagName !== "PRE" && !/^H[23]$/.test(ruleBlock.tagName)) {
+          ruleBlock = ruleBlock.nextElementSibling;
+        }
+        if (!ruleBlock || ruleBlock.tagName !== "PRE") return;
+
+        const ruleText = ruleBlock.textContent.trim();
+        const card = document.createElement("section");
+        card.className = "weekly-rule-card";
+        card.setAttribute("aria-label", "This week's rule");
+        card.innerHTML = `
+          <p class="weekly-rule-label">This Week's Rule</p>
+          <h3>${escapeHtml(ruleText)}</h3>
+        `;
+        ruleLabel.replaceWith(card);
+        ruleBlock.remove();
       }
 
       function markdownToHtml(markdown) {
@@ -2798,18 +3059,7 @@
           signoff.insertAdjacentHTML("beforebegin", renderDefinitions() + renderNextTimeCard());
         }
 
-        const receiptsHeading = articleMount.querySelector("#receipts-drawer");
-        if (receiptsHeading && !receiptsHeading.closest(".article-receipts-panel")) {
-          const panel = document.createElement("section");
-          panel.className = "article-receipts-panel";
-          receiptsHeading.parentNode.insertBefore(panel, receiptsHeading);
-          let node = receiptsHeading;
-          while (node && node !== signoff) {
-            const next = node.nextElementSibling;
-            panel.appendChild(node);
-            node = next;
-          }
-        }
+        styleWeeklyRule();
       }
 
       function setupContextReturn() {

@@ -191,7 +191,7 @@ Claims need checking.
 
 Receipts are what keep you off the stand.
 
-## Chutney Can Say It Thrice. Elle Still Checks The Timeline.
+## Chutney Can Say It Thrice
 
 Asking AI "are you sure?" is like asking Regina George whether the Burn Book is peer reviewed.
 
@@ -229,7 +229,11 @@ That is the point. The embarrassment is not that someone used AI. The embarrassm
 
 Which brings us back to The Bronze. All ages, no cover Fridays was true in Sunnydale, which is exactly why it was incredible television. Outside Sunnydale, that premise gets checked before it becomes the plan.
 
-So yes, reduce the mess before it starts.
+## David, Meet Elle.
+
+Last week, David Rose taught us to say what we want. This week, Elle teaches us what to check before we believe what comes back.
+
+This means we are reducing the mess before it even starts. Receipts? Obviously. No Regina George-style source of "truth" here.
 
 The serious guidance is surprisingly consistent, which is how you know this is not just a lAIdies receipt-drawer fixation. OpenAI's hallucination paper, Anthropic's guardrail guidance, Google's grounding guidance, and Stanford's source-checking work all point in the same direction: give the model boundaries, make uncertainty acceptable, separate claims from language, and verify the important parts outside the same chat.
 
@@ -327,7 +331,7 @@ If you need a quick source check, use the three questions Stanford teaches stude
 - What is the evidence?
 - What do other sources say?
 
-You need ten minutes and enough self-respect not to let Chutney handle the timeline. A corkboard and trench coat are optional, although that sounds like it could be fun.
+You need ten minutes and enough self-respect not to let Chutney handle the timeline. A corkboard and trench coat are optional (although that sounds like it could be fun...).
 
 > You do not need red string. You need ten minutes and enough self-respect not to let Chutney handle the timeline.
 
