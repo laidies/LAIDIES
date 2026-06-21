@@ -111,6 +111,31 @@ Future extraction target:
 
 - Move this treatment into a reusable Episode heading class or shared Episode CSS rule.
 
+## Section Image Placement Standard
+
+Use Episode-specific article images as pacing breaks after the reader has a sentence or two of context.
+
+Standard:
+
+- Do not drop a section image immediately under the heading by default.
+- Let the section heading appear first, followed by one or two setup sentences.
+- Place the section image after that opening beat, before the section moves into explanation, lists, or practical guidance.
+- Use only Episode-specific approved images.
+- Avoid repeating the same image in adjacent sections unless Ali explicitly approves the repetition.
+- This pattern should become the reusable Episode image rhythm for future template extraction.
+
+## Section Scope And Heading Length Standard
+
+Keep section headings editorial and scannable. If a section starts carrying two ideas, split it instead of making the heading explain the whole argument.
+
+Standard:
+
+- Avoid long section headings that combine multiple characters, metaphors, or actions.
+- Let headings name the editorial move; let the first paragraph do the explanation.
+- When a section moves from cautionary setup into practical guidance, start a new section.
+- A bridge section can connect the previous Episode's lesson to the current Episode's lesson when the series logic matters.
+- Example approved in Episode 3: split the long Chutney/timeline section into `Chutney Can Say It Thrice` and `David, Meet Elle.`
+
 ## Section Divider Standard
 
 Do not use a tiny centered separator when the colored bar and section heading are already present.
