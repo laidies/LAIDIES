@@ -113,8 +113,8 @@
       .hero h1 {
         max-width: 980px !important;
         margin: 0 auto;
-        font-size: clamp(2.25rem, 7vw, 6rem) !important;
-        line-height: 0.82 !important;
+        font-size: clamp(2.1rem, 5.8vw, 5.2rem) !important;
+        line-height: 0.88 !important;
         text-transform: uppercase;
         letter-spacing: 0;
       }
@@ -129,7 +129,7 @@
       }
       .hero-text {
         max-width: 710px !important;
-        margin: 0 auto !important;
+        margin: 0 !important;
         font-size: clamp(1rem, 1.8vw, 1.18rem) !important;
         line-height: 1.55 !important;
       }
@@ -146,10 +146,21 @@
       .hero-quote {
         font-size: clamp(1.1rem, 2vw, 1.4rem) !important;
       }
+      .hero .eyebrow .hero-quote-ai {
+        color: var(--wine);
+        font-family: inherit;
+        font-size: 1em;
+        font-weight: inherit;
+        letter-spacing: inherit;
+        line-height: inherit;
+        text-transform: inherit;
+        transform: none;
+      }
       .hero {
         min-height: auto !important;
         padding: clamp(34px, 6vw, 78px) clamp(16px, 4vw, 48px) clamp(28px, 5vw, 58px) !important;
         gap: 16px !important;
+        overflow: hidden;
       }
       .hero-copy {
         width: min(100%, 1040px);
@@ -214,6 +225,14 @@
         letter-spacing: 0.08em;
         line-height: 1;
         text-transform: uppercase;
+      }
+      .home-anthem-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 8px;
       }
       .home-current-episode {
         padding: clamp(44px, 7vw, 86px) clamp(18px, 5vw, 64px);
@@ -296,6 +315,32 @@
         margin: 0;
         color: var(--muted);
         line-height: 1.55;
+      }
+      .home-world-wink {
+        display: inline-flex;
+        width: fit-content;
+        margin-top: 6px !important;
+        padding: 10px 16px;
+        border: 1px solid rgba(111, 38, 63, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 244, 249, 0.84);
+        color: var(--plum) !important;
+        font-family: var(--font-display);
+        font-size: clamp(1.05rem, 1.9vw, 1.35rem);
+        font-weight: 700;
+        box-shadow: 0 14px 28px rgba(75, 33, 72, 0.08);
+      }
+      .home-world-wink .hero-quote-ai {
+        color: inherit;
+        font: inherit;
+        letter-spacing: inherit;
+        line-height: inherit;
+        text-transform: uppercase;
+        transform: none;
+      }
+      .home-world-preview .hero-image {
+        height: auto !important;
+        aspect-ratio: 16 / 10;
       }
       .hero-image {
         height: clamp(280px, 38vw, 470px) !important;
@@ -527,14 +572,55 @@
       .world-portal-card--text {
         grid-template-columns: 1fr !important;
       }
+      .brand-nowrap {
+        white-space: nowrap;
+      }
+      .brand-word-inline {
+        display: inline !important;
+        margin: 0 !important;
+        white-space: nowrap;
+        font-family: inherit !important;
+        font-size: inherit !important;
+        font-weight: inherit !important;
+        letter-spacing: inherit !important;
+        line-height: inherit !important;
+        color: inherit !important;
+        text-transform: inherit !important;
+      }
+      .brand-word-inline > span {
+        display: inline !important;
+        margin: 0 !important;
+        color: inherit !important;
+        font-family: inherit !important;
+        font-size: inherit !important;
+        font-weight: inherit !important;
+        letter-spacing: inherit !important;
+        line-height: inherit !important;
+        text-transform: inherit !important;
+      }
+      .brand-word-inline [data-brand-ai] {
+        display: inline !important;
+        margin: 0 !important;
+        color: var(--rose) !important;
+        font-family: inherit !important;
+        font-size: inherit !important;
+        font-weight: inherit !important;
+        letter-spacing: inherit !important;
+        line-height: inherit !important;
+        text-transform: inherit !important;
+      }
       .world-portal-card--stack > div > strong {
         display: block;
         margin-bottom: 10px;
         color: var(--plum);
         font-family: var(--font-display);
         font-size: clamp(1.65rem, 3.1vw, 2.3rem);
-        line-height: 0.98;
+        line-height: 1.02;
         text-transform: uppercase;
+        overflow-wrap: normal;
+        word-break: normal;
+        hyphens: none;
+        text-wrap: balance;
       }
       .world-portal-card--stack .portal-mini-list {
         display: grid;
@@ -560,6 +646,9 @@
         font-weight: 900;
         letter-spacing: 0.08em;
         text-transform: uppercase;
+        overflow-wrap: normal;
+        word-break: normal;
+        hyphens: none;
       }
       .world-portal-card--stack .portal-mini-list b.brand-preserve-case {
         text-transform: none;
@@ -717,6 +806,99 @@
         box-shadow: 0 12px 28px rgba(75, 33, 72, 0.12);
       }
 
+      /* Desktop recovery: make the post-masthead homepage feel intentionally scaled. */
+      @media (min-width: 1024px) {
+        .hero-copy--actions {
+          width: min(100%, 880px);
+        }
+
+        .home-current-episode,
+        .home-start,
+        .world-portal-map,
+        .home-world-preview {
+          padding-left: clamp(34px, 6vw, 112px);
+          padding-right: clamp(34px, 6vw, 112px);
+        }
+
+        .home-current-card {
+          width: min(100%, 1280px);
+          grid-template-columns: minmax(360px, 0.95fr) minmax(420px, 1.05fr);
+          padding: clamp(22px, 2.6vw, 38px);
+        }
+
+        .home-current-card img {
+          max-height: 520px;
+        }
+
+        .home-start .section-heading,
+        .world-portal-map .section-heading {
+          max-width: 960px;
+        }
+
+        .home-start-grid {
+          width: min(100%, 1240px);
+          gap: clamp(18px, 2vw, 28px);
+        }
+
+        .home-start-card {
+          min-height: 220px;
+          align-content: start;
+        }
+
+        .home-universe-grid {
+          width: min(100%, 1320px);
+          gap: clamp(22px, 2.4vw, 34px);
+        }
+
+        .world-portal-card--stack {
+          padding: clamp(18px, 2vw, 28px);
+        }
+
+        .world-portal-card--stack > img {
+          height: clamp(220px, 18vw, 320px);
+        }
+
+        .home-world-preview-inner {
+          width: min(100%, 1280px);
+          grid-template-columns: minmax(340px, 0.66fr) minmax(520px, 1.34fr);
+        }
+
+        .home-world-preview .hero-image {
+          width: min(100%, 800px);
+          aspect-ratio: 16 / 9;
+        }
+
+        .mini-subscribe {
+          max-width: 980px;
+        }
+
+        .subscribe {
+          width: min(calc(100% - 72px), 1240px);
+          max-width: none;
+          margin-left: auto;
+          margin-right: auto;
+          grid-template-columns: minmax(320px, 0.86fr) minmax(420px, 1.14fr);
+        }
+
+        .about-band {
+          width: min(calc(100% - 72px), 1280px);
+          margin-left: auto;
+          margin-right: auto;
+          border-radius: 18px;
+        }
+      }
+
+      @media (min-width: 1600px) {
+        .home-current-card,
+        .home-world-preview-inner {
+          width: min(100%, 1400px);
+        }
+
+        .home-universe-grid {
+          width: min(100%, 1440px);
+        }
+      }
+
       /* ─── THE CLUBHOUSE section header ─── */
       #the-clubhouse {
         background:
@@ -813,8 +995,8 @@
           line-height: 1.18 !important;
         }
         .hero h1 {
-          font-size: clamp(2.25rem, 15vw, 4.35rem) !important;
-          line-height: 0.82 !important;
+          font-size: clamp(2rem, 10vw, 3.35rem) !important;
+          line-height: 0.92 !important;
         }
         .hero {
           padding-left: 16px !important;
@@ -849,6 +1031,10 @@
           width: 100%;
           max-height: 220px;
           object-fit: cover;
+        }
+        .world-portal-card--stack > div > strong {
+          font-size: clamp(1.42rem, 8.8vw, 2rem);
+          line-height: 1.05;
         }
         .portal-card-main,
         .home-community-actions a {
@@ -985,7 +1171,7 @@
             <section class="site-menu-group" aria-labelledby="site-menu-book">
               <h2 id="site-menu-book">THE BOOK OF RECEIPTS</h2>
               <a href="hot-goss.html">Today&rsquo;s AI Dispatch / Hot Goss</a>
-              <a href="reference-closet.html">Reference Closet / Lore Closet</a>
+              <a href="reference-closet.html">THE LORE CLOSET / Reference Closet</a>
               <a href="learn.html#who-is-who">Who&rsquo;s Who / Power Map</a>
               <a href="learn/glossary.html">Glossary / SLAiYER Handbook</a>
               <a href="receipts.html">Sources / Evidence Drawer</a>
@@ -1026,13 +1212,6 @@
         <div class="hero-copy hero-copy--actions">
           <p class="hero-motto">90s/Y2K defined us. AI is shaping now. LAiDIES is where they meet.</p>
           <p class="home-route-note">New episodes every Wednesday, obviously.</p>
-          <p class="hero-quote hero-anthem" id="heroAnthem" style="transition: all 0.3s; position: relative; display: inline-block;">
-            Get in, loser. We’re learning <span class="hero-quote-ai">AI</span>.
-          </p>
-          <button class="anthem-play-button" type="button" onclick="playAnthem(this)" title="Play or pause the LAiDIES anthem" aria-label="Play or pause music: the LAiDIES anthem">
-            <span class="anthem-play-hint" aria-hidden="true">▶</span>
-            Play LAiDIES anthem
-          </button>
           <div class="anthem-charm-reveal" id="anthemCharmReveal" hidden>
             <section class="anthem-charm-card" role="dialog" aria-modal="true" aria-labelledby="anthemCharmTitle" aria-describedby="anthemCharmBody">
               <span class="anthem-charm-kicker">Secret Charm Found</span>
@@ -1047,7 +1226,12 @@
             <a class="button primary" href="issues/issue-03.html?from=home&amp;issue=3">READ LATEST EPISODE</a>
             <a class="hero-secondary-link" href="this-week.html?issue=3&amp;bag=open">OPEN THIS WEEK&rsquo;S BAG</a>
           </div>
-          <p class="home-route-note"><strong>New here?</strong> <a href="this-week.html?issue=1&amp;bag=open">Start from the beginning.</a></p>
+          <div class="home-anthem-row" aria-label="LAiDIES anthem">
+            <button class="anthem-play-button" type="button" onclick="playAnthem(this)" title="Play or pause the LAiDIES anthem" aria-label="Play or pause music: the LAiDIES anthem">
+              <span class="anthem-play-hint" aria-hidden="true">▶</span>
+              Play the anthem
+            </button>
+          </div>
         </div>
       </section>
 
@@ -1063,9 +1247,6 @@
             <p>The one in which she gets a Regina George-confident answer, catches the Chutney detail, and checks the timeline before it borrows her name.</p>
             <div class="home-current-actions">
               <a class="button primary" href="issues/issue-03.html?from=home&amp;issue=3">READ EPISODE 3</a>
-              <a class="button secondary" href="this-week.html?issue=3&amp;bag=open">OPEN THE WEDNESDAY BAG</a>
-              <a class="button secondary" href="learn/quiz.html?from=this-week&amp;issue=3#quiz-start">TAKE THE QUIZ</a>
-              <a class="button secondary" href="games/dj-booth.html?from=this-week&amp;issue=3&amp;bag=open#djApp">LISTEN</a>
             </div>
             <p>The episode teaches the idea. The Bag stages the Try-On, quiz, printable, song, charms, and weekly extras around it.</p>
           </div>
@@ -1073,22 +1254,20 @@
       </section>
 
       <!-- WHERE TO START -->
-      <section class="home-start" aria-labelledby="home-start-title">
+      <section class="home-start" aria-label="Pick your path">
         <div class="section-heading">
           <p class="eyebrow">PICK YOUR PATH</p>
-          <h2 id="home-start-title">Start with the ritual that matches your day.</h2>
-          <p>Some days you want the first Bag. Some days you want the magazine. Some days you want the whole Wednesday ritual with the extras packed in.</p>
         </div>
         <div class="home-start-grid">
           <a class="home-start-card" href="this-week.html?issue=1&amp;bag=open">
-            <span>1. New here</span>
+            <span>1. New here?</span>
             <strong>START FROM THE BEGINNING</strong>
             <p>Start with the first Bag and move through the season in order. The rituals build for a reason.</p>
           </a>
           <a class="home-start-card" href="episodes.html">
             <span>2. Magazine first</span>
             <strong>READ THE SEASON</strong>
-            <p>Want the magazine first and the extras later? Read the episodes straight through.</p>
+            <p>Want the articles first and the extras later? Read the episodes straight through.</p>
           </a>
           <a class="home-start-card" href="this-week.html?issue=3&amp;bag=open">
             <em class="home-start-ritual-cue">On Wednesdays We Do AI</em>
@@ -1108,7 +1287,7 @@
         </div>
         <div class="world-portal-grid home-universe-grid">
           <article class="world-portal-card world-portal-card--stack">
-            <img loading="lazy" src="assets/hot-goss-desk-v2.png" alt="LAiDIES Hot Goss desk with receipts, flip phone, laptop, and city photos" />
+            <img loading="lazy" src="assets/home-book-of-receipts-closet-v1.png" alt="Editorial LAiDIES receipts closet with an AI-styled outfit check, yellow plaid, and a dress-code receipt board" />
             <div>
               <span>Source of truth behind the plot</span>
               <strong>THE BOOK OF RECEIPTS</strong>
@@ -1128,7 +1307,7 @@
             <img loading="lazy" src="assets/clubhouse-compact-open-v4.png" alt="Open LAiDIES Clubhouse compact with Dream Phone, DJ Booth, Girl Talk, and weekly extras" />
             <div>
               <span>AI After Hours</span>
-              <strong>THE LAiDIES CLUBHOUSE</strong>
+              <strong>THE <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> CLUBHOUSE</strong>
               <p>Readings, rituals, Dream Phone, Girl Talk, DJ Booth, and weekly extras that make the lesson stick without turning it into corporate homework.</p>
               <ul class="portal-mini-list">
                 <li><a href="games/dream-phone.html"><b>DREAM PHONE</b><em>Call the AI concept hotline.</em></a></li>
@@ -1142,13 +1321,13 @@
             </div>
           </article>
           <article class="world-portal-card world-portal-card--stack">
-            <img loading="lazy" src="assets/clubhouse-pass-laidies-card-sample.png" alt="LAiDIES Card and Clubhouse Pass sample" />
+            <img loading="lazy" src="assets/businesswomen-special-backdrop-v2.png" alt="Pink LAiDIES happy hour table with drinks, glitter, charms, and shared ritual objects" />
             <div>
               <span>Card, rooms, and happy hour</span>
               <strong>JOIN THE CLUB</strong>
               <p>The place to connect with other women, share the weekly work, collect your card, and turn the learning into something you can talk about with actual humans.</p>
               <ul class="portal-mini-list">
-                <li><a href="laidies-card.html"><b>LAiDIES CARD</b><em>Preview the member card direction.</em></a></li>
+                <li><a href="laidies-card.html"><b><span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> CARD</b><em>Preview the member card direction.</em></a></li>
                 <li><a href="clubhouse-pass.html"><b>CLUBHOUSE PASS</b><em>Save progress, scores, stickers, and charms.</em></a></li>
                 <li><a href="community.html#chat-rooms"><b>THE ROOMS</b><em>Questions, wins, Try-On debriefs, and reference nominations.</em></a></li>
                 <li><a href="games/businesswomens-special.html"><b>BUSINESSWOMEN&rsquo;S SPECIAL</b><em>Plan a happy hour and pick the drink.</em></a></li>
@@ -1156,15 +1335,16 @@
               <a class="portal-card-main" href="community.html">JOIN THE CLUB</a>
             </div>
           </article>
-          <article class="world-portal-card world-portal-card--stack world-portal-card--text">
+          <article class="world-portal-card world-portal-card--stack">
+            <img loading="lazy" src="assets/this-week/wednesday-it-bag-open.jpg" alt="Open LAiDIES Wednesday Bag scene showing the weekly ritual kit, prompts, cards, charms, and learning tools" />
             <div>
               <span>Orientation and ritual map</span>
-              <strong>HOW LAiDIES WORKS</strong>
+              <strong>HOW <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> WORKS</strong>
               <p>A quick map for what to read, what to practice, where to save progress, and why the weekly Bag is the front door instead of a random bonus drawer.</p>
               <ul class="portal-mini-list">
                 <li><a href="start-here.html"><b>NEW READER PATH</b><em>What to do first if you just arrived.</em></a></li>
                 <li><a href="this-week.html?issue=3&amp;bag=open"><b>WEDNESDAY BAG</b><em>The current episode ritual and weekly kit.</em></a></li>
-                <li><a href="episodes.html"><b>SEASON MAP</b><em>The issue archive in order.</em></a></li>
+                <li><a href="episodes.html"><b>SEASON MAP</b><em>The episode archive in order.</em></a></li>
                 <li><a href="clubhouse-pass.html"><b>SAVE PROGRESS</b><em>Where scores, stickers, and charms live.</em></a></li>
               </ul>
               <a class="portal-card-main" href="start-here.html">START HERE</a>
@@ -1180,9 +1360,10 @@
             <p class="eyebrow">INSIDE THE LAiDIES WORLD</p>
             <h2 id="home-world-title">The weekly ritual has a whole closet.</h2>
             <p>The Bag is the front door. The world around it is where the references, tools, receipts, songs, rooms, cards, and tiny useful objects start to make the lesson feel lived-in.</p>
+            <p class="home-world-wink">Get in, loser. We&rsquo;re doing <span class="hero-quote-ai">AI</span>.</p>
           </div>
           <figure class="hero-image">
-            <img src="assets/lets-chat.png" alt="Stylish corporate woman on a pink phone surrounded by 90s pop culture references" />
+            <img src="assets/lets-chat.png" alt="Stylish LAiDIES bedroom scene with a woman on a pink phone surrounded by 90s pop culture objects" />
           </figure>
         </div>
       </section>
@@ -1329,7 +1510,7 @@
         <a href="this-week.html?issue=3&amp;bag=open">This Week&rsquo;s Bag</a>
         <a href="episodes.html">Read The Season</a>
         <a href="hot-goss.html">Hot Goss</a>
-        <a href="reference-closet.html">Lore Closet</a>
+        <a href="reference-closet.html">THE LORE CLOSET</a>
         <a href="community.html">Join The Club</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
