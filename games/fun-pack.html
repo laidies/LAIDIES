@@ -111,6 +111,23 @@
         max-width: 520px;
         margin: 0 auto;
       }
+      .status-pill,
+      .activity-card-status {
+        display: inline-flex;
+        align-items: center;
+        width: max-content;
+        max-width: 100%;
+        margin: 0 auto 10px;
+        padding: 5px 9px;
+        border: 1px solid rgba(155, 63, 95, 0.24);
+        border-radius: 999px;
+        background: rgba(252, 228, 242, 0.78);
+        color: #8a2d50;
+        font-size: 0.63rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
 
       /* Episode Selector */
       .episode-selector {
@@ -213,6 +230,15 @@
         border-color: var(--hot-pink);
         text-decoration: none;
       }
+      .activity-card--parked {
+        border-style: dashed;
+        cursor: default;
+      }
+      .activity-card--parked:hover {
+        transform: none;
+        box-shadow: none;
+        border-color: var(--pink-border);
+      }
       .activity-card-image {
         position: relative;
         width: 100%;
@@ -242,6 +268,9 @@
         flex-direction: column;
         gap: 6px;
         flex: 1;
+      }
+      .activity-card-body .activity-card-status {
+        margin: 0 0 5px;
       }
       .activity-card-body h3 {
         font-family: Georgia, serif;
@@ -411,14 +440,15 @@
         <!-- Title -->
         <section class="page-title-section">
           <p class="eyebrow">Clubhouse / THE EXTRA CREDIT</p>
+          <span class="status-pill">Bonus shelf in the works</span>
           <h1>THE EXTRA CREDIT</h1>
-          <p class="subtitle">The bonus-credit shelf for the week: readings, notes, calls, stickers, charms, and tiny rituals after you read, practice, and quiz yourself.</p>
+          <p class="subtitle">The bonus shelf is being organized around the weekly Bag. Available items are labeled; parked activities stay visible without pretending they are ready.</p>
         </section>
 
         <aside class="fun-pack-purpose" aria-label="How THE EXTRA CREDIT fits the weekly ritual">
           <div>
             <span>Ritual connection</span>
-            <p>The Wednesday Bag holds the essentials. THE EXTRA CREDIT is the extra layer: readings, notes, calls, stickers, and board-game energy once the core path is clear.</p>
+            <p>The Wednesday Bag holds the essentials. THE EXTRA CREDIT is the extra layer once the core path is clear, so anything still getting polished is labeled before you open it.</p>
           </div>
           <a href="../this-week.html?bag=open">Open the Bag first</a>
         </aside>
@@ -445,6 +475,7 @@
               <span class="activity-card-time">~3 min</span>
             </div>
             <div class="activity-card-body">
+              <span class="activity-card-status">Available now</span>
               <h3>Weekly Reading</h3>
               <p>Ask Madame CLAi-O for the tiny dramatic forecast you needed before opening another tab.</p>
               <span class="card-cta">Get your reading &rarr;</span>
@@ -458,6 +489,7 @@
               <span class="activity-card-time">~2 min</span>
             </div>
             <div class="activity-card-body">
+              <span class="activity-card-status">Available now</span>
               <h3>FAiRY GODMOTHER Note</h3>
               <p>Get one useful nudge from LAiDY when your work brain needs sparkle with actual instructions.</p>
               <span class="card-cta">Get your note &rarr;</span>
@@ -465,30 +497,32 @@
           </a>
 
           <!-- Dream Phone -->
-          <a href="dream-phone.html" class="activity-card" data-activity="dream">
+          <article class="activity-card activity-card--parked" data-activity="dream" data-parked="true">
             <div class="activity-card-image">
               <img src="../assets/dream-phone-cordless-crop.png" alt="Pink cordless Dream Phone on a Y2K desk" loading="lazy" />
-              <span class="activity-card-time">~3 min</span>
+              <span class="activity-card-time">Parked</span>
             </div>
             <div class="activity-card-body">
+              <span class="activity-card-status">Glow-up in the works</span>
               <h3>Dream Phone</h3>
-              <p>Call the right kind of help: bestie, mentor, receipts, boundary, or whoever needs to pick up.</p>
-              <span class="card-cta">Call the Dream Phone &rarr;</span>
+              <p>The hotline is parked while the product model and phone asset get rebuilt. Start with the latest Episode for now.</p>
+              <a class="card-cta" href="../issues/issue-03.html?from=season&amp;issue=3">Read latest Episode &rarr;</a>
             </div>
-          </a>
+          </article>
 
           <!-- Girl Talk -->
-          <a href="girl-talk.html" class="activity-card" data-activity="girltalk">
+          <article class="activity-card activity-card--parked" data-activity="girltalk" data-parked="true">
             <div class="activity-card-image">
               <img src="../assets/girl-talk-board.webp" alt="Retro Girl Talk board game styled for LAiDIES prompts" loading="lazy" />
-              <span class="activity-card-time">~4 min</span>
+              <span class="activity-card-time">Beta</span>
             </div>
             <div class="activity-card-body">
+              <span class="activity-card-status">Getting polished</span>
               <h3>Girl Talk</h3>
-              <p>Spin into a prompt, question, or tiny confession that makes the weekly lesson less theoretical.</p>
-              <span class="card-cta">Do Girl Talk &rarr;</span>
+              <p>The prompt deck is being tuned before it becomes a main Clubhouse activity. Try the DJ Booth while the deck gets cleaned up.</p>
+              <a class="card-cta" href="dj-booth.html">Open DJ Booth &rarr;</a>
             </div>
-          </a>
+          </article>
 
         </div>
 
@@ -606,7 +640,7 @@
         ];
         const imageKeys = ['madameImg', 'fairyImg', 'dreamImg', 'girltalkImg'];
         cards.forEach((card, i) => {
-          if (links[i]) card.href = links[i];
+          if (links[i] && !card.dataset.parked) card.href = links[i];
           const image = card.querySelector('img');
           if (image && data[imageKeys[i]]) image.src = data[imageKeys[i]];
         });

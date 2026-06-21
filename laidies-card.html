@@ -1125,21 +1125,21 @@
 <section class="hero">
   <p class="hero-eyebrow">Your LAiDIES Card</p>
   <h1>The card is getting a premium glow-up.</h1>
-  <p>The LAiDIES Card is still the future home for progress, stickers, and member identity. The old avatar builder is paused while it becomes something more polished, more useful, and much more LAiDIES.</p>
+  <p>The LAiDIES Card is still the future home for progress, stickers, and member identity. Member magic is coming soon; for now, this page is a preview of the direction.</p>
 </section>
 
 <section class="glowup-panel" aria-labelledby="glowup-title">
   <div class="glowup-card">
     <p class="glowup-kicker">Getting a glow-up</p>
     <h2 id="glowup-title">No cartoon avatars. No rushed profile builder. The next card should feel like a real membership moment.</h2>
-    <p>The redesign direction is a premium card built from initials, archetype, icon, background vibe, badge, and member number. It should help you save progress and join the group chat without making anyone feel like a sticker-sheet caricature.</p>
+    <p>The redesign direction is a premium card built from initials, archetype, icon, background vibe, badge, and member number. It should eventually help you save progress and join the group chat without making anyone feel like a sticker-sheet caricature.</p>
     <ul>
       <li>Browse the Community rooms while the card is being polished.</li>
-      <li>Use the Clubhouse Pass magic link when you want saved progress connected to your email.</li>
-      <li>Stickers, badges, quiz scores, and posting permissions will connect back here once the new card is ready.</li>
+      <li>Use the Clubhouse Pass preview if you want to see where member magic is headed.</li>
+      <li>Stickers, badges, quiz scores, and posting permissions are planned, but not ready to rely on yet.</li>
     </ul>
     <div class="glowup-actions">
-      <a class="primary-action" href="clubhouse-pass.html">Get a Clubhouse Pass</a>
+      <a class="primary-action" href="clubhouse-pass.html">Preview Clubhouse Pass</a>
       <a class="secondary-action" href="community.html">Browse Community</a>
       <a class="secondary-action" href="clubhouse.html">Back to Clubhouse</a>
     </div>
@@ -1357,7 +1357,6 @@
     <p class="preview-label">Live Preview</p>
     <div class="live-card" id="liveCard">
       <div class="live-card-bg card-bg-laser" id="liveCardBg">
-        <img class="live-photo" id="livePhoto" alt="" />
         <div class="live-photo-placeholder" id="livePhotoPlaceholder">👤</div>
       </div>
       <div class="live-card-info">
@@ -1372,7 +1371,7 @@
 <!-- BOTTOM -->
 <div class="bottom-cta">
   <div class="clubhouse-hint">
-    <p>Want to keep your card across devices? <a href="clubhouse-pass.html">Get a Clubhouse Pass</a> — one email, no password.</p>
+    <p>Cross-device card saving is member magic coming soon. <a href="clubhouse-pass.html">Preview Clubhouse Pass</a> to see the direction.</p>
   </div>
   <a href="community.html" class="bottom-link">See all member cards →</a>
 </div>
@@ -1419,7 +1418,7 @@
 
   // Live preview refs
   const liveCardBg = document.getElementById('liveCardBg');
-  const livePhoto = document.getElementById('livePhoto');
+  let livePhoto = document.getElementById('livePhoto');
   const livePhotoPlaceholder = document.getElementById('livePhotoPlaceholder');
   const liveName = document.getElementById('liveName');
   const liveLane = document.getElementById('liveLane');
@@ -1953,11 +1952,18 @@
 
     // Photo
     if (photoBase64) {
+      if (!livePhoto) {
+        livePhoto = document.createElement('img');
+        livePhoto.className = 'live-photo';
+        livePhoto.id = 'livePhoto';
+        livePhoto.alt = 'Selected member card photo preview';
+        liveCardBg.insertBefore(livePhoto, livePhotoPlaceholder);
+      }
       livePhoto.src = photoBase64;
       livePhoto.style.display = 'block';
       livePhotoPlaceholder.style.display = 'none';
     } else {
-      livePhoto.style.display = 'none';
+      if (livePhoto) livePhoto.style.display = 'none';
       livePhotoPlaceholder.style.display = 'flex';
     }
 

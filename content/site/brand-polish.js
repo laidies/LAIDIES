@@ -159,7 +159,7 @@
         practice: "Back to Weekly Study Pack",
         fun: "Back to THE EXTRA CREDIT",
         connect: "Back to Meet & Celebrate",
-        realworld: "Back to the Book of Receipts",
+        realworld: "Back to THE LAiDIES GRIMOIRE",
       };
       if (fromBag || group) {
         var normalizedGroup = group || inferGroupFromPage();
@@ -207,7 +207,7 @@
       if (/^(hot-goss|reference-closet|learn)\.html$/.test(filename) || path.endsWith("/learn/glossary.html") || filename === "receipts.html") {
         return {
           href: local("this-week.html") + contextQuery("realworld"),
-          label: "← Back to the Book of Receipts",
+          label: "← Back to THE LAiDIES GRIMOIRE",
         };
       }
       if (path.includes("/community/") || filename === "community.html" || filename === "clubhouse-pass.html" || filename === "businesswomens-special.html") {
@@ -265,8 +265,10 @@
         ".laidies-menu-grid{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:14px!important;}",
         ".laidies-menu-group{min-width:0!important;padding:0!important;margin:0!important;}",
         ".laidies-menu-group h2{margin:0 0 9px!important;color:#7a2742!important;font:900 .72rem/1.2 'JetBrains Mono',monospace!important;letter-spacing:.12em!important;text-transform:none!important;}",
-        ".laidies-menu-group a{display:block!important;padding:9px 0!important;border-top:1px solid rgba(75,33,72,.1)!important;color:#3f1737!important;font:800 .88rem/1.25 Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif!important;text-decoration:none!important;white-space:normal!important;}",
+        ".laidies-menu-group a,.laidies-menu-preview{display:block!important;padding:9px 0!important;border-top:1px solid rgba(75,33,72,.1)!important;color:#3f1737!important;font:800 .88rem/1.25 Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif!important;text-decoration:none!important;white-space:normal!important;}",
         ".laidies-menu-group a:hover,.laidies-menu-group a:focus-visible{color:#9b3f5f!important;text-decoration:underline!important;text-underline-offset:4px!important;outline:none!important;}",
+        ".laidies-menu-preview{color:rgba(63,23,55,.62)!important;cursor:default!important;}",
+        ".laidies-menu-status{display:block!important;width:max-content!important;max-width:100%!important;margin-top:5px!important;padding:4px 8px!important;border:1px solid rgba(155,63,95,.24)!important;border-radius:999px!important;background:rgba(252,228,242,.72)!important;color:#8a2d50!important;font:900 .62rem/1 'JetBrains Mono',monospace!important;letter-spacing:.08em!important;text-transform:uppercase!important;}",
         ".laidies-legacy-nav{display:none!important;}",
         ".game-page-header,.sticky-back:not(.laidies-nav-enhanced),.back-nav:not(.laidies-nav-enhanced),.back-btn,.laidies-nav-enhanced ~ main .quiz-return-link,.laidies-nav-enhanced ~ main [data-wednesday-return],.laidies-nav-enhanced ~ [data-wednesday-return]{display:none!important;}",
         "body.laidies-menu-open{overflow:hidden!important;}",
@@ -298,30 +300,30 @@
           ],
         },
         {
-          title: "THE BOOK OF RECEIPTS",
+          title: "THE LAiDIES GRIMOIRE",
           links: [
             ["Today's AI Dispatch / Hot Goss", local("hot-goss.html") + weeklyToolQuery("realworld")],
             ["THE LORE CLOSET / Reference Closet", local("reference-closet.html") + weeklyToolQuery("realworld")],
             ["THE POWER MAP / Who's Who", local("learn.html") + weeklyToolQuery("realworld", currentIssue, "#who-is-who")],
             ["SLAiYER HANDBOOK / Glossary", local("learn/glossary.html") + weeklyToolQuery("realworld")],
-            ["THE EVIDENCE DRAWER / Sources", local("receipts.html") + weeklyToolQuery("realworld")],
+            ["THE CHAMBER OF RECEIPTS / Sources", local("receipts.html") + weeklyToolQuery("realworld")],
           ],
         },
         {
           title: "THE LAiDIES CLUBHOUSE",
           links: [
-            ["Dream Phone", local("games/dream-phone.html") + weeklyToolQuery("fun")],
+            { label: "Dream Phone", status: "Glow-up in the works" },
             ["Madame CLAi-O", local("games/madame-claio.html") + weeklyToolQuery("fun")],
             ["FAiRY GODMOTHER", local("games/fairy-godmother.html") + weeklyToolQuery("fun")],
-            ["Girl Talk", local("games/girl-talk.html") + weeklyToolQuery("fun")],
+            { label: "Girl Talk", status: "Getting polished" },
             ["DJ Booth", local("games/dj-booth.html") + weeklyToolQuery("fun", currentIssue, "#djApp")],
-            ["THE EXTRA CREDIT", local("games/fun-pack.html") + weeklyToolQuery("fun")],
+            { label: "THE EXTRA CREDIT", status: "Bonus shelf in the works" },
           ],
         },
         {
           title: "JOIN THE CLUB",
           links: [
-            ["LAiDIES Card / Clubhouse Pass", local("clubhouse-pass.html") + weeklyToolQuery("connect")],
+            { label: "LAiDIES Card / Clubhouse Pass", status: "Member magic coming soon" },
             ["Community / Rooms", local("community.html") + weeklyToolQuery("connect")],
             ["Businesswomen's Special / Happy Hour", local("games/businesswomens-special.html") + weeklyToolQuery("connect")],
           ],
@@ -339,7 +341,7 @@
       var top = document.createElement("div");
       top.className = "laidies-menu-top";
       var intro = document.createElement("p");
-      intro.innerHTML = '<span class="laidies-menu-kicker">LAiDIES Site Menu</span>Jump to this week, the Book of Receipts, the Clubhouse, or Meet & Celebrate without solving the site architecture first.';
+      intro.innerHTML = '<span class="laidies-menu-kicker">LAiDIES Site Menu</span>Jump to this week, the Season, the Grimoire, the Clubhouse, or Meet & Celebrate. Items still being polished are labeled before you tap.';
       var close = document.createElement("button");
       close.className = "laidies-menu-close";
       close.type = "button";
@@ -355,10 +357,24 @@
         heading.textContent = group.title;
         section.append(heading);
         group.links.forEach(function (item) {
-          var link = document.createElement("a");
-          link.href = item[1];
-          link.textContent = item[0];
-          section.append(link);
+          var label = Array.isArray(item) ? item[0] : item.label;
+          var href = Array.isArray(item) ? item[1] : item.href;
+          var status = Array.isArray(item) ? item[2] : item.status;
+          var node = document.createElement(href ? "a" : "span");
+          if (href) {
+            node.href = href;
+          } else {
+            node.className = "laidies-menu-preview";
+            node.setAttribute("aria-disabled", "true");
+          }
+          node.appendChild(document.createTextNode(label));
+          if (status) {
+            var statusNode = document.createElement("span");
+            statusNode.className = "laidies-menu-status";
+            statusNode.textContent = status;
+            node.appendChild(statusNode);
+          }
+          section.append(node);
         });
         grid.append(section);
       });

@@ -1274,7 +1274,7 @@ const dreamPhoneSecretBadges = {
     title: "867 Club merit badge",
     sticker: "867",
     baseMessage:
-      "867-5309 connected. I like the way you think. You found the secret Dream Phone line and earned the 867 Club merit badge. Open your Clubhouse Pass so the badge can stay pinned to your member card.",
+      "867-5309 connected. I like the way you think. You found the secret Dream Phone line. Dream Phone rewards are parked while member magic gets rebuilt.",
     remix: {
       secret:
         "Secret: the real callback is pattern spotting. You found the hidden number, so your reward is a badge and permission to be a little smug in the group chat.",
@@ -1293,7 +1293,7 @@ const hiddenMeritBadges = {
     sticker: "867",
     source: "Dream Phone",
     unlockMessage:
-      "867 Club unlocked. The Dream Phone recognizes excellent pattern spotting and questionable taste in catchy callbacks.",
+      "867 Club preview noted. Dream Phone rewards are parked while the hotline gets rebuilt.",
   },
   "hotline-regular": {
     id: "hotline-regular",
@@ -1309,7 +1309,7 @@ const hiddenMeritBadges = {
     sticker: "REMIX",
     source: "Dream Phone",
     unlockMessage:
-      "Remix Scholar unlocked. You pulled every Dream Phone remix card after the call. The answer now has a director's cut, a speakerphone version, and a clean exit.",
+      "Remix Scholar preview noted. Dream Phone remixes are parked while the hotline gets rebuilt.",
   },
   "receipts-drawer": {
     id: "receipts-drawer",
@@ -1333,7 +1333,7 @@ const hiddenMeritBadges = {
     sticker: "CHAT",
     source: "Girl Talk",
     unlockMessage:
-      "Group Chat Regular unlocked. You kept drawing cards until the deck started saving you a seat.",
+      "Group Chat Regular preview noted. Girl Talk is getting polished before this becomes a real reward.",
   },
   "coven-reservation": {
     id: "coven-reservation",
@@ -1357,7 +1357,7 @@ const hiddenMeritBadges = {
     sticker: "ALL",
     source: "Chat Rooms",
     unlockMessage:
-      "Every Room, No Notes unlocked. You posted in every chat room. The ICQ door is open, the buddy list is awake, and your member card has receipts.",
+      "Every Room, No Notes preview noted. Community rewards will connect back to the member layer after it is ready.",
   },
   "issue-03-full-ritual-merit-badge": {
     id: "issue-03-full-ritual-merit-badge",
@@ -2401,7 +2401,7 @@ function renderMemberPass(statusOverride = "") {
   if (saveMemberPassButton) {
     saveMemberPassButton.disabled = isLoading || pendingStep === "email";
     saveMemberPassButton.textContent = isSignedIn
-      ? "Create your LAiDIES Card"
+      ? "Preview your LAiDIES Card"
       : isLoading
         ? "Sending..."
       : pendingStep === "email"
@@ -2413,9 +2413,9 @@ function renderMemberPass(statusOverride = "") {
 
   if (isSignedIn) {
     setMemberPassStepState("create", ["profile"]);
-    memberPassStatus.textContent = "Clubhouse Pass signed in.";
-    memberPassDetail.textContent = `Signed in as ${signedInEmail}. Your pass is open, and your next step is building the card people can use to find you.`;
-    memberPassNote.textContent = statusOverride || "Next: create your card. LinkedIn handles the actual hello until direct chat exists.";
+    memberPassStatus.textContent = "Clubhouse Pass opened.";
+    memberPassDetail.textContent = `Signed in as ${signedInEmail}. Member magic is still getting polished, so treat this as a pass preview rather than a complete saved-progress system.`;
+    memberPassNote.textContent = statusOverride || "Next: preview the card direction. Direct community and reward syncing are not live yet.";
     return;
   }
 
@@ -2429,26 +2429,26 @@ function renderMemberPass(statusOverride = "") {
 
   if (pendingStep === "email") {
     setMemberPassStepState("profile", []);
-    memberPassStatus.textContent = "Check your email to open your Clubhouse Pass.";
+    memberPassStatus.textContent = "Check your email to open the Clubhouse Pass preview.";
     memberPassDetail.textContent = `We sent ${pass.email || activeEmail} the Clubhouse Pass email. The subject may say confirm signup or sign in. Open the newest one from this same browser or computer.`;
-    memberPassNote.textContent = statusOverride || "If the weekly newsletter box was checked, that preference is saved. The newsletter confirmation waits until your Clubhouse Pass sign-in works.";
+    memberPassNote.textContent = statusOverride || "The pass is still member magic coming soon; rewards and profile syncing are not promised yet.";
     return;
   }
 
   if (memberAuthConfigured) {
     setMemberPassStepState("profile", []);
-    memberPassStatus.textContent = "Create or open your Clubhouse Pass.";
+    memberPassStatus.textContent = "Create or open the Clubhouse Pass preview.";
     memberPassDetail.textContent = "Enter your email and choose any profile answers you want. We will send one Clubhouse Pass email.";
-    memberPassNote.textContent = statusOverride || "Newsletter signup is optional and will be handled after the pass opens, so your inbox does not get two confirmations at once.";
+    memberPassNote.textContent = statusOverride || "Newsletter signup is optional. Full reward syncing and member identity are still being polished.";
     return;
   }
 
   setMemberPassStepState("profile", []);
-  memberPassStatus.textContent = pass.email ? "Guest pass ready." : "Create or open your Clubhouse Pass.";
+  memberPassStatus.textContent = pass.email ? "Guest pass preview ready." : "Create or open the Clubhouse Pass preview.";
   memberPassDetail.textContent = pass.email
-    ? `${pass.email} is ready for Clubhouse Pass sign-in. Open the pass to pin rewards to your member card.`
-    : "Badges, stickers, card pulls, and quiz progress belong on your member card. Sign in so the good stuff follows you.";
-  memberPassNote.textContent = statusOverride || "Your progress is saved locally. Sign in to keep it across devices and unlock your full Clubhouse Pass.";
+    ? `${pass.email} is ready for Clubhouse Pass sign-in. Member magic is coming soon, so use this as a preview while rewards stay mostly local.`
+    : "Badges, stickers, card pulls, and quiz progress are planned for the future card. For now, most progress stays on this browser/device.";
+  memberPassNote.textContent = statusOverride || "Cross-device saving and the full Clubhouse Pass are still being polished.";
 }
 
 function submitNewsletterOptIn(email) {
@@ -2800,7 +2800,7 @@ async function initMemberAuth() {
       renderMemberPass();
       if (memberAuthSession) {
         removeStoredJson(memberAuthPendingStorageKey);
-        syncMemberRewards("Signed in. Your stickers, badges, cards, and quiz progress are connected to your Clubhouse Pass.").catch((syncError) => {
+        syncMemberRewards("Signed in. Member magic is still being polished, so rewards remain mostly local for now.").catch((syncError) => {
           renderMemberPass(`Signed in, but sync needs attention: ${syncError.message || "try again."}`);
         });
       }
@@ -2809,9 +2809,9 @@ async function initMemberAuth() {
     renderMemberPass();
     if (memberAuthSession) {
       removeStoredJson(memberAuthPendingStorageKey);
-      await syncMemberRewards("Signed in. Your stickers, badges, cards, and quiz progress are connected to your Clubhouse Pass.");
+      await syncMemberRewards("Signed in. Member magic is still being polished, so rewards remain mostly local for now.");
       if (returningToMemberPass) {
-        renderMemberPass("Clubhouse Pass opened. Taking you to your LAiDIES Card next.");
+        renderMemberPass("Clubhouse Pass preview opened. Taking you to the LAiDIES Card direction next.");
         openMemberCardBuilder(450);
         return;
       }
@@ -2849,13 +2849,13 @@ saveMemberPassButton?.addEventListener("click", async () => {
   });
 
   if (!memberAuthConfigured || !memberAuthClient) {
-    renderMemberPass(memberPassNewsletter?.checked ? "Guest pass ready. The standalone newsletter form below is still the live email-only signup until login is configured." : "Guest pass ready. Open Clubhouse Pass to pin rewards to your member card.");
+    renderMemberPass(memberPassNewsletter?.checked ? "Guest pass preview ready. The standalone newsletter form below is still the live email-only signup until login is configured." : "Guest pass preview ready. Member magic is coming soon, so rewards stay mostly local for now.");
     return;
   }
 
   if (memberAuthSession?.user) {
     try {
-      await syncMemberRewards("Clubhouse Pass opened. Taking you to your LAiDIES Card next.");
+      await syncMemberRewards("Clubhouse Pass preview opened. Taking you to the LAiDIES Card direction next.");
       submitNewsletterOptIn(email);
       openMemberCardBuilder(150);
     } catch (error) {
@@ -3072,16 +3072,16 @@ window.openGamePanel = openGamePanel;
 setupGamePanelDock();
 
 const clubhouseZoneMessages = {
-  "weekly-fun-pack": "<strong>THE EXTRA CREDIT:</strong> Open the Episode shelf for the current released extras.",
-  "fun-pack-1-6": "<strong>Extra Credit 1-6:</strong> Episodes 1 and 2 are available now. More shelf space opens as the season drops.",
-  "fun-pack-7-12": "<strong>Extra Credit 7-12:</strong> Reserved for future weekly extras once those issues exist.",
-  "fun-pack-13-18": "<strong>Extra Credit 13-18:</strong> Reserved for later archive browsing.",
-  "fun-pack-19-24": "<strong>Extra Credit 19-24:</strong> Reserved for the full-season archive.",
+  "weekly-fun-pack": "<strong>THE EXTRA CREDIT:</strong> Bonus shelf in the works. Use the Wednesday Bag as the clean path for now.",
+  "fun-pack-1-6": "<strong>Extra Credit 1-6:</strong> Bonus shelf in the works. Available items are labeled before you open them.",
+  "fun-pack-7-12": "<strong>Extra Credit 7-12:</strong> Coming soon once those Episodes exist.",
+  "fun-pack-13-18": "<strong>Extra Credit 13-18:</strong> Coming soon for later archive browsing.",
+  "fun-pack-19-24": "<strong>Extra Credit 19-24:</strong> Coming soon for the full-season archive.",
   "weekly-jams": "<strong>Weekly Jams:</strong> DJ JAIDY's weekly AI song lives beside the Episode packs.",
   "mix-cds": "<strong>Mix CDs:</strong> Open the DJ Booth for playlists, mix CDs, and weekly track slots.",
   psychic: "<strong>Call Psychic Hotline:</strong> Jump to Madame CLAi-O for the crystal-phone reading.",
-  "dream-phone": "<strong>Call Dream Phone:</strong> Open the Dream Phone nook and dial a card.",
-  "girl-talk": "<strong>Open Girl Talk:</strong> Draw a prompt card from the Girl Talk board.",
+  "dream-phone": "<strong>Dream Phone:</strong> Glow-up in the works. The hotline is parked until the concept and asset pass Council.",
+  "girl-talk": "<strong>Girl Talk:</strong> Getting polished. The deck is being tuned before it becomes a main activity.",
   "try-on": "<strong>5min Try-On:</strong> Open the Power Suit Playbook for quick practice prompts.",
   business: "<strong>Businesswomen's Special:</strong> Jump to the paper fortune teller drink picker.",
   fairy: "<strong>Ask FAiRY GODMOTHER:</strong> Open LAiDY's advice console.",
@@ -4158,7 +4158,7 @@ function getQuizReturnConfig() {
     const groupLabels = {
       practice: "Back to Weekly Study Pack",
       connect: "Back to Meet & Celebrate",
-      realworld: "Back to the Book of Receipts",
+      realworld: "Back to THE LAiDIES GRIMOIRE",
       fun: "Back to The Extra Credit",
     };
     return {
@@ -4705,7 +4705,7 @@ function renderQuizResult(score, quiz, reward, coreScore = score) {
   ratingLine.textContent = `Butterfly-clip rating: ${rating.clips}/${maxScore} · ${rating.title}`;
 
   const message = document.createElement("p");
-  message.textContent = `${reward.title}. ${reward.message} Open your Clubhouse Pass to pin this quiz sticker to your card when you are ready.`;
+  message.textContent = `${reward.title}. ${reward.message} Clubhouse Pass score and sticker syncing is member magic coming soon; for now, this reward stays mostly on this browser/device.`;
 
   card.append(scoreLine, ratingLine, message);
   quizResult.appendChild(card);
@@ -5024,7 +5024,7 @@ function gradeQuiz() {
   });
 
   if (answered < quiz.questions.length && quizResult) {
-    quizResult.textContent = `You answered ${answered}/${quiz.questions.length}. Finish the page before we hand out stickers. Then the quiz will show what each answer means and where to reread it.`;
+    quizResult.textContent = `You answered ${answered}/${quiz.questions.length}. Finish the page before the result appears. Then the quiz will show what each answer means and where to reread it.`;
     if (isFocusedQuizMode()) {
       const firstUnanswered = quiz.questions.findIndex((question) => {
         const fieldset = quizQuestionsEl?.querySelector(`[data-quiz-question="${question.id}"]`);

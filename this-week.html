@@ -2533,7 +2533,7 @@
             <a class="ritual-action" href="games/fun-pack.html?from=this-week&issue=2&bag=open" data-action="funpack">
               <span>4. Extra Credit</span>
               <strong data-action-label>THE EXTRA CREDIT</strong>
-              <em>Madame CLAi-O, FAiRY GODMOTHER, Dream Phone, and Girl Talk.</em>
+              <em>Available extras plus clear in-the-works labels.</em>
             </a>
 
             <button class="ritual-action" type="button" data-action="connect" data-choice-open="connect" data-complete-on-click="false" aria-expanded="false" aria-controls="connectDrawer">
@@ -2550,7 +2550,7 @@
 
             <button class="ritual-action" type="button" data-action="realworld" data-choice-open="realworld" data-complete-on-click="false" aria-expanded="false" aria-controls="realWorldDrawer">
               <span>7. Real World</span>
-              <strong data-action-label>The Book of Receipts</strong>
+              <strong data-action-label>THE LAiDIES GRIMOIRE</strong>
               <em>AI news, receipts, references, who's who.</em>
             </button>
 
@@ -2585,12 +2585,12 @@
                 <div class="ritual-group-heading">
                   <span class="ritual-group-kicker">Meet &amp; Celebrate</span>
                   <strong>Bring it back to the Room.</strong>
-                  <p>Create your card, then plan the Businesswomen's Special.</p>
+                  <p>Preview the card direction, then plan the Businesswomen's Special.</p>
                 </div>
                 <div class="ritual-card-stack">
                   <a class="ritual-mini-action" href="community.html?from=this-week&issue=2&bag=open" data-action="community">
                     <span>Community</span>
-                    <strong data-action-label>Community Card</strong>
+                    <strong data-action-label>Community</strong>
                     <em>Connect with LAiDIES.</em>
                   </a>
                   <a class="ritual-mini-action" href="games/businesswomens-special.html?from=this-week&issue=2&bag=open" data-action="happyhour">
@@ -2604,7 +2604,7 @@
 
               <section class="ritual-choice-panel" id="realWorldDrawer" data-choice-panel="realworld" hidden aria-label="Real world AI options">
                 <div class="ritual-group-heading">
-                  <span class="ritual-group-kicker">The Book of Receipts</span>
+                  <span class="ritual-group-kicker">THE LAiDIES GRIMOIRE</span>
                   <strong>See what's happening in AI.</strong>
                   <p>News, receipts, references, and who's who for the week.</p>
                 </div>
@@ -2635,7 +2635,7 @@
             </div>
 
             <p class="ritual-charm-status" data-action="charm"><span>Hidden charm</span> Find this week's charm in the bag scene.</p>
-            <p class="ritual-merit-status" id="ritualMeritStatus"><span>Merit badge</span> Finish the core ritual to unlock CHECKED THE ALIBI.</p>
+            <p class="ritual-merit-status" id="ritualMeritStatus"><span>Ritual progress</span> Finish the core ritual to hold CHECKED THE ALIBI in this browser.</p>
 
             <div class="ritual-share-actions" aria-label="Share this week's bag">
               <button class="ritual-share-button" id="shareBagButton" type="button">Send to the Group Chat</button>
@@ -2673,7 +2673,7 @@
               <label for="tryonNotesField">Quick notes</label>
               <textarea id="tryonNotesField" rows="4" placeholder="What changed when you added audience, context, tone, length, and what good looks like?"></textarea>
             </div>
-            <p class="tryon-save-note" id="tryonSaveNote" hidden>For now, this saves on this device. Clubhouse Pass saving is coming.</p>
+            <p class="tryon-save-note" id="tryonSaveNote" hidden>For now, this saves on this device. Clubhouse Pass saving is member magic coming soon.</p>
             <p class="panel-save-status" id="panelSaveStatus" hidden></p>
             <button class="panel-mark-button" id="panelMarkButton" type="button" hidden>Mark as tried</button>
             <a class="panel-action-link" id="panelActionLink" href="#" hidden></a>
@@ -2690,9 +2690,9 @@
         <span class="charm-kicker">Secret Charm Found</span>
         <img class="charm-icon" src="assets/charms/tamagotchi-charm-256.png" alt="Pink mini digital pet charm sticker" width="256" height="256">
         <h2 id="charmTitle">Episode 02 Tamagotchi Charm</h2>
-        <p id="charmBody">You found this week&rsquo;s hidden charm. Saved in this browser for the future LAiDIES Card charm bracelet.</p>
-        <span class="charm-meta" id="charmMeta">Episode 02 charm &middot; Saved for future charm bracelet</span>
-        <a class="charm-pass-link" id="charmPassLink" href="clubhouse-pass.html">Save charms with a Clubhouse Pass</a>
+        <p id="charmBody">You found this week&rsquo;s hidden charm. Held in this browser for now; member magic is coming soon.</p>
+        <span class="charm-meta" id="charmMeta">Episode 02 charm &middot; Browser-only preview</span>
+        <a class="charm-pass-link" id="charmPassLink" href="clubhouse-pass.html">Clubhouse Pass preview</a>
         <button class="primary-button charm-close" id="charmClose" type="button">← Back to the Bag</button>
       </section>
     </div>
@@ -2790,7 +2790,7 @@
         goss: "Hot Goss",
         happyhour: "Businesswomen's Special",
         reference: "THE LORE CLOSET",
-        realworld: "The Book of Receipts",
+        realworld: "THE LAiDIES GRIMOIRE",
         whoswho: "Who's Who"
       };
 
@@ -3064,8 +3064,8 @@
         button.dataset.charmId = "issue-" + issuePad + "-" + config.idSuffix;
         button.dataset.charmIssue = String(issue);
         button.dataset.charmTitle = config.title;
-        button.dataset.charmBody = config.objectLabel + " found. Saved in this browser for the future LAiDIES Card charm bracelet.";
-        button.dataset.charmMeta = "Episode " + issuePad + " charm - Save charms with a Clubhouse Pass";
+        button.dataset.charmBody = config.objectLabel + " found. Held in this browser for now; member magic is coming soon.";
+        button.dataset.charmMeta = "Episode " + issuePad + " charm - Browser-only preview";
         button.dataset.charmKind = "issue-charm";
         button.dataset.charmSlot = "issue-" + issuePad;
         button.dataset.charmSource = "The Wednesday Ritual: Episode " + issuePad;
@@ -3268,13 +3268,13 @@
         var isComplete = isFullRitualComplete(completed);
         var badge = isComplete ? saveWeeklyMeritBadge() : getWeeklyMeritBadge(currentIssueNumber, currentIssuePad);
         var label = document.createElement("span");
-        label.textContent = isComplete ? "Merit badge unlocked" : "Merit badge";
+        label.textContent = isComplete ? "Ritual complete" : "Ritual progress";
         ritualMeritStatus.classList.toggle("is-complete", isComplete);
         ritualMeritStatus.replaceChildren(
           label,
           document.createTextNode(
             isComplete
-              ? " " + badge.title + " is saved in this browser for the future LAiDIES Card."
+              ? " " + badge.title + " is held in this browser for now. Member magic is coming soon."
               : " Finish the core ritual to unlock " + badge.title + "."
           )
         );
@@ -3418,7 +3418,7 @@
         ACTION_LABELS.goss = "Hot Goss";
         ACTION_LABELS.happyhour = "Businesswomen's Special";
         ACTION_LABELS.reference = "THE LORE CLOSET";
-        ACTION_LABELS.realworld = "The Book of Receipts";
+        ACTION_LABELS.realworld = "THE LAiDIES GRIMOIRE";
         ACTION_LABELS.whoswho = "Who's Who";
 
         setActionCopy("issue", ACTION_LABELS.issue, "Episode " + issuePad);
@@ -3428,14 +3428,14 @@
         setActionCopy("tryon", ACTION_LABELS.tryon, "Try-On");
         setActionCopy("dj", ACTION_LABELS.dj, "DJ Booth");
         setActionCopy("connect", ACTION_LABELS.connect, "Meet");
-        setActionCopy("community", "Community Card", "Community");
+        setActionCopy("community", "Community", "Community");
         setActionCopy("glossary", ACTION_LABELS.glossary, "Glossary");
         setActionCopy("cardpack", "Practice Cards", "Cards");
         setActionCopy("funpack", ACTION_LABELS.funpack, "Extra Credit");
         setActionCopy("goss", "Current AI News", "Hot Goss");
         setActionCopy("happyhour", ACTION_LABELS.happyhour, "Happy Hour");
         setActionCopy("reference", ACTION_LABELS.reference, "Reference");
-        setActionCopy("realworld", ACTION_LABELS.realworld, "Book of Receipts");
+        setActionCopy("realworld", ACTION_LABELS.realworld, "THE LAiDIES GRIMOIRE");
         setActionCopy("whoswho", ACTION_LABELS.whoswho, "Who's Who");
 
         updateActionLink("issue", issueReturnUrl, {});
@@ -3949,8 +3949,8 @@
         lastCharmTrigger = trigger;
         saveSecretCharm(trigger);
         var title = trigger.dataset.charmTitle || "Wednesday Charm";
-        var body = trigger.dataset.charmBody || "Saved in this browser for the future LAiDIES Card charm bracelet.";
-        var meta = trigger.dataset.charmMeta || "Saved for future charm bracelet";
+        var body = trigger.dataset.charmBody || "Held in this browser for now; member magic is coming soon.";
+        var meta = trigger.dataset.charmMeta || "Browser-only preview";
         if (charmIcon) {
           charmIcon.src = trigger.dataset.charmAsset || "assets/charms/tamagotchi-charm-256.png";
           charmIcon.alt = trigger.dataset.charmAlt || "LAiDIES hidden charm sticker";
@@ -3961,7 +3961,7 @@
         charmReveal.hidden = false;
         markActionComplete("charm");
         burstCharmConfetti();
-        statusMessage.textContent = title + " found. Saved for the future LAiDIES Card charm bracelet.";
+        statusMessage.textContent = title + " found. Held in this browser for now; member magic is coming soon.";
         charmClose.focus({ preventScroll: true });
       }
 

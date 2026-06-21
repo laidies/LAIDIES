@@ -75,6 +75,15 @@
         border-color: rgba(111, 38, 63, 0.34);
         box-shadow: 0 22px 44px rgba(75, 33, 72, 0.14);
       }
+      .nav-card--parked {
+        border-style: dashed;
+        color: var(--plum);
+      }
+      .nav-card--parked:hover {
+        transform: none;
+        border-color: rgba(75, 33, 72, 0.22);
+        box-shadow: 0 18px 38px rgba(75, 33, 72, 0.1);
+      }
       .nav-card img {
         width: 100%;
         height: 180px;
@@ -95,6 +104,47 @@
         font-size: 0.82rem;
         color: rgba(75, 33, 72, 0.68);
         line-height: 1.4;
+      }
+      .nav-card-status {
+        display: inline-flex;
+        width: max-content;
+        max-width: 100%;
+        margin: 0 0 8px;
+        padding: 5px 9px;
+        border: 1px solid rgba(155, 63, 95, 0.24);
+        border-radius: 999px;
+        background: rgba(252, 228, 242, 0.72);
+        color: #8a2d50;
+        font: 900 0.62rem/1 'JetBrains Mono', monospace;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .clubhouse-status-map {
+        max-width: 1100px;
+        margin: 26px auto 0;
+        padding: 0 clamp(18px, 5vw, 64px);
+      }
+      .clubhouse-status-map-inner {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        gap: 12px;
+        border: 1px solid rgba(75, 33, 72, 0.14);
+        border-radius: 18px;
+        padding: 14px;
+        background: linear-gradient(135deg, rgba(255, 253, 251, 0.96), rgba(252, 228, 242, 0.46));
+        box-shadow: 0 16px 38px rgba(75, 33, 72, 0.08);
+      }
+      .clubhouse-status-map p {
+        margin: 0;
+        color: rgba(75, 33, 72, 0.72);
+        font-size: 0.82rem;
+        line-height: 1.4;
+      }
+      .clubhouse-status-map strong {
+        display: block;
+        margin-bottom: 2px;
+        color: var(--plum);
+        font-size: 0.9rem;
       }
 
       /* === Footer === */
@@ -191,8 +241,8 @@
               <a class="clubhouse-hotspot" href="games/fun-pack.html" data-clubhouse-zone="fun-pack-19-24" aria-label="Extra Credit shelves"></a>
               <a class="clubhouse-hotspot" href="games/dj-booth.html" data-clubhouse-zone="mix-cds" aria-label="Mix CDs"></a>
               <a class="clubhouse-hotspot" href="games/madame-claio.html" data-clubhouse-zone="psychic" aria-label="Madame CLAi-O"></a>
-              <a class="clubhouse-hotspot" href="games/dream-phone.html" data-clubhouse-zone="dream-phone" aria-label="Dream Phone"></a>
-              <a class="clubhouse-hotspot" href="games/girl-talk.html" data-clubhouse-zone="girl-talk" aria-label="Girl Talk"></a>
+              <a class="clubhouse-hotspot" href="#clubhouse-status-map" data-clubhouse-zone="dream-phone" aria-label="Dream Phone glow-up in the works"></a>
+              <a class="clubhouse-hotspot" href="#clubhouse-status-map" data-clubhouse-zone="girl-talk" aria-label="Girl Talk getting polished"></a>
               <a class="clubhouse-hotspot" href="games/trading-cards.html" data-clubhouse-zone="try-on" aria-label="Trading Cards"></a>
               <a class="clubhouse-hotspot" href="games/businesswomens-special.html" data-clubhouse-zone="business" aria-label="Businesswomen’s Special"></a>
               <a class="clubhouse-hotspot" href="games/fairy-godmother.html" data-clubhouse-zone="fairy" aria-label="FAiRY GODMOTHER"></a>
@@ -202,19 +252,29 @@
       </article>
 
       <!-- Hub Intro -->
-      <p class="hub-intro">The issue is the spine. The Clubhouse is where you practice, listen, and make the lesson stick in five minutes or less. THE EXTRA CREDIT gathers the weekly bonus objects.</p>
+      <p class="hub-intro">The issue is the spine. The Clubhouse is where you practice, listen, and make the lesson stick in five minutes or less. Anything still being polished is labeled before you tap.</p>
+
+      <section class="clubhouse-status-map" id="clubhouse-status-map" aria-label="Clubhouse activity status">
+        <div class="clubhouse-status-map-inner">
+          <p><span class="nav-card-status">Available now</span><strong>Mme CLAi-O, FAiRY GODMOTHER, DJ Booth</strong>Open these when you want a reading, a prompt nudge, or the weekly anthem.</p>
+          <p><span class="nav-card-status">Bonus shelf in the works</span><strong>THE EXTRA CREDIT</strong>The shelf is being organized around the weekly Bag. Use the Bag as the clean path.</p>
+          <p><span class="nav-card-status">Glow-up in the works</span><strong>Dream Phone</strong>The hotline is parked while the product model gets rebuilt.</p>
+          <p><span class="nav-card-status">Getting polished</span><strong>Girl Talk</strong>The prompt deck is being tuned before it becomes a main Clubhouse activity.</p>
+        </div>
+      </section>
 
       <!-- Adventure Grid -->
       <section class="adventure-section" aria-labelledby="adventure-title">
         <h2 id="adventure-title">Pick one small practice activity.</h2>
         <div class="adventure-grid">
-          <a class="nav-card" href="games/dream-phone.html">
+          <article class="nav-card nav-card--parked">
             <img src="assets/dream-phone-cordless-crop.png" alt="Dream Phone" loading="lazy" />
             <div class="nav-card-body">
+              <span class="nav-card-status">Glow-up in the works</span>
               <strong>Dream Phone</strong>
-              <span>Advice line, still getting tuned</span>
+              <span>The hotline is parked until the phone asset and product model pass Council. Start with the latest Episode for now.</span>
             </div>
-          </a>
+          </article>
           <a class="nav-card" href="games/madame-claio.html">
             <img src="assets/madame-claio-character-v1.png" alt="Madame CLAi-O" loading="lazy" />
             <div class="nav-card-body">
@@ -229,13 +289,14 @@
               <span>Pick your drink fortune</span>
             </div>
           </a>
-          <a class="nav-card" href="games/girl-talk.html">
+          <article class="nav-card nav-card--parked">
             <img src="assets/girl-talk-board.webp" alt="Girl Talk" loading="lazy" />
             <div class="nav-card-body">
+              <span class="nav-card-status">Getting polished</span>
               <strong>Girl Talk</strong>
-              <span>Conversation prompts</span>
+              <span>The deck is being cleaned up before it becomes a main activity. Try DJ Booth or FAiRY GODMOTHER while it gets tuned.</span>
             </div>
-          </a>
+          </article>
           <a class="nav-card" href="games/trading-cards.html">
             <img src="assets/trading-card-pack.webp" alt="Trading Cards" loading="lazy" />
             <div class="nav-card-body">
@@ -253,8 +314,9 @@
           <a class="nav-card" href="games/fun-pack.html">
             <img src="assets/quiz-teen-magazine.png" alt="THE EXTRA CREDIT" loading="lazy" />
             <div class="nav-card-body">
+              <span class="nav-card-status">Bonus shelf in the works</span>
               <strong>THE EXTRA CREDIT</strong>
-              <span>Quiz + cards + try-on</span>
+              <span>Bonus objects are being organized around the weekly Bag, with clear status labels inside.</span>
             </div>
           </a>
           <a class="nav-card" href="games/dj-booth.html">

@@ -170,6 +170,33 @@
         max-width: 540px;
         margin: 0 auto;
       }
+      .status-banner {
+        max-width: 600px;
+        margin: 0 auto 26px;
+        padding: 16px 18px;
+        border: 1px solid rgba(75, 33, 72, 0.16);
+        border-radius: 16px;
+        background: linear-gradient(135deg, rgba(255, 253, 251, 0.96), rgba(252, 228, 242, 0.58));
+        box-shadow: 0 16px 34px rgba(75, 33, 72, 0.08);
+      }
+      .status-pill {
+        display: inline-flex;
+        margin-bottom: 7px;
+        padding: 5px 9px;
+        border: 1px solid rgba(155, 63, 95, 0.24);
+        border-radius: 999px;
+        background: rgba(252, 228, 242, 0.78);
+        color: #8a2d50;
+        font-size: 0.63rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .status-banner p {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin: 0;
+      }
 
       /* Card */
       .girl-talk-card {
@@ -334,10 +361,15 @@
 
         <!-- Title -->
         <div class="game-page-title">
-          <p class="eyebrow">Clubhouse Game</p>
+          <p class="eyebrow">Clubhouse Game / Beta</p>
           <h1>Girl Talk Prompt Deck</h1>
           <p>Draw a question card for work drama, ambition, confidence, or group-chat honesty. Truth or dare, but make it corporate.</p>
         </div>
+
+        <section class="status-banner" aria-label="Girl Talk status">
+          <span class="status-pill">Getting polished</span>
+          <p>The deck is safe to preview, but it is not a finished reward or member feature yet. Use it as a light prompt beta while the full Clubhouse activity gets cleaned up.</p>
+        </section>
 
         <!-- Card Display -->
         <div class="girl-talk-card" id="girlTalkCard" aria-live="polite">
@@ -353,15 +385,15 @@
 
         <!-- Badge -->
         <div class="badge-reveal" id="badgeReveal">
-          <strong>&#x1F3C6; Group Chat Regular merit badge unlocked!</strong>
-          <p>You kept drawing cards until the deck started saving you a seat.</p>
+          <strong>Beta deck complete.</strong>
+          <p>No member badge has been saved. The real reward layer is member magic coming soon.</p>
         </div>
       </div>
     </main>
 
     <!-- Game Logic (preserved) -->
     <script>
-      const girlTalkCards = [
+      const girlTalkPromptDeckCards = [
         "Truth: what are you calling ‘busy’ that is actually avoidance in a blazer?",
         "Dare: ask for the thing in one sentence, no apology confetti.",
         "Truth: which meeting could have been a voice note and a lip gloss application?",
@@ -389,8 +421,8 @@
       }
 
       button?.addEventListener("click", () => {
-        lastIndex = nextIndex(girlTalkCards.length, lastIndex);
-        card.textContent = girlTalkCards[lastIndex];
+        lastIndex = nextIndex(girlTalkPromptDeckCards.length, lastIndex);
+        card.textContent = girlTalkPromptDeckCards[lastIndex];
         card.classList.remove("is-new");
         void card.offsetWidth; // trigger reflow
         card.classList.add("is-new");
@@ -406,19 +438,6 @@
         // Badge unlock after drawing all unique cards
         if (drawCount >= BADGE_THRESHOLD) {
           badgeEl.classList.add("is-visible");
-          try {
-            const badges = JSON.parse(localStorage.getItem("laidiesSecretBadges") || "{}");
-            if (!badges["group-chat-regular"]) {
-              badges["group-chat-regular"] = {
-                id: "group-chat-regular",
-                title: "Group Chat Regular merit badge",
-                sticker: "CHAT",
-                unlockedAt: new Date().toISOString(),
-                source: "Girl Talk",
-              };
-              localStorage.setItem("laidiesSecretBadges", JSON.stringify(badges));
-            }
-          } catch(e) {}
         }
       });
     </script>

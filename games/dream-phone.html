@@ -349,6 +349,49 @@
         font-family: 'JetBrains Mono', monospace;
       }
 
+      .status-banner {
+        max-width: 720px;
+        margin: 0 auto 24px;
+        padding: 18px 20px;
+        border: 1px solid rgba(75, 33, 72, 0.16);
+        border-radius: 18px;
+        background: linear-gradient(135deg, rgba(255, 253, 251, 0.96), rgba(252, 228, 242, 0.62));
+        box-shadow: 0 18px 38px rgba(75, 33, 72, 0.08);
+      }
+      .status-pill {
+        display: inline-flex;
+        margin-bottom: 8px;
+        padding: 5px 9px;
+        border: 1px solid rgba(155, 63, 95, 0.24);
+        border-radius: 999px;
+        background: rgba(252, 228, 242, 0.78);
+        color: #8a2d50;
+        font-size: 0.63rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .status-banner p {
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+      }
+      .status-banner a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 10px 15px;
+        border-radius: 999px;
+        background: var(--wine);
+        color: #fffdfb;
+        font-weight: 900;
+        text-decoration: none;
+      }
+      .is-parked-control {
+        opacity: 0.48;
+        pointer-events: none;
+      }
+
       /* ── Special Cards ── */
       .special-cards {
         display: flex;
@@ -483,12 +526,18 @@
         <div class="hero-text">
           <h1>Dream Phone</h1>
           <p>Dial a number. Get career advice from someone who gets it.</p>
-          <p class="hint">Rumor has it one unlisted number unlocks a secret merit badge.</p>
+          <p class="hint">The old hotline is parked while the real LAiDIES version gets rebuilt.</p>
         </div>
       </section>
 
+      <section class="status-banner" id="dreamPhoneParked" aria-label="Dream Phone status">
+        <span class="status-pill">Glow-up in the works</span>
+        <p>Dream Phone is not approved as a live activity yet. The product model, caller flow, and production phone asset need a Council pass before this returns.</p>
+        <a href="../issues/issue-03.html?from=season&amp;issue=3">Start with the latest Episode</a>
+      </section>
+
       <!-- Phone Keypad -->
-      <section class="phone-section">
+      <section class="phone-section is-parked-control" aria-describedby="dreamPhoneParked">
         <div class="keypad-wrap">
           <div class="keypad" aria-label="Dream Phone keypad">
             <button type="button" data-dream-key="1" aria-label="Dial 1">1</button>
@@ -517,15 +566,15 @@
 
       <!-- Secret Badge -->
       <div class="secret-badge" id="dreamPhoneSecretBadge" hidden>
-        <span class="badge-icon" aria-hidden="true">867</span>
+          <span class="badge-icon" aria-hidden="true">867</span>
         <div>
           <strong>867 Club merit badge</strong>
-          <em>Secret Dream Phone sticker. Open your Clubhouse Pass to pin it to your LAiDIES Card.</em>
+          <em>Dream Phone rewards are parked until member magic is ready.</em>
         </div>
       </div>
 
       <!-- Caller Grid -->
-      <section class="callers-section">
+      <section class="callers-section is-parked-control" aria-describedby="dreamPhoneParked">
         <h2>Your Callers</h2>
         <div class="caller-grid">
           <button class="caller-card is-selected" type="button" data-dream-pick="mentor" data-dream-number="555-1995"><img class="caller-avatar" src="../assets/dream-phone-mentor.webp" alt="Mentor" /><span class="caller-name">Mentor</span><span class="caller-number">555-1995</span></button>
@@ -556,7 +605,7 @@
       </section>
 
       <!-- Special Cards -->
-      <div class="special-cards" aria-label="Dream Phone special cards">
+      <div class="special-cards is-parked-control" aria-label="Dream Phone special cards" aria-describedby="dreamPhoneParked">
         <button type="button" data-dream-special="secret">Share a secret</button>
         <button type="button" data-dream-special="speaker">Speaker phone</button>
         <button type="button" data-dream-special="hangup">Mom says hang up!</button>
@@ -569,6 +618,13 @@
     <script src="../script.js"></script>
     <!-- Dream Phone behavior is handled by ../script.js. -->
     <script>
+      document.querySelectorAll("[data-dream-key], [data-dream-pick], [data-dream-special], #dreamPhoneButton, #dreamPhoneNumber").forEach(function(control) {
+        control.disabled = true;
+        control.setAttribute("aria-disabled", "true");
+      });
+      var parkedOutput = document.getElementById("dreamPhoneOutput");
+      if (parkedOutput) parkedOutput.textContent = "Dream Phone is parked for a glow-up. Start with the latest Episode or try Mme CLAi-O while the hotline gets rebuilt.";
+
       (function() {
         var params = new URLSearchParams(window.location.search || "");
         if (params.get("from") !== "this-week") return;
@@ -578,7 +634,7 @@
         var labels = {
           fun: "Back to The Extra Credit",
           connect: "Back to Meet & Celebrate",
-          realworld: "Back to the Book of Receipts",
+          realworld: "Back to THE LAiDIES GRIMOIRE",
           practice: "Back to Weekly Study Pack"
         };
         var link = document.querySelector("[data-weekly-return-link]");
