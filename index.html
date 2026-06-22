@@ -286,6 +286,11 @@
       .home-current-episode {
         padding: clamp(44px, 7vw, 86px) clamp(18px, 5vw, 64px);
       }
+      /* Compact signup sits directly below the hero — density only, copy unchanged. */
+      .subscribe--compact {
+        padding-top: clamp(24px, 3.5vw, 40px);
+        padding-bottom: clamp(24px, 3.5vw, 40px);
+      }
       .home-current-card {
         display: grid;
         grid-template-columns: minmax(280px, 0.95fr) minmax(0, 1.05fr);
@@ -1363,59 +1368,86 @@
             </section>
           </div>
           <div class="hero-actions">
-            <a class="button primary" href="issues/issue-03.html?from=home&amp;issue=3">READ LATEST EPISODE</a>
-            <a class="hero-secondary-link" href="this-week.html?issue=3&amp;bag=open">OPEN THIS WEEK&rsquo;S BAG</a>
-          </div>
-          <div class="home-anthem-row" aria-label="LAiDIES anthem">
-            <button class="anthem-play-button" type="button" onclick="playAnthem(this)" title="Play or pause the LAiDIES anthem" aria-label="Play or pause music: the LAiDIES anthem">
-              <span class="anthem-play-hint" aria-hidden="true">▶</span>
-              Play the anthem
-            </button>
+            <!-- CURRENT EPISODE — update on new episode publish -->
+            <a class="button primary" href="issues/issue-03.html?from=home&amp;issue=3">Read the Current Episode</a>
+            <a class="hero-secondary-link" href="issues/issue-01.html">New here? Start with Episode 1</a>
           </div>
         </div>
       </section>
 
+      <!-- SIGNUP — moved directly below the hero (compact). Buttondown endpoint unchanged. -->
+      <section class="subscribe subscribe--compact" id="signup" aria-labelledby="subscribe-title">
+        <div>
+          <p class="eyebrow">Gimme, Gimme More</p>
+          <h2 id="subscribe-title">Get the next Wednesday episode.</h2>
+          <p>
+            New episode every Wednesday. No bingeing. No practice that takes longer than your coffee order. Just a really fun way to learn AI with women who are all figuring it out together.
+          </p>
+        </div>
+        <form
+          class="subscribe-form"
+          action="https://buttondown.com/api/emails/embed-subscribe/laidies"
+          method="post"
+          target="laidiesSubscribeFrame"
+        >
+          <label for="email">Email address</label>
+          <div class="field-row">
+            <input id="email" name="email" type="email" placeholder="itsbritneybitch@icon.com" required />
+            <button type="submit">Subscribe</button>
+          </div>
+          <p class="form-status" id="subscribeStatus" aria-live="polite">
+            Wednesday episodes, community prompts, and occasional useful detours. Unsubscribe anytime.
+          </p>
+          <p class="subscribe-fallback" style="margin:8px 0 0;font-size:0.88rem;"><a href="https://buttondown.com/laidies" target="_blank" rel="noopener" style="color:#6f263f;font-weight:800;">Subscribe through Buttondown if the form acts dramatic.</a></p>
+        </form>
+        <iframe
+          class="subscribe-frame"
+          name="laidiesSubscribeFrame"
+          title="LAiDIES subscription response"
+          aria-hidden="true"
+        ></iframe>
+      </section>
+
       <!-- CURRENT EPISODE -->
+      <!-- ROUTE 1 — READ / THIS WEEK (current episode feature merged with the read options) -->
       <section class="home-current-episode" id="episodes" aria-labelledby="episodes-title">
         <article class="home-current-card">
           <figure>
+            <!-- CURRENT EPISODE — update on new episode publish -->
             <img loading="eager" src="assets/issue-03-hero.png" alt="Pink Burn Book notebook with receipts objects for Episode 3" />
           </figure>
           <div class="home-current-copy">
             <p class="eyebrow">CURRENT WEDNESDAY EPISODE</p>
+            <!-- CURRENT EPISODE — update on new episode publish -->
             <h2 id="episodes-title">EPISODE 3: THE BURN BOOK PROBLEM</h2>
             <p>The one in which she gets a Regina George-confident answer, catches the Chutney detail, and checks the timeline before it borrows her name.</p>
             <div class="home-current-actions">
+              <!-- CURRENT EPISODE — update on new episode publish -->
               <a class="button primary" href="issues/issue-03.html?from=home&amp;issue=3">READ EPISODE 3</a>
             </div>
             <p>The episode teaches the idea. The Bag stages the Try-On, quiz, printable, song, charms, and weekly extras around it.</p>
           </div>
         </article>
-      </section>
 
-      <!-- WHERE TO START -->
-      <section class="home-start" aria-label="Pick your path">
-        <div class="section-heading">
-          <p class="eyebrow">PICK YOUR PATH</p>
-        </div>
         <div class="home-start-grid">
-          <a class="home-start-card home-start-card--primary" href="this-week.html?issue=1&amp;bag=open">
+          <a class="home-start-card home-start-card--primary" href="issues/issue-01.html">
             <em class="home-status-pill status-available">Open now</em>
-            <span>1. New here?</span>
-            <strong>START FROM THE BEGINNING</strong>
+            <span>New here?</span>
+            <strong>START WITH EPISODE 1</strong>
             <p>Start with Episode 1 and move through the 24-Episode season in order. The rituals build for a reason.</p>
           </a>
           <a class="home-start-card home-start-card--quiet" href="episodes.html">
             <em class="home-status-pill status-available">Open now</em>
-            <span>2. 24-Episode season</span>
+            <span>24-Episode season</span>
             <strong>READ THE SEASON</strong>
             <p>Read Episodes 1, 2, and 3 in order, then keep going as each Wednesday drops.</p>
           </a>
           <a class="home-start-card home-start-card--quiet" href="this-week.html?issue=3&amp;bag=open">
+            <!-- CURRENT EPISODE — update on new episode publish -->
             <em class="home-status-pill status-current">This week</em>
-            <span>3. Wednesday ritual</span>
-            <strong>DO THE WEEKLY RITUAL</strong>
-            <p>Open the Bag when you want the episode, Try-On, quiz, printable, song, charms, and weekly extras in one place.</p>
+            <span>Wednesday ritual</span>
+            <strong>OPEN THIS WEEK&rsquo;S BAG</strong>
+            <p>The read&rarr;do companion: episode, Try-On, quiz, printable, song, charms, and weekly extras in one place.</p>
           </a>
         </div>
       </section>
@@ -1478,15 +1510,13 @@
             </div>
           </article>
           <article class="world-portal-card world-portal-card--stack">
-            <img loading="lazy" src="assets/this-week/wednesday-it-bag-open.jpg" alt="Open LAiDIES Wednesday Bag scene showing the weekly ritual kit, prompts, cards, charms, and learning tools" />
+            <img loading="lazy" src="assets/this-week/wednesday-it-bag-open-editorial-blush-v1.jpg" alt="Open LAiDIES Wednesday Bag scene showing the weekly ritual kit, prompts, cards, charms, and learning tools" />
             <div>
               <span>Orientation and ritual map</span>
               <strong>HOW <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> WORKS</strong>
               <p>A quick map for what to read, what to practice, what is saved locally, and why the weekly Bag is the front door instead of a random bonus drawer.</p>
               <ul class="portal-mini-list">
                 <li><a href="episodes.html"><span class="portal-status status-available">Open now</span><b>READ THE SEASON</b><em>The Episode archive in order.</em></a></li>
-                <li><a href="this-week.html?issue=3&amp;bag=open"><span class="portal-status status-current">This week</span><b>OPEN THIS WEEK&rsquo;S BAG</b><em>The current Episode ritual and weekly kit.</em></a></li>
-                <li><a href="this-week.html?issue=3&amp;bag=open&amp;group=practice"><span class="portal-status status-current">This week</span><b>EPISODE STUDY PACK</b><em>Try-On, Cheat Sheet, practice cards, and review objects live in the Bag for now.</em></a></li>
                 <li><a href="learn/quiz.html?from=this-week&amp;issue=3#quiz-start"><span class="portal-status status-available">Open now</span><b>QUIZ</b><em>Check the Episode concept and earn the local reward flow.</em></a></li>
                 <li><span class="portal-preview"><span class="portal-status status-in-works">Cheat-sheet energy in the works</span><b>STUDY SHEET</b><em>The quick-refresh sheet is planned, but not linked until real Episode sheets exist.</em></span></li>
               </ul>
@@ -1504,6 +1534,12 @@
             <h2 id="home-world-title">The weekly ritual has a whole closet.</h2>
             <p>The Bag is the front door. The world around it is where the Grimoire, tools, songs, rooms, cards, and tiny useful objects start to make the lesson feel lived-in.</p>
             <p class="home-world-wink">Get in, loser. We&rsquo;re learning <span class="hero-quote-ai">AI</span>. You can sit with us.</p>
+            <div class="home-anthem-row" aria-label="LAiDIES anthem">
+              <button class="anthem-play-button" type="button" onclick="playAnthem(this)" title="Play or pause the LAiDIES anthem" aria-label="Play or pause music: the LAiDIES anthem">
+                <span class="anthem-play-hint" aria-hidden="true">▶</span>
+                Play the anthem
+              </button>
+            </div>
           </div>
           <figure class="hero-image">
             <img src="assets/lets-chat.png" alt="Stylish LAiDIES bedroom scene with a woman on a pink phone surrounded by 90s pop culture objects" />
@@ -1511,38 +1547,6 @@
         </div>
       </section>
 
-      <!-- SUBSCRIBE -->
-      <section class="subscribe" id="signup" aria-labelledby="subscribe-title">
-        <div>
-          <p class="eyebrow">Gimme, Gimme More</p>
-          <h2 id="subscribe-title">Get the next Wednesday episode.</h2>
-          <p>
-            New episode every Wednesday. No bingeing. No practice that takes longer than your coffee order. Just a really fun way to learn AI with women who are all figuring it out together.
-          </p>
-        </div>
-        <form
-          class="subscribe-form"
-          action="https://buttondown.com/api/emails/embed-subscribe/laidies"
-          method="post"
-          target="laidiesSubscribeFrame"
-        >
-          <label for="email">Email address</label>
-          <div class="field-row">
-            <input id="email" name="email" type="email" placeholder="itsbritneybitch@icon.com" required />
-            <button type="submit">Subscribe</button>
-          </div>
-          <p class="form-status" id="subscribeStatus" aria-live="polite">
-            Wednesday episodes, community prompts, and occasional useful detours. Unsubscribe anytime.
-          </p>
-          <p class="subscribe-fallback" style="margin:8px 0 0;font-size:0.88rem;"><a href="https://buttondown.com/laidies" target="_blank" rel="noopener" style="color:#6f263f;font-weight:800;">Subscribe through Buttondown if the form acts dramatic.</a></p>
-        </form>
-        <iframe
-          class="subscribe-frame"
-          name="laidiesSubscribeFrame"
-          title="LAiDIES subscription response"
-          aria-hidden="true"
-        ></iframe>
-      </section>
 
       <!-- ORIGIN STORY -->
       <section class="about-band" id="about" aria-labelledby="about-title" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; padding: 60px clamp(20px, 5vw, 80px);">
@@ -1569,7 +1573,6 @@
             <img loading="lazy" src="assets/dream-phone-boss-ali.png" alt="Ali Eakin — Founder of LAiDIES" style="width: 100%; max-width: 380px; border-radius: 12px; box-shadow: 0 12px 40px rgba(185,93,120,0.25);" />
             <div style="margin-top: 16px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
               <span class="home-status-pill status-member home-preview-note">Card glow-up in the works</span>
-              <a class="button secondary" href="this-week.html?issue=3&amp;bag=open">Open This Week&rsquo;s Bag</a>
             </div>
           </div>
           <div style="background: linear-gradient(145deg, #fffdfb, #f8eef2); border: 1px solid rgba(75,33,72,0.14); border-radius: 12px; padding: 24px; color: #4b2148; box-shadow: 0 16px 45px rgba(75,33,72,0.1);">
