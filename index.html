@@ -607,6 +607,10 @@
       .world-portal-map {
         padding-top: clamp(50px, 8vw, 92px);
         padding-bottom: clamp(46px, 7vw, 82px);
+        /* Base side padding so cards/text aren't flush below 1024px (the
+           ≥1024 media query overrides these with the larger desktop clamp). */
+        padding-left: clamp(18px, 5vw, 64px);
+        padding-right: clamp(18px, 5vw, 64px);
       }
       .home-universe-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -399,6 +399,11 @@
       if (returnConfig && !header.querySelector("[data-laidies-context-return]")) {
         var oldHeaderBack = header.querySelector(":scope > a:not(.brand):not(.nav-brand):not(.issue-brand-link)");
         if (oldHeaderBack) oldHeaderBack.remove();
+        // Also drop the classless hardcoded "← Back" button (history.back) that the
+        // CSS legacy-hide rule misses. Only runs here, where the context pill is
+        // being added, so a back control always remains.
+        var oldBackButton = header.querySelector('button[onclick*="history.back"]');
+        if (oldBackButton) oldBackButton.remove();
         var returnLink = document.createElement("a");
         returnLink.className = "laidies-context-return";
         returnLink.dataset.laidiesContextReturn = "true";
