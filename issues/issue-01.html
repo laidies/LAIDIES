@@ -1236,6 +1236,27 @@
             line-height: 1.24;
         }
 
+        /* Episode-reader meta relocated into the body (light background) — was white-on-dark in the nav. */
+        .issue-episode-meta--body {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px 14px;
+            width: min(1060px, calc(100% - 32px));
+            margin: 12px auto 0;
+            color: #3f1737;
+        }
+        .issue-episode-meta--body .issue-episode-kicker { color: #9b3f5f; }
+        .issue-episode-meta--body .issue-episode-title { color: #3f1737; white-space: normal; overflow: visible; }
+        .issue-episode-meta--body .issue-episode-title time { color: #6f263f; }
+        .issue-episode-jump { display: flex; flex-wrap: wrap; gap: 8px; margin-left: auto; }
+        .issue-episode-jump a {
+            display: inline-flex; align-items: center; min-height: 32px; padding: 6px 11px;
+            border: 1px solid rgba(75, 33, 72, 0.2); border-radius: 999px; background: rgba(255, 253, 251, 0.8);
+            color: #3f1737; font-size: 0.74rem; font-weight: 850; text-decoration: none;
+        }
+        .issue-episode-jump a:hover, .issue-episode-jump a:focus-visible { border-color: rgba(111, 38, 63, 0.42); color: #6f263f; }
+
         .issue-episode-kicker {
             color: rgba(255, 253, 251, 0.68);
             font-size: 0.68rem;
@@ -2293,19 +2314,24 @@
 </head>
 <body data-issue-number="1">
 
-<nav class="issue-site-nav issue-episode-nav" aria-label="Episode navigation">
-  <div class="issue-episode-meta">
-    <span class="issue-episode-kicker">Episode Reader</span>
-    <span class="issue-episode-title">Episode 01: On Wednesdays We Use AI <time datetime="2026-06-03">June 3, 2026</time></span>
-  </div>
-  <div class="issue-episode-actions">
-    <a class="issue-return-link" href="../episodes.html">Return to The Season</a>
+<header class="site-header">
+  <a class="brand" href="../index.html" aria-label="LAiDIES home">
+    <img src="../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
+  </a>
+</header>
+
+<!-- Episode-reader meta moved out of the header into the body. "Return to The Season"
+     is dropped here because the injected context pill already provides it (one back control). -->
+<div class="issue-episode-meta issue-episode-meta--body">
+  <span class="issue-episode-kicker">Episode Reader</span>
+  <span class="issue-episode-title">Episode 01: On Wednesdays We Use AI <time datetime="2026-06-03">June 3, 2026</time></span>
+  <nav class="issue-episode-jump" aria-label="On this page">
     <a href="#top">Top</a>
     <a href="#article">Article</a>
     <a href="#study-pack">Study Pack</a>
     <a href="#issue-kit">Weekly Ritual</a>
-  </div>
-</nav>
+  </nav>
+</div>
 
 <header class="header episode-01-reader-hero" id="top">
     <div class="header-content">
