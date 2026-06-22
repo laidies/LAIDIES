@@ -863,23 +863,17 @@
 
       .stage-shell {
         position: relative;
-        border: 1px solid rgba(255, 255, 255, 0.18);
+        border: 1px solid rgba(75, 33, 72, 0.12);
         border-radius: var(--radius-xl);
-        padding: clamp(12px, 2vw, 18px);
-        background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.05)),
-          rgba(30, 9, 27, 0.62);
-        box-shadow: 0 28px 75px rgba(0, 0, 0, 0.42);
+        padding: 0;
+        background: transparent;
+        box-shadow: 0 22px 54px rgba(75, 33, 72, 0.14);
         overflow: hidden;
       }
 
+      /* Pink arc frame removed — it read as a glow void around the photo. */
       .stage-shell::before {
-        content: "";
-        position: absolute;
-        inset: 10px;
-        border-radius: calc(var(--radius-xl) - 8px);
-        border: 1px solid rgba(155, 63, 95, 0.22);
-        pointer-events: none;
+        content: none;
       }
 
       .ritual-scene {
@@ -888,7 +882,7 @@
         min-height: 0;
         border-radius: 22px;
         overflow: hidden;
-        background: var(--blackberry);
+        background: transparent;
       }
 
       .image-stage {
@@ -897,10 +891,12 @@
         overflow: hidden;
       }
 
+      /* Natural height so the regraded 4:3 photo fills cleanly — the fixed clamp
+         + cover crop left framing void below the image. */
       .ritual-scene-image {
         display: block;
         width: 100%;
-        height: clamp(460px, 42vw, 520px);
+        height: auto;
         object-fit: cover;
         object-position: center;
         user-select: none;
@@ -914,13 +910,12 @@
         object-position: center 52%;
       }
 
+      /* Lightened — dropped the heavy bottom gradient that darkened into a void. */
       .soft-scrim {
         position: absolute;
         inset: 0;
         z-index: 1;
-        background:
-          linear-gradient(90deg, rgba(22, 8, 20, 0.62), transparent 47%),
-          linear-gradient(0deg, rgba(22, 8, 20, 0.44), transparent 52%);
+        background: linear-gradient(90deg, rgba(22, 8, 20, 0.16), transparent 38%);
         pointer-events: none;
       }
 
@@ -1721,7 +1716,9 @@
           display: grid;
           grid-template-columns: minmax(0, 1fr) minmax(245px, 285px);
           gap: 12px;
-          align-items: stretch;
+          /* start (not stretch): image column hugs the photo so charm/object
+             hotspot %s map to the image, not a stretched stage. */
+          align-items: start;
         }
 
         .open-scene:not([hidden]) .image-stage {
@@ -2824,7 +2821,8 @@
           title: "Episode 03 Charm",
           asset: "assets/charms/plaid-photo-charm.svg?v=yellow-jacket-1",
           alt: "Glossy yellow plaid jacket charm sticker",
-          objectLabel: "Yellow Plaid Jacket Charm"
+          // Placeholder name — the canonical held-charm taxonomy name is Ali's to set.
+          objectLabel: "Plaid Polaroid Charm"
         }
       };
 
