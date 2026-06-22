@@ -2531,9 +2531,9 @@
             </a>
 
             <a class="ritual-action" href="games/fun-pack.html?from=this-week&issue=2&bag=open" data-action="funpack">
-              <span>4. Extra Credit</span>
+              <span>4. Bonus</span>
               <strong data-action-label>THE EXTRA CREDIT</strong>
-              <em>Available extras plus clear in-the-works labels.</em>
+              <em>Bonus rituals — some live now, more in the works.</em>
             </a>
 
             <button class="ritual-action" type="button" data-action="connect" data-choice-open="connect" data-complete-on-click="false" aria-expanded="false" aria-controls="connectDrawer">
@@ -2549,9 +2549,9 @@
             </a>
 
             <button class="ritual-action" type="button" data-action="realworld" data-choice-open="realworld" data-complete-on-click="false" aria-expanded="false" aria-controls="realWorldDrawer">
-              <span>7. Real World</span>
+              <span>7. Grimoire</span>
               <strong data-action-label>THE LAiDIES GRIMOIRE</strong>
-              <em>AI news, receipts, references, who's who.</em>
+              <em>The reference library: terms, sources, and who's who in AI.</em>
             </button>
 
             <div class="ritual-choice-shelf" id="ritualChoiceShelf" hidden>
@@ -2605,15 +2605,10 @@
               <section class="ritual-choice-panel" id="realWorldDrawer" data-choice-panel="realworld" hidden aria-label="Real world AI options">
                 <div class="ritual-group-heading">
                   <span class="ritual-group-kicker">THE LAiDIES GRIMOIRE</span>
-                  <strong>See what's happening in AI.</strong>
-                  <p>News, receipts, references, and who's who for the week.</p>
+                  <strong>The reference library.</strong>
+                  <p>Receipts, references, and who's who — your weekly Grimoire.</p>
                 </div>
                 <div class="ritual-card-stack">
-                  <a class="ritual-mini-action" href="hot-goss.html?v=ritual-qa-3&from=this-week&issue=2&bag=open" data-action="goss">
-                    <span>Hot Goss</span>
-                    <strong data-action-label>Current AI News</strong>
-                    <em>Read the latest.</em>
-                  </a>
                   <a class="ritual-mini-action" href="learn/glossary.html?from=this-week&issue=2&bag=open" data-action="glossary">
                     <span>Receipts</span>
                     <strong data-action-label>Glossary</strong>
@@ -2689,10 +2684,9 @@
       <section class="charm-card" role="dialog" aria-modal="true" aria-labelledby="charmTitle" aria-describedby="charmBody">
         <span class="charm-kicker">Secret Charm Found</span>
         <img class="charm-icon" src="assets/charms/tamagotchi-charm-256.png" alt="Pink mini digital pet charm sticker" width="256" height="256">
-        <h2 id="charmTitle">Episode 02 Tamagotchi Charm</h2>
-        <p id="charmBody">You found this week&rsquo;s hidden charm. Held in this browser for now; member magic is coming soon.</p>
-        <span class="charm-meta" id="charmMeta">Episode 02 charm &middot; Browser-only preview</span>
-        <a class="charm-pass-link" id="charmPassLink" href="clubhouse-pass.html">Clubhouse Pass preview</a>
+        <h2 id="charmTitle">This Week&rsquo;s Charm</h2>
+        <p id="charmBody">You found this week&rsquo;s hidden charm — just for this visit. Your charm collection is coming soon.</p>
+        <span class="charm-meta" id="charmMeta">Just for this visit</span>
         <button class="primary-button charm-close" id="charmClose" type="button">← Back to the Bag</button>
       </section>
     </div>
@@ -3064,8 +3058,8 @@
         button.dataset.charmId = "issue-" + issuePad + "-" + config.idSuffix;
         button.dataset.charmIssue = String(issue);
         button.dataset.charmTitle = config.title;
-        button.dataset.charmBody = config.objectLabel + " found. Held in this browser for now; member magic is coming soon.";
-        button.dataset.charmMeta = "Episode " + issuePad + " charm - Browser-only preview";
+        button.dataset.charmBody = config.objectLabel + " found — just for this visit. Your charm collection is coming soon.";
+        button.dataset.charmMeta = "Episode " + issuePad + " charm · just for this visit";
         button.dataset.charmKind = "issue-charm";
         button.dataset.charmSlot = "issue-" + issuePad;
         button.dataset.charmSource = "The Wednesday Ritual: Episode " + issuePad;
@@ -3949,8 +3943,8 @@
         lastCharmTrigger = trigger;
         saveSecretCharm(trigger);
         var title = trigger.dataset.charmTitle || "Wednesday Charm";
-        var body = trigger.dataset.charmBody || "Held in this browser for now; member magic is coming soon.";
-        var meta = trigger.dataset.charmMeta || "Browser-only preview";
+        var body = trigger.dataset.charmBody || "Found just for this visit — your charm collection is coming soon.";
+        var meta = trigger.dataset.charmMeta || "Just for this visit";
         if (charmIcon) {
           charmIcon.src = trigger.dataset.charmAsset || "assets/charms/tamagotchi-charm-256.png";
           charmIcon.alt = trigger.dataset.charmAlt || "LAiDIES hidden charm sticker";
@@ -3961,7 +3955,7 @@
         charmReveal.hidden = false;
         markActionComplete("charm");
         burstCharmConfetti();
-        statusMessage.textContent = title + " found. Held in this browser for now; member magic is coming soon.";
+        statusMessage.textContent = title + " found — just for this visit. Your charm collection is coming soon.";
         charmClose.focus({ preventScroll: true });
       }
 
