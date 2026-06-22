@@ -9103,7 +9103,7 @@ h3 {
 }
 
 body {
-  padding-top: 82px;
+  padding-top: 0; /* sticky header reserves its own space; no top offset needed */
 }
 
 .site-jump-nav {
@@ -10242,10 +10242,6 @@ html {
     overflow: hidden;
   }
 
-  body {
-    padding-top: 126px;
-  }
-
   .brand img {
     width: 106px;
   }
@@ -10959,9 +10955,6 @@ html {
     overflow: visible !important;
     gap: 8px !important;
   }
-  body {
-    padding-top: 70px !important;
-  }
   .site-header .brand img {
     width: clamp(80px, 12vw, 120px) !important;
     height: auto !important;
@@ -11222,10 +11215,6 @@ h3,
     padding: 9px clamp(14px, 4vw, 22px) !important;
   }
 
-  body {
-    padding-top: 64px !important;
-  }
-
   .site-header .brand,
   .back-bar .brand {
     max-width: 142px !important;
@@ -11355,10 +11344,6 @@ li,
     min-height: 82px !important;
     padding-top: 12px !important;
     padding-bottom: 12px !important;
-  }
-
-  body {
-    padding-top: 82px !important;
   }
 
   .site-header .brand img,
