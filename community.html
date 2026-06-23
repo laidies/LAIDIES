@@ -749,7 +749,19 @@
     @media (max-width: 380px) {
       .card-grid { grid-template-columns: repeat(2, 1fr); }
     }
-  </style>
+  
+/* Canonical LAiDIES wordmark (Ai accent) — promoted from homepage inline */
+.brand-word-inline{display:inline!important;margin:0!important;white-space:nowrap;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;color:inherit!important;text-transform:none!important}
+.brand-word-inline>span{display:inline!important;margin:0!important;color:inherit!important;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;text-transform:inherit!important}
+.brand-word-inline [data-brand-ai]{display:inline!important;margin:0!important;color:var(--rose,#9b3f5f)!important;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;text-transform:inherit!important}
+
+      
+/* Dark-surface accent: lighter rose so the "Ai" stays visible on dark buttons/cards */
+.brand-word-inline--on-dark [data-brand-ai],
+.room-card .brand-word-inline [data-brand-ai],
+.anthem-charm-reveal .brand-word-inline [data-brand-ai]{color:#f6a5c0!important}
+
+      </style>
   <link rel="stylesheet" href="/content/site/mini-player.css">
 </head>
 <body>
@@ -798,8 +810,8 @@
           </a>
           <a class="room-preview" href="community/dear-laidies.html">
             <span>Advice</span>
-            <strong>Dear LAiDIES</strong>
-            <em>Ask Dear LAiDIES &rarr;</em>
+            <strong>Dear <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span></strong>
+            <em>Ask Dear <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> &rarr;</em>
           </a>
           <a class="room-preview" href="community/burn-book.html">
             <span>Reference</span>
@@ -824,16 +836,16 @@
         </div>
         <div class="community-entry-actions">
           <a href="#chat-rooms">Jump to all rooms &rarr;</a>
-          <a href="#laidies-cards">Browse LAiDIES cards &rarr;</a>
+          <a href="#laidies-cards">Browse <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> cards &rarr;</a>
         </div>
       </div>
     </section>
 
     <!-- ============ SECTION 1: LAiDIES CARDS ============ -->
     <section class="cards-section" id="laidies-cards">
-      <p class="eyebrow">LAiDIES Cards</p>
+      <p class="eyebrow"><span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> Cards</p>
       <h1>The card shelf.</h1>
-      <p class="subtitle">Featured/founding cards live here while the full LAiDIES Card glow-up gets polished. The rooms above are the fast way to participate today.</p>
+      <p class="subtitle">Featured/founding cards live here while the full <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> Card glow-up gets polished. The rooms above are the fast way to participate today.</p>
 
       <div class="filter-bar" role="toolbar" aria-label="Filter cards">
         <button class="active" data-filter="all">All cards</button>
@@ -882,7 +894,7 @@
           </div>
           <div class="thumb-info">
             <h3>Josh</h3>
-            <span class="thumb-tag">The Crew · DJ JAIDY</span>
+            <span class="thumb-tag">The Crew · DJ <span class="brand-word-inline" aria-label="JAiDY"><span aria-hidden="true">J<span data-brand-ai>Ai</span>DY</span></span></span>
           </div>
         </div>
         <!-- Card 5: LAiDY (stock) — doodle bg -->
@@ -891,8 +903,8 @@
             <img class="thumb-photo" src="assets/laidy-character-v1.png" alt="LAiDY" />
           </div>
           <div class="thumb-info">
-            <h3>LAiDY</h3>
-            <span class="thumb-tag">FAiRY GODMOTHER</span>
+            <h3><span class="brand-word-inline" aria-label="LAiDY"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DY</span></span></h3>
+            <span class="thumb-tag"><span class="brand-word-inline" aria-label="FAiRY"><span aria-hidden="true">F<span data-brand-ai>Ai</span>RY</span></span> GODMOTHER</span>
           </div>
         </div>
         <!-- Card 6: Mme CLAi-O (stock) — sunset bg -->
@@ -901,7 +913,7 @@
             <img class="thumb-photo" src="assets/madame-claio-character-v1.png" alt="Mme CLAi-O" />
           </div>
           <div class="thumb-info">
-            <h3>Mme CLAi-O</h3>
+            <h3>Mme <span class="brand-word-inline" aria-label="CLAi-O"><span aria-hidden="true">CL<span data-brand-ai>Ai</span>-O</span></span></h3>
             <span class="thumb-tag">Psychic Hotline</span>
           </div>
         </div>
@@ -949,9 +961,9 @@
           <a href="community/wins.html">Celebrate a Win &rarr;</a>
         </div>
         <div class="room-card">
-          <h3>Dear LAiDIES</h3>
+          <h3>Dear <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span></h3>
           <p>Ask for non-AI advice.</p>
-          <a href="community/dear-laidies.html">Ask Dear LAiDIES &rarr;</a>
+          <a href="community/dear-laidies.html">Ask Dear <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> &rarr;</a>
         </div>
         <div class="room-card">
           <h3>Burn Book</h3>
@@ -979,7 +991,7 @@
     <!-- === CLUBHOUSE PASS CTA === -->
     <section style="max-width: 560px; margin: 32px auto 0; padding: 0 24px 48px;">
       <div style="background: var(--dark-bg); border: 1.5px solid var(--card-border); border-radius: 14px; padding: 20px 24px; text-align: center;">
-        <p style="font-size: 0.84rem; color: rgba(255,248,252,0.6); line-height: 1.5; margin-bottom: 10px;">Want saved progress across devices while the LAiDIES Card gets polished? Sign in with a Clubhouse Pass &mdash; one email, no password, ever.</p>
+        <p style="font-size: 0.84rem; color: rgba(255,248,252,0.6); line-height: 1.5; margin-bottom: 10px;">Want saved progress across devices while the <span class="brand-word-inline brand-word-inline--on-dark" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> Card gets polished? Sign in with a Clubhouse Pass &mdash; one email, no password, ever.</p>
         <a href="clubhouse-pass.html" style="color: var(--hot-pink); font-size: 0.82rem; font-weight: 600; text-decoration: none;">Sign in to save progress &rarr;</a>
       </div>
     </section>
@@ -1234,6 +1246,6 @@
   })();
   </script>
   <script src="/content/site/mini-player.js"></script>
-    <script src="content/site/brand-polish.js" defer></script>
+    <script src="content/site/brand-polish.js?v=wm1" defer></script>
 </body>
 </html>

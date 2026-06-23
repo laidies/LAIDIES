@@ -2417,7 +2417,19 @@
           animation-iteration-count: 1 !important;
         }
       }
-    </style>
+    
+/* Canonical LAiDIES wordmark (Ai accent) — promoted from homepage inline */
+.brand-word-inline{display:inline!important;margin:0!important;white-space:nowrap;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;color:inherit!important;text-transform:none!important}
+.brand-word-inline>span{display:inline!important;margin:0!important;color:inherit!important;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;text-transform:inherit!important}
+.brand-word-inline [data-brand-ai]{display:inline!important;margin:0!important;color:var(--rose,#9b3f5f)!important;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;text-transform:inherit!important}
+
+      
+/* Dark-surface accent: lighter rose so the "Ai" stays visible on dark buttons/cards */
+.brand-word-inline--on-dark [data-brand-ai],
+.room-card .brand-word-inline [data-brand-ai],
+.anthem-charm-reveal .brand-word-inline [data-brand-ai]{color:#f6a5c0!important}
+
+      </style>
 </head>
 <body>
     <!-- ─── HEADER ─── -->
@@ -2430,7 +2442,7 @@
           <a href="this-week.html?issue=3&amp;bag=open" aria-current="page">Current Bag</a>
           <a href="issues/issue-03.html?from=this-week&amp;issue=3&amp;bag=open">Read Current</a>
           <a href="hot-goss.html">Hot Goss</a>
-          <a href="start-here.html">How LAiDIES Works</a>
+          <a href="start-here.html">How <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> Works</a>
           <a href="clubhouse-pass.html" style="color: #6f263f; text-decoration: underline; margin-left: 8px;">Join The Club</a>
         </nav>
     </header>
@@ -2588,7 +2600,7 @@
                   <a class="ritual-mini-action" href="community.html?from=this-week&issue=2&bag=open" data-action="community">
                     <span>Community</span>
                     <strong data-action-label>Community</strong>
-                    <em>Connect with LAiDIES.</em>
+                    <em>Connect with <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span>.</em>
                   </a>
                   <a class="ritual-mini-action" href="games/businesswomens-special.html?from=this-week&issue=2&bag=open" data-action="happyhour">
                     <span>Happy Hour</span>
@@ -2601,7 +2613,7 @@
 
               <section class="ritual-choice-panel" id="realWorldDrawer" data-choice-panel="realworld" hidden aria-label="Real world AI options">
                 <div class="ritual-group-heading">
-                  <span class="ritual-group-kicker">THE LAiDIES GRIMOIRE</span>
+                  <span class="ritual-group-kicker">THE <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> GRIMOIRE</span>
                   <strong>The reference library.</strong>
                   <p>Receipts, references, and who's who — your weekly Grimoire.</p>
                 </div>
@@ -2619,7 +2631,7 @@
                   <a class="ritual-mini-action" href="community/laidy-spotlight.html?from=this-week&issue=2&bag=open" data-action="whoswho">
                     <span>Who's Who</span>
                     <strong data-action-label>Who's Who</strong>
-                    <em>Meet the LAiDIES.</em>
+                    <em>Meet the <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span>.</em>
                   </a>
                 </div>
                 <button class="ritual-drawer-back" type="button" data-choice-close>← Back to Bag</button>
@@ -2691,7 +2703,7 @@
     <!-- ─── FOOTER ─── -->
     <footer class="site-footer">
       <p>
-        LAiDIES<sup>&trade;</sup>
+        <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span><sup>&trade;</sup>
         &nbsp;&bull;&nbsp; &copy; 2026 Ali Eakin. All rights reserved.
       </p>
       <div class="footer-links">
@@ -4155,6 +4167,6 @@
       });
     })();
     </script>
-    <script src="content/site/brand-polish.js" defer></script>
+    <script src="content/site/brand-polish.js?v=wm1" defer></script>
 </body>
 </html>

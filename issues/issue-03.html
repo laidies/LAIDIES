@@ -2454,7 +2454,19 @@
           min-height: 148px;
         }
       }
-    </style>
+    
+/* Canonical LAiDIES wordmark (Ai accent) — promoted from homepage inline */
+.brand-word-inline{display:inline!important;margin:0!important;white-space:nowrap;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;color:inherit!important;text-transform:none!important}
+.brand-word-inline>span{display:inline!important;margin:0!important;color:inherit!important;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;text-transform:inherit!important}
+.brand-word-inline [data-brand-ai]{display:inline!important;margin:0!important;color:var(--rose,#9b3f5f)!important;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;text-transform:inherit!important}
+
+      
+/* Dark-surface accent: lighter rose so the "Ai" stays visible on dark buttons/cards */
+.brand-word-inline--on-dark [data-brand-ai],
+.room-card .brand-word-inline [data-brand-ai],
+.anthem-charm-reveal .brand-word-inline [data-brand-ai]{color:#f6a5c0!important}
+
+      </style>
   </head>
   <body data-issue-number="3">
     <header class="site-header">
@@ -2571,7 +2583,7 @@
 
         <div class="reader-next-card after-hours">
           <div>
-            <p class="label">LAiDIES After Hours</p>
+            <p class="label"><span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> After Hours</p>
             <h3>Come sit with us.</h3>
             <p>Follow @we.are.laidies for extra posts, behind-the-scenes notes, reminders, and the bits that keep going after the Episode.</p>
           </div>
@@ -2586,7 +2598,7 @@
         <div class="activity-section-header">
           <span class="label">What's In The Bag</span>
           <h2>Complete the Weekly Ritual</h2>
-          <p>Step 1 is this article. After that, the Wednesday Bag keeps receipt-checking small, practical, and connected to the rest of the LAiDIES world.</p>
+          <p>Step 1 is this article. After that, the Wednesday Bag keeps receipt-checking small, practical, and connected to the rest of the <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> world.</p>
         </div>
         <div class="activity-grid ritual-preview-grid">
           <article class="activity-card">
@@ -2625,7 +2637,7 @@
               <a class="activity-card" href="../this-week.html?issue=3&amp;bag=open&amp;group=connect">
                 <span class="label">05 / Connect</span>
                 <strong>Meet &amp; Celebrate</strong>
-                <p>Bring it back to the Room and connect with LAiDIES after the work object is done.</p>
+                <p>Bring it back to the Room and connect with <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> after the work object is done.</p>
                 <em>Ready</em>
               </a>
               <a class="activity-card" href="../games/dj-booth.html?from=this-week&amp;issue=3&amp;bag=open#djApp">
@@ -2776,7 +2788,7 @@
 
       function renderBrandWordmark(value = "LAiDIES") {
         const brand = getBrandWordmarkParts(value);
-        return `<span class="laidies-inline-wordmark" aria-label="${brand.label}"><span aria-hidden="true"><span data-laidies-part="plum">${brand.parts[0]}</span><span data-laidies-part="rose">${brand.parts[1]}</span><span data-laidies-part="plum">${brand.parts[2]}</span></span></span>`;
+        return `<span class="brand-word-inline" aria-label="${brand.label}"><span aria-hidden="true">${brand.parts[0]}<span data-brand-ai>${brand.parts[1]}</span>${brand.parts[2]}</span></span>`;
       }
 
       function stripInternalMarkdown(markdown) {
@@ -3221,6 +3233,6 @@
       setupShareActions();
       init();
     </script>
-    <script src="../content/site/brand-polish.js" defer></script>
+    <script src="../content/site/brand-polish.js?v=wm1" defer></script>
   </body>
 </html>
