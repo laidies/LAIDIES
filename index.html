@@ -43,11 +43,32 @@
         display: flex;
         align-items: center;
         width: 100vw;
-        min-height: clamp(390px, 40vw, 720px);
+        /* Full "let's chat" scene (assets/lets-chat.png, 1448x1086, 4:3) shown at its
+           natural framing — `cover` fits the FULL image width (no zoom), so only the
+           bottom (bed/lower magazines) crops vertically; anchored TOP to keep the
+           heads + magazine wall. NOT zoomed, so the figure/dark jacket stay to the
+           right and the copy sits over the lighter left of the room. A left blush
+           scrim keeps the wordmark/headline/tagline legible over the photo. */
+        min-height: clamp(460px, 48vw, 720px);
         margin: calc(-1 * clamp(34px, 6vw, 78px)) calc(50% - 50vw) clamp(22px, 3vw, 34px);
-        padding: clamp(34px, 5vw, 76px) clamp(20px, 6.8vw, 126px);
+        padding: clamp(20px, 2.6vw, 44px) clamp(20px, 6.8vw, 126px);
         overflow: hidden;
-        background: #f8e6ee url("assets/brand/laidies-homepage-masthead-bg-approved-v1.png") center / cover no-repeat;
+        background-color: #f8e6ee;
+        background-image:
+          /* One smooth left→right wash across the FULL image: opaque blush over the
+             copy side, easing to a light veil over the figure (never fully clear) so
+             the whole scene reads as one soft pastel wash with no edge or box. */
+          linear-gradient(90deg,
+            rgba(249, 233, 241, 0.96) 0%,
+            rgba(249, 233, 241, 0.9) 28%,
+            rgba(249, 233, 241, 0.72) 46%,
+            rgba(249, 233, 241, 0.5) 62%,
+            rgba(249, 233, 241, 0.36) 80%,
+            rgba(249, 233, 241, 0.28) 100%),
+          url("assets/lets-chat.png");
+        background-position: center, center top;
+        background-size: cover, cover;
+        background-repeat: no-repeat, no-repeat;
       }
       .home-masthead-banner::after {
         content: "";
@@ -60,17 +81,33 @@
       .home-masthead-copy {
         position: relative;
         z-index: 1;
-        width: min(48vw, 760px);
-        max-width: 760px;
+        width: min(72vw, 1040px);
+        max-width: 1040px;
         color: var(--plum);
+      }
+      /* Soft frosted-blush panel behind the masthead copy — lifts the dark type off the
+         busy photo without a hard pill; translucent + blurred so the scene still shows. */
+      /* Three frosted pills, one behind each copy block (logo, headline, tagline).
+         width:fit-content makes the headline/tagline pills hug the text, not the column. */
+      .home-masthead-copy::before { content: none; }
+      .hero .home-masthead-copy h1,
+      .home-masthead-copy .hero-text {
+        position: relative;
+        z-index: 0;
+        width: fit-content;
+      }
+      /* No per-block panels behind the copy — the masthead-banner left wash carries
+         legibility instead, so there is no box/glow edge to detect. */
+      .home-masthead-logo-wrap {
+        position: relative;
+        display: block;
+        width: min(27vw, 490px);
+        margin: 0 0 clamp(28px, 4.1vw, 66px);
       }
       .home-masthead-logo {
         display: block;
-        width: min(31vw, 560px);
+        width: 100%;
         height: auto;
-        margin: 0 0 clamp(28px, 4.1vw, 66px);
-        border-radius: 0;
-        filter: drop-shadow(0 12px 24px rgba(255, 253, 251, 0.28));
       }
       .hero .home-masthead-copy h1 {
         max-width: 760px !important;
@@ -83,28 +120,24 @@
         letter-spacing: 0;
         text-transform: uppercase;
       }
+      /* Coloured bar reused from the articles' sign-off (issue-03 .signoff-showpiece):
+         a single rounded gradient — rose → teal → blush, fading at both ends. */
       .home-masthead-rule {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        width: min(100%, 740px);
-        margin: clamp(20px, 3vw, 42px) 0 clamp(16px, 2.4vw, 34px);
-      }
-      .home-masthead-rule span {
         display: block;
-        height: 3px;
+        width: min(100%, 740px);
+        height: 10px;
+        margin: clamp(20px, 3vw, 42px) 0 clamp(16px, 2.4vw, 34px);
+        background: linear-gradient(90deg, transparent, #b95d78, #b9d7dc, rgba(252, 228, 242, 0.96), transparent);
+        border-radius: 999px;
       }
-      .home-masthead-rule span:nth-child(1) {
-        flex: 1 1 auto;
-        background: #a64d73;
-      }
-      .home-masthead-rule span:nth-child(2) {
-        flex: 0 0 clamp(72px, 7vw, 134px);
-        background: #9edfe1;
-      }
-      .home-masthead-rule span:nth-child(3) {
-        flex: 0 0 clamp(94px, 10vw, 184px);
-        background: rgba(255, 253, 251, 0.94);
+      .home-masthead-rule span { display: none; }
+      /* Divider repeating the rule between the tagline and the 90s/Y2K motto (mobile
+         only); mirrored direction so the two stacked bars read as a pair. */
+      .hero-copy--actions .hero-divider {
+        display: none;
+        width: min(100%, 420px);
+        margin: 0 auto clamp(16px, 2.4vw, 24px);
+        background: linear-gradient(270deg, transparent, #b95d78, #b9d7dc, rgba(252, 228, 242, 0.96), transparent);
       }
       .hero-logo {
         max-width: 560px !important;
@@ -142,14 +175,15 @@
         line-height: 1.55 !important;
       }
       .home-masthead-copy .hero-text {
-        max-width: 660px !important;
-        margin: 0 !important;
+        max-width: 700px !important;
+        margin: clamp(28px, 3.4vw, 52px) 0 0 !important;
         color: var(--plum) !important;
         font-family: var(--font-display);
-        font-size: clamp(1.02rem, 1.45vw, 1.35rem) !important;
+        font-size: clamp(1.6rem, 2.3vw, 2.3rem) !important;
         font-style: italic;
         font-weight: 700;
-        line-height: 1.18 !important;
+        line-height: 1.3 !important;
+        text-wrap: balance;
       }
       .hero-quote {
         font-size: clamp(1.1rem, 2vw, 1.4rem) !important;
@@ -194,9 +228,10 @@
         background:
           linear-gradient(135deg, rgba(220, 245, 245, 0.98), rgba(190, 224, 226, 0.9));
         color: var(--plum) !important;
-        font-size: 0.78rem;
-        font-weight: 900;
-        letter-spacing: 0.08em;
+        /* Match the primary "Read the Current Episode" text size (1rem). */
+        font-size: 1rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
         text-decoration: none;
         text-transform: uppercase;
         box-shadow:
@@ -599,6 +634,22 @@
         font-size: clamp(1.35rem, 2.5vw, 1.8rem);
         line-height: 1.05;
       }
+      /* Route-card images: same contained 16:10 treatment as the portal cards. */
+      .home-start-card > img {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
+        margin-bottom: 4px;
+      }
+      /* Closed-bag is 4:3 — anchor top so the backpack (hook → charms) stays whole
+         and the empty desk foreground crops instead. */
+      .home-start-card > img.home-route-img--top {
+        object-position: center top;
+      }
       .home-start-card p,
       .home-community-panel p {
         margin: 0;
@@ -652,6 +703,18 @@
       }
       @media (max-width: 760px) {
         .home-route-pair { grid-template-columns: 1fr; }
+        /* Mobile stack order: hero -> current episode + routes -> signup ->
+           portal -> world -> about -> social. Keeps the ask below real content
+           without changing desktop DOM order. */
+        main#top { display: flex; flex-direction: column; }
+        main#top > .site-header { order: 0; }
+        main#top > .hero { order: 1; }
+        main#top > #episodes { order: 2; }
+        main#top > #signup { order: 3; }
+        main#top > #portal-map { order: 4; }
+        main#top > .home-world-preview { order: 5; }
+        main#top > #about { order: 6; }
+        main#top > .social-strip { order: 7; }
       }
       .world-portal-map {
         padding-top: clamp(50px, 8vw, 92px);
@@ -662,14 +725,33 @@
         padding-right: clamp(18px, 5vw, 64px);
       }
       .home-universe-grid {
+        display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        row-gap: clamp(18px, 3vw, 28px);
+        gap: clamp(20px, 2.4vw, 30px);
+        align-items: stretch;
+        width: min(100%, 1100px);
+        margin: 0 auto;
       }
+      /* Portal teasers as self-contained cards: bounded image on top, then
+         kicker/title/line/button inside the card's padding. Flex column +
+         height:100% keeps the 2-up row equal-height. */
       .world-portal-card.world-portal-card--stack {
-        grid-template-columns: 1fr;
-        align-items: start;
-        gap: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        height: 100%;
+        padding: clamp(16px, 1.6vw, 22px);
+        background:
+          radial-gradient(circle at 92% 6%, rgba(200, 220, 224, 0.16), transparent 18rem),
+          linear-gradient(145deg, rgba(255, 253, 251, 0.97), rgba(247, 238, 238, 0.82));
+        border: 1px solid rgba(75, 33, 72, 0.16);
+        border-radius: 16px;
+        box-shadow: 0 18px 42px rgba(75, 33, 72, 0.1);
         overflow: hidden;
+      }
+      /* Header sits clear of the first card. */
+      #portal-map .section-heading {
+        margin-bottom: clamp(24px, 3vw, 40px);
       }
       .world-portal-card--stack > div > span {
         display: block;
@@ -683,10 +765,18 @@
       }
       .world-portal-card--stack > img {
         width: 100%;
-        height: clamp(190px, 20vw, 260px);
+        aspect-ratio: 16 / 10;
+        height: auto;
         min-height: 0;
-        border-radius: 12px;
+        border-radius: 10px;
         object-fit: cover;
+        object-position: center center;
+        display: block;
+      }
+      /* Grimoire flat-lay at assets/portal/laidies-grimoire-teaser.png. Tighter crop
+         favours the cover + open book (LAiDIES GRIMOIRE legible) without squishing. */
+      .home-grimoire-card > img {
+        background: linear-gradient(145deg, rgba(252, 228, 242, 0.7), rgba(255, 244, 249, 0.9));
         object-position: center center;
       }
       .world-portal-card--text {
@@ -712,7 +802,9 @@
         letter-spacing: inherit !important;
         line-height: inherit !important;
         color: inherit !important;
-        text-transform: inherit !important;
+        /* Wordmark preserves its exact casing even inside an uppercased title,
+           so the lowercase accented "i" never becomes "I". */
+        text-transform: none !important;
       }
       .brand-word-inline > span {
         display: inline !important;
@@ -1040,7 +1132,8 @@
         }
 
         .world-portal-card--stack > img {
-          height: clamp(220px, 18vw, 320px);
+          aspect-ratio: 16 / 10;
+          height: auto;
         }
 
         .home-world-preview-inner {
@@ -1142,42 +1235,98 @@
           text-align: center;
         }
       }
+      @media (min-width: 521px) {
+        /* Desktop: the logo overhangs past the left edge; the headline, rule and
+           tagline are nudged left so they begin in the MIDDLE of the "L" stroke of
+           the overhanging wordmark. */
+        .home-masthead-logo-wrap { margin-left: clamp(-78px, -4.4vw, -44px) !important; }
+        .hero .home-masthead-copy h1 { margin-left: clamp(-46px, -3.1vw, -30px) !important; }
+        .home-masthead-copy .hero-text {
+          margin-top: 0 !important;
+          margin-left: clamp(-46px, -3.1vw, -30px) !important;
+        }
+        /* Coloured line sits BETWEEN the headline and the AI-fluency block, with
+           equal space above and below so the two text blocks read evenly spaced. */
+        .home-masthead-copy .home-masthead-rule {
+          display: block;
+          width: min(100%, 620px);
+          margin: clamp(32px, 3.6vw, 60px) 0;
+          margin-left: clamp(-46px, -3.1vw, -30px);
+        }
+        /* No second line lower down on desktop. */
+        .hero-copy--actions .hero-divider { display: none; }
+      }
       @media (max-width: 520px) {
+        /* Mobile: stack a shorter landscape photo band on top (cropped so it's not too
+           tall) with a very light blush wash so it blends into the page, then the copy
+           below on the blush block — full image visible, copy fully legible. */
         .home-masthead-banner {
-          min-height: 430px;
-          margin-bottom: 18px;
-          padding: 26px 22px 34px;
-          align-items: flex-start;
-          background-position: 64% center;
+          flex-direction: column;
+          align-items: stretch;
+          min-height: 0;
+          margin-top: calc(-1 * clamp(34px, 6vw, 78px));
+          margin-bottom: 7px;
+          padding: 0 22px 8px;
+          background-image: none;
+          background-color: #f9eef3;
         }
+        .home-masthead-banner::before {
+          content: "";
+          order: -1;
+          margin: 0 -22px 16px;
+          height: clamp(168px, 46vw, 224px);
+          background:
+            linear-gradient(rgba(248, 230, 239, 0.2), rgba(248, 230, 239, 0.2)),
+            url("assets/lets-chat.png") center top / cover no-repeat;
+        }
+        .home-masthead-banner::after { display: none; }
         .home-masthead-copy {
-          width: min(100%, 335px);
-          padding-top: 8px;
+          width: 100%;
+          max-width: none;
+          padding-top: 0;
+          /* Centre the whole masthead stack on mobile so it matches the centred
+             motto + buttons below (a half-left/half-centre hero reads off-balance). */
+          text-align: center;
         }
-        .home-masthead-logo {
-          width: min(72vw, 295px);
-          margin-bottom: 30px;
+        .home-masthead-copy::before { display: none; }
+        /* No per-block pills on mobile (stacked layout, copy on the blush block). */
+        .hero .home-masthead-copy h1::before,
+        .home-masthead-copy .hero-text::before { display: none; }
+        .hero .home-masthead-copy h1,
+        .home-masthead-copy .hero-text { width: auto; }
+        .hero-copy--actions .hero-divider {
+          display: block;
+          width: min(100%, 300px);
+          height: 8px;
         }
+        /* Drop the big wordmark on mobile — it's already in the sticky header and was
+           adding a redundant text block + height. */
+        .home-masthead-logo-wrap { display: none; }
         .hero .home-masthead-copy h1 {
-          max-width: 320px !important;
-          font-size: clamp(2.35rem, 11vw, 3.45rem) !important;
-          line-height: 0.9 !important;
+          max-width: none !important;
+          /* Keep the headline at/under the header wordmark's scale on mobile. */
+          font-size: clamp(1.5rem, 6.2vw, 1.95rem) !important;
+          line-height: 1 !important;
         }
         .home-masthead-rule {
-          width: min(100%, 320px);
-          gap: 6px;
-          margin: 22px 0 18px;
-        }
-        .home-masthead-rule span:nth-child(2) {
-          flex-basis: 54px;
-        }
-        .home-masthead-rule span:nth-child(3) {
-          flex-basis: 72px;
+          width: min(100%, 300px);
+          height: 8px;
+          margin: 14px auto 31px;
         }
         .home-masthead-copy .hero-text {
-          max-width: 315px !important;
-          font-size: clamp(1rem, 5.1vw, 1.18rem) !important;
-          line-height: 1.18 !important;
+          /* 320px width @ ~17px wraps to 3 even ascending lines with no orphan,
+             and greedy == balanced here, so it holds in Safari too. */
+          max-width: 320px !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+          font-size: clamp(0.98rem, 4.5vw, 1.0625rem) !important;
+          line-height: 1.34 !important;
+          text-wrap: balance;
+        }
+        /* No per-line tint on mobile — the copy sits on a solid blush block. */
+        .home-masthead-copy .hero-text span {
+          padding: 0 !important;
+          background: none !important;
         }
         .hero h1 {
           font-size: clamp(2rem, 10vw, 3.35rem) !important;
@@ -1186,7 +1335,7 @@
         .hero {
           padding-left: 16px !important;
           padding-right: 16px !important;
-          padding-bottom: 64px !important;
+          padding-bottom: 30px !important;
         }
         .hero-actions {
           display: grid !important;
@@ -1391,17 +1540,18 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="home-masthead-banner" aria-label="LAiDIES masthead">
           <div class="home-masthead-copy">
-            <img class="home-masthead-logo" src="assets/brand/laidies-logo-masthead-approved-v3.png" alt="LAiDIES" />
+            <span class="home-masthead-logo-wrap"><img class="home-masthead-logo" src="assets/brand/laidies-logo-masthead-approved-v3.png" alt="LAiDIES" /></span>
             <h1 id="hero-title">GIRL POWER MEETS<br />MACHINE POWER</h1>
             <div class="home-masthead-rule" aria-hidden="true">
               <span></span>
               <span></span>
               <span></span>
             </div>
-            <p class="hero-text">AI fluency for women with full calendars, high standards, and no patience for beige tech explanations.</p>
+            <p class="hero-text"><span>AI fluency for women with full calendars, high standards, and no patience for beige tech explanations.</span></p>
           </div>
         </div>
         <div class="hero-copy hero-copy--actions">
+          <div class="home-masthead-rule hero-divider" aria-hidden="true"><span></span><span></span><span></span></div>
           <p class="hero-motto"><span>90s/Y2K defined us. AI is shaping now.</span><span>LAiDIES is where they meet.</span></p>
           <p class="home-route-note">New episodes every Wednesday, obviously.</p>
           <div class="anthem-charm-reveal" id="anthemCharmReveal" hidden>
@@ -1480,6 +1630,7 @@
           <div class="home-route-segment">
             <p class="home-route-pill">New here?</p>
             <a class="home-start-card home-start-card--primary" href="issues/issue-01.html">
+              <img loading="lazy" src="assets/episodes/issue-01/episode-01-what-like-its-hard.png" alt="Episode 1 hero — translucent iMac reading WHAT, LIKE IT'S HARD? beside a FIRST STEP neon sign" />
               <strong>The Season Premiere</strong>
               <p>You wouldn&rsquo;t drop into a series at the finale and expect to know why everyone&rsquo;s crying tears of pure joy. Start at the premiere &mdash; Episode 1, in order, the way it&rsquo;s meant to be binged. It builds for a reason.</p>
             </a>
@@ -1489,10 +1640,12 @@
             <div class="home-route-pair">
               <a class="home-start-card home-start-card--quiet" href="this-week.html?issue=3&amp;bag=open">
                 <!-- CURRENT EPISODE — update on new episode publish -->
+                <img loading="lazy" class="home-route-img--top" src="assets/this-week/wednesday-it-bag-closed.jpg" alt="This week's closed LAiDIES Wednesday Bag — holographic backpack hanging on the bedroom door" />
                 <strong>This Week&rsquo;s Ritual</strong>
                 <p>On Wednesdays, we open the bag. The episode makes it click; the bag makes it stick &mdash; try the move for real, see if it landed, then stay for the fun part. The only homework with a soundtrack.</p>
               </a>
               <a class="home-start-card home-start-card--quiet" href="episodes.html">
+                <img loading="lazy" src="assets/9-to-5-chaos.png" alt="9-to-5 chaos desk scene — green iBook with AOL, Vogue, planner, and a GIRL POWER ENERGY neon" />
                 <strong>All Episodes</strong>
                 <p>The whole season, in order &mdash; they build on purpose. Start at the top and keep going; a new one lands every Wednesday.</p>
               </a>
@@ -1509,7 +1662,8 @@
           <p class="laidies-section-deck">Start with the Bag. Then open the Grimoire, go to LAiDIES After Hours, join the Club, or get oriented before the next Wednesday Episode.</p>
         </div>
         <div class="world-portal-grid home-universe-grid">
-          <article class="world-portal-card world-portal-card--stack world-portal-card--text home-grimoire-card">
+          <article class="world-portal-card world-portal-card--stack home-grimoire-card">
+            <img loading="lazy" src="assets/portal/laidies-grimoire-teaser.png" alt="The plum-and-gold LAiDIES Grimoire book — closed cover reading LAiDIES GRIMOIRE beside its open pages in a styled flat-lay" />
             <div>
               <span>The book with the answers</span>
               <strong>THE <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> GRIMOIRE</strong>
@@ -1518,7 +1672,7 @@
             </div>
           </article>
           <article class="world-portal-card world-portal-card--stack">
-            <img loading="lazy" src="assets/clubhouse-compact-open-v4.png" alt="Open LAiDIES Clubhouse compact with Dream Phone, DJ Booth, Girl Talk, and weekly extras" />
+            <img loading="lazy" src="assets/clubhouse-compact-grimoire-warm-open-v1.png" alt="Open warm-toned LAiDIES Clubhouse compact on marble — DJ booth, vanity, and phone nook" />
             <div>
               <span>Office hours, after hours</span>
               <strong>THE <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> CLUBHOUSE</strong>
@@ -1527,7 +1681,7 @@
             </div>
           </article>
           <article class="world-portal-card world-portal-card--stack">
-            <img loading="lazy" src="assets/businesswomen-special-backdrop-v2.png" alt="Pink LAiDIES happy hour table with drinks, glitter, charms, and shared ritual objects" />
+            <img loading="lazy" src="assets/girl-talk.png" alt="Warm LAiDIES Girl Talk desk scene — the game, prompts, and ritual objects laid out together" />
             <div>
               <span>You can sit with us</span>
               <strong>JOIN THE CLUB</strong>
@@ -1536,7 +1690,7 @@
             </div>
           </article>
           <article class="world-portal-card world-portal-card--stack">
-            <img loading="lazy" src="assets/this-week/wednesday-it-bag-open-editorial-blush-v1.jpg" alt="Open LAiDIES Wednesday Bag scene showing the weekly ritual kit, prompts, cards, charms, and learning tools" />
+            <img loading="lazy" src="assets/closet-organizer-natural-swaps-drawer-lip-v7.png" alt="Open warm-graded LAiDIES closet organizer with labelled drawers of tools and lore" />
             <div>
               <span>New girl orientation</span>
               <strong>HOW <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> WORKS</strong>
