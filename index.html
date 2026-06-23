@@ -332,7 +332,8 @@
         margin-top: 8px;
       }
       .home-current-episode {
-        padding: clamp(44px, 7vw, 86px) clamp(18px, 5vw, 64px);
+        /* Unified section vertical rhythm (see also portal/world/about/social). */
+        padding: clamp(40px, 5vw, 64px) clamp(18px, 5vw, 64px);
       }
       /* Compact signup sits directly below the hero — density only, copy unchanged. */
       .subscribe--compact {
@@ -391,7 +392,7 @@
         margin-top: 6px;
       }
       .home-world-preview {
-        padding: clamp(48px, 8vw, 92px) clamp(18px, 5vw, 64px);
+        padding: clamp(40px, 5vw, 64px) clamp(18px, 5vw, 64px);
       }
       .home-world-preview-inner {
         display: grid;
@@ -631,8 +632,9 @@
       .home-start-card strong {
         color: var(--plum);
         font-family: var(--font-display);
-        font-size: clamp(1.35rem, 2.5vw, 1.8rem);
-        line-height: 1.05;
+        /* Sized to sit cleanly (≈one line) in the narrower 3-up route cards. */
+        font-size: clamp(1.18rem, 1.5vw, 1.4rem);
+        line-height: 1.1;
       }
       /* Route-card images: same contained 16:10 treatment as the portal cards. */
       .home-start-card > img {
@@ -665,44 +667,79 @@
           0 26px 58px rgba(75, 33, 72, 0.16),
           inset 5px 0 0 rgba(185, 93, 120, 0.78);
       }
+      /* Primary keeps its accent (border + coral spine) but matches the others'
+         title size so the three cards read as equal siblings. */
       .home-start-card--primary strong {
-        font-size: clamp(1.65rem, 3vw, 2.25rem);
+        font-size: clamp(1.18rem, 1.5vw, 1.4rem);
       }
       .home-start-card--quiet {
         background:
           radial-gradient(circle at 92% 8%, rgba(200, 220, 224, 0.14), transparent 18rem),
           linear-gradient(145deg, rgba(255, 253, 251, 0.94), rgba(247, 238, 238, 0.66));
       }
-      /* Two-segment route grouping: "New here?" (one premiere card) and
-         "Returning?" (a pill spanning the This Week + All Episodes pair). */
+      /* Three sibling route cards in one grid. Pills are group headers on row 1:
+         "New here?" over the premiere (col 1); "Returning?" spans the pair
+         (cols 2-3). All three cards sit on row 2 at equal width. */
       .home-route-segments {
         display: grid;
-        gap: clamp(22px, 3.2vw, 34px);
-        width: min(100%, 1060px);
-        margin: 0 auto;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        column-gap: clamp(16px, 2vw, 26px);
+        row-gap: 12px;
+        width: min(100%, 1120px);
+        /* Breathing room so the pill row clears the current-episode box above. */
+        margin: clamp(30px, 3.6vw, 52px) auto 0;
       }
       .home-route-pill {
         display: inline-flex;
         width: fit-content;
-        margin: 0 0 12px;
-        padding: 6px 14px;
+        margin: 0;
+        padding: 7px 16px;
         border-radius: 999px;
         border: 1px solid rgba(75, 33, 72, 0.16);
         background: rgba(255, 253, 251, 0.86);
         color: var(--wine);
         font-family: var(--font-body);
-        font-size: 0.74rem;
+        font-size: 0.8rem;
         font-weight: 900;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.13em;
         text-transform: uppercase;
+        align-self: end;
       }
-      .home-route-pair {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
+      .home-route-pill--single { grid-column: 1; grid-row: 1; }
+      .home-route-pill--pair { grid-column: 2 / 4; grid-row: 1; }
+      .route-card--1 { grid-column: 1; grid-row: 2; }
+      .route-card--2 { grid-column: 2; grid-row: 2; }
+      .route-card--3 { grid-column: 3; grid-row: 2; }
+      /* ─── TYPE PASS: confident eyebrows + standard-size app-card text ─── */
+      /* Section eyebrows/kickers — modest bump so they read as intentional
+         labels, still subordinate to titles. (.laidies-eyebrow handled in
+         content/laidies-components.css for parity.) */
+      .eyebrow {
+        font-size: 0.82rem;
+        letter-spacing: 0.16em;
+      }
+      .home-screen-steps article span {
+        font-size: 0.8rem;
+        letter-spacing: 0.13em;
+      }
+      /* App card body + numbered steps to standard body size (were fine-print). */
+      .home-screen-copy p:not(.eyebrow) {
+        font-size: 1rem;
+      }
+      .home-screen-steps ol,
+      .home-screen-steps li {
+        font-size: 1rem;
       }
       @media (max-width: 760px) {
-        .home-route-pair { grid-template-columns: 1fr; }
+        /* Stack the route grid to one column; DOM order already reads
+           New here? → Premiere → Returning? → This Week → All Episodes. */
+        .home-route-segments { grid-template-columns: 1fr; row-gap: 10px; }
+        .home-route-pill--single,
+        .home-route-pill--pair,
+        .route-card--1,
+        .route-card--2,
+        .route-card--3 { grid-column: 1; grid-row: auto; align-self: auto; }
+        .home-route-pill--pair { margin-top: 16px; }
         /* Mobile stack order: hero -> current episode + routes -> signup ->
            portal -> world -> about -> social. Keeps the ask below real content
            without changing desktop DOM order. */
@@ -717,8 +754,8 @@
         main#top > .social-strip { order: 7; }
       }
       .world-portal-map {
-        padding-top: clamp(50px, 8vw, 92px);
-        padding-bottom: clamp(46px, 7vw, 82px);
+        padding-top: clamp(40px, 5vw, 64px);
+        padding-bottom: clamp(40px, 5vw, 64px);
         /* Base side padding so cards/text aren't flush below 1024px (the
            ≥1024 media query overrides these with the larger desktop clamp). */
         padding-left: clamp(18px, 5vw, 64px);
@@ -758,9 +795,9 @@
         margin-bottom: 6px;
         color: var(--wine);
         font-family: var(--font-body);
-        font-size: 0.68rem;
+        font-size: 0.78rem;
         font-weight: 900;
-        letter-spacing: 0.14em;
+        letter-spacing: 0.15em;
         text-transform: uppercase;
       }
       .world-portal-card--stack > img {
@@ -1627,30 +1664,24 @@
         </article>
 
         <div class="home-route-segments">
-          <div class="home-route-segment">
-            <p class="home-route-pill">New here?</p>
-            <a class="home-start-card home-start-card--primary" href="issues/issue-01.html">
-              <img loading="lazy" src="assets/episodes/issue-01/episode-01-what-like-its-hard.png" alt="Episode 1 hero — translucent iMac reading WHAT, LIKE IT'S HARD? beside a FIRST STEP neon sign" />
-              <strong>The Season Premiere</strong>
-              <p>You wouldn&rsquo;t drop into a series at the finale and expect to know why everyone&rsquo;s crying tears of pure joy. Start at the premiere &mdash; Episode 1, in order, the way it&rsquo;s meant to be binged. It builds for a reason.</p>
-            </a>
-          </div>
-          <div class="home-route-segment">
-            <p class="home-route-pill">Returning?</p>
-            <div class="home-route-pair">
-              <a class="home-start-card home-start-card--quiet" href="this-week.html?issue=3&amp;bag=open">
-                <!-- CURRENT EPISODE — update on new episode publish -->
-                <img loading="lazy" class="home-route-img--top" src="assets/this-week/wednesday-it-bag-closed.jpg" alt="This week's closed LAiDIES Wednesday Bag — holographic backpack hanging on the bedroom door" />
-                <strong>This Week&rsquo;s Ritual</strong>
-                <p>On Wednesdays, we open the bag. The episode makes it click; the bag makes it stick &mdash; try the move for real, see if it landed, then stay for the fun part. The only homework with a soundtrack.</p>
-              </a>
-              <a class="home-start-card home-start-card--quiet" href="episodes.html">
-                <img loading="lazy" src="assets/9-to-5-chaos.png" alt="9-to-5 chaos desk scene — green iBook with AOL, Vogue, planner, and a GIRL POWER ENERGY neon" />
-                <strong>All Episodes</strong>
-                <p>The whole season, in order &mdash; they build on purpose. Start at the top and keep going; a new one lands every Wednesday.</p>
-              </a>
-            </div>
-          </div>
+          <p class="home-route-pill home-route-pill--single">First time</p>
+          <a class="home-start-card home-start-card--primary route-card route-card--1" href="issues/issue-01.html">
+            <img loading="lazy" src="assets/episodes/issue-01/episode-01-what-like-its-hard.png" alt="Episode 1 hero — translucent iMac reading WHAT, LIKE IT'S HARD? beside a FIRST STEP neon sign" />
+            <strong>The Season Premiere</strong>
+            <p>You wouldn&rsquo;t drop into a series at the finale and expect to know why everyone&rsquo;s crying tears of pure joy. Start at the premiere &mdash; Episode 1, in order, the way it&rsquo;s meant to be binged. It builds for a reason.</p>
+          </a>
+          <p class="home-route-pill home-route-pill--pair">Welcome back</p>
+          <a class="home-start-card home-start-card--quiet route-card route-card--2" href="this-week.html?issue=3&amp;bag=open">
+            <!-- CURRENT EPISODE — update on new episode publish -->
+            <img loading="lazy" class="home-route-img--top" src="assets/this-week/wednesday-it-bag-closed.jpg" alt="This week's closed LAiDIES Wednesday Bag — holographic backpack hanging on the bedroom door" />
+            <strong>This Week&rsquo;s Ritual</strong>
+            <p>On Wednesdays, we open the bag. The episode makes it click; the bag makes it stick &mdash; try the move for real, see if it landed, then stay for the fun part. The only homework with a soundtrack.</p>
+          </a>
+          <a class="home-start-card home-start-card--quiet route-card route-card--3" href="episodes.html">
+            <img loading="lazy" src="assets/9-to-5-chaos.png" alt="9-to-5 chaos desk scene — green iBook with AOL, Vogue, planner, and a GIRL POWER ENERGY neon" />
+            <strong>All Episodes</strong>
+            <p>The whole season, in order &mdash; they build on purpose. Start at the top and keep going; a new one lands every Wednesday.</p>
+          </a>
         </div>
       </section>
 
@@ -1721,7 +1752,7 @@
 
 
       <!-- ORIGIN STORY -->
-      <section class="about-band" id="about" aria-labelledby="about-title" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; padding: 60px clamp(20px, 5vw, 80px);">
+      <section class="about-band" id="about" aria-labelledby="about-title" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; padding: clamp(40px, 5vw, 64px) clamp(20px, 5vw, 80px);">
         <div>
           <p class="eyebrow">The Origin Story</p>
           <h2 id="about-title">Built by one woman, pushed forward by the right group chat.</h2>
@@ -1738,8 +1769,11 @@
               With AI, the idea stopped waiting for a traditional tech on-ramp. In under three weeks, the vision became a newsletter, website, visual system, quiz archive, games, agents, Episode packs, and a community space people can actually use.
             </p>
           </div>
+          <p style="font-style: italic; font-size: 0.9rem; color: var(--muted); line-height: 1.55; margin: 18px 0 0;">
+            P.S. I do not have this all perfectly figured out. If you spot a problem, have a better idea, or know a shortcut — tell me. We are all in this together, preferably with better snacks.
+          </p>
         </div>
-        <div style="display: flex; flex-direction: column; gap: 24px; position: sticky; top: 120px;">
+        <div style="display: flex; flex-direction: column; gap: 24px;">
           <div style="text-align: center;">
             <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--hot-pink); font-weight: 800; margin: 0 0 12px;">Ali's LAiDIES Card Preview</p>
             <img loading="lazy" src="assets/dream-phone-boss-ali.png" alt="Ali Eakin — Founder of LAiDIES" style="width: 100%; max-width: 380px; border-radius: 12px; box-shadow: 0 12px 40px rgba(185,93,120,0.25);" />
@@ -1755,9 +1789,6 @@
             <p style="margin: 0; font-size: 0.95rem; color: rgba(75,33,72,0.78); line-height: 1.6;"><strong>Josh Hudson</strong> — You know him as DJ JAIDY. Girl dad, AI steering committee champion, huge supporter of the LAiDIES mission, weekly episode song maker, and the person who decided this project needed a House DJ.</p>
           </div>
         </div>
-          <p style="font-style: italic; font-size: 0.9rem; color: var(--muted); text-align: center; margin-top: 16px;">
-            P.S. I do not have this all perfectly figured out. If you spot a problem, have a better idea, or know a shortcut — tell me. We are all in this together, preferably with better snacks.
-          </p>
       </section>
 
       <!-- SOCIAL -->
