@@ -1318,6 +1318,52 @@
         justify-content: flex-end;
       }
 
+      /* Episode-reader meta relocated into the body (light background) — was white-on-dark in the nav. */
+      .issue-episode-meta--body {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 6px 14px;
+        width: min(1060px, calc(100% - 32px));
+        margin: 12px auto 0;
+        color: #3f1737;
+      }
+      .issue-episode-meta--body .issue-episode-kicker {
+        color: #9b3f5f;
+      }
+      .issue-episode-meta--body .issue-episode-title {
+        color: #3f1737;
+        white-space: normal;
+        overflow: visible;
+      }
+      .issue-episode-meta--body .issue-episode-title time {
+        color: #6f263f;
+      }
+      .issue-episode-jump {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-left: auto;
+      }
+      .issue-episode-jump a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 32px;
+        padding: 6px 11px;
+        border: 1px solid rgba(75, 33, 72, 0.2);
+        border-radius: 999px;
+        background: rgba(255, 253, 251, 0.8);
+        color: #3f1737;
+        font-size: 0.74rem;
+        font-weight: 850;
+        text-decoration: none;
+      }
+      .issue-episode-jump a:hover,
+      .issue-episode-jump a:focus-visible {
+        border-color: rgba(111, 38, 63, 0.42);
+        color: #6f263f;
+      }
+
       .issue-site-nav.issue-episode-nav a {
         display: inline-flex;
         align-items: center;
@@ -2408,22 +2454,39 @@
           min-height: 148px;
         }
       }
-    </style>
+    
+/* Canonical LAiDIES wordmark (Ai accent) — promoted from homepage inline */
+.brand-word-inline{display:inline!important;margin:0!important;white-space:nowrap;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;color:inherit!important;text-transform:none!important}
+.brand-word-inline>span{display:inline!important;margin:0!important;color:inherit!important;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;text-transform:inherit!important}
+.brand-word-inline [data-brand-ai]{display:inline!important;margin:0!important;color:var(--rose,#9b3f5f)!important;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;text-transform:inherit!important}
+
+      
+/* Dark-surface accent: lighter rose so the "Ai" stays visible on dark buttons/cards */
+.brand-word-inline--on-dark [data-brand-ai],
+.room-card .brand-word-inline [data-brand-ai],
+.anthem-charm-reveal .brand-word-inline [data-brand-ai]{color:#f6a5c0!important}
+
+      </style>
   </head>
   <body data-issue-number="3">
-    <nav class="issue-site-nav issue-episode-nav" aria-label="Episode navigation">
-      <div class="issue-episode-meta">
-        <span class="issue-episode-kicker">Episode Reader</span>
-        <span class="issue-episode-title">Episode 03: The Burn Book Problem <time datetime="2026-06-17">June 17, 2026</time></span>
-      </div>
-      <div class="issue-episode-actions">
-        <a class="issue-return-link issue-back-link" data-context-return href="../episodes.html">Return to The Season</a>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="LAiDIES home">
+        <img src="../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
+      </a>
+    </header>
+
+    <!-- Episode-reader meta moved out of the header into the body. "Return to The Season"
+         is dropped here because the injected context pill already provides it (one back control). -->
+    <div class="issue-episode-meta issue-episode-meta--body">
+      <span class="issue-episode-kicker">Episode Reader</span>
+      <span class="issue-episode-title">Episode 03: The Burn Book Problem <time datetime="2026-06-17">June 17, 2026</time></span>
+      <nav class="issue-episode-jump" aria-label="On this page">
         <a href="#top">Top</a>
         <a href="#article">Article</a>
         <a href="#study-pack">Study Pack</a>
         <a href="#issue-kit">Weekly Ritual</a>
-      </div>
-    </nav>
+      </nav>
+    </div>
 
     <header class="reader-hero episode-03-reader-hero" id="top">
       <div class="hero-inner">
@@ -2520,7 +2583,7 @@
 
         <div class="reader-next-card after-hours">
           <div>
-            <p class="label">LAiDIES After Hours</p>
+            <p class="label"><span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> After Hours</p>
             <h3>Come sit with us.</h3>
             <p>Follow @we.are.laidies for extra posts, behind-the-scenes notes, reminders, and the bits that keep going after the Episode.</p>
           </div>
@@ -2535,7 +2598,7 @@
         <div class="activity-section-header">
           <span class="label">What's In The Bag</span>
           <h2>Complete the Weekly Ritual</h2>
-          <p>Step 1 is this article. After that, the Wednesday Bag keeps receipt-checking small, practical, and connected to the rest of the LAiDIES world.</p>
+          <p>Step 1 is this article. After that, the Wednesday Bag keeps receipt-checking small, practical, and connected to the rest of the <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> world.</p>
         </div>
         <div class="activity-grid ritual-preview-grid">
           <article class="activity-card">
@@ -2574,7 +2637,7 @@
               <a class="activity-card" href="../this-week.html?issue=3&amp;bag=open&amp;group=connect">
                 <span class="label">05 / Connect</span>
                 <strong>Meet &amp; Celebrate</strong>
-                <p>Bring it back to the Room and connect with LAiDIES after the work object is done.</p>
+                <p>Bring it back to the Room and connect with <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> after the work object is done.</p>
                 <em>Ready</em>
               </a>
               <a class="activity-card" href="../games/dj-booth.html?from=this-week&amp;issue=3&amp;bag=open#djApp">
@@ -2725,7 +2788,7 @@
 
       function renderBrandWordmark(value = "LAiDIES") {
         const brand = getBrandWordmarkParts(value);
-        return `<span class="laidies-inline-wordmark" aria-label="${brand.label}"><span aria-hidden="true"><span data-laidies-part="plum">${brand.parts[0]}</span><span data-laidies-part="rose">${brand.parts[1]}</span><span data-laidies-part="plum">${brand.parts[2]}</span></span></span>`;
+        return `<span class="brand-word-inline" aria-label="${brand.label}"><span aria-hidden="true">${brand.parts[0]}<span data-brand-ai>${brand.parts[1]}</span>${brand.parts[2]}</span></span>`;
       }
 
       function stripInternalMarkdown(markdown) {
@@ -3170,6 +3233,6 @@
       setupShareActions();
       init();
     </script>
-    <script src="../content/site/brand-polish.js" defer></script>
+    <script src="../content/site/brand-polish.js?v=wm1" defer></script>
   </body>
 </html>

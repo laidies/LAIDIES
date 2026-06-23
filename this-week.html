@@ -863,23 +863,17 @@
 
       .stage-shell {
         position: relative;
-        border: 1px solid rgba(255, 255, 255, 0.18);
+        border: 1px solid rgba(75, 33, 72, 0.12);
         border-radius: var(--radius-xl);
-        padding: clamp(12px, 2vw, 18px);
-        background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.05)),
-          rgba(30, 9, 27, 0.62);
-        box-shadow: 0 28px 75px rgba(0, 0, 0, 0.42);
+        padding: 0;
+        background: transparent;
+        box-shadow: 0 22px 54px rgba(75, 33, 72, 0.14);
         overflow: hidden;
       }
 
+      /* Pink arc frame removed — it read as a glow void around the photo. */
       .stage-shell::before {
-        content: "";
-        position: absolute;
-        inset: 10px;
-        border-radius: calc(var(--radius-xl) - 8px);
-        border: 1px solid rgba(155, 63, 95, 0.22);
-        pointer-events: none;
+        content: none;
       }
 
       .ritual-scene {
@@ -888,7 +882,7 @@
         min-height: 0;
         border-radius: 22px;
         overflow: hidden;
-        background: var(--blackberry);
+        background: transparent;
       }
 
       .image-stage {
@@ -897,10 +891,12 @@
         overflow: hidden;
       }
 
+      /* Natural height so the regraded 4:3 photo fills cleanly — the fixed clamp
+         + cover crop left framing void below the image. */
       .ritual-scene-image {
         display: block;
         width: 100%;
-        height: clamp(460px, 42vw, 520px);
+        height: auto;
         object-fit: cover;
         object-position: center;
         user-select: none;
@@ -914,13 +910,12 @@
         object-position: center 52%;
       }
 
+      /* Lightened — dropped the heavy bottom gradient that darkened into a void. */
       .soft-scrim {
         position: absolute;
         inset: 0;
         z-index: 1;
-        background:
-          linear-gradient(90deg, rgba(22, 8, 20, 0.62), transparent 47%),
-          linear-gradient(0deg, rgba(22, 8, 20, 0.44), transparent 52%);
+        background: linear-gradient(90deg, rgba(22, 8, 20, 0.16), transparent 38%);
         pointer-events: none;
       }
 
@@ -1721,7 +1716,9 @@
           display: grid;
           grid-template-columns: minmax(0, 1fr) minmax(245px, 285px);
           gap: 12px;
-          align-items: stretch;
+          /* start (not stretch): image column hugs the photo so charm/object
+             hotspot %s map to the image, not a stretched stage. */
+          align-items: start;
         }
 
         .open-scene:not([hidden]) .image-stage {
@@ -2420,7 +2417,19 @@
           animation-iteration-count: 1 !important;
         }
       }
-    </style>
+    
+/* Canonical LAiDIES wordmark (Ai accent) — promoted from homepage inline */
+.brand-word-inline{display:inline!important;margin:0!important;white-space:nowrap;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;color:inherit!important;text-transform:none!important}
+.brand-word-inline>span{display:inline!important;margin:0!important;color:inherit!important;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;text-transform:inherit!important}
+.brand-word-inline [data-brand-ai]{display:inline!important;margin:0!important;color:var(--rose,#9b3f5f)!important;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;text-transform:inherit!important}
+
+      
+/* Dark-surface accent: lighter rose so the "Ai" stays visible on dark buttons/cards */
+.brand-word-inline--on-dark [data-brand-ai],
+.room-card .brand-word-inline [data-brand-ai],
+.anthem-charm-reveal .brand-word-inline [data-brand-ai]{color:#f6a5c0!important}
+
+      </style>
 </head>
 <body>
     <!-- ─── HEADER ─── -->
@@ -2433,7 +2442,7 @@
           <a href="this-week.html?issue=3&amp;bag=open" aria-current="page">Current Bag</a>
           <a href="issues/issue-03.html?from=this-week&amp;issue=3&amp;bag=open">Read Current</a>
           <a href="hot-goss.html">Hot Goss</a>
-          <a href="start-here.html">How LAiDIES Works</a>
+          <a href="start-here.html">How <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> Works</a>
           <a href="clubhouse-pass.html" style="color: #6f263f; text-decoration: underline; margin-left: 8px;">Join The Club</a>
         </nav>
     </header>
@@ -2531,9 +2540,9 @@
             </a>
 
             <a class="ritual-action" href="games/fun-pack.html?from=this-week&issue=2&bag=open" data-action="funpack">
-              <span>4. Extra Credit</span>
+              <span>4. Bonus</span>
               <strong data-action-label>THE EXTRA CREDIT</strong>
-              <em>Available extras plus clear in-the-works labels.</em>
+              <em>Bonus rituals — some live now, more in the works.</em>
             </a>
 
             <button class="ritual-action" type="button" data-action="connect" data-choice-open="connect" data-complete-on-click="false" aria-expanded="false" aria-controls="connectDrawer">
@@ -2549,9 +2558,9 @@
             </a>
 
             <button class="ritual-action" type="button" data-action="realworld" data-choice-open="realworld" data-complete-on-click="false" aria-expanded="false" aria-controls="realWorldDrawer">
-              <span>7. Real World</span>
+              <span>7. Grimoire</span>
               <strong data-action-label>THE LAiDIES GRIMOIRE</strong>
-              <em>AI news, receipts, references, who's who.</em>
+              <em>The reference library: terms, sources, and who's who in AI.</em>
             </button>
 
             <div class="ritual-choice-shelf" id="ritualChoiceShelf" hidden>
@@ -2591,7 +2600,7 @@
                   <a class="ritual-mini-action" href="community.html?from=this-week&issue=2&bag=open" data-action="community">
                     <span>Community</span>
                     <strong data-action-label>Community</strong>
-                    <em>Connect with LAiDIES.</em>
+                    <em>Connect with <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span>.</em>
                   </a>
                   <a class="ritual-mini-action" href="games/businesswomens-special.html?from=this-week&issue=2&bag=open" data-action="happyhour">
                     <span>Happy Hour</span>
@@ -2604,16 +2613,11 @@
 
               <section class="ritual-choice-panel" id="realWorldDrawer" data-choice-panel="realworld" hidden aria-label="Real world AI options">
                 <div class="ritual-group-heading">
-                  <span class="ritual-group-kicker">THE LAiDIES GRIMOIRE</span>
-                  <strong>See what's happening in AI.</strong>
-                  <p>News, receipts, references, and who's who for the week.</p>
+                  <span class="ritual-group-kicker">THE <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> GRIMOIRE</span>
+                  <strong>The reference library.</strong>
+                  <p>Receipts, references, and who's who — your weekly Grimoire.</p>
                 </div>
                 <div class="ritual-card-stack">
-                  <a class="ritual-mini-action" href="hot-goss.html?v=ritual-qa-3&from=this-week&issue=2&bag=open" data-action="goss">
-                    <span>Hot Goss</span>
-                    <strong data-action-label>Current AI News</strong>
-                    <em>Read the latest.</em>
-                  </a>
                   <a class="ritual-mini-action" href="learn/glossary.html?from=this-week&issue=2&bag=open" data-action="glossary">
                     <span>Receipts</span>
                     <strong data-action-label>Glossary</strong>
@@ -2627,7 +2631,7 @@
                   <a class="ritual-mini-action" href="community/laidy-spotlight.html?from=this-week&issue=2&bag=open" data-action="whoswho">
                     <span>Who's Who</span>
                     <strong data-action-label>Who's Who</strong>
-                    <em>Meet the LAiDIES.</em>
+                    <em>Meet the <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span>.</em>
                   </a>
                 </div>
                 <button class="ritual-drawer-back" type="button" data-choice-close>← Back to Bag</button>
@@ -2689,10 +2693,9 @@
       <section class="charm-card" role="dialog" aria-modal="true" aria-labelledby="charmTitle" aria-describedby="charmBody">
         <span class="charm-kicker">Secret Charm Found</span>
         <img class="charm-icon" src="assets/charms/tamagotchi-charm-256.png" alt="Pink mini digital pet charm sticker" width="256" height="256">
-        <h2 id="charmTitle">Episode 02 Tamagotchi Charm</h2>
-        <p id="charmBody">You found this week&rsquo;s hidden charm. Held in this browser for now; member magic is coming soon.</p>
-        <span class="charm-meta" id="charmMeta">Episode 02 charm &middot; Browser-only preview</span>
-        <a class="charm-pass-link" id="charmPassLink" href="clubhouse-pass.html">Clubhouse Pass preview</a>
+        <h2 id="charmTitle">This Week&rsquo;s Charm</h2>
+        <p id="charmBody">You found this week&rsquo;s hidden charm — just for this visit. Your charm collection is coming soon.</p>
+        <span class="charm-meta" id="charmMeta">Just for this visit</span>
         <button class="primary-button charm-close" id="charmClose" type="button">← Back to the Bag</button>
       </section>
     </div>
@@ -2700,7 +2703,7 @@
     <!-- ─── FOOTER ─── -->
     <footer class="site-footer">
       <p>
-        LAiDIES<sup>&trade;</sup>
+        <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span><sup>&trade;</sup>
         &nbsp;&bull;&nbsp; &copy; 2026 Ali Eakin. All rights reserved.
       </p>
       <div class="footer-links">
@@ -2830,7 +2833,8 @@
           title: "Episode 03 Charm",
           asset: "assets/charms/plaid-photo-charm.svg?v=yellow-jacket-1",
           alt: "Glossy yellow plaid jacket charm sticker",
-          objectLabel: "Yellow Plaid Jacket Charm"
+          // Placeholder name — the canonical held-charm taxonomy name is Ali's to set.
+          objectLabel: "Plaid Polaroid Charm"
         }
       };
 
@@ -3064,8 +3068,8 @@
         button.dataset.charmId = "issue-" + issuePad + "-" + config.idSuffix;
         button.dataset.charmIssue = String(issue);
         button.dataset.charmTitle = config.title;
-        button.dataset.charmBody = config.objectLabel + " found. Held in this browser for now; member magic is coming soon.";
-        button.dataset.charmMeta = "Episode " + issuePad + " charm - Browser-only preview";
+        button.dataset.charmBody = config.objectLabel + " found — just for this visit. Your charm collection is coming soon.";
+        button.dataset.charmMeta = "Episode " + issuePad + " charm · just for this visit";
         button.dataset.charmKind = "issue-charm";
         button.dataset.charmSlot = "issue-" + issuePad;
         button.dataset.charmSource = "The Wednesday Ritual: Episode " + issuePad;
@@ -3949,8 +3953,8 @@
         lastCharmTrigger = trigger;
         saveSecretCharm(trigger);
         var title = trigger.dataset.charmTitle || "Wednesday Charm";
-        var body = trigger.dataset.charmBody || "Held in this browser for now; member magic is coming soon.";
-        var meta = trigger.dataset.charmMeta || "Browser-only preview";
+        var body = trigger.dataset.charmBody || "Found just for this visit — your charm collection is coming soon.";
+        var meta = trigger.dataset.charmMeta || "Just for this visit";
         if (charmIcon) {
           charmIcon.src = trigger.dataset.charmAsset || "assets/charms/tamagotchi-charm-256.png";
           charmIcon.alt = trigger.dataset.charmAlt || "LAiDIES hidden charm sticker";
@@ -3961,7 +3965,7 @@
         charmReveal.hidden = false;
         markActionComplete("charm");
         burstCharmConfetti();
-        statusMessage.textContent = title + " found. Held in this browser for now; member magic is coming soon.";
+        statusMessage.textContent = title + " found — just for this visit. Your charm collection is coming soon.";
         charmClose.focus({ preventScroll: true });
       }
 
@@ -4163,6 +4167,6 @@
       });
     })();
     </script>
-    <script src="content/site/brand-polish.js" defer></script>
+    <script src="content/site/brand-polish.js?v=wm1" defer></script>
 </body>
 </html>

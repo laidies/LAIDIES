@@ -1110,7 +1110,19 @@
       color: var(--pink);
     }
 
-    </style>
+    
+/* Canonical LAiDIES wordmark (Ai accent) — promoted from homepage inline */
+.brand-word-inline{display:inline!important;margin:0!important;white-space:nowrap;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;color:inherit!important;text-transform:none!important}
+.brand-word-inline>span{display:inline!important;margin:0!important;color:inherit!important;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;text-transform:inherit!important}
+.brand-word-inline [data-brand-ai]{display:inline!important;margin:0!important;color:var(--rose,#9b3f5f)!important;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;text-transform:inherit!important}
+
+      
+/* Dark-surface accent: lighter rose so the "Ai" stays visible on dark buttons/cards */
+.brand-word-inline--on-dark [data-brand-ai],
+.room-card .brand-word-inline [data-brand-ai],
+.anthem-charm-reveal .brand-word-inline [data-brand-ai]{color:#f6a5c0!important}
+
+      </style>
 </head>
 <body>
 
@@ -1123,9 +1135,9 @@
 
 <!-- HERO -->
 <section class="hero">
-  <p class="hero-eyebrow">Your LAiDIES Card</p>
+  <p class="hero-eyebrow">Your <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> Card</p>
   <h1>The card is getting a premium glow-up.</h1>
-  <p>The LAiDIES Card is still the future home for progress, stickers, and member identity. Member magic is coming soon; for now, this page is a preview of the direction.</p>
+  <p>The <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> Card is still the future home for progress, stickers, and member identity. Member magic is coming soon; for now, this page is a preview of the direction.</p>
 </section>
 
 <section class="glowup-panel" aria-labelledby="glowup-title">
@@ -2156,7 +2168,7 @@
   updateLivePreview();
 })();
 </script>
-<script src="script.js"></script>
+<script src="script.js?v=wm1"></script>
 <script src="/content/site/mini-player.js"></script>
 </body>
 </html>

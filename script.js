@@ -6,26 +6,19 @@ function applyLAiDIESInlineWordmark(root) {
   const skipTags = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "INPUT", "CODE", "PRE", "SVG"]);
 
   function makeWordmark() {
+    // Canonical wordmark: <span class="brand-word-inline"><span aria-hidden>L<span data-brand-ai>Ai</span>DIES</span></span>
     const outer = document.createElement("span");
-    outer.className = "laidies-inline-wordmark";
+    outer.className = "brand-word-inline";
     outer.setAttribute("aria-label", "LAiDIES");
 
     const visual = document.createElement("span");
     visual.setAttribute("aria-hidden", "true");
 
-    const plumStart = document.createElement("span");
-    plumStart.dataset.laidiesPart = "plum";
-    plumStart.textContent = "L";
-
     const rose = document.createElement("span");
-    rose.dataset.laidiesPart = "rose";
+    rose.setAttribute("data-brand-ai", "");
     rose.textContent = "Ai";
 
-    const plumEnd = document.createElement("span");
-    plumEnd.dataset.laidiesPart = "plum";
-    plumEnd.textContent = "DIES";
-
-    visual.append(plumStart, rose, plumEnd);
+    visual.append(document.createTextNode("L"), rose, document.createTextNode("DIES"));
     outer.append(visual);
     return outer;
   }
@@ -34,7 +27,7 @@ function applyLAiDIESInlineWordmark(root) {
     const normalized = element.textContent.replace(/\s+/g, "").toLowerCase();
     if (normalized !== "laidies") return;
     const wordmark = makeWordmark();
-    element.classList.add("laidies-inline-wordmark");
+    element.classList.add("brand-word-inline");
     element.setAttribute("aria-label", "LAiDIES");
     element.replaceChildren(...Array.from(wordmark.childNodes));
   });
@@ -64,7 +57,9 @@ function applyLAiDIESInlineWordmark(root) {
     acceptNode(node) {
       const parent = node.parentElement;
       if (!parent || skipTags.has(parent.tagName)) return NodeFilter.FILTER_REJECT;
-      if (parent.closest(".laidies-inline-wordmark, .hero-masthead-layered")) return NodeFilter.FILTER_REJECT;
+      if (parent.closest(".brand-word-inline, .laidies-inline-wordmark, .hero-masthead-layered")) return NodeFilter.FILTER_REJECT;
+      // Leave buttons/CTAs as plain text — no wordmark wrap (avoids flex space-collapse and dark-button invisibility).
+      if (parent.closest('button, .button, [class*="button"], [class*="btn"], .cta-row, [class*="cta"]')) return NodeFilter.FILTER_REJECT;
       if (!brandRegex.test(node.nodeValue)) return NodeFilter.FILTER_REJECT;
       brandRegex.lastIndex = 0;
       return NodeFilter.FILTER_ACCEPT;
@@ -95,7 +90,7 @@ if (document.readyState === "loading") {
   if (!currentScript?.src) return;
   window.__laidiesBrandPolishRequested = true;
   const polishScript = document.createElement("script");
-  polishScript.src = new URL("content/site/brand-polish.js", currentScript.src).toString();
+  polishScript.src = new URL("content/site/brand-polish.js?v=wm1", currentScript.src).toString();
   polishScript.defer = true;
   document.head.appendChild(polishScript);
 })();

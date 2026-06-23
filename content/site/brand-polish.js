@@ -7,26 +7,19 @@
     var skipTags = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "INPUT", "CODE", "PRE", "SVG"]);
 
     function makeWordmark() {
+      // Canonical wordmark: <span class="brand-word-inline"><span aria-hidden>L<span data-brand-ai>Ai</span>DIES</span></span>
       var outer = document.createElement("span");
-      outer.className = "laidies-inline-wordmark";
+      outer.className = "brand-word-inline";
       outer.setAttribute("aria-label", "LAiDIES");
 
       var visual = document.createElement("span");
       visual.setAttribute("aria-hidden", "true");
 
-      var plumStart = document.createElement("span");
-      plumStart.dataset.laidiesPart = "plum";
-      plumStart.textContent = "L";
-
       var rose = document.createElement("span");
-      rose.dataset.laidiesPart = "rose";
+      rose.setAttribute("data-brand-ai", "");
       rose.textContent = "Ai";
 
-      var plumEnd = document.createElement("span");
-      plumEnd.dataset.laidiesPart = "plum";
-      plumEnd.textContent = "DIES";
-
-      visual.append(plumStart, rose, plumEnd);
+      visual.append(document.createTextNode("L"), rose, document.createTextNode("DIES"));
       outer.append(visual);
       return outer;
     }
@@ -35,7 +28,7 @@
       var normalized = element.textContent.replace(/\s+/g, "").toLowerCase();
       if (normalized !== "laidies") return;
       var wordmark = makeWordmark();
-      element.classList.add("laidies-inline-wordmark");
+      element.classList.add("brand-word-inline");
       element.setAttribute("aria-label", "LAiDIES");
       element.replaceChildren.apply(element, Array.prototype.slice.call(wordmark.childNodes));
     });
@@ -65,7 +58,9 @@
       acceptNode: function (node) {
         var parent = node.parentElement;
         if (!parent || skipTags.has(parent.tagName)) return NodeFilter.FILTER_REJECT;
-        if (parent.closest(".laidies-inline-wordmark, .hero-masthead-layered")) return NodeFilter.FILTER_REJECT;
+        if (parent.closest(".brand-word-inline, .laidies-inline-wordmark, .hero-masthead-layered")) return NodeFilter.FILTER_REJECT;
+        // Leave buttons/CTAs as plain text — no wordmark wrap (avoids flex space-collapse and dark-button invisibility).
+        if (parent.closest('button, .button, [class*="button"], [class*="btn"], .cta-row, [class*="cta"]')) return NodeFilter.FILTER_REJECT;
         if (!brandRegex.test(node.nodeValue)) return NodeFilter.FILTER_REJECT;
         brandRegex.lastIndex = 0;
         return NodeFilter.FILTER_ACCEPT;
@@ -251,9 +246,13 @@
       var style = document.createElement("style");
       style.id = "laidies-live-nav-styles";
       style.textContent = [
-        ".site-header.laidies-nav-enhanced,.back-bar.laidies-nav-enhanced,.preview-ribbon.laidies-nav-enhanced,.issue-site-nav.laidies-nav-enhanced,.sticky-back.laidies-nav-enhanced,.back-nav.laidies-nav-enhanced,.site-nav.laidies-nav-enhanced{position:sticky!important;top:0!important;z-index:1200!important;display:grid!important;grid-template-columns:minmax(0,auto) minmax(96px,1fr) auto!important;align-items:center!important;gap:clamp(8px,2vw,18px)!important;min-height:72px!important;padding:10px clamp(14px,4vw,36px)!important;background:rgba(255,253,251,.97)!important;border-bottom:1px solid rgba(75,33,72,.16)!important;box-shadow:0 12px 28px rgba(75,33,72,.08)!important;color:#3f1737!important;backdrop-filter:blur(16px)!important;}",
-        ".site-header.laidies-nav-enhanced .brand,.back-bar.laidies-nav-enhanced .brand,.issue-site-nav.laidies-nav-enhanced .issue-brand-link,.sticky-back.laidies-nav-enhanced .brand,.back-nav.laidies-nav-enhanced .brand,.site-nav.laidies-nav-enhanced .nav-brand{justify-self:center!important;min-width:0!important;overflow:visible!important;}",
-        ".laidies-context-return{justify-self:start!important;display:inline-flex!important;align-items:center!important;min-height:42px!important;max-width:32vw!important;padding:9px 13px!important;border:1px solid rgba(111,38,63,.2)!important;border-radius:999px!important;background:rgba(255,250,247,.84)!important;color:#6f263f!important;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif!important;font-size:clamp(.72rem,1.9vw,.86rem)!important;font-weight:850!important;line-height:1.15!important;letter-spacing:.01em!important;text-decoration:none!important;box-shadow:0 10px 24px rgba(75,33,72,.08)!important;}",
+        ".site-header.laidies-nav-enhanced,.back-bar.laidies-nav-enhanced,.preview-ribbon.laidies-nav-enhanced,.issue-site-nav.laidies-nav-enhanced,.sticky-back.laidies-nav-enhanced,.back-nav.laidies-nav-enhanced,.site-nav.laidies-nav-enhanced{position:sticky!important;top:0!important;z-index:1200!important;display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;gap:clamp(8px,2vw,18px)!important;min-height:96px!important;padding:10px clamp(14px,4vw,36px)!important;background:rgba(255,253,251,.97)!important;border-bottom:1px solid rgba(75,33,72,.16)!important;box-shadow:0 12px 28px rgba(75,33,72,.08)!important;color:#3f1737!important;backdrop-filter:blur(16px)!important;}",
+        ".site-header.laidies-nav-enhanced .brand,.back-bar.laidies-nav-enhanced .brand,.issue-site-nav.laidies-nav-enhanced .issue-brand-link,.sticky-back.laidies-nav-enhanced .brand,.back-nav.laidies-nav-enhanced .brand,.site-nav.laidies-nav-enhanced .nav-brand{justify-self:start!important;min-width:0!important;overflow:visible!important;}",
+        // Lock the logo height so the header bar is a uniform 96px on every page
+        // (per-page logo sizing was making some bars taller, e.g. community at 108px).
+        ".site-header.laidies-nav-enhanced .brand img,.back-bar.laidies-nav-enhanced .brand img,.issue-site-nav.laidies-nav-enhanced .issue-brand-link img,.sticky-back.laidies-nav-enhanced .brand img,.back-nav.laidies-nav-enhanced .brand img,.site-nav.laidies-nav-enhanced .nav-brand img{height:64px!important;width:auto!important;max-height:64px!important;}",
+        "@media(max-width:760px){.site-header.laidies-nav-enhanced .brand img,.back-bar.laidies-nav-enhanced .brand img,.issue-site-nav.laidies-nav-enhanced .issue-brand-link img,.sticky-back.laidies-nav-enhanced .brand img,.back-nav.laidies-nav-enhanced .brand img{height:46px!important;max-height:46px!important;}}",
+        ".laidies-context-return{display:inline-flex!important;align-items:center!important;min-height:36px!important;width:max-content!important;max-width:calc(100% - 28px)!important;margin:10px 0 0 clamp(14px,4vw,36px)!important;padding:8px 13px!important;border:1px solid rgba(111,38,63,.2)!important;border-radius:999px!important;background:rgba(255,250,247,.84)!important;color:#6f263f!important;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif!important;font-size:clamp(.72rem,1.9vw,.86rem)!important;font-weight:850!important;line-height:1.15!important;letter-spacing:.01em!important;text-decoration:none!important;box-shadow:0 10px 24px rgba(75,33,72,.08)!important;}",
         ".laidies-context-return:hover,.laidies-context-return:focus-visible{color:#3f1737!important;border-color:rgba(111,38,63,.42)!important;background:#fffdfb!important;outline:none!important;}",
         ".site-header.laidies-nav-enhanced .hamburger-btn,.back-bar.laidies-nav-enhanced .hamburger-btn,.preview-ribbon.laidies-nav-enhanced .hamburger-btn,.issue-site-nav.laidies-nav-enhanced .hamburger-btn,.sticky-back.laidies-nav-enhanced .hamburger-btn,.back-nav.laidies-nav-enhanced .hamburger-btn,.site-nav.laidies-nav-enhanced .hamburger-btn{justify-self:end!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:6px!important;min-width:46px!important;min-height:42px!important;padding:9px 13px!important;border:1px solid rgba(75,33,72,.18)!important;border-radius:999px!important;background:#fffdfb!important;color:#3f1737!important;font:850 .86rem/1 Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif!important;box-shadow:0 10px 24px rgba(75,33,72,.08)!important;cursor:pointer!important;}",
         ".laidies-menu-panel{position:fixed!important;top:82px!important;right:clamp(10px,3vw,34px)!important;left:auto!important;width:min(900px,calc(100vw - 24px))!important;max-height:calc(100vh - 96px)!important;overflow:auto!important;padding:clamp(18px,3vw,30px)!important;border:1px solid rgba(75,33,72,.18)!important;border-radius:22px!important;background:linear-gradient(145deg,rgba(255,253,251,.99),rgba(252,228,242,.96))!important;box-shadow:0 30px 80px rgba(63,23,55,.22)!important;color:#3f1737!important;z-index:1400!important;}",
@@ -262,7 +261,8 @@
         ".laidies-menu-kicker{display:block!important;margin-bottom:4px!important;color:#9b3f5f!important;font:900 .76rem/1.1 'JetBrains Mono',monospace!important;letter-spacing:.14em!important;text-transform:none!important;}",
         ".laidies-menu-top p{margin:0!important;max-width:46rem!important;color:#604556!important;font:600 .95rem/1.45 Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif!important;}",
         ".laidies-menu-close{border:1px solid rgba(75,33,72,.18)!important;border-radius:999px!important;background:#fffdfb!important;color:#3f1737!important;padding:9px 13px!important;font:850 .8rem/1 Inter,sans-serif!important;cursor:pointer!important;}",
-        ".laidies-menu-grid{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:14px!important;}",
+        ".laidies-menu-grid{display:grid!important;grid-template-columns:1fr!important;gap:6px!important;}",
+        ".laidies-menu-group a{font-size:1rem!important;}",
         ".laidies-menu-group{min-width:0!important;padding:0!important;margin:0!important;}",
         ".laidies-menu-group h2{margin:0 0 9px!important;color:#7a2742!important;font:900 .72rem/1.2 'JetBrains Mono',monospace!important;letter-spacing:.12em!important;text-transform:none!important;}",
         ".laidies-menu-group a,.laidies-menu-preview{display:block!important;padding:9px 0!important;border-top:1px solid rgba(75,33,72,.1)!important;color:#3f1737!important;font:800 .88rem/1.25 Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif!important;text-decoration:none!important;white-space:normal!important;}",
@@ -280,52 +280,19 @@
     function menuGroups() {
       var currentIssue = getCurrentIssue();
       var currentIssueSlug = String(currentIssue).padStart(2, "0");
+      // Six doors — the canonical global menu (LAiDIES Global Header, Structure Part 1).
+      // Flat list, same labels/order on every page. Anything dropped from the old
+      // mega-menu stays reachable one tap deeper via its hub.
       return [
         {
-          title: "CURRENT",
+          title: "",
           links: [
-            ["Read Latest Episode", local("issues/issue-" + currentIssueSlug + ".html") + "?from=season&issue=" + encodeURIComponent(currentIssue) + draftQueryPart()],
-            ["Open This Week's Bag", local("this-week.html") + "?issue=" + encodeURIComponent(currentIssue) + "&bag=open"],
-            ["Take Current Quiz", local("learn/quiz.html") + "?from=this-week&issue=" + encodeURIComponent(currentIssue) + "&bag=open&group=practice#quiz-start"],
-            ["Try-On / Practice", local("try-on.html") + "?from=this-week&issue=" + encodeURIComponent(currentIssue) + "&bag=open&group=practice"],
-            ["Listen to Weekly Anthem", local("games/dj-booth.html") + "?from=this-week&issue=" + encodeURIComponent(currentIssue) + "&bag=open&group=fun#djApp"],
-          ],
-        },
-        {
-          title: "START HERE",
-          links: [
-            ["Start From The Beginning", local("this-week.html") + "?issue=1&bag=open"],
-            ["Read The Season", local("episodes.html")],
-            ["How LAiDIES Works", local("start-here.html")],
-          ],
-        },
-        {
-          title: "THE LAiDIES GRIMOIRE",
-          links: [
-            ["Today's AI Dispatch / Hot Goss", local("hot-goss.html") + weeklyToolQuery("realworld")],
-            ["THE LORE CLOSET / Reference Closet", local("reference-closet.html") + weeklyToolQuery("realworld")],
-            ["THE POWER MAP / Who's Who", local("learn.html") + weeklyToolQuery("realworld", currentIssue, "#who-is-who")],
-            ["SLAiYER HANDBOOK / Glossary", local("learn/glossary.html") + weeklyToolQuery("realworld")],
-            ["THE CHAMBER OF RECEIPTS / Sources", local("receipts.html") + weeklyToolQuery("realworld")],
-          ],
-        },
-        {
-          title: "THE LAiDIES CLUBHOUSE",
-          links: [
-            { label: "Dream Phone", status: "Glow-up in the works" },
-            ["Madame CLAi-O", local("games/madame-claio.html") + weeklyToolQuery("fun")],
-            ["FAiRY GODMOTHER", local("games/fairy-godmother.html") + weeklyToolQuery("fun")],
-            { label: "Girl Talk", status: "Getting polished" },
-            ["DJ Booth", local("games/dj-booth.html") + weeklyToolQuery("fun", currentIssue, "#djApp")],
-            { label: "THE EXTRA CREDIT", status: "Bonus shelf in the works" },
-          ],
-        },
-        {
-          title: "JOIN THE CLUB",
-          links: [
-            { label: "LAiDIES Card / Clubhouse Pass", status: "Member magic coming soon" },
-            ["Community / Rooms", local("community.html") + weeklyToolQuery("connect")],
-            ["Businesswomen's Special / Happy Hour", local("games/businesswomens-special.html") + weeklyToolQuery("connect")],
+            ["This Week's Bag", local("this-week.html") + "?issue=" + encodeURIComponent(currentIssue) + "&bag=open"],
+            ["Read the Season", local("episodes.html")],
+            ["The Grimoire", local("learn.html")],
+            ["The Clubhouse", local("clubhouse.html")],
+            ["Join the Club", local("community.html")],
+            ["Start Here", local("start-here.html")],
           ],
         },
       ];
@@ -353,9 +320,11 @@
       menuGroups().forEach(function (group) {
         var section = document.createElement("section");
         section.className = "laidies-menu-group";
-        var heading = document.createElement("h2");
-        heading.textContent = group.title;
-        section.append(heading);
+        if (group.title) {
+          var heading = document.createElement("h2");
+          heading.textContent = group.title;
+          section.append(heading);
+        }
         group.links.forEach(function (item) {
           var label = Array.isArray(item) ? item[0] : item.label;
           var href = Array.isArray(item) ? item[1] : item.href;
@@ -396,15 +365,22 @@
       if (existingLegacyNav && !existingLegacyNav.closest(".laidies-menu-panel")) existingLegacyNav.classList.add("laidies-legacy-nav");
 
       var returnConfig = getReturnConfig();
-      if (returnConfig && !header.querySelector("[data-laidies-context-return]")) {
+      if (returnConfig && !document.querySelector("[data-laidies-context-return]")) {
         var oldHeaderBack = header.querySelector(":scope > a:not(.brand):not(.nav-brand):not(.issue-brand-link)");
         if (oldHeaderBack) oldHeaderBack.remove();
+        // Also drop the classless hardcoded "← Back" button (history.back) that the
+        // CSS legacy-hide rule misses. Only runs here, where the context pill is
+        // being added, so a back control always remains.
+        var oldBackButton = header.querySelector('button[onclick*="history.back"]');
+        if (oldBackButton) oldBackButton.remove();
         var returnLink = document.createElement("a");
         returnLink.className = "laidies-context-return";
         returnLink.dataset.laidiesContextReturn = "true";
         returnLink.href = returnConfig.href;
         returnLink.textContent = returnConfig.label;
-        header.prepend(returnLink);
+        // Sibling strip directly under the bar — keeps the header bar a locked height
+        // on every page (home included), with the back pill in a consistent spot below.
+        header.insertAdjacentElement("afterend", returnLink);
       }
 
       var button = header.querySelector(".hamburger-btn");

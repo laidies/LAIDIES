@@ -1,0 +1,101 @@
+/* ============================================================
+   LAiDIES shared components — namespaced design system
+   ------------------------------------------------------------
+   Lifts homepage elements to the episode quality bar by REUSING
+   the episodes' heading + standout-box treatments.
+
+   Classes are namespaced (.laidies-*) so they never collide with
+   the existing .eyebrow / .section-heading on either system.
+
+   Canonical source: issues/issue-03.html inline styles.
+   Components mirror the genuine episode classes:
+     .laidies-eyebrow   <- .label
+     .laidies-standout  <- .reader-next-card + .reader-next-card.featured
+     .laidies-section-* <- .section-heading / .section-dek (Playfair)
+   issue-03 is the reference episode.
+
+   The episode pages still define these inline; migrating them to
+   read from this file is scheduled for the Episode 4 publish.
+   For now this file is linked on the homepage only.
+   ============================================================ */
+
+:root {
+  /* Used by the eyebrow pill; not defined in the homepage's styles.css. */
+  --profile-blush: #fce4f2;
+}
+
+/* Eyebrow — mirrors the episode .label exactly: plain letter-spaced caps, no pill.
+   (Was a plum pill; re-modelled on the episode .label used by "After The Read",
+   "Send It Energy", "New Episodes Every Wednesday".) */
+.laidies-eyebrow {
+  display: block;
+  width: auto;
+  gap: 0;
+  margin: 0 0 8px;
+  padding: 0;
+  color: var(--wine);
+  background: none;
+  border: 0;
+  border-radius: 0;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+/* !important: higher-specificity homepage rules hit the in-box eyebrows —
+   .home-current-copy p (0,1,1) forces var(--muted); .subscribe p (0,1,1) forces
+   color var(--muted) AND font-size 1rem. var(--wine) #6f263f / 0.7rem are the
+   episode .label values, so enforce both to keep all eyebrows identical. */
+.laidies-eyebrow {
+  color: var(--wine) !important;
+  font-size: 0.82rem !important;
+}
+
+/* Section title — from episode .section-heading. !important so the homepage's
+   .home-current-copy h2 (higher specificity) doesn't hold the smaller size. */
+.laidies-section-title {
+  margin: 0 0 18px;
+  color: var(--plum);
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif !important;
+  font-size: clamp(2.2rem, 5vw, 4.8rem) !important;
+  line-height: 0.92;
+  letter-spacing: 0;
+}
+
+/* Section deck — from episode .section-dek (episode uses !important here too). */
+.laidies-section-deck {
+  margin: -0.2rem 0 1rem !important;
+  color: var(--wine) !important;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif !important;
+  font-size: clamp(1.02rem, 1.45vw, 1.18rem) !important;
+  font-style: italic !important;
+  line-height: 1.35 !important;
+}
+
+/* Standout box — mirrors the episode feature panel (.reader-next-card + .featured,
+   the episode signup panel / "She Doesn't Even Go Here" treatment):
+   soft full outline + bold coral left-spine + warm blush gradient fill.
+   Replaces the old flat full-coral-border look (which copied .challenge-box, a
+   different component). The coral spine uses the episode's literal --rose #b95d78;
+   the homepage --rose is a darker #9b3f5f, so var(--rose) here would not match. */
+.laidies-standout {
+  padding: clamp(18px, 3vw, 26px);
+  color: var(--plum);
+  background:
+    radial-gradient(circle at 90% 8%, rgba(252, 228, 242, 0.48), transparent 10rem),
+    linear-gradient(135deg, rgba(255, 253, 251, 0.96), rgba(255, 244, 248, 0.78));
+  border: 1px solid rgba(75, 33, 72, 0.14);
+  border-left: 8px solid #b95d78;
+  border-radius: 8px;
+  box-shadow: 0 14px 32px rgba(75, 33, 72, 0.08);
+}
+
+/* Standout label — from episode .challenge-title */
+.laidies-standout-label {
+  margin-bottom: 8px;
+  color: var(--wine);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
