@@ -730,7 +730,23 @@
       .home-screen-steps li {
         font-size: 1rem;
       }
+      /* After-hours accent image — fills the right slot left by the dropped QR
+         card; contained + rounded to match the section's panels. Portrait source
+         (0.68) shown at ~4:5 so it crops minimally and balances the copy. */
+      .social-after-hours-img {
+        display: block;
+        justify-self: end;
+        width: 100%;
+        max-width: 320px;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 16px;
+        box-shadow: 0 16px 45px rgba(75, 33, 72, 0.14);
+      }
       @media (max-width: 760px) {
+        /* Centre the after-hours accent image when the social section stacks. */
+        .social-after-hours-img { justify-self: center; max-width: 300px; }
         /* Stack the route grid to one column; DOM order already reads
            New here? → Premiere → Returning? → This Week → All Episodes. */
         .home-route-segments { grid-template-columns: 1fr; row-gap: 10px; }
@@ -1757,10 +1773,10 @@
           <p class="eyebrow">The Origin Story</p>
           <h2 id="about-title">Built by one woman, pushed forward by the right group chat.</h2>
           <p>
-            Six months ago, I could not get an Amazon Women-in-Tax newsletter to send properly via email. I work in tax, not tech. I am not a developer. The ideas were there, but they kept getting stuck behind someone else's time, budget, or availability.
+            Six months ago, I could not get an Amazon Women-in-Tax newsletter to send properly. I work in tax, not tech — not a developer. The ideas were there, but they kept stalling behind someone else's time, budget, or availability.
           </p>
           <p>
-            Then I started using AI. Since then, I have built a personal command centre, designed AI agents for research and operations, entered an Amazon Women-in-Tax hackathon with a team that built Echo, an AI product VPs now want to bring to production, made amazing LAiDIES friends, and created the newsletter, website, images, and brand you are looking at now.
+            Then I started using AI. Since then I have built a personal command centre, designed agents for research and operations, and joined an Amazon Women-in-Tax hackathon where our team built Echo — an AI product VPs now want in production. And I built everything you are looking at right now.
           </p>
           <div class="origin-proof-card" aria-label="Origin story proof point">
             <span>Receipt</span>
@@ -1794,25 +1810,23 @@
       <!-- SOCIAL -->
       <section class="social-strip" aria-labelledby="social-title">
         <div>
-          <p class="eyebrow">After Hours</p>
-          <h2 id="social-title">The off-duty feed for lipstick, references, and group-chat useful things.</h2>
+          <p class="eyebrow">LAiDIES After Hours</p>
+          <h2 id="social-title">Come sit with us.</h2>
           <p>
-            Follow for visual drops, behind-the-scenes bits, and the occasional post worth sending to the group chat. Bring questions and wins to the public threads; bring the outfit check energy here.
+            Follow @we.are.laidies for extra posts, behind-the-scenes notes, reminders, and the bits that keep going after the Episode.
           </p>
-        </div>
-        <div class="qr-card compact">
-          <img loading="lazy" src="assets/instagram-qr.jpg" alt="Instagram QR code for @we.are.laidies" />
-          <div>
-            <p class="qr-handle">@we.are.laidies</p>
-            <a class="button secondary" href="https://www.instagram.com/we.are.laidies/" target="_blank" rel="noreferrer">Go after hours</a>
+          <div class="home-current-actions">
+            <a class="button primary" href="https://www.instagram.com/we.are.laidies/" target="_blank" rel="noreferrer">Open Instagram</a>
+            <a class="button secondary" href="https://www.linkedin.com/company/wearelaidies/?viewAsMember=true" target="_blank" rel="noreferrer">Open LinkedIn</a>
           </div>
         </div>
+        <img class="social-after-hours-img" loading="lazy" src="assets/dream-phone-cordless-crop.png" alt="Pink translucent Y2K cordless phone — LAiDIES after-hours" />
         <div class="home-screen-card home-screen-card--social" aria-labelledby="home-screen-title">
           <div class="home-screen-copy">
             <p class="eyebrow">Use it like an app</p>
             <h3 id="home-screen-title">Add <span class="wordmark" aria-label="LAiDIES"><span>l</span><b>AI</b><span>dies</span></span> to your Home Screen.</h3>
             <p>
-              Keep the current episode, weekly dashboard, THE EXTRA CREDIT, quizzes, and playlists one tap away. For now, scores and rewards stay on the browser and device you use.
+              Quick access from your home screen — one tap, no app store. For now, scores and rewards stay on the browser and device you use.
             </p>
           </div>
           <div class="home-screen-steps" aria-label="Home screen instructions">
