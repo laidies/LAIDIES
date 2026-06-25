@@ -305,79 +305,107 @@
       .confidence-early-signal  { color: var(--rose);     background: rgba(185, 93, 120, 0.08); }
       .confidence-depends       { color: #8a6f1f;         background: rgba(201, 162, 39, 0.14); }
 
-      /* === New structural elements for the rebuilt template ===
-         Headline, three-stack (solid / contested / unknown), and
-         the depends / myth / receipt line block. The old
-         .answer-short / .answer-data classes above stay in place
-         so the inline render keeps backwards compatibility. */
+      /* === Prose-reflow render ===
+         The answer is a flowing piece of prose, not a stack of boxes.
+         - Headline reads as the lead paragraph (slightly larger, no box).
+         - solid / contested / unknown / depends / myth render as
+           paragraphs with a small inline eyebrow label (no box, no
+           bullets). Same shape so they read as siblings.
+         - Receipt keeps the gold-leaf payoff box — it's the punchline,
+           so it's the one tinted callout in the card. Same Grimoire
+           universe (plum ink, gold leaf, mono labels, serif body).
+         - Sources / verified / recheck sit below a hairline divider
+           at the bottom — visually separated from the answer prose. */
       .answer-headline {
         font-family: var(--hb-serif);
-        font-size: clamp(1rem, 1.4vw, 1.12rem);
+        font-size: clamp(1.04rem, 1.5vw, 1.18rem);
+        font-weight: 500;
         line-height: 1.55;
         color: var(--hb-ink);
         margin: 0 0 18px;
+        text-wrap: pretty;
       }
-      .answer-stack {
+      .answer-section {
         margin: 0 0 14px;
-        padding: 12px 14px;
-        border-radius: 8px;
-      }
-      .answer-stack .stack-label {
-        font-family: var(--hb-mono);
-        font-size: 0.6rem;
-        font-weight: 700;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        margin: 0 0 6px;
-      }
-      .answer-stack ul {
-        margin: 0;
-        padding: 0 0 0 22px;
-        list-style: disc;
-      }
-      .answer-stack li {
-        margin: 0 0 6px;
-        font-size: 0.94rem;
-        line-height: 1.5;
-        color: var(--ink);
-      }
-      .answer-stack li:last-child { margin-bottom: 0; }
-      .stack-solid     { background: rgba(44, 110, 58, 0.06);   border-left: 3px solid #2c6e3a; }
-      .stack-solid    .stack-label { color: #2c6e3a; }
-      .stack-solid    li::marker   { color: #2c6e3a; }
-      .stack-contested { background: rgba(185, 93, 120, 0.08); border-left: 3px solid var(--rose); }
-      .stack-contested .stack-label { color: var(--rose); }
-      .stack-contested li::marker   { color: var(--rose); }
-      .stack-unknown   { background: rgba(201, 162, 39, 0.08); border-left: 3px solid #8a6f1f; }
-      .stack-unknown  .stack-label { color: #8a6f1f; }
-      .stack-unknown  li::marker   { color: #8a6f1f; }
-
-      .answer-line {
-        margin: 0 0 10px;
         font-family: var(--hb-serif);
-        font-size: 0.96rem;
-        line-height: 1.55;
+        font-size: 0.97rem;
+        line-height: 1.6;
         color: var(--hb-ink);
+        text-wrap: pretty;
       }
-      .answer-line strong {
+      .answer-section .section-label {
+        display: inline-block;
+        margin-right: 9px;
         font-family: var(--hb-mono);
-        font-size: 0.6rem;
+        font-size: 0.62rem;
         font-weight: 700;
         letter-spacing: 0.16em;
         text-transform: uppercase;
-        color: var(--wine);
-        margin-right: 6px;
-        display: inline-block;
+        color: var(--rose);
+        white-space: nowrap;
+        vertical-align: baseline;
+        position: relative;
+        top: -1px;
       }
-      .answer-line.line-receipt {
-        margin-top: 14px;
-        padding: 12px 14px;
-        background: rgba(201, 162, 39, 0.10);
-        border-left: 3px solid var(--hb-leaf);
-        border-radius: 8px;
-      }
-      .answer-line.line-receipt strong { color: var(--hb-leaf); }
 
+      /* Receipt — the one tinted callout. Gold-leaf gradient box, soft
+         shadow, label as a block eyebrow above the prose so the payoff
+         lands as a deliberate closing beat. */
+      .answer-receipt {
+        margin: 20px 0 0;
+        padding: 16px 18px;
+        background:
+          linear-gradient(125deg, rgba(201, 162, 39, 0.16), rgba(155, 63, 95, 0.06));
+        border: 1px solid rgba(201, 162, 39, 0.42);
+        border-left: 3px solid var(--hb-leaf);
+        border-radius: 10px;
+        box-shadow: 0 6px 18px rgba(201, 162, 39, 0.10);
+      }
+      .answer-receipt .receipt-label {
+        display: block;
+        margin: 0 0 8px;
+        font-family: var(--hb-mono);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--hb-leaf);
+      }
+      .answer-receipt p {
+        margin: 0;
+        font-family: var(--hb-serif);
+        font-size: 1rem;
+        line-height: 1.6;
+        color: var(--hb-ink);
+        text-wrap: pretty;
+      }
+
+      /* Inline links inside answer prose (LAiDIES-layer cross-links to
+         the Bag, Handbook, Episodes, etc). Same styling whether they
+         appear in the headline, a section, or the receipt. */
+      .answer-inline-link {
+        color: var(--wine);
+        text-decoration: underline;
+        text-decoration-color: var(--hb-rule);
+        text-underline-offset: 2px;
+        font-weight: 600;
+        transition: color 0.18s ease, text-decoration-color 0.18s ease;
+      }
+      .answer-inline-link:hover {
+        color: var(--rose);
+        text-decoration-color: var(--rose);
+      }
+      .answer-receipt .answer-inline-link { color: var(--hb-ink); text-decoration-color: var(--hb-leaf); }
+      .answer-receipt .answer-inline-link:hover { color: var(--wine); text-decoration-color: var(--rose); }
+
+      /* Card footer — divider, then sources, verified stamp, recheck. */
+      .card-footer {
+        margin-top: 18px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(201, 162, 39, 0.28);
+      }
+      .card-footer .answer-sources { margin: 0; }
+      .card-footer .verified-stamp { margin-top: 10px; }
       .recheck-line {
         font-family: var(--hb-mono);
         font-size: 0.6rem;
@@ -458,7 +486,7 @@
     <!-- Chamber receipts data + renderer. Runs before the filter/accordion
          script below so the rendered cards are in the DOM when faqCards =
          document.querySelectorAll('.faq-card') captures them. -->
-    <script src="data/chamber-receipts.js?v=chamber-1"></script>
+    <script src="data/chamber-receipts.js?v=chamber-5"></script>
     <script>
       (function () {
         var data = window.CHAMBER_RECEIPTS || [];
@@ -478,13 +506,35 @@
             .replace(/"/g, "&quot;");
         }
 
-        function renderStack(items, klass, label) {
-          if (!items || !items.length) return "";
-          var lis = items.map(function (i) { return "<li>" + escapeHTML(i) + "</li>"; }).join("");
+        // Rewrite [label](url) markdown-style links into <a> tags AFTER
+        // the prose has been escaped. The url is wrapped as-is — keep
+        // internal URLs simple (no ampersands in query strings) since
+        // escapeHTML has already turned & into &amp;.
+        function applyInlineLinks(html) {
+          return html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, function (_, label, url) {
+            return '<a class="answer-inline-link" href="' + url + '">' + label + '</a>';
+          });
+        }
+
+        function richProse(prose) {
+          return applyInlineLinks(escapeHTML(prose));
+        }
+
+        function renderSection(label, prose) {
+          if (!prose) return "";
           return ''
-            + '<div class="answer-stack ' + klass + '">'
-            +   '<p class="stack-label">' + label + '</p>'
-            +   '<ul>' + lis + '</ul>'
+            + '<p class="answer-section">'
+            +   '<span class="section-label">' + label + '</span>'
+            +   richProse(prose)
+            + '</p>';
+        }
+
+        function renderReceipt(prose) {
+          if (!prose) return "";
+          return ''
+            + '<div class="answer-receipt">'
+            +   '<span class="receipt-label">The receipt</span>'
+            +   '<p>' + richProse(prose) + '</p>'
             + '</div>';
         }
 
@@ -516,18 +566,20 @@
             +   '</div>'
             +   '<div class="faq-answer">'
             +     '<div class="faq-answer-inner">'
-            +       '<p class="answer-headline">' + escapeHTML(r.headline) + '</p>'
-            +       renderStack(r.solid,     'stack-solid',     "✓ What's solid")
-            +       renderStack(r.contested, 'stack-contested', "⚖ What's contested")
-            +       renderStack(r.unknown,   'stack-unknown',   "? What's unknown")
-            +       (r.dependsOn ? '<p class="answer-line line-depends"><strong>Depends on</strong> ' + escapeHTML(r.dependsOn) + '</p>' : '')
-            +       (r.myth      ? '<p class="answer-line line-myth"><strong>Myth to drop</strong> ' + escapeHTML(r.myth)        + '</p>' : '')
-            +       (r.receipt   ? '<p class="answer-line line-receipt"><strong>The receipt</strong> ' + escapeHTML(r.receipt)  + '</p>' : '')
-            +       renderSources(r.sources)
-            +       '<div class="verified-stamp">'
-            +         '<span class="verified-dot"></span> Verified ' + escapeHTML(r.verified || "")
+            +       '<p class="answer-headline">' + richProse(r.headline) + '</p>'
+            +       renderSection("What's solid",         r.solid)
+            +       renderSection("Where it's contested", r.contested)
+            +       renderSection("What's unknown",       r.unknown)
+            +       renderSection("What it depends on",   r.dependsOn)
+            +       renderSection("The myth to drop",     r.myth)
+            +       renderReceipt(r.receipt)
+            +       '<div class="card-footer">'
+            +         renderSources(r.sources)
+            +         '<div class="verified-stamp">'
+            +           '<span class="verified-dot"></span> Verified ' + escapeHTML(r.verified || "")
+            +         '</div>'
+            +         (r.recheckWhen ? '<p class="recheck-line">Recheck when ' + escapeHTML(r.recheckWhen) + '</p>' : '')
             +       '</div>'
-            +       (r.recheckWhen ? '<p class="recheck-line">Recheck when ' + escapeHTML(r.recheckWhen) + '</p>' : '')
             +     '</div>'
             +   '</div>'
             + '</div>';
