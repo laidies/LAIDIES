@@ -5373,7 +5373,7 @@ function updateReferenceCloset() {
     const unlockMessage = maybeUnlockReferenceBadge(filter, query);
     referenceClosetStatus.textContent = referenceClosetOpen
       ? `${visibleCount} card${visibleCount === 1 ? "" : "s"} pulled from ${query ? "your search" : getReferenceFilterLabel(filter)}. Click any card for the longer note.${unlockMessage ? ` Merit badge: ${unlockMessage}` : ""}`
-      : "Pick a drawer or search the closet. The whole wardrobe stays tucked away until you need it.";
+      : "Pick a compartment or search the caboodle. Everything stays tucked away until you need it.";
   }
 }
 

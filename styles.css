@@ -11374,8 +11374,10 @@ li,
 
 
 
-/* Dark-surface accent: lighter rose so the "Ai" stays visible on dark buttons/cards */
+/* Dark-surface rule: on dark backgrounds the "Ai" matches the
+   surrounding text color (reads as one solid word). Light-bg default
+   is the rose contrast pop set on .brand-word-inline above. */
 .brand-word-inline--on-dark [data-brand-ai],
 .room-card .brand-word-inline [data-brand-ai],
-.anthem-charm-reveal .brand-word-inline [data-brand-ai]{color:#f6a5c0!important}
+.anthem-charm-reveal .brand-word-inline [data-brand-ai]{color:inherit!important}
 
