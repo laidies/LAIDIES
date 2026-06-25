@@ -1631,39 +1631,6 @@
         </div>
       </section>
 
-      <!-- SIGNUP — moved directly below the hero (compact). Buttondown endpoint unchanged. -->
-      <section class="subscribe subscribe--compact laidies-standout" id="signup" aria-labelledby="subscribe-title">
-        <div>
-          <p class="eyebrow laidies-eyebrow">Gimme, Gimme More</p>
-          <h2 id="subscribe-title">Get the next one in your inbox.</h2>
-          <p>
-            As Cher teaches us, it does not say RSVP on the Statue of Liberty &mdash; but we&rsquo;d love yours. One useful episode a week, plus the occasional excellent detour. No spam. No homework spiral.
-          </p>
-        </div>
-        <form
-          class="subscribe-form"
-          action="https://buttondown.com/api/emails/embed-subscribe/laidies"
-          method="post"
-          target="laidiesSubscribeFrame"
-        >
-          <label for="email">Email address</label>
-          <div class="field-row">
-            <input id="email" name="email" type="email" placeholder="itsbritneybitch@icon.com" required />
-            <button type="submit">Subscribe</button>
-          </div>
-          <p class="form-status" id="subscribeStatus" aria-live="polite">
-            Wednesday episodes, community prompts, and occasional useful detours. Unsubscribe anytime.
-          </p>
-          <p class="subscribe-fallback" style="margin:8px 0 0;font-size:0.88rem;"><a href="https://buttondown.com/laidies" target="_blank" rel="noopener" style="color:#6f263f;font-weight:800;">Subscribe through Buttondown if the form acts dramatic.</a></p>
-        </form>
-        <iframe
-          class="subscribe-frame"
-          name="laidiesSubscribeFrame"
-          title="LAiDIES subscription response"
-          aria-hidden="true"
-        ></iframe>
-      </section>
-
       <!-- CURRENT EPISODE -->
       <!-- ROUTE 1 — READ / THIS WEEK (current episode feature merged with the read options) -->
       <section class="home-current-episode" id="episodes" aria-labelledby="episodes-title">
@@ -1752,6 +1719,39 @@
             </div>
           </article>
         </div>
+      </section>
+
+      <!-- SIGNUP — sits below the portal-map cards. Buttondown endpoint unchanged. -->
+      <section class="subscribe subscribe--compact laidies-standout" id="signup" aria-labelledby="subscribe-title">
+        <div>
+          <p class="eyebrow laidies-eyebrow">Gimme, Gimme More</p>
+          <h2 id="subscribe-title">Get the next one in your inbox.</h2>
+          <p>
+            As Cher teaches us, it does not say RSVP on the Statue of Liberty &mdash; but we&rsquo;d love yours. One useful episode a week, plus the occasional excellent detour. No spam. No homework spiral.
+          </p>
+        </div>
+        <form
+          class="subscribe-form"
+          action="https://buttondown.com/api/emails/embed-subscribe/laidies"
+          method="post"
+          target="laidiesSubscribeFrame"
+        >
+          <label for="email">Email address</label>
+          <div class="field-row">
+            <input id="email" name="email" type="email" placeholder="itsbritneybitch@icon.com" required />
+            <button type="submit">Subscribe</button>
+          </div>
+          <p class="form-status" id="subscribeStatus" aria-live="polite">
+            Wednesday episodes, community prompts, and occasional useful detours. Unsubscribe anytime.
+          </p>
+          <p class="subscribe-fallback" style="margin:8px 0 0;font-size:0.88rem;"><a href="https://buttondown.com/laidies" target="_blank" rel="noopener" style="color:#6f263f;font-weight:800;">Subscribe through Buttondown if the form acts dramatic.</a></p>
+        </form>
+        <iframe
+          class="subscribe-frame"
+          name="laidiesSubscribeFrame"
+          title="LAiDIES subscription response"
+          aria-hidden="true"
+        ></iframe>
       </section>
 
       <!-- WORLD PREVIEW -->
