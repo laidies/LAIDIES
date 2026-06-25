@@ -29,6 +29,152 @@
       /* === Clamshell spacing === */
       .clubhouse-compact-live { margin: clamp(18px, 3.5vw, 34px) clamp(18px, 5vw, 64px) 0; }
 
+      /* === Bag-style side menu (matches the Grimoire portal pattern) ===
+         Image left, labelled menu right on desktop; stacks on mobile.
+         Replaces the old hotspot-on-image interaction so the image and
+         the destinations are no longer coupled — we can swap the image
+         art without re-measuring 13 percentage coords. */
+      .clubhouse-compact-live[data-state] {
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+        align-items: start;
+      }
+      .clubhouse-compact-live[data-state] .clubhouse-compact-stage {
+        grid-row: 1;
+        grid-column: 1;
+      }
+      .clubhouse-compact-live[data-state] .clubhouse-compact-copy {
+        grid-row: 1;
+        grid-column: 2;
+        gap: 10px;
+      }
+      @media (max-width: 820px) {
+        .clubhouse-compact-live[data-state] {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .clubhouse-compact-live[data-state] .clubhouse-compact-stage {
+          grid-column: 1;
+        }
+        .clubhouse-compact-live[data-state] .clubhouse-compact-copy {
+          grid-row: 2;
+          grid-column: 1;
+        }
+      }
+
+      .clubhouse-compact-image-wrap { position: relative; cursor: pointer; }
+      .ch-tap-hint {
+        position: absolute;
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.6rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #fff;
+        background: rgba(33, 17, 31, 0.78);
+        padding: 5px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.42);
+        border-radius: 999px;
+        transition: opacity 0.32s ease;
+        pointer-events: none;
+      }
+      .ch-tap-hint--close { opacity: 0; }
+      .clubhouse-compact-live[data-state="open"] .ch-tap-hint--open { opacity: 0; }
+      .clubhouse-compact-live[data-state="open"] .ch-tap-hint--close { opacity: 1; }
+
+      .ch-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin: 0;
+      }
+      .ch-menu-card {
+        position: relative;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        column-gap: 12px;
+        row-gap: 4px;
+        padding: 12px 14px;
+        text-decoration: none;
+        color: var(--ink);
+        border: 1px solid rgba(155, 63, 95, 0.28);
+        border-radius: 14px;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(255, 235, 247, 0.88));
+        box-shadow: 0 8px 18px rgba(33, 17, 31, 0.12);
+        transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+      }
+      .ch-menu-card[href]:hover,
+      .ch-menu-card[href]:focus-visible {
+        transform: translateY(-2px);
+        border-color: var(--hot-pink);
+        box-shadow: 0 14px 28px rgba(255, 20, 146, 0.18);
+        outline: none;
+      }
+      .ch-menu-card .ch-icon {
+        grid-row: 1;
+        grid-column: 1;
+        font-size: 1.2rem;
+        color: var(--hot-pink);
+        line-height: 1;
+        align-self: center;
+      }
+      .ch-menu-card h4 {
+        grid-row: 1;
+        grid-column: 2;
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.05rem;
+        line-height: 1.2;
+        align-self: center;
+      }
+      .ch-menu-card p {
+        grid-row: 2;
+        grid-column: 1 / -1;
+        margin: 0;
+        font-size: 0.84rem;
+        line-height: 1.4;
+        color: var(--muted);
+      }
+      .ch-menu-card .ch-pill {
+        grid-row: 1;
+        grid-column: 3;
+        align-self: center;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.58rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 3px 8px;
+        border-radius: 999px;
+        border: 1px solid rgba(155, 63, 95, 0.4);
+        color: var(--plum);
+        background: rgba(252, 228, 242, 0.6);
+        white-space: nowrap;
+      }
+      .ch-menu-card.is-brewing { opacity: 0.78; cursor: default; }
+      .ch-menu-card.is-brewing:hover {
+        transform: none;
+        border-color: rgba(155, 63, 95, 0.28);
+        box-shadow: 0 8px 18px rgba(33, 17, 31, 0.12);
+      }
+      .ch-menu-card.is-brewing .ch-pill {
+        color: var(--muted);
+        border-color: rgba(75, 33, 72, 0.18);
+        background: rgba(245, 240, 245, 0.6);
+      }
+      @media (max-width: 520px) {
+        .ch-menu-card {
+          grid-template-columns: auto 1fr;
+          grid-template-rows: auto auto;
+        }
+        .ch-menu-card .ch-pill {
+          grid-column: 1 / -1;
+          justify-self: start;
+          margin-top: 4px;
+        }
+      }
+
       /* === Hub intro === */
       .hub-intro {
         text-align: center;
@@ -216,38 +362,75 @@
     <main>
       <!-- Clamshell Interactive -->
       <article class="clubhouse-compact-live" aria-labelledby="clubhouse-compact-title" data-clubhouse-compact data-state="closed">
+        <div class="clubhouse-compact-stage">
+          <div class="clubhouse-compact-image-wrap" onclick="var b=document.querySelector('[data-clubhouse-state-button=' + (document.querySelector('.clubhouse-compact-live').getAttribute('data-state')==='open'?'closed':'open') + ']'); if (b) b.click();">
+            <img data-clubhouse-image="closed" src="assets/clubhouse-compact-grimoire-warm-closed-v1.png" alt="Closed warm-toned LAiDIES Clubhouse compact — pink lacquered case with a gold latch on a marble surface" />
+            <img data-clubhouse-image="open" src="assets/clubhouse-compact-grimoire-warm-open-v1.png" alt="Open warm-toned LAiDIES Clubhouse compact with rooms and fixtures — DJ booth, vanity, phone nook, and weekly extras" hidden />
+            <span class="ch-tap-hint ch-tap-hint--open">Tap to open</span>
+            <span class="ch-tap-hint ch-tap-hint--close">Tap to close</span>
+          </div>
+        </div>
         <div class="clubhouse-compact-copy">
           <p class="eyebrow">Games and practice</p>
           <h3 id="clubhouse-compact-title"><span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> Clubhouse</h3>
-          <p>Click open, then use the compact like a map for practice tools, learning games, music, and weekly extras.</p>
+          <p>Open the compact, then pick an activity. Practice tools, learning games, music, and the weekly extras — all in one place.</p>
           <div class="clubhouse-compact-actions" aria-label="Clubhouse compact controls">
-            <button class="button secondary is-active" type="button" data-clubhouse-state-button="closed" aria-pressed="true">Close Clubhouse</button>
-            <button class="button primary" type="button" data-clubhouse-state-button="open" aria-pressed="false">Open Clubhouse</button>
+            <button class="button secondary is-active" type="button" data-clubhouse-state-button="closed" aria-pressed="true">Close</button>
+            <button class="button primary" type="button" data-clubhouse-state-button="open" aria-pressed="false">Open</button>
           </div>
+          <nav class="ch-menu" aria-label="Clubhouse activities">
+            <a class="ch-menu-card" href="games/madame-claio.html" data-action="psychic">
+              <span class="ch-icon" aria-hidden="true">☾</span>
+              <h4>Madame <span class="brand-word-inline" aria-label="CLAi-O"><span aria-hidden="true">CL<span data-brand-ai>Ai</span>-O</span></span></h4>
+              <p>Ask the psychic. Get a reading.</p>
+              <span class="ch-pill">Live</span>
+            </a>
+            <a class="ch-menu-card" href="games/fairy-godmother.html" data-action="fairy">
+              <span class="ch-icon" aria-hidden="true">✧</span>
+              <h4><span class="brand-word-inline" aria-label="FAiRY"><span aria-hidden="true">F<span data-brand-ai>Ai</span>RY</span></span> GODMOTHER</h4>
+              <p>Prompt nudges with a little glitter.</p>
+              <span class="ch-pill">Live</span>
+            </a>
+            <a class="ch-menu-card" href="games/dj-booth.html" data-action="dj">
+              <span class="ch-icon" aria-hidden="true">♪</span>
+              <h4>DJ Booth</h4>
+              <p>This week's anthem and the mix CDs.</p>
+              <span class="ch-pill">Live</span>
+            </a>
+            <a class="ch-menu-card" href="games/trading-cards.html" data-action="cards">
+              <span class="ch-icon" aria-hidden="true">◇</span>
+              <h4>Trading Cards</h4>
+              <p>Practice the weekly prompts as a deck.</p>
+              <span class="ch-pill">Live</span>
+            </a>
+            <a class="ch-menu-card" href="games/businesswomens-special.html" data-action="business">
+              <span class="ch-icon" aria-hidden="true">◉</span>
+              <h4>Businesswomen's Special</h4>
+              <p>Pick the drink, start the chat.</p>
+              <span class="ch-pill">Live</span>
+            </a>
+            <a class="ch-menu-card" href="games/fun-pack.html" data-action="extra-credit">
+              <span class="ch-icon" aria-hidden="true">★</span>
+              <h4>THE EXTRA CREDIT</h4>
+              <p>The bonus shelf — weekly extras and side quests.</p>
+              <span class="ch-pill">Live</span>
+            </a>
+            <div class="ch-menu-card is-brewing" aria-disabled="true" data-action="dream-phone">
+              <span class="ch-icon" aria-hidden="true">☎</span>
+              <h4>Dream Phone</h4>
+              <p>Glow-up in the works.</p>
+              <span class="ch-pill">Still brewing</span>
+            </div>
+            <div class="ch-menu-card is-brewing" aria-disabled="true" data-action="girl-talk">
+              <span class="ch-icon" aria-hidden="true">✱</span>
+              <h4>Girl Talk</h4>
+              <p>Getting polished.</p>
+              <span class="ch-pill">Still brewing</span>
+            </div>
+          </nav>
           <p class="clubhouse-compact-status" data-clubhouse-status aria-live="polite">
             <strong>Closed compact:</strong> Open the pink Clubhouse to explore the activities.
           </p>
-        </div>
-        <div class="clubhouse-compact-stage">
-          <div class="clubhouse-compact-image-wrap">
-            <img data-clubhouse-image="closed" src="assets/clubhouse-compact-closed-v1.png" style="cursor: pointer;" onclick="document.querySelector('[data-clubhouse-state-button=open]').click();" alt="Closed pink LAiDIES Clubhouse compact with molded shell ridges, latch, and plaque" />
-            <img data-clubhouse-image="open" src="assets/clubhouse-compact-open-v4.png" alt="Open pink LAiDIES Clubhouse compact with rooms and fixtures" hidden />
-            <div class="clubhouse-hotspot-layer" aria-label="Clubhouse compact clickable areas">
-              <a class="clubhouse-hotspot" href="games/fun-pack.html" data-clubhouse-zone="weekly-fun-pack" aria-label="Open THE EXTRA CREDIT"></a>
-              <a class="clubhouse-hotspot" href="games/dj-booth.html" data-clubhouse-zone="weekly-jams" aria-label="Weekly Jams"></a>
-              <a class="clubhouse-hotspot" href="games/fun-pack.html" data-clubhouse-zone="fun-pack-1-6" aria-label="Extra Credit shelves"></a>
-              <a class="clubhouse-hotspot" href="games/fun-pack.html" data-clubhouse-zone="fun-pack-7-12" aria-label="Extra Credit shelves"></a>
-              <a class="clubhouse-hotspot" href="games/fun-pack.html" data-clubhouse-zone="fun-pack-13-18" aria-label="Extra Credit shelves"></a>
-              <a class="clubhouse-hotspot" href="games/fun-pack.html" data-clubhouse-zone="fun-pack-19-24" aria-label="Extra Credit shelves"></a>
-              <a class="clubhouse-hotspot" href="games/dj-booth.html" data-clubhouse-zone="mix-cds" aria-label="Mix CDs"></a>
-              <a class="clubhouse-hotspot" href="games/madame-claio.html" data-clubhouse-zone="psychic" aria-label="Madame CLAi-O"></a>
-              <a class="clubhouse-hotspot" href="#clubhouse-status-map" data-clubhouse-zone="dream-phone" aria-label="Dream Phone glow-up in the works"></a>
-              <a class="clubhouse-hotspot" href="#clubhouse-status-map" data-clubhouse-zone="girl-talk" aria-label="Girl Talk getting polished"></a>
-              <a class="clubhouse-hotspot" href="games/trading-cards.html" data-clubhouse-zone="try-on" aria-label="Trading Cards"></a>
-              <a class="clubhouse-hotspot" href="games/businesswomens-special.html" data-clubhouse-zone="business" aria-label="Businesswomen’s Special"></a>
-              <a class="clubhouse-hotspot" href="games/fairy-godmother.html" data-clubhouse-zone="fairy" aria-label="FAiRY GODMOTHER"></a>
-            </div>
-          </div>
         </div>
       </article>
 
