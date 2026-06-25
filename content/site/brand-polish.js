@@ -236,9 +236,13 @@
         };
       }
       if (filename === "clubhouse.html") {
+        // Top-level destination — default back is the homepage. The
+        // "from=this-week&group=fun" case (user came from the bag's
+        // Extra Credit row) is already caught by the fromBag/group
+        // branch above and routes back to the Bag with the correct label.
         return {
-          href: local("this-week.html") + contextQuery("fun"),
-          label: "← Back to THE EXTRA CREDIT",
+          href: local("index.html"),
+          label: "← Back to LAiDIES",
         };
       }
       return {
