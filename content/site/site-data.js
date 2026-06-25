@@ -174,6 +174,46 @@ window.LAIDIES_SITE_DATA = {
         "hotGossPlacement": "homepage-only"
       },
       "issuePageStatus": "manual-page-kept"
+    },
+    {
+      "number": 4,
+      "slug": "the-slaiyer-handbook",
+      "title": "A Slayer Needs a Watcher",
+      "subtitle": "The SLAiYER Handbook · Chapter 1 — which AI tool to open for which job, what the words mean, and how to use any of them without getting vamped.",
+      "status": "published",
+      "releaseDate": "2026-06-24",
+      "issueUrl": "grimoire/slaiyer-handbook-chapter-1.html",
+      "heroImage": "assets/episodes/issue-04/section-slaiyer-handbook-v1.png",
+      "oneLineDescription": "The one in which \"just use AI\" finally gets a map — which tool to open for which job, what the words mean, and how to use any of them without getting vamped.",
+      "act": "Act 1: The Awakening",
+      "lesson": "Which AI tool to open for which job, what the words everyone says actually mean, and how to work with any of them — matching the type to the task, not ranking who's \"best.\"",
+      "emotionalBeat": "Overwhelm becomes orientation: she stops asking which tool is best and starts matching the type to the task.",
+      "siteLinks": [
+        {
+          "label": "Bring it back to the LAiDIES Room",
+          "url": "community.html",
+          "type": "community"
+        },
+        {
+          "label": "Review the glossary",
+          "url": "learn/glossary.html",
+          "type": "glossary"
+        }
+      ],
+      "websiteModules": {
+        "quiz": null,
+        "cardPack": null,
+        "communityThread": "community.html",
+        "glossaryTerms": [
+          "Prompt",
+          "Model / LLM",
+          "Training data",
+          "Token / context window",
+          "Hallucination"
+        ],
+        "hotGossPlacement": "homepage-only"
+      },
+      "issuePageStatus": "manual-page-kept"
     }
   ],
   "quizzes": {

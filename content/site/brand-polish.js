@@ -96,7 +96,7 @@
     var path = window.location.pathname || "";
     var filename = path.split("/").pop() || "index.html";
     var isHome = filename === "" || filename === "index.html";
-    var isNested = /\/(?:issues|games|learn|community)\//.test(path);
+    var isNested = /\/(?:issues|games|learn|community|grimoire)\//.test(path);
     var root = isNested ? "../" : "";
     var params = new URLSearchParams(window.location.search || "");
 
@@ -199,6 +199,12 @@
           label: "← Back to Weekly Study Pack",
         };
       }
+      if (path.includes("/grimoire/")) {
+        return {
+          href: local("grimoire.html"),
+          label: "← Back to the Grimoire",
+        };
+      }
       if (/^(hot-goss|reference-closet|learn)\.html$/.test(filename) || path.endsWith("/learn/glossary.html") || filename === "receipts.html") {
         return {
           href: local("this-week.html") + contextQuery("realworld"),
@@ -289,7 +295,7 @@
           links: [
             ["This Week's Bag", local("this-week.html") + "?issue=" + encodeURIComponent(currentIssue) + "&bag=open"],
             ["Read the Season", local("episodes.html")],
-            ["The Grimoire", local("learn.html")],
+            ["The Grimoire", local("grimoire.html")],
             ["The Clubhouse", local("clubhouse.html")],
             ["Join the Club", local("community.html")],
             ["Start Here", local("start-here.html")],
