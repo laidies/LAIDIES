@@ -80,9 +80,12 @@
         background: rgba(255, 253, 251, 0.94);
         backdrop-filter: blur(12px);
         border-bottom: 1px solid rgba(75, 33, 72, 0.18);
-        position: sticky;
+        position: fixed;
         top: 0;
+        left: 0;
+        right: 0;
         z-index: 100;
+        transform: translateZ(0); /* Safari fix: stable compositing layer so the fixed header isn't dropped on scroll; do not remove without re-testing on Safari; makes the header a containing block for future fixed descendants. This page doesn't load styles.css, so the fix lives inline. */
       }
       .site-header .brand { display: flex; align-items: center; line-height: 0; overflow: visible; }
       .site-header .brand img { width: clamp(146px, 18vw, 190px);
