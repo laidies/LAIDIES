@@ -1,0 +1,8 @@
+# Defensive: never commit local wrangler state or any file that could leak
+# the BUTTONDOWN_API_KEY value. The key is set via `wrangler secret put`
+# (or the Cloudflare dashboard) and lives only in Cloudflare's secret store.
+.dev.vars
+.wrangler/
+node_modules/
+.env
+.env.*

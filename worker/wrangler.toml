@@ -1,0 +1,20 @@
+# LAiDIES subscribe proxy — Cloudflare Worker config.
+#
+# Deploy from this directory:
+#   wrangler deploy
+#
+# Secret (set ONCE before the first deploy, value never lives in this file
+# or any committed file):
+#   wrangler secret put BUTTONDOWN_API_KEY
+# ...or set it in the Cloudflare dashboard:
+#   Workers & Pages → laidies-subscribe → Settings → Variables and Secrets
+#   → Add → Type: Secret → Name: BUTTONDOWN_API_KEY → Value: <paste your key>
+
+name = "laidies-subscribe"
+main = "subscribe.js"
+compatibility_date = "2026-06-25"
+
+# Secrets referenced by the Worker (set out-of-band via `wrangler secret put`
+# or the dashboard — declared here for documentation only; values never live
+# in this file).
+#   BUTTONDOWN_API_KEY  →  Authorization token for api.buttondown.com

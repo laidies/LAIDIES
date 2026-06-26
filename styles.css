@@ -7812,6 +7812,111 @@ h3 {
   font-weight: 800;
 }
 
+/* Subscribe form states (sending / created / already / error). On
+   success/already the input row swaps out for a visually distinct result
+   block — checkmark badge, plum border, deep shadow — so the form itself
+   becomes the confirmation. On error the input row stays (retry inline)
+   and the error block appears beneath it. */
+.subscribe-form__result {
+  display: none;
+}
+
+.subscribe-form--success .subscribe-form__fields,
+.subscribe-form--already .subscribe-form__fields {
+  display: none;
+}
+
+.subscribe-form--success .subscribe-form__result,
+.subscribe-form--already .subscribe-form__result,
+.subscribe-form--error .subscribe-form__result {
+  display: block;
+}
+
+.subscribe-form--error .subscribe-form__result {
+  margin-top: 12px;
+}
+
+.subscribe-form--sending button[type="submit"] {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.subscribe-result {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 16px;
+  row-gap: 6px;
+  align-items: center;
+  padding: 22px 24px;
+  border-radius: 16px;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.subscribe-result.is-created,
+.subscribe-result.is-already {
+  background:
+    radial-gradient(circle at 96% 4%, rgba(252, 228, 242, 0.55), transparent 18rem),
+    linear-gradient(145deg, rgba(255, 253, 251, 0.98), rgba(247, 226, 232, 0.85));
+  border-color: var(--plum);
+  box-shadow: 0 22px 52px rgba(75, 33, 72, 0.22);
+}
+
+.subscribe-result.is-invalid,
+.subscribe-result.is-rate_limited {
+  background:
+    radial-gradient(circle at 96% 4%, rgba(255, 226, 232, 0.55), transparent 18rem),
+    linear-gradient(145deg, rgba(255, 253, 251, 0.98), rgba(250, 224, 230, 0.90));
+  border-color: var(--rose);
+  box-shadow: 0 18px 44px rgba(155, 63, 95, 0.18);
+}
+
+.subscribe-result__mark {
+  grid-row: 1 / span 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.subscribe-result.is-created .subscribe-result__mark,
+.subscribe-result.is-already .subscribe-result__mark {
+  background: var(--plum);
+}
+
+.subscribe-result.is-invalid .subscribe-result__mark,
+.subscribe-result.is-rate_limited .subscribe-result__mark {
+  background: var(--rose);
+}
+
+.subscribe-result__title {
+  color: var(--plum);
+  font-weight: 800;
+  font-size: 1.22rem;
+  line-height: 1.2;
+  letter-spacing: 0.005em;
+}
+
+.subscribe-result.is-invalid .subscribe-result__title,
+.subscribe-result.is-rate_limited .subscribe-result__title {
+  color: var(--rose);
+}
+
+.subscribe-result__body {
+  margin: 0;
+  color: var(--plum) !important;
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
 .subscribe-frame {
   position: absolute;
   width: 1px;
