@@ -21,7 +21,7 @@
     <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="apple-touch-icon" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
-    <link rel="stylesheet" href="styles.css?v=redesign-2" />
+    <link rel="stylesheet" href="styles.css?v=redesign-4" />
     <link rel="stylesheet" href="styles-new-sections.css?v=redesign-2" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1736,14 +1736,14 @@
           method="post"
           target="laidiesSubscribeFrame"
         >
-          <label for="email">Email address</label>
-          <div class="field-row">
-            <input id="email" name="email" type="email" placeholder="itsbritneybitch@icon.com" required />
-            <button type="submit">Subscribe</button>
+          <div class="subscribe-form__fields">
+            <label for="email">Email address</label>
+            <div class="field-row">
+              <input id="email" name="email" type="email" placeholder="itsbritneybitch@icon.com" required />
+              <button type="submit" data-default-label="Subscribe">Subscribe</button>
+            </div>
           </div>
-          <p class="form-status" id="subscribeStatus" aria-live="polite">
-            Wednesday episodes, community prompts, and occasional useful detours. Unsubscribe anytime.
-          </p>
+          <div class="subscribe-form__result" data-result hidden aria-live="polite"></div>
           <p class="subscribe-fallback" style="margin:8px 0 0;font-size:0.88rem;"><a href="https://buttondown.com/laidies" target="_blank" rel="noopener" style="color:#6f263f;font-weight:800;">Subscribe through Buttondown if the form acts dramatic.</a></p>
         </form>
         <iframe
@@ -1876,7 +1876,7 @@
 
     <script src="content/site/supabase-config.js" defer></script>
     <script src="content/site/site-data.js" defer></script>
-    <script src="script.js?v=wm1" defer></script>
+    <script src="script.js?v=wm3" defer></script>
     <script>
       (function(){
         var btn = document.querySelector(".hamburger-btn");
