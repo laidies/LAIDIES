@@ -5656,30 +5656,200 @@ feedbackForm?.addEventListener("submit", (event) => {
   }
 });
 
-subscribeForm?.addEventListener("submit", (event) => {
-  const action = subscribeForm.getAttribute("action") || "";
-  const isPreview = !action || action === "#";
+// LAiDIES newsletter signup — real Buttondown integration via Cloudflare Worker.
+//
+// Front-end calls SUBSCRIBE_PROXY_URL with {email}; the Worker holds the API
+// key and returns a {status} envelope: created | already | invalid |
+// rate_limited | error. On any unclean failure (network, CORS, 5xx, timeout,
+// or unset proxy URL), we fall back to the legacy hidden-iframe submit so we
+// never regress below today's behaviour.
+//
+// FILL ME IN after the Worker is deployed (e.g. "https://laidies-subscribe.<your-handle>.workers.dev").
+// Leaving this empty string is safe — JS skips the fetch and uses the iframe path.
+const SUBSCRIBE_PROXY_URL = "https://laidies-subscribe.wednesday-laidies.workers.dev";
 
-  if (isPreview) {
+const SUBSCRIBE_COPY = {
+  created: {
+    title: "Check your inbox ✨",
+    body: "Tap the link we just sent and you're in — check spam if it's playing hard to get.",
+  },
+  already: {
+    title: "You're already on the list ✨",
+    body: "Nothing to do — Wednesday's drop is already headed your way.",
+  },
+  invalid: {
+    title: "That didn't go through 💔",
+    body: "Give it another tap, or use the Buttondown link just below.",
+  },
+  rate_limited: {
+    title: "That didn't go through 💔",
+    body: "Too many tries in a row — give it a minute, then try again.",
+  },
+  sending: "Sending…",
+};
+
+const SUBSCRIBE_STATE_CLASSES = [
+  "subscribe-form--sending",
+  "subscribe-form--success",
+  "subscribe-form--already",
+  "subscribe-form--error",
+];
+
+const SUBSCRIBE_KIND_TO_STATE = {
+  created: "success",
+  already: "already",
+  invalid: "error",
+  rate_limited: "error",
+};
+
+function setSubscribeFormState(form, state) {
+  SUBSCRIBE_STATE_CLASSES.forEach((cls) => form.classList.remove(cls));
+  if (state) form.classList.add(`subscribe-form--${state}`);
+}
+
+function renderSubscribeResult(form, kind) {
+  const result = form.querySelector("[data-result]");
+  if (!result) return;
+  const copy = SUBSCRIBE_COPY[kind];
+  if (!copy) return;
+  result.innerHTML = "";
+
+  const block = document.createElement("div");
+  block.className = `subscribe-result is-${kind}`;
+
+  const mark = document.createElement("span");
+  mark.className = "subscribe-result__mark";
+  mark.setAttribute("aria-hidden", "true");
+  // Heart-break for error variants, check for success/already.
+  mark.textContent = (kind === "invalid" || kind === "rate_limited") ? "✕" : "✓";
+  block.appendChild(mark);
+
+  const title = document.createElement("strong");
+  title.className = "subscribe-result__title";
+  title.textContent = copy.title;
+  block.appendChild(title);
+
+  const body = document.createElement("p");
+  body.className = "subscribe-result__body";
+  body.textContent = copy.body;
+  block.appendChild(body);
+
+  result.appendChild(block);
+  result.hidden = false;
+
+  setSubscribeFormState(form, SUBSCRIBE_KIND_TO_STATE[kind] || "error");
+}
+
+function clearSubscribeResult(form) {
+  const result = form.querySelector("[data-result]");
+  if (!result) return;
+  result.innerHTML = "";
+  result.hidden = true;
+}
+
+function resetSubscribeButton(form) {
+  const button = form.querySelector("button[type='submit']");
+  if (!button) return;
+  const label = button.getAttribute("data-default-label") || "Subscribe";
+  button.disabled = false;
+  button.textContent = label;
+}
+
+function setSubscribeButtonSending(form) {
+  const button = form.querySelector("button[type='submit']");
+  if (!button) return;
+  if (!button.getAttribute("data-default-label")) {
+    button.setAttribute("data-default-label", button.textContent.trim() || "Subscribe");
+  }
+  button.disabled = true;
+  button.textContent = SUBSCRIBE_COPY.sending;
+}
+
+function fallbackSubscribeViaIframe(form) {
+  // Backstop for any unclean Worker failure (network, CORS, 5xx, timeout):
+  // re-submit via the legacy hidden-iframe target so Buttondown still
+  // receives the request, then show the SAME strong success swap as the
+  // real-Worker created path. The iframe POST is reliable enough (it's
+  // today's actual production behaviour); over-optimistic-strong beats
+  // weak-text-that-reads-as-failure — which was the original complaint.
+  try {
+    HTMLFormElement.prototype.submit.call(form);
+  } catch {
+    /* nothing more we can do */
+  }
+  renderSubscribeResult(form, "created");
+}
+
+async function callSubscribeProxy(email, signal) {
+  const response = await fetch(SUBSCRIBE_PROXY_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    body: JSON.stringify({ email }),
+    signal,
+  });
+  if (!response.ok) throw new Error(`proxy_status_${response.status}`);
+  const data = await response.json();
+  const status = String(data?.status || "");
+  if (!status) throw new Error("proxy_missing_status");
+  return status;
+}
+
+function attachSubscribeHandler(form) {
+  if (!form || form.dataset.subscribeWired === "true") return;
+  form.dataset.subscribeWired = "true";
+
+  form.addEventListener("submit", async (event) => {
+    const action = form.getAttribute("action") || "";
+    const isPreview = !action || action === "#";
+    if (isPreview) {
+      event.preventDefault();
+      renderSubscribeResult(form, "invalid");
+      return;
+    }
+
     event.preventDefault();
-    subscribeStatus.textContent = "Buttondown is not connected yet. Create the newsletter, send the username, and this form can start collecting subscribers.";
-    return;
-  }
+    const input = form.querySelector("input[type='email']");
+    const email = String(input?.value || "").trim();
+    if (!email) return;
 
-  if (subscribeStatus) {
-    subscribeStatus.textContent = "Check your inbox to confirm. You can stay right here: no empty archive detour required.";
-    subscribeStatus.classList.add("is-success");
-  }
-});
+    setSubscribeFormState(form, "sending");
+    setSubscribeButtonSending(form);
+    clearSubscribeResult(form);
 
-const miniSubscribeForm = document.querySelector(".mini-subscribe-form");
-const miniSubscribeStatus = document.querySelector("#miniSubscribeStatus");
-miniSubscribeForm?.addEventListener("submit", () => {
-  if (miniSubscribeStatus) {
-    miniSubscribeStatus.textContent = "Request sent to Buttondown. Check your inbox to confirm.";
-    miniSubscribeStatus.classList.add("is-success");
-  }
-});
+    // If no proxy URL is configured yet, treat as a Worker failure: fire the
+    // iframe submit and show the strong success swap. Same path the runtime
+    // fallback takes when the Worker is unreachable.
+    if (!SUBSCRIBE_PROXY_URL) {
+      fallbackSubscribeViaIframe(form);
+      return;
+    }
+
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 6000);
+
+    let result;
+    try {
+      result = await callSubscribeProxy(email, controller.signal);
+    } catch {
+      clearTimeout(timer);
+      fallbackSubscribeViaIframe(form);
+      return;
+    }
+    clearTimeout(timer);
+
+    if (result === "created" || result === "already" || result === "invalid" || result === "rate_limited") {
+      // Error variants reset the button so the user can retry inline.
+      if (result === "invalid" || result === "rate_limited") resetSubscribeButton(form);
+      renderSubscribeResult(form, result);
+      return;
+    }
+    // "error" or any unknown status → soft fallback to iframe path.
+    fallbackSubscribeViaIframe(form);
+  });
+}
+
+attachSubscribeHandler(subscribeForm);
+attachSubscribeHandler(document.querySelector(".mini-subscribe-form"));
 
 function cleanSpotlightValue(formData, key, fallback = "") {
   return String(formData.get(key) || fallback).trim();

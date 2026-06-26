@@ -24,7 +24,7 @@
     <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="apple-touch-icon" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
-    <link rel="stylesheet" href="styles.css?v=issue-02-live-1" />
+    <link rel="stylesheet" href="styles.css?v=issue-02-live-3" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&family=JetBrains+Mono:wght@400&family=Inter:wght@400;600;700&display=swap">
@@ -308,17 +308,19 @@
             <aside class="mini-subscribe" aria-label="Quick subscribe">
         <p>New episode every Wednesday. No spam. No beige.</p>
         <form
-          class="mini-subscribe-form"
+          class="mini-subscribe-form subscribe-form"
           action="https://buttondown.com/api/emails/embed-subscribe/laidies"
           method="post"
           target="laidiesMiniSubscribeFrame"
         >
-          <div class="field-row">
-            <input name="email" type="email" placeholder="itsbritneybitch@icon.com" required aria-label="Email address" />
-            <button type="submit">Subscribe</button>
+          <div class="subscribe-form__fields">
+            <div class="field-row">
+              <input name="email" type="email" placeholder="itsbritneybitch@icon.com" required aria-label="Email address" />
+              <button type="submit" data-default-label="Subscribe">Subscribe</button>
+            </div>
           </div>
+          <div class="subscribe-form__result" data-result hidden aria-live="polite"></div>
         </form>
-        <p id="miniSubscribeStatus" aria-live="polite"></p>
         <p class="subscribe-fallback" style="margin:8px 0 0;font-size:0.82rem;"><a href="https://buttondown.com/laidies" target="_blank" rel="noopener" style="color:#6f263f;font-weight:800;">Subscribe through Buttondown</a></p>
         <iframe class="subscribe-frame" name="laidiesMiniSubscribeFrame" title="Mini subscription response" aria-hidden="true"></iframe>
       </aside>
@@ -355,7 +357,7 @@
     </footer>
     <script src="content/site/site-data.js?v=episode-03-season-card-fix"></script>
     <script src="content/site/supabase-config.js?v=issue-02-live-1"></script>
-    <script src="script.js?v=wm1"></script>
+    <script src="script.js?v=wm3"></script>
   <script>
 (function(){
   var btn = document.querySelector(".hamburger-btn");
