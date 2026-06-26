@@ -213,6 +213,19 @@ window.LAIDIES_SITE_DATA = {
         ],
         "hotGossPlacement": "homepage-only"
       },
+      "homepageHero": {
+        "tagTitle": "THE <span class=\"brand-word-inline\" aria-label=\"LAiDIES\"><span aria-hidden=\"true\">L<span data-brand-ai>Ai</span>DIES</span></span> GRIMOIRE",
+        "image": "assets/portal/laidies-grimoire-teaser.png",
+        "imageAlt": "The plum-and-gold LAiDIES Grimoire — closed cover and open spread in a styled flat-lay",
+        "dek": "The book with the answers, open at last. The words, the tools, the receipts, and how to actually use AI — so you stop guessing.",
+        "ctaLabel": "OPEN THE GRIMOIRE",
+        "ctaUrl": "grimoire.html?open=1",
+        "lore": "Buffy, the Halliwells, the girls of The Craft — every one of them had a power she had to learn to wield. Yours is AI — and like them, you’ve got a whole story arc to master the craft, episode by episode, ritual by ritual. Demons not included.",
+        "ritualImage": "assets/portal/laidies-grimoire-closed-v1.png",
+        "ritualImageAlt": "The plum-and-gold LAiDIES Grimoire — closed cover, gold-embossed star on a soft styled surface",
+        "ritualUrl": "grimoire.html?open=1",
+        "ritualDek": "Open the Grimoire — the book with the answers. Start with Chapter 1 or raid the shelf."
+      },
       "issuePageStatus": "manual-page-kept"
     }
   ],

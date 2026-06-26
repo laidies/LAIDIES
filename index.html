@@ -1631,24 +1631,25 @@
         </div>
       </section>
 
-      <!-- CURRENT EPISODE -->
-      <!-- ROUTE 1 — READ / THIS WEEK (current episode feature merged with the read options) -->
+      <!-- CURRENT EPISODE — content hydrated from content/site/site-data.js
+           (window.LAIDIES_SITE_DATA → latest published episode → homepageHero).
+           The hardcoded values below are a static fallback so the page reads
+           correctly if the data file fails to load; the inline render block
+           further down replaces them at runtime. To update the hero copy or
+           image for a new episode, edit homepageHero in site-data.js. -->
       <section class="home-current-episode" id="episodes" aria-labelledby="episodes-title">
         <article class="home-current-card laidies-standout">
           <figure>
-            <!-- CURRENT EPISODE — update on new episode publish -->
-            <img loading="eager" src="assets/portal/laidies-grimoire-teaser.png" alt="The plum-and-gold LAiDIES Grimoire — closed cover and open spread in a styled flat-lay" />
+            <img data-home-hero="image" loading="eager" src="assets/portal/laidies-grimoire-teaser.png" alt="The plum-and-gold LAiDIES Grimoire — closed cover and open spread in a styled flat-lay" />
           </figure>
           <div class="home-current-copy">
             <p class="eyebrow laidies-eyebrow">CURRENT WEDNESDAY EPISODE</p>
-            <!-- CURRENT EPISODE — update on new episode publish -->
-            <h2 id="episodes-title" class="laidies-section-title">EPISODE 4: THE <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> GRIMOIRE</h2>
-            <p>The book with the answers, open at last. The words, the tools, the receipts, and how to actually use AI &mdash; so you stop guessing.</p>
+            <h2 id="episodes-title" data-home-hero="headline" class="laidies-section-title">EPISODE 4: THE <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> GRIMOIRE</h2>
+            <p data-home-hero="dek">The book with the answers, open at last. The words, the tools, the receipts, and how to actually use AI &mdash; so you stop guessing.</p>
             <div class="home-current-actions">
-              <!-- CURRENT EPISODE — update on new episode publish -->
-              <a class="button primary" href="grimoire.html?open=1">OPEN THE GRIMOIRE</a>
+              <a data-home-hero="cta" class="button primary" href="grimoire.html?open=1">OPEN THE GRIMOIRE</a>
             </div>
-            <p>Buffy, the Halliwells, the girls of The Craft &mdash; every one of them had a power she had to learn to wield. Yours is AI &mdash; and like them, you&rsquo;ve got a whole story arc to master the craft, episode by episode, ritual by ritual. Demons not included.</p>
+            <p data-home-hero="lore">Buffy, the Halliwells, the girls of The Craft &mdash; every one of them had a power she had to learn to wield. Yours is AI &mdash; and like them, you&rsquo;ve got a whole story arc to master the craft, episode by episode, ritual by ritual. Demons not included.</p>
           </div>
         </article>
 
@@ -1660,11 +1661,10 @@
             <p>You wouldn&rsquo;t drop into a series at the finale and expect to know why everyone&rsquo;s crying tears of pure joy. Start at the premiere &mdash; Episode 1, in order, the way it&rsquo;s meant to be binged. It builds for a reason.</p>
           </a>
           <p class="home-route-pill home-route-pill--pair">Welcome back</p>
-          <a class="home-start-card home-start-card--quiet route-card route-card--2" href="grimoire.html?open=1">
-            <!-- CURRENT EPISODE — update on new episode publish -->
-            <img loading="lazy" class="home-route-img--top" src="assets/portal/laidies-grimoire-closed-v1.png" alt="The plum-and-gold LAiDIES Grimoire — closed cover, gold-embossed star on a soft styled surface" />
+          <a data-home-hero="ritual-link" class="home-start-card home-start-card--quiet route-card route-card--2" href="grimoire.html?open=1">
+            <img data-home-hero="ritual-image" loading="lazy" class="home-route-img--top" src="assets/portal/laidies-grimoire-closed-v1.png" alt="The plum-and-gold LAiDIES Grimoire — closed cover, gold-embossed star on a soft styled surface" />
             <strong>This Week&rsquo;s Ritual</strong>
-            <p>Open the Grimoire &mdash; the book with the answers. Start with Chapter 1 or raid the shelf.</p>
+            <p data-home-hero="ritual-dek">Open the Grimoire &mdash; the book with the answers. Start with Chapter 1 or raid the shelf.</p>
           </a>
           <a class="home-start-card home-start-card--quiet route-card route-card--3" href="episodes.html">
             <img loading="lazy" src="assets/9-to-5-chaos.png" alt="9-to-5 chaos desk scene — green iBook with AOL, Vogue, planner, and a GIRL POWER ENERGY neon" />
@@ -1875,8 +1875,57 @@
     </footer>
 
     <script src="content/site/supabase-config.js" defer></script>
-    <script src="content/site/site-data.js" defer></script>
+    <script src="content/site/site-data.js?v=hero-1" defer></script>
     <script src="script.js?v=wm1" defer></script>
+    <script>
+      // Hydrate the homepage hero from window.LAIDIES_SITE_DATA.
+      // Picks the highest-numbered published episode, reads its
+      // homepageHero block, falls back to canonical fields if the
+      // block is absent, and leaves the static markup in place if
+      // the data file fails to load. DOMContentLoaded fires after
+      // all deferred scripts execute, so site-data.js is ready.
+      (function () {
+        function hydrateHomepageHero() {
+          var data = window.LAIDIES_SITE_DATA || {};
+          var episodes = data.episodes || [];
+          var current = episodes
+            .filter(function (ep) { return ep && ep.status === "published" && ep.number; })
+            .sort(function (a, b) { return Number(b.number) - Number(a.number); })[0];
+          if (!current) {
+            console.warn("[homepage-hero] No published episode in LAIDIES_SITE_DATA; leaving static fallback.");
+            return;
+          }
+          var section = document.querySelector("section.home-current-episode");
+          if (!section) return;
+          var hero = current.homepageHero || {};
+          function $(name) { return section.querySelector('[data-home-hero="' + name + '"]'); }
+          function setText(el, value) { if (el && value != null) el.textContent = String(value); }
+          function setHtml(el, value) { if (el && value != null) el.innerHTML = String(value); }
+          function setAttr(el, attr, value) { if (el && value != null) el.setAttribute(attr, String(value)); }
+
+          var tagTitle = hero.tagTitle || current.title || "";
+          setHtml($("headline"), "EPISODE " + current.number + ": " + tagTitle);
+          setText($("dek"), hero.dek || current.oneLineDescription);
+          var ctaEl = $("cta");
+          setAttr(ctaEl, "href", hero.ctaUrl || current.issueUrl);
+          setText(ctaEl, hero.ctaLabel);
+          setText($("lore"), hero.lore);
+          var heroImg = $("image");
+          setAttr(heroImg, "src", hero.image || current.heroImage);
+          setAttr(heroImg, "alt", hero.imageAlt);
+          var ritualImg = $("ritual-image");
+          setAttr(ritualImg, "src", hero.ritualImage || hero.image || current.heroImage);
+          setAttr(ritualImg, "alt", hero.ritualImageAlt);
+          setAttr($("ritual-link"), "href", hero.ritualUrl || hero.ctaUrl || current.issueUrl);
+          setText($("ritual-dek"), hero.ritualDek);
+        }
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", hydrateHomepageHero);
+        } else {
+          hydrateHomepageHero();
+        }
+      })();
+    </script>
     <script>
       (function(){
         var btn = document.querySelector(".hamburger-btn");

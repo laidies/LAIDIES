@@ -113,7 +113,9 @@
       var latest = episodes
         .filter(function (episode) { return episode.status === "published" && episode.number; })
         .sort(function (a, b) { return Number(b.number) - Number(a.number); })[0];
-      return latest?.number ? String(Number(latest.number)) : "3";
+      if (latest?.number) return String(Number(latest.number));
+      console.warn("[brand-polish] LAIDIES_SITE_DATA.episodes empty or unpublished — falling back to issue 1. Check that content/site/site-data.js loaded before this script.");
+      return "1";
     }
 
     function draftQueryPart() {

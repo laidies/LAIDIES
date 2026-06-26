@@ -90,7 +90,7 @@ if (document.readyState === "loading") {
   if (!currentScript?.src) return;
   window.__laidiesBrandPolishRequested = true;
   const polishScript = document.createElement("script");
-  polishScript.src = new URL("content/site/brand-polish.js?v=wm1", currentScript.src).toString();
+  polishScript.src = new URL("content/site/brand-polish.js?v=wm2", currentScript.src).toString();
   polishScript.defer = true;
   document.head.appendChild(polishScript);
 })();
