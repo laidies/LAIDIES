@@ -2694,7 +2694,7 @@
         <span class="charm-kicker">Secret Charm Found</span>
         <img class="charm-icon" src="assets/charms/tamagotchi-charm-256.png" alt="Pink mini digital pet charm sticker" width="256" height="256">
         <h2 id="charmTitle">This Week&rsquo;s Charm</h2>
-        <p id="charmBody">You found this week&rsquo;s hidden charm — just for this visit. Your charm collection is coming soon.</p>
+        <p id="charmBody">You found this week&rsquo;s hidden charm — just for this visit. Your charm collection is still being strung.</p>
         <span class="charm-meta" id="charmMeta">Just for this visit</span>
         <button class="primary-button charm-close" id="charmClose" type="button">← Back to the Bag</button>
       </section>
@@ -3068,7 +3068,7 @@
         button.dataset.charmId = "issue-" + issuePad + "-" + config.idSuffix;
         button.dataset.charmIssue = String(issue);
         button.dataset.charmTitle = config.title;
-        button.dataset.charmBody = config.objectLabel + " found — just for this visit. Your charm collection is coming soon.";
+        button.dataset.charmBody = config.objectLabel + " found — just for this visit. Your charm collection is still being strung.";
         button.dataset.charmMeta = "Episode " + issuePad + " charm · just for this visit";
         button.dataset.charmKind = "issue-charm";
         button.dataset.charmSlot = "issue-" + issuePad;
@@ -3427,8 +3427,8 @@
 
         setActionCopy("issue", ACTION_LABELS.issue, "Episode " + issuePad);
         setActionCopy("practice", ACTION_LABELS.practice, "Study Pack");
-        setActionCopy("quiz", quizAvailable ? ACTION_LABELS.quiz : "Quiz coming soon", quizAvailable ? "Take Quiz" : "Coming soon");
-        setActionCopy("printable", printableUrl ? ACTION_LABELS.printable : "Cheat sheet coming soon", printableUrl ? "Cheat Sheet" : "Coming soon");
+        setActionCopy("quiz", quizAvailable ? ACTION_LABELS.quiz : "Quiz in the works", quizAvailable ? "Take Quiz" : "In the works");
+        setActionCopy("printable", printableUrl ? ACTION_LABELS.printable : "Cheat sheet in the works", printableUrl ? "Cheat Sheet" : "In the works");
         setActionCopy("tryon", ACTION_LABELS.tryon, "Try-On");
         setActionCopy("dj", ACTION_LABELS.dj, "DJ Booth");
         setActionCopy("connect", ACTION_LABELS.connect, "Meet");
@@ -3463,10 +3463,10 @@
           element.setAttribute("aria-label", "Open practice options for Episode " + issuePad);
         });
         document.querySelectorAll('[data-action="quiz"]').forEach(function(element) {
-          element.setAttribute("aria-label", quizAvailable ? "Take the Episode " + issuePad + " quiz" : "Episode " + issuePad + " quiz is coming soon");
+          element.setAttribute("aria-label", quizAvailable ? "Take the Episode " + issuePad + " quiz" : "Episode " + issuePad + " quiz is in the works");
         });
         document.querySelectorAll('[data-action="printable"]').forEach(function(element) {
-          element.setAttribute("aria-label", printableUrl ? "Open the Episode " + issuePad + " printable cheat sheet" : "Episode " + issuePad + " cheat sheet is coming soon");
+          element.setAttribute("aria-label", printableUrl ? "Open the Episode " + issuePad + " printable cheat sheet" : "Episode " + issuePad + " cheat sheet is in the works");
         });
         document.querySelectorAll('[data-action="funpack"]').forEach(function(element) {
           element.setAttribute("aria-label", "Open THE EXTRA CREDIT for Episode " + issuePad);
@@ -3953,7 +3953,7 @@
         lastCharmTrigger = trigger;
         saveSecretCharm(trigger);
         var title = trigger.dataset.charmTitle || "Wednesday Charm";
-        var body = trigger.dataset.charmBody || "Found just for this visit — your charm collection is coming soon.";
+        var body = trigger.dataset.charmBody || "Found just for this visit — your charm collection is still being strung.";
         var meta = trigger.dataset.charmMeta || "Just for this visit";
         if (charmIcon) {
           charmIcon.src = trigger.dataset.charmAsset || "assets/charms/tamagotchi-charm-256.png";
@@ -3965,7 +3965,7 @@
         charmReveal.hidden = false;
         markActionComplete("charm");
         burstCharmConfetti();
-        statusMessage.textContent = title + " found — just for this visit. Your charm collection is coming soon.";
+        statusMessage.textContent = title + " found — just for this visit. Your charm collection is still being strung.";
         charmClose.focus({ preventScroll: true });
       }
 
