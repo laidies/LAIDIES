@@ -11,8 +11,10 @@
     { src: '/content/music/dj-jaidy-week-01-on-wednesday-we-do-ai.mp3', title: 'On Wednesdays We Do AI' },
     { src: '/content/music/dj-jaidy-week-02-tell-me-what-you-want.mp3', title: 'Tell Me What You Want' },
     { src: '/content/music/dj-jaidy-week-03-dont-be-chutney-on-the-stand.mp3', title: "Don't Be Chutney on the Stand" },
+    { src: '/content/music/dj-jaidy-week-04-open-the-grimoire.mp3', title: 'Open the Grimoire' },
     { src: '/content/music/dj-jaidy-impossible-to-underestimate-you.mp3', title: 'Impossible to Underestimate You' },
-    { src: '/content/music/debs-tomorrow-problem.mp3', title: "Tomorrow\'s Problem" }
+    { src: '/content/music/debs-tomorrow-problem.mp3', title: "Tomorrow\'s Problem" },
+    { src: '/content/music/dj-jaidy-every-slaiyer-needs-a-watcher.mp3', title: 'Every SLAiYER Needs a Watcher' }
   ];
 
   const STORAGE_KEY = 'laidies-mini-player';
