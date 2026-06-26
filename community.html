@@ -191,12 +191,9 @@
       border-bottom: 1px solid rgba(75, 33, 72, 0.16);
       position: fixed;
       top: 0;
-      left: 0;
-      right: 0;
       z-index: 100;
       backdrop-filter: blur(10px);
       box-shadow: 0 12px 28px rgba(75, 33, 72, 0.08);
-      transform: translateZ(0); /* Safari fix: stable compositing layer so the fixed header isn't dropped on scroll; do not remove without re-testing on Safari; makes the header a containing block for future fixed descendants. This page doesn't load styles.css, so the fix lives inline. */
     }
     .site-header .brand {
       line-height: 0;
