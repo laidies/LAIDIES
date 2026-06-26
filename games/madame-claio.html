@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Madame CLAi-O | LAiDIES Clubhouse</title>
     <meta name="description" content="Ask the crystal ball for a career and life reading. Practical advice, late-night-commercial drama." />
-    <meta name="theme-color" content="#b95d78" />
+    <meta name="theme-color" content="#1a0a12" />
     <link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,9 @@
       }
 
       body {
-        background: linear-gradient(160deg, #1a0a12, #2d0f1f, #1a0a12) !important;
+        /* Background painted by the .laidies-bg--dark layer (laidies-bg.css).
+           transparent !important neutralizes styles.css's body !important. */
+        background: transparent !important;
         min-height: 100vh;
         font-family: 'Inter', sans-serif;
         color: #f0e6ec;
@@ -501,26 +503,7 @@
       .badge-reveal strong { color: var(--hotline-gold); font-size: 1.05rem; }
       .badge-reveal p { color: rgba(255, 248, 252, 0.92) !important; margin-top: 8px; font-size: 0.9rem; }
 
-      /* ===== Ambient background stars ===== */
-      .bg-stars {
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        z-index: 0;
-        overflow: hidden;
-      }
-      .bg-star {
-        position: absolute;
-        width: 2px;
-        height: 2px;
-        background: var(--hotline-gold);
-        border-radius: 50%;
-        animation: twinkle var(--dur) ease-in-out infinite var(--delay);
-      }
-      @keyframes twinkle {
-        0%, 100% { opacity: 0.1; }
-        50% { opacity: 0.7; }
-      }
+      /* Ambient background stars now provided by .laidies-bg--dark (laidies-bg.css). */
 
       /* Responsive adjustments */
       @media (max-width: 600px) {
@@ -541,10 +524,11 @@
       plausible.init()
     </script>
       <link rel="stylesheet" href="../content/site/mini-player.css">
+    <link rel="stylesheet" href="../content/site/laidies-bg.css?v=laidies-bg-1" />
 </head>
   <body>
-    <!-- Ambient background stars -->
-    <div class="bg-stars" id="bgStars"></div>
+    <!-- Site background component (dark variant) -->
+    <div class="laidies-bg laidies-bg--dark" aria-hidden="true"></div>
 
     <header class="site-header">
       <a href="../clubhouse.html" style="color: var(--hotline-pink, #b95d78); font-size: 0.85rem; font-weight: 700; padding: 4px 8px; text-decoration: none; white-space: nowrap;">← Back to Clubhouse</a>
@@ -873,19 +857,7 @@
         }, 1500);
       });
 
-      // Generate ambient background stars
-      (function() {
-        const container = document.getElementById('bgStars');
-        for (let i = 0; i < 30; i++) {
-          const star = document.createElement('div');
-          star.className = 'bg-star';
-          star.style.left = Math.random() * 100 + '%';
-          star.style.top = Math.random() * 100 + '%';
-          star.style.setProperty('--dur', (2 + Math.random() * 4) + 's');
-          star.style.setProperty('--delay', (Math.random() * 3) + 's');
-          container.appendChild(star);
-        }
-      })();
+      // Ambient background stars now seeded by laidies-bg.js (.laidies-bg--dark).
     </script>
     <script>
       (function() {
@@ -934,5 +906,6 @@
     </script>
       <script src="../content/site/mini-player.js?v=ep-04-songs-1"></script>
     <script src="../content/site/brand-polish.js?v=wm1" defer></script>
+    <script src="../content/site/laidies-bg.js?v=laidies-bg-1" defer></script>
 </body>
 </html>

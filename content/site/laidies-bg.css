@@ -1,0 +1,187 @@
+/* ============================================================
+   LAiDIES BACKGROUND COMPONENT  (.laidies-bg)
+   Site-wide two-variant animated background. Generalized COPY of
+   the maintained grimoire gr-* system (content/grimoire.css) —
+   the grimoire keeps its own gr-* copy untouched; this is the
+   parallel, page-agnostic version for every other surface.
+
+   Like the grimoire shell, BOTH variants run two layers at once:
+     • twinkle stars  (fade on/off in place)
+     • floating glitter (drift upward + glint)
+   DARK  = gold/white on deep plum (Mme CLAi-O backdrop; stars only).
+   LIGHT = bright/iridescent twinkle + drifting glitter on pink-cream.
+
+   Usage:
+     <div class="laidies-bg laidies-bg--light" aria-hidden="true"></div>
+   as the FIRST body child, set the page body background transparent,
+   and load laidies-bg.js. The layer sits at z-index:-1 so adopting
+   pages need NO content z-index edits — but the body background MUST
+   be transparent (else the layer is hidden behind it).
+   ============================================================ */
+
+.laidies-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* ============================================================
+   DARK variant (Madame CLAi-O / grimoire backdrop) — APPROVED.
+   Twinkling gold stars. Do not change.
+   ============================================================ */
+.laidies-bg--dark {
+  background:
+    radial-gradient(circle at 50% 16%, rgba(185, 93, 120, 0.22), transparent 58%),
+    linear-gradient(160deg, #1a0a12, #2d0f1f, #1a0a12);
+}
+/* static baked starfield — no-JS baseline (gold + white on plum) */
+.laidies-bg--dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-image:
+    radial-gradient(1.6px 1.6px at 18% 28%, rgba(255, 215, 0, 0.55), transparent),
+    radial-gradient(1.4px 1.4px at 68% 18%, rgba(255, 255, 255, 0.45), transparent),
+    radial-gradient(1.2px 1.2px at 38% 66%, rgba(255, 215, 0, 0.40), transparent),
+    radial-gradient(1.6px 1.6px at 84% 58%, rgba(255, 255, 255, 0.38), transparent),
+    radial-gradient(1.3px 1.3px at 54% 86%, rgba(255, 215, 0, 0.42), transparent),
+    radial-gradient(1.1px 1.1px at 9% 78%, rgba(255, 255, 255, 0.32), transparent),
+    radial-gradient(1.3px 1.3px at 92% 33%, rgba(255, 215, 0, 0.36), transparent),
+    radial-gradient(1.1px 1.1px at 28% 92%, rgba(255, 255, 255, 0.30), transparent);
+}
+.laidies-bg--dark .laidies-bg__star {
+  background: #c9a227;
+  box-shadow: 0 0 6px rgba(255, 215, 100, 0.70), 0 0 2px rgba(255, 230, 150, 0.90);
+}
+.laidies-bg--dark .laidies-bg__star.is-white {
+  background: #fff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.85), 0 0 2px rgba(255, 255, 255, 0.95);
+}
+.laidies-bg--dark .laidies-bg__star.is-large {
+  box-shadow: 0 0 10px rgba(255, 215, 100, 0.85), 0 0 3px rgba(255, 235, 165, 1);
+}
+
+/* ============================================================
+   LIGHT variant (full-page) — BOTH layers, like the grimoire shell.
+   ============================================================ */
+.laidies-bg--light {
+  background:
+    radial-gradient(circle at 16% 6%, rgba(36, 123, 131, 0.14), transparent 30rem),
+    radial-gradient(circle at 86% 0%, rgba(155, 63, 95, 0.24), transparent 28rem),
+    linear-gradient(160deg, #f3dee8 0%, #fbeae4 48%, #efe1e8 100%);
+}
+/* subtle BRIGHT static baseline (no-JS / reduced-motion) — warm, never dark */
+.laidies-bg--light::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-image:
+    radial-gradient(2px 2px at 18% 30%, rgba(255, 215, 0, 0.42), transparent),
+    radial-gradient(1.8px 1.8px at 68% 20%, rgba(244, 185, 160, 0.40), transparent),
+    radial-gradient(2px 2px at 40% 70%, rgba(255, 194, 227, 0.38), transparent),
+    radial-gradient(1.8px 1.8px at 84% 60%, rgba(255, 215, 0, 0.36), transparent),
+    radial-gradient(2px 2px at 55% 88%, rgba(244, 185, 160, 0.38), transparent),
+    radial-gradient(1.6px 1.6px at 10% 80%, rgba(255, 194, 227, 0.34), transparent);
+}
+/* twinkle layer — bright gold / rose-gold flecks with glow, fade in place */
+.laidies-bg--light .laidies-bg__star {
+  width: 7px;
+  height: 7px;
+  /* bright white core -> bright gold; shaped as a 4-point sparkle, not a dot.
+     glow via drop-shadow (box-shadow is clipped away by clip-path). */
+  background: radial-gradient(circle at 42% 38%, #ffffff 0%, #ffe08a 55%, #ffd05a 100%);
+  border-radius: 0;
+  clip-path: polygon(50% 0%, 58% 42%, 100% 50%, 58% 58%, 50% 100%, 42% 58%, 0% 50%, 42% 42%);
+  box-shadow: none;
+  filter: drop-shadow(0 0 4px rgba(255, 198, 64, 0.95));
+}
+.laidies-bg--light .laidies-bg__star.is-white {
+  background: radial-gradient(circle at 42% 38%, #ffffff 0%, #ffc2e0 55%, #ff9ecb 100%);
+  filter: drop-shadow(0 0 4px rgba(255, 138, 196, 0.92));
+}
+.laidies-bg--light .laidies-bg__star.is-large {
+  width: 11px;
+  height: 11px;
+  filter: drop-shadow(0 0 6px rgba(255, 198, 64, 1));
+}
+/* float layer look — small SHARP sparkle flecks (not soft orbs), bright
+   white core + colored glow, glinting as they rise */
+.laidies-bg--light .laidies-bg__glitter-dot::before {
+  /* solid bright core -> color (no transparent edge, so the star points read);
+     4-point sparkle shape, glow via drop-shadow (box-shadow is clipped). */
+  background: radial-gradient(circle at 42% 38%, #ffffff 0%, var(--color, #ffd700) 60%, var(--color, #ffd700) 100%);
+  border-radius: 0;
+  clip-path: polygon(50% 0%, 58% 42%, 100% 50%, 58% 58%, 50% 100%, 42% 58%, 0% 50%, 42% 42%);
+  filter: drop-shadow(0 0 5px var(--color, #ffd700));
+}
+
+/* ============================================================
+   SHARED animated layers (JS-seeded)
+   ============================================================ */
+/* twinkle stars */
+.laidies-bg__field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.laidies-bg__star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  animation: laidies-bg-twinkle var(--dur, 3s) ease-in-out infinite var(--delay, 0s);
+}
+.laidies-bg__star.is-large { width: 4px; height: 4px; }
+@keyframes laidies-bg-twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.85); }
+  50%      { opacity: 1;    transform: scale(1.15); }
+}
+
+/* floating glitter — drift up; the visible sparkle + glow lives on ::before
+   and shimmers (scale/opacity) on TOP of the rise so it glints */
+.laidies-bg__glitter {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.laidies-bg__glitter-dot {
+  position: absolute;
+  top: 0;
+  width: var(--size, 4px);
+  height: var(--size, 4px);
+  opacity: 0;
+  animation: laidies-bg-rise var(--duration, 9s) var(--delay, 0s) infinite linear;
+  will-change: transform, opacity;
+}
+.laidies-bg__glitter-dot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  animation: laidies-bg-shine var(--shine, 1.6s) ease-in-out infinite var(--shine-delay, 0s);
+}
+@keyframes laidies-bg-rise {
+  0%   { transform: translateY(100vh); opacity: 0; }
+  12%  { opacity: 1; }
+  88%  { opacity: 1; }
+  100% { transform: translateY(-28px); opacity: 0; }
+}
+@keyframes laidies-bg-shine {
+  0%, 100% { transform: scale(0.7); opacity: 0.65; }
+  50%      { transform: scale(1.3); opacity: 1; }
+}
+
+/* ---------- reduced motion: static field, zero animation ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .laidies-bg__star { animation: none; opacity: 0.55; transform: none; }
+  .laidies-bg__glitter-dot { animation: none; opacity: 0; }
+  .laidies-bg__glitter-dot::before { animation: none; }
+}
