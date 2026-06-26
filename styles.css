@@ -9205,6 +9205,7 @@ h3 {
   z-index: 40;
   min-height: 82px;
   overflow: clip;
+  transform: translateZ(0); /* Safari fix: forces a stable compositing layer so the fixed header isn't dropped on scroll by the decorative ::before/::after pseudos' transform+filter. Do NOT remove without re-testing sticky on Safari. Note: this makes .site-header the containing block for any future position:fixed descendant. */
 }
 
 body {
