@@ -109,4 +109,4 @@ Episode 1 is the gold standard. The voice rules live in the writing lock at `ope
 
 1. **Weekly news lane name.** Retiring "Hot Goss" leaves the weekly news cards (including the fake pop-culture headline cards) without a label. Option A: keep them unbranded inside This Week ("the news"). Option B: a new in-world name. Pick one — don't let it sit unnamed and drift.
 2. **Potions Shelf reader label.** "Potions Shelf" is in-world but opaque on a nav bar. Decide whether a plain-English descriptor sits alongside it for new readers. The Legally Blonde subtitle — *"Feel comfortable using AI jargon in everyday life. I ~~object~~ prompt!"* — now rides on the Potions Shelf.
-3. **Where this index lives.** The writing lock and this index sit outside the git repo (only `Website/` is versioned). Decide a home where every agent reads it, and start every agent brief with "read the canon index first."
+3. **Where this index lives.** Resolved — the writing lock and this index now live in the repo at `Website/operations/voice/`, versioned alongside the site. Start every agent brief with "read the canon index first."
