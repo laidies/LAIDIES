@@ -48,10 +48,8 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background:
-        radial-gradient(circle at 20% 4%, rgba(200,220,224,0.22), transparent 24rem),
-        radial-gradient(circle at 88% 18%, rgba(255,228,122,0.1), transparent 20rem),
-        linear-gradient(180deg, #fffdfb 0%, #fbf6f5 56%, #fffdfb 100%);
+      /* Background painted by the .laidies-bg--light layer (laidies-bg.css). */
+      background: transparent;
       color: var(--plum);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
@@ -763,8 +761,10 @@
 
       </style>
   <link rel="stylesheet" href="/content/site/mini-player.css">
+  <link rel="stylesheet" href="content/site/laidies-bg.css?v=laidies-bg-1" />
 </head>
 <body>
+  <div class="laidies-bg laidies-bg--light" aria-hidden="true"></div>
   <!-- HEADER -->
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="LAiDIES home">
@@ -1247,5 +1247,6 @@
   </script>
   <script src="/content/site/mini-player.js?v=ep-04-songs-1"></script>
     <script src="content/site/brand-polish.js?v=wm1" defer></script>
+    <script src="content/site/laidies-bg.js?v=laidies-bg-1" defer></script>
 </body>
 </html>
