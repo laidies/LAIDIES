@@ -18,7 +18,7 @@ The durable reference system. Eight sections, each with one job:
 2. **The Power Map** — companies, models, tools, labs, people, ecosystem players.
 3. **The Coven** — real women shaping AI, tech, policy, culture, and work.
 4. **The Lore Closet** — pop-culture references, recurring jokes, LAiDIES canon.
-5. **The Potions Shelf** — AI terms, mechanisms, advanced concepts.
+5. **The Decoder** — AI terms, mechanisms, advanced concepts, in plain English. (Renamed from "The Potions Shelf".)
 6. **The Chamber of Receipts** — sources, official docs, citations, proof.
 7. **Ask the Book** — plain-English FAQ.
 8. **Patron Saints** — recurring fictional archetypes and symbolic guides.
@@ -36,7 +36,8 @@ These old names are **retired. Do not use them in public or internal copy.** Map
 | Setup School | **SLAiYER Handbook** | Watcher/Buffy framing may appear *inside* the Handbook as intro flavor only — never as a titled layer. |
 | The Watcher's Field Guide / Watcher's Handbook | **SLAiYER Handbook** | Same as above. |
 | Learn / Learn hub | **The LAiDIES Grimoire** | The Grimoire is the library umbrella. |
-| Glossary | **The Potions Shelf** | Terms live here. See open decision re: a plain-English label + the Legally Blonde subtitle. |
+| Glossary | **The Decoder** | Terms live here, fully explained in plain English. |
+| The Potions Shelf | **The Decoder** | In-world name retired for a clearer one — same section (AI terms, plain English). Site pages/URL still say "potions-shelf" until a rename pass. |
 | Who's Who | **The Coven** (women) / **The Power Map** (companies, models, others) | Split by subject. |
 | Reference Closet | **The Lore Closet** | Pop-culture references and analogies. |
 | Receipts (as a feature/page) | **The Chamber of Receipts** | A Q&A format can live inside it; the name is Chamber of Receipts. |
@@ -108,5 +109,5 @@ Episode 1 is the gold standard. The voice rules live in the writing lock at `ope
 ## 9. Open decisions (need Ali)
 
 1. **Weekly news lane name.** Retiring "Hot Goss" leaves the weekly news cards (including the fake pop-culture headline cards) without a label. Option A: keep them unbranded inside This Week ("the news"). Option B: a new in-world name. Pick one — don't let it sit unnamed and drift.
-2. **Potions Shelf reader label.** "Potions Shelf" is in-world but opaque on a nav bar. Decide whether a plain-English descriptor sits alongside it for new readers. The Legally Blonde subtitle — *"Feel comfortable using AI jargon in everyday life. I ~~object~~ prompt!"* — now rides on the Potions Shelf.
+2. **Potions Shelf reader label.** Resolved — renamed to **The Decoder** (plain-English name; "Potions Shelf" retired). The Legally Blonde subtitle — *"Feel comfortable using AI jargon in everyday life. I ~~object~~ prompt!"* — now rides on The Decoder. Site pages/URL still say "potions-shelf" until a separate rename pass.
 3. **Where this index lives.** Resolved — the writing lock and this index now live in the repo at `Website/operations/voice/`, versioned alongside the site. Start every agent brief with "read the canon index first."
