@@ -14,7 +14,8 @@
     { src: '/content/music/dj-jaidy-week-04-open-the-grimoire.mp3', title: 'Open the Grimoire' },
     { src: '/content/music/dj-jaidy-impossible-to-underestimate-you.mp3', title: 'Impossible to Underestimate You' },
     { src: '/content/music/debs-tomorrow-problem.mp3', title: "Tomorrow\'s Problem" },
-    { src: '/content/music/dj-jaidy-every-slaiyer-needs-a-watcher.mp3', title: 'Every SLAiYER Needs a Watcher' }
+    { src: '/content/music/dj-jaidy-every-slaiyer-needs-a-watcher.mp3', title: 'Every SLAiYER Needs a Watcher' },
+    { src: '/content/music/mme-clai-o-call-me-now.mp3', title: 'Mme CLAi-O (Call me now!)' }
   ];
 
   const STORAGE_KEY = 'laidies-mini-player';
