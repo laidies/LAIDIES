@@ -1538,9 +1538,12 @@
 
     <!-- Shared LAiDIES components (episode-quality headings + standout boxes). Homepage-only for now; linked last so .laidies-* wins on equal specificity. -->
     <link rel="stylesheet" href="content/laidies-components.css?v=hp-design-1" />
+    <link rel="stylesheet" href="content/site/laidies-bg.css?v=laidies-bg-1" />
+    <style>body { background: transparent !important; }</style>
 
 </head>
   <body>
+    <div class="laidies-bg laidies-bg--light" aria-hidden="true"></div>
     <main id="top">
       <!-- HEADER -->
       <header class="site-header">
@@ -2119,6 +2122,7 @@
     window.playAnthem = playAnthem;
     window.unlockAnthemCharm = unlockAnthemCharm;
     </script>
+    <script src="content/site/laidies-bg.js?v=laidies-bg-1" defer></script>
 
 </body>
 </html><!-- deploy trigger -->
