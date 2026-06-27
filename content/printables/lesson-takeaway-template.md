@@ -7,7 +7,7 @@ Use this structure for each Wednesday lesson so subscribers get something more d
 **Standard Footer**
 Add this to every page of every printable:
 
-`© 2026 lAIdies™ / Ali Eakin. Personal-use subscriber printable. Do not resell, repackage, redistribute, or use in paid training without permission. lAIdies.com`
+`© 2026 lAIdies™ / Ali Eakin. Personal-use subscriber printable. Do not resell, repackage, redistribute, or use in paid training without permission. lAIdies.ai`
 
 **Title**
 Name the skill in plain language.

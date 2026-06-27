@@ -64,7 +64,7 @@ Default to four pages:
 
 Every page must include:
 
-`© 2026 lAIdies / Ali Eakin. Personal-use subscriber printable. Do not resell, repackage, or use in paid training without permission. lAIdies.com`
+`© 2026 lAIdies / Ali Eakin. Personal-use subscriber printable. Do not resell, repackage, or use in paid training without permission. lAIdies.ai`
 
 ## Access Pattern
 
