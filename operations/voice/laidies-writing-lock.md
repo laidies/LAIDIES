@@ -414,7 +414,7 @@ The LAiDIES Grimoire includes:
 * Power Map
 * Coven
 * Lore Closet
-* Potions Shelf
+* The Decoder (formerly Potions Shelf)
 * Chamber of Receipts
 * Ask the Book
 * Patron Saints
