@@ -1,11 +1,15 @@
 // LAiDIES subscribe proxy — Cloudflare Worker.
 //
 // Holds the Buttondown API key (set as a Cloudflare Secret, never in repo).
-// Front-end (wearelaidies.com / www.wearelaidies.com) POSTs {email} here;
+// Front-end (laidies.ai / www.laidies.ai — plus wearelaidies.com / www.wearelaidies.com
+// through the domain transition) POSTs {email} here;
 // we call Buttondown, then return a small {status} envelope the page can
 // branch on. Raw Buttondown responses are never echoed to the browser.
 
 const ALLOWED_ORIGINS = new Set([
+  "https://laidies.ai",
+  "https://www.laidies.ai",
+  // kept valid through the wearelaidies.com -> laidies.ai transition:
   "https://wearelaidies.com",
   "https://www.wearelaidies.com",
 ]);

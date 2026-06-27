@@ -30,7 +30,7 @@ function readJsonIfExists(filePath, fallback) {
 }
 
 function publicUrl(pathname) {
-  return `https://wearelaidies.com/${pathname}`;
+  return `https://laidies.ai/${pathname}`;
 }
 
 function escapeHtml(value) {

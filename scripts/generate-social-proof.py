@@ -154,7 +154,7 @@ def make_cover():
 
     draw.line((104, 1124, 885, 1124), fill=INK, width=3)
     draw.text((104, 1152), "Save this for the friend learning AI between meetings.", font=font(30, bold=True), fill=INK)
-    draw.text((104, 1200), "@we.are.laidies", font=font(24, bold=True), fill=HOT)
+    draw.text((104, 1200), "@laidies.ai", font=font(24, bold=True), fill=HOT)
 
     img.save(OUT / "issue-01-carousel-proof-slide-1.png")
 
