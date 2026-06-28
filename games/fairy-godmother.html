@@ -6,7 +6,7 @@
     <title>FAiRY GODMOTHER | LAiDIES Clubhouse</title>
     <meta name="description" content="LAiDY gives advice like a wise, glamorous fairy who actually helps with real work problems. Wave the wand." />
     <meta property="og:title" content="FAiRY GODMOTHER | LAiDIES" />
-    <meta property="og:description" content="Tap or wave the wand for advice you didn't know you needed." />
+    <meta property="og:description" content="The sad dress walks in. The dress walks out. Real advice, a better prompt, a draft you can send." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://laidies.ai/assets/laidy-character-v1.png" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -622,6 +622,247 @@
         transform: translateY(-2px);
       }
 
+      /* === LAiDY MARKDOWN OUTPUT === */
+      .laidy-output > :first-child { margin-top: 0; }
+      .laidy-output > :last-child { margin-bottom: 0; }
+      .laidy-output h3.laidy-h3 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.08rem;
+        line-height: 1.3;
+        color: #7a2742;
+        margin: 20px 0 8px;
+        letter-spacing: 0.01em;
+      }
+      .laidy-output h2.laidy-h2 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.2rem;
+        line-height: 1.3;
+        color: #7a2742;
+        margin: 22px 0 10px;
+      }
+      .laidy-output p { margin: 0 0 12px; }
+      .laidy-output ol.laidy-list,
+      .laidy-output ul.laidy-list {
+        margin: 0 0 14px;
+        padding-left: 22px;
+      }
+      .laidy-output li { margin-bottom: 6px; }
+      .laidy-output strong { color: #8b4513; }
+
+      /* Section callouts (silhouette + paste-into-tool captions) */
+      .laidy-callout {
+        margin: 4px 0 12px;
+        padding: 10px 14px;
+        background: rgba(255, 240, 220, 0.55);
+        border-left: 3px solid #d4a574;
+        border-radius: 6px;
+        font-size: 0.88rem;
+        line-height: 1.5;
+        color: #5a3a20;
+        font-style: italic;
+      }
+      .laidy-callout strong {
+        font-style: normal;
+        color: #7a2742;
+      }
+
+      /* Inline copy button next to PROMPT GLOW-UP and POST-GLOW-UP */
+      .laidy-inline-action {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin: 4px 0 16px;
+      }
+      .laidy-copy-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border: 1.5px solid #7a2742;
+        border-radius: 999px;
+        background: #4b2148;
+        color: #fffdfb;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: transform 0.15s, box-shadow 0.15s;
+      }
+      .laidy-copy-button:hover {
+        transform: scale(1.03);
+        box-shadow: 0 6px 14px rgba(75, 33, 72, 0.22);
+      }
+      .laidy-copy-button.secondary {
+        background: rgba(255, 253, 251, 0.92);
+        color: #4b2148;
+      }
+      .laidy-copy-status {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: #7a2742;
+        font-style: italic;
+      }
+
+      /* Revision buttons (Shorter / Warmer / Firmer / More senior) */
+      .laidy-revision-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 6px 0 18px;
+      }
+      .laidy-revision-label {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #7a2742;
+        margin-right: 4px;
+      }
+      .laidy-revision-button {
+        padding: 6px 12px;
+        border: 1.5px solid rgba(122, 39, 66, 0.32);
+        border-radius: 999px;
+        background: rgba(255, 253, 251, 0.92);
+        color: #4b2148;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.78rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: border-color 0.15s, background 0.15s, transform 0.15s;
+      }
+      .laidy-revision-button:hover:not(:disabled) {
+        border-color: #c75b86;
+        background: #fff;
+        transform: scale(1.03);
+      }
+      .laidy-revision-button:disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+      }
+      .laidy-revision-status {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.78rem;
+        color: rgba(75, 33, 72, 0.75);
+        font-style: italic;
+      }
+
+      /* Newsletter signup gate */
+      .laidy-gate {
+        padding: clamp(20px, 4vw, 30px);
+        background: linear-gradient(155deg, #fff5eb 0%, #fdf0e8 60%, #faf4ef 100%);
+        border: 2px solid #d4a574;
+        border-radius: 16px;
+        color: #3a2010;
+        box-shadow: 0 8px 32px rgba(160, 100, 50, 0.18), inset 0 0 36px rgba(212, 165, 116, 0.08);
+      }
+      .laidy-gate h3 {
+        font-family: 'Dancing Script', cursive;
+        font-size: clamp(1.4rem, 3.2vw, 1.85rem);
+        color: #7a2742;
+        margin: 0 0 8px;
+        line-height: 1.2;
+      }
+      .laidy-gate p {
+        font-size: 0.95rem;
+        line-height: 1.55;
+        color: #4a3020;
+        margin: 0 0 14px;
+      }
+      .laidy-gate-form {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: stretch;
+        margin: 6px 0 8px;
+      }
+      .laidy-gate-form input[type="email"] {
+        flex: 1 1 220px;
+        min-width: 180px;
+        padding: 12px 14px;
+        border: 1.5px solid rgba(111, 38, 63, 0.32);
+        border-radius: 10px;
+        background: #fffdfb;
+        color: #2d1729;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95rem;
+      }
+      .laidy-gate-form input[type="email"]:focus {
+        outline: none;
+        border-color: #c75b86;
+        box-shadow: 0 0 0 4px rgba(199, 91, 134, 0.18);
+      }
+      .laidy-gate-form button {
+        padding: 12px 22px;
+        border: 2px solid #4b2148;
+        border-radius: 999px;
+        background: #4b2148;
+        color: #fffdfb;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.92rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: transform 0.15s, background 0.15s;
+      }
+      .laidy-gate-form button:hover:not(:disabled) {
+        transform: scale(1.03);
+        background: #6f263f;
+      }
+      .laidy-gate-form button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+      .laidy-gate-already {
+        font-size: 0.85rem;
+        color: rgba(75, 33, 72, 0.78);
+        margin: 6px 0 0;
+      }
+      .laidy-gate-already a {
+        color: #7a2742;
+        text-decoration: underline;
+        cursor: pointer;
+        font-weight: 700;
+      }
+      .laidy-gate-status {
+        margin-top: 10px;
+        min-height: 1.2em;
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: #7a2742;
+        font-style: italic;
+      }
+      .laidy-gate-ps {
+        margin: 14px 0 0;
+        padding-top: 12px;
+        border-top: 1px dashed rgba(180, 130, 80, 0.32);
+        font-size: 0.82rem;
+        line-height: 1.5;
+        color: rgba(74, 48, 32, 0.78);
+      }
+      .laidy-gate-ps em { font-style: italic; }
+
+      /* Elle "check your outfit" disclosure at bottom of every response */
+      .laidy-disclosure {
+        margin: 24px -4px -4px;
+        padding: 16px 18px;
+        background: linear-gradient(135deg, rgba(255, 215, 0, 0.12), rgba(255, 143, 216, 0.08));
+        border: 1.5px dashed rgba(184, 134, 11, 0.45);
+        border-radius: 12px;
+        font-size: 0.86rem;
+        line-height: 1.55;
+        color: #4a3020;
+      }
+      .laidy-disclosure strong {
+        color: #7a2742;
+      }
+
       /* === RESPONSIVE === */
       @media (max-width: 560px) {
         .fairy-character-wrap img { max-width: 240px; }
@@ -667,7 +908,7 @@
         <section class="fairy-hero">
           <p class="eyebrow brand-preserve-case">Ask LAiDY</p>
           <h1>FA<span class="ai-highlight">i</span>RY GODMOTHER</h1>
-          <p class="subtitle">Tap or wave the wand for advice you didn&rsquo;t know you needed.</p>
+          <p class="subtitle">The sad dress walks in. The dress walks out. Bring the prompt you can&rsquo;t finish or the situation you can&rsquo;t unstick &mdash; LAiDY gives you real advice in your favourite Patron Saint&rsquo;s energy. (Deb wasn&rsquo;t invited. For obvious reasons.) A better prompt and something you can actually send.</p>
 
           <div class="fairy-character-wrap">
             <img src="../assets/laidy-character-v1.png" alt="LAiDY — big blonde hair, rhinestones, pink sequin jacket, diamond tiara, bedazzled wand" />
@@ -692,7 +933,7 @@
 
           <label for="fairyQuestion">What do you need help with?</label>
           <textarea id="fairyQuestion" rows="3" placeholder="Example: I need to ask my VP for more time without sounding chaotic."></textarea>
-          <p class="fairy-disclosure">Rules-based LAiDY prompt coaching. Do not paste confidential details; anonymize anything sensitive.</p>
+          <p class="fairy-disclosure">LAiDY is AI-powered. Don&rsquo;t paste confidential details &mdash; anonymize anything sensitive before you send it.</p>
 
           <div class="fairy-buttons">
             <button class="wand-button" type="button" id="wandButton">
@@ -716,7 +957,6 @@
             <p class="scroll-card-footer" id="scrollFooter"></p>
           </div>
           <div class="coach-actions" id="coachActions">
-            <button class="coach-action-button primary" type="button" id="copyBetterPromptButton">Copy Better Prompt</button>
             <button class="coach-action-button" type="button" id="resetPromptButton">Try Another Prompt</button>
             <span class="coach-copy-status" id="coachCopyStatus" aria-live="polite"></span>
           </div>
@@ -748,332 +988,83 @@
     <script src="../content/site/supabase-config.js"></script>
     <script src="../content/site/site-data.js?v=episode-04-quiz-1"></script>
     <script>
-    // ===== LAiDY PROMPT COACH (rules-based, standalone) =====
-    const laidyModes = {
-      dolly: {
-        label: "Dolly Energy",
-        behavior: "Supportive",
-        frame: "Warm, practical, and confidence-building.",
-        rewrite: "Use warm, clear language. Make the ask feel doable without apologizing for needing help.",
-        note: "Cup of ambition, but make it actionable."
-      },
-      miranda: {
-        label: "Miranda Polish",
-        behavior: "Polished / Executive",
-        frame: "Executive-clean and business-ready.",
-        rewrite: "Lead with the business outcome. Remove apology language, extra backstory, and emotional weather.",
-        note: "No apology tour. Just the point, beautifully pressed."
-      },
-      elle: {
-        label: "Elle Evidence",
-        behavior: "Receipts / Evidence",
-        frame: "Fact-forward with pink legal-pad standards.",
-        rewrite: "Separate facts from assumptions, ask for sources, and flag what needs verification before using it.",
-        note: "Confidence is cute. Receipts are cuter."
-      },
-      cher: {
-        label: "Cher Closet Check",
-        behavior: "Funny / Hype",
-        frame: "Useful, witty, and dressed for the right room.",
-        rewrite: "Keep the tone bright, but make the task, audience, constraints, and desired output impossible to miss.",
-        note: "Closet computer says the prompt needs tailoring."
-      },
-      sophia: {
-        label: "Sophia Says",
-        behavior: "Direct / No-nonsense",
-        frame: "Short, wise, and allergic to spiraling.",
-        rewrite: "Say the task plainly. Ask for the next useful answer. Skip the decorative panic.",
-        note: "Picture it: one clear ask."
-      },
-      david: {
-        label: "David Specificity",
-        behavior: "Specificity",
-        frame: "Precise, particular, and deeply suspicious of beige output.",
-        rewrite: "Add audience, output format, length, tone, examples, and what not to include.",
-        note: "Specificity is the whole outfit."
-      },
-      buffy: {
-        label: "Buffy Courage",
-        behavior: "Emergency",
-        frame: "Fast, prioritized, and ready to slay the first step.",
-        rewrite: "Prioritize the first useful action, keep the answer short, and make the next move unmistakable.",
-        note: "Slayer briefing, not a season-long villain arc."
-      },
+    // ===== FAiRY GODMOTHER — Worker-powered LAiDY =====
+    const WORKER_URL = "https://laidies-fairy-godmother.wednesday-laidies.workers.dev";
+
+    const ENERGY_KEY_MAP = {
+      auto: "fairy",
+      dolly: "dolly",
+      miranda: "miranda",
+      elle: "elle",
+      cher: "cher",
+      sophia: "sophia",
+      david: "david",
+      buffy: "buffy"
     };
 
-    const taskTypes = {
-      empty: {
-        label: "Empty input",
-        read: "There is not enough here for LAiDY to coach yet. A blank box is not a prompt; it is a mood.",
-        betterPrompt: "I need help with [specific task].\nAudience: [who this is for]\nContext: [what happened / what I have]\nOutput: [email, outline, table, checklist, draft]\nTone: [warm, direct, executive, funny, etc.]\nConstraints: [length, deadline, must include, must avoid]\nBefore drafting, ask me up to three clarifying questions.",
-        nextQuestion: "What are you trying to make, for whom, and by when?"
-      },
-      vague: {
-        label: "Very vague input",
-        read: "The intent is probably real, but the prompt is too broad. It needs a job, a room, and a dress code.",
-        betterPrompt: "Help me with [specific AI task]. I am trying to [outcome]. The audience is [audience]. I already have [materials/context]. Please give me [format] in [tone] and ask clarifying questions before drafting if anything important is missing.",
-        nextQuestion: "What is the actual thing you want AI to make or improve?"
-      },
-      email: {
-        label: "Email / message / reply",
-        read: "You want a message that gets the right person to understand the ask and take the next step.",
-        betterPrompt: "Write a [email / Slack / reply] to [audience] about [situation]. The goal is [desired outcome]. Include: [key facts], [deadline], and [specific ask]. Tone should be [tone]. Keep it [length]. Do not sound [what to avoid].",
-        nextQuestion: "What do you want the person to do after reading it?"
-      },
-      meeting: {
-        label: "Meeting notes / summary",
-        read: "You want messy discussion turned into decisions, owners, and next steps, not a transcript wearing a blazer.",
-        betterPrompt: "Summarize these meeting notes into: 1) decisions made, 2) open questions, 3) action items with owners and deadlines, 4) risks or blockers, and 5) a short follow-up message I can send. If something is unclear, label it as an assumption.",
-        nextQuestion: "Do you need a summary, a follow-up email, or a decision log?"
-      },
-      deck: {
-        label: "Presentation / deck",
-        read: "You want a deck with a point of view, not a decorative pile of slides.",
-        betterPrompt: "Create a presentation outline for [topic] for [audience]. The goal is [decision / understanding / buy-in]. Include a strong opening, 5-7 slide titles, the key message for each slide, suggested visuals, and speaker notes. Tone: [tone]. Constraints: [time/length].",
-        nextQuestion: "What decision or feeling should the audience leave with?"
-      },
-      brainstorm: {
-        label: "Brainstorm / ideas",
-        read: "You want options, but the good ones need a box to push against.",
-        betterPrompt: "Brainstorm [number] ideas for [goal]. Audience: [audience]. Constraints: [budget/time/brand/format]. Make the ideas [tone/style]. For each idea, include why it works, what makes it LAiDIES, and the first step to test it.",
-        nextQuestion: "What would make an idea unusable, even if it sounds cute?"
-      },
-      explain: {
-        label: "Explain something",
-        read: "You want a clean explanation that respects your intelligence and skips the beige tech lecture.",
-        betterPrompt: "Explain [topic] to [audience] using plain language and one memorable analogy. Include what it is, why it matters, one example, one common mistake, and a short recap. Avoid jargon unless you define it.",
-        nextQuestion: "Who needs to understand this, and what do they already know?"
-      },
-      research: {
-        label: "Research / verify / receipts",
-        read: "You are asking for facts, claims, stats, or sources. That means receipts before confidence.",
-        betterPrompt: "Research [topic/question]. Use current, reputable sources and include links, dates, and source quality notes. Separate confirmed facts from uncertainty. Flag anything that needs manual verification before I use it in public.",
-        nextQuestion: "How current does this need to be, and what sources count as trustworthy?"
-      },
-      workplace: {
-        label: "Workplace situation",
-        read: "You are trying to navigate people, power, timing, or tone at work. The prompt needs the stakes, not just the stress.",
-        betterPrompt: "Help me handle this workplace situation: [what happened]. People involved: [roles, anonymized]. Goal: [what I want next]. Constraints: [politics/timing/risk]. Give me a recommended approach, exact wording, and what not to say.",
-        nextQuestion: "What outcome are you optimizing for: clarity, relationship, speed, or protection?"
-      },
-      social: {
-        label: "Social post / caption",
-        read: "You want something shareable, but it still needs audience, platform, and point.",
-        betterPrompt: "Write [number] [platform] captions about [topic] for [audience]. Voice: [voice]. Include a hook, useful takeaway, and gentle call to action. Keep it [length]. Avoid generic hype and hashtags unless they are useful.",
-        nextQuestion: "Where is this going, and what should someone do after reading it?"
-      },
-      executive: {
-        label: "Make this sound more executive",
-        read: "You want the same thought with less nervous furniture and more decision-ready polish.",
-        betterPrompt: "Rewrite the text below to sound clear, concise, and executive without losing warmth. Lead with the business point, remove apologies, preserve the key facts, and give me three versions: direct, diplomatic, and very short.\n\nText: [paste text]",
-        nextQuestion: "Should it sound warmer, firmer, or more senior?"
-      },
-      planning: {
-        label: "Planning / project management",
-        read: "You want the swirl turned into a sequence with owners, dates, and fewer haunted tabs.",
-        betterPrompt: "Turn this project into a simple plan. Goal: [goal]. Deadline: [date]. People involved: [roles]. Constraints: [budget/time/tools]. Output a milestone plan, owners, risks, dependencies, and the first three actions.",
-        nextQuestion: "What is the deadline or decision date?"
-      },
-      home: {
-        label: "Home-life admin",
-        read: "You want life logistics made smaller and less shouty.",
-        betterPrompt: "Help me plan [home-life task] for [number of people / constraints]. Include a realistic checklist, timing, substitutions, and one easy fallback option. Keep it practical and low-drama.",
-        nextQuestion: "What constraints matter most: time, budget, preferences, or energy?"
-      },
-      coding: {
-        label: "Coding / site task",
-        read: "This sounds like code or website work. Chat can help plan, but real codebase changes belong in Codex, Claude Code, or a development workflow where files can be inspected and tested.",
-        betterPrompt: "I need help with a code/site task in [project]. Goal: [what should change]. Current behavior: [what happens now]. Desired behavior: [what should happen]. Relevant files or URLs: [paths]. Constraints: [do not touch / must preserve]. Please inspect first, propose a safe plan, implement narrowly, and run QA.",
-        nextQuestion: "Is this a planning question, or do you need a coding tool to edit and test the files?"
-      },
-      hallucination: {
-        label: "Hallucination / verification concern",
-        read: "You are worried the output may sound confident without being true. Correct instinct. We are checking the timeline before anybody calls it iconic.",
-        betterPrompt: "Check this output for possible hallucinations. Separate claims into: supported, unsupported, needs source, and likely wrong. For each claim, explain what evidence would verify it and what I should avoid saying until confirmed.\n\nOutput to check: [paste text]",
-        nextQuestion: "What claims would be risky if they were wrong?"
-      },
-      general: {
-        label: "General prompt coaching",
-        read: "There is a usable task in here, but it needs more structure before it will give you a useful result.",
-        betterPrompt: "Help me with [task]. Context: [what is happening]. Audience: [who this is for]. Output: [format]. Tone: [tone]. Constraints: [length, deadline, must include, must avoid]. Ask clarifying questions before drafting if anything important is missing.",
-        nextQuestion: "What would a good answer let you do next?"
-      }
+    const ENERGY_LABEL = {
+      fairy: "LAiDY picked the energy",
+      dolly: "Dolly Energy",
+      miranda: "Miranda Polish",
+      elle: "Elle Evidence",
+      cher: "Cher Closet Check",
+      sophia: "Sophia Says",
+      david: "David Specificity",
+      buffy: "Buffy Courage"
     };
 
-    function normalizeLaidyText(text) {
-      return String(text || "").trim().replace(/\s+/g, " ");
-    }
+    const NAMED_ENERGIES = ["dolly", "miranda", "elle", "cher", "sophia", "david", "buffy"];
 
-    function hasAny(text, words) {
-      return words.some(function(word) { return word.test(text); });
-    }
-
-    function getLaidyTaskType(question) {
-      const q = normalizeLaidyText(question);
-      const n = q.toLowerCase();
-      const words = q ? q.split(" ").length : 0;
-      if (!q) return "empty";
-      if (/^(email|message|reply|slack)$/i.test(q)) return "email";
-      if (/^(help|ai|prompt|ideas|website)$/i.test(q) || /\b(help me with ai|use ai|learn ai)\b/i.test(n)) return "vague";
-      if (/\bhallucinat|\bmade up\b|\bis this true\b|\bverify this\b|\bfact check\b|\bfact-check\b|\bwrong answer\b/.test(n)) return "hallucination";
-      if (/\b(code|coding|website|site|html|css|javascript|bug|fix my website|repo|github|deploy)\b/.test(n)) return "coding";
-      if (/\b(research|source|sources|stats|statistics|data|cite|citation|claim|claims|verify|current|latest|receipt|receipts)\b/.test(n)) return "research";
-      if (/\b(more executive|sound executive|polish this|make this professional|senior|leadership-ready|leadership ready)\b/.test(n)) return "executive";
-      if (/\b(email|message|reply|respond|slack|teams|note|send|write)\b/.test(n)) return "email";
-      if (/\b(meeting|agenda|minutes|notes|summary|summarize|follow-up|follow up|debrief|talking points)\b/.test(n)) return "meeting";
-      if (/\b(presentation|deck|slides|keynote|powerpoint|q[1-4]|quarterly|results)\b/.test(n)) return "deck";
-      if (/\b(social|instagram|linkedin|caption|post|thread|reel)\b/.test(n)) return "social";
-      if (/\b(brainstorm|ideas|come up with|ideate|name|names|concepts|offsite)\b/.test(n)) return "brainstorm";
-      if (/\b(lunch|school|kids|meal|groceries|home|family|calendar|chores|errands)\b/.test(n)) return "home";
-      if (/\b(plan|timeline|project|roadmap|milestone|launch|workflow|organize)\b/.test(n)) return "planning";
-      if (/\b(boss|manager|vp|director|client|stakeholder|team|coworker|colleague|raise|promotion|deadline|feedback|pushback|boundary|conflict)\b/.test(n)) return "workplace";
-      if (/\b(explain|what is|teach me|define|help me understand)\b/.test(n)) return "explain";
-      if (words < 5) return "vague";
-      return "general";
-    }
-
-    function getLaidySignals(question) {
-      const q = normalizeLaidyText(question);
-      const n = q.toLowerCase();
-      const words = q ? q.split(" ").length : 0;
-      return {
-        words,
-        hasAudience: /\b(vp|director|manager|boss|team|client|customer|stakeholder|colleague|coworker|co-worker|peer|lead|audience|reader|users|students|parents|kids|executives)\b/i.test(q),
-        hasOutputFormat: /\b(email|reply|message|outline|table|checklist|deck|slides|summary|caption|post|plan|script|draft|bullets|paragraph|template)\b/i.test(q),
-        hasContext: words >= 10,
-        hasConstraint: /\b(without|avoid|do not|don't|don\u2019t|must|should|deadline|by |under|less than|tone|length|include|exclude|not sound)\b/i.test(q),
-        hasTone: /\b(warm|direct|executive|professional|friendly|funny|polished|firm|gentle|clear|confident)\b/i.test(q),
-        hasDeadline: /\b(today|tomorrow|friday|monday|deadline|due|asap|this week|next week|by )\b/i.test(q),
-        hasReceiptsAsk: /\b(source|sources|stats|statistics|data|cite|citation|verify|current|latest|research|receipt|receipts|claim|claims)\b/i.test(q),
-        hasPrivateData: /\b(confidential|private|client|customer|patient|medical|diagnosis|salary|compensation|legal|lawyer|contract|hr|human resources|disciplinary|security|password|ssn|sin|address|phone number|personal data|child|children|student|financial|bank|credit card)\b/i.test(q),
-        asksToRewrite: /\b(rewrite|make this|polish|improve|sound|tone)\b/i.test(q),
-      };
-    }
-
-    function getLaidyAutoMode(taskType, signals) {
-      if (signals.hasPrivateData) return "elle";
-      if (taskType === "coding" || taskType === "hallucination" || taskType === "research") return "elle";
-      if (taskType === "executive" || taskType === "deck" || taskType === "planning") return "miranda";
-      if (taskType === "email" || taskType === "vague") return "david";
-      if (taskType === "workplace") return signals.hasDeadline ? "buffy" : "sophia";
-      if (taskType === "social" || taskType === "brainstorm") return "cher";
-      if (taskType === "home") return "dolly";
-      return "david";
-    }
-
-    function getQualityLabel(taskType, signals, missing) {
-      if (taskType === "empty") return "Needs an actual prompt";
-      if (signals.hasPrivateData) return "Privacy check first";
-      if (taskType === "vague") return "Too broad";
-      if (taskType === "research" || taskType === "hallucination") return "Receipts required";
-      if (signals.words <= 2) return "Needs audience + output format";
-      if (missing.length >= 3) return "Good start, needs context";
-      if (missing.length > 0) return signals.hasReceiptsAsk ? "Strong bones, missing receipts" : "Strong bones, needs one more detail";
-      return "Ready for first draft";
-    }
-
-    function getMissingDetails(taskType, signals) {
-      if (taskType === "empty") return ["The task itself", "Who the answer is for", "What format you want back"];
-      const missing = [];
-      if (!signals.hasAudience && ["email", "deck", "explain", "social", "workplace", "executive", "general"].includes(taskType)) missing.push("Audience: who needs to read, hear, approve, or use this.");
-      if (!signals.hasOutputFormat && !["hallucination", "research", "home"].includes(taskType)) missing.push("Output format: email, bullets, outline, plan, caption, table, or draft.");
-      if (!signals.hasContext && taskType !== "vague") missing.push("Context: what happened, what you already have, or why this matters.");
-      if (!signals.hasConstraint && ["email", "deck", "executive", "coding", "planning", "social"].includes(taskType)) missing.push("Constraints: length, tone, deadline, must-include, or what to avoid.");
-      if (!signals.hasReceiptsAsk && ["research", "hallucination"].includes(taskType)) missing.push("Receipt standard: what counts as a trustworthy source and how current it needs to be.");
-      if (signals.hasPrivateData) missing.unshift("Privacy pass: anonymize names, companies, salary, legal, medical, client, HR, or personal details.");
-      if (missing.length === 0) missing.push("Optional upgrade: add one example of what good looks like so the answer has taste.");
-      return missing.slice(0, 4);
-    }
-
-    function adaptPromptForMode(prompt, modeKey) {
-      const mode = laidyModes[modeKey] || laidyModes.david;
-      return prompt + "\n\nEnergy: " + mode.rewrite;
-    }
-
-    function getReceiptsPrivacyCheck(taskType, signals) {
-      const notes = [];
-      if (signals.hasPrivateData) {
-        notes.push("Privacy first: remove or mask names, company details, salary, HR/legal/medical/client facts, and anything you would not put on a sticky note in an elevator.");
-      } else {
-        notes.push("Do not paste confidential details. Use roles and placeholders until you are ready to use an approved tool.");
-      }
-      if (taskType === "research" || taskType === "hallucination" || signals.hasReceiptsAsk) {
-        notes.push("Receipts required: ask for sources, dates, links, and uncertainty. Verify important claims before using them in public.");
-      }
-      if (taskType === "coding") {
-        notes.push("Codebase work should happen in a development workflow where files can be inspected, edited, tested, and reviewed.");
-      }
-      return notes.join(" ");
-    }
-
-    function buildPromptRead(taskType, signals, modeKey) {
-      const task = taskTypes[taskType] || taskTypes.general;
-      const mode = laidyModes[modeKey] || laidyModes.david;
-      if (taskType === "empty") return task.read;
-      return task.read + " LAiDY is reading this through " + mode.behavior.toLowerCase() + " energy: " + mode.frame;
-    }
-
-    function buildLaidyAdvice(rawQuestion, modeKey) {
-      const question = normalizeLaidyText(rawQuestion);
-      const taskType = getLaidyTaskType(question);
-      const signals = getLaidySignals(question);
-      const effectiveModeKey = modeKey === "auto" ? getLaidyAutoMode(taskType, signals) : modeKey;
-      const mode = laidyModes[effectiveModeKey] || laidyModes.david;
-      const task = taskTypes[taskType] || taskTypes.general;
-      const missing = getMissingDetails(taskType, signals);
-      const quality = getQualityLabel(taskType, signals, missing);
-      const betterPrompt = adaptPromptForMode(task.betterPrompt, effectiveModeKey);
-      return {
-        kind: "coach",
-        taskType,
-        taskLabel: task.label,
-        mode: mode.label,
-        modeBehavior: mode.behavior,
-        promptRead: buildPromptRead(taskType, signals, effectiveModeKey),
-        quality,
-        missing,
-        betterPrompt,
-        nextQuestion: task.nextQuestion,
-        receiptsPrivacy: getReceiptsPrivacyCheck(taskType, signals),
-        signoff: mode.note
-      };
-    }
-
-    function buildLaidyPromptFeedback(result) {
-      if (!result || result.kind !== "coach") return "";
-      return "Rules-based prompt coaching. No backend/API response was used. Task read: " + result.taskLabel + ". Energy: " + result.modeBehavior + ". Copy the Better Prompt into an approved AI tool after removing confidential details.";
-    }
-
-    // Random wisdom nuggets (for "surprise me" button)
-    const randomWisdom = [
-      "If Sophia Petrillo can tell a story that starts in Sicily and ends with life advice, you can type a question into ChatGPT.",
-      "Your idea does not need to be dressed for a keynote to be worth saying in a meeting.",
-      "Clarity is the highest-ROI outfit change you can make to any email.",
-      "A prompt without context is a request wearing a trench coat and no shoes.",
-      "If the meeting has no agenda, it is not a meeting. It is a group hallway moment wearing a calendar invite.",
-      "The difference between a good ask and a great one is usually three more details.",
-      "You are allowed to be warm and still ask for the money, the credit, or the timeline.",
-      "Nobody ever got a raise by being quietly excellent in a room with the door closed.",
-      "Your boundaries are not mean. They are the reason you still have capacity to do good work.",
-      "Start the email with what you need. Then explain why. Not the other way around.",
-      "A woman who explains her logic is not defensive. She is building a case with better lighting.",
-      "If you would not let your best friend accept that workload, do not silently absorb it yourself.",
-      "Useful does not have to be dry. Dry is how good advice ends up unread in a tab cemetery.",
-      "Your confidence does not need to arrive before you start. Start, and confidence will see itself in.",
-      "Push back is not a personality flaw. It is how good ideas survive bad timelines.",
-      "One clear no is more professional than three vague yeses and a missed deadline.",
-      "Professional does not mean beige. Professional means clear, useful, and considerate of everyone\u2019s time.",
-      "The AI is not judging your grammar. Give it the messy version and let it hand you back the polished one.",
-      "Stop decorating the ask. Say what you need, who needs to act, and by when.",
-      "If the draft makes you cringe, it is probably because you are being honest. That is the version to send.",
+    const STARTER_PROMPTS = [
+      "Help me write a follow-up email after a meeting where nothing was decided",
+      "Summarize a long document and pull out the three things I actually need to act on",
+      "Ask my manager for feedback without sounding needy",
+      "Write a Slack message declining a meeting I definitely don’t need to be in",
+      "Turn my bullet-point brain dump into a clear brief",
+      "Write a subject line for an email my VP will actually open",
+      "Help me say no to a request without burning a relationship"
     ];
 
     // ===== STATE =====
     let wisdomCount = 0;
     let adviceHistory = [];
-    let lastAdvice = "";
-    let lastBetterPrompt = "";
+    let lastPostGlowUpText = "";
+    let lastPromptGlowUpText = "";
     const BADGE_THRESHOLD = 10;
+
+    // ===== NEWSLETTER GATE STATE =====
+    const SUBSCRIBE_URL = "https://laidies-subscribe.wednesday-laidies.workers.dev";
+    const FREE_WISHES_LIMIT = 1;
+    const LS_SUBSCRIBER_KEY = "laidies_subscriber";
+    const LS_FREE_WISHES_KEY = "laidies_free_wishes_used";
+
+    function getSubscriber() {
+      try {
+        const raw = localStorage.getItem(LS_SUBSCRIBER_KEY);
+        if (!raw) return null;
+        const parsed = JSON.parse(raw);
+        return parsed && parsed.email ? parsed : null;
+      } catch { return null; }
+    }
+    function setSubscriber(email) {
+      try {
+        localStorage.setItem(LS_SUBSCRIBER_KEY, JSON.stringify({
+          email: String(email).trim().toLowerCase(),
+          signedUpAt: new Date().toISOString(),
+        }));
+      } catch {}
+    }
+    function getFreeWishesUsed() {
+      try { return parseInt(localStorage.getItem(LS_FREE_WISHES_KEY) || "0", 10) || 0; }
+      catch { return 0; }
+    }
+    function incrementFreeWishesUsed() {
+      try { localStorage.setItem(LS_FREE_WISHES_KEY, String(getFreeWishesUsed() + 1)); }
+      catch {}
+    }
+    function shouldShowGate() {
+      return !getSubscriber() && getFreeWishesUsed() >= FREE_WISHES_LIMIT;
+    }
 
     // ===== DOM =====
     const questionEl = document.getElementById("fairyQuestion");
@@ -1087,111 +1078,466 @@
     const scrollFooter = document.getElementById("scrollFooter");
     const countEl = document.getElementById("wisdomCount");
     const feedbackEl = document.getElementById("promptFeedback");
-    const feedbackText = document.getElementById("promptFeedbackText");
     const coachActions = document.getElementById("coachActions");
-    const copyBetterPromptButton = document.getElementById("copyBetterPromptButton");
     const resetPromptButton = document.getElementById("resetPromptButton");
     const coachCopyStatus = document.getElementById("coachCopyStatus");
     const historySection = document.getElementById("adviceHistory");
     const historyList = document.getElementById("historyList");
     const badgeEl = document.getElementById("badgeReveal");
 
-    function renderCoachOutput(result) {
-      const missingItems = result.missing.map(function(item) {
-        return "<li>" + escapeHtml(item) + "</li>";
-      }).join("");
-      scrollBody.innerHTML = [
-        '<div class="coach-output">',
-          '<section class="coach-section">',
-            '<strong class="coach-section-title">Prompt Read</strong>',
-            '<p>' + escapeHtml(result.promptRead) + '</p>',
-          '</section>',
-          '<section class="coach-section">',
-            '<strong class="coach-section-title">Prompt Quality</strong>',
-            '<span class="coach-quality">' + escapeHtml(result.quality) + '</span>',
-            '<p>' + escapeHtml(result.signoff) + '</p>',
-          '</section>',
-          '<section class="coach-section">',
-            '<strong class="coach-section-title">What&rsquo;s Missing</strong>',
-            '<ul>' + missingItems + '</ul>',
-          '</section>',
-          '<section class="coach-section">',
-            '<strong class="coach-section-title">Better Prompt</strong>',
-            '<code class="better-prompt-box">' + escapeHtml(result.betterPrompt) + '</code>',
-          '</section>',
-          '<section class="coach-section">',
-            '<strong class="coach-section-title">Next Question</strong>',
-            '<p>' + escapeHtml(result.nextQuestion) + '</p>',
-          '</section>',
-          '<section class="coach-section">',
-            '<strong class="coach-section-title">Receipts / Privacy Check</strong>',
-            '<p>' + escapeHtml(result.receiptsPrivacy) + '</p>',
-          '</section>',
-        '</div>'
-      ].join("");
-      lastBetterPrompt = result.betterPrompt;
-      if (coachCopyStatus) coachCopyStatus.textContent = "";
-      if (coachActions) coachActions.classList.add("is-visible");
+    const ORIGINAL_WAND_HTML = wandBtn.innerHTML;
+
+    function escapeHtml(str) {
+      return String(str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
     }
 
-    function renderWisdomText(text) {
-      scrollBody.innerHTML = '<p>' + escapeHtml(text) + '</p>';
-      lastBetterPrompt = "";
-      if (coachActions) coachActions.classList.remove("is-visible");
-      if (coachCopyStatus) coachCopyStatus.textContent = "";
+    function applyInline(text) {
+      return escapeHtml(text).replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
     }
 
-    function showAdvice(result, modeLabel, question) {
-      wisdomCount++;
-      countEl.textContent = wisdomCount;
-      const isCoach = result && typeof result === "object" && result.kind === "coach";
-      const summaryText = isCoach ? result.quality + " - " + result.taskLabel : String(result || "");
-      scrollHeader.textContent = isCoach ? "LAiDY Prompt Coach" : "\u2728 A random sparkle of wisdom";
-      scrollMode.textContent = isCoach ? result.mode + " / " + result.taskLabel : (modeLabel || "Random Wisdom");
-      if (isCoach) {
-        renderCoachOutput(result);
-      } else {
-        renderWisdomText(summaryText);
+    // Minimal markdown renderer: ### / ## headers, **bold**, - / * / 1. bullets, paragraphs.
+    function renderMarkdown(md) {
+      const lines = String(md || "").split(/\r?\n/);
+      const out = [];
+      let listTag = null;
+      let paraBuf = [];
+
+      function flushPara() {
+        if (paraBuf.length) {
+          const text = paraBuf.join(" ").trim();
+          if (text) out.push("<p>" + applyInline(text) + "</p>");
+          paraBuf = [];
+        }
       }
-      scrollFooter.textContent = "Wisdom #" + wisdomCount + " \u2022 " + new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+      function flushList() {
+        if (listTag) { out.push("</" + listTag + ">"); listTag = null; }
+      }
+      function openList(tag) {
+        if (listTag && listTag !== tag) flushList();
+        if (!listTag) { out.push("<" + tag + ' class="laidy-list">'); listTag = tag; }
+      }
+
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (!line) { flushPara(); flushList(); continue; }
+        const h3 = line.match(/^###\s+(.+)$/);
+        const h2 = line.match(/^##\s+(.+)$/);
+        const bullet = line.match(/^[-*]\s+(.+)$/);
+        const numbered = line.match(/^\d+\.\s+(.+)$/);
+        if (h3) {
+          flushPara(); flushList();
+          out.push('<h3 class="laidy-h3">' + applyInline(h3[1]) + "</h3>");
+          continue;
+        }
+        if (h2) {
+          flushPara(); flushList();
+          out.push('<h2 class="laidy-h2">' + applyInline(h2[1]) + "</h2>");
+          continue;
+        }
+        if (bullet) {
+          flushPara();
+          openList("ul");
+          out.push("<li>" + applyInline(bullet[1]) + "</li>");
+          continue;
+        }
+        if (numbered) {
+          flushPara();
+          openList("ol");
+          out.push("<li>" + applyInline(numbered[1]) + "</li>");
+          continue;
+        }
+        paraBuf.push(line);
+      }
+      flushPara(); flushList();
+      return out.join("\n");
+    }
+
+    // Pull the prose under a named h2/h3 section header.
+    function extractSection(md, headerRegex) {
+      const lines = String(md || "").split(/\r?\n/);
+      let inSection = false;
+      const buf = [];
+      for (let i = 0; i < lines.length; i++) {
+        const raw = lines[i];
+        if (/^#{2,3}\s/.test(raw)) {
+          if (inSection) break;
+          if (headerRegex.test(raw)) { inSection = true; continue; }
+        }
+        if (inSection) buf.push(raw);
+      }
+      return buf.join("\n").trim();
+    }
+
+    function extractPostGlowUp(md) {
+      return extractSection(md, /post[\s-]*glow[\s-]*up/i);
+    }
+
+    function extractPromptGlowUp(md) {
+      return extractSection(md, /prompt[\s-]*glow[\s-]*up/i);
+    }
+
+    function setLoading(loading) {
+      wandBtn.disabled = loading;
+      randomBtn.disabled = loading;
+      wandBtn.innerHTML = loading
+        ? '<span class="wand-icon">✨</span> LAiDY is reading…'
+        : ORIGINAL_WAND_HTML;
+    }
+
+    function revealScroll() {
       scrollEl.classList.remove("is-visible");
       void scrollEl.offsetWidth;
       scrollEl.classList.add("is-visible");
-
-      // Auto-scroll to the advice card
       setTimeout(() => {
-        scrollEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        scrollEl.scrollIntoView({ behavior: "smooth", block: "start" });
       }, 100);
+    }
 
-      // Prompt feedback
-      if (isCoach) {
-        const fb = buildLaidyPromptFeedback(result);
-        if (fb) {
-          feedbackText.textContent = fb;
-          feedbackEl.classList.add("is-visible");
+    function showError(message) {
+      scrollHeader.textContent = "A note from LAiDY";
+      scrollMode.textContent = "";
+      scrollBody.innerHTML = "<p>" + escapeHtml(message) + "</p>";
+      scrollFooter.textContent = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+      if (coachActions) coachActions.classList.remove("is-visible");
+      if (feedbackEl) feedbackEl.classList.remove("is-visible");
+      revealScroll();
+    }
+
+    // Show the newsletter signup gate in place of a response.
+    function showGate(pendingPromptText, pendingEnergy) {
+      scrollHeader.textContent = "One more wish?";
+      scrollMode.textContent = "";
+      scrollFooter.textContent = "";
+      if (coachActions) coachActions.classList.remove("is-visible");
+      if (feedbackEl) feedbackEl.classList.remove("is-visible");
+
+      const gate = document.createElement("div");
+      gate.className = "laidy-gate";
+      gate.innerHTML = `
+        <h3>LAiDY&rsquo;s full closet is open to LAiDIES.</h3>
+        <p>Drop your email and join the newsletter. LAiDY keeps going, and the Wednesday issue lands in your inbox.</p>
+        <form class="laidy-gate-form" autocomplete="email">
+          <input type="email" required placeholder="you@yourdomain.com" aria-label="Email address" />
+          <button type="submit">Sign me up</button>
+        </form>
+        <p class="laidy-gate-already">Already a LAiDIES subscriber? <a data-already>You&rsquo;re in &mdash; click here, honey.</a></p>
+        <p class="laidy-gate-ps"><em>P.S. Ali pays for LAiDY&rsquo;s wand out of pocket right now, so unlimited wishes aren&rsquo;t in the budget &mdash; yet. Subscribers get 10 wishes a day. Higher caps unlock with LAiDIES membership&hellip; (coming soon!)</em></p>
+        <p class="laidy-gate-status" aria-live="polite"></p>
+      `;
+
+      scrollBody.innerHTML = "";
+      scrollBody.appendChild(gate);
+
+      const form = gate.querySelector(".laidy-gate-form");
+      const input = gate.querySelector("input[type='email']");
+      const button = gate.querySelector("button");
+      const status = gate.querySelector(".laidy-gate-status");
+      const alreadyLink = gate.querySelector("[data-already]");
+
+      async function submitEmail(email) {
+        button.disabled = true;
+        const originalLabel = button.textContent;
+        button.textContent = "Checking…";
+        status.textContent = "";
+
+        let result = "error";
+        try {
+          const controller = new AbortController();
+          const timer = setTimeout(() => controller.abort(), 8000);
+          const response = await fetch(SUBSCRIBE_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", Accept: "application/json" },
+            body: JSON.stringify({ email: email }),
+            signal: controller.signal,
+          });
+          clearTimeout(timer);
+          if (response.ok) {
+            const data = await response.json().catch(() => ({}));
+            result = String(data && data.status ? data.status : "error");
+          }
+        } catch (err) {
+          console.error("Gate signup error:", err);
         }
-      } else {
-        feedbackEl.classList.remove("is-visible");
+
+        button.disabled = false;
+        button.textContent = originalLabel;
+
+        if (result === "created") {
+          setSubscriber(email);
+          status.textContent = "You’re in. Wand’s warming up…";
+          setTimeout(() => {
+            if (pendingPromptText) questionEl.value = pendingPromptText;
+            if (pendingEnergy) modeEl.value = pendingEnergy;
+            runWand();
+          }, 600);
+          return;
+        }
+        if (result === "already") {
+          setSubscriber(email);
+          status.textContent = "You’re already in LAiDIES, honey. Picking up where you left off…";
+          setTimeout(() => {
+            if (pendingPromptText) questionEl.value = pendingPromptText;
+            if (pendingEnergy) modeEl.value = pendingEnergy;
+            runWand();
+          }, 600);
+          return;
+        }
+        if (result === "invalid") {
+          status.textContent = "That email doesn’t look right — double-check it?";
+          return;
+        }
+        if (result === "rate_limited") {
+          status.textContent = "Newsletter is busy at the moment — try again in a minute?";
+          return;
+        }
+        status.textContent = "Signup hit a snag. Try again in a moment.";
       }
 
-      // History
-      if (summaryText !== lastAdvice) {
-        adviceHistory.unshift({ q: isCoach ? (question || "Blank prompt") : "\u2728 Random wisdom", a: summaryText });
-        if (adviceHistory.length > 3) adviceHistory.pop();
-        renderHistory();
-      }
-      lastAdvice = summaryText;
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = String(input.value || "").trim().toLowerCase();
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 254) {
+          status.textContent = "That email doesn’t look right — double-check it?";
+          return;
+        }
+        submitEmail(email);
+      });
 
-      // Badge
+      alreadyLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        const email = (input.value || "").trim().toLowerCase()
+          || (window.prompt("What email did you use to subscribe?") || "").trim().toLowerCase();
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          status.textContent = "Need your subscribed email to let you in.";
+          return;
+        }
+        submitEmail(email);
+      });
+
+      revealScroll();
+      setTimeout(() => { try { input.focus(); } catch {} }, 200);
+    }
+
+    function findSectionHeader(matcher) {
+      const headers = scrollBody.querySelectorAll(".laidy-output h3.laidy-h3");
+      for (let i = 0; i < headers.length; i++) {
+        if (matcher.test(headers[i].textContent || "")) return headers[i];
+      }
+      return null;
+    }
+
+    function makeCallout(html) {
+      const el = document.createElement("div");
+      el.className = "laidy-callout";
+      el.innerHTML = html;
+      return el;
+    }
+
+    function makeInlineAction(label, getText) {
+      const wrap = document.createElement("div");
+      wrap.className = "laidy-inline-action";
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "laidy-copy-button";
+      btn.textContent = label;
+      const status = document.createElement("span");
+      status.className = "laidy-copy-status";
+      status.setAttribute("aria-live", "polite");
+      btn.addEventListener("click", async () => {
+        const text = typeof getText === "function" ? getText() : getText;
+        if (!text) return;
+        try {
+          await navigator.clipboard.writeText(text);
+          status.textContent = "Copied.";
+        } catch (e) {
+          const helper = document.createElement("textarea");
+          helper.value = text;
+          helper.setAttribute("readonly", "");
+          helper.style.position = "fixed";
+          helper.style.left = "-9999px";
+          document.body.appendChild(helper);
+          helper.select();
+          document.execCommand("copy");
+          helper.remove();
+          status.textContent = "Copied.";
+        }
+      });
+      wrap.appendChild(btn);
+      wrap.appendChild(status);
+      return wrap;
+    }
+
+    const REVISION_BUTTONS = [
+      { label: "Shorter", directive: "shorter" },
+      { label: "Warmer", directive: "warmer" },
+      { label: "Firmer", directive: "firmer" },
+      { label: "More senior", directive: "more senior" },
+    ];
+
+    function makeRevisionRow() {
+      const row = document.createElement("div");
+      row.className = "laidy-revision-row";
+      const label = document.createElement("span");
+      label.className = "laidy-revision-label";
+      label.textContent = "Revise:";
+      row.appendChild(label);
+
+      const status = document.createElement("span");
+      status.className = "laidy-revision-status";
+      status.setAttribute("aria-live", "polite");
+
+      const buttons = REVISION_BUTTONS.map((opt) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "laidy-revision-button";
+        btn.dataset.directive = opt.directive;
+        btn.textContent = opt.label;
+        btn.addEventListener("click", () => runRevision(btn, opt, row, status, buttons));
+        row.appendChild(btn);
+        return btn;
+      });
+
+      row.appendChild(status);
+      return row;
+    }
+
+    async function runRevision(clickedBtn, opt, row, status, buttons) {
+      if (!lastPostGlowUpText) return;
+      const originalLabels = buttons.map((b) => b.textContent);
+      buttons.forEach((b) => { b.disabled = true; });
+      clickedBtn.textContent = "Revising…";
+      status.textContent = "";
+
+      try {
+        const response = await fetch(WORKER_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            revision: {
+              previousDraft: lastPostGlowUpText,
+              directive: opt.directive,
+            },
+          }),
+        });
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        const data = await response.json();
+        const revised = data && data.response ? String(data.response).trim() : "";
+        if (!revised) {
+          status.textContent = "LAiDY came back empty. Try again.";
+          return;
+        }
+        swapPostGlowUpContent(revised, row);
+        lastPostGlowUpText = revised;
+        status.textContent = "Revised — " + opt.label.toLowerCase() + ".";
+      } catch (err) {
+        console.error("Revision error:", err);
+        status.textContent = "LAiDY's signal flickered. Try again.";
+      } finally {
+        buttons.forEach((b, i) => {
+          b.disabled = false;
+          b.textContent = originalLabels[i];
+        });
+      }
+    }
+
+    // Replace the rendered draft body (everything between the POST-GLOW-UP
+    // controls and the next h3) with freshly-rendered revised content.
+    // The Copy draft button reads lastPostGlowUpText live, so it picks up the
+    // new content as soon as the caller reassigns that var.
+    function swapPostGlowUpContent(newDraftMarkdown, revisionRow) {
+      const parent = revisionRow.parentNode;
+      if (!parent) return;
+      let node = revisionRow.nextSibling;
+      const toRemove = [];
+      while (node && !(node.nodeType === 1 && node.tagName === "H3")) {
+        toRemove.push(node);
+        node = node.nextSibling;
+      }
+      toRemove.forEach((n) => parent.removeChild(n));
+
+      const wrapper = document.createElement("div");
+      wrapper.innerHTML = renderMarkdown(newDraftMarkdown);
+      const beforeNode = revisionRow.nextSibling;
+      while (wrapper.firstChild) {
+        parent.insertBefore(wrapper.firstChild, beforeNode);
+      }
+    }
+
+    function injectInlineCopyControls() {
+      const promptHeader = findSectionHeader(/prompt\s*glow[\s-]*up/i);
+      if (promptHeader && lastPromptGlowUpText) {
+        const caption = makeCallout(
+          "Paste this into ChatGPT, Claude, or your tool of choice &mdash; you&rsquo;ll get a result built on your real context, not what LAiDY guessed."
+        );
+        const action = makeInlineAction("Copy prompt", () => lastPromptGlowUpText);
+        promptHeader.parentNode.insertBefore(caption, promptHeader.nextSibling);
+        promptHeader.parentNode.insertBefore(action, caption.nextSibling);
+      }
+
+      const draftHeader = findSectionHeader(/post[\s-]*glow[\s-]*up/i);
+      if (draftHeader && lastPostGlowUpText) {
+        const caption = makeCallout(
+          "This is the silhouette &mdash; <strong>change the accessories to match your look.</strong> Fill in the [brackets], tweak the tone, swap anything that isn&rsquo;t quite you yet."
+        );
+        const action = makeInlineAction("Copy draft", () => lastPostGlowUpText);
+        const revisionRow = makeRevisionRow();
+        draftHeader.parentNode.insertBefore(caption, draftHeader.nextSibling);
+        draftHeader.parentNode.insertBefore(action, caption.nextSibling);
+        draftHeader.parentNode.insertBefore(revisionRow, action.nextSibling);
+      }
+
+      const output = scrollBody.querySelector(".laidy-output");
+      if (output) {
+        const disclosure = document.createElement("div");
+        disclosure.className = "laidy-disclosure";
+        disclosure.innerHTML =
+          "LAiDY is AI, and AI can wear a great outfit with the price tag still on. <strong>Check yourself in the mirror before you walk out the door</strong> &mdash; verify the names, dates, numbers, and anything in [brackets]. Prompt Like Elle.";
+        output.appendChild(disclosure);
+      }
+    }
+
+    function showResponse(markdown, energyKey, question) {
+      wisdomCount++;
+      countEl.textContent = wisdomCount;
+
+      scrollHeader.textContent = "A note from FAiRY GODMOTHER";
+      scrollMode.textContent = ENERGY_LABEL[energyKey] || "";
+      scrollBody.innerHTML = '<div class="laidy-output">' + renderMarkdown(markdown) + "</div>";
+      scrollFooter.textContent = "Wisdom #" + wisdomCount + " • " + new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
+      lastPostGlowUpText = extractPostGlowUp(markdown);
+      lastPromptGlowUpText = extractPromptGlowUp(markdown);
+
+      injectInlineCopyControls();
+
+      if (coachActions) coachActions.classList.remove("is-visible");
+      if (coachCopyStatus) coachCopyStatus.textContent = "";
+      if (feedbackEl) feedbackEl.classList.remove("is-visible");
+
+      revealScroll();
+
+      const excerpt = String(markdown || "")
+        .replace(/[#*]+/g, "")
+        .replace(/\s+/g, " ")
+        .trim()
+        .slice(0, 140);
+      adviceHistory.unshift({ q: question || "Surprise prompt", a: excerpt });
+      if (adviceHistory.length > 3) adviceHistory.pop();
+      renderHistory();
+
       if (wisdomCount >= BADGE_THRESHOLD) {
         badgeEl.classList.add("is-visible");
         try {
           const badges = JSON.parse(localStorage.getItem("laidiesSecretBadges") || "{}");
           if (!badges["fairy-favorite"]) {
-            badges["fairy-favorite"] = { id: "fairy-favorite", title: "FAiRY GODMOTHER\u2019s Favorite", sticker: "LAiDY", unlockedAt: new Date().toISOString(), source: "FAiRY GODMOTHER" };
+            badges["fairy-favorite"] = { id: "fairy-favorite", title: "FAiRY GODMOTHER’s Favorite", sticker: "LAiDY", unlockedAt: new Date().toISOString(), source: "FAiRY GODMOTHER" };
             localStorage.setItem("laidiesSecretBadges", JSON.stringify(badges));
           }
-        } catch(e) {}
+        } catch (e) {}
       }
     }
 
@@ -1203,44 +1549,81 @@
       ).join("");
     }
 
-    function escapeHtml(str) {
-      return String(str || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-    }
-
-    // Wave the Wand — ask with typed question
-    wandBtn.addEventListener("click", () => {
-      const q = questionEl.value.trim();
-      const mode = modeEl.value || "auto";
-      const result = buildLaidyAdvice(q, mode);
-      showAdvice(result, result.mode, q);
-    });
-
-    // Surprise me — random wisdom
-    randomBtn.addEventListener("click", () => {
-      const idx = Math.floor(Math.random() * randomWisdom.length);
-      showAdvice(randomWisdom[idx], "Random Wisdom", "");
-    });
-
-    if (copyBetterPromptButton) {
-      copyBetterPromptButton.addEventListener("click", async () => {
-        if (!lastBetterPrompt) return;
-        try {
-          await navigator.clipboard.writeText(lastBetterPrompt);
-          if (coachCopyStatus) coachCopyStatus.textContent = "Copied.";
-        } catch (e) {
-          const helper = document.createElement("textarea");
-          helper.value = lastBetterPrompt;
-          helper.setAttribute("readonly", "");
-          helper.style.position = "fixed";
-          helper.style.left = "-9999px";
-          document.body.appendChild(helper);
-          helper.select();
-          document.execCommand("copy");
-          helper.remove();
-          if (coachCopyStatus) coachCopyStatus.textContent = "Copied.";
-        }
+    async function callWorker(prompt, energyKey, subscriberEmail) {
+      const payload = { prompt: prompt, energy: energyKey };
+      if (subscriberEmail) payload.subscriberEmail = subscriberEmail;
+      const response = await fetch(WORKER_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
       });
+      // Try to parse the body even on non-OK so we can surface friendly
+      // LAiDY-voice messages from 429 responses (per-IP rate limit, daily cap).
+      const data = await response.json().catch(() => null);
+      if (!response.ok) {
+        if (data && data.response) {
+          const err = new Error("HTTP " + response.status);
+          err.userFacingMessage = String(data.response);
+          err.kind = data.kind || null;
+          throw err;
+        }
+        throw new Error("HTTP " + response.status);
+      }
+      return data && data.response ? String(data.response) : "";
     }
+
+    async function runWand() {
+      const q = questionEl.value.trim();
+      if (!q) {
+        showError("LAiDY needs an actual prompt to read. Tell her in a sentence or two what you’re trying to do.");
+        return;
+      }
+      if (q.split(/\s+/).length < 3) {
+        showError("That’s a little brief for LAiDY. Add a sentence about what you’re trying to do and who it’s for.");
+        return;
+      }
+      const selectedValue = modeEl.value || "auto";
+      const energyKey = ENERGY_KEY_MAP[selectedValue] || "fairy";
+
+      // Newsletter gate: anonymous users get 1 free wish, then the signup gate.
+      if (shouldShowGate()) {
+        showGate(q, selectedValue);
+        return;
+      }
+
+      const subscriber = getSubscriber();
+
+      setLoading(true);
+      try {
+        const markdown = await callWorker(q, energyKey, subscriber ? subscriber.email : null);
+        if (!markdown.trim()) {
+          showError("LAiDY came back empty-handed. Try waving the wand again.");
+          return;
+        }
+        showResponse(markdown, energyKey, q);
+        if (!subscriber) incrementFreeWishesUsed();
+      } catch (err) {
+        console.error("FAiRY GODMOTHER worker error:", err);
+        if (err && err.userFacingMessage) {
+          showError(err.userFacingMessage);
+        } else {
+          showError("LAiDY’s signal flickered for a second. Try the wand again in a moment.");
+        }
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    wandBtn.addEventListener("click", runWand);
+
+    // Surprise me — pick a random named energy + starter prompt, then auto-fire the wand.
+    randomBtn.addEventListener("click", () => {
+      const energyValue = NAMED_ENERGIES[Math.floor(Math.random() * NAMED_ENERGIES.length)];
+      const prompt = STARTER_PROMPTS[Math.floor(Math.random() * STARTER_PROMPTS.length)];
+      modeEl.value = energyValue;
+      questionEl.value = prompt;
+      runWand();
+    });
 
     if (resetPromptButton) {
       resetPromptButton.addEventListener("click", () => {
