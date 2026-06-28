@@ -250,14 +250,17 @@
 
       /* === CARD STAGE + FLIP === */
       .gt-stage {
-        max-width: 540px;
+        max-width: 440px;
         margin: 0 auto 28px;
         perspective: 1400px;
       }
       .gt-card {
         position: relative;
         width: 100%;
-        min-height: 360px;
+        /* Match the Codex card artwork (1024x1536 = 2:3 portrait playing-card
+           proportions). Aspect-ratio keeps the full artwork visible without
+           cropping when background-size: cover is applied. */
+        aspect-ratio: 2 / 3;
         transform-style: preserve-3d;
         transition: transform 0.55s cubic-bezier(0.4, 0.0, 0.2, 1);
       }
@@ -572,8 +575,8 @@
         .sticky-back .nav-links { gap: 10px; }
         .hero-image-wrap img { width: 180px; height: 180px; }
         .hero-image-wrap::before { width: 220px; height: 220px; }
-        .gt-card { min-height: 320px; }
-        .gt-card-face { padding: 26px 20px; }
+        .gt-stage { max-width: 320px; }
+        .gt-card-face { padding: 22px 18px; }
         .gt-actions { flex-direction: column; }
         .gt-actions .gt-button { width: 100%; }
         .gt-score-row { font-size: 0.85rem; gap: 8px; }
