@@ -132,10 +132,6 @@
       .dp-wip-banner strong { color: var(--rose); }
       .dp-jenny { text-align: center; font-size: 0.82rem; color: var(--muted) !important; font-style: italic; margin-top: 6px; }
 
-      .dp-lineup-tease { margin-top: 26px; text-align: center; }
-      .dp-lineup-tease h3 { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
-      .dp-lineup-strip { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
-      .dp-lineup-strip img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); opacity: 0.9; }
 
       /* ── Buttons ── */
       .dp-btn {
@@ -606,11 +602,6 @@
         </div>
         <!-- Jenny easter-egg teaser (approved copy) -->
         <p class="dp-jenny">Psst… rumour has it you can still call Jenny, if you know her number.</p>
-
-        <div class="dp-lineup-tease">
-          <h3>This week's line-up</h3>
-          <div class="dp-lineup-strip" id="dpLineupStrip" aria-hidden="true"></div>
-        </div>
       </section>
 
       <!-- ════════ THE GAME ════════ -->
@@ -823,24 +814,6 @@
     <script src="../games/dream-phone-bundles.js?v=dp-bundles-1"></script>
     <script src="../games/dream-phone-game.js?v=dream-phone-game-3"></script>
     <script>
-      // Populate the entry line-up strip from the game's caller portraits.
-      (function () {
-        var strip = document.getElementById("dpLineupStrip");
-        if (!strip) return;
-        var imgs = [
-          "mentor.webp", "bestie.webp", "boundary.webp", "receipts.webp", "hype.webp", "steady.webp",
-          "strategist.webp", "bigbro.webp", "wildcard.webp", "creative.webp", "research.webp", "ai-help.webp"
-        ];
-        imgs.forEach(function (f) {
-          var img = document.createElement("img");
-          img.src = "../assets/dream-phone-" + f;
-          img.alt = "";
-          img.loading = "lazy";
-          img.onerror = function () { this.remove(); };
-          strip.appendChild(img);
-        });
-      })();
-
       // Weekly-bag return link (preserved from the parked page).
       (function() {
         var params = new URLSearchParams(window.location.search || "");
