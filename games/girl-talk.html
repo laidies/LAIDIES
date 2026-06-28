@@ -42,10 +42,8 @@
 
       body {
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        background:
-          radial-gradient(circle at 10% 0%, rgba(200, 220, 224, 0.24), transparent 22rem),
-          linear-gradient(180deg, #fffdfb 0%, #fbf6f5 52%, #fffdfb 100%);
-        background-attachment: fixed;
+        /* Animated .laidies-bg--light layer (twinkles + drifting glitter) sits behind at z-index:-1. */
+        background: transparent;
         color: var(--text-primary);
         min-height: 100vh;
         line-height: 1.6;
@@ -550,6 +548,26 @@
         font-style: italic;
         margin-top: 8px;
       }
+      .gt-reward-tip {
+        margin: 14px auto 0;
+        max-width: 440px;
+        padding: 10px 14px;
+        background: rgba(255, 253, 251, 0.7);
+        border-left: 3px solid var(--gold);
+        border-radius: 4px 10px 10px 4px;
+        font-size: 0.92rem;
+        line-height: 1.45;
+        color: var(--plum);
+        text-align: left;
+      }
+      .gt-reward-tip a {
+        color: var(--wine);
+        font-weight: 800;
+        text-decoration: underline;
+        text-decoration-thickness: 1.5px;
+        text-underline-offset: 2px;
+      }
+      .gt-reward-tip a:hover { color: var(--hot-pink); }
 
       /* Wish unlock celebration */
       .gt-wish-unlocked {
@@ -610,9 +628,13 @@
       window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
       plausible.init()
     </script>
+    <link rel="stylesheet" href="../content/site/laidies-bg.css?v=laidies-bg-1">
     <link rel="stylesheet" href="../content/site/mini-player.css">
   </head>
   <body>
+    <!-- Animated twinkle + glitter background layer (LAiDIES default, same as Dream Phone). -->
+    <div class="laidies-bg laidies-bg--light" aria-hidden="true"></div>
+
     <!-- Sticky Back to Clubhouse -->
     <header class="sticky-back">
       <a class="brand" href="../index.html" aria-label="LAiDIES home">
@@ -630,7 +652,7 @@
       <div class="game-page-wrap">
         <!-- Hero -->
         <div class="hero-image-wrap">
-          <img src="../assets/girl-talk-board.webp" alt="Girl Talk game board" onerror="this.style.display='none'; this.parentNode.style.display='none';" />
+          <img src="../assets/games/girl-talk/card-back.png" alt="Girl Talk card back — plum and gold with a pink and teal heart gem" onerror="this.style.display='none'; this.parentNode.style.display='none';" />
         </div>
 
         <!-- Title -->
@@ -687,8 +709,8 @@
         <!-- Microcopy -->
         <p class="gt-microcopy">
           Honour system on stickers — you tell us if you did it.
-          LAiDY wishes will validate against your community room posts once member accounts launch (the post is the receipt).
-          Progress saves to this device via <code>laidies_gt_*</code> keys; it'll migrate to your member account in Part C.
+          Your progress saves to this device for now, and your LAiDIES member card will pick it up when sign-in lands.
+          Wishes will validate against your community room posts then (the post is the receipt).
         </p>
       </div>
     </main>
@@ -717,63 +739,95 @@
         };
 
         // ===== TRUTH CARDS (25) ===== id: T1-T25
+        // Each truth has a `tip` — a one-line "now what" the user sees after
+        // answering honestly. AI-flavoured truths route to FAiRY GODMOTHER,
+        // creating a flywheel between the games.
         const TRUTHS = [
-          { id: "T1",  text: "What AI task are you avoiding because you don't know how to start?" },
-          { id: "T2",  text: "What's the last thing you copy-pasted from AI without reading properly?" },
-          { id: "T3",  text: "What work task do you secretly hope AI will make disappear?" },
-          { id: "T4",  text: "When did you last pretend to understand something in a meeting and then Google it after?" },
-          { id: "T5",  text: "What's the most embarrassing prompt you've ever sent?" },
-          { id: "T6",  text: "What are you most scared AI will be able to do better than you?" },
-          { id: "T7",  text: "What's a skill you've been meaning to learn for two years and haven't?" },
-          { id: "T8",  text: "What meeting are you in that you genuinely don't need to be in?" },
-          { id: "T9",  text: "What do you say you'll “circle back on” that you have no intention of circling back on?" },
-          { id: "T10", text: "What's your actual relationship with your inbox right now?" },
-          { id: "T11", text: "What's the last piece of feedback you got that was right and you didn't want to hear?" },
-          { id: "T12", text: "Who do you most wish had a LAiDY in their corner?" },
-          { id: "T13", text: "What's something you did with AI this week you haven't told anyone?" },
-          { id: "T14", text: "What's the task you always save for last and why?" },
-          { id: "T15", text: "What would your manager say your biggest strength is vs. what you think it actually is?" },
-          { id: "T16", text: "What work problem would you solve first if you had zero budget and unlimited AI?" },
-          { id: "T17", text: "What's the email you've been drafting in your head for three weeks?" },
-          { id: "T18", text: "What do you know about AI that your team doesn't?" },
-          { id: "T19", text: "What's the dumbest meeting agenda you've seen this month?" },
-          { id: "T20", text: "What would you do differently if you started your current job today?" },
-          { id: "T21", text: "What's the task you'd delegate to AI in a heartbeat if you knew how?" },
-          { id: "T22", text: "What's one thing you're pretending is fine?" },
-          { id: "T23", text: "What's the last time AI surprised you?" },
-          { id: "T24", text: "What work habit do you have that you know is bad but haven't stopped?" },
-          { id: "T25", text: "What's the thing you're most proud of at work that nobody noticed?" }
+          { id: "T1",  text: "What AI task are you avoiding because you don't know how to start?",
+            tip: "→ Take that task to FAiRY GODMOTHER. Let LAiDY glow up your first prompt." },
+          { id: "T2",  text: "What's the last thing you copy-pasted from AI without reading properly?",
+            tip: "→ Run it back through LAiDY. See what changes when you actually brief it." },
+          { id: "T3",  text: "What work task do you secretly hope AI will make disappear?",
+            tip: "→ Ask LAiDY to plan the first 30 minutes." },
+          { id: "T4",  text: "When did you last pretend to understand something in a meeting and then Google it after?",
+            tip: "→ Next time, ask AI in the moment. Three sentences, no judgment." },
+          { id: "T5",  text: "What's the most embarrassing prompt you've ever sent?",
+            tip: "→ Glow it up on FAiRY GODMOTHER. The embarrassing ones usually have bones." },
+          { id: "T6",  text: "What are you most scared AI will be able to do better than you?",
+            tip: "→ Name the task. Take it to LAiDY. Notice what you bring that AI can't." },
+          { id: "T7",  text: "What's a skill you've been meaning to learn for two years and haven't?",
+            tip: "→ Ask AI to teach you the first 30 minutes today." },
+          { id: "T8",  text: "What meeting are you in that you genuinely don't need to be in?",
+            tip: "→ Decline it. Use LAiDY for the wording if you need it." },
+          { id: "T9",  text: "What do you say you'll “circle back on” that you have no intention of circling back on?",
+            tip: "→ Either close the loop or kill it. AI can write either." },
+          { id: "T10", text: "What's your actual relationship with your inbox right now?",
+            tip: "→ Take three real emails to FAiRY GODMOTHER. Watch what an hour gets you." },
+          { id: "T11", text: "What's the last piece of feedback you got that was right and you didn't want to hear?",
+            tip: "→ Ask AI to surface the one move that'd actually address it." },
+          { id: "T12", text: "Who do you most wish had a LAiDY in their corner?",
+            tip: "→ Send them the LAiDIES link. They'll thank you." },
+          { id: "T13", text: "What's something you did with AI this week you haven't told anyone?",
+            tip: "→ Tell someone here. Post it in Try-On Debrief." },
+          { id: "T14", text: "What's the task you always save for last and why?",
+            tip: "→ Ask LAiDY for the smallest version that ships." },
+          { id: "T15", text: "What would your manager say your biggest strength is vs. what you think it actually is?",
+            tip: "→ Use AI to draft both versions. The gap is information." },
+          { id: "T16", text: "What work problem would you solve first if you had zero budget and unlimited AI?",
+            tip: "→ Mock it up with LAiDY this week. Free is exactly your budget." },
+          { id: "T17", text: "What's the email you've been drafting in your head for three weeks?",
+            tip: "→ Drop it on FAiRY GODMOTHER. Pick the energy you needed three weeks ago." },
+          { id: "T18", text: "What do you know about AI that your team doesn't?",
+            tip: "→ Teach one person this week. Share what landed." },
+          { id: "T19", text: "What's the dumbest meeting agenda you've seen this month?",
+            tip: "→ Use AI to rewrite the next one. Send your version." },
+          { id: "T20", text: "What would you do differently if you started your current job today?",
+            tip: "→ Pick one move. Make it this week." },
+          { id: "T21", text: "What's the task you'd delegate to AI in a heartbeat if you knew how?",
+            tip: "→ Take it to FAiRY GODMOTHER. Get LAiDY's version of the prompt." },
+          { id: "T22", text: "What's one thing you're pretending is fine?",
+            tip: "→ Name it out loud. To yourself first. Then to one person." },
+          { id: "T23", text: "What's the last time AI surprised you?",
+            tip: "→ Run the same kind of move again this week." },
+          { id: "T24", text: "What work habit do you have that you know is bad but haven't stopped?",
+            tip: "→ Pick one. Replace it with the version AI suggests." },
+          { id: "T25", text: "What's the thing you're most proud of at work that nobody noticed?",
+            tip: "→ Add it to your performance review draft. AI helps you write it." }
         ];
 
         // ===== DARE CARDS (28) ===== id: D1-D28
+        // Rule: each card serves a LAiDIES theme (AI fluency / career / community /
+        // support / boundaries). The post is about THE MOVE the user made, not the
+        // confidential work artifact — share the prompt, the line, the surprise,
+        // not the email/decline/raise-case content.
         const DARES = [
-          { id: "D1",  text: "Book a happy hour with your team and post proof.", room: "Wins" },
-          { id: "D2",  text: "Send the email you've been putting off. Screenshot it.", room: "Send It Energy" },
+          { id: "D1",  text: "Book a happy hour with your team. Post proof.", room: "Wins" },
+          { id: "D2",  text: "Use AI to draft the email you've been putting off. Share the prompt — or the one line that finally made you hit send.", room: "Send It Energy" },
           { id: "D3",  text: "Use AI to write your next meeting agenda. Tell us if it was actually good.", room: "Try-On Debrief" },
-          { id: "D4",  text: "Set an out-of-office right now even if you're not going anywhere.", room: "Burn Book" },
-          { id: "D5",  text: "Ask AI to roast your last presentation. Post the roast.", room: "Burn Book" },
-          { id: "D6",  text: "Write your own performance review using AI. Post one line from it.", room: "Wins" },
-          { id: "D7",  text: "Decline a meeting this week using LAiDY. Post the decline.", room: "Send It Energy" },
-          { id: "D8",  text: "Ask AI what job you'd be good at based on your last three emails. Post the answer.", room: "Try-On Debrief" },
-          { id: "D9",  text: "Use AI to summarize the last all-hands and find the one thing that wasn't actually said.", room: "Receipts Desk" },
-          { id: "D10", text: "Write a one-paragraph case for a raise. Post it. (You don't have to send it. But you could.)", room: "Send It Energy" },
-          { id: "D11", text: "Ask AI to rewrite your LinkedIn headline. Post before and after.", room: "Try-On Debrief" },
-          { id: "D12", text: "Use AI to draft a message you've been scared to send. Post the draft (not the send).", room: "Dear LAiDIES" },
-          { id: "D13", text: "Post the most unhinged work Slack message you received this week (anonymized).", room: "Burn Book" },
-          { id: "D14", text: "Ask AI to explain your job to a five-year-old. Post it.", room: "Ask the Room" },
+          { id: "D4",  text: "Set an out-of-office right now even if you're not going anywhere. Share the move.", room: "Send It Energy" },
+          { id: "D5",  text: "Ask AI to roast your last presentation. Share the line that stung — or the prompt that got you the funniest roast.", room: "Burn Book" },
+          { id: "D6",  text: "Use AI to draft your own performance review. Share the line you wouldn't have written about yourself.", room: "Wins" },
+          { id: "D7",  text: "Decline a meeting this week using LAiDY. Share the prompt — or the move LAiDY suggested.", room: "Send It Energy" },
+          { id: "D8",  text: "Ask AI what job you'd be good at based on patterns in your work. Share what surprised you about the answer.", room: "Try-On Debrief" },
+          { id: "D9",  text: "Ask AI to surface what wasn't said at your last all-hands. Share the move you'd make in response.", room: "Comment Card" },
+          { id: "D10", text: "Use AI to draft your one-paragraph case for a raise. Share the line that surprised you. (You don't have to send it. But you could.)", room: "Send It Energy" },
+          { id: "D11", text: "Ask AI to rewrite your LinkedIn headline. Share the before, after, and the prompt that worked.", room: "Try-On Debrief" },
+          { id: "D12", text: "Use AI to draft the message you've been scared to send. Share what AI helped you finally say.", room: "Dear LAiDIES" },
+          { id: "D13", text: "Name the work nonsense you've stopped tolerating this year. No names.", room: "Burn Book" },
+          { id: "D14", text: "Ask AI to explain your job to a five-year-old. Share the version that made you laugh — or made you proud.", room: "Ask the Room" },
           { id: "D15", text: "Make a playlist for your current work mood and post it.", room: "Mix CD Exchange" },
-          { id: "D16", text: "Use AI to write a polite but firm reply to the most annoying email in your inbox.", room: "Send It Energy" },
+          { id: "D16", text: "Use AI to write a polite but firm reply to the most annoying email in your inbox. Share the prompt that got you a version you'd actually send.", room: "Send It Energy" },
           { id: "D17", text: "Post your hot take on AI at work. No hedging.", room: "Ask the Room" },
           { id: "D18", text: "Use AI to plan your ideal workday. Post it as evidence of what's possible.", room: "Wins" },
-          { id: "D19", text: "Ask AI what you're probably overthinking right now. Post the answer.", room: "Dear LAiDIES" },
-          { id: "D20", text: "Audit your last week: how many hours were actually useful? Post the number.", room: "Comment Card" },
+          { id: "D19", text: "Take the prompt you've sent AI most lately. Run it through FAiRY GODMOTHER. Share what LAiDY changed.", room: "Try-On Debrief" },
+          { id: "D20", text: "Audit your last week: how many hours were actually useful? Post the number — and the one thing you'll cut next week.", room: "Comment Card" },
           { id: "D21", text: "Use LAiDY to glow up a prompt you've been struggling with. Post before and after.", room: "Try-On Debrief" },
-          { id: "D22", text: "Write your team a thank-you using AI, then actually send it. Post proof.", room: "Wins" },
-          { id: "D23", text: "Ask AI to identify the subtext in an email you received this week. Post it.", room: "Burn Book" },
+          { id: "D22", text: "Use AI to write your team a thank-you, then send it. Share what AI helped you say.", room: "Wins" },
+          { id: "D23", text: "Ask AI to identify the subtext in an email you received this week. Share what AI saw that you didn't — no names, just the pattern.", room: "Burn Book" },
           { id: "D24", text: "Find one thing in the LAiDIES Grimoire you didn't know existed and share it.", room: "Ask the Room" },
-          { id: "D25", text: "Send the LAiDIES link to one woman you know who needs this. Post proof.", room: "Wins" },
-          { id: "D26", text: "Text one friend who would actually use this. Right now. Post proof.", room: "Wins" },
-          { id: "D27", text: "Forward this week's episode to someone who's been complaining about AI at work.", room: "Send It Energy" },
+          { id: "D25", text: "Send the LAiDIES link to one woman you know who needs this. Post the move.", room: "Wins" },
+          { id: "D26", text: "DM one woman whose work you admire. Tell her one specific thing. No agenda. Share the move.", room: "Dear LAiDIES" },
+          { id: "D27", text: "Bring a recent LAiDIES insight to your team. Share what landed.", room: "Wins" },
           { id: "D28", text: "Book a happy hour. (You knew it was coming back.)", room: "Wins" }
         ];
 
@@ -988,7 +1042,7 @@
           if (isTruth) {
             lastTruthIndex = nextIndex(TRUTHS.length, lastTruthIndex);
             const t = TRUTHS[lastTruthIndex];
-            currentCard = { kind: "truth", id: t.id, text: t.text };
+            currentCard = { kind: "truth", id: t.id, text: t.text, tip: t.tip || "" };
           } else {
             lastDareIndex = nextIndex(DARES.length, lastDareIndex);
             const d = DARES[lastDareIndex];
@@ -1064,15 +1118,29 @@
               <small>Your wish is waiting — we'll unlock the actual wand when member accounts launch.</small>
             </div>
           ` : "";
+          // Truth follow-up tip — turns the moment of honest reflection into a
+          // concrete next move. AI-flavoured tips reference FAiRY GODMOTHER,
+          // which we linkify so users can jump straight to LAiDY's wand.
+          const tipHtml = (kind === "truth" && currentCard && currentCard.tip)
+            ? `<div class="gt-reward-tip">${linkifyFairy(escapeHtml(currentCard.tip))}</div>`
+            : "";
           els.result.innerHTML = `
             <div class="gt-reward">
               <span class="gt-sticker-label">✨ Sticker earned</span>
               ${renderStickerImage(sticker.image, sticker.name, "reward")}
               <div class="gt-sticker-name">${escapeHtml(sticker.name)}</div>
               <div class="gt-reward-flavor">${escapeHtml(flavorByKind[kind] || "")}</div>
+              ${tipHtml}
               ${wishHtml}
             </div>
           `;
+        }
+
+        // Linkify references to FAiRY GODMOTHER / LAiDY's wand inside truth tips,
+        // pointing to the live game so users can jump straight there.
+        function linkifyFairy(html) {
+          return html.replace(/FAiRY GODMOTHER/g,
+            '<a href="fairy-godmother.html">FAiRY GODMOTHER</a>');
         }
 
         // ===== PENALTY (chickened out) =====
@@ -1149,6 +1217,7 @@
     </script>
 
     <!-- Site scripts -->
+    <script src="../content/site/laidies-bg.js?v=laidies-bg-1" defer></script>
     <script src="../content/site/supabase-config.js"></script>
     <script src="../content/site/site-data.js?v=episode-04-quiz-1"></script>
     <script src="../script.js"></script>
