@@ -384,6 +384,15 @@
             unlockMessage: "Blocked & Iconic unlocked. Caller ID off, mystique on. Nobody saw you coming."
           };
         }
+        if (!hiddenMeritBadges["deb-unlocked"]) {
+          hiddenMeritBadges["deb-unlocked"] = {
+            id: "deb-unlocked",
+            title: "Found Deb merit badge",
+            sticker: "DEB",
+            source: "Dream Phone",
+            unlockMessage: "Found Deb unlocked. You blocked your number, she actually picked up, and she still told you nothing. Iconic, useless, immovable."
+          };
+        }
         if (hiddenMeritBadges["867-club"]) hiddenMeritBadges["867-club"].unlockMessage = "867 Club unlocked. You found the secret Dream Phone line. Pin the sticker and be a little smug in the group chat.";
         if (hiddenMeritBadges["remix-scholar"]) hiddenMeritBadges["remix-scholar"].unlockMessage = "Remix Scholar unlocked. You played all three remix cards in one game. The drama was fully utilised.";
       }
@@ -400,6 +409,9 @@
   function dreamPhoneEgg(code) {
     if (code === "*69") return { first: !!safeUnlock("redial-royalty", "Dream Phone") };
     if (code === "*67") return { first: !!safeUnlock("blocked-and-iconic", "Dream Phone") };
+    if (code === "867") return { first: !!safeUnlock("867-club", "Dream Phone") };
+    if (code === "deb") return { first: !!safeUnlock("deb-unlocked", "Dream Phone") };
+    if (code === "remix-scholar") return { first: !!safeUnlock("remix-scholar", "Dream Phone") };
     return { first: false };
   }
   if (typeof window !== "undefined") window.dreamPhoneEgg = dreamPhoneEgg;
