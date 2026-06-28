@@ -4,12 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Dream Phone | LAiDIES Clubhouse</title>
-    <meta name="description" content="Dial a number, pick a caller card, and get career, confidence, AI, or work advice from the LAiDIES Dream Phone deck." />
-    <meta name="theme-color" content="#b95d78" />
+    <meta name="description" content="Two tracks behind one phone: play the deduction game to deduce who's secretly in your corner, or just call an advisor for a straight answer." />
+    <meta name="theme-color" content="#fffdfb" />
     <link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&family=JetBrains+Mono:wght@400&family=Inter:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap">
     <!-- Privacy-friendly analytics by Plausible -->
     <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
     <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
@@ -17,488 +17,388 @@
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
       :root {
-        --bg-start: #fffdfb;
-        --bg-end: #fbf6f5;
-        --hot-pink: #b95d78;
-        --wine: #6f263f;
+        /* Pearl Plum — bright register */
+        --pearl: #fffdfb;
+        --paper: #fbf6f5;
+        --mist: #efe0e2;
+        --blush: #e8c5c8;
         --plum: #4b2148;
-        --pink-glow: rgba(185, 93, 120, 0.28);
-        --pink-glow-soft: rgba(185, 93, 120, 0.15);
-        --card-bg: rgba(255, 253, 251, 0.88);
-        --card-border: rgba(75, 33, 72, 0.16);
-        --text-primary: #4b2148;
-        --text-muted: rgba(75, 33, 72, 0.58);
-        --text-secondary: rgba(75, 33, 72, 0.74);
-        --surface-elevated: rgba(255, 253, 251, 0.92);
+        --muted: #766171;
+        --rose: #9b3f5f;
+        --ice: #c8dce0;
+        --gold: #b49764;
+        /* derived surfaces + soft, plum-tinted shadows (homepage register) */
+        --card: rgba(255, 253, 251, 0.92);
+        --card-edge: rgba(232, 197, 200, 0.55);
+        --line: rgba(75, 33, 72, 0.12);
+        --shadow: rgba(75, 33, 72, 0.10);
+        --shadow-strong: rgba(75, 33, 72, 0.16);
+        --rose-soft: rgba(155, 63, 95, 0.16);
+        --gold-soft: rgba(180, 151, 100, 0.32);
+        --ice-soft: rgba(200, 220, 224, 0.45);
       }
 
-      html {
-        scroll-behavior: smooth;
-        overflow-x: hidden;
-      }
+      html { scroll-behavior: smooth; overflow-x: hidden; }
 
       body {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-family: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
         background:
-          radial-gradient(circle at 88% 4%, rgba(200, 220, 224, 0.28), transparent 22rem),
-          linear-gradient(165deg, var(--bg-start) 0%, var(--bg-end) 100%);
-        color: var(--text-primary);
+          radial-gradient(circle at 12% 6%, var(--ice-soft), transparent 40%),
+          radial-gradient(circle at 88% 2%, rgba(232, 197, 200, 0.34), transparent 40%),
+          radial-gradient(circle at 50% 116%, rgba(239, 224, 226, 0.7), transparent 60%),
+          linear-gradient(170deg, var(--pearl) 0%, var(--paper) 100%);
+        background-attachment: fixed;
+        color: var(--plum);
         min-height: 100vh;
         line-height: 1.6;
         -webkit-font-smoothing: antialiased;
         overflow-x: hidden;
       }
-
-      /* ── Sticky LAiDIES shell nav ── */
-      .back-nav {
-        position: sticky;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        display: flex;
-        align-items: center;
-        gap: 18px;
-        min-height: 82px;
-        padding: 12px clamp(16px, 4vw, 32px);
-        background: rgba(255, 253, 251, 0.96);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-bottom: 1px solid var(--card-border);
-        box-shadow: 0 12px 28px rgba(75, 33, 72, 0.08);
-      }
-      .back-nav .brand {
-        display: inline-flex;
-        line-height: 0;
-        overflow: visible;
-      }
-      .back-nav .brand img {
-        display: block;
-        width: clamp(120px, 11.5vw, 164px);
-        height: auto;
-        filter: drop-shadow(0 10px 20px rgba(75, 33, 72, 0.1));
-      }
-      .back-nav .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 14px;
-        margin-left: auto;
-      }
-      .back-nav a:not(.brand) {
-        color: var(--plum);
-        text-decoration: none;
-        font-size: 0.85rem;
-        font-weight: 800;
-        letter-spacing: 0.01em;
-        transition: opacity 0.2s;
-      }
-      .back-nav a:hover { opacity: 0.75; }
-
-      /* ── Main Container ── */
-      .page-container {
-        max-width: 900px;
-        width: 100%;
-        margin: 0 auto;
-        padding: clamp(32px, 5vw, 56px) 24px 80px;
-      }
-
-      /* ── Hero Section ── */
-      .hero {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 48px 0 56px;
-        gap: 28px;
-      }
-
-      .hero-image-wrap {
-        position: relative;
-        width: 200px;
-        height: 200px;
-      }
-      .hero-image-wrap::before {
+      /* restrained sparkle — faint gold/rose/ice shimmer on pearl */
+      body::before {
         content: '';
-        position: absolute;
-        inset: -20px;
-        border-radius: 50%;
-        background: radial-gradient(circle, var(--pink-glow) 0%, transparent 70%);
-        animation: pulse-glow 3s ease-in-out infinite;
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background-image:
+          radial-gradient(1px 1px at 22% 26%, rgba(180, 151, 100, 0.55), transparent),
+          radial-gradient(1.5px 1.5px at 68% 15%, rgba(155, 63, 95, 0.4), transparent),
+          radial-gradient(1px 1px at 42% 72%, rgba(150, 180, 200, 0.42), transparent),
+          radial-gradient(1px 1px at 84% 58%, rgba(180, 151, 100, 0.5), transparent),
+          radial-gradient(1px 1px at 12% 82%, rgba(155, 63, 95, 0.34), transparent);
+        background-repeat: no-repeat;
+      }
+
+      /* ── Sticky LAiDIES shell nav (brand-polish.js restyles this sitewide; tokens here are a fallback) ── */
+      .back-nav {
+        position: sticky; top: 0; z-index: 1000;
+        display: flex; align-items: center; gap: 18px;
+        min-height: 78px; padding: 12px clamp(16px, 4vw, 32px);
+        background: rgba(255, 253, 251, 0.92);
+        backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--line);
+      }
+      .back-nav .brand { display: inline-flex; line-height: 0; }
+      .back-nav .brand img { display: block; width: clamp(118px, 11vw, 158px); height: auto; }
+      .back-nav .nav-links { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-left: auto; }
+      .back-nav a:not(.brand) {
+        color: var(--rose); text-decoration: none; font-size: 0.8rem;
+        font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; transition: opacity 0.2s;
+      }
+      .back-nav a:hover { opacity: 0.72; }
+
+      .page-container { max-width: 940px; width: 100%; margin: 0 auto; padding: clamp(28px, 5vw, 52px) 22px 88px; }
+
+      /* ── Hero ── */
+      .hero { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 28px 0 30px; gap: 18px; }
+      .hero-image-wrap { position: relative; width: min(560px, 100%); margin: 0 auto; }
+      .hero-image-wrap::before {
+        content: ''; position: absolute; inset: -8px; border-radius: 28px; z-index: 0;
+        background: radial-gradient(62% 72% at 50% 52%, var(--rose-soft) 0%, transparent 72%);
+        animation: pulse-glow 3.4s ease-in-out infinite;
       }
       .hero-image-wrap img {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 50%;
-        border: 3px solid var(--hot-pink);
-        box-shadow: 0 0 40px var(--pink-glow), 0 0 80px rgba(185, 93, 120, 0.15);
-        transform: rotate(-5deg);
+        position: relative; z-index: 1; width: 100%; height: auto; display: block; border-radius: 20px;
+        border: 1px solid var(--card-edge); box-shadow: 0 18px 46px var(--shadow-strong), 0 0 28px var(--gold-soft);
         transition: transform 0.4s ease;
       }
-      .hero-image-wrap:hover img {
-        transform: rotate(0deg) scale(1.03);
+      .hero-image-wrap:hover img { transform: scale(1.015); }
+      @keyframes pulse-glow { 0%, 100% { opacity: 0.5; transform: scale(1); } 50% { opacity: 0.9; transform: scale(1.05); } }
+      .hero h1 {
+        font-family: 'Jost', sans-serif; font-weight: 700; font-size: clamp(2.3rem, 6vw, 3.4rem);
+        letter-spacing: 0.01em; line-height: 1.05;
+        background: linear-gradient(120deg, var(--plum) 0%, var(--rose) 100%);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
       }
+      .hero p { font-size: 1.02rem; color: var(--muted) !important; max-width: 520px; }
 
-      @keyframes pulse-glow {
-        0%, 100% { opacity: 0.6; transform: scale(1); }
-        50% { opacity: 1; transform: scale(1.05); }
+      /* ── Two-door entry ── */
+      .dp-doors { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin: 8px 0 14px; }
+      .dp-door {
+        text-align: left; cursor: pointer; padding: 26px 24px; border-radius: 20px;
+        background: var(--card); border: 1px solid var(--card-edge); color: var(--plum);
+        transition: transform 0.18s ease, box-shadow 0.25s ease, border-color 0.2s;
+        box-shadow: 0 16px 36px var(--shadow);
       }
+      .dp-door:hover { transform: translateY(-3px); border-color: var(--rose); box-shadow: 0 22px 48px var(--rose-soft); }
+      .dp-door .dp-door-icon { font-size: 1.8rem; display: block; margin-bottom: 10px; color: var(--rose); }
+      .dp-door h2 { font-size: 1.18rem; font-weight: 600; margin-bottom: 6px; color: var(--plum); }
+      .dp-door p { font-size: 0.9rem; color: var(--muted) !important; line-height: 1.5; }
+      .dp-door .dp-door-go { display: inline-block; margin-top: 14px; font-size: 0.74rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); }
+      .dp-jenny { text-align: center; font-size: 0.82rem; color: var(--muted) !important; font-style: italic; margin-top: 6px; }
 
-      .hero-text h1 {
-        font-family: 'Playfair Display', serif;
-        font-size: clamp(2.4rem, 6vw, 3.6rem);
-        font-weight: 700;
-        background: linear-gradient(135deg, var(--plum) 0%, var(--hot-pink) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        line-height: 1.1;
-        margin-bottom: 12px;
-      }
-      .hero-text p {
-        font-size: 1.05rem;
-        color: var(--text-secondary);
-        max-width: 500px;
-        margin: 0 auto;
-      }
-      .hero-text .hint {
-        font-size: 0.82rem;
-        color: var(--text-muted);
-        margin-top: 8px;
-        font-style: italic;
-      }
+      .dp-lineup-tease { margin-top: 26px; text-align: center; }
+      .dp-lineup-tease h3 { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+      .dp-lineup-strip { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+      .dp-lineup-strip img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); opacity: 0.9; }
 
-      /* ── Phone Section ── */
-      .phone-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 32px;
-        margin-bottom: 48px;
+      /* ── Buttons ── */
+      .dp-btn {
+        padding: 12px 20px; border: none; border-radius: 11px; cursor: pointer;
+        font-family: 'Jost', sans-serif; font-size: 0.86rem; font-weight: 600; letter-spacing: 0.04em;
+        background: var(--rose); color: var(--pearl);
+        transition: transform 0.14s, box-shadow 0.2s, opacity 0.2s; white-space: nowrap;
       }
+      .dp-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 22px var(--rose-soft); }
+      .dp-btn:active { transform: translateY(0) scale(0.98); }
+      .dp-btn-ghost {
+        background: var(--pearl); border: 1px solid var(--card-edge); color: var(--plum);
+        padding: 11px 18px; border-radius: 11px; cursor: pointer; font-family: 'Jost', sans-serif;
+        font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; transition: border-color 0.2s, color 0.2s, background 0.2s;
+      }
+      .dp-btn-ghost:hover { border-color: var(--rose); color: var(--rose); }
+      .dp-btn-ghost.is-active { border-color: var(--rose); color: var(--rose); background: var(--rose-soft); }
 
-      /* Keypad */
-      .keypad-wrap {
-        background: var(--card-bg);
-        border: 1px solid var(--card-border);
-        border-radius: 24px;
-        padding: 32px;
-        max-width: 100%;
-        backdrop-filter: blur(8px);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      .dp-back { display: flex; align-items: center; gap: 7px; width: max-content; margin: 0 auto 18px; cursor: pointer;
+        font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.03em; color: var(--plum);
+        background: var(--pearl); border: 1px solid var(--card-edge); border-radius: 999px; padding: 10px 20px; min-height: 42px;
+        box-shadow: 0 8px 20px var(--shadow); transition: border-color 0.2s, color 0.2s, box-shadow 0.2s, transform 0.14s; }
+      .dp-back:hover { border-color: var(--rose); color: var(--rose); box-shadow: 0 10px 24px var(--rose-soft); }
+      .dp-back:active { transform: translateY(1px) scale(0.98); }
+
+      /* ── GAME track ── */
+      .dp-section[hidden] { display: none; }
+      .dp-game-head { text-align: center; margin-bottom: 18px; }
+      .dp-game-head h2 { font-size: clamp(1.3rem, 3.4vw, 1.7rem); font-weight: 600; margin-bottom: 6px; color: var(--plum); }
+      .dp-game-head h2 span { color: var(--rose); }
+      .dp-game-head p { font-size: 0.9rem; color: var(--muted) !important; }
+
+      .dp-controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; margin-bottom: 16px; }
+      .dp-mode-group { display: inline-flex; gap: 6px; padding: 4px; border: 1px solid var(--card-edge); border-radius: 13px; }
+      .dp-count {
+        display: inline-flex; align-items: center; gap: 7px; padding: 7px 16px; border-radius: 999px;
+        background: var(--card); border: 1px solid var(--card-edge); color: var(--plum);
+        font-weight: 600; font-size: 0.92rem; letter-spacing: 0.02em;
       }
-      .keypad {
-        display: grid;
-        grid-template-columns: repeat(3, 72px);
-        gap: 12px;
-        justify-content: center;
+      .dp-count::before { content: '👀'; font-size: 0.95rem; }
+      .dp-count.is-close { border-color: var(--rose); color: var(--rose); box-shadow: 0 0 16px var(--rose-soft); }
+
+      .dp-clues {
+        list-style: none; background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+        padding: 16px 18px; margin-bottom: 18px; max-height: 168px; overflow-y: auto;
+        display: flex; flex-direction: column; gap: 8px;
       }
+      .dp-clues li { font-size: 0.9rem; color: var(--plum); padding-left: 22px; position: relative; line-height: 1.45; }
+      .dp-clues li::before { content: '✕'; position: absolute; left: 0; color: var(--rose); font-size: 0.78rem; top: 2px; }
+      .dp-clues li.dp-clue-empty { color: var(--muted); font-style: italic; padding-left: 0; }
+      .dp-clues li.dp-clue-empty::before { content: ''; }
+
+      /* ===== Unified caller card — ONE component for the Game board + Just Call directory ===== */
+      .dp-board, .caller-grid {
+        display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px;
+        justify-items: stretch; margin-bottom: 24px;
+      }
+      .dp-suspect, .caller-card {
+        display: flex; flex-direction: column; align-items: center; gap: 9px; cursor: pointer; width: 100%;
+        padding: 15px 10px; border-radius: 16px; border: 1.5px solid var(--card-edge); background: var(--card);
+        transition: transform 0.16s, border-color 0.2s, box-shadow 0.2s, opacity 0.3s, filter 0.3s; text-align: center;
+      }
+      .dp-suspect:hover, .caller-card:hover { transform: translateY(-2px); border-color: var(--rose); box-shadow: 0 10px 24px var(--rose-soft); }
+      .caller-card.is-selected { border-color: var(--rose); background: var(--rose-soft); box-shadow: 0 0 16px var(--rose-soft); }
+      .dp-suspect-photo { position: relative; width: 88px; height: 88px; }
+      .dp-suspect-photo img, .caller-avatar { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; border: 2px solid var(--line); transition: border-color 0.2s; }
+      .dp-suspect-photo img { width: 100%; height: 100%; }
+      .dp-suspect:hover .dp-suspect-photo img, .caller-card:hover .caller-avatar, .caller-card.is-selected .caller-avatar { border-color: var(--rose); }
+      .dp-suspect-photo.dp-noimg { border-radius: 50%; background: linear-gradient(135deg, var(--blush), var(--rose)); display: flex; align-items: center; justify-content: center; border: 2px solid var(--line); }
+      .dp-suspect-photo.dp-noimg::after { content: attr(data-initial); color: var(--pearl); font-weight: 700; font-size: 2rem; }
+      .dp-cross {
+        position: absolute; inset: 0; display: none; align-items: center; justify-content: center;
+        border-radius: 50%; background: rgba(251, 246, 245, 0.74); color: var(--rose); font-size: 2.2rem; font-weight: 700;
+      }
+      .dp-suspect-name, .caller-name { font-size: 0.95rem; font-weight: 600; color: var(--plum); line-height: 1.12; }
+      .dp-suspect-num, .caller-number { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.03em; }
+      /* eliminated state = GAME logic only (Just Call has no suspects) */
+      .dp-suspect.is-out { opacity: 0.5; filter: grayscale(1); pointer-events: none; border-color: var(--line); background: var(--paper); }
+      .dp-suspect.is-out .dp-suspect-name { color: var(--muted); }
+      .dp-suspect.is-out .dp-cross { display: flex; }
+      .dp-game.dp-solving .dp-suspect:not(.is-out) { border-color: var(--rose); box-shadow: 0 0 16px var(--rose-soft); cursor: crosshair; }
+
+      /* power-ups */
+      .dp-powers-wrap { margin-bottom: 16px; }
+      .dp-powers-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-align: center; margin-bottom: 9px; }
+      .dp-powers { display: flex; flex-wrap: wrap; gap: 9px; justify-content: center; }
+      .dp-power {
+        padding: 9px 15px; border: 1px solid var(--card-edge); border-radius: 11px; background: var(--card);
+        color: var(--plum); font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 500; cursor: pointer;
+        transition: border-color 0.2s, color 0.2s, opacity 0.2s;
+      }
+      .dp-power:hover { border-color: var(--rose); color: var(--rose); }
+      .dp-power.is-spent { opacity: 0.42; text-decoration: line-through; cursor: not-allowed; }
+
+      /* game dialer */
+      .dp-dialer-row { display: flex; gap: 10px; align-items: center; max-width: 360px; margin: 0 auto 16px; }
+      .dp-dialer-row input {
+        flex: 1; min-width: 0; padding: 12px 16px; border: 1.5px solid var(--card-edge); border-radius: 11px;
+        background: var(--pearl); color: var(--plum); font-family: 'Jost', sans-serif; font-size: 1.05rem;
+        letter-spacing: 0.06em; text-align: center; outline: none;
+      }
+      .dp-dialer-row input::placeholder { color: var(--muted); }
+      .dp-dialer-row input:focus { border-color: var(--rose); box-shadow: 0 0 12px var(--rose-soft); }
+
+      .dp-output {
+        background: var(--card); border: 1px solid var(--card-edge); border-radius: 15px; padding: 18px 22px;
+        min-height: 64px; line-height: 1.6; font-size: 0.98rem; color: var(--plum); margin-bottom: 16px;
+        white-space: pre-wrap; box-shadow: 0 12px 28px var(--shadow);
+      }
+      .dp-actions-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+      /* reveal */
+      .dp-reveal[hidden] { display: none; }
+      .dp-reveal { margin-top: 20px; }
+      .dp-reveal-card {
+        text-align: center; padding: 28px 24px; border-radius: 20px;
+        background: linear-gradient(165deg, var(--pearl), rgba(232, 197, 200, 0.42));
+        border: 1px solid var(--gold); box-shadow: 0 18px 44px var(--shadow-strong), 0 0 32px var(--gold-soft);
+      }
+      .dp-reveal-photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); box-shadow: 0 0 28px var(--gold-soft); margin-bottom: 14px; }
+      .dp-reveal-kicker { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rose) !important; margin-bottom: 4px; }
+      .dp-reveal-name { font-size: 2rem; font-weight: 700; margin-bottom: 10px; color: var(--plum); }
+      .dp-reveal-line { font-size: 0.96rem; color: var(--muted) !important; max-width: 420px; margin: 0 auto 14px; }
+      .dp-reveal-badge { font-size: 0.9rem; color: var(--rose) !important; font-weight: 600; margin-bottom: 14px; }
+      .dp-reveal-cta {
+        display: inline-block; margin: 6px 0 18px; padding: 13px 22px; border-radius: 999px;
+        background: var(--rose); color: var(--pearl);
+        font-weight: 600; text-decoration: none; font-size: 0.92rem;
+      }
+      .dp-reveal-cta:hover { box-shadow: 0 8px 24px var(--rose-soft); }
+      .dp-reveal-actions { display: flex; justify-content: center; }
+
+      /* ===== JUST CALL track (preserved hooks, Pearl Plum skin) ===== */
+      .jc-keypad-wrap { background: var(--card); border: 1px solid var(--card-edge); border-radius: 22px; padding: 28px; max-width: 100%; box-shadow: 0 12px 28px var(--shadow); margin: 0 auto 24px; width: max-content; }
+      .keypad { display: grid; grid-template-columns: repeat(3, 66px); gap: 11px; justify-content: center; }
       .keypad button {
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        border: 2px solid rgba(185, 93, 120, 0.35);
-        background: rgba(255, 253, 251, 0.72);
-        color: var(--text-primary);
-        font-size: 1.5rem;
-        font-weight: 700;
-        font-family: 'JetBrains Mono', monospace;
-        cursor: pointer;
-        transition: all 0.15s ease;
-        position: relative;
-        overflow: hidden;
+        width: 66px; height: 66px; border-radius: 50%; border: 2px solid var(--card-edge);
+        background: var(--pearl); color: var(--plum); font-size: 1.4rem; font-weight: 600;
+        font-family: 'Jost', sans-serif; cursor: pointer; transition: all 0.15s ease;
       }
-      .keypad button::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        border-radius: 50%;
-        background: var(--hot-pink);
-        opacity: 0;
-        transition: opacity 0.15s;
-      }
-      .keypad button:hover {
-        border-color: var(--hot-pink);
-        box-shadow: 0 0 20px var(--pink-glow-soft);
-        transform: scale(1.05);
-      }
-      .keypad button:active {
-        transform: scale(0.92);
-        background: var(--hot-pink);
-        color: #fff;
-        box-shadow: 0 0 30px var(--pink-glow);
-      }
-      .keypad button:active::after {
-        opacity: 0.2;
-      }
-      .keypad-spacer {
-        width: 72px;
-        height: 72px;
-      }
-
-      /* Dialer Row */
-      .dialer-row {
-        display: flex;
-        gap: 12px;
-        align-items: center;
-        width: 100%;
-        max-width: 360px;
-        min-width: 0;
-      }
+      .keypad button:hover { border-color: var(--rose); box-shadow: 0 0 16px var(--rose-soft); transform: scale(1.05); }
+      .keypad button:active { transform: scale(0.92); background: var(--rose); color: var(--pearl); }
+      .keypad-spacer { width: 66px; height: 66px; }
+      .dialer-row { display: flex; gap: 11px; align-items: center; width: 100%; max-width: 360px; margin: 0 auto 22px; min-width: 0; }
       .dialer-row input {
-        flex: 1;
-        min-width: 0;
-        padding: 14px 18px;
-        border: 2px solid var(--card-border);
-        border-radius: 12px;
-        background: rgba(255, 253, 251, 0.82);
-        color: var(--text-primary);
-        font-size: 1.3rem;
-        font-family: 'JetBrains Mono', monospace;
-        letter-spacing: 0.08em;
-        text-align: center;
-        outline: none;
-        transition: border-color 0.2s, box-shadow 0.2s;
+        flex: 1; min-width: 0; padding: 13px 17px; border: 2px solid var(--card-edge); border-radius: 11px;
+        background: var(--pearl); color: var(--plum); font-size: 1.2rem; font-family: 'Jost', sans-serif;
+        letter-spacing: 0.07em; text-align: center; outline: none;
       }
-      .dialer-row input::placeholder { color: var(--text-muted); }
-      .dialer-row input:focus {
-        border-color: var(--hot-pink);
-        box-shadow: 0 0 16px var(--pink-glow-soft);
-      }
-      .dial-btn {
-        padding: 14px 24px;
-        border: none;
-        border-radius: 12px;
-        background: var(--hot-pink);
-        color: #fff;
-        font-size: 0.95rem;
-        font-weight: 700;
-        cursor: pointer;
-        transition: transform 0.15s, box-shadow 0.2s;
-        white-space: nowrap;
-      }
-      .dial-btn:hover {
-        transform: scale(1.04);
-        box-shadow: 0 4px 20px var(--pink-glow);
-      }
-      .dial-btn:active { transform: scale(0.96); }
+      .dialer-row input::placeholder { color: var(--muted); }
+      .dialer-row input:focus { border-color: var(--rose); box-shadow: 0 0 12px var(--rose-soft); }
+      .dial-btn { padding: 13px 22px; border: none; border-radius: 11px; background: var(--rose); color: var(--pearl); font-size: 0.92rem; font-weight: 600; cursor: pointer; transition: transform 0.15s, box-shadow 0.2s; white-space: nowrap; }
+      .dial-btn:hover { transform: scale(1.04); box-shadow: 0 4px 18px var(--rose-soft); }
 
-      /* ── Caller Grid ── */
-      .callers-section {
-        margin-bottom: 48px;
-      }
-      .callers-section h2 {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.4rem;
-        text-align: center;
-        margin-bottom: 20px;
-        color: var(--text-secondary);
-      }
-      .caller-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-        gap: 14px;
-        justify-items: center;
-      }
-      .caller-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-        cursor: pointer;
-        padding: 10px 6px;
-        border-radius: 14px;
-        border: 2px solid transparent;
-        background: transparent;
-        transition: all 0.2s ease;
-        text-align: center;
-        width: 100%;
-      }
-      .caller-card:hover {
-        background: var(--card-bg);
-        border-color: var(--card-border);
-      }
-      .caller-card.is-selected {
-        border-color: var(--hot-pink);
-        background: rgba(185, 93, 120, 0.08);
-        box-shadow: 0 0 16px var(--pink-glow-soft);
-      }
-      .caller-avatar {
-        width: 52px;
-        height: 52px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 2px solid rgba(185, 93, 120, 0.3);
-        transition: border-color 0.2s, box-shadow 0.2s;
-      }
-      .caller-card:hover .caller-avatar,
-      .caller-card.is-selected .caller-avatar {
-        border-color: var(--hot-pink);
-        box-shadow: 0 0 12px var(--pink-glow-soft);
-      }
-      .caller-name {
-        font-size: 0.75rem;
-        font-weight: 600;
-        color: var(--text-primary);
-      }
-      .caller-number {
-        font-size: 0.65rem;
-        color: var(--text-muted);
-        font-family: 'JetBrains Mono', monospace;
-      }
+      .output-area { background: var(--card); border: 1px solid var(--card-edge); border-radius: 15px; padding: 22px 26px; margin-bottom: 28px; min-height: 76px; line-height: 1.65; white-space: pre-wrap; font-size: 1rem; color: var(--plum); box-shadow: 0 12px 28px var(--shadow); }
 
-      .status-banner {
-        max-width: 720px;
-        margin: 0 auto 24px;
-        padding: 18px 20px;
-        border: 1px solid rgba(75, 33, 72, 0.16);
-        border-radius: 18px;
-        background: linear-gradient(135deg, rgba(255, 253, 251, 0.96), rgba(252, 228, 242, 0.62));
-        box-shadow: 0 18px 38px rgba(75, 33, 72, 0.08);
-      }
-      .status-pill {
-        display: inline-flex;
-        margin-bottom: 8px;
-        padding: 5px 9px;
-        border: 1px solid rgba(155, 63, 95, 0.24);
-        border-radius: 999px;
-        background: rgba(252, 228, 242, 0.78);
-        color: #8a2d50;
-        font-size: 0.63rem;
-        font-weight: 900;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-      .status-banner p {
-        color: var(--text-secondary);
-        margin-bottom: 12px;
-      }
-      .status-banner a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 42px;
-        padding: 10px 15px;
-        border-radius: 999px;
-        background: var(--wine);
-        color: #fffdfb;
-        font-weight: 900;
-        text-decoration: none;
-      }
-      .is-parked-control {
-        opacity: 0.48;
-        pointer-events: none;
-      }
-
-      /* ── Special Cards ── */
-      .special-cards {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-bottom: 40px;
-      }
-      .special-cards button {
-        padding: 10px 18px;
-        border: 2px solid var(--card-border);
-        border-radius: 10px;
-        background: var(--card-bg);
-        color: var(--text-secondary);
-        font-size: 0.82rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s;
-        font-family: 'Inter', sans-serif;
-      }
-      .special-cards button:hover {
-        border-color: var(--hot-pink);
-        color: var(--text-primary);
-      }
-      .special-cards button.is-selected {
-        background: var(--hot-pink);
-        color: #fff;
-        border-color: var(--hot-pink);
-        box-shadow: 0 0 16px var(--pink-glow-soft);
-      }
-
-      /* ── Output Area ── */
-      .output-area {
-        background: var(--surface-elevated);
-        border: 1px solid var(--card-border);
-        border-radius: 16px;
-        padding: 24px 28px;
-        margin-bottom: 32px;
-        min-height: 80px;
-        line-height: 1.65;
-        white-space: pre-wrap;
-        font-size: 1rem;
-        color: var(--text-secondary);
-        transition: all 0.3s ease;
-        box-shadow: 0 18px 38px rgba(75, 33, 72, 0.08);
-      }
-      .output-area.has-answer {
-        border-color: rgba(185, 93, 120, 0.2);
-        color: var(--text-primary);
-        box-shadow: 0 4px 32px rgba(185, 93, 120, 0.08);
-      }
-
-      /* ── Secret Badge ── */
-      .secret-badge {
-        display: flex;
-        gap: 14px;
-        align-items: center;
-        padding: 18px 22px;
-        border: 2px dashed var(--hot-pink);
-        border-radius: 14px;
-        background: rgba(185, 93, 120, 0.06);
-        margin-bottom: 32px;
-      }
+      .secret-badge { display: flex; gap: 14px; align-items: center; padding: 16px 20px; border: 2px dashed var(--gold); border-radius: 14px; background: var(--gold-soft); margin-bottom: 28px; }
       .secret-badge[hidden] { display: none; }
-      .secret-badge .badge-icon {
-        font-size: 1.8rem;
-        font-weight: 900;
-        color: var(--hot-pink);
-        font-family: 'JetBrains Mono', monospace;
-      }
-      .secret-badge strong {
-        display: block;
-        color: var(--text-primary);
-        margin-bottom: 2px;
-      }
-      .secret-badge em {
-        font-size: 0.82rem;
-        color: var(--text-muted);
-        font-style: normal;
+      .secret-badge .badge-icon { font-size: 1.7rem; font-weight: 700; color: var(--gold); }
+      .secret-badge strong { display: block; color: var(--plum); margin-bottom: 2px; }
+      .secret-badge em { font-size: 0.82rem; color: var(--muted); font-style: normal; }
+
+      .callers-section h2, .jc-specials-label { text-align: center; }
+      .callers-section h2 { font-size: 1.2rem; font-weight: 600; margin-bottom: 18px; color: var(--muted); }
+      .jc-specials-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+      .special-cards { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 30px; }
+      .special-cards button { padding: 10px 17px; border: 1px solid var(--card-edge); border-radius: 10px; background: var(--card); color: var(--plum); font-size: 0.82rem; font-weight: 500; cursor: pointer; transition: all 0.2s; font-family: 'Jost', sans-serif; }
+      .special-cards button:hover { border-color: var(--rose); color: var(--rose); }
+      .special-cards button.is-selected { background: var(--rose); color: var(--pearl); border-color: var(--rose); }
+
+      /* ===== Image dialer (phone photo + % hit-zones; scales as one unit) ===== */
+      .dp-phone-wrap { display: flex; flex-direction: column; align-items: center; margin: 0 auto 22px; }
+      .dp-phone { position: relative; width: min(360px, 86vw); margin: 0 auto; container-type: inline-size; }
+      .dp-phone-img { display: block; width: 100%; height: auto; user-select: none; -webkit-user-drag: none; pointer-events: none; filter: drop-shadow(0 18px 40px var(--shadow)); }
+      .dp-key, .dp-zone { position: absolute; padding: 0; margin: 0; border: none; background: transparent; cursor: pointer; border-radius: 50%; -webkit-tap-highlight-color: transparent; }
+      .dp-key { width: 7.8%; height: 5.3%; }
+      .dp-key::after, .dp-zone::after { content: ""; position: absolute; inset: -14%; border-radius: 50%; background: radial-gradient(circle, rgba(155,63,95,0.55), transparent 70%); opacity: 0; transition: opacity 0.18s ease; pointer-events: none; }
+      .dp-key.is-press::after, .dp-zone.is-press::after { opacity: 1; }
+      .dp-key:focus-visible, .dp-zone:focus-visible { outline: 2px solid var(--rose); outline-offset: 1px; }
+      .dp-heart { border-radius: 48% 48% 50% 50%; }
+
+      /* lit screen readout (renders inside the blue display, not the bezel) */
+      .dp-screen { position: absolute; left: 42.3%; top: 33.4%; width: 18.2%; height: 8.4%; display: flex; align-items: center; justify-content: center; padding: 0 1%; overflow: hidden; pointer-events: none; }
+      .dp-screen-text { font-family: 'Jost', sans-serif; font-weight: 600; color: #2a3742; letter-spacing: 0.04em; text-transform: uppercase; text-align: center; line-height: 1; font-size: 3.1cqw; white-space: nowrap; }
+      .dp-screen-text.is-long { font-size: 2.0cqw; white-space: normal; line-height: 1.06; letter-spacing: 0.02em; }
+
+      /* call-history panel */
+      .dp-history { width: min(360px, 86vw); margin: 12px auto 0; background: var(--card); border: 1px solid var(--card-edge); border-radius: 14px; padding: 14px 16px; box-shadow: 0 12px 28px var(--shadow); }
+      .dp-history[hidden] { display: none; }
+      .dp-history-title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+      .dp-history-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+      .dp-history-list li { display: flex; justify-content: space-between; gap: 12px; font-size: 0.86rem; color: var(--plum); }
+      .dp-history-list li .num { color: var(--muted); letter-spacing: 0.03em; }
+      .dp-history-list li.dp-history-empty { color: var(--muted); font-style: italic; }
+
+      .dp-remix-tray { margin: 2px auto 26px; }
+      .dp-remix-tray.is-pulse { animation: dp-tray-pulse 1s ease; }
+      @keyframes dp-tray-pulse { 0%, 100% { transform: none; } 30% { transform: scale(1.04); } }
+
+      .dp-hidden-input { position: absolute !important; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+
+      /* ===== STAGE 2: mobile play surface (Game only; desktop untouched) ===== */
+      .dp-mobile-call { display: none; }
+      @media (max-width: 600px) {
+        /* free up a screen for the loop: hide the big hero once a track is open */
+        body.dp-track-open .hero { display: none; }
+
+        /* Game view → tight vertical stack, reordered so clue + board + call cluster */
+        #dpGame:not([hidden]) { display: flex; flex-direction: column; }
+        #dpGame .dp-back { order: 0; }
+        #dpGame .dp-game-head { order: 1; margin-bottom: 6px; }
+        #dpGame .dp-game-head p { display: none; }
+        #dpGame .dp-game-head h2 { font-size: 1.1rem; }
+        #dpGame .dp-controls { order: 2; margin-bottom: 6px; gap: 7px; }
+        #dpGame .dp-controls .dp-btn-ghost { padding: 8px 12px; font-size: 0.76rem; }
+        #dpGame .dp-count { padding: 6px 13px; font-size: 0.85rem; }
+        #dpGame #dpGameOutput { order: 3; margin-bottom: 10px; min-height: 0; padding: 11px 14px; font-size: 0.9rem; }   /* latest-clue bubble, up top */
+        #dpGame #dpBoard { order: 4; }
+        #dpGame .dp-dialer-row { order: 5; }
+        #dpGame .dp-mobile-call { order: 6; }
+        #dpGame .dp-powers-wrap { order: 7; margin-bottom: 10px; }
+        #dpGame #dpClues { order: 8; max-height: 116px; }          /* full ✕ history, below the loop */
+        #dpGame .dp-actions-row { order: 9; }
+        #dpGame #dpReveal { order: 10; }
+
+        /* 2-row swipeable carousel — same .dp-suspect nodes, just relaid out */
+        #dpBoard {
+          grid-template-columns: none;
+          grid-auto-flow: column;
+          grid-template-rows: repeat(2, auto);
+          grid-auto-columns: 30%;
+          gap: 10px; overflow-x: auto; overflow-y: hidden;
+          scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch;
+          padding: 2px 2px 8px; margin-bottom: 12px;
+        }
+        #dpBoard .dp-suspect { scroll-snap-align: start; order: 1; padding: 8px 5px; gap: 5px; }
+        #dpBoard .dp-suspect-photo, #dpBoard .dp-suspect-photo img { width: 56px; height: 56px; }
+        #dpBoard .dp-suspect-name { font-size: 0.78rem; }
+        #dpBoard .dp-suspect-num { font-size: 0.66rem; }
+        #dpBoard .dp-suspect.is-out { order: 2; }                   /* eliminated-shuffle → back of deck */
+        #dpBoard .dp-suspect.is-pick { border-color: var(--rose); background: var(--rose-soft); box-shadow: 0 0 0 2px var(--rose) inset; }
+
+        /* mobile Call is the single commit; hide the small Dial (still clickable via JS) */
+        #dpGame .dp-dialer-row .dp-btn { display: none; }
+        #dpGame .dp-dialer-row { margin-bottom: 8px; }
+        .dp-mobile-call {
+          display: block; width: 100%; padding: 14px; border: none; border-radius: 12px;
+          background: var(--rose); color: var(--pearl); font-family: 'Jost', sans-serif;
+          font-size: 1rem; font-weight: 600; letter-spacing: 0.04em; cursor: pointer;
+        }
+        .dp-mobile-call:active { transform: scale(0.99); }
       }
 
       /* ── Responsive ── */
       @media (max-width: 600px) {
-        .back-nav {
-          align-items: flex-start;
-          gap: 10px;
-          min-height: 76px;
-        }
-        .back-nav .brand img {
-          width: clamp(106px, 30vw, 134px);
-        }
-        .back-nav .nav-links {
-          justify-content: flex-end;
-          gap: 10px;
-        }
-        .page-container { padding: 30px 16px 60px; }
-        .hero { padding: 32px 0 40px; }
-        .hero-image-wrap { width: 150px; height: 150px; }
-        .keypad { grid-template-columns: repeat(3, 60px); gap: 10px; }
-        .keypad button { width: 60px; height: 60px; font-size: 1.3rem; }
-        .keypad-spacer { width: 60px; height: 60px; }
-        .caller-grid { grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)); gap: 10px; }
-        .caller-avatar { width: 44px; height: 44px; }
-        .keypad-wrap { padding: 24px 20px; }
-        .dialer-row { flex-wrap: wrap; }
-        .dialer-row input,
-        .dial-btn { width: 100%; }
+        .back-nav { gap: 10px; min-height: 70px; }
+        .back-nav .nav-links { gap: 9px; }
+        .page-container { padding: 24px 14px 64px; }
+        .hero { padding: 18px 0 22px; }
+        .dp-doors { grid-template-columns: 1fr; }
+        .dp-board, .caller-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .dp-suspect, .caller-card { padding: 11px 6px; gap: 6px; }
+        .dp-suspect-photo, .dp-suspect-photo img, .caller-avatar { width: 66px; height: 66px; }
+        .dp-suspect-name, .caller-name { font-size: 0.82rem; }
+        .dp-suspect-num, .caller-number { font-size: 0.7rem; }
+        .dialer-row, .dp-dialer-row { flex-wrap: wrap; }
+        .dialer-row input, .dial-btn, .dp-dialer-row input, .dp-dialer-row .dp-btn { width: 100%; }
       }
     </style>
       <link rel="stylesheet" href="../content/site/mini-player.css">
@@ -510,7 +410,7 @@
         <img src="../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
       </a>
       <nav class="nav-links" aria-label="Dream Phone navigation">
-        <a href="../clubhouse.html" data-weekly-return-link>&larr; Back to Clubhouse</a>
+        <a href="../clubhouse.html" data-weekly-return-link>&larr; Clubhouse</a>
         <a href="../issues/issue-03.html">LATEST</a>
         <a href="../hot-goss.html">THE BOOK</a>
         <a href="../community.html">JOIN</a>
@@ -521,110 +421,205 @@
       <!-- Hero -->
       <section class="hero">
         <div class="hero-image-wrap">
-          <img src="../assets/dream-phone-cordless-crop.png" alt="Dream Phone" />
+          <img src="../assets/portal/y2k-dream-phone-hero-v8.png" alt="The LAiDIES Dream Phone — a pink Y2K dialer laid out with butterfly clips, a mix CD, and a heart gem" />
         </div>
-        <div class="hero-text">
+        <div>
           <h1>Dream Phone</h1>
-          <p>Dial a number. Get career advice from someone who gets it.</p>
-          <p class="hint">The old hotline is parked while the real LAiDIES version gets rebuilt.</p>
+          <p>Two tracks, one phone. Play the game to deduce who's secretly in your corner — or skip the mystery and just call an advisor.</p>
         </div>
       </section>
 
-      <section class="status-banner" id="dreamPhoneParked" aria-label="Dream Phone status">
-        <span class="status-pill">Glow-up in the works</span>
-        <p>Dream Phone is not approved as a live activity yet. The product model, caller flow, and production phone asset need a Council pass before this returns.</p>
-        <a href="../issues/issue-03.html?from=season&amp;issue=3">Start with the latest Episode</a>
+      <!-- ════════ TWO-DOOR ENTRY ════════ -->
+      <section class="dp-section" id="dpEntry" aria-label="Choose how to use the Dream Phone">
+        <div class="dp-doors">
+          <button type="button" class="dp-door" id="dpDoorGame">
+            <span class="dp-door-icon" aria-hidden="true">▶</span>
+            <h2>Play the Game</h2>
+            <p>Someone's secretly in your corner this week. Dial around, collect clues, deduce who — then solve.</p>
+            <span class="dp-door-go">Start the deduction →</span>
+          </button>
+          <button type="button" class="dp-door" id="dpDoorCall">
+            <span class="dp-door-icon" aria-hidden="true">☎</span>
+            <h2>Just Call</h2>
+            <p>Skip the mystery. Call an advisor and get a straight answer on career, confidence, AI, or drama.</p>
+            <span class="dp-door-go">Open the hotline →</span>
+          </button>
+        </div>
+        <!-- Jenny easter-egg teaser (approved copy) -->
+        <p class="dp-jenny">Psst… rumour has it you can still call Jenny, if you know her number.</p>
+
+        <div class="dp-lineup-tease">
+          <h3>This week's line-up</h3>
+          <div class="dp-lineup-strip" id="dpLineupStrip" aria-hidden="true"></div>
+        </div>
       </section>
 
-      <!-- Phone Keypad -->
-      <section class="phone-section is-parked-control" aria-describedby="dreamPhoneParked">
-        <div class="keypad-wrap">
-          <div class="keypad" aria-label="Dream Phone keypad">
-            <button type="button" data-dream-key="1" aria-label="Dial 1">1</button>
-            <button type="button" data-dream-key="2" aria-label="Dial 2">2</button>
-            <button type="button" data-dream-key="3" aria-label="Dial 3">3</button>
-            <button type="button" data-dream-key="4" aria-label="Dial 4">4</button>
-            <button type="button" data-dream-key="5" aria-label="Dial 5">5</button>
-            <button type="button" data-dream-key="6" aria-label="Dial 6">6</button>
-            <button type="button" data-dream-key="7" aria-label="Dial 7">7</button>
-            <button type="button" data-dream-key="8" aria-label="Dial 8">8</button>
-            <button type="button" data-dream-key="9" aria-label="Dial 9">9</button>
-            <div class="keypad-spacer"></div>
-            <button type="button" data-dream-key="0" aria-label="Dial 0">0</button>
-            <div class="keypad-spacer"></div>
+      <!-- ════════ THE GAME ════════ -->
+      <section class="dp-section dp-game" id="dpGame" hidden aria-label="Dream Phone deduction game">
+        <button type="button" class="dp-back" data-dp-back>← Game or Just Call</button>
+        <div class="dp-game-head">
+          <h2>Who's <span>secretly in your corner</span> this week?</h2>
+          <p>Dial callers to collect clues. Every clue crosses suspects off the board. Deduce her, then Solve.</p>
+        </div>
+
+        <div class="dp-controls">
+          <span class="dp-count" id="dpCount">24 left</span>
+          <div class="dp-mode-group" role="group" aria-label="Game size">
+            <button type="button" class="dp-btn-ghost is-active" data-mode="full">Full · 24</button>
+            <button type="button" class="dp-btn-ghost" data-mode="quick">Quick · 12</button>
+          </div>
+          <button type="button" class="dp-btn-ghost" id="dpNewGame">New game</button>
+        </div>
+
+        <ul class="dp-clues" id="dpClues" aria-live="polite" aria-label="Clues collected"></ul>
+
+        <div class="dp-board" id="dpBoard" aria-label="Suspect board"></div>
+
+        <div class="dp-powers-wrap">
+          <p class="dp-powers-label">Remix cards — one pull each per game</p>
+          <div class="dp-powers" id="dpPowers">
+            <button type="button" class="dp-power" data-power="secret">🤫 Share a Secret</button>
+            <button type="button" class="dp-power" data-power="speaker">📢 Speaker Phone</button>
+            <button type="button" class="dp-power" data-power="hangup">☎️ Mom Says Hang Up!</button>
           </div>
         </div>
 
-        <div class="dialer-row">
-          <input id="dreamPhoneNumber" type="tel" inputmode="numeric" autocomplete="off" placeholder="555-0000" aria-label="Dial the number on a Dream Phone card" />
-          <button class="dial-btn" type="button" id="dreamPhoneButton">Dial</button>
+        <div class="dp-dialer-row">
+          <input id="dpDialer" type="tel" inputmode="numeric" autocomplete="off" placeholder="555-0000" aria-label="Dial a caller's number" />
+          <button type="button" class="dp-btn" id="dpDialBtn">Dial</button>
         </div>
+        <!-- Mobile two-step commit: tap a card to load it, then Call (routes through #dpDialBtn → engine). Hidden on desktop. -->
+        <button type="button" class="dp-mobile-call" id="dpMobileCall">Call</button>
+
+        <div class="dp-output" id="dpGameOutput" aria-live="polite">New line open. Tap a caller to start ruling people out.</div>
+
+        <div class="dp-actions-row">
+          <button type="button" class="dp-btn" id="dpSolveToggle">I'm ready to Solve</button>
+          <button type="button" class="dp-btn-ghost" id="dpJustTellMe">Just tell me</button>
+        </div>
+
+        <div class="dp-reveal" id="dpReveal" hidden aria-live="polite"></div>
       </section>
 
-      <!-- Output -->
-      <div class="output-area" id="dreamPhoneOutput" aria-live="polite">Pick a caller card, then dial the number with the phone buttons or your keyboard.</div>
+      <!-- ════════ JUST CALL (preserved engine — wired by ../script.js) ════════ -->
+      <section class="dp-section" id="dpJustCall" hidden aria-label="Just Call the hotline">
+        <button type="button" class="dp-back" data-dp-back>← Game or Just Call</button>
+        <div class="dp-game-head">
+          <h2>Just Call</h2>
+          <p>Tap a caller card or dial a number, then hit Dial for a straight answer. Pull a remix card if it needs more drama.</p>
+        </div>
 
-      <!-- Secret Badge -->
-      <div class="secret-badge" id="dreamPhoneSecretBadge" hidden>
+        <!-- Image dialer: the phone photo IS the dialer; CSS hit-zones sit over the printed keys (% of the image, so phone + zones scale as one unit) -->
+        <div class="dp-phone-wrap">
+          <div class="dp-phone" id="dpPhone">
+            <img class="dp-phone-img" src="../assets/portal/dream-phone-dialer-product-v4-transparent.png" alt="Dream Phone dialer" draggable="false" />
+            <div class="dp-screen"><span class="dp-screen-text" id="dpScreenText" aria-live="polite"></span></div>
+
+            <button type="button" class="dp-key" data-key="1" style="left:39.6%;top:46.15%" aria-label="Dial 1"></button>
+            <button type="button" class="dp-key" data-key="2" style="left:47.6%;top:46.15%" aria-label="Dial 2"></button>
+            <button type="button" class="dp-key" data-key="3" style="left:55.5%;top:46.15%" aria-label="Dial 3"></button>
+            <button type="button" class="dp-key" data-key="4" style="left:39.6%;top:51.55%" aria-label="Dial 4"></button>
+            <button type="button" class="dp-key" data-key="5" style="left:47.6%;top:51.55%" aria-label="Dial 5"></button>
+            <button type="button" class="dp-key" data-key="6" style="left:55.5%;top:51.55%" aria-label="Dial 6"></button>
+            <button type="button" class="dp-key" data-key="7" style="left:39.6%;top:56.75%" aria-label="Dial 7"></button>
+            <button type="button" class="dp-key" data-key="8" style="left:47.6%;top:56.75%" aria-label="Dial 8"></button>
+            <button type="button" class="dp-key" data-key="9" style="left:55.5%;top:56.75%" aria-label="Dial 9"></button>
+            <button type="button" class="dp-key" data-key="*" style="left:39.6%;top:62.15%" aria-label="Dial star"></button>
+            <button type="button" class="dp-key" data-key="0" style="left:47.6%;top:62.15%" aria-label="Dial 0"></button>
+            <button type="button" class="dp-key" data-key="#" style="left:55.5%;top:62.15%" aria-label="Dial pound"></button>
+
+            <button type="button" class="dp-zone dp-heart" id="dpHeart" style="left:64%;top:56.5%;width:9.5%;height:8%" aria-label="Remix cards shortcut"></button>
+            <button type="button" class="dp-zone dp-histbtn" id="dpHistBtn" style="left:62.5%;top:42%;width:6%;height:6%" aria-label="Toggle call history"></button>
+          </div>
+          <div class="dp-history" id="dpHistory" hidden>
+            <p class="dp-history-title">Recent calls</p>
+            <ul class="dp-history-list" id="dpHistoryList"></ul>
+          </div>
+        </div>
+
+        <!-- Hidden bridge controls — script.js's Just Call engine reads/writes these; the image dialer sets the number and triggers the Dial -->
+        <input id="dreamPhoneNumber" class="dp-hidden-input" type="tel" inputmode="numeric" autocomplete="off" tabindex="-1" aria-hidden="true" />
+        <button id="dreamPhoneButton" class="dp-hidden-input" type="button" tabindex="-1" aria-hidden="true">Dial</button>
+
+        <!-- Remix tray — same 3 power-ups, always visible (desktop + mobile); the jewel heart is a bonus shortcut to these -->
+        <p class="jc-specials-label">Remix cards — pick your drama</p>
+        <div class="special-cards dp-remix-tray" id="dpRemix" aria-label="Dream Phone remix cards">
+          <button type="button" data-dream-special="secret">Share a secret</button>
+          <button type="button" data-dream-special="speaker">Speaker phone</button>
+          <button type="button" data-dream-special="hangup">Mom says hang up!</button>
+        </div>
+
+        <!-- Output -->
+        <div class="output-area" id="dreamPhoneOutput" aria-live="polite">Pick a caller card, then dial the number with the phone buttons or your keyboard.</div>
+
+        <!-- Secret Badge -->
+        <div class="secret-badge" id="dreamPhoneSecretBadge" hidden>
           <span class="badge-icon" aria-hidden="true">867</span>
-        <div>
-          <strong>867 Club merit badge</strong>
-          <em>Dream Phone rewards are parked until member magic is ready.</em>
+          <div>
+            <strong>867 Club merit badge</strong>
+            <em>You found the secret Dream Phone line.</em>
+          </div>
         </div>
-      </div>
 
-      <!-- Caller Grid -->
-      <section class="callers-section is-parked-control" aria-describedby="dreamPhoneParked">
-        <h2>Your Callers</h2>
-        <div class="caller-grid">
-          <button class="caller-card is-selected" type="button" data-dream-pick="mentor" data-dream-number="555-1995"><img class="caller-avatar" src="../assets/dream-phone-mentor.webp" alt="Mentor" /><span class="caller-name">Mentor</span><span class="caller-number">555-1995</span></button>
-          <button class="caller-card" type="button" data-dream-pick="bestie" data-dream-number="555-2001"><img class="caller-avatar" src="../assets/dream-phone-bestie.webp" alt="Bestie" /><span class="caller-name">Bestie</span><span class="caller-number">555-2001</span></button>
-          <button class="caller-card" type="button" data-dream-pick="boundary" data-dream-number="555-2003"><img class="caller-avatar" src="../assets/dream-phone-boundary.webp" alt="Boundary" /><span class="caller-name">Boundary</span><span class="caller-number">555-2003</span></button>
-          <button class="caller-card" type="button" data-dream-pick="receipts" data-dream-number="555-2004"><img class="caller-avatar" src="../assets/dream-phone-receipts.webp" alt="Receipts" /><span class="caller-name">Receipts</span><span class="caller-number">555-2004</span></button>
-          <button class="caller-card" type="button" data-dream-pick="hype" data-dream-number="555-2007"><img class="caller-avatar" src="../assets/dream-phone-hype.webp" alt="Hype" /><span class="caller-name">Hype</span><span class="caller-number">555-2007</span></button>
-          <button class="caller-card" type="button" data-dream-pick="steady" data-dream-number="555-2008"><img class="caller-avatar" src="../assets/dream-phone-steady.webp" alt="Steady" /><span class="caller-name">Steady</span><span class="caller-number">555-2008</span></button>
-          <button class="caller-card" type="button" data-dream-pick="strategist" data-dream-number="555-1999"><img class="caller-avatar" src="../assets/dream-phone-strategist.webp" alt="Strategist" /><span class="caller-name">Strategist</span><span class="caller-number">555-1999</span></button>
-          <button class="caller-card" type="button" data-dream-pick="bigbro" data-dream-number="555-2010"><img class="caller-avatar" src="../assets/dream-phone-bigbro.webp" alt="Big Bro" /><span class="caller-name">Big Bro</span><span class="caller-number">555-2010</span></button>
-          <button class="caller-card" type="button" data-dream-pick="wildcard" data-dream-number="555-2013"><img class="caller-avatar" src="../assets/dream-phone-wildcard.webp" alt="Wildcard" /><span class="caller-name">Wildcard</span><span class="caller-number">555-2013</span></button>
-          <button class="caller-card" type="button" data-dream-pick="creative" data-dream-number="555-2016"><img class="caller-avatar" src="../assets/dream-phone-creative.webp" alt="Creative" /><span class="caller-name">Creative</span><span class="caller-number">555-2016</span></button>
-          <button class="caller-card" type="button" data-dream-pick="research" data-dream-number="555-2024"><img class="caller-avatar" src="../assets/dream-phone-research.webp" alt="Research" /><span class="caller-name">Research</span><span class="caller-number">555-2024</span></button>
-          <button class="caller-card" type="button" data-dream-pick="aihelp" data-dream-number="555-2026"><img class="caller-avatar" src="../assets/dream-phone-ai-help.webp" alt="AI Help" /><span class="caller-name">AI Help</span><span class="caller-number">555-2026</span></button>
-          <button class="caller-card" type="button" data-dream-pick="boss" data-dream-number="555-2027"><img class="caller-avatar" src="../assets/dream-phone-boss-ali.webp" alt="Boss" /><span class="caller-name">Boss</span><span class="caller-number">555-2027</span></button>
-          <button class="caller-card" type="button" data-dream-pick="coach" data-dream-number="555-2028"><img class="caller-avatar" src="../assets/dream-phone-coach.jpg" alt="Coach" /><span class="caller-name">Coach</span><span class="caller-number">555-2028</span></button>
-          <button class="caller-card" type="button" data-dream-pick="operator" data-dream-number="555-2029"><img class="caller-avatar" src="../assets/dream-phone-operator.jpg" alt="Operator" /><span class="caller-name">Operator</span><span class="caller-number">555-2029</span></button>
-          <button class="caller-card" type="button" data-dream-pick="counsel" data-dream-number="555-2030"><img class="caller-avatar" src="../assets/dream-phone-counsel.jpg" alt="Counsel" /><span class="caller-name">Counsel</span><span class="caller-number">555-2030</span></button>
-          <button class="caller-card" type="button" data-dream-pick="finance" data-dream-number="555-2031"><img class="caller-avatar" src="../assets/dream-phone-finance.jpg" alt="Finance" /><span class="caller-name">Finance</span><span class="caller-number">555-2031</span></button>
-          <button class="caller-card" type="button" data-dream-pick="product" data-dream-number="555-2032"><img class="caller-avatar" src="../assets/dream-phone-product.jpg" alt="Product" /><span class="caller-name">Product</span><span class="caller-number">555-2032</span></button>
-          <button class="caller-card" type="button" data-dream-pick="comms" data-dream-number="555-2033"><img class="caller-avatar" src="../assets/dream-phone-comms.jpg" alt="Comms" /><span class="caller-name">Comms</span><span class="caller-number">555-2033</span></button>
-          <button class="caller-card" type="button" data-dream-pick="data" data-dream-number="555-2034"><img class="caller-avatar" src="../assets/dream-phone-data.jpg" alt="Data" /><span class="caller-name">Data</span><span class="caller-number">555-2034</span></button>
-          <button class="caller-card" type="button" data-dream-pick="founder" data-dream-number="555-2035"><img class="caller-avatar" src="../assets/dream-phone-founder.jpg" alt="Founder" /><span class="caller-name">Founder</span><span class="caller-number">555-2035</span></button>
-          <button class="caller-card" type="button" data-dream-pick="sponsor" data-dream-number="555-2036"><img class="caller-avatar" src="../assets/dream-phone-sponsor.jpg" alt="Sponsor" /><span class="caller-name">Sponsor</span><span class="caller-number">555-2036</span></button>
-          <button class="caller-card" type="button" data-dream-pick="builder" data-dream-number="555-2037"><img class="caller-avatar" src="../assets/dream-phone-builder.jpg" alt="Builder" /><span class="caller-name">Builder</span><span class="caller-number">555-2037</span></button>
-          <button class="caller-card" type="button" data-dream-pick="closer" data-dream-number="555-2038"><img class="caller-avatar" src="../assets/dream-phone-closer.jpg" alt="Closer" /><span class="caller-name">Closer</span><span class="caller-number">555-2038</span></button>
-        </div>
+        <!-- Caller Grid -->
+        <section class="callers-section">
+          <h2>Your Callers</h2>
+          <div class="caller-grid">
+            <button class="caller-card is-selected" type="button" data-dream-pick="mentor" data-dream-number="555-1995"><img class="caller-avatar" src="../assets/dream-phone-mentor.webp" alt="Mentor" /><span class="caller-name">Mentor</span><span class="caller-number">555-1995</span></button>
+            <button class="caller-card" type="button" data-dream-pick="bestie" data-dream-number="555-2001"><img class="caller-avatar" src="../assets/dream-phone-bestie.webp" alt="Bestie" /><span class="caller-name">Bestie</span><span class="caller-number">555-2001</span></button>
+            <button class="caller-card" type="button" data-dream-pick="boundary" data-dream-number="555-2003"><img class="caller-avatar" src="../assets/dream-phone-boundary.webp" alt="Boundary" /><span class="caller-name">Boundary</span><span class="caller-number">555-2003</span></button>
+            <button class="caller-card" type="button" data-dream-pick="receipts" data-dream-number="555-2004"><img class="caller-avatar" src="../assets/dream-phone-receipts.webp" alt="Receipts" /><span class="caller-name">Receipts</span><span class="caller-number">555-2004</span></button>
+            <button class="caller-card" type="button" data-dream-pick="hype" data-dream-number="555-2007"><img class="caller-avatar" src="../assets/dream-phone-hype.webp" alt="Hype" /><span class="caller-name">Hype</span><span class="caller-number">555-2007</span></button>
+            <button class="caller-card" type="button" data-dream-pick="steady" data-dream-number="555-2008"><img class="caller-avatar" src="../assets/dream-phone-steady.webp" alt="Steady" /><span class="caller-name">Steady</span><span class="caller-number">555-2008</span></button>
+            <button class="caller-card" type="button" data-dream-pick="strategist" data-dream-number="555-1999"><img class="caller-avatar" src="../assets/dream-phone-strategist.webp" alt="Strategist" /><span class="caller-name">Strategist</span><span class="caller-number">555-1999</span></button>
+            <button class="caller-card" type="button" data-dream-pick="bigbro" data-dream-number="555-2010"><img class="caller-avatar" src="../assets/dream-phone-bigbro.webp" alt="Big Bro" /><span class="caller-name">Big Bro</span><span class="caller-number">555-2010</span></button>
+            <button class="caller-card" type="button" data-dream-pick="wildcard" data-dream-number="555-2013"><img class="caller-avatar" src="../assets/dream-phone-wildcard.webp" alt="Wildcard" /><span class="caller-name">Wildcard</span><span class="caller-number">555-2013</span></button>
+            <button class="caller-card" type="button" data-dream-pick="creative" data-dream-number="555-2016"><img class="caller-avatar" src="../assets/dream-phone-creative.webp" alt="Creative" /><span class="caller-name">Creative</span><span class="caller-number">555-2016</span></button>
+            <button class="caller-card" type="button" data-dream-pick="research" data-dream-number="555-2024"><img class="caller-avatar" src="../assets/dream-phone-research.webp" alt="Research" /><span class="caller-name">Research</span><span class="caller-number">555-2024</span></button>
+            <button class="caller-card" type="button" data-dream-pick="aihelp" data-dream-number="555-2026"><img class="caller-avatar" src="../assets/dream-phone-ai-help.webp" alt="AI Help" /><span class="caller-name">AI Help</span><span class="caller-number">555-2026</span></button>
+            <button class="caller-card" type="button" data-dream-pick="boss" data-dream-number="555-2027"><img class="caller-avatar" src="../assets/dream-phone-boss-ali.webp" alt="Boss" /><span class="caller-name">Boss</span><span class="caller-number">555-2027</span></button>
+            <button class="caller-card" type="button" data-dream-pick="coach" data-dream-number="555-2028"><img class="caller-avatar" src="../assets/dream-phone-coach.jpg" alt="Coach" /><span class="caller-name">Coach</span><span class="caller-number">555-2028</span></button>
+            <button class="caller-card" type="button" data-dream-pick="operator" data-dream-number="555-2029"><img class="caller-avatar" src="../assets/dream-phone-operator.jpg" alt="Operator" /><span class="caller-name">Operator</span><span class="caller-number">555-2029</span></button>
+            <button class="caller-card" type="button" data-dream-pick="counsel" data-dream-number="555-2030"><img class="caller-avatar" src="../assets/dream-phone-counsel.jpg" alt="Counsel" /><span class="caller-name">Counsel</span><span class="caller-number">555-2030</span></button>
+            <button class="caller-card" type="button" data-dream-pick="finance" data-dream-number="555-2031"><img class="caller-avatar" src="../assets/dream-phone-finance.jpg" alt="Finance" /><span class="caller-name">Finance</span><span class="caller-number">555-2031</span></button>
+            <button class="caller-card" type="button" data-dream-pick="product" data-dream-number="555-2032"><img class="caller-avatar" src="../assets/dream-phone-product.jpg" alt="Product" /><span class="caller-name">Product</span><span class="caller-number">555-2032</span></button>
+            <button class="caller-card" type="button" data-dream-pick="comms" data-dream-number="555-2033"><img class="caller-avatar" src="../assets/dream-phone-comms.jpg" alt="Comms" /><span class="caller-name">Comms</span><span class="caller-number">555-2033</span></button>
+            <button class="caller-card" type="button" data-dream-pick="data" data-dream-number="555-2034"><img class="caller-avatar" src="../assets/dream-phone-data.jpg" alt="Data" /><span class="caller-name">Data</span><span class="caller-number">555-2034</span></button>
+            <button class="caller-card" type="button" data-dream-pick="founder" data-dream-number="555-2035"><img class="caller-avatar" src="../assets/dream-phone-founder.jpg" alt="Founder" /><span class="caller-name">Founder</span><span class="caller-number">555-2035</span></button>
+            <button class="caller-card" type="button" data-dream-pick="sponsor" data-dream-number="555-2036"><img class="caller-avatar" src="../assets/dream-phone-sponsor.jpg" alt="Sponsor" /><span class="caller-name">Sponsor</span><span class="caller-number">555-2036</span></button>
+            <button class="caller-card" type="button" data-dream-pick="builder" data-dream-number="555-2037"><img class="caller-avatar" src="../assets/dream-phone-builder.jpg" alt="Builder" /><span class="caller-name">Builder</span><span class="caller-number">555-2037</span></button>
+            <button class="caller-card" type="button" data-dream-pick="closer" data-dream-number="555-2038"><img class="caller-avatar" src="../assets/dream-phone-closer.jpg" alt="Closer" /><span class="caller-name">Closer</span><span class="caller-number">555-2038</span></button>
+          </div>
+        </section>
       </section>
-
-      <!-- Special Cards -->
-      <div class="special-cards is-parked-control" aria-label="Dream Phone special cards" aria-describedby="dreamPhoneParked">
-        <button type="button" data-dream-special="secret">Share a secret</button>
-        <button type="button" data-dream-special="speaker">Speaker phone</button>
-        <button type="button" data-dream-special="hangup">Mom says hang up!</button>
-      </div>
     </div>
 
     <!-- Scripts -->
     <script src="../content/site/supabase-config.js"></script>
     <script src="../content/site/site-data.js?v=episode-04-quiz-1"></script>
     <script src="../script.js"></script>
-    <!-- Dream Phone behavior is handled by ../script.js. -->
+    <!-- Just Call behavior: ../script.js. The Game (deduction) track: dream-phone-game.js -->
+    <script src="../games/dream-phone-game.js?v=dream-phone-game-2"></script>
     <script>
-      document.querySelectorAll("[data-dream-key], [data-dream-pick], [data-dream-special], #dreamPhoneButton, #dreamPhoneNumber").forEach(function(control) {
-        control.disabled = true;
-        control.setAttribute("aria-disabled", "true");
-      });
-      var parkedOutput = document.getElementById("dreamPhoneOutput");
-      if (parkedOutput) parkedOutput.textContent = "Dream Phone is parked for a glow-up. Start with the latest Episode or try Mme CLAi-O while the hotline gets rebuilt.";
+      // Populate the entry line-up strip from the game's caller portraits.
+      (function () {
+        var strip = document.getElementById("dpLineupStrip");
+        if (!strip) return;
+        var imgs = [
+          "mentor.webp", "bestie.webp", "boundary.webp", "receipts.webp", "hype.webp", "steady.webp",
+          "strategist.webp", "bigbro.webp", "wildcard.webp", "creative.webp", "research.webp", "ai-help.webp"
+        ];
+        imgs.forEach(function (f) {
+          var img = document.createElement("img");
+          img.src = "../assets/dream-phone-" + f;
+          img.alt = "";
+          img.loading = "lazy";
+          img.onerror = function () { this.remove(); };
+          strip.appendChild(img);
+        });
+      })();
 
+      // Weekly-bag return link (preserved from the parked page).
       (function() {
         var params = new URLSearchParams(window.location.search || "");
         if (params.get("from") !== "this-week") return;
@@ -640,7 +635,209 @@
         var link = document.querySelector("[data-weekly-return-link]");
         if (!link) return;
         link.href = "../this-week.html" + (issue ? "?issue=" + encodeURIComponent(Number(issue[0])) + "&bag=open&group=" + encodeURIComponent(group) + draftParam : "?bag=open&group=" + encodeURIComponent(group) + draftParam);
-        link.textContent = "\u2190 " + (labels[group] || "Back to the Bag");
+        link.textContent = "← " + (labels[group] || "Back to the Bag");
+      })();
+
+      // ── Image-dialer module: drives the phone photo as the Just Call dialer.
+      // Dialing still routes through script.js (we set #dreamPhoneNumber + click
+      // #dreamPhoneButton); this layer owns the screen readout, ring beat, tap
+      // feedback, call history, heart shortcut, and the *69/*67 eggs (badges via
+      // window.dreamPhoneEgg in dream-phone-game.js).
+      (function () {
+        var phone = document.getElementById("dpPhone");
+        if (!phone) return;
+        var screenText = document.getElementById("dpScreenText");
+        var keys = phone.querySelectorAll(".dp-key");
+        var heart = document.getElementById("dpHeart");
+        var histBtn = document.getElementById("dpHistBtn");
+        var historyPanel = document.getElementById("dpHistory");
+        var historyList = document.getElementById("dpHistoryList");
+        var remix = document.getElementById("dpRemix");
+        var numInput = document.getElementById("dreamPhoneNumber");
+        var dialBtn = document.getElementById("dreamPhoneButton");
+        var NUMS = (typeof dreamPhoneNumbers !== "undefined" && dreamPhoneNumbers) ? dreamPhoneNumbers : {};
+        var CALLERS = (typeof dreamPhoneCallers !== "undefined" && dreamPhoneCallers) ? dreamPhoneCallers : {};
+
+        var buf = "";
+        var lastCall = null;     // { digits }
+        var calls = [];          // [{ name, number }]
+        var resetT = null;
+        var busy = false;        // mid-ring: ignore key taps
+
+        function onlyDigits(s) { return String(s || "").replace(/\D/g, ""); }
+        function fmtDigits(d) { d = onlyDigits(d).slice(0, 7); return d.length <= 3 ? d : d.slice(0, 3) + "-" + d.slice(3); }
+        function setScreen(txt) {
+          if (!screenText) return;
+          screenText.textContent = txt || "";
+          screenText.classList.toggle("is-long", (txt || "").length > 10);
+        }
+        function clearSoon(ms) {
+          if (resetT) clearTimeout(resetT);
+          resetT = setTimeout(function () { buf = ""; setScreen(""); busy = false; }, ms || 3000);
+        }
+        function flash(ch) {
+          for (var i = 0; i < keys.length; i++) {
+            if (keys[i].getAttribute("data-key") === ch) {
+              var k = keys[i];
+              k.classList.remove("is-press"); void k.offsetWidth; k.classList.add("is-press");
+              setTimeout((function (b) { return function () { b.classList.remove("is-press"); }; })(k), 360);
+              break;
+            }
+          }
+        }
+        function pushHistory(name, number) {
+          calls.unshift({ name: name, number: number });
+          if (calls.length > 8) calls.pop();
+          if (historyPanel && !historyPanel.hidden) renderHistory();
+        }
+        function renderHistory() {
+          if (!historyList) return;
+          historyList.innerHTML = "";
+          if (!calls.length) {
+            var e = document.createElement("li"); e.className = "dp-history-empty"; e.textContent = "No calls yet — dial someone.";
+            historyList.appendChild(e); return;
+          }
+          calls.forEach(function (c) {
+            var li = document.createElement("li");
+            var n = document.createElement("span"); n.textContent = c.name;
+            var num = document.createElement("span"); num.className = "num"; num.textContent = c.number;
+            li.appendChild(n); li.appendChild(num); historyList.appendChild(li);
+          });
+        }
+        function nameFor(digits) {
+          if (digits === "8675309") return "JENNY";
+          var pick = NUMS[digits];
+          if (pick && CALLERS[pick] && CALLERS[pick].friend) return CALLERS[pick].friend;
+          return null;
+        }
+        function ringThen(name) {
+          busy = true;
+          setScreen("CALLING " + name + "…");
+          setTimeout(function () { setScreen(name); }, 950);
+        }
+        function connect(digits) {
+          var name = nameFor(digits);
+          if (!name) { setScreen("NO SUCH NUMBER"); clearSoon(2000); return; }
+          name = name.toUpperCase();
+          if (numInput) numInput.value = fmtDigits(digits);
+          ringThen(name);
+          if (dialBtn) dialBtn.click();        // script.js: advice / 867 badge -> #dreamPhoneOutput
+          pushHistory(name, fmtDigits(digits));
+          lastCall = { digits: digits };
+          clearSoon(3400);
+        }
+        function redial() {
+          if (!lastCall) { setScreen("NOTHING TO REDIAL"); clearSoon(2000); return; }
+          connect(lastCall.digits);
+        }
+        function egg(code) {
+          if (code === "*67") {
+            if (window.dreamPhoneEgg) window.dreamPhoneEgg("*67");
+            setScreen("CALLER ID: DISABLED. DRAMA: ENABLED.");
+            clearSoon(2600);
+            return;
+          }
+          if (code === "*69") {
+            if (!lastCall) { setScreen("NOTHING TO REDIAL"); clearSoon(2000); return; }
+            var res = window.dreamPhoneEgg ? window.dreamPhoneEgg("*69") : { first: false };
+            if (res && res.first) { setScreen("OH, *69? CLASSIC. REDIALING…"); setTimeout(redial, 1500); }
+            else { redial(); }
+          }
+        }
+        function press(ch) {
+          if (busy) return;
+          flash(ch);
+          var next = buf + ch;
+          if (next === "*69" || next === "*67") { buf = ""; egg(next); return; }
+          if (next.charAt(0) === "*") {                 // building toward a * egg
+            if (next.length > 3) { buf = ""; setScreen(""); return; }
+            buf = next; setScreen(next); return;
+          }
+          if (next.charAt(0) === "#") { buf = ""; setScreen("#"); clearSoon(900); return; } // # decorative
+          if (ch === "*" || ch === "#") return;          // ignore symbols mid-number
+          var d = onlyDigits(next).slice(0, 7);
+          buf = d; setScreen(fmtDigits(d));
+          if (d.length === 7) connect(d);
+        }
+
+        for (var i = 0; i < keys.length; i++) {
+          (function (btn) { btn.addEventListener("click", function () { press(btn.getAttribute("data-key")); }); })(keys[i]);
+        }
+        if (heart) heart.addEventListener("click", function () {
+          if (!remix) return;
+          remix.scrollIntoView({ behavior: "smooth", block: "center" });
+          remix.classList.remove("is-pulse"); void remix.offsetWidth; remix.classList.add("is-pulse");
+          setTimeout(function () { remix.classList.remove("is-pulse"); }, 1000);
+        });
+        if (histBtn) histBtn.addEventListener("click", function () {
+          if (!historyPanel) return;
+          var willOpen = historyPanel.hidden;
+          if (willOpen) renderHistory();
+          historyPanel.hidden = !willOpen;
+        });
+        // caller directory cards drive the screen too (script.js still supplies the advice)
+        Array.prototype.forEach.call(document.querySelectorAll("#dpJustCall [data-dream-pick]"), function (card) {
+          card.addEventListener("click", function () {
+            var digits = onlyDigits(card.getAttribute("data-dream-number"));
+            var pick = card.getAttribute("data-dream-pick");
+            var nm = (CALLERS[pick] && CALLERS[pick].friend) ? CALLERS[pick].friend
+                   : ((card.querySelector(".caller-name") || {}).textContent || "Caller");
+            ringThen(nm.toUpperCase());
+            pushHistory(nm.toUpperCase(), fmtDigits(digits));
+            lastCall = { digits: digits };
+            clearSoon(3400);
+          });
+        });
+      })();
+
+      // ── STAGE 2: mobile play surface (Game) — presentation/input layer only.
+      // Wraps the existing board + #dpDialer/#dpDialBtn bridge; engine logic untouched.
+      (function () {
+        var board = document.getElementById("dpBoard");
+        var entry = document.getElementById("dpEntry");
+        var dialer = document.getElementById("dpDialer");
+        var dialBtn = document.getElementById("dpDialBtn");
+        var mobileCall = document.getElementById("dpMobileCall");
+        if (!board || !dialer || !dialBtn) return;
+        var mq = window.matchMedia("(max-width: 600px)");
+        function isMobile() { return mq.matches; }
+
+        // hide the hero once a track is open (CSS hook, mobile-only effect)
+        if (entry) {
+          var sync = function () { document.body.classList.toggle("dp-track-open", !!entry.hidden); };
+          new MutationObserver(sync).observe(entry, { attributes: true, attributeFilter: ["hidden"] });
+          sync();
+        }
+
+        // tap vs swipe
+        var startX = 0, startY = 0, moved = false;
+        board.addEventListener("touchstart", function (e) { var t = e.touches[0]; startX = t.clientX; startY = t.clientY; moved = false; }, { passive: true });
+        board.addEventListener("touchmove", function (e) { var t = e.touches[0]; if (Math.abs(t.clientX - startX) > 8 || Math.abs(t.clientY - startY) > 8) moved = true; }, { passive: true });
+
+        function selectCard(card) {
+          if (!card || card.classList.contains("is-out")) return;
+          var numEl = card.querySelector(".dp-suspect-num");
+          if (numEl) dialer.value = numEl.textContent.trim();
+          Array.prototype.forEach.call(board.querySelectorAll(".dp-suspect.is-pick"), function (c) { c.classList.remove("is-pick"); });
+          card.classList.add("is-pick");
+        }
+
+        // capture phase: on mobile, intercept card taps BEFORE the engine's handler
+        board.addEventListener("click", function (e) {
+          if (!isMobile()) return;                 // desktop: engine handles taps unchanged
+          var card = e.target.closest(".dp-suspect");
+          if (!card) return;
+          e.stopPropagation();                     // block engine's immediate makeCall/accuse
+          if (moved) return;                       // a swipe scrolls — never selects/dials
+          selectCard(card);
+        }, true);
+
+        // Call commits the loaded number through the existing bridge
+        if (mobileCall) mobileCall.addEventListener("click", function () {
+          if (dialBtn) dialBtn.click();            // engine: makeCall / accuse / egg from #dpDialer
+          var pick = board.querySelector(".dp-suspect.is-pick");
+          if (pick) pick.classList.remove("is-pick");
+        });
       })();
     </script>
 
