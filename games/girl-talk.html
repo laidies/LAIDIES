@@ -188,6 +188,28 @@
         margin: 0 auto;
       }
 
+      /* === HOW IT WORKS === */
+      .gt-howto {
+        max-width: 600px;
+        margin: 0 auto 20px;
+        padding: 16px 20px;
+        border-left: 3px solid var(--gold);
+        border-radius: 0 12px 12px 0;
+        background: linear-gradient(155deg, rgba(255, 245, 225, 0.6), rgba(252, 228, 242, 0.42));
+        font-size: 0.92rem;
+        line-height: 1.55;
+        color: var(--text-secondary);
+      }
+      .gt-howto strong {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.05rem;
+        font-weight: 800;
+        color: var(--plum);
+        display: block;
+        margin-bottom: 6px;
+        letter-spacing: 0.01em;
+      }
+
       /* === SCORE PANEL === */
       .gt-score {
         max-width: 600px;
@@ -618,6 +640,12 @@
           <p class="subtitle">Truth or Dare for women who actually work for a living. Draw a card. Do the thing. Earn a sticker. Chicken out and take the penalty.</p>
         </div>
 
+        <!-- How it works -->
+        <aside class="gt-howto" aria-label="How Girl Talk works">
+          <strong>How it works</strong>
+          Draw as many as you want, stop whenever &mdash; progress saves on this device for now, and your LAiDIES member card will pick it up when sign-in lands. Honest truths and completed dares each earn their own sticker. Chicken outs come with a penalty sticker (sorry &mdash; but they&rsquo;re collectible too). Every 5 dares earns a bonus LAiDY wish, ready when member accounts launch.
+        </aside>
+
         <!-- Score Panel -->
         <section class="gt-score" aria-label="Girl Talk score">
           <div class="gt-score-row">
@@ -829,6 +857,12 @@
         // ===== LOCAL STORAGE =====
         // Keys designed to be easily swappable for Part C (member backend).
         // Sticker IDs stored as arrays so we can show a collection view later.
+        //
+        // MIGRATION NOTE (Part C / sign-in plumbing): when the LAiDIES member
+        // card / sign-in ships, the data below moves from this device to the
+        // user's member account. The arrays should map 1:1 to columns/rows
+        // server-side — no schema change needed. Keep new keys under the
+        // `laidies_gt_*` prefix so the migration script can find them.
         const LS = {
           STICKERS:   "laidies_gt_stickers_earned",   // JSON array of sticker IDs (T1, D5, ...)
           DARES:      "laidies_gt_dares_completed",   // JSON array of dare IDs
@@ -1067,13 +1101,14 @@
         function renderStickerImage(filename, alt, kind) {
           // The asset may not exist yet (Codex is regenerating in a new gouache
           // style). If the image fails to load, the <img> hides itself and the
-          // fallback text card shows the sticker name in a styled box.
+          // fallback text card shows the sticker name (read from `this.alt`).
           const src = STICKER_BASE + filename;
+          const safeAlt = escapeHtml(alt);
           return `
             <div class="gt-sticker-image" data-kind="${kind}">
-              <img src="${src}" alt="${escapeHtml(alt)}"
+              <img src="${src}" alt="${safeAlt}"
                 onload="this.parentNode.classList.remove('is-fallback');"
-                onerror="this.style.display='none'; this.parentNode.classList.add('is-fallback'); this.parentNode.textContent=${JSON.stringify(alt)};" />
+                onerror="this.style.display='none'; this.parentNode.classList.add('is-fallback'); this.parentNode.textContent=this.alt;" />
             </div>
           `;
         }
