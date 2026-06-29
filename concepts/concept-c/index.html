@@ -1,0 +1,979 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LAiDIES · Concept C — The Zine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --plum: #4b2148;
+      --plum-deep: #3a1838;
+      --plum-soft: #6b3a66;
+      --rose: #9b3f5f;
+      --rose-bright: #c25b7d;
+      --hot-pink: #ff4d8a;
+      --cream: #fffdfb;
+      --pearl: #f8eef2;
+      --blush: #f9e6ee;
+      --powder: #f6d7e2;
+      --gold: #c9a227;
+      --line: rgba(75,33,72,.14);
+      --max-w: 1280px;
+      --pad-x: clamp(20px, 4vw, 56px);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Jost', sans-serif; color: var(--plum); background: var(--blush); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    ul, ol { margin: 0; padding: 0; list-style: none; }
+    h1, h2, h3, h4, p { margin: 0; }
+    button { font: inherit; cursor: pointer; }
+
+    .brand-word-inline { font-weight: inherit; }
+    [data-brand-ai] { color: var(--rose); }
+
+    /* Concept switcher */
+    .concept-switcher {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 24px;
+      background: #1a0a12; color: var(--cream);
+      font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+    }
+    .concept-switcher strong { color: var(--gold); margin-right: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    .concept-switcher a { color: var(--cream); margin-right: 14px; padding: 4px 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.18); }
+    .concept-switcher a.is-active { background: var(--gold); color: var(--plum-deep); border-color: var(--gold); font-weight: 700; }
+    .concept-switcher a:hover { background: rgba(255,255,255,0.08); }
+    .concept-switcher a.is-active:hover { background: var(--gold); color: var(--plum-deep); }
+
+    .container { width: 100%; max-width: var(--max-w); margin-inline: auto; padding-inline: var(--pad-x); }
+
+    /* Sticker / sparkle accents */
+    .sticker {
+      position: absolute;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--gold); color: var(--plum-deep);
+      box-shadow: 0 4px 16px rgba(58,24,56,0.25);
+      transform: rotate(-6deg);
+      z-index: 5;
+      pointer-events: none;
+    }
+    .sticker--rose { background: var(--rose-bright); color: var(--cream); }
+    .sticker--plum { background: var(--plum); color: var(--cream); }
+    .sticker--star {
+      width: 64px; height: 64px;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      background: var(--gold);
+      padding: 0;
+    }
+    .sticker--heart {
+      width: 60px; height: 56px;
+      background: var(--rose-bright);
+      clip-path: path("M30 56 L4 30 Q-4 22 4 14 Q12 6 22 12 Q30 18 30 22 Q30 18 38 12 Q48 6 56 14 Q64 22 56 30 Z");
+      padding: 0;
+    }
+
+    /* ============================================================
+       1. COVER — collage / zine layout
+       ============================================================ */
+    .cover {
+      position: relative;
+      background:
+        radial-gradient(circle at 80% 20%, var(--powder), transparent 50%),
+        radial-gradient(circle at 10% 80%, var(--blush), transparent 60%),
+        var(--cream);
+      padding: 48px var(--pad-x) 80px;
+      overflow: hidden;
+    }
+    .cover-flag {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 32px;
+    }
+    .cover-wordmark-mark {
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--plum);
+    }
+    .cover-wordmark-mark .ai { color: var(--rose); font-style: italic; }
+    .cover-stamp {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--plum);
+      padding: 8px 16px;
+      background: var(--gold);
+      border-radius: 999px;
+      transform: rotate(2deg);
+    }
+    .cover-collage {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 56px;
+      align-items: center;
+      min-height: 72vh;
+    }
+    .cover-headline-box {
+      position: relative;
+      z-index: 2;
+    }
+    .cover-headline {
+      font-size: clamp(56px, 8vw, 140px);
+      font-weight: 900;
+      line-height: 0.86;
+      letter-spacing: -0.035em;
+      color: var(--plum);
+      margin-bottom: 24px;
+    }
+    .cover-headline .line1 { display: block; color: var(--rose); }
+    .cover-headline .meets {
+      display: inline-block;
+      font-size: clamp(24px, 3vw, 40px);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--plum);
+      background: var(--gold);
+      padding: 2px 16px;
+      transform: rotate(-3deg);
+      margin: 8px 0;
+      vertical-align: middle;
+    }
+    .cover-headline .line2 { display: block; color: var(--plum); }
+    .cover-tag-card {
+      position: relative;
+      display: inline-block;
+      max-width: 44ch;
+      padding: 22px 28px;
+      background: var(--cream);
+      border: 1.5px solid var(--plum);
+      border-radius: 4px;
+      transform: rotate(-1.5deg);
+      box-shadow: 6px 6px 0 var(--plum);
+      margin-bottom: 32px;
+    }
+    .cover-tag-card p {
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--plum);
+    }
+    .cover-tag-card .cover-tag-stamp {
+      position: absolute;
+      top: -14px; left: 14px;
+      padding: 4px 10px;
+      background: var(--rose);
+      color: var(--cream);
+      font-size: 10px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase;
+      transform: rotate(-3deg);
+    }
+    .cover-cta {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 18px 36px;
+      background: var(--plum);
+      color: var(--cream);
+      border-radius: 999px;
+      font-weight: 700; font-size: 16px;
+      letter-spacing: 0.04em;
+      box-shadow: 8px 8px 0 var(--rose);
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .cover-cta:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 10px 10px 0 var(--rose);
+    }
+    /* Right column — saint portrait collage */
+    .cover-collage-right {
+      position: relative;
+      min-height: 540px;
+    }
+    .collage-tile {
+      position: absolute;
+      width: 200px;
+      border: 3px solid var(--cream);
+      box-shadow: 0 12px 24px rgba(58,24,56,0.18);
+      background: var(--cream);
+    }
+    .collage-tile img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+    .collage-tile-1 { top: 0; left: 12%; transform: rotate(-5deg); width: 220px; z-index: 2; }
+    .collage-tile-2 { top: 24%; right: 8%; transform: rotate(4deg); width: 180px; z-index: 3; }
+    .collage-tile-3 { bottom: 14%; left: 0; transform: rotate(3deg); width: 190px; z-index: 2; }
+    .collage-tile-4 { bottom: 0; right: 18%; transform: rotate(-7deg); width: 210px; z-index: 4; }
+
+    .cover-sticker-top-right { top: 14%; right: 4%; }
+    .cover-sticker-bottom-left { bottom: 22%; left: 38%; }
+    .cover-sticker-star-1 { top: 8%; right: 38%; transform: rotate(0); }
+
+    .cover-inside-bar {
+      margin-top: 56px;
+      padding: 20px 28px;
+      background: var(--plum);
+      color: var(--cream);
+      border-radius: 999px;
+      display: inline-flex; align-items: center; gap: 18px;
+      font-size: 13px; font-weight: 500;
+      letter-spacing: 0.06em;
+      transform: rotate(-1deg);
+    }
+    .cover-inside-bar .inside-kicker {
+      font-size: 10px; font-weight: 800; letter-spacing: 0.36em; text-transform: uppercase;
+      color: var(--gold);
+    }
+    .cover-inside-bar a {
+      color: var(--cream);
+      border-bottom: 1px solid transparent;
+      transition: border-color 180ms ease;
+    }
+    .cover-inside-bar a:hover { border-bottom-color: var(--rose-bright); }
+
+    /* ============================================================
+       2. THIS WEEK — magazine spread with stickers
+       ============================================================ */
+    .this-week {
+      background: var(--cream);
+      padding: 96px 0;
+      position: relative;
+    }
+    .this-week-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 56px;
+      align-items: center;
+      position: relative;
+    }
+    .this-week-img-wrap {
+      position: relative;
+      transform: rotate(-2deg);
+      box-shadow: 0 30px 50px -20px rgba(58,24,56,0.4);
+    }
+    .this-week-img-wrap::before {
+      content: "This Week";
+      position: absolute;
+      top: -16px; right: -16px;
+      padding: 10px 18px;
+      background: var(--hot-pink);
+      color: var(--cream);
+      font-size: 11px; font-weight: 800; letter-spacing: 0.28em; text-transform: uppercase;
+      border-radius: 999px;
+      transform: rotate(8deg);
+      z-index: 5;
+      box-shadow: 0 4px 16px rgba(58,24,56,0.2);
+    }
+    .this-week-img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+    .this-week-eyebrow {
+      display: inline-block;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--plum);
+      background: var(--gold);
+      padding: 6px 14px;
+      margin-bottom: 20px;
+      transform: rotate(-2deg);
+    }
+    .this-week-title {
+      font-size: clamp(48px, 6.2vw, 92px);
+      font-weight: 800;
+      line-height: 0.94;
+      letter-spacing: -0.028em;
+      color: var(--plum);
+      margin-bottom: 20px;
+    }
+    .this-week-dek {
+      font-size: 19px;
+      color: var(--plum);
+      line-height: 1.5;
+      margin-bottom: 28px;
+      max-width: 42ch;
+    }
+    .this-week-excerpt {
+      position: relative;
+      font-size: 15px;
+      color: var(--plum);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 50ch;
+      padding: 22px 26px;
+      background: var(--blush);
+      border-radius: 4px;
+      border-left: 5px solid var(--rose);
+    }
+    .this-week-excerpt::before {
+      content: "PLACEHOLDER · the opening";
+      display: block;
+      font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 8px;
+    }
+    .this-week-cta {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 16px 30px;
+      background: var(--rose);
+      color: var(--cream);
+      border-radius: 999px;
+      font-weight: 700; font-size: 15px;
+      letter-spacing: 0.04em;
+      box-shadow: 6px 6px 0 var(--plum);
+      transition: transform 200ms ease;
+    }
+    .this-week-cta:hover { transform: translate(-2px, -2px); }
+
+    /* ============================================================
+       3. BRAND BAND — the bridge, with stickers
+       ============================================================ */
+    .brand-band {
+      background: var(--plum);
+      color: var(--cream);
+      padding: 120px 0 100px;
+      position: relative;
+      text-align: center;
+      overflow: hidden;
+    }
+    .brand-band::before {
+      /* Radial sparkle bg */
+      content: "";
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(2px 2px at 16% 28%, rgba(255, 215, 0, 0.6), transparent),
+        radial-gradient(1.6px 1.6px at 78% 22%, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(2px 2px at 88% 70%, rgba(255, 215, 0, 0.5), transparent),
+        radial-gradient(1.8px 1.8px at 24% 80%, rgba(255, 255, 255, 0.4), transparent),
+        radial-gradient(2.2px 2.2px at 56% 50%, rgba(255, 215, 0, 0.3), transparent);
+      pointer-events: none;
+    }
+    .brand-band-pre {
+      position: relative;
+      font-size: clamp(18px, 2vw, 26px);
+      font-style: italic;
+      color: rgba(255,253,251,0.75);
+      margin-bottom: 24px;
+      letter-spacing: -0.005em;
+    }
+    .brand-band-head {
+      position: relative;
+      font-size: clamp(56px, 9vw, 132px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--cream);
+    }
+    .brand-band-head .ai { color: var(--rose-bright); font-style: italic; }
+    .brand-band-head em {
+      display: inline-block;
+      font-size: clamp(28px, 3.4vw, 48px);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--gold);
+      background: rgba(255,255,255,0.05);
+      padding: 0 16px;
+      transform: rotate(-2deg);
+      margin: 0 8px;
+      vertical-align: middle;
+    }
+
+    /* ============================================================
+       4. INSIDE LAiDIES — tilted card collage
+       ============================================================ */
+    .inside-laidies {
+      background: var(--blush);
+      padding: 96px 0;
+      position: relative;
+    }
+    .section-head {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 56px;
+    }
+    .section-head .kicker {
+      display: inline-block;
+      font-size: 11px; font-weight: 800; letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--cream);
+      background: var(--rose);
+      padding: 8px 18px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+      transform: rotate(-2deg);
+    }
+    .section-head h2 {
+      font-size: clamp(48px, 6.4vw, 96px);
+      font-weight: 800;
+      letter-spacing: -0.028em;
+      line-height: 0.96;
+      color: var(--plum);
+      margin-bottom: 14px;
+    }
+    .section-head p {
+      font-size: 17px;
+      color: var(--plum);
+      max-width: 50ch;
+      margin: 0 auto;
+    }
+    .rooms-collage {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px 32px;
+      position: relative;
+    }
+    .room {
+      position: relative;
+      background: var(--cream);
+      border: 2px solid var(--plum);
+      border-radius: 4px;
+      padding: 24px;
+      box-shadow: 6px 6px 0 var(--plum);
+      transition: transform 240ms ease, box-shadow 240ms ease;
+      display: flex; flex-direction: column;
+    }
+    .room:nth-child(odd) { transform: rotate(-1deg); }
+    .room:nth-child(even) { transform: rotate(1deg); }
+    .room:hover {
+      transform: rotate(0deg) translate(-2px, -2px) !important;
+      box-shadow: 10px 10px 0 var(--rose);
+    }
+    .room-img-area {
+      width: 100%; aspect-ratio: 5/3;
+      margin-bottom: 14px;
+      background: var(--plum-deep);
+      overflow: hidden;
+      position: relative;
+    }
+    .room-img-area img { width: 100%; height: 100%; object-fit: cover; }
+    .room-img-area .placeholder {
+      width: 100%; height: 100%;
+      background:
+        repeating-linear-gradient(135deg, rgba(255,253,251,0.06), rgba(255,253,251,0.06) 8px, rgba(255,253,251,0.1) 8px, rgba(255,253,251,0.1) 16px),
+        linear-gradient(135deg, var(--plum-deep), var(--plum));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold);
+    }
+    .room-img-area .saint-montage {
+      display: grid; grid-template-columns: repeat(4, 1fr); height: 100%;
+    }
+    .room-img-area .saint-montage img { width: 100%; height: 100%; object-fit: cover; }
+    .room-stamp {
+      position: absolute;
+      top: -14px; left: 16px;
+      padding: 6px 12px;
+      background: var(--gold);
+      color: var(--plum-deep);
+      font-size: 10px; font-weight: 800; letter-spacing: 0.24em; text-transform: uppercase;
+      transform: rotate(-3deg);
+      z-index: 2;
+    }
+    .room-stamp--rose { background: var(--rose-bright); color: var(--cream); }
+    .room-stamp--plum { background: var(--plum); color: var(--cream); }
+    .room h3 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.012em;
+      line-height: 1.05;
+      color: var(--plum);
+      margin-bottom: 8px;
+    }
+    .room p {
+      font-size: 14px;
+      color: var(--plum-soft);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .room-link {
+      margin-top: auto;
+      font-size: 13px; font-weight: 700;
+      color: var(--rose);
+      letter-spacing: 0.04em;
+    }
+
+    /* ============================================================
+       5. SAINTS — sticker-card scatter
+       ============================================================ */
+    .saints {
+      background: var(--cream);
+      padding: 96px 0;
+    }
+    .saints-grid-c {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .saint-card {
+      position: relative;
+      background: var(--cream);
+      border: 2px solid var(--plum);
+      overflow: hidden;
+      transition: transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 280ms ease;
+      display: block;
+      box-shadow: 4px 4px 0 var(--plum);
+    }
+    .saint-card:nth-child(4n+1) { transform: rotate(-1.5deg); }
+    .saint-card:nth-child(4n+2) { transform: rotate(1deg); }
+    .saint-card:nth-child(4n+3) { transform: rotate(-0.5deg); }
+    .saint-card:nth-child(4n+4) { transform: rotate(1.5deg); }
+    .saint-card:hover {
+      transform: rotate(0deg) translate(-2px, -2px) !important;
+      box-shadow: 8px 8px 0 var(--rose);
+    }
+    .saint-portrait { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+    .saint-card-body { padding: 16px 18px 20px; }
+    .saint-card-body h3 {
+      font-size: 19px; font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .saint-lane {
+      display: inline-block;
+      font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--cream);
+      background: var(--rose);
+      padding: 3px 8px;
+      margin-bottom: 12px;
+      border-radius: 2px;
+    }
+    .saint-rule { font-size: 13px; color: var(--plum); line-height: 1.5; }
+
+    /* ============================================================
+       6A. WEDNESDAY DROP — bright pink band, sticker energy
+       ============================================================ */
+    .wednesday-drop {
+      background: var(--hot-pink);
+      color: var(--cream);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .wednesday-drop-inner { text-align: center; max-width: 640px; margin: 0 auto; position: relative; }
+    .wednesday-drop h2 {
+      font-size: clamp(48px, 6.4vw, 96px);
+      font-weight: 900;
+      line-height: 0.92;
+      letter-spacing: -0.026em;
+      color: var(--cream);
+      margin-bottom: 18px;
+    }
+    .wednesday-drop h2 em {
+      display: inline-block;
+      font-size: clamp(22px, 2.6vw, 36px);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--plum-deep);
+      background: var(--gold);
+      padding: 0 14px;
+      transform: rotate(-2deg);
+      margin: 4px 0;
+      vertical-align: middle;
+    }
+    .wednesday-drop > .container > .wednesday-drop-inner > p {
+      font-size: 17px; color: rgba(255,253,251,0.95); margin-bottom: 32px; max-width: 42ch; margin-left: auto; margin-right: auto;
+    }
+    .wednesday-drop-form { display: flex; gap: 10px; max-width: 480px; margin: 0 auto; }
+    .wednesday-drop-form input {
+      flex: 1; height: 56px; padding: 0 22px;
+      border: 2px solid var(--cream); border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      color: var(--cream); font: inherit; font-size: 16px;
+    }
+    .wednesday-drop-form input::placeholder { color: rgba(255,253,251,0.65); }
+    .wednesday-drop-form button {
+      height: 56px; padding: 0 32px;
+      border-radius: 999px; border: none;
+      background: var(--plum); color: var(--cream);
+      font-weight: 700; letter-spacing: 0.04em; font-size: 15px;
+      white-space: nowrap;
+      transition: background 180ms ease;
+    }
+    .wednesday-drop-form button:hover { background: var(--plum-deep); }
+    .wednesday-drop-small { font-size: 12px; color: rgba(255,253,251,0.8); margin-top: 16px; }
+
+    /* ============================================================
+       6B. THE CLUB — placeholder, no form
+       ============================================================ */
+    .club { background: var(--blush); padding: 80px var(--pad-x); }
+    .club-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      position: relative;
+      isolation: isolate;
+      background:
+        radial-gradient(circle at 50% 16%, rgba(185, 93, 120, 0.22), transparent 58%),
+        linear-gradient(160deg, #1a0a12, #2d0f1f, #1a0a12);
+      color: var(--cream);
+      overflow: hidden;
+      min-height: 380px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      align-items: center;
+      padding: 72px 72px;
+      gap: 48px;
+      border-radius: 4px;
+      transform: rotate(-0.4deg);
+      border: 3px solid var(--plum);
+      box-shadow: 10px 10px 0 var(--plum);
+    }
+    .club-inner::before {
+      content: "";
+      position: absolute; inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        radial-gradient(1.6px 1.6px at 12% 24%, rgba(255, 215, 0, 0.65), transparent),
+        radial-gradient(1.4px 1.4px at 28% 64%, rgba(255, 255, 255, 0.50), transparent),
+        radial-gradient(1.8px 1.8px at 42% 18%, rgba(255, 215, 0, 0.50), transparent),
+        radial-gradient(1.2px 1.2px at 58% 78%, rgba(255, 255, 255, 0.42), transparent),
+        radial-gradient(1.6px 1.6px at 72% 28%, rgba(255, 215, 0, 0.55), transparent),
+        radial-gradient(1.3px 1.3px at 86% 62%, rgba(255, 255, 255, 0.45), transparent);
+    }
+    .club-inner > * { position: relative; z-index: 1; }
+    .club-status {
+      display: inline-block;
+      font-size: 10px; font-weight: 800; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--plum-deep);
+      background: var(--gold);
+      padding: 6px 14px;
+      transform: rotate(-2deg);
+      margin-bottom: 22px;
+    }
+    .club h2 {
+      font-size: clamp(40px, 5.6vw, 76px);
+      font-weight: 800;
+      line-height: 0.94;
+      letter-spacing: -0.025em;
+      margin-bottom: 18px;
+      color: var(--cream);
+    }
+    .club-copy p { font-size: 17px; color: rgba(255,253,251,0.82); line-height: 1.55; margin-bottom: 12px; max-width: 44ch; }
+    .club-fine { font-size: 12px; color: rgba(255,253,251,0.5); margin-top: 14px; }
+    .club-card-back {
+      width: clamp(180px, 24vw, 260px);
+      transform: rotate(6deg);
+      filter: drop-shadow(0 0 50px rgba(194,91,125,0.45)) drop-shadow(0 18px 36px rgba(0,0,0,0.4));
+      margin-left: auto;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .site-footer { background: var(--plum); color: var(--cream); padding: 56px 0 28px; }
+    .site-footer-inner { display: flex; justify-content: space-between; gap: 36px; flex-wrap: wrap; align-items: flex-end; }
+    .footer-tagline { font-size: clamp(20px, 2.8vw, 28px); font-weight: 700; max-width: 18ch; line-height: 1.12; margin-bottom: 14px; }
+    .footer-handle { font-size: 12px; color: rgba(255,253,251,0.6); letter-spacing: 0.08em; }
+    .footer-nav { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 13px; }
+    .footer-nav a { color: rgba(255,253,251,0.78); }
+    .footer-nav a:hover { color: var(--cream); }
+    .footer-bottom { font-size: 11px; color: rgba(255,253,251,0.45); margin-top: 28px; border-top: 1px solid rgba(255,253,251,0.12); padding-top: 18px; letter-spacing: 0.08em; }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 880px) {
+      .cover-collage { grid-template-columns: 1fr; }
+      .cover-collage-right { min-height: 360px; }
+      .collage-tile { width: 130px; }
+      .this-week-inner { grid-template-columns: 1fr; gap: 32px; }
+      .rooms-collage { grid-template-columns: 1fr; gap: 36px; }
+      .saints-grid-c { grid-template-columns: 1fr 1fr; }
+      .saint-card { transform: none !important; }
+      .club-inner { grid-template-columns: 1fr; padding: 48px 32px; text-align: center; }
+      .club-card-back { margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="concept-switcher" aria-label="Concept switcher">
+    <span><strong>Concept</strong>3 visual directions for review · live preview</span>
+    <span>
+      <a href="../concept-a/">A · The Cover</a>
+      <a href="../concept-b/">B · Type Sculpture</a>
+      <a href="../concept-c/" class="is-active">C · The Zine</a>
+      <a href="../../">↩ Current homepage</a>
+    </span>
+  </nav>
+
+  <!-- 1. COVER — COLLAGE -->
+  <section class="cover">
+    <div class="container">
+      <div class="cover-flag">
+        <p class="cover-wordmark-mark">L<span class="ai">Ai</span>DIES</p>
+        <p class="cover-stamp">★ Issue 04 · Wednesday June 29 ★</p>
+      </div>
+
+      <div class="cover-collage">
+        <div class="cover-headline-box">
+          <h1 class="cover-headline">
+            <span class="line1">GIRL POWER</span>
+            <span class="meets">meets</span>
+            <span class="line2">MACHINE POWER</span>
+          </h1>
+
+          <div class="cover-tag-card">
+            <span class="cover-tag-stamp">What this is</span>
+            <p>AI fluency and community for women with full calendars, high standards, and no patience for beige tech explanations.</p>
+          </div>
+
+          <a class="cover-cta" href="../../this-week.html">Read This Week →</a>
+        </div>
+
+        <div class="cover-collage-right">
+          <div class="collage-tile collage-tile-1">
+            <img src="../../assets/saints/cher-horowitz.png" alt="Cher Horowitz">
+          </div>
+          <div class="collage-tile collage-tile-2">
+            <img src="../../assets/saints/buffy-summers.png" alt="Buffy Summers">
+          </div>
+          <div class="collage-tile collage-tile-3">
+            <img src="../../assets/saints/dolly-parton.png" alt="Dolly Parton">
+          </div>
+          <div class="collage-tile collage-tile-4">
+            <img src="../../assets/saints/elle-woods.png" alt="Elle Woods">
+          </div>
+          <span class="sticker sticker--star cover-sticker-star-1" aria-hidden="true"></span>
+          <span class="sticker sticker--rose cover-sticker-bottom-left" aria-hidden="true">★ This Issue</span>
+        </div>
+      </div>
+
+      <div style="margin-top: 56px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+        <p class="cover-inside-bar">
+          <span class="inside-kicker">Inside</span>
+          <a href="../../this-week.html">A Slayer Needs a Watcher</a>
+          ·
+          <a href="../../grimoire.html">The Grimoire</a>
+          ·
+          <a href="../../clubhouse.html">The Clubhouse</a>
+          ·
+          <a href="../../games/madame-claio.html">Mme CLAi-O</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. THIS WEEK -->
+  <section class="this-week">
+    <div class="container">
+      <div class="this-week-inner">
+        <div class="this-week-img-wrap">
+          <img class="this-week-img" src="../../assets/episodes/issue-04/section-slaiyer-handbook-v1.png" alt="Episode 04">
+        </div>
+        <div>
+          <p class="this-week-eyebrow">★ Episode 04 · 4-min read</p>
+          <h2 class="this-week-title">A Slayer Needs a Watcher</h2>
+          <p class="this-week-dek">The SLAiYER Handbook, Chapter 1 — which AI tool to open for which job, what the words mean, and how to use any of them without getting vamped.</p>
+          <div class="this-week-excerpt">
+            This week I watched a CFO type "just make it better" into ChatGPT and act betrayed by what came back. Make what better. For whom. By when. Compared to what. The tools are good. The instructions are the gig.
+          </div>
+          <a class="this-week-cta" href="../../this-week.html">Read the episode →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. BRAND BAND -->
+  <section class="brand-band">
+    <p class="brand-band-pre">The 90s/Y2K defined us. AI is shaping now.</p>
+    <h2 class="brand-band-head">
+      L<span class="ai">Ai</span>DIES <em>is where</em> they meet.
+    </h2>
+  </section>
+
+  <!-- 4. INSIDE LAiDIES -->
+  <section class="inside-laidies">
+    <div class="container">
+      <header class="section-head">
+        <p class="kicker">★ Inside LAiDIES ★</p>
+        <h2>The whole universe.</h2>
+        <p>Not just the weekly newsletter — a reference library, a community, a season arc, a cast of patron saints, and a set of games for when you need to take five.</p>
+      </header>
+
+      <div class="rooms-collage">
+
+        <a class="room" href="../../grimoire.html">
+          <span class="room-stamp">★ The Reference</span>
+          <div class="room-img-area"><div class="placeholder">Placeholder Art</div></div>
+          <h3>The Grimoire</h3>
+          <p>SLAiYER Handbook · Power Map · Lore Closet · Chamber of Receipts · The Decoder.</p>
+          <span class="room-link">Open it →</span>
+        </a>
+
+        <a class="room" href="../../clubhouse.html">
+          <span class="room-stamp room-stamp--rose">★ The Hangout</span>
+          <div class="room-img-area"><div class="placeholder">Placeholder Art</div></div>
+          <h3>The Clubhouse</h3>
+          <p>Wins · Burn Book · Dear LAiDIES · drop in whenever.</p>
+          <span class="room-link">Step in →</span>
+        </a>
+
+        <a class="room" href="../../clubhouse.html#games">
+          <span class="room-stamp room-stamp--plum">★ Take a Break</span>
+          <div class="room-img-area"><div class="placeholder">Placeholder Art</div></div>
+          <h3>ARCAiDE</h3>
+          <p>Mme CLAi-O · Dream Phone · Ask LAiDY · Girl Talk · DJ Booth.</p>
+          <span class="room-link">Play one →</span>
+        </a>
+
+        <a class="room" href="../../episodes.html">
+          <span class="room-stamp">★ 24 Episodes</span>
+          <div class="room-img-area"><div class="placeholder">Placeholder Art</div></div>
+          <h3>The Season</h3>
+          <p>Start at one. Jump to what you need.</p>
+          <span class="room-link">See them all →</span>
+        </a>
+
+        <a class="room" href="#saints">
+          <span class="room-stamp room-stamp--rose">★ The Cast</span>
+          <div class="room-img-area">
+            <div class="saint-montage" aria-hidden="true">
+              <img src="../../assets/saints/cher-horowitz.png" alt="">
+              <img src="../../assets/saints/elle-woods.png" alt="">
+              <img src="../../assets/saints/miranda-priestly.png" alt="">
+              <img src="../../assets/saints/buffy-summers.png" alt="">
+            </div>
+          </div>
+          <h3>Patron Saints</h3>
+          <p>Cher · Elle · Miranda · Buffy · Regina · David · Deb · Dolly.</p>
+          <span class="room-link">Meet them →</span>
+        </a>
+
+        <a class="room" href="../../start-here.html">
+          <span class="room-stamp room-stamp--plum">★ First Time</span>
+          <div class="room-img-area"><div class="placeholder">Placeholder Art</div></div>
+          <h3>Start Here</h3>
+          <p>New? Two minutes, then your first episode.</p>
+          <span class="room-link">Show me →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. SAINTS -->
+  <section class="saints" id="saints">
+    <div class="container">
+      <header class="section-head">
+        <p class="kicker">★ Patron Saints ★</p>
+        <h2>The cast you already know.</h2>
+        <p>The pop-culture cast we keep coming back to. They walked into rooms full of people who underestimated them — and walked out with the upper hand.</p>
+      </header>
+
+      <div class="saints-grid-c">
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/cher-horowitz.png" alt="Cher Horowitz">
+          <div class="saint-card-body">
+            <h3>Cher Horowitz</h3>
+            <p class="saint-lane">Early Adoption</p>
+            <p class="saint-rule">Cher had a wardrobe recommender in 1995. She was first in the cafeteria to use it.</p>
+          </div>
+        </a>
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/elle-woods.png" alt="Elle Woods">
+          <div class="saint-card-body">
+            <h3>Elle Woods</h3>
+            <p class="saint-lane">Receipts</p>
+            <p class="saint-rule">She didn't bring receipts. She had them.</p>
+          </div>
+        </a>
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/miranda-priestly.png" alt="Miranda Priestly">
+          <div class="saint-card-body">
+            <h3>Miranda Priestly</h3>
+            <p class="saint-lane">Standards</p>
+            <p class="saint-rule">She knew the cerulean's whole history before it touched a closet.</p>
+          </div>
+        </a>
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/buffy-summers.png" alt="Buffy Summers">
+          <div class="saint-card-body">
+            <h3>Buffy Summers</h3>
+            <p class="saint-lane">Slaying</p>
+            <p class="saint-rule">Buffy runs toward the vampire. Everybody else is still in the parking lot.</p>
+          </div>
+        </a>
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/regina-george.png" alt="Regina George">
+          <div class="saint-card-body">
+            <h3>Regina George</h3>
+            <p class="saint-lane">Dangerous Confidence</p>
+            <p class="saint-rule">Same skirt. Different audience. Polished delivery.</p>
+          </div>
+        </a>
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/david-rose.png" alt="David Rose">
+          <div class="saint-card-body">
+            <h3>David Rose</h3>
+            <p class="saint-lane">Specificity</p>
+            <p class="saint-rule">"Fold in the cheese" and "Make this better" fail the same way.</p>
+          </div>
+        </a>
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/deb.png" alt="Deb">
+          <div class="saint-card-body">
+            <h3>Deb</h3>
+            <p class="saint-lane">Institutional Survival</p>
+            <p class="saint-rule">AI doesn't know she exists — and half your job runs through her.</p>
+          </div>
+        </a>
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/dolly-parton.png" alt="Dolly Parton">
+          <div class="saint-card-body">
+            <h3>Dolly Parton</h3>
+            <p class="saint-lane">Level-Headed Advice</p>
+            <p class="saint-rule">You better get to building your own bridge, honey.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6A. WEDNESDAY DROP -->
+  <section class="wednesday-drop">
+    <div class="container">
+      <div class="wednesday-drop-inner">
+        <h2>
+          Every <em>Wednesday</em>,
+          in your inbox.
+        </h2>
+        <p>AI fluency and community for women who get things done. One email. No homework.</p>
+        <form class="wednesday-drop-form" action="https://buttondown.com/api/emails/embed-subscribe/laidies" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/laidies', 'popupwindow')">
+          <input type="email" name="email" placeholder="your@email.com" required>
+          <input type="hidden" name="tag" value="concept-c-newsletter">
+          <button type="submit">Subscribe ★</button>
+        </form>
+        <p class="wednesday-drop-small">No spam. Unsubscribe whenever.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6B. THE CLUB -->
+  <section class="club">
+    <div class="club-inner">
+      <div class="club-copy">
+        <p class="club-status">★ Member Magic · Coming Soon</p>
+        <h2>The Club opens soon.</h2>
+        <p>Member cards. The rooms. The Wednesday debrief. Saved for you when the doors open.</p>
+        <p>Subscribers get first dibs.</p>
+        <p class="club-fine">Member magic — coming in Part C.</p>
+      </div>
+      <img class="club-card-back" src="../../assets/saints/card-back.png" alt="" aria-hidden="true">
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer-inner">
+        <div>
+          <img src="../../assets/brand/laidies-wordmark-final-b-dark.svg" alt="LAiDIES" style="height:24px;margin-bottom:16px;opacity:0.95;">
+          <p class="footer-tagline">AI fluency and community for women with full calendars, high standards, and no patience for beige tech explanations.</p>
+          <p class="footer-handle">@laidies.ai · the Wednesday drop</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="../../this-week.html">This Week</a>
+          <a href="../../grimoire.html">The Grimoire</a>
+          <a href="../../clubhouse.html">The Clubhouse</a>
+          <a href="../../episodes.html">The Season</a>
+          <a href="../../start-here.html">Start Here</a>
+        </nav>
+      </div>
+      <p class="footer-bottom">© LAiDIES · Concept C prototype · 2026-06-29</p>
+    </div>
+  </footer>
+
+</body>
+</html>
