@@ -710,15 +710,19 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 16px;
     }
+    /* Room cards — TYPE-LED editorial treatment per Council #3 (Webb critical).
+       Replaces off-register illustrated flat-lays with confident typography.
+       The saint cards keep their portraits; rooms get the editorial-magazine treatment.
+       Distinct visual register between rooms (type-led) and saints (illustrated) is intentional. */
     .room-card {
       display: block;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 0 0 24px;
+      padding: 28px 28px 26px;
       background: var(--cream);
       color: var(--plum);
-      overflow: hidden;
-      transition: border-color 240ms ease, transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 280ms ease;
+      position: relative;
+      transition: border-color 240ms ease, transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 280ms ease, background-color 240ms ease;
     }
     .room-card:hover, .room-card:focus-visible {
       border-color: var(--rose);
@@ -726,16 +730,39 @@
       box-shadow: 0 22px 44px -22px rgba(75, 33, 72, 0.32);
       text-decoration: none;
     }
+    .room-card-number {
+      display: block;
+      font-size: clamp(32px, 4.6vw, 52px);
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      font-feature-settings: "tnum" 1;
+      margin-bottom: 14px;
+    }
+    .room-card-kicker {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 12px;
+    }
     .room-card h3 {
-      font-size: 22px; font-weight: 600;
-      margin: 0 24px 10px;
-      letter-spacing: -0.005em;
+      font-size: clamp(22px, 2.4vw, 28px);
+      font-weight: 600;
+      margin: 0 0 12px;
+      letter-spacing: -0.012em;
+      line-height: 1.1;
     }
     .room-card p {
-      font-size: 14px; color: var(--plum-soft);
-      margin: 0 24px;
-      line-height: 1.5;
+      font-size: 14.5px;
+      color: var(--plum-soft);
+      line-height: 1.55;
     }
+    /* Hide the old room-card-img if any still in markup — defensive */
+    .room-card-img { display: none !important; }
     .room-card.wide {
       grid-column: 1 / -1;
       background: linear-gradient(135deg, var(--pearl), var(--blush));
@@ -1371,29 +1398,34 @@
         <!-- 11a — ROOMS -->
         <div class="rooms">
           <a class="room-card" href="hot-goss.html">
-            <img class="room-card-img" src="assets/hot-goss-desk-v2.png" alt="" loading="lazy">
+            <span class="room-card-number" aria-hidden="true">01</span>
+            <span class="room-card-kicker">The News</span>
             <h3>SunnyVAiLE NewsStand</h3>
             <p>What's actually happening in AI — daily headlines, weekly stories, zero hype.</p>
           </a>
           <a class="room-card" href="grimoire.html">
-            <img class="room-card-img" src="assets/portal/laidies-grimoire-closed-v1.png" alt="" loading="lazy">
+            <span class="room-card-number" aria-hidden="true">02</span>
+            <span class="room-card-kicker">The Reference</span>
             <h3>The Grimoire</h3>
             <p>The reference shelf. SLAiYER Handbook · Power Map · Lore Closet · Chamber of Receipts · and more.</p>
           </a>
           <a class="room-card" href="episodes.html">
-            <img class="room-card-img" src="assets/9-to-5-chaos.png" alt="" loading="lazy">
-            <h3>The Season</h3>
+            <span class="room-card-number" aria-hidden="true">03</span>
+            <span class="room-card-kicker">The Season</span>
+            <h3>All 24 Episodes</h3>
             <p>Every episode, in order. Start at one or jump to what you need.</p>
           </a>
           <a class="room-card" href="start-here.html">
-            <img class="room-card-img" src="assets/ugh-as-if.png" alt="" loading="lazy">
+            <span class="room-card-number" aria-hidden="true">04</span>
+            <span class="room-card-kicker">First Time</span>
             <h3>Start Here</h3>
             <p>New? Two minutes, then your first episode.</p>
           </a>
           <div class="room-card wide">
-            <img class="room-card-img" src="assets/clubhouse-compact-grimoire-warm-open-v1.png" alt="" loading="lazy">
+            <span class="room-card-number" aria-hidden="true">05</span>
+            <span class="room-card-kicker">The Hangout</span>
             <h3>The Clubhouse</h3>
-            <p>The hangout floor. Drop in whenever.</p>
+            <p>Drop in whenever. The rooms, your member card, the community.</p>
             <div class="clubhouse-shelves">
               <div class="clubhouse-shelf">
                 <strong>The Rooms</strong>
