@@ -177,18 +177,18 @@
       min-height: clamp(660px, 88vh, 820px);
       background:
         linear-gradient(180deg,
-          rgba(255,253,251,0.30) 0%,
-          rgba(255,253,251,0.0)  18%,
-          rgba(255,253,251,0.0)  38%,
-          rgba(255,253,251,1)    48%,
+          rgba(255,253,251,0.32) 0%,
+          rgba(255,253,251,0.0)  16%,
+          rgba(255,253,251,0.0)  34%,
+          rgba(255,253,251,1)    44%,
           rgba(255,253,251,1)    100%),
-        url("assets/lets-chat.png") center 15% / cover no-repeat;
+        url("assets/lets-chat.png") center 14% / cover no-repeat;
       display: flex; flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       color: var(--plum);
       text-align: center;
-      padding: 32px var(--pad-x) 64px;
+      padding: 0 var(--pad-x) 56px;
       overflow: hidden;
     }
     .masthead-top {
@@ -207,18 +207,15 @@
     }
     .masthead-bottom {
       display: flex; flex-direction: column;
-      align-items: center; gap: 22px;
-      max-width: 840px;
+      align-items: center; gap: 20px;
+      max-width: 920px;
     }
     .masthead-headline {
-      font-size: clamp(42px, 7vw, 84px);
+      font-size: clamp(46px, 7.4vw, 92px);
       font-weight: 700;
-      line-height: 0.94;
-      letter-spacing: -0.02em;
+      line-height: 0.92;
+      letter-spacing: -0.025em;
       color: var(--plum);
-      text-shadow:
-        0 1px 0 rgba(255,253,251,0.65),
-        0 2px 16px rgba(255,253,251,0.45);
     }
     .masthead-rule {
       display: flex; align-items: center; gap: 6px;
@@ -281,13 +278,13 @@
     }
     .editors-letter-body .dropcap {
       float: left;
-      font-size: clamp(58px, 6vw, 78px);
+      font-size: clamp(72px, 8.5vw, 108px);
       font-weight: 700;
       font-style: normal;
       color: var(--rose);
-      line-height: 0.82;
-      padding: 4px 14px 0 0;
-      margin-top: 4px;
+      line-height: 0.78;
+      padding: 6px 18px 0 0;
+      margin-top: 6px;
     }
     .editors-letter-signoff {
       font-size: 14px;
@@ -377,25 +374,31 @@
     .section-head--centered { text-align: center; max-width: 760px; margin: 0 auto 32px; }
     .section-head--centered p { font-style: normal; max-width: 56ch; margin-inline: auto; }
 
-    /* === THIS WEEK (formerly hero) === */
-    .hero { padding: 56px 0 28px; }
+    /* === THIS WEEK — asymmetric editorial spread === */
+    .hero { padding: 72px 0 48px; }
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 40px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 56px;
       align-items: center;
     }
     .eyebrow {
-      font-size: 12px; font-weight: 500;
-      letter-spacing: 0.22em; text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.28em; text-transform: uppercase;
       color: var(--rose);
-      margin-bottom: 18px;
+      margin-bottom: 24px;
+    }
+    .eyebrow::after {
+      content: "";
+      width: 32px; height: 1.5px;
+      background: var(--gold);
     }
     .ep-title {
-      font-size: clamp(34px, 5vw, 52px);
-      font-weight: 700; line-height: 1.02;
-      letter-spacing: -0.01em;
-      margin-bottom: 18px;
+      font-size: clamp(44px, 6.4vw, 80px);
+      font-weight: 700; line-height: 0.96;
+      letter-spacing: -0.025em;
+      margin-bottom: 24px;
     }
     .hero-dek {
       font-size: 19px; line-height: 1.5;
@@ -447,11 +450,13 @@
       background: var(--rose); text-decoration: none;
     }
     .hero-secondary-link {
-      color: var(--rose); font-weight: 500;
-      border-bottom: 1px solid currentColor; padding-bottom: 1px;
+      color: var(--plum); font-weight: 500;
+      border-bottom: 2px solid var(--gold); padding-bottom: 2px;
+      transition: color 180ms ease, border-color 180ms ease;
     }
     .hero-secondary-link:hover, .hero-secondary-link:focus-visible {
-      color: var(--rose-bright); text-decoration: none;
+      color: var(--rose); border-color: var(--rose);
+      text-decoration: none;
     }
     .hero-img-wrap { display: flex; align-items: center; justify-content: center; }
     .hero-img {
@@ -462,30 +467,33 @@
       box-shadow: 0 18px 40px -22px rgba(75,33,72,0.35);
     }
 
-    /* === ROOM CARD IMAGERY === */
+    /* === ROOM CARD IMAGERY — edge-to-edge, taller === */
     .room-card-img {
       display: block;
       width: 100%;
-      height: 160px;
+      height: 210px;
       object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 16px;
+      margin-bottom: 22px;
       background: var(--pearl);
+      transition: transform 600ms ease;
+    }
+    .room-card:hover .room-card-img {
+      transform: scale(1.03);
     }
     .room-card.wide .room-card-img {
-      height: 220px;
+      height: 260px;
     }
 
-    /* === SPIN CARD (real wheel image) === */
+    /* === SPIN CARD (paper fortune teller image) === */
     .spin-wheel-img {
       display: block;
       width: clamp(140px, 70%, 200px);
       margin: 6px auto 14px;
-      filter: drop-shadow(0 10px 24px rgba(75,33,72,0.28));
-      transition: transform 320ms ease;
+      filter: drop-shadow(0 12px 28px rgba(75,33,72,0.28));
+      transition: transform 380ms cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .spin-card:hover .spin-wheel-img,
-    .spin-card:focus-within .spin-wheel-img { transform: rotate(20deg); }
+    .spin-card:focus-within .spin-wheel-img { transform: rotate(-4deg) scale(1.04); }
 
     /* === RAIL EXTRA: in-the-rooms card === */
     .rail-quote {
@@ -558,36 +566,72 @@
       background: var(--rose-bright);
     }
 
-    /* === BRAND BAND §9 === */
+    /* === BRAND BAND §9 — cinematic moment === */
     .brand-band {
       text-align: center;
-      padding: 56px 0;
+      padding: 80px 0;
+      position: relative;
+    }
+    .brand-band::before,
+    .brand-band::after {
+      content: "";
+      display: block;
+      width: 48px; height: 1.5px;
+      background: var(--gold);
+      margin: 0 auto 22px;
+    }
+    .brand-band::after {
+      margin: 22px auto 0;
     }
     .brand-band-sub {
-      font-size: clamp(18px, 2.6vw, 24px);
+      font-size: clamp(15px, 1.8vw, 19px);
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
       color: var(--plum-soft);
-      margin-bottom: 10px;
+      margin-bottom: 18px;
     }
     .brand-band-head {
-      font-size: clamp(34px, 6vw, 62px);
+      font-size: clamp(40px, 7vw, 78px);
       font-weight: 700;
       color: var(--plum);
-      line-height: 1.05;
-      letter-spacing: -0.005em;
+      line-height: 1.02;
+      letter-spacing: -0.025em;
+    }
+    .brand-band-head [data-brand-ai] {
+      color: var(--rose-bright);
     }
 
-    /* === SECTION HEAD (reused) === */
-    .section-head { margin-bottom: 32px; max-width: 720px; }
+    /* === SECTION HEAD (reused) — editorial with gold hairline === */
+    .section-head {
+      position: relative;
+      margin-bottom: 44px;
+      max-width: 760px;
+      padding-top: 24px;
+    }
+    .section-head::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 56px; height: 2px;
+      background: var(--gold);
+    }
     .section-head h2 {
-      font-size: clamp(28px, 4vw, 42px);
+      font-size: clamp(34px, 5vw, 56px);
       font-weight: 600;
-      letter-spacing: -0.005em;
-      margin-bottom: 6px;
+      letter-spacing: -0.018em;
+      line-height: 1.02;
+      margin-bottom: 10px;
     }
     .section-head p {
       font-size: 17px;
       color: var(--plum-soft);
       font-style: italic;
+      line-height: 1.45;
+      max-width: 50ch;
+    }
+    .section-head--centered::before {
+      left: 50%; transform: translateX(-50%);
     }
 
     /* === HOW IT WORKS §10 === */
@@ -632,22 +676,28 @@
       display: block;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 22px;
+      padding: 0 0 24px;
       background: var(--cream);
       color: var(--plum);
-      transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+      overflow: hidden;
+      transition: border-color 240ms ease, transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 280ms ease;
     }
     .room-card:hover, .room-card:focus-visible {
       border-color: var(--rose);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px -16px rgba(75, 33, 72, 0.25);
+      transform: translateY(-4px);
+      box-shadow: 0 22px 44px -22px rgba(75, 33, 72, 0.32);
       text-decoration: none;
     }
     .room-card h3 {
-      font-size: 19px; font-weight: 600;
-      margin-bottom: 8px;
+      font-size: 22px; font-weight: 600;
+      margin: 0 24px 10px;
+      letter-spacing: -0.005em;
     }
-    .room-card p { font-size: 14px; color: var(--plum-soft); }
+    .room-card p {
+      font-size: 14px; color: var(--plum-soft);
+      margin: 0 24px;
+      line-height: 1.5;
+    }
     .room-card.wide {
       grid-column: 1 / -1;
       background: linear-gradient(135deg, var(--pearl), var(--blush));
@@ -697,6 +747,15 @@
       width: 8px; height: 8px; border-radius: 50%;
       background: var(--rose-bright);
       animation: pulse 1.6s ease-out infinite;
+    }
+    .rail-icon {
+      width: 16px; height: 16px;
+      flex: 0 0 auto;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
     @keyframes pulse {
       0% { box-shadow: 0 0 0 0 rgba(194, 91, 125, 0.6); }
@@ -860,28 +919,29 @@
     .saint-chip strong { font-weight: 500; }
     .saint-chip em { font-style: italic; color: var(--plum-soft); font-size: 13px; }
 
-    /* === JOIN BANNER §14 === */
-    .join-banner-wrap { padding: 56px 0 16px; }
+    /* === JOIN BANNER §14 — confident close === */
+    .join-banner-wrap { padding: 64px 0 16px; }
     .join-banner {
       position: relative;
       background:
-        radial-gradient(ellipse at 80% 50%, rgba(194, 91, 125, 0.18), transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(194, 91, 125, 0.22), transparent 62%),
         var(--plum-deep);
       color: var(--cream);
       border-radius: var(--radius-lg);
       overflow: hidden;
-      min-height: 280px;
+      min-height: 320px;
       display: grid;
       grid-template-columns: 1.2fr 1fr;
       align-items: center;
-      padding: 48px 56px;
-      gap: 24px;
+      padding: 64px 64px;
+      gap: 32px;
     }
     .join-banner h2 {
-      font-size: clamp(34px, 4vw, 52px);
+      font-size: clamp(44px, 5.5vw, 72px);
       font-weight: 700;
-      line-height: 1.02;
-      margin-bottom: 14px;
+      line-height: 0.96;
+      letter-spacing: -0.022em;
+      margin-bottom: 18px;
       color: var(--cream);
     }
     .join-copy > p {
@@ -1092,9 +1152,7 @@
   <main id="main">
     <!-- MASTHEAD §2A — the cover -->
     <section class="masthead" aria-labelledby="masthead-title">
-      <div class="masthead-top">
-        <img class="masthead-logo" src="assets/brand/laidies-logo-masthead-approved-v3.png" alt="LAiDIES" width="340" height="113">
-      </div>
+      <div class="masthead-top" aria-hidden="true"></div>
       <div class="masthead-bottom">
         <h1 id="masthead-title" class="masthead-headline">GIRL POWER MEETS<br>MACHINE POWER</h1>
         <div class="masthead-rule" aria-hidden="true">
@@ -1298,7 +1356,10 @@
         <aside class="rail" aria-label="Discovery rail">
           <!-- RAIL 1: HOT GOSS LIVE -->
           <article class="rail-card">
-            <span class="rail-label"><span class="rail-live-dot" aria-hidden="true"></span> SunnyVAiLE NewsStand · live</span>
+            <span class="rail-label">
+              <svg class="rail-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h12v16H6a2 2 0 0 1-2-2V4z"/><path d="M16 8h4v10a2 2 0 0 1-2 2"/><path d="M7 8h6M7 12h6M7 16h4"/></svg>
+              <span class="rail-live-dot" aria-hidden="true"></span> SunnyVAiLE NewsStand · live
+            </span>
             <ul class="rail-feed" data-hot-goss-feed>
               <li><a href="hot-goss.html">Loading the latest…</a></li>
             </ul>
@@ -1307,7 +1368,10 @@
 
           <!-- RAIL 2: ARCAiDE GAMES -->
           <article class="rail-card">
-            <span class="rail-label">Take a quick break</span>
+            <span class="rail-label">
+              <svg class="rail-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="10" rx="3"/><path d="M7.5 11.5v3M6 13h3"/><circle cx="16.5" cy="12.5" r="0.9" fill="currentColor"/><circle cx="14.5" cy="14.5" r="0.9" fill="currentColor"/></svg>
+              Take a quick break
+            </span>
             <ul class="rail-list">
               <li><a href="games/madame-claio.html"><strong>Mme CLAi-O</strong> <em>ask the oracle</em></a></li>
               <li><a href="games/dream-phone.html"><strong>Dream Phone</strong> <em>who's secretly in your corner?</em></a></li>
@@ -1319,18 +1383,24 @@
             <a class="rail-more" href="clubhouse.html#games">All the games →</a>
           </article>
 
-          <!-- RAIL 3: BUSINESSWOMEN'S SPECIAL WHEEL INVITE -->
+          <!-- RAIL 3: BUSINESSWOMEN'S SPECIAL — paper fortune teller picks your drink -->
           <article class="rail-card spin-card">
-            <span class="rail-label">At Happy Hour</span>
+            <span class="rail-label">
+              <svg class="rail-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14L12 13z"/><path d="M12 13v6"/><path d="M8 20h8"/></svg>
+              At Happy Hour
+            </span>
             <h3>The Businesswomen's Special</h3>
             <em>Your fortune, then your drink.</em>
-            <img class="spin-wheel-img" src="assets/businesswomen-special-wheel.png" alt="" aria-hidden="true" loading="lazy">
-            <a class="rail-more" href="games/businesswomens-special.html">Spin the wheel →</a>
+            <img class="spin-wheel-img" src="assets/businesswomen-special-fortune-teller-v1.png" alt="" aria-hidden="true" loading="lazy">
+            <a class="rail-more" href="games/businesswomens-special.html">Open your fortune →</a>
           </article>
 
           <!-- RAIL 5: IN THE LAiDIES ROOM (community pulse) -->
           <article class="rail-card">
-            <span class="rail-label">In the LAiDIES Room</span>
+            <span class="rail-label">
+              <svg class="rail-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L5 20l1.1-3.4A8 8 0 1 1 21 12z"/></svg>
+              In the LAiDIES Room
+            </span>
             <p class="rail-quote">
               "Asked Claude to draft my OOO and it absolutely cooked. Came back to 200 emails I didn't have to read."
               <span class="rail-quote-attr">— from the Wins thread</span>
@@ -1340,7 +1410,10 @@
 
           <!-- RAIL 4: LISTEN / DJ BOOTH -->
           <article class="rail-card">
-            <span class="rail-label">Listen</span>
+            <span class="rail-label">
+              <svg class="rail-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v3a2 2 0 0 0 2 2h1v-7H6a2 2 0 0 0-2 2z"/><path d="M20 12v3a2 2 0 0 1-2 2h-1v-7h1a2 2 0 0 1 2 2z"/><path d="M4 12V11a8 8 0 0 1 16 0v1"/></svg>
+              Listen
+            </span>
             <ul class="listen-list">
               <li class="listen-item">
                 <span class="listen-thumb" aria-hidden="true">04</span>
