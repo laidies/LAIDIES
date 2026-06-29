@@ -111,11 +111,12 @@
     }
     .icon-btn, .menu-trigger { width: 38px; padding: 0; }
     .icon-btn:hover, .menu-trigger:hover { background: var(--blush); }
+    /* Header Join — outline (secondary) so it defers to the in-page primary CTA per Council #2 */
     .join-btn {
-      background: var(--plum); border-color: var(--plum); color: var(--cream);
+      background: transparent; border-color: var(--plum); color: var(--plum);
     }
     .join-btn:hover, .join-btn:focus-visible {
-      background: var(--rose); border-color: var(--rose); text-decoration: none;
+      background: var(--plum); color: var(--cream); text-decoration: none;
     }
     .icon-btn svg, .menu-trigger svg { width: 18px; height: 18px; }
 
@@ -210,38 +211,75 @@
       align-items: center; gap: 20px;
       max-width: 920px;
     }
+    /* Cover headline — three-tier treatment per Council #8 (Marchetti):
+       GIRL POWER in rose / meets in italic with gold rules / MACHINE POWER in plum */
     .masthead-headline {
-      font-size: clamp(46px, 7.4vw, 92px);
-      font-weight: 700;
+      display: flex; flex-direction: column; align-items: center;
+      gap: 4px;
       line-height: 0.92;
       letter-spacing: -0.025em;
-      color: var(--plum);
+      margin: 0;
     }
-    .masthead-rule {
-      display: flex; align-items: center; gap: 6px;
-      width: 220px; max-width: 70%;
+    .masthead-line-1, .masthead-line-2 {
+      font-size: clamp(46px, 7.4vw, 96px);
+      font-weight: 700;
+      line-height: 0.92;
     }
-    .masthead-rule span {
-      flex: 1; height: 2px; background: var(--rose); border-radius: 2px;
+    .masthead-line-1 { color: var(--rose); }
+    .masthead-line-2 { color: var(--plum); }
+    .masthead-meets {
+      display: inline-flex; align-items: center; gap: 16px;
+      font-size: clamp(20px, 2.4vw, 30px);
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0;
+      color: var(--plum-soft);
+      padding: 6px 0;
     }
-    .masthead-rule span:nth-child(2) { background: var(--gold); height: 3px; }
-    .masthead-tag {
-      font-size: clamp(15px, 1.6vw, 18px);
-      color: var(--plum);
-      max-width: 40ch;
-      line-height: 1.5;
-      padding: 10px 22px;
-      background: rgba(255,253,251,0.78);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      border-radius: 14px;
+    .masthead-meets::before, .masthead-meets::after {
+      content: ""; flex: 0 0 36px; height: 1.5px;
+      background: var(--gold);
     }
-    .masthead-scroll-cue {
+    /* Cover furniture — Issue stamp + Date, per Council #10 (Marchetti + Cho-Lansing) */
+    .masthead-edition-stamp {
       font-size: 11px;
       font-weight: 600;
       letter-spacing: 0.32em;
       text-transform: uppercase;
+      color: var(--plum);
+      margin-bottom: 6px;
+    }
+    .masthead-edition-stamp .stamp-sep {
+      color: var(--rose);
+      margin: 0 8px;
+    }
+    .masthead-tag {
+      font-size: clamp(15px, 1.6vw, 18px);
+      color: var(--plum);
+      max-width: 42ch;
+      line-height: 1.5;
+      margin: 0;
+    }
+    /* Cover CTA — primary action above the fold per Council #2 */
+    .masthead-ctas {
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      margin-top: 4px;
+    }
+    .masthead-cta-sub {
+      font-size: 14px;
       color: var(--plum-soft);
+      font-style: italic;
+    }
+    .masthead-cta-sub a {
+      color: var(--plum);
+      border-bottom: 1.5px solid var(--gold);
+      padding-bottom: 1px;
+      font-style: normal;
+      font-weight: 500;
+    }
+    .masthead-cta-sub a:hover {
+      color: var(--rose); border-color: var(--rose);
+      text-decoration: none;
     }
 
     /* === SECTION BACKGROUND BANDS (editorial rhythm) === */
@@ -1045,11 +1083,20 @@
       .footer-top { flex-direction: column; }
     }
 
+    /* Reduced-motion — target specific offenders per Council #9 (Cruz),
+       not a blanket * rule (which clobbered legit interaction feedback). */
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-      }
+      .rail-live-dot { animation: none; box-shadow: none; }
+      .site-menu { animation: none; }
+      .spin-wheel-img { transition: none; }
+      .spin-card:hover .spin-wheel-img,
+      .spin-card:focus-within .spin-wheel-img { transform: none; }
+      .room-card-img { transition: none; }
+      .room-card:hover .room-card-img { transform: none; }
+      .saint-card { transition: none; }
+      .saint-card:hover, .saint-card:focus-visible { transform: none; }
+      .room-card { transition: none; }
+      .room-card:hover, .room-card:focus-visible { transform: none; }
     }
 
     :focus-visible {
@@ -1154,16 +1201,26 @@
     <section class="masthead" aria-labelledby="masthead-title">
       <div class="masthead-top" aria-hidden="true"></div>
       <div class="masthead-bottom">
-        <h1 id="masthead-title" class="masthead-headline">GIRL POWER MEETS<br>MACHINE POWER</h1>
-        <div class="masthead-rule" aria-hidden="true">
-          <span></span><span></span><span></span>
-        </div>
+        <p class="masthead-edition-stamp">This Week<span class="stamp-sep">·</span>Episode <span data-ep-num>04</span><span class="stamp-sep">·</span>June 29, 2026</p>
+        <h1 id="masthead-title" class="masthead-headline">
+          <span class="masthead-line-1">GIRL POWER</span>
+          <span class="masthead-meets" aria-hidden="true">meets</span>
+          <span class="masthead-line-2">MACHINE POWER</span>
+        </h1>
         <p class="masthead-tag">AI fluency and community for women with full calendars, high standards, and no patience for beige tech explanations.</p>
-        <p class="masthead-scroll-cue">Inside this week ↓</p>
+        <div class="masthead-ctas">
+          <a class="btn-primary" href="this-week.html">Read Episode <span data-ep-num>04</span> →</a>
+          <p class="masthead-cta-sub">New here? <a href="issues/issue-01.html">Start at Episode 01 →</a></p>
+        </div>
       </div>
     </section>
 
-    <!-- EDITOR'S LETTER — the human moment -->
+    <!-- EDITOR'S LETTER — the human moment
+         TODO (Council #1 — Marchetti/Webb/Cho-Lansing critical): expand to 70-120 words in
+         Ali's actual canon voice. Specific Wednesday moment, then issue point, then warm
+         sign-off that earns the dropcap. Remove "how not to get vamped" duplication with
+         hero-dek. Add one credential to signoff ("ex-X" or "writing from Toronto").
+         Current copy ships as placeholder pending Ali's pass. -->
     <section class="editors-letter band band--blush">
       <div class="container editors-letter-inner">
         <p class="kicker">From the Editor</p>
@@ -1295,6 +1352,15 @@
       </div>
     </section>
 
+    <!-- PULL QUOTE — activated per Council #4. The OOO-cooked line promoted from the discovery rail. -->
+    <section class="pull-quote band band--pearl" aria-label="From the LAiDIES Room">
+      <div class="container pull-quote-inner">
+        <p class="pull-quote-mark" aria-hidden="true">"</p>
+        <p class="pull-quote-body">Asked Claude to draft my OOO and it absolutely cooked. Came back to 200 emails I didn't have to read.</p>
+        <p class="pull-quote-attr">Overheard in the Wins thread</p>
+      </div>
+    </section>
+
     <!-- DIP IN ANYTIME §11 -->
     <section class="container dip-in">
       <header class="section-head">
@@ -1358,9 +1424,9 @@
           <article class="rail-card">
             <span class="rail-label">
               <svg class="rail-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h12v16H6a2 2 0 0 1-2-2V4z"/><path d="M16 8h4v10a2 2 0 0 1-2 2"/><path d="M7 8h6M7 12h6M7 16h4"/></svg>
-              <span class="rail-live-dot" aria-hidden="true"></span> SunnyVAiLE NewsStand · live
+              SunnyVAiLE NewsStand · Today
             </span>
-            <ul class="rail-feed" data-hot-goss-feed>
+            <ul class="rail-feed" data-hot-goss-feed aria-live="polite" aria-label="Latest SunnyVAiLE headlines">
               <li><a href="hot-goss.html">Loading the latest…</a></li>
             </ul>
             <a class="rail-more" href="hot-goss.html">All headlines →</a>
@@ -1395,18 +1461,10 @@
             <a class="rail-more" href="games/businesswomens-special.html">Open your fortune →</a>
           </article>
 
-          <!-- RAIL 5: IN THE LAiDIES ROOM (community pulse) -->
-          <article class="rail-card">
-            <span class="rail-label">
-              <svg class="rail-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L5 20l1.1-3.4A8 8 0 1 1 21 12z"/></svg>
-              In the LAiDIES Room
-            </span>
-            <p class="rail-quote">
-              "Asked Claude to draft my OOO and it absolutely cooked. Came back to 200 emails I didn't have to read."
-              <span class="rail-quote-attr">— from the Wins thread</span>
-            </p>
-            <a class="rail-more" href="community.html">Drop into the rooms →</a>
-          </article>
+          <!-- RAIL 5 removed in round 9 — its content was promoted to the new pull-quote band
+               above the Dip In section, per Council synthesis (Marchetti #4 + Webb's promote-OOO suggestion).
+               Per Council #7 (Krishnan): trimming rail card count. -->
+
 
           <!-- RAIL 4: LISTEN / DJ BOOTH -->
           <article class="rail-card">
@@ -1502,55 +1560,55 @@
         </header>
         <div class="saints-grid">
           <a class="saint-card" href="grimoire.html">
-            <div class="saint-initial" aria-hidden="true" style="background-image: url('assets/saints/cher-horowitz.png');">C</div>
+            <div class="saint-initial" role="img" aria-label="Illustrated portrait of Cher Horowitz" style="background-image: url('assets/saints/cher-horowitz.png');">C</div>
             <h3>Cher Horowitz</h3>
             <p class="saint-lane">Early adoption</p>
             <p class="saint-rule">The closet was computerized before anyone used the word "workflow." Cher just opened it every morning and got dressed.</p>
           </a>
           <a class="saint-card" href="grimoire.html">
-            <div class="saint-initial" aria-hidden="true" style="background-image: url('assets/saints/elle-woods.png');">E</div>
+            <div class="saint-initial" role="img" aria-label="Illustrated portrait of Elle Woods" style="background-image: url('assets/saints/elle-woods.png');">E</div>
             <h3>Elle Woods</h3>
             <p class="saint-lane">Receipts</p>
             <p class="saint-rule">Elle walked into court with the perm rule, the timeline, and the witness already lined up. She knew before she needed to know.</p>
           </a>
           <a class="saint-card" href="grimoire.html">
-            <div class="saint-initial" aria-hidden="true" style="background-image: url('assets/saints/miranda-priestly.png');">M</div>
+            <div class="saint-initial" role="img" aria-label="Illustrated portrait of Miranda Priestly" style="background-image: url('assets/saints/miranda-priestly.png');">M</div>
             <h3>Miranda Priestly</h3>
             <p class="saint-lane">Standards</p>
             <p class="saint-rule">The cerulean was already in Miranda's mind before it was in your closet. You know what you're looking at before you accept it.</p>
           </a>
           <a class="saint-card" href="grimoire.html">
-            <div class="saint-initial" aria-hidden="true" style="background-image: url('assets/saints/buffy-summers.png');">B</div>
+            <div class="saint-initial" role="img" aria-label="Illustrated portrait of Buffy Summers" style="background-image: url('assets/saints/buffy-summers.png');">B</div>
             <h3>Buffy Summers</h3>
             <p class="saint-lane">Slaying the tools</p>
             <p class="saint-rule">Buffy runs toward the vampire. Everybody else is still in the parking lot trying to get away.</p>
           </a>
           <a class="saint-card" href="grimoire.html">
-            <div class="saint-initial" aria-hidden="true" style="background-image: url('assets/saints/regina-george.png');">R</div>
+            <div class="saint-initial" role="img" aria-label="Illustrated portrait of Regina George" style="background-image: url('assets/saints/regina-george.png');">R</div>
             <h3>Regina George</h3>
             <p class="saint-lane">Dangerous confidence</p>
             <p class="saint-rule">Regina told Cady the skirt was cute and then told someone else it was ugly. Same skirt, different audience, perfect delivery. Social dynamics is a skill set.</p>
           </a>
           <a class="saint-card" href="grimoire.html">
-            <div class="saint-initial" aria-hidden="true" style="background-image: url('assets/saints/david-rose.png');">D</div>
+            <div class="saint-initial" role="img" aria-label="Illustrated portrait of David Rose" style="background-image: url('assets/saints/david-rose.png');">D</div>
             <h3>David Rose</h3>
             <p class="saint-lane">Specificity</p>
             <p class="saint-rule">"Fold in the cheese" is an instruction. "Make this better" is also an instruction. They fail the same way.</p>
           </a>
           <a class="saint-card" href="grimoire.html">
-            <div class="saint-initial" aria-hidden="true" style="background-image: url('assets/saints/deb.png');">D</div>
+            <div class="saint-initial" role="img" aria-label="Illustrated portrait of Deb" style="background-image: url('assets/saints/deb.png');">D</div>
             <h3>Deb</h3>
             <p class="saint-lane">Institutional survival</p>
             <p class="saint-rule">Deb has survived every reorg since 2004. IT still accommodates her desktop. There are processes in your workplace that run exactly the same way — AI doesn't know they exist, and doesn't know to ask.</p>
           </a>
           <a class="saint-card" href="grimoire.html">
-            <div class="saint-initial" aria-hidden="true" style="background-image: url('assets/saints/dolly-parton.png');">DP</div>
+            <div class="saint-initial" role="img" aria-label="Illustrated portrait of Dolly Parton" style="background-image: url('assets/saints/dolly-parton.png');">DP</div>
             <h3>Dolly Parton</h3>
             <p class="saint-lane">Level-headed advice</p>
             <p class="saint-rule">You better get to building your own bridge, because ain't nobody building it for you, honey.</p>
           </a>
           <a class="saint-card" href="grimoire.html">
-            <div class="saint-initial" aria-hidden="true" style="background-image: url('assets/saints/card-back.png');"></div>
+            <div class="saint-initial" role="img" aria-label="Unclaimed patron saint card — your turn" style="background-image: url('assets/saints/card-back.png');"></div>
             <h3>Add yours</h3>
             <p class="saint-lane">Coming soon</p>
             <p class="saint-rule">Who's your patron saint of getting it done? Tell us in the rooms.</p>
