@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="LAiDIES — AI fluency for women with full calendars, high standards, and no patience for beige tech explanations. The weekly ritual, every Wednesday.">
+  <meta name="description" content="LAiDIES — AI fluency and community for women with full calendars, high standards, and no patience for beige tech explanations. The weekly ritual, every Wednesday.">
   <meta property="og:title" content="LAiDIES — Girl Power Meets Machine Power">
   <meta property="og:description" content="The weekly AI ritual for women who get things done. Read, study, quiz, listen, play, debrief. Every Wednesday.">
   <meta property="og:type" content="website">
@@ -177,38 +177,33 @@
       min-height: clamp(660px, 88vh, 820px);
       background:
         linear-gradient(180deg,
-          rgba(255,253,251,0.55) 0%,
-          rgba(255,253,251,0.08) 32%,
-          rgba(255,253,251,0.0)  55%,
-          rgba(255,253,251,0.92) 100%),
-        url("assets/lets-chat.png") center 22% / cover no-repeat;
+          rgba(255,253,251,0.30) 0%,
+          rgba(255,253,251,0.0)  18%,
+          rgba(255,253,251,0.0)  38%,
+          rgba(255,253,251,1)    48%,
+          rgba(255,253,251,1)    100%),
+        url("assets/lets-chat.png") center 15% / cover no-repeat;
       display: flex; flex-direction: column;
       justify-content: space-between;
       align-items: center;
       color: var(--plum);
       text-align: center;
-      padding: 32px var(--pad-x) 56px;
+      padding: 32px var(--pad-x) 64px;
       overflow: hidden;
     }
     .masthead-top {
       display: flex; flex-direction: column;
       align-items: center; gap: 18px;
     }
-    .masthead-edition {
-      font-size: 11px; font-weight: 600;
-      letter-spacing: 0.32em; text-transform: uppercase;
-      color: var(--plum);
-      padding: 8px 18px;
-      background: rgba(255,253,251,0.82);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      border-radius: 999px;
-      border: 1px solid rgba(75,33,72,0.12);
-    }
     .masthead-logo {
       width: clamp(220px, 32vw, 340px);
       height: auto;
-      filter: drop-shadow(0 6px 18px rgba(255,253,251,0.55));
+      padding: 14px 28px;
+      background: rgba(255,253,251,0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 14px;
+      box-shadow: 0 10px 24px -12px rgba(58,24,56,0.18);
     }
     .masthead-bottom {
       display: flex; flex-direction: column;
@@ -257,7 +252,8 @@
     .band--pearl { background: var(--pearl); }
     .band--cream { background: var(--cream); }
     .band--plum  { background: var(--plum-deep); color: var(--cream); }
-    .band { padding: 72px 0; }
+    .band { padding: 56px 0; }
+    section.band--blush, section.band--pearl { padding-block: 56px; }
     .band > .container { padding-inline: var(--pad-x); }
 
     /* === EDITORIAL KICKER (reused) === */
@@ -518,13 +514,22 @@
       background: var(--plum);
       color: var(--cream);
       border-radius: var(--radius-lg);
-      padding: 30px 34px;
+      padding: 28px 34px;
+      overflow: hidden;
     }
     .signup-band-inner {
       display: flex; align-items: center; gap: 24px;
       flex-wrap: wrap; justify-content: space-between;
     }
-    .signup-band-copy { max-width: 460px; }
+    .signup-band-img {
+      flex: 0 0 auto;
+      width: clamp(72px, 9vw, 110px);
+      height: auto;
+      border-radius: 10px;
+      transform: rotate(-5deg);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+    }
+    .signup-band-copy { flex: 1 1 320px; max-width: 460px; }
     .signup-band h2 {
       font-size: 26px; font-weight: 600;
       margin-bottom: 6px;
@@ -556,7 +561,7 @@
     /* === BRAND BAND §9 === */
     .brand-band {
       text-align: center;
-      padding: 66px 0;
+      padding: 56px 0;
     }
     .brand-band-sub {
       font-size: clamp(18px, 2.6vw, 24px);
@@ -942,7 +947,7 @@
     }
 
     /* === RESPONSIVE === */
-    @media (max-width: 880px) {
+    @media (max-width: 760px) {
       .masthead { min-height: 440px; padding: 40px var(--pad-x) 56px; }
       .masthead-inner { padding: 30px 22px 36px; gap: 18px; }
       .masthead-headline { font-size: clamp(32px, 9vw, 44px); }
@@ -1088,7 +1093,6 @@
     <!-- MASTHEAD §2A — the cover -->
     <section class="masthead" aria-labelledby="masthead-title">
       <div class="masthead-top">
-        <p class="masthead-edition">Issue No. 04 · The Wednesday Edition · June 2026</p>
         <img class="masthead-logo" src="assets/brand/laidies-logo-masthead-approved-v3.png" alt="LAiDIES" width="340" height="113">
       </div>
       <div class="masthead-bottom">
@@ -1096,8 +1100,8 @@
         <div class="masthead-rule" aria-hidden="true">
           <span></span><span></span><span></span>
         </div>
-        <p class="masthead-tag">AI fluency for women with full calendars, high standards, and no patience for beige tech explanations.</p>
-        <p class="masthead-scroll-cue">Inside this issue ↓</p>
+        <p class="masthead-tag">AI fluency and community for women with full calendars, high standards, and no patience for beige tech explanations.</p>
+        <p class="masthead-scroll-cue">Inside this week ↓</p>
       </div>
     </section>
 
@@ -1168,6 +1172,7 @@
     <section class="container signup-section">
       <div class="signup-band">
         <div class="signup-band-inner">
+          <img class="signup-band-img" src="assets/saints/card-back.png" alt="" aria-hidden="true">
           <div class="signup-band-copy">
             <h2>Get the Wednesday drop.</h2>
             <p>One email. Every Wednesday. No homework you didn't sign up for.</p>
@@ -1187,13 +1192,13 @@
     </section>
 
     <!-- BRAND BAND §9 -->
-    <section class="brand-band container">
+    <section class="brand-band container band--pearl">
       <p class="brand-band-sub">90s/Y2K shaped us. AI is shaping now.</p>
       <p class="brand-band-head"><span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> is where they meet.</p>
     </section>
 
     <!-- HOW IT WORKS §10 -->
-    <section class="container">
+    <section class="container band--blush">
       <header class="section-head">
         <h2>How it works</h2>
         <p>one world, two speeds</p>
@@ -1232,15 +1237,6 @@
       </div>
     </section>
 
-    <!-- PULL QUOTE — editorial pause -->
-    <section class="pull-quote band band--pearl">
-      <div class="container pull-quote-inner">
-        <p class="pull-quote-mark" aria-hidden="true">"</p>
-        <p class="pull-quote-body">Pick the AI like you pick the outfit: for the room you're walking into.</p>
-        <p class="pull-quote-attr">From the SLAiYER Handbook · Episode 04</p>
-      </div>
-    </section>
-
     <!-- DIP IN ANYTIME §11 -->
     <section class="container dip-in">
       <header class="section-head">
@@ -1256,7 +1252,7 @@
             <p>What's actually happening in AI — daily headlines, weekly stories, zero hype.</p>
           </a>
           <a class="room-card" href="grimoire.html">
-            <img class="room-card-img" src="assets/portal/laidies-grimoire-teaser.png" alt="" loading="lazy">
+            <img class="room-card-img" src="assets/portal/laidies-grimoire-closed-v1.png" alt="" loading="lazy">
             <h3>The Grimoire</h3>
             <p>The reference shelf. SLAiYER Handbook · Power Map · Lore Closet · Chamber of Receipts · and more.</p>
           </a>
@@ -1266,7 +1262,7 @@
             <p>Every episode, in order. Start at one or jump to what you need.</p>
           </a>
           <a class="room-card" href="start-here.html">
-            <img class="room-card-img" src="assets/portal/laidies-grimoire-closed-v1.png" alt="" loading="lazy">
+            <img class="room-card-img" src="assets/ugh-as-if.png" alt="" loading="lazy">
             <h3>Start Here</h3>
             <p>New? Two minutes, then your first episode.</p>
           </a>
@@ -1378,7 +1374,7 @@
     </section>
 
     <!-- REFERENCE TWO-UP §12 -->
-    <section class="container reference-two">
+    <section class="container reference-two band--pearl">
       <header class="section-head">
         <h2>Before you bug out.</h2>
         <p>the big questions, and the words behind them</p>
@@ -1521,7 +1517,7 @@
       <div class="footer-top">
         <div>
           <img class="footer-logo" src="assets/brand/laidies-wordmark-final-b-dark.svg" alt="LAiDIES" width="120" height="26">
-          <p class="footer-tagline">AI fluency for women with full calendars, high standards, and no patience for beige tech explanations.</p>
+          <p class="footer-tagline">AI fluency and community for women with full calendars, high standards, and no patience for beige tech explanations.</p>
         </div>
         <div class="footer-signup">
           <h3>The Wednesday drop</h3>
