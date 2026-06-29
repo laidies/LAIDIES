@@ -260,6 +260,38 @@
       line-height: 1.5;
       margin: 0;
     }
+    /* Cover lines per Marchetti #1 — magazine cover furniture pointing at real surfaces */
+    .masthead-cover-lines {
+      display: inline-flex; align-items: center; flex-wrap: wrap; justify-content: center;
+      gap: 6px 14px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--plum);
+      max-width: 600px;
+      margin-top: 4px;
+    }
+    .masthead-cover-lines .cl-kicker {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--rose);
+    }
+    .masthead-cover-lines a {
+      color: var(--plum);
+      border-bottom: 1px solid transparent;
+      padding-bottom: 1px;
+      transition: border-color 180ms ease, color 180ms ease;
+    }
+    .masthead-cover-lines a:hover, .masthead-cover-lines a:focus-visible {
+      color: var(--rose);
+      border-bottom-color: var(--rose);
+      text-decoration: none;
+    }
+    .masthead-cover-lines .cl-sep {
+      color: var(--rose);
+    }
     /* Cover CTA — primary action above the fold per Council #2 */
     .masthead-ctas {
       display: flex; flex-direction: column; align-items: center; gap: 10px;
@@ -1235,6 +1267,16 @@
           <span class="masthead-line-2">MACHINE POWER</span>
         </h1>
         <p class="masthead-tag">AI fluency and community for women with full calendars, high standards, and no patience for beige tech explanations.</p>
+        <p class="masthead-cover-lines">
+          <span class="cl-kicker">Inside</span>
+          <a href="this-week.html">Slayer Handbook</a>
+          <span class="cl-sep" aria-hidden="true">·</span>
+          <a href="grimoire/potions-shelf.html">The Decoder</a>
+          <span class="cl-sep" aria-hidden="true">·</span>
+          <a href="games/madame-claio.html">Mme CLAi-O</a>
+          <span class="cl-sep" aria-hidden="true">·</span>
+          <a href="grimoire/chamber-of-receipts.html">Chamber of Receipts</a>
+        </p>
         <div class="masthead-ctas">
           <a class="btn-primary" href="this-week.html">Read Episode <span data-ep-num>04</span> →</a>
           <p class="masthead-cta-sub">New here? <a href="issues/issue-01.html">Start at Episode 01 →</a></p>
