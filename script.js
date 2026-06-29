@@ -1328,7 +1328,7 @@ const hiddenMeritBadges = {
     sticker: "CHAT",
     source: "Girl Talk",
     unlockMessage:
-      "Group Chat Regular preview noted. Girl Talk is getting polished before this becomes a real reward.",
+      "Group Chat Regular unlocked. Five Girl Talk draws — you're officially in the group chat.",
   },
   "coven-reservation": {
     id: "coven-reservation",
@@ -3076,7 +3076,7 @@ const clubhouseZoneMessages = {
   "mix-cds": "<strong>Mix CDs:</strong> Open the DJ Booth for playlists, mix CDs, and weekly track slots.",
   psychic: "<strong>Call Psychic Hotline:</strong> Jump to Madame CLAi-O for the crystal-phone reading.",
   "dream-phone": "<strong>Dream Phone:</strong> Glow-up in the works. The hotline is parked until the concept and asset pass Council.",
-  "girl-talk": "<strong>Girl Talk:</strong> Getting polished. The deck is being tuned before it becomes a main activity.",
+  "girl-talk": "<strong>Open Girl Talk:</strong> Draw a Truth or a Dare. Stickers, penalties, and the LAiDY wish unlock at every five dares.",
   "try-on": "<strong>5min Try-On:</strong> Open the Power Suit Playbook for quick practice prompts.",
   business: "<strong>Businesswomen's Special:</strong> Jump to the paper fortune teller drink picker.",
   fairy: "<strong>Ask FAiRY GODMOTHER:</strong> Open LAiDY's advice console.",
