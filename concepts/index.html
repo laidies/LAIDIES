@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LAiDIES Homepage Concepts — Choose Your Direction</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --plum: #4b2148; --plum-deep: #3a1838; --plum-soft: #6b3a66;
+      --rose: #9b3f5f; --rose-bright: #c25b7d; --gold: #c9a227;
+      --cream: #fffdfb; --pearl: #f8eef2; --blush: #f9e6ee;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Jost', sans-serif; color: var(--plum); background: var(--cream); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    .hero {
+      padding: 80px 40px 56px;
+      max-width: 1200px;
+      margin: 0 auto;
+      border-bottom: 1px solid rgba(75,33,72,0.12);
+    }
+    .kicker {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 700; line-height: 0.98;
+      letter-spacing: -0.024em;
+      color: var(--plum);
+      margin: 0 0 18px;
+      max-width: 22ch;
+    }
+    .lede {
+      font-size: 18px;
+      color: var(--plum-soft);
+      max-width: 60ch;
+      line-height: 1.5;
+    }
+
+    .concepts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 1200px;
+      margin: 56px auto;
+      padding: 0 40px;
+    }
+    .concept-card {
+      display: flex; flex-direction: column;
+      background: var(--cream);
+      border: 1px solid rgba(75,33,72,0.14);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+    }
+    .concept-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 48px -22px rgba(75,33,72,0.3);
+      border-color: var(--rose);
+    }
+    .concept-card-thumb {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: top;
+      background: var(--blush);
+    }
+    .concept-card-body { padding: 22px 26px 26px; }
+    .concept-card-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .concept-card h2 {
+      font-size: 26px; font-weight: 600;
+      letter-spacing: -0.014em;
+      line-height: 1.05;
+      margin: 0 0 12px;
+      color: var(--plum);
+    }
+    .concept-card p {
+      font-size: 14px;
+      color: var(--plum-soft);
+      line-height: 1.55;
+      margin: 0 0 14px;
+    }
+    .concept-card .view {
+      font-size: 13px; font-weight: 600;
+      color: var(--rose);
+      letter-spacing: 0.04em;
+    }
+    .concept-card:hover .view { color: var(--rose-bright); }
+
+    .meta {
+      max-width: 1200px;
+      margin: 40px auto 80px;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: var(--plum-soft);
+    }
+    .meta a {
+      color: var(--plum);
+      border-bottom: 1.5px solid var(--gold);
+      padding-bottom: 2px;
+    }
+    .meta strong { color: var(--plum); font-weight: 600; }
+
+    @media (max-width: 880px) {
+      .concepts-grid { grid-template-columns: 1fr; gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <p class="kicker">Round 12 · Design Concepts</p>
+    <h1>Pick a direction.</h1>
+    <p class="lede">Three distinct visual directions for the LAiDIES homepage. Same content. Same locked voice (GIRL POWER MEETS MACHINE POWER · The 90s/Y2K defined us · AI fluency and community). Three different design languages. Open each in a new tab and compare. Pick the one that feels right and we build that out.</p>
+  </header>
+
+  <section class="concepts-grid">
+    <a class="concept-card" href="concept-a/">
+      <img class="concept-card-thumb" src="thumbs/concept-a.png" alt="Concept A preview">
+      <div class="concept-card-body">
+        <p class="concept-card-label">Concept A</p>
+        <h2>The Cover</h2>
+        <p>Magazine-led. Full-bleed <em>lets-chat</em> image with the brand headline on the image. Editorial card grid with the Grimoire as the lead tile. Vogue Runway / T Magazine register.</p>
+        <span class="view">Open →</span>
+      </div>
+    </a>
+
+    <a class="concept-card" href="concept-b/">
+      <img class="concept-card-thumb" src="thumbs/concept-b.png" alt="Concept B preview">
+      <div class="concept-card-body">
+        <p class="concept-card-label">Concept B</p>
+        <h2>Type Sculpture</h2>
+        <p>Type carries the brand. Massive LAiDIES wordmark sets the cover. Asymmetric layouts throughout. Rooms as a typographic list with thumbnails. The Gentlewoman / Cabana / Apartamento register.</p>
+        <span class="view">Open →</span>
+      </div>
+    </a>
+
+    <a class="concept-card" href="concept-c/">
+      <img class="concept-card-thumb" src="thumbs/concept-c.png" alt="Concept C preview">
+      <div class="concept-card-body">
+        <p class="concept-card-label">Concept C</p>
+        <h2>The Zine</h2>
+        <p>Y2K editorial zine. Collage cover with saint portraits tilted across the right column. Sticker accents, saturated color blocks, hot-pink Wednesday-drop band, hand-cut card edges. Most personality, least restrained.</p>
+        <span class="view">Open →</span>
+      </div>
+    </a>
+  </section>
+
+  <section class="meta">
+    <p><strong>The current homepage (Round 11):</strong> <a href="../">live preview here</a> — the one you've been seeing all morning.</p>
+    <p><strong>Locked brand voice across all 3:</strong> GIRL POWER MEETS MACHINE POWER · The 90s/Y2K defined us · AI fluency and community for women with full calendars, high standards, and no patience for beige tech explanations.</p>
+    <p><strong>Placeholder art:</strong> The 5 universe-room cards are marked "Placeholder Art" until commissioned imagery in the saint-card register lands (prompts already drafted in <code>outputs/.../image-prompts-for-codex.md</code>).</p>
+  </section>
+
+</body>
+</html>
