@@ -605,14 +605,7 @@
       display: flex; align-items: center; gap: 24px;
       flex-wrap: wrap; justify-content: space-between;
     }
-    .signup-band-img {
-      flex: 0 0 auto;
-      width: clamp(72px, 9vw, 110px);
-      height: auto;
-      border-radius: 10px;
-      transform: rotate(-5deg);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.35);
-    }
+    /* .signup-band-img removed — card-back moved to Join the Club banner per Ali */
     .signup-band-copy { flex: 1 1 320px; max-width: 460px; }
     .signup-band h2 {
       font-size: 26px; font-weight: 600;
@@ -1009,23 +1002,46 @@
     .saint-chip strong { font-weight: 500; }
     .saint-chip em { font-style: italic; color: var(--plum-soft); font-size: 13px; }
 
-    /* === JOIN BANNER §14 — confident close === */
+    /* === JOIN BANNER §14 — dark starfield, matches Mme CLAi-O / Grimoire pages === */
     .join-banner-wrap { padding: 64px 0 16px; }
     .join-banner {
       position: relative;
+      isolation: isolate;
       background:
-        radial-gradient(ellipse at 80% 50%, rgba(194, 91, 125, 0.22), transparent 62%),
-        var(--plum-deep);
+        radial-gradient(circle at 50% 16%, rgba(185, 93, 120, 0.22), transparent 58%),
+        linear-gradient(160deg, #1a0a12, #2d0f1f, #1a0a12);
       color: var(--cream);
       border-radius: var(--radius-lg);
       overflow: hidden;
-      min-height: 320px;
+      min-height: 360px;
       display: grid;
       grid-template-columns: 1.2fr 1fr;
       align-items: center;
       padding: 64px 64px;
       gap: 32px;
     }
+    /* Static starfield — gold + white sparkles on deep plum.
+       Matches the .laidies-bg--dark baseline used site-wide on Mme CLAi-O + Grimoire pages. */
+    .join-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-repeat: no-repeat;
+      background-image:
+        radial-gradient(1.6px 1.6px at 12% 24%, rgba(255, 215, 0, 0.65), transparent),
+        radial-gradient(1.4px 1.4px at 28% 64%, rgba(255, 255, 255, 0.50), transparent),
+        radial-gradient(1.8px 1.8px at 42% 18%, rgba(255, 215, 0, 0.50), transparent),
+        radial-gradient(1.2px 1.2px at 58% 78%, rgba(255, 255, 255, 0.42), transparent),
+        radial-gradient(1.6px 1.6px at 72% 28%, rgba(255, 215, 0, 0.55), transparent),
+        radial-gradient(1.3px 1.3px at 86% 62%, rgba(255, 255, 255, 0.45), transparent),
+        radial-gradient(1.1px 1.1px at 18% 86%, rgba(255, 215, 0, 0.40), transparent),
+        radial-gradient(1.4px 1.4px at 92% 14%, rgba(255, 255, 255, 0.38), transparent),
+        radial-gradient(1.2px 1.2px at 50% 50%, rgba(255, 215, 0, 0.32), transparent),
+        radial-gradient(1.1px 1.1px at 64% 8%, rgba(255, 255, 255, 0.36), transparent);
+    }
+    .join-banner > * { position: relative; z-index: 1; }
     .join-banner h2 {
       font-size: clamp(44px, 5.5vw, 72px);
       font-weight: 700;
@@ -1047,9 +1063,10 @@
       display: flex; align-items: center; justify-content: center;
     }
     .join-signet {
-      width: clamp(160px, 22vw, 220px);
+      width: clamp(170px, 24vw, 240px);
       height: auto;
-      filter: drop-shadow(0 0 40px rgba(194, 91, 125, 0.3));
+      filter: drop-shadow(0 0 50px rgba(194, 91, 125, 0.45)) drop-shadow(0 18px 36px rgba(0,0,0,0.4));
+      transform: rotate(-4deg);
     }
 
     /* === FOOTER §15 === */
@@ -1349,7 +1366,6 @@
     <section class="container signup-section">
       <div class="signup-band">
         <div class="signup-band-inner">
-          <img class="signup-band-img" src="assets/saints/card-back.png" alt="" aria-hidden="true">
           <div class="signup-band-copy">
             <h2>Get the Wednesday drop.</h2>
             <p>One email. Every Wednesday. No homework you didn't sign up for.</p>
@@ -1623,7 +1639,7 @@
         <header class="section-head section-head--centered">
           <p class="kicker">Your patron saints</p>
           <h2>The cast you already know.</h2>
-          <p>Eight women who taught us how to walk into rooms full of people who underestimate us — and walk out with the upper hand. Borrow what they did. Skip the plastic boots.</p>
+          <p>Eight women who taught us how to walk into rooms full of people who underestimate us — and walk out with the upper hand. Borrow what they did.</p>
         </header>
         <div class="saints-grid">
           <a class="saint-card" href="grimoire.html">
@@ -1674,12 +1690,9 @@
             <p class="saint-lane">Level-headed advice</p>
             <p class="saint-rule">You better get to building your own bridge, because ain't nobody building it for you, honey.</p>
           </a>
-          <a class="saint-card" href="grimoire.html">
-            <div class="saint-initial" role="img" aria-label="Unclaimed patron saint card — your turn" style="background-image: url('assets/saints/card-back.png');"></div>
-            <h3>Add yours</h3>
-            <p class="saint-lane">Coming soon</p>
-            <p class="saint-rule">Who's your patron saint of getting it done? Tell us in the rooms.</p>
-          </a>
+          <!-- "+ Add yours" card removed per Ali — was orphaned at the bottom of the grid.
+               Card-back image is now featured in the Join the Club banner instead. -->
+
         </div>
       </div>
     </section>
@@ -1703,7 +1716,7 @@
           <p class="join-fine">No spam. Unsubscribe whenever. Ali pays for this herself.</p>
         </div>
         <div class="join-signet-wrap">
-          <img class="join-signet" src="assets/brand/laidies-signet-final-teal.svg" alt="" aria-hidden="true" width="220" height="220">
+          <img class="join-signet" src="assets/saints/card-back.png" alt="" aria-hidden="true">
         </div>
       </div>
     </section>
