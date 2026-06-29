@@ -171,7 +171,217 @@
       color: var(--cream);
     }
 
-    /* === HERO === */
+    /* === MASTHEAD §2A — magazine cover, type directly on image === */
+    .masthead {
+      position: relative;
+      min-height: clamp(660px, 88vh, 820px);
+      background:
+        linear-gradient(180deg,
+          rgba(255,253,251,0.55) 0%,
+          rgba(255,253,251,0.08) 32%,
+          rgba(255,253,251,0.0)  55%,
+          rgba(255,253,251,0.92) 100%),
+        url("assets/lets-chat.png") center 22% / cover no-repeat;
+      display: flex; flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--plum);
+      text-align: center;
+      padding: 32px var(--pad-x) 56px;
+      overflow: hidden;
+    }
+    .masthead-top {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 18px;
+    }
+    .masthead-edition {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--plum);
+      padding: 8px 18px;
+      background: rgba(255,253,251,0.82);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 999px;
+      border: 1px solid rgba(75,33,72,0.12);
+    }
+    .masthead-logo {
+      width: clamp(220px, 32vw, 340px);
+      height: auto;
+      filter: drop-shadow(0 6px 18px rgba(255,253,251,0.55));
+    }
+    .masthead-bottom {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 22px;
+      max-width: 840px;
+    }
+    .masthead-headline {
+      font-size: clamp(42px, 7vw, 84px);
+      font-weight: 700;
+      line-height: 0.94;
+      letter-spacing: -0.02em;
+      color: var(--plum);
+      text-shadow:
+        0 1px 0 rgba(255,253,251,0.65),
+        0 2px 16px rgba(255,253,251,0.45);
+    }
+    .masthead-rule {
+      display: flex; align-items: center; gap: 6px;
+      width: 220px; max-width: 70%;
+    }
+    .masthead-rule span {
+      flex: 1; height: 2px; background: var(--rose); border-radius: 2px;
+    }
+    .masthead-rule span:nth-child(2) { background: var(--gold); height: 3px; }
+    .masthead-tag {
+      font-size: clamp(15px, 1.6vw, 18px);
+      color: var(--plum);
+      max-width: 40ch;
+      line-height: 1.5;
+      padding: 10px 22px;
+      background: rgba(255,253,251,0.78);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 14px;
+    }
+    .masthead-scroll-cue {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--plum-soft);
+    }
+
+    /* === SECTION BACKGROUND BANDS (editorial rhythm) === */
+    .band--blush { background: var(--blush); }
+    .band--pearl { background: var(--pearl); }
+    .band--cream { background: var(--cream); }
+    .band--plum  { background: var(--plum-deep); color: var(--cream); }
+    .band { padding: 72px 0; }
+    .band > .container { padding-inline: var(--pad-x); }
+
+    /* === EDITORIAL KICKER (reused) === */
+    .kicker {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 18px;
+    }
+    .band--plum .kicker { color: var(--rose-bright); }
+
+    /* === EDITOR'S LETTER === */
+    .editors-letter { text-align: center; }
+    .editors-letter-inner { max-width: 700px; margin-inline: auto; }
+    .editors-letter-body {
+      font-size: clamp(22px, 2.8vw, 32px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.36;
+      color: var(--plum);
+      margin-bottom: 24px;
+      letter-spacing: -0.005em;
+    }
+    .editors-letter-body .dropcap {
+      float: left;
+      font-size: clamp(58px, 6vw, 78px);
+      font-weight: 700;
+      font-style: normal;
+      color: var(--rose);
+      line-height: 0.82;
+      padding: 4px 14px 0 0;
+      margin-top: 4px;
+    }
+    .editors-letter-signoff {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--plum-soft);
+    }
+    .editors-letter-signoff strong { font-weight: 600; color: var(--plum); }
+
+    /* === PULL QUOTE === */
+    .pull-quote { text-align: center; }
+    .pull-quote-inner { max-width: 840px; margin-inline: auto; }
+    .pull-quote-mark {
+      font-size: clamp(80px, 12vw, 140px);
+      line-height: 0.4;
+      color: var(--rose);
+      font-weight: 700;
+      margin-bottom: 22px;
+      letter-spacing: -0.04em;
+    }
+    .pull-quote-body {
+      font-size: clamp(26px, 3.6vw, 44px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.22;
+      letter-spacing: -0.012em;
+      color: var(--plum);
+      margin-bottom: 28px;
+    }
+    .pull-quote-attr {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--plum-soft);
+    }
+
+    /* === SAINTS as portrait cards === */
+    .saints-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+    .saint-card {
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px;
+      background: var(--cream);
+      color: var(--plum);
+      overflow: hidden;
+      transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+    }
+    .saint-card:hover, .saint-card:focus-visible {
+      transform: translateY(-3px);
+      border-color: var(--rose);
+      box-shadow: 0 14px 30px -18px rgba(75,33,72,0.28);
+      text-decoration: none;
+    }
+    /* Saint portrait — commissioned card art in assets/saints/. */
+    .saint-initial {
+      position: relative;
+      height: 200px;
+      margin: -22px -22px 18px;
+      background-color: var(--pearl);
+      background-size: cover;
+      background-position: center;
+      color: transparent;
+      overflow: hidden;
+    }
+    .saint-card h3 {
+      font-size: 19px; font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .saint-lane {
+      font-size: 11px; font-weight: 600;
+      color: var(--rose);
+      letter-spacing: 0.14em; text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .saint-rule {
+      font-size: 13px; font-style: italic;
+      color: var(--plum-soft);
+      line-height: 1.5;
+    }
+
+    .section-head--centered { text-align: center; max-width: 760px; margin: 0 auto 32px; }
+    .section-head--centered p { font-style: normal; max-width: 56ch; margin-inline: auto; }
+
+    /* === THIS WEEK (formerly hero) === */
     .hero { padding: 56px 0 28px; }
     .hero-grid {
       display: grid;
@@ -251,7 +461,55 @@
     .hero-img {
       border-radius: 18px;
       width: 100%;
+      aspect-ratio: 4 / 3;
       object-fit: cover;
+      box-shadow: 0 18px 40px -22px rgba(75,33,72,0.35);
+    }
+
+    /* === ROOM CARD IMAGERY === */
+    .room-card-img {
+      display: block;
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      background: var(--pearl);
+    }
+    .room-card.wide .room-card-img {
+      height: 220px;
+    }
+
+    /* === SPIN CARD (real wheel image) === */
+    .spin-wheel-img {
+      display: block;
+      width: clamp(140px, 70%, 200px);
+      margin: 6px auto 14px;
+      filter: drop-shadow(0 10px 24px rgba(75,33,72,0.28));
+      transition: transform 320ms ease;
+    }
+    .spin-card:hover .spin-wheel-img,
+    .spin-card:focus-within .spin-wheel-img { transform: rotate(20deg); }
+
+    /* === RAIL EXTRA: in-the-rooms card === */
+    .rail-quote {
+      font-size: 14px;
+      font-style: italic;
+      color: var(--plum);
+      line-height: 1.5;
+      padding: 12px 0;
+      border-top: 1px solid var(--line-soft);
+      border-bottom: 1px solid var(--line-soft);
+      margin-bottom: 12px;
+    }
+    .rail-quote-attr {
+      display: block;
+      margin-top: 6px;
+      font-style: normal;
+      font-size: 12px;
+      color: var(--plum-soft);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
     /* === SIGNUP BAND §8 === */
@@ -685,6 +943,13 @@
 
     /* === RESPONSIVE === */
     @media (max-width: 880px) {
+      .masthead { min-height: 440px; padding: 40px var(--pad-x) 56px; }
+      .masthead-inner { padding: 30px 22px 36px; gap: 18px; }
+      .masthead-headline { font-size: clamp(32px, 9vw, 44px); }
+      .masthead-tag { font-size: 15px; }
+      .room-card-img { height: 140px; }
+      .room-card.wide .room-card-img { height: 180px; }
+      .band { padding: 44px 0; }
       .hero { padding: 32px 0 18px; }
       .hero-grid { grid-template-columns: 1fr; gap: 24px; }
       .hero-img-wrap { order: -1; }
@@ -820,12 +1085,39 @@
   </nav>
 
   <main id="main">
-    <!-- HERO §7 -->
+    <!-- MASTHEAD §2A — the cover -->
+    <section class="masthead" aria-labelledby="masthead-title">
+      <div class="masthead-top">
+        <p class="masthead-edition">Issue No. 04 · The Wednesday Edition · June 2026</p>
+        <img class="masthead-logo" src="assets/brand/laidies-logo-masthead-approved-v3.png" alt="LAiDIES" width="340" height="113">
+      </div>
+      <div class="masthead-bottom">
+        <h1 id="masthead-title" class="masthead-headline">GIRL POWER MEETS<br>MACHINE POWER</h1>
+        <div class="masthead-rule" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <p class="masthead-tag">AI fluency for women with full calendars, high standards, and no patience for beige tech explanations.</p>
+        <p class="masthead-scroll-cue">Inside this issue ↓</p>
+      </div>
+    </section>
+
+    <!-- EDITOR'S LETTER — the human moment -->
+    <section class="editors-letter band band--blush">
+      <div class="container editors-letter-inner">
+        <p class="kicker">From the Editor</p>
+        <p class="editors-letter-body">
+          <span class="dropcap">T</span>his is the week "just use AI" finally gets a map. Which tool. What to say. How not to get vamped. Open the Grimoire, take notes, see you in the rooms.
+        </p>
+        <p class="editors-letter-signoff">— <strong>Ali</strong>, founder</p>
+      </div>
+    </section>
+
+    <!-- THIS WEEK §7 — episode + ritual beats -->
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
           <p class="eyebrow">This Week · Episode <span data-ep-num>04</span></p>
-          <h1 class="ep-title" data-ep-title>The SLAiYER Handbook</h1>
+          <h2 class="ep-title" data-ep-title>A Slayer Needs a Watcher</h2>
           <p class="hero-dek">Your field guide to actually using AI at work — which tool, what to say, and how not to get vamped.</p>
 
           <ol class="ritual-beats">
@@ -867,7 +1159,7 @@
           </div>
         </div>
         <div class="hero-img-wrap">
-          <img class="hero-img" src="assets/lets-chat.png" alt="LAiDIES — Let's Chat masthead" loading="eager" width="700" height="525">
+          <img class="hero-img" data-ep-image src="assets/episodes/issue-04/section-slaiyer-handbook-v1.png" alt="This week's episode hero" loading="eager" width="700" height="525">
         </div>
       </div>
     </section>
@@ -940,6 +1232,15 @@
       </div>
     </section>
 
+    <!-- PULL QUOTE — editorial pause -->
+    <section class="pull-quote band band--pearl">
+      <div class="container pull-quote-inner">
+        <p class="pull-quote-mark" aria-hidden="true">"</p>
+        <p class="pull-quote-body">Pick the AI like you pick the outfit: for the room you're walking into.</p>
+        <p class="pull-quote-attr">From the SLAiYER Handbook · Episode 04</p>
+      </div>
+    </section>
+
     <!-- DIP IN ANYTIME §11 -->
     <section class="container dip-in">
       <header class="section-head">
@@ -950,22 +1251,27 @@
         <!-- 11a — ROOMS -->
         <div class="rooms">
           <a class="room-card" href="hot-goss.html">
+            <img class="room-card-img" src="assets/hot-goss-desk-v2.png" alt="" loading="lazy">
             <h3>SunnyVAiLE NewsStand</h3>
             <p>What's actually happening in AI — daily headlines, weekly stories, zero hype.</p>
           </a>
           <a class="room-card" href="grimoire.html">
+            <img class="room-card-img" src="assets/portal/laidies-grimoire-teaser.png" alt="" loading="lazy">
             <h3>The Grimoire</h3>
             <p>The reference shelf. SLAiYER Handbook · Power Map · Lore Closet · Chamber of Receipts · and more.</p>
           </a>
           <a class="room-card" href="episodes.html">
+            <img class="room-card-img" src="assets/9-to-5-chaos.png" alt="" loading="lazy">
             <h3>The Season</h3>
             <p>Every episode, in order. Start at one or jump to what you need.</p>
           </a>
           <a class="room-card" href="start-here.html">
+            <img class="room-card-img" src="assets/portal/laidies-grimoire-closed-v1.png" alt="" loading="lazy">
             <h3>Start Here</h3>
             <p>New? Two minutes, then your first episode.</p>
           </a>
           <div class="room-card wide">
+            <img class="room-card-img" src="assets/clubhouse-compact-grimoire-warm-open-v1.png" alt="" loading="lazy">
             <h3>The Clubhouse</h3>
             <p>The hangout floor. Drop in whenever.</p>
             <div class="clubhouse-shelves">
@@ -1022,8 +1328,18 @@
             <span class="rail-label">At Happy Hour</span>
             <h3>The Businesswomen's Special</h3>
             <em>Your fortune, then your drink.</em>
-            <div class="spin-wheel" aria-hidden="true"></div>
+            <img class="spin-wheel-img" src="assets/businesswomen-special-wheel.png" alt="" aria-hidden="true" loading="lazy">
             <a class="rail-more" href="games/businesswomens-special.html">Spin the wheel →</a>
+          </article>
+
+          <!-- RAIL 5: IN THE LAiDIES ROOM (community pulse) -->
+          <article class="rail-card">
+            <span class="rail-label">In the LAiDIES Room</span>
+            <p class="rail-quote">
+              "Asked Claude to draft my OOO and it absolutely cooked. Came back to 200 emails I didn't have to read."
+              <span class="rail-quote-attr">— from the Wins thread</span>
+            </p>
+            <a class="rail-more" href="community.html">Drop into the rooms →</a>
           </article>
 
           <!-- RAIL 4: LISTEN / DJ BOOTH -->
@@ -1097,21 +1413,80 @@
       </div>
     </section>
 
-    <!-- PATRON SAINTS §13 -->
-    <!-- PENDING: /grimoire/patron-saints.html does not exist yet. Chips link to grimoire.html for now. -->
-    <section class="container saints">
-      <header class="section-head">
-        <h2>Your patron saints</h2>
-        <p>the cast you already know</p>
-      </header>
-      <div class="saint-chips">
-        <a class="saint-chip" href="grimoire.html"><strong>Cher</strong> <em>Early adoption</em></a>
-        <a class="saint-chip" href="grimoire.html"><strong>Elle Woods</strong> <em>Receipts</em></a>
-        <a class="saint-chip" href="grimoire.html"><strong>Miranda Priestly</strong> <em>Standards</em></a>
-        <a class="saint-chip" href="grimoire.html"><strong>Buffy</strong> <em>Slaying the tools</em></a>
-        <a class="saint-chip" href="grimoire.html"><strong>Regina George</strong> <em>Dangerous confidence</em></a>
-        <a class="saint-chip" href="grimoire.html"><strong>David Rose</strong> <em>Specificity</em></a>
-        <a class="saint-chip" href="grimoire.html"><strong>Deb</strong> <em>Institutional survival</em></a>
+    <!-- PATRON SAINTS §13 — as portrait cards -->
+    <!--
+      FUTURE STATE — two paths, both deferred:
+        (1) Write per-saint back content (bio + lane example + lore) so click-to-flip
+            reveals something to learn. Card-back asset already exists at
+            assets/saints/card-back.png — currently only used on the "Add yours" slot.
+        (2) Build grimoire/patron-saints.html and deep-link each card to its saint's
+            anchor (#cher-horowitz, #elle-woods, etc.). That page is on the canon's
+            locked Grimoire structure (canon-index §1) but not yet built.
+      Until either lands, all 8 saint cards link to grimoire.html (the index).
+    -->
+    <section class="saints band band--blush">
+      <div class="container">
+        <header class="section-head section-head--centered">
+          <p class="kicker">Your patron saints</p>
+          <h2>The cast you already know.</h2>
+          <p>Eight women who taught us how to walk into rooms full of people who underestimate us — and walk out with the upper hand. Borrow what they did. Skip the plastic boots.</p>
+        </header>
+        <div class="saints-grid">
+          <a class="saint-card" href="grimoire.html">
+            <div class="saint-initial" aria-hidden="true" style="background-image: url('assets/saints/cher-horowitz.png');">C</div>
+            <h3>Cher Horowitz</h3>
+            <p class="saint-lane">Early adoption</p>
+            <p class="saint-rule">The closet was computerized before anyone used the word "workflow." Cher just opened it every morning and got dressed.</p>
+          </a>
+          <a class="saint-card" href="grimoire.html">
+            <div class="saint-initial" aria-hidden="true" style="background-image: url('assets/saints/elle-woods.png');">E</div>
+            <h3>Elle Woods</h3>
+            <p class="saint-lane">Receipts</p>
+            <p class="saint-rule">Elle walked into court with the perm rule, the timeline, and the witness already lined up. She knew before she needed to know.</p>
+          </a>
+          <a class="saint-card" href="grimoire.html">
+            <div class="saint-initial" aria-hidden="true" style="background-image: url('assets/saints/miranda-priestly.png');">M</div>
+            <h3>Miranda Priestly</h3>
+            <p class="saint-lane">Standards</p>
+            <p class="saint-rule">The cerulean was already in Miranda's mind before it was in your closet. You know what you're looking at before you accept it.</p>
+          </a>
+          <a class="saint-card" href="grimoire.html">
+            <div class="saint-initial" aria-hidden="true" style="background-image: url('assets/saints/buffy-summers.png');">B</div>
+            <h3>Buffy Summers</h3>
+            <p class="saint-lane">Slaying the tools</p>
+            <p class="saint-rule">Buffy runs toward the vampire. Everybody else is still in the parking lot trying to get away.</p>
+          </a>
+          <a class="saint-card" href="grimoire.html">
+            <div class="saint-initial" aria-hidden="true" style="background-image: url('assets/saints/regina-george.png');">R</div>
+            <h3>Regina George</h3>
+            <p class="saint-lane">Dangerous confidence</p>
+            <p class="saint-rule">Regina told Cady the skirt was cute and then told someone else it was ugly. Same skirt, different audience, perfect delivery. Social dynamics is a skill set.</p>
+          </a>
+          <a class="saint-card" href="grimoire.html">
+            <div class="saint-initial" aria-hidden="true" style="background-image: url('assets/saints/david-rose.png');">D</div>
+            <h3>David Rose</h3>
+            <p class="saint-lane">Specificity</p>
+            <p class="saint-rule">"Fold in the cheese" is an instruction. "Make this better" is also an instruction. They fail the same way.</p>
+          </a>
+          <a class="saint-card" href="grimoire.html">
+            <div class="saint-initial" aria-hidden="true" style="background-image: url('assets/saints/deb.png');">D</div>
+            <h3>Deb</h3>
+            <p class="saint-lane">Institutional survival</p>
+            <p class="saint-rule">Deb has survived every reorg since 2004. IT still accommodates her desktop. There are processes in your workplace that run exactly the same way — AI doesn't know they exist, and doesn't know to ask.</p>
+          </a>
+          <a class="saint-card" href="grimoire.html">
+            <div class="saint-initial" aria-hidden="true" style="background-image: url('assets/saints/dolly-parton.png');">DP</div>
+            <h3>Dolly Parton</h3>
+            <p class="saint-lane">Level-headed advice</p>
+            <p class="saint-rule">You better get to building your own bridge, because ain't nobody building it for you, honey.</p>
+          </a>
+          <a class="saint-card" href="grimoire.html">
+            <div class="saint-initial" aria-hidden="true" style="background-image: url('assets/saints/card-back.png');"></div>
+            <h3>Add yours</h3>
+            <p class="saint-lane">Coming soon</p>
+            <p class="saint-rule">Who's your patron saint of getting it done? Tell us in the rooms.</p>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -1134,7 +1509,7 @@
           <p class="join-fine">No spam. Unsubscribe whenever. Ali pays for this herself.</p>
         </div>
         <div class="join-signet-wrap">
-          <img class="join-signet" src="assets/brand/laidies-signet-final-rose.svg" alt="" aria-hidden="true" width="220" height="220">
+          <img class="join-signet" src="assets/brand/laidies-signet-final-teal.svg" alt="" aria-hidden="true" width="220" height="220">
         </div>
       </div>
     </section>
@@ -1241,8 +1616,13 @@
         var num = String(latest.number).padStart(2, '0');
         var numEl = document.querySelector('[data-ep-num]');
         var titleEl = document.querySelector('[data-ep-title]');
+        var imgEl = document.querySelector('[data-ep-image]');
         if (numEl) numEl.textContent = num;
         if (titleEl) titleEl.textContent = latest.title;
+        if (imgEl && latest.heroImage) {
+          imgEl.src = latest.heroImage;
+          imgEl.alt = 'Episode ' + latest.number + ' — ' + latest.title;
+        }
       }
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', paintEpisode);
