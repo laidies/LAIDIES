@@ -77,6 +77,7 @@ The Grimoire is the durable library. These are the weekly and interactive surfac
 - **Buffy** — Slaying (actually using the tools)
 - **Regina George** — Dangerous Confidence
 - **Deb (corporate cryptid)** — Institutional Survival
+- **Dolly Parton** — Level-Headed Advice
 
 ---
 
@@ -106,7 +107,21 @@ Episode 1 is the gold standard. The voice rules live in the writing lock at `ope
 
 ---
 
-## 9. Open decisions (need Ali)
+## 9. Visual style benchmark (locked)
+
+The **patron saint card portraits** (`assets/saints/*.png`) and the **Girl Talk card faces** (the card art, NOT the stickers) together are the locked visual style template for character/card art going forward.
+
+When commissioning new character art, episode hero treatments, room card imagery, or any LAiDIES card-style visual, match:
+- The illustration register (rendering style, line/colour treatment)
+- The colour palette (plum, rose, blush, powder, cream, pearl, gold accents — keyed to the existing tokens)
+- The composition density (portraits as character + signature object/context, not isolated headshots)
+- The Y2K/grown-up-editorial energy (per the writing lock's voice rules)
+
+Pieces in other styles — even ones already on disk — are out of scope for the canonical card set unless they're explicitly re-treated to match. Mixed registers are how a site stops looking designed.
+
+---
+
+## 10. Open decisions (need Ali)
 
 1. **Weekly news lane name.** Retiring "Hot Goss" leaves the weekly news cards (including the fake pop-culture headline cards) without a label. Option A: keep them unbranded inside This Week ("the news"). Option B: a new in-world name. Pick one — don't let it sit unnamed and drift.
 2. **Potions Shelf reader label.** Resolved — renamed to **The Decoder** (plain-English name; "Potions Shelf" retired). The Legally Blonde subtitle — *"Feel comfortable using AI jargon in everyday life. I ~~object~~ prompt!"* — now rides on The Decoder. Site pages/URL still say "potions-shelf" until a separate rename pass.
