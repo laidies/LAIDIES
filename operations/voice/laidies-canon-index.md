@@ -76,8 +76,8 @@ The Grimoire is the durable library. These are the weekly and interactive surfac
 - **Miranda Priestly** — Standards
 - **Buffy** — Slaying (actually using the tools)
 - **Regina George** — Dangerous Confidence
-- **Deb (corporate cryptid)** — Institutional Survival
-- **Dolly Parton** — Level-Headed Advice
+- **Deb (corporate cryptid)** — "Loop Me Out"
+- **Dolly Parton** — Common Sense
 
 ---
 

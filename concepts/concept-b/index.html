@@ -394,6 +394,200 @@
     }
     .room-row-saints-thumb img { width: 100%; height: 100%; object-fit: cover; }
 
+    /* ARCAiDE feature row — wider treatment to do the cabinet image justice */
+    .arcaide-feature {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding: 40px 0 0;
+      margin-top: 8px;
+    }
+    .arcaide-feature-imgwrap {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+    .arcaide-feature-imgwrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 600ms ease;
+    }
+    .arcaide-feature:hover .arcaide-feature-imgwrap img { transform: scale(1.02); }
+    .arcaide-feature-text {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 32px;
+      align-items: center;
+    }
+    .arcaide-feature-kicker {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 8px;
+    }
+    .arcaide-feature-text h3 {
+      font-size: clamp(32px, 4vw, 56px);
+      font-weight: 600;
+      letter-spacing: -0.018em;
+      line-height: 0.98;
+      color: var(--plum);
+      margin-bottom: 8px;
+    }
+    .arcaide-feature-text p:not(.arcaide-feature-kicker) {
+      font-size: 16px;
+      color: var(--plum-soft);
+      max-width: 64ch;
+      line-height: 1.45;
+    }
+    .arcaide-feature:hover .room-row-arrow { transform: translateX(8px); color: var(--rose); }
+
+    /* ============================================================
+       QUICK PICKS — 4 active picks, type-led
+       ============================================================ */
+    .quick-picks { padding: 80px 0 96px; background: var(--cream); border-top: 1px solid var(--line); }
+    .quick-picks-head { margin-bottom: 32px; }
+    .quick-picks-head h2 {
+      font-size: clamp(40px, 5vw, 68px);
+      font-weight: 700;
+      letter-spacing: -0.022em;
+      color: var(--plum);
+      line-height: 0.98;
+      margin-top: 8px;
+    }
+    .quick-picks-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--line);
+    }
+    .quick-pick {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 20px;
+      padding: 28px 24px 56px;
+      border-bottom: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      align-items: start;
+      transition: padding 240ms ease, background 240ms ease;
+      position: relative;
+      min-height: 220px;
+    }
+    .qp-body { display: flex; flex-direction: column; gap: 6px; }
+    .qp-sub {
+      font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.18em;
+      color: var(--gold);
+      margin-top: 4px;
+    }
+    .qp-list {
+      list-style: none;
+      padding: 0; margin: 6px 0 4px;
+      display: flex; flex-direction: column;
+      gap: 5px;
+    }
+    .qp-list li {
+      font-size: 13px;
+      color: var(--plum-soft);
+      line-height: 1.4;
+      padding-left: 12px;
+      position: relative;
+    }
+    .qp-list li::before {
+      content: "";
+      position: absolute; left: 0; top: 8px;
+      width: 4px; height: 4px;
+      background: var(--rose);
+      border-radius: 50%;
+    }
+    .quick-pick--hero .qp-list li { color: rgba(255,253,251,0.88); }
+    .quick-pick--hero .qp-list li::before { background: var(--gold); }
+    .qp-blurb {
+      font-size: 13.5px;
+      color: var(--plum-soft);
+      line-height: 1.5;
+      margin: 6px 0 4px;
+    }
+    .quick-pick--hero .qp-blurb { color: rgba(255,253,251,0.88); }
+    .qp-cta {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--rose);
+      margin-top: 12px;
+    }
+    .quick-pick--hero .qp-cta { color: var(--gold); }
+    .qp-play { position: absolute; bottom: 20px; right: 24px; }
+    .quick-pick:nth-child(2n) { border-right: none; }
+    .quick-pick:hover { padding-left: 32px; background: var(--pearl); }
+    .qp-num {
+      font-size: 22px; font-weight: 300;
+      color: var(--gold);
+      font-feature-settings: "tnum" 1;
+    }
+    .qp-label {
+      font-size: 22px; font-weight: 600;
+      letter-spacing: -0.012em;
+      color: var(--plum);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .qp-sub {
+      font-size: 13px;
+      color: var(--plum-soft);
+      letter-spacing: 0.02em;
+    }
+    .quick-pick--hero { background: linear-gradient(135deg, var(--plum) 0%, var(--rose) 100%); color: var(--cream); border-color: transparent; }
+    .quick-pick--hero .qp-num { color: var(--gold); }
+    .quick-pick--hero .qp-label { color: var(--cream); }
+    .quick-pick--hero .qp-sub { color: rgba(255,253,251,0.85); }
+    .quick-pick--hero:hover { background: linear-gradient(135deg, var(--plum-deep) 0%, var(--rose-bright) 100%); }
+
+    .qp-play {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 5px 10px 5px 7px;
+      background: var(--cream);
+      border: 1px solid rgba(75,33,72,0.18);
+      border-radius: 999px;
+      color: var(--plum);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+    }
+    .quick-pick--hero .qp-play { background: rgba(255,253,251,0.95); border-color: var(--gold); }
+    .qp-play:hover { background: var(--rose); color: var(--cream); border-color: var(--rose); }
+    .qp-play .play-icon, .qp-play .pause-icon { width: 12px; height: 12px; fill: currentColor; }
+    .qp-play .pause-icon { display: none; }
+    .qp-play.is-playing .play-icon { display: none; }
+    .qp-play.is-playing .pause-icon { display: block; }
+    .qp-play.is-playing { background: var(--rose); color: var(--cream); border-color: var(--rose); }
+    .qp-play-text { line-height: 1; }
+
+    /* SAINT cards — play-theme pill below portrait */
+    .saint-card { display: flex; flex-direction: column; }
+    .saint-card > .saint-portrait { order: 1; }
+    .saint-card > .saint-play { order: 2; }
+    .saint-card > .saint-body { order: 3; }
+    .saint-play {
+      align-self: flex-end;
+      margin: 10px 14px 0 0;
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 5px 10px 5px 7px;
+      background: var(--cream);
+      border: 1px solid rgba(75,33,72,0.18);
+      border-radius: 999px;
+      color: var(--plum);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 200ms ease, border-color 200ms ease, color 200ms ease, transform 200ms ease;
+    }
+    .saint-play:hover { background: var(--rose); color: var(--cream); border-color: var(--rose); transform: scale(1.04); }
+    .saint-play .play-icon, .saint-play .pause-icon { width: 12px; height: 12px; fill: currentColor; }
+    .saint-play .pause-icon { display: none; }
+    .saint-play.is-playing .play-icon { display: none; }
+    .saint-play.is-playing .pause-icon { display: block; }
+    .saint-play.is-playing { background: var(--rose); color: var(--cream); border-color: var(--rose); }
+    .saint-play-text { line-height: 1; }
+
     /* ============================================================
        5. SAINTS — staggered grid (asymmetric)
        ============================================================ */
@@ -582,6 +776,9 @@
       .room-row { grid-template-columns: 40px 1fr; gap: 16px; padding: 20px 0; }
       .room-row-thumb { display: none; }
       .room-row-arrow { display: none; }
+      .arcaide-feature-text { grid-template-columns: 40px 1fr; gap: 16px; }
+      .quick-picks-grid { grid-template-columns: 1fr; }
+      .quick-pick { border-right: none; grid-template-columns: 40px 1fr auto; gap: 14px; padding: 22px 16px; }
       .saints-grid-b { grid-template-columns: 1fr 1fr; }
       .saint-card:nth-child(2n) { transform: none; }
       .wednesday-drop-inner { grid-template-columns: 1fr; }
@@ -661,9 +858,9 @@
             <em>Needs a</em>
             Watcher
           </h2>
-          <p class="this-week-dek">The SLAiYER Handbook, Chapter 1 — which AI tool to open for which job, what the words mean, and how to use any of them without getting vamped.</p>
+          <p class="this-week-dek">The SLAiYER Handbook, Chapter 1 — which AI tool to open for which job, what the words mean, and how to use any of them without getting staked.</p>
           <div class="this-week-excerpt">
-            This week I watched a CFO type "just make it better" into ChatGPT and act betrayed by what came back. Make what better. For whom. By when. Compared to what. The tools are good. The instructions are the gig — and the instructions are the part nobody is teaching us. So we wrote it down. Episode 4 is the SLAiYER Handbook: which AI to open for which job, what the words actually mean, and how to use any of them without getting vamped.
+            This week I watched a CFO type "just make it better" into ChatGPT and act betrayed by what came back. Make what better. For whom. By when. Compared to what. The tools are good. The instructions are the gig — and the instructions are the part nobody is teaching us. So we wrote it down. Episode 4 is the SLAiYER Handbook: which AI to open for which job, what the words actually mean, and how to use any of them without getting staked.
           </div>
           <a class="this-week-cta" href="../../this-week.html">Read the full episode →</a>
         </div>
@@ -684,7 +881,7 @@
       <header class="section-head">
         <div class="section-head-left">
           <p class="kicker">Inside LAiDIES</p>
-          <h2>The universe.</h2>
+          <h2>The LAiDIES Universe in six rooms</h2>
         </div>
         <div class="section-head-right">
           Not just the weekly newsletter — a reference library, a community, a season arc, a cast of patron saints, and a set of games for when you need to take five.
@@ -716,11 +913,11 @@
           <span class="room-row-arrow">→</span>
         </a>
 
-        <a class="room-row" href="../../clubhouse.html#games">
+        <a class="room-row" href="../../hot-goss.html">
           <span class="room-row-num">03</span>
           <div class="room-row-body">
-            <h3>ARCAiDE — The Games</h3>
-            <p>Mme CLAi-O · Dream Phone · Ask LAiDY · Girl Talk · DJ Booth · Businesswomen's Special.</p>
+            <h3>SUNNYVAiLE NewsStand</h3>
+            <p>Daily headlines · weekly stories · the occasional hot take. AI translated.</p>
           </div>
           <div class="room-row-thumb">
             <div class="room-row-thumb-placeholder">Placeholder<br>Art</div>
@@ -740,25 +937,8 @@
           <span class="room-row-arrow">→</span>
         </a>
 
-        <a class="room-row" href="#saints">
-          <span class="room-row-num">05</span>
-          <div class="room-row-body">
-            <h3>Patron Saints</h3>
-            <p>Cher · Elle · Miranda · Buffy · Regina · David · Deb · Dolly. The pop-culture cast we keep coming back to.</p>
-          </div>
-          <div class="room-row-thumb">
-            <div class="room-row-saints-thumb" aria-hidden="true">
-              <img src="../../assets/saints/cher-horowitz.png" alt="">
-              <img src="../../assets/saints/elle-woods.png" alt="">
-              <img src="../../assets/saints/miranda-priestly.png" alt="">
-              <img src="../../assets/saints/buffy-summers.png" alt="">
-            </div>
-          </div>
-          <span class="room-row-arrow">→</span>
-        </a>
-
         <a class="room-row" href="../../start-here.html">
-          <span class="room-row-num">06</span>
+          <span class="room-row-num">05</span>
           <div class="room-row-body">
             <h3>Start Here</h3>
             <p>New? Two minutes, then your first episode.</p>
@@ -767,6 +947,95 @@
             <div class="room-row-thumb-placeholder">Placeholder<br>Art</div>
           </div>
           <span class="room-row-arrow">→</span>
+        </a>
+      </div>
+
+      <!-- ARCAiDE feature — full-width hero with cabinet imagery -->
+      <a class="arcaide-feature" href="../../clubhouse.html#games">
+        <div class="arcaide-feature-imgwrap">
+          <img src="../../assets/arcaide-cabinets.png" alt="" loading="lazy">
+        </div>
+        <div class="arcaide-feature-text">
+          <span class="room-row-num">06</span>
+          <div>
+            <p class="arcaide-feature-kicker">Take a Break</p>
+            <h3>ARCAiDE — The Games</h3>
+            <p>Mme CLAi-O · Dream Phone · Girl Talk · Ask LAiDY · DJ Booth · Businesswomen's Special.</p>
+          </div>
+          <span class="room-row-arrow">→</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- 4b. QUICK PICKS — 4 active picks -->
+  <section class="quick-picks">
+    <div class="container">
+      <header class="quick-picks-head">
+        <p class="kicker">Right Now · No Hunting</p>
+        <h2>Quick picks.</h2>
+      </header>
+      <div class="quick-picks-grid">
+
+        <a class="quick-pick" href="../../hot-goss.html">
+          <span class="qp-num">01</span>
+          <div class="qp-body">
+            <p class="qp-label">SUNNYVAiLE · Today</p>
+            <ul class="qp-list">
+              <li>Anthropic ships Claude memory across sessions</li>
+              <li>OpenAI talks GPT-6 timeline</li>
+              <li>The board deck rewriting AI literacy</li>
+            </ul>
+            <span class="qp-cta">All headlines →</span>
+          </div>
+        </a>
+
+        <a class="quick-pick quick-pick--with-play" href="../../games/businesswomens-special.html">
+          <span class="qp-num">02</span>
+          <div class="qp-body">
+            <p class="qp-label">Businesswomen's Special</p>
+            <p class="qp-blurb">Coven has a reservation at 4. Pick your happy hour drink!</p>
+            <span class="qp-cta">Pick your drink →</span>
+          </div>
+          <button class="qp-play" type="button"
+                  aria-label="Play Businesswomen's Special theme"
+                  data-src="../../content/music/game-businesswomens-special.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="qp-play-text">♪ theme</span>
+          </button>
+        </a>
+
+        <a class="quick-pick" href="../../games/dj-booth.html">
+          <span class="qp-num">03</span>
+          <div class="qp-body">
+            <p class="qp-label">DJ Booth</p>
+            <p class="qp-sub">On rotation:</p>
+            <ul class="qp-list">
+              <li>♪ The LIBRAiRY — DJ JAiDY</li>
+              <li>♪ Tomorrow's Problem — Deb</li>
+              <li>♪ Call Me Now — Mme CLAi-O</li>
+            </ul>
+            <span class="qp-cta">Open the booth →</span>
+          </div>
+        </a>
+
+        <a class="quick-pick quick-pick--with-play quick-pick--hero" href="../../games/fairy-godmother.html">
+          <span class="qp-num">04</span>
+          <div class="qp-body">
+            <p class="qp-label">Ask LAiDY</p>
+            <p class="qp-blurb">Stuck on a prompt? Need to translate an AI memo? She'll fix it, explain it, or coach you through.</p>
+            <span class="qp-cta">Open her up →</span>
+          </div>
+          <button class="qp-play" type="button"
+                  aria-label="Play LAiDY's theme"
+                  data-src="../../content/music/game-ask-laidy.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="qp-play-text">♪ theme</span>
+          </button>
         </a>
       </div>
     </div>
@@ -785,6 +1054,14 @@
       <div class="saints-grid-b">
         <a class="saint-card" href="../../grimoire.html">
           <img class="saint-portrait" src="../../assets/saints/cher-horowitz.png" alt="Cher Horowitz">
+          <button class="saint-play" type="button"
+                  aria-label="Play Cher's theme"
+                  data-src="../../content/music/saint-cher-horowitz.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
           <div class="saint-body">
             <h3>Cher Horowitz</h3>
             <p class="saint-lane">Early Adoption</p>
@@ -793,6 +1070,14 @@
         </a>
         <a class="saint-card" href="../../grimoire.html">
           <img class="saint-portrait" src="../../assets/saints/elle-woods.png" alt="Elle Woods">
+          <button class="saint-play" type="button"
+                  aria-label="Play Elle's theme"
+                  data-src="../../content/music/saint-elle-woods.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
           <div class="saint-body">
             <h3>Elle Woods</h3>
             <p class="saint-lane">Receipts</p>
@@ -801,6 +1086,14 @@
         </a>
         <a class="saint-card" href="../../grimoire.html">
           <img class="saint-portrait" src="../../assets/saints/miranda-priestly.png" alt="Miranda Priestly">
+          <button class="saint-play" type="button"
+                  aria-label="Play Miranda's theme"
+                  data-src="../../content/music/saint-miranda-priestly.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
           <div class="saint-body">
             <h3>Miranda Priestly</h3>
             <p class="saint-lane">Standards</p>
@@ -809,6 +1102,14 @@
         </a>
         <a class="saint-card" href="../../grimoire.html">
           <img class="saint-portrait" src="../../assets/saints/buffy-summers.png" alt="Buffy Summers">
+          <button class="saint-play" type="button"
+                  aria-label="Play Buffy's theme"
+                  data-src="../../content/music/saint-buffy-summers.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
           <div class="saint-body">
             <h3>Buffy Summers</h3>
             <p class="saint-lane">Slaying the Tools</p>
@@ -817,6 +1118,14 @@
         </a>
         <a class="saint-card" href="../../grimoire.html">
           <img class="saint-portrait" src="../../assets/saints/regina-george.png" alt="Regina George">
+          <button class="saint-play" type="button"
+                  aria-label="Play Regina's theme"
+                  data-src="../../content/music/saint-regina-george.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
           <div class="saint-body">
             <h3>Regina George</h3>
             <p class="saint-lane">Dangerous Confidence</p>
@@ -825,6 +1134,14 @@
         </a>
         <a class="saint-card" href="../../grimoire.html">
           <img class="saint-portrait" src="../../assets/saints/david-rose.png" alt="David Rose">
+          <button class="saint-play" type="button"
+                  aria-label="Play David's theme"
+                  data-src="../../content/music/saint-david-rose.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
           <div class="saint-body">
             <h3>David Rose</h3>
             <p class="saint-lane">Specificity</p>
@@ -833,17 +1150,33 @@
         </a>
         <a class="saint-card" href="../../grimoire.html">
           <img class="saint-portrait" src="../../assets/saints/deb.png" alt="Deb">
+          <button class="saint-play" type="button"
+                  aria-label="Play Deb's theme"
+                  data-src="../../content/music/saint-deb.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
           <div class="saint-body">
             <h3>Deb</h3>
-            <p class="saint-lane">Institutional Survival</p>
+            <p class="saint-lane">Loop Me Out</p>
             <p class="saint-rule">Deb has survived every reorg since 2004. AI doesn't know she exists — and half your job runs through her.</p>
           </div>
         </a>
         <a class="saint-card" href="../../grimoire.html">
           <img class="saint-portrait" src="../../assets/saints/dolly-parton.png" alt="Dolly Parton">
+          <button class="saint-play" type="button"
+                  aria-label="Play Dolly's theme"
+                  data-src="../../content/music/saint-dolly-parton.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
           <div class="saint-body">
             <h3>Dolly Parton</h3>
-            <p class="saint-lane">Level-Headed Advice</p>
+            <p class="saint-lane">Common Sense</p>
             <p class="saint-rule">You better get to building your own bridge, because ain't nobody building it for you, honey.</p>
           </div>
         </a>
@@ -906,6 +1239,53 @@
       <p class="footer-bottom">© LAiDIES · Concept B prototype · 2026-06-29</p>
     </div>
   </footer>
+
+
+  <!-- LAiDIES audio controller — single-track-at-a-time enforcement -->
+  <script>
+    (function() {
+      'use strict';
+      var activeBtn = null;
+      var activeAudio = null;
+
+      function stopActive() {
+        if (activeBtn) activeBtn.classList.remove('is-playing');
+        if (activeAudio) { try { activeAudio.pause(); } catch(e){} }
+        activeBtn = null;
+        activeAudio = null;
+      }
+
+      window.playLaidiesTheme = function(btn) {
+        if (!btn || btn.disabled) return;
+        var src = btn.getAttribute('data-src');
+        if (!src) return;
+
+        if (activeBtn === btn) { stopActive(); return; }
+        stopActive();
+        document.querySelectorAll('audio').forEach(function(a) { try { a.pause(); } catch(e){} });
+
+        var audio = new Audio(src);
+        audio.preload = 'metadata';
+        audio.addEventListener('ended', function() { if (activeAudio === audio) stopActive(); });
+        audio.addEventListener('error', function() {
+          console.warn('LAiDIES audio failed to load:', src);
+          if (activeAudio === audio) stopActive();
+        });
+
+        var playPromise = audio.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(function(err) {
+            console.warn('LAiDIES audio play() rejected:', err);
+            if (activeAudio === audio) stopActive();
+          });
+        }
+
+        btn.classList.add('is-playing');
+        activeBtn = btn;
+        activeAudio = audio;
+      };
+    })();
+  </script>
 
 </body>
 </html>

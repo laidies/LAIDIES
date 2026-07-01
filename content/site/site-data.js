@@ -217,9 +217,9 @@ window.LAIDIES_SITE_DATA = {
           "Hallucination"
         ],
         "weeklySong": {
-          "title": "Open the Grimoire",
+          "title": "The LIBRAiRY",
           "artist": "DJ JAIDY",
-          "file": "content/music/dj-jaidy-week-04-open-the-grimoire.mp3",
+          "file": "content/music/dj-jaidy-week-04-the-library.mp3",
           "playerUrl": "games/dj-booth.html#djApp"
         },
         "hotGossPlacement": "homepage-only"

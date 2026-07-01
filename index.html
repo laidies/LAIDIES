@@ -1,1867 +1,973 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="LAiDIES — AI fluency and community for women with full calendars, high standards, and no patience for beige tech explanations. The weekly ritual, every Wednesday.">
-  <meta property="og:title" content="LAiDIES — Girl Power Meets Machine Power">
-  <meta property="og:description" content="The weekly AI ritual for women who get things done. Read, study, quiz, listen, play, debrief. Every Wednesday.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://laidies.ai/">
-  <meta property="og:image" content="https://laidies.ai/assets/brand/laidies-wordmark-final-b-light.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="https://laidies.ai/">
-  <link rel="icon" href="assets/brand/laidies-favicon-final.svg" type="image/svg+xml">
-  <link rel="alternate icon" href="favicon.ico">
-  <title>LAiDIES — Girl Power Meets Machine Power</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LAiDIES — SUNNYVAiLE</title>
+  <meta name="description" content="LAiDIES lives in SUNNYVAiLE — the fictional small town where AI fluency meets women's full calendars, high standards, and no patience for beige tech explanations. New episode every Wednesday." />
+  <meta property="og:title" content="LAiDIES · SUNNYVAiLE" />
+  <meta property="og:description" content="AI fluency and community for women, in a fictional small town. New episode every Wednesday." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://laidies.ai/" />
+  <meta property="og:image" content="https://laidies.ai/assets/sunnyvaile_masthead.png" />
+  <meta name="theme-color" content="#b95d78" />
+  <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Dancing+Script:wght@400;700&family=Inter:wght@400;600;700&family=Jost:wght@400;500;600;700;800&display=swap" />
   <style>
-    /* === TOKENS === */
     :root {
-      --plum: #4b2148;
-      --plum-deep: #3a1838;
-      --plum-soft: #6b3a66;
-      --rose: #9b3f5f;
-      --rose-bright: #c25b7d;
-      --cream: #fffdfb;
-      --pearl: #f8eef2;
-      --blush: #f9e6ee;
-      --powder: #f6d7e2;
-      --ice: #dceaef;
-      --ice-deep: #5e8593;
-      --gold: #c9a227;
-      --line: rgba(75, 33, 72, .14);
-      --line-soft: rgba(75, 33, 72, .08);
-      --max-w: 1180px;
+      --plum: #4b2148; --plum-deep: #3a1838; --plum-soft: #6b3a66;
+      --rose: #9b3f5f; --rose-bright: #c25b7d; --gold: #c9a227;
+      --cream: #fffdfb; --pearl: #f8eef2; --blush: #f9e6ee;
+      --line: rgba(75,33,72,0.14);
       --pad-x: clamp(20px, 4vw, 48px);
-      --radius: 16px;
-      --radius-lg: 20px;
     }
-
-    /* === RESET / BASE === */
-    *, *::before, *::after { box-sizing: border-box; }
-    html { -webkit-text-size-adjust: 100%; }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Jost', sans-serif;
-      font-weight: 400;
       color: var(--plum);
       background: var(--cream);
-      line-height: 1.5;
+      line-height: 1.55;
       -webkit-font-smoothing: antialiased;
     }
-    img, svg { display: block; max-width: 100%; height: auto; }
     a { color: inherit; text-decoration: none; }
-    a:hover, a:focus-visible { text-decoration: underline; }
-    button { font: inherit; cursor: pointer; }
-    ul, ol { margin: 0; padding: 0; list-style: none; }
-    h1, h2, h3, h4, p { margin: 0; }
+    h1, h2, h3, h4 { letter-spacing: -0.014em; margin: 0; }
+    img { max-width: 100%; display: block; }
 
-    .visually-hidden {
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 var(--pad-x); }
+
+    /* HEADER */
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      background: var(--cream);
+      border-bottom: 1px solid var(--line);
+    }
+    .site-header-inner {
+      display: flex; align-items: center; gap: 18px;
+      padding: 14px var(--pad-x);
+    }
+    .site-logo { display: inline-flex; }
+    .site-logo img { height: 30px; width: auto; }
+    .site-header-spacer { flex: 1; }
+    .icon-btn, .menu-trigger {
+      background: none; border: 0; padding: 8px; cursor: pointer;
+      color: var(--plum); display: inline-flex; align-items: center;
+    }
+    .icon-btn svg, .menu-trigger svg { width: 22px; height: 22px; }
+    .join-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 9px 22px;
+      background: var(--plum); color: var(--cream);
+      border-radius: 999px; font-weight: 700; font-size: 14px;
+      letter-spacing: 0.02em;
+      transition: background 200ms ease;
+    }
+    .join-btn:hover { background: var(--rose); }
+
+    /* MASTHEAD ARRIVAL */
+    .masthead {
+      position: relative;
+      background: var(--cream);
+    }
+    .masthead-image {
+      width: 100%;
+      display: block;
+    }
+    .masthead-image img {
+      width: 100%; height: auto; display: block;
+    }
+    .masthead-bottom {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 36px var(--pad-x) 64px;
+      text-align: center;
+    }
+    .masthead-eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 18px;
+    }
+    .masthead-tag {
+      font-size: clamp(17px, 1.7vw, 19px);
+      color: var(--plum);
+      line-height: 1.5;
+      margin: 0 0 32px;
+    }
+    .masthead-ctas {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 14px;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 16px 36px;
+      background: var(--plum); color: var(--cream);
+      border-radius: 999px;
+      font-weight: 700; font-size: 17px;
+      letter-spacing: 0.01em;
+      transition: background 200ms ease, transform 200ms ease;
+    }
+    .btn-primary:hover { background: var(--rose); transform: translateY(-1px); }
+    .masthead-sub {
+      font-size: 14px;
+      color: var(--plum-soft);
+      margin: 0;
+    }
+    .masthead-sub a {
+      color: var(--rose);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .sr-only {
       position: absolute; width: 1px; height: 1px;
       padding: 0; margin: -1px; overflow: hidden;
       clip: rect(0,0,0,0); white-space: nowrap; border: 0;
     }
 
-    /* Brand wordmark inline (matches brand-polish.js output) */
-    .brand-word-inline { font-weight: inherit; }
-    [data-brand-ai] { color: var(--rose); }
-
-    /* Skip link */
-    .skip-link {
-      position: absolute; left: -9999px; top: 0;
-      background: var(--plum); color: var(--cream);
-      padding: 12px 18px; font-weight: 500; z-index: 100;
-      border-radius: 0 0 8px 0;
-    }
-    .skip-link:focus { left: 0; }
-
-    /* Container helper */
-    .container {
-      width: 100%; max-width: var(--max-w);
-      margin-inline: auto;
-      padding-inline: var(--pad-x);
-    }
-
-    /* === HEADER === */
-    .site-header {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(255, 253, 251, 0.86);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line-soft);
-    }
-    .site-header-inner {
-      display: flex; align-items: center; gap: 10px;
-      height: 64px;
-    }
-    .site-logo { display: block; flex: 0 0 auto; }
-    .site-logo img { height: 30px; width: auto; }
-    .site-header-spacer { flex: 1 1 auto; }
-    .icon-btn, .join-btn, .menu-trigger {
-      display: inline-flex; align-items: center; justify-content: center;
-      height: 38px; padding: 0 16px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: transparent; color: var(--plum);
-      font-weight: 500; letter-spacing: 0.04em;
-      transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
-    }
-    .icon-btn, .menu-trigger { width: 38px; padding: 0; }
-    .icon-btn:hover, .menu-trigger:hover { background: var(--blush); }
-    /* Header Join — outline (secondary) so it defers to the in-page primary CTA per Council #2 */
-    .join-btn {
-      background: transparent; border-color: var(--plum); color: var(--plum);
-    }
-    .join-btn:hover, .join-btn:focus-visible {
-      background: var(--plum); color: var(--cream); text-decoration: none;
-    }
-    .icon-btn svg, .menu-trigger svg { width: 18px; height: 18px; }
-
-    /* === MEGA MENU === */
-    .site-menu {
-      position: fixed; inset: 0;
-      background:
-        radial-gradient(ellipse at 80% -10%, rgba(194, 91, 125, 0.22), transparent 55%),
-        var(--plum);
-      color: var(--cream);
-      z-index: 60;
-      overflow-y: auto;
-      animation: menu-fade 250ms ease;
-    }
-    .site-menu[hidden] { display: none; }
-    @keyframes menu-fade {
-      from { opacity: 0; transform: translateY(-8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .site-menu-inner {
-      width: 100%; max-width: 1080px;
-      margin: 80px auto 64px;
-      padding: 0 var(--pad-x);
-    }
-    .menu-close {
-      position: absolute; top: 18px; right: 18px;
-      width: 44px; height: 44px;
-      border-radius: 50%; border: 1px solid rgba(255, 253, 251, 0.2);
-      background: transparent; color: var(--cream);
-      font-size: 20px;
-    }
-    .menu-close:hover { background: rgba(255, 253, 251, 0.08); }
-    .menu-sections {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 36px 56px;
-    }
-    .menu-section-head {
-      display: inline-block;
-      margin-bottom: 14px;
-      font-size: 20px; font-weight: 600;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--rose-bright);
-    }
-    .menu-section-head:hover, .menu-section-head:focus-visible {
-      color: var(--cream); text-decoration: underline;
-    }
-    .menu-sub li { margin-bottom: 8px; }
-    .menu-sub a {
-      font-size: 15px; font-weight: 400;
-      color: rgba(255, 253, 251, 0.8);
-    }
-    .menu-sub a:hover, .menu-sub a:focus-visible {
-      color: var(--cream);
-    }
-
-    /* === MASTHEAD §2A — magazine cover, type directly on image === */
-    .masthead {
-      position: relative;
-      min-height: clamp(660px, 88vh, 820px);
-      background:
-        linear-gradient(180deg,
-          rgba(255,253,251,0.32) 0%,
-          rgba(255,253,251,0.0)  16%,
-          rgba(255,253,251,0.0)  34%,
-          rgba(255,253,251,1)    44%,
-          rgba(255,253,251,1)    100%),
-        url("assets/lets-chat.png") center 14% / cover no-repeat;
-      display: flex; flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
-      color: var(--plum);
-      text-align: center;
-      padding: 0 var(--pad-x) 56px;
-      overflow: hidden;
-    }
-    .masthead-top {
-      display: flex; flex-direction: column;
-      align-items: center; gap: 18px;
-    }
-    .masthead-logo {
-      width: clamp(220px, 32vw, 340px);
-      height: auto;
-      padding: 14px 28px;
-      background: rgba(255,253,251,0.85);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border-radius: 14px;
-      box-shadow: 0 10px 24px -12px rgba(58,24,56,0.18);
-    }
-    .masthead-bottom {
-      display: flex; flex-direction: column;
-      align-items: center; gap: 20px;
-      max-width: 920px;
-    }
-    /* Cover headline — three-tier treatment per Council #8 (Marchetti):
-       GIRL POWER in rose / meets in italic with gold rules / MACHINE POWER in plum */
-    .masthead-headline {
-      display: flex; flex-direction: column; align-items: center;
-      gap: 4px;
-      line-height: 0.92;
-      letter-spacing: -0.025em;
-      margin: 0;
-    }
-    .masthead-line-1, .masthead-line-2 {
-      font-size: clamp(46px, 7.4vw, 96px);
-      font-weight: 700;
-      line-height: 0.92;
-    }
-    .masthead-line-1 { color: var(--rose); }
-    .masthead-line-2 { color: var(--plum); }
-    .masthead-meets {
-      display: inline-flex; align-items: center; gap: 16px;
-      font-size: clamp(20px, 2.4vw, 30px);
-      font-weight: 400;
-      font-style: italic;
-      letter-spacing: 0;
-      color: var(--plum-soft);
-      padding: 6px 0;
-    }
-    .masthead-meets::before, .masthead-meets::after {
-      content: ""; flex: 0 0 36px; height: 1.5px;
-      background: var(--gold);
-    }
-    /* Cover furniture — Issue stamp + Date, per Council #10 (Marchetti + Cho-Lansing) */
-    .masthead-edition-stamp {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: var(--plum);
-      margin-bottom: 6px;
-    }
-    .masthead-edition-stamp .stamp-sep {
-      color: var(--rose);
-      margin: 0 8px;
-    }
-    .masthead-tag {
-      font-size: clamp(15px, 1.6vw, 18px);
-      color: var(--plum);
-      max-width: 42ch;
-      line-height: 1.5;
-      margin: 0;
-    }
-    /* Cover lines per Marchetti #1 — magazine cover furniture pointing at real surfaces */
-    .masthead-cover-lines {
-      display: inline-flex; align-items: center; flex-wrap: wrap; justify-content: center;
-      gap: 6px 14px;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      color: var(--plum);
-      max-width: 600px;
-      margin-top: 4px;
-    }
-    .masthead-cover-lines .cl-kicker {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: var(--rose);
-    }
-    .masthead-cover-lines a {
-      color: var(--plum);
-      border-bottom: 1px solid transparent;
-      padding-bottom: 1px;
-      transition: border-color 180ms ease, color 180ms ease;
-    }
-    .masthead-cover-lines a:hover, .masthead-cover-lines a:focus-visible {
-      color: var(--rose);
-      border-bottom-color: var(--rose);
-      text-decoration: none;
-    }
-    .masthead-cover-lines .cl-sep {
-      color: var(--rose);
-    }
-    /* Cover CTA — primary action above the fold per Council #2 */
-    .masthead-ctas {
-      display: flex; flex-direction: column; align-items: center; gap: 10px;
-      margin-top: 4px;
-    }
-    .masthead-cta-sub {
-      font-size: 14px;
-      color: var(--plum-soft);
-      font-style: italic;
-    }
-    .masthead-cta-sub a {
-      color: var(--plum);
-      border-bottom: 1.5px solid var(--gold);
-      padding-bottom: 1px;
-      font-style: normal;
-      font-weight: 500;
-    }
-    .masthead-cta-sub a:hover {
-      color: var(--rose); border-color: var(--rose);
-      text-decoration: none;
-    }
-
-    /* === SECTION BACKGROUND BANDS (editorial rhythm) === */
-    .band--blush { background: var(--blush); }
+    /* SECTION BANDS */
+    .band { padding: 72px 0; }
     .band--pearl { background: var(--pearl); }
+    .band--blush { background: var(--blush); }
     .band--cream { background: var(--cream); }
-    .band--plum  { background: var(--plum-deep); color: var(--cream); }
-    .band { padding: 56px 0; }
-    section.band--blush, section.band--pearl { padding-block: 56px; }
-    .band > .container { padding-inline: var(--pad-x); }
 
-    /* === EDITORIAL KICKER (reused) === */
-    .kicker {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: var(--rose);
-      margin-bottom: 18px;
-    }
-    .band--plum .kicker { color: var(--rose-bright); }
-
-    /* === EDITOR'S LETTER === */
-    .editors-letter { text-align: center; }
-    .editors-letter-inner { max-width: 700px; margin-inline: auto; }
-    .editors-letter-body {
-      font-size: clamp(22px, 2.8vw, 32px);
-      font-weight: 400;
-      font-style: italic;
-      line-height: 1.36;
-      color: var(--plum);
-      margin-bottom: 24px;
-      letter-spacing: -0.005em;
-    }
-    .editors-letter-body .dropcap {
-      float: left;
-      font-size: clamp(72px, 8.5vw, 108px);
-      font-weight: 700;
-      font-style: normal;
-      color: var(--rose);
-      line-height: 0.78;
-      padding: 6px 18px 0 0;
-      margin-top: 6px;
-    }
-    .editors-letter-signoff {
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      color: var(--plum-soft);
-    }
-    .editors-letter-signoff strong {
-      font-weight: 600; color: var(--plum);
-      border-bottom: 2px solid var(--gold);
-      padding-bottom: 2px;
-      /* Gold underline on "Ali" per Webb #4 — Ali's signature is one of two recurring
-         gold jobs (the other being numbered ritual). */
-    }
-
-    /* === PULL QUOTE === */
-    .pull-quote { text-align: center; }
-    .pull-quote-inner { max-width: 840px; margin-inline: auto; }
-    .pull-quote-mark {
-      font-size: clamp(80px, 12vw, 140px);
-      line-height: 0.4;
-      color: var(--rose);
-      font-weight: 700;
-      margin-bottom: 22px;
-      letter-spacing: -0.04em;
-    }
-    .pull-quote-body {
-      font-size: clamp(26px, 3.6vw, 44px);
-      font-weight: 400;
-      font-style: italic;
-      line-height: 1.22;
-      letter-spacing: -0.012em;
-      color: var(--plum);
-      margin-bottom: 28px;
-    }
-    .pull-quote-attr {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: var(--plum-soft);
-    }
-
-    /* === SAINTS as portrait cards === */
-    .saints-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-    }
-    .saint-card {
-      display: block;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 22px;
-      background: var(--cream);
-      color: var(--plum);
-      overflow: hidden;
-      transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
-    }
-    .saint-card:hover, .saint-card:focus-visible {
-      transform: translateY(-3px);
-      border-color: var(--rose);
-      box-shadow: 0 14px 30px -18px rgba(75,33,72,0.28);
-      text-decoration: none;
-    }
-    /* Saint portrait — commissioned card art in assets/saints/. */
-    .saint-initial {
-      position: relative;
-      height: 200px;
-      margin: -22px -22px 18px;
-      background-color: var(--pearl);
-      background-size: cover;
-      background-position: center;
-      color: transparent;
-      overflow: hidden;
-    }
-    .saint-card h3 {
-      font-size: 19px; font-weight: 600;
-      margin-bottom: 4px;
-    }
-    .saint-lane {
-      font-size: 11px; font-weight: 600;
-      color: var(--rose);
-      letter-spacing: 0.14em; text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .saint-rule {
-      font-size: 13px;
-      color: var(--plum-soft);
-      line-height: 1.5;
-      /* italic removed per Marchetti — saint rules read sharper as roman */
-    }
-
-    .section-head--centered { text-align: center; max-width: 760px; margin: 0 auto 32px; }
-    .section-head--centered p { font-style: normal; max-width: 56ch; margin-inline: auto; }
-
-    /* === THIS WEEK — asymmetric editorial spread === */
-    .hero { padding: 72px 0 48px; }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 56px;
-      align-items: center;
-    }
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: 12px;
-      font-size: 12px; font-weight: 600;
-      letter-spacing: 0.28em; text-transform: uppercase;
-      color: var(--rose);
-      margin-bottom: 24px;
-    }
-    /* eyebrow::after gold dash removed per Webb #4 — gold now concentrated to
-       ritual-beat numbers + room-card numbers + link signatures.
-       .eyebrow::after { content: ""; width: 32px; height: 1.5px; background: var(--gold); } */
-    .ep-title {
-      font-size: clamp(44px, 6.4vw, 80px);
-      font-weight: 700; line-height: 0.96;
-      letter-spacing: -0.025em;
-      margin-bottom: 24px;
-    }
-    .hero-dek {
-      font-size: 19px; line-height: 1.5;
-      color: var(--plum-soft);
-      max-width: 34ch;
-      margin-bottom: 30px;
-    }
-    .ritual-beats {
-      border-top: 1px solid var(--line);
-      margin-bottom: 28px;
-    }
-    .ritual-beat {
-      display: grid;
-      grid-template-columns: 36px 140px 1fr;
-      gap: 16px; align-items: baseline;
-      padding: 11px 4px;
-      border-bottom: 1px solid var(--line-soft);
-      color: var(--plum);
-      transition: padding-left 180ms ease, background 180ms ease;
-    }
-    .ritual-beat:hover, .ritual-beat:focus-visible {
-      padding-left: 10px;
-      text-decoration: none;
-      background: linear-gradient(90deg, var(--blush) 0%, transparent 100%);
-    }
-    .ritual-beat-n {
-      color: var(--gold); font-size: 13px; font-weight: 600;
-      font-variant-numeric: tabular-nums;
-      /* Gold per Webb #4 — ritual beat numbers + room card numbers are the recurring gold job */
-    }
-    .ritual-beat-label {
-      font-size: 15px; font-weight: 500;
-      letter-spacing: 0.04em; text-transform: uppercase;
-    }
-    .ritual-beat-desc {
-      font-size: 15px; color: var(--plum-soft);
-    }
-    .hero-ctas {
-      display: flex; align-items: center; gap: 22px; flex-wrap: wrap;
-    }
-    .btn-primary {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 14px 26px; border-radius: 999px;
-      background: var(--plum); color: var(--cream);
-      font-weight: 500; letter-spacing: 0.04em;
-      border: none;
-      transition: background 180ms ease;
-    }
-    .btn-primary:hover, .btn-primary:focus-visible {
-      background: var(--rose); text-decoration: none;
-    }
-    .hero-secondary-link {
-      color: var(--plum); font-weight: 500;
-      border-bottom: 2px solid var(--gold); padding-bottom: 2px;
-      transition: color 180ms ease, border-color 180ms ease;
-    }
-    .hero-secondary-link:hover, .hero-secondary-link:focus-visible {
-      color: var(--rose); border-color: var(--rose);
-      text-decoration: none;
-    }
-    .hero-img-wrap { display: flex; align-items: center; justify-content: center; }
-    .hero-img {
-      border-radius: 18px;
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      box-shadow: 0 18px 40px -22px rgba(75,33,72,0.35);
-    }
-
-    /* === ROOM CARD IMAGERY — edge-to-edge, taller === */
-    .room-card-img {
-      display: block;
-      width: 100%;
-      height: 210px;
-      object-fit: cover;
-      margin-bottom: 22px;
-      background: var(--pearl);
-      transition: transform 600ms ease;
-    }
-    .room-card:hover .room-card-img {
-      transform: scale(1.03);
-    }
-    .room-card.wide .room-card-img {
-      height: 260px;
-    }
-
-    /* === SPIN CARD (paper fortune teller image) === */
-    .spin-wheel-img {
-      display: block;
-      width: clamp(140px, 70%, 200px);
-      margin: 6px auto 14px;
-      filter: drop-shadow(0 12px 28px rgba(75,33,72,0.28));
-      transition: transform 380ms cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .spin-card:hover .spin-wheel-img,
-    .spin-card:focus-within .spin-wheel-img { transform: rotate(-4deg) scale(1.04); }
-
-    /* === RAIL EXTRA: in-the-rooms card === */
-    .rail-quote {
-      font-size: 14px;
-      font-style: italic;
-      color: var(--plum);
-      line-height: 1.5;
-      padding: 12px 0;
-      border-top: 1px solid var(--line-soft);
-      border-bottom: 1px solid var(--line-soft);
-      margin-bottom: 12px;
-    }
-    .rail-quote-attr {
-      display: block;
-      margin-top: 6px;
-      font-style: normal;
-      font-size: 12px;
-      color: var(--plum-soft);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    /* === SIGNUP BAND §8 === */
-    .signup-section { padding-top: 8px; }
-    .signup-band {
-      background: var(--plum);
-      color: var(--cream);
-      border-radius: var(--radius-lg);
-      padding: 28px 34px;
-      overflow: hidden;
-    }
-    .signup-band-inner {
-      display: flex; align-items: center; gap: 24px;
-      flex-wrap: wrap; justify-content: space-between;
-    }
-    /* .signup-band-img removed — card-back moved to Join the Club banner per Ali */
-    .signup-band-copy { flex: 1 1 320px; max-width: 460px; }
-    .signup-band h2 {
-      font-size: 26px; font-weight: 600;
-      margin-bottom: 6px;
-      color: var(--cream);
-    }
-    .signup-band p { font-size: 13px; color: rgba(255, 253, 251, 0.7); }
-    .signup-form { display: flex; gap: 8px; flex: 1 1 320px; max-width: 480px; }
-    .signup-form input[type="email"] {
-      flex: 1; height: 44px; padding: 0 16px;
-      border: 1px solid rgba(255, 253, 251, 0.2);
-      border-radius: 999px;
-      background: rgba(255, 253, 251, 0.06);
-      color: var(--cream); font: inherit; font-size: 15px;
-    }
-    .signup-form input::placeholder { color: rgba(255, 253, 251, 0.5); }
-    .signup-form input:focus { outline: 2px solid var(--rose-bright); outline-offset: 2px; }
-    .signup-form button {
-      height: 44px; padding: 0 22px;
-      border-radius: 999px; border: none;
-      background: var(--rose); color: var(--cream);
-      font-weight: 500; letter-spacing: 0.04em;
-      white-space: nowrap;
-      transition: background 180ms ease;
-    }
-    .signup-form button:hover, .signup-form button:focus-visible {
-      background: var(--rose-bright);
-    }
-
-    /* === BRAND BAND §9 — cinematic moment === */
-    .brand-band {
-      text-align: center;
-      padding: 80px 0;
-      position: relative;
-    }
-    /* brand-band gold rules removed per Webb #4 — "could be silver and nobody would notice."
-       The brand-band's job is the cinematic line, not parsley hairlines around it. */
-    .brand-band-sub {
-      font-size: clamp(15px, 1.8vw, 19px);
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--plum-soft);
-      margin-bottom: 18px;
-    }
-    .brand-band-head {
-      font-size: clamp(40px, 7vw, 78px);
-      font-weight: 700;
-      color: var(--plum);
-      line-height: 1.02;
-      letter-spacing: -0.025em;
-    }
-    .brand-band-head [data-brand-ai] {
-      color: var(--rose-bright);
-    }
-
-    /* === SECTION HEAD (reused) — editorial with gold hairline === */
     .section-head {
-      position: relative;
-      margin-bottom: 44px;
-      max-width: 760px;
-      padding-top: 24px;
+      max-width: 780px;
+      margin: 0 auto 48px;
+      text-align: center;
     }
-    /* section-head::before gold hairline removed per Marchetti — was "the most generic
-       editorial gesture on the web." Section heads now stand on type alone. */
+    .section-head .kicker {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin: 0 0 12px;
+    }
     .section-head h2 {
-      font-size: clamp(34px, 5vw, 56px);
-      font-weight: 600;
-      letter-spacing: -0.018em;
-      line-height: 1.02;
-      margin-bottom: 10px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      color: var(--plum);
+      margin: 0 0 14px;
+      line-height: 1.05;
     }
     .section-head p {
       font-size: 17px;
       color: var(--plum-soft);
-      line-height: 1.45;
-      max-width: 50ch;
-      /* Italic removed per Council #2 (Marchetti) — italic now reserved for editor's letter + pull quote */
-    }
-    .section-head--centered::before {
-      left: 50%; transform: translateX(-50%);
+      margin: 0;
+      line-height: 1.55;
     }
 
-    /* === HOW IT WORKS §10 === */
-    .how-table {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: var(--cream);
-    }
-    .how-row {
+    /* WHAT'S NEW — featured episode + ritual */
+    .whats-new-grid {
       display: grid;
-      grid-template-columns: 180px 220px 1fr;
-      gap: 24px; align-items: baseline;
-      padding: 18px 22px;
-      border-bottom: 1px solid var(--line-soft);
-    }
-    .how-row:last-child { border-bottom: none; }
-    .how-label {
-      color: var(--rose); font-size: 13px; font-weight: 600;
-      letter-spacing: 0.06em; text-transform: uppercase;
-    }
-    .how-section-name { font-size: 15px; font-weight: 500; }
-    .how-section-name a:hover, .how-section-name a:focus-visible {
-      color: var(--rose); text-decoration: none;
-    }
-    .how-row-desc { font-size: 14px; color: var(--plum-soft); /* italic removed — Marchetti */ }
-
-    /* === DIP IN §11 === */
-    .dip-in { padding-top: 56px; }
-    .dip-grid {
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 36px;
+      grid-template-columns: 1fr;
+      gap: 28px;
       align-items: start;
     }
-    .rooms {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+    @media (min-width: 880px) {
+      .whats-new-grid { grid-template-columns: 1.3fr 1fr; }
     }
-    /* Room cards — TYPE-LED editorial treatment per Council #3 (Webb critical).
-       Replaces off-register illustrated flat-lays with confident typography.
-       The saint cards keep their portraits; rooms get the editorial-magazine treatment.
-       Distinct visual register between rooms (type-led) and saints (illustrated) is intentional. */
-    .room-card {
-      display: block;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 28px 28px 26px;
+    .episode-card {
       background: var(--cream);
-      color: var(--plum);
-      position: relative;
-      transition: border-color 240ms ease, transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 280ms ease, background-color 240ms ease;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      transition: transform 200ms ease, box-shadow 200ms ease;
     }
-    .room-card:hover, .room-card:focus-visible {
-      border-color: var(--rose);
-      transform: translateY(-4px);
-      box-shadow: 0 22px 44px -22px rgba(75, 33, 72, 0.32);
-      text-decoration: none;
+    .episode-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(75,33,72,0.12);
     }
-    .room-card-number {
-      display: block;
-      font-size: clamp(32px, 4.6vw, 52px);
-      font-weight: 300;
-      color: var(--gold);
-      line-height: 1;
-      letter-spacing: -0.02em;
-      font-feature-settings: "tnum" 1;
-      margin-bottom: 14px;
+    .episode-card-img {
+      width: 100%; aspect-ratio: 4/3; object-fit: cover;
     }
-    .room-card-kicker {
-      display: block;
+    .episode-card-body {
+      padding: 28px 32px 32px;
+    }
+    .episode-card-eyebrow {
       font-size: 11px;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.28em;
       text-transform: uppercase;
       color: var(--rose);
-      margin-bottom: 12px;
+      margin: 0 0 10px;
     }
-    .room-card h3 {
-      font-size: clamp(22px, 2.4vw, 28px);
-      font-weight: 600;
-      margin: 0 0 12px;
-      letter-spacing: -0.012em;
-      line-height: 1.1;
+    .episode-card h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(24px, 2.8vw, 32px);
+      font-weight: 700;
+      color: var(--plum);
+      margin: 0 0 16px;
+      line-height: 1.15;
     }
-    .room-card p {
-      font-size: 14.5px;
-      color: var(--plum-soft);
+    .episode-card-body p {
+      font-size: 15px;
       line-height: 1.55;
+      color: var(--plum);
+      margin: 0 0 18px;
     }
-    /* Hide the old room-card-img if any still in markup — defensive */
-    .room-card-img { display: none !important; }
-    .room-card.wide {
-      grid-column: 1 / -1;
-      background: linear-gradient(135deg, var(--pearl), var(--blush));
-      border-color: var(--powder);
+    .episode-card-body em { color: var(--plum-deep); font-weight: 500; font-style: normal; }
+    .episode-card-cta {
+      display: inline-flex; align-items: center;
+      color: var(--rose); font-weight: 600;
     }
-    .clubhouse-shelves {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin: 18px 0 14px;
-    }
-    .clubhouse-shelf {
-      background: rgba(255, 253, 251, 0.6);
-      border-radius: 12px;
-      padding: 14px;
-    }
-    .clubhouse-shelf strong { font-size: 14px; font-weight: 600; display: block; margin-bottom: 4px; }
-    .clubhouse-shelf span { font-size: 12px; color: var(--plum-soft); display: block; margin-bottom: 6px; }
-    .clubhouse-shelf em { font-size: 13px; color: var(--plum); font-style: italic; }
-    .clubhouse-shelf em a { color: var(--rose); border-bottom: 1px solid currentColor; }
-    .clubhouse-footer {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 12px; flex-wrap: wrap;
-      font-size: 13px; color: var(--plum-soft);
-      border-top: 1px solid var(--line-soft); padding-top: 12px; margin-top: 8px;
-    }
-    .clubhouse-footer a { color: var(--rose); font-weight: 500; }
+    .episode-card-cta::after { content: ' →'; margin-left: 4px; }
 
-    /* Discovery rail */
-    .rail {
-      position: sticky; top: 84px;
-      display: grid; gap: 22px;
-    }
-    .rail-card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 18px;
+    /* RITUAL — 7-stop walking tour */
+    .ritual-block {
       background: var(--cream);
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      padding: 28px 28px;
     }
-    .rail-label {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 11px; font-weight: 600;
-      letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--rose);
-      margin-bottom: 12px;
+    .ritual-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--plum);
+      margin: 0 0 18px;
     }
-    .rail-live-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--rose-bright);
-      animation: pulse 1.6s ease-out infinite;
+    .ritual-beats {
+      list-style: none;
+      margin: 0; padding: 0;
+      display: grid; gap: 4px;
     }
-    .rail-icon {
-      width: 16px; height: 16px;
-      flex: 0 0 auto;
-      stroke: currentColor;
-      stroke-width: 1.8;
-      fill: none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+    .ritual-beat {
+      display: grid;
+      grid-template-columns: 28px 120px 1fr;
+      gap: 12px;
+      padding: 10px 6px;
+      border-bottom: 1px solid var(--line);
+      transition: background 150ms ease;
     }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(194, 91, 125, 0.6); }
-      70% { box-shadow: 0 0 0 12px rgba(194, 91, 125, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(194, 91, 125, 0); }
+    .ritual-beats li:last-child .ritual-beat { border-bottom: 0; }
+    .ritual-beat:hover { background: var(--blush); }
+    .ritual-beat-n {
+      font-size: 14px; font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.06em;
     }
-    .rail-feed { display: grid; gap: 10px; margin-bottom: 12px; }
-    .rail-feed li { line-height: 1.35; }
-    .rail-feed a {
-      font-size: 13px; color: var(--plum);
-      border-bottom: 1px solid transparent;
-    }
-    .rail-feed a:hover, .rail-feed a:focus-visible {
-      border-bottom-color: var(--rose);
-      text-decoration: none; color: var(--rose);
-    }
-    .rail-more {
-      font-size: 13px; font-weight: 500; color: var(--rose);
-      border-bottom: 1px solid currentColor; padding-bottom: 1px;
-    }
-    .rail-more:hover, .rail-more:focus-visible { color: var(--rose-bright); text-decoration: none; }
-    .rail-list { display: grid; gap: 4px; margin-bottom: 12px; }
-    .rail-list li {
-      padding: 7px 0; border-bottom: 1px solid var(--line-soft);
-      font-size: 13px;
-    }
-    .rail-list li:last-child { border-bottom: none; }
-    .rail-list a {
-      display: grid; grid-template-columns: minmax(0, auto) 1fr;
-      gap: 8px; align-items: baseline;
+    .ritual-beat-label {
+      font-size: 14px; font-weight: 700;
       color: var(--plum);
     }
-    .rail-list a:hover, .rail-list a:focus-visible { text-decoration: none; }
-    .rail-list a:hover strong { color: var(--rose); }
-    .rail-list strong { font-weight: 500; }
-    .rail-list em { font-style: normal; color: var(--plum-soft); font-size: 12px; /* italic removed — Marchetti */ }
+    .ritual-beat-desc {
+      font-size: 14px;
+      color: var(--plum-soft);
+    }
+    .ritual-cta {
+      margin-top: 22px;
+      display: inline-flex; align-items: center;
+      color: var(--rose); font-weight: 600;
+      font-size: 14px;
+    }
+    .ritual-cta::after { content: ' →'; margin-left: 4px; }
 
-    .spin-card { text-align: center; }
-    .spin-wheel {
-      width: 140px; height: 140px;
-      margin: 8px auto 14px;
-      border-radius: 50%;
-      background: conic-gradient(from 0deg,
-        var(--rose) 0deg 60deg,
-        var(--rose-bright) 60deg 120deg,
-        var(--plum) 120deg 180deg,
-        var(--rose) 180deg 240deg,
-        var(--rose-bright) 240deg 300deg,
-        var(--plum) 300deg 360deg);
-      position: relative;
-      border: 4px solid var(--rose);
-      box-shadow: 0 8px 24px -10px rgba(75, 33, 72, 0.3);
+    /* TOOLS — 5 quick-access tool rails */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
     }
-    .spin-wheel::after {
-      content: "🍸";
-      position: absolute; inset: 0;
-      width: 52px; height: 52px; margin: auto;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 28px;
-      background: var(--cream); border-radius: 50%;
+    @media (min-width: 720px) {
+      .tools-grid { grid-template-columns: repeat(2, 1fr); }
     }
-    .spin-card h3 {
-      font-size: 17px; font-weight: 600; margin-bottom: 4px;
+    @media (min-width: 1080px) {
+      .tools-grid { grid-template-columns: repeat(5, 1fr); }
     }
-    .spin-card em {
-      font-style: normal; color: var(--plum-soft); font-size: 13px;
-      display: block; margin-bottom: 14px;
-      /* italic removed — Marchetti */
+    .tool-card {
+      display: flex; flex-direction: column;
+      padding: 24px 22px;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
     }
-
-    .listen-list {
-      display: grid; gap: 10px; margin-bottom: 12px;
+    .tool-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--rose);
+      box-shadow: 0 10px 24px rgba(75,33,72,0.12);
     }
-    .listen-item {
-      display: grid; grid-template-columns: 40px 1fr auto;
-      gap: 10px; align-items: center;
-      font-size: 13px;
+    .tool-eyebrow {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--rose);
+      margin: 0 0 10px;
     }
-    .listen-thumb {
-      width: 40px; height: 40px; border-radius: 8px;
-      background: linear-gradient(135deg, var(--blush), var(--powder));
-      display: flex; align-items: center; justify-content: center;
-      color: var(--rose); font-size: 12px; font-weight: 600;
+    .tool-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--plum);
+      margin: 0 0 6px;
+      line-height: 1.15;
+    }
+    .tool-where {
+      font-size: 12px;
+      color: var(--plum-soft);
+      margin: 0 0 14px;
+    }
+    .tool-desc {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--plum);
+      margin: 0 0 16px;
+      flex: 1;
+    }
+    .tool-open {
+      font-size: 13px; font-weight: 700;
+      color: var(--rose);
       letter-spacing: 0.04em;
     }
-    .listen-meta strong { display: block; font-weight: 500; color: var(--plum); line-height: 1.2; }
-    .listen-meta span { display: block; color: var(--plum-soft); font-size: 11px; margin-top: 2px; }
-    .listen-play {
-      width: 30px; height: 30px; border-radius: 50%;
-      background: var(--rose); color: var(--cream);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 11px;
-    }
-    .listen-play:hover, .listen-play:focus-visible { background: var(--rose-bright); text-decoration: none; }
+    .tool-open::after { content: ' →'; margin-left: 4px; }
 
-    /* === REFERENCE TWO-UP §12 === */
-    .reference-two { padding-top: 64px; }
-    .ref-grid {
+    /* PATRON SAINTS — preserved structure */
+    .saints-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 1100px;
+      margin: 0 auto;
     }
-    .ref-card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 28px;
-      background: var(--cream);
-      color: var(--plum);
-      transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
-      display: flex; flex-direction: column;
-    }
-    .ref-card:hover, .ref-card:focus-visible {
-      border-color: var(--rose);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px -16px rgba(75, 33, 72, 0.25);
-      text-decoration: none;
-    }
-    .ref-kicker {
-      font-size: 12px; font-weight: 500;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--rose); margin-bottom: 10px;
-      display: block;
-    }
-    .ref-card h3 {
-      font-size: 24px; font-weight: 600;
-      margin-bottom: 12px;
-    }
-    .ref-card p { font-size: 15px; color: var(--plum-soft); margin-bottom: 18px; line-height: 1.55; }
-    .ref-chips {
-      display: flex; flex-wrap: wrap; gap: 8px;
-      margin-bottom: 22px;
-    }
-    .ref-chip {
-      font-size: 12px; padding: 6px 12px;
-      border: 1px solid var(--line); border-radius: 999px;
-      color: var(--plum); background: var(--pearl);
-    }
-    .ref-cta {
-      margin-top: auto;
-      font-weight: 500; color: var(--rose);
-      border-bottom: 1px solid currentColor; padding-bottom: 1px;
-      align-self: flex-start;
-    }
-
-    /* === SAINTS §13 === */
-    .saints { padding-top: 56px; }
-    .saint-chips {
-      display: flex; flex-wrap: wrap; gap: 10px;
-    }
-    .saint-chip {
-      display: inline-flex; align-items: baseline; gap: 8px;
-      border: 1px solid var(--line); border-radius: 999px;
-      padding: 8px 16px;
-      background: var(--cream);
-      color: var(--plum);
-      font-size: 14px;
-      transition: border-color 180ms ease, transform 180ms ease;
-    }
-    .saint-chip:hover, .saint-chip:focus-visible {
-      border-color: var(--rose); transform: translateY(-1px); text-decoration: none;
-    }
-    .saint-chip strong { font-weight: 500; }
-    .saint-chip em { font-style: italic; color: var(--plum-soft); font-size: 13px; }
-
-    /* === JOIN BANNER §14 — dark starfield, matches Mme CLAi-O / Grimoire pages === */
-    .join-banner-wrap { padding: 64px 0 16px; }
-    .join-banner {
-      position: relative;
-      isolation: isolate;
-      background:
-        radial-gradient(circle at 50% 16%, rgba(185, 93, 120, 0.22), transparent 58%),
-        linear-gradient(160deg, #1a0a12, #2d0f1f, #1a0a12);
-      color: var(--cream);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      min-height: 360px;
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      align-items: center;
-      padding: 64px 64px;
-      gap: 32px;
-    }
-    /* Static starfield — gold + white sparkles on deep plum.
-       Matches the .laidies-bg--dark baseline used site-wide on Mme CLAi-O + Grimoire pages. */
-    .join-banner::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      background-repeat: no-repeat;
-      background-image:
-        radial-gradient(1.6px 1.6px at 12% 24%, rgba(255, 215, 0, 0.65), transparent),
-        radial-gradient(1.4px 1.4px at 28% 64%, rgba(255, 255, 255, 0.50), transparent),
-        radial-gradient(1.8px 1.8px at 42% 18%, rgba(255, 215, 0, 0.50), transparent),
-        radial-gradient(1.2px 1.2px at 58% 78%, rgba(255, 255, 255, 0.42), transparent),
-        radial-gradient(1.6px 1.6px at 72% 28%, rgba(255, 215, 0, 0.55), transparent),
-        radial-gradient(1.3px 1.3px at 86% 62%, rgba(255, 255, 255, 0.45), transparent),
-        radial-gradient(1.1px 1.1px at 18% 86%, rgba(255, 215, 0, 0.40), transparent),
-        radial-gradient(1.4px 1.4px at 92% 14%, rgba(255, 255, 255, 0.38), transparent),
-        radial-gradient(1.2px 1.2px at 50% 50%, rgba(255, 215, 0, 0.32), transparent),
-        radial-gradient(1.1px 1.1px at 64% 8%, rgba(255, 255, 255, 0.36), transparent);
-    }
-    .join-banner > * { position: relative; z-index: 1; }
-    .join-banner h2 {
-      font-size: clamp(44px, 5.5vw, 72px);
-      font-weight: 700;
-      line-height: 0.96;
-      letter-spacing: -0.022em;
-      margin-bottom: 18px;
-      color: var(--cream);
-    }
-    .join-copy > p {
-      font-size: 17px; color: rgba(255, 253, 251, 0.8);
-      margin-bottom: 22px;
-    }
-    .join-banner .signup-form { max-width: 380px; }
-    .join-fine {
-      font-size: 12px; color: rgba(255, 253, 251, 0.5);
-      margin-top: 12px;
-    }
-    .join-signet-wrap {
-      display: flex; align-items: center; justify-content: center;
-    }
-    .join-signet {
-      width: clamp(170px, 24vw, 240px);
-      height: auto;
-      filter: drop-shadow(0 0 50px rgba(194, 91, 125, 0.45)) drop-shadow(0 18px 36px rgba(0,0,0,0.4));
-      transform: rotate(-4deg);
-    }
-
-    /* === FOOTER §15 === */
-    .site-footer {
-      background: var(--plum);
-      color: var(--cream);
-      padding: 54px 0 30px;
-      margin-top: 32px;
-    }
-    .footer-top {
-      display: flex; justify-content: space-between;
-      gap: 36px; flex-wrap: wrap;
-      padding-bottom: 36px;
-    }
-    .footer-tagline {
-      font-size: clamp(20px, 3vw, 30px);
-      font-weight: 600;
-      max-width: 18ch;
-      line-height: 1.12;
-    }
-    .footer-logo { height: 26px; opacity: 0.95; margin-bottom: 18px; }
-    .footer-signup { width: 100%; max-width: 380px; }
-    .footer-signup h3 {
-      font-size: 13px; font-weight: 600;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: rgba(255, 253, 251, 0.7);
-      margin-bottom: 10px;
-    }
-    .footer-handle {
-      font-size: 12px; color: rgba(255, 253, 251, 0.5);
-      margin-top: 10px;
-    }
-    .footer-bottom {
-      display: flex; justify-content: space-between;
-      gap: 24px; flex-wrap: wrap; align-items: baseline;
-      border-top: 1px solid rgba(255, 253, 251, 0.12);
-      padding-top: 24px;
-      font-size: 13px; color: rgba(255, 253, 251, 0.7);
-    }
-    .footer-bottom-nav {
-      display: flex; flex-wrap: wrap; gap: 6px 14px;
-    }
-    .footer-bottom-nav a:hover, .footer-bottom-nav a:focus-visible {
-      color: var(--cream);
-    }
-
-    /* === RESPONSIVE === */
     @media (max-width: 760px) {
-      .masthead { min-height: 440px; padding: 40px var(--pad-x) 56px; }
-      .masthead-inner { padding: 30px 22px 36px; gap: 18px; }
-      .masthead-headline { font-size: clamp(32px, 9vw, 44px); }
-      .masthead-tag { font-size: 15px; }
-      .room-card-img { height: 140px; }
-      .room-card.wide .room-card-img { height: 180px; }
-      .band { padding: 44px 0; }
-      .hero { padding: 32px 0 18px; }
-      .hero-grid { grid-template-columns: 1fr; gap: 24px; }
-      .hero-img-wrap { order: -1; }
-      .ep-title { font-size: clamp(28px, 8vw, 38px); }
-      .hero-dek { font-size: 17px; }
-      .ritual-beat { grid-template-columns: 28px 100px 1fr; gap: 12px; padding: 9px 4px; }
-      .signup-band { padding: 24px 22px; }
-      .signup-band-inner { flex-direction: column; align-items: stretch; }
-      .signup-form { width: 100%; max-width: none; }
-      .brand-band { padding: 44px 0; }
-      .how-row { grid-template-columns: 1fr; gap: 4px; padding: 16px 18px; }
-      .how-row-desc { font-size: 13px; }
-      .dip-grid { grid-template-columns: 1fr; gap: 28px; }
-      .rooms { grid-template-columns: 1fr; }
-      .rail { position: static; }
-      .clubhouse-shelves { grid-template-columns: 1fr; }
-      .ref-grid { grid-template-columns: 1fr; }
-      .join-banner {
-        grid-template-columns: 1fr;
-        padding: 36px 28px;
-        text-align: center;
-      }
-      .join-signet-wrap { order: -1; }
-      .join-banner .signup-form { margin-inline: auto; }
-      .join-copy > p { margin-inline: auto; max-width: 28ch; }
-      .menu-sections { grid-template-columns: 1fr; gap: 28px; }
-      .site-menu-inner { margin-top: 72px; }
-      .footer-top { flex-direction: column; }
+      .saints-grid { grid-template-columns: repeat(2, 1fr); }
+      .saint-card-back { display: none; }
+    }
+    .saint-card-back {
+      display: flex; align-items: center; justify-content: center;
+      padding: 16px;
+    }
+    .saint-card-back img {
+      width: 100%; max-width: 220px; height: auto;
+    }
+    .saint-card {
+      display: flex; flex-direction: column;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .saint-card:hover, .saint-card:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(75,33,72,0.14);
+    }
+    .saint-initial {
+      width: 100%;
+      aspect-ratio: 1/1;
+      background-size: cover; background-position: center;
+      background-color: var(--blush);
+      color: transparent;
+      font-size: 0;
+    }
+    .saint-card h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; font-weight: 700;
+      color: var(--plum);
+      padding: 16px 18px 0;
+      margin: 0;
+    }
+    .saint-lane {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--rose);
+      padding: 6px 18px 0;
+      margin: 0;
+    }
+    .saint-rule {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--plum);
+      padding: 10px 18px 20px;
+      margin: 0;
     }
 
-    /* Reduced-motion — target specific offenders per Council #9 (Cruz),
-       not a blanket * rule (which clobbered legit interaction feedback). */
-    @media (prefers-reduced-motion: reduce) {
-      .rail-live-dot { animation: none; box-shadow: none; }
-      .site-menu { animation: none; }
-      .spin-wheel-img { transition: none; }
-      .spin-card:hover .spin-wheel-img,
-      .spin-card:focus-within .spin-wheel-img { transform: none; }
-      .room-card-img { transition: none; }
-      .room-card:hover .room-card-img { transform: none; }
-      .saint-card { transition: none; }
-      .saint-card:hover, .saint-card:focus-visible { transform: none; }
-      .room-card { transition: none; }
-      .room-card:hover, .room-card:focus-visible { transform: none; }
+    /* TOWN DIRECTORY — 17 tiles */
+    .directory-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 600px) {
+      .directory-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 940px) {
+      .directory-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .dir-card {
+      display: block;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 20px 22px;
+      transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+    }
+    .dir-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--rose);
+      box-shadow: 0 6px 18px rgba(75,33,72,0.10);
+    }
+    .dir-addr {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--rose);
+      margin: 0 0 8px;
+    }
+    .dir-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; font-weight: 700;
+      color: var(--plum);
+      margin: 0 0 6px;
+      line-height: 1.2;
+    }
+    .dir-tag {
+      font-size: 13px;
+      color: var(--plum-soft);
+      margin: 0;
     }
 
-    :focus-visible {
-      outline: 2px solid var(--rose-bright);
-      outline-offset: 3px;
-      border-radius: 4px;
+    /* POST OFFICE SIGNUP */
+    .signup-band {
+      background: linear-gradient(135deg, var(--plum) 0%, var(--rose) 100%);
+      border-radius: 18px;
+      padding: 48px 40px;
+      color: var(--cream);
+      text-align: center;
+    }
+    .signup-band h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 3.4vw, 40px);
+      font-weight: 700;
+      color: var(--cream);
+      margin: 0 0 12px;
+    }
+    .signup-band p {
+      font-size: 16px;
+      color: var(--cream);
+      opacity: 0.92;
+      margin: 0 0 26px;
+    }
+    .signup-form {
+      display: flex; flex-direction: column;
+      gap: 12px;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    @media (min-width: 520px) {
+      .signup-form { flex-direction: row; }
+    }
+    .signup-form input[type="email"] {
+      flex: 1;
+      padding: 13px 18px;
+      border: 0;
+      border-radius: 999px;
+      font: inherit;
+      font-size: 15px;
+      color: var(--plum);
+    }
+    .signup-form button {
+      padding: 13px 26px;
+      background: var(--gold);
+      color: var(--plum-deep);
+      border: 0;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      transition: background 200ms ease;
+    }
+    .signup-form button:hover { background: var(--cream); }
+
+    /* MEMBERSHIP — Coming Soon */
+    .membership {
+      position: relative;
+      background: var(--cream);
+      border: 2px dashed var(--gold);
+      border-radius: 18px;
+      padding: 48px 40px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .coming-soon-overlay {
+      position: absolute;
+      top: 20px; right: -40px;
+      background: var(--gold);
+      color: var(--plum-deep);
+      padding: 8px 56px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      transform: rotate(35deg);
+      box-shadow: 0 4px 10px rgba(75,33,72,0.18);
+    }
+    .membership h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 3.4vw, 40px);
+      font-weight: 700;
+      color: var(--plum);
+      margin: 0 0 12px;
+    }
+    .membership p {
+      font-size: 16px;
+      color: var(--plum-soft);
+      max-width: 560px;
+      margin: 0 auto 24px;
+    }
+    .membership-cta-disabled {
+      display: inline-block;
+      padding: 14px 32px;
+      background: var(--plum-soft);
+      color: var(--cream);
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 15px;
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: var(--plum-deep);
+      color: var(--cream);
+      padding: 56px var(--pad-x) 40px;
+      text-align: center;
+      margin-top: 56px;
+    }
+    .site-footer p { margin: 0 0 12px; }
+    .footer-brand {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: -0.01em;
+    }
+    .footer-legal { font-size: 12px; opacity: 0.7; }
+    .footer-links {
+      margin-top: 18px;
+      font-size: 13px;
+    }
+    .footer-links a {
+      color: var(--cream);
+      opacity: 0.85;
+      margin: 0 10px;
+    }
+    .footer-links a:hover { opacity: 1; text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      .band { padding: 56px 0; }
+      .signup-band, .membership { padding: 36px 26px; }
+      .coming-soon-overlay { right: -50px; padding: 6px 56px; font-size: 11px; }
     }
   </style>
-  <script src="content/site/site-data.js?v=20260628" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- HEADER §4 -->
+  <!-- HEADER -->
   <header class="site-header">
-    <div class="container site-header-inner">
-      <a class="site-logo" href="index.html" aria-label="LAiDIES — home">
-        <img src="assets/brand/laidies-wordmark-final-b-light.svg" alt="LAiDIES" width="120" height="30">
+    <div class="site-header-inner">
+      <a class="site-logo" href="/" aria-label="LAiDIES — home">
+        <img src="assets/brand/laidies-wordmark-final-b-light.svg" alt="LAiDIES" width="120" height="30" />
       </a>
       <div class="site-header-spacer"></div>
-      <button class="menu-trigger" type="button" aria-label="Open site menu" aria-expanded="false" aria-controls="site-menu" data-menu-trigger>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-          <path d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-      <button class="icon-btn" type="button" aria-label="Search">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-          <circle cx="11" cy="11" r="7"/>
-          <path d="m20 20-3.5-3.5"/>
-        </svg>
-      </button>
-      <a class="join-btn" href="#join">Join</a>
+      <a class="join-btn" href="#membership">Join</a>
     </div>
   </header>
 
-  <!-- MEGA MENU §5 -->
-  <nav class="site-menu" id="site-menu" aria-label="Site navigation" hidden data-site-menu>
-    <button class="menu-close" type="button" aria-label="Close site menu" data-menu-close>✕</button>
-    <div class="site-menu-inner">
-      <ul class="menu-sections">
-        <li class="menu-section">
-          <a class="menu-section-head" href="this-week.html">Weekly Ritual</a>
-          <ul class="menu-sub">
-            <li><a href="this-week.html">This week's episode</a></li>
-            <li><a href="this-week.html#ritual">The ritual beats</a></li>
-          </ul>
-        </li>
-        <li class="menu-section">
-          <a class="menu-section-head" href="hot-goss.html">SunnyVAiLE NewsStand</a>
-          <ul class="menu-sub">
-            <li><a href="hot-goss.html#daily">Daily</a></li>
-            <li><a href="hot-goss.html#wednesday">Wednesday Edition</a></li>
-            <li><a href="hot-goss.html#tribune">Tribune</a></li>
-          </ul>
-        </li>
-        <li class="menu-section">
-          <a class="menu-section-head" href="grimoire.html">The Grimoire</a>
-          <ul class="menu-sub">
-            <li><a href="grimoire/slaiyer-handbook.html">SLAiYER Handbook</a></li>
-            <li><a href="grimoire/power-map.html">Power Map</a></li>
-            <li><a href="grimoire/lore-closet.html">Lore Closet</a></li>
-            <li><a href="grimoire/chamber-of-receipts.html">Chamber of Receipts</a></li>
-            <!-- PENDING: brief calls for /grimoire/decoder.html — rename of potions-shelf.html is pending. Update href once decoder.html lands. -->
-            <li><a href="grimoire/potions-shelf.html">The Decoder</a></li>
-            <!-- PENDING: /grimoire/patron-saints.html does not exist yet. Linking to grimoire index. -->
-            <li><a href="grimoire.html">Patron Saints</a></li>
-          </ul>
-        </li>
-        <li class="menu-section">
-          <!-- PENDING: /arcade.html does not exist yet. Linking to clubhouse#games. -->
-          <a class="menu-section-head" href="clubhouse.html#games">ARCAiDE</a>
-          <ul class="menu-sub">
-            <li><a href="games/madame-claio.html">Mme CLAi-O</a></li>
-            <li><a href="games/dream-phone.html">Dream Phone</a></li>
-            <li><a href="games/fairy-godmother.html">Ask LAiDY</a></li>
-            <li><a href="games/girl-talk.html">Girl Talk</a></li>
-            <li><a href="games/dj-booth.html">DJ Booth</a></li>
-            <li><a href="games/businesswomens-special.html">Businesswomen's Special</a></li>
-          </ul>
-        </li>
-        <li class="menu-section">
-          <a class="menu-section-head" href="clubhouse.html">The Clubhouse</a>
-          <ul class="menu-sub">
-            <li><a href="clubhouse.html#rooms">The Rooms</a></li>
-            <li><a href="clubhouse.html#member-card">Your Member Card</a></li>
-            <li><a href="community.html">Join the Club</a></li>
-          </ul>
-        </li>
-        <li class="menu-section">
-          <a class="menu-section-head" href="episodes.html">The Season</a>
-          <ul class="menu-sub">
-            <li><a href="episodes.html">All episodes</a></li>
-            <li><a href="start-here.html">Start Here</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
   <main id="main">
-    <!-- MASTHEAD §2A — the cover -->
+
+    <!-- 1 · ARRIVAL MASTHEAD -->
     <section class="masthead" aria-labelledby="masthead-title">
-      <div class="masthead-top" aria-hidden="true"></div>
+      <div class="masthead-image">
+        <img src="assets/sunnyvaile-masthead-chick-flicks.png?v=20260630-chick-flicks" alt="Welcome to SUNNYVAiLE — a young woman in plaid stands on MAiN Street looking out at the town's storefronts: NewsStand, LIBRARY, Mme CLAi-O's, the Mall, Net Flicks, BRONZE AiGE, and Blend & Snap Café, lit by a pink sunset." width="1664" height="936" />
+      </div>
       <div class="masthead-bottom">
-        <p class="masthead-edition-stamp">This Week<span class="stamp-sep">·</span>Episode <span data-ep-num>04</span><span class="stamp-sep">·</span>June 29, 2026</p>
-        <h1 id="masthead-title" class="masthead-headline">
-          <span class="masthead-line-1">GIRL POWER</span>
-          <span class="masthead-meets" aria-hidden="true">meets</span>
-          <span class="masthead-line-2">MACHINE POWER</span>
-        </h1>
-        <p class="masthead-tag">AI fluency and community for women with full calendars, high standards, and no patience for beige tech explanations.</p>
-        <p class="masthead-cover-lines">
-          <span class="cl-kicker">Inside</span>
-          <a href="this-week.html">Slayer Handbook</a>
-          <span class="cl-sep" aria-hidden="true">·</span>
-          <a href="grimoire/potions-shelf.html">The Decoder</a>
-          <span class="cl-sep" aria-hidden="true">·</span>
-          <a href="games/madame-claio.html">Mme CLAi-O</a>
-          <span class="cl-sep" aria-hidden="true">·</span>
-          <a href="grimoire/chamber-of-receipts.html">Chamber of Receipts</a>
-        </p>
+        <span class="masthead-eyebrow">★ Welcome to SUNNYVAiLE · Population: women just like you</span>
+        <h1 id="masthead-title" class="sr-only">LAiDIES — AI fluency for women in a fictional small town called SUNNYVAiLE.</h1>
+        <p class="masthead-tag">AI fluency and community for women with full calendars, high standards, and no patience for beige tech explanations. We live in a town. Every section has an address. The episode arrives on Wednesday.</p>
         <div class="masthead-ctas">
-          <a class="btn-primary" href="this-week.html">Read Episode <span data-ep-num>04</span> →</a>
-          <p class="masthead-cta-sub">New here? <a href="issues/issue-01.html">Start at Episode 01 →</a></p>
+          <a class="btn-primary" href="/chick-flicks.html">Pick up this week's episode →</a>
+          <p class="masthead-sub">New in town? <a href="/visitors-centre.html">Stop by the Welcome Wagon first →</a></p>
         </div>
       </div>
     </section>
 
-    <!-- EDITOR'S LETTER — the human moment
-         TODO (Council #1 — Marchetti/Webb/Cho-Lansing critical): expand to 70-120 words in
-         Ali's actual canon voice. Specific Wednesday moment, then issue point, then warm
-         sign-off that earns the dropcap. Remove "how not to get vamped" duplication with
-         hero-dek. Add one credential to signoff ("ex-X" or "writing from Toronto").
-         Current copy ships as placeholder pending Ali's pass. -->
-    <section class="editors-letter band band--blush">
-      <div class="container editors-letter-inner">
-        <p class="kicker">From the Editor</p>
-        <p class="editors-letter-body">
-          <span class="dropcap">T</span>his week I watched a CFO type "just make it better" into ChatGPT and act betrayed by what came back. Make what better. For whom. By when. Compared to what. The tools are good. The instructions are the gig — and the instructions are also the part nobody is teaching us. So we wrote it down. Episode 4 is the SLAiYER Handbook: which AI to open for which job, what the words actually mean, and how to use any of them without getting vamped. Open it. Take notes. See you in the rooms.
-        </p>
-        <p class="editors-letter-signoff">— <strong>Ali</strong> · writing from Toronto</p>
-      </div>
-    </section>
-
-    <!-- THIS WEEK §7 — episode + ritual beats -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">This Week · Episode <span data-ep-num>04</span></p>
-          <h2 class="ep-title" data-ep-title>A Slayer Needs a Watcher</h2>
-          <p class="hero-dek">Your field guide to actually using AI at work — which tool, what to say, and how not to get vamped.</p>
-
-          <ol class="ritual-beats">
-            <li><a class="ritual-beat" href="this-week.html">
-              <span class="ritual-beat-n">01</span>
-              <span class="ritual-beat-label">Read</span>
-              <span class="ritual-beat-desc">this week's episode</span>
-            </a></li>
-            <li><a class="ritual-beat" href="this-week.html#cheat-sheet">
-              <span class="ritual-beat-n">02</span>
-              <span class="ritual-beat-label">Study</span>
-              <span class="ritual-beat-desc">the cheat sheet</span>
-            </a></li>
-            <li><a class="ritual-beat" href="learn/quiz.html">
-              <span class="ritual-beat-n">03</span>
-              <span class="ritual-beat-label">Quiz</span>
-              <span class="ritual-beat-desc">check yourself</span>
-            </a></li>
-            <li><a class="ritual-beat" href="games/dj-booth.html">
-              <span class="ritual-beat-n">04</span>
-              <span class="ritual-beat-label">Listen</span>
-              <span class="ritual-beat-desc">this week's song</span>
-            </a></li>
-            <li><a class="ritual-beat" href="clubhouse.html#games">
-              <span class="ritual-beat-n">05</span>
-              <span class="ritual-beat-label">The Arcade</span>
-              <span class="ritual-beat-desc">try an activity</span>
-            </a></li>
-            <li><a class="ritual-beat" href="clubhouse.html">
-              <span class="ritual-beat-n">06</span>
-              <span class="ritual-beat-label">Happy Hour</span>
-              <span class="ritual-beat-desc">debrief in the Clubhouse</span>
-            </a></li>
-          </ol>
-
-          <div class="hero-ctas">
-            <a class="btn-primary" href="this-week.html">Start this week's ritual →</a>
-            <a class="hero-secondary-link" href="issues/issue-01.html">New here? Start at Episode 01 →</a>
-          </div>
-        </div>
-        <div class="hero-img-wrap">
-          <img class="hero-img" data-ep-image src="assets/episodes/issue-04/section-slaiyer-handbook-v1.png" alt="This week's episode hero" loading="eager" width="700" height="525">
-        </div>
-      </div>
-    </section>
-
-    <!-- COMPACT SIGNUP §8 -->
-    <section class="container signup-section">
-      <div class="signup-band">
-        <div class="signup-band-inner">
-          <div class="signup-band-copy">
-            <h2>Get the Wednesday drop.</h2>
-            <p>One email. Every Wednesday. No homework you didn't sign up for.</p>
-          </div>
-          <form class="signup-form"
-                action="https://buttondown.com/api/emails/embed-subscribe/laidies"
-                method="post"
-                target="popupwindow"
-                onsubmit="window.open('https://buttondown.com/laidies', 'popupwindow')">
-            <label class="visually-hidden" for="signup-email-1">Email address</label>
-            <input id="signup-email-1" type="email" name="email" placeholder="your@email.com" required>
-            <input type="hidden" name="tag" value="homepage-compact">
-            <button type="submit">Join</button>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- BRAND BAND §9 -->
-    <section class="brand-band container band--pearl">
-      <p class="brand-band-sub">We grew up with Cher's closet. We work with Miranda's standards.</p>
-      <p class="brand-band-head"><span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> is the room in between.</p>
-    </section>
-
-    <!-- HOW IT WORKS §10 -->
-    <section class="container band--blush">
-      <header class="section-head">
-        <h2>How it works</h2>
-        <p>one world, two speeds</p>
-      </header>
-      <div class="how-table">
-        <div class="how-row">
-          <span class="how-label">Do the ritual</span>
-          <span class="how-section-name"><a href="this-week.html">Weekly Ritual</a></span>
-          <p class="how-row-desc">The ritual. Every Wednesday.</p>
-        </div>
-        <div class="how-row">
-          <span class="how-label">Stay on top</span>
-          <span class="how-section-name"><a href="hot-goss.html">SunnyVAiLE NewsStand</a></span>
-          <p class="how-row-desc">Daily headlines. Weekly stories. The occasional hot take. All translated.</p>
-        </div>
-        <div class="how-row">
-          <span class="how-label">Take a break</span>
-          <span class="how-section-name"><a href="clubhouse.html#games">ARCAiDE</a></span>
-          <p class="how-row-desc">Five minutes. No slides required.</p>
-        </div>
-        <div class="how-row">
-          <span class="how-label">Look it up</span>
-          <span class="how-section-name"><a href="grimoire.html">The Grimoire</a></span>
-          <p class="how-row-desc">The reference shelf. It doesn't judge.</p>
-        </div>
-        <div class="how-row">
-          <span class="how-label">Talk it out</span>
-          <span class="how-section-name"><a href="clubhouse.html">The Clubhouse</a></span>
-          <p class="how-row-desc">The rooms, the card, the community.</p>
-        </div>
-        <div class="how-row">
-          <span class="how-label">Do a binge</span>
-          <span class="how-section-name"><a href="episodes.html">The Season</a></span>
-          <p class="how-row-desc">Every episode. Start anywhere.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PULL QUOTE — activated per Council #4. The OOO-cooked line promoted from the discovery rail. -->
-    <section class="pull-quote band band--pearl" aria-label="From the LAiDIES Room">
-      <div class="container pull-quote-inner">
-        <p class="pull-quote-mark" aria-hidden="true">"</p>
-        <p class="pull-quote-body">Asked Claude to draft my OOO and it absolutely cooked. Came back to 200 emails I didn't have to read.</p>
-        <p class="pull-quote-attr">Overheard in the Wins thread</p>
-      </div>
-    </section>
-
-    <!-- DIP IN ANYTIME §11 -->
-    <section class="container dip-in">
-      <header class="section-head">
-        <h2>Dip in anytime</h2>
-        <p>no ritual required</p>
-      </header>
-      <div class="dip-grid">
-        <!-- 11a — ROOMS -->
-        <div class="rooms">
-          <a class="room-card" href="hot-goss.html">
-            <span class="room-card-number" aria-hidden="true">01</span>
-            <span class="room-card-kicker">The News</span>
-            <h3>SunnyVAiLE NewsStand</h3>
-            <p>What's actually happening in AI — daily headlines, weekly stories, zero hype.</p>
-          </a>
-          <a class="room-card" href="grimoire.html">
-            <span class="room-card-number" aria-hidden="true">02</span>
-            <span class="room-card-kicker">The Reference</span>
-            <h3>The Grimoire</h3>
-            <p>The reference shelf. SLAiYER Handbook · Power Map · Lore Closet · Chamber of Receipts · and more.</p>
-          </a>
-          <a class="room-card" href="episodes.html">
-            <span class="room-card-number" aria-hidden="true">03</span>
-            <span class="room-card-kicker">The Season</span>
-            <h3>All 24 Episodes</h3>
-            <p>Every episode, in order. Start at one or jump to what you need.</p>
-          </a>
-          <a class="room-card" href="start-here.html">
-            <span class="room-card-number" aria-hidden="true">04</span>
-            <span class="room-card-kicker">First Time</span>
-            <h3>Start Here</h3>
-            <p>New? Two minutes, then your first episode.</p>
-          </a>
-          <div class="room-card wide">
-            <span class="room-card-number" aria-hidden="true">05</span>
-            <span class="room-card-kicker">The Hangout</span>
-            <h3>The Clubhouse</h3>
-            <p>Drop in whenever. The rooms, your member card, the community.</p>
-            <div class="clubhouse-shelves">
-              <div class="clubhouse-shelf">
-                <strong>The Rooms</strong>
-                <span>community chat</span>
-                <em>Wins · Burn Book · Dear LAiDIES…</em>
-              </div>
-              <div class="clubhouse-shelf">
-                <strong>Your Member Card</strong>
-                <span>coming with membership</span>
-                <em>Almost ready.</em>
-              </div>
-              <div class="clubhouse-shelf">
-                <strong>Join the Club</strong>
-                <span>become a member</span>
-                <em><a href="community.html">community.html →</a></em>
-              </div>
-            </div>
-            <div class="clubhouse-footer">
-              <span>9 rooms · your future member card · join the club</span>
-              <a href="clubhouse.html">Step into the Clubhouse →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 11b — DISCOVERY RAIL -->
-        <aside class="rail" aria-label="Discovery rail">
-          <!-- RAIL 1: HOT GOSS LIVE -->
-          <article class="rail-card">
-            <span class="rail-label">
-              <svg class="rail-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h12v16H6a2 2 0 0 1-2-2V4z"/><path d="M16 8h4v10a2 2 0 0 1-2 2"/><path d="M7 8h6M7 12h6M7 16h4"/></svg>
-              SunnyVAiLE NewsStand · Today
-            </span>
-            <ul class="rail-feed" data-hot-goss-feed aria-live="polite" aria-label="Latest SunnyVAiLE headlines">
-              <li><a href="hot-goss.html">Loading the latest…</a></li>
-            </ul>
-            <a class="rail-more" href="hot-goss.html">All headlines →</a>
-          </article>
-
-          <!-- RAIL 2: ARCAiDE GAMES -->
-          <article class="rail-card">
-            <span class="rail-label">
-              <svg class="rail-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="10" rx="3"/><path d="M7.5 11.5v3M6 13h3"/><circle cx="16.5" cy="12.5" r="0.9" fill="currentColor"/><circle cx="14.5" cy="14.5" r="0.9" fill="currentColor"/></svg>
-              Take a quick break
-            </span>
-            <ul class="rail-list">
-              <li><a href="games/madame-claio.html"><strong>Mme CLAi-O</strong> <em>ask the oracle</em></a></li>
-              <li><a href="games/dream-phone.html"><strong>Dream Phone</strong> <em>who's secretly in your corner?</em></a></li>
-              <li><a href="games/fairy-godmother.html"><strong>Ask LAiDY</strong> <em>bring the prompt you can't finish</em></a></li>
-              <li><a href="games/girl-talk.html"><strong>Girl Talk</strong> <em>truth or dare, LAiDIES style</em></a></li>
-              <li><a href="games/dj-booth.html"><strong>DJ Booth</strong> <em>the soundtrack</em></a></li>
-              <li><a href="games/businesswomens-special.html"><strong>Businesswomen's Special</strong> <em>spin for your drink</em></a></li>
-            </ul>
-            <a class="rail-more" href="clubhouse.html#games">All the games →</a>
-          </article>
-
-          <!-- RAIL 3: BUSINESSWOMEN'S SPECIAL — paper fortune teller picks your drink -->
-          <article class="rail-card spin-card">
-            <span class="rail-label">
-              <svg class="rail-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14L12 13z"/><path d="M12 13v6"/><path d="M8 20h8"/></svg>
-              At Happy Hour
-            </span>
-            <h3>The Businesswomen's Special</h3>
-            <em>Your fortune, then your drink.</em>
-            <img class="spin-wheel-img" src="assets/businesswomen-special-fortune-teller-v1.png" alt="" aria-hidden="true" loading="lazy">
-            <a class="rail-more" href="games/businesswomens-special.html">Open your fortune →</a>
-          </article>
-
-          <!-- RAIL 5 removed in round 9 — its content was promoted to the new pull-quote band
-               above the Dip In section, per Council synthesis (Marchetti #4 + Webb's promote-OOO suggestion).
-               Per Council #7 (Krishnan): trimming rail card count. -->
-
-
-          <!-- RAIL 4: LISTEN / DJ BOOTH -->
-          <article class="rail-card">
-            <span class="rail-label">
-              <svg class="rail-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v3a2 2 0 0 0 2 2h1v-7H6a2 2 0 0 0-2 2z"/><path d="M20 12v3a2 2 0 0 1-2 2h-1v-7h1a2 2 0 0 1 2 2z"/><path d="M4 12V11a8 8 0 0 1 16 0v1"/></svg>
-              Listen
-            </span>
-            <ul class="listen-list">
-              <li class="listen-item">
-                <span class="listen-thumb" aria-hidden="true">04</span>
-                <span class="listen-meta">
-                  <strong>Open the Grimoire</strong>
-                  <span>Episode 4 · DJ JAiDY</span>
-                </span>
-                <a class="listen-play" href="games/dj-booth.html" aria-label="Open DJ Booth — Episode 4 song">▶</a>
-              </li>
-              <li class="listen-item">
-                <span class="listen-thumb" aria-hidden="true">03</span>
-                <span class="listen-meta">
-                  <strong>Don't Be Chutney on the Stand</strong>
-                  <span>Episode 3 · DJ JAiDY</span>
-                </span>
-                <a class="listen-play" href="games/dj-booth.html" aria-label="Open DJ Booth — Episode 3 song">▶</a>
-              </li>
-              <li class="listen-item">
-                <span class="listen-thumb" aria-hidden="true">02</span>
-                <span class="listen-meta">
-                  <strong>Tell Me What You Want</strong>
-                  <span>Episode 2 · DJ JAiDY</span>
-                </span>
-                <a class="listen-play" href="games/dj-booth.html" aria-label="Open DJ Booth — Episode 2 song">▶</a>
-              </li>
-            </ul>
-            <a class="rail-more" href="games/dj-booth.html">Open the DJ Booth →</a>
-          </article>
-        </aside>
-      </div>
-    </section>
-
-    <!-- REFERENCE TWO-UP §12 -->
-    <section class="container reference-two band--pearl">
-      <header class="section-head">
-        <h2>Before you bug out.</h2>
-        <p>the big questions, and the words behind them</p>
-      </header>
-      <div class="ref-grid">
-        <a class="ref-card" href="grimoire/chamber-of-receipts.html">
-          <span class="ref-kicker">AI FAQ</span>
-          <h3>The Chamber of Receipts</h3>
-          <p>The real questions about AI — answered with data, not vibes. Every claim has a source you can check.</p>
-          <div class="ref-chips">
-            <span class="ref-chip">How much water does AI use?</span>
-            <span class="ref-chip">Which jobs are affected?</span>
-            <span class="ref-chip">Is AI making us dumber?</span>
-            <span class="ref-chip">When is AI wrong vs. ahead?</span>
-          </div>
-          <span class="ref-cta">Open the Chamber of Receipts →</span>
-        </a>
-        <!-- PENDING: brief calls for /grimoire/decoder.html — rename of potions-shelf.html. Update once decoder.html lands. -->
-        <a class="ref-card" href="grimoire/potions-shelf.html">
-          <span class="ref-kicker">AI &amp; tech, in plain English</span>
-          <h3>The Decoder</h3>
-          <p>What the words actually mean — in plain English, no condescension. For everyone who nodded along in the meeting.</p>
-          <div class="ref-chips">
-            <span class="ref-chip">Generative AI</span>
-            <span class="ref-chip">Hallucination</span>
-            <span class="ref-chip">Prompt</span>
-            <span class="ref-chip">Model</span>
-            <span class="ref-chip">Agent</span>
-          </div>
-          <span class="ref-cta">Open the Decoder →</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- PATRON SAINTS §13 — as portrait cards -->
-    <!--
-      FUTURE STATE — two paths, both deferred:
-        (1) Write per-saint back content (bio + lane example + lore) so click-to-flip
-            reveals something to learn. Card-back asset already exists at
-            assets/saints/card-back.png — currently only used on the "Add yours" slot.
-        (2) Build grimoire/patron-saints.html and deep-link each card to its saint's
-            anchor (#cher-horowitz, #elle-woods, etc.). That page is on the canon's
-            locked Grimoire structure (canon-index §1) but not yet built.
-      Until either lands, all 8 saint cards link to grimoire.html (the index).
-    -->
-    <section class="saints band band--blush">
+    <!-- 2 · WHAT'S NEW THIS WEEK -->
+    <section class="band band--cream">
       <div class="container">
-        <header class="section-head section-head--centered">
+        <header class="section-head">
+          <p class="kicker">What's new this week in town</p>
+          <h2>Wednesday in SUNNYVAiLE.</h2>
+          <p>One episode at The Chick Flicks. Seven stops along MAiN Street. Every Wednesday, on schedule.</p>
+          <button type="button"
+                  aria-label="Play the THE LAiDIES song 'Wednesday in SUNNYVAiLE'"
+                  data-src="/content/music/the-laidies-wednesday-in-sunnyvaile.mp3"
+                  onclick="window.playLaidiesTheme(this);"
+                  style="margin-top: 18px; display: inline-flex; align-items: center; gap: 6px; padding: 9px 20px 9px 16px; background: var(--cream); border: 1.5px solid var(--rose); border-radius: 999px; color: var(--plum); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 200ms ease, color 200ms ease;"
+                  onmouseover="this.style.background='var(--rose)'; this.style.color='var(--cream)';"
+                  onmouseout="this.style.background='var(--cream)'; this.style.color='var(--plum)';">
+            <svg viewBox="0 0 24 24" style="width:11px; height:11px; fill: currentColor;" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" style="width:11px; height:11px; fill: currentColor; display:none;" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span>♪ Hear the song · THE LAiDIES</span>
+          </button>
+        </header>
+        <script>
+          (function() {
+            'use strict';
+            if (window.playLaidiesTheme) return;
+            var activeBtn = null, activeAudio = null;
+            function stopActive() {
+              if (activeBtn) activeBtn.classList.remove('is-playing');
+              if (activeAudio) { try { activeAudio.pause(); } catch(e){} }
+              activeBtn = null; activeAudio = null;
+            }
+            window.playLaidiesTheme = function(btn) {
+              if (!btn || btn.disabled) return;
+              var src = btn.getAttribute('data-src'); if (!src) return;
+              if (activeBtn === btn) { stopActive(); return; }
+              stopActive();
+              var audio = new Audio(src); audio.preload = 'metadata';
+              audio.addEventListener('ended', function() { if (activeAudio === audio) stopActive(); });
+              audio.addEventListener('error', function() { if (activeAudio === audio) stopActive(); });
+              audio.play().catch(function() { if (activeAudio === audio) stopActive(); });
+              btn.classList.add('is-playing');
+              activeBtn = btn; activeAudio = audio;
+            };
+          })();
+        </script>
+
+        <div class="whats-new-grid">
+
+          <a class="episode-card" href="/chick-flicks.html">
+            <img class="episode-card-img" data-ep-image src="assets/episodes/issue-04/section-slaiyer-handbook-v1.png" alt="This week's episode hero" loading="eager" width="700" height="525" />
+            <div class="episode-card-body">
+              <p class="episode-card-eyebrow">Now playing at The Chick Flicks · Episode <span data-ep-num>04</span></p>
+              <h3 data-ep-title>A Slayer Needs a Watcher</h3>
+              <p>
+                The one in which she opens five browser tabs — one per tool, like a cable TV lineup from 2001 — types the same prompt into all of them, gets back five wildly different responses, briefly considers building a comparison spreadsheet (does not build the comparison spreadsheet), and arrives at the question she should have been asking from the start: not which tool is best, but <em>who is right for this scene.</em>
+              </p>
+              <span class="episode-card-cta">Pick up the episode</span>
+            </div>
+          </a>
+
+          <div class="ritual-block">
+            <p class="ritual-heading">The 7-stop walk</p>
+            <ol class="ritual-beats">
+              <li><a class="ritual-beat" href="/newsstand.html"><span class="ritual-beat-n">01</span><span class="ritual-beat-label">NewsStand</span><span class="ritual-beat-desc">the week's headlines</span></a></li>
+              <li><a class="ritual-beat" href="/chick-flicks.html"><span class="ritual-beat-n">02</span><span class="ritual-beat-label">The Chick Flicks</span><span class="ritual-beat-desc">pick up this week's episode</span></a></li>
+              <li><a class="ritual-beat" href="/blend-snap.html"><span class="ritual-beat-n">03</span><span class="ritual-beat-label">The Blend &amp; Snap</span><span class="ritual-beat-desc">grab coffee, study the notes</span></a></li>
+              <li><a class="ritual-beat" href="/sunnyvaile-high.html"><span class="ritual-beat-n">04</span><span class="ritual-beat-label">SUNNYVAiLE High</span><span class="ritual-beat-desc">take the pop quiz</span></a></li>
+              <li><a class="ritual-beat" href="/mall.html"><span class="ritual-beat-n">05</span><span class="ritual-beat-label">Free time</span><span class="ritual-beat-desc">wander town — your call</span></a></li>
+              <li><a class="ritual-beat" href="/maikeover.html"><span class="ritual-beat-n">06</span><span class="ritual-beat-label">MAiKEOVER on MAiN(e)</span><span class="ritual-beat-desc">see your card, freshen up</span></a></li>
+              <li><a class="ritual-beat" href="/bronze-aige.html"><span class="ritual-beat-n">07</span><span class="ritual-beat-label">The BRONZE AiGE</span><span class="ritual-beat-desc">happy hour and live music</span></a></li>
+              <li><a class="ritual-beat" href="/sorority-house.html"><span class="ritual-beat-n">08</span><span class="ritual-beat-label">Delta LAi Nu</span><span class="ritual-beat-desc">Girl Talk with the LAiDIES</span></a></li>
+            </ol>
+            <a class="ritual-cta" href="/chick-flicks.html">Spend this Wednesday in SUNNYVAiLE</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · TOOLS YOU CAN USE RIGHT NOW -->
+    <section class="band band--pearl">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">Tools open now</p>
+          <h2>Use one before you leave town.</h2>
+          <p>Five things you can pick up and use this minute. LAiDY first — she's the everywhere-tool.</p>
+        </header>
+
+        <div class="tools-grid">
+
+          <a class="tool-card" href="/games/fairy-godmother.html">
+            <p class="tool-eyebrow">Tool · Anywhere</p>
+            <h3 class="tool-name">Ask LAiDY</h3>
+            <p class="tool-where">At the FAiRY Godmother's House · Willow Lane</p>
+            <p class="tool-desc">Your in-house AI assistant. Ask the FAiRY Godmother. Bring the question — she'll bring the answer.</p>
+            <span class="tool-open">Open Ask LAiDY</span>
+          </a>
+
+          <a class="tool-card" href="/games/madame-claio.html">
+            <p class="tool-eyebrow">Tool · Tarot</p>
+            <h3 class="tool-name">Mme CLAi-O</h3>
+            <p class="tool-where">Her Shop · MAiN Street · No. 6</p>
+            <p class="tool-desc">Pull a card. Get the read, the message, and the move. The town fortune-teller answers what to do.</p>
+            <span class="tool-open">Consult the oracle</span>
+          </a>
+
+          <a class="tool-card" href="/games/businesswomens-special.html">
+            <p class="tool-eyebrow">Tool · Drink picker</p>
+            <h3 class="tool-name">Businesswomen's Special</h3>
+            <p class="tool-where">The BRONZE AiGE · MAiN Street · No. 5</p>
+            <p class="tool-desc">Spin for your happy-hour drink. Coven has a reservation at 4 — yours doesn't need one.</p>
+            <span class="tool-open">Pick your drink</span>
+          </a>
+
+          <a class="tool-card" href="/games/dream-phone.html">
+            <p class="tool-eyebrow">Tool · Call-in advice</p>
+            <h3 class="tool-name">Dream Phone</h3>
+            <p class="tool-where">The Phone Booth · Corner of MAiN &amp; Cathedral Hill</p>
+            <p class="tool-desc">Pick up the receiver. Ask your question. Pick the voice — Receipts, Boundary, Bestie. The right LAiDY answers.</p>
+            <span class="tool-open">Make the call</span>
+          </a>
+
+          <a class="tool-card" href="/games/girl-talk.html">
+            <p class="tool-eyebrow">Tool · Members only</p>
+            <h3 class="tool-name">Girl Talk</h3>
+            <p class="tool-where">The Sorority House · Wisteria Lane</p>
+            <p class="tool-desc">Truth or dare for the LAiDIES. Dares ask you to post in the chat rooms — members at the door.</p>
+            <span class="tool-open">Play Girl Talk</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · PATRON SAINTS -->
+    <section class="band band--blush">
+      <div class="container">
+        <header class="section-head">
           <p class="kicker">Your patron saints</p>
-          <h2>The cast you already know.</h2>
-          <p>The pop-culture cast we keep coming back to. They walked into rooms full of people who underestimated them — and walked out with the upper hand. Borrow what they did.</p>
+          <h2>The Blessed Ones you already know.</h2>
+          <p style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(18px, 2.1vw, 22px); color: var(--rose); margin: 0 0 18px; line-height: 1.35;">"We pledge Allegiance to the united Saints of SUNNYVAiLE."</p>
+          <p>Eight pop-culture icons we keep coming back to. They walked into rooms full of people who underestimated them — and walked out with the upper hand. Borrow what they did.</p>
         </header>
         <div class="saints-grid">
-          <a class="saint-card" href="grimoire.html">
-            <div class="saint-initial" role="img" aria-label="Illustrated portrait of Cher Horowitz" style="background-image: url('assets/saints/cher-horowitz.png');">C</div>
+          <a class="saint-card" href="/sanctuary.html">
+            <div class="saint-initial" role="img" aria-label="Cher Horowitz" style="background-image: url('assets/saints/cher-horowitz.png');">C</div>
             <h3>Cher Horowitz</h3>
             <p class="saint-lane">Early adoption</p>
             <p class="saint-rule">Cher had a wardrobe recommender in 1995. The story isn't that the tech existed. It's that she was first in the cafeteria to use it.</p>
           </a>
-          <a class="saint-card" href="grimoire.html">
-            <div class="saint-initial" role="img" aria-label="Illustrated portrait of Elle Woods" style="background-image: url('assets/saints/elle-woods.png');">E</div>
+          <a class="saint-card" href="/sanctuary.html">
+            <div class="saint-initial" role="img" aria-label="Elle Woods" style="background-image: url('assets/saints/elle-woods.png');">E</div>
             <h3>Elle Woods</h3>
             <p class="saint-lane">Receipts</p>
             <p class="saint-rule">Elle walked into court with the perm rule, the timeline, and the witness already lined up. She didn't bring receipts. She had them.</p>
           </a>
-          <a class="saint-card" href="grimoire.html">
-            <div class="saint-initial" role="img" aria-label="Illustrated portrait of Miranda Priestly" style="background-image: url('assets/saints/miranda-priestly.png');">M</div>
+          <a class="saint-card" href="/sanctuary.html">
+            <div class="saint-initial" role="img" aria-label="Miranda Priestly" style="background-image: url('assets/saints/miranda-priestly.png');">M</div>
             <h3>Miranda Priestly</h3>
             <p class="saint-lane">Standards</p>
             <p class="saint-rule">Miranda knew the cerulean's whole history before it touched a closet. Knowing what you're looking at is the difference between a yes and a yes-with-changes.</p>
           </a>
-          <a class="saint-card" href="grimoire.html">
-            <div class="saint-initial" role="img" aria-label="Illustrated portrait of Buffy Summers" style="background-image: url('assets/saints/buffy-summers.png');">B</div>
+          <a class="saint-card" href="/sanctuary.html">
+            <div class="saint-initial" role="img" aria-label="Buffy Summers" style="background-image: url('assets/saints/buffy-summers.png');">B</div>
             <h3>Buffy Summers</h3>
             <p class="saint-lane">Slaying the tools</p>
             <p class="saint-rule">Buffy runs toward the vampire. Everybody else is still in the parking lot trying to get away.</p>
           </a>
-          <a class="saint-card" href="grimoire.html">
-            <div class="saint-initial" role="img" aria-label="Illustrated portrait of Regina George" style="background-image: url('assets/saints/regina-george.png');">R</div>
+
+          <div class="saint-card-back" aria-hidden="true">
+            <img src="assets/saints/card-back.png" alt="" />
+          </div>
+
+          <a class="saint-card" href="/sanctuary.html">
+            <div class="saint-initial" role="img" aria-label="Regina George" style="background-image: url('assets/saints/regina-george.png');">R</div>
             <h3>Regina George</h3>
             <p class="saint-lane">Dangerous confidence</p>
             <p class="saint-rule">Regina told Cady the skirt was cute, then told someone else it was ugly. Same skirt. Different audience. Polished delivery — and the receipts are still in the Burn Book.</p>
           </a>
-          <a class="saint-card" href="grimoire.html">
-            <div class="saint-initial" role="img" aria-label="Illustrated portrait of David Rose" style="background-image: url('assets/saints/david-rose.png');">D</div>
+          <a class="saint-card" href="/sanctuary.html">
+            <div class="saint-initial" role="img" aria-label="David Rose" style="background-image: url('assets/saints/david-rose.png');">D</div>
             <h3>David Rose</h3>
             <p class="saint-lane">Specificity</p>
             <p class="saint-rule">"Fold in the cheese" is an instruction. "Make this better" is also an instruction. They fail the same way.</p>
           </a>
-          <a class="saint-card" href="grimoire.html">
-            <div class="saint-initial" role="img" aria-label="Illustrated portrait of Deb" style="background-image: url('assets/saints/deb.png');">D</div>
+          <a class="saint-card" href="/sanctuary.html">
+            <div class="saint-initial" role="img" aria-label="Deb" style="background-image: url('assets/saints/deb.png');">D</div>
             <h3>Deb</h3>
-            <p class="saint-lane">Institutional survival</p>
-            <p class="saint-rule">Deb has survived every reorg since 2004. AI doesn't know she exists — and half your job runs through her.</p>
+            <p class="saint-lane">Loop Me Out</p>
+            <p class="saint-rule">Deb trademarked Deb-flection™ in 1997 and has survived every reorg since 2004 by looping herself OUT of every request. Also the Patron Saint of Deb.</p>
           </a>
-          <a class="saint-card" href="grimoire.html">
-            <div class="saint-initial" role="img" aria-label="Illustrated portrait of Dolly Parton" style="background-image: url('assets/saints/dolly-parton.png');">DP</div>
+          <a class="saint-card" href="/sanctuary.html">
+            <div class="saint-initial" role="img" aria-label="Dolly Parton" style="background-image: url('assets/saints/dolly-parton.png');">DP</div>
             <h3>Dolly Parton</h3>
-            <p class="saint-lane">Level-headed advice</p>
+            <p class="saint-lane">Common Sense</p>
             <p class="saint-rule">You better get to building your own bridge, because ain't nobody building it for you, honey.</p>
           </a>
-          <!-- "+ Add yours" card removed per Ali — was orphaned at the bottom of the grid.
-               Card-back image is now featured in the Join the Club banner instead. -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · TOWN DIRECTORY -->
+    <section class="band band--cream">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">The town directory</p>
+          <h2>Take a lap around SUNNYVAiLE.</h2>
+          <p>Every section of the site has an address. Click any place to step inside.</p>
+        </header>
+
+        <div id="sv-map-directory" style="margin: 24px 0 40px;"></div>
+        <script defer src="/content/site/sunnyvaile-directory.js?v=20260701-2"></script>
+
+        <div class="directory-grid" style="display:none;" aria-hidden="true">
+
+          <a class="dir-card" href="/visitors-centre.html">
+            <p class="dir-addr">★ MAiN Street · No. 1</p>
+            <h3 class="dir-name">The Welcome Wagon</h3>
+            <p class="dir-tag">First stop. Start Here + About.</p>
+          </a>
+
+          <a class="dir-card" href="/newsstand.html">
+            <p class="dir-addr">★ MAiN Street · No. 2</p>
+            <h3 class="dir-name">The NewsStand</h3>
+            <p class="dir-tag">Today · Wednesday · Tribune.</p>
+          </a>
+
+          <a class="dir-card" href="/library.html">
+            <p class="dir-addr">★ MAiN Street · No. 3</p>
+            <h3 class="dir-name">The Town LIBRAiRY</h3>
+            <p class="dir-tag">The Grimoire reference shelves.</p>
+          </a>
+
+          <a class="dir-card" href="/mall.html">
+            <p class="dir-addr">★ MAiN Street · No. 4</p>
+            <h3 class="dir-name">The Mall</h3>
+            <p class="dir-tag">Ten stops. All references. Searchable.</p>
+          </a>
+
+          <a class="dir-card" href="/bronze-aige.html">
+            <p class="dir-addr">★ MAiN Street · No. 5</p>
+            <h3 class="dir-name">The BRONZE AiGE</h3>
+            <p class="dir-tag">Happy hour + live show after 8.</p>
+          </a>
+
+          <a class="dir-card" href="/games/madame-claio.html">
+            <p class="dir-addr">★ MAiN Street · No. 6</p>
+            <h3 class="dir-name">Mme CLAi-O's Shop</h3>
+            <p class="dir-tag">The town oracle. Crystal ball, tarot.</p>
+          </a>
+
+          <a class="dir-card" href="/chick-flicks.html">
+            <p class="dir-addr">★ MAiN Street · No. 7</p>
+            <h3 class="dir-name">The Chick Flicks</h3>
+            <p class="dir-tag">The season. Video rental shop.</p>
+          </a>
+
+          <a class="dir-card" href="/blend-snap.html">
+            <p class="dir-addr">★ MAiN Street · No. 8</p>
+            <h3 class="dir-name">The Blend &amp; Snap</h3>
+            <p class="dir-tag">Coffee shop. Study Pack lives here.</p>
+          </a>
+
+          <a class="dir-card" href="/maikeover.html">
+            <p class="dir-addr">★ MAiN Street · No. 9</p>
+            <h3 class="dir-name">MAiKEOVER on MAiN(e)</h3>
+            <p class="dir-tag">Beauty parlor · member card maker.</p>
+          </a>
+
+          <a class="dir-card" href="/sorority-house.html">
+            <p class="dir-addr">★ Wisteria Lane</p>
+            <h3 class="dir-name">The Sorority House</h3>
+            <p class="dir-tag">Delta LAi Nu · members only.</p>
+          </a>
+
+          <a class="dir-card" href="/games/fairy-godmother.html">
+            <p class="dir-addr">★ Willow Lane</p>
+            <h3 class="dir-name">FAiRY Godmother's House</h3>
+            <p class="dir-tag">Ask LAiDY lives here.</p>
+          </a>
+
+          <a class="dir-card" href="/town-hall.html">
+            <p class="dir-addr">★ Civic Square</p>
+            <h3 class="dir-name">Town Hall</h3>
+            <p class="dir-tag">Mayor Deb's office.</p>
+          </a>
+
+          <a class="dir-card" href="/post-office.html">
+            <p class="dir-addr">★ Civic Square</p>
+            <h3 class="dir-name">The LAiDIES Post Office</h3>
+            <p class="dir-tag">Sign up for the Wednesday Drop.</p>
+          </a>
+
+          <a class="dir-card" href="/sunnyvaile-high.html">
+            <p class="dir-addr">★ Schoolhouse Road</p>
+            <h3 class="dir-name">SUNNYVAiLE High</h3>
+            <p class="dir-tag">Season 1 · 101 classes. Pop quiz.</p>
+          </a>
+
+          <a class="dir-card" href="/sanctuary.html">
+            <p class="dir-addr">★ Cathedral Hill</p>
+            <h3 class="dir-name">The SANCTUAiRY</h3>
+            <p class="dir-tag">Patron Saints + The Coven.</p>
+          </a>
+
+          <a class="dir-card" href="/radio.html">
+            <p class="dir-addr">★ Radio Tower · KSVL</p>
+            <h3 class="dir-name">Community Radio</h3>
+            <p class="dir-tag">Music broadcast all day.</p>
+          </a>
+
+          <a class="dir-card" href="/games/dream-phone.html">
+            <p class="dir-addr">★ Corner of MAiN &amp; Cathedral Hill</p>
+            <h3 class="dir-name">The Phone Booth</h3>
+            <p class="dir-tag">Dream Phone. Call in for advice.</p>
+          </a>
 
         </div>
       </div>
     </section>
 
-    <!-- JOIN BANNER §14 -->
-    <section class="container join-banner-wrap" id="join">
-      <div class="join-banner">
-        <div class="join-copy">
-          <h2>Join the Club.</h2>
-          <p>Girl Power Meets Machine Power — every Wednesday.</p>
+    <!-- 6 · POST OFFICE SIGNUP -->
+    <section class="band band--pearl" id="signup">
+      <div class="container">
+        <div class="signup-band">
+          <h2>The Wednesday Drop.</h2>
+          <p>The episode comes to your inbox at the LAiDIES Post Office. One delivery, every Wednesday, on schedule.</p>
           <form class="signup-form"
                 action="https://buttondown.com/api/emails/embed-subscribe/laidies"
                 method="post"
                 target="popupwindow"
                 onsubmit="window.open('https://buttondown.com/laidies', 'popupwindow')">
-            <label class="visually-hidden" for="signup-email-2">Email address</label>
-            <input id="signup-email-2" type="email" name="email" placeholder="your@email.com" required>
-            <input type="hidden" name="tag" value="homepage-join">
-            <button type="submit">Get the weekly drop</button>
+            <input type="email" name="email" placeholder="you@yourcompany.com" required aria-label="Email address" />
+            <button type="submit">Sign up at the Post Office</button>
           </form>
-          <p class="join-fine">No spam. Unsubscribe whenever.</p>
-        </div>
-        <div class="join-signet-wrap">
-          <img class="join-signet" src="assets/saints/card-back.png" alt="" aria-hidden="true">
         </div>
       </div>
     </section>
+
+    <!-- 7 · MEMBERSHIP — Coming Soon -->
+    <section class="band band--cream" id="membership">
+      <div class="container">
+        <div class="membership">
+          <div class="coming-soon-overlay">Coming Soon</div>
+          <h2>Get your member card at MAiKEOVER on MAiN(e).</h2>
+          <p>The card saves your progress as you explore town. Collect <strong>stickers</strong>, earn <strong>merit badges</strong>, and hunt for <strong>charms hidden in the storefronts and scenes around SUNNYVAiLE</strong>. Plus full access to the Sorority House: chat rooms, Wins, the Burn Book, Dear LAiDIES, Girl Talk. Walk into MAiKEOVER on MAiN(e), pick your colors, leave a member. The chair is being prepped — back soon.</p>
+          <span class="membership-cta-disabled" aria-disabled="true">Make my card — opening soon</span>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <!-- FOOTER §15 -->
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-top">
-        <div>
-          <img class="footer-logo" src="assets/brand/laidies-wordmark-final-b-dark.svg" alt="LAiDIES" width="120" height="26">
-          <p class="footer-tagline">AI fluency and community for women with full calendars, high standards, and no patience for beige tech explanations.</p>
-        </div>
-        <div class="footer-signup">
-          <h3>The Wednesday drop</h3>
-          <form class="signup-form"
-                action="https://buttondown.com/api/emails/embed-subscribe/laidies"
-                method="post"
-                target="popupwindow"
-                onsubmit="window.open('https://buttondown.com/laidies', 'popupwindow')">
-            <label class="visually-hidden" for="signup-email-3">Email address</label>
-            <input id="signup-email-3" type="email" name="email" placeholder="your@email.com" required>
-            <input type="hidden" name="tag" value="homepage-footer">
-            <button type="submit">Join the Club</button>
-          </form>
-          <p class="footer-handle">@laidies.ai · the Wednesday drop</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© LAiDIES</span>
-        <nav class="footer-bottom-nav" aria-label="Footer">
-          <a href="this-week.html">Weekly Ritual</a><span aria-hidden="true">·</span>
-          <a href="hot-goss.html">SunnyVAiLE NewsStand</a><span aria-hidden="true">·</span>
-          <a href="grimoire.html">The Grimoire</a><span aria-hidden="true">·</span>
-          <a href="clubhouse.html#games">ARCAiDE</a><span aria-hidden="true">·</span>
-          <a href="clubhouse.html">The Clubhouse</a><span aria-hidden="true">·</span>
-          <a href="episodes.html">The Season</a><span aria-hidden="true">·</span>
-          <a href="start-here.html">Start Here</a>
-        </nav>
-      </div>
+    <p>
+      <span class="footer-brand">LAiDIES<sup style="font-size:0.5em; opacity:0.8;">™</sup></span>
+    </p>
+    <p class="footer-legal">© 2026 Ali Eakin · Filed from SUNNYVAiLE · All rights reserved.</p>
+    <div class="footer-links">
+      <a href="/visitors-centre.html">Welcome Wagon</a>
+      <a href="/library.html">LIBRAiRY</a>
+      <a href="/mall.html">The Mall</a>
+      <a href="/sanctuary.html">SANCTUAiRY</a>
+      <a href="/post-office.html">Post Office</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
     </div>
   </footer>
 
-  <script>
-    (function () {
-      // ====== MENU OPEN/CLOSE + FOCUS TRAP + ESCAPE ======
-      var menuBtn = document.querySelector('[data-menu-trigger]');
-      var menuClose = document.querySelector('[data-menu-close]');
-      var menu = document.querySelector('[data-site-menu]');
-      var lastFocus = null;
-
-      function openMenu() {
-        if (!menu || !menuBtn) return;
-        lastFocus = document.activeElement;
-        menu.hidden = false;
-        menuBtn.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
-        setTimeout(function () { menuClose && menuClose.focus(); }, 0);
-      }
-
-      function closeMenu() {
-        if (!menu || !menuBtn) return;
-        menu.hidden = true;
-        menuBtn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-        (lastFocus || menuBtn).focus();
-      }
-
-      if (menuBtn) menuBtn.addEventListener('click', openMenu);
-      if (menuClose) menuClose.addEventListener('click', closeMenu);
-
-      document.addEventListener('keydown', function (e) {
-        if (!menu || menu.hidden) return;
-        if (e.key === 'Escape') { closeMenu(); return; }
-        if (e.key === 'Tab') {
-          var focusable = menu.querySelectorAll('a[href], button:not([disabled])');
-          if (!focusable.length) return;
-          var first = focusable[0];
-          var last = focusable[focusable.length - 1];
-          if (e.shiftKey && document.activeElement === first) {
-            e.preventDefault(); last.focus();
-          } else if (!e.shiftKey && document.activeElement === last) {
-            e.preventDefault(); first.focus();
-          }
-        }
-      });
-
-      // Close menu when any in-menu link is clicked
-      if (menu) {
-        menu.querySelectorAll('a').forEach(function (a) {
-          a.addEventListener('click', function () { if (!menu.hidden) closeMenu(); });
-        });
-      }
-
-      // ====== DYNAMIC EPISODE NUMBER + TITLE ======
-      function paintEpisode() {
-        var data = window.LAIDIES_SITE_DATA;
-        if (!data || !Array.isArray(data.episodes)) return;
-        var published = data.episodes.filter(function (e) { return e.status === 'published'; });
-        if (!published.length) return;
-        var latest = published.reduce(function (a, b) {
-          return Number(b.number) > Number(a.number) ? b : a;
-        });
-        var num = String(latest.number).padStart(2, '0');
-        var numEl = document.querySelector('[data-ep-num]');
-        var titleEl = document.querySelector('[data-ep-title]');
-        var imgEl = document.querySelector('[data-ep-image]');
-        if (numEl) numEl.textContent = num;
-        if (titleEl) titleEl.textContent = latest.title;
-        if (imgEl && latest.heroImage) {
-          imgEl.src = latest.heroImage;
-          imgEl.alt = 'Episode ' + latest.number + ' — ' + latest.title;
-        }
-      }
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', paintEpisode);
-      } else {
-        paintEpisode();
-      }
-
-      // ====== HOT GOSS RAIL FEED ======
-      function escapeHtml(s) {
-        return String(s).replace(/[&<>"']/g, function (c) {
-          return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c];
-        });
-      }
-      fetch('content/hot-goss-feed.json?v=20260628', { cache: 'no-store' })
-        .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-        .then(function (data) {
-          var items = (data.dailyHeadlines || []).slice(0, 3);
-          var list = document.querySelector('[data-hot-goss-feed]');
-          if (!list || !items.length) return;
-          list.innerHTML = items.map(function (h) {
-            var href = h.source || 'hot-goss.html';
-            var external = /^https?:/.test(href);
-            return '<li><a href="' + escapeHtml(href) + '"' +
-              (external ? ' target="_blank" rel="noopener"' : '') +
-              '>' + escapeHtml(h.headline) + '</a></li>';
-          }).join('');
-        })
-        .catch(function () {
-          var list = document.querySelector('[data-hot-goss-feed]');
-          if (list) list.innerHTML = '<li><a href="hot-goss.html">Open the NewsStand →</a></li>';
-        });
-    })();
-  </script>
 </body>
 </html>

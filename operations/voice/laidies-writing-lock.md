@@ -169,7 +169,7 @@ For example:
 * Buffy = slaying the thing everyone else is avoiding
 * Regina George = dangerous confidence, social dynamics, polished delivery with risk
 * Deb = institutional survival, legacy systems, corporate cryptid energy
-* Dolly Parton = level-headed advice, knowing your worth, plain-spoken self-made wisdom
+* Dolly Parton = common sense, knowing your worth, plain-spoken self-made wisdom
 
 The character must match the lesson.
 
@@ -217,8 +217,8 @@ Current Patron Saint lanes:
 * Miranda Priestly — Patron Saint of Standards
 * Buffy Summers — Patron Saint of Slaying
 * Regina George — Patron Saint of Dangerous Confidence
-* Deb — Patron Saint of Institutional Survival
-* Dolly Parton — Patron Saint of Level-Headed Advice
+* Deb — Patron Saint of "Loop Me Out"
+* Dolly Parton — Patron Saint of Common Sense
 
 Do not assign a character a job that belongs to someone else unless the piece intentionally explains why.
 
@@ -429,8 +429,8 @@ Patron Saints include:
 * Miranda Priestly — Patron Saint of Standards
 * Buffy Summers — Patron Saint of Slaying
 * Regina George — Patron Saint of Dangerous Confidence
-* Deb — Patron Saint of Institutional Survival
-* Dolly Parton — Patron Saint of Level-Headed Advice
+* Deb — Patron Saint of "Loop Me Out"
+* Dolly Parton — Patron Saint of Common Sense
 
 Deb is a corporate cryptid. She survived every reorg, wants an early retirement package, no one knows what she does, she does it with disdain, and IT has had to accommodate her ancient end-of-life desktop setup.
 

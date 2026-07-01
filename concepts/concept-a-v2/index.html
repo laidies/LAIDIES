@@ -1,0 +1,1064 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LAiDIES · Concept A v2 — Welcome to SUNNYVAiLE</title>
+  <meta name="description" content="World-first homepage. The town is the structure; the publication is one thing happening inside it. AI fluency and community for women in SUNNYVAiLE.">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --plum: #4b2148; --plum-deep: #3a1838; --plum-soft: #6b3a66;
+      --rose: #9b3f5f; --rose-bright: #c25b7d; --gold: #c9a227;
+      --cream: #fffdfb; --pearl: #f8eef2; --blush: #f9e6ee;
+      --line: rgba(75,33,72,0.14);
+      --line-strong: rgba(75,33,72,0.32);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Jost', sans-serif;
+      color: var(--plum);
+      background: var(--cream);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    /* ============================================================
+       CONCEPT SWITCHER BAR (for review across concepts)
+       ============================================================ */
+    .concept-bar {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--plum-deep);
+      color: var(--cream);
+      padding: 8px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; flex-wrap: wrap;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase;
+    }
+    .concept-bar-left { color: var(--gold); }
+    .concept-bar-tabs { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+    .concept-bar-tabs a {
+      padding: 5px 10px;
+      border: 1px solid rgba(255,253,251,0.32);
+      border-radius: 999px;
+      color: var(--cream);
+      font-size: 11px; font-weight: 600;
+      transition: background 200ms ease, border-color 200ms ease;
+    }
+    .concept-bar-tabs a:hover { border-color: var(--gold); }
+    .concept-bar-tabs a.active {
+      background: var(--gold);
+      color: var(--plum-deep);
+      border-color: var(--gold);
+    }
+    .concept-bar-tabs a.active span { display: block; font-size: 9px; opacity: 0.8; font-weight: 500; letter-spacing: 0.08em; }
+
+    /* ============================================================
+       BRAND HEADER — small + persistent
+       ============================================================ */
+    .brand-header {
+      padding: 22px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand-header .laidies-wordmark img {
+      height: 22px;
+    }
+    .brand-header nav {
+      display: flex; gap: 28px;
+      font-size: 13px; font-weight: 500;
+      color: var(--plum-soft);
+    }
+    .brand-header nav a:hover { color: var(--rose); }
+    .brand-header .join-btn {
+      padding: 10px 20px;
+      border: 1.5px solid var(--plum);
+      border-radius: 999px;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--plum);
+      transition: background 200ms ease, color 200ms ease;
+    }
+    .brand-header .join-btn:hover { background: var(--plum); color: var(--cream); }
+
+    /* ============================================================
+       ARRIVAL — the moment you enter town
+       ============================================================ */
+    .arrival {
+      position: relative;
+      padding: 64px 40px 80px;
+      background:
+        radial-gradient(ellipse at 50% 100%, rgba(155,63,95,0.12) 0%, rgba(155,63,95,0) 60%),
+        linear-gradient(180deg, var(--pearl) 0%, var(--cream) 100%);
+      text-align: center;
+      overflow: hidden;
+    }
+    .arrival::before, .arrival::after {
+      content: "";
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 60px; height: 1px;
+      background: var(--rose);
+    }
+    .arrival::before { left: 6%; }
+    .arrival::after  { right: 6%; }
+    .arrival-eyebrow {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.42em; text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 6px;
+    }
+    .arrival-welcome {
+      font-size: 14px; font-weight: 500;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--plum-soft);
+      margin-bottom: 4px;
+    }
+    .arrival-town {
+      font-family: 'Jost', sans-serif;
+      font-size: clamp(72px, 14vw, 192px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.86;
+      color: var(--plum);
+      margin: 0 0 14px;
+      text-transform: none;
+    }
+    .arrival-town .ai-pop {
+      color: var(--rose);
+      font-style: italic;
+      font-weight: 400;
+    }
+    .arrival-population {
+      display: inline-block;
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--plum-soft);
+      padding: 8px 18px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      margin-top: 8px;
+    }
+    .arrival-population strong { color: var(--plum); }
+    .arrival-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .arrival-anthem {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 11px 18px 11px 14px;
+      background: var(--cream);
+      border: 1.5px solid var(--rose);
+      border-radius: 999px;
+      color: var(--plum);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      cursor: pointer;
+      transition: background 200ms ease, color 200ms ease, transform 200ms ease;
+    }
+    .arrival-anthem:hover { background: var(--rose); color: var(--cream); transform: scale(1.04); }
+    .arrival-anthem svg { width: 14px; height: 14px; fill: currentColor; }
+    .arrival-anthem .pause-icon { display: none; }
+    .arrival-anthem.is-playing .play-icon { display: none; }
+    .arrival-anthem.is-playing .pause-icon { display: block; }
+    .arrival-anthem.is-playing { background: var(--rose); color: var(--cream); }
+    .arrival-cta {
+      padding: 11px 22px;
+      background: var(--plum);
+      border-radius: 999px;
+      color: var(--cream);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      transition: background 200ms ease, transform 200ms ease;
+    }
+    .arrival-cta:hover { background: var(--plum-deep); transform: scale(1.04); }
+    .arrival-meta {
+      display: flex; align-items: center; justify-content: center; gap: 16px;
+      margin-top: 36px;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--plum-soft);
+    }
+    .arrival-meta .sep { color: var(--rose); }
+
+    /* Town placeholder mark — a SUNNYVAiLE 'seal' slot Ali commissions later */
+    .town-seal {
+      display: inline-flex;
+      width: 88px; height: 88px;
+      border: 2px solid var(--plum);
+      border-radius: 50%;
+      align-items: center; justify-content: center;
+      margin: 0 auto 18px;
+      position: relative;
+      background: var(--cream);
+    }
+    .town-seal::before, .town-seal::after {
+      content: "";
+      position: absolute;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+    }
+    .town-seal::before { inset: 5px; }
+    .town-seal::after  { inset: 11px; border-color: var(--rose); }
+    .town-seal-mark {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      color: var(--plum);
+      text-align: center;
+      line-height: 1.1;
+      position: relative; z-index: 2;
+    }
+    .town-seal-mark small { display: block; font-size: 7px; letter-spacing: 0.2em; color: var(--plum-soft); margin-top: 2px; }
+
+    /* ============================================================
+       DISPATCH — this week's episode (the only "publication" thing)
+       ============================================================ */
+    .dispatch {
+      padding: 80px 40px;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+    .dispatch-eyebrow {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 8px;
+    }
+    .dispatch-eyebrow .gold { color: var(--gold); }
+    .dispatch-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .dispatch-title {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700;
+      letter-spacing: -0.022em;
+      line-height: 1.02;
+      color: var(--plum);
+      margin: 0 0 20px;
+    }
+    .dispatch-pull {
+      background: var(--blush);
+      border-left: 3px solid var(--rose);
+      padding: 20px 22px;
+      margin-bottom: 28px;
+      border-radius: 0 4px 4px 0;
+    }
+    .dispatch-pull-kicker {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 8px;
+    }
+    .dispatch-pull-body {
+      font-size: 14.5px;
+      line-height: 1.5;
+      color: var(--plum);
+      margin: 0;
+    }
+    .dispatch-pull-body em { color: var(--plum-deep); font-style: italic; }
+    .dispatch-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 26px;
+      background: var(--plum);
+      border-radius: 999px;
+      color: var(--cream);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      transition: background 200ms ease, transform 200ms ease;
+    }
+    .dispatch-cta:hover { background: var(--plum-deep); transform: translateX(4px); }
+    .dispatch-img-wrap {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      border-radius: 4px;
+      box-shadow: 0 24px 48px -22px rgba(75,33,72,0.32);
+    }
+    .dispatch-img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ============================================================
+       AROUND TOWN — the map / location directory
+       ============================================================ */
+    .around {
+      background: var(--pearl);
+      padding: 96px 40px;
+    }
+    .around-inner { max-width: 1200px; margin: 0 auto; }
+    .around-head {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .around-eyebrow {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.42em; text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 10px;
+    }
+    .around-title {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700;
+      letter-spacing: -0.022em;
+      line-height: 1;
+      color: var(--plum);
+      margin: 0 0 16px;
+    }
+    .around-sub {
+      font-size: 16px;
+      color: var(--plum-soft);
+      max-width: 56ch;
+      margin: 0 auto;
+    }
+
+    .town-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .place {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 28px 26px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .place:hover {
+      transform: translateY(-3px);
+      border-color: var(--rose);
+      box-shadow: 0 20px 40px -22px rgba(75,33,72,0.28);
+    }
+    /* Address number — like a house number on a sign */
+    .place-addr {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      align-self: flex-start;
+      font-size: 9px; font-weight: 800;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--rose);
+      padding: 5px 9px;
+      border: 1.5px solid var(--rose);
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .place-name {
+      font-size: clamp(22px, 2vw, 26px);
+      font-weight: 700;
+      letter-spacing: -0.012em;
+      line-height: 1.05;
+      color: var(--plum);
+      margin: 0 0 4px;
+    }
+    .place-inside {
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--gold);
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+    .place-desc {
+      font-size: 14px;
+      color: var(--plum-soft);
+      line-height: 1.5;
+      margin: 0;
+      flex-grow: 1;
+    }
+    .place-link {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--rose);
+      margin-top: 18px;
+      align-self: flex-start;
+    }
+    .place--featured {
+      grid-column: span 2;
+      grid-row: span 2;
+      background: var(--plum);
+      color: var(--cream);
+      border-color: var(--plum-deep);
+    }
+    .place--featured .place-name { color: var(--cream); }
+    .place--featured .place-desc { color: rgba(255,253,251,0.78); }
+    .place--featured .place-inside { color: var(--gold); }
+    .place--featured .place-addr { color: var(--gold); border-color: var(--gold); }
+    .place--featured .place-link { color: var(--gold); }
+    .place--featured .place-img-area {
+      margin: 16px -26px 22px;
+      height: 320px;
+      background: var(--plum-deep);
+      position: relative;
+      overflow: hidden;
+    }
+    .place--featured .place-img-area img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .place--wide {
+      grid-column: span 3;
+    }
+    .place--wide .place-img-area {
+      margin: 16px -26px 22px;
+      height: 280px;
+      overflow: hidden;
+      background: var(--plum-deep);
+    }
+    .place--wide .place-img-area img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ============================================================
+       SANCTUARY — Patron Saints today
+       ============================================================ */
+    .sanctuary {
+      padding: 96px 40px;
+      background: var(--blush);
+    }
+    .sanctuary-inner { max-width: 1200px; margin: 0 auto; }
+    .sanctuary-head {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .sanctuary-addr {
+      display: inline-block;
+      font-size: 10px; font-weight: 800;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--rose);
+      padding: 5px 12px;
+      border: 1.5px solid var(--rose);
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .sanctuary-title {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700;
+      letter-spacing: -0.022em;
+      line-height: 1;
+      color: var(--plum);
+      margin: 0 0 14px;
+    }
+    .sanctuary-sub {
+      font-size: 16px;
+      color: var(--plum-soft);
+      max-width: 56ch;
+      margin: 0 auto;
+    }
+    .saints-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .saint {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 240ms ease, box-shadow 240ms ease;
+    }
+    .saint:hover { transform: translateY(-3px); box-shadow: 0 20px 40px -22px rgba(75,33,72,0.28); }
+    .saint-portrait {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+    }
+    .saint-play {
+      align-self: flex-end;
+      margin: 10px 14px 0 0;
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 5px 10px 5px 7px;
+      background: var(--cream);
+      border: 1px solid rgba(75,33,72,0.18);
+      border-radius: 999px;
+      color: var(--plum);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 200ms ease, color 200ms ease, transform 200ms ease;
+    }
+    .saint-play:hover { background: var(--rose); color: var(--cream); transform: scale(1.04); }
+    .saint-play svg { width: 12px; height: 12px; fill: currentColor; }
+    .saint-play .pause-icon { display: none; }
+    .saint-play.is-playing .play-icon { display: none; }
+    .saint-play.is-playing .pause-icon { display: block; }
+    .saint-play.is-playing { background: var(--rose); color: var(--cream); }
+    .saint-body { padding: 14px 20px 22px; }
+    .saint-name { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; color: var(--plum); margin: 0 0 4px; }
+    .saint-lane { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .saint-rule { font-size: 13.5px; color: var(--plum-soft); line-height: 1.5; margin: 0; }
+    /* Card-back centered in 3x3 */
+    .saint-card-back {
+      display: flex; align-items: center; justify-content: center;
+      background: transparent;
+      border: none;
+    }
+    .saint-card-back img { width: 100%; height: auto; object-fit: contain; }
+
+    /* ============================================================
+       POST OFFICE — sign up for the Wednesday Drop
+       ============================================================ */
+    .post-office {
+      padding: 96px 40px;
+      background: var(--plum);
+      color: var(--cream);
+    }
+    .post-office-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .post-office-addr {
+      display: inline-block;
+      font-size: 10px; font-weight: 800;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold);
+      padding: 5px 12px;
+      border: 1.5px solid var(--gold);
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .post-office-title {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.018em;
+      line-height: 1;
+      color: var(--cream);
+      margin: 0 0 14px;
+    }
+    .post-office-sub {
+      font-size: 16px;
+      color: rgba(255,253,251,0.82);
+      margin: 0 0 32px;
+    }
+    .post-office-form {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      max-width: 520px; margin: 0 auto;
+    }
+    .post-office-form input {
+      flex: 1; min-width: 240px;
+      padding: 13px 18px;
+      border: 1.5px solid var(--gold);
+      background: rgba(255,253,251,0.05);
+      border-radius: 999px;
+      color: var(--cream);
+      font-family: inherit;
+      font-size: 14px;
+    }
+    .post-office-form input::placeholder { color: rgba(255,253,251,0.5); }
+    .post-office-form button {
+      padding: 13px 28px;
+      background: var(--gold);
+      border: 1.5px solid var(--gold);
+      border-radius: 999px;
+      color: var(--plum-deep);
+      font-family: inherit;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      cursor: pointer;
+      transition: background 200ms ease, color 200ms ease;
+    }
+    .post-office-form button:hover { background: var(--rose-bright); color: var(--cream); border-color: var(--rose-bright); }
+    .post-office-fine {
+      font-size: 11px;
+      color: rgba(255,253,251,0.55);
+      margin-top: 18px;
+      letter-spacing: 0.06em;
+    }
+
+    /* ============================================================
+       FOOTER — masthead block
+       ============================================================ */
+    .town-footer {
+      background: var(--plum-deep);
+      color: var(--cream);
+      padding: 40px;
+      text-align: center;
+    }
+    .town-footer .laidies-mark {
+      font-size: 18px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .town-footer .filed {
+      font-size: 11px;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: rgba(255,253,251,0.62);
+    }
+    .town-footer .filed .gold { color: var(--gold); }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 880px) {
+      .brand-header { padding: 18px 22px; }
+      .brand-header nav { display: none; }
+      .arrival { padding: 48px 22px 56px; }
+      .arrival::before, .arrival::after { display: none; }
+      .arrival-town { font-size: clamp(56px, 18vw, 92px); }
+      .dispatch { padding: 56px 22px; }
+      .dispatch-grid { grid-template-columns: 1fr; gap: 32px; }
+      .dispatch-img-wrap { order: -1; }
+      .around { padding: 56px 22px; }
+      .town-grid { grid-template-columns: 1fr; }
+      .place--featured, .place--wide { grid-column: auto; grid-row: auto; }
+      .sanctuary { padding: 56px 22px; }
+      .saints-grid { grid-template-columns: 1fr 1fr; }
+      .saint-card-back { display: none; }
+      .post-office { padding: 56px 22px; }
+      .post-office-form { flex-direction: column; }
+      .post-office-form input { min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CONCEPT SWITCHER — visible bar above page so Ali can switch -->
+  <nav class="concept-bar" aria-label="Concept switcher">
+    <span class="concept-bar-left">Concept · 4 visual directions</span>
+    <span class="concept-bar-tabs">
+      <a href="../concept-a/">A · The Cover</a>
+      <a class="active" href="./">A · v2 — The Town <span>← you are here</span></a>
+      <a href="../concept-b/">B · Type Sculpture</a>
+      <a href="../concept-c/">C · The Zine</a>
+      <a href="../../">↩ Current homepage</a>
+    </span>
+  </nav>
+
+  <!-- BRAND HEADER — small, persistent -->
+  <header class="brand-header">
+    <a class="laidies-wordmark" href="../../" aria-label="LAiDIES home">
+      <img src="../../assets/brand/laidies-wordmark-final-b-dark.svg" alt="LAiDIES">
+    </a>
+    <nav>
+      <a href="../../this-week.html">This Week</a>
+      <a href="../../grimoire.html">The Library</a>
+      <a href="../../clubhouse.html">The Clubhouse</a>
+      <a href="../../episodes.html">Episodes</a>
+      <a href="../../visitors-centre.html">Visitor's Centre</a>
+    </nav>
+    <a class="join-btn" href="#post-office">Join</a>
+  </header>
+
+  <!-- ARRIVAL — you've entered the town -->
+  <section class="arrival">
+
+    <!-- Town seal placeholder. Replace with commissioned crest. -->
+    <div class="town-seal" aria-label="SUNNYVAiLE town seal — placeholder">
+      <span class="town-seal-mark">
+        SUNNYVAiLE
+        <small>· EST. 2026 ·</small>
+      </span>
+    </div>
+
+    <p class="arrival-welcome">Welcome to</p>
+    <h1 class="arrival-town">SunnyV<span class="ai-pop">Ai</span>LE</h1>
+
+    <p class="arrival-population">
+      Pop. <strong>Smart women with full calendars · high standards · no patience for beige tech explanations</strong>
+    </p>
+
+    <div class="arrival-actions">
+      <button class="arrival-anthem" type="button"
+              aria-label="Play the SUNNYVAiLE town anthem"
+              data-src="../../content/music/sunnyvaile-town-anthem.mp3"
+              onclick="window.playLaidiesTheme(this);">
+        <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+        <span>♪ Town Anthem</span>
+      </button>
+      <a class="arrival-cta" href="../../visitors-centre.html">First time? Visitor's Centre →</a>
+    </div>
+
+    <p class="arrival-meta">
+      <span>Episode 04</span><span class="sep">·</span><span>Wednesday, June 29, 2026</span>
+    </p>
+
+  </section>
+
+  <!-- DISPATCH — this week's episode -->
+  <section class="dispatch">
+    <div class="dispatch-grid">
+      <div>
+        <p class="dispatch-eyebrow">This Week's Episode <span class="gold">·</span> 04</p>
+        <h2 class="dispatch-title">A Slayer Needs a Watcher</h2>
+        <div class="dispatch-pull">
+          <p class="dispatch-pull-kicker">On this episode…</p>
+          <p class="dispatch-pull-body">
+            The one in which she opens five browser tabs — one per tool, like a cable TV lineup from 2001 — types the same prompt into all of them, gets back five wildly different responses, and arrives at the question she should have been asking from the start: not which tool is best, but <em>who is right for this scene.</em> Not a ranking. A casting guide. The coven has a reservation at 4.
+          </p>
+        </div>
+        <a class="dispatch-cta" href="../../this-week.html">Read the episode →</a>
+      </div>
+      <div class="dispatch-img-wrap">
+        <img class="dispatch-img" src="../../assets/episodes/issue-04/section-slaiyer-handbook-v1.png" alt="Episode 04 — A Slayer Needs a Watcher">
+      </div>
+    </div>
+  </section>
+
+  <!-- AROUND TOWN — the place directory -->
+  <section class="around" id="around">
+    <div class="around-inner">
+      <header class="around-head">
+        <p class="around-eyebrow">★ Around SUNNYVAiLE Today ★</p>
+        <h2 class="around-title">Find your way around.</h2>
+        <p class="around-sub">Every section of the site has an address in town. Click into anywhere — the geography teaches itself.</p>
+      </header>
+
+      <div class="town-grid">
+
+        <!-- The Visitor's Centre — first stop for new arrivals -->
+        <a class="place" href="../../visitors-centre.html">
+          <span class="place-addr">★ MAiN Street · No. 1</span>
+          <h3 class="place-name">The Welcome Wagon Visitor's Centre</h3>
+          <p class="place-inside">First stop · the welcome</p>
+          <p class="place-desc">New in town? Start here. The map, the locals, the welcome handed out at the door.</p>
+          <span class="place-link">Walk in →</span>
+        </a>
+
+        <!-- The Town LIBRAiRY -->
+        <a class="place" href="../../grimoire.html">
+          <span class="place-addr">★ MAiN Street · No. 3</span>
+          <h3 class="place-name">The Town LIBRAiRY</h3>
+          <p class="place-inside">The Grimoire · Ask the Book</p>
+          <p class="place-desc">The reference shelf. SLAiYER Handbook, Power Map, Chamber of Receipts, The Decoder — plus the reference desk, where the Book itself answers your questions.</p>
+          <span class="place-link">Look something up →</span>
+        </a>
+
+        <!-- The NewsStand -->
+        <a class="place" href="../../hot-goss.html">
+          <span class="place-addr">★ MAiN Street · No. 2</span>
+          <h3 class="place-name">The NewsStand</h3>
+          <p class="place-inside">Daily AI dispatches</p>
+          <p class="place-desc">Today's headlines, weekly stories, the occasional hot take. Translated from AI into things you'd actually say at the meeting.</p>
+          <span class="place-link">Catch up →</span>
+        </a>
+
+        <!-- The BRONZE AiGE — featured (2x2) with cabinet image -->
+        <a class="place place--featured" href="../../clubhouse.html#games">
+          <span class="place-addr">★ MAiN Street · No. 5</span>
+          <h3 class="place-name">The BRONZE AiGE</h3>
+          <p class="place-inside">Happy hour · Live music</p>
+          <div class="place-img-area">
+            <img src="../../assets/arcaide-cabinets.png" alt="The cabinets at The BRONZE AiGE" loading="lazy">
+          </div>
+          <p class="place-desc">Happy hour starts at 4 — pick your drink at the Businesswomen's Special booth (Coven has a reservation). Stage opens after 8 for the live show; sticky floors, band of the week, the works.</p>
+          <span class="place-link">Step inside →</span>
+        </a>
+
+        <!-- The Mall -->
+        <a class="place" href="../../grimoire/lore-closet.html">
+          <span class="place-addr">★ MAiN Street · No. 4</span>
+          <h3 class="place-name">The Mall</h3>
+          <p class="place-inside">Ten stops. All references.</p>
+          <p class="place-desc">CLAiRE'S · MAiYBE She's Born With It. (MAiYBE it's drugstore glitter.) · As Seen on TV (and film) · Rollin' with my Homies (real or scripted) · Books and Records · Gizmos and Gadgets · Hanger Management · The Food Court · I Know What You Did Last (x30) Summer · The Mall Kiosk — every reference LAiDIES reaches for has a stop.</p>
+          <span class="place-link">Take a lap →</span>
+        </a>
+
+        <!-- Mme CLAi-O's Shop -->
+        <a class="place" href="../../games/madame-claio.html">
+          <span class="place-addr">★ MAiN Street · No. 6</span>
+          <h3 class="place-name">Mme CLAi-O's Shop</h3>
+          <p class="place-inside">The oracle</p>
+          <p class="place-desc">The town fortune-teller. Crystal ball, tarot, the works. Ask her what to do; she'll tell you what to expect.</p>
+          <span class="place-link">Consult the oracle →</span>
+        </a>
+
+        <!-- MAiKEOVER on MAiN(e) — beauty parlor: SIGN UP HERE (Member Card) -->
+        <a class="place" href="../../clubhouse-pass.html">
+          <span class="place-addr">★ MAiN Street · No. 9</span>
+          <h3 class="place-name">MAiKEOVER on MAiN(e)</h3>
+          <p class="place-inside">Sign-up · Member Card</p>
+          <p class="place-desc">Get yourself made — literally. Design your member card here. This is the sign-up moment — walk in, pick your colors, leave a member.</p>
+          <span class="place-link">Get your card →</span>
+        </a>
+
+        <!-- The Blend & Snap — coffee shop + Study Pack -->
+        <a class="place" href="../../this-week.html#cheat-sheet">
+          <span class="place-addr">★ MAiN Street · No. 8</span>
+          <h3 class="place-name">The Blend &amp; Snap</h3>
+          <p class="place-inside">Coffee Shop · The Study Pack</p>
+          <p class="place-desc">The town coffee shop. Order the blend, get the snap. Bring the class notes — this is where the studying actually happens (before you walk to SUNNYVAiLE High for the pop quiz).</p>
+          <span class="place-link">Grab a table →</span>
+        </a>
+
+        <!-- The Net Flicks — video rental shop -->
+        <a class="place" href="../../episodes.html">
+          <span class="place-addr">★ MAiN Street · No. 7</span>
+          <h3 class="place-name">The Net Flicks</h3>
+          <p class="place-inside">The Season · 24 Episodes</p>
+          <p class="place-desc">Every episode of LAiDIES, in order. Friday night, walk the aisles. Pick what you need. (Be kind, rewind.)</p>
+          <span class="place-link">Browse the shelves →</span>
+        </a>
+
+        <!-- Sorority House — Delta LAi Nu, members-only: chat rooms + Girl Talk -->
+        <a class="place" href="../../clubhouse.html">
+          <span class="place-addr">★ Wisteria Lane · Delta LAi Nu chapter</span>
+          <h3 class="place-name">The Sorority House</h3>
+          <p class="place-inside">Members Only · Chat Rooms · Girl Talk</p>
+          <p class="place-desc">Home of Delta LAi Nu. Members-only chat rooms — Wins, Burn Book, Dear LAiDIES — plus Girl Talk (the dares get posted right here, which is why you need to be a member to play). Pick up your card at MAiKEOVER on MAiN(e).</p>
+          <span class="place-link">Show your card →</span>
+        </a>
+
+        <!-- FAiRY Godmother's House -->
+        <a class="place" href="../../games/fairy-godmother.html">
+          <span class="place-addr">★ Willow Lane</span>
+          <h3 class="place-name">The FAiRY Godmother's House</h3>
+          <p class="place-inside">Ask LAiDY</p>
+          <p class="place-desc">Where the FAiRY Godmother lives. Knock for help on a prompt, a translation, an AI memo you can't finish.</p>
+          <span class="place-link">Knock →</span>
+        </a>
+
+        <!-- (Dream Phone moved to the Community Radio Station as a second call-in show.) -->
+
+        <!-- Town Hall — Mayor Deb's office -->
+        <a class="place" href="../../grimoire.html">
+          <span class="place-addr">★ Civic Square</span>
+          <h3 class="place-name">Town Hall</h3>
+          <p class="place-inside">Mayor Deb's Office</p>
+          <p class="place-desc">Deb has been here longer than anyone. Nobody is sure what she does. IT has accommodated her setup without complaint.</p>
+          <span class="place-link">Visit the mayor →</span>
+        </a>
+
+        <!-- The LAiDIES Post Office — Wednesday Drop signup -->
+        <a class="place" href="#post-office">
+          <span class="place-addr">★ Civic Square</span>
+          <h3 class="place-name">The LAiDIES Post Office</h3>
+          <p class="place-inside">The Wednesday Drop</p>
+          <p class="place-desc">Sign up to get the Wednesday letter in your mailbox. One mail call per week, no junk.</p>
+          <span class="place-link">Sign up for delivery →</span>
+        </a>
+
+        <!-- SUNNYVAiLE High — 101 classes + Pop Quiz (Buffy/Sunnydale High parallel) -->
+        <a class="place" href="../../grimoire/slaiyer-handbook.html">
+          <span class="place-addr">★ Schoolhouse Road</span>
+          <h3 class="place-name">SUNNYVAiLE High</h3>
+          <p class="place-inside">Vocab 101 · Concepts 101 · Pop Quiz</p>
+          <p class="place-desc">Season 1 = 101 classes. Sit through today's lesson, take the pop quiz, graduate to 201. Class is in session. (Study at The Blend &amp; Snap first.)</p>
+          <span class="place-link">Enrol →</span>
+        </a>
+
+        <!-- Sanctuary -->
+        <a class="place" href="#sanctuary">
+          <span class="place-addr">★ Cathedral Hill</span>
+          <h3 class="place-name">The SANCTUAiRY</h3>
+          <p class="place-inside">Patron Saints · The Coven</p>
+          <p class="place-desc">Where the patron saints reside — and the modern coven of women leading in AI keeps office hours in the second wing.</p>
+          <span class="place-link">Pay your respects →</span>
+        </a>
+
+        <!-- The Phone Booth (wide) — Dream Phone home -->
+        <a class="place place--wide" href="../../games/dream-phone.html">
+          <span class="place-addr">★ Corner of MAiN &amp; Cathedral Hill</span>
+          <h3 class="place-name">The Phone Booth</h3>
+          <p class="place-inside">Dream Phone</p>
+          <p class="place-desc">Glass-walled, lit from inside, a quarter in the slot. Pick up the receiver and ask your question — the right LAiDY answers back. Receipts, Boundary, Bestie — pick the voice you need today.</p>
+          <span class="place-link">Make the call →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SANCTUARY — Patron Saints -->
+  <section class="sanctuary" id="sanctuary">
+    <div class="sanctuary-inner">
+      <header class="sanctuary-head">
+        <span class="sanctuary-addr">★ At The SANCTUAiRY</span>
+        <h2 class="sanctuary-title">The cast you already know.</h2>
+        <p class="sanctuary-sub">Eight pop-culture icons we keep coming back to. They walked into rooms full of people who underestimated them — and walked out with the upper hand. Borrow what they did.</p>
+      </header>
+
+      <div class="saints-grid">
+
+        <a class="saint" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/cher-horowitz.png" alt="Cher Horowitz">
+          <button class="saint-play" type="button" aria-label="Play Cher's theme" data-src="../../content/music/saint-cher-horowitz.mp3" onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span>♪ theme</span>
+          </button>
+          <div class="saint-body">
+            <h3 class="saint-name">Cher Horowitz</h3>
+            <p class="saint-lane">Early Adoption</p>
+            <p class="saint-rule">Cher had a wardrobe recommender in 1995. The story isn't that the tech existed. It's that she was first in the cafeteria to use it.</p>
+          </div>
+        </a>
+
+        <a class="saint" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/elle-woods.png" alt="Elle Woods">
+          <button class="saint-play" type="button" aria-label="Play Elle's theme" data-src="../../content/music/saint-elle-woods.mp3" onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span>♪ theme</span>
+          </button>
+          <div class="saint-body">
+            <h3 class="saint-name">Elle Woods</h3>
+            <p class="saint-lane">Receipts</p>
+            <p class="saint-rule">Elle walked into court with the perm rule, the timeline, and the witness already lined up. She didn't bring receipts. She had them.</p>
+          </div>
+        </a>
+
+        <a class="saint" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/miranda-priestly.png" alt="Miranda Priestly">
+          <button class="saint-play" type="button" aria-label="Play Miranda's theme" data-src="../../content/music/saint-miranda-priestly.mp3" onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span>♪ theme</span>
+          </button>
+          <div class="saint-body">
+            <h3 class="saint-name">Miranda Priestly</h3>
+            <p class="saint-lane">Standards</p>
+            <p class="saint-rule">Miranda knew the cerulean's whole history before it touched a closet. Knowing what you're looking at is the difference between a yes and a yes-with-changes.</p>
+          </div>
+        </a>
+
+        <a class="saint" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/buffy-summers.png" alt="Buffy Summers">
+          <button class="saint-play" type="button" aria-label="Play Buffy's theme" data-src="../../content/music/saint-buffy-summers.mp3" onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span>♪ theme</span>
+          </button>
+          <div class="saint-body">
+            <h3 class="saint-name">Buffy Summers</h3>
+            <p class="saint-lane">Slaying</p>
+            <p class="saint-rule">Buffy runs toward the vampire. Everybody else is still in the parking lot trying to get away.</p>
+          </div>
+        </a>
+
+        <!-- Card back centered -->
+        <div class="saint-card-back" aria-hidden="true">
+          <img src="../../assets/saints/card-back.png" alt="">
+        </div>
+
+        <a class="saint" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/regina-george.png" alt="Regina George">
+          <button class="saint-play" type="button" aria-label="Play Regina's theme" data-src="../../content/music/saint-regina-george.mp3" onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span>♪ theme</span>
+          </button>
+          <div class="saint-body">
+            <h3 class="saint-name">Regina George</h3>
+            <p class="saint-lane">Dangerous Confidence</p>
+            <p class="saint-rule">Same skirt. Different audience. Polished delivery — and the receipts are still in the Burn Book.</p>
+          </div>
+        </a>
+
+        <a class="saint" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/david-rose.png" alt="David Rose">
+          <button class="saint-play" type="button" aria-label="Play David's theme" data-src="../../content/music/saint-david-rose.mp3" onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span>♪ theme</span>
+          </button>
+          <div class="saint-body">
+            <h3 class="saint-name">David Rose</h3>
+            <p class="saint-lane">Specificity</p>
+            <p class="saint-rule">"Fold in the cheese" is an instruction. "Make this better" is also an instruction. They fail the same way.</p>
+          </div>
+        </a>
+
+        <a class="saint" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/deb.png" alt="Deb">
+          <button class="saint-play" type="button" aria-label="Play Deb's theme" data-src="../../content/music/saint-deb.mp3" onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span>♪ theme</span>
+          </button>
+          <div class="saint-body">
+            <h3 class="saint-name">Deb</h3>
+            <p class="saint-lane">Loop Me Out</p>
+            <p class="saint-rule">Deb has survived every reorg since 2004. AI doesn't know she exists — and half your job runs through her. (Also: mayor.)</p>
+          </div>
+        </a>
+
+        <a class="saint" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/dolly-parton.png" alt="Dolly Parton">
+          <button class="saint-play" type="button" aria-label="Play Dolly's theme" data-src="../../content/music/saint-dolly-parton.mp3" onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span>♪ theme</span>
+          </button>
+          <div class="saint-body">
+            <h3 class="saint-name">Dolly Parton</h3>
+            <p class="saint-lane">Common Sense</p>
+            <p class="saint-rule">You better get to building your own bridge, because ain't nobody building it for you, honey.</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- POST OFFICE — sign up -->
+  <section class="post-office" id="post-office">
+    <div class="post-office-inner">
+      <span class="post-office-addr">★ The LAiDIES Post Office</span>
+      <h2 class="post-office-title">Get the Wednesday Drop in your mailbox.</h2>
+      <p class="post-office-sub">One letter from SUNNYVAiLE every Wednesday. No spam, no homework you didn't sign up for.</p>
+      <form class="post-office-form"
+            action="https://buttondown.com/api/emails/embed-subscribe/laidies"
+            method="post"
+            target="popupwindow"
+            onsubmit="window.open('https://buttondown.com/laidies', 'popupwindow')">
+        <input type="email" name="email" placeholder="your@email.com" required>
+        <input type="hidden" name="tag" value="concept-a-v2-postoffice">
+        <button type="submit">Sign me up</button>
+      </form>
+      <p class="post-office-fine">No spam. Unsubscribe whenever.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="town-footer">
+    <div class="laidies-mark">LAiDIES</div>
+    <p class="filed">
+      Filed from <span class="gold">★ SUNNYVAiLE ★</span> · The LAiDIES Universe · 2026
+    </p>
+  </footer>
+
+  <!-- Audio controller -->
+  <script>
+    (function() {
+      'use strict';
+      var activeBtn = null;
+      var activeAudio = null;
+      function stopActive() {
+        if (activeBtn) activeBtn.classList.remove('is-playing');
+        if (activeAudio) { try { activeAudio.pause(); } catch(e){} }
+        activeBtn = null; activeAudio = null;
+      }
+      window.playLaidiesTheme = function(btn) {
+        if (!btn || btn.disabled) return;
+        var src = btn.getAttribute('data-src');
+        if (!src) return;
+        if (activeBtn === btn) { stopActive(); return; }
+        stopActive();
+        document.querySelectorAll('audio').forEach(function(a) { try { a.pause(); } catch(e){} });
+        var audio = new Audio(src);
+        audio.preload = 'metadata';
+        audio.addEventListener('ended', function() { if (activeAudio === audio) stopActive(); });
+        audio.addEventListener('error', function() { if (activeAudio === audio) stopActive(); });
+        audio.play().catch(function() { if (activeAudio === audio) stopActive(); });
+        btn.classList.add('is-playing');
+        activeBtn = btn; activeAudio = audio;
+      };
+    })();
+  </script>
+
+</body>
+</html>

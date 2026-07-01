@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Town LIBRAiRY · LAiDIES · SUNNYVAiLE</title>
+  <meta name="description" content="The Town LIBRAiRY at MAiN Street No. 3 in SUNNYVAiLE — houses the Grimoire reference shelves: Power Map, Chamber of Receipts, Ask the Book. Where you look it up.">
+  <meta property="og:title" content="The Town LIBRAiRY · LAiDIES">
+  <meta property="og:description" content="The Town LIBRAiRY houses the Grimoire reference shelves. Power Map · Chamber of Receipts · Ask the Book.">
+  <meta property="og:type" content="website">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --plum: #4b2148; --plum-deep: #3a1838; --plum-soft: #6b3a66;
+      --rose: #9b3f5f; --rose-bright: #c25b7d; --gold: #c9a227;
+      --cream: #fffdfb; --pearl: #f8eef2; --blush: #f9e6ee;
+      --line: rgba(75,33,72,0.14);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Jost', sans-serif;
+      color: var(--plum);
+      background: var(--cream);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .lib-header {
+      padding: 24px 40px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .lib-header .brand {
+      font-size: 22px; font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--plum);
+    }
+    .lib-header nav a {
+      font-size: 13px; font-weight: 500;
+      color: var(--plum-soft);
+      margin-left: 24px;
+    }
+    .lib-header nav a:hover { color: var(--rose); }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 40px 96px;
+    }
+
+    .lib-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .lib-eyebrow-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--rose);
+    }
+    .lib-theme {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 5px 11px 5px 8px;
+      background: var(--cream);
+      border: 1.5px solid var(--rose);
+      border-radius: 999px;
+      color: var(--plum);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      cursor: pointer;
+      transition: background 200ms ease, color 200ms ease, transform 200ms ease;
+    }
+    .lib-theme:hover { background: var(--rose); color: var(--cream); transform: scale(1.04); }
+    .lib-theme svg { width: 12px; height: 12px; fill: currentColor; }
+    .lib-theme .pause-icon { display: none; }
+    .lib-theme.is-playing .play-icon { display: none; }
+    .lib-theme.is-playing .pause-icon { display: block; }
+    .lib-theme.is-playing { background: var(--rose); color: var(--cream); }
+
+    h1 {
+      font-size: clamp(40px, 5.4vw, 60px);
+      font-weight: 700;
+      letter-spacing: -0.022em;
+      line-height: 1;
+      color: var(--plum);
+      margin: 0 0 28px;
+    }
+    h1 .ai {
+      color: var(--rose);
+    }
+
+    h2 {
+      font-size: clamp(22px, 2.6vw, 28px);
+      font-weight: 600;
+      letter-spacing: -0.014em;
+      color: var(--plum);
+      margin: 56px 0 14px;
+    }
+
+    p {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--plum);
+      margin: 0 0 18px;
+    }
+
+    .lib-lede {
+      font-size: 21px;
+      line-height: 1.5;
+      color: var(--plum);
+      margin-bottom: 36px;
+    }
+
+    .shelf-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin: 28px 0;
+    }
+    @media (min-width: 720px) {
+      .shelf-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .shelf {
+      display: block;
+      background: var(--pearl);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 24px 26px;
+      transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+    }
+    .shelf:hover {
+      transform: translateY(-3px);
+      border-color: var(--rose);
+      box-shadow: 0 8px 24px rgba(75,33,72,0.12);
+      text-decoration: none;
+    }
+    .shelf--brewing {
+      opacity: 0.7;
+      cursor: default;
+    }
+    .shelf--brewing:hover {
+      transform: none;
+      border-color: var(--line);
+      box-shadow: none;
+    }
+    .shelf-glyph {
+      font-size: 22px;
+      color: var(--gold);
+      margin-bottom: 6px;
+      display: inline-block;
+    }
+    .shelf-name {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.014em;
+      margin: 0 0 6px;
+      color: var(--plum);
+    }
+    .shelf-desc {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--plum-soft);
+      margin: 0 0 12px;
+    }
+    .shelf-status {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rose);
+    }
+    .shelf--brewing .shelf-status {
+      color: var(--plum-soft);
+      font-style: italic;
+      letter-spacing: 0.1em;
+      text-transform: none;
+    }
+
+    .relocated {
+      margin-top: 56px;
+      padding: 28px 32px;
+      background: var(--blush);
+      border-radius: 10px;
+      border-left: 4px solid var(--gold);
+    }
+    .relocated h3 {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin: 0 0 16px;
+    }
+    .relocated ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .relocated li {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 10px;
+      color: var(--plum);
+    }
+    .relocated li:last-child { margin-bottom: 0; }
+    .relocated li strong { color: var(--plum-deep); }
+    .relocated li a {
+      color: var(--rose);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .relocated li a:hover { color: var(--plum); }
+
+    .lib-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 72px;
+      padding-top: 36px;
+      border-top: 2px solid var(--rose);
+    }
+    .lib-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 26px;
+      background: var(--pearl);
+      border-radius: 6px;
+      transition: background 200ms ease, transform 200ms ease;
+    }
+    .lib-cta:hover { background: var(--blush); transform: translateX(4px); }
+    .lib-cta-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 4px;
+    }
+    .lib-cta-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--plum);
+    }
+    .lib-cta-arrow {
+      font-size: 22px;
+      color: var(--rose);
+    }
+    .lib-cta--primary {
+      background: linear-gradient(135deg, var(--plum) 0%, var(--rose) 100%);
+    }
+    .lib-cta--primary .lib-cta-label { color: var(--gold); }
+    .lib-cta--primary .lib-cta-title { color: var(--cream); }
+    .lib-cta--primary .lib-cta-arrow { color: var(--cream); }
+    .lib-cta--primary:hover { background: linear-gradient(135deg, var(--plum-deep) 0%, var(--rose-bright) 100%); }
+
+    footer {
+      text-align: center;
+      padding: 32px 40px;
+      font-size: 12px;
+      color: var(--plum-soft);
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 640px) {
+      .lib-header { padding: 18px 22px; }
+      .lib-header nav a { margin-left: 12px; }
+      main { padding: 40px 22px 64px; }
+      .relocated { padding: 22px 22px; }
+    }
+  </style>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260630-1"></script>
+</head>
+<body>
+
+  <header class="lib-header">
+    <a class="brand" href="/">LAiDIES</a>
+    <nav>
+      <a href="/this-week.html">This Week</a>
+      <a href="/episodes.html">Episodes</a>
+      <a href="/library.html" style="color: var(--rose);">LIBRAiRY</a>
+      <a href="/sorority-house.html">Sorority House</a>
+      <a href="/clubhouse-pass.html" class="sv-signin" style="color: var(--rose); font-weight: 600; border: 1.5px solid var(--rose); padding: 6px 14px; border-radius: 999px;">✉︎ Sign In</a>
+    </nav>
+  </header>
+
+  <div class="sv-hero"><img src="assets/sunnyvaile-buildings/03-town-library.png?v=20260630-1" alt="The Town LIBRAiRY storefront — civic library exterior in SUNNYVAiLE" loading="eager"></div>
+
+  <main>
+
+    <div class="lib-eyebrow">
+      <span class="lib-eyebrow-label">★ MAiN Street · No. 3 · SUNNYVAiLE</span>
+      <button class="lib-theme" type="button"
+              aria-label="Play the LIBRAiRY theme song"
+              data-src="/content/music/dj-jaidy-week-04-the-library.mp3"
+              onclick="window.playLaidiesTheme(this);">
+        <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+        <span>♪ The LIBRAiRY</span>
+      </button>
+    </div>
+
+    <h1>The Town <span class="ai">LIBRAiRY</span>.</h1>
+
+    <p class="lib-lede">
+      Three shelves. One job: look it up. The reference rack for the whole SUNNYVAiLE world — the maps, the receipts, the answers to "wait, what does that actually mean?" — quiet, organized, open whenever you need it.
+    </p>
+
+    <p>
+      The Grimoire lives here. Three shelves now, down from eight — the rest of the old Grimoire moved to homes that fit them better (more on that below). What's left is pure reference: the stuff you don't read straight through, you pull off the shelf when a specific question shows up.
+    </p>
+
+    <h2>The shelves</h2>
+
+    <div class="shelf-grid">
+
+      <a class="shelf" href="/grimoire/power-map.html">
+        <span class="shelf-glyph">🗺</span>
+        <h3 class="shelf-name">The Power Map</h3>
+        <p class="shelf-desc">The political and power lay-of-the-land. Who's where, who reports to who, who actually decides. Read when the org chart isn't telling you the whole story.</p>
+        <span class="shelf-status">Live · Open the shelf →</span>
+      </a>
+
+      <a class="shelf" href="/grimoire/chamber-of-receipts.html">
+        <span class="shelf-glyph">📑</span>
+        <h3 class="shelf-name">The Chamber of Receipts</h3>
+        <p class="shelf-desc">Citations, evidence, screenshots, links. The work that earns the line you want to say in the meeting. Pull what you need; bring it back when you're done.</p>
+        <span class="shelf-status">Live · Open the shelf →</span>
+      </a>
+
+      <div class="shelf shelf--brewing" aria-disabled="true">
+        <span class="shelf-glyph">📖</span>
+        <h3 class="shelf-name">Ask the Book</h3>
+        <p class="shelf-desc">The reference desk. The question you'd ask a librarian if a librarian was an actual book that talks back. Coming soon.</p>
+        <span class="shelf-status">Still brewing</span>
+      </div>
+
+    </div>
+
+    <div class="relocated">
+      <h3>What moved out of the Grimoire</h3>
+      <ul>
+        <li><strong>The SLAiYER Handbook</strong> — moved to <a href="#">SUNNYVAiLE High</a> as Season 1 courses (Concepts 101, Briefing 101, Tools 101, Practice 101, Accounts 101, ChatGPT 101). The Handbook chapters are sit-through-the-class material, not reference — they belong at school.</li>
+        <li><strong>The Decoder</strong> (formerly Potions Shelf) — moved to <a href="#">SUNNYVAiLE High</a> as <strong>Vocab 101</strong>. The glossary is its own course now.</li>
+        <li><strong>The Lore Closet</strong> — moved to <a href="#">The Mall</a> at MAiN Street No. 4. Pop-culture references got their own destination with ten stops and a directory you can search.</li>
+        <li><strong>The Coven</strong> — moved to <a href="#">The SANCTUAiRY</a> on Cathedral Hill. The women leading in AI live with the saints now — sacred shelf, two wings.</li>
+        <li><strong>The Patron Saints</strong> — moved to <a href="#">The SANCTUAiRY</a>. Halos belong in a chapel.</li>
+      </ul>
+    </div>
+
+    <h2>How to use the LIBRAiRY</h2>
+
+    <p>
+      You don't sit and read it. You pull what you need. Power Map when you're working a stakeholder problem. Chamber of Receipts when you need to back up the take. Ask the Book when you don't even know what to call the thing you're stuck on. Then you close the cover and go.
+    </p>
+
+    <p>
+      If you're trying to <em>learn</em> AI in a structured way — sit-through-the-class, take-the-quiz way — that's at <a href="#" style="color: var(--rose); text-decoration: underline;">SUNNYVAiLE High</a>, not here.
+    </p>
+
+    <div style="margin: 48px 0 32px; padding: 26px 28px 22px; background: var(--pearl); border-radius: 12px; border-left: 4px solid var(--rose);">
+      <div style="font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--rose); margin-bottom: 10px;">★ Your Residence Card</div>
+      <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(20px, 2.4vw, 24px); font-weight: 700; color: var(--plum); margin: 0 0 12px; line-height: 1.25;">Currently Reading — this is where you pick it.</h3>
+      <p style="font-size: 15px; line-height: 1.55; color: var(--plum); margin: 0 0 10px;">What you're currently reading shows up on the back of your Residence Card. The LIBRAiRY is where you set it — pull a book, pick it, done. <strong>Every customization is a trip somewhere in town.</strong></p>
+      <p style="font-size: 12px; line-height: 1.5; color: var(--plum-soft); margin: 0; font-style: italic;">Full picker coming with the member card. For now, this is where it lives.</p>
+    </div>
+
+    <div class="lib-ctas">
+      <a class="lib-cta lib-cta--primary" href="/grimoire/power-map.html">
+        <span>
+          <span class="lib-cta-label">Start with</span>
+          <span class="lib-cta-title">The Power Map →</span>
+        </span>
+        <span class="lib-cta-arrow">→</span>
+      </a>
+      <a class="lib-cta" href="/visitors-centre.html">
+        <span>
+          <span class="lib-cta-label">New in town?</span>
+          <span class="lib-cta-title">Stop by the Welcome Wagon first</span>
+        </span>
+        <span class="lib-cta-arrow">→</span>
+      </a>
+    </div>
+
+  </main>
+
+  <footer>
+    © LAiDIES · Filed from SUNNYVAiLE · The Town LIBRAiRY
+  </footer>
+
+  <script>
+    (function() {
+      'use strict';
+      var activeBtn = null;
+      var activeAudio = null;
+      function stopActive() {
+        if (activeBtn) activeBtn.classList.remove('is-playing');
+        if (activeAudio) { try { activeAudio.pause(); } catch(e){} }
+        activeBtn = null; activeAudio = null;
+      }
+      window.playLaidiesTheme = function(btn) {
+        if (!btn || btn.disabled) return;
+        var src = btn.getAttribute('data-src');
+        if (!src) return;
+        if (activeBtn === btn) { stopActive(); return; }
+        stopActive();
+        document.querySelectorAll('audio').forEach(function(a) { try { a.pause(); } catch(e){} });
+        var audio = new Audio(src);
+        audio.preload = 'metadata';
+        audio.addEventListener('ended', function() { if (activeAudio === audio) stopActive(); });
+        audio.addEventListener('error', function() { if (activeAudio === audio) stopActive(); });
+        audio.play().catch(function() { if (activeAudio === audio) stopActive(); });
+        btn.classList.add('is-playing');
+        activeBtn = btn; activeAudio = audio;
+      };
+    })();
+  </script>
+
+</body>
+</html>

@@ -485,6 +485,175 @@
       letter-spacing: 0.04em;
     }
 
+    /* ARCAiDE full-width zine spread — spans all 3 cols of the collage */
+    .room--arcaide {
+      grid-column: 1 / -1;
+      transform: rotate(0deg) !important;
+    }
+    .room--arcaide:hover { transform: rotate(0deg) translate(-2px, -2px) !important; }
+    .room-img-area--wide {
+      aspect-ratio: 16/9;
+    }
+
+    /* ============================================================
+       QUICK PICKS — zine sticker tiles
+       ============================================================ */
+    .quick-picks {
+      background: var(--pearl);
+      padding: 72px 0 88px;
+    }
+    .quick-picks-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .quick-pick {
+      position: relative;
+      background: var(--cream);
+      border: 2px solid var(--plum);
+      border-radius: 4px;
+      padding: 28px 22px 58px;
+      box-shadow: 5px 5px 0 var(--plum);
+      transition: transform 240ms ease, box-shadow 240ms ease;
+      display: flex; flex-direction: column;
+      min-height: 260px;
+    }
+    .quick-pick:nth-child(4n+1) { transform: rotate(-1deg); }
+    .quick-pick:nth-child(4n+2) { transform: rotate(0.8deg); }
+    .quick-pick:nth-child(4n+3) { transform: rotate(-0.6deg); }
+    .quick-pick:nth-child(4n+4) { transform: rotate(1deg); }
+    .quick-pick:hover {
+      transform: rotate(0deg) translate(-2px, -2px) !important;
+      box-shadow: 8px 8px 0 var(--rose);
+    }
+    .qp-sticker {
+      position: absolute;
+      top: -14px; right: 14px;
+      width: 32px; height: 32px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--rose-bright);
+      color: var(--cream);
+      font-size: 16px;
+      border-radius: 50%;
+      transform: rotate(8deg);
+      box-shadow: 2px 2px 0 var(--plum);
+      z-index: 2;
+    }
+    .qp-sticker--gold { background: var(--gold); color: var(--plum-deep); }
+    .qp-label {
+      font-size: 20px; font-weight: 700;
+      letter-spacing: -0.012em;
+      line-height: 1.12;
+      color: var(--plum);
+      margin-bottom: 8px;
+    }
+    .qp-sub {
+      font-size: 13px;
+      color: var(--plum-soft);
+      line-height: 1.45;
+      margin-bottom: 14px;
+    }
+    .qp-eyebrow {
+      font-size: 10px; font-weight: 800;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold);
+      margin: 2px 0 8px;
+    }
+    .qp-list {
+      list-style: none;
+      padding: 0; margin: 4px 0 10px;
+      display: flex; flex-direction: column;
+      gap: 5px;
+    }
+    .qp-list li {
+      font-size: 12.5px;
+      color: var(--plum-soft);
+      line-height: 1.4;
+      padding-left: 12px;
+      position: relative;
+    }
+    .qp-list li::before {
+      content: "";
+      position: absolute; left: 0; top: 7px;
+      width: 4px; height: 4px;
+      background: var(--rose);
+      border-radius: 50%;
+    }
+    .quick-pick--hero .qp-list li { color: rgba(255,253,251,0.88); }
+    .quick-pick--hero .qp-list li::before { background: var(--gold); }
+    .qp-blurb {
+      font-size: 13px;
+      color: var(--plum-soft);
+      line-height: 1.5;
+      margin: 4px 0 10px;
+    }
+    .quick-pick--hero .qp-blurb { color: rgba(255,253,251,0.88); }
+    .qp-cta {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--rose);
+      margin-top: auto;
+      padding-top: 6px;
+    }
+    .quick-pick--hero .qp-cta { color: var(--gold); }
+    .quick-pick--hero {
+      background: linear-gradient(135deg, var(--plum) 0%, var(--rose) 100%);
+      border-color: var(--plum-deep);
+      color: var(--cream);
+    }
+    .quick-pick--hero .qp-label { color: var(--cream); }
+    .quick-pick--hero .qp-sub { color: rgba(255,253,251,0.88); }
+
+    .qp-play {
+      position: absolute;
+      bottom: 18px; right: 20px;
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 5px 10px 5px 7px;
+      background: var(--cream);
+      border: 1px solid var(--plum);
+      border-radius: 999px;
+      color: var(--plum);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+    }
+    .quick-pick--hero .qp-play { background: rgba(255,253,251,0.95); border-color: var(--gold); }
+    .qp-play:hover { background: var(--rose); color: var(--cream); border-color: var(--rose); }
+    .qp-play .play-icon, .qp-play .pause-icon { width: 12px; height: 12px; fill: currentColor; }
+    .qp-play .pause-icon { display: none; }
+    .qp-play.is-playing .play-icon { display: none; }
+    .qp-play.is-playing .pause-icon { display: block; }
+    .qp-play.is-playing { background: var(--rose); color: var(--cream); border-color: var(--rose); }
+    .qp-play-text { line-height: 1; }
+
+    /* SAINT cards — play-theme pill below portrait, sticker-card register */
+    .saint-card > .saint-portrait { order: 1; }
+    .saint-card > .saint-play { order: 2; }
+    .saint-card > .saint-card-body { order: 3; }
+    .saint-play {
+      align-self: flex-end;
+      margin: 10px 14px 0 0;
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 5px 10px 5px 7px;
+      background: var(--cream);
+      border: 1.5px solid var(--plum);
+      border-radius: 999px;
+      color: var(--plum);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 200ms ease, border-color 200ms ease, color 200ms ease, transform 200ms ease;
+    }
+    .saint-play:hover { background: var(--rose); color: var(--cream); border-color: var(--rose); transform: scale(1.04); }
+    .saint-play .play-icon, .saint-play .pause-icon { width: 12px; height: 12px; fill: currentColor; }
+    .saint-play .pause-icon { display: none; }
+    .saint-play.is-playing .play-icon { display: none; }
+    .saint-play.is-playing .pause-icon { display: block; }
+    .saint-play.is-playing { background: var(--rose); color: var(--cream); border-color: var(--rose); }
+    .saint-play-text { line-height: 1; }
+
     /* ============================================================
        5. SAINTS — sticker-card scatter
        ============================================================ */
@@ -670,6 +839,7 @@
       .collage-tile { width: 130px; }
       .this-week-inner { grid-template-columns: 1fr; gap: 32px; }
       .rooms-collage { grid-template-columns: 1fr; gap: 36px; }
+      .quick-picks-grid { grid-template-columns: 1fr 1fr; gap: 18px; }
       .saints-grid-c { grid-template-columns: 1fr 1fr; }
       .saint-card { transform: none !important; }
       .club-inner { grid-template-columns: 1fr; padding: 48px 32px; text-align: center; }
@@ -756,7 +926,7 @@
         <div>
           <p class="this-week-eyebrow">★ Episode 04 · 4-min read</p>
           <h2 class="this-week-title">A Slayer Needs a Watcher</h2>
-          <p class="this-week-dek">The SLAiYER Handbook, Chapter 1 — which AI tool to open for which job, what the words mean, and how to use any of them without getting vamped.</p>
+          <p class="this-week-dek">The SLAiYER Handbook, Chapter 1 — which AI tool to open for which job, what the words mean, and how to use any of them without getting staked.</p>
           <div class="this-week-excerpt">
             This week I watched a CFO type "just make it better" into ChatGPT and act betrayed by what came back. Make what better. For whom. By when. Compared to what. The tools are good. The instructions are the gig.
           </div>
@@ -779,7 +949,7 @@
     <div class="container">
       <header class="section-head">
         <p class="kicker">★ Inside LAiDIES ★</p>
-        <h2>The whole universe.</h2>
+        <h2>The LAiDIES Universe in six rooms</h2>
         <p>Not just the weekly newsletter — a reference library, a community, a season arc, a cast of patron saints, and a set of games for when you need to take five.</p>
       </header>
 
@@ -801,12 +971,12 @@
           <span class="room-link">Step in →</span>
         </a>
 
-        <a class="room" href="../../clubhouse.html#games">
-          <span class="room-stamp room-stamp--plum">★ Take a Break</span>
+        <a class="room" href="../../hot-goss.html">
+          <span class="room-stamp room-stamp--plum">★ The News</span>
           <div class="room-img-area"><div class="placeholder">Placeholder Art</div></div>
-          <h3>ARCAiDE</h3>
-          <p>Mme CLAi-O · Dream Phone · Ask LAiDY · Girl Talk · DJ Booth.</p>
-          <span class="room-link">Play one →</span>
+          <h3>SUNNYVAiLE NewsStand</h3>
+          <p>Daily headlines · weekly stories · the occasional hot take. AI translated.</p>
+          <span class="room-link">Read today →</span>
         </a>
 
         <a class="room" href="../../episodes.html">
@@ -817,27 +987,88 @@
           <span class="room-link">See them all →</span>
         </a>
 
-        <a class="room" href="#saints">
-          <span class="room-stamp room-stamp--rose">★ The Cast</span>
-          <div class="room-img-area">
-            <div class="saint-montage" aria-hidden="true">
-              <img src="../../assets/saints/cher-horowitz.png" alt="">
-              <img src="../../assets/saints/elle-woods.png" alt="">
-              <img src="../../assets/saints/miranda-priestly.png" alt="">
-              <img src="../../assets/saints/buffy-summers.png" alt="">
-            </div>
-          </div>
-          <h3>Patron Saints</h3>
-          <p>Cher · Elle · Miranda · Buffy · Regina · David · Deb · Dolly.</p>
-          <span class="room-link">Meet them →</span>
-        </a>
-
         <a class="room" href="../../start-here.html">
-          <span class="room-stamp room-stamp--plum">★ First Time</span>
+          <span class="room-stamp room-stamp--rose">★ First Time</span>
           <div class="room-img-area"><div class="placeholder">Placeholder Art</div></div>
           <h3>Start Here</h3>
           <p>New? Two minutes, then your first episode.</p>
           <span class="room-link">Show me →</span>
+        </a>
+
+        <!-- ARCAiDE — full-width zine spread with real cabinet imagery -->
+        <a class="room room--arcaide" href="../../clubhouse.html#games">
+          <span class="room-stamp room-stamp--plum">★ Take a Break</span>
+          <div class="room-img-area room-img-area--wide">
+            <img src="../../assets/arcaide-cabinets.png" alt="" loading="lazy">
+          </div>
+          <h3>ARCAiDE — The Games</h3>
+          <p>Mme CLAi-O · Dream Phone · Girl Talk · Ask LAiDY · DJ Booth · Businesswomen's Special.</p>
+          <span class="room-link">Play one →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4b. QUICK PICKS — zine sticker-tiles -->
+  <section class="quick-picks">
+    <div class="container">
+      <header class="section-head">
+        <p class="kicker">★ Right Now · No Hunting ★</p>
+        <h2>Quick picks.</h2>
+      </header>
+      <div class="quick-picks-grid">
+
+        <a class="quick-pick" href="../../hot-goss.html">
+          <span class="qp-sticker">★</span>
+          <p class="qp-label">SUNNYVAiLE · Today</p>
+          <ul class="qp-list">
+            <li>Anthropic ships Claude memory</li>
+            <li>OpenAI talks GPT-6 timeline</li>
+            <li>The board deck rewriting AI literacy</li>
+          </ul>
+          <span class="qp-cta">All headlines →</span>
+        </a>
+
+        <a class="quick-pick quick-pick--with-play" href="../../games/businesswomens-special.html">
+          <span class="qp-sticker">★</span>
+          <p class="qp-label">Businesswomen's Special</p>
+          <p class="qp-blurb">Coven has a reservation at 4. Pick your happy hour drink!</p>
+          <span class="qp-cta">Pick your drink →</span>
+          <button class="qp-play" type="button"
+                  aria-label="Play Businesswomen's Special theme"
+                  data-src="../../content/music/game-businesswomens-special.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="qp-play-text">♪ theme</span>
+          </button>
+        </a>
+
+        <a class="quick-pick" href="../../games/dj-booth.html">
+          <span class="qp-sticker">★</span>
+          <p class="qp-label">DJ Booth</p>
+          <p class="qp-eyebrow">On rotation:</p>
+          <ul class="qp-list">
+            <li>♪ The LIBRAiRY — DJ JAiDY</li>
+            <li>♪ Tomorrow's Problem — Deb</li>
+            <li>♪ Call Me Now — Mme CLAi-O</li>
+          </ul>
+          <span class="qp-cta">Open the booth →</span>
+        </a>
+
+        <a class="quick-pick quick-pick--with-play quick-pick--hero" href="../../games/fairy-godmother.html">
+          <span class="qp-sticker qp-sticker--gold">★</span>
+          <p class="qp-label">Ask LAiDY</p>
+          <p class="qp-blurb">Stuck on a prompt? Need to translate an AI memo? She'll fix it, explain it, or coach you through.</p>
+          <span class="qp-cta">Open her up →</span>
+          <button class="qp-play" type="button"
+                  aria-label="Play LAiDY's theme"
+                  data-src="../../content/music/game-ask-laidy.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="qp-play-text">♪ theme</span>
+          </button>
         </a>
       </div>
     </div>
@@ -855,6 +1086,14 @@
       <div class="saints-grid-c">
         <a class="saint-card" href="../../grimoire.html">
           <img class="saint-portrait" src="../../assets/saints/cher-horowitz.png" alt="Cher Horowitz">
+          <button class="saint-play" type="button"
+                  aria-label="Play Cher's theme"
+                  data-src="../../content/music/saint-cher-horowitz.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
           <div class="saint-card-body">
             <h3>Cher Horowitz</h3>
             <p class="saint-lane">Early Adoption</p>
@@ -863,6 +1102,14 @@
         </a>
         <a class="saint-card" href="../../grimoire.html">
           <img class="saint-portrait" src="../../assets/saints/elle-woods.png" alt="Elle Woods">
+          <button class="saint-play" type="button"
+                  aria-label="Play Elle's theme"
+                  data-src="../../content/music/saint-elle-woods.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
           <div class="saint-card-body">
             <h3>Elle Woods</h3>
             <p class="saint-lane">Receipts</p>
@@ -871,6 +1118,14 @@
         </a>
         <a class="saint-card" href="../../grimoire.html">
           <img class="saint-portrait" src="../../assets/saints/miranda-priestly.png" alt="Miranda Priestly">
+          <button class="saint-play" type="button"
+                  aria-label="Play Miranda's theme"
+                  data-src="../../content/music/saint-miranda-priestly.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
           <div class="saint-card-body">
             <h3>Miranda Priestly</h3>
             <p class="saint-lane">Standards</p>
@@ -879,6 +1134,14 @@
         </a>
         <a class="saint-card" href="../../grimoire.html">
           <img class="saint-portrait" src="../../assets/saints/buffy-summers.png" alt="Buffy Summers">
+          <button class="saint-play" type="button"
+                  aria-label="Play Buffy's theme"
+                  data-src="../../content/music/saint-buffy-summers.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
           <div class="saint-card-body">
             <h3>Buffy Summers</h3>
             <p class="saint-lane">Slaying</p>
@@ -887,6 +1150,14 @@
         </a>
         <a class="saint-card" href="../../grimoire.html">
           <img class="saint-portrait" src="../../assets/saints/regina-george.png" alt="Regina George">
+          <button class="saint-play" type="button"
+                  aria-label="Play Regina's theme"
+                  data-src="../../content/music/saint-regina-george.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
           <div class="saint-card-body">
             <h3>Regina George</h3>
             <p class="saint-lane">Dangerous Confidence</p>
@@ -895,6 +1166,14 @@
         </a>
         <a class="saint-card" href="../../grimoire.html">
           <img class="saint-portrait" src="../../assets/saints/david-rose.png" alt="David Rose">
+          <button class="saint-play" type="button"
+                  aria-label="Play David's theme"
+                  data-src="../../content/music/saint-david-rose.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
           <div class="saint-card-body">
             <h3>David Rose</h3>
             <p class="saint-lane">Specificity</p>
@@ -903,17 +1182,33 @@
         </a>
         <a class="saint-card" href="../../grimoire.html">
           <img class="saint-portrait" src="../../assets/saints/deb.png" alt="Deb">
+          <button class="saint-play" type="button"
+                  aria-label="Play Deb's theme"
+                  data-src="../../content/music/saint-deb.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
           <div class="saint-card-body">
             <h3>Deb</h3>
-            <p class="saint-lane">Institutional Survival</p>
+            <p class="saint-lane">Loop Me Out</p>
             <p class="saint-rule">AI doesn't know she exists — and half your job runs through her.</p>
           </div>
         </a>
         <a class="saint-card" href="../../grimoire.html">
           <img class="saint-portrait" src="../../assets/saints/dolly-parton.png" alt="Dolly Parton">
+          <button class="saint-play" type="button"
+                  aria-label="Play Dolly's theme"
+                  data-src="../../content/music/saint-dolly-parton.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
           <div class="saint-card-body">
             <h3>Dolly Parton</h3>
-            <p class="saint-lane">Level-Headed Advice</p>
+            <p class="saint-lane">Common Sense</p>
             <p class="saint-rule">You better get to building your own bridge, honey.</p>
           </div>
         </a>
@@ -974,6 +1269,53 @@
       <p class="footer-bottom">© LAiDIES · Concept C prototype · 2026-06-29</p>
     </div>
   </footer>
+
+
+  <!-- LAiDIES audio controller — single-track-at-a-time enforcement -->
+  <script>
+    (function() {
+      'use strict';
+      var activeBtn = null;
+      var activeAudio = null;
+
+      function stopActive() {
+        if (activeBtn) activeBtn.classList.remove('is-playing');
+        if (activeAudio) { try { activeAudio.pause(); } catch(e){} }
+        activeBtn = null;
+        activeAudio = null;
+      }
+
+      window.playLaidiesTheme = function(btn) {
+        if (!btn || btn.disabled) return;
+        var src = btn.getAttribute('data-src');
+        if (!src) return;
+
+        if (activeBtn === btn) { stopActive(); return; }
+        stopActive();
+        document.querySelectorAll('audio').forEach(function(a) { try { a.pause(); } catch(e){} });
+
+        var audio = new Audio(src);
+        audio.preload = 'metadata';
+        audio.addEventListener('ended', function() { if (activeAudio === audio) stopActive(); });
+        audio.addEventListener('error', function() {
+          console.warn('LAiDIES audio failed to load:', src);
+          if (activeAudio === audio) stopActive();
+        });
+
+        var playPromise = audio.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(function(err) {
+            console.warn('LAiDIES audio play() rejected:', err);
+            if (activeAudio === audio) stopActive();
+          });
+        }
+
+        btn.classList.add('is-playing');
+        activeBtn = btn;
+        activeAudio = audio;
+      };
+    })();
+  </script>
 
 </body>
 </html>

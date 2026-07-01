@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Blend & Snap · LAiDIES · SUNNYVAiLE</title>
+  <meta name="description" content="The Blend & Snap at MAiN Street No. 8 — coffee shop, third place. Where the Study Pack lives. Read here, take the test at SUNNYVAiLE High.">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260629-1">
+  <script defer src="/content/site/sv-nav-auth.js?v=20260630-1"></script>
+</head>
+<body>
+
+  <header class="sv-header">
+    <a class="brand" href="/">LAiDIES</a>
+    <nav>
+      <a href="/this-week.html">This Week</a>
+      <a href="/episodes.html">Episodes</a>
+      <a href="/library.html">LIBRAiRY</a>
+      <a href="/blend-snap.html" style="color: var(--rose);">Blend & Snap</a>
+      <a href="/sorority-house.html">Sorority House</a>
+      <a href="/clubhouse-pass.html" class="sv-signin" style="color: var(--rose); font-weight: 600; border: 1.5px solid var(--rose); padding: 6px 14px; border-radius: 999px;">✉︎ Sign In</a>
+    </nav>
+  </header>
+
+  <div class="sv-hero"><img src="assets/sunnyvaile-buildings/08-blend-and-snap.png?v=20260630-1" alt="The Blend & Snap café storefront in SUNNYVAiLE" loading="eager"></div>
+
+  <main>
+
+    <div class="sv-eyebrow">
+      <span class="sv-eyebrow-label">★ MAiN Street · No. 8 · SUNNYVAiLE</span>
+      <button class="sv-theme" type="button"
+              aria-label="Play Down at the Blend & Snap by THE LAiDIES"
+              data-src="/content/music/the-laidies-down-at-the-blend-and-snap.mp3"
+              onclick="window.playLaidiesTheme(this);">
+        <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+        <span>♪ Down at the Blend &amp; Snap</span>
+      </button>
+    </div>
+
+    <h1>The Blend <span class="ai">&amp; Snap</span>.</h1>
+
+    <p class="sv-lede">
+      Coffee shop. Third place. Where the Study Pack lives and the second draft of everything happens. Order something with milk in it, open the notes, run into someone. Then walk to school for the quiz.
+    </p>
+
+    <h2>The Study Pack</h2>
+
+    <a class="stop" href="/this-week.html#cheat-sheet" style="display: block; margin: 16px 0 36px;">
+      <span class="stop-num">★ THIS WEEK</span>
+      <h3 class="stop-name">Class Notes for Episode 04</h3>
+      <p class="stop-desc">The cheat sheet for the Pop Quiz. Vocab, key concepts, what to actually remember. Read it here over a latte. Then head to SUNNYVAiLE High and take the test.</p>
+    </a>
+
+    <h2>How the Wednesday lap works from here</h2>
+
+    <ol style="font-size: 17px; line-height: 1.7; padding-left: 22px; color: var(--plum);">
+      <li><strong>Read the episode</strong> at <a href="/episodes.html" style="color: var(--rose); text-decoration: underline;">The Chick Flicks</a></li>
+      <li><strong>Grab coffee + the Study Pack</strong> right here</li>
+      <li><strong>Walk over to <a href="/sunnyvaile-high.html" style="color: var(--rose); text-decoration: underline;">SUNNYVAiLE High</a></strong> and take the Pop Quiz</li>
+      <li><strong>Optional:</strong> free time at <a href="/visitors-centre.html">any game in town</a> · happy hour at <a href="/bronze-aige.html">The BRONZE AiGE</a> at 4 · debrief at <a href="/sorority-house.html">Delta LAi Nu</a></li>
+    </ol>
+
+    <h2>It's also just a coffee shop</h2>
+
+    <p>
+      You don't have to be doing anything productive to be here. Sometimes you just want a Wednesday afternoon with a cortado and someone else's overheard meeting. That's allowed. That's most of why a third place matters.
+    </p>
+
+    <div class="sv-trip-tie">
+      <div class="sv-trip-tie__eyebrow">★ Your Residence Card</div>
+      <h3 class="sv-trip-tie__title">Study Pack — this is where you grab it.</h3>
+      <p class="sv-trip-tie__body">Your weekly trading cards drop into the Study Pack section of your Passport. The Blend & Snap is where they show up — order your usual, grab this week's stack, add them to your binder. <strong>Every customization is a trip somewhere in town.</strong></p>
+      <p class="sv-trip-tie__note">Full picker coming with the member card. For now, this is where it lives.</p>
+    </div>
+
+    <div class="sv-ctas">
+      <a class="sv-cta sv-cta--primary" href="/this-week.html#cheat-sheet">
+        <span>
+          <span class="sv-cta-label">Open the Study Pack</span>
+          <span class="sv-cta-title">This week's class notes →</span>
+        </span>
+        <span class="sv-cta-arrow">→</span>
+      </a>
+      <a class="sv-cta" href="/sunnyvaile-high.html">
+        <span>
+          <span class="sv-cta-label">Ready for the test?</span>
+          <span class="sv-cta-title">Walk to SUNNYVAiLE High</span>
+        </span>
+        <span class="sv-cta-arrow">→</span>
+      </a>
+    </div>
+
+  </main>
+
+  <footer>© LAiDIES · Filed from SUNNYVAiLE · The Blend &amp; Snap</footer>
+
+  <script>
+    (function() {
+      'use strict';
+      var activeBtn = null, activeAudio = null;
+      function stopActive() {
+        if (activeBtn) activeBtn.classList.remove('is-playing');
+        if (activeAudio) { try { activeAudio.pause(); } catch(e){} }
+        activeBtn = null; activeAudio = null;
+      }
+      window.playLaidiesTheme = function(btn) {
+        if (!btn || btn.disabled) return;
+        var src = btn.getAttribute('data-src');
+        if (!src) return;
+        if (activeBtn === btn) { stopActive(); return; }
+        stopActive();
+        var audio = new Audio(src);
+        audio.preload = 'metadata';
+        audio.addEventListener('ended', function() { if (activeAudio === audio) stopActive(); });
+        audio.addEventListener('error', function() { if (activeAudio === audio) stopActive(); });
+        audio.play().catch(function() { if (activeAudio === audio) stopActive(); });
+        btn.classList.add('is-playing');
+        activeBtn = btn; activeAudio = audio;
+      };
+    })();
+  </script>
+
+</body>
+</html>
