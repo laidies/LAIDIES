@@ -24,10 +24,13 @@ at a paragraph boundary (a natural pause, so the seams are invisible).
 - Spellings are TTS-phonetic on purpose (Sunnyvale, Madame Cleo, K-S-V-L,
   "Makeover on Main") — don't "fix" them back to brand casing.
 
-## Voice lock (candidate, 2026-07-06)
-Ali's current pick: **Hope — upbeat and clear** (professional voice clone),
-v3, speed 0.96, stability 50, similarity 75 (from Ali's test-take filename:
-`ElevenLabs_2026-07-05T23_12_37_Hope - upbeat and clear_pvc_sp96_s50_sb75_v3`).
-Use the TAGGED master for Studio: `operations/audio/episode-01-elevenlabs-v3-tagged.txt`
-(delivery tags like [dry]/[smirk]/[thoughtful] built in — v3 only; strip them
-for older models). Keep the same voice + settings for the entire season.
+## Voice lock (updated 2026-07-06)
+Series voice: **Jessica** (available in Studio; Ali: "sounds good") — record
+the exact model + settings from the final Ep 01 render here once exported,
+and reuse them for every episode of the season.
+- If Studio renders Jessica on v3: paste the TAGGED master
+  (episode-01-elevenlabs-v3-tagged.txt) — tags work.
+- If Studio is on an older model: tags get read aloud — paste the UNTAGGED
+  master (episode-01-elevenlabs.txt) instead.
+Fallback path: Hope — upbeat and clear via plain TTS (v3, speed 0.96,
+stability 50, similarity 75), recorded as the four chunks in this folder.
