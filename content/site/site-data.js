@@ -113,7 +113,7 @@ window.LAIDIES_SITE_DATA = {
     {
       "number": 3,
       "slug": "the-burn-book-problem",
-      "title": "The Burn Book Problem",
+      "title": "Don't Be Chutney on the Stand",
       "status": "published",
       "releaseDate": "2026-06-17",
       "issueUrl": "issues/issue-03.html",
@@ -145,7 +145,7 @@ window.LAIDIES_SITE_DATA = {
         },
         {
           "label": "Read this week's Hot Goss",
-          "url": "hot-goss.html",
+          "url": "newsstand.html",
           "type": "hotGoss"
         },
         {
@@ -223,6 +223,30 @@ window.LAIDIES_SITE_DATA = {
           "playerUrl": "games/dj-booth.html#djApp"
         },
         "hotGossPlacement": "homepage-only"
+      },
+      "issuePageStatus": "manual-page-kept"
+    },
+    {
+      "number": 5,
+      "slug": "welcome-to-sunnyvaile",
+      "title": "Welcome to SUNNYVAiLE",
+      "subtitle": "The one in which the whole town opens its doors.",
+      "status": "draft",
+      "releaseDate": "2026-07-01",
+      "issueUrl": "issues/issue-05.html",
+      "heroImage": "assets/sunnyvaile-town-map-v5-connected-roads.png",
+      "oneLineDescription": "The one in which the whole town opens its doors.",
+      "act": null,
+      "lesson": null,
+      "emotionalBeat": null,
+      "siteLinks": [],
+      "websiteModules": {
+        "quiz": null,
+        "cardPack": null,
+        "communityThread": null,
+        "glossaryTerms": [],
+        "weeklySong": null,
+        "hotGossPlacement": null
       },
       "issuePageStatus": "manual-page-kept"
     }

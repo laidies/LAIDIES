@@ -314,13 +314,13 @@
       <a href="issues/issue-03.html">LATEST</a>
       <a href="start-here.html">START HERE</a>
       <a href="episodes.html">SEASON</a>
-      <a href="newsstand.html">THE BOOK</a>
+      <a href="newsstand.html">NEWSSTAND</a>
       <a href="/sorority-house.html">SORORITY HOUSE</a>
       <a href="community.html">JOIN</a>
     </nav>
   </header>
 
-  <a class="wednesday-return" data-wednesday-return href="this-week.html?issue=2&bag=open">← Back to the Bag</a>
+  <a class="wednesday-return" data-wednesday-return href="/">← Back to the Bag</a>
 
   <main>
     <section class="preview-hero" aria-labelledby="printableTitle">
@@ -413,8 +413,8 @@
     }
 
     if (returnLink) {
-      returnLink.href = "this-week.html?issue=" + encodeURIComponent(issue) + "&bag=open&group=practice" + draftParam;
-      returnLink.textContent = fromBag ? "← Back to Weekly Study Pack" : "← Back to This Week";
+      returnLink.href = "/";
+      returnLink.textContent = "← Back to SUNNYVAiLE";
     }
 
     if (funPackLink) {
@@ -466,5 +466,8 @@
   })();
   </script>
     <script src="content/site/brand-polish.js?v=wm1" defer></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260704-12"></script>
+    <script defer src="/content/site/quick-rail.js?v=20260704-2"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260704-5"></script>
 </body>
 </html>

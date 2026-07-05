@@ -44,7 +44,7 @@
 Resolved 2026-06-29: People & Characters land as a 9th Mall stop named **"Rollin' with my Homies (real or scripted)"** — Coolio's 1995 song made iconic by Tai's scene in Clueless, with the parenthetical bridging fictional + real in one shelf.
 
 Decision: People live in both places, but for different reasons:
-- **SANCTUAiRY** holds their **role as patron saint** — Dolly as Patron Saint of Common Sense, etc. The venerated saint-function, with halos and stained glass.
+- **SANCTUAiRY** holds their **role as patron saint** — Dolly as PATRON SAiNT of Common Sense, etc. The venerated saint-function, with halos and stained glass.
 - **Rollin' with my Homies** holds their **character or real person** — Cher Horowitz the character, Britney the real person. The reference catalog itself.
 
 Same person can appear in both. SANCTUAiRY venerates the role; The Mall catalogs the source.
@@ -124,12 +124,12 @@ Browsing the Mall isn't just cataloging pop-culture references — it's a way to
 |---|---|---|
 | **Clueless** | As Seen on TV | Tardy Award (Passport welcome-back ritual + Travis-cadence acceptance speech). See [[tardy-award-canon]]. |
 | **You've Got Mail** | As Seen on TV | SUNNYVAiLE Post Office magic-link sign-in + email templates ("You've Got Mail from the SUNNYVAiLE Post Office"). See [[membership-architecture-plan]]. |
-| **Legally Blonde** | As Seen on TV | The Blend & Snap building name (Bend & Snap → Blend & Snap triple-pun) + Elle Woods Patron Saint of Receipts at SANCTUAiRY (which ties directly into the LIBRAiRY's Chamber of Receipts). |
-| **Buffy the Vampire Slayer** | As Seen on TV | The entire SUNNYVAiLE town canon (Sunnydale analogy) + SLAiYER Handbook + Buffy Summers Patron Saint of Doing the Scary Thing Anyway. |
-| **Mean Girls** | As Seen on TV | The Burn Book (community room in Sorority House) + Regina George Patron Saint of Social Power + Girl Talk truth-or-dare canon. |
-| **The Devil Wears Prada** | As Seen on TV | Miranda Priestly Patron Saint of Executive Standards at SANCTUAiRY. |
-| **Schitt's Creek** | As Seen on TV | David Rose Patron Saint of Specificity at SANCTUAiRY + "The Bestie" archetype in the 24 Residence Card avatars. |
-| **9 to 5 (Dolly Parton)** | As Seen on TV | Dolly Parton Patron Saint of Common Sense at SANCTUAiRY. |
+| **Legally Blonde** | As Seen on TV | The Blend & Snap building name (Bend & Snap → Blend & Snap triple-pun) + Elle Woods PATRON SAiNT of Receipts at SANCTUAiRY (which ties directly into the LIBRAiRY's Chamber of Receipts). |
+| **Buffy the Vampire Slayer** | As Seen on TV | The entire SUNNYVAiLE town canon (Sunnydale analogy) + SLAiYER Handbook + Buffy Summers PATRON SAiNT of Doing the Scary Thing Anyway. |
+| **Mean Girls** | As Seen on TV | The Burn Book (community room in Sorority House) + Regina George PATRON SAiNT of Social Power + Girl Talk truth-or-dare canon. |
+| **The Devil Wears Prada** | As Seen on TV | Miranda Priestly PATRON SAiNT of Executive Standards at SANCTUAiRY. |
+| **Schitt's Creek** | As Seen on TV | David Rose PATRON SAiNT of Specificity at SANCTUAiRY + "The Bestie" archetype in the 24 Residence Card avatars. |
+| **9 to 5 (Dolly Parton)** | As Seen on TV | Dolly Parton PATRON SAiNT of Common Sense at SANCTUAiRY. |
 | **Jenny (867-5309)** | Books and Records | Secret Badges mechanic — 867-5309 energy = Easter egg badges that need to be discovered. See [[charm-mechanic-pivot]]. |
 | **Jammed Printer (Dream Phone)** | I Know What You Did Last (x30) Summer | Deb's origin canon — she went to print the withdrawal form, printer jammed, she walked away. It has not been unjammed since 1999. Half-printed form still in the tray at Town Hall. Charm hunt candidate. See [[deb-mayor-origin-story]]. |
 
@@ -364,7 +364,7 @@ Pop-culture refs in the Mall that could become live town mechanics later. Sittin
 - Easy-Bake Oven `[DP]`
 - Lemonade Stand `[DP]`
 - Drive-Thru Window `[DP]`
-- Spice Rack `[DP] [CO]`
+- Pixie Stick `[DP] [CO]` *(renamed from Spice Rack 2026-07-03 — Spice Rack read like a botched Spice Girls play on a site where Spice Girls is the load-bearing prompting reference. Same specificity lesson, Y2K-native object.)*
 - Spice Girls Lollipop `[CO]` *(decide: Food Court for the candy, or Books and Records for Spice Girls)*
 - The Juice Bar Smoothie `[CO]`
 - The Food Court Table `[CO]`
@@ -453,7 +453,7 @@ Pop-culture refs in the Mall that could become live town mechanics later. Sittin
 ### Obvious Y2K canon still to source
 - **Real:** Madonna, Mariah Carey, Whitney Houston, Janet Jackson, Christina Aguilera, Jennifer Lopez (also Music), Tina Turner, Princess Diana, Oprah, Martha Stewart, Hannah Fry (also Coven), Mia Hamm, Williams sisters, Reese Witherspoon (also Elle), Jennifer Aniston (also Rachel)
 - **Fictional:** Tai Frasier (Clueless), Vivian Ward (Pretty Woman), Bridget Jones, Erin Brockovich, Romy & Michele, Lorelai/Rory Gilmore, Willow Rosenberg, Cordelia Chase, Daria Morgendorffer, Rachel/Monica/Phoebe (Friends), Lara Croft, Mary Jane Watson, Powerpuff Girls
-- Overlap with SANCTUAiRY's Patron Saints + Coven is intentional — SANCTUAiRY curates, Mall catalogs.
+- Overlap with SANCTUAiRY's PATRON SAiNTS + Coven is intentional — SANCTUAiRY curates, Mall catalogs.
 
 ### Naming pun
 "Rollin' with my Homies" = Coolio's 1995 song, made iconic by Tai's scene in Clueless (1995). Peak Y2K. The parenthetical "(real or scripted)" is the joke — same self-aware-aside pattern as "(x30) Summer" and "(and film)."

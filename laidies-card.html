@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Passport · LAiDIES · SUNNYVAiLE</title>
-  <meta name="description" content="Your SUNNYVAiLE Passport — Residence Card, sticker book, sash, charm bracelet, and the whole collectible journey. Yours across every device.">
+  <title>Your Closet · LAiDIES · SUNNYVAiLE</title>
+  <meta name="description" content="Your SUNNYVAiLE Closet — Residence Card, sticker book, sash, charm bracelet, and the collectible journey. Yours across every device.">
   <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260630-1">
+  <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260704-palette">
   <script defer src="/content/site/sv-nav-auth.js?v=20260630-1"></script>
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
   <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
@@ -28,6 +28,80 @@
     }
     .passport-section-lede {
       font-size: 16px; color: var(--plum-soft); margin: 0 0 24px; line-height: 1.5;
+    }
+
+    /* Ai accent — brand tokens like SUNNYVAiLE, LUMINAiRY, MAiKEOVER get the "Ai" in rose */
+    .ai { color: var(--rose); }
+
+    /* ==============================================
+       COVEN — 4-slot pantheon band (SAiNT / MAiVEN / TRAiLBLAZER / Town)
+       ============================================== */
+    .coven-grid {
+      display: grid; gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .coven-slot {
+      position: relative;
+      display: flex; flex-direction: column; gap: 8px;
+      padding: 20px 20px 18px; border-radius: 16px;
+      background: linear-gradient(160deg, #fffdfb 0%, rgba(232, 197, 200, 0.28) 100%);
+      border: 1px solid rgba(75, 33, 72, 0.14);
+      color: var(--plum); text-decoration: none;
+      box-shadow: 0 12px 30px rgba(75, 33, 72, 0.08);
+      transition: transform 0.18s ease, box-shadow 0.22s ease, border-color 0.2s;
+      overflow: hidden;
+    }
+    .coven-slot:hover {
+      transform: translateY(-3px); text-decoration: none;
+      border-color: var(--rose);
+      box-shadow: 0 22px 46px rgba(155, 63, 95, 0.18);
+    }
+    .coven-slot::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--rose), var(--gold, #d4a853));
+    }
+    .coven-slot-kind {
+      font-family: 'Jost', sans-serif; font-size: 10.5px; font-weight: 700;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);
+    }
+    .coven-slot-pick {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.15rem; line-height: 1.2; color: var(--plum); font-weight: 700;
+    }
+    .coven-slot-pick.is-empty { color: var(--plum-soft, #766171); font-weight: 500; font-style: italic; }
+    .coven-slot-cta {
+      margin-top: auto; padding-top: 6px;
+      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.06em; color: var(--rose);
+    }
+
+    /* ==============================================
+       TRIP GUIDE — card lines change at their home buildings
+       ============================================== */
+    .trip-guide { max-width: 680px; margin: 26px auto 0; }
+    .trip-guide-title {
+      margin: 0 0 10px; font-family: 'Jost', sans-serif; font-size: 10.5px; font-weight: 700;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose); text-align: center;
+    }
+    .trip-guide-grid {
+      display: grid; gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    .trip-guide-row {
+      display: flex; flex-direction: column; gap: 4px;
+      padding: 12px 14px; border-radius: 12px;
+      background: linear-gradient(160deg, #fffdfb 0%, rgba(232, 197, 200, 0.24) 100%);
+      border: 1px solid rgba(75, 33, 72, 0.14);
+      text-decoration: none;
+      transition: transform 0.18s ease, border-color 0.2s;
+    }
+    .trip-guide-row:hover { transform: translateY(-2px); border-color: var(--rose); text-decoration: none; }
+    .trip-guide-field {
+      font-family: 'Jost', sans-serif; font-size: 12.5px; font-weight: 700; color: var(--plum);
+    }
+    .trip-guide-dest {
+      font-family: 'Jost', sans-serif; font-size: 11.5px; font-weight: 700;
+      letter-spacing: 0.04em; color: var(--rose);
     }
 
     /* ======================================================
@@ -307,10 +381,143 @@
     }
     .charm:hover { transform: translateY(-4px) scale(1.1); }
     .charm--empty {
-      background: transparent; border: 1.5px dashed var(--plum-soft);
-      color: transparent; box-shadow: none; opacity: 0.4;
+      background: rgba(212, 168, 83, 0.05);
+      border: 2px dotted var(--gold, #d4a853);
+      color: transparent; box-shadow: none; opacity: 0.62;
     }
-    .charm--empty:hover { transform: none; }
+    .charm--empty:hover { transform: none; opacity: 0.85; border-color: var(--rose); }
+
+    /* Multi-week bracelet stack — one row per unlocked personal week */
+    #charmBracelet { padding: 8px 0; display: flex; flex-direction: column; gap: 16px; }
+    #charmBracelet::before { display: none; }
+    .charm-week-row {
+      padding: 14px 16px 12px;
+      border-radius: 14px;
+      background: rgba(255, 253, 251, 0.7);
+      border: 1px solid rgba(75, 33, 72, 0.12);
+      transition: opacity 200ms ease;
+    }
+    .charm-week-row.is-current {
+      background: linear-gradient(135deg, rgba(255,253,251,0.94) 0%, rgba(232,197,200,0.36) 100%);
+      border-color: rgba(155,63,95,0.42);
+      box-shadow: 0 12px 26px rgba(155,63,95,0.14);
+    }
+    .charm-week-row.is-complete .charm-week-chain { opacity: 0.94; }
+    .charm-week-row:not(.is-current):not(.is-complete) { opacity: 0.88; }
+    .charm-week-head {
+      display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+      margin-bottom: 10px;
+    }
+    .charm-week-label {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 15px; font-weight: 700; color: var(--plum);
+    }
+    .charm-week-chip {
+      font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 800;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 999px;
+      background: rgba(75,33,72,0.08); color: var(--plum);
+    }
+    .charm-week-chip--complete {
+      background: linear-gradient(90deg, var(--gold, #d4a853), var(--rose));
+      color: #fffdfb;
+    }
+    /* Bracelet-mounted charm row: real bracelet PNG as background, 7 charms
+       positioned so each charm's own top gold ring interlocks visually with the
+       bracelet's hanging jump ring at that position — "hooked into" the bracelet.
+       Container has extra bottom margin so hanging charms don't clip below. */
+    .charm-week-chain {
+      display: block;
+      position: relative;
+      width: 100%;
+      max-width: 640px;
+      margin: 8px auto 56px;
+      aspect-ratio: 6 / 1;
+      padding: 0;
+      overflow: visible;
+      background-image: url('/assets/charms/charm-bracelet-base.png?v=20260703-1');
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: 100% auto;
+    }
+    .charm-week-chain::before { display: none; }
+    /* Both charm and empty-marker share the SAME top attach-line — right at the
+       bracelet's built-in hanging-ring row (~62% of container height). The
+       charm's own baked-in gold ring (top of its PNG) overlaps the bracelet's
+       ring, so the two rings visually interlock. Charm body extends below. */
+    .charm-week-chain .charm,
+    .charm-week-chain .charm--empty {
+      position: absolute;
+      top: 62%;
+      transform: translate(-50%, -50%);
+    }
+    .charm-week-chain .charm {
+      width: 58px; height: 80px;
+      margin: 0;
+      background: transparent;
+      box-shadow: none;
+      border-radius: 0;
+      color: inherit;
+      overflow: visible;
+      /* Nudge the charm downward so its top ring aligns with the bracelet's
+         hanging ring (charm body then hangs BELOW the chain). */
+      transform: translate(-50%, -30%);
+    }
+    .charm-week-chain .charm img {
+      width: 100%; height: 100%; object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 2px 4px rgba(75, 33, 72, 0.28));
+      transition: transform 200ms ease;
+    }
+    .charm-week-chain .charm:hover img { transform: translateY(-2px) scale(1.08); }
+    /* Empty slot: small dotted-gold ring at the same hanging-ring row. */
+    .charm-week-chain .charm--empty {
+      width: 16px; height: 16px;
+      border: 2px dotted var(--gold, #d4a853);
+      border-radius: 50%;
+      background: rgba(212, 168, 83, 0.06);
+      opacity: 0.55;
+    }
+    .charm-week-chain .charm--empty:hover { opacity: 0.85; border-color: var(--rose); }
+
+    /* Jewelry Box — collapsible archive of past weeks so 24 bracelets don't stack */
+    .jewelry-box {
+      margin-top: 24px;
+      padding: 14px 16px 10px;
+      border: 1.5px dashed rgba(155, 63, 95, 0.28);
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(255,253,251,0.55), rgba(232,197,200,0.14));
+    }
+    .jewelry-box > summary {
+      cursor: pointer;
+      display: flex; align-items: center; gap: 10px;
+      list-style: none;
+      font-family: 'Jost', sans-serif;
+      font-size: 12px; font-weight: 800;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--plum);
+      padding: 4px 0;
+      user-select: none;
+    }
+    .jewelry-box > summary::-webkit-details-marker { display: none; }
+    .jewelry-box > summary::before {
+      content: '▸';
+      display: inline-block;
+      color: var(--gold, #d4a853);
+      font-size: 14px;
+      transition: transform 200ms ease;
+    }
+    .jewelry-box[open] > summary::before { transform: rotate(90deg); }
+    .jewelry-box > summary .jewelry-box-count {
+      margin-left: auto;
+      font-size: 10.5px; letter-spacing: 0.16em;
+      color: var(--plum-soft, var(--plum));
+      font-weight: 700;
+    }
+    .jewelry-box[open] > summary { margin-bottom: 8px; border-bottom: 1px dashed rgba(75,33,72,0.14); padding-bottom: 10px; }
+    .jewelry-box .charm-week-row { padding: 8px 12px 6px; }
+    .jewelry-box .charm-week-chain { max-width: 520px; margin: 4px auto 40px; }
+    .jewelry-box .charm-week-row .charm-week-label { font-size: 12px; }
 
     /* Card Binder vessel (trading cards) */
     .vessel--card-binder {
@@ -591,11 +798,11 @@
 <header class="sv-header">
   <a class="brand" href="/">LAiDIES</a>
   <nav>
-    <a href="/this-week.html">This Week</a>
-    <a href="/episodes.html">Episodes</a>
+    <a href="/">This Week</a>
+    <a href="/chick-flicks.html">Episodes</a>
     <a href="/library.html">LIBRAiRY</a>
     <a href="/maikeover.html">MAiKEOVER</a>
-    <a href="/laidies-card.html" style="color: var(--rose);">Passport</a>
+    <a href="/laidies-card.html" style="color: var(--rose);">Closet</a>
     <a href="/clubhouse-pass.html" class="sv-signin" style="color: var(--rose); font-weight: 600; border: 1.5px solid var(--rose); padding: 6px 14px; border-radius: 999px;">✉︎ Sign In</a>
   </nav>
 </header>
@@ -606,7 +813,7 @@
   <div class="public-mode-banner" id="publicModeBanner" hidden>
     <span style="font-size: 20px;">👀</span>
     <div>
-      <strong>You're looking at another resident's Passport.</strong>
+      <strong>You're looking at another resident's Closet.</strong>
       Want your own? <a href="/maikeover.html" style="color: var(--rose); font-weight: 600; text-decoration: underline;">Get your Residence Card at MAiKEOVER →</a>
     </div>
   </div>
@@ -615,7 +822,7 @@
        SECTION 1: RESIDENCE CARD (with flip)
        ============================================== -->
   <section class="passport-section" id="sectionCard">
-    <p class="passport-section-eyebrow">★ Passport · Page 1</p>
+    <p class="passport-section-eyebrow">★ <a href="/sorority-house.html" style="color: inherit; text-decoration: none;">Delta L<span class="ai">Ai</span> Nu</a> · Your Closet · Your Card</p>
     <h1 class="passport-section-title" id="cardSectionTitle">Your Residence Card</h1>
 
     <div class="card-viewport">
@@ -637,6 +844,10 @@
                 <div class="card-fact"><span class="fact-icon">♪</span><span id="cardSong">Pick your favorite LAiDIES song</span></div>
                 <div class="card-fact"><span class="fact-icon">✿</span><span id="cardActivity">Pick your favorite SUNNYVAiLE activity</span></div>
                 <div class="card-fact"><span class="fact-icon">★</span><span id="cardSaintLine">Devoted to ______</span></div>
+                <div class="card-fact" id="cardEpisodeRow" hidden><span class="fact-icon">📼</span><span id="cardEpisode"></span></div>
+                <div class="card-fact" id="cardStorefrontRow" hidden><span class="fact-icon">⌂</span><span id="cardStorefront"></span></div>
+                <div class="card-fact" id="cardCharacterRow" hidden><span class="fact-icon">☎</span><span id="cardCharacter"></span></div>
+                <div class="card-fact" id="cardCocktailRow" hidden><span class="fact-icon">🍸</span><span id="cardCocktail"></span></div>
               </div>
               <p class="card-motto" id="cardMotto" hidden></p>
               <div class="card-footer-line">
@@ -664,7 +875,7 @@
             <div class="card-devotion">
               <div class="card-devotion-halo" id="cardSaintHalo">★</div>
               <div class="card-devotion-text">
-                <strong>Patron Saint</strong>
+                <strong>PATRON SAiNT</strong>
                 <span id="cardSaint">— pick your saint —</span>
               </div>
             </div>
@@ -682,6 +893,29 @@
       <a class="card-action-btn card-action-btn--primary" href="/maikeover.html">Get your own card →</a>
     </div>
 
+    <!-- Trip guide: card lines change at their home buildings (customization = a trip) -->
+    <div class="trip-guide" id="tripGuide">
+      <p class="trip-guide-title">★ Change a line by going where it lives</p>
+      <div class="trip-guide-grid">
+        <a class="trip-guide-row" href="/mall/pieces-of-flair.html">
+          <span class="trip-guide-field">✨ Avatar</span>
+          <span class="trip-guide-dest">PIECES OF FL<span class="ai">Ai</span>R at the Mall →</span>
+        </a>
+        <a class="trip-guide-row" href="/radio.html">
+          <span class="trip-guide-field">♪ Song</span>
+          <span class="trip-guide-dest">KSVL Community R<span class="ai">Ai</span>DIO →</span>
+        </a>
+        <a class="trip-guide-row" href="/chick-flicks.html">
+          <span class="trip-guide-field">📼 Episode</span>
+          <span class="trip-guide-dest">The Chick Flicks →</span>
+        </a>
+        <a class="trip-guide-row" href="/bronze-aige.html">
+          <span class="trip-guide-field">🍸 Cocktail</span>
+          <span class="trip-guide-dest">The BRONZE <span class="ai">Ai</span>GE →</span>
+        </a>
+      </div>
+    </div>
+
     <!-- Send a Note (Post Office DM) — public mode only -->
     <div class="send-note-block" id="sendNoteBlock" hidden>
       <span class="send-note-icon">✉️</span>
@@ -694,10 +928,112 @@
   </section>
 
   <!-- ==============================================
+       SECTION 1.25: YOUR COVEN — one favorite per pantheon
+       (SAiNT / MAiVEN / TRAiLBLAZER / Town Character. Trip mechanic: pick at LUMINAiRY wings or the character's building.)
+       ============================================== -->
+  <section class="passport-section" id="covenSection">
+    <p class="passport-section-eyebrow">★ Closet · Your Coven</p>
+    <h2 class="passport-section-title">Your Coven</h2>
+    <p class="passport-section-lede">The women you draw power from &mdash; one favorite per pantheon. Change any pick by visiting where she lives.</p>
+
+    <div class="coven-grid">
+      <a class="coven-slot" href="/luminairy.html">
+        <span class="coven-slot-kind">Your SAiNT</span>
+        <span class="coven-slot-pick" id="covenSaintPick">&mdash; pick one &mdash;</span>
+        <span class="coven-slot-cta">Change at LUMIN<span class="ai">Ai</span>RY &rarr;</span>
+      </a>
+
+      <a class="coven-slot" href="/luminairy.html#mavens">
+        <span class="coven-slot-kind">Your MAiVEN</span>
+        <span class="coven-slot-pick" id="covenMavenPick">&mdash; pick one &mdash;</span>
+        <span class="coven-slot-cta">Change at the MAiVENS Wing &rarr;</span>
+      </a>
+
+      <a class="coven-slot" href="/luminairy.html#builders">
+        <span class="coven-slot-kind">Your TRAiLBLAZER</span>
+        <span class="coven-slot-pick" id="covenBuilderPick">&mdash; pick one &mdash;</span>
+        <span class="coven-slot-cta">Change at the TRAiLBLAZERS Wing &rarr;</span>
+      </a>
+
+      <a class="coven-slot" href="/town-hall.html#regulars">
+        <span class="coven-slot-kind">Your Town Regular</span>
+        <span class="coven-slot-pick" id="covenTownPick">&mdash; pick one &mdash;</span>
+        <span class="coven-slot-cta">Change at Town Hall &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       SECTION 1.5: THIS WEEK'S TOUR (ritual mechanic)
+       ============================================== -->
+  <section class="passport-section" id="tourSection">
+    <p class="passport-section-eyebrow">★ Closet · This Week</p>
+    <h2 class="passport-section-title">Your Wednesday Tour</h2>
+    <p class="passport-section-lede">The 8-stop ritual. Do the whole thing — <strong>+1 FAiRY wish.</strong> Resets Wednesday. <span id="tourWeekLabel" style="opacity: 0.6;"></span></p>
+
+    <div class="vessel vessel--tour" id="tourVessel">
+      <div class="vessel-header">
+        <h3 class="vessel-title">🌸 Tour Progress</h3>
+        <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
+          <span class="vessel-count" id="tourCount">0 of 8</span>
+          <span id="tourRewardBadge" style="display: none; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); background: rgba(201,162,39,0.14); padding: 4px 10px; border-radius: 999px;">🧚 +1 wish earned</span>
+        </div>
+      </div>
+      <div id="tourGrid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 6px;">
+        <!-- stop tiles injected by JS -->
+      </div>
+      <p class="vessel-note" id="tourNote">Visit each stop and tap "Check in" — some auto-check when you do the thing (like playing the BRONZE AiGE song).</p>
+    </div>
+  </section>
+
+  <style>
+    .tour-stop {
+      display: flex; flex-direction: column; gap: 4px;
+      padding: 12px 10px;
+      background: rgba(255, 253, 251, 0.55);
+      border: 1.5px solid rgba(75, 33, 72, 0.14);
+      border-radius: 10px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--plum);
+      transition: transform 200ms ease, background 200ms ease, border-color 200ms ease;
+      min-height: 92px;
+      justify-content: center;
+    }
+    .tour-stop:hover { transform: translateY(-2px); background: rgba(255, 253, 251, 0.9); border-color: rgba(75, 33, 72, 0.28); }
+    .tour-stop__num {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 800; letter-spacing: 0.16em;
+      color: var(--rose); opacity: 0.7;
+    }
+    .tour-stop__name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 14px; font-weight: 700; line-height: 1.2;
+      color: var(--plum);
+    }
+    .tour-stop__status {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 600; letter-spacing: 0.06em;
+      color: rgba(75, 33, 72, 0.5); text-transform: uppercase;
+    }
+    .tour-stop--checked {
+      background: rgba(44, 125, 60, 0.14);
+      border-color: rgba(44, 125, 60, 0.42);
+    }
+    .tour-stop--checked .tour-stop__num { color: #2c7d3c; opacity: 1; }
+    .tour-stop--checked .tour-stop__status { color: #2c7d3c; font-weight: 700; }
+    @media (max-width: 640px) {
+      #tourGrid { grid-template-columns: repeat(2, 1fr) !important; }
+      .tour-stop { min-height: 78px; padding: 10px 8px; }
+      .tour-stop__name { font-size: 13px; }
+    }
+  </style>
+
+  <!-- ==============================================
        SECTION 2: PASSPORT VESSELS
        ============================================== -->
   <section class="passport-section">
-    <p class="passport-section-eyebrow">★ Passport · Pages 2–6</p>
+    <p class="passport-section-eyebrow">★ Closet · Your Shelves</p>
     <h2 class="passport-section-title">Your Collections</h2>
 
     <!-- Sticker Book -->
@@ -734,22 +1070,14 @@
       <p class="vessel-note">Earned for milestones — full weeks, quiz streaks, seasonal accomplishments.</p>
     </div>
 
-    <!-- Charm Bracelet -->
+    <!-- Charm Bracelet — reads from charm-hunt.js (window.CHARM_HUNT) if present, else empty state -->
     <div class="vessel vessel--charm-bracelet">
       <div class="vessel-header">
         <h3 class="vessel-title">🌸 Charm Bracelet</h3>
         <span class="vessel-count" id="charmCount">0 of 7 found this week</span>
       </div>
-      <div class="charm-chain" id="charmBracelet">
-        <div class="charm charm--empty"></div>
-        <div class="charm charm--empty"></div>
-        <div class="charm charm--empty"></div>
-        <div class="charm charm--empty"></div>
-        <div class="charm charm--empty"></div>
-        <div class="charm charm--empty"></div>
-        <div class="charm charm--empty"></div>
-      </div>
-      <p class="vessel-note">Hidden charms tucked in the town's images each week. Look closely.</p>
+      <div class="charm-chain" id="charmBracelet"></div>
+      <p class="vessel-note">Hidden charms tucked in the town's images each week. Look closely — every stop page has one.</p>
     </div>
 
     <!-- Trading Card Binder -->
@@ -831,39 +1159,39 @@
        SECTION 4: LEADERBOARDS
        ============================================== -->
   <section class="passport-section">
-    <p class="passport-section-eyebrow">★ Passport · Standings</p>
+    <p class="passport-section-eyebrow">★ Closet · Where You Rank</p>
     <h2 class="passport-section-title">Town Leaderboards</h2>
     <p class="passport-section-lede">Where you rank among the residents of SUNNYVAiLE.</p>
 
     <div class="leaderboard-grid">
       <div class="leaderboard-card">
         <p class="leaderboard-card-title">📓 Top Sticker Collectors</p>
-        <ol class="leaderboard-list"><li><span class="rank">—</span><span class="name">Coming soon</span><span class="score">—</span></li></ol>
+        <ol class="leaderboard-list"><li><span class="rank">—</span><span class="name">Still brewing</span><span class="score">—</span></li></ol>
         <p class="your-rank-note">Your rank: —</p>
       </div>
       <div class="leaderboard-card">
         <p class="leaderboard-card-title">🎗️ Top Merit Earners</p>
-        <ol class="leaderboard-list"><li><span class="rank">—</span><span class="name">Coming soon</span><span class="score">—</span></li></ol>
+        <ol class="leaderboard-list"><li><span class="rank">—</span><span class="name">Still brewing</span><span class="score">—</span></li></ol>
         <p class="your-rank-note">Your rank: —</p>
       </div>
       <div class="leaderboard-card">
         <p class="leaderboard-card-title">🌸 Top Charm Hunters</p>
-        <ol class="leaderboard-list"><li><span class="rank">—</span><span class="name">Coming soon</span><span class="score">—</span></li></ol>
+        <ol class="leaderboard-list"><li><span class="rank">—</span><span class="name">Still brewing</span><span class="score">—</span></li></ol>
         <p class="your-rank-note">Your rank: —</p>
       </div>
       <div class="leaderboard-card">
         <p class="leaderboard-card-title">🃏 Top Card Collectors</p>
-        <ol class="leaderboard-list"><li><span class="rank">—</span><span class="name">Coming soon</span><span class="score">—</span></li></ol>
+        <ol class="leaderboard-list"><li><span class="rank">—</span><span class="name">Still brewing</span><span class="score">—</span></li></ol>
         <p class="your-rank-note">Your rank: —</p>
       </div>
       <div class="leaderboard-card">
         <p class="leaderboard-card-title">💬 Top Sorority House Commentators</p>
-        <ol class="leaderboard-list"><li><span class="rank">—</span><span class="name">Coming soon</span><span class="score">—</span></li></ol>
+        <ol class="leaderboard-list"><li><span class="rank">—</span><span class="name">Still brewing</span><span class="score">—</span></li></ol>
         <p class="your-rank-note">Your rank: —</p>
       </div>
       <div class="leaderboard-card">
         <p class="leaderboard-card-title">🧚 Top FAiRY Plays Earners</p>
-        <ol class="leaderboard-list"><li><span class="rank">—</span><span class="name">Coming soon</span><span class="score">—</span></li></ol>
+        <ol class="leaderboard-list"><li><span class="rank">—</span><span class="name">Still brewing</span><span class="score">—</span></li></ol>
         <p class="your-rank-note">Your rank: —</p>
       </div>
     </div>
@@ -894,10 +1222,10 @@
         <option value="">— pick your song —</option>
         <option value="wednesday-in-sunnyvaile">Wednesday in SUNNYVAiLE — THE LAiDIES</option>
         <option value="down-at-the-blend-and-snap">Down at the Blend & Snap — THE LAiDIES</option>
-        <option value="the-library">The LIBRAiRY — DJ JAiDY</option>
-        <option value="on-wednesday-we-do-ai">On Wednesday We Do AI — DJ JAiDY</option>
-        <option value="tell-me-what-you-want">Tell Me What You Want — DJ JAiDY</option>
-        <option value="dont-be-chutney">Don't Be Chutney on the Stand — DJ JAiDY</option>
+        <option value="the-library">The LIBRAiRY — DJ SunnyV</option>
+        <option value="on-wednesday-we-do-ai">On Wednesday We Do AI — DJ SunnyV</option>
+        <option value="tell-me-what-you-want">Tell Me What You Want — DJ SunnyV</option>
+        <option value="dont-be-chutney">Don't Be Chutney on the Stand — DJ SunnyV</option>
       </select>
     </label>
 
@@ -914,24 +1242,71 @@
         <option value="mme-claio">Fortune reading with Mme CLAi-O</option>
         <option value="fairy-godmother">Ask LAiDY with the FAiRY Godmother</option>
         <option value="sorority-house">Girl Talk at Delta LAi Nu</option>
-        <option value="sanctuary">Prayers at the SANCTUAiRY</option>
-        <option value="wednesday-tour">The whole Wednesday tour</option>
+        <option value="sanctuary">Picking my Coven at the LUMINAiRY</option>
+        <option value="wednesday-tour">The Wednesday tour</option>
       </select>
     </label>
 
     <label class="edit-field">
-      <span class="edit-field-label">Favorite Patron Saint</span>
+      <span class="edit-field-label">Favorite PATRON SAiNT</span>
       <select class="edit-field-select" id="editSaint">
         <option value="">— pick your saint —</option>
-        <option value="cher-horowitz">Cher Horowitz · Patron Saint of Pattern Matching</option>
-        <option value="dolly-parton">Dolly Parton · Patron Saint of Common Sense</option>
-        <option value="elle-woods">Elle Woods · Patron Saint of Receipts</option>
-        <option value="miranda-priestly">Miranda Priestly · Patron Saint of Executive Standards</option>
-        <option value="buffy-summers">Buffy Summers · Patron Saint of Doing the Scary Thing Anyway</option>
-        <option value="regina-george">Regina George · Patron Saint of Social Power</option>
-        <option value="david-rose">David Rose · Patron Saint of Specificity</option>
-        <option value="deb">Deb · Patron Saint of "Loop Me Out"</option>
+        <option value="cher-horowitz">Cher Horowitz · PATRON SAiNT of Early Adoption</option>
+        <option value="dolly-parton">Dolly Parton · PATRON SAiNT of Common Sense</option>
+        <option value="elle-woods">Elle Woods · PATRON SAiNT of Receipts</option>
+        <option value="miranda-priestly">Miranda Priestly · PATRON SAiNT of Standards</option>
+        <option value="buffy-summers">Buffy Summers · PATRON SAiNT of Slaying</option>
+        <option value="regina-george">Regina George · PATRON SAiNT of Dangerous Confidence</option>
+        <option value="david-rose">David Rose · PATRON SAiNT of Specificity</option>
+        <option value="deb">Deb · PATRON SAiNT of "Loop Me Out"</option>
       </select>
+    </label>
+
+    <label class="edit-field">
+      <span class="edit-field-label">Favorite episode</span>
+      <select class="edit-field-select" id="editEpisode">
+        <option value="">— pick your episode —</option>
+      </select>
+    </label>
+
+    <label class="edit-field">
+      <span class="edit-field-label">Favorite storefront (declare your local)</span>
+      <select class="edit-field-select" id="editStorefront">
+        <option value="">— pick your storefront —</option>
+        <option value="visitors-centre">The Welcome Wagon Visitor's Centre</option>
+        <option value="newsstand">The NewsStand</option>
+        <option value="library">The Town LIBRAiRY</option>
+        <option value="mall">The Mall</option>
+        <option value="bronze-aige">The BRONZE AiGE</option>
+        <option value="mme-claio">Mme CLAi-O's Shop</option>
+        <option value="chick-flicks">The Chick Flicks</option>
+        <option value="blend-snap">The Blend &amp; Snap</option>
+        <option value="maikeover">MAiKEOVER on MAiN(e)</option>
+        <option value="sorority-house">Delta LAi Nu</option>
+        <option value="fairy-godmother">The FAiRY Godmother's House</option>
+        <option value="town-hall">Town Hall</option>
+        <option value="post-office">The SUNNYVAiLE Post Office</option>
+        <option value="sunnyvaile-high">SUNNYVAiLE High</option>
+        <option value="sanctuary">The LUMINAiRY</option>
+        <option value="ksvl">KSVL Community RAiDIO</option>
+        <option value="dream-phone">The Dream Phone booth</option>
+      </select>
+    </label>
+
+    <label class="edit-field">
+      <span class="edit-field-label">Favorite Town Character</span>
+      <select class="edit-field-select" id="editCharacter">
+        <option value="">— pick your character —</option>
+        <option value="mayor-deb">Mayor Deb</option>
+        <option value="mme-claio">Mme CLAi-O</option>
+        <option value="fairy-godmother">The FAiRY Godmother</option>
+        <option value="dj-sunnyv">DJ SunnyV</option>
+      </select>
+    </label>
+
+    <label class="edit-field">
+      <span class="edit-field-label">Favorite cocktail (as ordered at the BRONZE AiGE)</span>
+      <input type="text" class="edit-field-input" id="editCocktail" placeholder="Main Character Spritz" maxlength="60" />
     </label>
 
     <label class="edit-field">
@@ -944,6 +1319,17 @@
       <input type="text" class="edit-field-input" id="editMotto" placeholder="chaos coordinator · main character · reformed people-pleaser" maxlength="80" />
     </label>
 
+    <div class="edit-field" style="background: rgba(197, 106, 138, 0.06); border: 1px solid rgba(197, 106, 138, 0.22); border-radius: 10px; padding: 18px 20px; margin-top: 24px;">
+      <div style="display: flex; align-items: flex-start; gap: 12px;">
+        <input type="checkbox" id="editIsPublic" style="width: 20px; height: 20px; margin-top: 3px; accent-color: #c56a8a; cursor: pointer; flex-shrink: 0;" />
+        <label for="editIsPublic" style="cursor: pointer; flex: 1;">
+          <span style="display: block; font-family: 'Jost', sans-serif; font-weight: 700; color: #4b2148; font-size: 14px; letter-spacing: 0.02em;">Make my Closet visible at my handle URL</span>
+          <span style="display: block; margin-top: 6px; font-size: 13px; color: rgba(75, 33, 72, 0.72); line-height: 1.5;">When on, anyone with your handle sees your card face, saint, song, and collections. When off, your URL says "no one home right now." <strong>Your stickers stay yours either way.</strong></span>
+          <span id="editIsPublicHint" style="display: none; margin-top: 8px; font-size: 12px; color: rgba(75, 33, 72, 0.6); font-style: italic;">Claim a handle at MAiKEOVER first — then this switch turns something on.</span>
+        </label>
+      </div>
+    </div>
+
     <div class="save-actions">
       <button type="button" class="cancel-btn" id="cancelEditBtn">Cancel</button>
       <button type="button" class="save-btn" id="saveCardBtn">Stamp my Residence Card ✨</button>
@@ -952,32 +1338,60 @@
 
 </main>
 
-<footer>© LAiDIES · Filed from SUNNYVAiLE · Your Passport</footer>
+<footer>© LAiDIES · Filed from SUNNYVAiLE · Your Closet</footer>
 
 <script src="content/site/supabase-config.js" defer></script>
 <script>
 (function() {
   'use strict';
   var params = new URLSearchParams(window.location.search);
-  var viewMemberSlug = params.get('member');
-  var isPublicMode = !!viewMemberSlug;
+  // Accept both ?u=ali (new, mapped from /@ali) and ?member=ali (legacy)
+  var viewUsername = params.get('u') || params.get('member');
+  var isPublicMode = !!viewUsername;
 
   var ARCHETYPES = { 'founder':'THE FOUNDER','strategist':'THE STRATEGIST','editor':'THE EDITOR','storyteller':'THE STORYTELLER','analyst':'THE ANALYST','coach':'THE COACH','artist':'THE ARTIST','iconoclast':'THE ICONOCLAST','elder':'THE ELDER','bestie':'THE BESTIE','confidant':'THE CONFIDANT','provocateur':'THE PROVOCATEUR' };
   var SONG_LABEL = { 'wednesday-in-sunnyvaile':'Wednesday in SUNNYVAiLE','down-at-the-blend-and-snap':'Down at the Blend & Snap','the-library':'The LIBRAiRY','on-wednesday-we-do-ai':'On Wednesday We Do AI','tell-me-what-you-want':'Tell Me What You Want','dont-be-chutney':"Don't Be Chutney on the Stand" };
-  var ACTIVITY_LABEL = { 'library':'Reading at the LIBRAiRY','blend-snap':'Coffee at the Blend & Snap','mall':'Shopping at the Mall','bronze-aige':'Dancing at the BRONZE AiGE','high':'Pop quiz at SUNNYVAiLE High','chick-flicks':'Movie night at the Chick Flicks','mme-claio':'Fortune reading with Mme CLAi-O','fairy-godmother':'Ask LAiDY with the FAiRY Godmother','sorority-house':'Girl Talk at Delta LAi Nu','sanctuary':'Prayers at the SANCTUAiRY','wednesday-tour':'The whole Wednesday tour' };
+  var ACTIVITY_LABEL = { 'library':'Reading at the LIBRAiRY','blend-snap':'Coffee at the Blend & Snap','mall':'Shopping at the Mall','bronze-aige':'Dancing at the BRONZE AiGE','high':'Pop quiz at SUNNYVAiLE High','chick-flicks':'Movie night at the Chick Flicks','mme-claio':'Fortune reading with Mme CLAi-O','fairy-godmother':'Ask LAiDY with the FAiRY Godmother','sorority-house':'Girl Talk at Delta LAi Nu','sanctuary':'Picking my Coven at the LUMINAiRY','wednesday-tour':'The Wednesday tour' };
   var SAINT_LABEL = { 'cher-horowitz':'Cher Horowitz','dolly-parton':'Dolly Parton','elle-woods':'Elle Woods','miranda-priestly':'Miranda Priestly','buffy-summers':'Buffy Summers','regina-george':'Regina George','david-rose':'David Rose','deb':'Deb' };
+  var STOREFRONT_LABEL = { 'visitors-centre':"The Welcome Wagon Visitor's Centre",'newsstand':'The NewsStand','library':'The Town LIBRAiRY','mall':'The Mall','bronze-aige':'The BRONZE AiGE','mme-claio':"Mme CLAi-O's Shop",'chick-flicks':'The Chick Flicks','blend-snap':'The Blend & Snap','maikeover':'MAiKEOVER on MAiN(e)','sorority-house':'Delta LAi Nu','fairy-godmother':"The FAiRY Godmother's House",'town-hall':'Town Hall','post-office':'The SUNNYVAiLE Post Office','sunnyvaile-high':'SUNNYVAiLE High','sanctuary':'The LUMINAiRY','ksvl':'KSVL Community RAiDIO','dream-phone':'The Dream Phone booth' };
+  var CHARACTER_LABEL = { 'mayor-deb':'Mayor Deb','mme-claio':'Mme CLAi-O','fairy-godmother':'The FAiRY Godmother','dj-sunnyv':'DJ SunnyV' };
+  var EPISODE_LABEL = {}; // filled async from episode-index.json
+
+  // Populate the favourite-episode dropdown + label map from the live index
+  fetch('/content/episode-index.json')
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      var eps = (data.episodes || []).filter(function (e) { return e.status === 'published'; });
+      eps.sort(function (a, b) { return a.number - b.number; });
+      var sel = document.getElementById('editEpisode');
+      eps.forEach(function (ep) {
+        var key = String(ep.number).padStart(2, '0');
+        EPISODE_LABEL[key] = 'Ep ' + key + ' · ' + ep.title;
+        if (sel) {
+          var o = document.createElement('option');
+          o.value = key;
+          o.textContent = EPISODE_LABEL[key];
+          sel.appendChild(o);
+        }
+      });
+      // Re-render with real episode labels if a profile already painted
+      if (window.__laidiesLastProfile) updateCardFromProfile(window.__laidiesLastProfile);
+    })
+    .catch(function () {});
 
   function applyPublicMode() {
     document.getElementById('publicModeBanner').hidden = false;
     document.getElementById('cardSectionTitle').textContent = "Their Residence Card";
     document.getElementById('selfCardActions').hidden = true;
     document.getElementById('publicCardActions').hidden = false;
+    document.getElementById('tripGuide').hidden = true;
     document.getElementById('fairyBankSection').hidden = true;
     document.getElementById('sendNoteBlock').hidden = false;
   }
 
   function updateCardFromProfile(profile) {
     if (!profile) return;
+    window.__laidiesLastProfile = profile;
     document.getElementById('cardName').textContent = profile.display_name || 'A LAiDY';
     document.getElementById('cardArchetype').textContent =
       ARCHETYPES[profile.card_archetype] || 'CHOOSE YOUR ARCHETYPE';
@@ -988,13 +1402,27 @@
     if (profile.favorite_saint) {
       var saintName = SAINT_LABEL[profile.favorite_saint];
       document.getElementById('cardSaintLine').textContent = 'Devoted to ' + saintName;
-      document.getElementById('cardSaint').textContent = saintName + ' — Patron Saint';
+      document.getElementById('cardSaint').textContent = saintName + ' — PATRON SAiNT';
       document.getElementById('cardSaintHalo').textContent = saintName.split(' ').map(function(s){return s[0];}).join('');
     }
     if (profile.card_motto) {
       document.getElementById('cardMotto').textContent = '"' + profile.card_motto + '"';
       document.getElementById('cardMotto').hidden = false;
     }
+    // v2 favourites — each row shows only when picked
+    var fav = function (rowId, spanId, text) {
+      var row = document.getElementById(rowId);
+      var span = document.getElementById(spanId);
+      if (!row || !span) return;
+      if (text) { span.textContent = text; row.hidden = false; }
+      else { row.hidden = true; }
+    };
+    var epVal = profile.favorite_episode;
+    fav('cardEpisodeRow', 'cardEpisode', epVal ? (EPISODE_LABEL[epVal] || (/^\d{2}$/.test(epVal) ? 'Episode ' + epVal : epVal)) : null);
+    var sfVal = profile.favorite_storefront;
+    fav('cardStorefrontRow', 'cardStorefront', sfVal ? (STOREFRONT_LABEL[sfVal] ? 'Local at ' + STOREFRONT_LABEL[sfVal] : sfVal) : null);
+    fav('cardCharacterRow', 'cardCharacter', profile.favorite_character ? (CHARACTER_LABEL[profile.favorite_character] || profile.favorite_character) : null);
+    fav('cardCocktailRow', 'cardCocktail', profile.favorite_cocktail || null);
     if (profile.favorite_quote) {
       document.getElementById('cardQuote').firstChild.textContent = '"' + profile.favorite_quote + '"';
     }
@@ -1025,13 +1453,648 @@
     });
   }
 
-  if (isPublicMode) applyPublicMode();
+  // ============================================================
+  // Supabase-backed Closet: real profile fetch + save + public mode
+  // ============================================================
+  var SUPABASE_CONFIG = window.LAIDIES_SUPABASE_CONFIG || null;
+  var supabaseClient = null;
+  var currentSession = null;
+  var currentProfile = null;
 
-  updateCardFromProfile({
-    display_name: isPublicMode ? 'A SUNNYVAiLE Resident' : null,
-    resident_number: 0
-  });
+  // LocalStorage — offline cache + first-paint speed
+  var LS = {
+    displayName: 'laidies_display_name',
+    saint: 'laidies_saint',
+    song: 'laidies_song',
+    activity: 'laidies_activity',
+    motto: 'laidies_motto',
+    quote: 'laidies_quote',
+    archetype: 'laidies_archetype',
+    avatar: 'laidies_avatar',
+    maven: 'laidies_maven',
+    builder: 'laidies_builder',
+    townRegular: 'laidies_town_regular'
+  };
+
+  // Your Coven — pantheon label maps (SAiNT map already lives above as SAINT_LABEL)
+  var MAVEN_LABEL = {
+    'hannah-fry': 'Hannah Fry',
+    'fei-fei-li': 'Fei-Fei Li',
+    'timnit-gebru': 'Timnit Gebru',
+    'rachel-thomas': 'Rachel Thomas',
+    'joy-buolamwini': 'Joy Buolamwini',
+    'kate-crawford': 'Kate Crawford',
+    'meredith-whittaker': 'Meredith Whittaker',
+    'emily-bender': 'Emily Bender'
+  };
+  var BUILDER_LABEL = {
+    'mira-murati': 'Mira Murati',
+    'daniela-amodei': 'Daniela Amodei',
+    'lila-ibrahim': 'Lila Ibrahim',
+    'fidji-simo': 'Fidji Simo',
+    'chelsea-finn': 'Chelsea Finn',
+    'amanda-askell': 'Amanda Askell'
+  };
+  var TOWN_LABEL = {
+    'mme-claio': 'Mme CLAi-O',
+    'fairy-godmother': 'FAiRY Godmother',
+    'dj-sunnyv': 'DJ SunnyV',
+    'mayor-deb': 'Mayor Deb'
+  };
+
+  // Multi-bracelet render — one bracelet per personal-week unlocked (per charm-hunt.js canon)
+  window.renderCharmBracelet = function () {
+    var host = document.getElementById('charmBracelet');
+    var head = document.getElementById('charmCount');
+    if (!host) return;
+    var ch = window.CHARM_HUNT;
+    // Fallback empty state if charm-hunt.js hasn't loaded yet
+    if (!ch) {
+      host.innerHTML = '';
+      if (head) head.textContent = 'Loading…';
+      return;
+    }
+    var CHARMS = ch.CHARMS;
+    var WEEKS = ch.WEEKS || [];
+    var found = ch.read();
+    var pWeek = ch.personalWeek();
+    var totalFound = found.length;
+    var totalUnlocked = ch.unlockedTotalCount();
+
+    // Group charms by week
+    var byWeek = {};
+    CHARMS.forEach(function (c) {
+      if (!ch.isWeekUnlocked(c.week)) return;
+      (byWeek[c.week] = byWeek[c.week] || []).push(c);
+    });
+
+    // Header count
+    if (head) head.textContent = totalFound + ' of ' + totalUnlocked + ' found';
+
+    // Render current personal week as the main bracelet at top; older weeks
+    // collapse into a Jewelry Box below so 24 weeks don't stack visually.
+    var weekNums = Object.keys(byWeek).map(Number).sort(function (a, b) { return b - a; });
+    var currentWeekNums = weekNums.filter(function (w) { return w === pWeek; });
+    var pastWeekNums = weekNums.filter(function (w) { return w < pWeek; });
+
+    function renderWeekRow(w) {
+      var meta = WEEKS.find(function (m) { return m.number === w; }) || { title: '' };
+      var isCurrent = w === pWeek;
+      var weekCharms = byWeek[w];
+      var weekFound = weekCharms.filter(function (c) { return found.indexOf(c.slug) !== -1; }).length;
+      var isComplete = weekFound === weekCharms.length;
+      var rowLabel = 'Week ' + w + (meta.title ? ' · ' + meta.title : '') + (isCurrent ? ' (current)' : '');
+      var chip = isComplete
+        ? '<span class="charm-week-chip charm-week-chip--complete">★ Complete</span>'
+        : '<span class="charm-week-chip">' + weekFound + '/' + weekCharms.length + '</span>';
+      // 7 x-percentages matching the 7 hanging jump-ring positions on the bracelet PNG
+      // (measured from the actual PNG, not evenly spaced — the bracelet is a smile-arc)
+      var RING_X = [13, 23, 33, 44, 55, 65, 76];
+      var links = weekCharms.map(function (c, i) {
+        var isFound = found.indexOf(c.slug) !== -1;
+        var xPct = RING_X[i] != null ? RING_X[i] : (10 + (i * 12));
+        var posStyle = 'left: ' + xPct + '%';
+        if (isFound) {
+          var title = c.name + ' — ' + c.building;
+          return '<div class="charm" style="' + posStyle + '" title="' + title + '" aria-label="' + c.name + '">' +
+                   '<img src="/assets/charms/' + c.slug + '.png?v=20260703-1" alt="' + c.name + '" onerror="this.style.display=\'none\';var s=this.nextElementSibling;if(s)s.style.display=\'inline\';">' +
+                   '<span style="display:none;font-size:22px;line-height:44px">' + c.emoji + '</span>' +
+                 '</div>';
+        }
+        return '<div class="charm charm--empty" style="' + posStyle + '" title="Hidden at ' + c.building + '" aria-label="Hidden at ' + c.building + '"></div>';
+      }).join('');
+      return (
+        '<div class="charm-week-row' + (isCurrent ? ' is-current' : '') + (isComplete ? ' is-complete' : '') + '">' +
+        '  <div class="charm-week-head"><span class="charm-week-label">' + rowLabel + '</span>' + chip + '</div>' +
+        '  <div class="charm-week-chain">' + links + '</div>' +
+        '</div>'
+      );
+    }
+
+    // Compose: current-week bracelet on top, jewelry box below with older weeks
+    var currentHtml = currentWeekNums.map(renderWeekRow).join('');
+    var pastHtml = '';
+    if (pastWeekNums.length) {
+      var pastCount = pastWeekNums.length;
+      var pastFound = pastWeekNums.reduce(function (acc, w) {
+        return acc + byWeek[w].filter(function (c) { return found.indexOf(c.slug) !== -1; }).length;
+      }, 0);
+      var pastTotal = pastWeekNums.reduce(function (acc, w) { return acc + byWeek[w].length; }, 0);
+      pastHtml =
+        '<details class="jewelry-box">' +
+        '  <summary>' +
+        '    ★ Jewelry Box' +
+        '    <span class="jewelry-box-count">' + pastCount + ' bracelet' + (pastCount === 1 ? '' : 's') + ' · ' + pastFound + '/' + pastTotal + ' charms</span>' +
+        '  </summary>' +
+        pastWeekNums.map(renderWeekRow).join('') +
+        '</details>';
+    }
+    host.innerHTML = currentHtml + pastHtml;
+  };
+  document.addEventListener('charmhunt:week-unlocked', function () { if (window.renderCharmBracelet) window.renderCharmBracelet(); });
+
+  function hydrateCoven() {
+    var read = function(k) { try { return localStorage.getItem(k) || ''; } catch(e) { return ''; } };
+    var applyPick = function(elId, key, labels) {
+      var el = document.getElementById(elId);
+      if (!el) return;
+      var val = read(key);
+      if (val && labels[val]) {
+        el.textContent = labels[val];
+        el.classList.remove('is-empty');
+      } else {
+        el.textContent = '— pick one —';
+        el.classList.add('is-empty');
+      }
+    };
+    applyPick('covenSaintPick',   LS.saint,       (window.SAINT_LABEL || SAINT_LABEL));
+    applyPick('covenMavenPick',   LS.maven,       MAVEN_LABEL);
+    applyPick('covenBuilderPick', LS.builder,     BUILDER_LABEL);
+    applyPick('covenTownPick',    LS.townRegular, TOWN_LABEL);
+  }
+
+  function readCache() {
+    var read = function(k) { try { return localStorage.getItem(k) || ''; } catch(e) { return ''; } };
+    return {
+      display_name: read(LS.displayName) || undefined,
+      favorite_saint: read(LS.saint) || undefined,
+      favorite_song: read(LS.song) || undefined,
+      favorite_activity: read(LS.activity) || undefined,
+      card_motto: read(LS.motto) || undefined,
+      favorite_quote: read(LS.quote) || undefined,
+      card_archetype: read(LS.archetype) || undefined,
+      avatar_slug: read(LS.avatar) || undefined
+    };
+  }
+
+  function writeCache(p) {
+    if (!p) return;
+    var write = function(k, v) { try { if (v) localStorage.setItem(k, v); } catch(e){} };
+    write(LS.displayName, p.display_name);
+    write(LS.saint, p.favorite_saint);
+    write(LS.song, p.favorite_song);
+    write(LS.activity, p.favorite_activity);
+    write(LS.motto, p.card_motto);
+    write(LS.quote, p.favorite_quote);
+    write(LS.archetype, p.card_archetype);
+    write(LS.avatar, p.avatar_slug);
+  }
+
+  function updateAvatar(profile) {
+    var el = document.getElementById('cardAvatar');
+    if (!el || !profile || !profile.avatar_slug) return;
+    var slug = String(profile.avatar_slug).replace(/[^a-z0-9-]/gi, '');
+    if (!slug) return;
+    el.innerHTML = '<img src="/assets/avatars/claires/claires-avatar-' + slug +
+                   '.png?v=20260701-1" alt="Residence Card avatar" style="width:100%;height:100%;object-fit:cover;">';
+  }
+
+  function renderProfile(p) {
+    if (!p) return;
+    updateCardFromProfile(p);
+    updateAvatar(p);
+    hydrateCoven();
+    renderCharmBracelet();
+  }
+
+  function showNotFound(username) {
+    var main = document.querySelector('main');
+    if (!main) return;
+    main.innerHTML =
+      '<div style="max-width:640px;margin:80px auto;padding:40px 24px;text-align:center;font-family:\'Jost\',sans-serif;color:var(--plum);">' +
+      '<div style="font-size:11px;letter-spacing:0.24em;color:var(--rose);margin-bottom:16px;text-transform:uppercase;font-weight:700;">★ SUNNYVAiLE Post Office</div>' +
+      '<h1 style="font-family:\'Playfair Display\',Georgia,serif;font-size:36px;margin:0 0 20px;color:var(--plum);line-height:1.1;">No forwarding address</h1>' +
+      '<p style="font-size:17px;line-height:1.6;color:var(--plum);">There is no LAiDY registered as <code style="background:var(--pearl);padding:3px 8px;border-radius:4px;font-family:monospace;">@' + username + '</code> in SUNNYVAiLE. She might not exist, or her closet might be set to private.</p>' +
+      '<p style="margin-top:32px;font-size:15px;"><a href="/" style="color:var(--rose);text-decoration:underline;font-weight:600;">← Back to town</a></p>' +
+      '</div>';
+  }
+
+  async function initSupabase() {
+    if (!SUPABASE_CONFIG || !SUPABASE_CONFIG.url || !SUPABASE_CONFIG.anonKey) return null;
+    try {
+      var mod = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
+      supabaseClient = mod.createClient(SUPABASE_CONFIG.url, SUPABASE_CONFIG.anonKey, {
+        auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: false }
+      });
+      var s = await supabaseClient.auth.getSession();
+      currentSession = s && s.data ? s.data.session : null;
+      return supabaseClient;
+    } catch (err) {
+      console.error('[Closet] Supabase init failed:', err);
+      return null;
+    }
+  }
+
+  async function loadPublicProfile(username) {
+    // Town Characters resolve first — fictional residents never sign in.
+    try {
+      var cc = await fetch('/content/data/character-cards.json').then(function (r) { return r.ok ? r.json() : null; });
+      var ch = cc && cc.characters && cc.characters[username];
+      if (ch) {
+        return {
+          card_username: ch.handle,
+          display_name: ch.displayName,
+          card_role: ch.role,
+          resident_number: ch.residentNumber,
+          card_avatar_url: ch.avatar,
+          favorite_saint: ch.favoriteSaint,
+          favorite_episode: ch.favoriteEpisode,
+          favorite_storefront: ch.favoriteStorefront,
+          favorite_activity: ch.favoriteActivity,
+          favorite_character: ch.favoriteCharacter,
+          favorite_cocktail: ch.favoriteCocktail,
+          favorite_quote: ch.favoriteQuote,
+          member_card_is_public: true,
+          is_town_character: true
+        };
+      }
+    } catch (e) {}
+    if (!supabaseClient) return null;
+    try {
+      var result = await supabaseClient
+        .from('member_profiles')
+        .select('*')
+        .eq('card_username', username)
+        .eq('member_card_is_public', true)
+        .maybeSingle();
+      return result.data || null;
+    } catch (e) { return null; }
+  }
+
+  async function loadOwnProfile() {
+    if (!supabaseClient || !currentSession) return null;
+    try {
+      var result = await supabaseClient
+        .from('member_profiles')
+        .select('*')
+        .eq('id', currentSession.user.id)
+        .maybeSingle();
+      return result.data || null;
+    } catch (e) { return null; }
+  }
+
+  async function loadCollections(userId) {
+    if (!supabaseClient || !userId) return null;
+    try {
+      var result = await supabaseClient
+        .from('member_reward_events')
+        .select('reward_type, title, source, metadata, issue_key, created_at')
+        .eq('user_id', userId)
+        .order('created_at', { ascending: false })
+        .limit(500);
+      if (result.error) return null;
+      return result.data || [];
+    } catch (e) { return null; }
+  }
+
+  var COLLECTION_MAP = {
+    'sticker_book':   { types: ['quiz_sticker', 'sticker_girl_talk'], countEl: 'stickerCount', gridEl: 'stickerGrid', slotClass: 'sticker sticker--empty', filledClass: 'sticker' },
+    'merit_sash':     { types: ['merit_badge'],                        countEl: 'meritCount',   gridEl: 'meritGrid',   slotClass: 'merit-badge merit-badge--empty', filledClass: 'merit-badge' },
+    'charm_bracelet': { types: ['hidden_charm'],                       countEl: 'charmCount',   gridEl: 'charmBracelet', slotClass: 'charm charm--empty', filledClass: 'charm' },
+    'card_binder':    { types: ['trading_card'],                       countEl: 'tradingCount', gridEl: 'tradingGrid', slotClass: 'trading-card trading-card--empty', filledClass: 'trading-card' },
+    'detention':      { types: ['dare_penalty'],                       countEl: 'penaltyCount', gridEl: 'detentionSlips', slotClass: null, filledClass: null },
+    'diary':          { types: ['secret_badge'],                       countEl: 'secretCount',  gridEl: 'secretGrid',  slotClass: 'secret-badge', filledClass: 'secret-badge secret-badge--found' }
+  };
+
+  function firstLetter(s) {
+    if (!s) return '★';
+    var m = String(s).trim().match(/[A-Za-z0-9]/);
+    return m ? m[0].toUpperCase() : '★';
+  }
+
+  function renderCollections(events) {
+    if (!Array.isArray(events)) events = [];
+
+    // Group events by reward_type
+    var byType = {};
+    for (var i = 0; i < events.length; i++) {
+      var ev = events[i];
+      if (!byType[ev.reward_type]) byType[ev.reward_type] = [];
+      byType[ev.reward_type].push(ev);
+    }
+
+    // ---- Charms (weekly reset) ------------------------------------
+    // Charm count is "N of 7 found this week" — filter by ISO week
+    var thisWeekKey = isoWeekKey(new Date());
+
+    Object.keys(COLLECTION_MAP).forEach(function(key) {
+      var cfg = COLLECTION_MAP[key];
+      var items = [];
+      cfg.types.forEach(function(t) {
+        if (byType[t]) items = items.concat(byType[t]);
+      });
+
+      var countText;
+      if (key === 'charm_bracelet') {
+        var thisWeek = items.filter(function(e) { return (e.issue_key || '').indexOf(thisWeekKey) === 0 || matchesIsoWeek(e.created_at, thisWeekKey); });
+        countText = thisWeek.length + ' of 7 found this week';
+      } else if (key === 'detention') {
+        var recent = items.filter(function(e) { return withinDays(e.created_at, 7); });
+        countText = recent.length + ' this week';
+      } else if (key === 'merit_sash') {
+        countText = items.length + ' earned';
+      } else if (key === 'card_binder') {
+        countText = items.length + (items.length === 1 ? ' card' : ' cards');
+      } else if (key === 'diary') {
+        countText = items.length + ' discovered';
+      } else {
+        countText = items.length + ' collected';
+      }
+
+      var countEl = document.getElementById(cfg.countEl);
+      if (countEl) countEl.textContent = countText;
+
+      if (cfg.slotClass && cfg.filledClass) {
+        var gridEl = document.getElementById(cfg.gridEl);
+        if (gridEl && items.length > 0) {
+          // Replace up to 12 slots with real tiles, leave empties for the rest
+          var slots = Math.max(gridEl.children.length, Math.min(items.length, 12));
+          gridEl.innerHTML = '';
+          for (var s = 0; s < slots; s++) {
+            var tile = document.createElement('div');
+            if (s < items.length) {
+              tile.className = cfg.filledClass;
+              tile.title = items[s].title || '';
+              tile.textContent = firstLetter(items[s].title || items[s].source);
+            } else {
+              tile.className = cfg.slotClass;
+              tile.textContent = cfg.slotClass.indexOf('?') !== -1 ? '?' : '';
+            }
+            gridEl.appendChild(tile);
+          }
+        }
+      }
+    });
+
+    // ---- Detention slips (special: pinned list, not a slot grid) --
+    var slipItems = byType['dare_penalty'] || [];
+    var slipsGrid = document.getElementById('detentionSlips');
+    var slipsEmpty = document.getElementById('detentionEmpty');
+    if (slipsGrid && slipsEmpty) {
+      if (slipItems.length > 0) {
+        slipsGrid.innerHTML = '';
+        slipItems.slice(0, 8).forEach(function(ev) {
+          var slip = document.createElement('div');
+          slip.className = 'detention-slip';
+          slip.textContent = ev.title || 'Declined dare';
+          slipsGrid.appendChild(slip);
+        });
+        slipsGrid.hidden = false;
+        slipsEmpty.hidden = true;
+      }
+    }
+  }
+
+  function isoWeekKey(d) {
+    var t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+    var dayNum = t.getUTCDay() || 7;
+    t.setUTCDate(t.getUTCDate() + 4 - dayNum);
+    var yearStart = new Date(Date.UTC(t.getUTCFullYear(), 0, 1));
+    var weekNo = Math.ceil((((t - yearStart) / 86400000) + 1) / 7);
+    return t.getUTCFullYear() + '-W' + (weekNo < 10 ? '0' + weekNo : weekNo);
+  }
+
+  function matchesIsoWeek(createdAt, weekKey) {
+    if (!createdAt) return false;
+    try {
+      return isoWeekKey(new Date(createdAt)) === weekKey;
+    } catch (_) { return false; }
+  }
+
+  function withinDays(createdAt, days) {
+    if (!createdAt) return false;
+    try {
+      var d = new Date(createdAt).getTime();
+      return (Date.now() - d) < days * 86400000;
+    } catch (_) { return false; }
+  }
+
+  async function saveOwnProfile(patch) {
+    if (!supabaseClient || !currentSession) return { ok: false, error: 'not-signed-in' };
+    var payload = Object.assign({ id: currentSession.user.id, email: currentSession.user.email }, patch);
+    try {
+      var result = await supabaseClient
+        .from('member_profiles')
+        .upsert(payload, { onConflict: 'id' })
+        .select()
+        .single();
+      if (result.error) return { ok: false, error: result.error.message };
+      writeCache(result.data);
+      return { ok: true, profile: result.data };
+    } catch (e) {
+      return { ok: false, error: String(e) };
+    }
+  }
+
+  function collectEditForm() {
+    var val = function(id) {
+      var el = document.getElementById(id);
+      return el && el.value ? el.value.trim() : null;
+    };
+    var checked = function(id) {
+      var el = document.getElementById(id);
+      return el ? !!el.checked : null;
+    };
+    var patch = {
+      display_name: val('editName') || null,
+      favorite_song: val('editSong') || null,
+      favorite_activity: val('editActivity') || null,
+      favorite_saint: val('editSaint') || null,
+      favorite_episode: val('editEpisode') || null,
+      favorite_storefront: val('editStorefront') || null,
+      favorite_character: val('editCharacter') || null,
+      favorite_cocktail: val('editCocktail') || null,
+      favorite_quote: val('editQuote') || null,
+      card_motto: val('editMotto') || null
+    };
+    var isPublic = checked('editIsPublic');
+    if (isPublic !== null) patch.member_card_is_public = isPublic;
+    return patch;
+  }
+
+  function populateEditForm(p) {
+    if (!p) return;
+    var set = function(id, v) {
+      var el = document.getElementById(id);
+      if (el && v != null) el.value = v;
+    };
+    set('editName', p.display_name);
+    set('editSong', p.favorite_song);
+    set('editActivity', p.favorite_activity);
+    set('editSaint', p.favorite_saint);
+    set('editEpisode', p.favorite_episode);
+    set('editStorefront', p.favorite_storefront);
+    set('editCharacter', p.favorite_character);
+    set('editCocktail', p.favorite_cocktail);
+    set('editQuote', p.favorite_quote);
+    set('editMotto', p.card_motto);
+    var pubBox = document.getElementById('editIsPublic');
+    if (pubBox) pubBox.checked = !!p.member_card_is_public;
+    // If they have no username claimed yet, dim the toggle + show the hint
+    var hint = document.getElementById('editIsPublicHint');
+    var hasUsername = !!p.card_username;
+    if (hint) hint.style.display = hasUsername ? 'none' : 'block';
+    if (pubBox) pubBox.disabled = !hasUsername;
+  }
+
+  function wireSaveButton() {
+    var saveBtn = document.getElementById('saveCardBtn');
+    if (!saveBtn) return;
+    saveBtn.addEventListener('click', async function() {
+      var original = saveBtn.textContent;
+      saveBtn.disabled = true;
+      saveBtn.textContent = 'Stamping…';
+
+      var patch = collectEditForm();
+      // Always sync the CLAiRE'S avatar_slug if it's been set locally
+      try {
+        var lsAvatar = localStorage.getItem(LS.avatar);
+        if (lsAvatar) patch.avatar_slug = lsAvatar;
+      } catch (e) {}
+
+      // Not signed in: save to local cache only + prompt
+      if (!currentSession) {
+        writeCache(patch);
+        renderProfile(Object.assign({}, readCache(), patch));
+        saveBtn.textContent = 'Saved on this device — sign in at MAiKEOVER to keep it';
+        setTimeout(function() {
+          saveBtn.disabled = false;
+          saveBtn.textContent = original;
+          var ep = document.getElementById('editPanel');
+          if (ep) ep.hidden = true;
+        }, 3200);
+        return;
+      }
+
+      var res = await saveOwnProfile(patch);
+      if (res.ok) {
+        currentProfile = res.profile;
+        renderProfile(res.profile);
+        saveBtn.textContent = 'Stamped ✓';
+        setTimeout(function() {
+          saveBtn.disabled = false;
+          saveBtn.textContent = original;
+          var ep = document.getElementById('editPanel');
+          if (ep) ep.hidden = true;
+        }, 1600);
+      } else {
+        saveBtn.textContent = 'Something went wrong — try again';
+        console.error('[Closet] Save failed:', res.error);
+        setTimeout(function() {
+          saveBtn.disabled = false;
+          saveBtn.textContent = original;
+        }, 2400);
+      }
+    });
+  }
+
+  async function init() {
+    // Fast first paint from local cache (feels alive immediately)
+    var cached = readCache();
+    if (cached.display_name || cached.favorite_saint || cached.avatar_slug) {
+      renderProfile(cached);
+    } else {
+      // Coven band hydrates independently — always run so empty slots show correct state
+      hydrateCoven();
+      renderCharmBracelet();
+    }
+
+    await initSupabase();
+
+    // ---- Public mode: /@username ---------------------------------
+    if (isPublicMode) {
+      var profile = supabaseClient ? await loadPublicProfile(viewUsername) : null;
+      if (!profile) {
+        showNotFound(viewUsername);
+        return;
+      }
+      currentProfile = profile;
+      renderProfile(profile);
+      applyPublicMode();
+      // Load collections (RLS lets anon read events for public profiles)
+      loadCollections(profile.id).then(function(events) {
+        if (events) renderCollections(events);
+      }).catch(function(){});
+      return;
+    }
+
+    // ---- Personal mode ------------------------------------------
+    if (currentSession) {
+      var own = await loadOwnProfile();
+      if (own) {
+        // Merge: server wins, but keep local CLAiRE'S avatar if server missing it
+        if (!own.avatar_slug && cached.avatar_slug) {
+          own.avatar_slug = cached.avatar_slug;
+          // Silent background sync so the avatar lands on the row
+          saveOwnProfile({ avatar_slug: cached.avatar_slug }).catch(function(){});
+        }
+        currentProfile = own;
+        renderProfile(own);
+        writeCache(own);
+        populateEditForm(own);
+      } else {
+        // Signed in but no profile row yet — populate edit form from cache
+        populateEditForm(cached);
+      }
+      // Load own collections (owner RLS)
+      loadCollections(currentSession.user.id).then(function(events) {
+        if (events) renderCollections(events);
+      }).catch(function(){});
+    } else {
+      // Not signed in — cache render is the preview state
+      populateEditForm(cached);
+    }
+
+    wireSaveButton();
+  }
+
+  init();
 })();
 </script>
+  <script src="/content/site/sv-tour-checkin.js?v=20260702-2"></script>
+  <script>
+  (function() {
+    'use strict';
+    function renderTour() {
+      if (!window.svTour) return;
+      var state = window.svTour.getState();
+      var grid = document.getElementById('tourGrid');
+      var count = document.getElementById('tourCount');
+      var badge = document.getElementById('tourRewardBadge');
+      var weekLabel = document.getElementById('tourWeekLabel');
+      var note = document.getElementById('tourNote');
+      if (!grid) return;
+      grid.innerHTML = '';
+      state.stops.forEach(function(s) {
+        var a = document.createElement('a');
+        a.href = s.path;
+        a.className = 'tour-stop' + (s.checked ? ' tour-stop--checked' : '');
+        a.innerHTML =
+          '<span class="tour-stop__num">★ ' + s.num + '</span>' +
+          '<span class="tour-stop__name">' + s.label + '</span>' +
+          '<span class="tour-stop__status">' + (s.checked ? '✓ Checked' : s.teaser) + '</span>';
+        grid.appendChild(a);
+      });
+      if (count) count.textContent = state.count + ' of ' + state.total;
+      if (badge) badge.style.display = state.rewardedThisWeek ? 'inline-block' : 'none';
+      if (weekLabel) weekLabel.textContent = '· ' + state.weekKey;
+      if (note && state.complete) {
+        note.innerHTML = '★ Full ritual — <strong>+1 FAiRY wish</strong> banked. Resets Wednesday. Nice work.';
+        note.style.color = '#2c7d3c';
+      }
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', renderTour);
+    } else {
+      renderTour();
+    }
+    // Re-render when a check-in happens (via the module event bus)
+    document.addEventListener('sv:tour-checkin', renderTour);
+  })();
+  </script>
+    <script defer src="/content/site/ksvl-player.js?v=20260704-12"></script>
+    <script defer src="/content/site/quick-rail.js?v=20260704-2"></script>
+    <script defer src="/content/site/charm-hunt.js?v=20260704-y2k3b" onload="if(typeof renderCharmBracelet==='function')renderCharmBracelet();"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260704-5"></script>
 </body>
 </html>

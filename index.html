@@ -16,7 +16,7 @@
   <link rel="apple-touch-icon" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Dancing+Script:wght@400;700&family=Inter:wght@400;600;700&family=Jost:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Dancing+Script:wght@400;700&family=Inter:wght@400;600;700&family=Jost:wght@400;500;600;700;800&family=VT323&display=swap" />
   <style>
     :root {
       --plum: #4b2148; --plum-deep: #3a1838; --plum-soft: #6b3a66;
@@ -58,6 +58,13 @@
       color: var(--plum); display: inline-flex; align-items: center;
     }
     .icon-btn svg, .menu-trigger svg { width: 22px; height: 22px; }
+    .signin-link {
+      color: var(--plum); font-weight: 600; font-size: 14px;
+      padding: 9px 12px; margin-right: 4px;
+      text-decoration: none;
+      transition: color 200ms ease;
+    }
+    .signin-link:hover { color: var(--rose); text-decoration: underline; }
     .join-btn {
       display: inline-flex; align-items: center; justify-content: center;
       padding: 9px 22px;
@@ -76,9 +83,16 @@
     .masthead-image {
       width: 100%;
       display: block;
+      background: #1c0a1a;
     }
-    .masthead-image img {
+    .masthead-image img,
+    .masthead-image video {
       width: 100%; height: auto; display: block;
+    }
+    .masthead-image .masthead-fallback { display: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .masthead-image video { display: none; }
+      .masthead-image .masthead-fallback { display: block; }
     }
     .masthead-bottom {
       max-width: 720px;
@@ -171,7 +185,7 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 28px;
-      align-items: start;
+      align-items: stretch;
     }
     @media (min-width: 880px) {
       .whats-new-grid { grid-template-columns: 1.3fr 1fr; }
@@ -222,12 +236,108 @@
     }
     .episode-card-cta::after { content: ' →'; margin-left: 4px; }
 
-    /* RITUAL — 7-stop walking tour */
+    /* QUICK TRIP — cold entry + this-week shortcut */
+    .quick-trip-block {
+      background: var(--cream);
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      padding: 28px 28px;
+      display: flex;
+      flex-direction: column;
+    }
+    .quick-trip-intro {
+      margin: 0 0 20px;
+      font-size: 13px;
+      color: var(--plum-soft);
+      font-style: italic;
+    }
+    .quick-trip-opt {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 16px;
+      padding: 14px;
+      border: 1.5px solid var(--line);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--plum);
+      transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+    }
+    .quick-trip-opt:hover {
+      transform: translateY(-2px);
+      border-color: var(--rose);
+      box-shadow: 0 8px 20px rgba(75,33,72,0.10);
+    }
+    .quick-trip-opt-img {
+      width: 92px; height: 92px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .quick-trip-opt-eyebrow {
+      margin: 0 0 4px;
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 800;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--rose);
+    }
+    .quick-trip-opt-title {
+      margin: 0 0 6px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 17px; font-weight: 700;
+      color: var(--plum); line-height: 1.25;
+    }
+    .quick-trip-opt-desc {
+      margin: 0 0 8px;
+      font-size: 13px; line-height: 1.5;
+      color: var(--plum-soft);
+    }
+    .quick-trip-opt-desc em { color: var(--plum-deep); font-style: normal; font-weight: 500; }
+    .quick-trip-opt-cta {
+      display: inline-block;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--rose);
+    }
+    .quick-trip-divider {
+      margin: 18px 0;
+      text-align: center;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic; font-size: 13px;
+      color: var(--plum-soft);
+      position: relative;
+    }
+    @media (min-width: 640px) {
+      .quick-trip-divider::before,
+      .quick-trip-divider::after {
+        content: '';
+        position: absolute; top: 50%;
+        width: 60px; height: 1px;
+        background: var(--line);
+      }
+      .quick-trip-divider::before { left: 15%; }
+      .quick-trip-divider::after { right: 15%; }
+    }
+    .quick-trip-all {
+      margin-top: auto;
+      padding-top: 18px;
+      display: block;
+      text-align: center;
+      font-size: 13px;
+      color: var(--plum-soft);
+      text-decoration: none;
+      border-top: 1px solid var(--line);
+      margin-top: 20px;
+    }
+    .quick-trip-all strong { color: var(--rose); font-weight: 700; }
+    .quick-trip-all:hover strong { text-decoration: underline; }
+
+    /* RITUAL — 8-stop Wednesday tour */
     .ritual-block {
       background: var(--cream);
       border-radius: 14px;
       border: 1px solid var(--line);
       padding: 28px 28px;
+      display: flex;
+      flex-direction: column;
     }
     .ritual-heading {
       font-family: 'Playfair Display', Georgia, serif;
@@ -239,38 +349,111 @@
     .ritual-beats {
       list-style: none;
       margin: 0; padding: 0;
-      display: grid; gap: 4px;
+      display: grid; gap: 10px;
     }
     .ritual-beat {
       display: grid;
-      grid-template-columns: 28px 120px 1fr;
-      gap: 12px;
-      padding: 10px 6px;
-      border-bottom: 1px solid var(--line);
-      transition: background 150ms ease;
+      grid-template-columns: 40px 1fr auto;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      background: var(--cream);
+      border: 1.5px solid var(--line);
+      border-radius: 10px;
+      text-decoration: none;
+      color: inherit;
+      transition: background 150ms ease, border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+      position: relative;
     }
-    .ritual-beats li:last-child .ritual-beat { border-bottom: 0; }
-    .ritual-beat:hover { background: var(--blush); }
+    .ritual-beat:hover, .ritual-beat:focus-visible {
+      background: var(--blush);
+      border-color: var(--rose);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(75,33,72,0.10);
+      outline: none;
+    }
+    .ritual-beat::after {
+      content: "→";
+      font-size: 18px; font-weight: 700; color: var(--rose);
+      opacity: 0.55;
+      transition: opacity 150ms ease, transform 150ms ease;
+    }
+    .ritual-beat:hover::after, .ritual-beat:focus-visible::after {
+      opacity: 1;
+      transform: translateX(3px);
+    }
     .ritual-beat-n {
-      font-size: 14px; font-weight: 700;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: rgba(201,162,39,0.14);
+      font-family: 'Jost', sans-serif;
+      font-size: 13px; font-weight: 800;
       color: var(--gold);
-      letter-spacing: 0.06em;
+      letter-spacing: 0;
     }
+    .ritual-beat-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
     .ritual-beat-label {
-      font-size: 14px; font-weight: 700;
-      color: var(--plum);
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 16px; font-weight: 700;
+      color: var(--plum-deep);
+      line-height: 1.2;
     }
     .ritual-beat-desc {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--plum-soft);
+      line-height: 1.3;
     }
     .ritual-cta {
-      margin-top: 22px;
+      padding-top: 22px;
       display: inline-flex; align-items: center;
       color: var(--rose); font-weight: 600;
       font-size: 14px;
     }
     .ritual-cta::after { content: ' →'; margin-left: 4px; }
+    .ritual-bonus {
+      margin-top: auto;
+      background: linear-gradient(135deg, rgba(197, 106, 138, 0.08) 0%, rgba(201, 162, 39, 0.10) 100%);
+      border: 1.5px solid rgba(201, 162, 39, 0.35);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-top: 22px;
+    }
+    .ritual-bonus-eyebrow {
+      margin: 0 0 8px;
+      font-size: 10px; font-weight: 800; letter-spacing: 0.20em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .ritual-bonus-hook {
+      margin: 0 0 10px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px; font-weight: 700; color: var(--plum);
+      line-height: 1.3;
+    }
+    .ritual-bonus-reward { color: var(--rose); }
+    .ritual-bonus-note {
+      margin: 0 0 14px;
+      font-size: 13px; line-height: 1.5; color: var(--plum-soft);
+    }
+    .ritual-bonus-note a { color: var(--rose); text-decoration: underline; text-underline-offset: 2px; }
+    .ritual-bonus-play {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px 8px 12px;
+      background: var(--cream);
+      border: 1.5px solid var(--rose);
+      border-radius: 999px;
+      color: var(--plum);
+      font: inherit;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      cursor: pointer;
+      transition: background 200ms ease, color 200ms ease;
+    }
+    .ritual-bonus-play svg { width: 10px; height: 10px; fill: currentColor; }
+    .ritual-bonus-play:hover { background: var(--rose); color: var(--cream); }
+    .ritual-bonus-play.is-playing .play-icon { display: none; }
+    .ritual-bonus-play.is-playing .pause-icon { display: block !important; }
 
     /* TOOLS — 5 quick-access tool rails */
     .tools-grid {
@@ -332,30 +515,49 @@
 
     /* PATRON SAINTS — preserved structure */
     .saints-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      max-width: 1100px;
-      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      gap: 16px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(155,63,95,0.35) transparent;
+      padding: 4px 24px 18px;
+      margin: 0 -24px;
+      scroll-padding: 0 24px;
     }
-    @media (max-width: 760px) {
-      .saints-grid { grid-template-columns: repeat(2, 1fr); }
-      .saint-card-back { display: none; }
+    .saints-grid::-webkit-scrollbar { height: 8px; }
+    .saints-grid::-webkit-scrollbar-track { background: transparent; }
+    .saints-grid::-webkit-scrollbar-thumb {
+      background: rgba(155,63,95,0.35);
+      border-radius: 999px;
     }
+    .saints-grid::-webkit-scrollbar-thumb:hover { background: rgba(155,63,95,0.55); }
     .saint-card-back {
+      flex: 0 0 240px;
+      scroll-snap-align: start;
       display: flex; align-items: center; justify-content: center;
       padding: 16px;
     }
     .saint-card-back img {
-      width: 100%; max-width: 220px; height: auto;
+      width: 100%; max-width: 200px; height: auto;
     }
     .saint-card {
+      flex: 0 0 240px;
+      scroll-snap-align: start;
       display: flex; flex-direction: column;
       background: var(--cream);
       border: 1px solid var(--line);
       border-radius: 12px;
       overflow: hidden;
       transition: transform 200ms ease, box-shadow 200ms ease;
+      text-decoration: none;
+    }
+    @media (max-width: 640px) {
+      .saint-card, .saint-card-back { flex: 0 0 220px; }
     }
     .saint-card:hover, .saint-card:focus-visible {
       transform: translateY(-3px);
@@ -488,7 +690,7 @@
     }
     .signup-form button:hover { background: var(--cream); }
 
-    /* MEMBERSHIP — Coming Soon */
+    /* MEMBERSHIP — In the works */
     .membership {
       position: relative;
       background: var(--cream);
@@ -568,9 +770,131 @@
       .signup-band, .membership { padding: 36px 26px; }
       .coming-soon-overlay { right: -50px; padding: 6px 56px; font-size: 11px; }
     }
+
+    /* Sticky Quick Jump Rail — circles anchored right, expand leftward on hover */
+    .quick-rail {
+      position: fixed;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      z-index: 500;
+      pointer-events: none;
+    }
+    .quick-rail-item {
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0;
+      background: var(--plum-deep, #341446);
+      border: 1.5px solid var(--gold, #c9a227);
+      border-radius: 999px;
+      color: var(--cream, #fffdfb);
+      text-decoration: none;
+      transition: width 0.24s ease, max-width 0.24s ease, padding 0.24s ease, justify-content 0.24s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      height: 44px;
+      width: 44px;
+      overflow: hidden;
+      white-space: nowrap;
+      box-shadow: 0 3px 8px rgba(75,33,72,0.28);
+    }
+    .quick-rail-item:hover, .quick-rail-item:focus-visible {
+      width: auto;
+      max-width: 240px;
+      padding: 0 18px 0 0;
+      justify-content: flex-start;
+      background: var(--rose, #9b3f5f);
+      border-color: var(--gold, #c9a227);
+      box-shadow: 0 6px 16px rgba(75,33,72,0.35);
+      outline: none;
+    }
+    .quick-rail-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      font-size: 22px;
+      line-height: 1;
+      flex-shrink: 0;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      /* Metallic gold — gradient sheen clipped to the glyph */
+      color: #d4af37;
+      background: linear-gradient(135deg, #8a5f00 0%, #d4a02e 25%, #f9d976 45%, #ffe486 55%, #d4a02e 75%, #8a5f00 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 1px 0 rgba(0,0,0,0.28));
+    }
+    .quick-rail-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--cream, #fffdfb);
+      opacity: 0;
+      transition: opacity 0.18s ease 0.05s;
+    }
+    .quick-rail-item:hover .quick-rail-label,
+    .quick-rail-item:focus-visible .quick-rail-label {
+      opacity: 1;
+    }
+    @media (max-width: 640px) {
+      .quick-rail { display: none; }
+    }
   </style>
 </head>
 <body>
+
+  <!-- STICKY QUICK JUMP RAIL — floats on right, expands on hover -->
+  <nav class="quick-rail" aria-label="Quick jump — town services">
+    <a class="quick-rail-item" href="/visitors-centre.html" title="Welcome Wagon">
+      <span class="quick-rail-icon" aria-hidden="true">✿</span>
+      <span class="quick-rail-label">Start here</span>
+    </a>
+    <a class="quick-rail-item" href="/library.html" title="Look it up · The LIBRAiRY">
+      <span class="quick-rail-icon" aria-hidden="true">§</span>
+      <span class="quick-rail-label">Look it up</span>
+    </a>
+    <a class="quick-rail-item" href="/games/fairy-godmother.html" title="Ask LAiDY · FAiRY Godmother">
+      <span class="quick-rail-icon" aria-hidden="true">✦</span>
+      <span class="quick-rail-label">Ask LAiDY</span>
+    </a>
+    <a class="quick-rail-item" href="/newsstand.html" title="The NewsStand">
+      <span class="quick-rail-icon" aria-hidden="true">¶</span>
+      <span class="quick-rail-label">Read the news</span>
+    </a>
+    <a class="quick-rail-item" href="/blend-snap.html" title="The Blend & Snap · Study Pack">
+      <span class="quick-rail-icon" aria-hidden="true">&amp;</span>
+      <span class="quick-rail-label">Study Pack</span>
+    </a>
+    <a class="quick-rail-item" href="/games/fun-pack.html" title="Have fun · the games arcade">
+      <span class="quick-rail-icon" aria-hidden="true">♦</span>
+      <span class="quick-rail-label">Have fun</span>
+    </a>
+    <a class="quick-rail-item" href="/radio.html" title="KSVL RAiDIO, 99.9">
+      <span class="quick-rail-icon" aria-hidden="true">♪</span>
+      <span class="quick-rail-label">Tune in KSVL</span>
+    </a>
+    <a class="quick-rail-item" href="/sorority-house.html" title="Delta LAi Nu chat rooms">
+      <span class="quick-rail-icon" aria-hidden="true">❦</span>
+      <span class="quick-rail-label">Say hi</span>
+    </a>
+    <a class="quick-rail-item" href="/post-office.html" title="Post Office · mail & gifts">
+      <span class="quick-rail-icon" aria-hidden="true">✉</span>
+      <span class="quick-rail-label">Check the mail</span>
+    </a>
+    <a class="quick-rail-item" href="/luminairy.html" title="The LUMINAiRY · PATRON SAiNTS">
+      <span class="quick-rail-icon" aria-hidden="true">✧</span>
+      <span class="quick-rail-label">Light a candle</span>
+    </a>
+  </nav>
 
   <!-- HEADER -->
   <header class="site-header">
@@ -579,7 +903,8 @@
         <img src="assets/brand/laidies-wordmark-final-b-light.svg" alt="LAiDIES" width="120" height="30" />
       </a>
       <div class="site-header-spacer"></div>
-      <a class="join-btn" href="#membership">Join</a>
+      <a class="signin-link" href="/post-office.html#signin">Sign in</a>
+      <a class="join-btn" href="#signup">Join</a>
     </div>
   </header>
 
@@ -588,15 +913,271 @@
     <!-- 1 · ARRIVAL MASTHEAD -->
     <section class="masthead" aria-labelledby="masthead-title">
       <div class="masthead-image">
-        <img src="assets/sunnyvaile-masthead-chick-flicks.png?v=20260630-chick-flicks" alt="Welcome to SUNNYVAiLE — a young woman in plaid stands on MAiN Street looking out at the town's storefronts: NewsStand, LIBRARY, Mme CLAi-O's, the Mall, Net Flicks, BRONZE AiGE, and Blend & Snap Café, lit by a pink sunset." width="1664" height="936" />
+        <video autoplay muted playsinline preload="auto"
+               poster="assets/video/sunnyvaile-logo-reveal-endframe.png?v=20260703-1"
+               aria-label="Welcome to SUNNYVAiLE — neon sign reveal. Where girl power meets machine power."
+               width="1600" height="900">
+          <source src="assets/video/sunnyvaile-logo-reveal.mp4?v=20260703-3" type="video/mp4">
+        </video>
+        <img class="masthead-fallback" src="assets/video/sunnyvaile-logo-reveal-endframe.png?v=20260703-1" alt="Welcome to SUNNYVAiLE — neon sign. Where girl power meets machine power." width="1600" height="900" />
       </div>
-      <div class="masthead-bottom">
-        <span class="masthead-eyebrow">★ Welcome to SUNNYVAiLE · Population: women just like you</span>
-        <h1 id="masthead-title" class="sr-only">LAiDIES — AI fluency for women in a fictional small town called SUNNYVAiLE.</h1>
-        <p class="masthead-tag">AI fluency and community for women with full calendars, high standards, and no patience for beige tech explanations. We live in a town. Every section has an address. The episode arrives on Wednesday.</p>
-        <div class="masthead-ctas">
+      <h1 id="masthead-title" class="sr-only">LAiDIES — AI fluency for women in a fictional small town called SUNNYVAiLE.</h1>
+    </section>
+
+    <!-- 1.2 · EXPLAINER — VHS tape section (Claude Design), chained off the logo reveal -->
+    <section id="sv-explainer" data-autostart="manual" data-anthem-src="/content/music/sunnyvaile-town-anthem.mp3">
+      <style>
+        /* ---------- scoped to #sv-explainer ---------- */
+        #sv-explainer {
+          position: relative;
+          overflow: hidden;
+          background: radial-gradient(ellipse 80% 90% at 50% 20%, #170d18 0%, #050807 75%);
+          padding: clamp(56px, 9vw, 120px) 24px;
+          text-align: center;
+          color: #ede3ec;
+        }
+        #sv-explainer::after {
+          content: "";
+          position: absolute; inset: 0; pointer-events: none; opacity: 0.35;
+          background: repeating-linear-gradient(0deg,
+            rgba(0,0,0,0.55) 0px, rgba(0,0,0,0.55) 2px,
+            transparent 2px, transparent 5px);
+        }
+        #sv-explainer::before {
+          content: "";
+          position: absolute; inset: 0; pointer-events: none;
+          background: radial-gradient(ellipse 80% 70% at 50% 45%, transparent 40%, rgba(0,0,0,0.55) 100%);
+        }
+        #sv-explainer .sv-vcr {
+          position: absolute; top: 22px; left: 0; right: 0;
+          display: flex; justify-content: space-between; padding: 0 28px;
+          font-family: 'VT323', monospace; font-size: clamp(16px, 1.6vw, 22px);
+          color: rgba(240,240,240,0.75); text-shadow: 2px 2px 0 rgba(0,0,0,0.6);
+          opacity: 0; z-index: 2;
+        }
+        #sv-explainer.sv-play .sv-vcr { opacity: 1; transition: opacity 0.3s; }
+        #sv-explainer .sv-track {
+          position: absolute; left: 0; right: 0; top: -60px; height: 40px;
+          background: linear-gradient(rgba(255,255,255,0.05), rgba(255,255,255,0.35), rgba(255,255,255,0.05));
+          filter: blur(1px); opacity: 0; z-index: 2; pointer-events: none;
+        }
+        #sv-explainer.sv-play .sv-track { animation: sv-sweep 8s linear 0.05s infinite; }
+        @keyframes sv-sweep {
+          0%   { opacity: 0.45; transform: translateY(0); }
+          10%  { opacity: 0;    transform: translateY(70vh); }
+          100% { opacity: 0;    transform: translateY(70vh); }
+        }
+        #sv-explainer .sv-flicker {
+          position: absolute; inset: 0; background: #fff; opacity: 0;
+          pointer-events: none; z-index: 2;
+        }
+        #sv-explainer.sv-play .sv-flicker { animation: sv-flick 0.18s steps(2) infinite; }
+        @keyframes sv-flick {
+          0%   { opacity: 0.012; }
+          50%  { opacity: 0.03; }
+          100% { opacity: 0.012; }
+        }
+        #sv-explainer .sv-inner {
+          position: relative; z-index: 1;
+          max-width: 860px; margin: 0 auto;
+          display: flex; flex-direction: column; align-items: center;
+          gap: clamp(18px, 2.6vw, 30px);
+        }
+        #sv-explainer.sv-play .sv-inner {
+          animation: sv-drift 6s ease-in-out infinite alternate,
+                     sv-idle-glitch 8s linear 4s infinite;
+        }
+        @keyframes sv-drift {
+          from { transform: translateY(-2px); }
+          to   { transform: translateY(2px); }
+        }
+        @keyframes sv-idle-glitch {
+          0%, 96%, 100% { filter: none; }
+          97% { filter: drop-shadow(-2px 0 rgba(255,60,120,0.5)) drop-shadow(2px 0 rgba(60,235,220,0.5)); transform: translate(2px, -1px); }
+          98% { filter: drop-shadow(3px 0 rgba(255,60,120,0.5)) drop-shadow(-3px 0 rgba(60,235,220,0.5)); transform: translate(-2px, 1px); }
+          99% { filter: drop-shadow(-1px 0 rgba(255,60,120,0.35)) drop-shadow(1px 0 rgba(60,235,220,0.35)); }
+        }
+        #sv-explainer .sv-reveal { opacity: 0; }
+        #sv-explainer.sv-play .sv-reveal {
+          animation: sv-block-in 0.7s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+        }
+        @keyframes sv-block-in {
+          0% {
+            opacity: 0; transform: translateY(26px) translateX(-3px);
+            filter: drop-shadow(-5px 0 rgba(255,60,120,0.75)) drop-shadow(5px 0 rgba(60,235,220,0.75));
+          }
+          25% {
+            opacity: 0.6; transform: translateY(14px) translateX(3px);
+            filter: drop-shadow(4px 0 rgba(255,60,120,0.6)) drop-shadow(-4px 0 rgba(60,235,220,0.6));
+          }
+          45% {
+            opacity: 0.35; transform: translateY(8px) translateX(-2px);
+            filter: drop-shadow(-3px 0 rgba(255,60,120,0.5)) drop-shadow(3px 0 rgba(60,235,220,0.5));
+          }
+          70% { filter: drop-shadow(-1px 0 rgba(255,60,120,0.25)) drop-shadow(1px 0 rgba(60,235,220,0.25)); }
+          100% { opacity: 1; transform: translateY(0) translateX(0); filter: none; }
+        }
+        #sv-explainer.sv-play .sv-d1 { animation-delay: 0.25s; }
+        #sv-explainer.sv-play .sv-d2 { animation-delay: 0.85s; }
+        #sv-explainer.sv-play .sv-d3 { animation-delay: 1.65s; }
+        #sv-explainer.sv-play .sv-d4 { animation-delay: 2.35s; }
+        #sv-explainer.sv-play .sv-d5 { animation-delay: 2.95s; }
+        #sv-explainer.sv-play .sv-d6 { animation-delay: 3.55s; }
+        #sv-explainer .sv-eyebrow {
+          font-family: 'VT323', monospace;
+          font-size: clamp(20px, 2.6vw, 34px); letter-spacing: 0.18em;
+          color: #f5c36b;
+        }
+        #sv-explainer .sv-body {
+          font-family: Verdana, Tahoma, sans-serif;
+          font-size: clamp(17px, 2.1vw, 27px); line-height: 1.55;
+          color: #ede3ec; text-wrap: pretty;
+        }
+        #sv-explainer .sv-body--dim { color: #c8bbc6; }
+        #sv-explainer .sv-hl-pink { color: #ee9fce; }
+        #sv-explainer .sv-hl-teal { color: #57bfae; }
+        #sv-explainer .sv-wed {
+          font-family: Verdana, Tahoma, sans-serif; letter-spacing: 0.02em;
+          font-size: clamp(15px, 1.8vw, 23px); color: #ee9fce;
+        }
+        #sv-explainer .sv-anthem {
+          font-family: 'VT323', monospace;
+          font-size: clamp(19px, 2.2vw, 28px); letter-spacing: 0.05em;
+          color: #57bfae; background: transparent;
+          border: 2px solid #57bfae; border-radius: 999px;
+          padding: 12px 34px; margin-top: 6px;
+          min-height: 44px; cursor: pointer;
+          box-shadow: 0 0 14px rgba(87,191,174,0.35);
+          transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+        }
+        #sv-explainer .sv-anthem:hover,
+        #sv-explainer .sv-anthem:focus-visible {
+          background: #57bfae; color: #160813;
+          box-shadow: 0 0 22px rgba(87,191,174,0.6);
+          outline: none;
+        }
+        #sv-explainer .sv-ctas { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 10px; }
+        #sv-explainer .sv-ctas .masthead-sub { color: #c8bbc6; font-size: 14px; margin: 0; }
+        #sv-explainer .sv-ctas .masthead-sub a { color: #ee9fce; text-decoration: underline; text-underline-offset: 3px; }
+        @media (prefers-reduced-motion: reduce) {
+          #sv-explainer.sv-play .sv-reveal { animation-duration: 0.01s; animation-delay: 0s; }
+          #sv-explainer.sv-play .sv-track,
+          #sv-explainer.sv-play .sv-flicker,
+          #sv-explainer.sv-play .sv-inner { animation: none; }
+        }
+      </style>
+
+      <div class="sv-track"></div>
+      <div class="sv-flicker"></div>
+      <div class="sv-vcr">
+        <span>&#9654; PLAY</span>
+        <span class="sv-counter">SP 0:00:00</span>
+      </div>
+
+      <div class="sv-inner">
+        <div class="sv-eyebrow sv-reveal sv-d1">&#9733; POPULATION: WOMEN&nbsp;JUST&nbsp;LIKE&nbsp;YOU&nbsp;&#9733;</div>
+
+        <p class="sv-body sv-reveal sv-d2">
+          AI fluency and community for women with full calendars, high standards,
+          and <span class="sv-hl-pink">no patience for beige tech explanations</span>.
+        </p>
+
+        <p class="sv-body sv-body--dim sv-reveal sv-d3">
+          A full AI learning system built around a fictional
+          <span class="sv-hl-teal">Y2K small town</span> where episodes, study packs,
+          quizzes, and tracks each have an address.
+        </p>
+
+        <div class="sv-wed sv-reveal sv-d4">NEW EPISODES ON WEDNESDAYS (OBVIOUSLY)</div>
+
+        <button class="sv-anthem sv-reveal sv-d5" type="button">&#9834; LISTEN TO THE TOWN ANTHEM</button>
+
+        <div class="sv-ctas sv-reveal sv-d6">
           <a class="btn-primary" href="/chick-flicks.html">Pick up this week's episode →</a>
           <p class="masthead-sub">New in town? <a href="/visitors-centre.html">Stop by the Welcome Wagon first →</a></p>
+        </div>
+      </div>
+
+      <script>
+      (function () {
+        var root = document.getElementById('sv-explainer');
+        var counter = root.querySelector('.sv-counter');
+        var btn = root.querySelector('.sv-anthem');
+        var audio = null;
+        var counterTimer = null;
+        var startedAt = 0;
+
+        function start() {
+          if (root.classList.contains('sv-play')) return;
+          root.classList.add('sv-play');
+          startedAt = Date.now();
+          counterTimer = setInterval(function () {
+            var s = Math.floor((Date.now() - startedAt) / 1000);
+            var mm = String(Math.floor(s / 60)).padStart(2, '0');
+            var ss = String(s % 60).padStart(2, '0');
+            counter.textContent = 'SP 0:' + mm + ':' + ss;
+          }, 500);
+        }
+
+        function reset() {
+          root.classList.remove('sv-play');
+          clearInterval(counterTimer);
+          counter.textContent = 'SP 0:00:00';
+        }
+
+        btn.addEventListener('click', function () {
+          if (!audio) audio = new Audio(root.getAttribute('data-anthem-src') || 'anthem.mp3');
+          if (audio.paused) {
+            audio.play().then(function () {
+              btn.innerHTML = '&#9632; STOP THE ANTHEM';
+            }).catch(function () { /* file missing — no-op */ });
+          } else {
+            audio.pause();
+            audio.currentTime = 0;
+            btn.innerHTML = '&#9834; LISTEN TO THE TOWN ANTHEM';
+          }
+        });
+
+        if (root.getAttribute('data-autostart') !== 'manual') {
+          if ('IntersectionObserver' in window) {
+            var io = new IntersectionObserver(function (entries) {
+              if (entries[0].isIntersecting) { start(); io.disconnect(); }
+            }, { threshold: 0.35 });
+            io.observe(root);
+          } else { start(); }
+        }
+
+        window.SunnyvaileExplainer = { start: start, reset: reset };
+
+        // Chain: start when the masthead logo reveal finishes; fall back if the
+        // video errors, was already done, or never fires within 10s.
+        var mv = document.querySelector('.masthead-image video');
+        if (mv) {
+          mv.addEventListener('ended', start);
+          mv.addEventListener('error', start);
+          if (mv.ended) start();
+          setTimeout(start, 10000);
+        } else {
+          start();
+        }
+      })();
+      </script>
+    </section>
+
+    <!-- 1.5 · THE WHOLE POINT (why 90s / why a town) -->
+    <section class="band band--pearl" style="padding: 64px 0;">
+      <div class="container" style="max-width: 780px;">
+        <header class="section-head" style="text-align: left; margin-bottom: 24px;">
+          <p class="kicker" style="color: var(--rose);">★ Girl power meets machine power</p>
+          <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 3.6vw, 40px); font-weight: 700; color: var(--plum); margin: 0 0 20px; line-height: 1.1;"><span style="text-transform: none;">LAiDIES</span> teaches AI in the language you already speak.</h2>
+        </header>
+        <div style="font-size: 17px; line-height: 1.65; color: var(--plum);">
+          <p style="margin: 0 0 24px; padding: 20px 24px; background: var(--blush); border-left: 4px solid var(--rose); border-radius: 6px; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(19px, 2.2vw, 24px); font-style: italic; line-height: 1.3; color: var(--plum-deep);">The 90s had <strong style="font-style: normal;">Sunnydale, Bayside, and Capeside</strong>. Silicon Valley has <strong style="font-style: normal;">Sunnyvale</strong>. You have <strong style="font-style: normal; color: var(--rose);"><span style="text-transform: none;">SUNNYVAiLE</span></strong>.</p>
+          <p style="margin: 0 0 18px;">The 90s wired us. Boy bands, girl groups, sleepover games, hair full of butterfly clips, blow-up furniture, calling in to request a song on the radio so you could record it on a cassette, and the glory days of 24-episode seasons.</p>
+          <p style="margin: 0 0 18px;">Now AI is wiring the next thing. This is where you come to learn it.</p>
+          <p style="margin: 0 0 18px;"><strong style="color: var(--plum-deep);"><span style="text-transform: none;">SUNNYVAiLE</span> is a functional town designed to help you learn AI and have fun doing it.</strong> It's <strong>a learning system</strong> grounded in fun examples and analogies to help the concepts stick. Episodes teach the concept. Study Packs reinforce. Songs on KSVL turn it into an <em>earworm you can't forget</em>. Pop quizzes test recall. Games practice application. The community pressure-checks. Every part of town echoes the others — that's how the learning sticks.</p>
+          <p style="margin: 0 0 18px;">The <a href="/newsstand.html" style="color: var(--rose); text-decoration: underline;">NewsStand</a> is where you read the latest AI headlines and connect what you're learning to the real world. The <a href="/chick-flicks.html" style="color: var(--rose); text-decoration: underline;">Chick Flicks</a> is the video store where every weekly episode lives. The <a href="/blend-snap.html" style="color: var(--rose); text-decoration: underline;">Blend &amp; Snap</a> is the coffee shop where the Study Packs live. <a href="/sunnyvaile-high.html" style="color: var(--rose); text-decoration: underline;"><span style="text-transform: none;">SUNNYVAiLE</span> High</a> is where you take the Pop Quizzes and dive deeper into core concepts. The <a href="/library.html" style="color: var(--rose); text-decoration: underline;">LIBRAiRY</a> is where you check the references. <a href="/radio.html" style="color: var(--rose); text-decoration: underline;">KSVL</a> is where you listen to the tracks. The <a href="/luminairy.html" style="color: var(--rose); text-decoration: underline;">LUMINAiRY</a> is where the PATRON SAiNTS of SUNNYVAiLE teach through their moves — and where the MAiVENS leading the field of AI are honored. And we even have our very own <a href="/games/fairy-godmother.html" style="color: var(--rose); text-decoration: underline;">FAiRY Godmother</a> who helps you with prompts and practical advice. Take a lap around the town map above to see every place you can visit.</p>
+          <p style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 20px; color: var(--rose);">Analogies that stick. In a fictional town from an era we know and love. That's how we're teaching it.</p>
         </div>
       </div>
     </section>
@@ -605,9 +1186,9 @@
     <section class="band band--cream">
       <div class="container">
         <header class="section-head">
-          <p class="kicker">What's new this week in town</p>
-          <h2>Wednesday in SUNNYVAiLE.</h2>
-          <p>One episode at The Chick Flicks. Seven stops along MAiN Street. Every Wednesday, on schedule.</p>
+          <p class="kicker">Every Wednesday in town</p>
+          <h2>Wednesday in <span style="text-transform: none;">SUNNYVAiLE</span>.</h2>
+          <p>The Wednesday walk-through, stop by stop: a new <strong>episode</strong> at <a href="/chick-flicks.html" style="color: var(--rose); text-decoration: underline;">The Chick Flicks</a>, a <strong>Study Pack</strong> at <a href="/blend-snap.html" style="color: var(--rose); text-decoration: underline;">Blend &amp; Snap</a>, a <strong>Pop Quiz</strong> at <a href="/sunnyvaile-high.html" style="color: var(--rose); text-decoration: underline;">SUNNYVAiLE High</a>, this week's <strong>AI news round-up</strong> at <a href="/newsstand.html" style="color: var(--rose); text-decoration: underline;">the NewsStand</a>, and this week's <strong>episode song</strong> on <a href="/radio.html" style="color: var(--rose); text-decoration: underline;">KSVL RAiDIO</a>. The <a href="/post-office.html" style="color: var(--rose); text-decoration: underline;">Post Office</a> sends you a note when it's all in — links to every stop, one letter.</p>
           <button type="button"
                   aria-label="Play the THE LAiDIES song 'Wednesday in SUNNYVAiLE'"
                   data-src="/content/music/the-laidies-wednesday-in-sunnyvaile.mp3"
@@ -617,7 +1198,7 @@
                   onmouseout="this.style.background='var(--cream)'; this.style.color='var(--plum)';">
             <svg viewBox="0 0 24 24" style="width:11px; height:11px; fill: currentColor;" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
             <svg viewBox="0 0 24 24" style="width:11px; height:11px; fill: currentColor; display:none;" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
-            <span>♪ Hear the song · THE LAiDIES</span>
+            <span>♪ Hear the Wednesday Anthem · THE LAiDIES</span>
           </button>
         </header>
         <script>
@@ -645,163 +1226,188 @@
           })();
         </script>
 
+        <figure style="margin: 32px 0 40px; padding: 0; text-align: center;">
+          <img src="assets/sunnyvaile-main-street-walk-panorama.png?v=20260702-1"
+               alt="MAiN Street walk-through panorama — Post Office, The Chick Flicks, Blend & Snap, SUNNYVAiLE High, the NewsStand, KSVL Community RAiDIO, and back to the Post Office"
+               style="width: 100%; height: auto; display: block; border-radius: 12px; box-shadow: 0 12px 32px rgba(75, 33, 72, 0.14);"
+               loading="lazy" />
+          <figcaption style="margin-top: 14px; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 15px; color: var(--plum-soft);">The walk, stop by stop. Post Office → Chick Flicks → Blend &amp; Snap → SUNNYVAiLE High → NewsStand → KSVL → back home.</figcaption>
+        </figure>
+
+        <div class="ritual-choose">
+          <p class="ritual-choose-kicker">★ Choose your tour for this Wednesday</p>
+          <h3 class="ritual-choose-title">Express or Full Tour — either counts.</h3>
+          <p class="ritual-choose-body">Both routes tick off your week. The Express Tour is one stop (this week's episode). The Full Tour walks all eight. Pick what fits your calendar — your Tour Guide keeps track either way.</p>
+        </div>
+        <style>
+          .ritual-choose { margin: 0 0 26px; padding: 20px 24px; border: 1.5px solid rgba(155,63,95,0.28); border-radius: 12px; background: rgba(155,63,95,0.04); }
+          .ritual-choose-kicker { margin: 0 0 4px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose); }
+          .ritual-choose-title { margin: 0 0 6px; font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--plum-deep); line-height: 1.2; }
+          .ritual-choose-body { margin: 0; font-size: 14px; line-height: 1.5; color: var(--plum-soft); }
+        </style>
+
         <div class="whats-new-grid">
 
-          <a class="episode-card" href="/chick-flicks.html">
-            <img class="episode-card-img" data-ep-image src="assets/episodes/issue-04/section-slaiyer-handbook-v1.png" alt="This week's episode hero" loading="eager" width="700" height="525" />
-            <div class="episode-card-body">
-              <p class="episode-card-eyebrow">Now playing at The Chick Flicks · Episode <span data-ep-num>04</span></p>
-              <h3 data-ep-title>A Slayer Needs a Watcher</h3>
-              <p>
-                The one in which she opens five browser tabs — one per tool, like a cable TV lineup from 2001 — types the same prompt into all of them, gets back five wildly different responses, briefly considers building a comparison spreadsheet (does not build the comparison spreadsheet), and arrives at the question she should have been asking from the start: not which tool is best, but <em>who is right for this scene.</em>
-              </p>
-              <span class="episode-card-cta">Pick up the episode</span>
-            </div>
-          </a>
+          <div class="quick-trip-block">
+            <p class="ritual-heading">Express Tour</p>
+            <p class="quick-trip-intro">One stop, in and out. Read this week's episode; you're done. The Full Tour is on the right when you've got the time.</p>
+
+            <a class="quick-trip-opt" href="/issues/issue-01.html">
+              <img class="quick-trip-opt-img" src="assets/ugh-as-if.png" alt="Episode 1 art" loading="lazy" />
+              <div class="quick-trip-opt-body">
+                <p class="quick-trip-opt-eyebrow">★ New here? Start at the start.</p>
+                <h4 class="quick-trip-opt-title">Episode 1 · On Wednesdays We Use AI</h4>
+                <p class="quick-trip-opt-desc">The one in which she realizes AI is already being added to the invisible load, says "ugh, as if," and opens the tab anyway.</p>
+                <span class="quick-trip-opt-cta">Start from the beginning →</span>
+              </div>
+            </a>
+
+            <p class="quick-trip-divider">— or drop in this week —</p>
+
+            <a class="quick-trip-opt" href="/chick-flicks.html">
+              <img class="quick-trip-opt-img" data-ep-image src="assets/episodes/issue-04/section-slaiyer-handbook-v1.png" alt="This week's episode art" loading="lazy" />
+              <div class="quick-trip-opt-body">
+                <p class="quick-trip-opt-eyebrow">★ This week · Episode <span data-ep-num>04</span></p>
+                <h4 class="quick-trip-opt-title" data-ep-title>A SL<span class="ai">Ai</span>YER Needs a Watcher</h4>
+                <p class="quick-trip-opt-desc">The one in which she opens five browser tabs — one per tool — and asks not which tool is best, but <em>who is right for this scene.</em></p>
+                <span class="quick-trip-opt-cta">Pick up this week's episode →</span>
+              </div>
+            </a>
+
+            <a href="/chick-flicks.html" class="quick-trip-all">Mid-season? <strong>See all episodes →</strong></a>
+          </div>
 
           <div class="ritual-block">
-            <p class="ritual-heading">The 7-stop walk</p>
-            <ol class="ritual-beats">
-              <li><a class="ritual-beat" href="/newsstand.html"><span class="ritual-beat-n">01</span><span class="ritual-beat-label">NewsStand</span><span class="ritual-beat-desc">the week's headlines</span></a></li>
-              <li><a class="ritual-beat" href="/chick-flicks.html"><span class="ritual-beat-n">02</span><span class="ritual-beat-label">The Chick Flicks</span><span class="ritual-beat-desc">pick up this week's episode</span></a></li>
-              <li><a class="ritual-beat" href="/blend-snap.html"><span class="ritual-beat-n">03</span><span class="ritual-beat-label">The Blend &amp; Snap</span><span class="ritual-beat-desc">grab coffee, study the notes</span></a></li>
-              <li><a class="ritual-beat" href="/sunnyvaile-high.html"><span class="ritual-beat-n">04</span><span class="ritual-beat-label">SUNNYVAiLE High</span><span class="ritual-beat-desc">take the pop quiz</span></a></li>
-              <li><a class="ritual-beat" href="/mall.html"><span class="ritual-beat-n">05</span><span class="ritual-beat-label">Free time</span><span class="ritual-beat-desc">wander town — your call</span></a></li>
-              <li><a class="ritual-beat" href="/maikeover.html"><span class="ritual-beat-n">06</span><span class="ritual-beat-label">MAiKEOVER on MAiN(e)</span><span class="ritual-beat-desc">see your card, freshen up</span></a></li>
-              <li><a class="ritual-beat" href="/bronze-aige.html"><span class="ritual-beat-n">07</span><span class="ritual-beat-label">The BRONZE AiGE</span><span class="ritual-beat-desc">happy hour and live music</span></a></li>
-              <li><a class="ritual-beat" href="/sorority-house.html"><span class="ritual-beat-n">08</span><span class="ritual-beat-label">Delta LAi Nu</span><span class="ritual-beat-desc">Girl Talk with the LAiDIES</span></a></li>
+            <p class="ritual-heading">Full Tour · 8 stops</p>
+            <p class="quick-trip-intro">Spend Wednesday walking every stop. Each stop teaches something the next builds on. Your Tour Guide ticks as you go.</p>
+            <p class="ritual-progress" id="ritualProgress" aria-live="polite">★ Your Tour Guide · <span id="ritualProgressCount">0</span> of 8 stops complete</p>
+            <p class="ritual-progress ritual-progress--charms" id="charmProgress" aria-live="polite">★ Charm Hunt · <span id="charmProgressCount">0</span> of 7 charms found</p>
+            <ol class="ritual-beats" id="ritualBeats">
+              <li data-stop="newsstand"><a class="ritual-beat" href="/newsstand.html"><span class="ritual-beat-n">01</span><span class="ritual-beat-body"><span class="ritual-beat-label">NewsStand</span><span class="ritual-beat-desc">the week's headlines</span></span></a></li>
+              <li data-stop="chick-flicks"><a class="ritual-beat" href="/chick-flicks.html"><span class="ritual-beat-n">02</span><span class="ritual-beat-body"><span class="ritual-beat-label">The Chick Flicks</span><span class="ritual-beat-desc">pick up this week's episode</span></span></a></li>
+              <li data-stop="blend-snap"><a class="ritual-beat" href="/blend-snap.html"><span class="ritual-beat-n">03</span><span class="ritual-beat-body"><span class="ritual-beat-label">The Blend &amp; Snap</span><span class="ritual-beat-desc">grab coffee, study the notes</span></span></a></li>
+              <li data-stop="sunnyvaile-high"><a class="ritual-beat" href="/sunnyvaile-high.html"><span class="ritual-beat-n">04</span><span class="ritual-beat-body"><span class="ritual-beat-label">SUNNYVAiLE High</span><span class="ritual-beat-desc">take the pop quiz</span></span></a></li>
+              <li data-stop="mall"><a class="ritual-beat" href="/mall.html"><span class="ritual-beat-n">05</span><span class="ritual-beat-body"><span class="ritual-beat-label">Free time</span><span class="ritual-beat-desc">wander town — your call</span></span></a></li>
+              <li data-stop="maikeover"><a class="ritual-beat" href="/maikeover.html"><span class="ritual-beat-n">06</span><span class="ritual-beat-body"><span class="ritual-beat-label">MAiKEOVER on MAiN(e)</span><span class="ritual-beat-desc">see your card, freshen up</span></span></a></li>
+              <li data-stop="bronze-aige"><a class="ritual-beat" href="/bronze-aige.html"><span class="ritual-beat-n">07</span><span class="ritual-beat-body"><span class="ritual-beat-label">The BRONZE AiGE</span><span class="ritual-beat-desc">happy hour and live music</span></span></a></li>
+              <li data-stop="sorority-house"><a class="ritual-beat" href="/sorority-house.html"><span class="ritual-beat-n">08</span><span class="ritual-beat-body"><span class="ritual-beat-label">Delta LAi Nu</span><span class="ritual-beat-desc">Girl Talk with the LAiDIES</span></span></a></li>
             </ol>
+            <style>
+              .ritual-progress { margin: 4px 0 4px; font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose); }
+              .ritual-progress--charms { margin-bottom: 12px; }
+              .ritual-progress--complete { color: var(--gold); }
+              #ritualProgressCount { color: var(--plum-deep); font-weight: 800; }
+              .ritual-beats li { position: relative; }
+              .ritual-beats li[data-checked] .ritual-beat { border-color: rgba(201,162,39,0.42); background: rgba(201,162,39,0.06); }
+              .ritual-beats li[data-checked] .ritual-beat-n { color: var(--gold); background: rgba(201,162,39,0.24); }
+              .ritual-beats li[data-checked] .ritual-beat-label { color: var(--plum-soft); text-decoration: line-through; text-decoration-color: rgba(201,162,39,0.5); }
+              .ritual-beats li[data-checked] .ritual-beat::after { content: '✓'; color: var(--gold); opacity: 1; transform: none; }
+            </style>
+            <script>
+              (function(){
+                function paintTour() {
+                  if (!window.svTour || typeof window.svTour.getState !== 'function') { setTimeout(paintTour, 80); return; }
+                  var st = window.svTour.getState();
+                  var count = document.getElementById('ritualProgressCount');
+                  var progress = document.getElementById('ritualProgress');
+                  if (count) count.textContent = st.count;
+                  if (progress) {
+                    progress.classList.toggle('ritual-progress--complete', st.complete);
+                    if (st.complete && st.rewardedThisWeek) {
+                      progress.innerHTML = '★ Full Tour done · +1 FAiRY wish banked · resets Wednesday';
+                    }
+                  }
+                  st.stops.forEach(function(s) {
+                    var li = document.querySelector('.ritual-beats li[data-stop="' + s.key + '"]');
+                    if (!li) return;
+                    if (s.checked) li.setAttribute('data-checked', '1');
+                    else li.removeAttribute('data-checked');
+                  });
+                }
+                function paintCharms() {
+                  if (!window.CHARM_HUNT || typeof window.CHARM_HUNT.charmsFoundInWeek !== 'function') { setTimeout(paintCharms, 80); return; }
+                  var TARGET = 7;
+                  var week = window.CHARM_HUNT.personalWeek();
+                  var found = window.CHARM_HUNT.charmsFoundInWeek(week);
+                  var complete = found >= TARGET;
+                  var progress = document.getElementById('charmProgress');
+                  if (progress) {
+                    progress.classList.toggle('ritual-progress--complete', complete);
+                    if (complete) {
+                      progress.innerHTML = '★ Charm Hunt · 7 of 7 charms found this week ✓';
+                    } else {
+                      progress.innerHTML = '★ Charm Hunt · <span id="charmProgressCount">' + found + '</span> of 7 charms found this week';
+                    }
+                  }
+                }
+                function paint() { paintTour(); paintCharms(); }
+                if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', paint);
+                else paint();
+                // Also repaint if we come back from another tab or after check-in / charm find
+                document.addEventListener('sv:tour-checkin', paint);
+                document.addEventListener('charmhunt:found', paintCharms);
+                document.addEventListener('charmhunt:week-unlocked', paintCharms);
+                document.addEventListener('visibilitychange', function(){ if (document.visibilityState === 'visible') paint(); });
+              })();
+            </script>
+
+            <div class="ritual-bonus">
+              <p class="ritual-bonus-eyebrow">★ Bonus for finishing the Full Tour</p>
+              <p class="ritual-bonus-hook">All 8 stops on your Tour Guide · <span class="ritual-bonus-reward">+1 FAiRY wish</span></p>
+              <p class="ritual-bonus-note">One extra wish with the <a href="/games/fairy-godmother.html">FAiRY Godmother</a>, banked on your Closet. Resets Wednesday. Your Tour Guide auto-ticks each stop when you visit — no clicking required.</p>
+              <button type="button" class="ritual-bonus-play"
+                      aria-label="Play this week's Wednesday Anthem"
+                      data-src="/content/music/the-laidies-wednesday-in-sunnyvaile.mp3"
+                      onclick="window.playLaidiesTheme(this);">
+                <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true" style="display:none"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+                <span>♪ The Wednesday Anthem</span>
+              </button>
+            </div>
+
             <a class="ritual-cta" href="/chick-flicks.html">Spend this Wednesday in SUNNYVAiLE</a>
           </div>
 
         </div>
-      </div>
-    </section>
 
-    <!-- 3 · TOOLS YOU CAN USE RIGHT NOW -->
-    <section class="band band--pearl">
-      <div class="container">
-        <header class="section-head">
-          <p class="kicker">Tools open now</p>
-          <h2>Use one before you leave town.</h2>
-          <p>Five things you can pick up and use this minute. LAiDY first — she's the everywhere-tool.</p>
-        </header>
-
-        <div class="tools-grid">
-
-          <a class="tool-card" href="/games/fairy-godmother.html">
-            <p class="tool-eyebrow">Tool · Anywhere</p>
-            <h3 class="tool-name">Ask LAiDY</h3>
-            <p class="tool-where">At the FAiRY Godmother's House · Willow Lane</p>
-            <p class="tool-desc">Your in-house AI assistant. Ask the FAiRY Godmother. Bring the question — she'll bring the answer.</p>
-            <span class="tool-open">Open Ask LAiDY</span>
-          </a>
-
-          <a class="tool-card" href="/games/madame-claio.html">
-            <p class="tool-eyebrow">Tool · Tarot</p>
-            <h3 class="tool-name">Mme CLAi-O</h3>
-            <p class="tool-where">Her Shop · MAiN Street · No. 6</p>
-            <p class="tool-desc">Pull a card. Get the read, the message, and the move. The town fortune-teller answers what to do.</p>
-            <span class="tool-open">Consult the oracle</span>
-          </a>
-
-          <a class="tool-card" href="/games/businesswomens-special.html">
-            <p class="tool-eyebrow">Tool · Drink picker</p>
-            <h3 class="tool-name">Businesswomen's Special</h3>
-            <p class="tool-where">The BRONZE AiGE · MAiN Street · No. 5</p>
-            <p class="tool-desc">Spin for your happy-hour drink. Coven has a reservation at 4 — yours doesn't need one.</p>
-            <span class="tool-open">Pick your drink</span>
-          </a>
-
-          <a class="tool-card" href="/games/dream-phone.html">
-            <p class="tool-eyebrow">Tool · Call-in advice</p>
-            <h3 class="tool-name">Dream Phone</h3>
-            <p class="tool-where">The Phone Booth · Corner of MAiN &amp; Cathedral Hill</p>
-            <p class="tool-desc">Pick up the receiver. Ask your question. Pick the voice — Receipts, Boundary, Bestie. The right LAiDY answers.</p>
-            <span class="tool-open">Make the call</span>
-          </a>
-
-          <a class="tool-card" href="/games/girl-talk.html">
-            <p class="tool-eyebrow">Tool · Members only</p>
-            <h3 class="tool-name">Girl Talk</h3>
-            <p class="tool-where">The Sorority House · Wisteria Lane</p>
-            <p class="tool-desc">Truth or dare for the LAiDIES. Dares ask you to post in the chat rooms — members at the door.</p>
-            <span class="tool-open">Play Girl Talk</span>
-          </a>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- 4 · PATRON SAINTS -->
-    <section class="band band--blush">
-      <div class="container">
-        <header class="section-head">
-          <p class="kicker">Your patron saints</p>
-          <h2>The Blessed Ones you already know.</h2>
-          <p style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(18px, 2.1vw, 22px); color: var(--rose); margin: 0 0 18px; line-height: 1.35;">"We pledge Allegiance to the united Saints of SUNNYVAiLE."</p>
-          <p>Eight pop-culture icons we keep coming back to. They walked into rooms full of people who underestimated them — and walked out with the upper hand. Borrow what they did.</p>
-        </header>
-        <div class="saints-grid">
-          <a class="saint-card" href="/sanctuary.html">
-            <div class="saint-initial" role="img" aria-label="Cher Horowitz" style="background-image: url('assets/saints/cher-horowitz.png');">C</div>
-            <h3>Cher Horowitz</h3>
-            <p class="saint-lane">Early adoption</p>
-            <p class="saint-rule">Cher had a wardrobe recommender in 1995. The story isn't that the tech existed. It's that she was first in the cafeteria to use it.</p>
-          </a>
-          <a class="saint-card" href="/sanctuary.html">
-            <div class="saint-initial" role="img" aria-label="Elle Woods" style="background-image: url('assets/saints/elle-woods.png');">E</div>
-            <h3>Elle Woods</h3>
-            <p class="saint-lane">Receipts</p>
-            <p class="saint-rule">Elle walked into court with the perm rule, the timeline, and the witness already lined up. She didn't bring receipts. She had them.</p>
-          </a>
-          <a class="saint-card" href="/sanctuary.html">
-            <div class="saint-initial" role="img" aria-label="Miranda Priestly" style="background-image: url('assets/saints/miranda-priestly.png');">M</div>
-            <h3>Miranda Priestly</h3>
-            <p class="saint-lane">Standards</p>
-            <p class="saint-rule">Miranda knew the cerulean's whole history before it touched a closet. Knowing what you're looking at is the difference between a yes and a yes-with-changes.</p>
-          </a>
-          <a class="saint-card" href="/sanctuary.html">
-            <div class="saint-initial" role="img" aria-label="Buffy Summers" style="background-image: url('assets/saints/buffy-summers.png');">B</div>
-            <h3>Buffy Summers</h3>
-            <p class="saint-lane">Slaying the tools</p>
-            <p class="saint-rule">Buffy runs toward the vampire. Everybody else is still in the parking lot trying to get away.</p>
-          </a>
-
-          <div class="saint-card-back" aria-hidden="true">
-            <img src="assets/saints/card-back.png" alt="" />
+        <!-- 2.5 · MOVE TO SUNNYVAiLE (elevated primary CTA) -->
+        <div class="join-band">
+          <div class="join-band-body">
+            <p class="join-band-kicker">★ Make it official</p>
+            <h3 class="join-band-title">Move to SUNNYVAiLE.</h3>
+            <p class="join-band-desc">Sign up for the Wednesday delivery, or design your Residence Card and unlock the whole town — Sorority House rooms, the Charm Hunt, gifting, and your Closet.</p>
           </div>
-
-          <a class="saint-card" href="/sanctuary.html">
-            <div class="saint-initial" role="img" aria-label="Regina George" style="background-image: url('assets/saints/regina-george.png');">R</div>
-            <h3>Regina George</h3>
-            <p class="saint-lane">Dangerous confidence</p>
-            <p class="saint-rule">Regina told Cady the skirt was cute, then told someone else it was ugly. Same skirt. Different audience. Polished delivery — and the receipts are still in the Burn Book.</p>
-          </a>
-          <a class="saint-card" href="/sanctuary.html">
-            <div class="saint-initial" role="img" aria-label="David Rose" style="background-image: url('assets/saints/david-rose.png');">D</div>
-            <h3>David Rose</h3>
-            <p class="saint-lane">Specificity</p>
-            <p class="saint-rule">"Fold in the cheese" is an instruction. "Make this better" is also an instruction. They fail the same way.</p>
-          </a>
-          <a class="saint-card" href="/sanctuary.html">
-            <div class="saint-initial" role="img" aria-label="Deb" style="background-image: url('assets/saints/deb.png');">D</div>
-            <h3>Deb</h3>
-            <p class="saint-lane">Loop Me Out</p>
-            <p class="saint-rule">Deb trademarked Deb-flection™ in 1997 and has survived every reorg since 2004 by looping herself OUT of every request. Also the Patron Saint of Deb.</p>
-          </a>
-          <a class="saint-card" href="/sanctuary.html">
-            <div class="saint-initial" role="img" aria-label="Dolly Parton" style="background-image: url('assets/saints/dolly-parton.png');">DP</div>
-            <h3>Dolly Parton</h3>
-            <p class="saint-lane">Common Sense</p>
-            <p class="saint-rule">You better get to building your own bridge, because ain't nobody building it for you, honey.</p>
-          </a>
+          <div class="join-band-ctas">
+            <a class="join-cta join-cta--primary" href="/maikeover.html">
+              <span class="join-cta-title">Design your Residence Card</span>
+              <span class="join-cta-sub">at MAiKEOVER · No. 6 MAiN(e) →</span>
+            </a>
+            <a class="join-cta join-cta--secondary" href="#signup">
+              <span class="join-cta-title">Just the Wednesday delivery</span>
+              <span class="join-cta-sub">at the Post Office →</span>
+            </a>
+          </div>
         </div>
+        <style>
+          .join-band { margin: 32px 0 0; padding: 34px clamp(24px, 4vw, 44px); background: linear-gradient(135deg, var(--plum-deep, #341446) 0%, var(--rose, #9b3f5f) 100%); color: var(--cream); border-radius: 16px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; align-items: center; box-shadow: 0 10px 32px rgba(75,33,72,0.28); }
+          @media (max-width: 720px) { .join-band { grid-template-columns: 1fr; padding: 26px 24px; } }
+          .join-band-kicker { margin: 0 0 8px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); }
+          .join-band-title { margin: 0 0 10px; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 3.6vw, 38px); font-weight: 700; color: var(--cream); line-height: 1.1; }
+          .join-band-desc { margin: 0; font-size: 15px; line-height: 1.6; color: rgba(255,253,251,0.9); }
+          .join-band-ctas { display: flex; flex-direction: column; gap: 12px; }
+          .join-cta { display: block; padding: 16px 22px; border-radius: 12px; text-decoration: none; transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease; }
+          .join-cta-title { display: block; font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 700; line-height: 1.2; }
+          .join-cta-sub { display: block; margin-top: 4px; font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; opacity: 0.86; }
+          .join-cta--primary { background: var(--gold, #c9a227); color: var(--plum-deep, #341446); box-shadow: 0 4px 14px rgba(0,0,0,0.24); }
+          .join-cta--primary:hover, .join-cta--primary:focus-visible { transform: translateY(-2px); background: var(--cream, #fffdfb); outline: none; }
+          .join-cta--secondary { background: rgba(255,253,251,0.10); color: var(--cream); border: 1.5px solid rgba(255,253,251,0.45); }
+          .join-cta--secondary:hover, .join-cta--secondary:focus-visible { background: rgba(255,253,251,0.20); border-color: var(--gold, #c9a227); outline: none; }
+        </style>
       </div>
     </section>
 
-    <!-- 5 · TOWN DIRECTORY -->
-    <section class="band band--cream">
+    <!-- 3 · TOWN DIRECTORY -->
+    <section class="band band--pearl">
       <div class="container">
         <header class="section-head">
           <p class="kicker">The town directory</p>
@@ -810,7 +1416,7 @@
         </header>
 
         <div id="sv-map-directory" style="margin: 24px 0 40px;"></div>
-        <script defer src="/content/site/sunnyvaile-directory.js?v=20260701-2"></script>
+        <script defer src="/content/site/sunnyvaile-directory.js?v=20260701-11"></script>
 
         <div class="directory-grid" style="display:none;" aria-hidden="true">
 
@@ -827,45 +1433,45 @@
           </a>
 
           <a class="dir-card" href="/library.html">
-            <p class="dir-addr">★ MAiN Street · No. 3</p>
+            <p class="dir-addr">★ Civic Square</p>
             <h3 class="dir-name">The Town LIBRAiRY</h3>
             <p class="dir-tag">The Grimoire reference shelves.</p>
           </a>
 
           <a class="dir-card" href="/mall.html">
-            <p class="dir-addr">★ MAiN Street · No. 4</p>
+            <p class="dir-addr">★ MAiN Street · No. 9</p>
             <h3 class="dir-name">The Mall</h3>
             <p class="dir-tag">Ten stops. All references. Searchable.</p>
           </a>
 
           <a class="dir-card" href="/bronze-aige.html">
-            <p class="dir-addr">★ MAiN Street · No. 5</p>
+            <p class="dir-addr">★ MAiN Street · No. 7</p>
             <h3 class="dir-name">The BRONZE AiGE</h3>
             <p class="dir-tag">Happy hour + live show after 8.</p>
           </a>
 
           <a class="dir-card" href="/games/madame-claio.html">
-            <p class="dir-addr">★ MAiN Street · No. 6</p>
+            <p class="dir-addr">★ MAiN Street · No. 5</p>
             <h3 class="dir-name">Mme CLAi-O's Shop</h3>
             <p class="dir-tag">The town oracle. Crystal ball, tarot.</p>
           </a>
 
           <a class="dir-card" href="/chick-flicks.html">
-            <p class="dir-addr">★ MAiN Street · No. 7</p>
+            <p class="dir-addr">★ MAiN Street · No. 3</p>
             <h3 class="dir-name">The Chick Flicks</h3>
             <p class="dir-tag">The season. Video rental shop.</p>
           </a>
 
           <a class="dir-card" href="/blend-snap.html">
-            <p class="dir-addr">★ MAiN Street · No. 8</p>
+            <p class="dir-addr">★ MAiN Street · No. 4</p>
             <h3 class="dir-name">The Blend &amp; Snap</h3>
             <p class="dir-tag">Coffee shop. Study Pack lives here.</p>
           </a>
 
           <a class="dir-card" href="/maikeover.html">
-            <p class="dir-addr">★ MAiN Street · No. 9</p>
+            <p class="dir-addr">★ MAiN Street · No. 6</p>
             <h3 class="dir-name">MAiKEOVER on MAiN(e)</h3>
-            <p class="dir-tag">Beauty parlor · member card maker.</p>
+            <p class="dir-tag">Beauty parlor · Residence Card maker.</p>
           </a>
 
           <a class="dir-card" href="/sorority-house.html">
@@ -888,8 +1494,8 @@
 
           <a class="dir-card" href="/post-office.html">
             <p class="dir-addr">★ Civic Square</p>
-            <h3 class="dir-name">The LAiDIES Post Office</h3>
-            <p class="dir-tag">Sign up for the Wednesday Drop.</p>
+            <h3 class="dir-name">The SUNNYVAiLE Post Office</h3>
+            <p class="dir-tag">Sign up for the Wednesday Postcard.</p>
           </a>
 
           <a class="dir-card" href="/sunnyvaile-high.html">
@@ -898,20 +1504,20 @@
             <p class="dir-tag">Season 1 · 101 classes. Pop quiz.</p>
           </a>
 
-          <a class="dir-card" href="/sanctuary.html">
-            <p class="dir-addr">★ Cathedral Hill</p>
-            <h3 class="dir-name">The SANCTUAiRY</h3>
-            <p class="dir-tag">Patron Saints + The Coven.</p>
+          <a class="dir-card" href="/luminairy.html">
+            <p class="dir-addr">★ Lantern Hill</p>
+            <h3 class="dir-name">The LUMINAiRY</h3>
+            <p class="dir-tag">SAiNTS · MAiVENS · TRAiLBLAZERS.</p>
           </a>
 
           <a class="dir-card" href="/radio.html">
-            <p class="dir-addr">★ Radio Tower · KSVL</p>
-            <h3 class="dir-name">Community Radio</h3>
+            <p class="dir-addr">★ MAiN Street · No. 10 · KSVL</p>
+            <h3 class="dir-name">Community RAiDIO</h3>
             <p class="dir-tag">Music broadcast all day.</p>
           </a>
 
           <a class="dir-card" href="/games/dream-phone.html">
-            <p class="dir-addr">★ Corner of MAiN &amp; Cathedral Hill</p>
+            <p class="dir-addr">★ Corner of MAiN &amp; Willow Lane</p>
             <h3 class="dir-name">The Phone Booth</h3>
             <p class="dir-tag">Dream Phone. Call in for advice.</p>
           </a>
@@ -920,12 +1526,219 @@
       </div>
     </section>
 
-    <!-- 6 · POST OFFICE SIGNUP -->
-    <section class="band band--pearl" id="signup">
+    <!-- 3.5 · HOW THE TOWN WORKS — the seven mechanics -->
+    <section class="band band--blush" aria-labelledby="how-it-works-title" style="padding: 64px 0;">
       <div class="container">
-        <div class="signup-band">
-          <h2>The Wednesday Drop.</h2>
-          <p>The episode comes to your inbox at the LAiDIES Post Office. One delivery, every Wednesday, on schedule.</p>
+        <header class="section-head" style="margin-bottom: 28px;">
+          <p class="kicker" style="color: var(--rose);">★ The mechanics</p>
+          <h2 id="how-it-works-title" style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 3.4vw, 38px); font-weight: 700; color: var(--plum); margin: 0 0 8px; line-height: 1.15;">How the town works.</h2>
+          <p style="font-size: 15px; color: var(--plum-soft); margin: 0 0 8px; max-width: 640px;">Seven little systems that turn a tour into a way to live here. Every mechanic has a building — that's where it happens.</p>
+        </header>
+
+        <figure style="margin: 0 0 28px; border-radius: 14px; overflow: hidden; box-shadow: 0 14px 36px rgba(75,33,72,0.16);">
+          <img src="assets/sunnyvaile_masthead.png?v=20260701-fixed-sign" alt="A young woman in plaid stands on MAiN Street looking out at the town's storefronts: NewsStand, LIBRAiRY, Mme CLAi-O's, The Mall, The Chick Flicks, BRONZE AiGE, and Blend & Snap Café, lit by a pink sunset." width="1664" height="936" style="width: 100%; height: auto; display: block;" loading="lazy" />
+        </figure>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px;">
+
+          <a href="/maikeover.html" style="display: flex; flex-direction: column; padding: 22px 20px; background: var(--cream); border: 1.5px solid rgba(155, 63, 95, 0.18); border-radius: 12px; text-decoration: none; color: var(--plum); transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--rose)'; this.style.boxShadow='0 8px 20px rgba(75,33,72,0.14)';" onmouseout="this.style.transform=''; this.style.borderColor='rgba(155, 63, 95, 0.18)'; this.style.boxShadow='';">
+            <span style="font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin-bottom: 6px;"><span style="text-transform: none;">MAiKEOVER</span> · No. 9 <span style="text-transform: none;">MAiN</span>(e)</span>
+            <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--plum-deep); margin-bottom: 6px;">Your Residence Card</span>
+            <span style="font-size: 14px; color: var(--plum-soft); line-height: 1.5;">Your ID in SUNNYVAiLE. Made at the beauty parlor. Required at every members-only door.</span>
+          </a>
+
+          <a href="/post-office.html" style="display: flex; flex-direction: column; padding: 22px 20px; background: var(--cream); border: 1.5px solid rgba(155, 63, 95, 0.18); border-radius: 12px; text-decoration: none; color: var(--plum); transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--rose)'; this.style.boxShadow='0 8px 20px rgba(75,33,72,0.14)';" onmouseout="this.style.transform=''; this.style.borderColor='rgba(155, 63, 95, 0.18)'; this.style.boxShadow='';">
+            <span style="font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin-bottom: 6px;">Post Office · Civic Square</span>
+            <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--plum-deep); margin-bottom: 6px;">The Wednesday Postcard</span>
+            <span style="font-size: 14px; color: var(--plum-soft); line-height: 1.5;">One letter, every Wednesday. Study Pack, episode song, Pop Quiz, AI news, note from Ali. No spam.</span>
+          </a>
+
+          <a href="/mall.html" style="display: flex; flex-direction: column; padding: 22px 20px; background: var(--cream); border: 1.5px solid rgba(155, 63, 95, 0.18); border-radius: 12px; text-decoration: none; color: var(--plum); transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--rose)'; this.style.boxShadow='0 8px 20px rgba(75,33,72,0.14)';" onmouseout="this.style.transform=''; this.style.borderColor='rgba(155, 63, 95, 0.18)'; this.style.boxShadow='';">
+            <span style="font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin-bottom: 6px;">Hidden all over town</span>
+            <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--plum-deep); margin-bottom: 6px;">The Charm Hunt</span>
+            <span style="font-size: 14px; color: var(--plum-soft); line-height: 1.5;">Charms hide in the storefronts. Spot one, click it, it's yours. Duplicates are giftable at the Post Office.</span>
+          </a>
+
+          <a href="/games/trading-cards.html" style="display: flex; flex-direction: column; padding: 22px 20px; background: var(--cream); border: 1.5px solid rgba(155, 63, 95, 0.18); border-radius: 12px; text-decoration: none; color: var(--plum); transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--rose)'; this.style.boxShadow='0 8px 20px rgba(75,33,72,0.14)';" onmouseout="this.style.transform=''; this.style.borderColor='rgba(155, 63, 95, 0.18)'; this.style.boxShadow='';">
+            <span style="font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin-bottom: 6px;">Blend &amp; Snap · No. 8 <span style="text-transform: none;">MAiN</span></span>
+            <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--plum-deep); margin-bottom: 6px;">Trading Cards</span>
+            <span style="font-size: 14px; color: var(--plum-soft); line-height: 1.5;">One pack per episode. Some are common, some are hard to complete. Mail duplicates to friends.</span>
+          </a>
+
+          <a href="/sorority-house.html" style="display: flex; flex-direction: column; padding: 22px 20px; background: var(--cream); border: 1.5px solid rgba(155, 63, 95, 0.18); border-radius: 12px; text-decoration: none; color: var(--plum); transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--rose)'; this.style.boxShadow='0 8px 20px rgba(75,33,72,0.14)';" onmouseout="this.style.transform=''; this.style.borderColor='rgba(155, 63, 95, 0.18)'; this.style.boxShadow='';">
+            <span style="font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin-bottom: 6px;">Delta <span style="text-transform: none;">LAi</span> Nu · Wisteria Lane</span>
+            <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--plum-deep); margin-bottom: 6px;">Girl Talk</span>
+            <span style="font-size: 14px; color: var(--plum-soft); line-height: 1.5;">Truth or dare. Truth stays. Dare gets posted to Dare Reports by Sunday, or spend a Hall Pass.</span>
+          </a>
+
+          <a href="/post-office.html" style="display: flex; flex-direction: column; padding: 22px 20px; background: var(--cream); border: 1.5px solid rgba(155, 63, 95, 0.18); border-radius: 12px; text-decoration: none; color: var(--plum); transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--rose)'; this.style.boxShadow='0 8px 20px rgba(75,33,72,0.14)';" onmouseout="this.style.transform=''; this.style.borderColor='rgba(155, 63, 95, 0.18)'; this.style.boxShadow='';">
+            <span style="font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin-bottom: 6px;">Post Office · Civic Square</span>
+            <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--plum-deep); margin-bottom: 6px;">Gifting</span>
+            <span style="font-size: 14px; color: var(--plum-soft); line-height: 1.5;">Mail a friend a note. A trading card she needs. A Hall Pass. One-way. She keeps it. You've got mail.</span>
+          </a>
+
+          <a href="/laidies-card.html" style="display: flex; flex-direction: column; padding: 22px 20px; background: var(--cream); border: 1.5px solid rgba(155, 63, 95, 0.18); border-radius: 12px; text-decoration: none; color: var(--plum); transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--rose)'; this.style.boxShadow='0 8px 20px rgba(75,33,72,0.14)';" onmouseout="this.style.transform=''; this.style.borderColor='rgba(155, 63, 95, 0.18)'; this.style.boxShadow='';">
+            <span style="font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin-bottom: 6px;">The private side of your Card</span>
+            <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--plum-deep); margin-bottom: 6px;">Your Closet</span>
+            <span style="font-size: 14px; color: var(--plum-soft); line-height: 1.5;">Where your saint, song, avatar, stickers, and badges live. Every customization is a trip to a building in town.</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · TOOLS YOU CAN USE RIGHT NOW -->
+    <section class="band band--cream">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">★ Around town</p>
+          <h2>What you can do in SUNNYVAiLE.</h2>
+          <p>Ways to spend a Wednesday afternoon in town — or a Tuesday, or a Sunday. Pick one and go.</p>
+        </header>
+
+        <div class="tools-grid">
+
+          <a class="tool-card" href="/games/fairy-godmother.html">
+            <p class="tool-eyebrow">Tool · Anywhere</p>
+            <h3 class="tool-name">Ask LAiDY</h3>
+            <p class="tool-where">At the FAiRY Godmother's House · Willow Lane</p>
+            <p class="tool-desc">Your in-house AI assistant. Ask the FAiRY Godmother. Bring the question — she'll bring the answer.</p>
+            <span class="tool-open">Open Ask LAiDY</span>
+          </a>
+
+          <a class="tool-card" href="/games/madame-claio.html">
+            <p class="tool-eyebrow">Tool · Tarot</p>
+            <h3 class="tool-name">Mme CLAi-O</h3>
+            <p class="tool-where">Her Shop · MAiN Street · No. 5</p>
+            <p class="tool-desc">Pull a card. Get the read, the message, and the move. The town fortune-teller answers what to do.</p>
+            <span class="tool-open">Consult the oracle</span>
+          </a>
+
+          <a class="tool-card" href="/games/businesswomens-special.html">
+            <p class="tool-eyebrow">Tool · Drink picker</p>
+            <h3 class="tool-name">Businesswomen's Special</h3>
+            <p class="tool-where">The BRONZE AiGE · MAiN Street · No. 7</p>
+            <p class="tool-desc">Spin for your happy-hour drink. Coven has a reservation at 4 — yours doesn't need one.</p>
+            <span class="tool-open">Pick your drink</span>
+          </a>
+
+          <a class="tool-card" href="/games/dream-phone.html">
+            <p class="tool-eyebrow">Tool · Call-in advice</p>
+            <h3 class="tool-name">Dream Phone</h3>
+            <p class="tool-where">The Phone Booth · Corner of MAiN &amp; Willow Lane</p>
+            <p class="tool-desc">Pick up the receiver. Ask your question. Pick the voice — Receipts, Boundary, Bestie. The right LAiDY answers.</p>
+            <span class="tool-open">Make the call</span>
+          </a>
+
+          <a class="tool-card" href="/games/girl-talk.html">
+            <p class="tool-eyebrow">Tool · Members only</p>
+            <h3 class="tool-name">Girl Talk</h3>
+            <p class="tool-where">The Sorority House · Wisteria Lane</p>
+            <p class="tool-desc">Truth or dare for the LAiDIES. Dares ask you to post in the chat rooms — members at the door.</p>
+            <span class="tool-open">Play Girl Talk</span>
+          </a>
+
+          <a class="tool-card" href="/post-office.html">
+            <p class="tool-eyebrow">Errand · Post Office</p>
+            <h3 class="tool-name">Check your mail</h3>
+            <p class="tool-where">The SUNNYVAiLE Post Office · Civic Square</p>
+            <p class="tool-desc">Sign for the Wednesday delivery. Read the note. See what came in from other LAiDIES this week.</p>
+            <span class="tool-open">Open your PO box</span>
+          </a>
+
+          <a class="tool-card" href="/post-office.html#gifts">
+            <p class="tool-eyebrow">Errand · Post Office</p>
+            <h3 class="tool-name">Send a gift</h3>
+            <p class="tool-where">The SUNNYVAiLE Post Office · Civic Square</p>
+            <p class="tool-desc">Ship a note, a charm, or a saint card to someone in town. The Post Office handles the delivery.</p>
+            <span class="tool-open">Wrap something up</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · PATRON SAINTS -->
+    <section id="saints" class="band band--blush" style="scroll-margin-top: 24px;">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">★ Meet the PATRON SAiNTS · A stop on your visit</p>
+          <h2>The town's PATRON SAiNTS.</h2>
+          <p style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(18px, 2.1vw, 22px); color: var(--rose); margin: 0 0 18px; line-height: 1.35;">"We pledge Allegiance to the united SAiNTS of SUNNYVAiLE."</p>
+          <p>Every town has its patron saints — the figures locals point at when a stranger asks who this place is really about. Ours are eight women (and one Rose) from the movies and TV that shaped a generation. Cher's wardrobe recommender in 1995. Elle's pink-stationery receipts. Miranda's chess-master gaze. Regina's lunch-ender. They live at <a href="/luminairy.html" style="color: var(--rose); font-weight: 600; text-decoration: underline;">the LUMINAiRY</a> on Lantern Hill — visit any time. When a moment shows up you don't know how to handle, borrow their move.</p>
+        </header>
+        <div class="saints-grid">
+          <a class="saint-card" href="/luminairy.html">
+            <div class="saint-initial" role="img" aria-label="Cher Horowitz" style="background-image: url('assets/saints/y2k-stained-glass-v2/cher-horowitz-y2k-stained-glass.png');">C</div>
+            <h3>Cher Horowitz</h3>
+            <p class="saint-lane">Early adoption</p>
+            <p class="saint-rule">Cher had a wardrobe recommender in 1995. The story isn't that the tech existed. It's that she was first in the cafeteria to use it.</p>
+          </a>
+          <a class="saint-card" href="/luminairy.html">
+            <div class="saint-initial" role="img" aria-label="Elle Woods" style="background-image: url('assets/saints/y2k-stained-glass-v2/elle-woods-y2k-stained-glass.png');">E</div>
+            <h3>Elle Woods</h3>
+            <p class="saint-lane">Receipts</p>
+            <p class="saint-rule">Elle walked into court with the perm rule, the timeline, and the witness already lined up. She didn't bring receipts. She had them.</p>
+          </a>
+          <a class="saint-card" href="/luminairy.html">
+            <div class="saint-initial" role="img" aria-label="Miranda Priestly" style="background-image: url('assets/saints/y2k-stained-glass-v2/miranda-priestly-y2k-stained-glass.png');">M</div>
+            <h3>Miranda Priestly</h3>
+            <p class="saint-lane">Standards</p>
+            <p class="saint-rule">Miranda knew the cerulean's whole history before it touched a closet. Knowing what you're looking at is the difference between a yes and a yes-with-changes.</p>
+          </a>
+          <a class="saint-card" href="/luminairy.html">
+            <div class="saint-initial" role="img" aria-label="Buffy Summers" style="background-image: url('assets/saints/y2k-stained-glass-v2/buffy-summers-y2k-stained-glass.png');">B</div>
+            <h3>Buffy Summers</h3>
+            <p class="saint-lane">Slaying the tools</p>
+            <p class="saint-rule">Buffy runs toward the vampire. Everybody else is still in the parking lot trying to get away.</p>
+          </a>
+
+          <div class="saint-card-back" aria-hidden="true">
+            <img src="assets/saints/card-back.png" alt="" />
+          </div>
+
+          <a class="saint-card" href="/luminairy.html">
+            <div class="saint-initial" role="img" aria-label="Regina George" style="background-image: url('assets/saints/y2k-stained-glass-v2/regina-george-y2k-stained-glass.png');">R</div>
+            <h3>Regina George</h3>
+            <p class="saint-lane">Dangerous confidence</p>
+            <p class="saint-rule">Regina told Cady the skirt was cute, then told someone else it was ugly. Same skirt. Different audience. Polished delivery — and the receipts are still in the Burn Book.</p>
+          </a>
+          <a class="saint-card" href="/luminairy.html">
+            <div class="saint-initial" role="img" aria-label="David Rose" style="background-image: url('assets/saints/y2k-stained-glass-v2/david-rose-y2k-stained-glass.png');">D</div>
+            <h3>David Rose</h3>
+            <p class="saint-lane">Specificity</p>
+            <p class="saint-rule">"Fold in the cheese" is an instruction. "Make this better" is also an instruction. They fail the same way.</p>
+          </a>
+          <a class="saint-card" href="/luminairy.html">
+            <div class="saint-initial" role="img" aria-label="Deb" style="background-image: url('assets/saints/y2k-stained-glass-v2/deb-y2k-stained-glass.png');">D</div>
+            <h3>Deb</h3>
+            <p class="saint-lane">Loop Me Out</p>
+            <p class="saint-rule">Deb trademarked Deb-flection™ in 1997 and has survived every reorg since 2004 by looping herself OUT of every request. Also the PATRON SAiNT of Deb.</p>
+          </a>
+          <a class="saint-card" href="/luminairy.html">
+            <div class="saint-initial" role="img" aria-label="Dolly Parton" style="background-image: url('assets/saints/y2k-stained-glass-v2/dolly-parton-y2k-stained-glass.png');">DP</div>
+            <h3>Dolly Parton</h3>
+            <p class="saint-lane">Common Sense</p>
+            <p class="saint-rule">You better get to building your own bridge, because ain't nobody building it for you, honey.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+<!-- 6 · WELCOME WAGON — unified signup + card announcement -->
+    <section class="band band--pearl" id="signup" aria-labelledby="welcome-wagon-title">
+      <div class="container" style="max-width: 720px;">
+        <header class="section-head" style="margin-bottom: 20px;">
+          <p class="kicker" style="color: var(--rose);">★ Welcome Wagon</p>
+          <h2 id="welcome-wagon-title" style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(30px, 3.8vw, 42px); font-weight: 700; color: var(--plum); margin: 0 0 12px; line-height: 1.1;">Move to SUNNYVAiLE.</h2>
+          <p style="font-size: 16px; color: var(--plum); margin: 0; line-height: 1.55;">Two ways to be here. Pick what you want.</p>
+        </header>
+
+        <!-- Path A · Just the newsletter (Post Office signup) -->
+        <div class="signup-band" style="margin-bottom: 20px;">
+          <p style="font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin: 0 0 6px;">Just the mail · The Post Office · Civic Square</p>
+          <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(22px, 2.6vw, 28px); font-weight: 700; color: var(--plum-deep); margin: 0 0 10px; line-height: 1.2;">Sign up for the Wednesday Postcard.</h3>
+          <p style="margin: 0 0 16px;">All five in one letter: the episode, the Study Pack, the Pop Quiz, this week's AI news, and this week's episode song from KSVL. Just the newsletter, once a week. No card needed.</p>
           <form class="signup-form"
                 action="https://buttondown.com/api/emails/embed-subscribe/laidies"
                 method="post"
@@ -935,18 +1748,15 @@
             <button type="submit">Sign up at the Post Office</button>
           </form>
         </div>
-      </div>
-    </section>
 
-    <!-- 7 · MEMBERSHIP — Coming Soon -->
-    <section class="band band--cream" id="membership">
-      <div class="container">
-        <div class="membership">
-          <div class="coming-soon-overlay">Coming Soon</div>
-          <h2>Get your member card at MAiKEOVER on MAiN(e).</h2>
-          <p>The card saves your progress as you explore town. Collect <strong>stickers</strong>, earn <strong>merit badges</strong>, and hunt for <strong>charms hidden in the storefronts and scenes around SUNNYVAiLE</strong>. Plus full access to the Sorority House: chat rooms, Wins, the Burn Book, Dear LAiDIES, Girl Talk. Walk into MAiKEOVER on MAiN(e), pick your colors, leave a member. The chair is being prepped — back soon.</p>
-          <span class="membership-cta-disabled" aria-disabled="true">Make my card — opening soon</span>
+        <!-- Path B · Full residency + card (in the works) -->
+        <div id="membership" style="padding: 24px 26px; background: var(--cream); border: 1.5px dashed rgba(155, 63, 95, 0.4); border-radius: 10px; position: relative;">
+          <p style="font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin: 0 0 6px;">The full residency · <span style="text-transform: none;">MAiKEOVER</span> · No. 9 <span style="text-transform: none;">MAiN</span>(e) · In the works</p>
+          <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(20px, 2.4vw, 26px); font-weight: 700; color: var(--plum-deep); margin: 0 0 10px; line-height: 1.2;">Design your Residence Card.</h3>
+          <p style="margin: 0 0 8px; font-size: 15px; line-height: 1.55;">Everything the newsletter gets you — plus a card that unlocks the Sorority House chat rooms (Wins · Dear LAiDIES · Burn Book · Girl Talk), the Charm Hunt, gifting through the Post Office, and your Closet. Every stop in town saves onto it.</p>
+          <p style="margin: 0; font-size: 14px; font-style: italic; color: var(--plum-soft);">Walk into MAiKEOVER, pick your colors, leave a resident. The chair is being prepped — back soon.</p>
         </div>
+
       </div>
     </section>
 
@@ -962,12 +1772,16 @@
       <a href="/visitors-centre.html">Welcome Wagon</a>
       <a href="/library.html">LIBRAiRY</a>
       <a href="/mall.html">The Mall</a>
-      <a href="/sanctuary.html">SANCTUAiRY</a>
+      <a href="/luminairy.html">LUMINAiRY</a>
       <a href="/post-office.html">Post Office</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
     </div>
   </footer>
 
+    <script defer src="/content/site/ksvl-player.js?v=20260704-12"></script>
+    <script defer src="/content/site/sv-tour-checkin.js?v=20260702-2"></script>
+    <script defer src="/content/site/charm-hunt.js?v=20260704-y2k3b"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260704-5"></script>
 </body>
 </html>

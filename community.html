@@ -768,7 +768,7 @@
   <!-- HEADER -->
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="LAiDIES home">
-      <img src="assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
+      <img src="assets/brand/laidies-wordmark-final-b-light.svg" alt="LAiDIES" style="height: 30px; width: auto;" />
     </a>
     <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=document.querySelector('.site-header nav');var isOpen=n.classList.contains('open');n.classList.toggle('open');this.textContent=isOpen?'\u2630':'\u2715';this.setAttribute('aria-expanded',!isOpen);">&#x2630;</button>
     <nav class="nav" aria-label="Primary navigation">
@@ -894,7 +894,7 @@
           </div>
           <div class="thumb-info">
             <h3>Josh</h3>
-            <span class="thumb-tag">The Crew · DJ <span class="brand-word-inline" aria-label="JAiDY"><span aria-hidden="true">J<span data-brand-ai>Ai</span>DY</span></span></span>
+            <span class="thumb-tag">The Crew · DJ SunnyV</span>
           </div>
         </div>
         <!-- Card 5: LAiDY (stock) — doodle bg -->
@@ -910,7 +910,7 @@
         <!-- Card 6: Mme CLAi-O (stock) — sunset bg -->
         <div class="thumb-card" data-type="stock" data-tags="stock help connect" data-card="claio">
           <div class="thumb-bg card-bg-sunset">
-            <img class="thumb-photo" src="assets/madame-claio-character-v1.png" alt="Mme CLAi-O" />
+            <img class="thumb-photo" src="assets/madame-claio-portrait-v3.png" alt="Mme CLAi-O" />
           </div>
           <div class="thumb-info">
             <h3>Mme <span class="brand-word-inline" aria-label="CLAi-O"><span aria-hidden="true">CL<span data-brand-ai>Ai</span>-O</span></span></h3>
@@ -967,7 +967,7 @@
         </div>
         <div class="room-card">
           <h3>Burn Book</h3>
-          <p>Nominate a 90s reference for an analogy.</p>
+          <p>Nominate a Y2K reference for an analogy.</p>
           <a href="community/burn-book.html">Nominate a Reference &rarr;</a>
         </div>
         <div class="room-card">
@@ -1026,7 +1026,7 @@
       era: 'Founding Spark Era',
       desc: 'The original Echo idea was hers. Part of the founding sisterhood that brought LAiDIES to life.',
       meta: '<strong>Spark:</strong> the idea that started the conversation — what if we built something for us?',
-      tags: ['OG lAIdy', 'Echo Architect', 'Original Three', 'WIT']
+      tags: ['OG LAiDY', 'Echo Architect', 'Original Three', 'WIT']
     },
     sara: {
       photo: 'assets/people/sara-baxter.png',
@@ -1035,7 +1035,7 @@
       era: 'Founding Spark Era',
       desc: 'One of the original three. The group chat energy that made LAiDIES go from idea to real thing.',
       meta: '<strong>Spark:</strong> the encouragement, the early hype, the "yes, do it" that every builder needs.',
-      tags: ['OG lAIdy', 'Day One Energy', 'Original Three', 'WIT']
+      tags: ['OG LAiDY', 'Day One Energy', 'Original Three', 'WIT']
     },
     josh: {
       photo: 'assets/people/josh-hudson.png',
@@ -1043,8 +1043,8 @@
       name: 'Josh',
       era: 'The Crew · WIT Champion',
       desc: 'The hype man. WIT champion, hackathon co-conspirator, and the reason the site has a soundtrack.',
-      meta: '<strong>Known as:</strong> DJ JAIDY. Brings the energy, the support, and the beats.',
-      tags: ['DJ JAIDY', 'WIT Champion', 'Hackathon Crew', 'GenAI Tax']
+      meta: '<strong>Made the first five tracks</strong> — Ep 1, Ep 2, Ep 3, Deb\'s Tomorrow Problem, and Impossible to Underestimate You. Everything you hear on KSVL traces back to him hitting record.',
+      tags: ['First Five Tracks', 'WIT Champion', 'Hackathon Crew', 'GenAI Tax']
     },
     laidy: {
       photo: 'assets/laidy-character-v1.png',
@@ -1056,7 +1056,7 @@
       tags: ['FAiRY GODMOTHER', 'Prompt triage', 'Tough love', 'Here to help']
     },
     claio: {
-      photo: 'assets/madame-claio-character-v1.png',
+      photo: 'assets/madame-claio-portrait-v3.png',
       bgClass: 'card-bg-sunset',
       name: 'Mme CLAi-O',
       era: 'Psychic Hotline Era',
@@ -1071,7 +1071,7 @@
       era: 'Early Retirement Era',
       desc: 'Payroll legend. Reorg survivor. Emotionally unavailable to bad rollouts and men named Brad with urgent asks.',
       meta: '<strong>Special move:</strong> knows where the form is, who broke the printer, and exactly how many months until freedom.',
-      tags: ['Office lore', 'DJ JAIDY canon', 'Making progress']
+      tags: ['Office lore', 'DJ SunnyV canon', 'Making progress']
     }
   };
 
@@ -1230,8 +1230,8 @@
     const link = document.createElement('a');
     link.dataset.wednesdayReturn = 'true';
     link.className = 'wednesday-return';
-    link.href = 'this-week.html' + (issueValue ? '?issue=' + encodeURIComponent(issueValue) + '&bag=open&group=connect' + draftParam : '?bag=open&group=connect' + draftParam);
-    link.textContent = '\u2190 Back to Meet & Celebrate';
+    link.href = '/';
+    link.textContent = '\u2190 Back to SUNNYVAiLE';
     document.querySelector('main')?.prepend(link);
 
     if (!issueValue) return;
@@ -1248,5 +1248,8 @@
   <script src="/content/site/mini-player.js?v=ep-04-songs-1"></script>
     <script src="content/site/brand-polish.js?v=wm1" defer></script>
     <script src="content/site/laidies-bg.js?v=laidies-bg-1" defer></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260704-12"></script>
+    <script defer src="/content/site/quick-rail.js?v=20260704-2"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260704-5"></script>
 </body>
 </html>

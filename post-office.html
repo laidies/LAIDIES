@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The LAiDIES Post Office · SUNNYVAiLE</title>
-  <meta name="description" content="The LAiDIES Post Office at Civic Square — sign up for the Wednesday Drop. Your email is your PO box. The episode is the mail.">
+  <title>The SUNNYVAiLE Post Office · SUNNYVAiLE</title>
+  <meta name="description" content="The SUNNYVAiLE Post Office at Civic Square — sign up for the Wednesday Postcard. Your email is your PO box. The episode is the mail.">
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260629-1">
+  <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260704-palette">
   <script defer src="/content/site/sv-nav-auth.js?v=20260630-1"></script>
 </head>
 <body>
@@ -14,8 +14,8 @@
   <header class="sv-header">
     <a class="brand" href="/">LAiDIES</a>
     <nav>
-      <a href="/this-week.html">This Week</a>
-      <a href="/episodes.html">Episodes</a>
+      <a href="/">This Week</a>
+      <a href="/chick-flicks.html">Episodes</a>
       <a href="/library.html">LIBRAiRY</a>
       <a href="/post-office.html" style="color: var(--rose);">Post Office</a>
       <a href="/sorority-house.html">Sorority House</a>
@@ -23,7 +23,7 @@
     </nav>
   </header>
 
-  <div class="sv-hero"><img src="assets/sunnyvaile-buildings/13-laidies-post-office.png?v=20260630-1" alt="The LAiDIES Post Office exterior at Civic Square" loading="eager"></div>
+  <div class="sv-hero"><img src="assets/sunnyvaile-buildings/y2k-v3/13-sunnyvaile-post-office.webp?v=20260704-perf" alt="The SUNNYVAiLE Post Office exterior at Civic Square" loading="eager"></div>
 
   <main>
 
@@ -31,30 +31,39 @@
       <span class="sv-eyebrow-label">★ Civic Square · SUNNYVAiLE</span>
     </div>
 
-    <h1>The <span class="ai">LAiDIES</span> Post Office.</h1>
+    <h1>The SUNNYV<span class="ai">Ai</span>LE Post Office.</h1>
 
     <p class="sv-lede">
       Sign up here. Your email is your PO box. Every Wednesday the episode arrives in your inbox — that's the mail. Nothing else, no spam, no five-emails-a-week. One delivery, every week, on time.
     </p>
 
-    <h2>Sign up for the Wednesday Drop</h2>
+    <h2 id="signup">Sign up for the Wednesday Postcard</h2>
 
-    <div class="placeholder--feature">
-      <span class="placeholder-tag">FORM PLACEHOLDER</span>
-      <p><strong>Buttondown signup form</strong> goes here — the canonical home for the form that's currently scattered across the homepage (Wednesday Drop band + Join the Club banner). Embed the existing Buttondown form, single field (email), one CTA: "Subscribe."</p>
-      <p style="font-size: 13px; opacity: 0.7;">Once this is canonical, every other "Subscribe" CTA across the site routes here.</p>
-    </div>
+    <form class="po-signup-form"
+          action="https://buttondown.com/api/emails/embed-subscribe/laidies"
+          method="post"
+          target="popupwindow"
+          onsubmit="window.open('https://buttondown.com/laidies', 'popupwindow')"
+          style="display: flex; flex-wrap: wrap; gap: 12px; align-items: stretch; max-width: 560px; margin: 20px 0 12px; padding: 22px 24px; background: var(--plum-deep, #341446); border-radius: 14px; box-shadow: 0 8px 24px rgba(75,33,72,0.20);">
+      <input type="email" name="email" placeholder="you@yourcompany.com" required aria-label="Email address" style="flex: 1 1 240px; min-width: 200px; padding: 12px 16px; border: 1.5px solid var(--gold, #c9a227); border-radius: 999px; font-size: 15px; font-family: inherit; background: var(--cream, #fffdfb); color: var(--plum-deep, #341446);" />
+      <button type="submit" style="padding: 12px 24px; background: var(--gold, #c9a227); color: var(--plum-deep, #341446); border: none; border-radius: 999px; font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer;">Subscribe</button>
+    </form>
+
+    <p id="signin" style="margin: 6px 0 24px; font-size: 14px; color: var(--plum-soft, #6b3a66);">
+      Already a member? <a href="/clubhouse-pass.html" style="color: var(--rose); text-decoration: underline; font-weight: 600;">Sign in with your PO box (magic link) →</a>
+    </p>
 
     <h2>What you get</h2>
 
     <ul style="font-size: 16px; line-height: 1.7; padding-left: 22px; color: var(--plum);">
-      <li><strong>The Wednesday episode</strong> — direct to your inbox</li>
-      <li><strong>The Study Pack / Class Notes</strong> — what to read before the Pop Quiz</li>
-      <li><strong>A quick note from Ali</strong> — what's worth opening this week</li>
-      <li><strong>The town anthem button</strong> — because that's also part of the deal</li>
+      <li><strong>A short note</strong> that this week's episode is out</li>
+      <li><strong>One link to the Express Tour</strong> — read the episode, done</li>
+      <li><strong>One link to the Full Tour</strong> — the whole eight-stop walk if you've got the time</li>
     </ul>
 
-    <h2>What you won't get</h2>
+    <p style="font-size: 14px; font-style: italic; color: var(--plum-soft); margin: 4px 0 20px;">A couple of paragraphs. A hello. That's it. If you'd rather just come visit the town, that also works.</p>
+
+    <h2>What you won't get in your inbox</h2>
 
     <ul style="font-size: 16px; line-height: 1.7; padding-left: 22px; color: var(--plum);">
       <li>Spam</li>
@@ -63,21 +72,35 @@
       <li>Anything sold to anybody</li>
     </ul>
 
+    <h2 id="gifts">Your PO box in town</h2>
+
+    <a href="/laidies-card.html"
+       style="display: block; margin: 24px 0 8px; padding: 30px 34px; background: linear-gradient(135deg, var(--blush) 0%, #f4ddb4 100%); border: 2px solid var(--gold); border-radius: 14px; text-decoration: none; box-shadow: 0 8px 26px rgba(75, 33, 72, 0.12); transition: transform 200ms ease, box-shadow 200ms ease;"
+       onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 14px 34px rgba(75, 33, 72, 0.2)';"
+       onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 26px rgba(75, 33, 72, 0.12)';">
+      <p style="margin: 0 0 8px; font-weight: 700; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);">★ Members · Notes &amp; Gifts</p>
+      <h3 style="margin: 0 0 10px; font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700; color: var(--plum);">You've Got Mail.</h3>
+      <p style="margin: 0 0 20px; font-size: 16px; line-height: 1.6; color: var(--plum); max-width: 56ch;">Once you have a Residence Card, the Post Office handles the <strong>on-site mail</strong> — notes and gifts from other LAiDIES arrive at your PO box in town, not in your inbox. Send a friend a note from her Closet, mail a Trading Card duplicate, hand off a Hall Pass. One-way. She keeps it.</p>
+      <span style="display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; background: var(--plum-deep); color: var(--cream); border-radius: 999px; font-weight: 800; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase;">💌 Open your PO box →</span>
+    </a>
+
+    <p style="font-size: 14px; font-style: italic; color: var(--plum-soft); margin: 12px 0 24px;">Being social in SUNNYVAiLE doesn't fill your inbox — that stays quiet no matter how popular your Closet gets.</p>
+
     <h2>Why "Post Office"?</h2>
 
     <p>
-      Because SUNNYVAiLE is a town, the Wednesday Drop is the mail, and your email is the PO box. It's a small metaphor but it makes the whole thing make sense — you walk in, you sign up for delivery, the mail shows up every Wednesday on schedule. Nothing weird, nothing creepy. Just the mail.
+      Because SUNNYVAiLE is a town, the Wednesday Postcard is the mail, and your email is the PO box. It's a small metaphor but it makes it click — you walk in, you sign up for delivery, the mail shows up every Wednesday on schedule. Nothing weird, nothing creepy. Just the mail.
     </p>
 
     <div class="sv-ctas">
       <a class="sv-cta sv-cta--primary" href="https://buttondown.com/laidies">
         <span>
           <span class="sv-cta-label">Sign up now</span>
-          <span class="sv-cta-title">The Wednesday Drop →</span>
+          <span class="sv-cta-title">The Wednesday Postcard →</span>
         </span>
         <span class="sv-cta-arrow">→</span>
       </a>
-      <a class="sv-cta" href="/this-week.html">
+      <a class="sv-cta" href="/">
         <span>
           <span class="sv-cta-label">Want to read this week first?</span>
           <span class="sv-cta-title">Today's episode</span>
@@ -88,7 +111,13 @@
 
   </main>
 
-  <footer>© LAiDIES · Filed from SUNNYVAiLE · The LAiDIES Post Office at Civic Square</footer>
+  <footer>© LAiDIES · Filed from SUNNYVAiLE · The SUNNYVAiLE Post Office at Civic Square</footer>
 
+    <script defer src="/content/site/ksvl-player.js?v=20260704-12"></script>
+    <script defer src="/content/site/quick-rail.js?v=20260704-2"></script>
+    <script defer src="/content/site/charm-hunt.js?v=20260704-y2k3b"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260704-5"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260704-canon"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260704-1"></script>
 </body>
 </html>

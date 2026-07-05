@@ -3,245 +3,374 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>The NewsStand · LAiDIES · SUNNYVAiLE</title>
-    <meta name="description" content="The SUNNYVAiLE NewsStand at MAiN No. 2 — AI headlines, actual receipts, and source-backed context when a story deserves it. Grab a paper on your way through town." />
-    <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
-    <link rel="stylesheet" href="styles.css?v=sticky-fix-2" />
-    <link rel="stylesheet" href="content/hot-goss-styles.css?v=brand-missed-pages-1" />
-    <style>
-      body {
-        background:
-          radial-gradient(circle at 12% 0%, rgba(200, 220, 224, 0.24), transparent 24rem),
-          radial-gradient(circle at 88% 12%, rgba(232, 197, 200, 0.18), transparent 22rem),
-          linear-gradient(180deg, #fffdfb 0%, #fbf6f5 58%, #fffdfb 100%);
-        color: #3f1737;
-      }
-      .site-header {
-        min-height: 78px;
-        align-items: center;
-        overflow: visible;
-      }
-      .site-header .brand {
-        display: inline-flex;
-        align-items: center;
-        max-width: min(34vw, 172px) !important;
-        overflow: visible !important;
-      }
-      .site-header .brand img {
-        display: block;
-        width: clamp(126px, 12vw, 172px) !important;
-        max-width: 100% !important;
-        max-height: none !important;
-        object-fit: contain !important;
-        object-position: left center !important;
-      }
-      .goss-page {
-        width: min(100% - 32px, 1040px);
-        margin: 0 auto;
-        padding: clamp(42px, 8vw, 86px) 0 clamp(54px, 8vw, 96px);
-      }
-      .goss-return {
-        display: none;
-        width: fit-content;
-        margin: 0;
-        border: 1px solid rgba(232, 197, 200, 0.34);
-        border-radius: 999px;
-        padding: 10px 14px;
-        background: rgba(255, 253, 251, 0.9);
-        color: #6f263f;
-        font-weight: 850;
-        text-decoration: none;
-        position: fixed;
-        top: 76px;
-        left: clamp(14px, 3vw, 26px);
-        right: auto;
-        bottom: auto;
-        z-index: 120;
-        backdrop-filter: blur(10px);
-        box-shadow:
-          0 12px 30px rgba(0, 0, 0, 0.18);
-      }
-      .goss-return.is-visible {
-        display: inline-flex;
-      }
-      .goss-hero {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(220px, 340px);
-        gap: clamp(18px, 4vw, 34px);
-        align-items: end;
-        margin-bottom: 28px;
-        color: #3f1737;
-      }
-      .goss-hero .eyebrow {
-        color: #6f263f;
-        font-size: 0.72rem;
-        font-weight: 850;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-      .goss-hero h1 {
-        margin: 0;
-        max-width: 720px;
-        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-        font-size: clamp(3rem, 8vw, 6rem);
-        line-height: 0.9;
-      }
-      .goss-hero p {
-        max-width: 680px;
-        margin: 0;
-        color: #5f4558;
-        font-size: clamp(1rem, 2vw, 1.16rem);
-        line-height: 1.5;
-      }
-      .goss-desk-card {
-        position: relative;
-        overflow: hidden;
-        border: 1px solid rgba(75, 33, 72, 0.14);
-        border-radius: 18px;
-        background: rgba(255, 253, 251, 0.86);
-        box-shadow: 0 24px 58px rgba(34, 18, 32, 0.24);
-      }
-      .goss-desk-card img {
-        display: block;
-        width: 100%;
-        aspect-ratio: 4 / 3;
-        object-fit: cover;
-      }
-      .goss-image-quote {
-        position: absolute;
-        left: 50%;
-        top: 52%;
-        width: min(62%, 240px);
-        transform: translate(-50%, -50%) rotate(-2deg);
-        margin: 0;
-        padding: 0;
-        color: #2f2430;
-        font-family: "Comic Sans MS", "Bradley Hand", "Marker Felt", cursive;
-        font-size: clamp(0.94rem, 2vw, 1.24rem);
-        font-style: italic;
-        font-weight: 700;
-        line-height: 1.14;
-        text-align: center;
-        text-wrap: balance;
-        text-shadow: 0 1px 0 rgba(255, 253, 251, 0.58);
-      }
-      .hot-goss-board {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(280px, 0.82fr);
-        gap: 24px;
-      }
-      .hot-goss-panel {
-        border: 1px solid rgba(75, 33, 72, 0.14);
-        border-radius: 18px;
-        padding: clamp(18px, 3vw, 28px);
-        background: rgba(255, 253, 251, 0.92);
-        box-shadow: 0 24px 58px rgba(34, 18, 32, 0.18);
-      }
-      .hot-goss-panel h2 {
-        margin: 0 0 14px;
-        color: #4b2148;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(1.7rem, 4vw, 2.5rem);
-      }
-      .hot-goss-stamp {
-        margin: 0 0 16px;
-        color: #766171;
-        font-size: 0.82rem;
-        font-weight: 750;
-      }
-      @media (max-width: 820px) {
-        .site-header {
-          min-height: 70px;
-          padding-top: 10px;
-          padding-bottom: 10px;
-        }
-        .site-header .brand {
-          max-width: 142px !important;
-        }
-        .site-header .brand img {
-          width: clamp(112px, 32vw, 142px) !important;
-        max-height: none !important;
-        }
-        .goss-hero,
-        .hot-goss-board {
-          grid-template-columns: 1fr;
-        }
-        .goss-desk-card {
-          max-width: 420px;
-        }
-        .goss-image-quote {
-          top: 51%;
-          width: 70%;
-          padding: 0;
-          font-size: clamp(0.86rem, 4vw, 1.08rem);
-        }
-        .goss-return {
-          left: 14px;
-          right: auto;
-          top: 72px;
-          max-width: calc(100% - 28px);
-          justify-content: center;
-        }
-      }
-    </style>
+    <title>SUNNYVAiLE NewsStand · LAiDIES</title>
+    <meta name="description" content="AI news translated for non-technical women who need to know what's actually going on. TODAY (the wire), WEDNESDAY Edition (the digest), and The Tribune (the argument). Filed from SUNNYVAiLE." />
+    <meta property="og:title" content="SUNNYVAiLE NewsStand · LAiDIES">
+    <meta property="og:description" content="AI news translated. TODAY, WEDNESDAY Edition, The Tribune." />
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="/assets/brand/laidies-logo-square-pearl-512-v1.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,700&family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260704-palette">
+    <link rel="stylesheet" href="/content/newsstand.css?v=newsstand-1">
+    <script defer src="/content/site/sv-nav-auth.js?v=20260630-1"></script>
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="index.html" aria-label="LAiDIES home">
-        <img src="assets/brand/laidies-logo-header-approved-v6.png" alt="">
-      </a>
-      <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=document.querySelector('.nav');if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'\u2630':'\u2715';this.setAttribute('aria-expanded',!isOpen);">&#x2630;</button>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="issues/issue-03.html">LATEST</a>
-        <a href="start-here.html">START HERE</a>
-        <a href="episodes.html">SEASON</a>
-        <a href="newsstand.html" aria-current="page">THE BOOK</a>
-        <a href="/sorority-house.html">SORORITY HOUSE</a>
-        <a href="community.html">JOIN</a>
+
+    <header class="sv-header">
+      <a class="brand" href="/">LAiDIES</a>
+      <nav>
+        <a href="/">This Week</a>
+        <a href="/chick-flicks.html">Episodes</a>
+        <a href="/library.html">LIBRAiRY</a>
+        <a href="/newsstand.html" style="color: var(--rose);">NewsStand</a>
+        <a href="/sorority-house.html">Sorority House</a>
+        <a href="/clubhouse-pass.html" class="sv-signin" style="color: var(--rose); font-weight: 600; border: 1.5px solid var(--rose); padding: 6px 14px; border-radius: 999px;">✉︎ Sign In</a>
       </nav>
     </header>
 
-    <main class="goss-page">
-      <a class="goss-return" href="this-week.html?issue=3&amp;bag=open&amp;group=realworld" data-wednesday-return>← Back to the Book of Receipts</a>
+    <div class="sv-hero"><img src="/assets/sunnyvaile-buildings/y2k-v3/02-sunnyvaile-newsstand.webp?v=20260704-perf" alt="The SUNNYVAiLE NewsStand at MAiN Street No. 2 — Y2K corner newsstand kiosk with SUNNYVAiLE Daily / Weekly / Tribune mastheads on display." loading="eager"></div>
 
-      <section class="goss-hero">
-        <div>
-          <p class="eyebrow">★ MAiN Street · No. 2 · SUNNYVAiLE</p>
-          <h1>The NewsStand</h1>
-          <p>AI headlines and actual receipts first. When a story has source-backed <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> context, the extra explanation appears inside the card. Grab a paper on your way through town.</p>
-          <p class="hot-goss-stamp"><strong>Last updated: loading</strong></p>
-        </div>
-        <div class="goss-desk-card">
-          <img src="assets/sunnyvaile-newsstand.png?v=20260701-1" alt="The SUNNYVAiLE NewsStand at MAiN Street No. 2 — Y2K corner newsstand kiosk with SUNNYVAiLE Daily / Weekly / Tribune mastheads on display.">
-          <blockquote class="goss-image-quote">What&rsquo;s the 411? What has everybody been talking about?</blockquote>
-        </div>
-      </section>
+    <main class="ns-page">
+      <div class="ns-wrap">
 
-      <div class="hot-goss-board">
-        <section class="hot-goss-panel" aria-labelledby="weeklyGossHeading">
-          <h2 id="weeklyGossHeading">Biggest This Week</h2>
-          <div id="gossWeeklyList"></div>
-        </section>
-        <section class="hot-goss-panel" aria-labelledby="dailyGossHeading">
-          <h2 id="dailyGossHeading">Trending Today</h2>
-          <div id="gossDailyList"></div>
-        </section>
+        <div class="ns-masthead">
+          <div>
+            <span class="ns-masthead__eyebrow">★ MAiN Street · No. 2 · SUNNYVAiLE</span>
+            <h1 class="ns-masthead__title">SUNNYV<span class="ns-ai">Ai</span>LE NewsStand</h1>
+          </div>
+          <div class="ns-masthead__dateline">
+            <strong>Filed from SUNNYVAiLE</strong>
+            <span id="ns-dateline">Loading edition…</span>
+          </div>
+        </div>
+
+        <p class="ns-lede">AI news, translated. <strong>The WEDNESDAY Edition</strong> is the digest — what mattered, and the line to say when it comes up. <strong>The Tribune</strong> is the argument — the questions we're tracking as they move.</p>
+
+        <div class="ns-filters" role="group" aria-label="Filter and search stories">
+          <span class="ns-filters__label">Filter</span>
+          <button type="button" class="ns-chip is-active" data-edition="all">All</button>
+          <button type="button" class="ns-chip" data-edition="wednesday">WEDNESDAY Edition</button>
+          <button type="button" class="ns-chip" data-edition="tribune">The Tribune</button>
+          <label class="visually-hidden" for="ns-search-input">Search stories</label>
+          <input type="search" id="ns-search-input" class="ns-search" placeholder="Search stories or tags…" autocomplete="off" />
+        </div>
+
+        <div id="ns-empty" class="ns-empty" hidden>No stories match that filter.</div>
+
+        <div id="ns-rack" aria-live="polite"></div>
+
       </div>
     </main>
 
-    <script src="content/hot-goss-render.js?v=brand-missed-pages-1"></script>
+    <footer style="text-align:center;padding:32px 24px;font-size:12px;color:#6b3a66;border-top:1px solid rgba(75,33,72,0.14);">
+      © LAiDIES · Filed from SUNNYVAiLE · The NewsStand at MAiN Street No. 2
+    </footer>
+
+    <!-- Story library. Sets window.NEWSSTAND_STORIES. -->
+    <script src="/content/newsstand-stories.js?v=newsstand-1"></script>
+
+    <!-- Renderer + archive filter -->
     <script>
-      (function() {
-        var params = new URLSearchParams(window.location.search || "");
-        var link = document.querySelector("[data-wednesday-return]");
-        if (!link || params.get("from") !== "this-week") return;
-        var issue = String(params.get("issue") || "").match(/\d+/);
-        var draftParam = params.get("draft") === "1" ? "&draft=1" : "";
-        link.href = "this-week.html" + (issue ? "?issue=" + encodeURIComponent(Number(issue[0])) + "&bag=open&group=realworld" + draftParam : "?bag=open&group=realworld" + draftParam);
-        link.textContent = "\u2190 Back to the Book of Receipts";
-        link.classList.add("is-visible");
+      (function () {
+        'use strict';
+
+        // ---- Publisher name lookup for TODAY passthrough ----------------
+        var PUBLISHER = {
+          'techcrunch.com':      'TechCrunch',
+          'arstechnica.com':     'Ars Technica',
+          'theverge.com':        'The Verge',
+          'simonwillison.net':   'Simon Willison',
+          'technologyreview.com':'MIT Tech Review',
+          'venturebeat.com':     'VentureBeat',
+          'fortune.com':         'Fortune',
+          'npr.org':             'NPR',
+          'techradar.com':       'TechRadar',
+          'therundown.ai':       'The AI Rundown',
+          'digitalapplied.com':  'digitalapplied',
+          'lawfaremedia.org':    'Lawfare',
+          'glean.com':           'Glean'
+        };
+
+        function publisherFor(url) {
+          try {
+            var host = new URL(url).hostname.replace(/^www\./, '');
+            if (PUBLISHER[host]) return PUBLISHER[host];
+            // Fallback: derive from domain root
+            var parts = host.split('.');
+            var root = parts.length >= 2 ? parts[parts.length - 2] : host;
+            return root.charAt(0).toUpperCase() + root.slice(1);
+          } catch (e) {
+            return 'Source';
+          }
+        }
+
+        var EDITION_LABEL = {
+          today:     'TODAY',
+          wednesday: 'WEDNESDAY Edition',
+          tribune:   'The Tribune'
+        };
+
+        var esc = (function () {
+          var el = document.createElement('div');
+          return function (s) {
+            el.textContent = String(s == null ? '' : s);
+            return el.innerHTML;
+          };
+        })();
+
+        function formatDate(iso) {
+          if (!iso) return '';
+          var d = new Date(iso + 'T00:00:00');
+          if (isNaN(d)) return iso;
+          return d.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
+        // ---- Render a WEDNESDAY / Tribune article ----------------------
+        function renderArticle(s) {
+          var isTribune = s.edition === 'tribune';
+          var storyLabel  = isTribune ? 'The Argument' : 'The Story';
+
+          var badge = s.badge
+            ? '<span class="ns-article__badge ns-article__badge--gold">' + esc(s.badge) + '</span>'
+            : '<span class="ns-article__badge">' + esc(EDITION_LABEL[s.edition] || s.edition) + '</span>';
+
+          var subhead = isTribune && s.thread_subtitle
+            ? '<p class="ns-article__subhead"><em>' + esc(s.thread_subtitle) +
+              (s.thread_entry ? ' — entry ' + esc(s.thread_entry) : '') + '</em></p>'
+            : '';
+
+          var section = function (label, body) {
+            if (!body) return '';
+            return '<div class="ns-article__section">' +
+              '<span class="ns-article__section-label">' + esc(label) + '</span>' +
+              '<p>' + body + '</p>' +
+              '</div>';
+          };
+
+          var cocktail = s.cocktail_party
+            ? '<div class="ns-cocktail">' +
+              '<span class="ns-article__section-label">The Cocktail Party Explanation</span>' +
+              '<p>' + s.cocktail_party + '</p>' +
+              '</div>'
+            : '';
+
+          var watch = '';
+          if (isTribune && s.watch_fors && s.watch_fors.length) {
+            watch = '<div class="ns-watch">' +
+              '<p class="ns-watch__title">What we’re watching</p>' +
+              '<ul>' + s.watch_fors.map(function (w) { return '<li>' + w + '</li>'; }).join('') + '</ul>' +
+              '</div>';
+          }
+
+          var closing = s.closing_note
+            ? '<p class="ns-closing">' + s.closing_note + '</p>'
+            : '';
+
+          var classNotes = s.class_notes
+            ? '<div class="ns-class-notes">' +
+              '<span class="ns-class-notes__label">→ Class Notes</span>' +
+              s.class_notes +
+              '</div>'
+            : '';
+
+          var sources = '';
+          if (s.sources && s.sources.length) {
+            var items = s.sources.map(function (src) {
+              var flag = src.flag === 'vendor-sponsored' ? ' ⚠️ <em>vendor-sponsored</em>' : '';
+              return '<a href="' + esc(src.url) + '" target="_blank" rel="noopener">' + esc(src.label) + '</a>' + flag;
+            }).join(' · ');
+            sources = '<p><strong>Source</strong> ' + items + '</p>';
+          }
+
+          var aidb = s.aidb_credit ? '<p><em>' + esc(s.aidb_credit) + '</em></p>' : '';
+
+          var tags = '';
+          if (s.tags && s.tags.length) {
+            tags = '<p><strong>Tags</strong> ' +
+              s.tags.map(function (t) { return '<span class="ns-tag">' + esc(t) + '</span>'; }).join('') +
+              (s.saint_lane ? ' <span class="ns-tag">Saint · ' + esc(s.saint_lane) + '</span>' : '') +
+              '</p>';
+          }
+
+          return '<article class="ns-article" data-edition="' + esc(s.edition) + '" data-slug="' + esc(s.slug) + '">' +
+            badge +
+            '<span class="ns-article__eyebrow">' + esc(formatDate(s.date)) + '</span>' +
+            '<h2 class="ns-article__headline">' + esc(s.headline) + '</h2>' +
+            subhead +
+            section(storyLabel,                    s.the_story) +
+            section('The LAiDIES Read',            s.laidies_read) +
+            section('What This Means For You',     s.what_this_means) +
+            cocktail +
+            watch +
+            closing +
+            classNotes +
+            '<div class="ns-article__foot">' + sources + aidb + tags + '</div>' +
+            '</article>';
+        }
+
+        // ---- Preview card (rack view) ---------------------------------
+        function firstSentence(html) {
+          var text = String(html || '').replace(/<[^>]*>/g, '').trim();
+          var m = text.match(/^(.+?[.!?])\s/);
+          return m ? m[1] : text;
+        }
+
+        function renderPreviewCard(s) {
+          var isTribune = s.edition === 'tribune';
+          var badgeClass = 'ns-card__badge' + (isTribune ? ' ns-card__badge--tribune' : '');
+          var badgeText = isTribune
+            ? (s.badge || 'THE TRIBUNE')
+            : (EDITION_LABEL[s.edition] || s.edition).toUpperCase();
+
+          var subhead = (isTribune && s.thread_subtitle)
+            ? '<p class="ns-card__subhead"><em>' + esc(s.thread_subtitle) + '</em></p>'
+            : '';
+
+          var teaser = esc(firstSentence(s.laidies_read));
+
+          var tags = (s.tags || []).slice(0, 3).map(function (t) {
+            return '<span class="ns-tag">' + esc(t) + '</span>';
+          }).join('');
+
+          return '<a class="ns-card" href="#' + esc(s.slug) + '" data-edition="' + esc(s.edition) + '">' +
+            '<span class="' + badgeClass + '">' + esc(badgeText) + '</span>' +
+            '<span class="ns-card__date">' + esc(formatDate(s.date)) + '</span>' +
+            '<h3 class="ns-card__headline">' + esc(s.headline) + '</h3>' +
+            subhead +
+            '<p class="ns-card__teaser">' + teaser + '</p>' +
+            '<div class="ns-card__foot">' +
+              '<div class="ns-card__tags">' + tags + '</div>' +
+              '<span class="ns-card__cta">Read →</span>' +
+            '</div>' +
+          '</a>';
+        }
+
+        // ---- Master render / filter -----------------------------------
+        var state = { edition: 'all', query: '' };
+
+        function stripHtml(s) { return String(s || '').replace(/<[^>]*>/g, ' '); }
+
+        function matchesQuery(story, q) {
+          if (!q) return true;
+          var hay = [
+            story.headline,
+            story.thread,
+            story.thread_subtitle,
+            (story.tags || []).join(' '),
+            story.saint_lane,
+            stripHtml(story.the_story),
+            stripHtml(story.laidies_read),
+            stripHtml(story.what_this_means)
+          ].join(' ').toLowerCase();
+          return hay.indexOf(q.toLowerCase()) !== -1;
+        }
+
+        function currentSlug() {
+          var h = (location.hash || '').replace(/^#/, '').trim();
+          return h || null;
+        }
+
+        function render() {
+          var rack = document.getElementById('ns-rack');
+          var empty = document.getElementById('ns-empty');
+          var stories = (window.NEWSSTAND_STORIES || []).slice().sort(function (a, b) {
+            return String(b.date).localeCompare(String(a.date));
+          });
+
+          // Newest date across all stories → the dateline
+          if (stories.length) {
+            document.getElementById('ns-dateline').textContent = formatDate(stories[0].date);
+          }
+
+          // ---- Detail view: hash matches a story slug -----------------
+          var slug = currentSlug();
+          if (slug) {
+            var story = stories.filter(function (s) { return s.slug === slug; })[0];
+            if (story) {
+              rack.innerHTML =
+                '<a class="ns-back" href="#">← Back to the NewsStand</a>' +
+                renderArticle(story);
+              empty.hidden = true;
+              window.scrollTo({ top: 0, behavior: 'auto' });
+              return;
+            }
+            // Unknown slug — fall through to rack view.
+          }
+
+          // ---- Rack view: cards ---------------------------------------
+          var q = state.query.trim();
+          var showWed   = (state.edition === 'all' || state.edition === 'wednesday');
+          var showTrib  = (state.edition === 'all' || state.edition === 'tribune');
+
+          var parts = [];
+
+          var wed = stories.filter(function (s) { return s.edition === 'wednesday' && matchesQuery(s, q); });
+          var trib = stories.filter(function (s) { return s.edition === 'tribune' && matchesQuery(s, q); });
+
+          if (showWed && wed.length) {
+            parts.push(
+              '<div class="ns-section">' +
+                '<h2 class="ns-section__title">WEDNESDAY Edition</h2>' +
+                '<span class="ns-section__meta">The weekly digest</span>' +
+              '</div>' +
+              '<div class="ns-card-grid">' + wed.map(renderPreviewCard).join('') + '</div>'
+            );
+          }
+
+          if (showTrib && trib.length) {
+            parts.push(
+              '<div class="ns-section">' +
+                '<h2 class="ns-section__title">The Tribune</h2>' +
+                '<span class="ns-section__meta">Tracks the big themes as they develop</span>' +
+              '</div>' +
+              '<div class="ns-card-grid">' + trib.map(renderPreviewCard).join('') + '</div>'
+            );
+          }
+
+          rack.innerHTML = parts.join('');
+          empty.hidden = parts.length > 0;
+        }
+
+        // ---- Wire up filter chips + search + hash routing -------------
+        function attachControls() {
+          Array.prototype.forEach.call(document.querySelectorAll('.ns-chip'), function (chip) {
+            chip.addEventListener('click', function () {
+              state.edition = chip.getAttribute('data-edition');
+              Array.prototype.forEach.call(document.querySelectorAll('.ns-chip'), function (c) {
+                c.classList.toggle('is-active', c === chip);
+              });
+              // Filter action drops any open detail view.
+              if (location.hash) {
+                history.replaceState(null, '', location.pathname + location.search);
+              }
+              render();
+            });
+          });
+          var input = document.getElementById('ns-search-input');
+          var t = null;
+          input.addEventListener('input', function () {
+            state.query = input.value;
+            clearTimeout(t);
+            t = setTimeout(render, 90);
+          });
+          // Detail view routing
+          window.addEventListener('hashchange', render);
+        }
+
+        // ---- Boot ------------------------------------------------------
+        attachControls();
+        render();
       })();
     </script>
-      <script src="content/site/brand-polish.js?v=wm1" defer></script>
+
+    <script src="/content/site/brand-polish.js?v=wm1" defer></script>
+    <script defer src="/content/site/sv-tour-checkin.js?v=20260702-2"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260704-12"></script>
+    <script defer src="/content/site/quick-rail.js?v=20260704-2"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260704-5"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260704-canon"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260704-1"></script>
 </body>
 </html>

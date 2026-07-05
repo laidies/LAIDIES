@@ -885,21 +885,21 @@
     <header class="site-header">
 
       <a class="brand" href="../index.html" aria-label="LAiDIES home">
-        <img src="../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
+        <img src="../assets/brand/laidies-wordmark-final-b-light.svg" alt="LAiDIES" style="height: 30px; width: auto;" />
       </a>
       <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
       <nav class="nav" aria-label="Primary navigation">
         <a href="../issues/issue-03.html">LATEST</a>
         <a href="../start-here.html">START HERE</a>
         <a href="../episodes.html">SEASON</a>
-        <a href="../hot-goss.html">THE BOOK</a>
+        <a href="../newsstand.html">NEWSSTAND</a>
         <a href="../clubhouse.html">CLUBHOUSE</a>
         <a href="../community.html">JOIN</a>
 </nav>
     </header>
 
     <div style="width:100%; display:block; background:#f8eef2;">
-      <img src="../assets/sunnyvaile-buildings/11-fairy-godmother-house.png?v=20260630-1" alt="The FAiRY Godmother's House on Willow Lane in SUNNYVAiLE" style="width:100%; height:auto; display:block;" loading="eager" />
+      <img src="../assets/sunnyvaile-buildings/y2k-v3/11-fairy-godmother-house.webp?v=20260704-perf" alt="The FAiRY Godmother's House on Willow Lane in SUNNYVAiLE" style="width:100%; height:auto; display:block;" loading="eager" />
     </div>
 
     <main>
@@ -912,7 +912,20 @@
         <section class="fairy-hero">
           <p class="eyebrow brand-preserve-case">Ask LAiDY</p>
           <h1>FA<span class="ai-highlight">i</span>RY GODMOTHER</h1>
-          <p class="subtitle">The sad dress walks in. The dress walks out. Bring the prompt you can&rsquo;t finish or the situation you can&rsquo;t unstick &mdash; LAiDY gives you real advice in your favourite Patron Saint&rsquo;s energy. (Deb wasn&rsquo;t invited. For obvious reasons.) A better prompt and something you can actually send.</p>
+<div style="margin: 12px 0 20px;">
+  <button type="button"
+          aria-label="Play the FAiRY Godmother song on KSVL"
+          data-src="/content/music/game-ask-laidy.mp3"
+          onclick="window.playLaidiesTheme(this);"
+          style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px 8px 14px; background: transparent; border: 1.5px solid #9b3f5f; border-radius: 999px; color: #4b2148; font: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 200ms ease, color 200ms ease;"
+          onmouseover="this.style.background='#9b3f5f'; this.style.color='#fffdfb';"
+          onmouseout="this.style.background='transparent'; this.style.color='#4b2148';">
+    <svg viewBox="0 0 24 24" style="width:10px; height:10px; fill: currentColor;" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    <svg viewBox="0 0 24 24" style="width:10px; height:10px; fill: currentColor; display:none;" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+    <span>&#9834; Play the FAiRY Godmother song</span>
+  </button>
+</div>
+          <p class="subtitle">The sad dress walks in. The dress walks out. Bring the prompt you can&rsquo;t finish or the situation you can&rsquo;t unstick &mdash; LAiDY gives you real advice in your favourite PATRON SAiNT&rsquo;s energy. (Deb wasn&rsquo;t invited. For obvious reasons.) A better prompt and something you can actually send.</p>
 
           <div class="fairy-character-wrap">
             <img src="../assets/laidy-character-v1.png" alt="LAiDY — big blonde hair, rhinestones, pink sequin jacket, diamond tiara, bedazzled wand" />
@@ -1229,7 +1242,7 @@
           <button type="submit">Sign me up</button>
         </form>
         <p class="laidy-gate-already">Already a LAiDIES subscriber? <a data-already>You&rsquo;re in &mdash; click here, honey.</a></p>
-        <p class="laidy-gate-ps"><em>P.S. Ali pays for LAiDY&rsquo;s wand out of pocket right now, so unlimited wishes aren&rsquo;t in the budget &mdash; yet. Subscribers get 10 wishes a day. Higher caps unlock with LAiDIES membership&hellip; (coming soon!)</em></p>
+        <p class="laidy-gate-ps"><em>P.S. Ali pays for LAiDY&rsquo;s wand out of pocket right now, so unlimited wishes aren&rsquo;t in the budget &mdash; yet. Subscribers get 5 wishes a day. Do the Full Wednesday Ritual and bank bonus wishes to your FAiRY Plays. Higher caps unlock with LAiDIES membership&hellip; (in the works!)</em></p>
         <p class="laidy-gate-status" aria-live="polite"></p>
       `;
 
@@ -1746,5 +1759,34 @@
     </script>
       <script src="../content/site/mini-player.js?v=ep-04-songs-1"></script>
     <script src="../content/site/brand-polish.js?v=wm1" defer></script>
+<script>
+  (function() {
+    'use strict';
+    if (window.playLaidiesTheme) return;
+    var activeBtn = null, activeAudio = null;
+    function stopActive() {
+      if (activeBtn) activeBtn.classList.remove('is-playing');
+      if (activeAudio) { try { activeAudio.pause(); } catch(e){} }
+      activeBtn = null; activeAudio = null;
+    }
+    window.playLaidiesTheme = function(btn) {
+      if (!btn || btn.disabled) return;
+      var src = btn.getAttribute('data-src'); if (!src) return;
+      if (activeBtn === btn) { stopActive(); return; }
+      stopActive();
+      var audio = new Audio(src); audio.preload = 'metadata';
+      audio.addEventListener('ended', function() { if (activeAudio === audio) stopActive(); });
+      audio.addEventListener('error', function() { if (activeAudio === audio) stopActive(); });
+      audio.play().catch(function() { if (activeAudio === audio) stopActive(); });
+      btn.classList.add('is-playing');
+      activeBtn = btn; activeAudio = audio;
+    };
+  })();
+</script>
+  <script defer src="/content/site/sv-back-nav.js?v=1"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260704-5"></script>
+<script defer src="/content/site/quick-rail.js?v=20260704-2"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260704-canon"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260704-1"></script>
 </body>
 </html>

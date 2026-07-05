@@ -6,7 +6,8 @@
   <title>MAiKEOVER on MAiN(e) · LAiDIES · SUNNYVAiLE</title>
   <meta name="description" content="MAiKEOVER on MAiN(e) at MAiN Street No. 9 — the beauty parlor where LAiDIES are made and members come back. New here? Design your card. Coming back? See your card and what your week brought in.">
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260629-1">
+  <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260704-palette">
+  <script src="/content/site/supabase-config.js?v=20260702-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260630-1"></script>
 </head>
 <body>
@@ -14,8 +15,8 @@
   <header class="sv-header">
     <a class="brand" href="/">LAiDIES</a>
     <nav>
-      <a href="/this-week.html">This Week</a>
-      <a href="/episodes.html">Episodes</a>
+      <a href="/">This Week</a>
+      <a href="/chick-flicks.html">Episodes</a>
       <a href="/library.html">LIBRAiRY</a>
       <a href="/mall.html">The Mall</a>
       <a href="/maikeover.html" style="color: var(--rose);">MAiKEOVER</a>
@@ -23,12 +24,12 @@
     </nav>
   </header>
 
-  <div class="sv-hero"><img src="assets/sunnyvaile-buildings/09-maikeover-on-maine.png?v=20260630-1" alt="MAiKEOVER on MAiN(e) beauty parlor storefront" loading="eager"></div>
+  <div class="sv-hero"><img src="assets/sunnyvaile-buildings/y2k-v3/09-maikeover-on-maine.webp?v=20260704-perf" alt="MAiKEOVER on MAiN(e) beauty parlor storefront" loading="eager"></div>
 
   <main>
 
     <div class="sv-eyebrow">
-      <span class="sv-eyebrow-label">★ MAiN Street · No. 9 · SUNNYVAiLE</span>
+      <span class="sv-eyebrow-label">★ MAiN Street · No. 6 · SUNNYVAiLE</span>
     </div>
 
     <h1><span class="ai">MAiKEOVER</span> on MAiN(e).</h1>
@@ -41,6 +42,13 @@
       Wednesday tour · Stop No. 6 · After class, before the Bronze.
     </p>
 
+    <div id="mo-welcome-back" hidden style="margin: 24px 0; padding: 22px 26px; background: linear-gradient(135deg, var(--plum-deep, #3f1737) 0%, var(--rose) 100%); border-radius: 14px; color: var(--cream);">
+      <p style="margin: 0 0 6px; font-family: 'Jost', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold);">★ Welcome back</p>
+      <p style="margin: 0 0 14px; font-size: 16px; line-height: 1.55;">You already have a card, <strong>@<span class="mo-wb-handle"></span></strong> — the chair remembers you. Head straight to your Closet.</p>
+      <a href="/laidies-card.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; background: var(--gold); color: var(--plum-deep, #3f1737); border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;">See my Closet →</a>
+    </div>
+
+    <div id="mo-new-here">
     <h2>New here? Step into the chair.</h2>
 
     <a class="stop sv-cta--primary" href="/clubhouse-pass.html" style="display: block; margin: 24px 0; padding: 28px 32px; text-align: center;">
@@ -53,9 +61,10 @@
 
     <ol style="font-size: 17px; line-height: 1.7; padding-left: 22px; color: var(--plum);">
       <li><strong>You walk in</strong> — no appointment. The chair is open.</li>
-      <li><strong>You design your card</strong> — colors, role, name on the front, the whole thing.</li>
+      <li><strong>You design your card</strong> — colors, role, name on the front.</li>
       <li><strong>You leave a member</strong> — card in hand, the Sorority House door is now open to you.</li>
     </ol>
+    </div>
 
     <h2>Coming back? Your weekly check-in.</h2>
 
@@ -71,14 +80,67 @@
         <li><strong>Hidden charms</strong> — spotted in this week's town images</li>
         <li><strong>Trading cards</strong> — added to your binder this week</li>
       </ul>
-      <p style="margin: 14px 0 0; font-size: 13px; color: var(--rose); opacity: 0.75; font-style: italic;">Card dashboard ships with the membership system. Right now this is the promise.</p>
     </div>
 
-    <a class="stop sv-cta--primary" href="/clubhouse-pass.html" style="display: block; margin: 24px 0; padding: 24px 32px; text-align: center; background: var(--rose);">
+    <a class="stop sv-cta--primary" href="/laidies-card.html" style="display: block; margin: 24px 0; padding: 24px 32px; text-align: center; background: var(--rose);">
       <span class="stop-num" style="color: var(--gold);">★ MEMBERS</span>
       <h3 class="stop-name" style="color: var(--cream); font-size: 22px;">See My Card →</h3>
-      <p class="stop-desc" style="color: var(--cream); opacity: 0.9;">View this week's haul. Coming with the membership build.</p>
+      <p class="stop-desc" style="color: var(--cream); opacity: 0.9;">Your Closet — stickers, badges, saint, song. All of it.</p>
     </a>
+
+    <h2>Claim your Closet URL.</h2>
+
+    <p>
+      Your Closet gets a shareable address. Pick a handle — send it in a text, put it on a friendship necklace, whatever. Once you claim it, that's you. Only lowercase letters, numbers, and underscores. 3 to 24 characters.
+    </p>
+
+    <div id="mo-claim-card" style="background: var(--pearl); border-radius: 14px; padding: 26px 28px; margin: 22px 0 32px; border: 1px solid var(--line);">
+
+      <!-- Loading placeholder -->
+      <div class="mo-claim-state" data-state="loading">
+        <p style="margin: 0; color: var(--plum-soft); font-style: italic; font-size: 15px;">Checking the guest book…</p>
+      </div>
+
+      <!-- Signed-out -->
+      <div class="mo-claim-state" data-state="signed-out" hidden>
+        <p style="margin: 0 0 14px; color: var(--plum); font-size: 16px; line-height: 1.6;">Sign in first — then come back and claim your handle. Takes a minute.</p>
+        <a href="/clubhouse-pass.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--rose); color: var(--cream); border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;">Sign in at the Welcome Wagon →</a>
+      </div>
+
+      <!-- Already claimed -->
+      <div class="mo-claim-state" data-state="claimed" hidden>
+        <p style="margin: 0 0 6px; font-family: 'Jost', sans-serif; font-weight: 600; color: var(--rose); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">★ Your handle is claimed</p>
+        <p style="margin: 0 0 8px; font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700; color: var(--plum);">@<span class="mo-your-handle">handle</span></p>
+        <p style="margin: 0 0 18px; color: var(--plum-soft); font-size: 14px; word-break: break-all;">Your Closet lives at <span class="mo-your-url" style="color: var(--rose); font-weight: 600;">…</span></p>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <a href="/laidies-card.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--rose); color: var(--cream); border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;">See my Closet →</a>
+          <button type="button" class="mo-copy-btn" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: transparent; color: var(--plum); border: 1.5px solid var(--plum); border-radius: 999px; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; font-family: inherit;">Copy URL</button>
+        </div>
+      </div>
+
+      <!-- Claim form -->
+      <div class="mo-claim-state" data-state="claim-form" hidden>
+        <label for="mo-username-input" style="display: block; font-family: 'Jost', sans-serif; font-weight: 600; color: var(--rose); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 10px;">★ Pick a handle</label>
+        <div style="display: flex; align-items: center; gap: 0; border: 1.5px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--cream); transition: border-color 200ms ease;">
+          <span style="padding: 12px 8px 12px 16px; font-family: 'Playfair Display', Georgia, serif; font-size: 22px; color: var(--plum); font-weight: 700;">@</span>
+          <input id="mo-username-input" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="24" placeholder="yourhandle" style="flex: 1; border: 0; background: transparent; padding: 12px 8px; font-family: 'Jost', sans-serif; font-size: 18px; color: var(--plum); outline: none; min-width: 0;">
+        </div>
+        <p id="mo-status" style="margin: 12px 0 18px; font-size: 14px; line-height: 1.5; color: var(--plum-soft); min-height: 22px;">Type 3–24 characters. Lowercase letters, numbers, underscores.</p>
+        <p style="margin: 0 0 16px; font-size: 13px; color: var(--plum-soft); word-break: break-all;">Your Closet will live at <span class="mo-preview-url" style="color: var(--rose); font-weight: 600;">…/@yourhandle</span></p>
+
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin: 0 0 18px; padding: 12px 14px; background: rgba(197, 106, 138, 0.08); border-radius: 8px;">
+          <input type="checkbox" id="mo-public-check" checked style="width: 18px; height: 18px; margin-top: 2px; accent-color: var(--rose); cursor: pointer; flex-shrink: 0;" />
+          <label for="mo-public-check" style="cursor: pointer; flex: 1;">
+            <span style="display: block; font-size: 14px; font-weight: 600; color: var(--plum);">Make my Closet visible right away</span>
+            <span style="display: block; margin-top: 4px; font-size: 12px; color: var(--plum-soft); line-height: 1.5;">When on, your handle URL shows your card face + collections. You can flip it off any time in your Closet.</span>
+          </label>
+        </div>
+
+        <button id="mo-claim-btn" type="button" disabled style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: var(--rose); color: var(--cream); border: 0; border-radius: 999px; font-family: inherit; font-weight: 800; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; opacity: 0.4; transition: opacity 200ms ease, transform 200ms ease;">Claim it →</button>
+        <p style="margin: 16px 0 0; font-size: 12px; color: var(--plum-soft); font-style: italic;">This is permanent. Pick something you'll want on a friendship necklace.</p>
+      </div>
+
+    </div>
 
     <h2>The distinction (because it gets asked)</h2>
 
@@ -128,5 +190,278 @@
 
   <footer>© LAiDIES · Filed from SUNNYVAiLE · MAiKEOVER on MAiN(e)</footer>
 
+  <script>
+  (function() {
+    'use strict';
+
+    var CONFIG = window.LAIDIES_SUPABASE_CONFIG;
+    if (!CONFIG || !CONFIG.url || !CONFIG.anonKey) {
+      console.warn('[MAiKEOVER] Supabase config missing — claim form disabled');
+      return;
+    }
+
+    // Mirror of the SQL card_username_reserved list. Client-side gate for
+    // faster UX; DB is the source of truth if these ever diverge.
+    var RESERVED = new Set([
+      'admin','root','api','app','www','home','about','help','support','contact',
+      'signup','signin','login','logout','register','settings','profile','account','card','closet','me',
+      'laidies','sunnyvaile','ali','sara','eugina','josh','deb',
+      'cher','dolly','elle','miranda','buffy','regina','david',
+      'newsstand','library','mall','claires','flair','piecesofflair','bronze','chick','flicks','blend','snap','maikeover',
+      'sorority','sanctuary','radio','ksvl','post','office','town','hall','high','sunnyvaile-high',
+      'grimoire','coven','saint','saints','maven','mavens','clubhouse','pass','residence',
+      'wednesday','tour','walk','anthem','fairy','godmother','claio'
+    ]);
+
+    var FORMAT_RE = /^[a-z0-9_]{3,24}$/;
+
+    var supabase = null;
+    var session = null;
+    var checkDebounce = null;
+    var lastCheckedValue = '';
+    var lastCheckResult = null; // 'ok' | 'taken' | 'invalid' | 'reserved'
+
+    var card = document.getElementById('mo-claim-card');
+    var input = document.getElementById('mo-username-input');
+    var status = document.getElementById('mo-status');
+    var claimBtn = document.getElementById('mo-claim-btn');
+    var previewUrl = card && card.querySelector('.mo-preview-url');
+
+    function setState(state) {
+      var panels = card.querySelectorAll('.mo-claim-state');
+      for (var i = 0; i < panels.length; i++) {
+        panels[i].hidden = panels[i].getAttribute('data-state') !== state;
+      }
+    }
+
+    function setStatus(text, tone) {
+      status.textContent = text;
+      status.style.color =
+        tone === 'ok' ? '#2c7d3c' :
+        tone === 'bad' ? '#a83243' :
+        'var(--plum-soft)';
+    }
+
+    function setClaimEnabled(on) {
+      claimBtn.disabled = !on;
+      claimBtn.style.opacity = on ? '1' : '0.4';
+      claimBtn.style.cursor = on ? 'pointer' : 'not-allowed';
+    }
+
+    function updatePreview(value) {
+      if (!previewUrl) return;
+      var origin = window.location.origin;
+      previewUrl.textContent = origin + '/@' + (value || 'yourhandle');
+    }
+
+    function validateFormat(value) {
+      if (!value) return { ok: false, msg: 'Type 3–24 characters. Lowercase letters, numbers, underscores.', tone: null };
+      if (value.length < 3) return { ok: false, msg: 'A little longer — 3 characters minimum.', tone: 'bad' };
+      if (value.length > 24) return { ok: false, msg: 'Under 24 characters.', tone: 'bad' };
+      if (!FORMAT_RE.test(value)) return { ok: false, msg: 'Lowercase letters, numbers, underscores only. No spaces, no dots.', tone: 'bad' };
+      if (RESERVED.has(value)) return { ok: false, msg: '"' + value + '" is reserved. Pick another.', tone: 'bad' };
+      return { ok: true };
+    }
+
+    async function checkAvailability(value) {
+      try {
+        var result = await supabase
+          .from('member_profiles')
+          .select('id', { head: false, count: 'exact' })
+          .eq('card_username', value)
+          .limit(1);
+        if (result.error) throw result.error;
+        // If there's a row and it's someone else, it's taken. If it's the current
+        // user, that means they already have this handle — treat as available
+        // (they can re-confirm, or nothing changes).
+        var rows = result.data || [];
+        if (rows.length === 0) return { ok: true };
+        if (session && rows[0].id === session.user.id) return { ok: true };
+        return { ok: false, msg: '@' + value + ' is already taken. Try another.', tone: 'bad' };
+      } catch (err) {
+        console.warn('[MAiKEOVER] availability check failed:', err);
+        return { ok: false, msg: 'Couldn\'t reach the guest book. Try again in a sec.', tone: 'bad', transient: true };
+      }
+    }
+
+    function handleInput() {
+      var value = input.value.trim().toLowerCase();
+      if (value !== input.value) input.value = value;
+      updatePreview(value);
+      setClaimEnabled(false);
+      lastCheckResult = null;
+      lastCheckedValue = value;
+
+      var format = validateFormat(value);
+      if (!format.ok) {
+        setStatus(format.msg, format.tone);
+        if (checkDebounce) clearTimeout(checkDebounce);
+        return;
+      }
+
+      setStatus('Checking @' + value + '…', null);
+      if (checkDebounce) clearTimeout(checkDebounce);
+      checkDebounce = setTimeout(async function() {
+        var checkedValue = value;
+        var avail = await checkAvailability(checkedValue);
+        // Bail if the user typed more since we started
+        if (input.value.trim().toLowerCase() !== checkedValue) return;
+        if (avail.ok) {
+          setStatus('★ @' + checkedValue + ' is yours if you want it.', 'ok');
+          lastCheckResult = 'ok';
+          setClaimEnabled(true);
+        } else {
+          setStatus(avail.msg, 'bad');
+          lastCheckResult = 'taken';
+          setClaimEnabled(false);
+        }
+      }, 380);
+    }
+
+    async function handleClaim() {
+      var value = input.value.trim().toLowerCase();
+      if (!validateFormat(value).ok) return;
+      if (!session) {
+        setStatus('Sign in first, then claim.', 'bad');
+        return;
+      }
+      claimBtn.disabled = true;
+      var originalText = claimBtn.textContent;
+      claimBtn.textContent = 'Claiming…';
+      try {
+        var publicCheck = document.getElementById('mo-public-check');
+        var payload = {
+          id: session.user.id,
+          email: session.user.email,
+          card_username: value,
+          member_card_is_public: publicCheck ? !!publicCheck.checked : true
+        };
+        var result = await supabase
+          .from('member_profiles')
+          .upsert(payload, { onConflict: 'id' })
+          .select()
+          .single();
+        if (result.error) {
+          // Postgres unique_violation is 23505; check constraint is 23514.
+          var code = result.error.code || '';
+          if (code === '23505') {
+            setStatus('@' + value + ' just got claimed by someone else. Pick another.', 'bad');
+          } else if (code === '23514') {
+            setStatus('That handle isn\'t allowed. Try another.', 'bad');
+          } else {
+            setStatus('Couldn\'t save — ' + (result.error.message || 'try again') + '.', 'bad');
+          }
+          claimBtn.textContent = originalText;
+          claimBtn.disabled = false;
+          return;
+        }
+        // Also cache locally so the Closet page loads faster
+        try { localStorage.setItem('laidies_card_username', value); } catch (_) {}
+        renderClaimed(value);
+      } catch (err) {
+        setStatus('Something went sideways. Try again?', 'bad');
+        claimBtn.textContent = originalText;
+        claimBtn.disabled = false;
+      }
+    }
+
+    function renderClaimed(handle) {
+      var origin = window.location.origin;
+      var handleEl = card.querySelector('.mo-your-handle');
+      var urlEl = card.querySelector('.mo-your-url');
+      if (handleEl) handleEl.textContent = handle;
+      if (urlEl) urlEl.textContent = origin + '/@' + handle;
+      setState('claimed');
+      // Existing member: hide the new-member pitch, show the welcome-back banner
+      var newHere = document.getElementById('mo-new-here');
+      if (newHere) newHere.hidden = true;
+      var wb = document.getElementById('mo-welcome-back');
+      if (wb) {
+        var wbHandle = wb.querySelector('.mo-wb-handle');
+        if (wbHandle) wbHandle.textContent = handle;
+        wb.hidden = false;
+      }
+    }
+
+    function wireCopy() {
+      var btn = card.querySelector('.mo-copy-btn');
+      if (!btn) return;
+      btn.addEventListener('click', function() {
+        var url = window.location.origin + '/@' + (card.querySelector('.mo-your-handle').textContent || '');
+        try {
+          navigator.clipboard.writeText(url);
+          var orig = btn.textContent;
+          btn.textContent = 'Copied ✓';
+          setTimeout(function() { btn.textContent = orig; }, 1600);
+        } catch (_) {
+          window.prompt('Copy your Closet URL:', url);
+        }
+      });
+    }
+
+    async function init() {
+      try {
+        var mod = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
+        supabase = mod.createClient(CONFIG.url, CONFIG.anonKey, {
+          auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: false }
+        });
+      } catch (err) {
+        console.error('[MAiKEOVER] Supabase SDK load failed:', err);
+        setState('signed-out');
+        return;
+      }
+
+      var s = await supabase.auth.getSession();
+      session = s && s.data ? s.data.session : null;
+
+      if (!session) {
+        setState('signed-out');
+        return;
+      }
+
+      // Signed in — check if profile already has a username
+      try {
+        var profile = await supabase
+          .from('member_profiles')
+          .select('card_username')
+          .eq('id', session.user.id)
+          .maybeSingle();
+        if (profile.data && profile.data.card_username) {
+          renderClaimed(profile.data.card_username);
+          wireCopy();
+          return;
+        }
+      } catch (_) {}
+
+      // Signed in, no username yet — show claim form
+      setState('claim-form');
+      updatePreview('');
+      wireCopy();
+      input.addEventListener('input', handleInput);
+      claimBtn.addEventListener('click', handleClaim);
+      // Enter key = claim
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !claimBtn.disabled) {
+          e.preventDefault();
+          handleClaim();
+        }
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+  </script>
+
+  <script defer src="/content/site/sv-tour-checkin.js?v=20260702-2"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260704-12"></script>
+    <script defer src="/content/site/quick-rail.js?v=20260704-2"></script>
+    <script defer src="/content/site/charm-hunt.js?v=20260704-y2k3b"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260704-5"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260704-canon"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260704-1"></script>
 </body>
 </html>

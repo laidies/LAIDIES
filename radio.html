@@ -3,19 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SUNNYVAiLE Community Radio · KSVL · LAiDIES</title>
-  <meta name="description" content="SUNNYVAiLE Community Radio (KSVL) — music broadcast all day. DJ JAiDY's tracks, patron saint themes, the town anthem on the hour. Tape it off the radio.">
+  <title>SUNNYVAiLE Community RAiDIO · KSVL · LAiDIES</title>
+  <meta name="description" content="SUNNYVAiLE Community RAiDIO (KSVL) — don't just learn from books, learn from hooks. Music broadcast all day. DJ SunnyV's tracks, patron saint themes, the town anthem on the hour. Tape it off the RAiDIO.">
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260629-1">
+  <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260704-palette">
   <script defer src="/content/site/sv-nav-auth.js?v=20260630-1"></script>
+  <script src="/content/site/supabase-config.js" defer></script>
 </head>
 <body>
 
   <header class="sv-header">
     <a class="brand" href="/">LAiDIES</a>
     <nav>
-      <a href="/this-week.html">This Week</a>
-      <a href="/episodes.html">Episodes</a>
+      <a href="/">This Week</a>
+      <a href="/chick-flicks.html">Episodes</a>
       <a href="/library.html">LIBRAiRY</a>
       <a href="/radio.html" style="color: var(--rose);">KSVL</a>
       <a href="/sorority-house.html">Sorority House</a>
@@ -23,132 +24,679 @@
     </nav>
   </header>
 
-  <div class="sv-hero"><img src="assets/sunnyvaile-buildings/16-ksvl-community-radio.png?v=20260630-1" alt="KSVL Community Radio tower and broadcast building" loading="eager"></div>
+  <div class="sv-hero"><img src="assets/sunnyvaile-buildings/y2k-v3/16-ksvl-community-raidio.webp?v=20260704-perf" alt="KSVL Community RAiDIO tower and broadcast building" loading="eager"></div>
 
   <main>
 
     <div class="sv-eyebrow">
-      <span class="sv-eyebrow-label">★ Radio Tower · KSVL · SUNNYVAiLE</span>
+      <span class="sv-eyebrow-label">★ MAiN Street · No. 10 · KSVL · SUNNYVAiLE</span>
       <button class="sv-theme" type="button"
-              aria-label="Play the SUNNYVAiLE town anthem"
-              data-src="/content/music/sunnyvaile-town-anthem.mp3"
-              onclick="window.playLaidiesTheme(this);">
+              aria-label="Tune in to KSVL Live radio"
+              onclick="if(window.KSVL_startLive) window.KSVL_startLive();">
         <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-        <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
-        <span>♪ Town Anthem</span>
+        <span>♪ Tune in Live</span>
       </button>
     </div>
 
-    <h1>SUNNYVAiLE Community <span class="ai">Radio</span>.</h1>
+    <h1>SUNNYVAiLE Community R<span class="ai">Ai</span>DIO.</h1>
+
+    <p style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(18px, 2.2vw, 22px); color: var(--rose); text-align: center; margin: 0 0 18px; letter-spacing: 0.02em;">
+      "Don't just learn from books — learn from hooks."
+    </p>
 
     <p class="sv-lede">
-      KSVL. Music broadcast all day. DJ JAiDY's tracks, patron saint themes, the town anthem on the hour. The kind of station you tape off with a cassette, then label in glitter pen.
+      KSVL, 99.9 · SUNNYVAiLE's own. Music broadcast all day — the town anthem on the hour, patron saint themes, and DJ SunnyV at the mic. The kind of station where you race to push record and play when the DJ announces the song.
     </p>
 
-    <p>
-      Music-only. The call-in show used to live here, but Dream Phone has its own line now — find it at <a href="/games/dream-phone.html" style="color: var(--rose); text-decoration: underline;">The Phone Booth</a> on the corner of MAiN & Cathedral Hill.
-    </p>
-
-    <h2>Now playing</h2>
-
-    <p>The Wednesday rotation. Click play. Tape it if you want.</p>
-
-    <div class="stop-grid">
-
-      <div class="stop">
-        <span class="stop-num">★ HOUSE BAND</span>
-        <h3 class="stop-name">Wednesday in SUNNYVAiLE</h3>
-        <p class="stop-desc">THE LAiDIES — the town's house band, self-titled. Debut single, now on rotation between episodes.</p>
-        <button class="sv-theme" type="button" data-src="/content/music/the-laidies-wednesday-in-sunnyvaile.mp3" onclick="window.playLaidiesTheme(this);">
-          <svg viewBox="0 0 24 24" class="play-icon"><path d="M8 5v14l11-7z"/></svg>
-          <svg viewBox="0 0 24 24" class="pause-icon"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
-          <span>♪ Play</span>
-        </button>
-      </div>
-
-      <div class="stop">
-        <span class="stop-num">EP 04 · NEW</span>
-        <h3 class="stop-name">The LIBRAiRY</h3>
-        <p class="stop-desc">DJ JAiDY's track for the LIBRAiRY page. The reference-shelf theme.</p>
-        <button class="sv-theme" type="button" data-src="/content/music/dj-jaidy-week-04-the-library.mp3" onclick="window.playLaidiesTheme(this);">
-          <svg viewBox="0 0 24 24" class="play-icon"><path d="M8 5v14l11-7z"/></svg>
-          <svg viewBox="0 0 24 24" class="pause-icon"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
-          <span>♪ Play</span>
-        </button>
-      </div>
-
-      <div class="stop">
-        <span class="stop-num">EP 01</span>
-        <h3 class="stop-name">On Wednesday We Do AI</h3>
-        <p class="stop-desc">The opening track. Week 01.</p>
-        <button class="sv-theme" type="button" data-src="/content/music/dj-jaidy-week-01-on-wednesday-we-do-ai.mp3" onclick="window.playLaidiesTheme(this);">
-          <svg viewBox="0 0 24 24" class="play-icon"><path d="M8 5v14l11-7z"/></svg>
-          <svg viewBox="0 0 24 24" class="pause-icon"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
-          <span>♪ Play</span>
-        </button>
-      </div>
-
-      <div class="stop">
-        <span class="stop-num">EP 02</span>
-        <h3 class="stop-name">Tell Me What You Want</h3>
-        <p class="stop-desc">Spice Girls energy. Week 02.</p>
-        <button class="sv-theme" type="button" data-src="/content/music/dj-jaidy-week-02-tell-me-what-you-want.mp3" onclick="window.playLaidiesTheme(this);">
-          <svg viewBox="0 0 24 24" class="play-icon"><path d="M8 5v14l11-7z"/></svg>
-          <svg viewBox="0 0 24 24" class="pause-icon"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
-          <span>♪ Play</span>
-        </button>
-      </div>
-
-      <div class="stop">
-        <span class="stop-num">EP 03</span>
-        <h3 class="stop-name">Don't Be Chutney on the Stand</h3>
-        <p class="stop-desc">Week 03. (Last one Josh made — see below.)</p>
-        <button class="sv-theme" type="button" data-src="/content/music/dj-jaidy-week-03-dont-be-chutney-on-the-stand.mp3" onclick="window.playLaidiesTheme(this);">
-          <svg viewBox="0 0 24 24" class="play-icon"><path d="M8 5v14l11-7z"/></svg>
-          <svg viewBox="0 0 24 24" class="pause-icon"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
-          <span>♪ Play</span>
-        </button>
-      </div>
-
+    <!-- KSVL LIVE — the full station broadcast (moved to top) -->
+    <div class="ksvl-live-band">
+      <div class="ksvl-live-band__badge">★ NEW TODAY</div>
+      <h2 class="ksvl-live-band__title">Tune in to KSVL Live.</h2>
+      <p class="ksvl-live-band__lede">DJ SunnyV at the mic. Songs, jingles, weather, traffic, and actual commercials from every building in town. Press play — it plays until you stop it.</p>
+      <button type="button" class="ksvl-live-band__btn" onclick="if(window.KSVL_startLive) window.KSVL_startLive();" aria-label="Tune in to KSVL Live radio">
+        <span class="ksvl-live-band__btn-icon" aria-hidden="true">▶</span>
+        <span>TUNE IN LIVE · 99.9</span>
+      </button>
+      <p class="ksvl-live-band__disclaimer">Or grab a mix CD below.</p>
     </div>
 
-    <h2>Patron saint themes</h2>
+    <h2>Mix CDs</h2>
 
-    <p>Each saint gets a track. They're queued in the rotation; they also play on the saint cards on the homepage.</p>
+    <p>Six mixes. Sharpie-labeled. Grab one and let it play — or open All Songs and shuffle the station.</p>
 
-    <h2>The town anthem</h2>
-
-    <p>On the hour, every hour. Top of the page — the pink play button. That's the one.</p>
-
-    <h2>About DJ JAiDY</h2>
-
-    <p>
-      DJ JAiDY made the music for the first three episodes and is the reason LAiDIES has music at all. Ali took over the deck after Ep 3. Full credits in the <a href="/town-hall.html#from-the-founder" style="color: var(--rose); text-decoration: underline;">founder's note at Town Hall</a>.
-    </p>
+    <style>
+      .ksvl-live-band {
+        margin: 32px 0 40px;
+        padding: 32px 28px;
+        background: linear-gradient(135deg, var(--plum, #4b2148) 0%, var(--rose, #9b3f5f) 100%);
+        color: var(--cream, #fffdfb);
+        border-radius: 16px;
+        text-align: center;
+        box-shadow: 0 8px 24px rgba(75,33,72,0.22);
+      }
+      .ksvl-live-band__badge {
+        display: inline-block;
+        font-family: 'Jost', sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--gold, #c9a227);
+        margin-bottom: 12px;
+      }
+      .ksvl-live-band__title {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(28px, 3.6vw, 40px);
+        font-weight: 700;
+        color: var(--cream, #fffdfb);
+        margin: 0 0 12px;
+        line-height: 1.15;
+      }
+      .ksvl-live-band__lede {
+        max-width: 640px;
+        margin: 0 auto 22px;
+        font-size: 15px;
+        color: rgba(255,253,251,0.88);
+        line-height: 1.55;
+      }
+      .ksvl-live-band__btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 28px;
+        background: var(--gold, #c9a227);
+        color: var(--plum-deep, #341446);
+        font-family: 'Jost', sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        border: none;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.22);
+      }
+      .ksvl-live-band__btn:hover, .ksvl-live-band__btn:focus-visible {
+        transform: translateY(-2px);
+        background: var(--cream, #fffdfb);
+        color: var(--plum-deep, #341446);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.28);
+        outline: none;
+      }
+      .ksvl-live-band__btn-icon {
+        font-size: 14px;
+      }
+      .ksvl-live-band__disclaimer {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-style: italic;
+        font-size: 13px;
+        color: rgba(255,253,251,0.65);
+        margin: 16px 0 0;
+      }
+    </style>
 
     <div id="ksvl-mix-cds"></div>
-    <script defer src="/content/site/ksvl-player.js?v=20260701-1"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260704-12"></script>
+
+    <!-- ============================================================
+         KSVL · The Bands (10 fictional-band album covers)
+         ============================================================ -->
+    <style>
+      .ksvl-band-eyebrow { font-family: "Jost", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--rose); margin: 56px 0 8px; }
+      .ksvl-band-title { font-family: "Playfair Display", Georgia, serif; font-size: clamp(24px, 3vw, 32px); font-weight: 700; color: var(--plum-deep); margin: 0 0 6px; line-height: 1.15; }
+      .ksvl-band-lede { font-size: 15px; color: var(--plum); margin: 0 0 22px; font-style: italic; }
+      .ksvl-band-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 28px 22px; margin-bottom: 40px; }
+      .ksvl-band-card { display: flex; flex-direction: column; }
+
+      /* Flip container — front (cover + ▶) / back (tracklist + ↺) */
+      .ksvl-band-flip { position: relative; aspect-ratio: 1 / 1; perspective: 1400px; cursor: pointer; background: transparent; border: 0; padding: 0; width: 100%; }
+      .ksvl-band-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; transition: transform 0.62s cubic-bezier(0.4, 0.15, 0.2, 1); border-radius: 6px; overflow: hidden; }
+      .ksvl-band-face--front { transform: rotateY(0deg); box-shadow: 0 2px 6px rgba(75,33,72,0.10), 0 12px 28px rgba(75,33,72,0.20); }
+      .ksvl-band-face--back { transform: rotateY(-180deg); background: linear-gradient(135deg, rgba(255,253,251,0.99) 0%, rgba(250,242,246,0.99) 100%); padding: 22px 22px 16px; box-shadow: 0 2px 6px rgba(75,33,72,0.10), 0 12px 28px rgba(75,33,72,0.20); display: flex; flex-direction: column; }
+      .ksvl-band-flip.is-flipped .ksvl-band-face--front { transform: rotateY(180deg); }
+      .ksvl-band-flip.is-flipped .ksvl-band-face--back { transform: rotateY(0deg); }
+      .ksvl-band-flip:focus-visible { outline: none; }
+      .ksvl-band-flip:focus-visible .ksvl-band-face--front { box-shadow: 0 0 0 3px var(--rose), 0 8px 20px rgba(75,33,72,0.28); }
+
+      /* Cover art on the front */
+      .ksvl-band-cover-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+      .ksvl-band-face--front::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(115deg, transparent 0 22px, rgba(255,255,255,0.24) 22px 24px); pointer-events: none; opacity: 0.28; }
+
+      /* ▶ play-whole-album button (front bottom-right) */
+      .ksvl-band-play-btn { position: absolute; bottom: 12px; right: 12px; width: 46px; height: 46px; border-radius: 50%; background: rgba(75,33,72,0.92); color: var(--cream); border: 2px solid rgba(255,253,251,0.85); font-size: 17px; font-family: inherit; padding: 0 0 0 3px; cursor: pointer; z-index: 3; box-shadow: 0 4px 14px rgba(75,33,72,0.4); transition: transform 0.15s ease, background 0.15s ease; }
+      .ksvl-band-play-btn:hover, .ksvl-band-play-btn:focus-visible { background: var(--rose); transform: scale(1.08); outline: none; }
+
+      /* ↺ flip-back button (back top-right) */
+      .ksvl-band-flip-back-btn { position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; border-radius: 50%; background: rgba(75,33,72,0.10); color: var(--plum); border: 0; font-size: 16px; font-family: inherit; cursor: pointer; z-index: 3; transition: background 0.15s ease, color 0.15s ease; }
+      .ksvl-band-flip-back-btn:hover, .ksvl-band-flip-back-btn:focus-visible { background: rgba(155,63,95,0.24); color: var(--rose); outline: none; }
+
+      /* Back-of-cover copy */
+      .ksvl-band-back-eyebrow { margin: 0 0 4px; font-family: "Jost", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); }
+      .ksvl-band-back-title { margin: 0 40px 4px 0; font-family: "Playfair Display", Georgia, serif; font-style: italic; font-size: 17px; font-weight: 700; color: var(--plum-deep); line-height: 1.15; }
+      .ksvl-band-back-band { margin: 0 0 12px; font-family: "Jost", sans-serif; font-size: 10px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--plum-soft); }
+      .ksvl-band-back-tracks { list-style: none; margin: 0; padding: 0; overflow-y: auto; flex: 1; }
+      .ksvl-band-back-tracks::-webkit-scrollbar { width: 6px; }
+      .ksvl-band-back-tracks::-webkit-scrollbar-thumb { background: rgba(75,33,72,0.22); border-radius: 3px; }
+      .ksvl-band-back-track { display: flex; align-items: center; gap: 8px; width: 100%; background: transparent; border: 0; padding: 6px 4px; font: inherit; font-size: 12px; font-family: "Jost", sans-serif; color: var(--plum); text-align: left; cursor: pointer; border-radius: 4px; transition: background 0.12s ease, color 0.12s ease; }
+      .ksvl-band-back-track:hover, .ksvl-band-back-track:focus-visible { background: rgba(155,63,95,0.10); color: var(--rose); outline: none; }
+      .ksvl-band-back-track-icon { flex-shrink: 0; width: 16px; height: 16px; border-radius: 999px; background: var(--gold); color: var(--cream); display: inline-flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 800; }
+      .ksvl-band-back-track:hover .ksvl-band-back-track-icon { background: var(--rose); }
+      .ksvl-band-back-track-title { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+      /* Card caption (below flip) */
+      .ksvl-band-format { display: inline-block; margin: 12px 0 4px; padding: 3px 8px; background: var(--gold); color: var(--plum-deep); border-radius: 999px; font-family: "Jost", sans-serif; font-size: 9px; font-weight: 800; letter-spacing: 0.20em; text-transform: uppercase; align-self: flex-start; }
+      .ksvl-band-name { font-family: "Jost", sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); margin: 0 0 2px; }
+      .ksvl-band-album { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-size: 17px; font-weight: 700; color: var(--plum-deep); margin: 0 0 8px; line-height: 1.2; }
+    </style>
+
+    <p class="ksvl-band-eyebrow">★ 99.9 KSVL · The Bands</p>
+    <h2 class="ksvl-band-title">The Bands</h2>
+    <p class="ksvl-band-lede">Ten fictional bands from SUNNYVAiLE. DJ SunnyV plays them all. Tap a cover to flip it and read the tracklist; hit ▶ to play the whole album.</p>
+
+    <div class="ksvl-band-grid" id="ksvl-band-grid"></div>
+
+    <script>
+      (function() {
+        'use strict';
+
+        var ALBUMS = [
+          { band: 'THE LAiDIES',      album: 'Welcome to the Grid',        format: 'LP',       cover: '/assets/albums/the-laidies-welcome-to-the-grid.png' },
+          { band: 'The Overfits',     album: 'Memorized',                  format: 'LP',       cover: '/assets/albums/the-overfits-memorized.png' },
+          { band: 'The Embeddings',   album: 'Deep Vectors',               format: 'LP',       cover: '/assets/albums/the-embeddings-deep-vectors.png' },
+          { band: 'The Regressions',  album: 'Please Fit This Curve',      format: 'EP',       cover: '/assets/albums/the-regressions-please-fit-this-curve.png' },
+          { band: 'The Bots',         album: 'Dial-Up the Dance Floor',    format: 'EP',       cover: '/assets/albums/the-bots-dial-up-the-dance-floor.png' },
+          { band: 'Latent Space',     album: 'Between Layers',             format: 'EP',       cover: '/assets/albums/latent-space-between-layers.png' },
+          { band: 'The Predicts',     album: 'Told You So',                format: 'EP',       cover: '/assets/albums/the-predicts-told-you-so.png' },
+          { band: 'The Recalls',      album: 'Down at the Blend & Snap',   format: '7" single', cover: '/assets/albums/the-recalls-down-at-the-blend-and-snap.png' },
+          { band: 'Chain of Thought', album: 'David Says',                 format: '7" single', cover: '/assets/albums/chain-of-thought-david-says.png' },
+          { band: "Grand Ol' Query",  album: 'Common Sense',               format: '7" single', cover: '/assets/albums/grand-ol-query-common-sense.png' }
+        ];
+
+        function waitForKSVL(cb) {
+          if (typeof window.KSVL_tracksForArtist === 'function') { cb(); return; }
+          setTimeout(function(){ waitForKSVL(cb); }, 80);
+        }
+
+        function render() {
+          var grid = document.getElementById('ksvl-band-grid');
+          if (!grid) return;
+          ALBUMS.forEach(function(a) {
+            var tracks = window.KSVL_tracksForArtist(a.band);
+
+            var card = document.createElement('article');
+            card.className = 'ksvl-band-card';
+            card.setAttribute('data-band', a.band);
+
+            // 3D flip container — cover click flips, ▶ button plays.
+            var flip = document.createElement('div');
+            flip.className = 'ksvl-band-flip';
+            flip.setAttribute('role', 'button');
+            flip.setAttribute('tabindex', '0');
+            flip.setAttribute('aria-label', 'Flip ' + a.band + ' — ' + a.album + ' to see the tracklist');
+
+            // Front — cover art + ▶ play-whole-album button
+            var front = document.createElement('div');
+            front.className = 'ksvl-band-face ksvl-band-face--front';
+            var img = document.createElement('img');
+            img.className = 'ksvl-band-cover-img';
+            img.src = a.cover;
+            img.alt = a.band + ' — ' + a.album + ' cover';
+            img.loading = 'lazy';
+            front.appendChild(img);
+            var playBtn = document.createElement('button');
+            playBtn.className = 'ksvl-band-play-btn';
+            playBtn.type = 'button';
+            playBtn.setAttribute('aria-label', 'Play ' + a.band + ' — ' + a.album);
+            playBtn.setAttribute('title', 'Play whole album');
+            playBtn.textContent = '▶';
+            playBtn.addEventListener('click', function(e) {
+              e.stopPropagation();
+              window.KSVL_startAlbum(a.band, 0);
+            });
+            front.appendChild(playBtn);
+            flip.appendChild(front);
+
+            // Back — tracklist + ↺ flip-back button
+            var back = document.createElement('div');
+            back.className = 'ksvl-band-face ksvl-band-face--back';
+            var flipBack = document.createElement('button');
+            flipBack.className = 'ksvl-band-flip-back-btn';
+            flipBack.type = 'button';
+            flipBack.setAttribute('aria-label', 'Flip back to album cover');
+            flipBack.setAttribute('title', 'Flip back');
+            flipBack.textContent = '↺';
+            flipBack.addEventListener('click', function(e) {
+              e.stopPropagation();
+              flip.classList.remove('is-flipped');
+            });
+            back.appendChild(flipBack);
+            var backEyebrow = document.createElement('p');
+            backEyebrow.className = 'ksvl-band-back-eyebrow';
+            backEyebrow.textContent = a.format + ' · ' + tracks.length + (tracks.length === 1 ? ' track' : ' tracks');
+            back.appendChild(backEyebrow);
+            var backTitle = document.createElement('p');
+            backTitle.className = 'ksvl-band-back-title';
+            backTitle.textContent = a.album;
+            back.appendChild(backTitle);
+            var backBand = document.createElement('p');
+            backBand.className = 'ksvl-band-back-band';
+            backBand.textContent = a.band;
+            back.appendChild(backBand);
+            if (tracks.length) {
+              var list = document.createElement('ul');
+              list.className = 'ksvl-band-back-tracks';
+              tracks.forEach(function(t, i) {
+                var li = document.createElement('li');
+                var btn = document.createElement('button');
+                btn.className = 'ksvl-band-back-track';
+                btn.type = 'button';
+                btn.setAttribute('aria-label', 'Play ' + t.title);
+                var iconSpan = document.createElement('span');
+                iconSpan.className = 'ksvl-band-back-track-icon';
+                iconSpan.textContent = '▶';
+                btn.appendChild(iconSpan);
+                var titleSpan = document.createElement('span');
+                titleSpan.className = 'ksvl-band-back-track-title';
+                titleSpan.textContent = t.title;
+                btn.appendChild(titleSpan);
+                btn.addEventListener('click', function(e) {
+                  e.stopPropagation();
+                  window.KSVL_startAlbum(a.band, i);
+                });
+                li.appendChild(btn);
+                list.appendChild(li);
+              });
+              back.appendChild(list);
+            }
+            flip.appendChild(back);
+
+            // Flip interaction — click anywhere on cover flips, unless click was on a button.
+            flip.addEventListener('click', function(e) {
+              if (e.target.closest('button')) return;
+              flip.classList.toggle('is-flipped');
+            });
+            flip.addEventListener('keydown', function(e) {
+              if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip.classList.toggle('is-flipped'); }
+            });
+
+            card.appendChild(flip);
+
+            var format = document.createElement('span');
+            format.className = 'ksvl-band-format';
+            format.textContent = a.format + ' · ' + tracks.length + (tracks.length === 1 ? ' track' : ' tracks');
+            card.appendChild(format);
+
+            var name = document.createElement('p');
+            name.className = 'ksvl-band-name';
+            name.textContent = a.band;
+            card.appendChild(name);
+
+            var album = document.createElement('p');
+            album.className = 'ksvl-band-album';
+            album.textContent = a.album;
+            card.appendChild(album);
+
+            grid.appendChild(card);
+          });
+        }
+
+        waitForKSVL(render);
+      })();
+    </script>
+
+    <!-- ============================================================
+         KSVL · The Sticker Sheet
+         ============================================================ -->
+    <style>
+      .ksvl-stickers { margin: 64px 0 40px; }
+      .ksvl-stickers-eyebrow { margin: 0 0 8px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--rose); }
+      .ksvl-stickers-title { margin: 0 0 12px; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 3.6vw, 38px); color: var(--plum); line-height: 1.1; }
+      .ksvl-stickers-lede { margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: var(--plum); max-width: 640px; }
+      .ksvl-stickers-status { margin: 0 0 20px; padding: 14px 18px; background: rgba(155, 63, 95, 0.08); border-left: 3px solid var(--rose); border-radius: 8px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 14px; color: var(--plum); }
+      .ksvl-stickers-confirm-btn { padding: 8px 18px; background: var(--rose); color: var(--cream); border: 0; border-radius: 999px; font-family: inherit; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 200ms ease; }
+      .ksvl-stickers-confirm-btn:hover { background: var(--plum); }
+      .ksvl-stickers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 22px 18px; padding: 24px 20px; background: repeating-linear-gradient(45deg, rgba(155,63,95,0.03) 0 8px, transparent 8px 20px), var(--pearl); border-radius: 14px; border: 1px solid rgba(75,33,72,0.10); }
+      .ksvl-sticker-tile { position: relative; text-align: center; padding: 6px; border-radius: 8px; transition: transform 0.2s ease; }
+      .ksvl-sticker-tile img { width: 100%; height: auto; max-height: 130px; object-fit: contain; display: block; margin: 0 auto; transition: filter 0.25s ease, opacity 0.25s ease; }
+      .ksvl-sticker-tile.is-locked img { filter: grayscale(1); opacity: 0.32; }
+      .ksvl-sticker-tile.is-earned img { filter: none; opacity: 1; }
+      .ksvl-sticker-tile.is-selectable { cursor: pointer; }
+      .ksvl-sticker-tile.is-selectable:hover img { filter: grayscale(0.4); opacity: 0.75; }
+      .ksvl-sticker-tile.is-selected { transform: scale(1.06); }
+      .ksvl-sticker-tile.is-selected img { filter: none; opacity: 1; }
+      .ksvl-sticker-tile.is-selected::after { content: '✓'; position: absolute; top: -4px; right: -4px; width: 26px; height: 26px; background: var(--gold); color: var(--plum); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.18); }
+      .ksvl-sticker-caption { margin-top: 8px; font-family: 'Jost', sans-serif; font-size: 11px; line-height: 1.35; color: var(--plum-soft, #6b3a66); }
+      .ksvl-sticker-caption strong { display: block; font-size: 12px; color: var(--plum); font-weight: 700; margin-bottom: 2px; }
+      .ksvl-sticker-caption .earn-hint { display: block; font-style: italic; opacity: 0.75; font-size: 10.5px; margin-top: 2px; }
+      .ksvl-sticker-tile.is-earned .earn-hint { display: none; }
+      .ksvl-stickers-legend { margin: 20px 0 0; display: flex; gap: 20px; flex-wrap: wrap; font-family: 'Jost', sans-serif; font-size: 12px; color: var(--plum-soft, #6b3a66); }
+      .ksvl-stickers-legend span { display: inline-flex; align-items: center; gap: 6px; }
+      .ksvl-stickers-legend .dot { width: 10px; height: 10px; border-radius: 50%; }
+      .ksvl-stickers-legend .dot--earned { background: var(--rose); }
+      .ksvl-stickers-legend .dot--locked { background: rgba(75,33,72,0.28); }
+      .ksvl-stickers-legend .dot--pick { background: var(--gold); }
+    </style>
+
+    <section class="ksvl-stickers" id="ksvl-stickers">
+      <p class="ksvl-stickers-eyebrow">★ 99.9 KSVL · The Sticker Sheet</p>
+      <h2 class="ksvl-stickers-title">Grab a few from the counter.</h2>
+      <p class="ksvl-stickers-lede">The station gives out free vinyl stickers to listeners. Take three home for your Closet. Earn the rest by tuning in, listening, and burning. New designs drop as the show goes on.</p>
+
+      <div class="ksvl-stickers-status" id="ksvl-stickers-status"></div>
+      <div class="ksvl-stickers-grid" id="ksvl-stickers-grid"></div>
+      <div class="ksvl-stickers-legend">
+        <span><span class="dot dot--earned"></span>Earned</span>
+        <span><span class="dot dot--pick"></span>Selected — not saved yet</span>
+        <span><span class="dot dot--locked"></span>Locked — hover to see how</span>
+      </div>
+    </section>
+
+    <script>
+      (function() {
+        'use strict';
+
+        // 20 stickers · type: 'declaration' can be picked from the counter · 'achievement' must be earned via specific action
+        var STICKERS = [
+          // Station badges
+          { slug: 'ksvl-community-raidio',           type: 'declaration', name: 'KSVL · Community RAiDIO',    earn: 'Grab from the counter.' },
+          { slug: 'ksvl-charter-listener',           type: 'achievement', name: 'Charter Listener',           earn: 'Tune in before Ep 05.' },
+          { slug: 'ksvl-all-wednesdays',             type: 'achievement', name: 'All Wednesdays',             earn: 'Tune in 3 Wednesdays in a row.' },
+          { slug: 'ksvl-dj-sunnyv-fanclub',          type: 'declaration', name: 'DJ SunnyV Fan Club',         earn: 'Grab from the counter.' },
+          // Mix + genre badges
+          { slug: 'ksvl-saints-mix-certified',       type: 'achievement', name: 'SAiNTS Mix Certified',       earn: 'Listen to all 8 PATRON SAiNT songs.' },
+          { slug: 'ksvl-bronze-aige-regular',        type: 'achievement', name: 'BRONZE AiGE Regular',        earn: 'Play 3+ BRONZE AiGE tracks.' },
+          { slug: 'ksvl-mix-cd-alchemist',           type: 'achievement', name: 'Mix CD Alchemist',           earn: 'Burn a paid Mix CD.' },
+          { slug: 'ksvl-encore',                     type: 'achievement', name: 'Encore',                     earn: 'Play any one song 3 times.' },
+          // Motto stickers (bonus declarations)
+          { slug: 'ksvl-books-hooks-motto-oval',     type: 'declaration', name: '"Don\'t just learn from books"', earn: 'Grab from the counter.' },
+          { slug: 'ksvl-dont-just-learn-bumper',     type: 'declaration', name: 'Books & Hooks · Bumper',     earn: 'Grab from the counter.' },
+          // Band collectors — all declarations (taste picks)
+          { slug: 'band-the-laidies',                type: 'declaration', name: 'THE LAiDIES',                earn: 'Grab from the counter.' },
+          { slug: 'band-the-regressions',            type: 'declaration', name: 'The Regressions',            earn: 'Grab from the counter.' },
+          { slug: 'band-the-recalls',                type: 'declaration', name: 'The Recalls',                earn: 'Grab from the counter.' },
+          { slug: 'band-the-overfits',               type: 'declaration', name: 'The Overfits',               earn: 'Grab from the counter.' },
+          { slug: 'band-the-embeddings',             type: 'declaration', name: 'The Embeddings',             earn: 'Grab from the counter.' },
+          { slug: 'band-latent-space',               type: 'declaration', name: 'Latent Space',               earn: 'Grab from the counter.' },
+          { slug: 'band-the-bots',                   type: 'declaration', name: 'The Bots',                   earn: 'Grab from the counter.' },
+          { slug: 'band-chain-of-thought',           type: 'declaration', name: 'Chain of Thought',           earn: 'Grab from the counter.' },
+          { slug: 'band-grand-ol-query',             type: 'declaration', name: "Grand Ol' Query",            earn: 'Grab from the counter.' },
+          { slug: 'band-the-predicts',               type: 'declaration', name: 'The Predicts',               earn: 'Grab from the counter.' }
+        ];
+
+        var STORAGE_KEY = 'laidies_ksvl_stickers_earned';
+        var PICK_KEY = 'laidies_ksvl_stickers_picked';
+        var FREEBIE_LIMIT = 3;
+
+        function getEarned() {
+          try { var raw = localStorage.getItem(STORAGE_KEY); return raw ? JSON.parse(raw) : []; }
+          catch(e) { return []; }
+        }
+        function setEarned(list) {
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); } catch(e) {}
+        }
+        function hasPicked() {
+          try { return localStorage.getItem(PICK_KEY) === '1'; } catch(e) { return false; }
+        }
+        function setPicked() {
+          try { localStorage.setItem(PICK_KEY, '1'); } catch(e) {}
+        }
+
+        // Expose a global earn API so other pages/mechanics can grant stickers
+        window.KSVL_stickers = {
+          list: function() { return STICKERS.slice(); },
+          earned: getEarned,
+          earn: function(slug) {
+            var e = getEarned();
+            if (e.indexOf(slug) === -1) { e.push(slug); setEarned(e); }
+            renderTiles();
+            return e;
+          }
+        };
+
+        function toggleSelection(slug, tile) {
+          if (hasPicked()) return;
+          if (tile.classList.contains('is-earned')) return;
+          var selected = document.querySelectorAll('.ksvl-sticker-tile.is-selected');
+          if (tile.classList.contains('is-selected')) {
+            tile.classList.remove('is-selected');
+          } else {
+            if (selected.length >= FREEBIE_LIMIT) return;
+            tile.classList.add('is-selected');
+          }
+          updateStatus();
+        }
+
+        function updateStatus() {
+          var status = document.getElementById('ksvl-stickers-status');
+          if (!status) return;
+          var earned = getEarned();
+          if (hasPicked()) {
+            var total = STICKERS.length;
+            status.innerHTML = '<span>You have <strong>' + earned.length + ' of ' + total + '</strong> stickers. Keep listening — the rest unlock as you go.</span>';
+            return;
+          }
+          var selectedTiles = document.querySelectorAll('.ksvl-sticker-tile.is-selected');
+          var count = selectedTiles.length;
+          var remaining = FREEBIE_LIMIT - count;
+          var msg = count === 0
+            ? '<span>Pick <strong>up to ' + FREEBIE_LIMIT + '</strong> stickers from the counter. Take them home to your Closet.</span>'
+            : '<span><strong>' + count + '</strong> selected. ' + remaining + ' left.</span>';
+          var btn = count > 0
+            ? '<button id="ksvl-stickers-confirm" class="ksvl-stickers-confirm-btn">Take these ' + count + ' →</button>'
+            : '';
+          status.innerHTML = msg + btn;
+          var confirmBtn = document.getElementById('ksvl-stickers-confirm');
+          if (confirmBtn) confirmBtn.addEventListener('click', confirmPick);
+        }
+
+        function confirmPick() {
+          var selectedTiles = document.querySelectorAll('.ksvl-sticker-tile.is-selected');
+          var earned = getEarned();
+          selectedTiles.forEach(function(t) {
+            var slug = t.getAttribute('data-slug');
+            if (earned.indexOf(slug) === -1) earned.push(slug);
+          });
+          setEarned(earned);
+          setPicked();
+          renderTiles();
+        }
+
+        function renderTiles() {
+          var grid = document.getElementById('ksvl-stickers-grid');
+          if (!grid) return;
+          grid.innerHTML = '';
+          var earned = getEarned();
+          var picked = hasPicked();
+          STICKERS.forEach(function(s) {
+            var tile = document.createElement('div');
+            var isEarned = earned.indexOf(s.slug) > -1;
+            var isSelectable = !picked && s.type === 'declaration' && !isEarned;
+            tile.className = 'ksvl-sticker-tile' + (isEarned ? ' is-earned' : ' is-locked') + (isSelectable ? ' is-selectable' : '');
+            tile.setAttribute('data-slug', s.slug);
+            tile.setAttribute('data-type', s.type);
+            tile.setAttribute('title', s.name + (isEarned ? '' : ' — ' + s.earn));
+            var img = document.createElement('img');
+            img.src = '/assets/stickers/ksvl/' + s.slug + '.png';
+            img.alt = s.name;
+            img.loading = 'lazy';
+            tile.appendChild(img);
+            var caption = document.createElement('div');
+            caption.className = 'ksvl-sticker-caption';
+            var strong = document.createElement('strong');
+            strong.textContent = s.name;
+            caption.appendChild(strong);
+            if (!isEarned) {
+              var hint = document.createElement('span');
+              hint.className = 'earn-hint';
+              hint.textContent = s.earn;
+              caption.appendChild(hint);
+            }
+            tile.appendChild(caption);
+            if (isSelectable) {
+              tile.addEventListener('click', function() { toggleSelection(s.slug, tile); });
+            }
+            grid.appendChild(tile);
+          });
+          updateStatus();
+        }
+
+        renderTiles();
+      })();
+    </script>
+
+    <!-- ============================================================
+         KSVL · Call in a request (song request form)
+         ============================================================ -->
+    <section id="ksvl-request" style="margin: 56px 0 40px; padding: 36px clamp(20px, 4vw, 44px); background: linear-gradient(135deg, var(--plum-deep) 0%, var(--rose) 100%); border-radius: 16px; color: var(--cream);">
+      <p style="margin: 0 0 10px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);">★ 99.9 KSVL · Call in a request</p>
+      <h2 style="margin: 0 0 12px; color: var(--cream); font-family: 'Playfair Display', Georgia, serif; font-size: clamp(26px, 3.5vw, 34px);">Got a song idea? DJ SunnyV is listening.</h2>
+      <p style="margin: 0 0 28px; font-size: 15px; line-height: 1.6; color: var(--cream); opacity: 0.94;">Fill in the details, hit send. If we make the track, you get first-listen and your name in the credits.</p>
+
+      <form id="ksvl-request-form" style="display: grid; gap: 18px; max-width: 640px;">
+        <label style="display: block;">
+          <span style="display: block; margin: 0 0 6px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold);">Song style</span>
+          <select id="ksvl-req-style" required style="width: 100%; padding: 12px 14px; background: var(--cream); color: var(--plum); border: 1.5px solid var(--gold); border-radius: 8px; font: inherit; font-size: 15px;">
+            <option value="">— pick a style —</option>
+            <option value="y2k-pop-anthem">Y2K pop anthem (dance-forward)</option>
+            <option value="y2k-teen-drama-ballad">Y2K teen-drama ballad</option>
+            <option value="y2k-rnb-slow-jam">Y2K R&amp;B slow jam</option>
+            <option value="late-90s-alt-rock">Late-90s alt-rock</option>
+            <option value="y2k-country-pop">Y2K country-pop crossover</option>
+            <option value="coffeehouse-acoustic">2000s coffeehouse acoustic</option>
+            <option value="y2k-retro-house">Y2K retro-house / club scene</option>
+            <option value="saint-anthem">SAiNT anthem (character-driven)</option>
+            <option value="deb-comedy-song">Deb-style comedy song (talk-sung)</option>
+          </select>
+        </label>
+
+        <label style="display: block;">
+          <span style="display: block; margin: 0 0 6px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold);">Topic</span>
+          <input id="ksvl-req-topic" type="text" required maxlength="200" placeholder="e.g. The mansplainer in the 4pm status meeting" style="width: 100%; padding: 12px 14px; background: var(--cream); color: var(--plum); border: 1.5px solid var(--gold); border-radius: 8px; font: inherit; font-size: 15px;" />
+          <span id="ksvl-req-topic-count" style="display: block; margin-top: 4px; font-family: 'Jost', sans-serif; font-size: 11px; color: var(--cream); opacity: 0.7; text-align: right;">0 / 200</span>
+        </label>
+
+        <label style="display: block;">
+          <span style="display: block; margin: 0 0 6px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold);">Lyric ideas <span style="opacity: 0.7; letter-spacing: 0.04em; text-transform: none; font-weight: 500;">(optional)</span></span>
+          <textarea id="ksvl-req-lyrics" maxlength="1000" rows="4" placeholder="A hook, a line, a callback — whatever you've got. DJ SunnyV takes it from there." style="width: 100%; padding: 12px 14px; background: var(--cream); color: var(--plum); border: 1.5px solid var(--gold); border-radius: 8px; font: inherit; font-size: 15px; resize: vertical;"></textarea>
+          <span id="ksvl-req-lyrics-count" style="display: block; margin-top: 4px; font-family: 'Jost', sans-serif; font-size: 11px; color: var(--cream); opacity: 0.7; text-align: right;">0 / 1000</span>
+        </label>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 6px;">
+          <button id="ksvl-req-submit" type="submit" style="padding: 12px 26px; background: var(--gold); color: var(--plum-deep); border: 0; border-radius: 999px; font-weight: 800; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: transform 200ms ease;">Send to DJ SunnyV →</button>
+          <span id="ksvl-req-status" style="font-size: 13px; color: var(--cream); opacity: 0.85; line-height: 1.4;"></span>
+        </div>
+      </form>
+    </section>
+
+    <script>
+      (function() {
+        'use strict';
+
+        var topicInput = document.getElementById('ksvl-req-topic');
+        var lyricsInput = document.getElementById('ksvl-req-lyrics');
+        var topicCount = document.getElementById('ksvl-req-topic-count');
+        var lyricsCount = document.getElementById('ksvl-req-lyrics-count');
+        var form = document.getElementById('ksvl-request-form');
+        var submitBtn = document.getElementById('ksvl-req-submit');
+        var statusEl = document.getElementById('ksvl-req-status');
+        var styleSelect = document.getElementById('ksvl-req-style');
+
+        topicInput.addEventListener('input', function() { topicCount.textContent = topicInput.value.length + ' / 200'; });
+        lyricsInput.addEventListener('input', function() { lyricsCount.textContent = lyricsInput.value.length + ' / 1000'; });
+
+        var supabaseClient = null;
+        async function initSupabase() {
+          if (supabaseClient) return supabaseClient;
+          var cfg = window.LAIDIES_SUPABASE_CONFIG;
+          if (!cfg) return null;
+          try {
+            var mod = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
+            supabaseClient = mod.createClient(cfg.url, cfg.anonKey, {
+              auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: false }
+            });
+            return supabaseClient;
+          } catch (err) {
+            console.error('[KSVL Request] Supabase init failed:', err);
+            return null;
+          }
+        }
+
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          var style = styleSelect.value;
+          var topic = topicInput.value.trim();
+          var lyrics = lyricsInput.value.trim();
+          if (!style || !topic) {
+            statusEl.textContent = 'Pick a style and give it a topic — those are the essentials.';
+            return;
+          }
+          submitBtn.disabled = true;
+          var originalText = submitBtn.textContent;
+          submitBtn.textContent = 'Sending…';
+          statusEl.textContent = '';
+
+          var client = await initSupabase();
+          if (!client) {
+            statusEl.textContent = 'Couldn\'t reach the station. Try again in a bit.';
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+            return;
+          }
+
+          var session = null;
+          try {
+            var s = await client.auth.getSession();
+            session = s && s.data ? s.data.session : null;
+          } catch (_) {}
+
+          if (!session) {
+            // Save locally so it isn't lost, prompt sign-in
+            try {
+              localStorage.setItem('ksvl_pending_request', JSON.stringify({ style: style, topic: topic, lyrics: lyrics, saved_at: new Date().toISOString() }));
+            } catch (_) {}
+            statusEl.innerHTML = 'Sign in at <a href="/clubhouse-pass.html" style="color: var(--gold); text-decoration: underline; font-weight: 700;">MAiKEOVER</a> to send this to DJ SunnyV. Your request is held on this device.';
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+            return;
+          }
+
+          var payload = {
+            user_id: session.user.id,
+            song_style: style,
+            topic: topic,
+            lyric_ideas: lyrics || null
+          };
+          try {
+            var result = await client.from('ksvl_song_requests').insert(payload).select().single();
+            if (result.error) throw result.error;
+            statusEl.textContent = 'On the air. DJ SunnyV will take a look and let you know if it goes to production.';
+            form.reset();
+            topicCount.textContent = '0 / 200';
+            lyricsCount.textContent = '0 / 1000';
+            submitBtn.textContent = 'Sent ✓';
+            setTimeout(function() {
+              submitBtn.disabled = false;
+              submitBtn.textContent = originalText;
+            }, 3000);
+          } catch (err) {
+            console.error('[KSVL Request] Insert failed:', err);
+            statusEl.textContent = 'Something jammed — try again in a moment.';
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+          }
+        });
+      })();
+    </script>
 
     <div class="sv-trip-tie">
       <div class="sv-trip-tie__eyebrow">★ Your Residence Card</div>
-      <h3 class="sv-trip-tie__title">Song of the Week — this is where you pick it.</h3>
-      <p class="sv-trip-tie__body">Your song shows up on the front of your Residence Card. KSVL is where you pick it — spin the dial, choose your track, DJ JAiDY carries it into your card. <strong>Every customization is a trip somewhere in town.</strong></p>
-      <p class="sv-trip-tie__note">Full picker coming with the member card. For now, this is where it lives.</p>
-    </div>
-
-    <div class="sv-ctas">
-      <a class="sv-cta sv-cta--primary" href="/games/dream-phone.html">
-        <span>
-          <span class="sv-cta-label">Looking for the call-in show?</span>
-          <span class="sv-cta-title">Dream Phone moved to The Phone Booth →</span>
-        </span>
-        <span class="sv-cta-arrow">→</span>
-      </a>
+      <h3 class="sv-trip-tie__title">Pick your favourite jam.</h3>
+      <p class="sv-trip-tie__body">Your song shows up on the front of your Residence Card. KSVL is where you pick it — spin the dial, choose your track, DJ SunnyV carries it into your card. <strong>Every customization is a trip somewhere in town.</strong></p>
     </div>
 
   </main>
 
-  <footer>© LAiDIES · Filed from SUNNYVAiLE · KSVL Radio Tower</footer>
+  <footer>© LAiDIES · Filed from SUNNYVAiLE · KSVL RAiDIO Tower</footer>
 
   <script>
     (function() {
@@ -176,5 +724,9 @@
     })();
   </script>
 
+    <script defer src="/content/site/quick-rail.js?v=20260704-2"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260704-5"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260704-canon"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260704-1"></script>
 </body>
 </html>

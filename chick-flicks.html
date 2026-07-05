@@ -4,17 +4,284 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Chick Flicks · LAiDIES · SUNNYVAiLE</title>
-  <meta name="description" content="The Chick Flicks at MAiN Street No. 7 — the town video rental shop where the LAiDIES season lives. Pick up this week's episode. New releases on Wednesday.">
+  <meta name="description" content="The Chick Flicks at MAiN Street No. 3 — the town video rental shop where the LAiDIES season lives. Pick up this week's episode. New releases on Wednesday.">
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260629-1">
+  <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260704-palette">
   <script defer src="/content/site/sv-nav-auth.js?v=20260630-1"></script>
+  <style>
+    /* ══════════════════════════════════════════════════════════
+       Chick Flicks — video-rental storefront visual system
+       VHS cases on shelves, neon signage, "BE KIND · REWIND" energy
+       ══════════════════════════════════════════════════════════ */
+
+    /* Store signage strip */
+    .cf-signage {
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+      margin: 12px 0 32px; padding: 14px 22px;
+      background: linear-gradient(180deg, #2a1226 0%, #4b2148 100%);
+      border-radius: 14px; border: 1px solid rgba(212,168,83,0.3);
+      color: #fbe9f1; font-family: 'Jost', sans-serif;
+    }
+    .cf-signage-neon {
+      font-family: 'Playfair Display', Georgia, serif; font-style: italic;
+      font-size: 26px; font-weight: 800; color: #ff6ec7;
+      text-shadow: 0 0 8px rgba(255,110,199,0.7), 0 0 20px rgba(255,110,199,0.4);
+      letter-spacing: 0.06em;
+    }
+    .cf-signage-taglines {
+      display: flex; flex-wrap: wrap; gap: 16px 24px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: rgba(255,253,251,0.82);
+    }
+    .cf-signage-taglines .ai { color: #ffdc8c; }
+
+    /* Shelf sections */
+    .cf-shelf { margin: 44px 0 40px; }
+    .cf-shelf-head { margin-bottom: 22px; }
+    .cf-shelf-eyebrow {
+      margin: 0 0 6px; font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 800; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--rose);
+    }
+    .cf-shelf-title {
+      margin: 0 0 8px; font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(24px, 3.4vw, 34px); font-weight: 700; color: var(--plum);
+      line-height: 1.1;
+    }
+    .cf-shelf-note {
+      margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--plum);
+    }
+    .cf-inline-sticker {
+      display: inline-block; padding: 3px 10px; margin-left: 6px;
+      background: #ff6ec7; color: #fffdfb; border-radius: 4px;
+      font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 800;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      transform: rotate(-3deg);
+      box-shadow: 0 3px 8px rgba(255,110,199,0.4);
+    }
+
+    /* VHS case — the core visual unit */
+    .cf-vhs {
+      position: relative; display: block;
+      background: linear-gradient(160deg, #1a0a1a 0%, #2a1226 100%);
+      border-radius: 8px; overflow: hidden;
+      text-decoration: none; color: #fffdfb;
+      box-shadow: 0 12px 26px rgba(75,33,72,0.32), 0 0 0 1px rgba(212,168,83,0.14) inset;
+      transition: transform 240ms cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 240ms ease;
+      cursor: pointer;
+    }
+    .cf-vhs:hover {
+      transform: translateY(-6px) rotate(-0.4deg);
+      box-shadow: 0 24px 48px rgba(75,33,72,0.42), 0 0 0 1px rgba(212,168,83,0.42) inset;
+    }
+    .cf-vhs:not(a):not(.cf-vhs--upcoming) { cursor: default; }
+    /* VHS "cover" — the illustration */
+    .cf-vhs-cover {
+      aspect-ratio: 4 / 3;
+      background-size: cover; background-position: center;
+      position: relative;
+      border-bottom: 3px solid #0d0512;
+    }
+    .cf-vhs-cover::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.42) 100%);
+      pointer-events: none;
+    }
+    .cf-vhs-cover--blank {
+      background: repeating-linear-gradient(45deg, #2a1226 0 22px, #3a1a36 22px 44px);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cf-vhs-cover-glyph {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(30px, 4vw, 44px); font-weight: 800; color: rgba(255,253,251,0.36);
+      letter-spacing: 0.08em;
+    }
+    /* Tape label at the bottom — the sticker on a rental VHS */
+    .cf-vhs-label {
+      display: flex; flex-direction: column; gap: 3px;
+      padding: 12px 14px 14px;
+      background: linear-gradient(180deg, #fffdfb 0%, #fbe9f1 100%);
+      color: var(--plum);
+      border-top: 2px dashed rgba(75,33,72,0.18);
+    }
+    .cf-vhs-tape {
+      font-family: 'Jost', sans-serif; font-size: 8.5px; font-weight: 800;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);
+      opacity: 0.82;
+    }
+    .cf-vhs-tape .ai { color: var(--rose); }
+    .cf-vhs-ep {
+      font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 800;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--plum-soft, var(--plum));
+      opacity: 0.72;
+    }
+    .cf-vhs-title {
+      margin: 2px 0 0; font-family: 'Playfair Display', Georgia, serif;
+      font-size: 16px; font-weight: 700; color: var(--plum-deep, var(--plum));
+      line-height: 1.15;
+    }
+    .cf-vhs-subtitle {
+      margin: 4px 0 0; font-size: 12.5px; line-height: 1.4;
+      color: var(--plum-soft, var(--plum));
+      font-style: italic; font-family: 'Playfair Display', Georgia, serif;
+    }
+    .cf-vhs-cta {
+      margin-top: 8px; font-family: 'Jost', sans-serif;
+      font-size: 10.5px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--rose);
+    }
+    .cf-vhs-cta--muted { color: var(--plum-soft, var(--plum)); opacity: 0.6; }
+
+    /* Stickers on the cover corner */
+    .cf-vhs-sticker {
+      position: absolute; top: 12px; right: -6px; z-index: 3;
+      padding: 5px 14px 5px 12px;
+      background: #ff6ec7; color: #fffdfb;
+      font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 800;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      border-radius: 4px;
+      transform: rotate(4deg);
+      box-shadow: 0 4px 10px rgba(255,110,199,0.5);
+    }
+    .cf-vhs-sticker--new {
+      background: linear-gradient(90deg, #ff6ec7, #b95d78);
+    }
+    .cf-vhs-sticker--soon {
+      background: #d4a853; color: #4b2148;
+    }
+    .cf-vhs--current { outline: 2px solid #ffdc8c; outline-offset: -1px; }
+
+    /* HERO VHS (New Releases wall) — bigger, magazine-cover treatment */
+    .cf-vhs--hero {
+      display: grid; grid-template-columns: 1.3fr 1fr; gap: 0;
+      max-width: 720px; margin: 0 auto 8px;
+    }
+    .cf-vhs--hero .cf-vhs-cover { aspect-ratio: auto; height: 100%; min-height: 280px; }
+    .cf-vhs--hero .cf-vhs-label {
+      justify-content: center; padding: 24px 22px 22px;
+    }
+    .cf-vhs--hero .cf-vhs-title { font-size: 26px; }
+    .cf-vhs--hero .cf-vhs-subtitle { font-size: 14px; margin-top: 8px; }
+    .cf-vhs--hero .cf-vhs-cta { font-size: 12.5px; margin-top: 14px; }
+    @media (max-width: 620px) {
+      .cf-vhs--hero { grid-template-columns: 1fr; }
+      .cf-vhs--hero .cf-vhs-cover { min-height: 220px; aspect-ratio: 4/3; }
+    }
+
+    /* Catalog grid */
+    .cf-vhs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 18px;
+    }
+    /* Unrendered / far-future slots — thin ghost tapes */
+    .cf-vhs--unrendered {
+      background: repeating-linear-gradient(-45deg, rgba(75,33,72,0.05) 0 12px, rgba(75,33,72,0.09) 12px 24px);
+      border: 1.5px dashed rgba(75,33,72,0.28);
+      color: rgba(75,33,72,0.5);
+      display: flex; align-items: center; justify-content: center;
+      aspect-ratio: 3/4;
+      box-shadow: none;
+      cursor: default;
+    }
+    .cf-vhs--unrendered:hover { transform: none; box-shadow: none; }
+    .cf-vhs-unrendered-label {
+      font-family: 'Playfair Display', Georgia, serif; font-size: 15px; font-weight: 700;
+      letter-spacing: 0.14em; opacity: 0.65;
+    }
+
+    /* Aisle browser — episodes shelved by topic */
+    .cf-aisles { display: flex; flex-direction: column; gap: 28px; margin-top: 6px; }
+    .cf-aisle {
+      padding: 20px 22px 18px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(255,253,251,0.58) 0%, rgba(232,197,200,0.14) 100%);
+      border: 1.5px solid rgba(75,33,72,0.14);
+    }
+    .cf-aisle-head {
+      display: flex; align-items: baseline; justify-content: space-between;
+      flex-wrap: wrap; gap: 10px; margin-bottom: 14px;
+    }
+    .cf-aisle-head-copy { max-width: 640px; }
+    .cf-aisle-num {
+      margin: 0; font-family: 'Jost', sans-serif; font-size: 11.5px; font-weight: 800;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose);
+    }
+    .cf-aisle-num .ai { color: var(--rose); }
+    .cf-aisle-blurb {
+      margin: 4px 0 0; font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic; font-size: 14.5px; color: var(--plum-soft, var(--plum));
+    }
+    .cf-aisle-count {
+      font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 800;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--plum);
+      padding: 5px 10px; border-radius: 999px;
+      background: rgba(212,168,83,0.18); border: 1px solid rgba(212,168,83,0.42);
+      white-space: nowrap;
+    }
+    .cf-aisle-strip {
+      display: flex; gap: 14px;
+      overflow-x: auto;
+      scroll-snap-type: x proximity;
+      padding: 4px 2px 10px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .cf-aisle-strip::-webkit-scrollbar { height: 6px; }
+    .cf-aisle-strip::-webkit-scrollbar-thumb { background: rgba(155,63,95,0.28); border-radius: 3px; }
+    .cf-vhs--mini { flex: 0 0 150px; scroll-snap-align: start; }
+    .cf-vhs--mini .cf-vhs-cover { aspect-ratio: 4/3; }
+    .cf-vhs--mini .cf-vhs-label { padding: 10px 12px 12px; }
+    .cf-vhs--mini .cf-vhs-tape { font-size: 7.5px; }
+    .cf-vhs--mini .cf-vhs-ep { font-size: 9px; }
+    .cf-vhs--mini .cf-vhs-title { font-size: 13px; }
+    .cf-vhs--mini .cf-vhs-cta { font-size: 9px; margin-top: 6px; }
+    .cf-aisle-empty {
+      flex: 1 1 auto; min-height: 120px;
+      display: flex; align-items: center; justify-content: center;
+      padding: 22px 24px;
+      border: 1.5px dashed rgba(75,33,72,0.28);
+      border-radius: 8px;
+      color: rgba(75,33,72,0.6);
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 14px; font-style: italic; text-align: center;
+    }
+
+    /* House rules band */
+    .cf-rules {
+      margin: 48px 0 32px; padding: 32px 32px 28px;
+      border-radius: 14px;
+      background: linear-gradient(155deg, rgba(232,197,200,0.28) 0%, rgba(255,253,251,0.6) 100%);
+      border: 1.5px dashed rgba(155,63,95,0.42);
+    }
+    .cf-rules-eyebrow {
+      margin: 0 0 6px; font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 800; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--rose);
+    }
+    .cf-rules-title {
+      margin: 0 0 12px; font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(22px, 3vw, 30px); font-weight: 700; color: var(--plum);
+    }
+    .cf-rules-lede {
+      margin: 0 0 18px; font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic; font-size: 15px; color: var(--plum-soft, var(--plum)); line-height: 1.55;
+    }
+    .cf-rules-list { margin: 0; padding-left: 22px; list-style: '★  '; }
+    .cf-rules-list li {
+      margin-bottom: 10px; font-size: 15px; line-height: 1.55; color: var(--plum);
+      padding-left: 4px;
+    }
+    .cf-rules-list li::marker { color: var(--rose); }
+    .cf-rules-list a { color: var(--rose); font-weight: 600; }
+    .cf-rules-list strong { color: var(--plum-deep, var(--plum)); }
+  </style>
 </head>
 <body>
 
   <header class="sv-header">
     <a class="brand" href="/">LAiDIES</a>
     <nav>
-      <a href="/this-week.html">This Week</a>
+      <a href="/issues/issue-04.html">This Week</a>
       <a href="/chick-flicks.html" style="color: var(--rose);">Chick Flicks</a>
       <a href="/library.html">LIBRAiRY</a>
       <a href="/mall.html">The Mall</a>
@@ -23,77 +290,477 @@
     </nav>
   </header>
 
-  <div class="sv-hero"><img src="assets/sunnyvaile-buildings/07-the-chick-flicks.png?v=20260630-1" alt="The Chick Flicks video rental shop storefront" loading="eager"></div>
+  <div class="sv-hero"><img src="assets/sunnyvaile-buildings/y2k-v3/07-the-chick-flicks.webp?v=20260704-perf" alt="The Chick Flicks video rental shop storefront" loading="eager"></div>
 
   <main>
 
     <div class="sv-eyebrow">
-      <span class="sv-eyebrow-label">★ MAiN Street · No. 7 · SUNNYVAiLE</span>
+      <span class="sv-eyebrow-label">★ MAiN Street · No. 3 · SUNNYVAiLE</span>
     </div>
 
     <h1>The Chick <span class="ai">Flicks</span>.</h1>
 
     <p class="sv-lede">
-      The town video rental shop. Where the Season lives. Pick up this week's episode, browse the back catalog, check the new-releases wall. Late fees apply — but we're not actually charging you, the joke is the joke.
+      The town video rental shop. Pick up this week's episode from the New Releases wall, browse the back catalog on Aisle 1, or wander the genre aisles further in. Late fees apply &mdash; but we're not actually charging you. The joke is the joke.
     </p>
 
-    <p>
-      Twenty-four episodes a season, the same way TV used to be. Each one drops on Wednesday at the new-releases shelf. Take it home, watch it through, return it when you're done. Or don't — they're all here whenever you want to come back.
-    </p>
-
-    <h2>New release · this week</h2>
-
-    <a class="stop sv-cta--primary" href="/this-week.html" style="display: block; margin: 16px 0 36px; padding: 28px 32px;">
-      <span class="stop-num" style="color: var(--gold);">★ THIS WEEK</span>
-      <h3 class="stop-name" style="color: var(--cream); font-size: 24px;">Episode 04 — Open the LIBRAiRY</h3>
-      <p class="stop-desc" style="color: var(--cream); opacity: 0.9;">Out now. Pick up at the front desk.</p>
-    </a>
-
-    <h2>The full season</h2>
-
-    <p>The whole catalog. Browse the shelf. Click any cover to take it home.</p>
-
-    <div class="placeholder--feature">
-      <span class="placeholder-tag">EXISTING CONTENT</span>
-      <p>The episode grid currently lives at <a href="/episodes.html" style="color: var(--rose); text-decoration: underline;">episodes.html</a> — the magazine-issue catalog with every issue (01–04 and on).</p>
-      <p>Future cleanup: embed that grid directly here so The Chick Flicks IS the canonical episode catalog, no separate /episodes/ URL. For now the brand entry lives here and the grid stays at /episodes.html — both work.</p>
+    <!-- Store signage strip — sets the video-rental register right after the h1 -->
+    <div class="cf-signage" aria-hidden="true">
+      <span class="cf-signage-neon">OPEN</span>
+      <span class="cf-signage-taglines">
+        <span>★ SUNNYV<span class="ai">Ai</span>LE HOME VIDEO</span>
+        <span>★ 24 hrs · 7 days · except Wednesdays 8&ndash;9 PM (Live at BRONZE <span class="ai">Ai</span>GE)</span>
+        <span>★ BE KIND · PLEASE · REWIND</span>
+      </span>
     </div>
 
-    <h2>How rental works</h2>
+    <!-- ═════════════════════════════════════════════════════════════
+         NEW RELEASES WALL — this week's episode as the featured VHS
+         ═════════════════════════════════════════════════════════════ -->
+    <section class="cf-shelf cf-shelf--new" aria-labelledby="cf-new-title">
+      <div class="cf-shelf-head">
+        <p class="cf-shelf-eyebrow">◆ Aisle 0 · The Front Wall</p>
+        <h2 class="cf-shelf-title" id="cf-new-title">New Releases</h2>
+        <p class="cf-shelf-note">Fresh off the truck every Wednesday. Grab yours before someone else does. <span class="cf-inline-sticker">★ NEW</span></p>
+      </div>
+      <a class="cf-vhs cf-vhs--hero" href="/issues/issue-04.html">
+        <span class="cf-vhs-sticker cf-vhs-sticker--new">★ NEW ARRIVAL</span>
+        <div class="cf-vhs-cover" style="background-image: url('assets/episodes/issue-04/section-slaiyer-handbook-v1.png');" role="img" aria-label="Episode 04 cover — The SLAiYER Handbook"></div>
+        <div class="cf-vhs-label">
+          <span class="cf-vhs-tape">SUNNYV<span class="ai">Ai</span>LE HOME VIDEO · CHICK FLICKS</span>
+          <span class="cf-vhs-ep">EP 04 · S1</span>
+          <span class="cf-vhs-title">The SL<span class="ai">Ai</span>YER Handbook</span>
+          <span class="cf-vhs-subtitle">Open the LIBR<span class="ai">Ai</span>RY. What to do when someone says "just use AI."</span>
+          <span class="cf-vhs-cta">▶ Take it home</span>
+        </div>
+      </a>
+    </section>
 
-    <ul style="font-size: 16px; line-height: 1.7; padding-left: 22px; color: var(--plum);">
-      <li><strong>New releases</strong> drop every Wednesday on the front shelf</li>
-      <li><strong>The back catalog</strong> is open whenever — no late fees</li>
-      <li><strong>The Study Pack</strong> for each episode lives next door at <a href="/blend-snap.html" style="color: var(--rose); text-decoration: underline;">The Blend & Snap</a> — grab one before the Pop Quiz at <a href="/sunnyvaile-high.html" style="color: var(--rose); text-decoration: underline;">SUNNYVAiLE High</a></li>
-      <li><strong>The Wednesday Drop</strong> sends new releases straight to your inbox if you'd rather not walk over — sign up at <a href="/post-office.html" style="color: var(--rose); text-decoration: underline;">the LAiDIES Post Office</a></li>
-    </ul>
+    <!-- ═════════════════════════════════════════════════════════════
+         AISLE 1 — the full Season 1 shelf (24 slots)
+         ═════════════════════════════════════════════════════════════ -->
+    <section class="cf-shelf cf-shelf--catalog" aria-labelledby="cf-catalog-title">
+      <div class="cf-shelf-head">
+        <p class="cf-shelf-eyebrow">◆ Aisle 1</p>
+        <h2 class="cf-shelf-title" id="cf-catalog-title">Season 1 · The Full Catalog</h2>
+        <p class="cf-shelf-note">Every episode on the shelf. Pull any tape &mdash; no due date, no late fee. Coming-soon slots are placeholders for episodes we haven't shot yet.</p>
+      </div>
 
-    <h2>Why "The Chick Flicks"?</h2>
+      <div class="cf-vhs-grid" role="list">
 
-    <p>
-      Because chick flicks WERE the Wednesday-night rental. Y2K Blockbuster culture, top-shelf-rom-com canon — the genre and the storefront do the brand work together. No brand-Ai needed in the name itself.
-    </p>
+        <a class="cf-vhs cf-vhs--released" href="/issues/issue-01.html" role="listitem">
+          <div class="cf-vhs-cover" style="background-image: url('assets/printables/issue-01-open-the-tab-hero.png'); background-position: center 20%;" role="img" aria-label="Episode 01 cover"></div>
+          <div class="cf-vhs-label">
+            <span class="cf-vhs-tape">SUNNYV<span class="ai">Ai</span>LE HOME VIDEO</span>
+            <span class="cf-vhs-ep">EP 01</span>
+            <span class="cf-vhs-title">On Wednesdays We Use <span class="ai">Ai</span></span>
+            <span class="cf-vhs-cta">▶ Take home</span>
+          </div>
+        </a>
+
+        <a class="cf-vhs cf-vhs--released" href="/issues/issue-02.html" role="listitem">
+          <div class="cf-vhs-cover" style="background-image: url('assets/issue-02-hero.png');" role="img" aria-label="Episode 02 cover"></div>
+          <div class="cf-vhs-label">
+            <span class="cf-vhs-tape">SUNNYV<span class="ai">Ai</span>LE HOME VIDEO</span>
+            <span class="cf-vhs-ep">EP 02</span>
+            <span class="cf-vhs-title">Tell Me What You Want</span>
+            <span class="cf-vhs-cta">▶ Take home</span>
+          </div>
+        </a>
+
+        <a class="cf-vhs cf-vhs--released" href="/issues/issue-03.html" role="listitem">
+          <div class="cf-vhs-cover" style="background-image: url('assets/issue-03-hero.png');" role="img" aria-label="Episode 03 cover"></div>
+          <div class="cf-vhs-label">
+            <span class="cf-vhs-tape">SUNNYV<span class="ai">Ai</span>LE HOME VIDEO</span>
+            <span class="cf-vhs-ep">EP 03</span>
+            <span class="cf-vhs-title">Don't Be Chutney on the Stand</span>
+            <span class="cf-vhs-cta">▶ Take home</span>
+          </div>
+        </a>
+
+        <a class="cf-vhs cf-vhs--released cf-vhs--current" href="/issues/issue-04.html" role="listitem">
+          <span class="cf-vhs-sticker cf-vhs-sticker--new">★ NEW</span>
+          <div class="cf-vhs-cover" style="background-image: url('assets/episodes/issue-04/section-slaiyer-handbook-v1.png');" role="img" aria-label="Episode 04 cover"></div>
+          <div class="cf-vhs-label">
+            <span class="cf-vhs-tape">SUNNYV<span class="ai">Ai</span>LE HOME VIDEO</span>
+            <span class="cf-vhs-ep">EP 04</span>
+            <span class="cf-vhs-title">The SL<span class="ai">Ai</span>YER Handbook</span>
+            <span class="cf-vhs-cta">▶ Take home</span>
+          </div>
+        </a>
+
+        <div class="cf-vhs cf-vhs--upcoming" role="listitem" aria-label="Episode 05 · coming soon">
+          <span class="cf-vhs-sticker cf-vhs-sticker--soon">★ COMING SOON</span>
+          <div class="cf-vhs-cover cf-vhs-cover--blank"><span class="cf-vhs-cover-glyph">EP&nbsp;05</span></div>
+          <div class="cf-vhs-label">
+            <span class="cf-vhs-tape">SUNNYV<span class="ai">Ai</span>LE HOME VIDEO</span>
+            <span class="cf-vhs-ep">EP 05</span>
+            <span class="cf-vhs-title">Welcome to SUNNYV<span class="ai">Ai</span>LE</span>
+            <span class="cf-vhs-cta cf-vhs-cta--muted">Available soon</span>
+          </div>
+        </div>
+
+        <!-- Episodes 6–24 as unrendered slots -->
+        <div class="cf-vhs cf-vhs--unrendered" role="listitem" aria-label="Episode 06"><span class="cf-vhs-unrendered-label">EP 06</span></div>
+        <div class="cf-vhs cf-vhs--unrendered" role="listitem" aria-label="Episode 07"><span class="cf-vhs-unrendered-label">EP 07</span></div>
+        <div class="cf-vhs cf-vhs--unrendered" role="listitem" aria-label="Episode 08"><span class="cf-vhs-unrendered-label">EP 08</span></div>
+        <div class="cf-vhs cf-vhs--unrendered" role="listitem" aria-label="Episode 09"><span class="cf-vhs-unrendered-label">EP 09</span></div>
+        <div class="cf-vhs cf-vhs--unrendered" role="listitem" aria-label="Episode 10"><span class="cf-vhs-unrendered-label">EP 10</span></div>
+        <div class="cf-vhs cf-vhs--unrendered" role="listitem" aria-label="Episode 11"><span class="cf-vhs-unrendered-label">EP 11</span></div>
+        <div class="cf-vhs cf-vhs--unrendered" role="listitem" aria-label="Episode 12"><span class="cf-vhs-unrendered-label">EP 12</span></div>
+        <div class="cf-vhs cf-vhs--unrendered" role="listitem" aria-label="Episode 13"><span class="cf-vhs-unrendered-label">EP 13</span></div>
+        <div class="cf-vhs cf-vhs--unrendered" role="listitem" aria-label="Episode 14"><span class="cf-vhs-unrendered-label">EP 14</span></div>
+        <div class="cf-vhs cf-vhs--unrendered" role="listitem" aria-label="Episode 15"><span class="cf-vhs-unrendered-label">EP 15</span></div>
+        <div class="cf-vhs cf-vhs--unrendered" role="listitem" aria-label="Episode 16"><span class="cf-vhs-unrendered-label">EP 16</span></div>
+        <div class="cf-vhs cf-vhs--unrendered" role="listitem" aria-label="Episode 17"><span class="cf-vhs-unrendered-label">EP 17</span></div>
+        <div class="cf-vhs cf-vhs--unrendered" role="listitem" aria-label="Episode 18"><span class="cf-vhs-unrendered-label">EP 18</span></div>
+        <div class="cf-vhs cf-vhs--unrendered" role="listitem" aria-label="Episode 19"><span class="cf-vhs-unrendered-label">EP 19</span></div>
+        <div class="cf-vhs cf-vhs--unrendered" role="listitem" aria-label="Episode 20"><span class="cf-vhs-unrendered-label">EP 20</span></div>
+        <div class="cf-vhs cf-vhs--unrendered" role="listitem" aria-label="Episode 21"><span class="cf-vhs-unrendered-label">EP 21</span></div>
+        <div class="cf-vhs cf-vhs--unrendered" role="listitem" aria-label="Episode 22"><span class="cf-vhs-unrendered-label">EP 22</span></div>
+        <div class="cf-vhs cf-vhs--unrendered" role="listitem" aria-label="Episode 23"><span class="cf-vhs-unrendered-label">EP 23</span></div>
+        <div class="cf-vhs cf-vhs--unrendered" role="listitem" aria-label="Episode 24"><span class="cf-vhs-unrendered-label">EP 24</span></div>
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════════════
+         Browse by Aisle — episodes shelved by topic (Aisles 2–7)
+         ═════════════════════════════════════════════════════════════ -->
+    <section class="cf-shelf cf-shelf--aisles" aria-labelledby="cf-aisles-title">
+      <div class="cf-shelf-head">
+        <p class="cf-shelf-eyebrow">◆ Aisles 2 – 7</p>
+        <h2 class="cf-shelf-title" id="cf-aisles-title">Browse by Aisle</h2>
+        <p class="cf-shelf-note">Every tape shelved by topic. One episode can sit on more than one shelf &mdash; that's how video stores work. Some aisles are quiet for now; they fill up as episodes drop.</p>
+      </div>
+
+      <div class="cf-aisles">
+
+        <!-- Aisle 2 · Prompting -->
+        <div class="cf-aisle" id="aisle-prompting">
+          <div class="cf-aisle-head">
+            <div class="cf-aisle-head-copy">
+              <p class="cf-aisle-num">◆ Aisle 2 · Prompting</p>
+              <p class="cf-aisle-blurb">How to talk to <span class="ai">Ai</span> so it actually gets you.</p>
+            </div>
+            <span class="cf-aisle-count">6 tapes · 3 on shelf</span>
+          </div>
+          <div class="cf-aisle-strip">
+            <a class="cf-vhs cf-vhs--mini cf-vhs--released" href="/issues/issue-01.html">
+              <div class="cf-vhs-cover" style="background-image: url('assets/printables/issue-01-open-the-tab-hero.png'); background-position: center 20%;" role="img" aria-label="Episode 01"></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 01</span>
+                <span class="cf-vhs-title">On Wednesdays We Use <span class="ai">Ai</span></span>
+                <span class="cf-vhs-cta">▶ Take home</span>
+              </div>
+            </a>
+            <a class="cf-vhs cf-vhs--mini cf-vhs--released" href="/issues/issue-02.html">
+              <div class="cf-vhs-cover" style="background-image: url('assets/issue-02-hero.png');" role="img" aria-label="Episode 02"></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 02</span>
+                <span class="cf-vhs-title">Tell Me What You Want</span>
+                <span class="cf-vhs-cta">▶ Take home</span>
+              </div>
+            </a>
+            <a class="cf-vhs cf-vhs--mini cf-vhs--released" href="/issues/issue-04.html">
+              <div class="cf-vhs-cover" style="background-image: url('assets/episodes/issue-04/section-slaiyer-handbook-v1.png');" role="img" aria-label="Episode 04"></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 04</span>
+                <span class="cf-vhs-title">The SL<span class="ai">Ai</span>YER Handbook</span>
+                <span class="cf-vhs-cta">▶ Take home</span>
+              </div>
+            </a>
+            <div class="cf-vhs cf-vhs--mini cf-vhs--upcoming" aria-label="Episode 08 · coming later this season">
+              <div class="cf-vhs-cover cf-vhs-cover--blank"><span class="cf-vhs-cover-glyph">EP&nbsp;08</span></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 08</span>
+                <span class="cf-vhs-title">Cher's Closet Needs Context</span>
+                <span class="cf-vhs-cta cf-vhs-cta--muted">Coming later this season</span>
+              </div>
+            </div>
+            <div class="cf-vhs cf-vhs--mini cf-vhs--upcoming" aria-label="Episode 16 · coming later this season">
+              <div class="cf-vhs-cover cf-vhs-cover--blank"><span class="cf-vhs-cover-glyph">EP&nbsp;16</span></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 16</span>
+                <span class="cf-vhs-title">Caboodles for Your Workflows</span>
+                <span class="cf-vhs-cta cf-vhs-cta--muted">Coming later this season</span>
+              </div>
+            </div>
+            <div class="cf-vhs cf-vhs--mini cf-vhs--upcoming" aria-label="Episode 22 · coming later this season">
+              <div class="cf-vhs-cover cf-vhs-cover--blank"><span class="cf-vhs-cover-glyph">EP&nbsp;22</span></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 22</span>
+                <span class="cf-vhs-title">Bring It On, But With Briefs</span>
+                <span class="cf-vhs-cta cf-vhs-cta--muted">Coming later this season</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aisle 3 · Style & Voice -->
+        <div class="cf-aisle" id="aisle-style-voice">
+          <div class="cf-aisle-head">
+            <div class="cf-aisle-head-copy">
+              <p class="cf-aisle-num">◆ Aisle 3 · Style &amp; Voice</p>
+              <p class="cf-aisle-blurb">Writing with <span class="ai">Ai</span> without losing yours.</p>
+            </div>
+            <span class="cf-aisle-count">5 tapes · 2 on shelf</span>
+          </div>
+          <div class="cf-aisle-strip">
+            <a class="cf-vhs cf-vhs--mini cf-vhs--released" href="/issues/issue-02.html">
+              <div class="cf-vhs-cover" style="background-image: url('assets/issue-02-hero.png');" role="img" aria-label="Episode 02"></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 02</span>
+                <span class="cf-vhs-title">Tell Me What You Want</span>
+                <span class="cf-vhs-cta">▶ Take home</span>
+              </div>
+            </a>
+            <a class="cf-vhs cf-vhs--mini cf-vhs--released" href="/issues/issue-03.html">
+              <div class="cf-vhs-cover" style="background-image: url('assets/issue-03-hero.png');" role="img" aria-label="Episode 03"></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 03</span>
+                <span class="cf-vhs-title">Don't Be Chutney on the Stand</span>
+                <span class="cf-vhs-cta">▶ Take home</span>
+              </div>
+            </a>
+            <div class="cf-vhs cf-vhs--mini cf-vhs--upcoming" aria-label="Episode 09 · coming later this season">
+              <div class="cf-vhs-cover cf-vhs-cover--blank"><span class="cf-vhs-cover-glyph">EP&nbsp;09</span></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 09</span>
+                <span class="cf-vhs-title">The <span class="ai">Ai</span>M Away Message Glow-Up</span>
+                <span class="cf-vhs-cta cf-vhs-cta--muted">Coming later this season</span>
+              </div>
+            </div>
+            <div class="cf-vhs cf-vhs--mini cf-vhs--upcoming" aria-label="Episode 15 · coming later this season">
+              <div class="cf-vhs-cover cf-vhs-cover--blank"><span class="cf-vhs-cover-glyph">EP&nbsp;15</span></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 15</span>
+                <span class="cf-vhs-title">No Doubt, That's Your Voice</span>
+                <span class="cf-vhs-cta cf-vhs-cta--muted">Coming later this season</span>
+              </div>
+            </div>
+            <div class="cf-vhs cf-vhs--mini cf-vhs--upcoming" aria-label="Episode 17 · coming later this season">
+              <div class="cf-vhs-cover cf-vhs-cover--blank"><span class="cf-vhs-cover-glyph">EP&nbsp;17</span></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 17</span>
+                <span class="cf-vhs-title">The Cerulean Business Case</span>
+                <span class="cf-vhs-cta cf-vhs-cta--muted">Coming later this season</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aisle 4 · Everyday Use -->
+        <div class="cf-aisle" id="aisle-everyday">
+          <div class="cf-aisle-head">
+            <div class="cf-aisle-head-copy">
+              <p class="cf-aisle-num">◆ Aisle 4 · Everyday Use</p>
+              <p class="cf-aisle-blurb">Practical rituals &mdash; the stuff you'll do on a Wednesday.</p>
+            </div>
+            <span class="cf-aisle-count">7 tapes · 2 on shelf</span>
+          </div>
+          <div class="cf-aisle-strip">
+            <a class="cf-vhs cf-vhs--mini cf-vhs--released" href="/issues/issue-01.html">
+              <div class="cf-vhs-cover" style="background-image: url('assets/printables/issue-01-open-the-tab-hero.png'); background-position: center 20%;" role="img" aria-label="Episode 01"></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 01</span>
+                <span class="cf-vhs-title">On Wednesdays We Use <span class="ai">Ai</span></span>
+                <span class="cf-vhs-cta">▶ Take home</span>
+              </div>
+            </a>
+            <a class="cf-vhs cf-vhs--mini cf-vhs--released" href="/issues/issue-04.html">
+              <div class="cf-vhs-cover" style="background-image: url('assets/episodes/issue-04/section-slaiyer-handbook-v1.png');" role="img" aria-label="Episode 04"></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 04</span>
+                <span class="cf-vhs-title">The SL<span class="ai">Ai</span>YER Handbook</span>
+                <span class="cf-vhs-cta">▶ Take home</span>
+              </div>
+            </a>
+            <div class="cf-vhs cf-vhs--mini cf-vhs--upcoming" aria-label="Episode 05 · coming soon">
+              <div class="cf-vhs-cover cf-vhs-cover--blank"><span class="cf-vhs-cover-glyph">EP&nbsp;05</span></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 05</span>
+                <span class="cf-vhs-title">Welcome to SUNNYV<span class="ai">Ai</span>LE</span>
+                <span class="cf-vhs-cta cf-vhs-cta--muted">Available soon</span>
+              </div>
+            </div>
+            <div class="cf-vhs cf-vhs--mini cf-vhs--upcoming" aria-label="Episode 07 · coming later this season">
+              <div class="cf-vhs-cover cf-vhs-cover--blank"><span class="cf-vhs-cover-glyph">EP&nbsp;07</span></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 07</span>
+                <span class="cf-vhs-title">9 to 5, But Delegate It</span>
+                <span class="cf-vhs-cta cf-vhs-cta--muted">Coming later this season</span>
+              </div>
+            </div>
+            <div class="cf-vhs cf-vhs--mini cf-vhs--upcoming" aria-label="Episode 10 · coming later this season">
+              <div class="cf-vhs-cover cf-vhs-cover--blank"><span class="cf-vhs-cover-glyph">EP&nbsp;10</span></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 10</span>
+                <span class="cf-vhs-title">The Devil Wears Agenda</span>
+                <span class="cf-vhs-cta cf-vhs-cta--muted">Coming later this season</span>
+              </div>
+            </div>
+            <div class="cf-vhs cf-vhs--mini cf-vhs--upcoming" aria-label="Episode 13 · coming later this season">
+              <div class="cf-vhs-cover cf-vhs-cover--blank"><span class="cf-vhs-cover-glyph">EP&nbsp;13</span></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 13</span>
+                <span class="cf-vhs-title">Is the Upgrade Giving VIP?</span>
+                <span class="cf-vhs-cta cf-vhs-cta--muted">Coming later this season</span>
+              </div>
+            </div>
+            <div class="cf-vhs cf-vhs--mini cf-vhs--upcoming" aria-label="Episode 24 · coming later this season">
+              <div class="cf-vhs-cover cf-vhs-cover--blank"><span class="cf-vhs-cover-glyph">EP&nbsp;24</span></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 24</span>
+                <span class="cf-vhs-title">The Businesswomen's Special</span>
+                <span class="cf-vhs-cta cf-vhs-cta--muted">Season finale</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aisle 5 · Ethics -->
+        <div class="cf-aisle" id="aisle-ethics">
+          <div class="cf-aisle-head">
+            <div class="cf-aisle-head-copy">
+              <p class="cf-aisle-num">◆ Aisle 5 · Ethics</p>
+              <p class="cf-aisle-blurb">Bias, harm, and the should-you-vs-can-you questions.</p>
+            </div>
+            <span class="cf-aisle-count">5 tapes · 1 on shelf</span>
+          </div>
+          <div class="cf-aisle-strip">
+            <a class="cf-vhs cf-vhs--mini cf-vhs--released" href="/issues/issue-03.html">
+              <div class="cf-vhs-cover" style="background-image: url('assets/issue-03-hero.png');" role="img" aria-label="Episode 03"></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 03</span>
+                <span class="cf-vhs-title">Don't Be Chutney on the Stand</span>
+                <span class="cf-vhs-cta">▶ Take home</span>
+              </div>
+            </a>
+            <div class="cf-vhs cf-vhs--mini cf-vhs--upcoming" aria-label="Episode 11 · coming later this season">
+              <div class="cf-vhs-cover cf-vhs-cover--blank"><span class="cf-vhs-cover-glyph">EP&nbsp;11</span></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 11</span>
+                <span class="cf-vhs-title">No Scrubs, No Sensitive Data</span>
+                <span class="cf-vhs-cta cf-vhs-cta--muted">Coming later this season</span>
+              </div>
+            </div>
+            <div class="cf-vhs cf-vhs--mini cf-vhs--upcoming" aria-label="Episode 12 · coming later this season">
+              <div class="cf-vhs-cover cf-vhs-cover--blank"><span class="cf-vhs-cover-glyph">EP&nbsp;12</span></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 12</span>
+                <span class="cf-vhs-title">That Don't Impress Me Much</span>
+                <span class="cf-vhs-cta cf-vhs-cta--muted">Coming later this season</span>
+              </div>
+            </div>
+            <div class="cf-vhs cf-vhs--mini cf-vhs--upcoming" aria-label="Episode 18 · coming later this season">
+              <div class="cf-vhs-cover cf-vhs-cover--blank"><span class="cf-vhs-cover-glyph">EP&nbsp;18</span></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 18</span>
+                <span class="cf-vhs-title">Receipts, Please</span>
+                <span class="cf-vhs-cta cf-vhs-cta--muted">Coming later this season</span>
+              </div>
+            </div>
+            <div class="cf-vhs cf-vhs--mini cf-vhs--upcoming" aria-label="Episode 23 · coming later this season">
+              <div class="cf-vhs-cover cf-vhs-cover--blank"><span class="cf-vhs-cover-glyph">EP&nbsp;23</span></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 23</span>
+                <span class="cf-vhs-title">The Golden Girls at the Grown-Up Table</span>
+                <span class="cf-vhs-cta cf-vhs-cta--muted">Coming later this season</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aisle 6 · History -->
+        <div class="cf-aisle" id="aisle-history">
+          <div class="cf-aisle-head">
+            <div class="cf-aisle-head-copy">
+              <p class="cf-aisle-num">◆ Aisle 6 · History</p>
+              <p class="cf-aisle-blurb">Where <span class="ai">Ai</span> came from and the women who built it.</p>
+            </div>
+            <span class="cf-aisle-count">Empty shelf</span>
+          </div>
+          <div class="cf-aisle-strip">
+            <div class="cf-aisle-empty">★ History gets told in portraits, not tapes &mdash; meet the Saints, Mavens &amp; Builders at <a href="/sanctuary.html" style="color: var(--rose); font-weight: 600;">SANCTU<span class="ai">Ai</span>RY</a>. New tapes here as the season expands.</div>
+          </div>
+        </div>
+
+        <!-- Aisle 7 · Creative -->
+        <div class="cf-aisle" id="aisle-creative">
+          <div class="cf-aisle-head">
+            <div class="cf-aisle-head-copy">
+              <p class="cf-aisle-num">◆ Aisle 7 · Creative</p>
+              <p class="cf-aisle-blurb">Making things &mdash; images, music, writing.</p>
+            </div>
+            <span class="cf-aisle-count">2 tapes · 0 on shelf</span>
+          </div>
+          <div class="cf-aisle-strip">
+            <div class="cf-vhs cf-vhs--mini cf-vhs--upcoming" aria-label="Episode 14 · coming later this season">
+              <div class="cf-vhs-cover cf-vhs-cover--blank"><span class="cf-vhs-cover-glyph">EP&nbsp;14</span></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 14</span>
+                <span class="cf-vhs-title">The Clueless Closet Was Multimodal</span>
+                <span class="cf-vhs-cta cf-vhs-cta--muted">Coming later this season</span>
+              </div>
+            </div>
+            <div class="cf-vhs cf-vhs--mini cf-vhs--upcoming" aria-label="Episode 20 · coming later this season">
+              <div class="cf-vhs-cover cf-vhs-cover--blank"><span class="cf-vhs-cover-glyph">EP&nbsp;20</span></div>
+              <div class="cf-vhs-label">
+                <span class="cf-vhs-ep">EP 20</span>
+                <span class="cf-vhs-title">Meet Miranda</span>
+                <span class="cf-vhs-cta cf-vhs-cta--muted">Coming later this season</span>
+              </div>
+            </div>
+            <div class="cf-aisle-empty">★ Visit <a href="/bronze-aige.html" style="color: var(--rose); font-weight: 600;">BRONZE <span class="ai">Ai</span>GE</a> or <a href="/radio.html" style="color: var(--rose); font-weight: 600;">KSVL</a> for creative rituals now.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════════════
+         How rental works — moved below the shelves (context after browsing)
+         ═════════════════════════════════════════════════════════════ -->
+    <section class="cf-rules">
+      <p class="cf-rules-eyebrow">◆ House rules · Chick Flicks Video · est. 1999</p>
+      <h2 class="cf-rules-title">How rental works.</h2>
+      <p class="cf-rules-lede">The Chick Flicks is a video store &mdash; but nothing's actually rented, nothing's ever due back, and no one's going to lecture you about the late fee.</p>
+      <ul class="cf-rules-list">
+        <li><strong>New releases</strong> drop every Wednesday on the front wall.</li>
+        <li><strong>The back catalog</strong> is open whenever &mdash; no late fees.</li>
+        <li><strong>The Study Pack</strong> for each episode lives next door at <a href="/blend-snap.html">The Blend &amp; Snap</a> &mdash; grab one before the Pop Quiz at <a href="/sunnyvaile-high.html">SUNNYV<span class="ai">Ai</span>LE High</a>.</li>
+        <li><strong>The Wednesday Postcard</strong> sends new releases straight to your inbox if you'd rather not walk over &mdash; sign up at <a href="/post-office.html">the L<span class="ai">Ai</span>DIES Post Office</a>.</li>
+        <li><strong>Be kind. Please. Rewind.</strong> Even though it's streaming. It's the principle.</li>
+      </ul>
+    </section>
 
     <div class="sv-ctas">
-      <a class="sv-cta sv-cta--primary" href="/this-week.html">
+      <a class="sv-cta sv-cta--primary" href="/issues/issue-04.html">
         <span>
           <span class="sv-cta-label">Watch this week</span>
-          <span class="sv-cta-title">Episode 04 — Open the LIBRAiRY →</span>
+          <span class="sv-cta-title">Episode 04 &mdash; The SL<span class="ai">Ai</span>YER Handbook &rarr;</span>
         </span>
-        <span class="sv-cta-arrow">→</span>
+        <span class="sv-cta-arrow">&rarr;</span>
       </a>
-      <a class="sv-cta" href="/episodes.html">
+      <a class="sv-cta" href="/post-office.html">
         <span>
-          <span class="sv-cta-label">Browse the back catalog</span>
-          <span class="sv-cta-title">The full episode grid</span>
+          <span class="sv-cta-label">Prefer delivery?</span>
+          <span class="sv-cta-title">Wednesday Postcard via the Post Office</span>
         </span>
-        <span class="sv-cta-arrow">→</span>
+        <span class="sv-cta-arrow">&rarr;</span>
       </a>
     </div>
 
   </main>
 
-  <footer>© LAiDIES · Filed from SUNNYVAiLE · The Chick Flicks</footer>
+  <footer>© LAiDIES · Filed from SUNNYVAiLE · The Chick Flicks · MAiN Street No. 3</footer>
 
+  <script defer src="/content/site/sv-tour-checkin.js?v=20260702-2"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260704-12"></script>
+    <script defer src="/content/site/quick-rail.js?v=20260704-2"></script>
+    <script defer src="/content/site/charm-hunt.js?v=20260704-y2k3b"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260704-5"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260704-canon"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260704-1"></script>
 </body>
 </html>

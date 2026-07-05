@@ -309,10 +309,10 @@ const fortuneCards = [
     move: "Create the simpler version that still gets the job done.",
   },
   {
-    card: "The Spice Rack",
-    read: "You are saying you want flavor, but the prompt is giving plain oatmeal.",
-    message: "Specificity is seasoning. Add audience, tone, examples, and what good looks like.",
-    move: "Rewrite one vague ask with five concrete details.",
+    card: "The Pixie Stick",
+    read: "You wanted flavour, but handed over a prompt with the sugar content of an empty paper straw.",
+    message: "Specificity is the sugar. The more info (audience, tone, context, examples, and what \"good\" looks like), the sweeter the output. Sprinkle in at least 5 pixie sticks.",
+    move: "Rewrite one vague ask with five concrete details and watch what comes back.",
   },
   {
     card: "The Denim Jacket",

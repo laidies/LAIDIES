@@ -766,7 +766,7 @@
     </nav>
   </header>
 
-  <a class="wednesday-return" data-wednesday-return href="this-week.html?issue=2&bag=open">&larr; Back to the Bag</a>
+  <a class="wednesday-return" data-wednesday-return href="/">&larr; Back to the Bag</a>
 
   <main>
     <section class="tryon-hero" aria-labelledby="tryonTitle">
@@ -777,7 +777,7 @@
       </div>
       <aside class="desk-note" aria-label="Try-On reminder">
         <strong>Five-minute fit check</strong>
-        <p>Do not make this a whole productivity arc. One task. One before. One after. That is the point.</p>
+        <p>Do not turn this into a productivity arc. One task. One before. One after. That is the point.</p>
       </aside>
     </section>
 
@@ -786,7 +786,7 @@
         <span>Ritual connection</span>
         <p>The episode explains the idea. The Try-On is where you apply it to actual work before the week becomes another open tab.</p>
       </div>
-      <a class="button secondary" href="this-week.html?issue=2&bag=open">Back to the Bag</a>
+      <a class="button secondary" href="/">Back to the Bag</a>
     </aside>
 
     <section class="tryon-shell">
@@ -898,7 +898,7 @@
             <button class="button" id="saveButton" type="submit">Save Try-On</button>
             <a class="button secondary" id="communityLink" href="community.html?from=this-week&issue=2&bag=open">Share in Community</a>
           </div>
-          <p class="save-note">For now, this saves on this device. Residence Card saving is coming.</p>
+          <p class="save-note">For now, this saves on this device. Residence Card saving is in the works.</p>
           <p class="save-status" id="saveStatus" aria-live="polite" hidden></p>
         </form>
       </section>
@@ -957,8 +957,8 @@
       },
       3: {
         pad: "03",
-        title: "The Burn Book Problem",
-        lede: "A five-minute fitting-room Try-On for The Burn Book Problem. One low-risk work task, one Prompt Like Elle pass, one safer version.",
+        title: "Don't Be Chutney on the Stand",
+        lede: "A five-minute fitting-room Try-On for Don't Be Chutney on the Stand. One low-risk work task, one Prompt Like Elle pass, one safer version.",
         exerciseTitle: "Prompt Like Elle.",
         instruction: "Use this before AI drafts. Bring a low-risk, non-confidential work task or notes, open your approved AI tool, paste Prompt Like Elle, then paste the task underneath it. Check the receipts yourself before anything borrows your name.",
         notesPlaceholder: "What did the receipts pass catch? Which claim needed a source, date, policy, person, or meeting note?",
@@ -1012,13 +1012,13 @@
       },
       4: {
         pad: "04",
-        title: "A Slayer Needs a Watcher",
+        title: "A SLAiYER Needs a Watcher",
         exerciseTitle: "Make one real tool call — on purpose.",
         instruction: "The whole Handbook comes down to one move: stop saying \"just use AI\" and start choosing. Here's the rep.",
         steps: [
           "Name one real task from your week. A true one. (The delay email. The messy report. The half-formed plan.)",
           "Before you open anything, call it. Which of the five Field Guide categories does this need? Most of the time it's a big general assistant (ChatGPT, Claude, Gemini — same category, pick the one you've got). Sometimes the task tells you it's a specialist job — live sources, a real document, an image.",
-          "Say why out loud. One sentence: \"This is a generalist task because ___\" or \"This needs a specialist because ___.\" That sentence is the whole skill. That's the Watcher move — knowing what you're walking into before you walk in.",
+          "Say why out loud. One sentence: \"This is a generalist task because ___\" or \"This needs a specialist because ___.\" That sentence is the skill. That's the Watcher move — knowing what you're walking into before you walk in.",
           "Now go. Open the one you picked and do the task. You already know how to brief it and how to check it — that's not new. What's new is that you chose, instead of defaulting.",
           "The point: Episode 4 isn't \"how to use AI\" — you've been doing that since Episode 2. It's \"which AI, and why.\" One conscious choice beats ten reviews."
         ]
@@ -1195,14 +1195,14 @@
       var draftParam = params.get("draft") === "1" ? "&draft=1" : "";
       var returnGroup = params.get("group") || "practice";
       var groupParam = returnGroup ? "&group=" + encodeURIComponent(returnGroup) : "";
-      var returnHref = "this-week.html?issue=" + encodeURIComponent(issue) + "&bag=open" + groupParam + draftParam;
+      var returnHref = "/";
       if (returnLink) {
         returnLink.href = returnHref;
-        returnLink.textContent = returnGroup === "practice" ? "\u2190 Back to Weekly Study Pack" : "\u2190 Back to the Bag";
+        returnLink.textContent = "\u2190 Back to SUNNYVAiLE";
       }
       if (portalReturnLink) {
         portalReturnLink.href = returnHref;
-        portalReturnLink.textContent = returnGroup === "practice" ? "Back to Weekly Study Pack" : "Back to the Bag";
+        portalReturnLink.textContent = "Back to SUNNYVAiLE";
       }
       if (communityLink) communityLink.href = "community.html?from=this-week&issue=" + encodeURIComponent(issue) + "&bag=open&group=connect" + draftParam;
       if (tryonSteps) {
@@ -1312,5 +1312,8 @@
   })();
   </script>
     <script src="content/site/brand-polish.js?v=wm1" defer></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260704-12"></script>
+    <script defer src="/content/site/quick-rail.js?v=20260704-2"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260704-5"></script>
 </body>
 </html>

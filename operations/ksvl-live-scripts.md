@@ -1,6 +1,8 @@
 # KSVL "Tune In Live" · Script Pack
 
-**Purpose:** Interstitial audio between songs on the KSVL Radio stream. Two types — **Commercials** (20-30 sec, fake radio spots for SUNNYVAiLE businesses/places) and **DJ Transitions** (10-15 sec, DJ JAiDY patter). These rotate randomly between songs to make KSVL feel like a live small-town station.
+> ⚠️ 2026-07-04 — street addresses updated to the new canonical layout (Blend & Snap 8→4, Bronze 5→7, CLAi-O 6→5, Mall 4→9, Chick Flicks 7→3). Spots recorded BEFORE this date speak the old numbers — see the re-record list.
+
+**Purpose:** Interstitial audio between songs on the KSVL Radio stream. Two types — **Commercials** (20-30 sec, fake radio spots for SUNNYVAiLE businesses/places) and **DJ Transitions** (10-15 sec, DJ SunnyV patter). These rotate randomly between songs to make KSVL feel like a live small-town station.
 
 **Output:** Ali records via ElevenLabs (voice-clone-per-character) or self-records. Files land in `content/music/ksvl-spots/` with filenames matching the slug in each script's header.
 
@@ -57,7 +59,7 @@
 >
 > Come to the Blend & Snap. Your usual is on. The cortado you order every week, the corner booth by the window, the Study Pack waiting on the counter with your name on the sticky note.
 >
-> The Blend & Snap. No. 8 MAiN. Order at the bar. We'll remember you."
+> The Blend & Snap. No. 4 MAiN. Order at the bar. We'll remember you."
 
 **Delivery notes:** dry warmth. The "we'll remember you" lands soft, sincere. Not saccharine.
 
@@ -79,7 +81,7 @@
 >
 > THE LAiDIES on the stage at 8. First set is Wednesday material, second set is whatever they feel like. Coven has a standing reservation.
 >
-> No. 5 MAiN. Ryan's at the bar. Come as you are, leave a little louder."
+> No. 7 MAiN. Ryan's at the bar. Come as you are, leave a little louder."
 
 **Delivery notes:** the "yes, we know · that's the point" is the joke. Deliver it flat. Don't wink.
 
@@ -99,7 +101,7 @@
 >
 > Come to me. Twenty dollars. One card. One read. One move.
 >
-> Walk-ins welcome. No. 6 MAiN. Cash preferred.
+> Walk-ins welcome. No. 5 MAiN. Cash preferred.
 >
 > Mme CLAi-O sees everything you already know."
 
@@ -109,25 +111,25 @@
 
 ---
 
-### 5 · The SANCTUAiRY — Come Light a Candle
+### 5 · The LUMINAiRY — Come Light a Candle
 
-**Filename:** `spot-sanctuairy-light-a-candle.mp3`
+**Filename:** `spot-luminairy-light-a-candle.mp3`
 **Length:** ~22 sec
-**Voice:** DJ JAiDY doing a serious-voice reverent PSA read. Just this side of church-choir.
+**Voice:** DJ SunnyV doing a serious-voice reverent PSA read. Just this side of church-choir.
 
 **SCRIPT:**
 
-> "The SANCTUAiRY on Cathedral Hill. Two wings, same chapel.
+> "The LUMINAiRY on Lantern Hill. Three wings, same glow.
 >
-> Pay homage to your Saints. Nod to the Mavens. Light a candle for the woman you're trying to be next week.
+> Pay homage to your SAiNTS. Nod to the MAiVENS. Tip your visor to the TRAiLBLAZERS. Light a candle for the woman you're trying to be next week.
 >
-> Open dawn to dusk. Bring your intention. Leave it.
+> Open dawn to dusk.
 >
-> The SANCTUAiRY. Where the borrowed moves live."
+> The LUMINAiRY. Where the borrowed moves live."
 
-**Delivery notes:** genuine reverence, not fake. This is the sacred-but-not-church place. Should feel a little like a real church ad but with better copy.
+**Delivery notes:** genuine reverence, not fake. Warm gallery-guide energy, not church.
 
-**Canon tie:** [[sunnyvaile-world]], Patron Saints + Mavens two wings, "pledge Allegiance" tagline.
+**Canon tie:** [[sunnyvaile-world]], PATRON SAiNTS + MAiVENS + TRAiLBLAZERS three wings, "pledge Allegiance" tagline.
 
 ---
 
@@ -187,7 +189,7 @@
 >
 > CLAiRE'S at the Mall — butterfly clips three for five dollars this weekend only. Mood rings, snap barrettes, temporary tattoos — everything you never needed, all of it half off.
 >
-> The Mall · No. 4 MAiN · ten shops of 90s and Y2K reference.
+> The Mall · No. 9 MAiN · ten shops of 90s and Y2K reference.
 >
 > Come find what you forgot you were looking for."
 
@@ -209,7 +211,7 @@
 >
 > Pop Quiz Wednesday at SUNNYVAiLE High. This week's chapter — Prompting 101.
 >
-> Study up first. Study Pack available at the Blend & Snap. No. 8 MAiN.
+> Study up first. Study Pack available at the Blend & Snap. No. 4 MAiN.
 >
 > Bring a pen. Bring a Hall Pass if you have one. If you don't, don't be late.
 >
@@ -243,17 +245,17 @@
 
 ---
 
-## DJ JAiDY TRANSITIONS
+## DJ SunnyV TRANSITIONS
 
 ### T1 · The Signature Open
 
 **Filename:** `dj-jaidy-signature-open.mp3`
 **Length:** ~12 sec
-**Voice:** DJ JAiDY. Warm, present, a little playful. Small-town-DJ authority.
+**Voice:** DJ SunnyV. Warm, present, a little playful. Small-town-DJ authority.
 
 **SCRIPT:**
 
-> "You're listening to KSVL. I'm DJ JAiDY.
+> "You're listening to KSVL. I'm DJ SunnyV.
 >
 > Wednesday somewhere, sunny somewhere, and something's about to play. Stick around."
 
@@ -265,7 +267,7 @@
 
 **Filename:** `dj-jaidy-weather.mp3`
 **Length:** ~14 sec
-**Voice:** DJ JAiDY doing a weather-lady voice. Cheerful, informed, slightly aware it's a bit.
+**Voice:** DJ SunnyV doing a weather-lady voice. Cheerful, informed, slightly aware it's a bit.
 
 **SCRIPT:**
 
@@ -283,11 +285,11 @@
 
 **Filename:** `dj-jaidy-time-check.mp3`
 **Length:** ~10 sec
-**Voice:** DJ JAiDY. Radio-DJ standard.
+**Voice:** DJ SunnyV. Radio-DJ standard.
 
 **SCRIPT:**
 
-> "It's Wednesday in SUNNYVAiLE. Somewhere on Main Street a Study Pack is being picked up. Somewhere on Cathedral Hill a candle is being lit. Somewhere in Deb's office a printer is still jammed.
+> "It's Wednesday in SUNNYVAiLE. Somewhere on Main Street a Study Pack is being picked up. Somewhere on Lantern Hill a light is coming on. Somewhere in Deb's office a printer is still jammed.
 >
 > Coming up on the hour."
 
@@ -301,7 +303,7 @@
 
 **Filename:** `dj-jaidy-traffic-report.mp3`
 **Length:** ~10 sec
-**Voice:** DJ JAiDY doing a traffic-report register — helicopter-over-the-highway urgency, then deflates immediately.
+**Voice:** DJ SunnyV doing a traffic-report register — helicopter-over-the-highway urgency, then deflates immediately.
 
 **SCRIPT:**
 
@@ -319,7 +321,7 @@
 
 **Filename:** `dj-jaidy-signoff.mp3`
 **Length:** ~14 sec
-**Voice:** DJ JAiDY. Sincere. This is her sign-off — she means it.
+**Voice:** DJ SunnyV. Sincere. This is her sign-off — she means it.
 
 **SCRIPT:**
 
@@ -331,14 +333,14 @@
 
 **Delivery notes:** the middle line is the joke — she's obeying Deb by NOT saying her role, but the sentence itself is the announcement of that. The "see you Wednesday" is a warm goodnight.
 
-**Canon tie:** Deb-flection™ working through DJ JAiDY.
+**Canon tie:** Deb-flection™ working through DJ SunnyV.
 
 ---
 
 ## Production Notes
 
 **For ElevenLabs:**
-- Voice-clone one master voice for **DJ JAiDY** (Ali? Or a specific voice actor). Use across T1–T5 + the SANCTUAiRY spot.
+- Voice-clone one master voice for **DJ SunnyV** (Ali? Or a specific voice actor). Use across T1–T5 + the LUMINAiRY spot.
 - **Deb** should be its own dedicated voice — flatter, drier, weary.
 - **Mme CLAi-O** distinct — the East European accent is important.
 - Other spots (Blend & Snap, BRONZE AiGE, Post Office, Delta LAi Nu, Mall, SUNNYVAiLE High, Chick Flicks) can share a small pool of 2-3 "announcer" voices — variation is fine.

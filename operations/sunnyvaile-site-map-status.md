@@ -34,7 +34,7 @@ This is the working checklist. Each row = one location in town. Use the status f
 |---|---|---|---|---|---|---|
 | **No. 1** | The Welcome Wagon Visitor's Centre | `visitors-centre.html` | ✅ | ✅ | 🎨 | Renamed from "Visitor's Centre" 2026-06-29. Storefront exists (`01-welcome-wagon-visitors-centre.png`). **Welcome sign v3** still needed — current v1/v2 too Bridgerton-enamel; needs Y2K-mall texture. |
 | **No. 2** | The NewsStand | `hot-goss.html` (filename retiring) | 🟡 | 🟡 | 🔄 | Image exists (`02-sunnyvaile-newsstand.png`). **Hot Goss → NewsStand page rebrand still in flight (Codex).** Filename rename pending. Brand-Ai regen needed on storefront sign. |
-| **No. 3** | The Town LIBRAiRY | `library.html` | ✅ | ✅ | ✅ | Built this session. "Open the LIBRAiRY" song by DJ JAiDY wired. `03-town-library.png` exists. |
+| **No. 3** | The Town LIBRAiRY | `library.html` | ✅ | ✅ | ✅ | Built this session. "Open the LIBRAiRY" song by DJ SunnyV wired. `03-town-library.png` exists. |
 | **No. 4** | The Mall | `mall.html` | ✅ | ✅ | ✅ | Built. 10 stops locked (CLAiRE'S, MAiYBE, As Seen on TV, Rollin' with my Homies, Books and Records, Gizmos and Gadgets, Hanger Management, The Food Court, I Know What You Did Last (x30) Summer, The Mall Kiosk). `04-the-mall.png` exists. **Future:** per-stop content (~290 cards). **Burn Book** wired as empty-state CTA. |
 | **No. 5** | The BRONZE AiGE | `bronze-aige.html` | ✅ | ✅ | ✅ | Dedicated page built. THE LAiDIES house band debuting "Wednesday in SUNNYVAiLE" wired. Main Character Spritz cocktail credited to Ryan C at CHAR No.5. `05-bronze-aige.png` exists. **Crowd image** Ali shared inline — filepath TBD. |
 | **No. 6** | Mme CLAi-O's Shop | `games/madame-claio.html` | ✅ | ✅ | ✅ | Hero image wired (`06-mme-claios-shop.png`). |
@@ -53,9 +53,9 @@ This is the working checklist. Each row = one location in town. Use the status f
 | **Civic Square** | Town Hall | `town-hall.html` | ✅ | ✅ | ✅ | Built. Mayor Deb framing. `12-town-hall.png` wired. |
 | **Civic Square** | The LAiDIES Post Office | `post-office.html` | ✅ | ✅ | ✅ | Built. Wednesday Drop signup canonical home. `13-laidies-post-office.png` wired. |
 | **Schoolhouse Road** | SUNNYVAiLE High | `sunnyvaile-high.html` | ✅ | 🟡 | ✅ | Built. Wednesday-ritual stop 4 ("take the pop quiz"). `14-sunnyvaile-high.png` wired. **Class roster (Vocab 101, Concepts 101, etc.) needs lock-in.** Curriculum migration from Handbook chapters TBD. |
-| **Cathedral Hill** | The SANCTUAiRY | `sanctuary.html` | ✅ | 🟡 | ✅ | Built. "We pledge Allegiance to the united Saints of SUNNYVAiLE." pledge live. Saints wing populated (8 saints). **Mavens wing (renamed from Coven 2026-06-30) needs Ali's curated list** of real women leading in AI. `15-the-sanctuairy.png` wired. |
+| **Lantern Hill** | The LUMINAiRY | `luminairy.html` | ✅ | 🟡 | ✅ | Built. "We pledge Allegiance to the united Saints of SUNNYVAiLE." pledge live. Saints wing populated (8 saints). **Mavens wing (renamed from Coven 2026-06-30) needs Ali's curated list** of real women leading in AI. `15-the-luminairy.png` wired. |
 | **Radio Tower** | KSVL Community Radio | `radio.html` | ✅ | ✅ | ✅ | Built. Music-only post Dream-Phone-move. `16-ksvl-community-radio.png` wired. |
-| **Corner of MAiN & Cathedral Hill** | The Phone Booth (Dream Phone) | `games/dream-phone.html` | ✅ | ✅ | ✅ | Game-hook for "calling into saints." `17-dream-phone-booth.png` wired (inline style). |
+| **Corner of MAiN & Lantern Hill** | The Phone Booth (Dream Phone) | `games/dream-phone.html` | ✅ | ✅ | ✅ | Game-hook for "calling into saints." `17-dream-phone-booth.png` wired (inline style). |
 
 ---
 
@@ -67,7 +67,7 @@ Current sections in order:
 1. **Masthead** — full-bleed `sunnyvaile-masthead-chick-flicks.png` ("Welcome to SUNNYVAiLE — Population: women just like you")
 2. **What's new this week** — episode card + 8-stop Wednesday ritual
 3. **Tools open now** — 5 rails (Ask LAiDY, Mme CLAi-O, Quiz, BWS, Burn Book)
-4. **Patron Saints** — 8 saints + card-back + "We pledge Allegiance" pledge + "The Blessed Ones you already know"
+4. **PATRON SAiNTS** — 8 saints + card-back + "We pledge Allegiance" pledge + "The Blessed Ones you already know"
 5. **Town Directory** — 17 tiles linking to all SUNNYVAiLE addresses
 6. **Post Office signup** — Wednesday Drop
 7. **Membership Coming Soon**
@@ -161,7 +161,7 @@ Most of what was P0/P1 on the 2026-06-29 list shipped this week. What's left:
 
 | Priority | Page | What's needed |
 |---|---|---|
-| 🔴 P0 | **SANCTUAiRY — Mavens wing** | Real women in AI list (Ali's curation: Hannah Fry, etc.) |
+| 🔴 P0 | **LUMINAiRY — Mavens wing** | Real women in AI list (Ali's curation: Hannah Fry, etc.) |
 | 🟡 P1 | **SUNNYVAiLE High** | Lock course names (Vocab 101, Concepts 101, etc.) + plan curriculum migration from Handbook |
 | 🟡 P1 | **Hot Goss → NewsStand page** | Rebrand framing once Codex hands back the build |
 | 🟢 P2 | **The Mall — per-stop content** | ~290 reference cards when populated |
@@ -182,21 +182,21 @@ Most of what was P0/P1 on the 2026-06-29 list shipped this week. What's left:
 
 ## What's done (2026-06-30)
 
-- ✅ Town-spined live homepage with masthead, 8-stop ritual, 5 tool rails, Patron Saints + pledge, Town Directory, Post Office signup, Membership coming-soon
+- ✅ Town-spined live homepage with masthead, 8-stop ritual, 5 tool rails, PATRON SAiNTS + pledge, Town Directory, Post Office signup, Membership coming-soon
 - ✅ All 17 SUNNYVAiLE building pages live with storefront hero images
 - ✅ All-caps brand canon swept site-wide: SUNNYVAiLE (256 refs) + BRONZE AiGE (34 refs)
 - ✅ "Wednesday in SUNNYVAiLE" song by THE LAiDIES wired across site
-- ✅ "The LIBRAiRY" song by DJ JAiDY wired
-- ✅ Patron Saints + pledge + "The Blessed Ones you already know"
+- ✅ "The LIBRAiRY" song by DJ SunnyV wired
+- ✅ PATRON SAiNTS + pledge + "The Blessed Ones you already know"
 - ✅ Mavens rename (from Coven)
 - ✅ Wednesday ritual locked at 8 stops + MAiKEOVER as new weekly stop
 - ✅ MAiKEOVER dual role (issue + view card)
 - ✅ Chick Flicks rebrand across user-facing labels (file rename pending Codex)
 - ✅ Welcome Wagon Visitor's Centre rename
 - ✅ The Mall plan + 10 stops named (CLAiRE'S, MAiYBE, etc.)
-- ✅ SANCTUAiRY page with Saints + Mavens wings (Mavens list pending)
+- ✅ LUMINAiRY page with Saints + Mavens wings (Mavens list pending)
 - ✅ MAiN Street renumbered 1–9 with MAiKEOVER at end
-- ✅ The Phone Booth at Corner of MAiN & Cathedral Hill (Dream Phone)
+- ✅ The Phone Booth at Corner of MAiN & Lantern Hill (Dream Phone)
 - ✅ Bronze AiGE house band lore (THE LAiDIES self-titled) + Main Character Spritz credit
 - ✅ Memory canon locked: world, charm-mechanic pivot (charms in images), Mavens, MAiKEOVER dual role, 8-stop ritual
 
