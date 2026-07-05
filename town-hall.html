@@ -7,8 +7,9 @@
   <meta name="description" content="Town Hall at Civic Square — Mayor Deb's office. SUNNYVAiLE civic records, town announcements, and the founder's note.">
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260704-palette">
-  <script defer src="/content/site/sv-global-header.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260705-5"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260705-1"></script>
   <script src="/content/site/supabase-config.js" defer></script>
 </head>
 <body>
@@ -42,6 +43,62 @@
     <p>
       Officially: Mayor of SUNNYVAiLE. Unofficially: the woman who knows where everything is, who's been here, and what's about to come up. If something needs handling and nobody knows whose job it is, it ends up at Deb's desk by lunch.
     </p>
+
+    <!-- ============================================================
+         Town Hall · The Counters — click a desk, it opens right here.
+         Same hub-and-reveal pattern as KSVL. One open at a time.
+         ============================================================ -->
+    <style>
+      .th-hubs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 6px 0 30px; }
+      @media (max-width: 760px) { .th-hubs { grid-template-columns: 1fr; gap: 10px; } }
+      .th-hub { position: relative; text-align: left; padding: 18px 16px 15px; border-radius: 14px;
+        border: 1.5px solid rgba(75,33,72,0.16); background: var(--pearl, #faf4f7); cursor: pointer;
+        font-family: 'Jost', sans-serif; transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.2s ease; }
+      .th-hub:hover, .th-hub:focus-visible { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(75,33,72,0.14); border-color: var(--rose); outline: none; }
+      .th-hub__icon { font-size: 26px; display: block; margin-bottom: 8px; line-height: 1; }
+      .th-hub__name { font-size: 15px; font-weight: 800; color: var(--plum-deep); letter-spacing: 0.02em; margin: 0 0 3px; }
+      .th-hub__count { font-size: 11.5px; color: var(--plum-soft, #6b3a66); margin: 0 0 10px; line-height: 1.35; }
+      .th-hub__cta { display: inline-block; font-size: 10.5px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose); }
+      .th-hub__cta .when-open { display: none; }
+      .th-hub.is-open { background: linear-gradient(135deg, var(--plum, #4b2148) 0%, var(--rose, #9b3f5f) 100%); border-color: var(--gold); }
+      .th-hub.is-open .th-hub__name { color: var(--cream, #fffdfb); }
+      .th-hub.is-open .th-hub__count { color: rgba(255,253,251,0.78); }
+      .th-hub.is-open .th-hub__cta { color: var(--gold); }
+      .th-hub.is-open .th-hub__cta .when-open { display: inline; }
+      .th-hub.is-open .th-hub__cta .when-closed { display: none; }
+      .th-hub-panel { margin: 0 0 34px; padding: 26px clamp(16px, 3vw, 30px);
+        background: #fffdfb; border: 1.5px solid rgba(75,33,72,0.14); border-radius: 16px;
+        box-shadow: 0 14px 34px rgba(75,33,72,0.10); scroll-margin-top: 86px;
+        animation: thPanelIn 0.28s ease; }
+      .th-hub-panel--bare { padding: 0; background: transparent; border: 0; box-shadow: none; }
+      @keyframes thPanelIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+      @media (prefers-reduced-motion: reduce) { .th-hub-panel { animation: none; } }
+      .th-hub-panel > h2:first-child { margin-top: 0; }
+      .th-hub-panel .th-regulars { margin: 0; }
+    </style>
+
+    <div class="th-hubs" id="th-hubs">
+      <button type="button" class="th-hub" data-panel="hub-deb" aria-expanded="false" aria-controls="hub-deb">
+        <span class="th-hub__icon" aria-hidden="true">🏛️</span>
+        <p class="th-hub__name">Mayor Deb</p>
+        <p class="th-hub__count">Two anthems · the poster saga · one legend</p>
+        <span class="th-hub__cta"><span class="when-closed">Step into her office →</span><span class="when-open">Close ×</span></span>
+      </button>
+      <button type="button" class="th-hub" data-panel="hub-characters" aria-expanded="false" aria-controls="hub-characters">
+        <span class="th-hub__icon" aria-hidden="true">☎️</span>
+        <p class="th-hub__name">Town Characters</p>
+        <p class="th-hub__count">The people who live here</p>
+        <span class="th-hub__cta"><span class="when-closed">Meet the locals →</span><span class="when-open">Close ×</span></span>
+      </button>
+      <button type="button" class="th-hub" data-panel="hub-feedback" aria-expanded="false" aria-controls="hub-feedback">
+        <span class="th-hub__icon" aria-hidden="true">💌</span>
+        <p class="th-hub__name">Comment Card</p>
+        <p class="th-hub__count">Comments, complaints, suggestions</p>
+        <span class="th-hub__cta"><span class="when-closed">File one →</span><span class="when-open">Close ×</span></span>
+      </button>
+    </div>
+
+    <div class="th-hub-panel" id="hub-deb" hidden>
 
     <h2>About Mayor Deb</h2>
 
@@ -202,6 +259,10 @@
          Meet the SUNNYVAiLE Regulars · Town Characters live here
          (Not a 4th LUMINAiRY wing — Town Hall is the hall of the town's own.)
          ============================================================ -->
+    </div><!-- /hub-deb -->
+
+    <div class="th-hub-panel th-hub-panel--bare" id="hub-characters" hidden>
+
     <section id="regulars" class="th-regulars" aria-labelledby="regulars-title">
       <p class="th-regulars-eyebrow">★ Meet the SUNNYV<span class="ai">Ai</span>LE Regulars</p>
       <h2 class="th-regulars-title" id="regulars-title">The people who live here.</h2>
@@ -332,7 +393,11 @@
     <!-- ============================================================
          Town Hall · Comments, complaints, suggestions (feedback form)
          ============================================================ -->
-    <section id="town-hall-feedback" style="margin: 56px 0 40px; padding: 32px clamp(20px, 4vw, 40px); background: var(--pearl); border-radius: 14px; border-left: 4px solid var(--rose);">
+    </div><!-- /hub-characters -->
+
+    <div class="th-hub-panel th-hub-panel--bare" id="hub-feedback" hidden>
+
+    <section id="town-hall-feedback" style="margin: 0 0 34px; padding: 32px clamp(20px, 4vw, 40px); background: var(--pearl); border-radius: 14px; border-left: 4px solid var(--rose);">
       <p style="margin: 0 0 8px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);">★ Speak your piece</p>
       <h2 style="margin: 0 0 12px; color: var(--plum); font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, 3vw, 30px);">Comments, complaints, suggestions.</h2>
       <p style="margin: 0 0 24px; font-size: 15px; line-height: 1.55; color: var(--plum);">
@@ -372,6 +437,50 @@
         </div>
       </form>
     </section>
+
+    </div><!-- /hub-feedback -->
+
+    <script>
+      // The Counters — one open at a time; hash deep-links open their counter.
+      (function() {
+        'use strict';
+        var hubs = Array.prototype.slice.call(document.querySelectorAll('.th-hub'));
+        function panelFor(hub) { return document.getElementById(hub.getAttribute('data-panel')); }
+        function closeAll() {
+          hubs.forEach(function(h) {
+            h.classList.remove('is-open');
+            h.setAttribute('aria-expanded', 'false');
+            var p = panelFor(h);
+            if (p) p.hidden = true;
+          });
+        }
+        function open(hub, scroll) {
+          closeAll();
+          hub.classList.add('is-open');
+          hub.setAttribute('aria-expanded', 'true');
+          var p = panelFor(hub);
+          if (p) {
+            p.hidden = false;
+            if (scroll) p.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+        hubs.forEach(function(h) {
+          h.addEventListener('click', function() {
+            if (h.classList.contains('is-open')) { closeAll(); } else { open(h, true); }
+          });
+        });
+        var HASH_MAP = {
+          '#hub-deb': 'hub-deb',
+          '#hub-characters': 'hub-characters', '#regulars': 'hub-characters',
+          '#hub-feedback': 'hub-feedback', '#town-hall-feedback': 'hub-feedback'
+        };
+        var target = HASH_MAP[window.location.hash];
+        if (target) {
+          var hub = hubs.filter(function(h) { return h.getAttribute('data-panel') === target; })[0];
+          if (hub) open(hub, true);
+        }
+      })();
+    </script>
 
     <script>
       (function() {

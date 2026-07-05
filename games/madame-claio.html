@@ -525,26 +525,25 @@
     </script>
       <link rel="stylesheet" href="../content/site/mini-player.css">
     <link rel="stylesheet" href="../content/site/laidies-bg.css?v=laidies-bg-1" />
+  <script defer src="/content/site/sv-global-header.js?v=20260705-5"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260705-1"></script>
 </head>
   <body>
     <!-- Site background component (dark variant) -->
     <div class="laidies-bg laidies-bg--dark" aria-hidden="true"></div>
 
-    <header class="site-header">
-      <a href="../clubhouse.html" style="color: var(--hotline-pink, #b95d78); font-size: 0.85rem; font-weight: 700; padding: 4px 8px; text-decoration: none; white-space: nowrap;">← Back to Clubhouse</a>
-      <a class="brand" href="../index.html" aria-label="LAiDIES home">
-        <img src="../assets/brand/laidies-wordmark-final-b-light.svg" alt="LAiDIES" style="height: 30px; width: auto;" />
-      </a>
-      <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false">☰</button>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="../issues/issue-03.html">LATEST</a>
-        <a href="../start-here.html">START HERE</a>
-        <a href="../episodes.html">SEASON</a>
-        <a href="../newsstand.html">NEWSSTAND</a>
-        <a href="../clubhouse.html">CLUBHOUSE</a>
-        <a href="../community.html">JOIN</a>
-</nav>
-    </header>
+    <header class="sv-header">
+    <a class="brand" href="/">LAiDIES</a>
+    <nav>
+      <a href="/">This Week</a>
+      <a href="/chick-flicks.html">Episodes</a>
+      <a href="/library.html">LIBRAiRY</a>
+      <a href="/radio.html">KSVL</a>
+      <a href="/sorority-house.html">Sorority House</a>
+      <a href="/clubhouse-pass.html" class="sv-signin" style="color: #9b3f5f; font-weight: 600; border: 1.5px solid #9b3f5f; padding: 6px 14px; border-radius: 999px; text-decoration: none;">✉︎ Sign In</a>
+    </nav>
+  </header>
 
     <div class="sv-hero" style="width:100%; display:block; background:#f8eef2; position:relative;">
       <img src="../assets/sunnyvaile-buildings/y2k-v3/06-mme-claios-shop.webp?v=20260704-perf" alt="Mme CLAi-O's Shop storefront — the town fortune-teller's shop in SUNNYVAiLE" style="width:100%; height:auto; display:block;" loading="eager" />
@@ -556,7 +555,7 @@
     <main>
       <div class="game-page-wrap">
         <div class="game-page-header">
-          <a href="../clubhouse.html" data-weekly-return-link>&larr; Back to Clubhouse</a>
+          <a href="/" data-weekly-return-link>&larr; Back to Clubhouse</a>
         </div>
 
         <div class="game-page-title">
@@ -988,5 +987,6 @@
 <script defer src="/content/site/quick-rail.js?v=20260704-2"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260704-canon"></script>
 <script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
+<script defer src="/content/site/ksvl-player.js?v=20260705-21"></script>
 </body>
 </html>

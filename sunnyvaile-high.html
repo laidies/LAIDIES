@@ -7,8 +7,9 @@
   <meta name="description" content="SUNNYVAiLE High on Schoolhouse Road — Season 1 = 101 classes. Vocab 101, Concepts 101, Briefing 101, Tools 101, Practice 101, Accounts 101, ChatGPT 101. Pop quiz on Wednesdays.">
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260704-palette">
-  <script defer src="/content/site/sv-global-header.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260705-5"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260705-1"></script>
 </head>
 <body>
 
@@ -41,6 +42,73 @@
     <p>
       Three places teach you AI in town, and they do different jobs. The <a href="/chick-flicks.html" style="color: var(--rose); text-decoration: underline;">Chick Flicks</a> shows you the episode — that's the show. The <a href="/library.html" style="color: var(--rose); text-decoration: underline;">LIBRAiRY</a> is reference — that's where you look it up. SUNNYVAiLE High is structured learning — that's where you sit through the class and take the test.
     </p>
+
+    <h2>The Pop Quiz</h2>
+
+    <p>Every Wednesday: 5–10 questions on this week's episode and class material. Take it after studying at <a href="/blend-snap.html" style="color: var(--rose); text-decoration: underline;">The Blend &amp; Snap</a>.</p>
+
+    <a class="stop sv-cta--primary" href="/learn/quiz.html" style="display: block; margin: 20px 0 32px; padding: 28px 32px; text-align: center;">
+      <span class="stop-num" style="color: var(--gold);">★ POP QUIZ</span>
+      <h3 class="stop-name" style="color: var(--cream); font-size: 26px; margin: 8px 0;">Take this week's Pop Quiz →</h3>
+      <p class="stop-desc" style="color: var(--cream); opacity: 0.9;">10 minutes. Pick your episode, answer the questions, collect a sticker.</p>
+    </a>
+
+
+
+    <!-- ============================================================
+         SUNNYVAiLE High · The Corridors — click a door, the room
+         opens right here. Same hub-and-reveal pattern as Town Hall.
+         ============================================================ -->
+    <style>
+      .sh-hubs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 6px 0 30px; }
+      @media (max-width: 760px) { .sh-hubs { grid-template-columns: 1fr; gap: 10px; } }
+      .sh-hub { position: relative; text-align: left; padding: 18px 16px 15px; border-radius: 14px;
+        border: 1.5px solid rgba(75,33,72,0.16); background: var(--pearl, #faf4f7); cursor: pointer;
+        font-family: 'Jost', sans-serif; transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.2s ease; }
+      .sh-hub:hover, .sh-hub:focus-visible { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(75,33,72,0.14); border-color: var(--rose); outline: none; }
+      .sh-hub__icon { font-size: 26px; display: block; margin-bottom: 8px; line-height: 1; }
+      .sh-hub__name { font-size: 15px; font-weight: 800; color: var(--plum-deep); letter-spacing: 0.02em; margin: 0 0 3px; }
+      .sh-hub__count { font-size: 11.5px; color: var(--plum-soft, #6b3a66); margin: 0 0 10px; line-height: 1.35; }
+      .sh-hub__cta { display: inline-block; font-size: 10.5px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose); }
+      .sh-hub__cta .when-open { display: none; }
+      .sh-hub.is-open { background: linear-gradient(135deg, var(--plum, #4b2148) 0%, var(--rose, #9b3f5f) 100%); border-color: var(--gold); }
+      .sh-hub.is-open .sh-hub__name { color: var(--cream, #fffdfb); }
+      .sh-hub.is-open .sh-hub__count { color: rgba(255,253,251,0.78); }
+      .sh-hub.is-open .sh-hub__cta { color: var(--gold); }
+      .sh-hub.is-open .sh-hub__cta .when-open { display: inline; }
+      .sh-hub.is-open .sh-hub__cta .when-closed { display: none; }
+      .sh-hub-panel { margin: 0 0 34px; padding: 26px clamp(16px, 3vw, 30px);
+        background: #fffdfb; border: 1.5px solid rgba(75,33,72,0.14); border-radius: 16px;
+        box-shadow: 0 14px 34px rgba(75,33,72,0.10); scroll-margin-top: 86px;
+        animation: shPanelIn 0.28s ease; }
+      .sh-hub-panel--bare { padding: 0; background: transparent; border: 0; box-shadow: none; }
+      @keyframes shPanelIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+      @media (prefers-reduced-motion: reduce) { .sh-hub-panel { animation: none; } }
+      .sh-hub-panel > h2:first-child { margin-top: 0; }
+    </style>
+
+    <div class="sh-hubs" id="sh-hubs">
+      <button type="button" class="sh-hub" data-panel="hub-classes" aria-expanded="false" aria-controls="hub-classes">
+        <span class="sh-hub__icon" aria-hidden="true">📚</span>
+        <p class="sh-hub__name">Season 1 · 101 Classes</p>
+        <p class="sh-hub__count">Seven classes, one intro curriculum</p>
+        <span class="sh-hub__cta"><span class="when-closed">Pick a class →</span><span class="when-open">Close ×</span></span>
+      </button>
+      <button type="button" class="sh-hub" data-panel="hub-bookfair" aria-expanded="false" aria-controls="hub-bookfair">
+        <span class="sh-hub__icon" aria-hidden="true">🎪</span>
+        <p class="sh-hub__name">The Book Fair</p>
+        <p class="sh-hub__count">In the gym every four weeks</p>
+        <span class="sh-hub__cta"><span class="when-closed">See the racks →</span><span class="when-open">Close ×</span></span>
+      </button>
+      <button type="button" class="sh-hub" data-panel="hub-next" aria-expanded="false" aria-controls="hub-next">
+        <span class="sh-hub__icon" aria-hidden="true">🎒</span>
+        <p class="sh-hub__name">Next Season</p>
+        <p class="sh-hub__count">201 classes · new academic year</p>
+        <span class="sh-hub__cta"><span class="when-closed">Peek ahead →</span><span class="when-open">Close ×</span></span>
+      </button>
+    </div>
+
+    <div class="sh-hub-panel" id="hub-classes" hidden>
 
     <h2>Season 1 · 101 classes</h2>
 
@@ -96,15 +164,9 @@
       <strong>Status:</strong> Course names are drafts pending final review. Source content already exists (SLAiYER Handbook chapters 1-5 + ChatGPT chapter + The Decoder). The per-class pages need to be adapted into class format from the existing chapter pages. For now, click a class title and you'll land on its source chapter.
     </p>
 
-    <h2>The Pop Quiz</h2>
+    </div><!-- /hub-classes -->
 
-    <p>Every Wednesday: 5–10 questions on this week's episode and class material. Take it after studying at <a href="/blend-snap.html" style="color: var(--rose); text-decoration: underline;">The Blend &amp; Snap</a>.</p>
-
-    <a class="stop sv-cta--primary" href="/learn/quiz.html" style="display: block; margin: 20px 0 32px; padding: 28px 32px; text-align: center;">
-      <span class="stop-num" style="color: var(--gold);">★ POP QUIZ</span>
-      <h3 class="stop-name" style="color: var(--cream); font-size: 26px; margin: 8px 0;">Take this week's Pop Quiz →</h3>
-      <p class="stop-desc" style="color: var(--cream); opacity: 0.9;">10 minutes. Pick your episode, answer the questions, collect a sticker.</p>
-    </a>
+    <div class="sh-hub-panel sh-hub-panel--bare" id="hub-bookfair" hidden>
 
     <h2 id="book-fair" data-puffy-title="The Book Fair" data-puffy-summary="The Scholastic Book Fair — in the gym every 4 weeks.">The Scholastic Book Fair</h2>
 
@@ -282,11 +344,17 @@
       })();
     </script>
 
+    </div><!-- /hub-bookfair -->
+
+    <div class="sh-hub-panel" id="hub-next" hidden>
+
     <h2>Next season</h2>
 
     <p>
       Season 2 = 201 classes. New academic year, new curriculum tier. Built when the content's ready.
     </p>
+
+    </div><!-- /hub-next -->
 
     <div class="sv-ctas">
       <a class="sv-cta sv-cta--primary" href="/blend-snap.html#the-study-pack">
@@ -304,6 +372,49 @@
         <span class="sv-cta-arrow">→</span>
       </a>
     </div>
+
+
+    <script>
+      // The Corridors — one open at a time; hash deep-links open their room.
+      (function() {
+        'use strict';
+        var hubs = Array.prototype.slice.call(document.querySelectorAll('.sh-hub'));
+        function panelFor(hub) { return document.getElementById(hub.getAttribute('data-panel')); }
+        function closeAll() {
+          hubs.forEach(function(h) {
+            h.classList.remove('is-open');
+            h.setAttribute('aria-expanded', 'false');
+            var p = panelFor(h);
+            if (p) p.hidden = true;
+          });
+        }
+        function open(hub, scroll) {
+          closeAll();
+          hub.classList.add('is-open');
+          hub.setAttribute('aria-expanded', 'true');
+          var p = panelFor(hub);
+          if (p) {
+            p.hidden = false;
+            if (scroll) p.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+        hubs.forEach(function(h) {
+          h.addEventListener('click', function() {
+            if (h.classList.contains('is-open')) { closeAll(); } else { open(h, true); }
+          });
+        });
+        var HASH_MAP = {
+          '#hub-classes': 'hub-classes',
+          '#hub-bookfair': 'hub-bookfair', '#book-fair': 'hub-bookfair',
+          '#hub-next': 'hub-next'
+        };
+        var target = HASH_MAP[window.location.hash];
+        if (target) {
+          var hub = hubs.filter(function(h) { return h.getAttribute('data-panel') === target; })[0];
+          if (hub) open(hub, true);
+        }
+      })();
+    </script>
 
   </main>
 

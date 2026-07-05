@@ -23,6 +23,7 @@
     { label: 'Radio', href: '/radio.html' }
   ];
   var ESSENTIALS = [
+    { emoji: '🚌', name: 'The Welcome Tour', href: '/visitors-centre.html?welcome-tour=start' },
     { emoji: '🌸', name: "This Week's Tour", href: '/#tour' },
     { emoji: '📼', name: 'Episodes', href: '/chick-flicks.html' },
     { emoji: '👗', name: 'My Closet', href: '/laidies-card.html' },
@@ -44,6 +45,12 @@
   function brandHtml(s) { return esc(s).replace(/Ai/g, '<span class="ai">Ai</span>'); }
 
   var STYLE = ''
+    /* Zero-specificity fallbacks (:where) — give rebased legacy pages a
+       proper header without overriding sunnyvaile-page.css anywhere. */
+    + ':where(.sv-header) { position: sticky; top: 0; z-index: 9000; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px clamp(16px, 3vw, 32px); background: #fffdfb; border-bottom: 1px solid rgba(75,33,72,0.12); font-family: "Jost", sans-serif; }'
+    + ':where(.sv-header .brand) { font-weight: 800; font-size: 20px; letter-spacing: 0.04em; color: #4b2148; text-decoration: none; }'
+    + ':where(.sv-header nav) { display: flex; align-items: center; gap: 18px; }'
+    + ':where(.sv-header nav a) { color: #4b2148; text-decoration: none; font-size: 14px; font-weight: 600; }'
     + '.svgh-left { display: flex; align-items: center; gap: 10px; }'
     + '.svgh-histbtn { width: 34px; height: 34px; border-radius: 50%; background: transparent;'
     + '  border: 1.5px solid rgba(75,33,72,0.28); color: var(--plum, #4b2148); font-size: 16px; line-height: 1;'
