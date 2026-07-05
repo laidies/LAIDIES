@@ -771,133 +771,15 @@
       .coming-soon-overlay { right: -50px; padding: 6px 56px; font-size: 11px; }
     }
 
-    /* Sticky Quick Jump Rail — circles anchored right, expand leftward on hover */
-    .quick-rail {
-      position: fixed;
-      right: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 6px;
-      z-index: 500;
-      pointer-events: none;
-    }
-    .quick-rail-item {
-      pointer-events: auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 0;
-      background: var(--plum-deep, #341446);
-      border: 1.5px solid var(--gold, #c9a227);
-      border-radius: 999px;
-      color: var(--cream, #fffdfb);
-      text-decoration: none;
-      transition: width 0.24s ease, max-width 0.24s ease, padding 0.24s ease, justify-content 0.24s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-      height: 44px;
-      width: 44px;
-      overflow: hidden;
-      white-space: nowrap;
-      box-shadow: 0 3px 8px rgba(75,33,72,0.28);
-    }
-    .quick-rail-item:hover, .quick-rail-item:focus-visible {
-      width: auto;
-      max-width: 240px;
-      padding: 0 18px 0 0;
-      justify-content: flex-start;
-      background: var(--rose, #9b3f5f);
-      border-color: var(--gold, #c9a227);
-      box-shadow: 0 6px 16px rgba(75,33,72,0.35);
-      outline: none;
-    }
-    .quick-rail-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      font-size: 22px;
-      line-height: 1;
-      flex-shrink: 0;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-weight: 700;
-      /* Metallic gold — gradient sheen clipped to the glyph */
-      color: #d4af37;
-      background: linear-gradient(135deg, #8a5f00 0%, #d4a02e 25%, #f9d976 45%, #ffe486 55%, #d4a02e 75%, #8a5f00 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 1px 0 rgba(0,0,0,0.28));
-    }
-    .quick-rail-label {
-      font-family: 'Jost', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      color: var(--cream, #fffdfb);
-      opacity: 0;
-      transition: opacity 0.18s ease 0.05s;
-    }
-    .quick-rail-item:hover .quick-rail-label,
-    .quick-rail-item:focus-visible .quick-rail-label {
-      opacity: 1;
-    }
-    @media (max-width: 640px) {
-      .quick-rail { display: none; }
-    }
   </style>
   <script defer src="/content/site/sv-global-header.js?v=20260705-5"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260705-1"></script>
+  <script defer src="/content/site/quick-rail.js?v=20260705-3"></script>
 </head>
 <body>
 
   <!-- STICKY QUICK JUMP RAIL — floats on right, expands on hover -->
-  <nav class="quick-rail" aria-label="Quick jump — town services">
-    <a class="quick-rail-item" href="/visitors-centre.html" title="Welcome Wagon">
-      <span class="quick-rail-icon" aria-hidden="true">✿</span>
-      <span class="quick-rail-label">Start here</span>
-    </a>
-    <a class="quick-rail-item" href="/library.html" title="Look it up · The LIBRAiRY">
-      <span class="quick-rail-icon" aria-hidden="true">§</span>
-      <span class="quick-rail-label">Look it up</span>
-    </a>
-    <a class="quick-rail-item" href="/games/fairy-godmother.html" title="Ask LAiDY · FAiRY Godmother">
-      <span class="quick-rail-icon" aria-hidden="true">✦</span>
-      <span class="quick-rail-label">Ask LAiDY</span>
-    </a>
-    <a class="quick-rail-item" href="/newsstand.html" title="The NewsStand">
-      <span class="quick-rail-icon" aria-hidden="true">¶</span>
-      <span class="quick-rail-label">Read the news</span>
-    </a>
-    <a class="quick-rail-item" href="/blend-snap.html" title="The Blend & Snap · Study Pack">
-      <span class="quick-rail-icon" aria-hidden="true">&amp;</span>
-      <span class="quick-rail-label">Study Pack</span>
-    </a>
-    <a class="quick-rail-item" href="/games/fun-pack.html" title="Have fun · the games arcade">
-      <span class="quick-rail-icon" aria-hidden="true">♦</span>
-      <span class="quick-rail-label">Have fun</span>
-    </a>
-    <a class="quick-rail-item" href="/radio.html" title="KSVL RAiDIO, 99.9">
-      <span class="quick-rail-icon" aria-hidden="true">♪</span>
-      <span class="quick-rail-label">Tune in KSVL</span>
-    </a>
-    <a class="quick-rail-item" href="/sorority-house.html" title="Delta LAi Nu chat rooms">
-      <span class="quick-rail-icon" aria-hidden="true">❦</span>
-      <span class="quick-rail-label">Say hi</span>
-    </a>
-    <a class="quick-rail-item" href="/post-office.html" title="Post Office · mail & gifts">
-      <span class="quick-rail-icon" aria-hidden="true">✉</span>
-      <span class="quick-rail-label">Check the mail</span>
-    </a>
-    <a class="quick-rail-item" href="/luminairy.html" title="The LUMINAiRY · PATRON SAiNTS">
-      <span class="quick-rail-icon" aria-hidden="true">✧</span>
-      <span class="quick-rail-label">Light a candle</span>
-    </a>
-  </nav>
 
   <!-- HEADER -->
   <header class="site-header">
