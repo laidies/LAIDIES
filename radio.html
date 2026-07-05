@@ -7,9 +7,10 @@
   <meta name="description" content="SUNNYVAiLE Community RAiDIO (KSVL) — don't just learn from books, learn from hooks. Music broadcast all day. DJ SunnyV's tracks, patron saint themes, the town anthem on the hour. Tape it off the RAiDIO.">
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260704-palette">
-  <script defer src="/content/site/sv-global-header.js?v=20260705-5"></script>
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260705-6"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
-  <script defer src="/content/site/sv-welcome-tour.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260705-2"></script>
   <script src="/content/site/supabase-config.js" defer></script>
 </head>
 <body>
@@ -104,7 +105,13 @@
         border: 1.5px solid rgba(75,33,72,0.16); background: var(--pearl, #faf4f7); cursor: pointer;
         font-family: 'Jost', sans-serif; transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.2s ease; }
       .ksvl-hub:hover, .ksvl-hub:focus-visible { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(75,33,72,0.14); border-color: var(--rose); outline: none; }
-      .ksvl-hub__icon { font-size: 26px; display: block; margin-bottom: 8px; line-height: 1; }
+      .ksvl-hub__icon { display: inline-flex; align-items: center; justify-content: center;
+        width: 42px; height: 42px; border-radius: 50%; margin-bottom: 10px; line-height: 0;
+        box-shadow: inset 0 0 0 1.5px rgba(52,20,70,0.16), 0 2px 6px rgba(75,33,72,0.22); }
+      .ksvl-hubs .ksvl-hub:nth-child(1) .ksvl-hub__icon { background: linear-gradient(160deg, #b97c5a 0%, #8f5d40 100%); }
+      .ksvl-hubs .ksvl-hub:nth-child(2) .ksvl-hub__icon { background: linear-gradient(160deg, #3aa8a4 0%, #2b7d7a 100%); }
+      .ksvl-hubs .ksvl-hub:nth-child(3) .ksvl-hub__icon { background: linear-gradient(160deg, #c47c85 0%, #9c5f68 100%); }
+      .ksvl-hubs .ksvl-hub:nth-child(4) .ksvl-hub__icon { background: linear-gradient(160deg, #4b2148 0%, #341446 100%); }
       .ksvl-hub__name { font-size: 15px; font-weight: 800; color: var(--plum-deep); letter-spacing: 0.02em; margin: 0 0 3px; }
       .ksvl-hub__count { font-size: 11.5px; color: var(--plum-soft, #6b3a66); margin: 0 0 10px; line-height: 1.35; }
       .ksvl-hub__cta { display: inline-block; font-size: 10.5px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose); }
@@ -129,25 +136,25 @@
 
     <div class="ksvl-hubs" id="ksvl-hubs">
       <button type="button" class="ksvl-hub" data-panel="hub-mixcds" aria-expanded="false" aria-controls="hub-mixcds">
-        <span class="ksvl-hub__icon" aria-hidden="true">💿</span>
+        <span class="ksvl-hub__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="url(#kvh1)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="kvh1" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9a6d10"/><stop offset="0.45" stop-color="#f3d879"/><stop offset="0.55" stop-color="#ffeb9e"/><stop offset="1" stop-color="#a87b1c"/></linearGradient></defs><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.2"/><path d="M6.6 8.6 C7.4 7.3 8.7 6.3 10.2 5.9"/></svg></span>
         <p class="ksvl-hub__name">Mix CDs</p>
         <p class="ksvl-hub__count">Six mixes, Sharpie-labeled · plus All Songs</p>
         <span class="ksvl-hub__cta"><span class="when-closed">Open the case →</span><span class="when-open">Close ×</span></span>
       </button>
       <button type="button" class="ksvl-hub" data-panel="hub-bands" aria-expanded="false" aria-controls="hub-bands">
-        <span class="ksvl-hub__icon" aria-hidden="true">🎸</span>
+        <span class="ksvl-hub__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="url(#kvh2)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="kvh2" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9a6d10"/><stop offset="0.45" stop-color="#f3d879"/><stop offset="0.55" stop-color="#ffeb9e"/><stop offset="1" stop-color="#a87b1c"/></linearGradient></defs><path d="M17.9 6.1 L20.4 3.6 M18.6 3 L21 5.4"/><path d="M11.7 12.3 L18.2 5.8"/><path d="M11.4 11.9 C13.1 12.4 13.7 14 12.9 15.4 C14.3 17.3 13.2 19.8 10.9 20.2 C8.4 20.7 6.2 18.9 6.4 16.6 C6.5 14.9 7.8 13.9 9.4 13.8 C9.8 12.9 10.5 12.1 11.4 11.9 Z"/><circle cx="10" cy="16.4" r="1.2"/></svg></span>
         <p class="ksvl-hub__name">The Bands</p>
         <p class="ksvl-hub__count">Ten SUNNYVAiLE bands · flip the covers</p>
         <span class="ksvl-hub__cta"><span class="when-closed">Browse the racks →</span><span class="when-open">Close ×</span></span>
       </button>
       <button type="button" class="ksvl-hub" data-panel="hub-stickers" aria-expanded="false" aria-controls="hub-stickers">
-        <span class="ksvl-hub__icon" aria-hidden="true">⭐</span>
+        <span class="ksvl-hub__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="url(#kvh3)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="kvh3" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9a6d10"/><stop offset="0.45" stop-color="#f3d879"/><stop offset="0.55" stop-color="#ffeb9e"/><stop offset="1" stop-color="#a87b1c"/></linearGradient></defs><path d="M12 3.8 L14.1 8.9 L19.7 9.3 L15.4 12.9 L16.8 18.4 L12 15.4 L7.2 18.4 L8.6 12.9 L4.3 9.3 L9.9 8.9 Z"/></svg></span>
         <p class="ksvl-hub__name">The Sticker Counter</p>
         <p class="ksvl-hub__count">20 vinyl designs · take 3 home free</p>
         <span class="ksvl-hub__cta"><span class="when-closed">Grab a few →</span><span class="when-open">Close ×</span></span>
       </button>
       <button type="button" class="ksvl-hub" data-panel="hub-request" aria-expanded="false" aria-controls="hub-request">
-        <span class="ksvl-hub__icon" aria-hidden="true">☎️</span>
+        <span class="ksvl-hub__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="url(#kvh4)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="kvh4" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9a6d10"/><stop offset="0.45" stop-color="#f3d879"/><stop offset="0.55" stop-color="#ffeb9e"/><stop offset="1" stop-color="#a87b1c"/></linearGradient></defs><path d="M4.6 9 C4.6 6.4 7.2 4.8 12 4.8 C16.8 4.8 19.4 6.4 19.4 9 L18.5 11 C18.2 11.7 17.4 12 16.7 11.7 L15 11 C14.4 10.7 14 10.1 14.1 9.4 L14.2 8.4 C12.8 8.1 11.2 8.1 9.8 8.4 L9.9 9.4 C10 10.1 9.6 10.7 9 11 L7.3 11.7 C6.6 12 5.8 11.7 5.5 11 Z"/><path d="M9.5 15 H14.5 M8 18.2 H16"/></svg></span>
         <p class="ksvl-hub__name">Call In a Request</p>
         <p class="ksvl-hub__count">Pitch DJ SunnyV a song idea</p>
         <span class="ksvl-hub__cta"><span class="when-closed">Pick up the phone →</span><span class="when-open">Close ×</span></span>
@@ -877,7 +884,7 @@
     })();
   </script>
 
-    <script defer src="/content/site/quick-rail.js?v=20260705-4"></script>
+    <script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260704-canon"></script>
 <script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>

@@ -7,9 +7,10 @@
   <meta name="description" content="Town Hall at Civic Square — Mayor Deb's office. SUNNYVAiLE civic records, town announcements, and the founder's note.">
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260704-palette">
-  <script defer src="/content/site/sv-global-header.js?v=20260705-5"></script>
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260705-6"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
-  <script defer src="/content/site/sv-welcome-tour.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260705-2"></script>
   <script src="/content/site/supabase-config.js" defer></script>
 </head>
 <body>
@@ -55,7 +56,12 @@
         border: 1.5px solid rgba(75,33,72,0.16); background: var(--pearl, #faf4f7); cursor: pointer;
         font-family: 'Jost', sans-serif; transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.2s ease; }
       .th-hub:hover, .th-hub:focus-visible { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(75,33,72,0.14); border-color: var(--rose); outline: none; }
-      .th-hub__icon { font-size: 26px; display: block; margin-bottom: 8px; line-height: 1; }
+      .th-hub__icon { display: inline-flex; align-items: center; justify-content: center;
+        width: 42px; height: 42px; border-radius: 50%; margin-bottom: 10px; line-height: 0;
+        box-shadow: inset 0 0 0 1.5px rgba(52,20,70,0.16), 0 2px 6px rgba(75,33,72,0.22); }
+      .th-hubs .th-hub:nth-child(1) .th-hub__icon { background: linear-gradient(160deg, #b97c5a 0%, #8f5d40 100%); }
+      .th-hubs .th-hub:nth-child(2) .th-hub__icon { background: linear-gradient(160deg, #3aa8a4 0%, #2b7d7a 100%); }
+      .th-hubs .th-hub:nth-child(3) .th-hub__icon { background: linear-gradient(160deg, #c47c85 0%, #9c5f68 100%); }
       .th-hub__name { font-size: 15px; font-weight: 800; color: var(--plum-deep); letter-spacing: 0.02em; margin: 0 0 3px; }
       .th-hub__count { font-size: 11.5px; color: var(--plum-soft, #6b3a66); margin: 0 0 10px; line-height: 1.35; }
       .th-hub__cta { display: inline-block; font-size: 10.5px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose); }
@@ -79,19 +85,19 @@
 
     <div class="th-hubs" id="th-hubs">
       <button type="button" class="th-hub" data-panel="hub-deb" aria-expanded="false" aria-controls="hub-deb">
-        <span class="th-hub__icon" aria-hidden="true">🏛️</span>
+        <span class="th-hub__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="url(#thh1)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="thh1" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9a6d10"/><stop offset="0.45" stop-color="#f3d879"/><stop offset="0.55" stop-color="#ffeb9e"/><stop offset="1" stop-color="#a87b1c"/></linearGradient></defs><path d="M4 9 L12 4.5 L20 9 H4 Z"/><path d="M6.2 11 V16 M10.1 11 V16 M13.9 11 V16 M17.8 11 V16"/><path d="M4.5 17.8 H19.5 M3.5 19.5 H20.5 M4.5 9 V11 H19.5 V9"/></svg></span>
         <p class="th-hub__name">Mayor Deb</p>
         <p class="th-hub__count">Two anthems · the poster saga · one legend</p>
         <span class="th-hub__cta"><span class="when-closed">Step into her office →</span><span class="when-open">Close ×</span></span>
       </button>
       <button type="button" class="th-hub" data-panel="hub-characters" aria-expanded="false" aria-controls="hub-characters">
-        <span class="th-hub__icon" aria-hidden="true">☎️</span>
+        <span class="th-hub__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="url(#thh2)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="thh2" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9a6d10"/><stop offset="0.45" stop-color="#f3d879"/><stop offset="0.55" stop-color="#ffeb9e"/><stop offset="1" stop-color="#a87b1c"/></linearGradient></defs><path d="M4.6 9 C4.6 6.4 7.2 4.8 12 4.8 C16.8 4.8 19.4 6.4 19.4 9 L18.5 11 C18.2 11.7 17.4 12 16.7 11.7 L15 11 C14.4 10.7 14 10.1 14.1 9.4 L14.2 8.4 C12.8 8.1 11.2 8.1 9.8 8.4 L9.9 9.4 C10 10.1 9.6 10.7 9 11 L7.3 11.7 C6.6 12 5.8 11.7 5.5 11 Z"/><path d="M9.5 15 H14.5 M8 18.2 H16"/></svg></span>
         <p class="th-hub__name">Town Characters</p>
         <p class="th-hub__count">The people who live here</p>
         <span class="th-hub__cta"><span class="when-closed">Meet the locals →</span><span class="when-open">Close ×</span></span>
       </button>
       <button type="button" class="th-hub" data-panel="hub-feedback" aria-expanded="false" aria-controls="hub-feedback">
-        <span class="th-hub__icon" aria-hidden="true">💌</span>
+        <span class="th-hub__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="url(#thh3)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="thh3" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9a6d10"/><stop offset="0.45" stop-color="#f3d879"/><stop offset="0.55" stop-color="#ffeb9e"/><stop offset="1" stop-color="#a87b1c"/></linearGradient></defs><path d="M3.5 6 H20.5 V18 H3.5 Z"/><path d="M3.5 6.8 L12 13 L20.5 6.8"/><path d="M12 17.2 C11 16.2 9.8 15.2 10.7 14 C11.3 13.3 12 13.9 12 14.4 C12 13.9 12.7 13.3 13.3 14 C14.2 15.2 13 16.2 12 17.2 Z" fill="url(#thh3)" stroke="none"/></svg></span>
         <p class="th-hub__name">Comment Card</p>
         <p class="th-hub__count">Comments, complaints, suggestions</p>
         <span class="th-hub__cta"><span class="when-closed">File one →</span><span class="when-open">Close ×</span></span>
@@ -610,7 +616,7 @@
   <footer>© LAiDIES · Filed from SUNNYVAiLE · Town Hall at Civic Square</footer>
 
     <script defer src="/content/site/ksvl-player.js?v=20260705-21"></script>
-    <script defer src="/content/site/quick-rail.js?v=20260705-4"></script>
+    <script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
     <script defer src="/content/site/charm-hunt.js?v=20260705-dusk"></script>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260704-canon"></script>

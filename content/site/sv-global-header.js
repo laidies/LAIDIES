@@ -22,20 +22,31 @@
     { label: "This Week's Tour", href: '/#tour' },
     { label: 'Radio', href: '/radio.html' }
   ];
+  // Icons come from the shared gold kit (sv-gold-icons.js) — no emoji in
+  // interface chrome (Ali, 2026-07-05).
   var ESSENTIALS = [
-    { emoji: '🚌', name: 'The Welcome Tour', href: '/visitors-centre.html?welcome-tour=start' },
-    { emoji: '🌸', name: "This Week's Tour", href: '/#tour' },
-    { emoji: '📼', name: 'Episodes', href: '/chick-flicks.html' },
-    { emoji: '👗', name: 'My Closet', href: '/laidies-card.html' },
-    { emoji: '📖', name: 'The Handbook', href: '/handbook.html' }
+    { icon: 'bus',    name: 'The Welcome Tour', href: '/visitors-centre.html?welcome-tour=start' },
+    { icon: 'flower', name: "This Week's Tour", href: '/#tour' },
+    { icon: 'vhs',    name: 'Episodes', href: '/chick-flicks.html' },
+    { icon: 'dress',  name: 'My Closet', href: '/laidies-card.html' },
+    { icon: 'book',   name: 'The Handbook', href: '/handbook.html' }
   ];
-  var BUILDING_EMOJI = {
-    'visitors-centre': '🗺️', 'newsstand': '📰', 'chick-flicks': '📼', 'mall': '🛍️',
-    'bronze-aige': '🍸', 'mme-claio': '🔮', 'blend-snap': '🥤', 'maikeover': '💄',
-    'sorority-house': '🏛️', 'fairy-godmother': '🧚', 'town-hall': '🏤', 'post-office': '📮',
-    'sunnyvaile-high': '🎓', 'sanctuary': '🕯️', 'luminairy': '🕯️', 'ksvl': '📻',
-    'dream-phone': '☎️', 'library': '📚', 'net-flicks': '🎬'
+  var BUILDING_ICON = {
+    'visitors-centre': 'map', 'newsstand': 'news', 'chick-flicks': 'vhs', 'mall': 'bag',
+    'bronze-aige': 'martini', 'mme-claio': 'crystal', 'blend-snap': 'cup', 'maikeover': 'lipstick',
+    'sorority-house': 'chat', 'fairy-godmother': 'wand', 'town-hall': 'columns', 'post-office': 'mail',
+    'sunnyvaile-high': 'gradcap', 'sanctuary': 'candle', 'luminairy': 'candle', 'ksvl': 'radio',
+    'dream-phone': 'phone', 'library': 'book', 'net-flicks': 'vhs'
   };
+  // Palette coins — icons sit in small sunset/teal/pink circles so the gold
+  // line work reads on the cream panel (same cycle as the quick rail).
+  var COIN_TONES = [['#b97c5a', '#8f5d40'], ['#3aa8a4', '#2b7d7a'], ['#c47c85', '#9c5f68']];
+  function goldIcon(key, uid, i) {
+    if (!window.svGoldIcon) return '';
+    var t = COIN_TONES[(i || 0) % COIN_TONES.length];
+    return '<span class="svgh-coin" style="background: linear-gradient(160deg, ' + t[0] + ' 0%, ' + t[1] + ' 100%);">'
+      + window.svGoldIcon(key, uid, 15) + '</span>';
+  }
 
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (ch) {
@@ -78,12 +89,13 @@
     + '  text-transform: uppercase; color: var(--rose, #9b3f5f); }'
     + '.svgh-panel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 14px; margin-bottom: 14px; }'
     + '@media (max-width: 560px) { .svgh-panel-grid { grid-template-columns: 1fr; } }'
-    + '.svgh-item { display: flex; align-items: baseline; gap: 9px; padding: 7px 8px; border-radius: 8px;'
+    + '.svgh-item { display: flex; align-items: center; gap: 9px; padding: 7px 8px; border-radius: 8px;'
     + '  text-decoration: none; color: var(--plum, #4b2148); font-family: "Jost", sans-serif; font-size: 13.5px;'
     + '  font-weight: 600; transition: background 0.12s ease; margin: 0 !important; }'
     + '.svgh-item:hover { background: rgba(155,63,95,0.08); color: var(--rose, #9b3f5f); }'
     + '.svgh-item.is-here { background: rgba(201,162,39,0.14); }'
-    + '.svgh-item .svgh-item-emoji { flex-shrink: 0; }'
+    + '.svgh-item .svgh-item-emoji { flex-shrink: 0; display: inline-flex; align-items: center; }'
+    + '.svgh-coin { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; box-shadow: inset 0 0 0 1.5px rgba(52,20,70,0.16), 0 1px 3px rgba(75,33,72,0.25); }'
     + '.svgh-item .svgh-item-addr { margin-left: auto; font-size: 10.5px; font-weight: 500; color: var(--plum-soft, #766171); white-space: nowrap; }'
     + '.svgh-nav { display: flex; align-items: center; }'
     + '.svgh-nav a { text-decoration: none; }'
@@ -104,9 +116,9 @@
 
   function buildPanel(panel) {
     var here = window.location.pathname.replace(/\/index\.html$/, '/');
-    var essentials = ESSENTIALS.map(function (it) {
+    var essentials = ESSENTIALS.map(function (it, i) {
       return '<a class="svgh-item" href="' + esc(it.href) + '">'
-        + '<span class="svgh-item-emoji">' + it.emoji + '</span>'
+        + '<span class="svgh-item-emoji">' + goldIcon(it.icon, 'ess-' + it.icon, i) + '</span>'
         + '<span>' + brandHtml(it.name) + '</span></a>';
     }).join('');
     panel.innerHTML =
@@ -117,12 +129,12 @@
     withDirectory(function (list) {
       var town = panel.querySelector('.svgh-panel-grid--town');
       if (!town) return;
-      if (!list.length) { town.innerHTML = '<a class="svgh-item" href="/visitors-centre.html">🗺️ Visitor&#39;s Centre →</a>'; return; }
-      town.innerHTML = list.map(function (b) {
+      if (!list.length) { town.innerHTML = '<a class="svgh-item" href="/visitors-centre.html">' + goldIcon('map', 'fb-map', 0) + ' Visitor&#39;s Centre →</a>'; return; }
+      town.innerHTML = list.map(function (b, i) {
         var isHere = b.href === here;
         return '<a class="svgh-item' + (isHere ? ' is-here' : '') + '" href="' + esc(b.href) + '"'
           + (isHere ? ' aria-current="page"' : '') + '>'
-          + '<span class="svgh-item-emoji">' + (BUILDING_EMOJI[b.id] || '⭐') + '</span>'
+          + '<span class="svgh-item-emoji">' + goldIcon(BUILDING_ICON[b.id] || 'star', 'b-' + b.id, i) + '</span>'
           + '<span>' + brandHtml(b.name) + '</span>'
           + '<span class="svgh-item-addr">' + esc(b.address || '') + '</span></a>';
       }).join('');

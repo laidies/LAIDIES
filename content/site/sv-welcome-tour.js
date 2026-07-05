@@ -15,17 +15,17 @@
   var KEY = 'laidies_welcome_tour';
 
   var STOPS = [
-    { href: '/visitors-centre.html', name: "The Welcome Wagon", emoji: '🗺️',
+    { href: '/visitors-centre.html', name: "The Welcome Wagon", icon: 'map',
       line: "Every good town starts at the Visitor's Centre. Have a look around — this is what SUNNYVAiLE is." },
-    { href: '/chick-flicks.html', name: 'The Chick Flicks', emoji: '📼',
+    { href: '/chick-flicks.html', name: 'The Chick Flicks', icon: 'vhs',
       line: "Rent this week's episode — it's how the whole town learns AI. One a week, always a chick flick." },
-    { href: '/sunnyvaile-high.html', name: 'SUNNYVAiLE High', emoji: '🎓',
+    { href: '/sunnyvaile-high.html', name: 'SUNNYVAiLE High', icon: 'gradcap',
       line: 'Take the pop quiz on what you watched. Your score banks butterfly clips for your Closet.' },
-    { href: '/radio.html', name: 'KSVL 99.9', emoji: '📻',
+    { href: '/radio.html', name: 'KSVL 99.9', icon: 'radio',
       line: 'Turn the radio on. DJ SunnyV plays the town — and the music follows you everywhere you go.' },
-    { href: '/games/madame-claio.html', name: "Mme CLAi-O's", emoji: '🔮',
+    { href: '/games/madame-claio.html', name: "Mme CLAi-O's", icon: 'crystal',
       line: 'One fortune before you go. The paper knows best.' },
-    { href: '/clubhouse-pass.html', name: 'MAiKEOVER on MAiN(e)', emoji: '💄',
+    { href: '/clubhouse-pass.html', name: 'MAiKEOVER on MAiN(e)', icon: 'lipstick',
       line: "You've seen the town — time to live here. Make your Residence Card and become a resident." }
   ];
 
@@ -42,6 +42,13 @@
     });
   }
   function brandHtml(s) { return esc(s).replace(/Ai/g, '<span class="ai">Ai</span>'); }
+
+  // Gold kit icons (sv-gold-icons.js) — inline, sized for chip text lines.
+  function ic(key, uid, size) {
+    return window.svGoldIcon
+      ? '<span class="svwt-ic">' + window.svGoldIcon(key, 'wt-' + uid, size || 16) + '</span>'
+      : '';
+  }
 
   var STYLE = ''
     + '.svwt-chip { position: fixed; right: 16px; bottom: 88px; z-index: 9300; width: min(320px, calc(100vw - 32px));'
@@ -69,6 +76,7 @@
     + '  box-shadow: 0 12px 32px rgba(26,8,24,0.4); font: 700 13px/1.2 "Jost", sans-serif; }'
     + '.svwt-offer:hover { transform: translateY(-2px); }'
     + '.svwt-offer .svwt-offer-x { color: rgba(255,253,251,0.5); margin-left: 4px; font-size: 14px; }'
+    + '.svwt-ic { display: inline-flex; vertical-align: -3px; margin-right: 2px; }'
     + '@media (max-width: 640px) { .svwt-chip, .svwt-offer { bottom: 80px; right: 10px; } }';
 
   function injectStyle() {
@@ -114,19 +122,19 @@
       // At the stop: explain it, offer the next leg (or the finale).
       var nextIdx = stepIdx + 1;
       var btn = isLast
-        ? '<a class="svwt-next" href="#" data-svwt-finish>Finish the tour 🎉</a>'
+        ? '<a class="svwt-next" href="#" data-svwt-finish>Finish the tour ★</a>'
         : '<a class="svwt-next" href="' + esc(STOPS[nextIdx].href) + '" data-svwt-advance>Next stop · ' + esc(STOPS[nextIdx].name) + ' →</a>';
       chip.innerHTML =
-        '<p class="svwt-eyebrow"><span>🚌 Welcome Tour · Stop ' + (stepIdx + 1) + ' of ' + STOPS.length + '</span>'
+        '<p class="svwt-eyebrow"><span>' + ic('bus', 'eb1', 13) + ' Welcome Tour · Stop ' + (stepIdx + 1) + ' of ' + STOPS.length + '</span>'
         + '<button type="button" class="svwt-skip" data-svwt-skip title="End the tour">✕</button></p>'
-        + '<p class="svwt-name">' + stop.emoji + ' ' + brandHtml(stop.name) + '</p>'
+        + '<p class="svwt-name">' + ic(stop.icon, 'stop' + stepIdx, 17) + ' ' + brandHtml(stop.name) + '</p>'
         + '<p class="svwt-line">' + brandHtml(stop.line) + '</p>'
         + btn
         + '<div class="svwt-dots">' + dots + '</div>';
     } else {
       // Wandered off-route: gentle escort back, no guilt.
       chip.innerHTML =
-        '<p class="svwt-eyebrow"><span>🚌 Welcome Tour · paused</span>'
+        '<p class="svwt-eyebrow"><span>' + ic('bus', 'eb2', 13) + ' Welcome Tour · paused</span>'
         + '<button type="button" class="svwt-skip" data-svwt-skip title="End the tour">✕</button></p>'
         + '<p class="svwt-line">Exploring — love that. Your tour is waiting whenever you are.</p>'
         + '<a class="svwt-next" href="' + esc(stop.href) + '">Back to stop ' + (stepIdx + 1) + ' · ' + esc(stop.name) + ' →</a>'
@@ -161,8 +169,8 @@
     chip.id = 'svwtChip';
     chip.className = 'svwt-chip';
     chip.innerHTML =
-      '<p class="svwt-eyebrow"><span>🚌 Welcome Tour · complete</span></p>'
-      + '<p class="svwt-name">🎉 Official Tourist!</p>'
+      '<p class="svwt-eyebrow"><span>' + ic('bus', 'eb3', 13) + ' Welcome Tour · complete</span></p>'
+      + '<p class="svwt-name">' + ic('star', 'fin', 17) + ' Official Tourist!</p>'
       + '<p class="svwt-line">You walked the whole town. Make your Residence Card right here and it all starts counting — clips, charms, stickers, the works.</p>'
       + '<a class="svwt-next" href="#maikeover-form" onclick="this.closest(\'.svwt-chip\').remove()">Make my card ★</a>';
     document.body.appendChild(chip);
@@ -179,7 +187,7 @@
     var offer = document.createElement('button');
     offer.type = 'button';
     offer.className = 'svwt-offer';
-    offer.innerHTML = '🚌 <span>First time in town? Take the <strong>Welcome Tour</strong></span><span class="svwt-offer-x" title="No thanks">✕</span>';
+    offer.innerHTML = ic('bus', 'offer', 18) + ' <span>First time in town? Take the <strong>Welcome Tour</strong></span><span class="svwt-offer-x" title="No thanks">✕</span>';
     offer.addEventListener('click', function (e) {
       if (e.target.closest('.svwt-offer-x')) {
         writeState({ step: 0, skipped: true });

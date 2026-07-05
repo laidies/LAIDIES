@@ -7,9 +7,10 @@
   <meta name="description" content="SUNNYVAiLE High on Schoolhouse Road — Season 1 = 101 classes. Vocab 101, Concepts 101, Briefing 101, Tools 101, Practice 101, Accounts 101, ChatGPT 101. Pop quiz on Wednesdays.">
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260704-palette">
-  <script defer src="/content/site/sv-global-header.js?v=20260705-5"></script>
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260705-6"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
-  <script defer src="/content/site/sv-welcome-tour.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260705-2"></script>
 </head>
 <body>
 
@@ -66,7 +67,12 @@
         border: 1.5px solid rgba(75,33,72,0.16); background: var(--pearl, #faf4f7); cursor: pointer;
         font-family: 'Jost', sans-serif; transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.2s ease; }
       .sh-hub:hover, .sh-hub:focus-visible { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(75,33,72,0.14); border-color: var(--rose); outline: none; }
-      .sh-hub__icon { font-size: 26px; display: block; margin-bottom: 8px; line-height: 1; }
+      .sh-hub__icon { display: inline-flex; align-items: center; justify-content: center;
+        width: 42px; height: 42px; border-radius: 50%; margin-bottom: 10px; line-height: 0;
+        box-shadow: inset 0 0 0 1.5px rgba(52,20,70,0.16), 0 2px 6px rgba(75,33,72,0.22); }
+      .sh-hubs .sh-hub:nth-child(1) .sh-hub__icon { background: linear-gradient(160deg, #b97c5a 0%, #8f5d40 100%); }
+      .sh-hubs .sh-hub:nth-child(2) .sh-hub__icon { background: linear-gradient(160deg, #3aa8a4 0%, #2b7d7a 100%); }
+      .sh-hubs .sh-hub:nth-child(3) .sh-hub__icon { background: linear-gradient(160deg, #c47c85 0%, #9c5f68 100%); }
       .sh-hub__name { font-size: 15px; font-weight: 800; color: var(--plum-deep); letter-spacing: 0.02em; margin: 0 0 3px; }
       .sh-hub__count { font-size: 11.5px; color: var(--plum-soft, #6b3a66); margin: 0 0 10px; line-height: 1.35; }
       .sh-hub__cta { display: inline-block; font-size: 10.5px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose); }
@@ -89,19 +95,19 @@
 
     <div class="sh-hubs" id="sh-hubs">
       <button type="button" class="sh-hub" data-panel="hub-classes" aria-expanded="false" aria-controls="hub-classes">
-        <span class="sh-hub__icon" aria-hidden="true">📚</span>
+        <span class="sh-hub__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="url(#shh1)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="shh1" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9a6d10"/><stop offset="0.45" stop-color="#f3d879"/><stop offset="0.55" stop-color="#ffeb9e"/><stop offset="1" stop-color="#a87b1c"/></linearGradient></defs><path d="M12 6.2 C10.2 4.8 7.2 4.4 4.2 5 V18.6 C7.2 18 10.2 18.4 12 19.8 C13.8 18.4 16.8 18 19.8 18.6 V5 C16.8 4.4 13.8 4.8 12 6.2 Z"/><path d="M12 6.2 V19.8"/><path d="M6.8 9.2 C8.1 9 9.4 9.2 10.3 9.6 M6.8 12.2 C8.1 12 9.4 12.2 10.3 12.6 M17.2 9.2 C15.9 9 14.6 9.2 13.7 9.6 M17.2 12.2 C15.9 12 14.6 12.2 13.7 12.6"/></svg></span>
         <p class="sh-hub__name">Season 1 · 101 Classes</p>
         <p class="sh-hub__count">Seven classes, one intro curriculum</p>
         <span class="sh-hub__cta"><span class="when-closed">Pick a class →</span><span class="when-open">Close ×</span></span>
       </button>
       <button type="button" class="sh-hub" data-panel="hub-bookfair" aria-expanded="false" aria-controls="hub-bookfair">
-        <span class="sh-hub__icon" aria-hidden="true">🎪</span>
+        <span class="sh-hub__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="url(#shh2)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="shh2" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9a6d10"/><stop offset="0.45" stop-color="#f3d879"/><stop offset="0.55" stop-color="#ffeb9e"/><stop offset="1" stop-color="#a87b1c"/></linearGradient></defs><path d="M12 5.2 L3.5 19.5 H20.5 Z"/><path d="M12 5.2 L9.4 19.5 M12 5.2 L14.6 19.5"/><path d="M12 5.2 V2.8 L14.6 3.6 L12 4.5"/></svg></span>
         <p class="sh-hub__name">The Book Fair</p>
         <p class="sh-hub__count">In the gym every four weeks</p>
         <span class="sh-hub__cta"><span class="when-closed">See the racks →</span><span class="when-open">Close ×</span></span>
       </button>
       <button type="button" class="sh-hub" data-panel="hub-next" aria-expanded="false" aria-controls="hub-next">
-        <span class="sh-hub__icon" aria-hidden="true">🎒</span>
+        <span class="sh-hub__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="url(#shh3)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="shh3" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9a6d10"/><stop offset="0.45" stop-color="#f3d879"/><stop offset="0.55" stop-color="#ffeb9e"/><stop offset="1" stop-color="#a87b1c"/></linearGradient></defs><path d="M6.5 9.5 C6.5 6.3 8.6 4.8 12 4.8 C15.4 4.8 17.5 6.3 17.5 9.5 V19.5 H6.5 Z"/><path d="M10 4.8 C10 3.4 14 3.4 14 4.8"/><path d="M9 13.5 H15 V17 H9 Z M12 13.5 V15"/></svg></span>
         <p class="sh-hub__name">Next Season</p>
         <p class="sh-hub__count">201 classes · new academic year</p>
         <span class="sh-hub__cta"><span class="when-closed">Peek ahead →</span><span class="when-open">Close ×</span></span>
@@ -422,7 +428,7 @@
 
   <script defer src="/content/site/sv-tour-checkin.js?v=20260702-2"></script>
     <script defer src="/content/site/ksvl-player.js?v=20260705-21"></script>
-    <script defer src="/content/site/quick-rail.js?v=20260705-4"></script>
+    <script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260704-canon"></script>
 <script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
