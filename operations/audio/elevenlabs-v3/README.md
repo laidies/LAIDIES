@@ -23,9 +23,10 @@ FULL master file there instead and export one mp3 — no stitching needed.
 ## v3 notes
 - v3 does NOT support <break> tags — pauses come from the punctuation and
   paragraph breaks already in the script. Don't add SSML.
-- v3 DOES support bracketed audio tags like [sighs], [warmly], [wry] if you
-  want to direct a specific line's delivery. The script ships without tags
-  on purpose (cleaner, more consistent); add sparingly if a line needs it.
+- v3 DOES support bracketed audio tags — including multi-word directions
+  ([dry, knowing], [pointed, slow and deliberate]) and stacked emphasis
+  (confirmed by Ali's Hope tests 2026-07-06). The TAGGED master uses ~38,
+  with stacked/multi-word tags reserved for the load-bearing jokes.
 - Spellings are TTS-phonetic on purpose (Sunnyvale, Madame Cleo, K-S-V-L,
   "Makeover on Main") — don't "fix" them back to brand casing.
 
