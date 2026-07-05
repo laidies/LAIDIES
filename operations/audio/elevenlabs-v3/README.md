@@ -1,32 +1,26 @@
-# Episode 01 — ElevenLabs v3 chunks
+# Episode 01 — ElevenLabs v3 chunks (RECORD FROM HERE)
 
-The full script (operations/audio/episode-01-elevenlabs.txt, ~16,000
-characters) is too long for one v3 generation, so it's pre-split here into
-8 chunks, each under ~2,800 characters, cut at paragraph/part boundaries
-(safe places for an audio seam).
+Reality check 2026-07-06: Studio has no v3 voices yet (Hope only appears in
+the plain Text-to-Speech tool), and the TTS box takes 5,000 characters per
+generation. So Episode 01 records as FOUR takes from this folder, each cut
+at a paragraph boundary (a natural pause, so the seams are invisible).
 
 ## How to record
-1. In ElevenLabs, pick ONE voice and keep the exact same voice + settings
-   for every chunk (v3: start with stability around "Natural"; if delivery
-   feels flat try "Creative", but re-listen for consistency).
-2. Paste chunk 01, generate, listen. Regenerate until you like the read —
-   this chunk sets the tone for the episode.
-3. Generate the remaining chunks in order with the same settings.
-4. Download all 8 mp3s, keep the chunk numbers in the filenames, and drop
-   them anywhere in the repo (e.g. operations/audio/takes/). Claude will
-   stitch them into /content/music/episode-01-narration.mp3 — the
-   Screening Room picks that file up automatically.
-
-Alternative: if your plan includes ElevenLabs Studio (long-form), paste the
-FULL master file there instead and export one mp3 — no stitching needed.
+1. Open Text to Speech (not Studio). Voice: Hope — upbeat and clear.
+   v3, speed 0.96, stability 50, similarity 75. Same settings all four takes.
+2. Paste chunk 01, generate, listen. Regenerate until the tone is right —
+   this take sets the episode.
+3. Generate 02, 03, 04 with identical settings.
+4. Download all four mp3s, keep the chunk numbers in the filenames, drop
+   them in operations/audio/takes/ (create it). Claude stitches them into
+   /content/music/episode-01-narration.mp3 with ffmpeg and syncs the
+   Screening Room cues to the real runtime.
 
 ## v3 notes
-- v3 does NOT support <break> tags — pauses come from the punctuation and
-  paragraph breaks already in the script. Don't add SSML.
-- v3 DOES support bracketed audio tags — including multi-word directions
-  ([dry, knowing], [pointed, slow and deliberate]) and stacked emphasis
-  (confirmed by Ali's Hope tests 2026-07-06). The TAGGED master uses ~38,
-  with stacked/multi-word tags reserved for the load-bearing jokes.
+- Delivery tags are built in ([dry, sarcasm, deadpan], [chuckles], etc.) —
+  Ali-validated grammar. If a line overcooks, delete just that tag and
+  regenerate that one chunk.
+- No <break> tags — punctuation carries the pacing.
 - Spellings are TTS-phonetic on purpose (Sunnyvale, Madame Cleo, K-S-V-L,
   "Makeover on Main") — don't "fix" them back to brand casing.
 
