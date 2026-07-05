@@ -25,12 +25,12 @@ at a paragraph boundary (a natural pause, so the seams are invisible).
   "Makeover on Main") — don't "fix" them back to brand casing.
 
 ## Voice lock (updated 2026-07-06)
-Series voice: **Jessica** (available in Studio; Ali: "sounds good") — record
-the exact model + settings from the final Ep 01 render here once exported,
-and reuse them for every episode of the season.
-- If Studio renders Jessica on v3: paste the TAGGED master
-  (episode-01-elevenlabs-v3-tagged.txt) — tags work.
-- If Studio is on an older model: tags get read aloud — paste the UNTAGGED
-  master (episode-01-elevenlabs.txt) instead.
+Series voice: **Jessica**, Studio on **v3** (confirmed 2026-07-06 — Studio
+has v3, just not every voice; Hope isn't in its v3 roster, Jessica is).
+Recording path: paste the FULL TAGGED master
+(operations/audio/episode-01-elevenlabs-v3-tagged.txt) into a Studio text
+project, Jessica + v3, generate, export ONE mp3 to
+/content/music/episode-01-narration.mp3. Record the final settings here
+after the Ep 01 export and reuse for the season.
 Fallback path: Hope — upbeat and clear via plain TTS (v3, speed 0.96,
 stability 50, similarity 75), recorded as the four chunks in this folder.
