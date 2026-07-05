@@ -1,0 +1,30 @@
+# Episode 01 — ElevenLabs v3 chunks
+
+The full script (operations/audio/episode-01-elevenlabs.txt, ~16,000
+characters) is too long for one v3 generation, so it's pre-split here into
+8 chunks, each under ~2,800 characters, cut at paragraph/part boundaries
+(safe places for an audio seam).
+
+## How to record
+1. In ElevenLabs, pick ONE voice and keep the exact same voice + settings
+   for every chunk (v3: start with stability around "Natural"; if delivery
+   feels flat try "Creative", but re-listen for consistency).
+2. Paste chunk 01, generate, listen. Regenerate until you like the read —
+   this chunk sets the tone for the episode.
+3. Generate the remaining chunks in order with the same settings.
+4. Download all 8 mp3s, keep the chunk numbers in the filenames, and drop
+   them anywhere in the repo (e.g. operations/audio/takes/). Claude will
+   stitch them into /content/music/episode-01-narration.mp3 — the
+   Screening Room picks that file up automatically.
+
+Alternative: if your plan includes ElevenLabs Studio (long-form), paste the
+FULL master file there instead and export one mp3 — no stitching needed.
+
+## v3 notes
+- v3 does NOT support <break> tags — pauses come from the punctuation and
+  paragraph breaks already in the script. Don't add SSML.
+- v3 DOES support bracketed audio tags like [sighs], [warmly], [wry] if you
+  want to direct a specific line's delivery. The script ships without tags
+  on purpose (cleaner, more consistent); add sparingly if a line needs it.
+- Spellings are TTS-phonetic on purpose (Sunnyvale, Madame Cleo, K-S-V-L,
+  "Makeover on Main") — don't "fix" them back to brand casing.
