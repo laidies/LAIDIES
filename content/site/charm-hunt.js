@@ -42,7 +42,7 @@
     // ── Week 2 · The Vanity Set ──────────────────────────────────────
     { week: 2, slug: 'w2-lip-gloss-wand',   emoji: '💄',  name: 'Lip Gloss Wand',   building: 'MAiKEOVER',            page: 'maikeover',       x: 80, y: 52 },
     { week: 2, slug: 'w2-postmark-stamp',   emoji: '✉️', name: 'Postmark Stamp',   building: 'Post Office',          page: 'post-office',     x: 72, y: 60 },
-    { week: 2, slug: 'w2-cocktail-umbrella',emoji: '🍸',  name: 'Cocktail Umbrella',building: 'BRONZE AiGE',          page: 'bronze-aige',     x: 73, y: 62 },
+    { week: 2, slug: 'w2-cocktail-umbrella',emoji: '🍸',  name: 'Cocktail Umbrella',building: 'BRONZE AiGE',          page: 'bronze-aige',     x: 73, y: 65 },
     { week: 2, slug: 'w2-crystal-ball',     emoji: '🔮',  name: 'Crystal Ball',     building: "Mme CLAi-O's Shop",    page: 'mme-claios-shop', x: 26, y: 58 },
     { week: 2, slug: 'w2-yearbook-quote',   emoji: '📖',  name: 'Yearbook Quote',   building: 'Delta LAi Nu',         page: 'sorority-house',  x: 25, y: 64 },
     { week: 2, slug: 'w2-nope-stamp',       emoji: '🚫',  name: 'NOPE Stamp',       building: 'Town Hall',            page: 'town-hall',       x: 76, y: 66 },
@@ -51,7 +51,7 @@
     // ── Week 3 · The Bright Set ──────────────────────────────────────
     { week: 3, slug: 'w3-nail-polish',      emoji: '💅',  name: 'Nail Polish',      building: 'MAiKEOVER',            page: 'maikeover',       x: 22, y: 52 },
     { week: 3, slug: 'w3-bouquet-ribbon',   emoji: '💐',  name: 'Bouquet Ribbon',   building: 'Post Office',          page: 'post-office',     x: 88, y: 78 },
-    { week: 3, slug: 'w3-mic-charm',        emoji: '🎤',  name: 'Microphone Charm', building: 'BRONZE AiGE',          page: 'bronze-aige',     x: 55, y: 67 },
+    { week: 3, slug: 'w3-mic-charm',        emoji: '🎤',  name: 'Microphone Charm', building: 'BRONZE AiGE',          page: 'bronze-aige',     x: 54, y: 74 },
     { week: 3, slug: 'w3-star-chart',       emoji: '🌟',  name: 'Star Chart',       building: "Mme CLAi-O's Shop",    page: 'mme-claios-shop', x: 78, y: 46 },
     { week: 3, slug: 'w3-burn-bookmark',    emoji: '📔',  name: 'Burn Book Mark',   building: 'Delta LAi Nu',         page: 'sorority-house',  x: 93, y: 55 },
     { week: 3, slug: 'w3-ballot-stub',      emoji: '🗳️', name: 'Ballot Stub',      building: 'Town Hall',            page: 'town-hall',       x: 10, y: 72 },

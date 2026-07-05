@@ -86,11 +86,29 @@
     + '  .sv-yah-pin--here .sv-yah-label { font-size: 9.5px; padding: 3px 8px; }'
     + '}';
 
+  // Stamp the visit — feeds the Town Wallet membership cards on the Closet.
+  // Throttled to one stamp per building per 30 minutes so refreshes don't farm it.
+  function stampVisit(id) {
+    try {
+      var KEY = 'laidies_building_visits';
+      var v = JSON.parse(localStorage.getItem(KEY)) || {};
+      var rec = v[id] || { n: 0, first: Date.now(), last: 0 };
+      if (!rec.first) rec.first = Date.now();
+      if (Date.now() - (Number(rec.last) || 0) > 30 * 60 * 1000) {
+        rec.n = (Number(rec.n) || 0) + 1;
+        rec.last = Date.now();
+      }
+      v[id] = rec;
+      localStorage.setItem(KEY, JSON.stringify(v));
+    } catch (e) { /* private mode / quota — skip quietly */ }
+  }
+
   function mount() {
     var list = window.SV_BUILDINGS;
     if (!list || !list.length) return;
     var here = currentEntry(list);
     if (!here) return;
+    stampVisit(here.id);
 
     var style = document.createElement('style');
     style.textContent = STYLE;

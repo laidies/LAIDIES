@@ -849,6 +849,8 @@
       .quick-rail { display: none; }
     }
   </style>
+  <script defer src="/content/site/sv-global-header.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
 </head>
 <body>
 
@@ -1059,6 +1061,8 @@
         #sv-explainer .sv-ctas { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 10px; }
         #sv-explainer .sv-ctas .masthead-sub { color: #c8bbc6; font-size: 14px; margin: 0; }
         #sv-explainer .sv-ctas .masthead-sub a { color: #ee9fce; text-decoration: underline; text-underline-offset: 3px; }
+        /* Repeat visits this session: skip the staggered reveal entirely */
+        #sv-explainer.sv-instant.sv-play .sv-reveal { animation-duration: 0.01s !important; animation-delay: 0s !important; }
         @media (prefers-reduced-motion: reduce) {
           #sv-explainer.sv-play .sv-reveal { animation-duration: 0.01s; animation-delay: 0s; }
           #sv-explainer.sv-play .sv-track,
@@ -1109,6 +1113,13 @@
 
         function start() {
           if (root.classList.contains('sv-play')) return;
+          // The full VCR reveal plays ONCE, ever (Ali's rule). After the
+          // first play the flag is permanent — every later homepage load,
+          // any tab, any day, shows the section instantly.
+          var seen = false;
+          try { seen = !!localStorage.getItem('laidies_intro_seen_at'); } catch (e) {}
+          if (seen) root.classList.add('sv-instant');
+          else { try { localStorage.setItem('laidies_intro_seen_at', String(Date.now())); } catch (e) {} }
           root.classList.add('sv-play');
           startedAt = Date.now();
           counterTimer = setInterval(function () {
@@ -1234,7 +1245,7 @@
           <figcaption style="margin-top: 14px; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 15px; color: var(--plum-soft);">The walk, stop by stop. Post Office → Chick Flicks → Blend &amp; Snap → SUNNYVAiLE High → NewsStand → KSVL → back home.</figcaption>
         </figure>
 
-        <div class="ritual-choose">
+        <div class="ritual-choose" id="tour" style="scroll-margin-top: 86px;">
           <p class="ritual-choose-kicker">★ Choose your tour for this Wednesday</p>
           <h3 class="ritual-choose-title">Express or Full Tour — either counts.</h3>
           <p class="ritual-choose-body">Both routes tick off your week. The Express Tour is one stop (this week's episode). The Full Tour walks all eight. Pick what fits your calendar — your Tour Guide keeps track either way.</p>
@@ -1268,7 +1279,7 @@
               <img class="quick-trip-opt-img" data-ep-image src="assets/episodes/issue-04/section-slaiyer-handbook-v1.png" alt="This week's episode art" loading="lazy" />
               <div class="quick-trip-opt-body">
                 <p class="quick-trip-opt-eyebrow">★ This week · Episode <span data-ep-num>04</span></p>
-                <h4 class="quick-trip-opt-title" data-ep-title>A SL<span class="ai">Ai</span>YER Needs a Watcher</h4>
+                <h4 class="quick-trip-opt-title" data-ep-title>Every SL<span class="ai">Ai</span>YER Needs a Watcher</h4>
                 <p class="quick-trip-opt-desc">The one in which she opens five browser tabs — one per tool — and asks not which tool is best, but <em>who is right for this scene.</em></p>
                 <span class="quick-trip-opt-cta">Pick up this week's episode →</span>
               </div>
@@ -1779,9 +1790,9 @@
     </div>
   </footer>
 
-    <script defer src="/content/site/ksvl-player.js?v=20260704-12"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260705-21"></script>
     <script defer src="/content/site/sv-tour-checkin.js?v=20260702-2"></script>
-    <script defer src="/content/site/charm-hunt.js?v=20260704-y2k3b"></script>
-<script defer src="/content/site/ai-accent-autowrap.js?v=20260704-5"></script>
+    <script defer src="/content/site/charm-hunt.js?v=20260705-dusk"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
 </body>
 </html>

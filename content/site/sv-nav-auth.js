@@ -32,13 +32,14 @@
     if (!session) return; // Keep default "Sign In" for guests
     var email = session.user.email;
     var initials = getInitials(email);
-    // Signed-in state: initials pill + "Member" label, click routes to card view
+    // Signed-in state: initials pill + "Resident" label, click goes straight
+    // to the Closet — a signed-in resident never needs the make-your-card flow.
     link.innerHTML =
       '<span style="display: inline-block; background: var(--rose); color: var(--cream); border-radius: 999px; padding: 3px 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; margin-right: 8px; vertical-align: middle;">' +
       initials +
-      '</span>Member ★';
-    link.setAttribute('title', 'Signed in as ' + email);
-    link.setAttribute('href', '/clubhouse-pass.html#member-passport');
+      '</span>Resident ★';
+    link.setAttribute('title', 'Signed in as ' + email + ' — open your Closet');
+    link.setAttribute('href', '/laidies-card.html');
   }
 
   if (document.readyState === 'loading') {

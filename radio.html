@@ -7,7 +7,8 @@
   <meta name="description" content="SUNNYVAiLE Community RAiDIO (KSVL) — don't just learn from books, learn from hooks. Music broadcast all day. DJ SunnyV's tracks, patron saint themes, the town anthem on the hour. Tape it off the RAiDIO.">
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260704-palette">
-  <script defer src="/content/site/sv-nav-auth.js?v=20260630-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
   <script src="/content/site/supabase-config.js" defer></script>
 </head>
 <body>
@@ -24,7 +25,38 @@
     </nav>
   </header>
 
-  <div class="sv-hero"><img src="assets/sunnyvaile-buildings/y2k-v3/16-ksvl-community-raidio.webp?v=20260704-perf" alt="KSVL Community RAiDIO tower and broadcast building" loading="eager"></div>
+  <style>
+    .sv-hero { position: relative; }
+    .ksvl-hero-tunein {
+      position: absolute; left: 50%; bottom: clamp(16px, 4.5vw, 38px); transform: translateX(-50%);
+      display: inline-flex; align-items: center; gap: 11px;
+      padding: 15px 32px; border: 2px solid #ff6ec7; border-radius: 999px;
+      background: rgba(26, 8, 22, 0.84); color: #fffdfb; cursor: pointer;
+      font-family: 'Jost', sans-serif; font-weight: 800; font-size: clamp(13px, 1.9vw, 18px);
+      letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap;
+      box-shadow: 0 0 20px rgba(255,110,199,0.55), 0 10px 26px rgba(0,0,0,0.4);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .ksvl-hero-tunein:hover, .ksvl-hero-tunein:focus-visible {
+      transform: translateX(-50%) scale(1.05);
+      box-shadow: 0 0 30px rgba(255,110,199,0.85), 0 12px 30px rgba(0,0,0,0.45);
+      outline: none;
+    }
+    .ksvl-hero-tunein__dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: #ff4f4f; box-shadow: 0 0 9px rgba(255,79,79,0.95);
+      animation: ksvl-onair 1.4s ease-in-out infinite;
+    }
+    @keyframes ksvl-onair { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    @media (prefers-reduced-motion: reduce) { .ksvl-hero-tunein__dot { animation: none; } }
+  </style>
+  <div class="sv-hero">
+    <img src="assets/sunnyvaile-buildings/y2k-v3/16-ksvl-community-raidio.webp?v=20260704-perf" alt="KSVL Community RAiDIO tower and broadcast building" loading="eager">
+    <button type="button" class="ksvl-hero-tunein" onclick="if(window.KSVL_startLive) window.KSVL_startLive();" aria-label="Tune in to KSVL Live radio, 99.9 FM">
+      <span class="ksvl-hero-tunein__dot" aria-hidden="true"></span>
+      <span>▶ Tune In Live · 99.9 FM</span>
+    </button>
+  </div>
 
   <main>
 
@@ -57,8 +89,71 @@
         <span class="ksvl-live-band__btn-icon" aria-hidden="true">▶</span>
         <span>TUNE IN LIVE · 99.9</span>
       </button>
-      <p class="ksvl-live-band__disclaimer">Or grab a mix CD below.</p>
+      <p class="ksvl-live-band__disclaimer">Or open a counter below.</p>
     </div>
+
+    <!-- ============================================================
+         KSVL · The Counters — the whole station on one row.
+         Click a counter and it opens right here; click again to close.
+         ============================================================ -->
+    <style>
+      .ksvl-hubs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 6px 0 30px; }
+      @media (max-width: 860px) { .ksvl-hubs { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+      .ksvl-hub { position: relative; text-align: left; padding: 18px 16px 15px; border-radius: 14px;
+        border: 1.5px solid rgba(75,33,72,0.16); background: var(--pearl, #faf4f7); cursor: pointer;
+        font-family: 'Jost', sans-serif; transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.2s ease; }
+      .ksvl-hub:hover, .ksvl-hub:focus-visible { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(75,33,72,0.14); border-color: var(--rose); outline: none; }
+      .ksvl-hub__icon { font-size: 26px; display: block; margin-bottom: 8px; line-height: 1; }
+      .ksvl-hub__name { font-size: 15px; font-weight: 800; color: var(--plum-deep); letter-spacing: 0.02em; margin: 0 0 3px; }
+      .ksvl-hub__count { font-size: 11.5px; color: var(--plum-soft, #6b3a66); margin: 0 0 10px; line-height: 1.35; }
+      .ksvl-hub__cta { display: inline-block; font-size: 10.5px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose); }
+      .ksvl-hub__cta .when-open { display: none; }
+      .ksvl-hub.is-open { background: linear-gradient(135deg, var(--plum, #4b2148) 0%, var(--rose, #9b3f5f) 100%); border-color: var(--gold); }
+      .ksvl-hub.is-open .ksvl-hub__name { color: var(--cream, #fffdfb); }
+      .ksvl-hub.is-open .ksvl-hub__count { color: rgba(255,253,251,0.78); }
+      .ksvl-hub.is-open .ksvl-hub__cta { color: var(--gold); }
+      .ksvl-hub.is-open .ksvl-hub__cta .when-open { display: inline; }
+      .ksvl-hub.is-open .ksvl-hub__cta .when-closed { display: none; }
+      .ksvl-hub-panel { margin: 0 0 34px; padding: 26px clamp(16px, 3vw, 30px);
+        background: #fffdfb; border: 1.5px solid rgba(75,33,72,0.14); border-radius: 16px;
+        box-shadow: 0 14px 34px rgba(75,33,72,0.10); scroll-margin-top: 86px;
+        animation: ksvlPanelIn 0.28s ease; }
+      .ksvl-hub-panel--bare { padding: 0; background: transparent; border: 0; box-shadow: none; }
+      @keyframes ksvlPanelIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+      @media (prefers-reduced-motion: reduce) { .ksvl-hub-panel { animation: none; } }
+      .ksvl-hub-panel > h2:first-child { margin-top: 0; }
+      .ksvl-hub-panel .ksvl-band-eyebrow { margin-top: 0; }
+      .ksvl-hub-panel .ksvl-stickers { margin: 0; }
+    </style>
+
+    <div class="ksvl-hubs" id="ksvl-hubs">
+      <button type="button" class="ksvl-hub" data-panel="hub-mixcds" aria-expanded="false" aria-controls="hub-mixcds">
+        <span class="ksvl-hub__icon" aria-hidden="true">💿</span>
+        <p class="ksvl-hub__name">Mix CDs</p>
+        <p class="ksvl-hub__count">Six mixes, Sharpie-labeled · plus All Songs</p>
+        <span class="ksvl-hub__cta"><span class="when-closed">Open the case →</span><span class="when-open">Close ×</span></span>
+      </button>
+      <button type="button" class="ksvl-hub" data-panel="hub-bands" aria-expanded="false" aria-controls="hub-bands">
+        <span class="ksvl-hub__icon" aria-hidden="true">🎸</span>
+        <p class="ksvl-hub__name">The Bands</p>
+        <p class="ksvl-hub__count">Ten SUNNYVAiLE bands · flip the covers</p>
+        <span class="ksvl-hub__cta"><span class="when-closed">Browse the racks →</span><span class="when-open">Close ×</span></span>
+      </button>
+      <button type="button" class="ksvl-hub" data-panel="hub-stickers" aria-expanded="false" aria-controls="hub-stickers">
+        <span class="ksvl-hub__icon" aria-hidden="true">⭐</span>
+        <p class="ksvl-hub__name">The Sticker Counter</p>
+        <p class="ksvl-hub__count">20 vinyl designs · take 3 home free</p>
+        <span class="ksvl-hub__cta"><span class="when-closed">Grab a few →</span><span class="when-open">Close ×</span></span>
+      </button>
+      <button type="button" class="ksvl-hub" data-panel="hub-request" aria-expanded="false" aria-controls="hub-request">
+        <span class="ksvl-hub__icon" aria-hidden="true">☎️</span>
+        <p class="ksvl-hub__name">Call In a Request</p>
+        <p class="ksvl-hub__count">Pitch DJ SunnyV a song idea</p>
+        <span class="ksvl-hub__cta"><span class="when-closed">Pick up the phone →</span><span class="when-open">Close ×</span></span>
+      </button>
+    </div>
+
+    <div class="ksvl-hub-panel" id="hub-mixcds" hidden>
 
     <h2>Mix CDs</h2>
 
@@ -136,7 +231,9 @@
     </style>
 
     <div id="ksvl-mix-cds"></div>
-    <script defer src="/content/site/ksvl-player.js?v=20260704-12"></script>
+
+    </div><!-- /hub-mixcds -->
+    <script defer src="/content/site/ksvl-player.js?v=20260705-21"></script>
 
     <!-- ============================================================
          KSVL · The Bands (10 fictional-band album covers)
@@ -189,11 +286,15 @@
       .ksvl-band-album { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-size: 17px; font-weight: 700; color: var(--plum-deep); margin: 0 0 8px; line-height: 1.2; }
     </style>
 
+    <div class="ksvl-hub-panel" id="hub-bands" hidden>
+
     <p class="ksvl-band-eyebrow">★ 99.9 KSVL · The Bands</p>
     <h2 class="ksvl-band-title">The Bands</h2>
     <p class="ksvl-band-lede">Ten fictional bands from SUNNYVAiLE. DJ SunnyV plays them all. Tap a cover to flip it and read the tracklist; hit ▶ to play the whole album.</p>
 
     <div class="ksvl-band-grid" id="ksvl-band-grid"></div>
+
+    </div><!-- /hub-bands -->
 
     <script>
       (function() {
@@ -377,6 +478,8 @@
       .ksvl-stickers-legend .dot--pick { background: var(--gold); }
     </style>
 
+    <div class="ksvl-hub-panel" id="hub-stickers" hidden>
+
     <section class="ksvl-stickers" id="ksvl-stickers">
       <p class="ksvl-stickers-eyebrow">★ 99.9 KSVL · The Sticker Sheet</p>
       <h2 class="ksvl-stickers-title">Grab a few from the counter.</h2>
@@ -390,6 +493,8 @@
         <span><span class="dot dot--locked"></span>Locked — hover to see how</span>
       </div>
     </section>
+
+    </div><!-- /hub-stickers -->
 
     <script>
       (function() {
@@ -547,7 +652,9 @@
     <!-- ============================================================
          KSVL · Call in a request (song request form)
          ============================================================ -->
-    <section id="ksvl-request" style="margin: 56px 0 40px; padding: 36px clamp(20px, 4vw, 44px); background: linear-gradient(135deg, var(--plum-deep) 0%, var(--rose) 100%); border-radius: 16px; color: var(--cream);">
+    <div class="ksvl-hub-panel ksvl-hub-panel--bare" id="hub-request" hidden>
+
+    <section id="ksvl-request" style="margin: 0 0 34px; padding: 36px clamp(20px, 4vw, 44px); background: linear-gradient(135deg, var(--plum-deep) 0%, var(--rose) 100%); border-radius: 16px; color: var(--cream);">
       <p style="margin: 0 0 10px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);">★ 99.9 KSVL · Call in a request</p>
       <h2 style="margin: 0 0 12px; color: var(--cream); font-family: 'Playfair Display', Georgia, serif; font-size: clamp(26px, 3.5vw, 34px);">Got a song idea? DJ SunnyV is listening.</h2>
       <p style="margin: 0 0 28px; font-size: 15px; line-height: 1.6; color: var(--cream); opacity: 0.94;">Fill in the details, hit send. If we make the track, you get first-listen and your name in the credits.</p>
@@ -587,6 +694,51 @@
         </div>
       </form>
     </section>
+
+    </div><!-- /hub-request -->
+
+    <script>
+      // The Counters — one open at a time; hash (#hub-* or legacy #ksvl-*) deep-links open their counter.
+      (function() {
+        'use strict';
+        var hubs = Array.prototype.slice.call(document.querySelectorAll('.ksvl-hub'));
+        function panelFor(hub) { return document.getElementById(hub.getAttribute('data-panel')); }
+        function closeAll() {
+          hubs.forEach(function(h) {
+            h.classList.remove('is-open');
+            h.setAttribute('aria-expanded', 'false');
+            var p = panelFor(h);
+            if (p) p.hidden = true;
+          });
+        }
+        function open(hub, scroll) {
+          closeAll();
+          hub.classList.add('is-open');
+          hub.setAttribute('aria-expanded', 'true');
+          var p = panelFor(hub);
+          if (p) {
+            p.hidden = false;
+            if (scroll) p.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+        hubs.forEach(function(h) {
+          h.addEventListener('click', function() {
+            if (h.classList.contains('is-open')) { closeAll(); } else { open(h, true); }
+          });
+        });
+        var HASH_MAP = {
+          '#hub-mixcds': 'hub-mixcds', '#ksvl-mix-cds': 'hub-mixcds',
+          '#hub-bands': 'hub-bands',
+          '#hub-stickers': 'hub-stickers', '#ksvl-stickers': 'hub-stickers',
+          '#hub-request': 'hub-request', '#ksvl-request': 'hub-request'
+        };
+        var target = HASH_MAP[window.location.hash];
+        if (target) {
+          var hub = hubs.filter(function(h) { return h.getAttribute('data-panel') === target; })[0];
+          if (hub) open(hub, true);
+        }
+      })();
+    </script>
 
     <script>
       (function() {
@@ -725,8 +877,8 @@
   </script>
 
     <script defer src="/content/site/quick-rail.js?v=20260704-2"></script>
-<script defer src="/content/site/ai-accent-autowrap.js?v=20260704-5"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260704-canon"></script>
-<script defer src="/content/site/sv-you-are-here.js?v=20260704-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
 </body>
 </html>

@@ -7,7 +7,8 @@
   <meta name="description" content="The LUMINAiRY on Lantern Hill — home to the PATRON SAiNTS (pop-culture pantheon) and The MAiVENS (women leading in AI). Two wings, same chapel.">
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260704-palette">
-  <script defer src="/content/site/sv-nav-auth.js?v=20260630-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
 </head>
 <body>
 
@@ -93,6 +94,10 @@
       .stop--saint .saint-back-rule {
         margin: 0 0 14px; font-family: 'Playfair Display', Georgia, serif;
         font-style: italic; font-size: 15px; line-height: 1.4; color: var(--plum);
+      }
+      .stop--saint .saint-back-devotion {
+        margin: 0 0 14px; font-family: 'Jost', sans-serif;
+        font-size: 12px; line-height: 1.5; color: var(--plum-soft, #766171);
       }
       .stop--saint .saint-back-meta {
         margin-top: auto;
@@ -316,7 +321,8 @@
           'Buffy Summers':   { rule: 'Do the scary thing anyway. That is the job.',            song: 'The Overfits',    source: 'Buffy the Vampire Slayer (1997)' },
           'Regina George':   { rule: 'Confidence is not the problem. What you do with it is.', song: 'The Embeddings',  source: 'Mean Girls (2004)' },
           'David Rose':      { rule: 'Be specific. Say what kind of cheese. Actually say the year.', song: 'Chain of Thought', source: "Schitt's Creek" },
-          'Deb':             { rule: 'The most powerful word is NOPE. Then move on.',          song: 'Latent Space',    source: "SUNNYVAiLE's mayor" }
+          'Deb':             { rule: 'The most powerful word is NOPE. Then move on.',          song: 'Latent Space',    source: "SUNNYVAiLE's mayor",
+                               devotion: 'The PATRON SAiNT for women who say yes to too much. It’s time to start saying NOPE. You’re in your Deb-flection™ era.' }
         };
         function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
 
@@ -348,6 +354,7 @@
               '  <p class="saint-back-eyebrow">★ ' + esc(title) + '</p>' +
               '  <h3 class="saint-back-name">' + esc(name) + '</h3>' +
               '  <p class="saint-back-rule">&ldquo;' + esc(canon.rule) + '&rdquo;</p>' +
+              (canon.devotion ? '  <p class="saint-back-devotion">' + esc(canon.devotion) + '</p>' : '') +
               '</div>' +
               '<div class="saint-back-meta">' +
               (canon.song ? '  <div class="saint-back-row"><strong>Anthem by</strong> ' + esc(canon.song) + '</div>' : '') +
@@ -361,6 +368,9 @@
             card.setAttribute('tabindex', '0');
             card.setAttribute('aria-label', name + ' — tap to reveal rule');
           });
+          // The Ai-accent autowrap (defer) runs before this hydrator fires at
+          // DOMContentLoaded — rewrap so injected back faces get the accent.
+          if (window.LAiDIESAccentRewrap) window.LAiDIESAccentRewrap(document.body);
         }
 
         function isInteractive(target) {
@@ -1026,7 +1036,7 @@
 
   <footer>© LAiDIES · Filed from SUNNYVAiLE · The LUMINAiRY at Lantern Hill</footer>
 
-    <script defer src="/content/site/ksvl-player.js?v=20260704-12"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260705-21"></script>
     <script defer src="/content/site/quick-rail.js?v=20260704-2"></script>
 
     <!-- MAiVEN click-to-collect + Foundress unlock gate + Coven pickers (SAiNT/MAiVEN/TRAiLBLAZER) -->
@@ -1175,8 +1185,8 @@
         renderCoven();
       })();
     </script>
-<script defer src="/content/site/ai-accent-autowrap.js?v=20260704-5"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260704-canon"></script>
-<script defer src="/content/site/sv-you-are-here.js?v=20260704-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
 </body>
 </html>

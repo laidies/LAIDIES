@@ -7,7 +7,8 @@
   <meta name="description" content="The bar's paper fortune teller at The BRONZE AiGE. Pick a lane, pick a mood, and the bar picks your happy-hour drink — best played at a table full of LAiDIES.">
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260704-palette">
-  <script defer src="/content/site/sv-nav-auth.js?v=20260630-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
 </head>
 <body>
 
@@ -69,15 +70,6 @@
 
       <!-- THE GAME -->
       <section aria-label="The fortune teller">
-        <div style="text-align: center; margin: 0 0 18px;">
-          <img id="bwsFortuneImg"
-               src="/assets/businesswomen-special-fortune-teller-v1.webp"
-               data-closed-src="/assets/businesswomen-special-fortune-teller-v1.webp"
-               data-open-src="/assets/businesswomen-special-fortune-teller-open-v1.webp"
-               alt="Paper fortune teller for the Businesswomen's Special"
-               style="width: 100%; max-width: 340px; border-radius: 14px; box-shadow: 0 10px 30px rgba(75,33,72,0.18); transition: transform 300ms ease;">
-        </div>
-
         <p style="margin: 0 0 8px; font-weight: 700; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);">1 · Pick your lane</p>
         <div id="bwsLanes" style="display: flex; gap: 12px; margin: 0 0 20px;">
           <button type="button" class="bws-lane is-selected" data-lane="cocktail"><strong>Summon Spirits</strong><span>Cocktails</span></button>
@@ -86,7 +78,7 @@
 
         <p style="margin: 0 0 8px; font-weight: 700; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);">2 · Pinch open a mood</p>
         <div id="bwsMoods" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 0 0 14px;">
-          <button type="button" class="bws-mood" data-flap="0"><span class="bws-mood-emoji">🫧</span><strong>Bubble</strong><span>sparkly / easy</span></button>
+          <button type="button" class="bws-mood" data-flap="0"><span class="bws-mood-emoji">🫧</span><strong>Bubbles</strong><span>sparkly / easy</span></button>
           <button type="button" class="bws-mood" data-flap="1"><span class="bws-mood-emoji">🍋</span><strong>Citrus</strong><span>bright / tart</span></button>
           <button type="button" class="bws-mood" data-flap="2"><span class="bws-mood-emoji">🥂</span><strong>Classic</strong><span>polished / iconic</span></button>
           <button type="button" class="bws-mood" data-flap="3"><span class="bws-mood-emoji">🌙</span><strong>After Dark</strong><span>bitter / bold</span></button>
@@ -94,6 +86,19 @@
 
         <div style="text-align: center; margin: 0 0 22px;">
           <button type="button" id="bwsRandomBtn" style="padding: 13px 28px; background: var(--plum-deep); color: var(--cream); border: 0; border-radius: 999px; font-family: inherit; font-weight: 800; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;">🎲 Let the teller decide</button>
+        </div>
+
+        <p style="margin: 0 0 8px; font-weight: 700; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);">3 · The paper speaks</p>
+        <div style="text-align: center; margin: 0 0 18px;">
+          <img id="bwsFortuneImg"
+               src="/assets/bws-fortune-teller/frame-1-closed.webp"
+               data-frame-closed="/assets/bws-fortune-teller/frame-1-closed.webp"
+               data-frame-open-a="/assets/bws-fortune-teller/frame-2-open-vertical.webp"
+               data-frame-open-b="/assets/bws-fortune-teller/frame-3-open-horizontal.webp"
+               data-frame-reveal="/assets/bws-fortune-teller/frame-4-reveal.webp"
+               data-frame-reveal-h="/assets/bws-fortune-teller/frame-5-reveal.webp"
+               alt="Paper fortune teller for the Businesswomen's Special"
+               style="width: 100%; max-width: 340px; border-radius: 14px; box-shadow: 0 10px 30px rgba(75,33,72,0.18);">
         </div>
 
         <div id="bwsResult" style="display: none; padding: 26px 30px; background: var(--cream); border: 2px solid var(--gold); border-radius: 14px; box-shadow: 0 8px 26px rgba(75,33,72,0.12);">
@@ -134,7 +139,7 @@
 
         <hr class="bws-menu-rule">
 
-        <p style="margin: 0; font-size: 12px; font-style: italic; color: var(--plum-soft); text-align: center;">Drinks are dealt by the fortune teller. Forty on file. No substitutions — she knows best.</p>
+        <p style="margin: 0; font-size: 12px; font-style: italic; color: var(--plum-soft); text-align: center;">Drinks are dealt by the fortune teller. Forty on file. No substitutions.</p>
       </aside>
 
     </div>
@@ -185,6 +190,33 @@
       var isAnimating = false;
       var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+      // Counting flipbook — closed/open pulse like a real cootie catcher
+      // mid-count, landing on the reveal frame. Frames preloaded up front.
+      var FRAMES = {
+        closed: img.getAttribute('data-frame-closed'),
+        openA: img.getAttribute('data-frame-open-a'),
+        openB: img.getAttribute('data-frame-open-b'),
+        reveal: img.getAttribute('data-frame-reveal'),
+        revealH: img.getAttribute('data-frame-reveal-h')
+      };
+      ['closed', 'openA', 'openB', 'reveal', 'revealH'].forEach(function(k) { var pre = new Image(); pre.src = FRAMES[k]; });
+
+      // The reveal continues from the direction the picked mood opens:
+      // Citrus + Classic lift from the vertical open (openA), Bubbles +
+      // After Dark from the horizontal open (openB). The count must land
+      // on the matching open frame right before the reveal.
+      var FLAP_ORIENT = { 0: 'h', 1: 'v', 2: 'v', 3: 'h' };
+      function countFor(orient) {
+        return orient === 'h'
+          ? [FRAMES.openA, FRAMES.closed, FRAMES.openB, FRAMES.closed, FRAMES.openA, FRAMES.closed, FRAMES.openB]
+          : [FRAMES.openB, FRAMES.closed, FRAMES.openA, FRAMES.closed, FRAMES.openB, FRAMES.closed, FRAMES.openA];
+      }
+
+      // Reveal frames are generic on purpose — frame 4 (vertical open) for
+      // Citrus + Classic, frame 5 (horizontal open) for Bubbles + After Dark.
+      // The drink name lives in the result card below, so new drinks need
+      // no artwork at all.
+
       lanes.addEventListener('click', function(e) {
         var btn = e.target.closest('.bws-lane');
         if (!btn) return;
@@ -222,20 +254,33 @@
         var btns = moods.querySelectorAll('.bws-mood');
         btns.forEach(function(b, i) { b.classList.toggle('is-selected', i === flapIndex); });
         if (!flapsUsed[flapIndex]) { flapsUsed[flapIndex] = true; flapsCount++; }
+        img.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' });
 
         var menu = window.cocktailMenus[activeLane] || window.cocktailMenus.cocktail;
         var flap = window.cocktailFortuneFlaps[flapIndex];
         var pool = flap.drinks[activeLane] || flap.drinks.cocktail;
         var drink = menu[pool[Math.floor(Math.random() * pool.length)]];
 
-        // Fold the teller closed, then open on the pick
-        img.src = img.getAttribute('data-closed-src');
-        if (!reduceMotion) img.style.transform = 'scale(0.94) rotate(-2deg)';
+        // Pinch through the count, land on the reveal frame — opening in
+        // the direction the picked mood's flap opens
         result.style.display = 'none';
+        var orient = FLAP_ORIENT[flapIndex];
+        var revealSrc = orient === 'h' ? FRAMES.revealH : FRAMES.reveal;
+        var totalMs = 0;
+        if (reduceMotion) {
+          setTimeout(function() { img.src = revealSrc; }, 60);
+          totalMs = 80;
+        } else {
+          var count = countFor(orient);
+          img.src = FRAMES.closed;
+          count.forEach(function(frameSrc, i) {
+            setTimeout(function() { img.src = frameSrc; }, 180 * (i + 1));
+          });
+          setTimeout(function() { img.src = revealSrc; }, 180 * (count.length + 1));
+          totalMs = 180 * (count.length + 1) + 120;
+        }
 
         setTimeout(function() {
-          img.src = img.getAttribute('data-open-src');
-          img.style.transform = 'none';
           rMood.textContent = flap.label + ' — ' + flap.description;
           rName.textContent = drink.name;
           rVibe.textContent = drink.vibe;
@@ -251,7 +296,7 @@
             }));
           } catch(err) {}
           result.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' });
-        }, reduceMotion ? 0 : 450);
+        }, totalMs);
       }
     })();
   </script>
@@ -281,10 +326,10 @@
     })();
   </script>
 
-    <script defer src="/content/site/ksvl-player.js?v=20260704-12"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260705-21"></script>
     <script defer src="/content/site/quick-rail.js?v=20260704-2"></script>
-<script defer src="/content/site/ai-accent-autowrap.js?v=20260704-5"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260704-canon"></script>
-<script defer src="/content/site/sv-you-are-here.js?v=20260704-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
 </body>
 </html>

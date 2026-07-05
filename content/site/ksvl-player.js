@@ -245,27 +245,40 @@
     + '.ksvl-cd-back-track-icon { flex-shrink: 0; width: 16px; height: 16px; border-radius: 999px; background: var(--gold, #c9a227); color: var(--cream, #fffdfb); display: inline-flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 800; }'
     + '.ksvl-cd-back-track:hover .ksvl-cd-back-track-icon { background: var(--rose, #9b3f5f); }'
     + '.ksvl-cd-back-track-title { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }'
-    /* Now Playing bar */
-    + '.ksvl-now-playing { position: fixed; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, var(--plum, #4b2148) 0%, var(--rose, #9b3f5f) 100%); color: var(--cream, #fffdfb); padding: 14px 22px; display: none; align-items: center; gap: 16px; z-index: 9997; box-shadow: 0 -6px 20px rgba(75,33,72,0.35); font-family: "Jost", sans-serif; }'
+    /* Now Playing bar — the KSVL deck. Gold hairline top, spinning CD,
+       big gold play button, and a tiny label under every control so no
+       button is ever a mystery. */
+    + '.ksvl-now-playing { position: fixed; left: 0; right: 0; bottom: 0; background: linear-gradient(160deg, #3a1838 0%, var(--plum, #4b2148) 55%, var(--rose, #9b3f5f) 100%); border-top: 2px solid var(--gold, #c9a227); color: var(--cream, #fffdfb); padding: 9px 20px 8px; display: none; align-items: center; gap: 16px; z-index: 9997; box-shadow: 0 -10px 30px rgba(26,8,24,0.4); font-family: "Jost", sans-serif; }'
     + '.ksvl-now-playing.is-visible { display: flex; }'
-    + '.ksvl-np-cd-mini { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #f8eef2, #d8bfd0 45%, #a8779a 75%, #6b3a66); box-shadow: inset 0 0 4px rgba(0,0,0,0.2); animation: ksvl-spin 5s linear infinite; position: relative; }'
+    + '.ksvl-np-cd-mini { flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; border: 2px solid rgba(201,162,39,0.7); background: radial-gradient(circle at 30% 30%, #f8eef2, #d8bfd0 45%, #a8779a 75%, #6b3a66); box-shadow: inset 0 0 4px rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.3); animation: ksvl-spin 5s linear infinite; position: relative; }'
     + '.ksvl-np-cd-mini::after { content: ""; position: absolute; inset: 0; margin: auto; width: 30%; height: 30%; border-radius: 50%; background: var(--cream, #fffdfb); }'
     + '.ksvl-np-cd-mini.is-paused { animation-play-state: paused; }'
     + '.ksvl-np-info { flex: 1; min-width: 0; }'
-    + '.ksvl-np-mix { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold, #c9a227); margin-bottom: 2px; }'
+    + '.ksvl-np-mix { display: flex; align-items: center; gap: 7px; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold, #c9a227); margin-bottom: 2px; }'
+    + '.ksvl-now-playing.is-live .ksvl-np-mix::before { content: ""; flex-shrink: 0; width: 7px; height: 7px; border-radius: 50%; background: #ff4f4f; box-shadow: 0 0 6px rgba(255,79,79,0.9); animation: ksvl-np-onair 1.4s ease-in-out infinite; }'
+    + '@keyframes ksvl-np-onair { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }'
+    + '@media (prefers-reduced-motion: reduce) { .ksvl-now-playing.is-live .ksvl-np-mix::before { animation: none; } }'
     + '.ksvl-np-track { display: block; font-size: 15px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }'
     + '.ksvl-np-position { font-size: 11px; opacity: 0.7; }'
-    + '.ksvl-np-controls { display: flex; align-items: center; gap: 6px; }'
-    + '.ksvl-np-btn { background: rgba(255,253,251,0.22); border: 1.5px solid rgba(255,253,251,0.5); color: var(--cream, #fffdfb); border-radius: 999px; padding: 8px 12px; cursor: pointer; font-size: 17px; line-height: 1; font-family: inherit; transition: background 0.15s ease, border-color 0.15s ease; text-shadow: 0 1px 2px rgba(0,0,0,0.35); }'
-    + '.ksvl-np-btn:hover, .ksvl-np-btn:focus { background: rgba(255,253,251,0.34); border-color: var(--gold, #c9a227); outline: none; }'
-    + '.ksvl-np-btn--play { min-width: 44px; }'
-    + '.ksvl-np-btn--close { background: transparent; border-color: transparent; opacity: 0.85; }'
-    + '.ksvl-np-btn--close:hover { opacity: 1; background: rgba(255,253,251,0.18); }'
-    + '.ksvl-np-btn--toggle { opacity: 0.82; }'
-    + '.ksvl-np-btn--toggle.is-active { opacity: 1; background: rgba(201,162,39,0.32); border-color: var(--gold, #c9a227); color: var(--cream, #fffdfb); }'
-    + '.ksvl-np-btn--link { text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }'
-    + '@media (max-width: 720px) { .ksvl-np-btn--toggle, .ksvl-np-btn--link { display: none; } }'
-    + '@media (max-width: 620px) { .ksvl-np-info .ksvl-np-position { display: none; } .ksvl-now-playing { padding: 12px 14px; gap: 10px; } .ksvl-np-btn { padding: 6px 10px; } }';
+    + '.ksvl-np-controls { display: flex; align-items: flex-start; }'
+    + '.ksvl-np-group { display: flex; align-items: flex-start; gap: 3px; }'
+    + '.ksvl-np-group + .ksvl-np-group { margin-left: 12px; padding-left: 14px; border-left: 1px solid rgba(255,253,251,0.18); }'
+    + '.ksvl-np-btn { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; background: transparent; border: 0; color: var(--cream, #fffdfb); cursor: pointer; padding: 2px 3px; font-family: inherit; text-decoration: none; }'
+    + '.ksvl-np-btn:focus { outline: none; }'
+    + '.ksvl-np-ico { display: inline-flex; align-items: center; justify-content: center; width: 33px; height: 33px; border-radius: 50%; background: rgba(255,253,251,0.14); border: 1.5px solid rgba(255,253,251,0.35); font-size: 13px; line-height: 1; transition: background 0.15s ease, border-color 0.15s ease, transform 0.12s ease; text-shadow: 0 1px 2px rgba(0,0,0,0.3); }'
+    + '.ksvl-np-btn:hover .ksvl-np-ico, .ksvl-np-btn:focus-visible .ksvl-np-ico { background: rgba(255,253,251,0.28); border-color: var(--gold, #c9a227); transform: translateY(-1px); }'
+    + '.ksvl-np-lbl { font-size: 7.5px; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; opacity: 0.72; white-space: nowrap; }'
+    + '.ksvl-np-btn:hover .ksvl-np-lbl { opacity: 1; }'
+    + '.ksvl-np-btn--play .ksvl-np-ico { width: 46px; height: 46px; background: var(--gold, #c9a227); border-color: var(--gold, #c9a227); color: #341446; font-size: 18px; text-shadow: none; box-shadow: 0 4px 12px rgba(0,0,0,0.32); }'
+    + '.ksvl-np-btn--play:hover .ksvl-np-ico { background: #fffdfb; border-color: #fffdfb; }'
+    + '.ksvl-np-btn--play .ksvl-np-lbl { color: var(--gold, #c9a227); opacity: 0.95; }'
+    + '.ksvl-np-btn--toggle .ksvl-np-ico { opacity: 0.8; }'
+    + '.ksvl-np-btn--toggle.is-active .ksvl-np-ico { opacity: 1; background: rgba(201,162,39,0.35); border-color: var(--gold, #c9a227); }'
+    + '.ksvl-np-btn--toggle.is-active .ksvl-np-lbl { opacity: 1; color: var(--gold, #c9a227); }'
+    + '.ksvl-np-btn--stop:hover .ksvl-np-ico { border-color: #ff9db4; color: #ffb8c9; background: rgba(255,157,180,0.12); }'
+    + '@media (max-width: 860px) { .ksvl-np-lbl { display: none; } .ksvl-np-group + .ksvl-np-group { margin-left: 6px; padding-left: 8px; } }'
+    + '@media (max-width: 720px) { .ksvl-np-btn--toggle { display: none; } }'
+    + '@media (max-width: 620px) { .ksvl-np-info .ksvl-np-position { display: none; } .ksvl-now-playing { padding: 8px 12px; gap: 10px; } .ksvl-np-ico { width: 31px; height: 31px; } .ksvl-np-btn--play .ksvl-np-ico { width: 42px; height: 42px; } .ksvl-np-btn--link .ksvl-np-ico { display: none; } .ksvl-np-btn--link { display: none; } }';
 
   function injectStyle() {
     if (document.getElementById('ksvl-mix-cds-style')) return;
@@ -311,6 +324,28 @@
 
   var np, npMini, npMix, npTrack, npPosition, npPlayBtn, npShuffleBtn, npRepeatBtn;
 
+  // Every control = round icon + tiny label underneath, so no button is a
+  // mystery. Icon glyphs are swapped via setBtnIcon (labels survive).
+  function npButton(extraClass, glyph, label, attrs) {
+    attrs = attrs || {};
+    attrs.class = 'ksvl-np-btn' + (extraClass ? ' ' + extraClass : '');
+    if (!attrs.href) attrs.type = 'button';
+    return el(attrs.href ? 'a' : 'button', attrs, [
+      el('span', {class: 'ksvl-np-ico', text: glyph, 'aria-hidden': 'true'}),
+      el('span', {class: 'ksvl-np-lbl', text: label, 'aria-hidden': 'true'})
+    ]);
+  }
+  function setBtnIcon(btn, glyph) {
+    if (!btn) return;
+    var ico = btn.querySelector('.ksvl-np-ico');
+    if (ico) ico.textContent = glyph; else btn.textContent = glyph;
+  }
+  function setBtnLabel(btn, label) {
+    if (!btn) return;
+    var lbl = btn.querySelector('.ksvl-np-lbl');
+    if (lbl) lbl.textContent = label;
+  }
+
   function ensureNowPlaying() {
     if (np) return np;
     np = el('div', {class: 'ksvl-now-playing', 'aria-live': 'polite'});
@@ -323,20 +358,27 @@
     info.appendChild(npTrack);
     info.appendChild(npPosition);
     var controls = el('div', {class: 'ksvl-np-controls'});
-    npShuffleBtn = el('button', {class: 'ksvl-np-btn ksvl-np-btn--toggle', type: 'button', 'aria-label': 'Shuffle · off', title: 'Shuffle', onclick: toggleShuffle, text: '🔀'});
-    var prev = el('button', {class: 'ksvl-np-btn', type: 'button', 'aria-label': 'Previous track', title: 'Previous', onclick: prevTrack, text: '⏮'});
-    npPlayBtn = el('button', {class: 'ksvl-np-btn ksvl-np-btn--play', type: 'button', 'aria-label': 'Pause', title: 'Play / Pause', onclick: togglePlay, text: '⏸'});
-    var next = el('button', {class: 'ksvl-np-btn', type: 'button', 'aria-label': 'Next track', title: 'Next', onclick: nextTrack, text: '⏭'});
-    npRepeatBtn = el('button', {class: 'ksvl-np-btn ksvl-np-btn--toggle is-active', type: 'button', 'aria-label': 'Repeat all', title: 'Repeat', onclick: cycleRepeat, text: '🔁'});
-    var home = el('a', {class: 'ksvl-np-btn ksvl-np-btn--link', href: '/radio.html', 'aria-label': 'Go to KSVL Radio', title: 'Open KSVL Radio', text: '📻'});
-    var close = el('button', {class: 'ksvl-np-btn ksvl-np-btn--close', type: 'button', 'aria-label': 'Stop', title: 'Stop', onclick: stopPlayer, text: '✕'});
-    controls.appendChild(npShuffleBtn);
-    controls.appendChild(prev);
-    controls.appendChild(npPlayBtn);
-    controls.appendChild(next);
-    controls.appendChild(npRepeatBtn);
-    controls.appendChild(home);
-    controls.appendChild(close);
+    // Group 1 — the deck: shuffle · back · PLAY · next · repeat
+    var deck = el('div', {class: 'ksvl-np-group'});
+    npShuffleBtn = npButton('ksvl-np-btn--toggle', '🔀', 'Shuffle', {'aria-label': 'Shuffle · off', title: 'Shuffle', onclick: toggleShuffle});
+    var prev = npButton('', '⏮', 'Back', {'aria-label': 'Previous track', title: 'Previous track', onclick: prevTrack});
+    npPlayBtn = npButton('ksvl-np-btn--play', '⏸', 'Pause', {'aria-label': 'Pause', title: 'Play / Pause', onclick: togglePlay});
+    var next = npButton('', '⏭', 'Next', {'aria-label': 'Next track', title: 'Next track', onclick: nextTrack});
+    npRepeatBtn = npButton('ksvl-np-btn--toggle is-active', '🔁', 'Repeat', {'aria-label': 'Repeat all', title: 'Repeat', onclick: cycleRepeat});
+    deck.appendChild(npShuffleBtn);
+    deck.appendChild(prev);
+    deck.appendChild(npPlayBtn);
+    deck.appendChild(next);
+    deck.appendChild(npRepeatBtn);
+    controls.appendChild(deck);
+    // Group 2 — station: pop out · KSVL · stop
+    var station = el('div', {class: 'ksvl-np-group'});
+    if (!IS_POPUP) {
+      station.appendChild(npButton('ksvl-np-btn--link', '⧉', 'Pop out', {'aria-label': 'Pop out the player — music keeps playing while you browse', title: 'Pop out — music keeps playing while you browse', onclick: popOutPlayer}));
+    }
+    station.appendChild(npButton('ksvl-np-btn--link', '📻', 'KSVL', {href: '/radio.html', 'aria-label': 'Go to KSVL Radio', title: 'Open KSVL Radio'}));
+    station.appendChild(npButton('ksvl-np-btn--stop', '✕', 'Stop', {'aria-label': 'Stop the music', title: 'Stop', onclick: stopPlayer}));
+    controls.appendChild(station);
     np.appendChild(npMini);
     np.appendChild(info);
     np.appendChild(controls);
@@ -374,12 +416,40 @@
     var displayArtist = (track.parts && part && part.artist) ? part.artist : track.artist;
     npTrack.textContent = displayTitle;
     npPosition.textContent = ' · ' + displayArtist;
-    npPlayBtn.textContent = state.paused ? '▶' : '⏸';
+    setBtnIcon(npPlayBtn, state.paused ? '▶' : '⏸');
+    setBtnLabel(npPlayBtn, state.paused ? 'Play' : 'Pause');
     npPlayBtn.setAttribute('aria-label', state.paused ? 'Play' : 'Pause');
     if (state.paused) npMini.classList.add('is-paused');
     else npMini.classList.remove('is-paused');
+    np.classList.toggle('is-live', state.mixId === 'live');
     np.classList.add('is-visible');
     updateCDPlayingClass();
+    updateMediaSession(displayTitle, displayArtist);
+  }
+
+  // ---- System media controls (Media Session API) ----
+  // Puts the current KSVL track on the lock screen / AirPods / keyboard
+  // media keys with station artwork, and helps phones keep the broadcast
+  // alive in the background like a real audio app.
+  var mediaSessionArmed = false;
+  function updateMediaSession(title, artist) {
+    if (!('mediaSession' in navigator) || typeof MediaMetadata === 'undefined') return;
+    try {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: title || 'KSVL 99.9',
+        artist: artist || 'SUNNYVAiLE Community RAiDIO',
+        album: 'KSVL 99.9 · SUNNYVAiLE Community RAiDIO',
+        artwork: [{ src: '/assets/ksvl-media-artwork.png', sizes: '512x512', type: 'image/png' }]
+      });
+      navigator.mediaSession.playbackState = state.paused ? 'paused' : 'playing';
+      if (!mediaSessionArmed) {
+        mediaSessionArmed = true;
+        navigator.mediaSession.setActionHandler('play', function() { if (state.paused) togglePlay(); });
+        navigator.mediaSession.setActionHandler('pause', function() { if (!state.paused) togglePlay(); });
+        navigator.mediaSession.setActionHandler('nexttrack', function() { nextTrack(); });
+        navigator.mediaSession.setActionHandler('previoustrack', function() { prevTrack(); });
+      }
+    } catch (e) { /* older browsers — skip quietly */ }
   }
 
   function stopExistingAudio() {
@@ -389,6 +459,146 @@
     }
     // Also pause any other <audio> elements from other players (e.g. individual saint buttons)
     document.querySelectorAll('audio').forEach(function(a) { try { a.pause(); } catch(e) {} });
+    // And stop any playing standalone ♪ song button (they use detached
+    // Audio objects the selector above can't see).
+    stopActiveThemeBtn();
+  }
+
+  // ---- One deck at a time ----
+  // The standalone ♪ buttons (saint songs, page themes — window.playLaidiesTheme
+  // on ~17 pages) and the station must never play over each other. Wrapping the
+  // page's playLaidiesTheme gives us both directions: pressing ♪ pauses the
+  // station (it resumes when the song ends), and starting the station stops
+  // whatever ♪ button is playing.
+  var themeBtnActive = null;
+  function stopActiveThemeBtn() {
+    var t = themeBtnActive;
+    themeBtnActive = null;
+    if (t && t.btn && t.btn.classList.contains('is-playing')) {
+      try { t.orig(t.btn); } catch(e) {} // the originals toggle: same btn = stop
+    }
+  }
+  function wrapThemePlayer() {
+    var orig = window.playLaidiesTheme;
+    if (!orig || orig.__ksvlWrapped) return;
+    var wrapped = function(btn) {
+      var starting = btn && !btn.classList.contains('is-playing');
+      var stationWasOn = !!(state.audio && !state.paused);
+      var r = orig(btn);
+      if (starting && btn && btn.classList.contains('is-playing')) {
+        themeBtnActive = { btn: btn, orig: orig };
+        if (stationWasOn) {
+          try { state.audio.pause(); } catch(e) {}
+          state.paused = true;
+          if (state.mutedAutoplay) { state.mutedAutoplay = false; try { state.audio.muted = false; } catch(e) {} }
+          updateNowPlaying();
+          hideResumeNudge();
+          // When no ♪ button is playing anymore (song ended or stopped),
+          // the station comes back — like the DJ waiting out a request.
+          // (.ksvl-cd is excluded: the active mix's CD keeps its class.)
+          var watch = setInterval(function() {
+            if (document.querySelector('button.is-playing:not(.ksvl-cd)')) return;
+            clearInterval(watch);
+            themeBtnActive = null;
+            if (state.paused && state.audio) {
+              state.audio.play().then(function() {
+                state.paused = false;
+                updateNowPlaying();
+              }).catch(function() {});
+            }
+          }, 600);
+        }
+      }
+      return r;
+    };
+    wrapped.__ksvlWrapped = true;
+    window.playLaidiesTheme = wrapped;
+  }
+
+  // ---- Keep the station rolling between pages ----
+  // Browsers block autoplay-with-sound on a fresh page load, but MUTED
+  // playback is always allowed. So the station keeps broadcasting silently
+  // (real radio doesn't pause for you) and the visitor's first interaction
+  // anywhere brings the sound back mid-song. If even muted play is blocked,
+  // fall back to the honest paused state with the same one-tap resume.
+  var gestureArmed = false;
+  var NUDGE_ID = 'ksvl-resume-nudge';
+  // The paused-by-the-browser state is invisible unless we say something —
+  // listeners just hear the music stop. Show a pill above the player bar.
+  function showResumeNudge(text) {
+    var existing = document.getElementById(NUDGE_ID);
+    if (existing) { existing.textContent = text || existing.textContent; return; }
+    if (!document.body) return;
+    if (!document.getElementById('ksvl-nudge-style')) {
+      var st = document.createElement('style');
+      st.id = 'ksvl-nudge-style';
+      st.textContent = ''
+        + '@keyframes ksvlNudgePulse { 0%, 100% { transform: translateX(-50%) scale(1); } 50% { transform: translateX(-50%) scale(1.05); } }'
+        + '#' + NUDGE_ID + ' { position: fixed; left: 50%; bottom: 86px; transform: translateX(-50%); z-index: 9500;'
+        + '  display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 999px;'
+        + '  background: var(--gold, #c9a227); color: #341446; font: 800 12px/1 "Jost", sans-serif;'
+        + '  letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;'
+        + '  box-shadow: 0 8px 24px rgba(26, 8, 24, 0.35); cursor: pointer;'
+        + '  animation: ksvlNudgePulse 1.5s ease-in-out infinite; }'
+        + '@media (prefers-reduced-motion: reduce) { #' + NUDGE_ID + ' { animation: none; } }';
+      document.head.appendChild(st);
+    }
+    var chip = document.createElement('div');
+    chip.id = NUDGE_ID;
+    chip.textContent = text || '▶ Tap anywhere — the radio keeps playing';
+    document.body.appendChild(chip);
+  }
+  function hideResumeNudge() {
+    var chip = document.getElementById(NUDGE_ID);
+    if (chip) chip.remove();
+  }
+  function armGestureResume(text) {
+    showResumeNudge(text);
+    if (gestureArmed) return;
+    gestureArmed = true;
+    var resume = function() {
+      document.removeEventListener('pointerdown', resume, true);
+      document.removeEventListener('keydown', resume, true);
+      gestureArmed = false;
+      hideResumeNudge();
+      // Muted-rolling case: the track is already playing — just unmute.
+      if (state.audio && state.mutedAutoplay && !state.paused) {
+        state.mutedAutoplay = false;
+        try { state.audio.muted = false; } catch(e) {}
+        updateNowPlaying();
+        return;
+      }
+      if (!state.audio || !state.paused) return;
+      state.audio.play().then(function() {
+        state.paused = false;
+        updateNowPlaying();
+      }).catch(function() {});
+    };
+    document.addEventListener('pointerdown', resume, true);
+    document.addEventListener('keydown', resume, true);
+  }
+
+  // Pop-out player — the truly continuous option. A little Y2K player
+  // window keeps the audio alive no matter where the main window goes.
+  // The popup heartbeats into localStorage so regular pages know not to
+  // fight it for the audio.
+  var IS_POPUP = /ksvl-popup\.html$/.test(window.location.pathname);
+  var POPUP_BEAT_KEY = 'laidies_ksvl_popup_beat';
+  function popupActive() {
+    if (IS_POPUP) return false;
+    try { return (Date.now() - (+localStorage.getItem(POPUP_BEAT_KEY) || 0)) < 6000; } catch(e) { return false; }
+  }
+  if (IS_POPUP) {
+    try { localStorage.setItem(POPUP_BEAT_KEY, String(Date.now())); } catch(e) {}
+    setInterval(function() { try { localStorage.setItem(POPUP_BEAT_KEY, String(Date.now())); } catch(e) {} }, 2000);
+    window.addEventListener('pagehide', function() { try { localStorage.removeItem(POPUP_BEAT_KEY); } catch(e) {} });
+  }
+  function popOutPlayer() {
+    saveState();
+    stopExistingAudio();
+    state.queue = []; state.mixId = null; state.paused = false;
+    if (np) { np.remove(); np = null; }
+    window.open('/ksvl-popup.html', 'ksvlPopup', 'width=440,height=320,resizable=yes');
   }
 
   var playToken = 0;
@@ -416,6 +626,9 @@
     }
     state.preloadedAudio = null;
     state.preloadedSrc = null;
+    // Mid silent-rolling (autoplay was blocked): keep new parts/tracks muted
+    // too, so the broadcast continues seamlessly until the first tap.
+    if (state.mutedAutoplay) { try { audio.muted = true; } catch(e) {} }
     console.log('[KSVL] Play', state.index + 1, ':', displayTitle, '·', src);
     audio.addEventListener('ended', function() {
       if (myToken !== playToken) { console.log('[KSVL] Stale ended ignored for', displayTitle); return; }
@@ -441,7 +654,30 @@
         }
       }, 200);
     });
-    audio.play().catch(function(err) { console.warn('[KSVL] play() rejected for', src, err); });
+    audio.play().catch(function(err) {
+      if (myToken !== playToken) return;
+      console.warn('[KSVL] play() rejected for', src, err);
+      // Autoplay-with-sound blocked (fresh page load, no gesture yet).
+      // Retry MUTED — always allowed — so the station keeps broadcasting
+      // silently; the first tap anywhere restores the sound mid-song.
+      if (err && err.name === 'NotAllowedError') {
+        audio.muted = true;
+        audio.play().then(function() {
+          if (myToken !== playToken) return;
+          state.mutedAutoplay = true;
+          state.paused = false;
+          updateNowPlaying();
+          armGestureResume('🔊 Tap anywhere — sound back on');
+        }).catch(function() {
+          if (myToken !== playToken) return;
+          // Even muted play refused — honest paused state, one-tap resume.
+          try { audio.muted = false; } catch(e) {}
+          state.paused = true;
+          updateNowPlaying();
+          armGestureResume();
+        });
+      }
+    });
     state.audio = audio;
     state.paused = false;
     updateNowPlaying();
@@ -491,7 +727,7 @@
     state.repeatMode = state.repeatMode === 'off' ? 'all' : (state.repeatMode === 'all' ? 'one' : 'off');
     if (npRepeatBtn) {
       npRepeatBtn.classList.toggle('is-active', state.repeatMode !== 'off');
-      npRepeatBtn.textContent = state.repeatMode === 'one' ? '🔂' : '🔁';
+      setBtnIcon(npRepeatBtn, state.repeatMode === 'one' ? '🔂' : '🔁');
       npRepeatBtn.setAttribute('aria-label', state.repeatMode === 'off' ? 'Repeat off' : (state.repeatMode === 'one' ? 'Repeat one' : 'Repeat all'));
       npRepeatBtn.setAttribute('title', 'Repeat: ' + state.repeatMode);
     }
@@ -689,9 +925,13 @@
       mountEl.innerHTML = '';
       mountEl.appendChild(rack);
     }
+    // Coordinate with this page's standalone ♪ buttons (inline scripts have
+    // all run by DOMContentLoaded, so the original is defined by now).
+    wrapThemePlayer();
     // Always try to hydrate saved playback — the persistent bar follows the visitor
     // across every page, so any page can pick up where they left off.
-    hydrateFromStorage();
+    // Unless the pop-out player window is live: it owns the audio.
+    if (!popupActive()) hydrateFromStorage();
   }
 
   // ---- Persistence: save on unload, hydrate on load ----
@@ -705,10 +945,23 @@
 
   function saveState() {
     try {
-      if (!state.mixId || !state.queue.length) { localStorage.removeItem(LS_KEY); return; }
-      // Only save mix + album contexts. Live/signoff/album-of-a-transient-band are stateless.
+      // A page that never owned playback must NOT clobber the stored state —
+      // another window (the pop-out) or the previous page may own it.
+      // Deliberate stops clear the key explicitly in realStopPlayer().
+      if (!state.mixId || !state.queue.length) { return; }
+      // Save mix, album, AND live contexts. Live saves the exact item that is
+      // on air (they're plain serializable objects) so the next page resumes
+      // the same song at the same spot instead of cutting to a new rotation.
       var ctx = null, extra = {};
       if (state.mixId.indexOf('album:') === 0) { ctx = 'album'; extra.artist = state.mixId.slice(6); }
+      else if (state.mixId === 'live') {
+        ctx = 'live';
+        var onAir = state.queue[state.index];
+        if (onAir && (onAir.src || (onAir.parts && onAir.parts.length))) {
+          extra.liveItem = onAir;
+          extra.livePart = state.currentPart || 0;
+        }
+      }
       else if (MIXES.some(function(m){ return m.id === state.mixId; })) { ctx = 'mix'; extra.mixId = state.mixId; }
       else { localStorage.removeItem(LS_KEY); return; }
       var track = state.queue[state.index];
@@ -743,6 +996,50 @@
   function hydrateFromStorage() {
     var s = readSavedState();
     if (!s) return;
+    // Live radio: the station stays on across pages. Resume the EXACT item
+    // that was on air at its saved position, then roll into a fresh rotation
+    // — no cut-off mid-song, no opener jingle again.
+    if (s.ctx === 'live') {
+      state.mixId = 'live';
+      var rotation = buildLiveQueue();
+      state.shuffle = !!s.shuffle;
+      state.repeatMode = s.repeatMode || 'all';
+      var live = s.liveItem;
+      if (live && (live.src || (live.parts && live.parts.length))) {
+        state.queue = [live].concat(rotation.slice(1)); // slice(1) drops the opener
+        state.index = 0;
+        state.currentPart = live.parts
+          ? Math.min(Math.max(+s.livePart || 0, 0), live.parts.length - 1)
+          : 0;
+        playCurrentPart();
+        var liveSeekTo = +s.currentTime || 0;
+        var liveSeek = function() {
+          if (!state.audio) return;
+          try {
+            if (liveSeekTo > 0.5 && !isNaN(state.audio.duration)) {
+              state.audio.currentTime = Math.min(liveSeekTo, Math.max(0, state.audio.duration - 0.5));
+            }
+          } catch(e) {}
+        };
+        if (state.audio) {
+          if (state.audio.readyState >= 1 /* HAVE_METADATA */) liveSeek();
+          else state.audio.addEventListener('loadedmetadata', liveSeek, { once: true });
+        }
+      } else {
+        // No on-air snapshot (old saved state) — fresh rotation, skip opener.
+        state.queue = rotation;
+        state.index = 1;
+        state.currentPart = 0;
+        playCurrentPart();
+      }
+      if (s.paused) {
+        // Respect a deliberate pause: bar shows, ready to resume.
+        try { state.audio.pause(); } catch(e) {}
+        state.paused = true;
+        updateNowPlaying();
+      }
+      return;
+    }
     // Build the queue for the saved context.
     var queue = null;
     if (s.ctx === 'mix') { queue = tracksForMix(s.mixId); }
@@ -764,7 +1061,7 @@
     if (npShuffleBtn) { npShuffleBtn.classList.toggle('is-active', state.shuffle); }
     if (npRepeatBtn) {
       npRepeatBtn.classList.toggle('is-active', state.repeatMode !== 'off');
-      npRepeatBtn.textContent = state.repeatMode === 'one' ? '🔂' : '🔁';
+      setBtnIcon(npRepeatBtn, state.repeatMode === 'one' ? '🔂' : '🔁');
     }
     // Play through the current track, seeking on canplay to the saved position.
     playCurrentPart();

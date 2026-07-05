@@ -249,7 +249,7 @@ const cocktailMenus = {
 
 const cocktailFortuneFlaps = [
   {
-    label: "Bubble",
+    label: "Bubbles",
     description: "sparkly, easy, celebratory",
     count: 6,
     drinks: {

@@ -1071,7 +1071,7 @@ const cocktailWheelPalette = [
 
 const cocktailFortuneFlaps = [
   {
-    label: "Bubble",
+    label: "Bubbles",
     description: "sparkly, easy, celebratory",
     count: 6,
     drinks: {
@@ -2235,11 +2235,9 @@ function getLAiDIESAssetVersion() {
 }
 
 function getMemberCardBuilderUrl() {
-  const url = new URL("community/laidy-spotlight.html", window.location.href);
-  const version = getLAiDIESAssetVersion();
-  if (version) url.searchParams.set("v", version);
-  url.hash = "spotlight-form-title";
-  return url.toString();
+  // Signed-in members land in their Closet — the personal card home.
+  // (Previously routed to the retired Clubhouse-era laidy-spotlight builder.)
+  return new URL("/laidies-card.html", window.location.origin).toString();
 }
 
 function openMemberCardBuilder(delay = 0) {
@@ -4667,7 +4665,11 @@ function renderButterflyRating(score, quiz) {
     clip.setAttribute("aria-hidden", "true");
     return clip;
   });
-  quizButterflyRating.replaceChildren(label, ...clips);
+  const jarLink = document.createElement("a");
+  jarLink.className = "butterfly-jar-link";
+  jarLink.href = resolveSiteUrl("laidies-card.html") + "#butterflyJar";
+  jarLink.textContent = "Banked in your Butterfly Clip Jar →";
+  quizButterflyRating.replaceChildren(label, ...clips, jarLink);
   quizButterflyRating.dataset.ratingTone = rating.tone;
   quizButterflyRating.setAttribute("aria-label", "Butterfly-clip rating: " + rating.title);
 }

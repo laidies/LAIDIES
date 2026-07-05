@@ -8,7 +8,8 @@
   <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260704-palette">
-  <script defer src="/content/site/sv-nav-auth.js?v=20260630-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
   <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
   <style>
@@ -422,6 +423,109 @@
       background: linear-gradient(90deg, var(--gold, #d4a853), var(--rose));
       color: #fffdfb;
     }
+
+    /* The Town Wallet — the card rides in a leather bifold; membership
+       cards for every building fill the slots below */
+    .wallet-shell {
+      position: relative;
+      margin: 6px 0 26px;
+      padding: 34px 22px 22px;
+      border-radius: 22px;
+      background:
+        radial-gradient(120% 90% at 20% 0%, rgba(255,253,251,0.07), transparent 55%),
+        linear-gradient(165deg, #4a2334 0%, #38182a 55%, #2a1020 100%);
+      border: 1.5px solid rgba(212,168,83,0.35);
+      box-shadow: inset 0 0 0 8px rgba(0,0,0,0.14), inset 0 0 60px rgba(0,0,0,0.28), 0 22px 48px rgba(42,18,38,0.4);
+    }
+    .wallet-shell::before {
+      content: ''; position: absolute; inset: 12px; pointer-events: none;
+      border: 1.5px dashed rgba(212,168,83,0.4); border-radius: 14px;
+    }
+    .wallet-label {
+      position: absolute; top: -1px; left: 50%; transform: translateY(-50%) translateX(-50%);
+      white-space: nowrap; padding: 5px 18px;
+      background: linear-gradient(90deg, var(--gold, #d4a853), #b98a3e); color: #2a1020;
+      border-radius: 999px; font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+    }
+    .wallet-slots { margin-top: 26px; padding-top: 18px; border-top: 1.5px dashed rgba(212,168,83,0.35); }
+    .wallet-slots-title {
+      margin: 0 0 4px; font-family: 'Jost', sans-serif;
+      font-size: 12px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold, #d4a853);
+    }
+    .wallet-slots-note { margin: 0 0 16px; font-size: 13px; font-style: italic; color: rgba(255,253,251,0.72); }
+    .wallet-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(235px, 1fr)); gap: 14px;
+    }
+    .wallet-card {
+      position: relative; display: flex; flex-direction: column; gap: 5px;
+      padding: 13px 14px 12px; border-radius: 12px; overflow: hidden;
+      color: #fffdfb;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,253,251,0.18);
+    }
+    .wallet-card--0 { background: linear-gradient(150deg, #5c2a57 0%, #4b2148 70%); }
+    .wallet-card--1 { background: linear-gradient(150deg, #45918e 0%, #2f7572 70%); }
+    .wallet-card--2 { background: linear-gradient(150deg, #c08a63 0%, #a76b47 70%); }
+    .wallet-card--3 { background: linear-gradient(150deg, #c98a92 0%, #ad6a74 70%); }
+    .wallet-card::after {
+      content: ''; position: absolute; right: -22px; top: -26px; width: 90px; height: 90px;
+      border-radius: 50%; background: rgba(255,253,251,0.09); pointer-events: none;
+    }
+    .wallet-card-top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+    .wallet-card-name { font-family: 'Jost', sans-serif; font-size: 13.5px; font-weight: 800; letter-spacing: 0.04em; line-height: 1.2; }
+    .wallet-card-name .ai { color: #ffdc8c; }
+    .wallet-card-emoji { font-size: 19px; flex: 0 0 auto; }
+    .wallet-card-addr { font-family: 'Jost', sans-serif; font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.8; }
+    .wallet-card-meta { display: flex; justify-content: space-between; gap: 8px; margin-top: 2px; font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.92; }
+    .wallet-card-meta strong { font-size: 12px; letter-spacing: 0.04em; }
+    .wallet-card-barcode {
+      height: 16px; margin-top: 6px; border-radius: 3px;
+      background: repeating-linear-gradient(90deg, #fffdfb 0 2px, transparent 2px 4px, #fffdfb 4px 5px, transparent 5px 9px, #fffdfb 9px 12px, transparent 12px 14px);
+      opacity: 0.85;
+    }
+    .wallet-card-visit {
+      margin-top: 9px; align-self: flex-start;
+      padding: 6px 16px; border-radius: 999px;
+      background: rgba(255,253,251,0.94); color: #4b2148; text-decoration: none;
+      font-family: 'Jost', sans-serif; font-size: 10.5px; font-weight: 800;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+    .wallet-card-visit:hover { transform: translateY(-1px); box-shadow: 0 5px 12px rgba(0,0,0,0.3); }
+
+    /* Butterfly Clip Jar — Pop Quiz scores banked as clips */
+    .clip-jar { display: flex; gap: 22px; align-items: stretch; flex-wrap: wrap; padding: 6px 0 2px; }
+    .clip-jar-glass {
+      flex: 0 0 150px; min-height: 150px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+      background: linear-gradient(165deg, rgba(232,197,200,0.3) 0%, rgba(255,253,251,0.75) 45%, rgba(232,197,200,0.35) 100%);
+      border: 2px solid rgba(75,33,72,0.22);
+      border-top-width: 6px;
+      border-radius: 14px 14px 26px 26px;
+      box-shadow: inset 0 -14px 22px rgba(155,63,95,0.14), inset 6px 0 12px rgba(255,253,251,0.7), 0 10px 20px rgba(75,33,72,0.14);
+    }
+    .clip-jar-total {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 44px; font-weight: 800; line-height: 1; color: var(--plum);
+    }
+    .clip-jar-unit {
+      font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 800;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose);
+      text-align: center;
+    }
+    .clip-jar-ledger { flex: 1 1 220px; margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 7px; justify-content: center; }
+    .clip-jar-ledger li {
+      display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+      padding: 7px 12px; border-radius: 8px;
+      background: rgba(255,253,251,0.7); border: 1px solid rgba(75,33,72,0.12);
+      font-size: 13.5px; color: var(--plum);
+    }
+    .clip-jar-ledger .clip-ep { font-family: 'Jost', sans-serif; font-size: 10.5px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--plum); opacity: 0.75; }
+    .clip-jar-ledger .clip-amount { font-weight: 700; white-space: nowrap; }
+    .clip-jar-ledger .clip-amount.is-broken { color: var(--rose); font-style: italic; }
+    .clip-jar-ledger .clip-empty { justify-content: center; font-style: italic; color: var(--plum-soft, var(--plum)); font-family: 'Playfair Display', Georgia, serif; }
     /* Bracelet-mounted charm row: real bracelet PNG as background, 7 charms
        positioned so each charm's own top gold ring interlocks visually with the
        bracelet's hanging jump ring at that position — "hooked into" the bracelet.
@@ -825,6 +929,11 @@
     <p class="passport-section-eyebrow">★ <a href="/sorority-house.html" style="color: inherit; text-decoration: none;">Delta L<span class="ai">Ai</span> Nu</a> · Your Closet · Your Card</p>
     <h1 class="passport-section-title" id="cardSectionTitle">Your Residence Card</h1>
 
+    <!-- The Town Wallet — the Residence Card rides in the front pocket;
+         every building's membership card fills the slots below -->
+    <div class="wallet-shell">
+      <div class="wallet-label" aria-hidden="true">★ THE TOWN WALLET · SUNNYVAiLE · est. 1999</div>
+
     <div class="card-viewport">
       <div class="card-flip" id="cardFlip">
 
@@ -893,6 +1002,14 @@
       <a class="card-action-btn card-action-btn--primary" href="/maikeover.html">Get your own card →</a>
     </div>
 
+      <!-- Wallet slots: one membership card per building, 90s-style -->
+      <div class="wallet-slots" id="walletSlots">
+        <p class="wallet-slots-title">🪪 Membership cards</p>
+        <p class="wallet-slots-note">One per building, like it's 1999 — visits stamp automatically at the door. Hit Visit to head over.</p>
+        <div class="wallet-grid" id="walletGrid"></div>
+      </div>
+    </div>
+
     <!-- Trip guide: card lines change at their home buildings (customization = a trip) -->
     <div class="trip-guide" id="tripGuide">
       <p class="trip-guide-title">★ Change a line by going where it lives</p>
@@ -926,6 +1043,144 @@
       <button type="button" class="card-action-btn card-action-btn--primary" id="sendNoteBtn">Send a note →</button>
     </div>
   </section>
+
+  <!-- ==============================================
+       SECTION 1.1: THE REPORT CARD — every count at a glance.
+       Reads the live count elements (never re-derives), stays in
+       sync via MutationObserver, so self + public views both work.
+       ============================================== -->
+  <style>
+    .dash-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(158px, 1fr)); gap: 12px; }
+    .dash-tile { display: flex; flex-direction: column; text-align: left; padding: 14px 14px 12px;
+      border-radius: 12px; background: #fffdfb; border: 1.5px solid rgba(75,33,72,0.14); cursor: pointer;
+      font-family: 'Jost', sans-serif; transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease; }
+    .dash-tile:hover, .dash-tile:focus-visible { transform: translateY(-2px); border-color: var(--rose); box-shadow: 0 8px 20px rgba(75,33,72,0.12); outline: none; }
+    .dash-tile__icon { font-size: 20px; line-height: 1; margin-bottom: 8px; }
+    .dash-tile__value { font-size: 26px; font-weight: 800; color: var(--plum-deep); line-height: 1; }
+    .dash-tile__value small { font-size: 13px; font-weight: 700; color: var(--plum-soft, #766171); }
+    .dash-tile__label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); margin-top: 4px; }
+    .dash-tile__hint { font-size: 11px; color: var(--plum-soft, #766171); margin-top: 2px; line-height: 1.35; }
+    .dash-tile.is-complete .dash-tile__hint { color: var(--gold, #c9a227); font-weight: 700; }
+    .dash-bar { height: 5px; border-radius: 999px; background: rgba(75,33,72,0.10); margin-top: 8px; overflow: hidden; }
+    .dash-bar__fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--teal, #3aa8a4), var(--gold, #c9a227)); transition: width 0.5s ease; }
+    .vessel-flash { animation: dashVesselFlash 1.4s ease; }
+    @keyframes dashVesselFlash { 0%, 100% { box-shadow: none; } 25% { box-shadow: 0 0 0 3px var(--gold, #c9a227); } }
+  </style>
+  <section class="passport-section" id="dashboardSection">
+    <p class="passport-section-eyebrow">★ Closet · At a glance</p>
+    <h2 class="passport-section-title" id="dashTitle">Your Report Card</h2>
+    <p class="passport-section-lede" id="dashLede">Every collection, counted. Tap a tile to jump straight to the shelf it lives on.</p>
+    <div class="dash-grid" id="dashGrid"></div>
+  </section>
+
+  <script>
+    (function() {
+      'use strict';
+      var params = new URLSearchParams(window.location.search);
+      var isPublic = !!(params.get('u') || params.get('member'));
+
+      // src: count element the vessel renderers already write to (single source
+      // of truth — the dashboard never re-derives). src:null = buildings tile,
+      // counted from laidies_building_visits. pub: shown on someone else's
+      // Closet (only tiles backed by their synced reward events qualify).
+      var TILES = [
+        { icon: '🌸', label: 'Charms this week',  src: 'charmCount',     target: 'charmBracelet',    total: 7,    pub: true,  hint: 'Hiding in town images' },
+        { icon: '🗺️', label: 'Tour stops',        src: 'tourCount',      target: 'tourVessel',       total: 8,    pub: false, hint: 'Resets Wednesday' },
+        { icon: '🦋', label: 'Butterfly clips',   src: 'clipJarTotal',   target: 'butterflyJar',     total: null, pub: false, hint: 'Quiz scores, banked' },
+        { icon: '📓', label: 'Stickers',          src: 'stickerCount',   target: 'stickerGrid',      total: null, pub: true,  hint: 'Quizzes + Girl Talk' },
+        { icon: '🎗️', label: 'Merit badges',      src: 'meritCount',     target: 'meritGrid',        total: null, pub: true,  hint: 'Earned around town' },
+        { icon: '🃏', label: 'Trading cards',     src: 'tradingCount',   target: 'tradingGrid',      total: null, pub: true,  hint: 'Packs at Blend & Snap' },
+        { icon: '🔐', label: 'Diary secrets',     src: 'secretCount',    target: 'secretGrid',       total: 4,    pub: true,  hint: 'Try things around town' },
+        { icon: '🧚', label: 'F<span class="ai">Ai</span>RY wishes', src: 'fairyPlayCount', target: 'fairyBankSection', total: null, pub: false, hint: 'Bonus plays at Willow Lane' },
+        { icon: '🪪', label: 'Buildings visited', src: null,             target: 'walletGrid',       total: null, pub: false, hint: 'Stamped at the door' }
+      ];
+
+      function readCount(t) {
+        if (t.src === null) {
+          try {
+            var v = JSON.parse(localStorage.getItem('laidies_building_visits')) || {};
+            return Object.keys(v).length;
+          } catch (e) { return 0; }
+        }
+        var el = document.getElementById(t.src);
+        if (!el) return 0;
+        var n = parseInt(el.textContent, 10);
+        return isNaN(n) ? 0 : n;
+      }
+
+      function mount() {
+        var grid = document.getElementById('dashGrid');
+        if (!grid) return;
+        if (isPublic) {
+          document.getElementById('dashTitle').textContent = 'Their Report Card';
+          document.getElementById('dashLede').textContent = "What they've collected around town.";
+        }
+        var tiles = TILES.filter(function(t) { return isPublic ? t.pub : true; });
+        // Buildings total comes from the live directory
+        var buildingsTotal = (window.SV_BUILDINGS || []).length || 17;
+
+        tiles.forEach(function(t) {
+          if (t.src === null) t.total = buildingsTotal;
+          var tile = document.createElement('button');
+          tile.type = 'button';
+          tile.className = 'dash-tile';
+          tile.innerHTML =
+            '<span class="dash-tile__icon" aria-hidden="true">' + t.icon + '</span>' +
+            '<span class="dash-tile__value"><span class="dash-tile__n">0</span>' + (t.total ? '<small> / ' + t.total + '</small>' : '') + '</span>' +
+            '<span class="dash-tile__label">' + t.label + '</span>' +
+            '<span class="dash-tile__hint">' + t.hint + '</span>' +
+            (t.total ? '<span class="dash-bar"><span class="dash-bar__fill" style="width: 0%"></span></span>' : '');
+          tile.addEventListener('click', function() {
+            var dest = document.getElementById(t.target);
+            if (!dest) return;
+            dest.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            var vessel = dest.closest('.vessel, .passport-section') || dest;
+            vessel.classList.remove('vessel-flash');
+            void vessel.offsetWidth; // restart the animation
+            vessel.classList.add('vessel-flash');
+            setTimeout(function() { vessel.classList.remove('vessel-flash'); }, 1500);
+          });
+          grid.appendChild(tile);
+
+          t._nEl = tile.querySelector('.dash-tile__n');
+          t._hintEl = tile.querySelector('.dash-tile__hint');
+          t._fillEl = tile.querySelector('.dash-bar__fill');
+          t._tileEl = tile;
+        });
+
+        function refresh() {
+          tiles.forEach(function(t) {
+            var n = readCount(t);
+            t._nEl.textContent = n;
+            if (t.total) {
+              var pct = Math.max(0, Math.min(100, Math.round((n / t.total) * 100)));
+              if (t._fillEl) t._fillEl.style.width = pct + '%';
+              var done = n >= t.total;
+              t._tileEl.classList.toggle('is-complete', done);
+              t._hintEl.textContent = done ? 'Complete ✓' : (t.total - n) + ' to go · ' + t.hint.replace(/<[^>]+>/g, '');
+            }
+          });
+        }
+        refresh();
+
+        // Vessel renderers (local + Supabase) write their counts on their own
+        // schedule — watch the count nodes and mirror every change.
+        tiles.forEach(function(t) {
+          if (t.src === null) return;
+          var el = document.getElementById(t.src);
+          if (!el) return;
+          new MutationObserver(refresh).observe(el, { childList: true, characterData: true, subtree: true });
+        });
+        window.addEventListener('load', refresh);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', mount);
+      } else {
+        mount();
+      }
+    })();
+  </script>
 
   <!-- ==============================================
        SECTION 1.25: YOUR COVEN — one favorite per pantheon
@@ -1078,6 +1333,22 @@
       </div>
       <div class="charm-chain" id="charmBracelet"></div>
       <p class="vessel-note">Hidden charms tucked in the town's images each week. Look closely — every stop page has one.</p>
+    </div>
+
+    <!-- Butterfly Clip Jar — Pop Quiz scores, banked as clips -->
+    <div class="vessel vessel--clip-jar" id="butterflyJar">
+      <div class="vessel-header">
+        <h3 class="vessel-title">🦋 Butterfly Clip Jar</h3>
+        <span class="vessel-count" id="clipJarCount">Empty jar</span>
+      </div>
+      <div class="clip-jar">
+        <div class="clip-jar-glass" aria-hidden="true">
+          <span class="clip-jar-total" id="clipJarTotal">0</span>
+          <span class="clip-jar-unit">butterfly clips</span>
+        </div>
+        <ul class="clip-jar-ledger" id="clipJarLedger"></ul>
+      </div>
+      <p class="vessel-note">Pop Quiz scores from SUNNYVAiLE High, paid out in butterfly clips — your best score per episode goes in the jar. Extra credit pays twelve. Bombing pays one, and it's broken. <a href="/sunnyvaile-high.html">Take this week's quiz →</a></p>
     </div>
 
     <!-- Trading Card Binder -->
@@ -1387,6 +1658,11 @@
     document.getElementById('tripGuide').hidden = true;
     document.getElementById('fairyBankSection').hidden = true;
     document.getElementById('sendNoteBlock').hidden = false;
+    // These vessels render from THIS device's localStorage — on someone
+    // else's Closet they'd show the visitor's own data. Hide until synced.
+    document.getElementById('walletSlots').hidden = true;
+    document.getElementById('butterflyJar').hidden = true;
+    document.getElementById('tourSection').hidden = true;
   }
 
   function updateCardFromProfile(profile) {
@@ -2052,7 +2328,111 @@
 })();
 </script>
   <script src="/content/site/sv-tour-checkin.js?v=20260702-2"></script>
+  <script src="/content/site/sunnyvaile-directory.js?v=20260704-canon"></script>
   <script>
+  (function renderWallet() {
+    'use strict';
+    // Membership cards — one per building, fed by the visit counter that
+    // sv-you-are-here.js stamps on every building page (laidies_building_visits).
+    var grid = document.getElementById('walletGrid');
+    var list = window.SV_BUILDINGS;
+    if (!grid || !list || !list.length) return;
+    var EMOJI = {
+      'visitors-centre': '🚐', 'newsstand': '🗞️', 'chick-flicks': '📼', 'blend-snap': '☕',
+      'mme-claio': '🔮', 'maikeover': '💇‍♀️', 'bronze-aige': '🍸', 'dream-phone': '📞',
+      'mall': '🛍️', 'ksvl-radio': '📻', 'library': '📚', 'town-hall': '🏛️',
+      'post-office': '✉️', 'sunnyvaile-high': '🎓', 'fairy-godmother': '🪄',
+      'sorority-house': '🏠', 'sanctuary': '🕯️'
+    };
+    var visits = {};
+    try { visits = JSON.parse(localStorage.getItem('laidies_building_visits')) || {}; } catch (e) {}
+    function monthYear(ts) {
+      try { return new Intl.DateTimeFormat('en', { month: 'short', year: 'numeric' }).format(new Date(ts)); } catch (e) { return ''; }
+    }
+    function brandHtml(s) {
+      return String(s).replace(/[&<>"]/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]; })
+        .replace(/Ai/g, '<span class="ai">Ai</span>');
+    }
+    list.forEach(function (b, i) {
+      var rec = visits[b.id] || null;
+      var n = rec ? Number(rec.n) || 0 : 0;
+      var since = rec && rec.first ? monthYear(rec.first) : null;
+      var card = document.createElement('div');
+      card.className = 'wallet-card wallet-card--' + (i % 4);
+      card.innerHTML =
+        '<div class="wallet-card-top">' +
+          '<span class="wallet-card-name">' + brandHtml(b.name) + '</span>' +
+          '<span class="wallet-card-emoji" aria-hidden="true">' + (EMOJI[b.id] || '⭐') + '</span>' +
+        '</div>' +
+        '<span class="wallet-card-addr">' + brandHtml(b.address) + ' · SUNNYVAiLE</span>' +
+        '<div class="wallet-card-meta">' +
+          '<span>Visits <strong>' + n + '</strong></span>' +
+          '<span>' + (since ? 'Member since ' + since : 'Never visited') + '</span>' +
+        '</div>' +
+        '<div class="wallet-card-barcode" aria-hidden="true"></div>';
+      var visit = document.createElement('a');
+      visit.className = 'wallet-card-visit';
+      visit.href = b.href;
+      visit.textContent = n > 0 ? 'Visit again →' : 'First visit →';
+      card.appendChild(visit);
+      grid.appendChild(card);
+    });
+  })();
+  (function renderClipJar() {
+    'use strict';
+    // Butterfly Clip Jar — derived straight from the quiz records (same
+    // math as the quiz's butterfly rating: clips = best score, min 1
+    // broken clip for a bombed attempt), so it can never drift from the
+    // Pop Quiz and it rides the existing member-card sync when that ships.
+    function stored(key) {
+      try { return JSON.parse(localStorage.getItem(key)) || {}; } catch (e) { return {}; }
+    }
+    var progress = stored('laidiesQuizProgress');
+    var legacy = stored('laidiesQuizBestScores');
+    Object.keys(legacy).forEach(function(key) {
+      if (!progress[key]) progress[key] = { bestScore: Number(legacy[key]) || 0, attempts: 1 };
+    });
+    var rows = [], total = 0;
+    Object.keys(progress).sort().forEach(function(key) {
+      var r = progress[key] || {};
+      var best = Math.round(Number(r.bestScore) || 0);
+      var attempted = best > 0 || Number(r.attempts) > 0 || Boolean(r.completedAt);
+      if (!attempted) return;
+      var isBroken = best < 2;
+      var clips = Math.max(best, 1);
+      var m = String(key).match(/(\d+)/);
+      var label = m ? 'EP ' + ('0' + Number(m[1])).slice(-2) : String(key).toUpperCase();
+      rows.push({ label: label, clips: clips, isBroken: isBroken });
+      total += clips;
+    });
+    var countEl = document.getElementById('clipJarCount');
+    var totalEl = document.getElementById('clipJarTotal');
+    var ledger = document.getElementById('clipJarLedger');
+    if (!countEl || !totalEl || !ledger) return;
+    totalEl.textContent = String(total);
+    countEl.textContent = total === 0 ? 'Empty jar' : total + ' clip' + (total === 1 ? '' : 's');
+    ledger.innerHTML = '';
+    if (!rows.length) {
+      var empty = document.createElement('li');
+      empty.className = 'clip-empty';
+      empty.textContent = 'No clips yet — the jar fills one Pop Quiz at a time.';
+      ledger.appendChild(empty);
+      return;
+    }
+    rows.forEach(function(row) {
+      var li = document.createElement('li');
+      var ep = document.createElement('span');
+      ep.className = 'clip-ep';
+      ep.textContent = row.label + ' Pop Quiz';
+      var amount = document.createElement('span');
+      amount.className = 'clip-amount' + (row.isBroken ? ' is-broken' : '');
+      amount.textContent = row.isBroken
+        ? '🦋 1 clip (it’s broken)'
+        : '🦋 ' + row.clips + ' clip' + (row.clips === 1 ? '' : 's');
+      li.append(ep, amount);
+      ledger.appendChild(li);
+    });
+  })();
   (function() {
     'use strict';
     function renderTour() {
@@ -2092,9 +2472,9 @@
     document.addEventListener('sv:tour-checkin', renderTour);
   })();
   </script>
-    <script defer src="/content/site/ksvl-player.js?v=20260704-12"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260705-21"></script>
     <script defer src="/content/site/quick-rail.js?v=20260704-2"></script>
-    <script defer src="/content/site/charm-hunt.js?v=20260704-y2k3b" onload="if(typeof renderCharmBracelet==='function')renderCharmBracelet();"></script>
-<script defer src="/content/site/ai-accent-autowrap.js?v=20260704-5"></script>
+    <script defer src="/content/site/charm-hunt.js?v=20260705-dusk" onload="if(typeof renderCharmBracelet==='function')renderCharmBracelet();"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
 </body>
 </html>
