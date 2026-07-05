@@ -28,3 +28,11 @@ FULL master file there instead and export one mp3 — no stitching needed.
   on purpose (cleaner, more consistent); add sparingly if a line needs it.
 - Spellings are TTS-phonetic on purpose (Sunnyvale, Madame Cleo, K-S-V-L,
   "Makeover on Main") — don't "fix" them back to brand casing.
+
+## Voice lock (candidate, 2026-07-06)
+Ali's current pick: **Hope — upbeat and clear** (professional voice clone),
+v3, speed 0.96, stability 50, similarity 75 (from Ali's test-take filename:
+`ElevenLabs_2026-07-05T23_12_37_Hope - upbeat and clear_pvc_sp96_s50_sb75_v3`).
+Use the TAGGED master for Studio: `operations/audio/episode-01-elevenlabs-v3-tagged.txt`
+(delivery tags like [dry]/[smirk]/[thoughtful] built in — v3 only; strip them
+for older models). Keep the same voice + settings for the entire season.
