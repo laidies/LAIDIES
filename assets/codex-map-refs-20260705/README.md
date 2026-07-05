@@ -6,10 +6,11 @@ Deliver new generations to assets/re-rolls-20260705/ only.
 
 - building-heroes/  — the 17 approved y2k-v3 building renders (canonical
   look, signage, and colors for every SUNNYVAiLE building)
-- approved-scenes/  — the 6 street scenes Ali approved 2026-07-05. These
+- approved-scenes/  — the 5 street scenes Ali approved 2026-07-05. These
   are the ONLY approved scenes. Anything in assets/sunnyvaile-streets/
-  NOT copied here (main-street-golden, main-street-dusk, _raw-generated,
-  _superseded) is wrong-order or rejected — never reference those.
+  NOT copied here (main-street-golden, main-street-dusk, town-edge-sunset,
+  _raw-generated, _superseded) is wrong-order or unapproved — never
+  reference those.
 
 Canonical street order (locked 2026-07-04): MAiN Street 1-10 =
 Visitor's Centre, NewsStand, [Civic Square rd], Chick Flicks, Blend & Snap,
