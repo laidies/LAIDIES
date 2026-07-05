@@ -108,7 +108,7 @@
   function withDirectory(cb) {
     if (window.SV_BUILDINGS && window.SV_BUILDINGS.length) { cb(window.SV_BUILDINGS); return; }
     var s = document.createElement('script');
-    s.src = '/content/site/sunnyvaile-directory.js?v=20260704-canon';
+    s.src = '/content/site/sunnyvaile-directory.js?v=20260706-map';
     s.onload = function () { cb(window.SV_BUILDINGS || []); };
     s.onerror = function () { cb([]); };
     document.head.appendChild(s);
