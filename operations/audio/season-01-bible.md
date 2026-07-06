@@ -34,6 +34,18 @@ promises in the announcer's season promo are the four act milestones:
 - **The heroine** (voiced by Jessica) — narrates in retrospect, a few
   steps ahead. Her competence compounds on-mic: by Act II she's visibly
   faster; by Act III she's teaching.
+- **The heroine is a RESIDENT of Sunnyvale (Ali 2026-07-07).** She lives
+  there, and the episodes show her USING the town: late-night research
+  happens AT the library (not "I found a study" in the abstract), the
+  study pack gets read at her corner table at the Blend & Snap, KSVL is
+  on while she works, she gets readings at Madame Cleo's, she posts in
+  the rooms. RULE for Ep 2+: every episode sets at least 1–2 story
+  beats inside town locations. The real-world office (Steve) and the
+  town coexist — the office is where problems happen; Sunnyvale is
+  where she figures them out. Town characters (Mayor Deb, Madame Cleo,
+  DJ SunnyV, the Fairy Godmother) may appear in her scenes; introduce
+  them gradually across the season. Deb's origin (post office → joke
+  ballot 1999 → keeps winning) is established in the Trailer.
 - **Steve** (revenue operations, pickleball, "visionary") — the
   recurring foil. Arc: accidental AI poster boy → exposed as shallow
   (he never checks anything) → genuinely decent guy who, in the finale,
