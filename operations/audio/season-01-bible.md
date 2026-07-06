@@ -121,6 +121,10 @@ stolen minutes.
 
 ## Production pipeline (per episode)
 
+0. **Currency audit** (the Currency Rule, `operations/voice/
+laidies-writing-lock.md`): every teaching claim checked against what AI
+can do THIS month; durable concepts over UI specifics; stats carry
+their year; no 2022-era claims in 2026 voice. →
 1. Outline (lesson + scene + stats) → 2. native tagged script
 (`episode-NN-elevenlabs-v3-tagged.txt`) → 3. studio blocks + casting →
 4. Ali records in ElevenLabs Studio → 5. mp3 → music/sting mix →
