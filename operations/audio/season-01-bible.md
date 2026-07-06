@@ -137,8 +137,16 @@ stolen minutes.
   behavior — first moves, judgment, delegation — not old definitions).
 - Study pack: **Class Notes (the cheat sheet for the quiz) + this week's
   Trading Card Pack**; old packs stay on the back shelf (blend-snap.html).
-  No separate "practice cards." Packs/bags/try-on/card-packs for eps 1–5
+  No separate "practice cards." Packs/bags/card-packs for eps 1–5
   audited: currency-clean.
+- Try-on: PER-EPISODE — the source of truth is the `tryOn` field in
+  `content/episodes/issue-NN.json`. **Ep 1 = the three-tool bake-off:
+  open ChatGPT, Claude, and Gemini, give all three the same small real
+  task, compare, pick the most useful** (quiz Q7 grades this). Scripts
+  must quote the bag's tryOn, never paraphrase from memory. KNOWN GAP:
+  try-on.html currently serves a context/delegation exercise ("Prompt
+  Like Elle") that matches Ep 2's lesson, not Ep 1's — needs per-episode
+  try-on content (task).
 - Tours: Express = 1 stop (the episode). Full = 8 stops, Tour Guide
   auto-ticks on visit, all 8 before Wednesday banks **+1 FAiRY wish**
   (spent with the Fairy Godmother, banked on the Closet, resets Wednesday).
