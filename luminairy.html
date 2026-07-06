@@ -813,7 +813,7 @@
       .stop.is-coven-pick .coven-pick { background: var(--rose); color: var(--pearl); }
       .stop.is-coven-pick .coven-pick::before { content: '★ '; }
       .stop.is-coven-pick .stop-name::after {
-        content: ' · in your Coven';
+        content: ' · one of your Luminaries';
         color: var(--rose); font-family: 'Jost', sans-serif; font-size: 10px;
         font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
         margin-left: 4px;
@@ -1110,7 +1110,7 @@
             btn.type = 'button';
             btn.className = 'coven-pick';
             btn.setAttribute('data-pantheon', 'saint');
-            btn.textContent = '★ In my Coven';
+            btn.textContent = '★ One of my Luminaries';
             card.appendChild(btn);
           });
           document.querySelectorAll('.stop--maven').forEach(function (card) {
@@ -1119,7 +1119,7 @@
             btn.type = 'button';
             btn.className = 'coven-pick';
             btn.setAttribute('data-pantheon', 'maven');
-            btn.textContent = '★ In my Coven';
+            btn.textContent = '★ One of my Luminaries';
             card.appendChild(btn);
           });
           document.querySelectorAll('.stop--builder').forEach(function (card) {
@@ -1128,7 +1128,7 @@
             btn.type = 'button';
             btn.className = 'coven-pick';
             btn.setAttribute('data-pantheon', 'builder');
-            btn.textContent = '★ In my Coven';
+            btn.textContent = '★ One of my Luminaries';
             card.appendChild(btn);
           });
         }
@@ -1148,7 +1148,7 @@
               var isPicked = pick && slugFor(card, pantheon) === pick;
               card.classList.toggle('is-coven-pick', !!isPicked);
               var btn = card.querySelector('.coven-pick');
-              if (btn) btn.textContent = isPicked ? '★ In your Coven' : '★ In my Coven';
+              if (btn) btn.textContent = isPicked ? '★ One of your Luminaries' : '★ One of my Luminaries';
             });
           });
         }

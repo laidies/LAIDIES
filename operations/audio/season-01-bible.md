@@ -169,6 +169,10 @@ stolen minutes.
   LAiDIES · The Try-On Debrief · Send It Energy), **Creative Rooms**
   (Mix CD Exchange · Put it in the Burn Book · Comment Card), **Girl
   Talk** (truth or dare), **Your Corner** (Your Closet · Dare Reports).
+  The 4-slot pantheon band on the Closet is **Your Luminaries** (renamed
+  from "Your Coven," Ali 2026-07-07; storage keys unchanged). The BRONZE
+  AiGE "coven has a reservation" joke + the Coven Reservation badge are
+  a separate use of the word — Ali to rule if they change.
   Never quote the homepage's 4-item shorthand as the complete list.
 - Post office: weekly letter = episode + pack + quiz + news + song in
   one envelope; gifting = a note, a charm, or a saint card.
