@@ -53,6 +53,11 @@ promises in the announcer's season promo are the four act milestones:
 - **The stakeholder who reads tone into line breaks** — recurring
   minor character; her emails are a running measure of the heroine's
   growing speed.
+- **The girlfriends at the Bronze Age** — Businesswomen's Special
+  happy hour is where lessons get pressure-tested in conversation. The
+  cocktail party explanation was canonically born there (Ep 1: "okay,
+  but what IS it? Actually?"). Recurring scene setting; the girlfriends
+  ask what the listener is thinking.
 - **Running gags:** footnotes, pickleball, fleece vests,
   "Groundbreaking," the Tetris calendar, "we have receipts."
 - **Cold opens are chronological** — each one is a new moment in her
