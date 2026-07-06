@@ -142,7 +142,9 @@ stolen minutes.
 - Try-on: PER-EPISODE — the source of truth is the `tryOn` field in
   `content/episodes/issue-NN.json`. **Ep 1 = the three-tool bake-off:
   open ChatGPT, Claude, and Gemini, give all three the same small real
-  task, compare, pick the most useful** (quiz Q7 grades this). Scripts
+  task, compare, pick the most useful FOR THIS TASK** (quiz Q7 grades
+  this). Tools win per task — they're good at different things (SLAiYER
+  Handbook teaching); never "that's your tool forever." Scripts
   must quote the bag's tryOn, never paraphrase from memory. KNOWN GAP:
   try-on.html currently serves a context/delegation exercise ("Prompt
   Like Elle") that matches Ep 2's lesson, not Ep 1's — needs per-episode
