@@ -78,16 +78,19 @@
     /* MASTHEAD ARRIVAL */
     .masthead {
       position: relative;
-      background: var(--cream);
+      background: var(--plum-deep);
     }
     .masthead-image {
       width: 100%;
       display: block;
-      background: #1c0a1a;
+      background: var(--plum-deep);
+      max-height: 56vh;
+      overflow: hidden;
     }
     .masthead-image img,
     .masthead-image video {
       width: 100%; height: auto; display: block;
+      max-height: 56vh; object-fit: cover; object-position: center 46%;
     }
     .masthead-image .masthead-fallback { display: none; }
     @media (prefers-reduced-motion: reduce) {
@@ -795,7 +798,7 @@
 
   </style>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260706-7"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260707-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260705-2"></script>
   <script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
@@ -821,7 +824,7 @@
     <!-- 1 · ARRIVAL MASTHEAD -->
     <section class="masthead" aria-labelledby="masthead-title">
       <div class="masthead-image">
-        <video autoplay muted playsinline preload="auto"
+        <video muted playsinline preload="auto"
                poster="assets/video/sunnyvaile-logo-reveal-endframe.png?v=20260703-1"
                aria-label="Welcome to SUNNYVAiLE — neon sign reveal. Where girl power meets machine power."
                width="1600" height="900">
@@ -839,14 +842,14 @@
         #sv-explainer {
           position: relative;
           overflow: hidden;
-          background: radial-gradient(ellipse 80% 90% at 50% 20%, #170d18 0%, #050807 75%);
-          padding: clamp(56px, 9vw, 120px) 24px;
+          background: radial-gradient(ellipse 95% 108% at 50% 10%, #46183e 0%, #2c1029 50%, #200b20 100%);
+          padding: clamp(40px, 6vw, 80px) 24px clamp(46px, 6.5vw, 86px);
           text-align: center;
-          color: #ede3ec;
+          color: #f3e8f1;
         }
         #sv-explainer::after {
           content: "";
-          position: absolute; inset: 0; pointer-events: none; opacity: 0.35;
+          position: absolute; inset: 0; pointer-events: none; opacity: 0.2;
           background: repeating-linear-gradient(0deg,
             rgba(0,0,0,0.55) 0px, rgba(0,0,0,0.55) 2px,
             transparent 2px, transparent 5px);
@@ -905,10 +908,14 @@
           98% { filter: drop-shadow(3px 0 rgba(255,60,120,0.5)) drop-shadow(-3px 0 rgba(60,235,220,0.5)); transform: translate(-2px, 1px); }
           99% { filter: drop-shadow(-1px 0 rgba(255,60,120,0.35)) drop-shadow(1px 0 rgba(60,235,220,0.35)); }
         }
-        #sv-explainer .sv-reveal { opacity: 0; }
+        /* Text is ALWAYS on (Ali's rule) — visible even if the entrance
+           animation never fires. The staggered block-in only enhances the
+           first-ever visit; every later load shows the text immediately. */
+        #sv-explainer .sv-reveal { opacity: 1; }
         #sv-explainer.sv-play .sv-reveal {
-          animation: sv-block-in 0.7s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+          animation: sv-block-in 0.7s cubic-bezier(0.33, 1, 0.68, 1) both;
         }
+        #sv-explainer.sv-instant .sv-reveal { animation: none !important; opacity: 1 !important; }
         @keyframes sv-block-in {
           0% {
             opacity: 0; transform: translateY(26px) translateX(-3px);
@@ -1066,15 +1073,23 @@
 
         window.SunnyvaileExplainer = { start: start, reset: reset };
 
-        // Chain: start when the masthead logo reveal finishes; fall back if the
-        // video errors, was already done, or never fires within 10s.
+        // The masthead neon reveal plays ONCE PER VISIT (session). First load
+        // of a session: play it, then chain the explainer off its ending.
+        // Every later navigation this session leaves the video on its end
+        // frame and loads the explainer instantly (text is always on).
         var mv = document.querySelector('.masthead-image video');
-        if (mv) {
+        var playedThisVisit = false;
+        try { playedThisVisit = !!sessionStorage.getItem('sv_masthead_played'); } catch (e) {}
+
+        if (mv && !playedThisVisit) {
+          try { sessionStorage.setItem('sv_masthead_played', '1'); } catch (e) {}
+          var pp = mv.play();
+          if (pp && pp.catch) pp.catch(function () { start(); });
           mv.addEventListener('ended', start);
           mv.addEventListener('error', start);
-          if (mv.ended) start();
-          setTimeout(start, 10000);
+          setTimeout(start, 6000);
         } else {
+          // repeat visit this session (or reduced motion / no video): load now
           start();
         }
       })();
@@ -1340,7 +1355,7 @@
         </header>
 
         <div id="sv-map-directory" style="margin: 24px 0 40px;"></div>
-        <script defer src="/content/site/sunnyvaile-directory.js?v=20260706-map"></script>
+        <script defer src="/content/site/sunnyvaile-directory.js?v=20260707-1"></script>
 
         <div class="directory-grid" style="display:none;" aria-hidden="true">
 

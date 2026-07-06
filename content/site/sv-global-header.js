@@ -80,7 +80,7 @@
     + '.svgh-join:hover { background: var(--plum, #4b2148); color: var(--cream, #fffdfb) !important; }'
     + '.svgh-signin { color: var(--rose, #9b3f5f); font-weight: 600; border: 1.5px solid var(--rose, #9b3f5f);'
     + '  padding: 7px 14px; border-radius: 999px; }'
-    + '.svgh-panel { position: fixed; top: 74px; left: 16px; z-index: 9400; width: min(560px, calc(100vw - 32px));'
+    + '.svgh-panel { position: fixed; top: 74px; right: 16px; left: auto; z-index: 9400; width: min(560px, calc(100vw - 32px));'
     + '  max-height: min(72vh, 640px); overflow: auto; background: #fffdfb;'
     + '  border: 1.5px solid rgba(75,33,72,0.16); border-radius: 16px; padding: 18px 18px 14px;'
     + '  box-shadow: 0 24px 60px rgba(26,8,24,0.28); display: none; }'
@@ -108,7 +108,7 @@
   function withDirectory(cb) {
     if (window.SV_BUILDINGS && window.SV_BUILDINGS.length) { cb(window.SV_BUILDINGS); return; }
     var s = document.createElement('script');
-    s.src = '/content/site/sunnyvaile-directory.js?v=20260706-map';
+    s.src = '/content/site/sunnyvaile-directory.js?v=20260707-1';
     s.onload = function () { cb(window.SV_BUILDINGS || []); };
     s.onerror = function () { cb([]); };
     document.head.appendChild(s);
@@ -165,7 +165,6 @@
       '<div class="svgh-left">'
       + '<button type="button" class="svgh-histbtn svgh-back" aria-label="Back" title="Back">←</button>'
       + '<button type="button" class="svgh-histbtn svgh-fwd" aria-label="Forward" title="Forward">→</button>'
-      + '<button type="button" class="svgh-menu-btn" aria-haspopup="true" aria-expanded="false" aria-controls="svghPanel">☰ Menu</button>'
       + brandHtmlStr
       + '</div>'
       + (container === header ? '' : '<div class="site-header-spacer"></div>')
@@ -173,6 +172,7 @@
       + quick
       + '<a class="svgh-join" href="' + esc(JOIN_HREF) + '">Join →</a>'
       + '<a class="sv-signin svgh-signin" href="' + esc(SIGNIN_HREF) + '">✉︎ Sign In</a>'
+      + '<button type="button" class="svgh-menu-btn" aria-haspopup="true" aria-expanded="false" aria-controls="svghPanel">☰ Menu</button>'
       + '</nav>';
 
     var panel = document.createElement('div');
