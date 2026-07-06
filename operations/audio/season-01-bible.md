@@ -50,6 +50,17 @@ promises in the announcer's season promo are the four act milestones:
 - **The heroine** (voiced by Jessica) — narrates in retrospect, a few
   steps ahead. Her competence compounds on-mic: by Act II she's visibly
   faster; by Act III she's teaching.
+- **THE DISCOVERY (canon, Ali 2026-07-07): she doesn't move to
+  Sunnyvale — she FINDS it**, at eleven p.m. in Ep 1, three search
+  results past where she was looking for something else. The town
+  predates her (Deb elected 1999; the natives were always there);
+  residents discover it when they go looking — exactly how every
+  listener arrives. Her discovery IS the listener's invitation. Season
+  plan: she settles in gradually, one building per episode or so as the
+  lesson calls for it (the Luminairy visit belongs to the bias/MAiVENS
+  episode, Town Hall/Deb to a mid-season cold open, the Mall when her
+  card gets flair). Never tour-guide it inside numbered episodes — she
+  goes somewhere because the story needs it.
 - **The heroine is a RESIDENT of Sunnyvale (Ali 2026-07-07).** She lives
   there, and the episodes show her USING the town: late-night research
   happens AT the library (not "I found a study" in the abstract), the
@@ -118,6 +129,15 @@ stolen minutes.
 24. **Finale: The woman they come to** — Steve asks her for help. She
     gives the cocktail party explanation from Ep 1 — HER version now.
     Season promo fulfilled, line by line.
+
+## Facts locked (Currency Rule — verify before reuse)
+
+- Pop quiz: **exactly 12 questions**, every episode (content/site/quizzes.json).
+- Study pack contents: **Class Notes (the cheat sheet for the quiz) +
+  this week's Trading Card Pack**; old packs stay on the back shelf
+  (blend-snap.html). There are no separate "practice cards."
+- Charms: 7 hidden around town per week. Butterfly clips: best score
+  per episode banks the clip.
 
 ## Production pipeline (per episode)
 
