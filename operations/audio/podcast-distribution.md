@@ -45,8 +45,9 @@ designed to be REMEMBERED until you're home: one small real task.
 
 ## Still needed before launch
 
-- [x] Ep 1 narration mp3 — DELIVERED 2026-07-07 (16:04, 192kbps, live at
-      /content/music/episode-01-narration.mp3); music/sting mix still optional
+- [x] Ep 1 narration mp3 — v2 DELIVERED 2026-07-07 (24:36, 192kbps, live at
+      /content/music/episode-01-narration.mp3; duration jump vs v1 16:04
+      pending Ali listen-through); music/sting mix still optional
 - [ ] Trailer narration mp3 (Ali records; files episode-00-*)
 - [ ] Cover art 3000×3000 (Codex brief to write)
 - [ ] feed.xml generator + /podcast/ folder (Claude, when mp3s land)
