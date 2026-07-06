@@ -97,9 +97,9 @@
        so the masthead + explainer read as ONE dark arrival, not two blocks. */
     .masthead-image::after {
       content: "";
-      position: absolute; left: 0; right: 0; bottom: -1px; height: 46%;
+      position: absolute; left: 0; right: 0; bottom: -1px; height: 40%;
       pointer-events: none;
-      background: linear-gradient(180deg, rgba(44,16,41,0) 0%, #2c1029 100%);
+      background: linear-gradient(180deg, rgba(255,253,251,0) 0%, var(--cream) 100%);
     }
     .masthead-image .masthead-fallback { display: none; }
     @media (prefers-reduced-motion: reduce) {
@@ -848,26 +848,16 @@
     <section id="sv-explainer" data-autostart="manual" data-anthem-src="/content/music/sunnyvaile-town-anthem.mp3">
       <style>
         /* ---------- scoped to #sv-explainer ---------- */
+        /* Light intro — reads like the rest of the homepage, not a dark VHS block. */
         #sv-explainer {
           position: relative;
-          overflow: hidden;
-          background: linear-gradient(180deg, #2c1029 0%, #43163b 42%, #2a0f27 100%);
-          padding: clamp(34px, 5vw, 68px) 24px clamp(46px, 6.5vw, 86px);
+          background: var(--cream);
+          padding: clamp(40px, 5vw, 68px) 24px clamp(48px, 6vw, 76px);
           text-align: center;
-          color: #f3e8f1;
+          color: var(--plum);
         }
-        #sv-explainer::after {
-          content: "";
-          position: absolute; inset: 0; pointer-events: none; opacity: 0.2;
-          background: repeating-linear-gradient(0deg,
-            rgba(0,0,0,0.55) 0px, rgba(0,0,0,0.55) 2px,
-            transparent 2px, transparent 5px);
-        }
-        #sv-explainer::before {
-          content: "";
-          position: absolute; inset: 0; pointer-events: none;
-          background: radial-gradient(ellipse 80% 70% at 50% 45%, transparent 40%, rgba(0,0,0,0.55) 100%);
-        }
+        #sv-explainer::after, #sv-explainer::before { content: none; }
+        #sv-explainer .sv-vcr, #sv-explainer .sv-track, #sv-explainer .sv-flicker { display: none !important; }
         #sv-explainer .sv-vcr {
           position: absolute; top: 22px; left: 0; right: 0;
           display: flex; justify-content: space-between; padding: 0 28px;
@@ -903,10 +893,7 @@
           display: flex; flex-direction: column; align-items: center;
           gap: clamp(18px, 2.6vw, 30px);
         }
-        #sv-explainer.sv-play .sv-inner {
-          animation: sv-drift 6s ease-in-out infinite alternate,
-                     sv-idle-glitch 8s linear 4s infinite;
-        }
+        #sv-explainer.sv-play .sv-inner { animation: none; }
         @keyframes sv-drift {
           from { transform: translateY(-2px); }
           to   { transform: translateY(2px); }
@@ -921,9 +908,10 @@
            animation never fires. The staggered block-in only enhances the
            first-ever visit; every later load shows the text immediately. */
         #sv-explainer .sv-reveal { opacity: 1; }
-        #sv-explainer.sv-play .sv-reveal {
-          animation: sv-block-in 0.7s cubic-bezier(0.33, 1, 0.68, 1) both;
+        #sv-explainer.sv-play:not(.sv-instant) .sv-reveal {
+          animation: sv-fade-up 0.55s ease both;
         }
+        @keyframes sv-fade-up { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
         #sv-explainer.sv-instant .sv-reveal { animation: none !important; opacity: 1 !important; }
         @keyframes sv-block-in {
           0% {
@@ -948,41 +936,42 @@
         #sv-explainer.sv-play .sv-d5 { animation-delay: 2.95s; }
         #sv-explainer.sv-play .sv-d6 { animation-delay: 3.55s; }
         #sv-explainer .sv-eyebrow {
-          font-family: 'VT323', monospace;
-          font-size: clamp(20px, 2.6vw, 34px); letter-spacing: 0.18em;
-          color: #f5c36b;
+          font-family: 'Jost', sans-serif;
+          font-size: 11px; font-weight: 700; letter-spacing: 0.32em;
+          text-transform: uppercase; color: var(--rose);
         }
         #sv-explainer .sv-body {
-          font-family: Verdana, Tahoma, sans-serif;
-          font-size: clamp(17px, 2.1vw, 27px); line-height: 1.55;
-          color: #ede3ec; text-wrap: pretty;
+          font-family: 'Playfair Display', Georgia, serif;
+          font-size: clamp(23px, 3vw, 34px); line-height: 1.2; font-weight: 700;
+          color: var(--plum); text-wrap: pretty; margin: 0;
         }
-        #sv-explainer .sv-body--dim { color: #c8bbc6; }
-        #sv-explainer .sv-hl-pink { color: #ee9fce; }
-        #sv-explainer .sv-hl-teal { color: #57bfae; }
+        #sv-explainer .sv-body--dim {
+          font-family: 'Jost', sans-serif; font-weight: 400;
+          font-size: clamp(15px, 1.7vw, 18px); line-height: 1.55;
+          color: var(--plum-soft);
+        }
+        #sv-explainer .sv-hl-pink { color: #b45f6b; }
+        #sv-explainer .sv-hl-teal { color: #2b7d7a; }
         #sv-explainer .sv-wed {
-          font-family: Verdana, Tahoma, sans-serif; letter-spacing: 0.02em;
-          font-size: clamp(15px, 1.8vw, 23px); color: #ee9fce;
+          font-family: 'Jost', sans-serif; font-weight: 700;
+          letter-spacing: 0.16em; text-transform: uppercase;
+          font-size: 12px; color: var(--rose);
         }
         #sv-explainer .sv-anthem {
-          font-family: 'VT323', monospace;
-          font-size: clamp(19px, 2.2vw, 28px); letter-spacing: 0.05em;
-          color: #57bfae; background: transparent;
-          border: 2px solid #57bfae; border-radius: 999px;
-          padding: 12px 34px; margin-top: 6px;
-          min-height: 44px; cursor: pointer;
-          box-shadow: 0 0 14px rgba(87,191,174,0.35);
-          transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+          font-family: 'Jost', sans-serif; font-weight: 700;
+          font-size: 13px; letter-spacing: 0.04em;
+          color: var(--rose); background: transparent;
+          border: 1.5px solid var(--rose); border-radius: 999px;
+          padding: 10px 22px; margin-top: 4px; cursor: pointer;
+          transition: background 0.15s, color 0.15s;
         }
         #sv-explainer .sv-anthem:hover,
         #sv-explainer .sv-anthem:focus-visible {
-          background: #57bfae; color: #160813;
-          box-shadow: 0 0 22px rgba(87,191,174,0.6);
-          outline: none;
+          background: var(--rose); color: var(--cream); outline: none;
         }
-        #sv-explainer .sv-ctas { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 10px; }
-        #sv-explainer .sv-ctas .masthead-sub { color: #c8bbc6; font-size: 14px; margin: 0; }
-        #sv-explainer .sv-ctas .masthead-sub a { color: #ee9fce; text-decoration: underline; text-underline-offset: 3px; }
+        #sv-explainer .sv-ctas { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 12px; }
+        #sv-explainer .sv-ctas .masthead-sub { color: var(--plum-soft); font-size: 14px; margin: 0; }
+        #sv-explainer .sv-ctas .masthead-sub a { color: var(--rose); text-decoration: underline; text-underline-offset: 3px; }
         /* Repeat visits this session: skip the staggered reveal entirely */
         #sv-explainer.sv-instant.sv-play .sv-reveal { animation-duration: 0.01s !important; animation-delay: 0s !important; }
         @media (prefers-reduced-motion: reduce) {
