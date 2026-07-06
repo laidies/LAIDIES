@@ -23,7 +23,11 @@ promises in the announcer's season promo are the four act milestones:
   capability: no "just autocomplete" reductionism (it drafts, reasons,
   runs multi-step work). Canon frame: **the brilliant new hire you
   manage** — superhuman range, zero lived judgment, no stake in being
-  wrong. Two non-negotiable limits: context must be handed over
+  wrong; "you have to onboard them, give them guidance and guardrails,
+  the lay of the land, manage them and review their work — and you've
+  done this all before" (Ali's wording, Ep 1). The onboarding verbs ARE
+  the season: context (Ep 2) → guardrails/verification (Eps 3-4) →
+  review/judgment (Ep 22). Two non-negotiable limits: context must be handed over
   (→ Ep 2 delegation) and out-of-the-box it checks plausibility, not
   truth (→ Ep 3 Burn Book).
 - **Native scripts only** — written as a show from the concept, never
