@@ -21,7 +21,7 @@ on-site version; the podcast is the everywhere version.
    Music. Overcast/Pocket Casts pick it up from Apple automatically.
    Approval: usually 1–3 days each. After that, new episodes appear in
    every app automatically when we add them to the feed.
-4. **Launch with at least Ep 0 + Ep 1** — directories and listeners
+4. **Launch with the Trailer + Ep 1** — directories and listeners
    both treat one-episode feeds as abandoned.
 
 **In-world frame:** the podcast IS KSVL syndication — show notes and
@@ -33,7 +33,7 @@ Self-hosting first is fine; feeds can 301-redirect if we ever move.
 
 ## Episode metadata pattern
 
-- Title: `Ep 01 — On Wednesdays We Use AI` (Ep 0: `Ep 0 — Welcome to Sunnyvale`)
+- Title: `Ep 01 — On Wednesdays We Use AI` (trailer: `Welcome to Sunnyvale`, published with `<itunes:episodeType>trailer</itunes:episodeType>` — podcast apps pin it for new listeners)
 - Description: the announcer's tease + one-line try-on + laidies.ai link
 - `<itunes:episode>` numbering + season 1; categories: Education / Technology
 
@@ -47,8 +47,8 @@ designed to be REMEMBERED until you're home: one small real task.
 
 - [x] Ep 1 narration mp3 — DELIVERED 2026-07-07 (16:04, 192kbps, live at
       /content/music/episode-01-narration.mp3); music/sting mix still optional
-- [ ] Ep 0 narration mp3 (Ali records)
+- [ ] Trailer narration mp3 (Ali records; files episode-00-*)
 - [ ] Cover art 3000×3000 (Codex brief to write)
 - [ ] feed.xml generator + /podcast/ folder (Claude, when mp3s land)
 - [ ] Apple ID decision for Podcasts Connect (Ali)
-- [ ] Trailer strategy: Ep 0 doubles as the podcast "trailer" episode
+- [x] Trailer strategy: DECIDED — the tour episode IS the trailer (Ali named it)

@@ -21,10 +21,10 @@ promises in the announcer's season promo are the four act milestones:
   the cocktail party explanation (recurring branded teaching segment) →
   the try-on → announcer next-time → "Remember, ladies" → **"See you
   next Wednesday... in Sunnyvale."**
-- **Episode Zero** ("Welcome to Sunnyvale") carries ALL orientation:
+- **The Trailer** ("Welcome to Sunnyvale," files `episode-00-*`) carries ALL orientation:
   what the show is, the town tour, the weekly rhythm, the residence
   card. Numbered episodes never re-explain the premise — one "New here?
-  Episode Zero is the tour" line maximum.
+  Check out the trailer first" line maximum.
 - **Audio-complete:** nothing requires eyes. Spoken URL, spoken
   directions. The Screening Room version adds visuals; it never carries
   information the audio lacks. (This is what makes drive-time work.)
