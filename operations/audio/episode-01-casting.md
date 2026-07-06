@@ -1,10 +1,7 @@
 # Episode 01 — Studio casting sheet (final)
 
-Structure: tight cold open → MALE ANNOUNCER promo (title + third-person
-tease, classic 90s TV) → host enters cold on "I couldn't help but wonder…"
-→ four parts → ritual → announcer's next-week promo → host's final sip.
-
-Paste episode-01-studio-blocks.txt into Studio; assign per this sheet.
+Ending order fixed: announcer's next-week promo → host delivers the
+"Remember, ladies" sign-off → THEN the challenge to beat it → goodbye.
 
 | # | Starts with | Voice |
 |---|-------------|-------|
@@ -28,11 +25,8 @@ Paste episode-01-studio-blocks.txt into Studio; assign per this sheet.
 Casting guidance:
 - HOST — Jessica. ~95% of the runtime. Same settings, every block.
 - ANNOUNCER — MALE, classic 90s TV promo voice (the "Previously on…" guy).
-  Does the welcome, the episode promo, and the next-week tease. From
-  Episode 2 onward he also opens with "Previously, on ladies…"
-- DOLLY CAMEO — warm + folksy. Homage register, not an impression.
-- FEI-FEI CAMEO — measured, serious. Real quote — keep it plain.
+  Welcome, episode promo, next-week tease. From Episode 2: "Previously, on ladies…"
+- DOLLY CAMEO — warm + folksy homage. FEI-FEI CAMEO — measured, plain.
 - COOL MOM CAMEO — sweet and bubbly, played straight.
 
-Voices chosen (fill in once auditioned):
-- ANNOUNCER: ______ · DOLLY: ______ · FEI-FEI: ______ · COOL MOM: ______
+Voices chosen: ANNOUNCER: ______ · DOLLY: ______ · FEI-FEI: ______ · COOL MOM: ______
