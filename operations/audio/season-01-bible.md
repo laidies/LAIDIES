@@ -140,7 +140,7 @@ stolen minutes.
   No separate "practice cards." Packs/bags/card-packs for eps 1–5
   audited: currency-clean.
 - Try-on: PER-EPISODE — the source of truth is the `tryOn` field in
-  `content/episodes/issue-NN.json`. **Ep 1 = the three-tool bake-off:
+  `content/episodes/issue-NN.json`. **Ep 1 = the auditions (extends the new-hire frame):
   open ChatGPT, Claude, and Gemini, give all three the same small real
   task, compare, pick the most useful FOR THIS TASK** (quiz Q7 grades
   this). Tools win per task — they're good at different things (SLAiYER
