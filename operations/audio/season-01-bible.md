@@ -130,14 +130,35 @@ stolen minutes.
     gives the cocktail party explanation from Ep 1 — HER version now.
     Season promo fulfilled, line by line.
 
-## Facts locked (Currency Rule — verify before reuse)
+## Facts locked (Currency Rule — every activity verified vs the live site, 2026-07-07)
 
 - Pop quiz: **exactly 12 questions**, every episode (content/site/quizzes.json).
-- Study pack contents: **Class Notes (the cheat sheet for the quiz) +
-  this week's Trading Card Pack**; old packs stay on the back shelf
-  (blend-snap.html). There are no separate "practice cards."
-- Charms: 7 hidden around town per week. Butterfly clips: best score
-  per episode banks the clip.
+  Quizzes for foundation + eps 1–4 audited: all currency-clean (they test
+  behavior — first moves, judgment, delegation — not old definitions).
+- Study pack: **Class Notes (the cheat sheet for the quiz) + this week's
+  Trading Card Pack**; old packs stay on the back shelf (blend-snap.html).
+  No separate "practice cards." Packs/bags/try-on/card-packs for eps 1–5
+  audited: currency-clean.
+- Tours: Express = 1 stop (the episode). Full = 8 stops, Tour Guide
+  auto-ticks on visit, all 8 before Wednesday banks **+1 FAiRY wish**
+  (spent with the Fairy Godmother, banked on the Closet, resets Wednesday).
+- Charms: **7 hidden around town per week**, found → bracelet in the
+  Closet; Jewelry Box archives older weeks. Charm Hunt requires a card.
+- Butterfly clips: best quiz score per episode banks the clip, jar in
+  the Closet. Book fair at the High: **every 4 weeks**.
+- Mme CLAi-O: walk-ins; "the read, the message, and the move."
+- FAiRY Godmother: the town's real AI assistant — bring the question.
+- Rooms (card required): **Wins · Dear LAiDIES · Burn Book · Girl Talk.**
+- Post office: weekly letter = episode + pack + quiz + news + song in
+  one envelope; gifting = a note, a charm, or a saint card.
+- KSVL: live rotation (DJ SunnyV, jingles, weather/traffic, storefront
+  spots, sign-off pair), 10 bands, mix CDs, sticker rack (first free),
+  anthem per episode, 99.9, follows you between pages.
+- BWS: paper fortune teller picks the drink. Bronze = live music.
+- Screening Room: **Ep 01 only so far** — every new episode needs its
+  cue sheet before scripts may say "any episode."
+- Residence card: free, ~2 min, at MAiKEOVER; unlocks rooms + Charm
+  Hunt + gifting + Closet; everything banks to it.
 
 ## Production pipeline (per episode)
 
