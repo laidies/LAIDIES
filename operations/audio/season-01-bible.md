@@ -151,10 +151,13 @@ stolen minutes.
   try-on content (task).
 - Tours (Ali's definition, verbatim 2026-07-07 — supersedes both the old
   homepage AND old handbook copy, which disagreed with each other):
-  **Express = "the core ritual without the extras: episode, study pack,
-  quiz, song."** ROUTES ARE RECOMMENDATIONS, not requirements — "they
-  can do as few or as many as they want; those are just the routes we
-  recommend to help make it stick" (Ali). Full = 8 stops, Tour Guide
+  **Express = FOUR STOPS: episode, study pack, quiz, song** (Ali's final
+  recorded framing in the Trailer, 2026-07-07 — she now numbers the four
+  core components as four stops). ROUTES ARE RECOMMENDATIONS, not
+  requirements — "you can visit any building and do any activity in any
+  order, on its own, whenever you want... but if you want to get the most
+  out of Sunnyvale, do one of the weekly tours so the learning really
+  sticks" (Ali). Full = 8 stops, Tour Guide
   auto-ticks on visit, all 8 before Wednesday banks **+1 FAiRY wish**
   (spent with the Fairy Godmother, banked on the Closet, resets Wednesday).
 - Charms: **7 hidden around town per week**, found → bracelet in the
