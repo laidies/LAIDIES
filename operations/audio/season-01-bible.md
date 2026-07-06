@@ -14,6 +14,18 @@ promises in the announcer's season promo are the four act milestones:
 
 - **Length:** SHORT. 8–12 minutes target. One lesson per episode, no
   exceptions. The article carries the depth; the episode carries the story.
+- **The cocktail party explanation delivers a QUOTABLE (Ali 2026-07-07):**
+  the segment leads with a short line you could actually repeat at a
+  party (Ep 1: "It read everything. It's lived nothing. And it never
+  says 'I don't know.'"), THEN unpacks why it holds. Never a
+  middle-depth ramble — Ali: "too long to be memorable, not technical
+  enough to be deep." Analogies must be honest about current AI
+  capability: no "just autocomplete" reductionism (it drafts, reasons,
+  runs multi-step work). Canon frame: **the brilliant new hire you
+  manage** — superhuman range, zero lived judgment, no stake in being
+  wrong. Two non-negotiable limits: context must be handed over
+  (→ Ep 2 delegation) and out-of-the-box it checks plausibility, not
+  truth (→ Ep 3 Burn Book).
 - **Native scripts only** — written as a show from the concept, never
   adapted from the article (Ali 2026-07-07). Template:
   `series-intro-standard.txt`. Episode shape: cold open scene →
