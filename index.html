@@ -316,6 +316,28 @@
       .quick-trip-divider::before { left: 15%; }
       .quick-trip-divider::after { right: 15%; }
     }
+    .quick-trip-steps-label {
+      margin: 18px 0 0;
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 800;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--rose);
+    }
+    .quick-trip-steps {
+      display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;
+    }
+    .quick-trip-steps a {
+      flex: 1; min-width: 104px; text-align: center;
+      padding: 9px 10px;
+      border: 1.5px solid var(--line); border-radius: 999px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.03em;
+      color: var(--plum); text-decoration: none;
+      transition: border-color 200ms ease, transform 200ms ease, color 200ms ease;
+    }
+    .quick-trip-steps a:hover {
+      border-color: var(--rose); color: var(--rose);
+      transform: translateY(-1px);
+    }
     .quick-trip-all {
       margin-top: auto;
       padding-top: 18px;
@@ -1168,6 +1190,13 @@
                 <span class="quick-trip-opt-cta">Pick up this week's episode →</span>
               </div>
             </a>
+
+            <p class="quick-trip-steps-label">★ Then finish the core ritual</p>
+            <div class="quick-trip-steps">
+              <a href="/blend-snap.html#the-study-pack">Study Pack</a>
+              <a href="/sunnyvaile-high.html">Pop Quiz</a>
+              <a href="/radio.html">Episode Song</a>
+            </div>
 
             <a href="/chick-flicks.html" class="quick-trip-all">Mid-season? <strong>See all episodes →</strong></a>
           </div>
