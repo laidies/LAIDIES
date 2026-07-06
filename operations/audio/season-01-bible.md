@@ -163,7 +163,13 @@ stolen minutes.
   the Closet. Book fair at the High: **every 4 weeks**.
 - Mme CLAi-O: walk-ins; "the read, the message, and the move."
 - FAiRY Godmother: the town's real AI assistant — bring the question.
-- Rooms (card required): **Wins · Dear LAiDIES · Burn Book · Girl Talk.**
+- Rooms (card required; sorority-house.html is the source of truth):
+  three wings + the feature + your corner — **Common Rooms** (Ask the
+  Room · Wins of the Week · Chat Room Digest), **Advice Rooms** (Dear
+  LAiDIES · The Try-On Debrief · Send It Energy), **Creative Rooms**
+  (Mix CD Exchange · Put it in the Burn Book · Comment Card), **Girl
+  Talk** (truth or dare), **Your Corner** (Your Closet · Dare Reports).
+  Never quote the homepage's 4-item shorthand as the complete list.
 - Post office: weekly letter = episode + pack + quiz + news + song in
   one envelope; gifting = a note, a charm, or a saint card.
 - KSVL: live rotation (DJ SunnyV, jingles, weather/traffic, storefront
