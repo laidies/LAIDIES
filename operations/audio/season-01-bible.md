@@ -149,7 +149,8 @@ stolen minutes.
   try-on.html currently serves a context/delegation exercise ("Prompt
   Like Elle") that matches Ep 2's lesson, not Ep 1's — needs per-episode
   try-on content (task).
-- Tours: Express = 1 stop (the episode). Full = 8 stops, Tour Guide
+- Tours (Handbook is canon): **Express = 2 stops — episode + pop quiz,
+  ~20 min.** Full = 8 stops, Tour Guide
   auto-ticks on visit, all 8 before Wednesday banks **+1 FAiRY wish**
   (spent with the Fairy Godmother, banked on the Closet, resets Wednesday).
 - Charms: **7 hidden around town per week**, found → bracelet in the
