@@ -152,7 +152,9 @@ stolen minutes.
 - Tours (Ali's definition, verbatim 2026-07-07 — supersedes both the old
   homepage AND old handbook copy, which disagreed with each other):
   **Express = "the core ritual without the extras: episode, study pack,
-  quiz, song."** Full = 8 stops, Tour Guide
+  quiz, song."** ROUTES ARE RECOMMENDATIONS, not requirements — "they
+  can do as few or as many as they want; those are just the routes we
+  recommend to help make it stick" (Ali). Full = 8 stops, Tour Guide
   auto-ticks on visit, all 8 before Wednesday banks **+1 FAiRY wish**
   (spent with the Fairy Godmother, banked on the Closet, resets Wednesday).
 - Charms: **7 hidden around town per week**, found → bracelet in the
