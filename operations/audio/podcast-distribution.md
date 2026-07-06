@@ -45,7 +45,9 @@ designed to be REMEMBERED until you're home: one small real task.
 
 ## Still needed before launch
 
-- [ ] Ep 0 + Ep 1 narration mp3s (Ali records; then music/sting mix)
+- [x] Ep 1 narration mp3 — DELIVERED 2026-07-07 (16:04, 192kbps, live at
+      /content/music/episode-01-narration.mp3); music/sting mix still optional
+- [ ] Ep 0 narration mp3 (Ali records)
 - [ ] Cover art 3000×3000 (Codex brief to write)
 - [ ] feed.xml generator + /podcast/ folder (Claude, when mp3s land)
 - [ ] Apple ID decision for Podcasts Connect (Ali)
