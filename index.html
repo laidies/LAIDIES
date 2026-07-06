@@ -85,21 +85,13 @@
       width: 100%;
       display: block;
       background: var(--plum-deep);
-      max-height: 56vh;
+      max-height: 42vh;
       overflow: hidden;
     }
     .masthead-image img,
     .masthead-image video {
       width: 100%; height: auto; display: block;
-      max-height: 56vh; object-fit: cover; object-position: center 46%;
-    }
-    /* Melt the neon reveal's black lower edge into the plum intro below,
-       so the masthead + explainer read as ONE dark arrival, not two blocks. */
-    .masthead-image::after {
-      content: "";
-      position: absolute; left: 0; right: 0; bottom: -1px; height: 40%;
-      pointer-events: none;
-      background: linear-gradient(180deg, rgba(255,253,251,0) 0%, var(--cream) 100%);
+      max-height: 42vh; object-fit: cover; object-position: center 54%;
     }
     .masthead-image .masthead-fallback { display: none; }
     @media (prefers-reduced-motion: reduce) {
