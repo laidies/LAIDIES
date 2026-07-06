@@ -27,7 +27,7 @@ This isn't a chapter. It's a map, a mall directory, and a "how to use this place
 
 Because "learning AI" is a mall directory with sixty locations and no floor plan. We decided to draw the floor plan.
 
-Every idea in LAiDIES has to earn its address. The vocabulary lesson doesn't just sit in a "Concepts" tab — it lives at the Town LIBRAiRY on No. 3 MAiN, and it's shaped like a reference desk. The prompt game doesn't sit in a "Games" tab — it lives at the Blend & Snap on No. 8, with a Study Pack on the counter. The chat rooms don't sit in a "Community" tab — they live at the Sorority House on Wisteria Lane, and you need a Residence Card at the door.
+Every idea in LAiDIES has to earn its address. The vocabulary lesson doesn't just sit in a "Concepts" tab — it lives at the Town LIBRAiRY on Civic Square, and it's shaped like a reference desk. The prompt game doesn't sit in a "Games" tab — it lives at the Blend & Snap on No. 4, with a Study Pack on the counter. The chat rooms don't sit in a "Community" tab — they live at the Sorority House on Wisteria Lane, and you need a Residence Card at the door.
 
 Buildings that earn their function beat tabs that don't. A town gives every idea a body. Every mechanic gets a room, every reference gets a shelf, every song gets a station. You don't have to remember which nav menu the tool was under — you have to remember what street you walked down last time.
 
@@ -41,25 +41,27 @@ Welcome to the neighborhood.
 
 ## The tour · Main Street
 
-Main Street is nine blocks. If you've got ten minutes today, walk it end to end. If you've got two — jump to the number that calls to you.
+Main Street is ten blocks. If you've got ten minutes today, walk it end to end. If you've got two — jump to the number that calls to you.
 
 **[No. 1 · The Welcome Wagon Visitor's Centre](/visitors-centre.html).** The front door of the town. If you're new, start here. Big map on the wall, a mini-directory of every building, the town's answers to "what is this and how do I use it." The person at the counter is nice. Nothing scary in SUNNYVAiLE — even if you take a wrong turn.
 
 **[No. 2 · The NewsStand](/newsstand.html).** Hot gossip. What everyone in town is talking about this week — the biggest AI news, the loudest takes, the receipts to keep for later. You can grab a copy on the way to your next stop.
 
-**[No. 3 · The Town LIBRAiRY](/library.html).** Reference desk. Can't remember what "context window" means? Ask the Book. Not sure which tool does what? Check the Power Map. Need proof of something? Pull it from the Chamber of Receipts. Quiet in here — but everything you'd want to look up is on a shelf you can reach.
+**[No. 3 · The Chick Flicks](/chick-flicks.html).** Video rental. This week's episode plays on the TV above the counter all day. Rent the tape, take it home, watch it Friday. Staff picks handwritten on index cards, taped to the shelf. Ali's picks are in the sticker section, three deep. Late fees are real. Be kind — rewind.
 
-**[No. 4 · The Mall](/mall.html).** Ten Y2K shops under one roof — butterfly clips and Cucumber Melon at CLAiRE'S, Reference Cards at Blockbuster, a beauty section that's not-quite-Maybelline. The Mall is also your **avatar closet**: pick up an object from any shop and take it home to your Passport. Wear the mood ring. Wear the burrito. Wear whatever's your look this week.
+**[No. 4 · The Blend & Snap](/blend-snap.html).** Coffee shop. This is where the **Study Pack** drops every Wednesday — three concepts, five vocab words, one prompt to try before the pop quiz down the street. Same barista, same paper cup, she knows how you take it. Come sit for a while.
 
-**[No. 5 · The BRONZE AiGE](/bronze-aige.html).** Bar. Happy hour at four. THE LAiDIES on stage at eight. Main Character Spritz on the drinks menu — the pink one, yes, we know, that's the point. The Coven — Hannah Fry, Fei-Fei Li, the women actually running things in AI right now — has a standing reservation. The chair is warmer than it looks.
+**[No. 5 · Mme CLAi-O's Shop](/games/madame-claio.html).** Fortune teller. Pick a card. Get read. She'll tell you what it says and give you your move. Twenty dollars. Walk-ins. Cash preferred. Her deck is a hundred cards deep — pull one a day, don't burn out the deck.
 
-**[No. 6 · Mme CLAi-O's Shop](/games/madame-claio.html).** Fortune teller. Pick a card. Get read. She'll tell you what it says and give you your move. Twenty dollars. Walk-ins. Cash preferred. Her deck is a hundred cards deep — pull one a day, don't burn out the deck.
+**[No. 6 · MAiKEOVER on MAiN](/maikeover.html).** Beauty parlor. This is where your **Residence Card** gets made — it's your ID for SUNNYVAiLE. Everything else in town is downstream of you having a card. Get your look on it, get your quote on it, get it in your wallet.
 
-**[No. 7 · The Chick Flicks](/chick-flicks.html).** Video rental. This week's episode plays on the TV above the counter all day. Rent the tape, take it home, watch it Friday. Staff picks handwritten on index cards, taped to the shelf. Ali's picks are in the sticker section, three deep. Late fees are real. Be kind — rewind.
+**[No. 7 · The BRONZE AiGE](/bronze-aige.html).** Bar. Happy hour at four. THE LAiDIES on stage at eight. Main Character Spritz on the drinks menu — the pink one, yes, we know, that's the point. The Coven — Hannah Fry, Fei-Fei Li, the women actually running things in AI right now — has a standing reservation. The chair is warmer than it looks.
 
-**[No. 8 · The Blend & Snap](/blend-snap.html).** Coffee shop. This is where the **Study Pack** drops every Wednesday — three concepts, five vocab words, one prompt to try before the pop quiz down the street. Same barista, same paper cup, she knows how you take it. Come sit for a while.
+**[No. 8 · The Phone Booth (Dream Phone)](/games/dream-phone.html).** Glass booth outside The Mall. Call in with a question. Pick a voice — Receipts, Bestie, Boundary. Get the answer through the receiver. Late-90s tech, actual utility.
 
-**[No. 9 · MAiKEOVER on MAiN](/maikeover.html).** Beauty parlor. This is where your **Residence Card** gets made — it's your ID for SUNNYVAiLE. Everything else in town is downstream of you having a card. Get your look on it, get your quote on it, get it in your wallet.
+**[No. 9 · The Mall](/mall.html).** Ten Y2K shops under one roof — butterfly clips and Cucumber Melon at CLAiRE'S, Reference Cards at Blockbuster, a beauty section that's not-quite-Maybelline. The Mall is also your **avatar closet**: pick up an object from any shop and take it home to your Passport. Wear the mood ring. Wear the burrito. Wear whatever's your look this week.
+
+**[No. 10 · KSVL Community Radio, 99.9](/radio.html).** Ninety-nine point nine, filed from SUNNYVAiLE, DJ SunnyV at the mic. PATRON SAiNT mixes, town anthems, episode intros. **New today:** *Tune In Live* mode — the full station broadcast with jingles, ads, weather, and DJ transitions. Details at the bottom.
 
 > Every shop is a lesson with a better window display.
 
@@ -79,13 +81,11 @@ The rest of the town is off the map's spine. Every one of these has a specific j
 
 > Somewhere in Sunnyvale, an inbox lights up. You've got mail.
 
+**[Civic Square · The Town LIBRAiRY](/library.html).** Reference desk. Can't remember what "context window" means? Ask the Book. Not sure which tool does what? Check the Power Map. Need proof of something? Pull it from the Chamber of Receipts. Quiet in here — but everything you'd want to look up is on a shelf you can reach.
+
 **[Schoolhouse Road · SUNNYVAiLE High](/sunnyvaile-high.html).** Season 1 is seven 101 classes — Vocab, Concepts, Briefing, Tools, Practice, Accounts, ChatGPT. Pop Quiz every Wednesday. Ten questions plus two bonus on this week's 101 class and the episode. Study Pack lives up the street at the Blend & Snap. Read it before you show up. Bring a pen. That is all.
 
 **[Lantern Hill · The LUMINAiRY](/luminairy.html).** Two wings, same chapel. Left side, the **PATRON SAiNTS** — the women (and one Rose) who taught us how to walk into a room and stay in it. Cher. Elle. Dolly. Miranda. Buffy. Regina. David Rose. Deb. Each one has her own anthem, sung by DJ SunnyV, up on KSVL. Right side, the **MAiVENS** — Hannah Fry, Fei-Fei Li, Timnit Gebru — the ones building the room next. Light a candle for the woman you're trying to be by Wednesday.
-
-**[Radio Tower · KSVL Community Radio, 99.9](/radio.html).** Ninety-nine point nine, filed from SUNNYVAiLE, DJ SunnyV at the mic. PATRON SAiNT mixes, town anthems, episode intros. **New today:** *Tune In Live* mode — the full station broadcast with jingles, ads, weather, and DJ transitions. Details at the bottom.
-
-**[Corner of MAiN & Cathedral · The Phone Booth (Dream Phone)](/games/dream-phone.html).** Glass booth on the corner. Call in with a question. Pick a voice — Receipts, Bestie, Boundary. Get the answer through the receiver. Late-90s tech, actual utility.
 
 ---
 
@@ -95,7 +95,7 @@ Seven mechanics turn this from a tour into a way to live in the town.
 
 ### 1. Your Residence Card
 
-Made at **MAiKEOVER**, No. 9 MAiN. This is your identity in SUNNYVAiLE. Every members-only surface — the Sorority House chat rooms, Girl Talk, gifting — requires it. Sign up at the Post Office window (magic-link, no password), design your card at MAiKEOVER, done. You're a resident.
+Made at **MAiKEOVER**, No. 6 MAiN. This is your identity in SUNNYVAiLE. Every members-only surface — the Sorority House chat rooms, Girl Talk, gifting — requires it. Sign up at the Post Office window (magic-link, no password), design your card at MAiKEOVER, done. You're a resident.
 
 ### 2. Your Passport
 
@@ -138,7 +138,7 @@ Turn it on at **[KSVL / the Radio Tower](/radio.html)**. Play it in the backgrou
 If you're brand new to SUNNYVAiLE, do this in order:
 
 1. **Pick up your Residence Card.** Sign up at the [Post Office](/post-office.html), design your card at [MAiKEOVER](/maikeover.html). Now you're a resident.
-2. **Grab this week's Study Pack.** [Blend & Snap](/blend-snap.html), Number 8 MAiN. Three concepts, five vocab words, one prompt.
+2. **Grab this week's Study Pack.** [Blend & Snap](/blend-snap.html), Number 4 MAiN. Three concepts, five vocab words, one prompt.
 3. **Take the Pop Quiz.** [SUNNYVAiLE High](/sunnyvaile-high.html). Ten questions plus two bonus, ten minutes.
 4. **Visit the Sorority House.** [Delta LAi Nu](/sorority-house.html), Wisteria Lane. Post a win. Read the Burn Book. Play a round of Girl Talk if you're brave.
 5. **Ask the FAiRY Godmother a question.** [Willow Lane](/games/fairy-godmother.html). Bring her the one you're afraid to ask out loud.
