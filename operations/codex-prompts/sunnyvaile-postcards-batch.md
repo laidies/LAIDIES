@@ -48,7 +48,7 @@ facades, no blank sign bands.
 | 7 | `sunnyvaile-chick-flicks.png` | Neon video store at dusk, VHS walls glowing | "Every ending is a happy one. We check." | THE CHICK FLICKS · VIDEO RENTALS |
 | 8 | `sunnyvaile-mme-claio.png` | Fortune-teller storefront at dusk, crystal ball window, neon OPEN | "She saw you coming." | Mme CLAi-O's |
 | 9 | `sunnyvaile-mall.png` | Mall dome atrium entrance, fountain inside, midday | "Where nobody cares if you spend 2 hours in PIECES OF FLAiR." | THE MALL |
-| 10 | `sunnyvaile-maikeover.png` | Pink salon at sunset, neon heart, mirror bulbs | "Make your very own montage scene." | MAiKEOVER on MAiN(e) |
+| 10 | `sunnyvaile-maikeover.png` | Pink salon at sunset, neon heart, mirror bulbs | "Make your very own montage scene." | MAiKEOVER on MAiN |
 | 11 | `sunnyvaile-bronze-aige.png` | Night music venue, bulb marquee, neon guitar, wet sidewalk | "No cover, no lines, and always great times." | BRONZE AiGE |
 | 12 | `sunnyvaile-sorority-house.png` | Craftsman sorority house, flamingos + bikes, golden hour | "Bring Gossip, leave with a dare." | Delta LAi Nu |
 | 13 | `sunnyvaile-town-hall.png` | Civic hall, notice board, midday (no flags/seals) | "Deb-flection HQ. Est. 1999. Reluctantly." | TOWN HALL |

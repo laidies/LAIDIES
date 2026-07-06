@@ -132,7 +132,7 @@ stolen minutes.
 
 ## Facts locked (Currency Rule — every activity verified vs the live site, 2026-07-07)
 
-- Pop quiz: **exactly 12 questions**, every episode (content/site/quizzes.json).
+- Pop quiz: **10 questions + 2 bonus** (score up to 12/10), every episode (content/site/quizzes.json).
   Quizzes for foundation + eps 1–4 audited: all currency-clean (they test
   behavior — first moves, judgment, delegation — not old definitions).
 - Study pack: **Class Notes (the cheat sheet for the quiz) + this week's

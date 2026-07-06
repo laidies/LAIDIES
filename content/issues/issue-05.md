@@ -59,7 +59,7 @@ Main Street is nine blocks. If you've got ten minutes today, walk it end to end.
 
 **[No. 8 · The Blend & Snap](/blend-snap.html).** Coffee shop. This is where the **Study Pack** drops every Wednesday — three concepts, five vocab words, one prompt to try before the pop quiz down the street. Same barista, same paper cup, she knows how you take it. Come sit for a while.
 
-**[No. 9 · MAiKEOVER on MAiN(e)](/maikeover.html).** Beauty parlor. This is where your **Residence Card** gets made — it's your ID for SUNNYVAiLE. Everything else in town is downstream of you having a card. Get your look on it, get your quote on it, get it in your wallet. (Yes, MAiN(e) is a pun. We're allowed.)
+**[No. 9 · MAiKEOVER on MAiN](/maikeover.html).** Beauty parlor. This is where your **Residence Card** gets made — it's your ID for SUNNYVAiLE. Everything else in town is downstream of you having a card. Get your look on it, get your quote on it, get it in your wallet.
 
 > Every shop is a lesson with a better window display.
 
@@ -79,7 +79,7 @@ The rest of the town is off the map's spine. Every one of these has a specific j
 
 > Somewhere in Sunnyvale, an inbox lights up. You've got mail.
 
-**[Schoolhouse Road · SUNNYVAiLE High](/sunnyvaile-high.html).** Season 1 is seven 101 classes — Vocab, Concepts, Briefing, Tools, Practice, Accounts, ChatGPT. Pop Quiz every Wednesday. Five to ten questions on this week's 101 class and the episode. Study Pack lives up the street at the Blend & Snap. Read it before you show up. Bring a pen. That is all.
+**[Schoolhouse Road · SUNNYVAiLE High](/sunnyvaile-high.html).** Season 1 is seven 101 classes — Vocab, Concepts, Briefing, Tools, Practice, Accounts, ChatGPT. Pop Quiz every Wednesday. Ten questions plus two bonus on this week's 101 class and the episode. Study Pack lives up the street at the Blend & Snap. Read it before you show up. Bring a pen. That is all.
 
 **[Lantern Hill · The LUMINAiRY](/luminairy.html).** Two wings, same chapel. Left side, the **PATRON SAiNTS** — the women (and one Rose) who taught us how to walk into a room and stay in it. Cher. Elle. Dolly. Miranda. Buffy. Regina. David Rose. Deb. Each one has her own anthem, sung by DJ SunnyV, up on KSVL. Right side, the **MAiVENS** — Hannah Fry, Fei-Fei Li, Timnit Gebru — the ones building the room next. Light a candle for the woman you're trying to be by Wednesday.
 
@@ -95,7 +95,7 @@ Seven mechanics turn this from a tour into a way to live in the town.
 
 ### 1. Your Residence Card
 
-Made at **MAiKEOVER**, No. 9 MAiN(e). This is your identity in SUNNYVAiLE. Every members-only surface — the Sorority House chat rooms, Girl Talk, gifting — requires it. Sign up at the Post Office window (magic-link, no password), design your card at MAiKEOVER, done. You're a resident.
+Made at **MAiKEOVER**, No. 9 MAiN. This is your identity in SUNNYVAiLE. Every members-only surface — the Sorority House chat rooms, Girl Talk, gifting — requires it. Sign up at the Post Office window (magic-link, no password), design your card at MAiKEOVER, done. You're a resident.
 
 ### 2. Your Passport
 
@@ -139,7 +139,7 @@ If you're brand new to SUNNYVAiLE, do this in order:
 
 1. **Pick up your Residence Card.** Sign up at the [Post Office](/post-office.html), design your card at [MAiKEOVER](/maikeover.html). Now you're a resident.
 2. **Grab this week's Study Pack.** [Blend & Snap](/blend-snap.html), Number 8 MAiN. Three concepts, five vocab words, one prompt.
-3. **Take the Pop Quiz.** [SUNNYVAiLE High](/sunnyvaile-high.html). Ten questions, ten minutes.
+3. **Take the Pop Quiz.** [SUNNYVAiLE High](/sunnyvaile-high.html). Ten questions plus two bonus, ten minutes.
 4. **Visit the Sorority House.** [Delta LAi Nu](/sorority-house.html), Wisteria Lane. Post a win. Read the Burn Book. Play a round of Girl Talk if you're brave.
 5. **Ask the FAiRY Godmother a question.** [Willow Lane](/games/fairy-godmother.html). Bring her the one you're afraid to ask out loud.
 6. **Turn on KSVL Live.** [Radio Tower](/radio.html). Leave it on for the rest of the day.

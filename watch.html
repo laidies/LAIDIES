@@ -131,21 +131,30 @@
     .tune-hud { position: fixed; right: 16px; top: 90px; z-index: 9500; background: #17091b; border: 1.5px solid var(--gold);
       border-radius: 10px; padding: 12px 14px; color: #fffdfb; font: 500 12px/1.6 'Jost', sans-serif; width: 240px; }
     .tune-hud b { color: var(--gold); }
+    /* --- dark-page chrome + player affordances (readability pass) --- */
+    body { color: #f4e8ef; }
+    footer { background: transparent; color: rgba(244,232,239,0.5); border-top: 1px solid rgba(255,255,255,0.09);
+      text-align: center; padding: 22px 16px 40px; font: 500 12px/1.6 'Jost', sans-serif; }
+    footer a { color: var(--gold, #c9a227); }
+    .theatre { cursor: pointer; }
+    .big-play { position: absolute; inset: 0; margin: auto; z-index: 8; width: 96px; height: 96px; border-radius: 50%;
+      border: 2px solid rgba(255,253,251,0.92); background: rgba(20,8,25,0.5); color: #fffdfb; font-size: 34px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; padding-left: 5px;
+      transition: opacity .3s ease, transform .18s ease, background .2s ease, color .2s ease; }
+    .big-play:hover { transform: scale(1.07); background: var(--gold, #c9a227); color: #341446; border-color: var(--gold, #c9a227); }
+    .theatre.is-playing .big-play { opacity: 0; pointer-events: none; transform: scale(0.8); }
+    .deck-rail, .deck-fill { height: 6px; }
+    .deck-knob { position: absolute; top: 7px; left: 0; width: 14px; height: 14px; border-radius: 50%;
+      background: var(--gold, #c9a227); box-shadow: 0 0 0 4px rgba(201,162,39,0.22); transform: translateX(-50%); pointer-events: none; }
+    .chapters { gap: 6px; margin-top: 12px; }
+    .chap { padding: 5px 11px; font-size: 10px; opacity: 0.68; }
+    .chap:hover, .chap.is-now { opacity: 1; }
+    main.seg-bumper .chapters, main.seg-bumper .deck-mark { display: none; }
   </style>
 </head>
 <body>
 
-  <header class="sv-header">
-    <div class="site-header-inner">
-      <a class="sv-brand" href="/">LAiDIES</a>
-      <nav>
-        <a href="/#tour">This Week's Tour</a>
-        <a href="/radio.html">Radio</a>
-        <a href="/#join">Join →</a>
-        <a class="sv-signin" href="/clubhouse-pass.html">Sign In</a>
-      </nav>
-    </div>
-  </header>
+  <!-- canonical header injected by sv-global-header.js -->
 
   <main>
     <p class="scr-eyebrow">The Chick Flicks · The Screening Room</p>
@@ -153,6 +162,7 @@
     <p class="scr-sub">Narrated, scored, and synced. Press play — the pictures follow the story.</p>
 
     <div class="theatre" id="theatre">
+      <button class="big-play" id="bigPlay" type="button" aria-label="Play episode">▶</button>
       <div class="vhs-osd" id="osd">⏸ STOP · SP 0:00:00</div>
       <div class="vhs-scan"></div>
       <div class="vhs-vignette"></div>
@@ -163,6 +173,7 @@
       <div class="deck-track" id="track">
         <div class="deck-rail"></div>
         <div class="deck-fill" id="fill"></div>
+        <div class="deck-knob" id="knob"></div>
       </div>
       <div class="deck-time" id="time">0:00 / 0:00</div>
     </div>
@@ -194,10 +205,13 @@
     var track = document.getElementById('track');
     var timeEl = document.getElementById('time');
     var chaptersEl = document.getElementById('chapters');
+    var knob = document.getElementById('knob');
+    var bigPlay = document.getElementById('bigPlay');
 
     var cues = [], duration = 0, demoMode = false;
     var demoClock = 0, demoPlaying = false, lastTick = null;
     var currentIdx = -1;
+    var segments = [], segIdx = 0, segKind = 'main', segDur = null, advancing = false, segStart = 0, seekPending = 0;
 
     function fmt(s) {
       s = Math.max(0, Math.floor(s));
@@ -241,6 +255,8 @@
           + (c.line ? '<p class="scene-line">' + brand(c.line) + '</p>' : '')
           + (c.type === 'cta' ? '<a class="cta-btn" href="' + esc(c.href) + '">' + brand(c.btn || 'Go') + ' →</a>' : '')
           + '</div>';
+      } else if (c.type === 'video') {
+        el.innerHTML = '<video class="scene-img" src="' + esc(c.src) + '" muted autoplay playsinline></video>';
       } else if (c.type === 'card') {
         el.classList.add('scene--card');
         el.innerHTML = '<img class="scene-portrait" src="' + esc(c.src) + '" alt="">'
@@ -325,12 +341,19 @@
 
     // ---- transport -------------------------------------------------------
     function tick() {
-      var t = now();
-      showScene(cueIndexFor(t));
-      var d = duration || (cues.length ? cues[cues.length - 1].t + 26 : 0);
-      fill.style.width = d ? Math.min(100, (t / d) * 100) + '%' : '0';
-      timeEl.textContent = fmt(t) + ' / ' + fmt(d);
-      osd.textContent = (playing() ? '▶ PLAY' : '⏸ PAUSE') + ' · SP ' + fmtOsd(t) + (demoMode ? ' · ROUGH CUT' : '');
+      var el = now() - segStart;
+      if (segDur && el >= segDur && !demoMode) { advanceSegment(); return; }
+      if (segDur) tape.volume = Math.max(0, Math.min(1, el / 0.6, (segDur - el) / 0.6));
+      else if (!demoMode) tape.volume = 1;
+      showScene(cueIndexFor(el));
+      var d = segDur || duration || (cues.length ? cues[cues.length - 1].t + 26 : 0);
+      var pct = d ? Math.min(100, (el / d) * 100) : 0;
+      fill.style.width = pct + '%';
+      if (knob) knob.style.left = pct + '%';
+      theatre.classList.toggle('is-playing', playing());
+      var lbl = segKind === 'title' ? 'TITLES' : segKind === 'end' ? 'CREDITS' : 'PLAY';
+      timeEl.textContent = fmt(el) + ' / ' + fmt(d);
+      osd.textContent = (playing() ? '▶ ' + lbl : '⏸ PAUSE') + ' · SP ' + fmtOsd(el) + (demoMode ? ' · ROUGH CUT' : '');
       btnPlay.textContent = playing() ? '❚❚' : '▶';
     }
 
@@ -348,6 +371,25 @@
       }, 100);
     }
 
+    function loadSegment(i) {
+      segIdx = i;
+      var seg = segments[i];
+      segKind = seg.kind; segDur = seg.dur || null; segStart = seg.start || 0;
+      cues = seg.cues.slice().sort(function (a, b) { return a.t - b.t; });
+      currentIdx = -1;
+      duration = segDur || 0;
+      document.querySelector('main').classList.toggle('seg-bumper', seg.kind !== 'main');
+      seekPending = segStart;
+      tape.src = seg.audio;
+      showScene(0); tick();
+    }
+    function advanceSegment() {
+      if (advancing) return;
+      advancing = true;
+      if (segIdx + 1 < segments.length) { loadSegment(segIdx + 1); tape.play().catch(function () {}); }
+      else { tape.pause(); }
+      setTimeout(function () { advancing = false; }, 400);
+    }
     function togglePlay() {
       if (demoMode) { demoPlaying = !demoPlaying; tick(); return; }
       if (tape.paused) {
@@ -358,6 +400,8 @@
     }
 
     btnPlay.addEventListener('click', togglePlay);
+    if (bigPlay) bigPlay.addEventListener('click', togglePlay);
+    theatre.addEventListener('click', function (e) { if (e.target.closest('a, .cta-btn, .big-play')) return; togglePlay(); });
     document.addEventListener('keydown', function (e) {
       if (e.code === 'Space' && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) {
         e.preventDefault(); togglePlay();
@@ -365,6 +409,7 @@
     });
 
     track.addEventListener('click', function (e) {
+      if (segKind !== 'main' && !demoMode) return;
       var r = track.getBoundingClientRect();
       var p = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
       var d = duration || (cues.length ? cues[cues.length - 1].t + 26 : 0);
@@ -376,20 +421,28 @@
     fetch('/content/episodes/episode-' + ep + '-cues.json', { cache: 'no-store' })
       .then(function (r) { return r.json(); })
       .then(function (data) {
-        cues = data.cues.slice().sort(function (a, b) { return a.t - b.t; });
         document.getElementById('scrTitle').innerHTML = 'Episode ' + esc(data.episode) + ' · '
           + brand(data.title);
         document.title = 'Episode ' + data.episode + ' · The Screening Room · SUNNYVAiLE';
 
-        // chapters + seek marks
-        var d0 = cues[cues.length - 1].t + 26;
-        cues.forEach(function (c) {
+        // build the broadcast: title bumper -> narration -> end bumper
+        var mainCues = data.cues.slice().sort(function (a, b) { return a.t - b.t; });
+        segments = [];
+        if (data.title && data.title.audio) segments.push({ kind: 'title', audio: data.title.audio, dur: data.title.dur || 25, cues: (data.title.cues || []).slice() });
+        segments.push({ kind: 'main', audio: data.audio, dur: null, cues: mainCues });
+        if (data.end && data.end.audio) segments.push({ kind: 'end', audio: data.end.audio, dur: data.end.dur || 22, cues: (data.end.cues || []).slice() });
+        var mainSegIdx = segments.findIndex(function (s) { return s.kind === 'main'; });
+
+        // chapters + seek marks (from the MAIN narration only)
+        var d0 = mainCues[mainCues.length - 1].t + 26;
+        mainCues.forEach(function (c) {
           if (!c.chapter) return;
           var b = document.createElement('button');
           b.type = 'button'; b.className = 'chap'; b.dataset.t = c.t;
           b.textContent = c.chapter;
           b.addEventListener('click', function () {
-            if (demoMode) demoClock = c.t; else tape.currentTime = c.t;
+            if (segKind !== 'main') { loadSegment(mainSegIdx); tape.play().catch(function () {}); }
+            if (!demoMode) tape.currentTime = c.t; else demoClock = c.t;
             currentIdx = -1; tick();
           });
           chaptersEl.appendChild(b);
@@ -398,9 +451,7 @@
           track.appendChild(m);
         });
 
-        // narration present?
-        tape.src = data.audio;
-        tape.addEventListener('loadedmetadata', function () { duration = tape.duration; tick(); });
+        tape.addEventListener('loadedmetadata', function () { if (segKind === 'main') duration = tape.duration; if (seekPending > 0) { try { tape.currentTime = seekPending; } catch (e) {} } seekPending = 0; tick(); });
         tape.addEventListener('error', function () {
           demoMode = true;
           var b = document.createElement('div');
@@ -413,10 +464,9 @@
         tape.addEventListener('timeupdate', tick);
         tape.addEventListener('play', tick);
         tape.addEventListener('pause', tick);
-        tape.addEventListener('ended', function () { tick(); });
+        tape.addEventListener('ended', function () { advanceSegment(); });
 
-        showScene(0);
-        tick();
+        loadSegment(0);
 
         // ---- tune mode: play the real audio, tap N at each transition ----
         if (TUNE) {
@@ -439,7 +489,7 @@
             } else if (e.key === 'b' || e.key === 'B') {
               if (tuneIdx > 0) { tuneIdx--; renderHud(); }
             } else if (e.key === 'j' || e.key === 'J') {
-              var out = JSON.stringify({ episode: ep, audio: tape.getAttribute('src'), cues: cues }, null, 2);
+              var out = JSON.stringify({ episode: ep, title: data.title, audio: data.audio, cues: cues, end: data.end }, null, 2);
               navigator.clipboard && navigator.clipboard.writeText(out);
               console.log(out);
               hud.innerHTML = '<b>Copied tuned JSON to clipboard.</b><br>Paste it into content/episodes/episode-' + ep + '-cues.json';

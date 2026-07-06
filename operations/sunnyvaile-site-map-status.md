@@ -40,7 +40,7 @@ This is the working checklist. Each row = one location in town. Use the status f
 | **No. 6** | Mme CLAi-O's Shop | `games/madame-claio.html` | ✅ | ✅ | ✅ | Hero image wired (`06-mme-claios-shop.png`). |
 | **No. 7** | The Chick Flicks | `net-flicks.html` (filename retiring) | 🟡 | ✅ | ✅ | Page fully rebranded to "The Chick Flicks" 2026-06-30 (title, h1, nav, footer, "Why?" section). **File rename `net-flicks.html` → `chick-flicks.html` still in flight (Codex).** Hrefs still point at `/net-flicks.html`. Storefront image `07-the-chick-flicks.png` exists. |
 | **No. 8** | The Blend & Snap | `blend-snap.html` | ✅ | ✅ | ✅ | Built. Cross-links to SUNNYVAiLE High for pop quiz, Chick Flicks for episode. `08-blend-and-snap.png` exists. |
-| **No. 9** | MAiKEOVER on MAiN(e) | `maikeover.html` | ✅ | ✅ | ✅ | **Updated 2026-06-30 for dual role** — issue card (new members) + view card (returning, weekly check-in). Wednesday-tour stop 6 breadcrumb added. "See My Card" CTA placeholder ready for membership build. Hero image `09-maikeover-on-maine.png` wired. |
+| **No. 9** | MAiKEOVER on MAiN | `maikeover.html` | ✅ | ✅ | ✅ | **Updated 2026-06-30 for dual role** — issue card (new members) + view card (returning, weekly check-in). Wednesday-tour stop 6 breadcrumb added. "See My Card" CTA placeholder ready for membership build. Hero image `09-maikeover-on-maine.png` wired. |
 
 ---
 
@@ -73,7 +73,7 @@ Current sections in order:
 7. **Membership Coming Soon**
 
 **Wednesday ritual locked at 8 stops (2026-06-30):**
-1. NewsStand · 2. Chick Flicks · 3. Blend & Snap · 4. SUNNYVAiLE High · 5. Free time · 6. **MAiKEOVER on MAiN(e)** · 7. BRONZE AiGE · 8. Delta LAi Nu
+1. NewsStand · 2. Chick Flicks · 3. Blend & Snap · 4. SUNNYVAiLE High · 5. Free time · 6. **MAiKEOVER on MAiN** · 7. BRONZE AiGE · 8. Delta LAi Nu
 
 **Outstanding on homepage:**
 - 🔄 Masthead alt text still references "Net Flicks" (waiting on Codex regen of the masthead image)

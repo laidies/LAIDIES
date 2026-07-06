@@ -25,7 +25,7 @@
       line: 'Turn the radio on. DJ SunnyV plays the town — and the music follows you everywhere you go.' },
     { href: '/games/madame-claio.html', name: "Mme CLAi-O's", icon: 'crystal',
       line: 'One fortune before you go. The paper knows best.' },
-    { href: '/clubhouse-pass.html', name: 'MAiKEOVER on MAiN(e)', icon: 'lipstick',
+    { href: '/clubhouse-pass.html', name: 'MAiKEOVER on MAiN', icon: 'lipstick',
       line: "You've seen the town — time to live here. Make your Residence Card and become a resident." }
   ];
 

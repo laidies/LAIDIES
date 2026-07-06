@@ -23,7 +23,7 @@ This file records the cross-image rules for the layout consistency pass.
 - SUNNYVAiLE HIGH faces SCHOOLHOUSE ROAD.
 - LUMINAiRY faces LANTERN HILL.
 - MAiN storefronts face MAiN STREET.
-- Current MAiN frontage sequence, left to right: THE WELCOME WAGON / VISITOR'S CENTER, NEWSSTAND, CIVIC SQUARE, THE CHICK FLICKS, Blend & Snap, SCHOOLHOUSE ROAD, Mme CLAi-O's, MAiKEOVER on MAiN(e), BRONZE AiGE, WILLOW LANE with DREAM PHONE at the WILLOW corner, THE MALL, WISTERIA LANE, KSVL COMMUNITY RAiDIO, LANTERN HILL.
+- Current MAiN frontage sequence, left to right: THE WELCOME WAGON / VISITOR'S CENTER, NEWSSTAND, CIVIC SQUARE, THE CHICK FLICKS, Blend & Snap, SCHOOLHOUSE ROAD, Mme CLAi-O's, MAiKEOVER on MAiN, BRONZE AiGE, WILLOW LANE with DREAM PHONE at the WILLOW corner, THE MALL, WISTERIA LANE, KSVL COMMUNITY RAiDIO, LANTERN HILL.
 
 ## Map Signage Language
 
@@ -43,5 +43,5 @@ This file records the cross-image rules for the layout consistency pass.
 
 ## Casing
 
-- Only branded Ai pairs use lowercase `i`: SUNNYVAiLE, MAiN, LIBRAiRY, BRONZE AiGE, Mme CLAi-O's, MAiKEOVER on MAiN(e), Delta LAi Nu, FAiRY, LUMINAiRY, RAiDIO.
+- Only branded Ai pairs use lowercase `i`: SUNNYVAiLE, MAiN, LIBRAiRY, BRONZE AiGE, Mme CLAi-O's, MAiKEOVER on MAiN, Delta LAi Nu, FAiRY, LUMINAiRY, RAiDIO.
 - Ordinary words keep normal uppercase letters: WISTERIA, WILLOW, CIVIC, VISITOR'S, CENTER, HILL, HIGH, OFFICE, STREET, SCHOOLHOUSE, TOWN, POST, COMMUNITY.

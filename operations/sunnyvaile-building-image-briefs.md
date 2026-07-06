@@ -51,9 +51,9 @@
 **Function:** Y2K coffee shop where members study (Study Pack / Class Notes live here). Town's "third place" — study, run into people, refuel before SUNNYVAiLE High for the Pop Quiz.
 **Visual:** Y2K college-town coffee shop facade — pink-and-cream awning over the entry reading "The Blend & Snap" in script. Chalkboard menu propped out front (today's specials in glitter pen). Open laptops, study packs, lattes with foam art visible through the front window. Butterfly clips taped to the chalkboard frame, pink stickers on the door, glitter sugar-shaker on a window-side table. Cozy + Y2K-cafe-girlie + studying-snap energy.
 
-### 9 · MAiKEOVER on MAiN(e) — MAiN Street · No. 9 *(end of MAiN, "on MAiN(e)" is the pun)*
+### 9 · MAiKEOVER on MAiN — MAiN Street · No. 9 *(end of MAiN, "on MAiN" is the pun)*
 **Function:** Beauty parlor where members are made — design + customize your LAiDIES member card here. THIS is where new members sign up. Triple-pun: Main (the street) / Maine (the state) / Mane (hair).
-**Visual:** Y2K beauty parlor storefront — pink awning with "MAiKEOVER on MAiN(e)" in glittery cursive script (the parens around the e are part of the actual sign). Salon chair visible through the window, Caboodle case on a vanity, hairdryer cap hanging up. Butterfly clips, rhinestones, makeup palettes set-dressed in the window display. Pink-and-cream facade with mirrored panels, holographic stickers on the door, member-card "before/after" Polaroid strip in the front window.
+**Visual:** Y2K beauty parlor storefront — pink awning with "MAiKEOVER on MAiN" in glittery cursive script (the parens around the e are part of the actual sign). Salon chair visible through the window, Caboodle case on a vanity, hairdryer cap hanging up. Butterfly clips, rhinestones, makeup palettes set-dressed in the window display. Pink-and-cream facade with mirrored panels, holographic stickers on the door, member-card "before/after" Polaroid strip in the front window.
 
 ---
 
@@ -97,7 +97,7 @@
 
 ### 18 · "Welcome to SUNNYVAiLE" town sign
 **Function:** The literal welcome sign at the edge of town. Used as Welcome Wagon Visitor's Centre hero + possibly social-card / OG image.
-**Visual:** Real-feeling small-town highway "Welcome To" aluminum sign (the kind every town has at the edge of town) — *not* a Victorian enamel pendant. Y2K mod: Bedazzler treatment — butterfly clips stuck to the corners, glitter pen graffiti added by the class of '99, holographic stickers ("SUNNYVAiLE High Class of 1999 was here," "MAiN(e) Mall RULES"). Type: chunky 3D bubble OR small-town carved serif — NOT Victorian script. The "Ai" in VAiLE is the only ornate detail — heart-jewel set into the i. Palette: plum + hot pink + cyan/lime accents. Texture: matte aluminum with stickers, not lacquered enamel. Tagline beneath: "population: women just like you."
+**Visual:** Real-feeling small-town highway "Welcome To" aluminum sign (the kind every town has at the edge of town) — *not* a Victorian enamel pendant. Y2K mod: Bedazzler treatment — butterfly clips stuck to the corners, glitter pen graffiti added by the class of '99, holographic stickers ("SUNNYVAiLE High Class of 1999 was here," "MAiN Mall RULES"). Type: chunky 3D bubble OR small-town carved serif — NOT Victorian script. The "Ai" in VAiLE is the only ornate detail — heart-jewel set into the i. Palette: plum + hot pink + cyan/lime accents. Texture: matte aluminum with stickers, not lacquered enamel. Tagline beneath: "population: women just like you."
 *Status:* v1 + v2 exist but read too Bridgerton-enamel. v3 with Y2K-mall texture queued.
 
 ### 19 · SUNNYVAiLE town map illustration *(master P0 asset)*
@@ -120,7 +120,7 @@
 | 🟡 P1 | The Mall exterior (#4) | Featured tile, anchor for The Mall page |
 | 🟡 P1 | NewsStand v2 (#2) | Asset exists, needs spelling regen — fix the brand-Ai |
 | 🟡 P1 | The Town LIBRAiRY (#3) | High-traffic page (Grimoire) |
-| 🟡 P1 | MAiKEOVER on MAiN(e) (#9) | Member sign-up conversion moment |
+| 🟡 P1 | MAiKEOVER on MAiN (#9) | Member sign-up conversion moment |
 | 🟡 P1 | The Net Flicks (#7) | Episode archive (high-traffic) |
 | 🟡 P1 | The SANCTUAiRY (#15) | Saints page anchor |
 | 🟡 P1 | The Phone Booth (#17) | Featured wide tile, Dream Phone hero |
