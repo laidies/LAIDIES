@@ -1,35 +1,38 @@
-# Episode 01 — Studio casting sheet (final)
+# Episode 01 — Studio casting sheet (native script)
 
-THE FICTION: Jessica IS the heroine. The season promo's "she" is her; her
-first-person story is the season arc; listeners are invited to see
-themselves in her ("this is your story too"). The male ANNOUNCER voices
-ONLY the TV trope segments: "On this season of / And on this episode (+
-title)" and "Next time on ladies…" ("Previously, on ladies…" from Ep 2).
+THE FICTION: Jessica IS the heroine — the season promo's "she" is her,
+the cold open is her Tuesday, the origin story is her arc. She narrates
+in retrospect ("a few steps ahead — made the mistakes, done the reading,
+kept the receipts"), which is what licenses the stats and the teaching.
+Listeners are invited in ("this is your story too"), Carrie Bradshaw
+model. The male ANNOUNCER voices ONLY the TV trope segments.
 
-| # | Starts with | Voice |
-|---|-------------|-------|
-| 1 | Welcome to ladies. If this is your first time here, … | HEROINE (Jessica) |
-| 2 | On this season of ladies: she stops feeling behind. … | ANNOUNCER (male) |
-| 3 | And that "she" he keeps talking about? That's me. Hi… | HEROINE (Jessica) |
-| 4 | I couldn't help but wonder... why was every AI resou… | HEROINE (Jessica) |
-| 5 | Alright. Part one: the invisible load. Because it ju… | HEROINE (Jessica) |
-| 6 | You'd better get to building your own bridge, honey … | DOLLY CAMEO |
-| 7 | Which brings me to part two: the glacial pace. And w… | HEROINE (Jessica) |
-| 8 | If we don't get women involved in AI, we're going to… | FEI-FEI CAMEO |
-| 9 | And this isn't just about fairness. Harvard found th… | HEROINE (Jessica) |
-| 10 | Now for my favourite part. Part three: the cocktail … | HEROINE (Jessica) |
-| 11 | And finally — part four: three words to know. So you… | HEROINE (Jessica) |
-| 12 | I'm not a regular mom... I'm a cool mom.… | COOL MOM CAMEO |
-| 13 | That's AI trying to be helpful and completely misrea… | HEROINE (Jessica) |
-| 14 | And... that's the episode. But before you go — the l… | HEROINE (Jessica) |
-| 15 | Next time on ladies: our heroine learns how to actua… | ANNOUNCER (male) |
-| 16 | So remember, ladies: you'll need more than a cup of … | HEROINE (Jessica) |
+Paste each block into Studio as its own section and ASSIGN THE VOICE
+PER SECTION (Studio does not inherit).
+
+| # | Voice | Opens with |
+|---|-------|-----------|
+| 01 | HEROINE | It's 4:52 on a Tuesday afternoon, and a man named Steve … |
+| 02 | ANNOUNCER | On this season of ladies: she stops feeling behind. She … |
+| 03 | HEROINE | Welcome to ladies. If this is your first time here — hi.… |
+| 04 | HEROINE | So. Let me tell you what I did after the Steve meeting. … |
+| 05 | FEI-FEI | If we don't get women involved in AI, we're going to hav… |
+| 06 | HEROINE | And it's not just the principle of the thing. When women… |
+| 07 | DOLLY | You'd better get to building your own bridge, honey — be… |
+| 08 | HEROINE | So here's what finally got me to start. It wasn't inspir… |
+| 09 | HEROINE | Which brings me to my favourite part of every episode. W… |
+| 10 | COOL MOM | I'm not a regular mom — I'm a cool mom.… |
+| 11 | HEROINE | That's AI trying to be helpful and completely misreading… |
+| 12 | ANNOUNCER | Next time on ladies: our heroine learns how to actually … |
+| 13 | HEROINE | So remember, ladies: you'll need more than a cup of ambi… |
 
 Casting guidance:
-- HEROINE — Jessica. The show's protagonist and narrator. Same settings,
-  every block.
-- ANNOUNCER — MALE, classic 90s TV promo. Two appearances in Ep 01.
-- DOLLY CAMEO — warm + folksy homage. FEI-FEI CAMEO — measured, plain.
-- COOL MOM CAMEO — sweet and bubbly, played straight.
+- HEROINE — Jessica. Protagonist and narrator; ~90% of runtime. Same
+  settings every block.
+- ANNOUNCER — MALE, classic 90s TV promo. Exactly two appearances:
+  block 02 (season/episode promo + title) and block 12 (next time).
+- FEI-FEI — measured, serious, plain delivery. One line.
+- DOLLY — warm + folksy homage, smiling. One line.
+- COOL MOM — sweet, bubbly, played completely straight. One line.
 
 Voices chosen: ANNOUNCER: ______ · DOLLY: ______ · FEI-FEI: ______ · COOL MOM: ______
