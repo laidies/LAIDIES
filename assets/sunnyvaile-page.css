@@ -3,7 +3,7 @@
 
 :root {
   --plum: #4b2148; --plum-deep: #3a1838; --plum-soft: #6b3a66;
-  --rose: #9b3f5f; --rose-bright: #c25b7d; --gold: #c9a227;
+  --rose: #9b3f5f; --rose-bright: #c25b7d; --gold: #c9a227; --gold-ink: #7a5e14;
   --cream: #fffdfb; --pearl: #f8eef2; --blush: #f9e6ee;
   --line: rgba(75,33,72,0.14);
   /* Building trio — accent tier only, sampled from the y2k-v3 renders.
@@ -11,6 +11,7 @@
   --sunset: #b97c5a; --teal: #3aa8a4; --pink: #c47c85;
 }
 * { box-sizing: border-box; }
+:focus-visible { outline: 2px solid var(--rose); outline-offset: 2px; border-radius: 3px; }
 body {
   margin: 0;
   font-family: 'Jost', sans-serif;
@@ -216,7 +217,7 @@ p {
 }
 .shelf-glyph, .stop-num {
   font-size: 22px;
-  color: var(--gold);
+  color: var(--gold-ink);
   margin-bottom: 6px;
   display: inline-block;
 }

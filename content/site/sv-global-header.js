@@ -103,7 +103,10 @@
     + '.site-header .svgh-nav a { color: var(--plum, #4b2148); font-family: "Jost", sans-serif; font-size: 14px; font-weight: 600; }'
     + '.site-header .svgh-nav a:hover { color: var(--rose, #9b3f5f); }'
     + '@media (max-width: 760px) { .svgh-quick { display: none !important; } }'
-    + '@media (max-width: 640px) { .svgh-panel { top: 64px; } }';
+    + '@media (max-width: 640px) { .svgh-panel { top: 64px; } }'
+    + '.svgh-skip { position: fixed; top: 8px; left: 8px; z-index: 10000; background: var(--plum,#4b2148); color: #fffdfb; padding: 10px 16px; border-radius: 8px; font: 700 14px/1 "Jost", sans-serif; text-decoration: none; transform: translateY(-160%); transition: transform 0.15s ease; }'
+    + '.svgh-skip:focus { transform: translateY(0); outline: 2px solid #e8a6bb; outline-offset: 2px; }'
+    + ':focus-visible { outline: 2px solid var(--rose,#9b3f5f); outline-offset: 2px; }';
 
   function withDirectory(cb) {
     if (window.SV_BUILDINGS && window.SV_BUILDINGS.length) { cb(window.SV_BUILDINGS); return; }
@@ -145,6 +148,18 @@
     var header = document.querySelector('.sv-header') || document.querySelector('.site-header');
     if (!header || header.dataset.svghMounted === '1') return;
     header.dataset.svghMounted = '1';
+
+    // Accessibility (audit 2026-07-07 P0): a "skip to content" link + a target
+    // id on <main>, injected once wherever the global header mounts.
+    var svMain = document.querySelector('main');
+    if (svMain && !svMain.id) svMain.id = 'sv-main';
+    if (!document.querySelector('.svgh-skip')) {
+      var skip = document.createElement('a');
+      skip.className = 'svgh-skip';
+      skip.href = '#' + (svMain && svMain.id ? svMain.id : 'sv-main');
+      skip.textContent = 'Skip to content';
+      document.body.insertBefore(skip, document.body.firstChild);
+    }
 
     var style = document.createElement('style');
     style.textContent = STYLE;
