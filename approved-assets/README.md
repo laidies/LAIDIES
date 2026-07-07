@@ -35,8 +35,11 @@ so the lookbook stays current.
   newer-named `y2k-stained-glass-v3-finished` (unreferenced). Add once you pick which is canon.
 - **Mme CLAi-O reading cards** (96-card deck) and **Deb printables/posters** — omitted to keep the
   library browsable; say the word and I'll fold them in.
+- **Postcards** — 4 vetted in `postcards/` (blend-and-snap, ksvl, mme-claio, sorority-house). The
+  other 3 in `assets/postcards/from-sunnyvaile/` (chick-flicks, main-street, welcome-sign) are held
+  pending an eyeball — the category is curated per-card, not folder-wholesale.
 
 ## Provenance
 
-Curated 2026-07-07 from a full `assets/` inventory: **1,643 files on disk → 399 approved here.**
+Curated 2026-07-07 from a full `assets/` inventory: **1,643 files on disk → 403 approved here.**
 The other ~1,210 are backups, working dirs, superseded versions, handbook art, and rejected renders.
