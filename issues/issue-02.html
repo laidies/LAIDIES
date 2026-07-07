@@ -1,2951 +1,473 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LAiDIES Episode 02: Tell Me What You Want</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../content/episode-page.css?v=20260707-a11y">
-    <style>
-        :root {
-            --primary: #100805;
-            --accent: #e040a0;
-            --accent-light: #fce4f2;
-            --accent-dark: #c0307a;
-            --neon-pink: #9b3f5f;
-            --neon-glow: rgba(155, 63, 95, 0.4);
-            --text: #100805;
-            --text-light: #5a5a5a;
-            --bg: #fefefe;
-            --bg-warm: #fdf8fb;
-            --border: #f0e0eb;
-            --gold: #c9a84c;
-            --accent-blue: #b9d7dc;
-            --teal: #5f9f8d;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
-            color: var(--text);
-            background: var(--bg);
-            line-height: 1.7;
-            font-size: 17px;
-            -webkit-font-smoothing: antialiased;
-        }
-
-
-
-        /* --- HEADER --- */
-        .header {
-            background: #100805;
-            padding: 0 0 50px;
-            text-align: center;
-            position: relative;
-        }
-
-
-
-        .header-content {
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .logo-img {
-            width: 100%;
-            max-width: 550px;
-            height: auto;
-            margin: 40px auto -40px;
-            display: block;
-            
-        }
-
-        .series-badge {
-            display: inline-block;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: var(--neon-pink);
-            border: 1px solid rgba(155, 63, 95, 0.35);
-            padding: 7px 18px;
-            border-radius: 20px;
-            margin-bottom: 16px;
-        }
-
-        .header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            color: white;
-            font-weight: 700;
-            margin-bottom: 16px;
-            line-height: 1.3;
-        }
-
-        .header h1 .ai-highlight {
-            color: var(--neon-pink);
-            text-shadow: 0 0 14px rgba(155, 63, 95, 0.5);
-        }
-
-        .subtitle {
-            font-size: 1.15rem;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 400;
-            max-width: 520px;
-            margin: 24px auto 24px;
-            line-height: 1.6;
-        }
-
-        /* --- BRAND NAME (LAiDIES in body) --- */
-        .brand-name {
-            font-family: 'Dancing Script', cursive;
-            font-weight: 700;
-            font-size: 1.15em;
-            letter-spacing: -0.5px;
-            white-space: nowrap;
-        }
-
-        .brand-name .ai {
-            font-family: 'Inter', sans-serif;
-            font-weight: 800;
-            font-style: normal;
-            color: var(--neon-pink);
-            font-size: 0.82em;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            text-shadow: 0 0 8px rgba(155, 63, 95, 0.3);
-            padding: 0 1px;
-        }
-
-
-        .footer .brand-name { color: white; }
-        .next-week .brand-name,
-        .signoff-banner .brand-name,
-        .signoff-bottom .brand-name,
-        .challenge-box .brand-name { color: var(--text); }
-
-        .article-card p .brand-name,
-        .article-card li .brand-name {
-            font: inherit;
-            letter-spacing: 0;
-            white-space: normal;
-        }
-
-        /* --- ARTICLE --- */
-        .article-container {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 60px 24px 80px;
-        }
-
-        .article-container p {
-            margin-bottom: 1.4em;
-            color: var(--text);
-        }
-
-        .article-container h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-top: 1.5rem;
-            margin-bottom: 1.2rem;
-            line-height: 1.3;
-            position: relative;
-            padding-bottom: 12px;
-        }
-
-        .article-container h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0;
-            width: 50px; height: 3px;
-            background: var(--neon-pink);
-            border-radius: 2px;
-        }
-
-        .lead-paragraph {
-            font-size: 1rem;
-            color: var(--text);
-            line-height: 1.8;
-            margin-bottom: 1.4em;
-        }
-
-        /* --- PULL QUOTE --- */
-        .pull-quote {
-            position: relative;
-            clear: both;
-            display: block;
-            isolation: isolate;
-            max-width: min(94%, 760px);
-            margin: clamp(3.1rem, 7vw, 5rem) auto;
-            padding: clamp(1.35rem, 3vw, 1.9rem) clamp(1.55rem, 4vw, 2.35rem) clamp(1.35rem, 3vw, 1.9rem) clamp(5.2rem, 13vw, 8.8rem);
-            color: #4b2148;
-            background:
-                linear-gradient(90deg, rgba(185, 93, 120, 0.72), rgba(185, 93, 120, 0.72)) 0 0 / 46% 2px no-repeat,
-                linear-gradient(180deg, rgba(185, 93, 120, 0.72), rgba(185, 93, 120, 0.72)) 0 0 / 2px 100% no-repeat,
-                linear-gradient(270deg, rgba(185, 215, 220, 0.86), rgba(185, 215, 220, 0.86)) 100% 100% / 38% 2px no-repeat,
-                linear-gradient(0deg, rgba(185, 215, 220, 0.86), rgba(185, 215, 220, 0.86)) 100% 100% / 2px 54% no-repeat;
-            border: 0;
-            box-shadow: none;
-            font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-            font-size: clamp(1.34rem, 2.35vw, 1.92rem);
-            font-style: italic;
-            font-weight: 600;
-            line-height: 1.18;
-            overflow: visible;
-            text-align: left;
-            text-wrap: balance;
-        }
-
-        .pull-quote p {
-            color: inherit;
-            font: inherit;
-            line-height: inherit;
-            margin-bottom: 0;
-        }
-
-        .pull-quote cite {
-            display: block;
-            margin-top: 1rem;
-            color: var(--text-light);
-            font-family: "Inter", sans-serif;
-            font-size: 0.78rem;
-            font-style: normal;
-            font-weight: 800;
-            letter-spacing: 0.08em;
-            line-height: 1.4;
-            text-transform: uppercase;
-        }
-
-        .pull-quote::before {
-            content: "\201C";
-            position: absolute;
-            left: clamp(0.4rem, 1.4vw, 0.8rem);
-            top: 50%;
-            transform: translateY(-50%);
-            color: rgba(185, 93, 120, 0.26);
-            background: transparent;
-            font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-            font-size: clamp(5.8rem, 14vw, 11rem);
-            font-style: normal;
-            font-weight: 900;
-            line-height: 0.72;
-            pointer-events: none;
-        }
-
-        .pull-quote::after {
-            content: "";
-            position: absolute;
-            right: clamp(0.7rem, 2vw, 1.2rem);
-            bottom: clamp(0.52rem, 1.4vw, 0.85rem);
-            width: clamp(28px, 7vw, 64px);
-            height: clamp(28px, 7vw, 64px);
-            border-right: 2px solid rgba(185, 215, 220, 0.78);
-            border-bottom: 2px solid rgba(185, 215, 220, 0.78);
-            background: transparent;
-            pointer-events: none;
-        }
-
-        /* --- SIDE PULL QUOTE (magazine style) --- */
-        .side-quote {
-            float: right;
-            width: 40%;
-            margin: 0.5em -20px 1em 32px;
-            padding: 24px 0;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            font-style: italic;
-            color: var(--neon-pink);
-            line-height: 1.35;
-            position: relative;
-        }
-
-        .side-quote::before {
-            content: '\201C';
-            font-size: 4rem;
-            color: var(--neon-pink);
-            opacity: 0.8;
-            position: absolute;
-            top: -10px;
-            left: -5px;
-            font-family: 'Playfair Display', serif;
-            line-height: 1;
-        }
-
-        .side-quote.left {
-            float: left;
-            margin: 0.5em 32px 1em -20px;
-        }
-
-        @media (max-width: 768px) {
-            .side-quote,
-            .side-quote.left {
-                float: none;
-                width: 100%;
-                margin: 2em auto;
-                max-width: 400px;
-                text-align: center;
-                font-size: 1.4rem;
-                padding: 20px 0;
-                border-top: 1px solid rgba(155, 63, 95, 0.3);
-                border-bottom: 1px solid rgba(155, 63, 95, 0.3);
-            }
-            .side-quote::before {
-                display: none;
-            }
-        }
-
-        /* --- SECTION DIVIDER --- */
-        .section-divider {
-            margin: clamp(2.4rem, 6vw, 3.6rem) 0 0;
-        }
-
-        .section-divider::before {
-            display: none;
-        }
-
-        /* --- SECTION IMAGES --- */
-        .section-image {
-            margin: 2em 0;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .section-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* --- IMAGE PLACEHOLDER --- */
-        .image-slot {
-            margin: 2em 0;
-            border-radius: 12px;
-            overflow: hidden;
-            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
-            border: 1px solid rgba(155, 63, 95, 0.1);
-            text-align: center;
-            padding: 48px 24px;
-        }
-
-        .image-slot .placeholder-text {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: rgba(155, 63, 95, 0.35);
-        }
-
-        .image-slot img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 12px;
-        }
-
-        /* --- STATS --- */
-        .stat-block {
-            background: var(--bg-warm);
-            padding: 36px;
-            border-radius: 12px;
-            margin: 2em 0;
-            border: 1px solid var(--border);
-        }
-
-        .stat-block .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--neon-pink);
-            font-weight: 700;
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-
-        .stat-block .stat-label {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            font-weight: 300;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            margin: 2em 0;
-        }
-
-        .stat-card {
-            background: var(--bg-warm);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px 20px;
-            text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(155, 63, 95, 0.08);
-        }
-
-        .stat-card .number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: var(--neon-pink);
-            font-weight: 700;
-        }
-
-        .stat-card .label {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            margin-top: 6px;
-            line-height: 1.4;
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, var(--accent-light) 0%, #faf2f8 100%);
-            border-radius: 12px;
-            padding: 28px 32px;
-            margin: 2em 0;
-            border: 1px solid var(--border);
-        }
-
-        .highlight-box strong {
-            color: var(--accent-dark);
-        }
-
-        /* --- GLOSSARY --- */
-        .glossary-term {
-            margin-bottom: 1.5em;
-            padding-left: 20px;
-            border-left: 2px solid var(--neon-pink);
-        }
-
-        .glossary-term .term-name {
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 1.05rem;
-            margin-bottom: 4px;
-        }
-
-        .glossary-term .term-def {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        /* --- TRY-ON BRIDGE --- */
-        .tryon-bridge {
-            background: var(--bg-warm);
-            border-radius: 16px;
-            padding: 36px;
-            margin: 2.5em 0;
-            border: 1px solid var(--border);
-        }
-
-        .tryon-bridge h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            color: var(--primary);
-            margin-bottom: 16px;
-        }
-
-        .prompt-example {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 20px 24px;
-            margin: 16px 0;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.88rem;
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        .tool-links {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin: 16px 0;
-        }
-
-        .tool-link {
-            display: inline-block;
-            padding: 10px 20px;
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            text-decoration: none;
-            color: var(--accent-dark);
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-
-        .tool-link:hover {
-            background: var(--accent-light);
-            border-color: var(--neon-pink);
-            color: var(--neon-pink);
-            box-shadow: 0 4px 15px rgba(155, 63, 95, 0.12);
-            transform: translateY(-1px);
-        }
-
-        /* --- NEXT WEEK --- */
-        .next-week {
-            background: var(--bg-warm);
-            padding: 44px;
-            border-radius: 12px;
-            margin: 3em 0 2em;
-            text-align: center;
-            border: 1px solid var(--border);
-        }
-
-        .next-week h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            margin-bottom: 12px;
-            color: var(--neon-pink);
-        }
-
-        .next-week p {
-            color: var(--text-light) !important;
-            font-size: 0.95rem;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        /* --- SIGN-OFF --- */
-        .signoff {
-            clear: both;
-            position: relative;
-            overflow: hidden;
-            width: min(var(--episode-endcap-width, 900px), 100%);
-            margin: clamp(3rem, 7vw, 5rem) auto clamp(2rem, 5vw, 3.5rem);
-            padding: 0;
-            color: var(--primary);
-            text-align: center;
-        }
-
-        .signoff::before {
-            content: "";
-            display: block;
-            width: min(360px, 72%);
-            height: 10px;
-            margin: 0 auto 22px;
-            background: linear-gradient(90deg, transparent, var(--neon-pink), var(--accent-blue), rgba(252, 228, 242, 0.96), transparent);
-            border-radius: 999px;
-        }
-
-        .signoff-banner {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            margin: 0 auto;
-            padding: clamp(34px, 6vw, 58px) clamp(24px, 5vw, 46px);
-            background:
-                radial-gradient(circle at 10% 18%, rgba(185, 215, 220, 0.34), transparent 10rem),
-                radial-gradient(circle at 92% 82%, rgba(185, 93, 120, 0.22), transparent 12rem),
-                linear-gradient(135deg, rgba(252, 228, 242, 0.98), rgba(255, 253, 251, 0.96) 48%, rgba(248, 241, 238, 0.96));
-            border: 1px solid rgba(111, 38, 63, 0.18);
-            border-radius: 8px;
-            box-shadow: 0 24px 52px rgba(75, 33, 72, 0.16);
-        }
-
-        .signoff-banner::before,
-        .signoff-banner::after {
-            content: "";
-            position: absolute;
-            pointer-events: none;
-        }
-
-        .signoff-banner::before {
-            inset: 18px;
-            border: 1px solid rgba(255, 253, 251, 0.76);
-            border-radius: 6px;
-        }
-
-        .signoff-banner::after {
-            display: none;
-        }
-
-        .signoff-kicker,
-        .signoff-remember,
-        .signoff-line,
-        .signoff-sips {
-            position: relative;
-            z-index: 1;
-        }
-
-        .signoff-kicker {
-            display: inline-flex;
-            margin-bottom: 14px;
-            padding: 7px 10px 6px;
-            color: #fffdfb;
-            background: var(--primary);
-            border-radius: 999px;
-            font-size: 0.74rem;
-            font-weight: 900;
-            letter-spacing: 0.14em;
-            line-height: 1;
-            text-transform: uppercase;
-        }
-
-        .signoff-remember {
-            display: block;
-            margin-bottom: 14px;
-            color: var(--accent-dark);
-            font-family: "Playfair Display", Georgia, serif;
-            font-size: clamp(1.4rem, 3vw, 2.05rem);
-            font-style: italic;
-            font-weight: 700;
-            line-height: 1.08;
-        }
-
-        .signoff-line {
-            display: block;
-            max-width: 650px;
-            margin: 0 auto;
-            color: #1d121b;
-            font-family: "Playfair Display", Georgia, serif;
-            font-size: clamp(1.55rem, 3.3vw, 2.35rem);
-            font-weight: 700;
-            letter-spacing: 0;
-            line-height: 1.18;
-        }
-
-        .signoff-sips {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 22px;
-            padding: 9px 15px;
-            color: var(--accent-dark);
-            background: rgba(255, 253, 251, 0.72);
-            border: 1px solid rgba(111, 38, 63, 0.16);
-            border-radius: 999px;
-            font-size: 0.76rem;
-            font-weight: 900;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        .signoff-sips::before,
-        .signoff-sips::after {
-            content: "";
-            width: 9px;
-            height: 9px;
-            background: var(--neon-pink);
-            border-radius: 50%;
-        }
-
-        .signoff-bottom {
-            display: grid;
-            gap: 14px;
-            width: 100%;
-            margin: 22px auto 0;
-            padding: 0;
-        }
-
-        .challenge-box {
-            background: rgba(255, 253, 251, 0.86);
-            border: 2px solid rgba(185, 93, 120, 0.48);
-            border-radius: 8px;
-            box-shadow: 0 14px 32px rgba(75, 33, 72, 0.08);
-            padding: 22px clamp(18px, 4vw, 30px);
-            margin: 0;
-            text-align: center;
-        }
-
-        .challenge-box .challenge-title {
-            margin-bottom: 8px;
-            color: var(--accent-dark);
-            font-family: "Inter", sans-serif;
-            font-size: 0.76rem;
-            font-weight: 900;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-        }
-
-        .challenge-box p,
-        .share-cta {
-            margin: 0;
-            color: #4c3b46;
-            font-size: 0.95rem !important;
-            line-height: 1.5;
-        }
-
-        .challenge-box p {
-            max-width: 650px;
-            margin-inline: auto;
-        }
-
-        .share-cta {
-            color: var(--accent-dark);
-            font-weight: 800;
-        }
-
-        .reader-next {
-            display: grid;
-            grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
-            gap: 14px;
-            width: 100%;
-            margin: 24px auto 0;
-            text-align: left;
-        }
-
-        .reader-next-card {
-            padding: clamp(18px, 3vw, 26px);
-            color: #4b2148;
-            border: 1px solid rgba(75, 33, 72, 0.14);
-            border-radius: 8px;
-            background: rgba(255, 253, 251, 0.92);
-            box-shadow: 0 14px 32px rgba(75, 33, 72, 0.08);
-        }
-
-        .reader-next-card.featured {
-            background:
-                radial-gradient(circle at 90% 8%, rgba(252, 228, 242, 0.48), transparent 10rem),
-                linear-gradient(135deg, rgba(255, 253, 251, 0.96), rgba(255, 244, 248, 0.78));
-            border-left: 8px solid #b95d78;
-        }
-
-        .reader-next-card.after-hours {
-            grid-column: 1 / -1;
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) auto;
-            align-items: center;
-            gap: clamp(14px, 3vw, 26px);
-            background:
-                radial-gradient(circle at 96% 18%, rgba(185, 215, 220, 0.42), transparent 11rem),
-                radial-gradient(circle at 8% 98%, rgba(252, 228, 242, 0.7), transparent 12rem),
-                rgba(255, 253, 251, 0.94);
-        }
-
-        .reader-next-card .label {
-            margin-bottom: 7px;
-        }
-
-        .reader-next-card h3 {
-            margin: 0;
-            color: #4b2148;
-            font-family: "Playfair Display", Georgia, serif;
-            font-size: clamp(1.7rem, 4vw, 2.45rem);
-            line-height: 0.98;
-        }
-
-        .reader-next-card p {
-            margin: 10px 0 0;
-            color: rgba(58, 34, 48, 0.86);
-            font-size: 1rem !important;
-            line-height: 1.5;
-        }
-
-        .reader-signup-form {
-            display: grid;
-            gap: 10px;
-            margin-top: 16px;
-        }
-
-        .reader-signup-form label {
-            color: rgba(75, 33, 72, 0.78);
-            font-family: "Inter", sans-serif;
-            font-size: 0.78rem;
-            font-weight: 850;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        .reader-signup-row {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) auto;
-            gap: 8px;
-        }
-
-        .reader-signup-row input,
-        .share-url-fallback {
-            width: 100%;
-            min-width: 0;
-            border: 1px solid rgba(75, 33, 72, 0.2);
-            border-radius: 0;
-            padding: 12px 13px;
-            color: #4b2148;
-            background: rgba(255, 253, 251, 0.94);
-            font: 800 0.92rem/1.2 "Inter", sans-serif;
-        }
-
-        .reader-signup-row input::placeholder {
-            color: rgba(75, 33, 72, 0.3);
-            opacity: 1;
-        }
-
-        .reader-signup-row input:focus::placeholder {
-            color: rgba(75, 33, 72, 0.2);
-        }
-
-        .reader-signup-row button,
-        .reader-action,
-        .reader-link-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 44px;
-            border: 1px solid #4b2148;
-            border-radius: 999px;
-            padding: 11px 16px;
-            color: #fffdfb;
-            background: #4b2148;
-            font-family: "Inter", sans-serif;
-            font-size: 0.78rem;
-            font-weight: 900;
-            letter-spacing: 0.1em;
-            line-height: 1;
-            text-decoration: none;
-            text-transform: uppercase;
-            cursor: pointer;
-        }
-
-        .reader-link-button,
-        .reader-action.secondary {
-            color: #4b2148;
-            background: transparent;
-        }
-
-        .reader-link-button.primary {
-            color: #fffdfb;
-            background: #4b2148;
-        }
-
-        .reader-action-grid {
-            display: grid;
-            gap: 9px;
-            margin-top: 16px;
-        }
-
-        .share-status,
-        .reader-form-note {
-            min-height: 1.3em;
-            margin: 8px 0 0;
-            color: rgba(75, 33, 72, 0.72);
-            font-family: "Inter", sans-serif;
-            font-size: 0.82rem !important;
-            line-height: 1.35 !important;
-        }
-
-        .reader-form-note a {
-            color: #9b3f5f;
-            font-weight: 850;
-        }
-
-        .share-url-fallback[hidden],
-        .reader-subscribe-frame {
-            display: none;
-        }
-
-        .issue-site-nav.issue-episode-nav a:focus-visible,
-        details.episode-intro-card summary:focus-visible,
-        .section-nav-details summary:focus-visible,
-        .article-card details.glossary-term summary:focus-visible,
-        .reader-signup-row input:focus-visible,
-        .reader-signup-row button:focus-visible,
-        .reader-action:focus-visible,
-        .reader-link-button:focus-visible,
-        .ritual-side-primary:focus-visible,
-        .ritual-side-links a:focus-visible,
-        .activity-card:focus-visible,
-        .resource-card:focus-visible {
-            outline: 3px solid rgba(95, 159, 141, 0.62);
-            outline-offset: 4px;
-        }
-
-        /* --- RESOURCES --- */
-        /* --- TLDR --- */
-        .tldr-section {
-            background: var(--bg-warm);
-            border-radius: 12px;
-            padding: 36px;
-            margin-bottom: 2.5em;
-            border: 1px solid var(--border);
-        }
-
-        .tldr-section h3 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.5rem;
-            color: var(--neon-pink);
-            margin-bottom: 16px;
-        }
-
-        .tldr-section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .tldr-section li {
-            color: var(--text);
-            font-size: 0.95rem;
-            padding: 8px 0 8px 20px;
-            position: relative;
-            line-height: 1.5;
-        }
-
-        .tldr-section li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 14px;
-            width: 8px;
-            height: 8px;
-            background: var(--neon-pink);
-            border-radius: 50%;
-        }
-
-        .resources-section {
-            position: relative;
-            width: min(var(--episode-endcap-width, 900px), 100%);
-            margin: 3em auto 0;
-            padding: clamp(28px, 4.5vw, 44px) clamp(22px, 4vw, 36px);
-            overflow: hidden;
-            background:
-                radial-gradient(circle at 92% 8%, rgba(185, 215, 220, 0.22), transparent 16rem),
-                radial-gradient(circle at 8% 94%, rgba(252, 228, 242, 0.58), transparent 16rem),
-                linear-gradient(135deg, rgba(255, 253, 251, 0.96), rgba(255, 244, 248, 0.82));
-            border: 1px solid rgba(185, 93, 120, 0.3);
-            border-left: 8px solid #b95d78;
-            border-radius: 8px;
-            box-shadow: 0 20px 44px rgba(75, 33, 72, 0.1);
-        }
-
-        .resources-inner {
-            max-width: 760px;
-            margin: 0 auto;
-        }
-
-        .resources-section h3 {
-            margin: 0 0 0.85em;
-            padding: clamp(0.82rem, 2vw, 1.08rem) clamp(0.95rem, 2.4vw, 1.25rem);
-            color: #4b2148;
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.95rem, 3.35vw, 2.8rem);
-            line-height: 1.08;
-            background: linear-gradient(135deg, rgba(252, 228, 242, 0.92), rgba(255, 253, 251, 0.96));
-            border-left: 5px solid #b95d78;
-            border-radius: 8px;
-            box-shadow:
-                inset 0 0 0 1px rgba(111, 38, 63, 0.1),
-                0 16px 34px rgba(75, 33, 72, 0.07);
-        }
-
-        .resources-section h3::before {
-            content: "";
-            display: block;
-            width: 86px;
-            height: 9px;
-            margin: 0 0 1.05rem;
-            background: linear-gradient(90deg, #b95d78, #b9d7dc);
-            border-radius: 999px;
-            box-shadow:
-                22px 0 0 rgba(252, 228, 242, 0.9),
-                44px 0 0 rgba(111, 38, 63, 0.12);
-        }
-
-        .resources-section h3:not(:first-of-type) {
-            margin-top: clamp(28px, 4vw, 42px);
-        }
-
-        .resources-section .citation {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            margin-bottom: 10px;
-            padding-left: 16px;
-            border-left: 2px solid var(--border);
-        }
-
-        .resources-section .citation a {
-            color: var(--accent-dark);
-            text-decoration: none;
-            border-bottom: 1px solid rgba(192, 48, 122, 0.25);
-            transition: all 0.2s;
-        }
-
-        .resources-section .citation a:hover {
-            color: var(--neon-pink);
-            border-bottom-color: var(--neon-pink);
-        }
-
-        .go-deeper {
-            margin-top: 24px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 12px;
-        }
-
-        .resource-card {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 16px 20px;
-            text-decoration: none;
-            display: block;
-            transition: all 0.2s;
-        }
-
-        .resource-card:hover {
-            border-color: var(--neon-pink);
-            box-shadow: 0 4px 16px rgba(155, 63, 95, 0.08);
-            transform: translateY(-2px);
-        }
-
-        .resource-card .resource-name {
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--primary);
-        }
-
-        .resource-card .resource-desc {
-            font-size: 0.8rem;
-            color: var(--text-light);
-            margin-top: 3px;
-        }
-
-        /* --- FOOTER --- */
-        .footer {
-            text-align: center;
-            padding: 50px 20px;
-            background: #100805;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.85rem;
-            position: relative;
-        }
-
-        .footer .logo-footer {
-            max-width: 150px;
-            width: 38%;
-            margin-bottom: 20px;
-            opacity: 0.75;
-        }
-
-        .footer .authors {
-            margin-bottom: 16px;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .footer .authors strong {
-            color: var(--neon-pink);
-            text-shadow: 0 0 8px rgba(155, 63, 95, 0.3);
-        }
-
-
-        .footer .copyright {
-            margin-bottom: 12px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.74rem;
-            color: rgba(255, 255, 255, 0.62);
-        }
-
-        .footer .legal-mark {
-            color: rgba(255, 255, 255, 0.72);
-            font-size: 0.72rem;
-            font-weight: 700;
-            margin-left: 2px;
-            vertical-align: super;
-        }
-        .footer .hashtags {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.72rem;
-            letter-spacing: 0.5px;
-            color: rgba(155, 63, 95, 0.45);
-        }
-
-        /* --- GLOBAL --- */
-        strong { font-weight: 600; color: var(--primary); }
-        em { font-style: italic; }
-
-        a {
-            color: var(--accent-dark);
-            text-decoration: none;
-            border-bottom: 1px solid rgba(192, 48, 122, 0.25);
-            transition: all 0.2s;
-        }
-
-        a:hover {
-            color: var(--neon-pink);
-            border-bottom-color: var(--neon-pink);
-        }
-
-        @media (max-width: 600px) {
-            .article-container { padding: 40px 20px 60px; }
-            .header { padding: 40px 16px 36px; }
-            .stats-grid { grid-template-columns: 1fr; }
-            .tryon-bridge { padding: 24px; }
-        }
-
-
-        /* LAiDIES pearl editorial article masthead reset */
-        .header {
-            background:
-                radial-gradient(circle at 16% 8%, rgba(200, 220, 224, 0.18), transparent 26rem),
-                linear-gradient(135deg, #fffdfb 0%, #fbf6f5 100%);
-            padding: clamp(18px, 4vw, 42px) clamp(10px, 2vw, 20px);
-            border-bottom: 1px solid rgba(75, 33, 72, 0.14);
-            box-shadow: 0 18px 42px rgba(75, 33, 72, 0.08);
-            overflow: hidden;
-        }
-
-        .header-content {
-            max-width: 1180px;
-            color: var(--primary);
-        }
-
-        .episode-masthead-banner {
-            display: block;
-            width: min(1180px, 100%) !important;
-            max-width: 100% !important;
-            height: auto !important;
-            margin: 0 auto !important;
-            border: 1px solid rgba(75, 33, 72, 0.14);
-            border-radius: 18px;
-            box-shadow: 0 22px 54px rgba(75, 33, 72, 0.14);
-        }
-
-        .article-masthead-link {
-            position: relative;
-            display: block;
-            line-height: 0;
-            text-decoration: none;
-        }
-
-        .episode-masthead-logo-overlay {
-            position: absolute;
-            top: clamp(18px, 5vw, 58px);
-            left: 50%;
-            width: min(48%, 560px);
-            transform: translateX(-50%);
-            pointer-events: none;
-        }
-
-        .episode-masthead-logo-overlay img {
-            display: block;
-            width: 100%;
-            height: auto;
-            filter: drop-shadow(0 14px 26px rgba(75, 33, 72, 0.12));
-        }
-
-        .visually-hidden-title {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        .subtitle {
-            color: rgba(75, 33, 72, 0.72);
-            text-shadow: none;
-        }
-
-        .series-badge {
-            background: rgba(255, 253, 251, 0.72);
-            border-color: rgba(111, 38, 63, 0.26);
-            color: var(--accent-dark);
-            box-shadow: none;
-        }
-
-        .header h1 {
-            color: var(--primary);
-            text-shadow: none;
-        }
-
-        .header h1 .ai-highlight,
-        .brand-name .ai {
-            color: var(--neon-pink);
-            text-shadow: none;
-        }
-
-        .brand-name {
-            font-family: inherit;
-            font-style: inherit;
-            letter-spacing: inherit;
-            color: inherit;
-            text-transform: none;
-        }
-
-
-        /* LAiDIES pearl editorial footer reset */
-        .footer {
-            background:
-                radial-gradient(circle at 84% 12%, rgba(200, 220, 224, 0.18), transparent 22rem),
-                linear-gradient(180deg, #fffdfb 0%, #f8eeee 100%) !important;
-            color: rgba(75, 33, 72, 0.72) !important;
-            border-top: 1px solid rgba(75, 33, 72, 0.14);
-        }
-
-        .footer .logo-footer {
-            width: min(170px, 46vw);
-            max-width: 100%;
-            opacity: 1;
-            filter: drop-shadow(0 10px 20px rgba(75, 33, 72, 0.1));
-        }
-
-        .footer .authors,
-        .footer .copyright,
-        .footer .legal-mark,
-        .footer .hashtags {
-            color: rgba(75, 33, 72, 0.72) !important;
-        }
-
-        .footer .authors strong,
-        .footer a {
-            color: var(--primary) !important;
-            text-shadow: none !important;
-        }
-
-        /* Episode 02 reader system alignment */
-        body {
-            --episode-endcap-width: 1120px;
-            background:
-                radial-gradient(circle at 4% 18%, rgba(252, 228, 242, 0.34), transparent 31rem),
-                radial-gradient(circle at 96% 14%, rgba(185, 215, 220, 0.18), transparent 30rem),
-                radial-gradient(circle at 88% 58%, rgba(255, 244, 248, 0.52), transparent 34rem),
-                linear-gradient(180deg, #fffaf8 0%, #fff8fb 48%, #fffdfb 100%);
-        }
-
-        .issue-site-nav.issue-episode-nav {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) auto;
-            gap: 10px 18px;
-            align-items: center;
-            min-height: 64px;
-            padding: 10px clamp(16px, 3vw, 32px);
-            color: #fffdfb;
-            background: rgba(36, 17, 29, 0.94);
-            border-bottom: 1px solid rgba(255, 253, 251, 0.18);
-            box-shadow: 0 12px 30px rgba(75, 33, 72, 0.16);
-            backdrop-filter: blur(16px);
-        }
-
-        .issue-episode-meta {
-            display: grid;
-            gap: 2px;
-            min-width: 0;
-            color: #fffdfb;
-            font-family: "Inter", sans-serif;
-            line-height: 1.24;
-        }
-
-        /* Episode-reader meta relocated into the body (light background) — was white-on-dark in the nav. */
-        .issue-episode-meta--body {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 6px 14px;
-            width: min(1060px, calc(100% - 32px));
-            margin: 12px auto 0;
-            color: #3f1737;
-        }
-        .issue-episode-meta--body .issue-episode-kicker { color: #9b3f5f; }
-        .issue-episode-meta--body .issue-episode-title { color: #3f1737; white-space: normal; overflow: visible; }
-        .issue-episode-meta--body .issue-episode-title time { color: #6f263f; }
-        .issue-episode-jump { display: flex; flex-wrap: wrap; gap: 8px; margin-left: auto; }
-        .issue-episode-jump a {
-            display: inline-flex; align-items: center; min-height: 32px; padding: 6px 11px;
-            border: 1px solid rgba(75, 33, 72, 0.2); border-radius: 999px; background: rgba(255, 253, 251, 0.8);
-            color: #3f1737; font-size: 0.74rem; font-weight: 850; text-decoration: none;
-        }
-        .issue-episode-jump a:hover, .issue-episode-jump a:focus-visible { border-color: rgba(111, 38, 63, 0.42); color: #6f263f; }
-
-        .issue-episode-kicker {
-            color: rgba(255, 253, 251, 0.68);
-            font-size: 0.68rem;
-            font-weight: 900;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-        }
-
-        .issue-episode-title {
-            display: block;
-            overflow: hidden;
-            color: #fffdfb;
-            font-size: clamp(0.9rem, 1.55vw, 1.05rem);
-            font-weight: 850;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .issue-episode-title time {
-            display: inline-block;
-            margin-left: 0.4em;
-            color: rgba(255, 253, 251, 0.68);
-            font-weight: 750;
-        }
-
-        .issue-episode-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            justify-content: flex-end;
-        }
-
-        .issue-site-nav.issue-episode-nav a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 34px;
-            padding: 7px 11px;
-            color: #fffdfb;
-            background: rgba(255, 253, 251, 0.06);
-            border: 1px solid rgba(255, 253, 251, 0.28);
-            border-radius: 999px;
-            font-family: "Inter", sans-serif;
-            font-size: 0.76rem;
-            font-weight: 850;
-            letter-spacing: 0.01em;
-            line-height: 1;
-            text-decoration: none;
-        }
-
-        .issue-site-nav.issue-episode-nav a:hover,
-        .issue-site-nav.issue-episode-nav a:focus-visible {
-            color: #fffdfb;
-            background: rgba(255, 253, 251, 0.14);
-            border-color: rgba(255, 253, 251, 0.52);
-        }
-
-        .issue-site-nav.issue-episode-nav .issue-return-link {
-            background: rgba(252, 228, 242, 0.14);
-            border-color: rgba(252, 228, 242, 0.45);
-        }
-
-        #article,
-        #study-pack,
-        #final-sip,
-        #laidies-challenge,
-        #after-read-actions,
-        #issue-kit,
-        .episode-intro-card {
-            scroll-margin-top: 112px;
-        }
-
-        .episode-02-reader-hero {
-            padding: clamp(22px, 4vw, 48px) clamp(22px, 5vw, 72px) clamp(36px, 6vw, 68px);
-        }
-
-        .episode-02-reader-hero .header-content {
-            max-width: 100%;
-        }
-
-        .header-content .episode-02-masthead-banner {
-            position: relative;
-            display: flex !important;
-            align-items: end;
-            width: 100% !important;
-            min-height: min(86vh, 820px);
-            padding: clamp(72px, 8vw, 112px) clamp(22px, 6.8vw, 104px) clamp(44px, 6vw, 68px);
-            color: #4b2148;
-            overflow: hidden;
-            background:
-                radial-gradient(circle at 18% 16%, rgba(252, 228, 242, 0.24), transparent 24rem),
-                linear-gradient(135deg, #fff9fc, #fff8fb 58%, #fff4f8);
-            border-radius: 8px;
-        }
-
-        .episode-02-masthead-banner::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            background:
-                linear-gradient(0deg, rgba(255, 253, 251, 0.76) 0%, rgba(255, 249, 252, 0.42) 40%, rgba(255, 249, 252, 0.2) 100%),
-                linear-gradient(96deg, rgba(255, 249, 252, 0.78) 0%, rgba(255, 248, 251, 0.56) 54%, rgba(255, 244, 248, 0.34) 100%);
-            pointer-events: none;
-        }
-
-        .episode-02-masthead-image {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: 50% center;
-            border: 0;
-            filter: saturate(1.04) contrast(0.98) brightness(1.08);
-            opacity: 0.76;
-        }
-
-        .episode-02-masthead-copy {
-            position: relative;
-            z-index: 2;
-            display: grid;
-            justify-items: start;
-            width: min(760px, 100%);
-            max-width: 760px;
-            pointer-events: none;
-        }
-
-        .episode-02-masthead-copy .episode-masthead-brand-bar {
-            position: static;
-            display: inline-flex;
-            align-items: center;
-            margin: 0 0 clamp(28px, 4.1vw, 58px);
-            padding: clamp(18px, 2.4vw, 24px) clamp(20px, 2.8vw, 28px) clamp(20px, 2.8vw, 30px);
-            background: rgba(252, 228, 242, 0.68);
-            border: 1px solid rgba(255, 248, 252, 0.64);
-            border-radius: 8px;
-            box-shadow: 0 18px 38px rgba(0, 0, 0, 0.22);
-            filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.12));
-            line-height: 0;
-        }
-
-        .episode-02-masthead-copy .episode-masthead-brand-bar img {
-            display: block;
-            width: min(31vw, 480px);
-            max-width: 100%;
-            height: auto;
-            filter: none;
-        }
-
-        .episode-02-masthead-copy .episode-masthead-brand-motto {
-            display: none;
-        }
-
-        .episode-02-masthead-copy .episode-masthead-copy {
-            position: static !important;
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) auto;
-            gap: 10px clamp(16px, 2.4vw, 28px);
-            align-items: end;
-            width: 100% !important;
-            padding: 0;
-            color: #4b2148;
-            background: transparent !important;
-            border: 0 !important;
-            border-top: 0 !important;
-            border-bottom: 0 !important;
-            box-shadow: none !important;
-            text-align: left;
-        }
-
-        .episode-02-masthead-copy .episode-masthead-phone {
-            grid-column: 1 / -1;
-            gap: 0.42em;
-            width: fit-content;
-            color: #9b3f5f;
-            background: rgba(255, 253, 251, 0.76);
-            border: 1px solid rgba(111, 38, 63, 0.18);
-            border-radius: 999px;
-            padding: 8px 11px;
-            font-size: clamp(0.68rem, 0.92vw, 0.82rem);
-            font-weight: 900;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-        }
-
-        .episode-02-masthead-copy .episode-masthead-phone strong {
-            color: #9b3f5f !important;
-        }
-
-        .episode-02-masthead-copy .episode-masthead-note {
-            display: block;
-            grid-column: 1 / -1;
-            width: 100%;
-            max-width: 900px;
-            color: #4b2148;
-            font-family: "Playfair Display", Georgia, serif;
-            font-size: clamp(3.15rem, 8.2vw, 7.4rem);
-            font-weight: 700;
-            letter-spacing: 0;
-            line-height: 0.86;
-            overflow-wrap: break-word;
-            text-shadow: 0 1px 0 rgba(255, 253, 251, 0.88);
-            text-wrap: balance;
-            text-transform: none;
-        }
-
-        .episode-02-masthead-copy .episode-masthead-date {
-            grid-column: 2;
-            justify-self: end;
-            align-self: end;
-            width: fit-content;
-            margin-bottom: clamp(12px, 2vw, 18px);
-            color: #6f263f;
-            font-size: 0.78rem;
-            font-weight: 900;
-            letter-spacing: 0.14em;
-            text-shadow: 0 1px 0 rgba(255, 253, 251, 0.8);
-            text-transform: uppercase;
-        }
-
-        .episode-masthead-premise {
-            position: relative;
-            grid-column: 1;
-            display: block;
-            width: fit-content;
-            max-width: 680px;
-            margin-top: clamp(10px, 1.7vw, 18px);
-            padding: clamp(24px, 3vw, 30px) clamp(14px, 2.4vw, 20px) clamp(12px, 2vw, 16px);
-            color: #4b2148;
-            background: rgba(255, 253, 251, 0.76);
-            border: 1px solid rgba(255, 248, 252, 0.64);
-            border-radius: 8px;
-            box-shadow: 0 18px 38px rgba(75, 33, 72, 0.1);
-            font-family: "Playfair Display", Georgia, serif;
-            font-size: clamp(1.08rem, 1.75vw, 1.48rem);
-            font-style: normal;
-            font-weight: 700;
-            letter-spacing: 0;
-            line-height: 1.16;
-            text-transform: none;
-        }
-
-        .episode-02-masthead-copy .episode-masthead-premise::before {
-            content: "";
-            position: absolute;
-            left: clamp(14px, 2.4vw, 20px);
-            top: 12px;
-            width: 92px;
-            height: 9px;
-            background: linear-gradient(90deg, #b95d78, #b9d7dc);
-            border-radius: 999px;
-            box-shadow:
-                24px 0 0 rgba(252, 228, 242, 0.9),
-                48px 0 0 rgba(111, 38, 63, 0.12);
-        }
-
-        .preview-shell {
-            --episode-endcap-width: 1120px;
-            width: min(1320px, calc(100% - 48px));
-            margin: 0 auto;
-            padding: 0 0 clamp(48px, 7vw, 88px);
-        }
-
-        .reader-kit {
-            position: relative;
-            z-index: 4;
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 14px;
-            margin: clamp(-48px, -4vw, -18px) 0 clamp(24px, 4vw, 40px);
-        }
-
-        .kit-card,
-        .ritual-side-card,
-        .section-nav-details,
-        .activity-section,
-        .activity-card {
-            background: rgba(255, 253, 251, 0.92);
-            border: 1px solid rgba(75, 33, 72, 0.14);
-            border-radius: 8px;
-            box-shadow: 0 18px 42px rgba(75, 33, 72, 0.1);
-        }
-
-        .kit-card {
-            padding: 18px 18px 20px;
-        }
-
-        .label {
-            display: block;
-            margin-bottom: 8px;
-            color: #6f263f;
-            font-size: 0.7rem;
-            font-weight: 900;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-        }
-
-        .kit-card p,
-        .ritual-side-card p,
-        .activity-card p {
-            margin: 0;
-            color: #4c3b46;
-            line-height: 1.52;
-        }
-
-        .article-layout {
-            display: grid;
-            grid-template-columns: minmax(0, 860px) minmax(260px, 320px);
-            gap: clamp(32px, 3.8vw, 56px);
-            align-items: start;
-            justify-content: center;
-        }
-
-        .article-layout .article-container {
-            max-width: none;
-            margin: 0;
-            padding: clamp(30px, 4vw, 52px) 0 clamp(52px, 7vw, 80px);
-        }
-
-        .article-card h2 {
-            scroll-margin-top: 130px;
-            margin: 2.35em 0 0.85em;
-            padding: clamp(0.82rem, 2vw, 1.08rem) clamp(0.95rem, 2.4vw, 1.25rem);
-            color: #4b2148;
-            font-size: clamp(1.95rem, 3.35vw, 2.8rem);
-            line-height: 1.08;
-            background: linear-gradient(135deg, rgba(252, 228, 242, 0.92), rgba(255, 253, 251, 0.96));
-            border-left: 5px solid #b95d78;
-            border-radius: 8px;
-            box-shadow:
-                inset 0 0 0 1px rgba(111, 38, 63, 0.1),
-                0 16px 34px rgba(75, 33, 72, 0.07);
-        }
-
-        .article-card h2::after {
-            display: none;
-        }
-
-        .article-card h2::before {
-            content: "";
-            display: block;
-            width: 86px;
-            height: 9px;
-            margin: 0 0 1.05rem;
-            background: linear-gradient(90deg, #b95d78, #b9d7dc);
-            border-radius: 999px;
-            box-shadow:
-                22px 0 0 rgba(252, 228, 242, 0.9),
-                44px 0 0 rgba(111, 38, 63, 0.12);
-        }
-
-        .article-card h3 {
-            color: #6f263f;
-        }
-
-        .episode-intro-card {
-            padding: clamp(24px, 5vw, 36px) clamp(18px, 5vw, 32px) !important;
-            margin-bottom: 2.3em !important;
-            text-align: center;
-        }
-
-        .article-card .episode-intro-label {
-            display: block;
-            margin: 0 0 14px;
-            color: var(--primary);
-            font-family: "Playfair Display", Georgia, serif;
-            font-size: clamp(1.75rem, 4.8vw, 2.18rem);
-            font-style: italic;
-            font-weight: 700;
-            letter-spacing: 0;
-            line-height: 1.05;
-        }
-
-        .article-card .episode-intro-copy {
-            max-width: 610px;
-            margin: 0 auto 12px;
-            color: var(--text);
-            font-size: 0.98rem;
-            line-height: 1.7;
-        }
-
-        .article-card .episode-intro-copy:last-child {
-            margin-bottom: 0;
-        }
-
-        details.episode-intro-card {
-            display: block;
-            cursor: default;
-        }
-
-        details.episode-intro-card summary {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) auto;
-            align-items: center;
-            gap: 8px 14px;
-            color: #4b2148;
-            cursor: pointer;
-            list-style: none;
-            text-align: left;
-        }
-
-        details.episode-intro-card summary::-webkit-details-marker {
-            display: none;
-        }
-
-        details.episode-intro-card summary::after {
-            content: "+";
-            display: inline-grid;
-            place-items: center;
-            flex: 0 0 auto;
-            width: 36px;
-            height: 36px;
-            color: #6f263f;
-            background: rgba(252, 228, 242, 0.86);
-            border: 1px solid rgba(111, 38, 63, 0.16);
-            border-radius: 999px;
-            font-family: "Inter", sans-serif;
-            font-size: 1.18rem;
-            font-weight: 850;
-            line-height: 1;
-        }
-
-        details.episode-intro-card[open] summary::after {
-            content: "-";
-        }
-
-        .episode-intro-summary-copy {
-            display: -webkit-box;
-            grid-column: 1;
-            max-width: 62ch;
-            overflow: hidden;
-            color: #4c3b46;
-            font-size: 0.98rem;
-            line-height: 1.46;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 2;
-        }
-
-        details.episode-intro-card[open] .episode-intro-summary-copy {
-            display: none;
-        }
-
-        .article-card .article-subheading {
-            margin: 2em 0 1.2em;
-            color: var(--primary);
-            font-family: "Playfair Display", Georgia, serif;
-            font-size: clamp(1.2rem, 2.4vw, 1.34rem);
-            line-height: 1.16;
-        }
-
-        .article-card .section-subhed {
-            margin: -0.15rem 0 1.2em;
-            color: var(--text-light);
-            font-size: 0.94rem;
-            font-style: italic;
-            line-height: 1.55;
-        }
-
-        .season-preview-block,
-        .article-card .tldr-section,
-        .article-card .stat-block,
-        .article-card .highlight-box,
-        .article-card .next-week,
-        .article-card .tryon-bridge {
-            border-radius: 8px !important;
-            border-color: rgba(75, 33, 72, 0.14) !important;
-            background:
-                radial-gradient(circle at 92% 12%, rgba(185, 215, 220, 0.14), transparent 12rem),
-                linear-gradient(135deg, rgba(255, 253, 251, 0.92), rgba(248, 238, 238, 0.72)) !important;
-            box-shadow: 0 16px 36px rgba(75, 33, 72, 0.08);
-        }
-
-        .article-card .next-week {
-            position: relative;
-            overflow: hidden;
-            border: 1.5px solid rgba(185, 93, 120, 0.36) !important;
-            background:
-                radial-gradient(circle at 92% 10%, rgba(185, 215, 220, 0.18), transparent 12rem),
-                radial-gradient(circle at 10% 100%, rgba(252, 228, 242, 0.7), transparent 13rem),
-                linear-gradient(135deg, rgba(255, 253, 251, 0.96), rgba(255, 244, 248, 0.82)) !important;
-            box-shadow:
-                inset 0 0 0 1px rgba(255, 253, 251, 0.82),
-                0 20px 42px rgba(75, 33, 72, 0.1);
-        }
-
-        .article-card .next-week::before {
-            content: "";
-            position: absolute;
-            inset: 0 auto 0 0;
-            width: 6px;
-            background: linear-gradient(180deg, #b95d78, #b9d7dc);
-        }
-
-        .article-card .section-image {
-            border-radius: 8px;
-            border: 1px solid rgba(75, 33, 72, 0.12);
-            box-shadow: 0 18px 42px rgba(75, 33, 72, 0.1);
-        }
-
-        .concept-definitions {
-            margin: 2.4em 0;
-            padding: clamp(22px, 4vw, 34px);
-            border: 1px solid rgba(75, 33, 72, 0.16);
-            border-left: 8px solid var(--teal);
-            border-radius: 8px;
-            background:
-                radial-gradient(circle at 92% 12%, rgba(185, 215, 220, 0.14), transparent 12rem),
-                linear-gradient(135deg, rgba(255, 253, 251, 0.96), rgba(255, 242, 247, 0.68));
-            box-shadow: 0 16px 36px rgba(75, 33, 72, 0.08);
-        }
-
-        .concept-definitions .article-subheading {
-            margin-top: 0;
-            font-size: clamp(1.75rem, 4.6vw, 2.5rem);
-            line-height: 1.04;
-        }
-
-        .concept-definitions .section-subhed {
-            max-width: 62ch;
-        }
-
-        .article-card details.glossary-term {
-            margin: 18px 0;
-            padding: 20px;
-            border: 1px solid rgba(75, 33, 72, 0.14);
-            border-left: 0;
-            border-radius: 8px;
-            background: rgba(255, 253, 251, 0.84);
-        }
-
-        .article-card details.glossary-term summary {
-            list-style: none;
-            cursor: pointer;
-        }
-
-        .article-card details.glossary-term summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .article-card details.glossary-term .term-name {
-            display: block;
-            color: #4b2148;
-            font-family: "Playfair Display", Georgia, serif;
-            font-size: clamp(1.36rem, 2.5vw, 1.68rem);
-            font-weight: 700;
-            line-height: 1.08;
-        }
-
-        .term-preview {
-            display: -webkit-box;
-            margin-top: 8px;
-            max-width: 62ch;
-            overflow: hidden;
-            color: #3a2230;
-            font-size: clamp(0.98rem, 1.45vw, 1.08rem);
-            line-height: 1.5;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 2;
-        }
-
-        .term-toggle {
-            display: inline-flex;
-            margin-top: 14px;
-            color: #9b3f5f;
-            font-family: "Inter", sans-serif;
-            font-size: 0.74rem;
-            font-weight: 850;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        .term-toggle .when-open,
-        details.glossary-term[open] .term-toggle .when-closed {
-            display: none;
-        }
-
-        details.glossary-term[open] .term-preview {
-            display: none;
-        }
-
-        details.glossary-term[open] .term-toggle .when-open {
-            display: inline;
-        }
-
-        .article-card details.glossary-term .term-def {
-            margin-top: 8px;
-            color: #3a2230;
-            font-size: clamp(0.98rem, 1.45vw, 1.08rem);
-            line-height: 1.62;
-        }
-
-        .side-rail {
-            position: sticky;
-            top: 94px;
-            display: grid;
-            gap: 14px;
-            padding-top: clamp(30px, 4vw, 52px);
-        }
-
-        .ritual-side-card {
-            position: relative;
-            overflow: hidden;
-            padding: 18px;
-            color: #4b2148;
-            background:
-                radial-gradient(circle at 88% 2%, rgba(185, 215, 220, 0.38), transparent 8rem),
-                radial-gradient(circle at 8% 96%, rgba(252, 228, 242, 0.82), transparent 9rem),
-                linear-gradient(145deg, rgba(255, 253, 251, 0.98), rgba(247, 238, 238, 0.9));
-            border-color: rgba(185, 93, 120, 0.28);
-        }
-
-        .ritual-side-card h3 {
-            margin: 0 0 10px;
-            color: #4b2148;
-            font-family: "Playfair Display", Georgia, serif;
-            font-size: clamp(1.2rem, 1.75vw, 1.45rem);
-            line-height: 1.06;
-        }
-
-        .ritual-side-primary,
-        .ritual-side-links a,
-        .button-link {
-            display: inline-flex;
-            align-items: center;
-            min-height: 36px;
-            padding: 8px 12px;
-            color: #4b2148;
-            background: rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(111, 38, 63, 0.22);
-            border-radius: 999px;
-            font-size: 0.78rem;
-            font-weight: 850;
-            letter-spacing: 0.01em;
-            text-decoration: none;
-        }
-
-        .ritual-side-primary {
-            width: 100%;
-            justify-content: center;
-            margin: 14px 0 12px;
-            color: #fffdfb;
-            background: #6f263f;
-            border-color: #6f263f;
-        }
-
-        .ritual-side-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .ritual-side-note {
-            margin-top: 12px !important;
-            color: rgba(75, 33, 72, 0.68) !important;
-            font-size: 0.83rem;
-        }
-
-        .section-nav-details {
-            padding: 16px;
-            box-shadow: none;
-        }
-
-        .section-nav-details summary {
-            color: #4b2148;
-            cursor: pointer;
-            font-size: 0.78rem;
-            font-weight: 900;
-            letter-spacing: 0.1em;
-            list-style: none;
-            text-transform: uppercase;
-        }
-
-        .section-nav-details summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .section-nav-details summary::after {
-            content: "+";
-            float: right;
-            color: #6f263f;
-        }
-
-        .section-nav-details[open] summary::after {
-            content: "-";
-        }
-
-        .section-nav {
-            margin-top: 10px;
-        }
-
-        .section-nav a {
-            display: block;
-            padding: 9px 0;
-            color: #4b2148;
-            border-bottom: 1px solid rgba(75, 33, 72, 0.1);
-            font-size: 0.86rem;
-            font-weight: 800;
-            text-decoration: none;
-        }
-
-        .section-nav a:last-child {
-            border-bottom: 0;
-        }
-
-        .activity-section {
-            scroll-margin-top: 96px;
-            width: min(var(--episode-endcap-width, 900px), 100%);
-            margin: 0 auto 42px;
-            padding: clamp(22px, 4vw, 30px);
-            background:
-                radial-gradient(circle at 92% 12%, rgba(185, 215, 220, 0.18), transparent 20rem),
-                linear-gradient(135deg, rgba(255, 253, 251, 0.92), rgba(248, 241, 238, 0.78));
-        }
-
-        .activity-section-header {
-            display: grid;
-            gap: 8px;
-            max-width: 760px;
-            margin-bottom: 18px;
-        }
-
-        .activity-section-header h2 {
-            margin: 0;
-            color: #4b2148;
-            font-family: "Playfair Display", Georgia, serif;
-            font-size: clamp(2rem, 4vw, 3.6rem);
-            line-height: 0.95;
-        }
-
-        .activity-section-header p {
-            margin: 0;
-            color: #4c3b46;
-            max-width: 670px;
-            line-height: 1.48;
-        }
-
-        .activity-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 14px;
-        }
-
-        .ritual-preview-grid {
-            grid-template-columns: minmax(0, 1fr);
-        }
-
-        .ritual-bridge-actions {
-            display: grid;
-            gap: 10px;
-            margin-top: 14px;
-        }
-
-        .ritual-extra-grid {
-            margin-top: 14px;
-        }
-
-        .ritual-bag-pill,
-        .ritual-full-details summary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 44px;
-            width: 100%;
-            border-radius: 999px;
-            font-family: "Inter", sans-serif;
-            font-size: 0.78rem;
-            font-weight: 900;
-            letter-spacing: 0.08em;
-            line-height: 1.1;
-            text-align: center;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .ritual-bag-pill {
-            color: #fffdfb;
-            background: #6f263f;
-            border: 1px solid #6f263f;
-        }
-
-        .ritual-full-details summary {
-            flex-direction: column;
-            gap: 7px;
-            color: #6f263f;
-            background: rgba(255, 253, 251, 0.78);
-            border: 1px solid rgba(111, 38, 63, 0.18);
-            cursor: pointer;
-            list-style: none;
-        }
-
-        .ritual-full-details summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .ritual-expand-icon {
-            display: inline-grid;
-            place-items: center;
-            width: 32px;
-            height: 32px;
-            color: #6f263f;
-            background: rgba(252, 228, 242, 0.86);
-            border: 1px solid rgba(111, 38, 63, 0.16);
-            border-radius: 999px;
-            font-size: 1.12rem;
-            line-height: 1;
-        }
-
-        .ritual-expand-icon::before {
-            content: "+";
-        }
-
-        .ritual-full-details[open] .ritual-expand-text {
-            font-size: 0;
-        }
-
-        .ritual-full-details[open] .ritual-expand-text::before {
-            content: "Hide full ritual";
-            font-size: 0.78rem;
-        }
-
-        .ritual-full-details[open] .ritual-expand-icon::before {
-            content: "-";
-        }
-
-        .activity-card {
-            position: relative;
-            display: grid;
-            gap: 10px;
-            min-height: 168px;
-            padding: 18px;
-            color: #4b2148;
-            text-decoration: none;
-            transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
-        }
-
-        .activity-card[href]:hover,
-        .activity-card[href]:focus-visible,
-        .ritual-side-links a:hover,
-        .ritual-side-links a:focus-visible,
-        .ritual-side-primary:hover,
-        .ritual-side-primary:focus-visible {
-            transform: translateY(-2px);
-            border-color: rgba(185, 93, 120, 0.44);
-            box-shadow: 0 22px 48px rgba(75, 33, 72, 0.14);
-            text-decoration: none;
-        }
-
-        .activity-card strong {
-            color: #4b2148;
-            font-family: "Playfair Display", Georgia, serif;
-            font-size: clamp(1.25rem, 2vw, 1.62rem);
-            line-height: 1.02;
-        }
-
-        .activity-card em {
-            align-self: end;
-            color: #b95d78;
-            font-size: 0.75rem;
-            font-style: normal;
-            font-weight: 900;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        .activity-card--primary {
-            background:
-                radial-gradient(circle at 88% 12%, rgba(185, 215, 220, 0.28), transparent 10rem),
-                linear-gradient(135deg, rgba(252, 228, 242, 0.96), rgba(255, 253, 251, 0.98));
-            border-color: rgba(185, 93, 120, 0.36);
-        }
-
-        .signoff,
-        .resources-section {
-            margin-inline: auto;
-        }
-
-        @media (min-width: 921px) {
-            .episode-02-reader-hero {
-                padding-inline: clamp(32px, 4vw, 64px);
-            }
-
-            .episode-02-reader-hero .header-content {
-                width: 100%;
-                max-width: min(1320px, calc(100vw - 96px));
-            }
-
-            .header-content .episode-02-masthead-banner {
-                width: 100% !important;
-                max-width: none !important;
-                min-height: clamp(560px, 60vh, 720px);
-                margin-inline: auto !important;
-            }
-
-            .preview-shell {
-                --episode-endcap-width: min(1180px, calc(100vw - 96px));
-                width: min(1320px, calc(100vw - 96px));
-            }
-
-            .article-layout {
-                grid-template-columns: minmax(0, 860px) minmax(280px, 320px);
-                gap: clamp(32px, 3.2vw, 56px);
-                justify-content: center;
-            }
-
-            .article-container p,
-            .lead-paragraph,
-            .article-card .episode-intro-copy,
-            .article-card .section-subhed,
-            .prompt-example,
-            .article-card .highlight-box p,
-            .article-card .stat-label,
-            .article-card details.glossary-term .term-def,
-            .term-preview {
-                max-width: 76ch;
-                font-size: clamp(1.08rem, 0.6vw + 0.9rem, 1.15rem) !important;
-                line-height: 1.68;
-            }
-
-            .kit-card p,
-            .ritual-side-card p,
-            .activity-card p,
-            .episode-intro-summary-copy {
-                font-size: clamp(1.04rem, 0.88vw, 1.16rem);
-                line-height: 1.58;
-            }
-
-            .article-card h2 {
-                font-size: clamp(2.45rem, 3vw, 3.35rem);
-            }
-
-            .article-card .episode-intro-label {
-                font-size: clamp(2.15rem, 2.5vw, 2.9rem);
-            }
-        }
-
-        @media (max-width: 920px) {
-            .reader-kit,
-            .article-layout,
-            .activity-grid,
-            .reader-next {
-                grid-template-columns: 1fr;
-            }
-
-            .reader-next-card.after-hours {
-                grid-template-columns: 1fr;
-            }
-
-            .side-rail {
-                display: none;
-            }
-
-            .section-nav {
-                display: none;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .issue-site-nav.issue-episode-nav {
-                grid-template-columns: 1fr;
-                gap: 6px;
-                min-height: 0;
-                padding: 8px 12px 9px;
-            }
-
-            .issue-episode-kicker {
-                display: none;
-            }
-
-            .issue-episode-title {
-                font-size: 0.8rem;
-                white-space: normal;
-            }
-
-            .issue-episode-title time {
-                margin-left: 0.28em;
-            }
-
-            .issue-episode-actions {
-                flex-wrap: nowrap;
-                justify-content: flex-start;
-                gap: 6px;
-                max-width: 100%;
-                overflow-x: visible;
-                padding-bottom: 2px;
-                scrollbar-width: none;
-            }
-
-            .issue-episode-actions::-webkit-scrollbar {
-                display: none;
-            }
-
-            .issue-site-nav.issue-episode-nav a {
-                flex: 0 0 auto;
-                min-height: 30px;
-                padding: 6px 7px;
-                font-size: 0.66rem;
-                white-space: nowrap;
-            }
-
-            .issue-site-nav.issue-episode-nav .issue-return-link {
-                font-size: 0;
-            }
-
-            .issue-site-nav.issue-episode-nav .issue-return-link::after {
-                content: "Season";
-                font-size: 0.66rem;
-            }
-
-            .header-content .episode-02-masthead-banner {
-                min-height: 78vh;
-                padding: 28px 18px 36px;
-                align-items: end;
-            }
-
-            .episode-02-masthead-banner::after {
-                background:
-                    linear-gradient(0deg, rgba(255, 253, 251, 0.82) 0%, rgba(255, 249, 252, 0.54) 52%, rgba(255, 249, 252, 0.2) 100%),
-                    linear-gradient(90deg, rgba(255, 249, 252, 0.4), rgba(255, 248, 251, 0.16));
-            }
-
-            .episode-02-masthead-image {
-                object-position: 50% center;
-            }
-
-            .episode-02-masthead-copy {
-                width: 100%;
-            }
-
-            .episode-02-masthead-copy .episode-masthead-copy {
-                grid-template-columns: 1fr;
-            }
-
-            .episode-02-masthead-copy .episode-masthead-brand-bar {
-                margin-bottom: 20px;
-                padding: 16px 18px 18px;
-            }
-
-            .episode-02-masthead-copy .episode-masthead-brand-bar img {
-                width: min(72vw, 300px);
-            }
-
-            .episode-02-masthead-copy .episode-masthead-note {
-                max-width: 19rem;
-                font-size: clamp(2.5rem, 12vw, 3.42rem);
-                line-height: 0.94;
-            }
-
-            .episode-masthead-premise {
-                grid-column: 1;
-                justify-self: start;
-                font-size: 1.02rem;
-                line-height: 1.2;
-            }
-
-            .episode-02-masthead-copy .episode-masthead-date {
-                grid-column: 1;
-                justify-self: start;
-                margin-bottom: 0;
-            }
-
-            .preview-shell {
-                width: min(100% - 28px, 1120px);
-            }
-
-            .reader-kit {
-                margin-top: 18px;
-            }
-
-            .article-layout .article-container {
-                padding-top: 24px;
-            }
-
-            .article-card h2 {
-                padding: 0.82rem 0.9rem;
-                font-size: clamp(1.64rem, 8vw, 2.08rem);
-                line-height: 1.08;
-            }
-
-            .article-card h2::before {
-                width: 72px;
-                height: 8px;
-                margin-bottom: 0.85rem;
-            }
-
-            .episode-intro-card {
-                padding: 18px 18px !important;
-            }
-
-            details.episode-intro-card:not([open]) .episode-intro-copy {
-                display: none;
-            }
-
-            .article-card .episode-intro-label {
-                font-size: clamp(1.7rem, 8vw, 2.04rem);
-            }
-
-            .episode-intro-summary-copy {
-                font-size: 0.95rem;
-            }
-
-            .reader-signup-row {
-                grid-template-columns: 1fr;
-            }
-
-            .activity-card {
-                min-height: 148px;
-            }
-        }
-
-        .issue-site-nav.issue-episode-nav.laidies-nav-enhanced {
-            display: grid !important;
-            grid-template-columns: minmax(0, 1fr) auto !important;
-            grid-template-rows: auto !important;
-            align-items: center !important;
-            gap: 10px 18px !important;
-            min-height: 64px !important;
-            padding: 10px clamp(16px, 3vw, 32px) !important;
-            color: #fffdfb !important;
-            background: rgba(36, 17, 29, 0.94) !important;
-            border-bottom: 1px solid rgba(255, 253, 251, 0.18) !important;
-        }
-
-        .issue-site-nav.issue-episode-nav > .laidies-context-return,
-        .issue-site-nav.issue-episode-nav > .hamburger-btn,
-        .issue-site-nav.issue-episode-nav > .laidies-menu-panel {
-            display: none !important;
-        }
-
-        body[data-issue-number="2"] nav.issue-site-nav.issue-episode-nav.laidies-nav-enhanced > a.laidies-context-return,
-        body[data-issue-number="2"] nav.issue-site-nav.issue-episode-nav.laidies-nav-enhanced > button.hamburger-btn,
-        body[data-issue-number="2"] nav.issue-site-nav.issue-episode-nav.laidies-nav-enhanced > aside.laidies-menu-panel {
-            display: none !important;
-            visibility: hidden !important;
-        }
-
-        @media (max-width: 640px) {
-            .issue-site-nav.issue-episode-nav.laidies-nav-enhanced {
-                grid-template-columns: 1fr !important;
-                gap: 6px !important;
-                min-height: 0 !important;
-                padding: 8px 12px 9px !important;
-            }
-        }
-
-
-        .episode-02-masthead-image {
-            object-position: 50% center;
-            transform: scale(1.02);
-        }
-
-        @media (max-width: 640px) {
-            .episode-02-masthead-image {
-                object-position: 48% center;
-                transform: scale(1.08);
-            }
-        }
-    </style>
-  <!-- Privacy-friendly analytics by Plausible -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAiDIES Episode 02: Tell Me What You Want</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
-<script>
-  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
-</script>
+<link rel="stylesheet" href="/content/site/mini-player.css">
+<script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+<script defer src="/content/site/sv-global-header.js?v=20260707-a11y"></script>
+<script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+<script src="/content/site/supabase-config.js" defer></script>
+<style>
+:root{
+  --paper:#faf5f3; --paper2:#f4ebe9; --ink:#2a1622; --plum:#4b2148; --plum-deep:#37142f;
+  --rose:#9b3f5f; --rose-soft:#c98aa0; --gold:#b49764; --gold-deep:#8a6f3e; --gold-lt:#dcc086;
+  --teal:#5b8c92; --teal-deep:#3f6d72; --muted:#8a7580;
+  --mono-bg:#2c1826; --mono-ink:#efe2e9; --line:rgba(75,33,72,.14);
+  --measure:642px; --wide:920px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:"Jost",ui-sans-serif,system-ui,sans-serif;color:var(--ink);background:var(--paper);
+  line-height:1.72;font-size:18px;-webkit-font-smoothing:antialiased;}
+::selection{background:var(--rose);color:var(--paper);}
+.ai{color:var(--rose);}
 
+/* layout: centered 920 stage; text runs at 642 measure, media breaks wide */
+main{max-width:var(--wide);margin:0 auto;padding:0 24px 10px;}
+.m{max-width:var(--measure);margin-inline:auto;}
+p{margin:0 auto 22px;max-width:var(--measure);}
+p.lead{font-size:1.24rem;line-height:1.6;color:var(--plum);}
+em{font-style:italic;}
+strong,b{font-weight:700;}
+a{color:var(--rose);text-decoration-thickness:1px;text-underline-offset:3px;}
 
-    <link rel="stylesheet" href="../content/site/mini-player.css">
+/* ---------- RUNNING HEADER ---------- */
+.runner{position:sticky;top:0;z-index:50;background:rgba(250,245,243,.9);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;
+  padding:12px clamp(16px,4vw,34px);}
+.runner .wm{font-weight:800;letter-spacing:.05em;color:var(--plum);font-size:19px;}
+.runner .wm .ai{color:var(--rose);}
+.runner .ep{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);}
+.proto{background:var(--gold);color:var(--plum-deep);text-align:center;font-family:"JetBrains Mono",monospace;
+  font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;padding:6px;font-weight:700;}
+
+/* ---------- COVER ---------- */
+.cover{text-align:center;padding:64px 24px 40px;position:relative;}
+.cover .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold-deep);margin-bottom:26px;}
+.cover .eyebrow .dot{color:var(--rose);}
+.cover h1{font-family:"Playfair Display",serif;font-weight:900;font-size:clamp(2.7rem,8vw,5.2rem);
+  line-height:.98;letter-spacing:-.015em;color:var(--plum);text-wrap:balance;max-width:12ch;margin:0 auto;}
+.cover h1 em{font-style:italic;color:var(--rose);}
+.cover .logline{font-family:"Playfair Display",serif;font-style:italic;font-size:1.22rem;line-height:1.55;
+  color:var(--ink);max-width:34ch;margin:26px auto 0;}
+.cover .meta{display:flex;flex-wrap:wrap;gap:0;justify-content:center;margin-top:34px;
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);}
+.cover .meta span{padding:0 16px;position:relative;}
+.cover .meta span+span::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:1px;height:12px;background:var(--line);}
+.cover .meta b{color:var(--plum);font-weight:500;}
+.prevbar{max-width:var(--measure);margin:6px auto 0;padding:16px 20px;background:var(--paper2);border-left:3px solid var(--rose);border-radius:0 6px 6px 0;}
+.prevbar .k{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--rose);display:block;margin-bottom:6px;}
+.prevbar .k b{color:var(--plum);}
+.prevbar p{margin:0;max-width:none;font-family:"Playfair Display",serif;font-style:italic;font-size:1.04rem;color:var(--muted);line-height:1.5;}
+
+/* ---------- FIGURES ---------- */
+figure{margin:44px auto;max-width:var(--wide);}
+figure img{width:100%;display:block;border-radius:3px;box-shadow:0 30px 60px -30px rgba(55,20,47,.5);}
+figcaption{display:flex;gap:12px;align-items:baseline;margin-top:12px;padding-top:10px;
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.4px;color:var(--muted);}
+figcaption .tag{color:var(--gold-deep);text-transform:uppercase;letter-spacing:2px;white-space:nowrap;font-weight:500;}
+figcaption .tag::after{content:"";display:inline-block;width:22px;height:1px;background:var(--gold);vertical-align:middle;margin-left:10px;}
+
+/* ---------- SECTION MARKERS ---------- */
+.mark{max-width:var(--measure);margin:64px auto 8px;}
+.mark .k{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--rose);display:flex;align-items:center;gap:12px;}
+.mark .k::before{content:"";width:26px;height:2px;background:var(--rose);}
+.mark h2{font-family:"Playfair Display",serif;font-weight:800;font-size:clamp(1.9rem,4.5vw,2.7rem);
+  line-height:1.08;color:var(--plum);margin-top:14px;text-wrap:balance;}
+.mark .sub{font-family:"Playfair Display",serif;font-style:italic;color:var(--muted);font-size:1.1rem;margin-top:8px;}
+
+/* drop cap on the cold open */
+.dropcap::first-letter{font-family:"Playfair Display",serif;font-weight:800;font-size:4.4rem;line-height:.72;
+  float:left;margin:8px 12px 0 0;color:var(--rose);}
+
+/* ---------- MACHINE VOICE (terminal) ---------- */
+.machine{max-width:var(--wide);margin:26px auto;background:var(--mono-bg);color:var(--mono-ink);
+  border-radius:6px;overflow:hidden;box-shadow:0 24px 50px -28px rgba(44,24,38,.9);}
+.machine .bar{display:flex;align-items:center;gap:7px;padding:11px 16px;background:rgba(255,255,255,.05);
+  border-bottom:1px solid rgba(255,255,255,.08);}
+.machine .bar i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.22);display:inline-block;}
+.machine .bar span{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,.5);margin-left:8px;}
+.machine .body{font-family:"JetBrains Mono",monospace;font-size:14px;line-height:1.7;padding:20px 22px;}
+.machine .you{color:var(--rose-soft);}
+.machine .body b{color:var(--gold-lt);font-weight:700;}
+.machine .file{display:inline-block;font-size:11px;color:rgba(255,253,251,.55);border:1px solid rgba(255,253,251,.2);border-radius:4px;padding:3px 9px;margin-bottom:10px;letter-spacing:.3px;}
+.machine.big .body{font-size:15.5px;padding:30px 26px;}
+
+/* ---------- PULL QUOTE ---------- */
+.pull{max-width:760px;margin:56px auto;text-align:center;position:relative;padding:0 8px;}
+.pull p{font-family:"Playfair Display",serif;font-weight:700;font-size:clamp(1.7rem,4.4vw,2.5rem);
+  line-height:1.24;color:var(--plum);max-width:none;text-wrap:balance;}
+.pull p em{color:var(--rose);font-style:italic;}
+.pull .rule{width:44px;height:2px;background:var(--gold);margin:22px auto 0;}
+
+/* ---------- BRIEF ---------- */
+.brief{max-width:var(--measure);margin:30px auto;border-top:2px solid var(--plum);border-bottom:2px solid var(--plum);padding:8px 0;}
+.brief .h{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--gold-deep);padding:14px 4px 12px;border-bottom:1px solid var(--line);}
+.brief dl{margin:0;}
+.brief .row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:16px;padding:13px 4px;border-bottom:1px solid var(--line);align-items:baseline;}
+.brief .row:last-child{border-bottom:none;}
+.brief dt{font-family:"Playfair Display",serif;font-weight:700;font-size:1.12rem;color:var(--plum);}
+.brief dd{margin:0;color:var(--ink);font-size:.98rem;}
+.brief .steal{padding:16px 4px 6px;font-size:1rem;color:var(--ink);}
+.brief .steal b{color:var(--rose);}
+
+/* ---------- SCREEN TEST (comparison) ---------- */
+.screentest{max-width:var(--wide);margin:34px auto;}
+.screentest .lede{text-align:center;max-width:var(--measure);margin:0 auto 22px;}
+.screentest .lede .k{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
+.screentest .lede h3{font-family:"Playfair Display",serif;font-size:1.7rem;color:var(--plum);margin-top:6px;}
+.takes{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.take .flag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  font-weight:700;padding-bottom:8px;margin-bottom:14px;border-bottom:2px solid;}
+.take1 .flag{color:var(--muted);border-color:var(--muted);}
+.take2 .flag{color:var(--teal-deep);border-color:var(--teal);}
+.take .lab{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);display:block;margin:0 0 7px;}
+.take .machine{margin:0 0 14px;box-shadow:none;}
+.take .verdict{font-family:"Playfair Display",serif;font-style:italic;font-size:1.05rem;line-height:1.4;}
+.take1 .verdict{color:var(--muted);} .take2 .verdict{color:var(--teal-deep);}
+.tt-foot{text-align:center;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:1px;color:var(--muted);margin-top:20px;}
+
+/* ---------- RECEIPTS ---------- */
+.receipts{max-width:var(--measure);margin:34px auto;}
+.receipts .h{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:14px;}
+.stat{display:flex;gap:20px;align-items:baseline;padding:16px 0;border-top:1px solid var(--line);}
+.stat:first-of-type{border-top:2px solid var(--plum);}
+.stat .n{font-family:"Playfair Display",serif;font-weight:900;font-size:2.6rem;color:var(--teal-deep);min-width:110px;line-height:1;font-variant-numeric:tabular-nums;}
+.stat .d{font-size:1rem;line-height:1.5;}
+.stat .d small{display:block;color:var(--muted);font-size:.84rem;margin-top:3px;}
+.receipts .src{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--muted);margin-top:16px;line-height:1.6;padding-top:12px;border-top:1px solid var(--line);}
+
+/* ---------- GLOSSARY ---------- */
+.gloss{max-width:var(--measure);margin:26px auto;}
+.gloss details{border-bottom:1px solid var(--line);}
+.gloss details[open]{background:linear-gradient(var(--paper2),transparent);}
+.gloss summary{list-style:none;cursor:pointer;padding:18px 4px;display:flex;gap:16px;align-items:baseline;}
+.gloss summary::-webkit-details-marker{display:none;}
+.gloss .term{font-family:"Playfair Display",serif;font-weight:700;font-size:1.4rem;color:var(--plum);min-width:130px;}
+.gloss .peek{color:var(--muted);font-size:.95rem;flex:1;}
+.gloss .plus{font-family:"JetBrains Mono",monospace;color:var(--rose);font-size:1.2rem;}
+.gloss details[open] .plus{transform:rotate(45deg);}
+.gloss .def{padding:0 4px 20px 4px;max-width:none;color:var(--ink);}
+
+/* ---------- CALLOUT CARD (fairy / cocktail / tryon) ---------- */
+.slab{max-width:var(--wide);margin:40px auto;padding:36px clamp(24px,4vw,44px);border-radius:6px;}
+.slab .k{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;display:block;margin-bottom:14px;}
+.slab h3{font-family:"Playfair Display",serif;font-size:1.8rem;color:var(--plum);margin-bottom:14px;line-height:1.1;}
+.slab p{max-width:none;}
+.fairy{background:var(--paper2);border:1px solid var(--line);text-align:center;}
+.fairy .k{color:var(--rose);} .fairy p{max-width:46ch;margin-inline:auto;}
+.cocktail{background:var(--plum);color:var(--paper);}
+.cocktail .k{color:var(--gold-lt);} .cocktail h3{color:var(--paper);}
+.cocktail .say{font-family:"Playfair Display",serif;font-style:italic;font-size:1.4rem;line-height:1.42;color:var(--paper);max-width:38ch;}
+.tryon{background:#eef4f2;border:1px solid #cfe3dd;}
+.tryon .k{color:var(--teal-deep);}
+.btn{display:inline-block;background:var(--rose);color:var(--paper);text-decoration:none;font-weight:700;
+  font-size:.92rem;letter-spacing:.3px;padding:14px 30px;border-radius:40px;margin-top:8px;transition:background .15s,transform .15s;}
+.btn:hover{background:var(--plum);transform:translateY(-2px);}
+.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+
+/* ---------- SOUNDTRACK + RAIL ---------- */
+.stx{max-width:var(--measure);margin:44px auto 0;display:flex;gap:16px;align-items:center;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 4px;}
+.stx .disc{width:50px;height:50px;border-radius:50%;flex-shrink:0;position:relative;background:#241019;
+  box-shadow:inset 0 0 0 1.5px rgba(180,151,100,.45), inset 0 0 0 8px rgba(255,255,255,.05);}
+.stx .disc::before{content:"";position:absolute;inset:34%;background:var(--rose);border-radius:50%;}
+.stx .disc::after{content:"";position:absolute;inset:46%;background:var(--paper);border-radius:50%;}
+.stx p{margin:0;max-width:none;font-size:.98rem;color:var(--ink);}
+.stx p b{color:var(--plum);}
+.stx .motto{display:block;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.4px;color:var(--gold-deep);margin-top:5px;}
+
+.rail{max-width:var(--wide);margin:34px auto;}
+.rail .h{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:16px;}
+.rail ol{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);gap:12px;counter-reset:r;}
+.rail a{display:flex;flex-direction:column;height:100%;text-decoration:none;color:var(--ink);background:var(--paper);
+  border:1px solid var(--line);border-radius:4px;padding:16px 14px;transition:border-color .15s,transform .15s;}
+.rail a:hover{border-color:var(--rose);transform:translateY(-3px);}
+.rail a:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+.rail li{counter-increment:r;}
+.rail .num{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:1px;color:var(--gold-deep);}
+.rail .num::before{content:"0" counter(r);}
+.rail .t{font-family:"Playfair Display",serif;font-weight:700;font-size:1.12rem;color:var(--plum);margin:8px 0 4px;line-height:1.1;}
+.rail .s{font-size:.82rem;color:var(--muted);line-height:1.35;}
+.rail .saintcard,.rail .songcard{background:var(--plum);border-color:var(--plum);}
+.rail .saintcard .num,.rail .songcard .num{color:var(--gold-lt);}
+.rail .saintcard .t,.rail .songcard .t{color:var(--paper);}
+.rail .saintcard .s,.rail .songcard .s{color:rgba(250,245,243,.72);}
+.rail .songcard .t::before{content:"\266A  ";color:var(--gold-lt);}
+
+/* ---------- SIGN-OFF ---------- */
+.signoff{max-width:760px;margin:60px auto 26px;text-align:center;}
+.signoff .r{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--rose);margin-bottom:16px;}
+.signoff .line{font-family:"Playfair Display",serif;font-weight:700;font-size:clamp(1.5rem,3.6vw,2rem);line-height:1.28;color:var(--plum);text-wrap:balance;}
+.rooms{max-width:var(--measure);margin:0 auto;text-align:center;color:var(--muted);font-size:.98rem;}
+.rooms b{color:var(--ink);font-weight:600;}
+
+/* ---------- NEXT ---------- */
+.next{max-width:var(--wide);margin:56px auto 0;border-top:1px solid var(--line);padding-top:30px;text-align:center;}
+.next .k{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
+.next h3{font-family:"Playfair Display",serif;font-size:1.9rem;color:var(--plum);margin:8px 0 6px;}
+.next p{color:var(--muted);font-style:italic;}
+
+.foot{background:var(--plum);color:rgba(250,245,243,.6);text-align:center;padding:40px 24px 50px;margin-top:54px;}
+.foot .wm{font-weight:800;letter-spacing:.05em;font-size:1.5rem;color:var(--paper);}
+.foot .wm .ai{color:var(--rose-soft);}
+.foot .sec{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:1.5px;margin-top:12px;}
+
+@media(max-width:900px){.rail ol{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:680px){
+  body{font-size:16.5px;}
+  .takes{grid-template-columns:1fr;}
+  .rail ol{grid-template-columns:1fr 1fr;}
+  .brief .row{grid-template-columns:1fr;gap:4px;}
+  .stx{flex-direction:column;text-align:center;}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto;transition:none!important;}}
+</style>
 </head>
-<body data-issue-number="2">
+<body>
 
-<header class="site-header">
-  <a class="brand" href="../index.html" aria-label="LAiDIES home">
-    <img src="../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
-  </a>
-</header>
-
-<!-- Episode-reader meta moved out of the header into the body. "Return to The Season"
-     is dropped here because the injected context pill already provides it (one back control). -->
-<div class="issue-episode-meta issue-episode-meta--body">
-  <span class="issue-episode-kicker">Episode Reader</span>
-  <span class="issue-episode-title">Episode 02: Tell Me What You Want <time datetime="2026-06-10">June 10, 2026</time></span>
-  <nav class="issue-episode-jump" aria-label="On this page">
-    <a href="#top">Top</a>
-    <a href="#article">Article</a>
-    <a href="#study-pack">Study Pack</a>
-    <a href="#issue-kit">Weekly Ritual</a>
+<header class="sv-header">
+  <a class="brand" href="/">LAiDIES</a>
+  <nav>
+    <a href="/">This Week</a>
+    <a href="/chick-flicks.html">Episodes</a>
+    <a href="/library.html">LIBRAiRY</a>
+    <a href="/radio.html">KSVL</a>
+    <a href="/sorority-house.html">Sorority House</a>
+    <a href="/clubhouse-pass.html" class="sv-signin" style="color: var(--rose); font-weight: 600; border: 1.5px solid var(--rose); padding: 6px 14px; border-radius: 999px;">✉︎ Sign In</a>
   </nav>
-</div>
-
-<header class="header episode-02-reader-hero" id="top">
-    <div class="header-content">
-        <a class="article-masthead-link episode-02-masthead-banner" href="../index.html" aria-label="LAiDIES home">
-            <img src="../assets/issue-02-hero.png" alt="Episode 02 masthead with laptop, ChatGPT prompt, Spice Girls, Britney, Schitt's Creek, and notes about being more specific" class="episode-02-masthead-image">
-            <span class="episode-02-masthead-copy">
-                <span class="episode-masthead-brand-bar" aria-hidden="true">
-                    <img src="../assets/brand/laidies-logo-masthead-approved-v3.png" alt="">
-                    <span class="episode-masthead-brand-motto">girl power <em>meets</em> machine power</span>
-                </span>
-                <span class="episode-masthead-copy" data-episode-masthead-copy data-episode-number="2" data-episode-title="Tell Me What You Want" data-episode-release-date="2026-06-10">
-                    <span class="episode-masthead-phone"><span>Episode</span><strong data-episode-masthead-number></strong></span>
-                    <span class="episode-masthead-note" data-episode-masthead-title></span>
-                    <span class="episode-masthead-premise">AI can't read your mind. Be David Rose about it.</span>
-                    <span class="episode-masthead-date" data-episode-masthead-date></span>
-                </span>
-            </span>
-        </a>
-        <h1 class="visually-hidden-title">Episode 2: Tell Me What You Want</h1>
-    </div>
 </header>
 
-<main class="preview-shell">
-    <section class="reader-kit" aria-label="Episode 02 summary">
-        <article class="kit-card">
-            <span class="label">The Lesson</span>
-            <p>Useful AI output starts with a useful ask: audience, context, tone, length, constraints, and what good looks like.</p>
-        </article>
-        <article class="kit-card">
-            <span class="label">Try-On</span>
-            <p>Give AI the same real task twice: once vaguely, then once with audience, context, tone, length, and what not to include.</p>
-        </article>
-        <article class="kit-card">
-            <span class="label">This Week's Rule</span>
-            <p>Tell it what you want, what you really really want. Specificity is delegation.</p>
-        </article>
-    </section>
+<main>
 
-    <section class="article-layout" id="article">
-        <article class="article-card article-container">
+  <!-- COVER -->
+  <section class="cover">
+    <div class="eyebrow">Act 1 — The Awakening <span class="dot">·</span> Episode 02</div>
+    <h1>Tell Me What <em>You Want</em></h1>
+    <p class="logline">The one in which she types something vague into the machine, gets back the world's most useless paragraph, channels David Rose demanding very specific things, and watches AI produce something she'd actually send to a VP.</p>
+    <div class="meta"><span>Lesson · <b>Prompting is delegation</b></span><span>Saint · <b>David Rose</b></span><span><b>~10 min read</b></span></div>
+  </section>
 
-    <details class="season-preview-block episode-intro-card">
-        <summary>
-            <span class="episode-intro-label">Previously On <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span>...</span>
-            <span class="episode-intro-summary-copy">She opened all three tools. Typed the same thing into each. Rated them on the butterfly clip scale. Picked her favourite.</span>
-        </summary>
-        <p class="episode-intro-copy">She opened all three tools. Typed the same thing into each. Rated them on the butterfly clip scale. Picked her favourite. Survived entirely. (<a href="issue-01.html">Episode 1: On Wednesdays We Use AI</a>)</p>
+  <div class="prevbar">
+    <span class="k">◀◀ Previously, on <b>L<span class="ai">Ai</span>DIES</b></span>
+    <p>Our heroine stopped feeling behind and finally stopped putting it off — one avoided email, nine seconds flat, and the realization that AI is just the most talented new hire she'll ever manage. She held auditions: one task, all three tools, and picked her favourite.</p>
+  </div>
+
+  <figure>
+    <img src="../assets/issue-02-hero.png" alt="A Y2K desk: disco ball, Schitt's Creek and Britney CDs, a laptop open to ChatGPT, an espresso martini, and Post-Its reading BE MORE SPECIFIC and WHAT DO I ACTUALLY WANT?">
+    <figcaption><span class="tag">The scene</span> 9:15 on a Tuesday. Same desk, same you, wildly different results.</figcaption>
+  </figure>
+
+  <!-- COLD OPEN -->
+  <div class="mark"><div class="k">Cold open</div></div>
+  <p class="lead m">It's nine-fifteen on a Tuesday, and I am losing a staring contest with a paragraph.</p>
+  <p class="dropcap">I'd asked one of the AI tools to draft talking points for a meeting, and what it gave back is… technically words:</p>
+
+  <div class="machine big">
+    <div class="bar"><i></i><i></i><i></i><span>output — the vague ask</span></div>
+    <div class="body">"Leverage synergies." "Drive alignment." "Circle back to maximize stakeholder buy-in."</div>
+  </div>
+
+  <p>It reads like a motivational poster that went to business school and came back worse. And the maddening part? <em>Yesterday, the same tool wrote me a project update for my director that I barely had to touch.</em> Same app. Same me. Same tragic office lighting. One day it reads my mind, and the next it hands me a throw pillow.</p>
+
+  <div class="pull"><p>Why does AI read my mind some days, and completely <em>ignore</em> me on others?</p><div class="rule"></div></div>
+
+  <!-- THE LESSON -->
+  <figure>
+    <img src="../assets/issue02-drawing-game-spice-girls.png" alt="A stick-figure house beside a detailed Victorian mansion, with Spice Girls and Clueless, captioned BE SPECIFIC OR GET STICK FIGURES">
+    <figcaption><span class="tag">The lesson</span> Same instructions, two drawings. The detail you leave out is the detail it invents.</figcaption>
+  </figure>
+
+  <div class="mark"><div class="k">The lesson</div><h2>Tell me what you want, what you really, really want</h2><div class="sub">Why AI gives you garbage — and the one thing that fixes it.</div></div>
+
+  <p>So I did what I do with any problem I can't out-stubborn at my desk: I took it to town. Corner table at the Blend &amp; Snap, oat latte, KSVL on low. I pulled both drafts back up — the word-salad from that morning, the director update I'd barely touched — and set them side by side. It wasn't the tool that changed between the two. <em>It was me: what I'd typed to get each one.</em></p>
+
+  <p>Think about your coffee order. At your regular spot, you barely have to say it — they know your usual, because you built that over a hundred Tuesdays. But AI is not your regular spot. It's the brand-new café across town, and if you breeze in and say "the usual," you get a blank look — or a plain drip going cold on the counter, which you can't even be mad about, because you never told the barista what you actually wanted to drink.</p>
+
+  <p>The AI isn't holding out on you — it genuinely can't see what you didn't say. It has your words, and nothing else. Not your job, not who's reading this, not the meeting on your calendar. Every detail you leave in your head is one it's forced to guess at. So you spell it out — every time — and the guessing stops. <strong>That's prompting.</strong></p>
+
+  <p>The Spice Girls had this figured out decades ago. <em>(Wait… decades? Oof. That's a jagged little pill to swallow, but here we are.)</em> They weren't gesturing at a vibe. They wanted specifics. AI is exactly the same: it'll zig-a-zig-ah all day, but it only does useful work when you tell it precisely what you need.</p>
+
+  <!-- DAVID ROSE -->
+  <figure>
+    <img src="../assets/issue02-david-rose-specificity.png" alt="A Rose Apothecary master list and a cheese grater, captioned A GENERAL STORE BUT MAKE IT SPECIFIC and What Would David Do">
+    <figcaption><span class="tag">Patron saint</span> David Rose — pathologically specific about the wine, the sweater, the exact drape of the sweater.</figcaption>
+  </figure>
+
+  <div class="mark"><div class="k">The David Rose school</div><h2>How to actually fold in the cheese</h2></div>
+
+  <p>You remember Moira telling David to "fold in the cheese," and David standing in that kitchen screaming, <strong>"WHAT DOES THAT MEAN?!"</strong> That is your AI, every single time you type <em>"write me an email about the project."</em> It's trying. But you handed it "fold in the cheese" — when what it needed was <em>"scrape the spatula along the bottom of the bowl, lift, turn it over, turn the bowl, and repeat."</em></p>
+
+  <p>The fix turned out to be something I already knew how to do. I stopped typing <em>at</em> AI like a Google search — three vague words, fingers crossed — and started briefing it like a smart new hire in her first week. Every one of these is a question you already ask when you hand work to a person. That's the secret nobody says out loud: <strong>prompting isn't technical. It's delegation.</strong></p>
+
+  <div class="brief">
+    <div class="h">The brief — thirty seconds, before you hit enter</div>
+    <dl>
+      <div class="row"><dt>Who's it for?</dt><dd>The audience changes everything.</dd></div>
+      <div class="row"><dt>What do they care about?</dt><dd>Give it the stakes.</dd></div>
+      <div class="row"><dt>What's the tone?</dt><dd>Warm, blunt, formal, funny.</dd></div>
+      <div class="row"><dt>How long?</dt><dd>A line, a paragraph, a page.</dd></div>
+      <div class="row"><dt>What to leave out?</dt><dd>Boundaries before the draft wanders off.</dd></div>
+      <div class="row"><dt>Any example to copy?</dt><dd>The strongest move of all.</dd></div>
+    </dl>
+    <p class="steal">If you only ever steal one, steal the last: <b>show it an example.</b> Paste in one you already love — an email that landed, a summary that worked — and say "match this." Nothing gets you a better answer faster.</p>
+  </div>
+
+  <!-- SCREEN TEST -->
+  <figure>
+    <img src="../assets/issue02-its-britney-bitch.png" alt="A split before-and-after: chaos versus confidence, a beige Dear Team draft versus a NAILED IT note">
+    <figcaption><span class="tag">Screen test</span> One twelve-page policy change. Two asks. Watch what comes back.</figcaption>
+  </figure>
+
+  <div class="mark"><div class="k">It's Britney, bitch</div><h2>Same task, two asks</h2><div class="sub">The difference is almost rude.</div></div>
+
+  <p>You've got a twelve-page policy change to get in front of six stakeholders before a 2&nbsp;p.m. meeting — and it's <em>dense</em>: regulatory language, cross-references, defined terms nested three deep. Reading it properly is an hour you do not have. So you paste the whole thing into the chat. <strong>This is exactly the kind of job you hand to AI</strong> — not because you can't write a summary, but because you don't have time to <em>read all twelve pages and find what actually matters</em>. The catch: it only works if you ask well.</p>
+
+  <div class="screentest">
+    <div class="lede"><div class="k">The flat way vs the fluent way</div><h3>"Summarize this policy change."</h3></div>
+    <div class="takes">
+      <div class="take take1">
+        <div class="flag">Take 1 · Vague</div>
+        <span class="lab">The ask</span>
+        <div class="machine"><div class="bar"><i></i><i></i><i></i><span>you</span></div><div class="body"><span class="file">policy-change-Q4.pdf · 12 pages · pasted</span><br><span class="you">summarize this policy change for my stakeholders</span></div></div>
+        <span class="lab">What comes back</span>
+        <div class="machine"><div class="bar"><i></i><i></i><i></i><span>output</span></div><div class="body">New requirements for compliance reporting. Updated timelines. Improved accountability across the organization. Teams should review the full document.</div></div>
+        <p class="verdict">It's Ross, screaming "PIVOT." Technically direction — communicating nothing.</p>
+      </div>
+      <div class="take take2">
+        <div class="flag">Take 2 · Specific</div>
+        <span class="lab">The ask</span>
+        <div class="machine"><div class="bar"><i></i><i></i><i></i><span>you</span></div><div class="body"><span class="file">policy-change-Q4.pdf · 12 pages · pasted</span><br><span class="you">6 senior mgrs, 2 min before a meeting. What's changing, when it takes effect, what teams do differently, any budget impact. Flag anything that only applies to <em>some</em> teams. Cut the backstory. Bullets, ~150 words. Match last quarter's summary that landed →</span></div></div>
+        <span class="lab">What comes back</span>
+        <div class="machine"><div class="bar"><i></i><i></i><i></i><span>output</span></div><div class="body"><b>Compliance Reporting — Q4 Policy Update</b><br><br><b>What's changing:</b> Quarterly compliance reports will now require sign-off from both the team lead and a designated finance partner. Previously, the team lead signed alone.<br><br><b>When it takes effect:</b> October 1, with the first dual-signed report due December 31.<br><br><b>What your team does differently:</b> Route each quarterly report through your finance partner before submitting, and build roughly three extra business days into the cycle for the added review.<br><br><b>Budget impact:</b> No direct cost; expect about two hours of finance-partner time per quarter.<br><br><b>Who's affected:</b> Full-time teams only — contractors and vendor-managed teams stay on the current process until Q1.<br><br><b>What we need from you:</b> Name your finance partner by September 15 so the workflow is ready before the first cycle.</div></div>
+        <p class="verdict">A full "It's Britney, bitch" moment — exactly what you asked for.</p>
+      </div>
+    </div>
+    <p class="tt-foot">Ninety seconds to write · forty-five to check · forwardable without touching a word</p>
+  </div>
+
+  <p><strong>That one line — <em>full-time teams only, contractors exempt</em> — is the whole reason you opened AI.</strong> You could have written the summary yourself. What you couldn't do — not in the twenty minutes before the meeting — was read twelve pages of compliance language and catch the contractor exemption buried on page nine. That's not a writing task; it's a <em>reading</em> task, and it's the part AI just did for you.</p>
+
+  <p>And if the first answer isn't quite right? You don't start from scratch — you tell it what's off, exactly like you would with a real new hire. <em>It's calling into the radio and asking for exactly what you want to hear (or finally shelling out twenty bucks at HMV for the CD) — not constantly changing the station, hoping it lands on one playing a track you like.</em></p>
+
+  <!-- FAIRY -->
+  <div class="slab fairy">
+    <span class="k">✦ Stuck on the ask?</span>
+    <h3>Bring it to the F<span class="ai">Ai</span>RY Godmother</h3>
+    <p>This is the whole reason we built her. Paste in the vague prompt you'd have sent — the "make this better" — and she'll glow it up: show you what was missing, and hand it back as a real brief. The David Rose move, on tap, as many times as you need it.</p>
+    <a class="btn" href="../games/fairy-godmother.html">Get your prompt glow-up →</a>
+  </div>
+
+  <!-- RECEIPTS -->
+  <div class="mark"><div class="k">The receipts</div><h2>Turns out "soft" was the hard part</h2><div class="sub">I went looking at the LIBR<span class="ai">Ai</span>RY, and found the proof.</div></div>
+
+  <div class="receipts">
+    <div class="h">Harvard × BCG · 758 consultants · 2023</div>
+    <div class="stat"><span class="n">~25%</span><span class="d">faster<small>…on the tasks that suited AI in the first place ("inside the jagged frontier")</small></span></div>
+    <div class="stat"><span class="n">~40%</span><span class="d">higher-quality work<small>rated output — with the biggest lift going to lower performers</small></span></div>
+    <div class="stat"><span class="n">01</span><span class="d">thing separated the winners<small>…and it wasn't technical. It was knowing how to brief, hand over context, and when to push back.</small></span></div>
+    <p class="src">Dell'Acqua, McFowland, Mollick et&nbsp;al., "Navigating the Jagged Technological Frontier" (2023). Verified 2026-07-07. Scope: gains apply to AI-suitable tasks — not a blanket "AI makes everyone better at everything."</p>
+  </div>
+
+  <p>The best line about it comes from someone who co-authored that very study — <strong>Ethan Mollick, a Wharton professor and one of the most-read, most-trusted voices on actually using AI:</strong></p>
+
+  <div class="pull"><p>"The skills that are so often dismissed as <em>'soft'</em> turned out to be the hard ones."</p><div class="rule"></div></div>
+
+  <p>Which means the woman who writes a thorough brief — who thinks about her reader, spells out what she needs, knows what to cut — is already ahead of the guy who types three words and expects the machine to read his mind. Communicating clearly. Thinking critically. Reading what a person actually needs. Those got filed under "soft skills" for a generation — the consolation prize. But study after study now lands in the same place: in the age of AI, those are the skills that separate the people who win. <strong>And not instead of the hard skills — on top of them.</strong> A sharp communicator with real judgment who <em>also</em> knows her stuff was never the soft skill set. That's the one that wins.</p>
+
+  <!-- GLOSSARY -->
+  <figure>
+    <img src="../assets/issue02-dont-pull-a-cher.png" alt="A Clueless DVD, Legally Blonde, a globe, a Whatever sticker and a 90s study session, captioned KNOW THESE, TRUST ME">
+    <figcaption><span class="tag">Study pack</span> Three words to use in a meeting without accidentally arguing it doesn't say RSVP on the Statue of Liberty.</figcaption>
+  </figure>
+
+  <div class="mark"><div class="k">So you don't pull a Cher</div><h2>The three words, defined</h2></div>
+
+  <div class="gloss">
+    <details open>
+      <summary><span class="term">Prompt</span><span class="peek">What you type in — Elle Woods didn't just say "let me in."</span><span class="plus">+</span></summary>
+      <p class="def">What you type into the chat box. Remember Elle Woods' Harvard application video? She didn't just say "let me in" — she was specific, personal, tailored to her audience, impossible to ignore. That's a good prompt. Not code, not a spell — you being clear about who it's for, what you need, and what "good" looks like.</p>
     </details>
-
-    <details class="tldr-section episode-intro-card">
-        <summary>
-            <span class="episode-intro-label">On This Episode...</span>
-            <span class="episode-intro-summary-copy">The one in which she types something vague into ChatGPT, gets back the world's most useless paragraph, channels her inner David Rose.</span>
-        </summary>
-        <p class="episode-intro-copy">The one in which she types something vague into ChatGPT, gets back the world's most useless paragraph, channels her inner David Rose demanding very specific things, tries again with actual context, and watches AI produce something she'd genuinely send to her VP. She discovers that prompting isn't coding. It's delegation. And the Spice Girls were onto something.</p>
+    <details>
+      <summary><span class="term">Context</span><span class="peek">The background that makes it understand <em>your</em> situation — Miranda's cerulean speech.</span><span class="plus">+</span></summary>
+      <p class="def">The background information that makes AI understand your situation, not the generic version. Remember Miranda Priestly's cerulean speech? Andy thinks it's just a blue sweater; Miranda traces the exact shade through eight designers and a clearance bin. When you say "this is for senior managers who have two minutes and don't care about the backstory," you've just given AI the cerulean speech. Without context, you get generic blue. With it, cerulean.</p>
     </details>
-
-    <h2 id="opening" style="margin-top: 0;">I couldn't help but wonder...</h2>
-
-    <p class="lead-paragraph">...why AI reads my mind sometimes and completely ignores me other times.</p>
-
-    <div class="section-image">
-        <img src="../assets/issue-02-hero.png" alt="WWDRD desk with Spice Girls, Britney, Schitt's Creek, and BE MORE SPECIFIC Post-Its">
-    </div>
-
-    <p>Last week I asked it to help me draft talking points for a meeting. I got back something so generic it could have been a LinkedIn motivational poster printed on a throw pillow. The next day I asked it to help me write a project update for my director, told it who my director is, what she cares about, what the project actually does, and what I needed her to approve. It came back with something I barely had to edit.</p>
-
-    <p>Same tool. Same Tuesday afternoon. Completely different results.</p>
-
-    <p>I spent an embarrassing amount of time thinking the tool was inconsistent before I realized the variable was me. What I was giving it determined what I got back. Almost without exception.</p>
-
-    <div class="section-divider"></div>
-
-    <div class="section-image">
-        <img src="../assets/issue02-drawing-game-spice-girls.png" alt="Stick figure house vs detailed Victorian mansion with Spice Girls, Clueless, and BE SPECIFIC OR GET STICK FIGURES">
-    </div>
-
-    <h2 id="tell-me-what-you-want">Tell Me What You Want, What You Really Really Want</h2>
-    <p class="section-subhed">Why AI gives you garbage and what to do about it.</p>
-
-    <p>Think about your coffee order. At your regular spot, you barely have to say it — they know your usual, because you built that over a hundred Tuesdays. But AI is not your regular spot. It's the brand-new café across town, and if you breeze in and say "the usual," you get a blank look — or a plain drip going cold on the counter, which you can't even be annoyed about, because you never actually ordered.</p>
-
-    <p>That's prompting. Out of the box, AI has never met you — it doesn't know your order, your context, or the meeting you're prepping for. It will make exactly what you ask for, precisely and literally, but it can't read your mind and won't always stop to ask a clarifying question before charging ahead. So you spell it out — every detail, every time — until you've built that relationship.</p>
-
-    <p>The Spice Girls had it figured out decades ago: tell me what you want, what you really really want. (Also, decades?! Yikes, that is a jagged little pill to swallow.) They weren't asking for vague gestures toward a general desire. They wanted specifics. AI wants the same thing. It will zig-a-zig-ah all day long if you let it, but it produces useful work only when you tell it exactly what you need.</p>
-
-    <div class="section-divider"></div>
-
-    <div class="section-image">
-        <img src="../assets/issue02-david-rose-specificity.png" alt="Rose Apothecary master list, cheese grater, A GENERAL STORE BUT MAKE IT SPECIFIC, What Would David Do">
-    </div>
-
-    <h2 id="david-rose-school">The David Rose School of Prompting</h2>
-    <p class="section-subhed">How to actually fold in the cheese.</p>
-
-    <p>If you've watched Schitt's Creek, you know David Rose is impossibly, almost pathologically specific about what he wants. The wine has to be a very specific wine. The sweater has to drape a very specific way. The brand aesthetic must be "a general store but make it specific." He's exhausting in life but he would be absolutely brilliant at prompting AI.</p>
-
-    <p>Because specificity is the thing. Not fancy language. Not special formatting. Not knowing technical terms or secret codes. Just being David Rose levels of particular about what you're asking for.</p>
-
-    <p>And remember when Moira tells David to "fold in the cheese" and he's standing in the kitchen screaming "WHAT DOES THAT MEAN?!" That's your AI when you type "write me an email about the project." It's trying to do what you asked. But you've given it "fold in the cheese" when what it needs is "take the spatula, scrape along the bottom of the bowl, bring it up and over gently, rotate the bowl, repeat." (Those who know me know I 100% relied on AI for that cooking description, because I do not cook.) AI can't read your mind. What's in your head stays in your head until you type it out.</p>
-
-    <p>I learned this the hard way. I used to type things into AI the way I'd type a Google search: short, vague, hoping it would figure out what I meant. "Help me write a project update." "Draft talking points." "Summarize this." And I'd get back something that was technically correct and completely useless, like ordering "a coffee" and getting handed a lukewarm medium roast with no milk when what you actually wanted was an oat milk latte with an extra shot.</p>
-
-    <p>The shift happened when I started talking to it the way I'd delegate to a smart new hire on their first week. Not dumbing things down, but giving context. Who is this for? What do they care about? What's the tone? What does success look like? How long should this be? What should it absolutely NOT include? What am I actually looking for here? Have we done anything similar before that it can use as a reference?</p>
-
-    <div class="section-divider"></div>
-
-    <div class="section-image">
-        <img src="../assets/issue02-its-britney-bitch.png" alt="Split before and after - chaos vs confidence, Dear Team I hope this finds you well vs NAILED IT">
-    </div>
-
-    <h2 id="its-britney-bitch">It's Britney, Bitch</h2>
-    <p class="section-subhed">Same task. Two approaches. Watch what happens.</p>
-
-    <p>Picture this. Silicon Valley, 2026. You have a 12-page policy change document that needs to get to your stakeholders before a meeting. You paste the full document into the chat and type:</p>
-
-    <p><strong>The vague version (what you'd be doing without <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span>):</strong></p>
-
-    <div class="prompt-example">"Summarize this policy change for my stakeholders."</div>
-
-    <p><strong>What AI gives you back:</strong></p>
-
-    <div class="highlight-box">
-        <p style="margin-bottom: 0; font-size: 0.9rem;">"The policy change introduces new requirements for compliance reporting. Key stakeholders should be aware of updated timelines and documentation requirements. The changes aim to streamline processes and improve accountability across the organization. Teams should review the full document for specific details relevant to their department."</p>
-    </div>
-
-    <p>Four sentences of absolutely nothing. No specifics. No action items. No indication it understood who your stakeholders are or what they'd do with this information. It's the equivalent of Ross screaming "PIVOT." Technically a word, communicating nothing useful, increasingly frustrating for everyone involved.</p>
-
-    <p><strong>The specific version (what you type after reading this Episode):</strong></p>
-
-    <div class="prompt-example">"I need to summarize a policy change for 6 senior managers who have 2 minutes to read this before a meeting. They care about: what's actually changing, when it takes effect, what their teams need to do differently, and whether it affects budget. They don't care about the history of why this changed or the regulatory background. Tone: direct, no fluff, bullet points are fine. 150 words max."</div>
-
-    <p><strong>What AI gives you back:</strong></p>
-
-    <div class="highlight-box">
-        <p style="margin-bottom: 0; font-size: 0.9rem;"><strong>What's Changing:</strong> Quarterly compliance reports now require sign-off from both the team lead AND finance partner (previously just team lead).<br><br><strong>When:</strong> Effective Q3 2026. First dual-signed report due September 30.<br><br><strong>What Your Team Needs to Do:</strong><br>&bull; Identify your finance partner by July 15<br>&bull; Add them to your reporting workflow<br>&bull; Build in 3 extra business days for the additional review cycle<br><br><strong>Budget Impact:</strong> No direct cost. But factor in ~2 hours of finance partner time per quarter per team.<br><br><strong>Action required by you:</strong> Confirm your finance partner assignment by July 15.</p>
-    </div>
-
-    <p>That second output took about 90 seconds to write the prompt and maybe 45 seconds to review. You change one detail, hit send to your stakeholders, and move on with your life.</p>
-
-    <p><strong>It's Britney, bitch.</strong> That's the feeling when a prompt comes back right. That completely unbothered confidence of knowing exactly what you asked for and getting exactly what you needed.</p>
-
-    <div class="stat-block">
-        <div class="stat-number">40%</div>
-        <div class="stat-label">Harvard and BCG studied 758 consultants using ChatGPT-4. For tasks inside AI's "jagged frontier," consultants using AI completed work over 25% faster and produced output rated over 40% higher quality. For tasks outside that frontier, some users did worse because they trusted polished wrong answers. Same tool. The difference was judgment, context, and knowing when to verify.</div>
-        <div class="stat-label" style="margin-top: 10px; font-size: 0.8rem; opacity: 0.5;">BCG x Harvard Business School, 2023 &middot; 758 consultants</div>
-    </div>
-
-    <p>And here's what's interesting about that. The skills that made the difference weren't technical. They were the same ones you use to delegate, to brief a new team member, to tell someone exactly what you need without micromanaging. Ethan Mollick, the Wharton professor everyone in AI cites, called it:</p>
-
-    <blockquote class="pull-quote">
-        <p>The skills that are so often dismissed as 'soft' turned out to be the hard ones.</p>
-        <cite>Ethan Mollick, One Useful Thing</cite>
-    </blockquote>
-
-    <p>Turns out the woman who writes a thorough project brief is better at prompting than the engineer who types three words and expects the machine to read between the lines.</p>
-
-    <div class="section-divider"></div>
-
-    <div class="section-image">
-        <img src="../assets/issue02-dont-pull-a-cher.png" alt="Clueless DVD, Legally Blonde, globe, Whatever sticker, KNOW THESE TRUST ME, 90s study session">
-    </div>
-
-    <section class="concept-definitions" id="study-pack" aria-label="Three core concept definitions">
-    <h3 class="article-subheading">So You Don't Pull a Cher</h3>
-        <p class="section-subhed">Quick definitions so you can use these words confidently in a meeting without accidentally arguing that it doesn't say RSVP on the Statue of Liberty.</p>
-
-    <details class="glossary-term">
-        <summary>
-            <span class="term-name">Prompt</span>
-            <span class="term-preview">What you type into the chat box. Remember Elle Woods' Harvard application video essay? She didn't just say "let me in."</span>
-            <span class="term-toggle"><span class="when-closed">Read full definition</span><span class="when-open">Show less</span></span>
-        </summary>
-        <div class="term-def">What you type into the chat box. Remember Elle Woods' Harvard application video essay? She didn't just say "let me in." She was specific, personal, tailored to her audience, and impossible to ignore. That's a good prompt. It's not code. It's not a spell. It's you being clear about who this is for, what you need, and what "good" looks like. You've been writing prompts since last week. You just didn't know it had a name.</div>
+    <details>
+      <summary><span class="term">Token</span><span class="peek">A chunk of text the model reads. More context has a cost.</span><span class="plus">+</span></summary>
+      <p class="def">A chunk of text the model processes. You don't need to obsess over tokens yet — just know that more context has a cost and tools have limits. If a chat starts acting forgetful or vague, it may be holding more material than it comfortably can at once.</p>
     </details>
+  </div>
 
-    <details class="glossary-term">
-        <summary>
-            <span class="term-name">Context</span>
-            <span class="term-preview">The background information that makes AI understand YOUR situation, not just the generic version. Remember Miranda Priestly's cerulean speech?</span>
-            <span class="term-toggle"><span class="when-closed">Read full definition</span><span class="when-open">Show less</span></span>
-        </summary>
-        <div class="term-def">The background information that makes AI understand YOUR situation, not just the generic version. Remember Miranda Priestly's cerulean speech? Andy thinks she's just wearing a blue sweater. Miranda traces the entire history of that specific shade through Oscar de la Renta, Yves Saint Laurent, eight different designers, and a clearance bin to explain why "blue" is never just "blue." That's what context does for AI. When you say "this is for senior managers who have 2 minutes and don't care about the backstory," you've just given it the cerulean speech. Without context, AI gives you generic blue. With it, you get cerulean.</div>
-    </details>
+  <!-- COCKTAIL -->
+  <div class="slab cocktail">
+    <span class="k">🍸 Say it at happy hour</span>
+    <h3>So… what's a prompt, really?</h3>
+    <p class="say">A prompt isn't code. It's a delegation. You're not programming a machine — you're briefing an assistant. And you already know how to brief. This one is just faster, never sleeps, and will absolutely fold the cheese wrong if you don't tell her how.</p>
+  </div>
 
-    <details class="glossary-term">
-        <summary>
-            <span class="term-name">Token</span>
-            <span class="term-preview">A chunk of text the model processes. You do not need to obsess over tokens yet; just know that more context has a cost and tools have limits.</span>
-            <span class="term-toggle"><span class="when-closed">Read full definition</span><span class="when-open">Show less</span></span>
-        </summary>
-        <div class="term-def">A chunk of text the model processes. You do not need to obsess over tokens yet; you just need to know that more context has a cost and tools have limits. If a chat starts acting forgetful, vague, or suddenly less aware of what you already said, it may be because the conversation has more material than the tool can comfortably hold at once.</div>
-    </details>
-    </section>
+  <!-- TRY-ON -->
+  <figure>
+    <img src="../assets/issue02-tryon-homework.png" alt="A Y2K homework desk with prompt notes and office objects for the Episode 02 try-on">
+    <figcaption><span class="tag">The try-on</span> Ten minutes, not homework. One task, two asks, side by side.</figcaption>
+  </figure>
 
-    <div class="section-divider"></div>
+  <div class="slab tryon">
+    <span class="k">✎ Your scene · the try-on</span>
+    <h3>Same task, twice</h3>
+    <p>Hand one real task to an AI tool <b>twice</b>. First the lazy way — three vague words, the way you'd Google it. Then the David Rose way: who it's for, what they care about, the tone, the length, and what to leave out. Put the two answers side by side. The difference isn't the tool getting smarter between tries — <em>it's you getting specific.</em></p>
+  </div>
 
-    <div class="section-image">
-        <img src="../assets/issue02-tryon-homework.png" alt="Episode 02 Try-On homework desk with prompt notes and Y2K office objects">
-    </div>
+  <!-- THIS WEEK'S SOUNDTRACK — teaser before the rail -->
+  <div class="stx">
+    <div class="disc" aria-hidden="true"></div>
+    <p><b>This week's soundtrack</b> is a real treat — "Tell Me What You Want" on KSVL 99.9. Do not skip it. It's this week's lesson, in platform sandals. <span class="motto">Don't just learn from books. Learn from hooks.</span></p>
+  </div>
 
-    <div class="next-week">
-        <h3>Next Time On <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span>...</h3>
-        <p>She learns why AI can sound polished, confident, and completely wrong. Don't Be Chutney on the Stand is waiting.</p>
-    </div>
+  <!-- RAIL -->
+  <div class="rail">
+    <div class="h">Before you go — the rest of the episode</div>
+    <ol>
+      <li><a href="../watch.html?ep=02"><span class="num"></span><span class="t">Narration</span><span class="s">Hear it in the Screening Room</span></a></li>
+      <li><a href="../blend-snap.html#the-study-pack"><span class="num"></span><span class="t">Study Pack</span><span class="s">Grab it at the Blend &amp; Snap</span></a></li>
+      <li><a href="../games/trading-cards.html"><span class="num"></span><span class="t">Card Pack</span><span class="s">Prompt · Context · Token</span></a></li>
+      <li><a class="saintcard" href="../luminairy.html"><span class="num"></span><span class="t">David Rose</span><span class="s">Patron saint + his SAiNT song</span></a></li>
+      <li><a class="songcard" href="../radio.html"><span class="num"></span><span class="t">Soundtrack</span><span class="s">"Tell Me What You Want" · KSVL 99.9</span></a></li>
+      <li><a href="../learn/quiz.html"><span class="num"></span><span class="t">Pop Quiz</span><span class="s">10 + 2 bonus · bank clips</span></a></li>
+    </ol>
+  </div>
 
-        </article>
+  <!-- SIGN-OFF -->
+  <div class="signoff">
+    <div class="r">So remember, ladies</div>
+    <div class="line">AI can't read your mind — so tell it what you want… what you really, really want. Be specific. Be bold. Be David Rose about it.</div>
+  </div>
+  <p class="rooms">Got a sharper <b>"remember, ladies"</b> than that one? Post it in <b>the rooms</b> — our residents-only chats at the sorority house. Your Residence Card gets you in the door, and favourites get featured, with credit.</p>
 
-        <aside class="side-rail" aria-label="Episode 02 reader tools">
-            <div class="ritual-side-card" aria-label="Weekly Bag shortcut">
-                <span class="label">After The Read</span>
-                <h3>Open the Weekly Bag</h3>
-                <p>Ready for the next object? Use this shortcut, or finish with the full ritual at the bottom.</p>
-                <a class="ritual-side-primary" href="../this-week.html?issue=2&amp;bag=open">Go to the Weekly Bag</a>
-                <div class="ritual-side-links">
-                    <a href="../learn/quiz.html?from=this-week&amp;issue=2&amp;bag=open#quiz-start">Take the Quiz</a>
-                    <a href="../printable.html?issue=2&amp;from=this-week&amp;bag=open&amp;group=practice">Cheat Sheet</a>
-                    <a href="../try-on.html?from=this-week&amp;issue=2&amp;bag=open&amp;group=practice">Try-On</a>
-                    <a href="../games/trading-cards.html?from=this-week&amp;issue=2&amp;bag=open&amp;group=practice">Practice Cards</a>
-                    <a href="../games/dj-booth.html?v=ritual-qa-2&amp;from=this-week&amp;issue=2&amp;bag=open#djApp">DJ Booth</a>
-                    <a href="../games/fun-pack.html?from=this-week&amp;issue=2&amp;bag=open&amp;group=fun">Extra Credit</a>
-                    <a href="../community.html?from=this-week&amp;issue=2&amp;bag=open&amp;group=connect">Community</a>
-                </div>
-                <p class="ritual-side-note">Shortcut only. The full ritual handoff lives below the article.</p>
-            </div>
-            <details class="section-nav-details">
-                <summary>Jump to a section</summary>
-                <nav class="section-nav" data-section-nav aria-label="Article sections"></nav>
-            </details>
-        </aside>
-    </section>
-
-<!-- Sign-off -->
-<section class="signoff" id="final-sip">
-    <div class="signoff-banner">
-        <span class="signoff-kicker">Final Sip</span>
-        <span class="signoff-remember">Remember, <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span>:</span>
-        <span class="signoff-line">The Spice Girls didn't say "tell me what you vaguely want, what you sort of generally want." And neither should you.</span>
-        <span class="signoff-sips">Be specific. Be bold. Be David Rose about it.</span>
-    </div>
-
-    <div class="signoff-bottom">
-        <div class="challenge-box" id="laidies-challenge">
-            <div class="challenge-title">The <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> Challenge</div>
-            <p>Got a better &ldquo;Remember, <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span>:&rdquo; sign-off that would make Dolly proud? Post it in the <a href="../community/try-on-debrief.html">Try-On Debrief</a>. The one with the most likes can get featured later, with credit. We're trailblazers here, not idea thieves.</p>
-        </div>
-    </div>
-
-    <section class="reader-next" id="after-read-actions" aria-label="Share, subscribe, and follow LAiDIES">
-        <div class="reader-next-card featured">
-            <p class="label">New Episodes Every Wednesday</p>
-            <h3>Get the next one in your inbox.</h3>
-            <p>One useful Episode a week, plus the occasional excellent detour. No spam. No homework spiral.</p>
-            <form class="reader-signup-form" action="https://buttondown.com/api/emails/embed-subscribe/laidies" method="post" target="episodeSubscribeFrame">
-                <label for="episodeSignupEmail">Email address</label>
-                <div class="reader-signup-row">
-                    <input id="episodeSignupEmail" name="email" type="email" placeholder="itsbritneybitch@icon.com" required>
-                    <button type="submit">Subscribe</button>
-                </div>
-                <p class="reader-form-note">Powered by Buttondown. <a href="https://buttondown.com/laidies" target="_blank" rel="noopener">Open Buttondown directly</a>.</p>
-            </form>
-            <iframe class="reader-subscribe-frame" name="episodeSubscribeFrame" title="LAiDIES subscription response" aria-hidden="true"></iframe>
-        </div>
-
-        <div class="reader-next-card">
-            <p class="label">Send It Energy</p>
-            <h3>Bring a friend.</h3>
-            <p>Share this Episode with the woman in your group chat who has been meaning to start.</p>
-            <div class="reader-action-grid" aria-label="Share Episode 2">
-                <button class="reader-action" id="shareEpisodeButton" type="button">Share Article</button>
-                <button class="reader-action secondary" id="copyEpisodeLinkButton" type="button">Copy Link</button>
-                <span class="share-status" id="shareEpisodeStatus" role="status" aria-live="polite"></span>
-                <input class="share-url-fallback" id="shareEpisodeUrl" type="text" readonly hidden aria-label="Episode 2 share link">
-            </div>
-        </div>
-
-        <div class="reader-next-card after-hours">
-            <div>
-                <p class="label"><span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> After Hours</p>
-                <h3>Come sit with us.</h3>
-                <p>Follow @laidies.ai for extra posts, behind-the-scenes notes, reminders, and the bits that keep going after the Episode.</p>
-            </div>
-            <div class="reader-action-grid" aria-label="Follow LAiDIES on social media">
-                <a class="reader-link-button primary" href="https://www.instagram.com/laidies.ai/" target="_blank" rel="noreferrer">Open Instagram</a>
-                <a class="reader-link-button" href="https://www.linkedin.com/company/wearelaidies/?viewAsMember=true" target="_blank" rel="noreferrer">Open LinkedIn</a>
-            </div>
-        </div>
-    </section>
-</section>
-
-    <section class="activity-section" id="issue-kit" aria-label="Episode 02 weekly ritual">
-        <div class="activity-section-header">
-            <span class="label">What's In The Bag</span>
-            <h2>Complete the Weekly Ritual</h2>
-            <p>Step 1 is this article. After that, the Wednesday Bag keeps prompt practice small, practical, and connected to the rest of the <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> world.</p>
-        </div>
-        <div class="activity-grid ritual-preview-grid">
-            <article class="activity-card">
-                <span class="label">01 / Read</span>
-                <strong>Read Episode 02</strong>
-                <p><em>Tell Me What You Want</em> explains why prompting is really delegation: context, constraints, and the ask.</p>
-                <em>You are here</em>
-            </article>
-        </div>
-        <div class="ritual-bridge-actions" aria-label="Continue the Episode 02 weekly ritual">
-            <a class="ritual-bag-pill" href="../this-week.html?issue=2&amp;bag=open">Go to the Weekly Bag</a>
-            <details class="ritual-full-details">
-                <summary>
-                    <span class="ritual-expand-text">See full ritual</span>
-                    <span class="ritual-expand-icon" aria-hidden="true"></span>
-                </summary>
-                <div class="activity-grid ritual-extra-grid">
-                    <a class="activity-card activity-card--primary" href="../this-week.html?issue=2&amp;bag=open&amp;group=practice">
-                        <span class="label">02 / Practice</span>
-                        <strong>Weekly Study Pack</strong>
-                        <p>Try-On, Cheat Sheet, and Practice Cards live together inside the Bag.</p>
-                        <em>Ready</em>
-                    </a>
-                    <a class="activity-card" href="../learn/quiz.html?from=this-week&amp;issue=2#quiz-start">
-                        <span class="label">03 / Quiz</span>
-                        <strong>Take the Quiz</strong>
-                        <p>Check whether prompting, context, specificity, and the David Rose rule actually stuck.</p>
-                        <em>Ready</em>
-                    </a>
-                    <a class="activity-card" href="../games/fun-pack.html?from=this-week&amp;issue=2&amp;bag=open">
-                        <span class="label">04 / Extra Credit</span>
-                        <strong>Extra Credit</strong>
-                        <p>Bonus activities, playful tools, and optional detours live here when you want more than the core practice.</p>
-                        <em>Ready</em>
-                    </a>
-                    <a class="activity-card" href="../this-week.html?issue=2&amp;bag=open&amp;group=connect">
-                        <span class="label">05 / Connect</span>
-                        <strong>Meet &amp; Celebrate</strong>
-                        <p>Bring it back to the Room and connect with <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> after the work object is done.</p>
-                        <em>Ready</em>
-                    </a>
-                    <a class="activity-card" href="../games/dj-booth.html?v=ritual-qa-2&amp;from=this-week&amp;issue=2&amp;bag=open#djApp">
-                        <span class="label">06 / Listen</span>
-                        <strong>DJ Booth</strong>
-                        <p>Play the weekly anthem, then come back to the Bag for the rest of the ritual.</p>
-                        <em>Ready</em>
-                    </a>
-                    <a class="activity-card" href="../this-week.html?issue=2&amp;bag=open&amp;group=realworld">
-                        <span class="label">07 / Real World</span>
-                        <strong>The Book of Receipts</strong>
-                        <p>Use the real-world shelf for Hot Goss, terms, references, canon, and who's who.</p>
-                        <em>Ready</em>
-                    </a>
-                    <a class="activity-card" href="../this-week.html?issue=2&amp;bag=open">
-                        <span class="label">Hidden / Charm</span>
-                        <strong>Hidden Charm</strong>
-                        <p>Open the Episode 02 Bag scene and find the hidden weekly charm.</p>
-                        <em>In the Bag</em>
-                    </a>
-                </div>
-            </details>
-        </div>
-    </section>
-
-<!-- References -->
-<section class="resources-section">
-    <div class="resources-inner">
-        <h3>Gimme, Gimme More</h3>
-        <p style="font-size: 0.85rem; color: var(--text-light); font-style: italic; margin-bottom: 1em;">If you want to keep going after this.</p>
-
-        <div class="go-deeper">
-            <a href="https://www.oneusefulthing.org/p/how-to-use-ai-to-do-practical-stuff" class="resource-card" target="_blank" rel="noreferrer">
-                <div class="resource-name">How to Use AI to Do Practical Stuff</div>
-                <div class="resource-desc">Ethan Mollick's best practical guide. No fluff, just "here's how to actually use this thing."</div>
-            </a>
-            <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" class="resource-card" target="_blank" rel="noreferrer">
-                <div class="resource-name">Anthropic's Prompt Guide</div>
-                <div class="resource-desc">The people who built Claude explaining how to talk to it. Straight from the source.</div>
-            </a>
-            <a href="https://platform.openai.com/docs/guides/prompt-engineering" class="resource-card" target="_blank" rel="noreferrer">
-                <div class="resource-name">OpenAI's Prompt Guide</div>
-                <div class="resource-desc">Same thing but for ChatGPT. Six strategies, clearly explained, no jargon.</div>
-            </a>
-        </div>
-
-        <h3>The Receipts</h3>
-        <p style="font-size: 0.85rem; color: var(--text-light); font-style: italic; margin-bottom: 1em;">We did the reading so you don't have to.</p>
-
-        <div class="citation"><a href="https://www.hbs.edu/faculty/Pages/item.aspx?num=64700" target="_blank" rel="noreferrer">Dell'Acqua, F. et al. (2023). &ldquo;Navigating the Jagged Technological Frontier.&rdquo; Harvard Business School x BCG.</a></div>
-        <div class="citation"><a href="https://www.oneusefulthing.org/p/management-as-ai-superpower" target="_blank" rel="noreferrer">Mollick, E. (2026). &ldquo;Management as AI Superpower.&rdquo; One Useful Thing. &ldquo;The skills that are so often dismissed as soft turned out to be the hard ones.&rdquo;</a></div>
-    </div>
-</section>
+  <!-- NEXT -->
+  <div class="next">
+    <div class="k">Next time on L<span class="ai">Ai</span>DIES</div>
+    <h3>Episode 03 · The Burn Book Problem</h3>
+    <p>The machine hands our heroine a beautiful, confident answer — with one small detail that could blow up the whole meeting. See you next Wednesday, in Sunnyvale.</p>
+  </div>
 
 </main>
 
-<!-- Footer -->
-<footer class="footer">
-    <img src="../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" class="logo-footer">
-    <div class="authors">
-        <strong>The Women of <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span><sup class="legal-mark">&trade;</sup></strong><br>
-        <a href="https://www.linkedin.com/in/alison-eakin" target="_blank" style="color: rgba(255,255,255,0.8); border-bottom-color: rgba(255,255,255,0.3);">Alison Eakin</a> &mdash; Founder and Contributor<br>
-        <a href="https://www.linkedin.com/in/savina-alves/" target="_blank" style="color: rgba(255,255,255,0.8); border-bottom-color: rgba(255,255,255,0.3);">Savina Alves</a> &mdash; Marketing and Contributor
-    </div>
-    <div style="margin-bottom: 12px;"><a href="https://www.instagram.com/laidies.ai/" target="_blank" style="color: rgba(255,255,255,0.6); border-bottom-color: rgba(255,255,255,0.2); font-size: 0.8rem;">@laidies.ai</a> &nbsp; <a href="https://www.linkedin.com/company/wearelaidies/?viewAsMember=true" target="_blank" style="color: rgba(255,255,255,0.6); border-bottom-color: rgba(255,255,255,0.2); font-size: 0.8rem;"><span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> on LinkedIn</a></div>
-    <div class="copyright">&copy; 2026 <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span>&trade; / Ali Eakin. All rights reserved.</div>
-    <div class="hashtags">#<span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> &nbsp; #WomenInAI &nbsp; #AIForEveryone &nbsp; #AIFluency &nbsp; #trailblazers</div>
+<footer class="foot">
+  <div class="wm">L<span class="ai">Ai</span>DIES</div>
+  <div class="sec">See you next Wednesday… in SUNNYV<span class="ai" style="color:var(--rose-soft)">Ai</span>LE.</div>
 </footer>
 
-<script>
-(() => {
-  const navMount = document.querySelector("[data-section-nav]");
-  const article = document.querySelector(".article-card");
-  if (!navMount || !article) return;
-
-  const slugCounts = new Map();
-  const slugify = (text) => text
-    .toLowerCase()
-    .replace(/&/g, " and ")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .slice(0, 72) || "section";
-
-  Array.from(article.querySelectorAll("h2")).forEach((heading) => {
-    if (!heading.id) {
-      const base = slugify(heading.textContent || "");
-      const count = slugCounts.get(base) || 0;
-      slugCounts.set(base, count + 1);
-      heading.id = count ? `${base}-${count + 1}` : base;
-    }
-    const link = document.createElement("a");
-    link.href = `#${heading.id}`;
-    link.textContent = heading.textContent.trim();
-    navMount.appendChild(link);
-  });
-})();
-</script>
-
-<script>
-(() => {
-  const shareEpisodeButton = document.getElementById("shareEpisodeButton");
-  const copyEpisodeLinkButton = document.getElementById("copyEpisodeLinkButton");
-  const shareEpisodeStatus = document.getElementById("shareEpisodeStatus");
-  const shareEpisodeUrl = document.getElementById("shareEpisodeUrl");
-  const episodeShareLink = "https://laidies.ai/issues/issue-02.html";
-
-  function setShareStatus(message) {
-    if (shareEpisodeStatus) shareEpisodeStatus.textContent = message;
-  }
-
-  function showShareFallback() {
-    if (!shareEpisodeUrl) return;
-    shareEpisodeUrl.value = episodeShareLink;
-    shareEpisodeUrl.hidden = false;
-    shareEpisodeUrl.focus({ preventScroll: true });
-    shareEpisodeUrl.select();
-  }
-
-  async function copyEpisodeLink() {
-    try {
-      if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(episodeShareLink);
-        setShareStatus("Link copied.");
-        return;
-      }
-    } catch (error) {
-      // Fall through to the visible copy field.
-    }
-
-    showShareFallback();
-    setShareStatus("Copy this link.");
-  }
-
-  async function shareEpisode() {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: "LAiDIES Episode 02: Tell Me What You Want",
-          text: "Read LAiDIES Episode 02: Tell Me What You Want.",
-          url: episodeShareLink
-        });
-        setShareStatus("Article shared.");
-        return;
-      } catch (error) {
-        if (error && error.name === "AbortError") return;
-      }
-    }
-
-    await copyEpisodeLink();
-  }
-
-  if (shareEpisodeButton) shareEpisodeButton.addEventListener("click", shareEpisode);
-  if (copyEpisodeLinkButton) copyEpisodeLinkButton.addEventListener("click", copyEpisodeLink);
-})();
-</script>
-
-<script src="../content/episode-page.js?v=device-screen-5"></script>
-
-    <div style="text-align: center; padding: 32px 20px 48px;">
-      <a class="button secondary" href="../index.html">&larr; Back to Home</a>
-    </div>
-  
-<!-- Fixed Mini Player -->
 <div id="miniPlayer" class="mini-player" hidden>
   <div class="mini-player-inner">
     <button type="button" class="mini-player-btn" id="miniPlayerPrev" aria-label="Previous track">⏮</button>
@@ -2955,157 +477,7 @@
     <button type="button" class="mini-player-close" id="miniPlayerClose" aria-label="Close player">✕</button>
   </div>
 </div>
-<style>
-.mini-player {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-  background: linear-gradient(135deg, #fffdfb 0%, #f8eef2 100%);
-  border-top: 2px solid rgba(155, 63, 95, 0.28);
-  padding: 10px 20px;
-  box-shadow: 0 -4px 20px rgba(75,33,72,0.12);
-  animation: miniPlayerSlideUp 0.3s ease-out;
-}
-@keyframes miniPlayerSlideUp {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
-}
-.mini-player-inner {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  max-width: 600px;
-  margin: 0 auto;
-}
-.mini-player-btn {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1.2rem;
-  cursor: pointer;
-  padding: 6px;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s;
-}
-.mini-player-btn:hover {
-  background: rgba(155, 63, 95, 0.2);
-}
-.mini-player-play {
-  background: rgba(155, 63, 95, 0.3);
-  font-size: 1.3rem;
-  width: 42px;
-  height: 42px;
-}
-.mini-player-title {
-  flex: 1;
-  color: rgba(255, 248, 252, 0.9);
-  font-size: 0.8rem;
-  font-weight: 600;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.mini-player-close {
-  background: none;
-  border: none;
-  color: rgba(255, 248, 252, 0.5);
-  font-size: 1rem;
-  cursor: pointer;
-  padding: 6px;
-}
-.mini-player-close:hover {
-  color: #fff;
-}
-</style>
-<script>
-(() => {
-  const player = document.getElementById('miniPlayer');
-  const playBtn = document.getElementById('miniPlayerPlay');
-  const prevBtn = document.getElementById('miniPlayerPrev');
-  const nextBtn = document.getElementById('miniPlayerNext');
-  const closeBtn = document.getElementById('miniPlayerClose');
-  const titleEl = document.getElementById('miniPlayerTitle');
-  
-  const allAudio = Array.from(document.querySelectorAll('audio'));
-  let currentIndex = -1;
-  let activeAudio = null;
+<script src="/content/site/mini-player.js?v=ep-04-songs-1"></script>
 
-  function getTrackName(audio) {
-    const parent = audio.closest('div');
-    const label = parent?.querySelector('div[style*="font-weight: 600"]');
-    if (label) return label.textContent;
-    const strong = parent?.closest('article, section, div')?.querySelector('strong');
-    if (strong) return strong.textContent;
-    const src = audio.src || '';
-    const filename = src.split('/').pop().replace(/\.mp3.*/, '').replace(/-/g, ' ');
-    return filename || 'Now playing';
-  }
-
-  document.addEventListener('play', (e) => {
-    if (e.target.tagName !== 'AUDIO') return;
-    activeAudio = e.target;
-    currentIndex = allAudio.indexOf(activeAudio);
-    player.hidden = false;
-    playBtn.textContent = '⏸';
-    titleEl.textContent = getTrackName(activeAudio);
-  }, true);
-
-  document.addEventListener('pause', (e) => {
-    if (e.target.tagName !== 'AUDIO') return;
-    if (e.target === activeAudio) {
-      playBtn.textContent = '▶';
-    }
-  }, true);
-
-  document.addEventListener('ended', (e) => {
-    if (e.target.tagName !== 'AUDIO') return;
-    if (e.target === activeAudio) {
-      playBtn.textContent = '▶';
-    }
-  }, true);
-
-  playBtn?.addEventListener('click', () => {
-    if (!activeAudio) return;
-    if (activeAudio.paused) {
-      activeAudio.play();
-    } else {
-      activeAudio.pause();
-    }
-  });
-
-  nextBtn?.addEventListener('click', () => {
-    if (allAudio.length === 0) return;
-    if (activeAudio) activeAudio.pause();
-    currentIndex = (currentIndex + 1) % allAudio.length;
-    activeAudio = allAudio[currentIndex];
-    activeAudio.play();
-  });
-
-  prevBtn?.addEventListener('click', () => {
-    if (allAudio.length === 0) return;
-    if (activeAudio) activeAudio.pause();
-    currentIndex = (currentIndex - 1 + allAudio.length) % allAudio.length;
-    activeAudio = allAudio[currentIndex];
-    activeAudio.play();
-  });
-
-  closeBtn?.addEventListener('click', () => {
-    if (activeAudio) activeAudio.pause();
-    player.hidden = true;
-    activeAudio = null;
-  });
-})();
-</script>
-
-    <script src="../content/site/mini-player.js?v=ep-04-songs-1"></script>
-    <script src="../content/site/brand-polish.js?v=wm1" defer></script>
-<script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
 </body>
 </html>
