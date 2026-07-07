@@ -62,7 +62,7 @@ Which brings me to my favourite part of every episode. We call it the cocktail p
 
 ## ⑧ Sign-off
 
-[warm] So remember, ladies: AI can't read your mind — so tell it what you want... what you really, really want. [smirk] And if you've got a sharper "remember, ladies" than that one, post it in the rooms — our members-only chats at the sorority house. Your residence card gets you in the door, and favourites get featured, with credit. [warm, smiling] See you next Wednesday... in Sunnyvale.
+[warm] So remember, ladies: AI can't read your mind — so tell it what you want... what you really, really want. [smirk] And if you've got a sharper "remember, ladies" than that one, post it in the rooms — our residents-only chats at the sorority house. Your residence card gets you in the door, and favourites get featured, with credit. [warm, smiling] See you next Wednesday... in Sunnyvale.
 
 ## ⑨ Next time (announcer)
 
