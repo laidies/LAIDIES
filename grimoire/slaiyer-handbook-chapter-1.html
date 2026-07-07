@@ -178,7 +178,7 @@
               <p>"LLM" — large language model — is the technical name for the engine behind most of the AI you're using right now. You don't need to know which one. You just need to know there's more than one, and they aren't all the same.</p>
               <p>Wharton professor Ethan Mollick makes this concrete with a three-tier framework that's worth borrowing for the rest of this Handbook:</p>
               <ul class="hb-source-list">
-                <li><strong>Models</strong> — the underlying AI brains. Claude Opus 4.8. GPT-5.2. Gemini 3 Pro. The capability comes from here.</li>
+                <li><strong>Models</strong> — the underlying AI brains. Each big lab keeps a current flagship (named in the box further down this page). The capability comes from here.</li>
                 <li><strong>Apps</strong> — the interfaces you open. claude.ai, chatgpt.com, the Copilot embedded in Teams. The experience comes from here.</li>
                 <li><strong>Harnesses</strong> — the systems that let AI <em>do things</em>, not just say things. Claude Code, ChatGPT Agent mode, Cursor. Same model, different harness — completely different capability.</li>
               </ul>
@@ -224,7 +224,8 @@
               <p>Two common mistakes.</p>
               <p><strong>Using the fast model for hard problems.</strong> It happens because the fast model is the default. You ask a strategic question and get back a fluent paragraph that <em>sounds</em> confident — but didn't actually work the problem through. The reasoning model would have caught the gap.</p>
               <p><strong>Using the reasoning model for everything.</strong> It's overkill for a quick rewrite, and you pay for thinking you didn't need (in time, sometimes in dollars). Save it for when the stakes justify the wait.</p>
-              <p>The other trap: assuming all the AI tools are equivalent. They aren't. As of mid-2026, Claude Opus, GPT-5.2 Thinking, and Gemini 3 Pro are peer-level for general capability, but each has strengths. Claude is widely regarded as the strongest writer. GPT excels at structured reasoning. Gemini integrates deeply with Google's data and image tools. The right question isn't <em>"which is best?"</em> — it's <em>"which one is good at this kind of task?"</em></p>
+              <p>The other trap: assuming all the AI tools are equivalent. They aren't. The current flagships from the three big labs — Anthropic's Claude, OpenAI's GPT, and Google's Gemini — sit roughly peer-level for general capability, but each has strengths. Claude is widely regarded as the strongest writer. GPT excels at structured reasoning. Gemini integrates deeply with Google's data and image tools. The right question isn't <em>"which is best?"</em> — it's <em>"which one is good at this kind of task?"</em></p>
+              <div data-laidies-models></div>
             </section>
 
             <section class="hb-source-section">
@@ -270,11 +271,11 @@
                 <li><strong>Video generators</strong> (Sora, Veo, Runway) — trained on enormous quantities of video, often with text descriptions of what's in them.</li>
                 <li><strong>Voice / audio models</strong> (ElevenLabs, Suno) — trained on hours of human speech or music.</li>
                 <li><strong>Math &amp; code models</strong> — trained on mathematical equations, solved problems, GitHub repositories, technical papers.</li>
-                <li><strong>Multimodal frontier models</strong> (GPT-5, Claude Opus 4.8, Gemini 3 Pro) — trained on text <em>and</em> images <em>and</em> audio <em>and</em> code, all together, so a single model can read a screenshot, summarize a PDF, and write an email back.</li>
+                <li><strong>Multimodal frontier models</strong> (today's flagship Claude, GPT, and Gemini) — trained on text <em>and</em> images <em>and</em> audio <em>and</em> code, all together, so a single model can read a screenshot, summarize a PDF, and write an email back.</li>
               </ul>
               <p>A model can only generate things it was <em>shown how to generate</em>. The provider compiles the training set, runs the training, and then the feeding stops. From that point on, the model has a <em>fixed view of the world</em>. Two things matter about that fixed view, and both shape how you use AI at work — and both apply across every modality above.</p>
               <ul class="hb-source-list">
-                <li><strong>The cutoff.</strong> At some point the training stops, and the model's view freezes. Claude Opus 4.8's training cutoff is January 2026. Claude Haiku 4.5's is July 2025. OpenAI publishes the same for GPT. Anything that happened after is invisible to the model unless you hand it the new information directly.</li>
+                <li><strong>The cutoff.</strong> At some point the training stops, and the model's view freezes. Every model has a knowledge cutoff — recent flagships land around late 2025 to early 2026, while lighter, faster models can be a little older. Each maker publishes the exact date for its own models. Anything after the cutoff is invisible to the model unless you hand it the new information directly.</li>
                 <li><strong>What you type today might train tomorrow's model.</strong> The default is not what most people expect — and it varies sharply by account type. More on that below.</li>
               </ul>
             </section>
@@ -369,13 +370,7 @@
               <p>Two related ideas, often used interchangeably even though they're not the same.</p>
               <p>A <strong>token</strong> is a chunk of text — usually a word or part of one. AI doesn't process letters; it processes tokens. The rough rule for English: about 0.75 tokens per word, or four characters per token. When you hear "this model has a 200k token context window," that's roughly 150,000 words of working memory.</p>
               <p>The <strong>context window</strong> is how much the tool can hold in mind at the same time — everything you've typed in this conversation, every file you've attached, every instruction the tool was given at the start. Anthropic calls it the model's <em>"working memory" — separate from the training data, which is the model's long-term knowledge.</em></p>
-              <p>Current sizes, as of mid-2026:</p>
-              <ul class="hb-source-list">
-                <li><strong>Claude Opus 4.8, Sonnet 4.6, Fable 5</strong> — 1 million tokens (~750,000 words)</li>
-                <li><strong>Claude Haiku 4.5</strong> — 200,000 tokens (~150,000 words)</li>
-                <li><strong>ChatGPT GPT-5</strong> — 1 million tokens on paid tiers</li>
-                <li><strong>Gemini 3 Pro</strong> — 2 million tokens</li>
-              </ul>
+              <p>Current sizes, roughly: today's flagship models hold on the order of one to two million tokens — about 750,000 to 1.5 million words of working memory — while lighter, faster models hold a couple hundred thousand (still around 150,000 words). For the exact figure on the model you're using, check the maker's page.</p>
               <p>Sounds enormous. It is. But there's a crucial second fact: more isn't always better.</p>
             </section>
 
@@ -626,6 +621,7 @@
     </div>
 
     <script src="/content/grimoire-book.js?v=grimoire-12"></script>
+  <script src="/content/site/current-models.js?v=20260707-1"></script>
   <script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
   </body>
 </html>
