@@ -4570,7 +4570,7 @@ function getQuizReward(score, maxScore, bonusScore = 0) {
       tier: "double",
       sticker: "2 Sticker Drop",
       title: "Caboodle Valedictorian + Receipts Queen",
-      message: "12/10. You get two stickers, one for the quiz and one for reading next week's diary early. Very limited-edition energy.",
+      message: `${totalScore}/${coreMax}. You get two stickers, one for the quiz and one for reading next week's diary early. Very limited-edition energy.`,
     };
   }
   if (bonusMax && numericScore > coreMax) {
@@ -4578,7 +4578,7 @@ function getQuizReward(score, maxScore, bonusScore = 0) {
       tier: "receipts-plus",
       sticker: "Receipts Queen + Bonus Clip",
       title: "Receipts Queen Extra Credit Sticker",
-      message: "11/10. Perfect core score plus one bonus receipt. You found the tiny timeline detail and still had time to fix your lip gloss.",
+      message: `${numericScore}/${coreMax}. Perfect core score plus one bonus receipt. You found the tiny timeline detail and still had time to fix your lip gloss.`,
     };
   }
   if (numericScore >= coreMax) {
@@ -4627,14 +4627,17 @@ function getQuizButterflyRating(score, maxScore, bonusScore = 0) {
   const visualMax = Math.max(coreMax, totalMax);
   const capped = Math.max(0, Math.min(Number(score || 0), visualMax));
   const clips = Math.round(capped);
-  if (bonusScore && clips >= totalMax) return { clips, title: "Full extra-credit hairstyle.", tone: "perfect" };
-  if (bonusScore && clips > coreMax) return { clips, title: "Extra-credit clip secured.", tone: "perfect" };
-  if (clips >= coreMax) return { clips: coreMax, title: "Almost enough for a full hairstyle.", tone: "perfect" };
-  if (clips >= 8) return { clips, title: "Main character hold.", tone: "high" };
-  if (clips >= 6) return { clips, title: "Calendar-ready.", tone: "high" };
-  if (clips >= 4) return { clips, title: "Half-up, half-helpful.", tone: "mid" };
-  if (clips >= 2) return { clips, title: "Barely clipped, but showing effort.", tone: "low" };
-  return { clips: Math.max(clips, 1), title: "Ouch. Stepped on a broken butterfly clip.", tone: "low" };
+  if (bonusScore && clips >= totalMax) return { clips, title: "Every clip in the Caboodle — a full extra-credit hairstyle.", tone: "perfect" };
+  if (bonusScore && clips > coreMax) return { clips, title: "A full hairstyle plus a bonus clip. Extra credit secured.", tone: "perfect" };
+  if (clips >= coreMax) return { clips: coreMax, title: "A full butterfly-clip hairstyle. Iconic.", tone: "perfect" };
+  if (clips === 0) return { clips: 0, title: "Zero clips. You stepped on a broken butterfly clip in the dark. Reread and retry.", tone: "low" };
+  if (clips === 1) return { clips: 1, title: "One lonely butterfly clip. How are you styling your hair with that? Better retry.", tone: "low" };
+  const pct = coreMax > 0 ? clips / coreMax : 0;
+  if (pct >= 0.8) return { clips, title: "Almost a full head of clips — main-character hair.", tone: "high" };
+  if (pct >= 0.6) return { clips, title: "A real handful of clips. An actual hairstyle is happening.", tone: "high" };
+  if (pct >= 0.4) return { clips, title: "Half-up, half-helpful — enough clips for a messy-cute half-do.", tone: "mid" };
+  if (pct >= 0.2) return { clips, title: "A few clips in. Effort is showing, the hairstyle is not — reread and add more.", tone: "low" };
+  return { clips, title: "Just a clip or two. Barely a start — reread and clip more in.", tone: "low" };
 }
 
 const quizStickerAssetManifest = {
