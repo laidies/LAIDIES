@@ -1,5 +1,11 @@
 # "Postcard from SUNNYVAiLE" invite postcards (2026-07-06)
 
+> ⛔ **ON HOLD (Ali 2026-07-08): do NOT wire this set into `postcard.html` yet.** Wait until the
+> full per-building v3 image set lands, then sort which images are POSTCARDS (Post Office picker)
+> vs just SCENES (building-page heros/banners). Each building page shows its own postcard(s).
+> See memory `postcard-vs-scene-plan`. (Also: these are 3:2; the sunnyvaile-v3 scene-banners are
+> 2:1 and crop their side slogan in a 3:2 thumb — may need re-render if promoted to a postcard.)
+
 > ⚠️ **CODEX SCOPE — IMAGES ONLY.** Generate the postcards and save them to the exact
 > paths below. Do not edit code, HTML, JSON, or run git. PNGs only.
 
