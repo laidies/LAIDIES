@@ -41,6 +41,15 @@ Columns: **Claim** · **What it measures (scope/caveat)** · **Source** · **Ver
   https://www.library.hbs.edu/working-knowledge/women-are-avoiding-using-artificial-intelligence-can-that-hurt-their-careers
   · Verified 2026-07-07 · Used in: **Ep1**.
 
+- **"'Prompt' is an old word the tech world borrowed — the computer nerds lifted it from the theater kids."**
+  · Scope: the verb *prompt* dates to the **mid-1300s** ("incite to action," from Latin *promere*, "bring
+  forth"); the **theatrical prompter** (feeding an actor a forgotten line) is **1590s–1600s**. Computing's
+  "command prompt" + AI's "prompt" adopted the existing word — NOT a tech coinage. **Caveat (the Ep2 joke
+  compresses this):** computing didn't borrow *specifically from theater* — both descend from the older
+  general verb "to prompt" (to cue). Theater = the vivid pre-tech example. Joke spirit is accurate; "lifted
+  from the theater kids" is approved comedic framing. · Source: https://www.etymonline.com/word/prompt ;
+  https://en.wikipedia.org/wiki/Prompter_(theatre) · Verified 2026-07-07 · Used in: **Ep2**.
+
 ### ⚠️ NEEDS VERIFICATION before it ships again
 
 - ✅ **VERIFIED + corrected 2026-07-07 — Mollick quote.** Exact wording: *"The skills that are so often
