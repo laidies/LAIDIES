@@ -95,7 +95,7 @@ same photoshoot as the source scene, not a crop and not a new concept.
 | `ep02-rewrite-remix.png` | `issue02-its-britney-bitch.png` | Vertical: the before/after — crumpled "ugh" draft giving way to the polished "NAILED IT" espresso-martini desk, Stardust/Britney magazine, pink Razr. The draft glow-up. |
 | `ep02-context.png` | `issue02-dont-pull-a-cher.png` | Vertical: restage the Ep-2 vocab scene (prompt / context / token) — foreground the "context" beat as hero with its label. |
 | `ep02-try-on.png` | `issue02-tryon-homework.png` | Vertical: the weekly try-on staging — one real task run twice, v1 vs v2 side by side, "TRY IT ON" energy. |
-| `ep02-girl-power.png` | `issue02-drawing-game-spice-girls.png` (use the COFFEE re-render once it lands) | Vertical: the Spice Girls "tell me what you want, what you really really want" scene, restaged around the coffee-order analogy (regular spot vs brand-new café). |
+| `ep02-girl-power.png` | `issue02-coffee-order.png` | Vertical: the Spice Girls "tell me what you want, what you really really want" energy, restaged around the coffee-order analogy (your regular spot vs the brand-new café — cold drip vs the latte you actually asked for). |
 
 ### Episode 3 — "The Burn Book Problem" (verify before you trust)
 
@@ -114,8 +114,7 @@ same photoshoot as the source scene, not a crop and not a new concept.
 - Every card is restaged from art readers have ALREADY seen in the episode — same props, same
   jokes, same cultural artifacts. Nothing new invented (except `ep01-small-sips`, which stays
   inside Ep 1's exact desk world).
-- `ep02-girl-power` derives from `issue02-drawing-game-spice-girls.png`, which is itself being
-  re-rendered from the house/drawing analogy to the **coffee-order** analogy. Build this card from
-  the FINAL coffee version, not the old house one.
+- `ep02-girl-power` derives from `issue02-coffee-order.png` — the **coffee-order** analogy (your
+  regular spot vs the brand-new café). The old drawing-game/house render is retired.
 - **Verification imagery (magnifying glass, receipts, evidence board) belongs to Episode 3 only.**
   Keep it off every Ep 1 and Ep 2 card.

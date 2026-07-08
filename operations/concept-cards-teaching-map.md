@@ -24,7 +24,7 @@ Teachings are grounded in the actual articles (`content/issues/issue-0N.md`,
 
 | Card id | Teaching | Takeaway (on card) | Source scene |
 |---|---|---|---|
-| `girl-power` | Prompting is delegation, not code | "Tell it what you want, what you really really want. You already know how to brief." | `issue02-drawing-game-spice-girls` (→coffee) |
+| `girl-power` | Prompting is delegation, not code | "Tell it what you want, what you really really want. You already know how to brief." | `issue02-coffee-order` |
 | `specificity` | Brief AI like a smart new hire | "Name the audience, tone, length, and what to leave out. Be David Rose about it." | `issue02-david-rose-specificity` |
 | `context` *(was `receipts`)* | AI has never met you | "It doesn't know your meetings. Spell out the context every time — until you've built the relationship." | `issue02-dont-pull-a-cher` |
 | `rewrite-remix` | Same task, better ask | "Vague prompt → word salad. Specific prompt → NAILED IT. The variable is you." | `issue02-its-britney-bitch` |
