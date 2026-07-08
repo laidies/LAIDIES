@@ -38,7 +38,10 @@ Landscape 3:2, ~1500×1000. One postcard per scene:
    Filed to `approved-assets/postcards/`.
 6. `pc-ksvl.png` — KSVL 99.9, the radio tower + heart sign.
 7. `pc-mme-claio.png` — Mme CLAi-O's psychic shop, jewel-toned.
-8. `pc-library.png` — the LIBRAiRY reading room, golden light.
+8. `pc-library.png` — the LIBRAiRY at dusk, golden light. **✅ DELIVERED (2026-07-07).**
+   Baked slogan: **"NEVER BEEN BOOKED"** / *"Come to SUNNYVAiLE"* (pun on booked). Streamline-deco
+   exterior, glass-block rotunda, "Open your mind / Open a book" sign, BOOK RETURN box. Filed to
+   `approved-assets/postcards/`.
 9. `pc-park.png` — the town park at golden hour (picnic, boombox — reuse `town-park-afternoon` register).
 10. `pc-sorority-house.png` — Delta LAi Nu on Wisteria Lane, string lights.
 
