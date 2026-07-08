@@ -47,7 +47,8 @@
   // ---------- CSS ----------
   var STYLE = ''
     + '.sv-map-directory { display: flex; flex-direction: column; gap: 0; margin: 40px 0; position: relative; }'
-    + '.sv-map-wrap { position: sticky; top: 82px; background: var(--pearl, #f8eef2); border: 1px solid rgba(75,33,72,0.14); border-radius: 8px; overflow: hidden; aspect-ratio: 1858 / 846; max-width: 1100px; margin: 0 auto; width: 100%; }'
+    + '.sv-mapdir-frozen { position: sticky; top: 70px; z-index: 20; }'
+    + '.sv-map-wrap { position: relative; background: var(--pearl, #f8eef2); border: 1px solid rgba(75,33,72,0.14); border-radius: 8px; overflow: hidden; aspect-ratio: 1858 / 846; max-width: 1100px; margin: 0 auto; width: 100%; }'
     + '.sv-map-img { width: 100%; height: 100%; object-fit: cover; display: block; }'
     + '.sv-map-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--plum-soft, #6b3a66); padding: 24px; background: repeating-linear-gradient(45deg, transparent 0 20px, rgba(155,63,95,0.05) 20px 40px); }'
     + '.sv-map-placeholder-icon { font-size: 42px; margin-bottom: 12px; opacity: 0.5; }'
@@ -72,8 +73,9 @@
     + '.sv-hover-preview__mech { list-style: none; padding: 0; margin: 0 0 10px; font-size: 12px; color: var(--plum, #4b2148); line-height: 1.5; }'
     + '.sv-hover-preview__mech li::before { content: "★ "; color: var(--rose, #9b3f5f); }'
     + '.sv-hover-preview__cta { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose, #9b3f5f); }'
-    + '.sv-directory { max-width: 1050px; margin: 20px auto 0; width: 92%; position: relative; z-index: 2; padding: 22px 26px 26px; background: rgba(255,253,251,0.90); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 14px; border: 1.5px solid rgba(155,63,95,0.22); box-shadow: 0 12px 32px rgba(75,33,72,0.20); overflow: hidden; box-sizing: border-box; }'
-    + '@media (max-width: 700px) { .sv-directory { margin-top: 16px; width: 100%; background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; border: none; box-shadow: none; padding: 0; } }'
+    + '.sv-directory-head { max-width: 1050px; width: 92%; margin: -16px auto 0; position: relative; z-index: 2; padding: 20px 26px 4px; background: var(--cream, #fffdfb); border: 1.5px solid rgba(155,63,95,0.22); border-bottom: 1px solid rgba(75,33,72,0.12); border-radius: 14px 14px 0 0; box-sizing: border-box; }'
+    + '.sv-directory { max-width: 1050px; margin: 0 auto; width: 92%; position: relative; z-index: 1; padding: 6px 26px 26px; background: var(--cream, #fffdfb); border: 1.5px solid rgba(155,63,95,0.22); border-top: 0; border-radius: 0 0 14px 14px; box-shadow: 0 12px 32px rgba(75,33,72,0.20); box-sizing: border-box; }'
+    + '@media (max-width: 700px) { .sv-mapdir-frozen { top: 58px; } .sv-directory-head { width: 100%; margin-top: -10px; padding: 16px 14px 4px; } .sv-directory { width: 100%; padding: 6px 12px 20px; box-shadow: none; } }'
     + '.sv-directory-title { font-size: 11px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--rose, #9b3f5f); margin: 0 0 6px; }'
     + '.sv-directory-note { font-size: 12px; color: var(--plum-soft, #6b3a66); margin: 0 0 18px; font-style: italic; }'
     + '.sv-directory-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(6, auto); grid-auto-flow: column; column-gap: 16px; border-top: 1px solid rgba(75,33,72,0.10); }'
@@ -165,10 +167,15 @@
     });
   }
 
+  function buildDirectoryHead() {
+    var head = el('div', {class:'sv-directory-head'});
+    head.appendChild(el('div', {class:'sv-directory-title', text:'★ SUNNYVAiLE Directory'}));
+    head.appendChild(el('div', {class:'sv-directory-note', text:'Hover to light it up on the map. Click to step inside.'}));
+    return head;
+  }
+
   function buildDirectory() {
     var wrap = el('div', {class:'sv-directory'});
-    wrap.appendChild(el('div', {class:'sv-directory-title', text:'★ SUNNYVAiLE Directory'}));
-    wrap.appendChild(el('div', {class:'sv-directory-note', text:'Hover to light it up on the map. Click to step inside.'}));
     var list = el('ul', {class:'sv-directory-list'});
     SV_BUILDINGS.forEach(function(b) {
       var item = el('button', {
@@ -293,7 +300,7 @@
     var mountEl = document.getElementById('sv-map-directory');
     if (!mountEl) return;
     injectStyle();
-    var container = el('div', {class:'sv-map-directory'}, [buildMap(), buildDirectory()]);
+    var container = el('div', {class:'sv-map-directory'}, [el('div', {class:'sv-mapdir-frozen'}, [buildMap(), buildDirectoryHead()]), buildDirectory()]);
     mountEl.innerHTML = '';
     mountEl.appendChild(container);
   }
