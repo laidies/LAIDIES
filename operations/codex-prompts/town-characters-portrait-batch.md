@@ -20,6 +20,8 @@ The current live portraits (`assets/*-portrait-v3.png`) drifted **ornate / Victo
 **Style reference — attach these and match their vibrancy/light:**
 `assets/building-interiors/town-hall-deb-desk.jpg` (this is the exact target — Deb at her desk, bright and detailed), `assets/building-interiors/mme-claio-reading-room.jpg`, `assets/building-interiors/ksvl-booth.jpg`, `assets/building-interiors/post-office-lobby.jpg`, plus any `assets/sunnyvaile-buildings/y2k-v3/*.webp`.
 
+**⚠️ DEB'S WALL POSTER — reproduce the REAL art, do NOT invent one.** Attach and copy the actual poster: `assets/printables/deb-1999-campaign-poster-yippee-ki-ai-hr-redacted.png` — her canon **Die Hard campaign poster** (HR-redacted "YIPPEE-KI-Ai" with black redaction bars). That exact poster hangs on her wall. Do NOT generate a generic "Die Hard (too violent)" poster. (Alternates, if you'd rather hang one of these instead: her NOPE-trilogy posters `assets/printables/deb-nope-poster-mayor-sunnyvaile-since-1999.png`, `deb-nope-poster-loop-me-out.png`, `deb-nope-poster-deb-flection-trademark.png`.)
+
 ---
 
 ## Character-Match — keep the person (except SunnyV, who changes)
@@ -42,7 +44,7 @@ Reference photos to attach per subject:
 | 1 | `mme-claio-scene.png` | **Mme CL<span style="color:#9b3f5f">Ai</span>-O** | In her sunlit fortune-telling shop at her reading table — glowing **crystal ball** + a **fan of tarot cards**, beaded curtain catching light behind. Warm and airy, not dim. Knowing half-smile, one brow up. Match `mme-claio-reading-room.jpg`. |
 | 2 | `fairy-godmother-scene.png` | **F<span style="color:#9b3f5f">Ai</span>RY Godmother** | On the porch of her Willow Lane craftsman bungalow at golden hour — string lights, her **mailbox brimming with wish-letters**, a teacup, holo **wand** in hand. Cozy and *bright*, sun-warmed wood. |
 | 3 | `dj-sunnyv-scene.png` | **DJ SunnyV** — **NOW a young, cool Black woman** in her early-mid 20s. Confident, fun, effortlessly stylish. | In the KSVL Community R<span style="color:#9b3f5f">Ai</span>DIO booth **at the turntables/mixing board, mic in front of her**, red **ON AIR** sign glowing, **headphones on**, mid-mix and happy. Y2K styling — e.g. **space buns or box braids / bantu knots, big hoop earrings, a baby tee under a velour or track jacket, tinted visor or slim shades**. Bright neon-warm booth light. Match `ksvl-booth.jpg`. |
-| 4 | `mayor-deb-scene.png` | **Mayor Deb** — same person as her reference photos. | Her **Town Hall desk scene, keep ALL the detail** (this is the part Ali loves): the **NOPE rubber stamp** mid-air, the **Deb-flection™ clipboard**, the **"MAYOR (under protest)" mug**, the redacted **Die Hard poster** on the wall, jewel-tone shell suit + MAYOR sash. Just make it **VIBRANT — not dull/sepia — and drop the halo.** No roses, no ornate frame. Match the bright light of `town-hall-deb-desk.jpg`. |
+| 4 | `mayor-deb-scene.png` | **Mayor Deb** — same person as her reference photos. | Her **Town Hall desk scene, keep ALL the detail** (this is the part Ali loves): the **NOPE rubber stamp** mid-air, the **Deb-flection™ clipboard**, the **"MAYOR (under protest)" mug**, the **real redacted Die Hard campaign poster** on the wall (reproduce `assets/printables/deb-1999-campaign-poster-yippee-ki-ai-hr-redacted.png` exactly — NOT an invented "Die Hard (too violent)" one), jewel-tone shell suit + MAYOR sash. Just make it **VIBRANT — not dull/sepia — and drop the halo.** No roses, no ornate frame. Match the bright light of `town-hall-deb-desk.jpg`. |
 
 ---
 
