@@ -54,7 +54,7 @@ Which brings me to my favourite part of every episode. We call it the cocktail p
 
 ## ⑥ The postcard
 
-[warm] Oh — and the first person I tried that line on? A friend who's been "meaning to get to this" for about a year. She got it in one sentence. So on my way out of town, I stopped by the Post Office and mailed her a postcard — the kind you send from a place you actually love — that just said: come to Sunnyvale. [smile] This is better with your people in it.
+[warm] Oh — and the first person I tried that line on? A friend who's been "meaning to get to this" for about a year. She got it in one sentence. So on my way out of town, I stopped by the Post Office and mailed her a postcard — the kind you send from a place you actually love — and wrote on the back: [smile] come find me in Sunnyvale. It's better with your people in it.
 
 ## ⑦ Try-on
 

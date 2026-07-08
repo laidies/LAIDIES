@@ -70,6 +70,7 @@ Avoid obvious AI-drafted patterns:
 * fearmongering
 * overexplaining the joke
 * making the reader feel like she is in training
+* false-exclusivity hooks — “the move nobody makes,” “the thing nobody tells you,” “the secret nobody says out loud,” and any “nobody does this / the X nobody Y” construction (Ali 2026-07-08: classic AI slop, banned)
 
 Use structure, but hide the scaffolding.
 

@@ -42,10 +42,33 @@
     .pc-reward p { margin: 0; font-size: 14px; line-height: 1.5; color: var(--plum-deep); }
     .pc-reward strong { color: var(--rose); }
 
-    /* receiver hero */
-    .pc-receive-card { margin: 8px 0 20px; border-radius: 16px; overflow: hidden; border: 2px solid var(--gold); box-shadow: 0 14px 34px rgba(75,33,72,0.18); background: var(--cream); }
-    .pc-receive-card img { width: 100%; height: auto; display: block; }
-    .pc-receive-note { padding: 20px 24px; font-family: 'Dancing Script', cursive; font-size: 22px; line-height: 1.4; color: var(--plum-deep); }
+    /* ---- two-sided postcard (front scene / back message) ---- */
+    .pc-card { perspective: 1400px; margin: 10px 0 6px; }
+    .pc-card-inner { position: relative; width: 100%; aspect-ratio: 3 / 2; transition: transform 0.7s cubic-bezier(0.2,0.7,0.2,1); transform-style: preserve-3d; }
+    .pc-card.is-flipped .pc-card-inner { transform: rotateY(180deg); }
+    .pc-face { position: absolute; inset: 0; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 14px; overflow: hidden; border: 2px solid var(--gold); box-shadow: 0 14px 34px rgba(75,33,72,0.18); background: var(--cream); }
+    .pc-face--front { cursor: pointer; }
+    .pc-face--front img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pc-face--back { transform: rotateY(180deg); cursor: pointer; display: grid; grid-template-columns: 1.12fr 1fr; background: #fbf4ea; }
+    .pc-back-msg { padding: clamp(12px,2.2vw,22px); display: flex; flex-direction: column; gap: 7px; border-right: 2px dashed rgba(75,33,72,0.28); min-width: 0; }
+    .pc-back-post { margin: 0; font-family: 'Jost',sans-serif; font-size: clamp(8px,1.1vw,10px); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose); }
+    .pc-back-post .ai { color: var(--rose); }
+    .pc-back-note { margin: 2px 0; font-family: 'Dancing Script', cursive; font-size: clamp(15px,2.5vw,24px); line-height: 1.22; color: var(--plum-deep); flex: 1; overflow: hidden; }
+    .pc-back-blurb { margin: 0; font-family: 'Jost',sans-serif; font-size: clamp(8.5px,1.2vw,12px); line-height: 1.4; color: var(--plum-soft); }
+    .pc-back-addr { position: relative; padding: clamp(12px,2.2vw,22px); display: flex; flex-direction: column; min-width: 0; }
+    .pc-stamp { position: absolute; top: clamp(10px,1.8vw,18px); right: clamp(10px,1.8vw,18px); width: clamp(40px,6.6vw,58px); aspect-ratio: 4 / 5; border-radius: 4px; background: linear-gradient(135deg,var(--blush),#f6e2c4); border: 2px solid #fff; box-shadow: 0 0 0 2px rgba(201,162,39,0.6), 0 2px 6px rgba(75,33,72,0.2); display: grid; place-items: center; font-family: 'Playfair Display',serif; font-size: clamp(17px,2.8vw,26px); color: var(--rose); }
+    .pc-postmark { position: absolute; top: clamp(26px,4.2vw,38px); right: clamp(40px,7.4vw,60px); width: clamp(44px,7.2vw,64px); height: clamp(44px,7.2vw,64px); border-radius: 50%; border: 1.5px solid rgba(155,63,95,0.5); color: rgba(155,63,95,0.72); font-family: 'Jost',sans-serif; font-size: clamp(6px,0.9vw,8px); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; display: grid; place-items: center; text-align: center; line-height: 1.15; transform: rotate(-8deg); pointer-events: none; }
+    .pc-addr-to { margin: clamp(50px,8.4vw,70px) 0 0; font-family: 'Jost',sans-serif; font-size: clamp(10px,1.35vw,13px); font-weight: 700; color: var(--plum-deep); }
+    .pc-addr-to span { font-weight: 400; color: var(--plum-soft); }
+    .pc-addr-why { margin: 5px 0 0; font-family: 'Jost',sans-serif; font-size: clamp(8.5px,1.2vw,12px); line-height: 1.38; color: var(--plum-soft); }
+    .pc-addr-do { margin: auto 0 0; padding-top: 8px; font-family: 'Jost',sans-serif; font-size: clamp(8.5px,1.25vw,12px); font-weight: 700; line-height: 1.35; color: var(--rose); }
+    .pc-flip-row { display: flex; justify-content: center; margin: 4px 0 10px; }
+    .pc-flip { display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; border-radius: 999px; border: 1.5px solid rgba(75,33,72,0.3); background: var(--cream); color: var(--plum-deep); font-family: 'Jost',sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; }
+    .pc-flip:hover { border-color: var(--gold); }
+    .pc-postmark > span { display: block; text-align: center; }
+    .pc-postmark .ai { color: inherit !important; }
+    .pc-btn > span { min-width: 0; }
+    @media (prefers-reduced-motion: reduce) { .pc-card-inner { transition: none; } }
     .pc-hidden { display: none !important; }
   </style>
 </head>
@@ -82,6 +105,31 @@
           <span style="font-size:12px;">(so she knows who to thank)</span>
         </div>
 
+        <h2 class="pc-note-hd">Your postcard</h2>
+        <p style="margin:2px 0 6px;font-size:13px;color:var(--plum-soft);">Front and back — this is exactly what she&rsquo;ll get. Tap to flip.</p>
+        <div class="pc-card" id="pcPrev">
+          <div class="pc-card-inner">
+            <div class="pc-face pc-face--front">
+              <img id="pcPrevImg" src="" alt="The front of your postcard">
+            </div>
+            <div class="pc-face pc-face--back">
+              <div class="pc-back-msg">
+                <p class="pc-back-post">Postcard from SUNNYV<span class="ai">Ai</span>LE</p>
+                <p class="pc-back-note" id="pcPrevNote">Come find me in Sunnyvale.</p>
+                <p class="pc-back-blurb">A little internet town where smart, busy women learn AI — one Wednesday at a time.</p>
+              </div>
+              <div class="pc-back-addr">
+                <div class="pc-stamp" aria-hidden="true">&#9825;</div>
+                <div class="pc-postmark" aria-hidden="true"><span>SUNNYV<span class="ai">Ai</span>LE &#9733; &rsquo;99</span></div>
+                <p class="pc-addr-to">To: <span>your friend</span></p>
+                <p class="pc-addr-why">She&rsquo;s getting this because you thought she&rsquo;d love it here.</p>
+                <p class="pc-addr-do">She makes her card &mdash; you both get the necklace.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pc-flip-row"><button class="pc-flip" id="pcPrevFlip" type="button">Flip the card &#8635;</button></div>
+
         <h2 class="pc-note-hd">3 · Send it</h2>
         <div class="pc-send-row">
           <button class="pc-btn gold" id="pcShare" type="button">Send it →</button>
@@ -101,15 +149,33 @@
       <section id="pc-receive" class="pc-hidden">
         <p class="pc-eyebrow">★ You've got mail</p>
         <h1 id="pcRecTitle">You've been invited to SUNNYV<span class="ai">Ai</span>LE.</h1>
-        <p class="sv-lede" id="pcRecLede">A friend mailed you a postcard from a little internet town where smart, busy women learn AI one Wednesday at a time.</p>
+        <p class="sv-lede" id="pcRecLede">A friend mailed you a postcard from a little internet town where smart, busy women learn AI — one Wednesday at a time.</p>
 
-        <div class="pc-receive-card">
-          <img id="pcRecImg" src="" alt="A postcard from SUNNYVAiLE">
-          <div class="pc-receive-note" id="pcRecNote"></div>
+        <div class="pc-card" id="pcCard">
+          <div class="pc-card-inner">
+            <div class="pc-face pc-face--front">
+              <img id="pcRecImg" src="" alt="The front of your postcard from SUNNYVAiLE">
+            </div>
+            <div class="pc-face pc-face--back">
+              <div class="pc-back-msg">
+                <p class="pc-back-post">Postcard from SUNNYV<span class="ai">Ai</span>LE</p>
+                <p class="pc-back-note" id="pcRecNote"></p>
+                <p class="pc-back-blurb">A little internet town where smart, busy women learn AI — one Wednesday at a time.</p>
+              </div>
+              <div class="pc-back-addr">
+                <div class="pc-stamp" aria-hidden="true">&#9825;</div>
+                <div class="pc-postmark" aria-hidden="true"><span>SUNNYV<span class="ai">Ai</span>LE &#9733; &rsquo;99</span></div>
+                <p class="pc-addr-to">To: <span>a future resident</span></p>
+                <p class="pc-addr-why" id="pcRecWhy"></p>
+                <p class="pc-addr-do">Come make your card &mdash; you&rsquo;ll both get the BEST FRIENDS necklace.</p>
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="pc-flip-row"><button class="pc-flip" id="pcFlip" type="button">Flip the card &#8635;</button></div>
 
         <div class="pc-send-row">
-          <a class="pc-btn gold" id="pcJoin" href="/maikeover.html">Come to SUNNYVAiLE — make your card →</a>
+          <a class="pc-btn gold" id="pcJoin" href="/maikeover.html"><span>Come to SUNNYV<span class="ai">Ai</span>LE — make your card →</span></a>
         </div>
 
         <div class="pc-reward">
@@ -148,6 +214,12 @@
     function ls(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
     function lsSet(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
     function esc(s){ return String(s||'').replace(/[<>&"]/g, function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c];}); }
+    function bindFlip(cardId, btnId) {
+      var card = document.getElementById(cardId); if (!card) return;
+      function toggle() { card.classList.toggle('is-flipped'); }
+      Array.prototype.forEach.call(card.querySelectorAll('.pc-face'), function (f) { f.addEventListener('click', toggle); });
+      var btn = document.getElementById(btnId); if (btn) btn.addEventListener('click', function (e) { e.preventDefault(); toggle(); });
+    }
 
     var params = new URLSearchParams(location.search);
     var from = (params.get('from') || '').replace(/^@/, '').trim();
@@ -170,9 +242,12 @@
 
       document.getElementById('pcRecTitle').innerHTML =
         '@' + esc(from) + ' invited you to SUNNYV<span class="ai">Ai</span>LE.';
+      document.getElementById('pcRecWhy').innerHTML =
+        '@' + esc(from) + ' sent you this &mdash; she thinks you&rsquo;d love it here.';
       // carry the referrer into the join link
       var join = document.getElementById('pcJoin');
       join.href = '/maikeover.html?from=' + encodeURIComponent(from);
+      bindFlip('pcCard', 'pcFlip');
     }
 
     // ---------------- COMPOSE ----------------
@@ -190,6 +265,7 @@
         b.addEventListener('click', function () {
           picked = p.id;
           Array.prototype.forEach.call(grid.children, function (c) { c.classList.toggle('is-picked', c.dataset.id === picked); });
+          var pv = document.getElementById('pcPrevImg'); if (pv) pv.src = PC_BASE + p.file;
         });
         grid.appendChild(b);
       });
@@ -197,6 +273,14 @@
       // prefill handle from the resident's card if they have one
       var h = ls('laidies_card_username');
       if (h) document.getElementById('pcHandle').value = h;
+
+      // live two-sided preview
+      var pvImg = document.getElementById('pcPrevImg');
+      if (pvImg) pvImg.src = PC_BASE + POSTCARDS[0].file;
+      document.getElementById('pcNote').addEventListener('input', function () {
+        document.getElementById('pcPrevNote').textContent = note() || 'Come find me in Sunnyvale.';
+      });
+      bindFlip('pcPrev', 'pcPrevFlip');
 
       document.getElementById('pcShare').addEventListener('click', doShare);
       document.getElementById('pcCopy').addEventListener('click', doCopy);

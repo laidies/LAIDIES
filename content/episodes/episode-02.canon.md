@@ -126,7 +126,7 @@ vague-vs-specific; Ep3 will fill it with trusted-blindly vs verified, etc. → a
 - **The fluent way (the brief, out loud):** Who's it for? Six senior managers with two minutes before
   a meeting. What do they need? What's changing, when it takes effect, what their teams do differently,
   whether it touches budget. What do we cut? The backstory. What shape? Bullets, ~150 words. And the
-  move nobody makes: *"here's last quarter's summary that landed — match it."*
+  last line in the brief: *"here's last quarter's summary that landed — match it."*
 - **The result (approved 2026-07-07):** a realistic exec summary drafted **the way the prompt asked** —
   subject line "Compliance Reporting — Q4 Policy Update," then complete-sentence bullets: *What's
   changing* (dual sign-off, was just the lead) · *When it takes effect* (Oct 1; first dual-signed report
