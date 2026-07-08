@@ -75,91 +75,62 @@
     }
     @media (max-width: 640px) { .mall-corridor { grid-template-columns: 1fr; padding: 22px 16px 26px; } }
 
-    /* ── Storefronts ──────────────────────────────────────── */
+    /* ── Storefronts (real renders — signage baked in) ────── */
     .shop {
       --acc: var(--teal, #247b83);
       display: flex; flex-direction: column;
       text-decoration: none;
-      border-radius: 12px 12px 8px 8px;
+      border-radius: 12px;
       background: #fdf8f3;
       border: 1px solid rgba(75,33,72,0.14);
       box-shadow: 0 6px 18px rgba(75,33,72,0.10);
       overflow: hidden;
       transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
-    .shop:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(75,33,72,0.18); }
-    .shop-sign {
-      display: block; text-align: center;
+    .shop:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(75,33,72,0.20); }
+    .shop:focus-visible { outline: 3px solid var(--gold, #c9a227); outline-offset: 2px; }
+    .shop-photo {
+      position: relative; display: block;
+      aspect-ratio: 3 / 2; overflow: hidden; background: #16454b;
+    }
+    .shop-photo img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.4s ease;
+    }
+    .shop:hover .shop-photo img { transform: scale(1.045); }
+    /* a lit-window sheen as you walk past */
+    .shop-photo::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(115deg, rgba(255,255,255,0) 54%, rgba(255,255,255,0.30) 62%, rgba(255,255,255,0) 71%);
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .shop:hover .shop-photo::after { opacity: 1; }
+    .shop-base {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 10px 15px 11px;
       background: linear-gradient(180deg, #fffdf8, #f7ecdf);
-      border-bottom: 3px solid var(--acc);
-      padding: 12px 14px 10px;
-      font-weight: 700; font-size: 16.5px; line-height: 1.25;
-      color: var(--plum, #4b2148);
-      letter-spacing: 0.02em;
+      border-top: 3px solid var(--acc);
     }
-    .shop-sign .ai { color: var(--rose, #9b3f5f); text-transform: none !important; }
-    .shop-awning {
-      display: block; height: 26px;
-      background: repeating-linear-gradient(90deg,
-        var(--acc) 0 22px, #fffdfb 22px 44px);
-      -webkit-mask: radial-gradient(circle 11px at 11px 100%, transparent 10px, #000 11px) 0 0 / 22px 100%,
-        linear-gradient(#000, #000) 0 0 / 100% calc(100% - 11px) no-repeat;
-      mask: radial-gradient(circle 11px at 11px 100%, transparent 10px, #000 11px) 0 0 / 22px 100%,
-        linear-gradient(#000, #000) 0 0 / 100% calc(100% - 11px) no-repeat;
-      mask-composite: exclude;
-      -webkit-mask-composite: xor;
-      filter: drop-shadow(0 3px 3px rgba(75,33,72,0.18));
-    }
-    .shop-window {
-      flex: 1;
-      position: relative;
-      margin: 12px 14px;
-      background: linear-gradient(200deg, #fff 0%, var(--blush, #f9e6ee) 90%);
-      border: 2px solid rgba(75,33,72,0.16);
-      border-radius: 8px;
-      padding: 14px 14px 12px;
-      overflow: hidden;
-      transition: box-shadow 0.18s ease;
-    }
-    .shop-window::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(115deg, rgba(255,255,255,0) 42%, rgba(255,255,255,0.55) 47%, rgba(255,255,255,0) 54%, rgba(255,255,255,0) 68%, rgba(255,255,255,0.35) 72%, rgba(255,255,255,0) 78%);
-      pointer-events: none;
-    }
-    .shop:hover .shop-window { box-shadow: inset 0 0 34px rgba(201,162,39,0.20); }
-    .shop-display {
-      display: block; font-size: 26px; letter-spacing: 0.22em;
-      margin-bottom: 8px; line-height: 1;
+    .shop-meta { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+    .shop-unit {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.22em;
+      color: rgba(75,33,72,0.5);
     }
     .shop-desc {
-      margin: 0; font-size: 13.5px; line-height: 1.5;
+      margin: 0; font-size: 12.5px; line-height: 1.35;
       color: var(--plum, #4b2148);
     }
-    .shop-base {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 8px 14px 10px;
-      background: linear-gradient(180deg, rgba(75,33,72,0.05), rgba(75,33,72,0.12));
-      border-top: 1px solid rgba(75,33,72,0.10);
-    }
-    .shop-unit {
-      font-size: 10.5px; font-weight: 700; letter-spacing: 0.22em;
-      color: rgba(75,33,72,0.55);
-    }
     .shop-enter {
-      font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em;
-      color: var(--rose, #9b3f5f);
+      flex: 0 0 auto; font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em;
+      color: var(--rose, #9b3f5f); white-space: nowrap;
     }
-    .shop--vacant { background: #f4efe9; border-style: dashed; border-color: rgba(75,33,72,0.28); }
-    .shop--vacant .shop-sign { color: rgba(75,33,72,0.45); background: #f1eae2; border-bottom-color: rgba(75,33,72,0.25); }
-    .shop--vacant .shop-window { background: #efe9e1; }
-    .shop--vacant .shop-window::before {
-      content: 'NOW LEASING';
-      position: absolute; top: 12px; right: -34px;
-      transform: rotate(38deg);
-      background: var(--rose, #9b3f5f); color: #fffdfb;
-      font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
-      padding: 4px 40px;
+    .shop--vacant { border-style: dashed; border-color: rgba(75,33,72,0.30); }
+    .shop--vacant .shop-base { background: #f1eae2; border-top-color: rgba(75,33,72,0.28); }
+    .shop--vacant .shop-desc { color: rgba(75,33,72,0.6); }
+    @media (prefers-reduced-motion: reduce) {
+      .shop, .shop-photo img, .shop-photo::after { transition: none; }
+      .shop:hover { transform: none; }
+      .shop:hover .shop-photo img { transform: none; }
     }
   </style>
 </head>
@@ -215,112 +186,91 @@
     <div class="mall-corridor">
 
       <a class="shop" href="/mall/pieces-of-flair.html" style="--acc: var(--rose, #9b3f5f);">
-        <span class="shop-sign">PIECES OF FL<span class="ai">Ai</span>R</span>
-        <span class="shop-awning"></span>
-        <span class="shop-window">
-          <span class="shop-display">🦋 💍 ✨</span>
-          <p class="shop-desc">Accessories, jewelry, hair clips, small wearables.</p>
+        <span class="shop-photo"><img src="assets/mall-storefronts/pieces-of-flair.jpg?v=20260707" alt="PIECES OF FLAiR storefront — pink butterfly-clip and jewelry shop, ear-piercing-while-you-wait" loading="lazy" width="1000" height="667"></span>
+        <span class="shop-base">
+          <span class="shop-meta"><span class="shop-unit">UNIT 01</span><span class="shop-desc">Accessories, jewelry, hair clips, small wearables.</span></span>
+          <span class="shop-enter">Walk in →</span>
         </span>
-        <span class="shop-base"><span class="shop-unit">UNIT 01</span><span class="shop-enter">Walk in →</span></span>
       </a>
 
       <a class="shop" href="/mall/maiybe.html" style="--acc: var(--y2k-pink, #ee9fce);">
-        <span class="shop-sign">M<span class="ai">Ai</span>YBE SHE'S BORN WITH IT</span>
-        <span class="shop-awning"></span>
-        <span class="shop-window">
-          <span class="shop-display">💄 💅 🧴</span>
-          <p class="shop-desc">Drug-store hair and makeup — gloss, mascara, palettes, clips, rollers, hot tools.</p>
+        <span class="shop-photo"><img src="assets/mall-storefronts/maiybe.jpg?v=20260707" alt="MAiYBE storefront — drug-store beauty counter, gloss and mascara and hot tools" loading="lazy" width="1000" height="667"></span>
+        <span class="shop-base">
+          <span class="shop-meta"><span class="shop-unit">UNIT 02</span><span class="shop-desc">Drug-store hair &amp; makeup — gloss, mascara, palettes, rollers.</span></span>
+          <span class="shop-enter">Walk in →</span>
         </span>
-        <span class="shop-base"><span class="shop-unit">UNIT 02</span><span class="shop-enter">Walk in →</span></span>
       </a>
 
       <a class="shop" href="/mall/as-seen-on-tv.html" style="--acc: var(--teal, #247b83);">
-        <span class="shop-sign">As Seen on TV (and film!)</span>
-        <span class="shop-awning"></span>
-        <span class="shop-window">
-          <span class="shop-display">📺 🎬 🍿</span>
-          <p class="shop-desc">TV shows and films you can't unsee.</p>
+        <span class="shop-photo"><img src="assets/mall-storefronts/as-seen-on-tv.jpg?v=20260707" alt="As Seen on TV storefront — wall of televisions and film posters" loading="lazy" width="1000" height="667"></span>
+        <span class="shop-base">
+          <span class="shop-meta"><span class="shop-unit">UNIT 03</span><span class="shop-desc">TV shows and films you can't unsee.</span></span>
+          <span class="shop-enter">Walk in →</span>
         </span>
-        <span class="shop-base"><span class="shop-unit">UNIT 03</span><span class="shop-enter">Walk in →</span></span>
       </a>
 
       <a class="shop" href="/mall/rollin-with-my-homies.html" style="--acc: var(--gold, #c9a227);">
-        <span class="shop-sign">Rollin' with my Homies (real or scripted)</span>
-        <span class="shop-awning"></span>
-        <span class="shop-window">
-          <span class="shop-display">👯‍♀️ 📸 ⭐</span>
-          <p class="shop-desc">People and characters — real and fictional, treated as one shelf.</p>
+        <span class="shop-photo"><img src="assets/mall-storefronts/rollin-with-my-homies.jpg?v=20260707" alt="Rollin' with my Homies storefront — portrait wall of real people and characters" loading="lazy" width="1000" height="667"></span>
+        <span class="shop-base">
+          <span class="shop-meta"><span class="shop-unit">UNIT 04</span><span class="shop-desc">People &amp; characters — real and fictional, one shelf.</span></span>
+          <span class="shop-enter">Walk in →</span>
         </span>
-        <span class="shop-base"><span class="shop-unit">UNIT 04</span><span class="shop-enter">Walk in →</span></span>
       </a>
 
       <a class="shop" href="/mall/books-and-records.html" style="--acc: var(--teal-bright, #57bfae);">
-        <span class="shop-sign">Books and Records</span>
-        <span class="shop-awning"></span>
-        <span class="shop-window">
-          <span class="shop-display">📚 💿 🎧</span>
-          <p class="shop-desc">Books, quotes, songs, soundtracks.</p>
+        <span class="shop-photo"><img src="assets/mall-storefronts/books-and-records.jpg?v=20260707" alt="Books and Records storefront — bookshelves and vinyl bins" loading="lazy" width="1000" height="667"></span>
+        <span class="shop-base">
+          <span class="shop-meta"><span class="shop-unit">UNIT 05</span><span class="shop-desc">Books, quotes, songs, soundtracks.</span></span>
+          <span class="shop-enter">Walk in →</span>
         </span>
-        <span class="shop-base"><span class="shop-unit">UNIT 05</span><span class="shop-enter">Walk in →</span></span>
       </a>
 
       <a class="shop" href="/mall/gizmos-and-gadgets.html" style="--acc: var(--teal, #247b83);">
-        <span class="shop-sign">Gizmos and Gadgets</span>
-        <span class="shop-awning"></span>
-        <span class="shop-window">
-          <span class="shop-display">📟 🕹️ 📼</span>
-          <p class="shop-desc">Y2K tech — Walkman, Tamagotchi, MSN Messenger, Trapper Keeper.</p>
+        <span class="shop-photo"><img src="assets/mall-storefronts/gizmos-and-gadgets.jpg?v=20260707" alt="Gizmos and Gadgets storefront — Y2K electronics: Walkman, Tamagotchi, gadgets" loading="lazy" width="1000" height="667"></span>
+        <span class="shop-base">
+          <span class="shop-meta"><span class="shop-unit">UNIT 06</span><span class="shop-desc">Y2K tech — Walkman, Tamagotchi, MSN, Trapper Keeper.</span></span>
+          <span class="shop-enter">Walk in →</span>
         </span>
-        <span class="shop-base"><span class="shop-unit">UNIT 06</span><span class="shop-enter">Walk in →</span></span>
       </a>
 
       <a class="shop" href="/mall/hanger-management.html" style="--acc: var(--rose, #9b3f5f);">
-        <span class="shop-sign">Hanger Management</span>
-        <span class="shop-awning"></span>
-        <span class="shop-window">
-          <span class="shop-display">👗 🧥 👜</span>
-          <p class="shop-desc">Clothes and iconic outfits.</p>
+        <span class="shop-photo"><img src="assets/mall-storefronts/hanger-management.jpg?v=20260707" alt="Hanger Management storefront — racks of clothes and iconic outfits" loading="lazy" width="1000" height="667"></span>
+        <span class="shop-base">
+          <span class="shop-meta"><span class="shop-unit">UNIT 07</span><span class="shop-desc">Clothes and iconic outfits.</span></span>
+          <span class="shop-enter">Walk in →</span>
         </span>
-        <span class="shop-base"><span class="shop-unit">UNIT 07</span><span class="shop-enter">Walk in →</span></span>
       </a>
 
       <a class="shop" href="/mall/food-court.html" style="--acc: var(--gold, #c9a227);">
-        <span class="shop-sign">The Food Court</span>
-        <span class="shop-awning"></span>
-        <span class="shop-window">
-          <span class="shop-display">🥤 🍟 🧃</span>
-          <p class="shop-desc">Food and drink accessories — Dunkaroos, Crystal Pepsi, Capri Sun.</p>
+        <span class="shop-photo"><img src="assets/mall-storefronts/the-food-court.jpg?v=20260707" alt="The Food Court — neon counter with pizza, burgers, pretzels, bowls, drinks" loading="lazy" width="1000" height="667"></span>
+        <span class="shop-base">
+          <span class="shop-meta"><span class="shop-unit">UNIT 08</span><span class="shop-desc">Food &amp; drink — Dunkaroos, Crystal Pepsi, Capri Sun.</span></span>
+          <span class="shop-enter">Walk in →</span>
         </span>
-        <span class="shop-base"><span class="shop-unit">UNIT 08</span><span class="shop-enter">Walk in →</span></span>
       </a>
 
       <a class="shop" href="/mall/last-summer.html" style="--acc: var(--teal-bright, #57bfae);">
-        <span class="shop-sign">I Know What You Did Last (x30) Summer</span>
-        <span class="shop-awning"></span>
-        <span class="shop-window">
-          <span class="shop-display">🔦 🛼 🌅</span>
-          <p class="shop-desc">Experiences. The things you DID — sleepovers, mall walking, Blockbuster runs.</p>
+        <span class="shop-photo"><img src="assets/mall-storefronts/last-summer.jpg?v=20260707" alt="I Know What You Did Last Summer storefront — nostalgic experiences shop" loading="lazy" width="1000" height="667"></span>
+        <span class="shop-base">
+          <span class="shop-meta"><span class="shop-unit">UNIT 09</span><span class="shop-desc">Experiences — sleepovers, mall walking, Blockbuster runs.</span></span>
+          <span class="shop-enter">Walk in →</span>
         </span>
-        <span class="shop-base"><span class="shop-unit">UNIT 09</span><span class="shop-enter">Walk in →</span></span>
       </a>
 
       <a class="shop" href="/mall/mall-kiosk.html" style="--acc: var(--y2k-pink, #ee9fce);">
-        <span class="shop-sign">The Mall Kiosk</span>
-        <span class="shop-awning"></span>
-        <span class="shop-window">
-          <span class="shop-display">🎱 🧸 ✨</span>
-          <p class="shop-desc">Random / catch-all — Magic 8 Ball, Lite-Brite, Beanie Babies.</p>
+        <span class="shop-photo"><img src="assets/mall-storefronts/the-mall-kiosk.jpg?v=20260707" alt="The Mall Kiosk — catch-all cart: Magic 8 Ball, Lite-Brite, Beanie Babies" loading="lazy" width="1000" height="667"></span>
+        <span class="shop-base">
+          <span class="shop-meta"><span class="shop-unit">UNIT 10</span><span class="shop-desc">Catch-all — Magic 8 Ball, Lite-Brite, Beanie Babies.</span></span>
+          <span class="shop-enter">Walk in →</span>
         </span>
-        <span class="shop-base"><span class="shop-unit">UNIT 10</span><span class="shop-enter">Walk in →</span></span>
       </a>
 
       <a class="shop shop--vacant" href="/community/burn-book.html">
-        <span class="shop-sign">Vacant</span>
-        <span class="shop-window">
-          <span class="shop-display">📋</span>
-          <p class="shop-desc">Don't see what you remember? This unit is yours — put the reference in the Burn Book and the mall expands.</p>
+        <span class="shop-photo"><img src="assets/mall-storefronts/unit-11-vacant.jpg?v=20260707" alt="Unit 11 — vacant storefront papered over with a NOW LEASING sign" loading="lazy" width="1000" height="667"></span>
+        <span class="shop-base">
+          <span class="shop-meta"><span class="shop-unit">UNIT 11 · NOW LEASING</span><span class="shop-desc">Don't see what you remember? Put it in the Burn Book — the mall expands.</span></span>
+          <span class="shop-enter">Claim it →</span>
         </span>
-        <span class="shop-base"><span class="shop-unit">UNIT 11</span><span class="shop-enter">Claim it →</span></span>
       </a>
 
     </div>
