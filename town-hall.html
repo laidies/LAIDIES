@@ -340,9 +340,10 @@
       }
       .th-regular {
         display: flex; flex-direction: column; gap: 8px;
-        padding: 0; border-radius: 14px;
+        padding: 0; border-radius: 16px;
         background: var(--cream);
-        border: 1px solid rgba(75, 33, 72, 0.08);
+        border: 1.5px solid rgba(75, 33, 72, 0.16);
+        box-shadow: 0 6px 18px rgba(75, 33, 72, 0.09);
         color: var(--plum); text-decoration: none;
         overflow: hidden;
         transition: transform 0.18s ease, box-shadow 0.22s ease, border-color 0.2s;
@@ -354,7 +355,8 @@
       }
       .th-regular-portrait {
         aspect-ratio: 4/3; overflow: hidden;
-        background: linear-gradient(135deg, rgba(75,33,72,0.08) 0%, rgba(232,197,200,0.34) 100%);
+        background: linear-gradient(150deg, #4b2148 0%, #7a2f57 55%, #9b3f5f 100%);
+        border-bottom: 3px solid var(--gold);
         display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px;
       }
       .th-regular-portrait img {

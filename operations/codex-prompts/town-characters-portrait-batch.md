@@ -1,106 +1,89 @@
-# Codex Prompt · Town Characters Portrait Batch v4 (4 images)
+# Codex Prompt · Town Characters Portrait Batch **v5 — vibrant scenes** (3 images, +1 optional)
 
-Paste this prompt into Codex **along with the reference photos listed in the Character-Match section below**. These are the four SUNNYV<span style="color:#9b3f5f">Ai</span>LE regulars you meet at **Town Hall** — Mme CL<span style="color:#9b3f5f">Ai</span>-O, F<span style="color:#9b3f5f">Ai</span>RY Godmother, DJ SunnyV, Mayor Deb.
+> ⚠️ **CODEX SCOPE — IMAGES ONLY.** Generate the PNGs and save them to the exact paths
+> below. Do not edit code, HTML, JSON, or run git. PNGs only.
 
-**These are Town Characters — SUNNYV<span style="color:#9b3f5f">Ai</span>LE natives. They are NOT on the SANCTUAiRY shelf with the Saints/Mavens/Builders. Different register.** Town Characters live in their buildings; Saints/Mavens/Builders live in a shrine. Don't cross the wires.
-
----
-
-## v4 REDO — what changed from v3 (READ THIS)
-
-The v2/v3 batch drifted **fairytale / Victorian illuminated-manuscript**. Kill these:
-
-- ❌ **NO ornate baroque gold filigree frame** — was reading Victorian valentine, not Y2K
-- ❌ **NO Victorian embossed valentine hearts** at corners or anywhere in the border
-- ❌ **NO stained-glass cathedral window** backgrounds
-- ❌ **NO "reverent shrine" register** — these are neighbors, not saints
-- ❌ **NO ornate decorative border of any kind**
-- ❌ **NO chapel light** in the background — that was code for "cathedral" and it's dragging things wrong
-
-The pantheon shelf (Saints/Mavens/Builders) is a different genre. **This is Town Hall, not SANCTUAiRY. Y2K-town portrait, not devotional icon.**
+These are the SUNNYV<span style="color:#9b3f5f">Ai</span>LE **Town Characters** you meet at **Town Hall** — Mme CL<span style="color:#9b3f5f">Ai</span>-O, F<span style="color:#9b3f5f">Ai</span>RY Godmother, DJ SunnyV, Mayor Deb. They live in their own buildings. They are **NOT** on the LUMIN<span style="color:#9b3f5f">Ai</span>RY shelf with the Saints / Mavens / Trailblazers — that shrine is a different genre (stained-glass, reverent). **This is Town Hall. Different register.**
 
 ---
 
-## What TO reach for — Y2K trading-card portrait
+## v5 REDO — what's wrong with the live portraits (READ THIS FIRST)
 
-Think **Delia's catalog cover / Y2K teen-magazine special-edition trading card / MySpace era personality profile**.
+The current live portraits (`assets/*-portrait-v3.png`) drifted **ornate / Victorian-illuminated tarot card** and read **drab, dark, and out of place** next to the bright painterly town. Ali's direction:
 
-- **Warm hand-painted portrait** — same painterly hand as before, minus the church.
-- **Character in her own building** — the warm interior light of HER SUNNYV<span style="color:#9b3f5f">Ai</span>LE workplace behind her (see per-character table). Not a full architectural scene — atmospheric, tells you where she works in one glance.
-- **Rose-gold neon halo behind her head** — soft open ring, warm rose-pink core fading to gold. This is the *only* iconographic signal that says "she's a canonized town regular." Reads as "the neon over her own door lights her up." *(Keep this — it was working.)*
-- **Y2K-native decoration woven naturally into the composition** (NOT as a frame border):
-  - Butterfly hair clips (peak Delia's catalog)
-  - Rhinestone bedazzle on collar, glasses, jewelry, or the corner of a prop
-  - Chunky plastic Y2K charm bracelet on wrist
-  - Holographic sticker on a nearby object (headphones, mailbox, mug, clipboard)
-  - Small gel-pen doodle stars scattered subtly on her shirt or in the corner of the scene
-  - Marabou fluff trim on a collar or cuff
-  - Small doses. Not every accessory at once. Choose what fits the character.
-- **NO ornate frame at all** — just the portrait, edge-to-edge with a soft warm painterly fall-off/vignette. If you want a hint of a border, use a **thin rose-gold neon line** matching the halo, or a **Y2K rhinestone-dot edge** (small, sparse chunky stones — not baroque scrollwork). *Prefer no frame.*
-- **NO hearts** anywhere in this batch — not in corners, not in borders, not floating. Hearts read Victorian valentine, wrong century. If a character-native heart shows up (e.g., a heart-shaped rhinestone on Mme CL<span style="color:#9b3f5f">Ai</span>-O's glasses), that's fine — but no *decorative* hearts.
+**Mayor Deb's v3 is the model.** Her portrait is a *vibrant full scene* — she's at her Town Hall desk, mid-action, surrounded by her own props (NOPE stamp, Deb-flection clipboard, MAYOR mug, Die Hard poster). That's the target for all of them. **Match Deb's richness and vibrancy.**
+
+Kill all of this:
+
+- ❌ **NO neon halo / glowing ring** behind the head. (This reverses the old v4 brief — the halo is gone. Ali: "I don't know why they have halos.")
+- ❌ **NO roses / rose swags / floral borders.** ("They shouldn't have roses.")
+- ❌ **NO ornate baroque gold/purple filigree frame** and **NO corner heart gems.**
+- ❌ **NO dark, muted, jewel-toned "candlelit tarot parlor" grounds** — that's why they read drab.
+- ❌ **NO stained-glass, NO cathedral/chapel light, NO "reverent shrine" mood.**
 
 ---
 
-## Character-Match — CRITICAL
+## What TO reach for — a vibrant Y2K scene, painted like the rest of the town
 
-Each portrait must render the **SAME PERSON** who already exists in canon. Codex has been fed reference photos for three of the four subjects; those references are the ground truth for who each character *is*.
+Match the **bright, warm, saturated painterly register of the SUNNYV<span style="color:#9b3f5f">Ai</span>LE buildings and interiors** — the same hand that painted these:
 
-- **Match the reference:** skin tone, hair color, hair texture, facial structure, eye shape, characteristic expression, and signature features must match the reference photo.
-- **Restyle, don't reinvent:** the *register* changes (from realistic → Y2K trading-card painted portrait) but the *person* stays the same.
-- **The one exception** is DJ SunnyV, who has no existing portrait — for her, and *only* her, you may design the face fresh from the description.
-
-Per-subject reference files (attach these to the Codex batch alongside this prompt):
-
-| Character | Reference photo(s) | Notes |
-|---|---|---|
-| Mme CL<span style="color:#9b3f5f">Ai</span>-O | `assets/madame-claio-portrait-v1.png`, `assets/madame-claio-character-v1.png` | Match her canonical face. |
-| F<span style="color:#9b3f5f">Ai</span>RY Godmother | `assets/laidy-fairy-godmother-portrait-v1.png` | Match her canonical face. |
-| Mayor Deb | `assets/deb-80s-portrait-v1.png`, `assets/deb-80s-portrait-stare-v1.png` | Same person, mayor era (a bit older/composed than the teen references). Do NOT copy the pose from her Saint portrait. |
-| DJ SunnyV | — no existing reference — | This is a new character. Design the face fresh from the description; establish the canonical face here. |
+- **Style reference (attach these):** `assets/building-interiors/mme-claio-reading-room.jpg`, `assets/building-interiors/ksvl-booth.jpg`, `assets/building-interiors/post-office-lobby.jpg`, and any `assets/sunnyvaile-buildings/y2k-v3/*.webp`. This is the look: bright, sunlit, colorful, painterly, alive.
+- **A full environmental SCENE, like Deb's.** Not a floating head-and-shoulders on a dark ground. She's *in her building, mid-activity*, framed roughly waist-up, her signature props around her — exactly how Deb sits at her desk.
+- **Bright brand palette:** plum `#4b2148`, rose `#9b3f5f`, teal `#2a7f8a`, gold, cream — saturated and warm, lit like a sunny afternoon, not a dim parlor.
+- **Edge-to-edge, no frame.** The scene fills the canvas with a soft natural falloff. If anything at the border, only a gentle painterly vignette — no drawn border, no scrollwork, no gems.
+- **Y2K era throughout** — her clothes, hair, and props read 1999/2000 (that's native to who she is, not a costume).
 
 ---
 
-## The 4 subjects
+## Character-Match — keep the person, strip the ornament
 
-| # | Filename to save | Subject | **Must match reference** | Signature look | Background — her building's interior light |
-|---|---|---|---|---|---|
-| 1 | `mme-claio-y2k-portrait.png` | **Mme CL<span style="color:#9b3f5f">Ai</span>-O** — the SUNNYV<span style="color:#9b3f5f">Ai</span>LE psychic and reading-card oracle. | **YES** — match `assets/madame-claio-portrait-v1.png` + `assets/madame-claio-character-v1.png`. Same face, same skin tone, same hair color/texture. Restyle only. | Big Y2K teased blonde hair with a crimped section, **rhinestone cat-eye glasses** or layered chokers, a satin caftan in deep plum. A **chunky Y2K charm bracelet** on her wrist. Expression: knowing, half-smile, one eyebrow up. | Warm interior of her fortune-telling shop — a glowing crystal ball on the counter beside her, beaded curtain visible off to one side, softly-lit with rose-and-amethyst atmospheric glow. No storefront view, no shopfront sign — you're *inside* her shop. |
-| 2 | `fairy-godmother-y2k-portrait.png` | **F<span style="color:#9b3f5f">Ai</span>RY Godmother** — the SUNNYV<span style="color:#9b3f5f">Ai</span>LE fairy godmother on Willow Lane. Grants wishes, dispenses bonus plays. | **YES** — match `assets/laidy-fairy-godmother-portrait-v1.png`. Same silver-gold curly hair, same face, same warm smile. | Curly silver-gold hair with **a Y2K butterfly clip tucked in one curl** (peak Delia's catalog), a soft rose-cardigan over a cream slip, a small **rhinestone-studded** brooch, holding a small holographic wand delicately in her hand (already in canon). Expression: warm, mischievous, patient. | Warm interior of her cottage — a **bowl of wish-letter envelopes** on the table beside her, a teacup, soft fairy-light glow filtering from a nearby lamp. Cottage feels lived-in, cozy. No exterior/architectural shot. |
-| 3 | `dj-sunnyv-y2k-portrait.png` | **DJ SunnyV** — the fictional DJ of KSVL Community R<span style="color:#9b3f5f">Ai</span>DIO, in-town voice, spins the Wednesday Anthem. Y2K "just try" energy — AI meets you where you are. | **NO — design fresh.** No canonical reference yet; establish her canonical face with this portrait. | Sun-In frosted highlights or crimped hair, **chunky pink foam headphones around her neck with a holographic sticker on one ear cup**, a graphic tee under a Y2K velour zip-up, tiny stud earrings. Expression: mid-mixing, focused-but-happy, one hand on a headphone cup. | Warm interior of the KSVL radio booth — a soft **red "ON AIR" light glowing** behind her, a hint of turntables or a mixing board in the periphery, warm neon-tinted lighting. |
-| 4 | `mayor-deb-y2k-portrait.png` | **Mayor Deb** — Deb *as mayor* (distinct from her PATRON SAiNT portrait). Same person, mayoral era. | **YES** — match `assets/deb-80s-portrait-v1.png` + `assets/deb-80s-portrait-stare-v1.png`. Same face, a touch older/composed for mayor era. Do NOT copy the pose from her Saint portrait. | 1980s-suburban-office-Deb energy in a boxy blazer, pearl earrings, hair permed and lightly hair-sprayed. **Holding a small "Deb-flection™" clipboard AND a rubber "NOPE" stamp mid-air** — NOPE is her signature move; **APPROVED is *wrong* for Deb — never use APPROVED**. A **coffee mug on her desk** reading **"WORLD'S MOST UNWANTED MAYOR"** with a hand-drawn **Sharpie-style black cross-out through the word "UNWANTED"** (one thick permanent-marker stroke, slightly wobbly — Deb corrected her own mug). Expression: composed, official, subtly amused. | Warm interior of the SUNNYV<span style="color:#9b3f5f">Ai</span>LE Town Hall office — a small NOPE poster on the wall behind her, warm office lighting with a touch of Y2K municipal-carpeting-fluorescent nostalgia. |
+Each portrait must be the **SAME PERSON** already established. The current v3 portraits have **good faces/wardrobe** — the problem is only the ornamentation and the drab lighting. So:
 
-## Style rules for consistency across all 4
+**Reference the v3 portrait for likeness (face, hair, wardrobe, props), then re-stage her in a bright full scene with the halo / roses / frame removed.**
 
-- Same **rose-gold neon halo** shape and position behind the upper head — soft open ring, same size, same glow radius. Never a full solid disc.
-- Same **head-and-shoulders framing**, warm painterly hand-illustrated register.
-- Same **warm interior lighting of her building** in the background — different building for each, but all softly-lit, atmospheric, and *interior*. No exterior shots, no architectural scenes.
-- **No ornate frame** on any of them. All four portraits stop at the edge of the canvas with a soft warm painterly vignette.
-- **No hearts** as decoration on any of them.
-- Different accent color per subject inside the plum/rose/gold frame:
-  - Mme CL<span style="color:#9b3f5f">Ai</span>-O — deep amethyst + crystal-ball violet
-  - F<span style="color:#9b3f5f">Ai</span>RY Godmother — iridescent rose + fairy-light gold
-  - DJ SunnyV — Sun-In yellow + KSVL neon rose
-  - Mayor Deb — town-hall teal + Deb-flection amber
-- Each subject in her signature-real-life presentation — no period costume beyond her natural era (Deb's 80s office wear is her natural, not a costume choice for the portrait).
-- **Small Y2K-native decoration woven naturally into the composition** — not as a frame. Butterfly clips, rhinestones, chunky charms, holo stickers on props. Small doses; not every accessory at once.
+| Character | Likeness reference (match this person) |
+|---|---|
+| Mme CL<span style="color:#9b3f5f">Ai</span>-O | `assets/madame-claio-portrait-v3.png` — blonde teased updo, rhinestone cat-ear clips, round tinted glasses, pink feather boa + plum caftan, leopard. Keep her. |
+| F<span style="color:#9b3f5f">Ai</span>RY Godmother | `assets/laidy-fairy-godmother-portrait-v3.png` — silver-gold curls, small tiara, wire glasses, pink quilted robe, holo wand. Keep her. |
+| DJ SunnyV | `assets/dj-sunnyv-portrait-v3.png` — blonde crimped curls, pink foam headphones, sun-face graphic tee. Keep her. |
+| Mayor Deb *(optional)* | `assets/mayor-deb-portrait-v3.png` — the approved scene. Only re-render to drop the halo (see below). |
+
+---
+
+## The 3 to re-render (+ Deb optional)
+
+| # | Save as | Subject | The vibrant scene — she's in her building, mid-activity |
+|---|---|---|---|
+| 1 | `mme-claio-scene.png` | **Mme CL<span style="color:#9b3f5f">Ai</span>-O** | Inside her sunlit fortune-telling shop, at her reading table — a **glowing crystal ball** and a **fan of tarot cards** in front of her, beaded curtain catching the light behind, jewel-bright but *warm and airy*, not dim. She's mid-reading, knowing half-smile, one brow up. Match `mme-claio-reading-room.jpg` for the room's light. |
+| 2 | `fairy-godmother-scene.png` | **F<span style="color:#9b3f5f">Ai</span>RY Godmother** | On the porch of her Willow Lane craftsman bungalow at golden hour — string lights, her **mailbox brimming with wish-letters**, a teacup, holo wand in hand, warm and mischievous. Cozy and *bright*, sun-warmed wood, not candlelit gloom. |
+| 3 | `dj-sunnyv-scene.png` | **DJ SunnyV** | In the KSVL Community R<span style="color:#9b3f5f">Ai</span>DIO booth, **at the turntables/mixing board with the mic in front of her**, the red **ON AIR** sign glowing, headphones on, mid-mix and happy. Bright neon-warm booth light. Match `ksvl-booth.jpg`. *(This also fills the missing "DJ SunnyV in the booth" shot.)* |
+| 4 *(optional)* | `mayor-deb-scene.png` | **Mayor Deb** | Her v3 desk scene is **approved — keep it.** Only re-render if dropping the halo: reproduce the exact Town Hall desk scene (NOPE stamp mid-air, Deb-flection clipboard, MAYOR mug, Die Hard poster) with **no neon ring** behind her head. Everything else identical. |
+
+---
+
+## Consistency rules (all)
+
+- Same **bright, warm, saturated painterly hand** as the SUNNYV<span style="color:#9b3f5f">Ai</span>LE building interiors. Sunny, alive, colorful.
+- **Waist-up in a full scene**, her signature props around her — the Deb treatment.
+- **No halo. No roses. No frame. No hearts. No stained glass. No dim jewel-tone parlor.**
+- Each in her **own building interior**, softly but *brightly* lit — you can tell where she is at a glance.
+- Y2K-native, in-period clothes/hair/props.
+- Keep each person's established face + wardrobe from her v3 reference.
 
 ## Save & deliver
 
-- Save all 4 PNGs to `assets/town-characters/y2k-portraits/` (new folder — do NOT save to the old `y2k-stained-glass-v2/` folder; we're moving away from that naming).
-- Use the exact filenames in the table above. Lowercase, kebab-case.
-- **Aspect ratio 2:3 vertical portrait, PNG.**
+- Save the 3 (or 4) PNGs to **`assets/town-characters/scenes/`** (new folder).
+- Exact filenames above, lowercase kebab-case.
+- **Aspect ratio 2:3 vertical portrait, PNG**, composed so a centered 4:3 crop still reads (they display cropped on the Town Hall cards).
 
 ---
 
-## Quick sanity checklist before delivering
+## Sanity check before delivering
 
-Look at each portrait and answer:
-1. Could this run as a Y2K trading card in a magazine — or does it look like it belongs in a stained-glass church window? *(Must feel trading card.)*
-2. Are there any Victorian valentine hearts in the corners? *(Must be zero.)*
-3. Is there an ornate gold baroque frame around the edge? *(Must be none — soft painterly vignette only.)*
-4. Can you tell what building she works in from the background light? *(Must be yes.)*
-5. Is there at least one Y2K-native decoration (butterfly clip / rhinestone / chunky charm / holo sticker) woven into the composition? *(Must be yes.)*
-6. Rose-gold halo behind the head, open ring, not solid disc? *(Must be yes.)*
-7. Same person as the reference photo (for the 3 with references)? *(Must be yes.)*
+1. Does it look like it was painted by the same hand as the bright SUNNYV<span style="color:#9b3f5f">Ai</span>LE building interiors? *(Must be yes — vibrant, warm, sunny.)*
+2. Any halo / glowing ring behind the head? *(Must be none.)*
+3. Any roses, floral border, baroque frame, or corner heart gems? *(Must be none.)*
+4. Is she in a **full scene** in her own building, mid-activity, like Deb at her desk? *(Must be yes.)*
+5. Same person as her v3 reference? *(Must be yes.)*
 
-If any answer is "no," redraw before delivering.
+If any answer is wrong, redraw before delivering.
