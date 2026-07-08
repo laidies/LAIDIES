@@ -41,7 +41,11 @@ Landscape 3:2, ~1500×1000. One postcard per scene:
    the Ai-accented SLAiYER is reserved for the Buffy reference, not every "slay"). Marquee "KSVL
    COMMUNITY RAiDIO" (RAiDIO intentional), ON AIR neon, heart "KSVL 99.9" tower sign, DJ booth in the
    window, motto "DON'T JUST LEARN FROM BOOKS. LEARN FROM HOOKS!" Filed to `approved-assets/postcards/`.
-7. `pc-mme-claio.png` — Mme CLAi-O's psychic shop, jewel-toned.
+7. `pc-mme-claio.png` — Mme CLAi-O's psychic shop, jewel-toned. **✅ DELIVERED (2026-07-07).**
+   Baked slogan: **"THE FUTURE WEARS TAROT"** / *"Come to SUNNYVAiLE"* (Devil-Wears-Prada riff) — this
+   **replaced** the retired Clueless version ("CLUELESS? / CLAi-O KNOWS"), per Ali. Storefront with
+   crystal ball, "your future is FABULOUS" neon, palm/eye/moon signs, TAROT · CRYSTALS · PALM READINGS.
+   Filed to `approved-assets/postcards/`.
 8. `pc-library.png` — the LIBRAiRY at dusk, golden light. **✅ DELIVERED (2026-07-07).**
    Baked slogan: **"NEVER BEEN BOOKED"** / *"Come to SUNNYVAiLE"* (pun on booked). Streamline-deco
    exterior, glass-block rotunda, "Open your mind / Open a book" sign, BOOK RETURN box. Filed to

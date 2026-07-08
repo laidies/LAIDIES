@@ -3,7 +3,7 @@
 **What these are:** slogans laid over the clean *scenic* tourism scenes (town vistas, hillsides,
 lanes) as a **Figma/Canva TEXT LAYER — never baked into the render.** That keeps every scene
 **dual-use**: a clean page-hero *and* a postcard. (Distinct from the **storefront** postcards, which
-Codex bakes because they're single-purpose — SHE'S ALL SNAP, CLAi-O KNOWS, etc.)
+Codex bakes because they're single-purpose — SHE'S ALL SNAP, THE FUTURE WEARS TAROT, etc.)
 
 **Format:** big vintage headline + one small witty subline.
 **Voice:** vintage travel-postcard × LAiDIES wit. Canon-safe. Turn the pretty view into a *reason to
