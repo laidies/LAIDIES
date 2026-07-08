@@ -126,17 +126,20 @@
   <script>
   (function () {
     'use strict';
-    // ---- Postcard set. SWAP THIS ARRAY for the generated "Postcard from SUNNYVAiLE" set. ----
-    var PC_BASE = '/assets/residence-card/postcard-scenes/tourist-postcards-v9/';
+    // ---- Postcard set: the real "Postcard from SUNNYVAiLE" invite scenes (clean 3:2). ----
+    var PC_BASE = '/assets/postcards/from-sunnyvaile/';
     var POSTCARDS = [
-      { id: 'main-street',  label: 'Main Street', file: 'sunnyvaile-postcard-v9-02-main-street.png' },
-      { id: 'hillside',     label: 'Welcome Sign', file: 'sunnyvaile-postcard-v9-01-hillside-sign.png' },
-      { id: 'blend-snap',   label: 'Blend & Snap', file: 'sunnyvaile-postcard-v9-04-blend-and-snap-cafe.png' },
-      { id: 'chick-flicks', label: 'Chick Flicks', file: 'sunnyvaile-postcard-v9-07-chick-flicks-video.png' },
-      { id: 'bronze-aige',  label: 'Bronze AiGE',  file: 'sunnyvaile-postcard-v9-11-bronze-aige.png' },
-      { id: 'ksvl',         label: 'KSVL',         file: 'sunnyvaile-postcard-v9-16-ksvl.png' },
-      { id: 'mme-claio',    label: "Mme CLAi-O's", file: 'sunnyvaile-postcard-v9-08-mme-claio-shop.png' },
-      { id: 'library',      label: 'The LIBRAiRY', file: 'sunnyvaile-postcard-v9-06-library.png' }
+      { id: 'welcome-sign',  label: 'Welcome Sign', file: 'pc-welcome-sign.png' },
+      { id: 'main-street',   label: 'Main Street',  file: 'pc-main-street.png' },
+      { id: 'blend-snap',    label: 'Blend & Snap', file: 'pc-blend-and-snap.png' },
+      { id: 'chick-flicks',  label: 'Chick Flicks', file: 'pc-chick-flicks.png' },
+      { id: 'mme-claio',     label: "Mme CLAi-O's", file: 'pc-mme-claio.png' },
+      { id: 'bronze-aige',   label: 'BRONZE AiGE',  file: 'pc-bronze-aige.png' },
+      { id: 'ksvl',          label: 'KSVL',         file: 'pc-ksvl.png' },
+      { id: 'library',       label: 'The LIBRAiRY', file: 'pc-library.png' },
+      { id: 'park',          label: 'The Park',     file: 'pc-park.png' },
+      { id: 'sorority',      label: 'Delta LAi Nu', file: 'pc-sorority-house.png' },
+      { id: 'puffy-binder',  label: 'Puffy Binder', file: 'pc-puffy-binder.png' }
     ];
     var byId = {}; POSTCARDS.forEach(function (p) { byId[p.id] = p; });
 
