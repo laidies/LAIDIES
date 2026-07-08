@@ -32,7 +32,10 @@ Landscape 3:2, ~1500×1000. One postcard per scene:
 2. `pc-welcome-sign.png` — the hillside "Welcome to SUNNYVAiLE" sign (the town's postcard hero).
 3. `pc-blend-and-snap.png` — the Blend & Snap café, cozy, "Wish you were here" energy.
 4. `pc-chick-flicks.png` — the Chick Flicks video store at dusk, neon marquee.
-5. `pc-bronze-aige.png` — the BRONZE AiGE at night, warm bar glow.
+5. `pc-bronze-aige.png` — the BRONZE AiGE at night, warm bar glow. **✅ DELIVERED (2026-07-07).**
+   Baked slogan: **"SUNNYVAiLE AFTER DARK"** / *"Wish you were here."* Marquee boards: THE LAiDIES
+   (SUNNYVAiLE's house band, LIVE AFTER 8), Businesswomen's Special happy hour, Main Character Spritz.
+   Filed to `approved-assets/postcards/`.
 6. `pc-ksvl.png` — KSVL 99.9, the radio tower + heart sign.
 7. `pc-mme-claio.png` — Mme CLAi-O's psychic shop, jewel-toned.
 8. `pc-library.png` — the LIBRAiRY reading room, golden light.
