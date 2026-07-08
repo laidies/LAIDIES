@@ -52,6 +52,12 @@ Landscape 3:2, ~1500×1000. One postcard per scene:
    `approved-assets/postcards/`.
 9. `pc-park.png` — the town park at golden hour (picnic, boombox — reuse `town-park-afternoon` register).
 10. `pc-sorority-house.png` — Delta LAi Nu on Wisteria Lane, string lights.
+11. `pc-fairy-godmother.png` — the FAiRY Godmother's cottage (added). **✅ DELIVERED (2026-07-08).**
+    Baked slogan: **"CLUELESS? / FAiRY GODMOTHER KNOWS"** / *"Come to SUNNYVAiLE."* — the Clueless gag
+    now lives HERE (fits the advice-giver); Mme CLAi-O moved to "THE FUTURE WEARS TAROT," so no dupe.
+    Craftsman bungalow at dusk on Willow Lane, "FAiRY GODMOTHER" mailbox of letters, string lights,
+    stained-glass heart door. Source render: `assets/postcards/sunnyvaile-v3/sunnyvaile-fairy-godmother.png`.
+    Filed to `approved-assets/postcards/`.
 
 Optional greeting line to work into 2–3 of them, postcard-style: **"Wish you were here."**
 / **"Come to SUNNYVAiLE."**
