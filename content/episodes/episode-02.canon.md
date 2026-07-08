@@ -117,9 +117,12 @@ vague-vs-specific; Ep3 will fill it with trusted-blindly vs verified, etc. → a
   part (digest a big/dense input, catch the buried thing) — never something so straightforward the
   reader thinks "I'd just do that myself."
 - **The flat way (what you'd type without ladies):** *"summarize this policy change for my
-  stakeholders."* → four sentences of confident nothing: "new requirements, updated timelines,
-  improved accountability." *It is Ross, screaming "PIVOT." Technically direction, but not super
-  helpful given the situation.*
+  stakeholders."* → NOT four short vague sentences (that's unrealistic on a dense doc). A vague ask on
+  12 dense pages yields a **long, over-detailed dump**: it faithfully summarizes everything — background,
+  rationale, audit findings, every section, appendices, escalation procedures — because it doesn't know
+  what matters to *you*, buries the action items, and prioritizes nothing. *Accurate, thorough, and
+  useless in the two minutes you have; you still have to do the reading.* **RULE (Ali 2026-07-07): the
+  vague-prompt failure mode is OVER-detail, not brevity.**
 - **The fluent way (the brief, out loud):** Who's it for? Six senior managers with two minutes before
   a meeting. What do they need? What's changing, when it takes effect, what their teams do differently,
   whether it touches budget. What do we cut? The backstory. What shape? Bullets, ~150 words. And the
@@ -129,7 +132,7 @@ vague-vs-specific; Ep3 will fill it with trusted-blindly vs verified, etc. → a
   changing* (dual sign-off, was just the lead) · *When it takes effect* (Oct 1; first dual-signed report
   due Dec 31) · *What your team does differently* (route through finance partner; +3 business days/cycle)
   · *Budget impact* · *Who's affected* (full-time teams only — contractors/vendor teams exempt until Q1)
-  · *What we need from you* (name finance partner by Sep 15). ~120 words, forwardable as-is; ninety
+  · *What we need from you* (name finance partner by Sep 15). ~145 words (the brief asked ~150), forwardable as-is; ninety
   seconds to write, forty-five to check. **DRAFT RULE:** complete professional sentences + a subject line
   + matches a recurring template — never telegraphic AI fragments; realistic enough to actually forward.
   **The "Who's affected" line is the "why AI" moment** (AI read all 12 pages and surfaced the carve-out) —
