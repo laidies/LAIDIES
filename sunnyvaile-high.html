@@ -26,7 +26,23 @@
     </nav>
   </header>
 
-  <div class="sv-hero"><img src="assets/building-interiors/sunnyvaile-high-book-fair.jpg?v=20260707" alt="Inside the SUNNYVAiLE High gym set up as a Scholastic Book Fair — a heart at center court, a SCHOLASTIC BOOK FAIR banner, a GO CENTAURS! pennant, book-display tables and heart balloons" loading="eager"></div>
+  <div class="sv-hero"><img id="sh-hero-img" src="assets/building-interiors/sunnyvaile-high-classroom.jpg?v=20260708" alt="Inside SUNNYVAiLE High — a classroom of desks stacked with textbooks, a green chalkboard and a globe" loading="eager"></div>
+  <script>
+    // Hero shows the everyday classroom; it dresses up as the Scholastic Book Fair gym
+    // ONLY while the Fair is in town (same schedule as the Book Fair section below).
+    (function () {
+      var ANCHOR = new Date('2026-07-06T00:00:00'), FAIR_DAYS = 7, PERIOD_DAYS = 28, DAY = 864e5;
+      var el = document.getElementById('sh-hero-img');
+      if (!el) return;
+      var elapsed = new Date() - ANCHOR;
+      if (elapsed < 0) return;
+      var cycleStart = ANCHOR.getTime() + Math.floor(elapsed / (PERIOD_DAYS * DAY)) * PERIOD_DAYS * DAY;
+      if (new Date() - cycleStart < FAIR_DAYS * DAY) {
+        el.src = 'assets/building-interiors/sunnyvaile-high-book-fair.jpg?v=20260707';
+        el.alt = 'The SUNNYVAiLE High gym set up as a Scholastic Book Fair — a heart at center court, a SCHOLASTIC BOOK FAIR banner, a GO CENTAURS! pennant, book-display tables and heart balloons';
+      }
+    })();
+  </script>
 
   <main>
 
