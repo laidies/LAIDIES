@@ -36,7 +36,11 @@ Landscape 3:2, ~1500×1000. One postcard per scene:
    Baked slogan: **"SUNNYVAiLE AFTER DARK"** / *"Wish you were here."* Marquee boards: THE LAiDIES
    (SUNNYVAiLE's house band, LIVE AFTER 8), Businesswomen's Special happy hour, Main Character Spritz.
    Filed to `approved-assets/postcards/`.
-6. `pc-ksvl.png` — KSVL 99.9, the radio tower + heart sign.
+6. `pc-ksvl.png` — KSVL 99.9, the radio tower + heart sign. **⚠️ RE-ROLL NEEDED.**
+   Locked slogan: **"SLAiY THE AIRWAVES"** / *"Come to SUNNYVAiLE"* — the delivered v1 rendered it
+   plain "SLAY"; must be **SLAiY** (Ai-accented, like SLAiYER). Keep the rest: "KSVL COMMUNITY RAiDIO"
+   marquee (RAiDIO intentional), ON AIR neon, heart "KSVL 99.9" tower sign, DJ booth in the window,
+   motto "DON'T JUST LEARN FROM BOOKS. LEARN FROM HOOKS!"
 7. `pc-mme-claio.png` — Mme CLAi-O's psychic shop, jewel-toned.
 8. `pc-library.png` — the LIBRAiRY at dusk, golden light. **✅ DELIVERED (2026-07-07).**
    Baked slogan: **"NEVER BEEN BOOKED"** / *"Come to SUNNYVAiLE"* (pun on booked). Streamline-deco
