@@ -17,12 +17,20 @@
 > painted register as a hand-tinted vacation postcard — NOT a photograph, NOT
 > flat vector, NOT anime). Fictional Y2K California town: palms, stucco, neon,
 > chrome, vinyl awnings, teal + peach + cream + sunset gold. NO fairytale,
-> cottagecore, cathedral, baroque, 1950s-diner, or meme-poster energy.
+> cottagecore, cathedral, baroque, 1950s-diner, or meme-poster energy — and
+> NO country / rustic / Western-Americana / rural-roadside energy either
+> (no distressed wood, no ornate iron scrollwork, no Old-West slab serifs).
 > 2:1 landscape, 1920×960. A thin cream postcard border frames the scene.
 > The hero caption is RENDERED IN the image as classic Y2K travel-brochure
 > lettering (chunky rounded letters, cream/gold, sitting in the bottom band or
 > arched across the sky like a "Greetings from" postcard). Casing of every
 > brand word is letter-exact — the lowercase i inside caps is intentional.
+>
+> SIGN STYLE (any welcome / entry / municipal signboard in a scene): a sleek
+> Y2K SoCal tourism monument — clean stucco-and-teal-tile with a soft chrome
+> or neon edge, brand word set in the SAME chunky rounded retro-modern face as
+> the hero caption. NOT a distressed-wood roadside board, NOT Old-West/Western
+> slab serif, NOT ornate scrollwork or sunburst filigree. Bright, not rustic.
 
 **Style + facade reference (open these first):** the finished building heroes at
 `Website-homepage/assets/sunnyvaile-buildings/y2k-v3-rendered-signs/*.png`.
