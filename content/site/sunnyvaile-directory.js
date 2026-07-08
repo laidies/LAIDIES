@@ -19,25 +19,25 @@
   // Building data — canon 2026-07-04: MAiN Street 1-10, then cross streets 11-17
   // (Civic Square · Schoolhouse Rd · Willow Ln · Wisteria Ln · Lantern Hill)
   // x/y are % coordinates for number placement over the map (0-100)
-  // Coordinates are matched to sunnyvaile-town-map-v9-canon.png (canon street order).
+  // Coordinates are matched to sunnyvaile-town-map-locked.jpg (Ali-approved 2026-07-08). Post Office=11, Library=13 (left-to-right).
   var SV_BUILDINGS = [
     { num:  1, id: 'visitors-centre',  name: "The Welcome Wagon Visitor's Centre", address: 'No. 1 MAiN',                  href: '/visitors-centre.html',        oneLiner: 'The front door. Start here.',                                mechanics: ['Town map + directory', 'Meet the buildings', 'New here? First stop.'],                     x: 7.0, y: 66.0 },
     { num:  2, id: 'newsstand',        name: 'The NewsStand',                      address: 'No. 2 MAiN',                  href: '/newsstand.html',               oneLiner: 'Hot gossip · what everyone is talking about.',              mechanics: ['This week\'s headlines', 'What the town is saying', 'Trending SUNNYVAiLE'],                x: 17.0, y: 68.0 },
     { num:  3, id: 'chick-flicks',     name: 'The Chick Flicks',                   address: 'No. 3 MAiN',                  href: '/chick-flicks.html',             oneLiner: 'Video rental. Every episode is an aisle.',                  mechanics: ['This week\'s rental', 'Full episode catalog', 'Return by Friday'],                          x: 28.0, y: 64.0 },
     { num:  4, id: 'blend-snap',       name: 'The Blend & Snap',                   address: 'No. 4 MAiN',                  href: '/blend-snap.html',             oneLiner: 'Coffee shop. Study pack lives here.',                       mechanics: ['Study Pack / trading cards', 'Bulletin Board (soon)', '3rd place · order your usual'],     x: 39.0, y: 66.0 },
     { num:  5, id: 'mme-claio',        name: "Mme CLAi-O's Shop",                  address: 'No. 5 MAiN',                  href: '/games/madame-claio.html',     oneLiner: 'Fortune teller. Pick a card. Get read.',                    mechanics: ['Daily tarot pull', '100-card deck', 'Read / Message / Move'],                              x: 49.0, y: 65.0 },
-    { num:  6, id: 'maikeover',        name: 'MAiKEOVER on MAiN',               address: 'No. 6 MAiN',               href: '/maikeover.html',              oneLiner: 'Beauty parlor. Where your Residence Card gets made.',       mechanics: ['Design your card', 'Weekly check-in ritual', 'MAiKEOVER = sign-up'],                       x: 59.0, y: 65.0 },
-    { num:  7, id: 'bronze-aige',      name: 'The BRONZE AiGE',                    address: 'No. 7 MAiN',                  href: '/bronze-aige.html',            oneLiner: 'Happy hour · house band · Main Character Spritz.',          mechanics: ['Cocktail-of-the-week', 'THE LAiDIES live', 'Wednesday sets'],                              x: 68.0, y: 65.0 },
-    { num:  8, id: 'dream-phone',      name: 'The Phone Booth (Dream Phone)',      address: 'No. 8 MAiN · Outside The Mall',  href: '/games/dream-phone.html',      oneLiner: 'Glass phone booth. Call in. Get the answer.',               mechanics: ['Call in a question', '75 Y2K object bundle', 'Voices: Receipts / Bestie / Boundary / etc'], x: 75.0, y: 75.0 },
-    { num:  9, id: 'mall',             name: 'The Mall',                           address: 'No. 9 MAiN',                  href: '/mall.html',                   oneLiner: '10 shops of 90s and Y2K reference + your avatar closet.',   mechanics: ['Object shops · Wear this →', 'Reference cards', 'Mall Directory search'],                   x: 83.0, y: 62.0 },
-    { num: 10, id: 'ksvl-radio',       name: 'KSVL Community RAiDIO',              address: 'No. 10 MAiN',                href: '/radio.html',                  oneLiner: 'DJ SunnyV spins PATRON SAiNT sets + town anthem.',           mechanics: ['SAiNT themes on rotation', 'Weekly episode tracks', 'Song-of-the-week pick'],              x: 94.0, y: 66.0 },
-    { num: 11, id: 'library',          name: 'The Town LIBRAiRY',                  address: 'Civic Square',                  href: '/library.html',                oneLiner: 'Look it up. Reference desk for everything.',                mechanics: ['Power Map', 'Chamber of Receipts', 'Ask the Book'],                                         x: 33.0, y: 40.0 },
+    { num:  6, id: 'maikeover',        name: 'MAiKEOVER on MAiN',               address: 'No. 6 MAiN',               href: '/maikeover.html',              oneLiner: 'Beauty parlor. Where your Residence Card gets made.',       mechanics: ['Design your card', 'Weekly check-in ritual', 'MAiKEOVER = sign-up'],                       x: 61.0, y: 65.0 },
+    { num:  7, id: 'bronze-aige',      name: 'The BRONZE AiGE',                    address: 'No. 7 MAiN',                  href: '/bronze-aige.html',            oneLiner: 'Happy hour · house band · Main Character Spritz.',          mechanics: ['Cocktail-of-the-week', 'THE LAiDIES live', 'Wednesday sets'],                              x: 71.0, y: 65.0 },
+    { num:  8, id: 'dream-phone',      name: 'The Phone Booth (Dream Phone)',      address: 'No. 8 MAiN · Outside The Mall',  href: '/games/dream-phone.html',      oneLiner: 'Glass phone booth. Call in. Get the answer.',               mechanics: ['Call in a question', '75 Y2K object bundle', 'Voices: Receipts / Bestie / Boundary / etc'], x: 78.0, y: 81.0 },
+    { num:  9, id: 'mall',             name: 'The Mall',                           address: 'No. 9 MAiN',                  href: '/mall.html',                   oneLiner: '10 shops of 90s and Y2K reference + your avatar closet.',   mechanics: ['Object shops · Wear this →', 'Reference cards', 'Mall Directory search'],                   x: 85.0, y: 62.0 },
+    { num: 10, id: 'ksvl-radio',       name: 'KSVL Community RAiDIO',              address: 'No. 10 MAiN',                href: '/radio.html',                  oneLiner: 'DJ SunnyV spins PATRON SAiNT sets + town anthem.',           mechanics: ['SAiNT themes on rotation', 'Weekly episode tracks', 'Song-of-the-week pick'],              x: 96.0, y: 66.0 },
+    { num: 11, id: 'post-office',      name: 'The SUNNYVAiLE Post Office',            address: 'Civic Square',                 href: '/post-office.html',            oneLiner: 'Wednesday Drop signup + sign-in station.',                  mechanics: ['Wednesday Drop newsletter', 'Sign in via magic link', 'Send-a-note gifts'],                x: 7.0, y: 38.0 },
     { num: 12, id: 'town-hall',        name: 'Town Hall',                          address: 'Civic Square',                 href: '/town-hall.html',              oneLiner: 'Mayor Deb\'s office. Founder\'s note. Civic records.',       mechanics: ['Deb\'s NOPE poster archive', 'Founder\'s note', 'Announcements + FAQ'],                     x: 22.0, y: 32.0 },
-    { num: 13, id: 'post-office',      name: 'The SUNNYVAiLE Post Office',            address: 'Civic Square',                 href: '/post-office.html',            oneLiner: 'Wednesday Drop signup + sign-in station.',                  mechanics: ['Wednesday Drop newsletter', 'Sign in via magic link', 'Send-a-note gifts'],                x: 7.0, y: 38.0 },
+    { num: 13, id: 'library',          name: 'The Town LIBRAiRY',                  address: 'Civic Square',                  href: '/library.html',                oneLiner: 'Look it up. Reference desk for everything.',                mechanics: ['Power Map', 'Chamber of Receipts', 'Ask the Book'],                                         x: 33.0, y: 40.0 },
     { num: 14, id: 'sunnyvaile-high',  name: 'SUNNYVAiLE High',                    address: 'Schoolhouse Road',            href: '/sunnyvaile-high.html',        oneLiner: 'Season 1 · 101 classes. Take the pop quiz.',                mechanics: ['7 courses (Vocab 101 → ChatGPT 101)', 'Pop Quiz here', 'Detention slips + Hall Pass'],     x: 50.0, y: 24.0 },
     { num: 15, id: 'fairy-godmother',  name: "The FAiRY Godmother's House",        address: 'Willow Lane',                 href: '/games/fairy-godmother.html',  oneLiner: 'Ask LAiDY lives here. She grants wishes.',                  mechanics: ['Ask LAiDY chatbot', '3 wishes per visit', 'Willow Lane witchery'],                          x: 57.0, y: 42.0 },
     { num: 16, id: 'sorority-house',   name: 'The Sorority House · Delta LAi Nu',  address: 'Wisteria Lane',               href: '/sorority-house.html',         oneLiner: 'Members-only. 10 rooms. Card required.',                    mechanics: ['Ask the Room · Wins · Burn Book', 'Dear LAiDIES · Girl Talk', 'Card required at door'],    x: 78.0, y: 38.0 },
-    { num: 17, id: 'sanctuary',        name: 'The LUMINAiRY',                     address: 'Lantern Hill',              href: '/luminairy.html',              oneLiner: 'PATRON SAiNTS + The MAiVENS. Pay homage.',                   mechanics: ['8 PATRON SAiNTS', 'MAiVENS wing (curated)', '"Pledge Allegiance"'],                          x: 89.0, y: 16.0 }
+    { num: 17, id: 'sanctuary',        name: 'The LUMINAiRY',                     address: 'Lantern Hill',              href: '/luminairy.html',              oneLiner: 'PATRON SAiNTS + The MAiVENS. Pay homage.',                   mechanics: ['8 PATRON SAiNTS', 'MAiVENS wing (curated)', '"Pledge Allegiance"'],                          x: 83.0, y: 16.0 }
   ];
 
   // Shared exports — sv-you-are-here.js (and future components) read these.
@@ -47,14 +47,20 @@
   // ---------- CSS ----------
   var STYLE = ''
     + '.sv-map-directory { display: flex; flex-direction: column; gap: 0; margin: 40px 0; position: relative; }'
-    + '.sv-map-wrap { position: relative; background: var(--pearl, #f8eef2); border: 1px solid rgba(75,33,72,0.14); border-radius: 8px; overflow: hidden; aspect-ratio: 1858 / 846; max-width: 1100px; margin: 0 auto; width: 100%; }'
+    + '.sv-map-wrap { position: sticky; top: 82px; background: var(--pearl, #f8eef2); border: 1px solid rgba(75,33,72,0.14); border-radius: 8px; overflow: hidden; aspect-ratio: 1858 / 846; max-width: 1100px; margin: 0 auto; width: 100%; }'
     + '.sv-map-img { width: 100%; height: 100%; object-fit: cover; display: block; }'
     + '.sv-map-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--plum-soft, #6b3a66); padding: 24px; background: repeating-linear-gradient(45deg, transparent 0 20px, rgba(155,63,95,0.05) 20px 40px); }'
     + '.sv-map-placeholder-icon { font-size: 42px; margin-bottom: 12px; opacity: 0.5; }'
     + '.sv-map-placeholder-title { font-size: 14px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--rose, #9b3f5f); margin-bottom: 8px; }'
     + '.sv-map-placeholder-sub { font-size: 14px; color: var(--plum-soft, #6b3a66); font-style: italic; }'
-    + '.sv-map-marker { position: absolute; transform: translate(-50%, -50%); width: 64px; height: 64px; border-radius: 50%; background: transparent; color: transparent; border: 2px solid transparent; cursor: pointer; transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease; z-index: 2; font-family: inherit; font-weight: 700; font-size: 13px; padding: 0; }'
-    + '.sv-map-marker:hover, .sv-map-marker:focus, .sv-map-marker.is-highlighted { border-color: var(--rose, #9b3f5f); background: rgba(155, 63, 95, 0.28); transform: translate(-50%, -50%) scale(1.18); z-index: 4; outline: none; box-shadow: 0 4px 12px rgba(75,33,72,0.24); }'
+    + '.sv-map-marker { position: absolute; transform: translate(-50%, -50%); width: 44px; height: 44px; border-radius: 50%; background: transparent; border: 0; cursor: pointer; z-index: 2; padding: 0; }'
+    + '.sv-mk-ring { position: absolute; top: 50%; left: 50%; width: 26px; height: 26px; border-radius: 50%; border: 2.5px solid var(--gold, #c9a227); background: rgba(201,162,39,0.08); box-shadow: 0 0 0 5px rgba(201,162,39,0.20), 0 0 22px rgba(201,162,39,0.70); transform: translate(-50%, -50%) scale(0.4); opacity: 0; pointer-events: none; transition: opacity 0.2s ease, transform 0.2s ease; }'
+    + '.sv-map-marker:hover .sv-mk-ring, .sv-map-marker:focus .sv-mk-ring, .sv-map-marker.is-highlighted .sv-mk-ring { opacity: 1; transform: translate(-50%, -50%) scale(1); }'
+    + '.sv-mk-label { position: absolute; bottom: calc(50% + 20px); left: 50%; transform: translateX(-50%) translateY(4px); white-space: nowrap; background: var(--plum-deep, #341446); color: var(--cream, #fffdfb); font: 700 11px/1 "Jost", sans-serif; padding: 5px 9px; border-radius: 6px; opacity: 0; pointer-events: none; transition: opacity 0.14s ease, transform 0.14s ease; box-shadow: 0 6px 16px rgba(52,20,70,0.4); z-index: 5; }'
+    + '.sv-mk-label::after { content: ""; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: var(--plum-deep, #341446); }'
+    + '.sv-map-marker:hover .sv-mk-label, .sv-map-marker:focus .sv-mk-label, .sv-map-marker.is-highlighted .sv-mk-label { opacity: 1; transform: translateX(-50%) translateY(0); }'
+    + '.sv-map-marker:hover, .sv-map-marker:focus, .sv-map-marker.is-highlighted { z-index: 6; outline: none; }'
+    + '.sv-hover-preview { display: none !important; }'
     + '.sv-directory-item.is-highlighted { background: var(--blush, #f9e6ee); box-shadow: inset 3px 0 0 var(--rose, #9b3f5f); }'
     + '.sv-hover-preview { position: absolute; top: 12px; left: 12px; max-width: 320px; background: var(--cream, #fffdfb); border: 1.5px solid var(--rose, #9b3f5f); border-radius: 10px; padding: 16px 18px; box-shadow: 0 12px 32px rgba(75,33,72,0.30); opacity: 0; pointer-events: none; transition: opacity 0.15s ease, transform 0.15s ease; z-index: 5; text-decoration: none; color: inherit; display: block; }'
     + '.sv-hover-preview.is-visible { opacity: 1; pointer-events: auto; }'
@@ -73,13 +79,14 @@
     + '.sv-directory-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(6, auto); grid-auto-flow: column; column-gap: 16px; border-top: 1px solid rgba(75,33,72,0.10); }'
     + '@media (max-width: 900px) { .sv-directory-list { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(9, auto); } }'
     + '@media (max-width: 560px) { .sv-directory-list { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; grid-auto-flow: row; } }'
-    + '.sv-directory-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-bottom: 1px solid rgba(75,33,72,0.10); cursor: pointer; text-align: left; background: transparent; border-left: none; border-right: none; border-top: none; width: 100%; transition: background 0.15s ease; font-family: inherit; color: inherit; height: 62px; box-sizing: border-box; }'
+    + '.sv-directory-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-bottom: 1px solid rgba(75,33,72,0.10); cursor: pointer; text-align: left; background: transparent; border-left: none; border-right: none; border-top: none; width: 100%; transition: background 0.15s ease; font-family: inherit; color: inherit; min-height: 66px; box-sizing: border-box; }'
     + '.sv-directory-name { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }'
     + '.sv-directory-item:hover, .sv-directory-item:focus { background: var(--blush, #f9e6ee); outline: none; }'
     + '.sv-directory-num { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--pearl, #f8eef2); color: var(--plum, #4b2148); font-weight: 700; font-size: 12px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(75,33,72,0.14); }'
     + '.sv-directory-body { flex: 1; min-width: 0; }'
     + '.sv-directory-address { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose, #9b3f5f); }'
     + '.sv-directory-name { display: block; font-size: 14px; font-weight: 600; color: var(--plum, #4b2148); margin-top: 2px; }'
+    + '.sv-directory-oneliner { display: block; font-size: 11.5px; color: var(--plum-soft, #6b3a66); line-height: 1.3; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }'
     + '.sv-directory-arrow { color: var(--plum-soft, #6b3a66); font-size: 14px; flex-shrink: 0; }'
     + '.sv-preview-backdrop { position: fixed; inset: 0; background: rgba(75,33,72,0.32); display: none; align-items: center; justify-content: center; z-index: 9998; padding: 20px; animation: sv-preview-fade 0.2s ease; }'
     + '.sv-preview-backdrop.is-open { display: flex; }'
@@ -152,7 +159,8 @@
         onfocus: function(){ showPreview(b); },
         onblur: function(){ hidePreview(); }
       });
-      m.textContent = b.num;
+      m.appendChild(el('span', {class:'sv-mk-ring'}));
+      m.appendChild(el('span', {class:'sv-mk-label', text: b.num + '. ' + b.name}));
       wrap.appendChild(m);
     });
   }
@@ -160,7 +168,7 @@
   function buildDirectory() {
     var wrap = el('div', {class:'sv-directory'});
     wrap.appendChild(el('div', {class:'sv-directory-title', text:'★ SUNNYVAiLE Directory'}));
-    wrap.appendChild(el('div', {class:'sv-directory-note', text:'Hover a row for a preview. Click to step inside.'}));
+    wrap.appendChild(el('div', {class:'sv-directory-note', text:'Hover to light it up on the map. Click to step inside.'}));
     var list = el('ul', {class:'sv-directory-list'});
     SV_BUILDINGS.forEach(function(b) {
       var item = el('button', {
@@ -176,7 +184,8 @@
         el('span', {class:'sv-directory-num', text:String(b.num)}),
         el('span', {class:'sv-directory-body'}, [
           el('span', {class:'sv-directory-address', text:b.address}),
-          el('span', {class:'sv-directory-name', text:b.name})
+          el('span', {class:'sv-directory-name', text:b.name}),
+          el('span', {class:'sv-directory-oneliner', text:b.oneLiner || ''})
         ]),
         el('span', {class:'sv-directory-arrow', text:'→'})
       ]);
