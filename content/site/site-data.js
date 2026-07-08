@@ -234,7 +234,7 @@ window.LAIDIES_SITE_DATA = {
       "status": "draft",
       "releaseDate": "2026-07-01",
       "issueUrl": "issues/issue-05.html",
-      "heroImage": "assets/sunnyvaile-town-map-v8-daytime-painted.png",
+      "heroImage": "assets/sunnyvaile-town-map-locked.jpg",
       "oneLineDescription": "The one in which the whole town opens its doors.",
       "act": null,
       "lesson": null,
