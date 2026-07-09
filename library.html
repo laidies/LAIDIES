@@ -183,13 +183,7 @@
     .jr-item span { display: block; color: var(--plum-soft); font-size: 12.5px; line-height: 1.4; margin-top: 2px; }
     .jeeves-empty { font-size: 13px; color: var(--plum-soft); font-style: italic; margin-top: 12px; }
     /* coming to the shelves — quiet strip, clearly not-yet-live */
-    .coming-head { font: 800 11px/1 'Jost', sans-serif; letter-spacing: 0.2em; text-transform: uppercase; color: var(--plum-soft); margin: 34px 0 14px; }
-    .coming-list { display: grid; grid-template-columns: 1fr; gap: 10px; }
-    @media (min-width: 720px) { .coming-list { grid-template-columns: repeat(3, 1fr); } }
-    .coming-item { border: 1px dashed var(--line); border-radius: 9px; padding: 14px 16px; }
-    .coming-item h4 { font-size: 15px; font-weight: 700; margin: 0 0 3px; color: var(--plum); }
-    .coming-item p { font-size: 12.5px; line-height: 1.45; color: var(--plum-soft); margin: 0 0 9px; }
-    .coming-item .ci-when { font: 800 10px/1 'Jost', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rose); }
+    /* (.coming-* rules retired 2026-07-09 with the coming-soon strip — items now live as books on the Tools + Reference bookcases.) */
     .shelf-name {
       font-size: 22px;
       font-weight: 700;
@@ -440,25 +434,7 @@
     })();
     </script>
 
-    <!-- Coming to the shelves — clearly not-yet-live, kept quiet -->
-    <p class="coming-head">Coming to the shelves</p>
-    <div class="coming-list">
-      <div class="coming-item">
-        <h4>The Model Menu</h4>
-        <p>ChatGPT vs Claude vs Gemini vs Copilot vs Perplexity — what each is best at, what each refuses, which one to open for which job.</p>
-        <span class="ci-when">With Ep 5</span>
-      </div>
-      <div class="coming-item">
-        <h4>The Prompt Playbook</h4>
-        <p>The prompts we've actually used at L<span class="ai">Ai</span>DIES — email drafts, meeting briefs, tough conversations. Copy, adapt, ship.</p>
-        <span class="ci-when">Soon</span>
-      </div>
-      <div class="coming-item">
-        <h4>The Consent Ledger</h4>
-        <p>What should never go in the prompt box — sensitive data, other people's info, contracts, HR, legal — plus policy language for your team.</p>
-        <span class="ci-when">With Ep 7</span>
-      </div>
-    </div>
+    <!-- (Coming-soon strip retired 2026-07-09 — its items now stand as books on the Tools + Reference bookcases below: The Lineup / The Prompt Cookbook / What Not to Paste.) -->
 
     <script>
       document.addEventListener('DOMContentLoaded', function () {
@@ -501,6 +477,52 @@
       <ul class="bc-shelf bc-shelf-3"></ul>
     </div>
     <p class="tb-shelf-note">Vocab, Concepts, Briefing, Setup, Accounts — the basics, one textbook each. <b>The Cast and more land as we cover them.</b></p>
+
+    <!-- The Tools bookcase — one book per app + who-makes-what -->
+    <style>
+      .bookcase--tools { background-image: url('/assets/library-101/tools-shelf-kit.png'); }
+      .bookcase--ref { background-image: url('/assets/library-101/reference-shelf-kit.png'); }
+      .bookcase--tools .bc-shelf, .bookcase--ref .bc-shelf { justify-content: center; }
+      .bc-shelf a, .bc-shelf span.bc-book { display: block; height: 100%; }
+      .bc-shelf .bc-soon img { opacity: 0.72; filter: drop-shadow(0 6px 7px rgba(20,8,14,0.34)) grayscale(0.18); }
+    </style>
+
+    <h2>The Tools</h2>
+    <p>One book per app — plus who makes what. Each AI company is its own fashion house; a <em>model</em> is one of its designs, and the <em>tool</em> is the boutique where you shop it. So "ChatGPT vs Claude" is really two houses' storefronts.</p>
+
+    <div class="bookcase bookcase--tools" role="img" aria-label="The Tools bookcase: Who's Who in AI, plus ChatGPT, Claude, Gemini, Copilot, Perplexity, and The Lineup.">
+      <ul class="bc-shelf bc-shelf-1">
+        <li><a href="/grimoire/power-map.html"><img loading="lazy" src="/assets/library-101/book-whos-who.png" alt="Who's Who in AI — who makes what, and which tool for which job."></a></li>
+        <li><span class="bc-book bc-soon"><img loading="lazy" src="/assets/library-101/book-chatgpt.png" alt="ChatGPT — guide coming with Episode 5."></span></li>
+        <li><span class="bc-book bc-soon"><img loading="lazy" src="/assets/library-101/book-claude.png" alt="Claude — guide coming with Episode 5."></span></li>
+      </ul>
+      <ul class="bc-shelf bc-shelf-2">
+        <li><span class="bc-book bc-soon"><img loading="lazy" src="/assets/library-101/book-gemini.png" alt="Gemini — guide coming with Episode 5."></span></li>
+        <li><span class="bc-book bc-soon"><img loading="lazy" src="/assets/library-101/book-copilot.png" alt="Copilot — guide coming with Episode 5."></span></li>
+        <li><span class="bc-book bc-soon"><img loading="lazy" src="/assets/library-101/book-perplexity.png" alt="Perplexity — guide coming with Episode 5."></span></li>
+      </ul>
+      <ul class="bc-shelf bc-shelf-3">
+        <li><span class="bc-book bc-soon"><img loading="lazy" src="/assets/library-101/book-the-lineup.png" alt="The Lineup — the side-by-side compare, with Episode 5."></span></li>
+      </ul>
+    </div>
+    <p class="tb-shelf-note">Who's Who in AI is open now. <b>The per-tool guides and The Lineup land with Episode 5, The Model Menu.</b></p>
+
+    <!-- The Reference bookcase — look-it-up guides -->
+    <h2>Reference</h2>
+    <p>Look it up. Pull one down when a specific question shows up, then close the cover and go — the plain-answer half of the LIBR<span class="ai">Ai</span>RY.</p>
+
+    <div class="bookcase bookcase--ref" role="img" aria-label="The Reference bookcase: Straight Answers About AI, How to Check AI's Work, What Not to Paste, and The Prompt Cookbook.">
+      <ul class="bc-shelf bc-shelf-1">
+        <li><a href="/grimoire/chamber-of-receipts.html"><img loading="lazy" src="/assets/library-101/book-straight-answers-about-ai.png" alt="Straight Answers About AI — sourced answers to the big questions."></a></li>
+        <li><a href="/grimoire/verification-rulebook.html"><img loading="lazy" src="/assets/library-101/book-how-to-check-ai-work.png" alt="How to Check AI's Work — the Prompt Like Elle method."></a></li>
+      </ul>
+      <ul class="bc-shelf bc-shelf-2">
+        <li><span class="bc-book bc-soon"><img loading="lazy" src="/assets/library-101/book-what-not-to-paste.png" alt="What Not to Paste — coming with Episode 7."></span></li>
+        <li><span class="bc-book bc-soon"><img loading="lazy" src="/assets/library-101/book-the-prompt-cookbook.png" alt="The Prompt Cookbook — ready-to-use prompts, coming soon."></span></li>
+      </ul>
+      <ul class="bc-shelf bc-shelf-3"></ul>
+    </div>
+    <p class="tb-shelf-note">Straight Answers About AI and How to Check AI's Work are open now. <b>What Not to Paste (Ep 7) and The Prompt Cookbook are on the way.</b></p>
 
     <!-- Currently in the reading room — featured picks members are reading now -->
     <section style="margin: 40px 0 32px; padding: 26px 28px 22px; background: linear-gradient(155deg, rgba(232,197,200,0.24), rgba(255,253,251,0.7)); border-radius: 14px; border: 1.5px solid rgba(155,63,95,0.24);">

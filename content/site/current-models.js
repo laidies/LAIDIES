@@ -25,7 +25,9 @@
 
   var MODELS = {
     // Last time a human re-verified every fact below against the source pages.
-    lastVerified: '2026-07-07',
+    // 2026-07-09: full board re-checked on the day OpenAI shipped GPT-5.6
+    // (Sol/Terra/Luna). Anthropic Claude Fable 5 + Google Gemini 3.5 Flash unchanged.
+    lastVerified: '2026-07-09',
 
     // Authoritative pages to re-check against. These are the sources of truth.
     sources: {
@@ -38,12 +40,12 @@
     // `note` is an optional caveat shown in small type after the name.
     flagships: [
       { maker: 'Anthropic', name: 'Claude Fable 5' },
-      { maker: 'OpenAI',    name: 'GPT-5.5' },
-      { maker: 'Google',    name: 'Gemini 3.5 Flash', note: '3.1 Pro in preview' }
+      { maker: 'OpenAI',    name: 'GPT-5.6 Sol', note: 'Terra + Luna = cheaper tiers' },
+      { maker: 'Google',    name: 'Gemini 3.5 Flash', note: '3.5 Pro in preview' }
     ],
 
     // Cutoff examples the concepts chapter uses to teach "every model has a cutoff."
-    // Verified 2026-07-07 against anthropic.com/transparency.
+    // Verified 2026-07-09 against anthropic.com/transparency.
     cutoffExamples: [
       { name: 'Claude Opus 4.8', cutoff: 'January 2026' },
       { name: 'Claude Haiku 4.5', cutoff: 'February 2025' }

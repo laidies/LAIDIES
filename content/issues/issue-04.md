@@ -11,7 +11,7 @@ Here's the thing: **"use AI" is not an instruction.** It's like being told to "a
 
 > But this is where the broken telephone stops.
 
-So this week we're opening the first page of something new: the **LAiDIES Grimoire** — the growing reference shelf for this whole universe, where the tools, terms, receipts, and "wait, what does that *mean*?" answers live. Inside it is the **SLAiYER Handbook**: the practical survival guide for using AI at work and in life, without becoming the person who says "agentic workflow" in a meeting and then explains nothing.
+So this week we're opening the first page of something new: the **LIBRAiRY** — the growing reference shelf for this whole universe, where the tools, terms, and "wait, what does that *mean*?" answers live. Inside it is the **SLAiYER Handbook**: the practical survival guide for using AI at work and in life, without becoming the person who says "agentic workflow" in a meeting and then explains nothing.
 
 This is its first chapter. Every Slayer needs a Watcher — the one who tells her what she's walking into before she walks in. That's the whole job here. Not "which tool is best." The far more useful: *what are these things, which one do I open for which job, and how do I work with any of them without getting burned.*
 
@@ -221,7 +221,7 @@ Pick one tool you already have access to. Take one real task — the email you'v
 
 That single rep, done on purpose, will teach you more than reading about ten more tools.
 
-This is the first page of the LAiDIES Grimoire. It's the job of the SLAiYER Handbook. And it's why we start the way a Watcher would — not with "which tool is best," but with the far more useful questions: *what am I dealing with, who do I call for this, and how do I work with it without becoming the example in next quarter's training?*
+This is the first page of the LIBRAiRY. It's the job of the SLAiYER Handbook. And it's why we start the way a Watcher would — not with "which tool is best," but with the far more useful questions: *what am I dealing with, who do I call for this, and how do I work with it without becoming the example in next quarter's training?*
 
 The cast gets a lot easier to manage once you stop asking one tool to play every role.
 
