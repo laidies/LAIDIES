@@ -167,6 +167,11 @@ Columns: **Claim** · **What it measures (scope/caveat)** · **Source** · **Ver
   CONTESTED — present BOTH:** *"Gebru says she was fired; Google says it accepted her resignation. Undisputed: she was
   abruptly cut off after a dispute over the Stochastic Parrots paper, and thousands (≈2,700 Googlers + 4,300 academics)
   protested."* Sources: MIT Tech Review, Wikipedia, CNN.
+  · **Emily M. Bender:** linguist (Univ. of Washington), **first author** of *Stochastic Parrots* (FAccT 2021); **coined the term
+  "stochastic parrot"** — a system that stitches linguistic forms together with no reference to meaning. **SAFE** to credit her
+  with naming it and co-warning (w/ Gebru) that fluency ≠ understanding. ⚠️ Do NOT imply she left Google (that was Gebru).
+  Source: ACM DL 10.1145/3442188.3445922. **Ep4 script note (2026-07-09):** promoted into episode body — *"teamed up with a
+  linguist, Emily Bender… a name that stuck: a stochastic parrot."* Gebru-exit both-sides guard preserved.
   · **Kate Crawford:** *Atlas of AI* (Yale UP 2021) — AI as extractive (mines/water/labor); "Anatomy of an AI System." Verified
   opening quote: *"AI is neither artificial nor intelligent."* ⚠️ Her personal "adversity as a woman" is **under-documented** —
   frame as the difficulty of critical interdisciplinary work; **do NOT fabricate an incident.** Sources: Yale UP, Wikipedia, katecrawford.net.
