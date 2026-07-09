@@ -50,6 +50,39 @@ Columns: **Claim** · **What it measures (scope/caveat)** · **Source** · **Ver
   from the theater kids" is approved comedic framing. · Source: https://www.etymonline.com/word/prompt ;
   https://en.wikipedia.org/wiki/Prompter_(theatre) · Verified 2026-07-07 · Used in: **Ep2**.
 
+- **"KPMG — a Big Four firm — pulled an AI report after someone checked its sources and found 40 of the 45 were made up."** _(Ep3 script updated 2026-07-08 to lead with the fabricated-citations fact; the "organizations disputed the claims" framing is also accurate and kept in the article.)_
+  · Scope: KPMG removed its Oct 2025 study *"Total Experience: Redefining Excellence in the Age of Agentic
+  AI"* (~June 2026) after UBS, the UK NHS, Swiss Federal Railways & TfL disputed claims about them; GPTZero
+  found **40 of 45 citations fabricated** ("vibe citing"). EY and Deloitte had separate similar incidents.
+  · Source: https://www.theregister.com/ai-and-ml/2026/06/12/kpmgs-ai-report-turns-into-a-demo-of-ai-hallucinations/5255029 ;
+  https://www.cityam.com/kpmg-report-on-ai-found-riddled-with-ai-hallucinations/ · Verified 2026-07-08 · Used in: **Ep3**.
+
+- **"A 2026 Nature paper put a name to why: the way we grade models rewards a confident guess over an honest 'I don't know' — so they guess."** _(Ep3 script updated 2026-07-08 from the vaguer "still show up in SOTA models" line to the paper's actual incentive thesis.)_ · Scope:
+  peer-reviewed; reframes hallucination as an *evaluation-incentive* problem — accuracy-based benchmarks
+  reward confident guessing over "I don't know." Title: *"Evaluating large language models for accuracy
+  incentivizes hallucinations."* · Source: https://www.nature.com/articles/s41586-026-10549-w · Verified 2026-07-08 · Used in: **Ep3**.
+
+- **"Stanford's 2026 AI Index found that if you tell a top model something false you seem to believe, it'll often just agree with you."** _(Ep3 script updated 2026-07-08 — the old "hallucination rates ranging wildly" line is retired.)_ · Scope:
+  ⚠️ **read the scope carefully** — the "**22%–94% across 26 models**" figure is from a benchmark that measures
+  **sycophancy-induced error**: how a model handles a *false statement framed as the user's own belief*
+  (e.g., GPT-4o 98.2%→64.4%, DeepSeek R1 90%+→14.4% under that framing). It is NOT a generic "how often does
+  it make things up" rate. **2026-07-08: both the audio AND the article were rewritten to name the belief-framing
+  (sycophancy) directly** — neither now presents it as a plain accuracy/hallucination-rate benchmark. (Also true generally in the 2026 Index: reasoning-tuned models can score *worse* on
+  factuality; RAI-benchmark reporting stays sparse.) · Source: Stanford HAI, 2026 AI Index (Responsible AI) —
+  https://hai.stanford.edu/ai-index/2026-ai-index-report/responsible-ai · Verified 2026-07-08 · Used in: **Ep3**.
+
+- **Ep3 pop-culture facts — verified 2026-07-08 (deep-pass).**
+  · **Bethany Byrd / Burn Book** (*Mean Girls* 2004): a Burn Book entry claims Bethany is "lying about being a
+  virgin" because she uses super-jumbo tampons; she rebuts it in the gym scene. The book is *written by* someone —
+  it does not "spot" or "decide" (personification corrected). Bethany Byrd is a real character (Stefanie Drummond).
+  · **"She doesn't even go here"** = Damian, gym-assembly scene, disguised in a **blue** hoodie + sunglasses
+  (NOT pink — corrected). Source: ACMI.
+  · **Chutney / perm alibi** (*Legally Blonde* 2001): claims she showered after a perm; Elle catches that you don't
+  wet a fresh perm (24-hr rule) → alibi collapses. Accurate as written.
+  · **The Bronze — "all ages, no cover Fridays"** (*Buffy*): confirmed correct by Ali (primary source — watched
+  the episode). Leave as-is.
+  · Source: IMDb; getyarn; ACMI · Verified 2026-07-08 · Used in: **Ep3** (audio + issue-03.md).
+
 ### ⚠️ NEEDS VERIFICATION before it ships again
 
 - ✅ **VERIFIED + corrected 2026-07-07 — Mollick quote.** Exact wording: *"The skills that are so often

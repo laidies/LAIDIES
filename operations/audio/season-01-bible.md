@@ -94,41 +94,53 @@ promises in the announcer's season promo are the four act milestones:
 - **"Remember, ladies"** — one fresh aphorism per episode; the 24
   lines together are the season's quotable spine (poster potential).
 
-## Season map — PROPOSAL (Ali to approve; titles 3+4 already locked)
+## Season map — LOCKED (Ali 2026-07-08 — re-sequenced for the learning arc + the saint Court)
 
-**ACT I — SHE STOPS FEELING BEHIND (1–8):** getting fluent, alone, in
-stolen minutes.
-1. **On Wednesdays We Use AI** — what AI actually is; the first try-on. ✅ scripted
-2. *(existing Ep 2 topic)* — prompting is just delegation. She already knows how.
-3. **The Burn Book Problem** — hallucinations; trust but verify. (title locked)
-4. **Every SLAiYER Needs a Watcher** — human in the loop; you are the Watcher. (title locked)
-5. Picking your tool — models are editors-in-chief; a two-tool wardrobe.
-6. The goldfish memory — context windows; why it forgets, what to re-tell it.
-7. Summarize anything — meetings, docs, threads; reclaiming reading time.
-8. Write with it, sound like you — voice, drafts, and the 20% only you can see.
+The four promo promises are the acts. Re-ordered so each week only needs what came before, safety
+lands before heavy use, and the agents/leadership arc is the payoff. Eps 1–4 recorded/locked; Ep 5
+teased. Grounded vs 2026 AI-skills demand + agentic/multimodal/embedded trends (facts ledger).
 
-**ACT II — SHE LEARNS TO DELEGATE (9–16):** using it at work, out loud.
-9. Research with receipts — verification workflows; citations or it didn't happen.
-10. The spreadsheet episode — data questions in plain English.
-11. The teacher's handout — giving it YOUR documents (textbook-edition analogy).
-12. Decks and images — visuals without the 11pm formatting spiral.
-13. The routine episode — automating the recurring stuff.
-14. What not to paste — privacy, confidentiality, work rules.
-15. The Burn Book at scale — bias; why who builds it matters (MAiVENS tie-in).
-16. **Midseason turn: using AI out loud** — she stops hiding it; the
-    visibility stats from Ep 1 come full circle. Steve subplot peaks.
+**ACT I — SHE STOPS FEELING BEHIND (1–8): fluency, alone.**
+1. **On Wednesdays We Use AI** — what AI is; the auditions. ✅
+2. **Tell Me What You Want** — prompting is delegation. ✅
+3. **The Burn Book Problem** — confidently wrong; verify. ✅
+4. **Every SLAiYER Needs a Watcher** — the cast; which tool for which job. ✅ *(absorbed old "picking your tool")*
+5. **The Skeleton Key** — memory/context; set up once. 🔜 teased
+6. **What Not to Paste** — privacy + guardrails. *(moved up from old #14 — before the document weeks)*
+7. **Just Talk to It** — multimodal: voice + show it (screenshots, camera). ⭐ NEW
+8. **The Two-Minute Summary** — reclaim reading time.
 
-**ACT III — THE SQUAD, THEN THE CROWN (17–24):** from user to leader.
-17. Delegating whole jobs — agents; managing work you don't watch happen.
-18. Building the squad — multiple assistants, each with a lane.
-19. Teaching your team — rolling it out without becoming IT support.
-20. The mentor episode — bringing the next woman along.
-21. Staying current without doomscrolling — a sane weekly diet.
-22. The judgment episode — what stays human; her fifteen years, priced in.
-23. The centaur episode — human + AI teams beat either alone (GO CENTAURS).
-24. **Finale: The woman they come to** — Steve asks her for help. She
-    gives the cocktail party explanation from Ep 1 — HER version now.
-    Season promo fulfilled, line by line.
+**ACT II — SHE DELEGATES, OUT LOUD (9–16): at work, visible.**
+9. **Sound Like You** — writing/drafts + the 20% only you can see.
+10. **It's Already in Your Tools** — the AI embedded in Outlook/Excel/Slack/Notion. ⭐ NEW
+11. **Research With Receipts** — the verification WORKFLOW (not a repeat of Ep 3's concept).
+12. **The Teacher's Handout** — give it YOUR documents (textbook-edition analogy).
+13. **The Spreadsheet Episode** — data questions in plain English.
+14. **Decks & Images** — visuals without the 11pm formatting spiral.
+15. **The Routine Episode** — automate the recurring stuff.
+16. **Out Loud** — midseason turn; she stops hiding it; Ep 1's visibility stat pays off; Steve exposed. [ACT II CLIMAX]
+
+**ACT III — BUILD YOUR SAINTS, THEN WEAR THE CROWN (17–24): user → leader.**
+17. **Delegating Whole Jobs** — agents; one goes and does the whole task (Buffy).
+18. **Build Your Own Saints** — assemble YOUR COURT (the saint-cabinet); build a custom one (your own Miranda). ⭐
+19. **The Whole Court** — the saints working together (multi-agent orchestration: Elle → Miranda → Dolly). ⭐
+20. **The Burn Book at Scale** — bias; who builds it matters (MAiVENS tie-in).
+21. **Bring Her Along** — teaching your team + mentoring the next woman (merged).
+22. **What Stays Human** — judgment; her experience priced in; human + AI beats either (centaur folded in).
+23. **Staying Current Without Doomscrolling** — the sustainable weekly diet.
+24. **Wear the Crown** — finale: the woman they come to; Steve asks HER; she gives the cocktail-party explanation, her version. Season promo fulfilled, line by line.
+
+### YOUR COURT — the saint-cabinet (Ali 2026-07-08; see [[your-court-saint-agents]])
+Act III's "squad" = the patron saints as specialized agents; each returns from her single-episode
+patron slot to join the working Court. Roles are canon (each saint's "PATRON SAiNT of X" domain in
+`luminairy.html` — verify there before changing):
+- **Miranda Priestly** (Standards) → **The Editor** · **Elle Woods** (Receipts) → **The Researcher** ·
+  **David Rose** (Specificity) → **The Brief** · **Dolly Parton** (Common Sense) → **The Translator** ·
+  **Buffy Summers** (SLAiYING) → **The Doer** · **Cher Horowitz** (Early Adoption) → **The Scout** ·
+  **Regina George** (Dangerous Confidence) → **The Closer** · **Deb** (Loop Me Out) → **The Gatekeeper**.
+"Build your own saint" = a Custom GPT/Project tuned as one of them. "The whole Court" = orchestrate them together.
+
+**Re-sequencing moves (2026-07-08):** Ep 4 keeps "the cast" (old "picking your tool" Ep 5 **dropped**, not duplicated) · privacy → Ep 6 · verification = concept once (Ep 3) + workflow once (Ep 11) · staying-current → Ep 23. **Added:** multimodal (7), embedded (10), the saint Court (18–19). **Merged:** teach+mentor (21), judgment+centaur (22).
 
 ## Facts locked (Currency Rule — every activity verified vs the live site, 2026-07-07)
 

@@ -247,7 +247,6 @@ When you edit anything above, walk this list. ✅ = already true to canon · �
 ## MUST-MATCH (verbatim in script + article — enforced by `operations/check-episode.sh 2`)
 These exact strings must appear in BOTH the audio script and the article, so the demo prompt + expert quote can't drift between surfaces. Edit them here first, then propagate.
 - summarize this policy change for my stakeholders
-- Flag anything that only applies to some teams
 - turned out to be the hard ones
 
 See [[episode-canonical-source-spec.md]], [[article-derived-from-script]], [[episode-content-sync-surfaces]], [[quotables-are-funny-and-lyrics]], [[fact-verification-rule]].

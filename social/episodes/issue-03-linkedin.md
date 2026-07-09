@@ -16,7 +16,7 @@ Sometimes it has a table, a source-looking link, and one tiny detail that cannot
 
 This week in LAiDIES, Issue 03 is about The Burn Book Problem: confidence is not evidence.
 
-The Burn Book had the same problem. Same marker, same layout, same social authority. A true thing, a stale thing, a rumor, and a completely unsupported conclusion could all sit on the page with the same certainty.
+The Burn Book had the same problem. Same marker, same layout, same social authority. A rumor, a grudge, an assumption, and a completely unsupported conclusion could all sit on the page with the same certainty — and none of them were ever checked.
 
 AI can do that with better punctuation.
 

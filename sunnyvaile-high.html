@@ -75,6 +75,10 @@
       <p class="stop-desc" style="color: var(--cream); opacity: 0.9;">10 minutes. Pick your episode, answer the questions, collect a sticker.</p>
     </a>
 
+    <p style="margin: -14px 0 30px; font-size: 14px; color: var(--plum-soft);">
+      Every quiz you sit lands on <a href="/sunnyvaile-high.html#report-card" style="color: var(--rose); text-decoration: underline;">your Report Card</a> &mdash; your permanent record for the season &mdash; and earns you a spot in the <a href="/sunnyvaile-high.html#superlatives" style="color: var(--rose); text-decoration: underline;">yearbook</a>.
+    </p>
+
 
 
     <!-- ============================================================
@@ -91,9 +95,11 @@
       .sh-hub__icon { display: inline-flex; align-items: center; justify-content: center;
         width: 42px; height: 42px; border-radius: 50%; margin-bottom: 10px; line-height: 0;
         box-shadow: inset 0 0 0 1.5px rgba(52,20,70,0.16), 0 2px 6px rgba(75,33,72,0.22); }
-      .sh-hubs .sh-hub:nth-child(1) .sh-hub__icon { background: linear-gradient(160deg, #b97c5a 0%, #8f5d40 100%); }
-      .sh-hubs .sh-hub:nth-child(2) .sh-hub__icon { background: linear-gradient(160deg, #3aa8a4 0%, #2b7d7a 100%); }
-      .sh-hubs .sh-hub:nth-child(3) .sh-hub__icon { background: linear-gradient(160deg, #c47c85 0%, #9c5f68 100%); }
+      .sh-hubs .sh-hub:nth-child(5n+1) .sh-hub__icon { background: linear-gradient(160deg, #b97c5a 0%, #8f5d40 100%); }
+      .sh-hubs .sh-hub:nth-child(5n+2) .sh-hub__icon { background: linear-gradient(160deg, #3aa8a4 0%, #2b7d7a 100%); }
+      .sh-hubs .sh-hub:nth-child(5n+3) .sh-hub__icon { background: linear-gradient(160deg, #c47c85 0%, #9c5f68 100%); }
+      .sh-hubs .sh-hub:nth-child(5n+4) .sh-hub__icon { background: linear-gradient(160deg, #b97c5a 0%, #8f5d40 100%); }
+      .sh-hubs .sh-hub:nth-child(5n+5) .sh-hub__icon { background: linear-gradient(160deg, #3aa8a4 0%, #2b7d7a 100%); }
       .sh-hub__name { font-size: 15px; font-weight: 800; color: var(--plum-deep); letter-spacing: 0.02em; margin: 0 0 3px; }
       .sh-hub__count { font-size: 11.5px; color: var(--plum-soft, #6b3a66); margin: 0 0 10px; line-height: 1.35; }
       .sh-hub__cta { display: inline-block; font-size: 10.5px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose); }
@@ -115,6 +121,18 @@
     </style>
 
     <div class="sh-hubs" id="sh-hubs">
+      <button type="button" class="sh-hub" data-panel="hub-record" aria-expanded="false" aria-controls="hub-record">
+        <span class="sh-hub__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="url(#shh4)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="shh4" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9a6d10"/><stop offset="0.45" stop-color="#f3d879"/><stop offset="0.55" stop-color="#ffeb9e"/><stop offset="1" stop-color="#a87b1c"/></linearGradient></defs><rect x="5" y="3.6" width="14" height="16.8" rx="2"/><path d="M9.2 3.6 V2.6 H14.8 V3.6"/><path d="M8 9 H13 M8 12 H13 M8 15 H11"/><path d="M15 14.4 L16.2 15.6 L18.4 13"/></svg></span>
+        <p class="sh-hub__name">Your Report Card</p>
+        <p class="sh-hub__count">Every Pop Quiz, graded &amp; banked</p>
+        <span class="sh-hub__cta"><span class="when-closed">Pull your record →</span><span class="when-open">Close ×</span></span>
+      </button>
+      <button type="button" class="sh-hub" data-panel="hub-yearbook" aria-expanded="false" aria-controls="hub-yearbook">
+        <span class="sh-hub__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="url(#shh5)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="shh5" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9a6d10"/><stop offset="0.45" stop-color="#f3d879"/><stop offset="0.55" stop-color="#ffeb9e"/><stop offset="1" stop-color="#a87b1c"/></linearGradient></defs><circle cx="12" cy="9" r="4.8"/><path d="M12 6.4 L12.8 8 L14.5 8.3 L13.25 9.5 L13.55 11.2 L12 10.4 L10.45 11.2 L10.75 9.5 L9.5 8.3 L11.2 8 Z"/><path d="M9.3 13.2 L8 21 L12 18.8 L16 21 L14.7 13.2"/></svg></span>
+        <p class="sh-hub__name">Class Superlatives</p>
+        <p class="sh-hub__count">Your &rsquo;99 yearbook title, computed</p>
+        <span class="sh-hub__cta"><span class="when-closed">See your superlative →</span><span class="when-open">Close ×</span></span>
+      </button>
       <button type="button" class="sh-hub" data-panel="hub-classes" aria-expanded="false" aria-controls="hub-classes">
         <span class="sh-hub__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="url(#shh1)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="shh1" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9a6d10"/><stop offset="0.45" stop-color="#f3d879"/><stop offset="0.55" stop-color="#ffeb9e"/><stop offset="1" stop-color="#a87b1c"/></linearGradient></defs><path d="M12 6.2 C10.2 4.8 7.2 4.4 4.2 5 V18.6 C7.2 18 10.2 18.4 12 19.8 C13.8 18.4 16.8 18 19.8 18.6 V5 C16.8 4.4 13.8 4.8 12 6.2 Z"/><path d="M12 6.2 V19.8"/><path d="M6.8 9.2 C8.1 9 9.4 9.2 10.3 9.6 M6.8 12.2 C8.1 12 9.4 12.2 10.3 12.6 M17.2 9.2 C15.9 9 14.6 9.2 13.7 9.6 M17.2 12.2 C15.9 12 14.6 12.2 13.7 12.6"/></svg></span>
         <p class="sh-hub__name">Season 1 · 101 Classes</p>
@@ -134,6 +152,364 @@
         <span class="sh-hub__cta"><span class="when-closed">Peek ahead →</span><span class="when-open">Close ×</span></span>
       </button>
     </div>
+
+    <!-- ============================================================
+         The Registrar's Office — Your Report Card. A Y2K transcript
+         that banks every Pop Quiz across the season. DERIVED from the
+         quiz records (laidiesQuizProgress) with the same math as the
+         Closet's Butterfly Clip Jar, so it can never drift and needs
+         no new writes. Untaken episodes read INCOMPLETE.
+         ============================================================ -->
+    <div class="sh-hub-panel sh-hub-panel--bare" id="hub-record" hidden>
+      <style>
+        #rc-card { position: relative; background: var(--cream); border: 1.5px solid rgba(75,33,72,0.16); border-radius: 16px; box-shadow: 0 14px 34px rgba(75,33,72,0.10); overflow: hidden; }
+        #rc-card::before { content: ''; display: block; height: 12px; background: radial-gradient(circle at 8px 6px, rgba(75,33,72,0.18) 0 2px, transparent 2.4px) 0 0 / 16px 12px repeat-x; opacity: 0.5; }
+        #rc-masthead { position: relative; text-align: center; padding: 20px 24px 16px; border-bottom: 2px solid var(--gold); }
+        #rc-masthead .rc-eyebrow { font-family: 'Jost', sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose); margin: 0 0 4px; }
+        #rc-masthead h2 { margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, 4vw, 34px); color: var(--plum-deep); letter-spacing: 0.01em; }
+        .rc-stamp { position: absolute; top: 44px; right: 16px; transform: rotate(-11deg); font-family: 'JetBrains Mono', ui-monospace, 'Courier New', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; color: rgba(155,63,95,0.62); border: 2px solid rgba(155,63,95,0.5); border-radius: 6px; padding: 4px 8px; text-transform: uppercase; pointer-events: none; }
+        #rc-meta { display: flex; flex-wrap: wrap; gap: 6px 26px; justify-content: center; padding: 12px 24px; background: var(--pearl); font-family: 'Jost', sans-serif; font-size: 13px; }
+        #rc-meta > div { display: flex; gap: 7px; align-items: baseline; }
+        #rc-meta .rc-meta-k { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--plum-soft); }
+        #rc-meta .rc-meta-v { font-weight: 600; color: var(--plum-deep); }
+        .rc-table-wrap { overflow-x: auto; padding: 6px 18px 2px; }
+        #rc-table { width: 100%; border-collapse: collapse; font-family: 'Jost', sans-serif; min-width: 460px; }
+        #rc-table thead th { font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--plum-soft); text-align: left; padding: 10px 10px 8px; border-bottom: 1.5px solid rgba(75,33,72,0.16); }
+        #rc-table thead th.rc-c-grade, #rc-table thead th.rc-c-clips { text-align: center; }
+        #rc-table tbody td { padding: 12px 10px; border-bottom: 1px dashed rgba(75,33,72,0.14); vertical-align: top; }
+        #rc-table tbody tr:last-child td { border-bottom: 0; }
+        .rc-subj { font-weight: 700; color: var(--plum-deep); font-size: 14px; }
+        .rc-subj small { display: block; font-weight: 500; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rose); margin-bottom: 1px; }
+        .rc-c-grade, .rc-c-clips { text-align: center; white-space: nowrap; }
+        .rc-grade { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; padding: 5px 9px; border-radius: 8px; font-family: 'JetBrains Mono', ui-monospace, 'Courier New', monospace; font-weight: 700; font-size: 16px; line-height: 1; }
+        .rc-grade--ace { background: linear-gradient(160deg, #f6e2a0, #e6c34e); color: #5a3f0a; box-shadow: inset 0 0 0 1px rgba(122,94,20,0.4); }
+        .rc-grade--a { background: rgba(155,63,95,0.14); color: var(--rose); }
+        .rc-grade--b { background: rgba(75,33,72,0.12); color: var(--plum); }
+        .rc-grade--c { background: rgba(107,58,102,0.12); color: var(--plum-soft); }
+        .rc-grade--d, .rc-grade--f { background: rgba(75,33,72,0.06); color: rgba(75,33,72,0.5); }
+        .rc-grade--inc { background: transparent; color: rgba(75,33,72,0.4); border: 1.5px dashed rgba(75,33,72,0.28); font-size: 12px; }
+        .rc-clip-n { font-family: 'JetBrains Mono', ui-monospace, 'Courier New', monospace; font-size: 13px; color: var(--plum); }
+        .rc-clip-n.is-broken { color: rgba(75,33,72,0.45); }
+        .rc-remark { font-size: 12.5px; color: var(--plum-soft); line-height: 1.45; }
+        .rc-remark a { color: var(--rose); text-decoration: underline; }
+        tr.rc-row--inc .rc-subj { color: var(--plum-soft); }
+        #rc-summary { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; padding: 16px 24px; background: linear-gradient(135deg, var(--plum) 0%, var(--rose) 100%); color: var(--cream); }
+        .rc-gpa { display: flex; align-items: baseline; gap: 8px; }
+        .rc-gpa-n { font-family: 'JetBrains Mono', ui-monospace, 'Courier New', monospace; font-size: 30px; font-weight: 700; color: var(--gold); line-height: 1; }
+        .rc-gpa-l { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.82; }
+        .rc-standing { font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; background: rgba(255,253,251,0.16); border: 1px solid rgba(255,253,251,0.35); }
+        .rc-standing.is-honor { background: var(--gold); color: var(--plum-deep); border-color: var(--gold); }
+        .rc-clips-line { flex: 1 1 100%; font-size: 12.5px; opacity: 0.9; }
+        .rc-clips-line a { color: var(--gold); text-decoration: underline; }
+        #rc-actions { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; padding: 14px 24px 4px; }
+        #rc-print { font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--rose); background: none; border: 1.5px solid var(--rose); border-radius: 999px; padding: 8px 16px; cursor: pointer; }
+        #rc-print:hover { background: var(--rose); color: var(--cream); }
+        #rc-actions a { font-size: 12.5px; color: var(--plum-soft); text-decoration: underline; }
+        .rc-foot { padding: 8px 24px 22px; margin: 0; font-size: 12.5px; color: var(--plum-soft); }
+        .rc-foot a { color: var(--rose); text-decoration: underline; }
+        @media (max-width: 560px) { .rc-stamp { display: none; } #rc-meta { gap: 4px 16px; } }
+        @media print { body * { visibility: hidden; } #rc-card, #rc-card * { visibility: visible; } #rc-card { position: absolute; inset: 0; margin: 0; box-shadow: none; border: 0; } #rc-actions, .rc-foot { display: none; } }
+      </style>
+
+      <div id="rc-card">
+        <div id="rc-masthead">
+          <p class="rc-eyebrow">★ Office of the Registrar · SUNNYV<span class="ai">Ai</span>LE High</p>
+          <h2>Season 1 · Report Card</h2>
+          <span class="rc-stamp">Permanent Record</span>
+        </div>
+        <div id="rc-meta">
+          <div><span class="rc-meta-k">Resident</span><span class="rc-meta-v" id="rc-name">&mdash;</span></div>
+          <div><span class="rc-meta-k">Homeroom</span><span class="rc-meta-v">Room 101</span></div>
+          <div><span class="rc-meta-k">Term</span><span class="rc-meta-v">Semester I &middot; 1999</span></div>
+        </div>
+        <div class="rc-table-wrap">
+          <table id="rc-table">
+            <thead>
+              <tr>
+                <th class="rc-c-subj">Subject</th>
+                <th class="rc-c-grade">Grade</th>
+                <th class="rc-c-clips">Clips</th>
+                <th class="rc-c-remark">Remarks</th>
+              </tr>
+            </thead>
+            <tbody id="rc-rows">
+              <tr><td colspan="4" style="padding:22px 10px;color:var(--plum-soft);">Reading your record&hellip;</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="rc-summary">
+          <div class="rc-gpa"><span class="rc-gpa-n" id="rc-gpa">&mdash;</span><span class="rc-gpa-l">Grade Point<br>Average</span></div>
+          <span class="rc-standing" id="rc-standing">Enrollment pending</span>
+          <p class="rc-clips-line" id="rc-clips">&nbsp;</p>
+        </div>
+        <div id="rc-actions">
+          <button type="button" id="rc-print">Print your report card</button>
+          <a href="/laidies-card.html#butterflyJar">See the clips in your Closet jar →</a>
+        </div>
+        <p class="rc-foot">Grades bank automatically from the <a href="/learn/quiz.html">Wednesday Pop Quiz</a> — best score per episode. Retake to raise a grade; the record keeps your best.</p>
+      </div>
+
+    </div><!-- /hub-record -->
+
+    <!-- ============================================================
+         The Yearbook Office — Class Superlatives. Your "Most Likely
+         To…" title, COMPUTED from the same quiz record. Show up and
+         ace the quiz and the title upgrades. No new content pipeline.
+         ============================================================ -->
+    <div class="sh-hub-panel" id="hub-yearbook" hidden>
+      <style>
+        #yb-intro { margin: 0 0 18px; }
+        #yb-portrait { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; padding: 26px 22px 24px; border-radius: 16px; background: linear-gradient(160deg, var(--pearl) 0%, var(--blush) 100%); border: 1.5px solid rgba(155,63,95,0.22); position: relative; }
+        #yb-portrait::before { content: 'The \2019 99 Yearbook'; position: absolute; top: 12px; left: 50%; transform: translateX(-50%); font-family: 'Jost', sans-serif; font-size: 9.5px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose); opacity: 0.7; }
+        #yb-frame { width: 78px; height: 92px; margin: 22px auto 6px; border-radius: 50% 50% 48% 48%; background: linear-gradient(160deg, var(--plum) 0%, var(--rose) 100%); display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 0 3px var(--cream), 0 0 0 4px var(--gold), 0 8px 18px rgba(75,33,72,0.24); }
+        #yb-initials { font-family: 'Playfair Display', Georgia, serif; font-size: 34px; font-weight: 700; color: var(--gold); letter-spacing: 0.02em; }
+        #yb-award-label { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--plum-soft); margin: 4px 0 0; }
+        #yb-title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(22px, 3.6vw, 30px); font-weight: 700; color: var(--plum-deep); margin: 0; line-height: 1.15; }
+        #yb-line { font-size: 14px; color: var(--plum); max-width: 42ch; margin: 4px auto 0; line-height: 1.5; }
+        #yb-sign { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 13px; color: var(--rose); margin: 12px 0 0; }
+        #yb-slate { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin: 22px 0 6px; }
+        .yb-chip { padding: 11px 13px; border-radius: 12px; border: 1.5px solid rgba(75,33,72,0.14); background: var(--cream); }
+        .yb-chip.is-earned { border-color: var(--gold); background: linear-gradient(160deg, #fffdf6, #fdf3e0); box-shadow: 0 4px 12px rgba(201,162,39,0.18); }
+        .yb-chip .yb-chip-t { display: block; font-family: 'Jost', sans-serif; font-size: 12.5px; font-weight: 800; color: var(--plum-deep); letter-spacing: 0.01em; }
+        .yb-chip .yb-chip-h { display: block; font-size: 11px; color: var(--plum-soft); margin-top: 3px; line-height: 1.35; }
+        .yb-chip.is-earned .yb-chip-t::after { content: ' ★'; color: var(--gold); }
+        #yb-note { font-size: 12.5px; color: var(--plum-soft); margin: 6px 0 0; }
+        #yb-note a { color: var(--rose); text-decoration: underline; }
+      </style>
+
+      <p class="rc-eyebrow" style="font-family:'Jost',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--rose);margin:0 0 4px;">★ The Yearbook Office · SUNNYV<span class="ai">Ai</span>LE High</p>
+      <h2 style="margin:0 0 6px;">Class Superlatives</h2>
+      <p id="yb-intro">Every yearbook hands out superlatives. Yours isn&rsquo;t a vote &mdash; it&rsquo;s computed from your record. Show up, ace the Pop Quiz, and the title upgrades itself.</p>
+
+      <div id="yb-portrait">
+        <div id="yb-frame"><span id="yb-initials">★</span></div>
+        <p id="yb-award-label">Voted &mdash;</p>
+        <p id="yb-title">&mdash;</p>
+        <p id="yb-line">&mdash;</p>
+        <p id="yb-sign">&mdash; SUNNYV<span class="ai">Ai</span>LE High, Class of &rsquo;99</p>
+      </div>
+
+      <div id="yb-slate"></div>
+      <p id="yb-note">Titles recompute every time you sit a <a href="/learn/quiz.html">Pop Quiz</a>. Chase the one you want.</p>
+    </div><!-- /hub-yearbook -->
+
+    <script>
+      // ── The Registrar + The Yearbook ───────────────────────────────
+      // One pass: read the quiz records, fetch the published episode
+      // roster, compute grades → Report Card + a superlative → Yearbook.
+      // DERIVED only; the Pop Quiz save is the whole pipeline.
+      (function () {
+        'use strict';
+        var RECEIPTS_KEY = 'issue03'; // the "ask for receipts" episode (Ep 3)
+
+        function readJSON(k) { try { return JSON.parse(localStorage.getItem(k)) || {}; } catch (e) { return {}; } }
+
+        function residentName() {
+          try { var d = localStorage.getItem('laidies_display_name'); if (d && d.trim()) return d.trim(); } catch (e) {}
+          try {
+            var raw = localStorage.getItem('sb-swqnkxzebxdbgyrzpdne-auth-token');
+            if (raw) { var s = JSON.parse(raw); var em = s && s.user && s.user.email;
+              if (em) { var n = em.split('@')[0].split(/[._-]/).filter(Boolean)[0] || em; return n.charAt(0).toUpperCase() + n.slice(1); } }
+          } catch (e) {}
+          return 'Resident';
+        }
+
+        function initials(name) {
+          if (!name || name === 'Resident') return '★';
+          var parts = name.trim().split(/\s+/);
+          if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase();
+          return name.substring(0, 2).toUpperCase();
+        }
+
+        // Best score → letter + GPA points, aligned to the quiz reward tiers.
+        function gradeFor(best, coreMax, bonusMax) {
+          best = Math.round(Number(best) || 0); coreMax = Number(coreMax) || 10; bonusMax = Number(bonusMax) || 0;
+          var total = coreMax + bonusMax;
+          if (bonusMax && best >= total) return { L: 'A+', gp: 4, tier: 'ace', bonus: true };
+          if (best >= coreMax)          return { L: 'A+', gp: 4, tier: 'ace' };
+          var pct = coreMax ? Math.min(best, coreMax) / coreMax : 0;
+          if (pct >= 0.8) return { L: 'A', gp: 4, tier: 'a' };
+          if (pct >= 0.6) return { L: 'B', gp: 3, tier: 'b' };
+          if (pct >= 0.4) return { L: 'C', gp: 2, tier: 'c' };
+          if (best > 0)   return { L: 'D', gp: 1, tier: 'd' };
+          return { L: 'F', gp: 0, tier: 'f' };
+        }
+
+        var REMARKS = {
+          ace: 'Asks for receipts. A genuine pleasure to have in class.',
+          a: 'The analogies are landing. Dangerous in the best way.',
+          b: 'Solid work &mdash; a quick reread and you&rsquo;re honor-roll material.',
+          c: 'Showed up, which counts. Reread the marked sections.',
+          d: 'Survivable. Shake it off and retake &mdash; the record keeps your best.',
+          f: 'Let&rsquo;s start over. The Pop Quiz is still open.'
+        };
+
+        // Clips: same math as the Closet jar — clips = best, min 1 (broken) for a bombed attempt.
+        function clipsFor(best) { best = Math.round(Number(best) || 0); return { clips: Math.max(best, 1), broken: best < 2 }; }
+
+        function romanEp(n) { return ('0' + Number(n)).slice(-2); }
+
+        // Build the subject list from the roster; fall back to whatever quizzes were taken.
+        function subjectsFromRoster(roster, quizMeta, progress) {
+          return roster.map(function (ep) {
+            var key = ep.quiz;
+            var meta = quizMeta[key] || {};
+            var rec = progress[key] || {};
+            var attempted = Number(rec.bestScore) > 0 || Number(rec.attempts) > 0 || !!rec.completedAt;
+            return {
+              key: key, num: ep.number, title: ep.title,
+              coreMax: Number(rec.maxScore || meta.maxScore || 10),
+              bonusMax: Number(meta.bonusScore || 0),
+              best: Number(rec.bestScore || 0),
+              attempts: Number(rec.attempts || 0),
+              attempted: attempted
+            };
+          });
+        }
+        function subjectsFromProgress(progress) {
+          return Object.keys(progress).sort().map(function (key) {
+            var rec = progress[key] || {};
+            var m = String(key).match(/(\d+)/);
+            return { key: key, num: m ? Number(m[1]) : 0, title: 'Episode ' + (m ? Number(m[1]) : '?'),
+              coreMax: Number(rec.maxScore || 10), bonusMax: 0, best: Number(rec.bestScore || 0),
+              attempts: Number(rec.attempts || 0), attempted: Number(rec.bestScore) > 0 || Number(rec.attempts) > 0 || !!rec.completedAt };
+          }).filter(function (s) { return s.attempted; });
+        }
+
+        function render(subjects) {
+          var name = residentName();
+          var nameEl = document.getElementById('rc-name'); if (nameEl) nameEl.textContent = name;
+
+          var rows = document.getElementById('rc-rows');
+          var graded = [], totalClips = 0, gpaSum = 0;
+          var html = '';
+
+          subjects.forEach(function (s) {
+            var subjLabel = '<td class="rc-subj"><small>EP ' + romanEp(s.num) + '</small>' + s.title + '</td>';
+            if (!s.attempted) {
+              html += '<tr class="rc-row--inc">' + subjLabel +
+                '<td class="rc-c-grade"><span class="rc-grade rc-grade--inc">INC</span></td>' +
+                '<td class="rc-c-clips"><span class="rc-clip-n" style="opacity:.4">&mdash;</span></td>' +
+                '<td class="rc-remark">Not yet sat. <a href="/learn/quiz.html">Pencils are ready →</a></td></tr>';
+              return;
+            }
+            var g = gradeFor(s.best, s.coreMax, s.bonusMax);
+            var c = clipsFor(s.best);
+            graded.push(g); gpaSum += g.gp; totalClips += c.clips;
+            var star = g.bonus ? ' <span title="Extra credit" style="color:var(--gold)">✦</span>' : '';
+            html += '<tr>' + subjLabel +
+              '<td class="rc-c-grade"><span class="rc-grade rc-grade--' + g.tier + '">' + g.L + '</span>' + star + '</td>' +
+              '<td class="rc-c-clips"><span class="rc-clip-n' + (c.broken ? ' is-broken' : '') + '">' + (c.broken ? '1 (broken)' : c.clips) + '</span></td>' +
+              '<td class="rc-remark">' + REMARKS[g.tier] + '</td></tr>';
+          });
+          if (rows) rows.innerHTML = html || '<tr><td colspan="4" style="padding:22px 10px;color:var(--plum-soft);">No episodes on the board yet.</td></tr>';
+
+          // GPA + standing
+          var gpaEl = document.getElementById('rc-gpa');
+          var standEl = document.getElementById('rc-standing');
+          var clipsEl = document.getElementById('rc-clips');
+          var gpa = graded.length ? gpaSum / graded.length : null;
+          if (gpaEl) gpaEl.textContent = gpa === null ? '—' : gpa.toFixed(2);
+          if (standEl) {
+            var standing = 'Enrollment pending', honor = false;
+            if (graded.length) {
+              if (gpa >= 3.8) { standing = 'Principal’s List'; honor = true; }
+              else if (gpa >= 3.3) { standing = 'Honor Roll'; honor = true; }
+              else if (gpa >= 2.0) { standing = 'Passing'; }
+              else { standing = 'See me after class'; }
+            }
+            standEl.textContent = standing;
+            standEl.classList.toggle('is-honor', honor);
+          }
+          if (clipsEl) {
+            clipsEl.innerHTML = graded.length
+              ? '🦋 <strong>' + totalClips + '</strong> butterfly clip' + (totalClips === 1 ? '' : 's') + ' banked this season &mdash; they fill your <a href="/laidies-card.html#butterflyJar">Closet jar</a>.'
+              : 'Your record opens with your first Pop Quiz. <a href="/learn/quiz.html">Go get graded →</a>';
+          }
+
+          renderYearbook(subjects, graded, gpa, totalClips, name);
+        }
+
+        // ── The Yearbook: pick the single best-fit superlative ──────────
+        var SLATE = [
+          { key: 'val',       t: 'Valedictorian',           h: 'Ace 3+ Pop Quizzes' },
+          { key: 'extra',     t: 'Extra-Credit Overachiever', h: 'Score a bonus point' },
+          { key: 'attend',    t: 'Perfect Attendance',      h: 'Sit every quiz this season' },
+          { key: 'receipts',  t: 'Asks for Receipts',       h: 'Ace the Ep 3 quiz' },
+          { key: 'comeback',  t: 'Comeback Kid',            h: 'Retake and beat your score' },
+          { key: 'honor',     t: 'Honor Roll Regular',      h: 'Hold a 3.3+ GPA' },
+          { key: 'butterfly', t: 'Class Butterfly',         h: 'Bank 12+ clips' },
+          { key: 'glow',      t: 'Glow-Up in Progress',     h: 'Just getting started' }
+        ];
+
+        function pickSuperlative(st) {
+          if (st.taken === 0) return { key: 'new', t: 'The New Kid', l: 'Fresh locker, blank record. Your first Pop Quiz writes the first line.' };
+          if (st.perfects >= 3 || (st.allTaken && st.perfects === st.taken && st.taken >= 2)) return { key: 'val', t: 'Valedictorian', l: 'Straight receipts. The Registrar keeps your file in the good drawer.' };
+          if (st.hasBonus) return { key: 'extra', t: 'Most Likely to Do the Extra Credit', l: 'Read next week&rsquo;s diary early. Overachiever &mdash; and we mean that kindly.' };
+          if (st.allTaken && st.taken >= 3) return { key: 'attend', t: 'Perfect Attendance', l: 'Sat every quiz the season put out. Teacher&rsquo;s pet, cardigan optional.' };
+          if (st.ep3ace) return { key: 'receipts', t: 'Most Likely to Ask for Receipts', l: 'Aced the receipts unit. Never takes a confident wrong answer at face value.' };
+          if (st.retook) return { key: 'comeback', t: 'Comeback Kid', l: 'Bombed it, came back, fixed it. The montage worked.' };
+          if (st.gpa >= 3.3) return { key: 'honor', t: 'Honor Roll Regular', l: 'Quietly excellent &mdash; the kind of record that earns a hall pass.' };
+          if (st.totalClips >= 12) return { key: 'butterfly', t: 'Class Butterfly', l: 'Clips for days &mdash; the jar in your Closet runneth over.' };
+          return { key: 'glow', t: 'Most Likely to Glow Up', l: 'You&rsquo;re in the flashcard montage. The outfit change is coming.' };
+        }
+
+        function renderYearbook(subjects, graded, gpa, totalClips, name) {
+          var st = {
+            taken: graded.length,
+            allTaken: subjects.length > 0 && subjects.every(function (s) { return s.attempted; }),
+            perfects: graded.filter(function (g) { return g.tier === 'ace'; }).length,
+            hasBonus: subjects.some(function (s) { return s.attempted && s.best > s.coreMax; }),
+            retook: subjects.some(function (s) { return s.attempted && s.attempts > 1; }),
+            ep3ace: subjects.some(function (s) { return s.key === RECEIPTS_KEY && s.attempted && s.best >= s.coreMax * 0.8; }),
+            gpa: gpa || 0,
+            totalClips: totalClips
+          };
+          var award = pickSuperlative(st);
+          var frame = document.getElementById('yb-initials'); if (frame) frame.textContent = initials(name);
+          var t = document.getElementById('yb-title'); if (t) t.innerHTML = award.t;
+          var l = document.getElementById('yb-line'); if (l) l.innerHTML = award.l;
+          var lbl = document.getElementById('yb-award-label'); if (lbl) lbl.innerHTML = st.taken === 0 ? 'Not yet voted' : 'Voted Most Likely To Be';
+
+          var slate = document.getElementById('yb-slate');
+          if (slate) {
+            slate.innerHTML = SLATE.map(function (s) {
+              var earned = s.key === award.key;
+              return '<div class="yb-chip' + (earned ? ' is-earned' : '') + '"><span class="yb-chip-t">' + s.t + '</span><span class="yb-chip-h">' + s.h + '</span></div>';
+            }).join('');
+          }
+        }
+
+        function boot() {
+          var progress = readJSON('laidiesQuizProgress');
+          var legacy = readJSON('laidiesQuizBestScores');
+          Object.keys(legacy).forEach(function (k) { if (!progress[k]) progress[k] = { bestScore: Number(legacy[k]) || 0, attempts: 1 }; });
+
+          var printBtn = document.getElementById('rc-print');
+          if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
+
+          Promise.all([
+            fetch('/content/episode-index.json').then(function (r) { return r.json(); }).catch(function () { return null; }),
+            fetch('/content/site/quizzes.json').then(function (r) { return r.json(); }).catch(function () { return null; })
+          ]).then(function (res) {
+            var idx = res[0], quizzes = res[1];
+            var quizMeta = (quizzes && (quizzes.quizzes || quizzes)) || {};
+            if (idx && Array.isArray(idx.episodes)) {
+              var roster = idx.episodes
+                .filter(function (e) { return e.status === 'published' && e.websiteModules && e.websiteModules.quiz && quizMeta[e.websiteModules.quiz]; })
+                .map(function (e) { return { number: e.number, title: e.title, quiz: e.websiteModules.quiz }; })
+                .sort(function (a, b) { return a.number - b.number; });
+              render(subjectsFromRoster(roster, quizMeta, progress));
+            } else {
+              render(subjectsFromProgress(progress));
+            }
+          }).catch(function () { render(subjectsFromProgress(progress)); });
+        }
+
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+        else boot();
+      })();
+    </script>
 
     <div class="sh-hub-panel" id="hub-classes" hidden>
 
@@ -436,6 +812,8 @@
           });
         });
         var HASH_MAP = {
+          '#hub-record': 'hub-record', '#report-card': 'hub-record',
+          '#hub-yearbook': 'hub-yearbook', '#superlatives': 'hub-yearbook',
           '#hub-classes': 'hub-classes',
           '#hub-bookfair': 'hub-bookfair', '#book-fair': 'hub-bookfair',
           '#hub-next': 'hub-next'

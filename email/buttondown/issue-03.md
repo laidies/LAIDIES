@@ -14,7 +14,7 @@ Not always obviously wrong. Not always "made out with a hot dog" wrong. Sometime
 
 That is the Burn Book Problem.
 
-Same page. Same marker. Same confidence. A true thing, a stale thing, an assumption, a rumor, and something fully invented can all look equally finished if nobody asks where the receipt is.
+Same page. Same marker. Same confidence. A stale claim, an assumption, a rumor, and something fully invented can all look equally finished if nobody asks where the receipt is.
 
 ## The Elle Woods Check
 
