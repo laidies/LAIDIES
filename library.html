@@ -158,6 +158,38 @@
       margin-bottom: 6px;
       display: inline-block;
     }
+    .shelf-ico { display: inline-flex; width: 26px; height: 26px; margin-bottom: 8px; }
+    .shelf-ico svg { width: 100%; height: 100%; display: block; }
+    /* reference desk — the librarian (Jeeves), a character, not a shelf */
+    /* Ask Miss Jeeves — the reference desk (librarian + keyword search over site-index.json) */
+    .jeeves { display: grid; grid-template-columns: 1fr; background: var(--pearl); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; margin: 26px 0; }
+    @media (min-width: 720px) { .jeeves { grid-template-columns: 1.05fr 1fr; } }
+    .jeeves-portrait { margin: 0; background: #2a1622; }
+    .jeeves-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 220px; }
+    .jeeves-ask { padding: 24px 26px 26px; }
+    .jeeves-kicker { font: 800 10px/1 'Jost', sans-serif; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); }
+    .jeeves-ask h3 { font-size: 24px; font-weight: 700; margin: 7px 0 6px; color: var(--plum); }
+    .jeeves-ask > p { font-size: 14px; line-height: 1.55; color: var(--plum-soft); margin: 0 0 14px; }
+    .jeeves-form { display: flex; gap: 8px; }
+    .jeeves-form input { flex: 1; min-width: 0; padding: 11px 14px; border: 1.5px solid var(--line); border-radius: 9px; font: 15px 'Jost', sans-serif; color: var(--plum); background: #fff; }
+    .jeeves-form input:focus { outline: none; border-color: var(--rose); box-shadow: 0 0 0 3px rgba(155,63,95,0.12); }
+    .jeeves-form button { padding: 11px 20px; border: none; border-radius: 9px; background: var(--plum); color: #fff; font: 800 13px 'Jost', sans-serif; letter-spacing: 0.04em; cursor: pointer; }
+    .jeeves-form button:hover { background: var(--rose); }
+    .jeeves-results { margin-top: 14px; display: grid; gap: 8px; }
+    .jr-group-label { font: 800 10px/1 'Jost', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: var(--plum-soft); margin: 6px 0 0; }
+    .jr-item { display: block; padding: 10px 14px; border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 8px; text-decoration: none; background: #fff; transition: border-color 150ms ease, transform 150ms ease; }
+    .jr-item:hover { border-color: var(--rose); transform: translateX(2px); }
+    .jr-item b { color: var(--plum); font-size: 14.5px; }
+    .jr-item span { display: block; color: var(--plum-soft); font-size: 12.5px; line-height: 1.4; margin-top: 2px; }
+    .jeeves-empty { font-size: 13px; color: var(--plum-soft); font-style: italic; margin-top: 12px; }
+    /* coming to the shelves — quiet strip, clearly not-yet-live */
+    .coming-head { font: 800 11px/1 'Jost', sans-serif; letter-spacing: 0.2em; text-transform: uppercase; color: var(--plum-soft); margin: 34px 0 14px; }
+    .coming-list { display: grid; grid-template-columns: 1fr; gap: 10px; }
+    @media (min-width: 720px) { .coming-list { grid-template-columns: repeat(3, 1fr); } }
+    .coming-item { border: 1px dashed var(--line); border-radius: 9px; padding: 14px 16px; }
+    .coming-item h4 { font-size: 15px; font-weight: 700; margin: 0 0 3px; color: var(--plum); }
+    .coming-item p { font-size: 12.5px; line-height: 1.45; color: var(--plum-soft); margin: 0 0 9px; }
+    .coming-item .ci-when { font: 800 10px/1 'Jost', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rose); }
     .shelf-name {
       font-size: 22px;
       font-weight: 700;
@@ -319,120 +351,157 @@
     </p>
 
     <p>
-      The Grimoire lives here. Three shelves now, down from eight — the rest of the old Grimoire moved to homes that fit them better (more on that below). What's left is pure reference: the stuff you don't read straight through, you pull off the shelf when a specific question shows up.
+      The Grimoire lives here — pure reference, the stuff you don't read straight through but pull off the shelf when a specific question shows up. A few shelves are open now, more are on the way, and Miss Jeeves works the reference desk if you don't know where to start.
     </p>
 
     <h2>The shelves</h2>
 
     <div class="shelf-grid">
 
+      <a class="shelf" href="/grimoire/potions-shelf.html">
+        <span class="shelf-ico" data-ico="gradcap"></span>
+        <h3 class="shelf-name">The Glossary</h3>
+        <p class="shelf-desc">Every AI word in plain English — prompt, token, hallucination, model, context, agent. The one you'll actually reach for when someone throws jargon across the table.</p>
+        <span class="shelf-status">Live · Open the shelf →</span>
+      </a>
+
       <a class="shelf" href="/grimoire/power-map.html">
-        <span class="shelf-glyph">🗺</span>
-        <h3 class="shelf-name">The Power Map</h3>
-        <p class="shelf-desc">The political and power lay-of-the-land. Who's where, who reports to who, who actually decides. Read when the org chart isn't telling you the whole story.</p>
+        <span class="shelf-ico" data-ico="map"></span>
+        <h3 class="shelf-name">Who's Who in AI</h3>
+        <p class="shelf-desc">Who makes what — OpenAI, Anthropic, Google and the rest — and which tool you'd open for which job. So you know the name when it wanders into a meeting.</p>
         <span class="shelf-status">Live · Open the shelf →</span>
       </a>
 
       <a class="shelf" href="/grimoire/chamber-of-receipts.html">
-        <span class="shelf-glyph">📑</span>
-        <h3 class="shelf-name">The Chamber of Receipts</h3>
-        <p class="shelf-desc">Citations, evidence, screenshots, links. The work that earns the line you want to say in the meeting. Pull what you need; bring it back when you're done.</p>
+        <span class="shelf-ico" data-ico="news"></span>
+        <h3 class="shelf-name">Straight Answers About AI</h3>
+        <p class="shelf-desc">Sourced answers to the questions everyone actually asks — is it coming for my job, is my data safe, what about the environment. Real data, every claim with a source you can check.</p>
         <span class="shelf-status">Live · Open the shelf →</span>
       </a>
 
-      <div class="shelf shelf--brewing" aria-disabled="true">
-        <span class="shelf-glyph">📖</span>
-        <h3 class="shelf-name">Ask Jeeves</h3>
-        <p class="shelf-desc">The reference desk. Jeeves is our librarian — ask him what a real librarian would answer if librarians could talk back. He'll route you to the right shelf or the right episode, and he'll show his work.</p>
-        <span class="shelf-status">Still brewing</span>
-      </div>
-
-      <div class="shelf shelf--brewing" aria-disabled="true">
-        <span class="shelf-glyph">🃏</span>
-        <h3 class="shelf-name">The Prompt Playbook</h3>
-        <p class="shelf-desc">A working library of the prompts we've actually used at L<span class="ai">Ai</span>DIES — email drafts, meeting briefs, tough-conversation rehearsals, quarterly summaries, "explain this so my VP gets it in 90 seconds." Copy, adapt, ship.</p>
-        <span class="shelf-status">Still brewing · target Ep 08</span>
-      </div>
-
-      <div class="shelf shelf--brewing" aria-disabled="true">
-        <span class="shelf-glyph">🍽</span>
-        <h3 class="shelf-name">The Model Menu</h3>
-        <p class="shelf-desc">Side-by-side: ChatGPT vs Claude vs Gemini vs Perplexity vs Copilot. What each is best for, what each will refuse, how they price, and which one to open for which job. Updated when the field moves &mdash; which is often.</p>
-        <span class="shelf-status">Still brewing · target Ep 13</span>
-      </div>
-
       <a class="shelf" href="/grimoire/verification-rulebook.html">
-        <span class="shelf-glyph">🔎</span>
-        <h3 class="shelf-name">The Verification Rulebook</h3>
-        <p class="shelf-desc">How to check an <span class="ai">Ai</span> answer without doing all the work yourself — the Prompt Like Elle method: sort draft from claim, ground it in a source, make it show the line, ban invented receipts. Plus check patterns for when to trust a citation, when to Google it, when to just ask a human. Pairs with the Chamber of Receipts.</p>
+        <span class="shelf-ico" data-ico="book"></span>
+        <h3 class="shelf-name">How to Check AI's Work</h3>
+        <p class="shelf-desc">How to check an <span class="ai">Ai</span> answer without doing all the work yourself — the Prompt Like Elle method, plus when to trust a citation, when to Google it, and when to just ask a human.</p>
         <span class="shelf-status">Live · from Ep 3 · Open the shelf →</span>
       </a>
 
-      <div class="shelf shelf--brewing" aria-disabled="true">
-        <span class="shelf-glyph">🚫</span>
-        <h3 class="shelf-name">The Consent Ledger</h3>
-        <p class="shelf-desc">What should never go in the prompt box: sensitive data, other people's information, contracts, medical, HR, active legal. Includes template policy language you can send to legal/ops when your org is finally ready to write theirs.</p>
-        <span class="shelf-status">Still brewing · target Ep 11</span>
-      </div>
-
     </div>
+
+    <!-- The reference desk — Ask Miss Jeeves, the librarian -->
+    <section class="jeeves" id="jeeves">
+      <figure class="jeeves-portrait">
+        <img src="/assets/library/jeeves-desk.jpg" alt="Miss Jeeves, the LIBRAiRY's librarian, at her reference desk" loading="lazy">
+      </figure>
+      <div class="jeeves-ask">
+        <span class="jeeves-kicker">The reference desk</span>
+        <h3>Ask Miss Jeeves</h3>
+        <p>Don't know what to even call the thing you're stuck on? Ask her in plain words — she'll find every place in town it lives and hand you the list.</p>
+        <form class="jeeves-form" id="jeevesForm" autocomplete="off">
+          <input type="search" id="jeevesQ" placeholder="e.g. is AI going to take my job?" aria-label="Ask Miss Jeeves a question">
+          <button type="submit">Ask</button>
+        </form>
+        <div class="jeeves-results" id="jeevesResults" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <script>
+    (function () {
+      var INDEX = null;
+      var LABEL = { episode:'In an episode', reference:'In the reference shelves', tool:'In The Tools', concept:'In the glossary', activity:'Something to do', building:'A place in town', character:'Ask in town' };
+      var ORDER = ['episode','reference','tool','concept','activity','building','character'];
+      function load(){ if(INDEX) return Promise.resolve(INDEX); return fetch('/content/site/site-index.json').then(function(r){return r.json();}).then(function(d){ INDEX = d.entries || []; return INDEX; }).catch(function(){ INDEX = []; return INDEX; }); }
+      function n(s){ return (s||'').toString().toLowerCase(); }
+      function score(q, e){
+        var ql = n(q); if(ql.length < 2) return 0;
+        var words = ql.split(/[^a-z0-9]+/).filter(function(w){ return w.length > 2; });
+        var s = 0;
+        (e.aliases||[]).forEach(function(a){ a = n(a); if(a && (ql.indexOf(a) >= 0 || a.indexOf(ql) >= 0)) s += 12; });
+        (e.topics||[]).forEach(function(t){ t = n(t); if(t && ql.indexOf(t) >= 0) s += 7; });
+        if(n(e.title).indexOf(ql) >= 0) s += 9;
+        var hay = n(e.title + ' ' + e.summary + ' ' + (e.topics||[]).join(' ') + ' ' + (e.aliases||[]).join(' '));
+        words.forEach(function(w){ if(hay.indexOf(w) >= 0) s += 2; });
+        return s;
+      }
+      function esc(s){ return (s||'').replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+      function render(results){
+        var box = document.getElementById('jeevesResults');
+        if(!results.length){ box.innerHTML = '<p class="jeeves-empty">Hmm — Miss Jeeves doesn’t have that one catalogued yet. Try different words, or browse the shelves above.</p>'; return; }
+        var byType = {}; results.forEach(function(e){ (byType[e.type] = byType[e.type] || []).push(e); });
+        var html = '';
+        ORDER.forEach(function(t){ if(!byType[t]) return; html += '<div class="jr-group-label">' + (LABEL[t] || t) + '</div>'; byType[t].forEach(function(e){ html += '<a class="jr-item" href="' + esc(e.url) + '"><b>' + esc(e.title) + '</b><span>' + esc(e.summary) + '</span></a>'; }); });
+        box.innerHTML = html;
+      }
+      function ask(q){ load().then(function(idx){ var r = idx.map(function(e){ return { e:e, s:score(q,e) }; }).filter(function(x){ return x.s > 0; }).sort(function(a,b){ return b.s - a.s; }).slice(0,7).map(function(x){ return x.e; }); render(r); }); }
+      document.addEventListener('DOMContentLoaded', function(){
+        var f = document.getElementById('jeevesForm'); if(!f) return;
+        f.addEventListener('submit', function(ev){ ev.preventDefault(); var q = (document.getElementById('jeevesQ').value || '').trim(); if(q) ask(q); });
+      });
+    })();
+    </script>
+
+    <!-- Coming to the shelves — clearly not-yet-live, kept quiet -->
+    <p class="coming-head">Coming to the shelves</p>
+    <div class="coming-list">
+      <div class="coming-item">
+        <h4>The Model Menu</h4>
+        <p>ChatGPT vs Claude vs Gemini vs Copilot vs Perplexity — what each is best at, what each refuses, which one to open for which job.</p>
+        <span class="ci-when">With Ep 5</span>
+      </div>
+      <div class="coming-item">
+        <h4>The Prompt Playbook</h4>
+        <p>The prompts we've actually used at L<span class="ai">Ai</span>DIES — email drafts, meeting briefs, tough conversations. Copy, adapt, ship.</p>
+        <span class="ci-when">Soon</span>
+      </div>
+      <div class="coming-item">
+        <h4>The Consent Ledger</h4>
+        <p>What should never go in the prompt box — sensitive data, other people's info, contracts, HR, legal — plus policy language for your team.</p>
+        <span class="ci-when">With Ep 7</span>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        if (!window.svGoldIcon) return;
+        document.querySelectorAll('.shelf-ico[data-ico]').forEach(function (el, i) {
+          el.innerHTML = window.svGoldIcon(el.getAttribute('data-ico'), 'shf' + i, el.classList.contains('rd-ico') ? 30 : 26);
+        });
+      });
+    </script>
 
     <!-- The 101 shelf — numbered field textbooks (moved here from SUNNYVAiLE High) -->
     <h2>The 101 shelf</h2>
 
     <p>One textbook per topic — the deep dive for the week an episode leaves you wanting more. Not a course, though: no syllabus, no seat, no one taking attendance. Pull one down, read the page you need, slide it back. <em>(These used to sit up at SUNNYV<span class="ai">Ai</span>LE High — but textbooks belong in a library.)</em></p>
 
-    <div class="shelf-grid">
+    <!-- The 101 textbooks standing on the library shelf -->
+    <style>
+      .tb-shelf { max-width: 880px; margin: 28px auto 6px; }
+      .tb-scroll { overflow-x: auto; overflow-y: hidden; padding-bottom: 2px; scrollbar-width: thin; }
+      .tb-books { list-style: none; margin: 0; padding: 0 8px; display: flex; align-items: flex-end; justify-content: safe center; gap: clamp(3px, 1vw, 12px); min-width: min-content; position: relative; z-index: 2; }
+      .tb-book { flex: 0 0 auto; margin: 0; }
+      .tb-book img { height: 120px; width: auto; display: block; filter: drop-shadow(0 10px 9px rgba(26,10,18,0.28)); transform-origin: bottom center; transition: transform .2s ease; }
+      .tb-book:hover img, .tb-book:focus-visible img { transform: translateY(-10px) rotate(-1.5deg); }
+      .tb-shelf-base { width: 100%; aspect-ratio: 2400 / 258; background: url('/assets/library-101/101-shelf-kit.png') center bottom / 100% auto no-repeat; margin-top: -12px; position: relative; z-index: 1; }
+      .tb-shelf-note { text-align: center; font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 0.01em; color: var(--plum-soft, #6a4f60); margin: 12px 0 0; }
+      .tb-shelf-note b { color: var(--rose); font-weight: 700; }
+      @media (max-width: 640px) { .tb-book img { height: 120px; } }
+    </style>
 
-      <div class="shelf shelf--brewing" aria-disabled="true">
-        <span class="shelf-glyph">📗</span>
-        <h3 class="shelf-name">ChatGPT 101</h3>
-        <p class="shelf-desc">Your first hour with a tool, start to finish: sign in, first prompt, first win. No jargon, no assumptions — the on-ramp.</p>
-        <span class="shelf-status">On the shelf soon</span>
+    <div class="tb-shelf">
+      <div class="tb-scroll">
+        <ul class="tb-books" aria-label="The seven 101 textbooks">
+          <li class="tb-book"><img loading="lazy" src="/assets/library-101/textbook-chatgpt-101.png" alt="ChatGPT 101 — your first hour with a tool, start to finish." title="ChatGPT 101 · Your first hour with a tool — the on-ramp."></li>
+          <li class="tb-book"><img loading="lazy" src="/assets/library-101/textbook-vocab-101.png" alt="Vocab 101 — every AI word everyone throws around, in plain English." title="Vocab 101 · The glossary you'll actually use."></li>
+          <li class="tb-book"><img loading="lazy" src="/assets/library-101/textbook-concepts-101.png" alt="Concepts 101 — how the thing works under the hood, minus the math." title="Concepts 101 · Why it guesses, why it forgets."></li>
+          <li class="tb-book"><img loading="lazy" src="/assets/library-101/textbook-briefing-101.png" alt="Briefing 101 — how to ask so it comes back useful." title="Briefing 101 · Prompting is delegation — how to delegate."></li>
+          <li class="tb-book"><img loading="lazy" src="/assets/library-101/textbook-tools-101.png" alt="Tools 101 — the cast, and which one to open for which job." title="Tools 101 · The full textbook behind Ep 4's Handbook."></li>
+          <li class="tb-book"><img loading="lazy" src="/assets/library-101/textbook-setup-101.png" alt="Setup 101 — set up once so every tool knows how you work." title="Setup 101 · Memory, custom instructions, the Skeleton Key."></li>
+          <li class="tb-book"><img loading="lazy" src="/assets/library-101/textbook-accounts-101.png" alt="Accounts 101 — what's safe to paste and what never is." title="Accounts 101 · The line you don't cross."></li>
+        </ul>
       </div>
-
-      <div class="shelf shelf--brewing" aria-disabled="true">
-        <span class="shelf-glyph">📘</span>
-        <h3 class="shelf-name">Vocab 101</h3>
-        <p class="shelf-desc">Prompt, model, hallucination, token, context — every word everyone throws around, in plain English. The glossary you'll actually use.</p>
-        <span class="shelf-status">On the shelf soon</span>
-      </div>
-
-      <div class="shelf shelf--brewing" aria-disabled="true">
-        <span class="shelf-glyph">📙</span>
-        <h3 class="shelf-name">Concepts 101</h3>
-        <p class="shelf-desc">How the thing works under the hood, minus the math. Why it guesses, why it forgets, why sounding right isn't the same as being right.</p>
-        <span class="shelf-status">On the shelf soon</span>
-      </div>
-
-      <div class="shelf shelf--brewing" aria-disabled="true">
-        <span class="shelf-glyph">📕</span>
-        <h3 class="shelf-name">Briefing 101</h3>
-        <p class="shelf-desc">How to ask so it comes back useful: context, specifics, an example to copy. Prompting is delegation — this is how you delegate.</p>
-        <span class="shelf-status">On the shelf soon</span>
-      </div>
-
-      <div class="shelf shelf--brewing" aria-disabled="true">
-        <span class="shelf-glyph">📓</span>
-        <h3 class="shelf-name">Tools 101</h3>
-        <p class="shelf-desc">The cast — generative, reasoning, agents — and which one to open for which job. The full textbook behind Episode 4's Handbook.</p>
-        <span class="shelf-status">On the shelf soon</span>
-      </div>
-
-      <div class="shelf shelf--brewing" aria-disabled="true">
-        <span class="shelf-glyph">📔</span>
-        <h3 class="shelf-name">Setup 101</h3>
-        <p class="shelf-desc">Set up once so every tool starts already knowing how you work: memory, custom instructions, the Skeleton Key.</p>
-        <span class="shelf-status">On the shelf soon</span>
-      </div>
-
-      <div class="shelf shelf--brewing" aria-disabled="true">
-        <span class="shelf-glyph">📒</span>
-        <h3 class="shelf-name">Accounts 101</h3>
-        <p class="shelf-desc">What's safe to paste and what never is: privacy, confidential data, work rules. The line you don't cross.</p>
-        <span class="shelf-status">On the shelf soon</span>
-      </div>
-
+      <div class="tb-shelf-base" role="presentation" aria-hidden="true"></div>
+      <p class="tb-shelf-note">Seven textbooks, one per topic — more slide onto the shelf as we cover them (Claude 101, Gemini 101…). <b>On the shelf soon.</b></p>
     </div>
 
     <!-- Currently in the reading room — featured picks members are reading now -->
