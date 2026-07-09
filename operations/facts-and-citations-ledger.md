@@ -83,6 +83,12 @@ Columns: **Claim** · **What it measures (scope/caveat)** · **Source** · **Ver
   the episode). Leave as-is.
   · Source: IMDb; getyarn; ACMI · Verified 2026-07-08 · Used in: **Ep3** (audio + issue-03.md).
 
+- **Ep5 (The Skeleton Key) — memory + custom instructions, verified 2026-07-08.**
+  · **ChatGPT memory** = two parts: *saved memories* (explicit, editable list — "remember that I…") + *referenced chat history* (implicit recall, since Apr 2025). Background synthesis "Dreaming" (V3 rollout Jun 4 2026). Controls: Settings → Personalization → Memory. Plus account-wide **custom instructions**. Source: OpenAI memory pages + Help Center (help.openai.com/en/articles/8590148).
+  · **Claude** = memory **on by default since Mar 2026**, auto-creates entries; **Instructions for Claude** (account-wide) + **Styles** (per-chat tone) + **Project** instructions. Source: support.claude.com/en/articles/10185728.
+  · **Gemini** = **Gems** · **Copilot** = custom instructions + saved memories + history. ⚠️ Scope: don't overclaim per-tool specifics — safe framing is "most of the big tools now let you set up once (custom instructions) and remember you (memory)"; name a tool's exact feature only as verified above. Feature availability moves fast — re-verify at record time.
+  · Used in: **Ep5** (drafting).
+
 ### ⚠️ NEEDS VERIFICATION before it ships again
 
 - ✅ **VERIFIED + corrected 2026-07-07 — Mollick quote.** Exact wording: *"The skills that are so often
