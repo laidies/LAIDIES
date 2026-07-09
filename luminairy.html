@@ -855,7 +855,7 @@
           <p class="foundress-years">1815–1852</p>
           <h4 class="foundress-name">Ada Lovelace</h4>
           <p class="foundress-title">Keeper of the First Algorithm</p>
-          <p class="foundress-desc">Wrote the algorithm before the machine existed to run it.</p>
+          <p class="foundress-desc">Wrote the first algorithm — for a machine that wouldn't exist for a century. The credit went to the man whose machine it was.</p>
         </div>
         <div class="foundress-card" data-foundress-slug="grace-hopper">
           <div class="foundress-portrait">
@@ -865,7 +865,7 @@
           <p class="foundress-years">1906–1992</p>
           <h4 class="foundress-name">Grace Hopper</h4>
           <p class="foundress-title">Keeper of the Compiler</p>
-          <p class="foundress-desc">Invented the compiler — no PyTorch, no LLMs, without her.</p>
+          <p class="foundress-desc">Built one of the first compilers — so we could tell machines what to do in words, not raw code. No LLMs without her.</p>
         </div>
         <div class="foundress-card" data-foundress-slug="hedy-lamarr">
           <div class="foundress-portrait">
@@ -875,7 +875,7 @@
           <p class="foundress-years">1914–2000</p>
           <h4 class="foundress-name">Hedy Lamarr</h4>
           <p class="foundress-title">Keeper of the Airwaves</p>
-          <p class="foundress-desc">Co-invented frequency-hopping (1942). Now runs Wi-Fi, Bluetooth, GPS.</p>
+          <p class="foundress-desc">Co-invented frequency-hopping (1942) — the idea in the family tree of Wi-Fi and Bluetooth. A movie star no one believed was an inventor.</p>
         </div>
         <div class="foundress-card" data-foundress-slug="karen-sparck-jones">
           <div class="foundress-portrait">
@@ -885,7 +885,7 @@
           <p class="foundress-years">1935–2007</p>
           <h4 class="foundress-name">Karen Spärck Jones</h4>
           <p class="foundress-title">Keeper of the Index</p>
-          <p class="foundress-desc">Invented TF-IDF (1972). Every search engine + retrieval-augmented LLM runs on her formula.</p>
+          <p class="foundress-desc">Invented IDF (1972) — the math under every search box, and the AI that looks things up. "Computing is too important to be left to men."</p>
         </div>
       </div>
     </section>
@@ -952,6 +952,52 @@
         <h3 class="stop-name">Emily Bender</h3>
         <p class="stop-desc">Keeper of the Language · UW linguist · Stochastic Parrots. LLMs don't understand.</p>
         <button class="maven-meet" type="button" aria-label="Meet Emily Bender">✦ Meet her</button>
+      </div>
+    </div>
+
+    <!-- Maven bio modal — opened by "✦ Meet her" and by the Foundress cards (once unlocked) -->
+    <style>
+      .mvbio[hidden] { display: none; }
+      .mvbio { position: fixed; inset: 0; z-index: 1200; display: flex; align-items: center; justify-content: center; padding: 20px; }
+      .mvbio-backdrop { position: absolute; inset: 0; background: rgba(28,10,26,0.74); backdrop-filter: blur(3px); }
+      .mvbio-card { position: relative; max-width: 560px; width: 100%; max-height: 88vh; overflow-y: auto;
+        background: var(--cream, #fbf3ea); color: var(--plum, #43213c); border: 2px solid var(--gold, #c9a24a);
+        border-radius: 16px; padding: 28px 26px 22px; box-shadow: 0 24px 70px rgba(20,8,20,0.5); animation: mvbio-in .22s ease; }
+      @keyframes mvbio-in { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: none; } }
+      .mvbio-x { position: absolute; top: 8px; right: 14px; background: none; border: none; font-size: 28px; line-height: 1; color: var(--plum, #43213c); cursor: pointer; opacity: .55; }
+      .mvbio-x:hover { opacity: 1; }
+      .mvbio-head { display: flex; gap: 16px; align-items: center; margin-bottom: 16px; }
+      .mvbio-portrait { width: 88px; height: 88px; border-radius: 12px; object-fit: cover; flex: 0 0 auto; border: 1.5px solid var(--gold, #c9a24a); }
+      .mvbio-title { margin: 0; font: 800 11px/1.3 'Jost', sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--rose, #b95d78); }
+      .mvbio-name { margin: 2px 0 3px; font-family: 'Playfair Display', Georgia, serif; font-size: 27px; line-height: 1.05; color: var(--plum, #43213c); }
+      .mvbio-meta { margin: 0; font-size: 12.5px; color: var(--plum-soft, #6a4f60); }
+      .mvbio-did { margin: 0 0 12px; font-size: 15px; line-height: 1.55; }
+      .mvbio-fight { margin: 0 0 14px; font-size: 14px; line-height: 1.5; }
+      .mvbio-fight b { color: var(--rose, #b95d78); text-transform: uppercase; font-size: 11px; letter-spacing: .1em; }
+      .mvbio-quote[hidden] { display: none; }
+      .mvbio-quote { margin: 0 0 14px; padding: 12px 16px; border-left: 3px solid var(--gold, #c9a24a); background: rgba(201,162,74,0.10);
+        font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 15px; line-height: 1.5; color: var(--plum, #43213c); }
+      .mvbio-source { display: inline-block; font: 700 12px 'Jost', sans-serif; color: var(--rose, #b95d78); text-decoration: none; }
+      .mvbio-source:hover { text-decoration: underline; }
+      .foundress-case.is-unlocked .foundress-card { cursor: pointer; }
+      @media (max-width: 520px) { .mvbio-head { flex-direction: column; text-align: center; } .mvbio-name { font-size: 24px; } }
+    </style>
+    <div id="mavenModal" class="mvbio" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="mvbioName">
+      <div class="mvbio-backdrop" data-mvbio-close></div>
+      <div class="mvbio-card" role="document">
+        <button class="mvbio-x" type="button" aria-label="Close" data-mvbio-close>&times;</button>
+        <div class="mvbio-head">
+          <img class="mvbio-portrait" id="mvbioImg" src="" alt="" loading="lazy">
+          <div class="mvbio-headtext">
+            <p class="mvbio-title" id="mvbioTitle"></p>
+            <h3 class="mvbio-name" id="mvbioName"></h3>
+            <p class="mvbio-meta" id="mvbioMeta"></p>
+          </div>
+        </div>
+        <p class="mvbio-did" id="mvbioDid"></p>
+        <p class="mvbio-fight"><b>The fight:</b> <span id="mvbioFight"></span></p>
+        <blockquote class="mvbio-quote" id="mvbioQuoteWrap"><span id="mvbioQuote"></span></blockquote>
+        <a class="mvbio-source" id="mvbioSource" href="#" target="_blank" rel="noopener">Source ↗</a>
       </div>
     </div>
 
@@ -1077,6 +1123,90 @@
           if (caseEl) caseEl.classList.toggle('is-unlocked', collected.size >= LIVING);
         }
 
+        // ── Maven bio modal (verified; sources in the ledger) ──
+        var MAVEN_BIOS = {
+          'ada-lovelace': { name: 'Ada Lovelace', title: 'Keeper of the First Algorithm', meta: '1815–1852 · England',
+            did: 'In 1843 she looked at a machine built only to crunch numbers and saw further than anyone — that with the right instructions it could work with symbols, even compose music. Her Note G is the first algorithm ever written for a machine.',
+            fight: 'The machine wasn’t built for another century, and for most of it the credit went to the man whose machine it was — on the assumption a woman couldn’t have done the math.',
+            quote: 'The Analytical Engine has no pretensions whatever to originate anything. It can do whatever we know how to order it to perform.',
+            source: 'https://www.britannica.com/biography/Ada-Lovelace' },
+          'grace-hopper': { name: 'Grace Hopper', title: 'Keeper of the Compiler', meta: '1906–1992 · U.S. Navy',
+            did: 'Told for years that computers could only handle numbers, not words, she built one of the first compilers (the A-0 System, ~1952) — a translator so people could tell a machine what to do in something close to plain English. Nearly all modern software descends from that idea.',
+            fight: 'The Navy first turned her away — too old at 36, they said, and underweight. She got in anyway, and rose to Rear Admiral.',
+            quote: 'I’ve always been more interested in the future than in the past.',
+            source: 'https://www.britannica.com/biography/Grace-Hopper' },
+          'hedy-lamarr': { name: 'Hedy Lamarr', title: 'Keeper of the Airwaves', meta: '1914–2000 · Vienna → Hollywood',
+            did: 'Between takes as one of Hollywood’s biggest stars, she co-invented — with composer George Antheil — a 1942 frequency-hopping design: a signal that leaps between frequencies to dodge jamming. Those ideas sit in the family tree of modern wireless.',
+            fight: 'Billed as the most beautiful woman in the world, no one believed the inventor. The Navy shelved her design, she never earned a cent from it, and real recognition came only near the end of her life.',
+            quote: '',
+            source: 'https://www.nationalww2museum.org/war/articles/hedy-lamarrs-wwii-invention-helped-shape-modern-tech' },
+          'karen-sparck-jones': { name: 'Karen Spärck Jones', title: 'Keeper of the Index', meta: '1935–2007 · Cambridge',
+            did: 'In 1972 she worked out how a machine finds what matters in a mountain of documents: rare words carry meaning, common ones don’t. Her inverse document frequency is the math under every search box — and under the modern AI that looks things up before it answers.',
+            fight: 'She had no permanent academic post until 1993 — which she said plainly was because she was a woman — and was usually the only one in the room.',
+            quote: 'Computing is too important to be left to men.',
+            source: 'https://en.wikipedia.org/wiki/Karen_Sp%C3%A4rck_Jones' },
+          'hannah-fry': { name: 'Hannah Fry', title: 'Keeper of the Probabilities', meta: 'University of Cambridge',
+            did: 'A mathematician who became Cambridge’s first Professor of the Public Understanding of Mathematics. Her book Hello World (2018) is a clear-eyed tour of how algorithms already decide things in medicine, justice, and money — and where they go wrong.',
+            fight: 'She argues, loudly, that the shortage of women in maths is about culture and confidence, not ability.',
+            quote: 'These models are a representation of reality, not reality itself.',
+            source: 'https://www.cam.ac.uk/research/news/hannah-fry-joins-cambridge-as-professor-of-the-public-understanding-of-mathematics' },
+          'fei-fei-li': { name: 'Fei-Fei Li', title: 'Keeper of the Field', meta: 'Stanford',
+            did: 'Everyone was trying to build a smarter brain; she said the problem was data. She built ImageNet — millions of labeled images — and in 2012 a program trained on it suddenly learned to see, igniting the modern AI boom. The world calls her the Godmother of AI.',
+            fight: 'She arrived in the U.S. at sixteen barely speaking English, working weekends in her family’s dry-cleaning shop — and was told ImageNet was far too big to bother building.',
+            quote: 'It is deeply against my principles to work on any project that I think is to weaponize AI.',
+            source: 'https://hai.stanford.edu/people/fei-fei-li' },
+          'timnit-gebru': { name: 'Timnit Gebru', title: 'Keeper of the Room', meta: 'DAIR Institute',
+            did: 'A computer-vision PhD — advised by Fei-Fei Li — who co-wrote On the Dangers of Stochastic Parrots, warning that language models can sound brilliant while understanding nothing, and naming what they cost. She co-founded Black in AI and now runs her own institute, DAIR.',
+            fight: 'She raised those concerns inside Google and, in December 2020, was abruptly gone — she says she was fired; Google says it accepted a resignation. Thousands of colleagues signed their names in protest.',
+            quote: '',
+            source: 'https://www.technologyreview.com/2020/12/04/1013294/google-ai-ethics-research-paper-forced-out-timnit-gebru/' },
+          'rachel-thomas': { name: 'Rachel Thomas', title: 'Keeper of the Door', meta: 'fast.ai',
+            did: 'Co-founded fast.ai to make deep learning free and learnable for people without PhDs, and founded the Center for Applied Data Ethics (2019). She writes on algorithmic bias and the danger of over-trusting metrics.',
+            fight: 'She wrote some of the most-cited essays on why women leave tech — arguing it’s not a pipeline problem but a culture that pushes them out.',
+            quote: 'It doesn’t matter how many girls you teach to code if you keep driving adult women out of the tech industry.',
+            source: 'https://rachel.fast.ai/posts/2015-07-27-not-pipeline/' },
+          'joy-buolamwini': { name: 'Joy Buolamwini', title: 'Keeper of the Mirror', meta: 'MIT · Algorithmic Justice League',
+            did: 'At MIT, face-detection software couldn’t see her dark-skinned face until she held up a white mask — so she proved the bias. Her Gender Shades study (2018) showed the big commercial systems failed hardest on darker-skinned women, and she founded the Algorithmic Justice League.',
+            fight: 'She named it the coded gaze — the priorities and prejudices of whoever gets to build the technology.',
+            quote: 'The coded gaze is a reflection of the preferences, priorities, and at times prejudices of those who have the power to shape technology.',
+            source: 'https://www.fordfoundation.org/news-and-stories/stories/fighting-the-coded-gaze/' },
+          'kate-crawford': { name: 'Kate Crawford', title: 'Keeper of the Map', meta: 'Atlas of AI · AI Now',
+            did: 'In Atlas of AI (2021) she mapped what the "magic" actually costs — the mines, the water, the energy, and the underpaid human labor behind every system. She co-founded the AI Now Institute to study AI’s real-world power.',
+            fight: 'Doing critical, cross-disciplinary work like this means constantly pushing against a field that would rather just celebrate itself.',
+            quote: 'AI is neither artificial nor intelligent.',
+            source: 'https://yalebooks.yale.edu/book/9780300264630/atlas-of-ai/' },
+          'meredith-whittaker': { name: 'Meredith Whittaker', title: 'Keeper of the Signal', meta: 'Signal Foundation',
+            did: 'Now president of Signal, the encrypted messenger, she co-founded the AI Now Institute (with Kate Crawford) and argues AI’s real problem is power — that it’s an outgrowth of the surveillance-advertising business, concentrating control in a few giant firms.',
+            fight: 'At Google she helped organize the 20,000-strong 2018 Walkout over how the company handled harassment. She says she then faced retaliation; Google denied it. She left in 2019.',
+            quote: 'AI is not some dematerialized technology that exists in the ether. AI is the product of significantly concentrated resources that right now are in the hands of large companies.',
+            source: 'https://websummit.com/blog/tech/meredith-whittaker-ai-chatgpt-surveillance-tech/' },
+          'emily-bender': { name: 'Emily M. Bender', title: 'Keeper of the Language', meta: 'University of Washington',
+            did: 'A linguist at the University of Washington and first author of Stochastic Parrots (2021) — she coined the term itself: a language model stitches words together convincingly with no idea what they mean. She’s one of the field’s clearest voices against mistaking fluency for understanding.',
+            fight: 'Being the loudest skeptic in a hype-driven field makes you a target — she’s both a leading critic and a frequently-contested one.',
+            quote: 'A language model is a system for haphazardly stitching together sequences of linguistic forms it has observed, without any reference to meaning: a stochastic parrot.',
+            source: 'https://dl.acm.org/doi/10.1145/3442188.3445922' }
+        };
+        var mvModal = document.getElementById('mavenModal');
+        function setText(id, t) { var el = document.getElementById(id); if (el) el.textContent = t; }
+        function openMavenBio(slug) {
+          var b = MAVEN_BIOS[slug]; if (!b || !mvModal) return;
+          var img = document.getElementById('mvbioImg');
+          if (img) { img.src = 'assets/mavens/y2k-stained-glass-v2/' + slug + '-y2k-stained-glass.png'; img.alt = b.name + ' — stained-glass portrait'; }
+          setText('mvbioTitle', b.title); setText('mvbioName', b.name); setText('mvbioMeta', b.meta);
+          setText('mvbioDid', b.did); setText('mvbioFight', b.fight);
+          var qWrap = document.getElementById('mvbioQuoteWrap');
+          if (b.quote) { setText('mvbioQuote', '“' + b.quote + '”'); if (qWrap) qWrap.hidden = false; }
+          else if (qWrap) { qWrap.hidden = true; }
+          var src = document.getElementById('mvbioSource'); if (src) src.href = b.source;
+          mvModal.hidden = false; mvModal.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        }
+        function closeMavenBio() {
+          if (!mvModal) return;
+          mvModal.hidden = true; mvModal.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        }
+
         // ── Coven pickers ──
         // One pick per pantheon (radio semantics). Reads/writes the same keys the Closet's Coven band uses.
         var COVEN_KEYS = { saint: 'laidies_saint', maven: 'laidies_maven', builder: 'laidies_builder' };
@@ -1168,6 +1298,7 @@
             renderCoven();
             return;
           }
+          if (e.target.closest && e.target.closest('[data-mvbio-close]')) { closeMavenBio(); return; }
           var meetBtn = e.target.closest && e.target.closest('.maven-meet');
           if (meetBtn) {
             e.preventDefault();
@@ -1175,12 +1306,17 @@
             if (!mCard) return;
             var mSlug = mCard.getAttribute('data-maven-slug');
             if (!mSlug) return;
-            if (collected.has(mSlug)) collected.delete(mSlug);
-            else collected.add(mSlug);
-            writeCollect(Array.from(collected));
-            renderCollect();
+            if (!collected.has(mSlug)) { collected.add(mSlug); writeCollect(Array.from(collected)); renderCollect(); }
+            openMavenBio(mSlug);
+            return;
+          }
+          var fCard = e.target.closest && e.target.closest('.foundress-card');
+          if (fCard && caseEl && caseEl.classList.contains('is-unlocked')) {
+            openMavenBio(fCard.getAttribute('data-foundress-slug'));
+            return;
           }
         });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' || e.keyCode === 27) closeMavenBio(); });
 
         injectPickers();
         renderCollect();

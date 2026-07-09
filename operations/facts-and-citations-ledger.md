@@ -128,12 +128,53 @@ Columns: **Claim** · **What it measures (scope/caveat)** · **Source** · **Ver
   researchers, **June 2017** — the architecture behind ChatGPT/Claude/Gemini/Copilot. **ChatGPT** released
   **30 Nov 2022** (free research preview); **~100M users in ~2 months = fastest-growing consumer app in
   history.** Source: en.wikipedia.org/wiki/Attention_Is_All_You_Need ; ChatGPT launch coverage (EBSCO / startupbricks).
-  · **Mavens (from LUMINAiRY canon) used as the flashback's cast** — historical: Ada Lovelace (first algorithm,
-  1840s), Grace Hopper (compiler ~1952), Hedy Lamarr (frequency-hopping 1942), Karen Spärck Jones (TF-IDF 1972);
-  living: Fei-Fei Li, Joy Buolamwini (Gender Shades), Timnit Gebru (Stochastic Parrots), Kate Crawford (Atlas of AI),
-  Meredith Whittaker, Rachel Thomas, Hannah Fry. ⚠️ **Spot-check each individual claim before it ships in-script**
-  (the four historical ones are well-documented; keep living-Maven framing to their public work, no relitigating disputes).
-  · Used in: **Ep4** (rewrite — the flashback).
+  · **DEEP-VERIFIED 2026-07-09 (two research passes, sourced) — the Mavens as the flashback's cast:**
+  · **Ada Lovelace (1843):** appended Notes A–G to Menabrea's paper on Babbage's Analytical Engine; Note G = an
+  algorithm for Bernoulli numbers (the "first algorithm for a machine"); grasped it could manipulate *symbols*, not
+  just numbers (could "compose music"). Real quote ("Lady Lovelace's Objection," Note G): *"The Analytical Engine has
+  no pretensions whatever to originate anything… it can do whatever we know how to order it to perform"* — ties to
+  the show's "it's not magic" theme. **Adversity:** minimized/credited-to-Babbage for a century ("not mathematical
+  enough"). ⚠️ **"first programmer" is CONTESTED** — say "published the first algorithm / first to grasp general-purpose
+  computing," not flat "first programmer." Engine never built. Sources: Britannica, Wikipedia Note G, CACM.
+  · **Hedy Lamarr (1942):** with **George Antheil** (co-inventor — credit him), US patent 2,292,387, a frequency-hopping /
+  spread-spectrum design (hop across up to 88 frequencies). Navy rejected it in WWII. **Adversity:** "most beautiful
+  woman in the world" eclipsed the inventor ~55 yrs; earned nothing; recognized only near death (1997 EFF, 2014 Inventors
+  Hall of Fame posthumous). ⚠️ **"invented Wi-Fi" is an OVERSIMPLIFICATION** — say "an early design whose family of ideas
+  underlies modern wireless," not "invented Wi-Fi/Bluetooth/GPS." Quote "any girl can be glamorous… stand still and look
+  stupid" = attributed, not firmly sourced → dramatize, don't cite as fact. Sources: Wikipedia, National WWII Museum, American Scientist.
+  · **Grace Hopper (~1952):** developed the **A-0 System** — "one of the first compilers" (translate human-ish code →
+  machine); led FLOW-MATIC → influenced COBOL; Rear Admiral. **Adversity:** Navy first rejected her (36, "underweight");
+  told for years computers "could only do arithmetic, not words." ⚠️ Say **"one of the first compilers"** (A-0 ≈ loader/linker
+  by modern defs). ⚠️ **AVOID her two famous quotes** — *"we've always done it this way"* (DISPUTED) and *"easier to ask
+  forgiveness than permission"* (MISATTRIBUTED, predates her). Safe: the 1947 moth/"first actual case of bug" (she
+  popularized "debugging," did NOT coin "bug"; moth was in Mark II) + *"more interested in the future than the past."* Sources: Britannica, Yale, IEEE/ETHW.
+  · **Karen Spärck Jones (1972):** "A Statistical Interpretation of Term Specificity" → **inverse document frequency (IDF)**;
+  with term-frequency = **TF-IDF**, the math under search engines + retrieval-augmented AI. **Adversity:** no permanent post
+  until **1993**, which *she* attributed to gender discrimination; often the only woman in the room; founded women@cl.
+  **VERIFIED QUOTE (mic-drop):** *"Computing is too important to be left to men"* — her slogan + the title of her July 2007
+  ITNOW interview. **SAFE to use** (frame as her slogan). Spell **Karen Spärck Jones** (ä, no hyphen). Sources: Wikipedia, J. of Documentation 1972, ITNOW/Oxford Academic.
+  · **Fei-Fei Li:** ImageNet (conceived ~2007, CVPR 2009; ~14M images; Mechanical Turk); ILSVRC → 2012 AlexNet breakthrough.
+  Immigrant (Beijing→NJ at 16, family **dry-cleaning shop**); early skepticism ImageNet was "too big." ⚠️ **"Godmother of AI"
+  = a MEDIA NICKNAME she distances from** — say "the world calls her," not a title she claims. ⚠️ **Do NOT attribute** the
+  *"women and people of color at the table"* line to her — that's **Melinda Gates**. Verified Li quote (Project Maven): *"It
+  is deeply against my principles to work on any project that I think is to weaponize AI."* Sources: Wikipedia, Stanford HAI.
+  · **Joy Buolamwini:** **Gender Shades (2018, FAccT)**, co-authored **with Gebru** — audited IBM/Microsoft/Face++; error
+  ≤0.8% (lighter men) vs up to ~34.7% (darker women). Founded Algorithmic Justice League. **Origin/adversity:** face-detection
+  wouldn't see her dark skin until she wore a **white mask** → the "coded gaze." ⚠️ Pull exact TED wording from primary
+  transcript before locking verbatim. Sources: MIT News, Ford Foundation, Wikipedia.
+  · **Timnit Gebru:** co-author "**On the Dangers of Stochastic Parrots**" (FAccT 2021; w/ Bender, McMillan-Major, Mitchell) —
+  LLMs fluent but not understanding + costs; founded **DAIR**; PhD advisor was **Fei-Fei Li**. ⚠️ **Google exit (Dec 2020) is
+  CONTESTED — present BOTH:** *"Gebru says she was fired; Google says it accepted her resignation. Undisputed: she was
+  abruptly cut off after a dispute over the Stochastic Parrots paper, and thousands (≈2,700 Googlers + 4,300 academics)
+  protested."* Sources: MIT Tech Review, Wikipedia, CNN.
+  · **Kate Crawford:** *Atlas of AI* (Yale UP 2021) — AI as extractive (mines/water/labor); "Anatomy of an AI System." Verified
+  opening quote: *"AI is neither artificial nor intelligent."* ⚠️ Her personal "adversity as a woman" is **under-documented** —
+  frame as the difficulty of critical interdisciplinary work; **do NOT fabricate an incident.** Sources: Yale UP, Wikipedia, katecrawford.net.
+  · **Milestone guards:** Dartmouth term coined in a **jointly-authored proposal (McCarthy-led)**, not solo. AI winters
+  ~1974–80 (Lighthill 1973) & ~1987–93 — use **"roughly."** Transformer "Attention Is All You Need," 8 Google authors,
+  **equal contribution** (no "lead author"). ⚠️ **ChatGPT "~100M users in 2 months / fastest-growing app" = a UBS/Similarweb
+  ESTIMATE, NOT OpenAI-confirmed** — say **"by one widely-cited estimate,"** never as OpenAI fact.
+  · Used in: **Ep4** (rewrite — the flashback, multi-voice).
 
 ### ⚠️ NEEDS VERIFICATION before it ships again
 
