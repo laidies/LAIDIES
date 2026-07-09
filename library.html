@@ -476,33 +476,31 @@
 
     <!-- The 101 textbooks standing on the library shelf -->
     <style>
-      .tb-shelf { max-width: 880px; margin: 28px auto 6px; }
-      .tb-scroll { overflow-x: auto; overflow-y: hidden; padding-bottom: 2px; scrollbar-width: thin; }
-      .tb-books { list-style: none; margin: 0; padding: 0 8px; display: flex; align-items: flex-end; justify-content: safe center; gap: clamp(3px, 1vw, 12px); min-width: min-content; position: relative; z-index: 2; }
-      .tb-book { flex: 0 0 auto; margin: 0; }
-      .tb-book img { height: 120px; width: auto; display: block; filter: drop-shadow(0 10px 9px rgba(26,10,18,0.28)); transform-origin: bottom center; transition: transform .2s ease; }
-      .tb-book:hover img, .tb-book:focus-visible img { transform: translateY(-10px) rotate(-1.5deg); }
-      .tb-shelf-base { width: 100%; aspect-ratio: 2400 / 258; background: url('/assets/library-101/101-shelf-kit.png') center bottom / 100% auto no-repeat; margin-top: -12px; position: relative; z-index: 1; }
+      .bookcase { position: relative; width: 100%; max-width: 900px; margin: 24px auto 8px; aspect-ratio: 2400 / 1600; background: url('/assets/library-101/101-shelf-kit.png') center / cover no-repeat; border-radius: 10px; overflow: hidden; box-shadow: 0 14px 40px rgba(40,20,30,0.22); }
+      .bc-shelf { position: absolute; left: 8%; right: 8%; margin: 0; padding: 0; list-style: none; display: flex; align-items: flex-end; justify-content: flex-start; gap: 2.2%; }
+      .bc-shelf-1 { top: 12.5%; height: 24.5%; }
+      .bc-shelf-2 { top: 40%; height: 22%; }
+      .bc-shelf-3 { top: 64.5%; height: 22.5%; }
+      .bc-shelf li { height: 100%; margin: 0; flex: 0 0 auto; }
+      .bc-shelf img { height: 100%; width: auto; display: block; filter: drop-shadow(0 6px 7px rgba(20,8,14,0.42)); transform-origin: bottom center; transition: transform .2s ease; }
+      .bc-shelf a:hover img, .bc-shelf a:focus-visible img { transform: translateY(-8px); }
       .tb-shelf-note { text-align: center; font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 0.01em; color: var(--plum-soft, #6a4f60); margin: 12px 0 0; }
       .tb-shelf-note b { color: var(--rose); font-weight: 700; }
-      @media (max-width: 640px) { .tb-book img { height: 120px; } }
     </style>
 
-    <div class="tb-shelf">
-      <div class="tb-scroll">
-        <ul class="tb-books" aria-label="The seven 101 textbooks">
-          <li class="tb-book"><img loading="lazy" src="/assets/library-101/textbook-chatgpt-101.png" alt="ChatGPT 101 — your first hour with a tool, start to finish." title="ChatGPT 101 · Your first hour with a tool — the on-ramp."></li>
-          <li class="tb-book"><img loading="lazy" src="/assets/library-101/textbook-vocab-101.png" alt="Vocab 101 — every AI word everyone throws around, in plain English." title="Vocab 101 · The glossary you'll actually use."></li>
-          <li class="tb-book"><img loading="lazy" src="/assets/library-101/textbook-concepts-101.png" alt="Concepts 101 — how the thing works under the hood, minus the math." title="Concepts 101 · Why it guesses, why it forgets."></li>
-          <li class="tb-book"><img loading="lazy" src="/assets/library-101/textbook-briefing-101.png" alt="Briefing 101 — how to ask so it comes back useful." title="Briefing 101 · Prompting is delegation — how to delegate."></li>
-          <li class="tb-book"><img loading="lazy" src="/assets/library-101/textbook-tools-101.png" alt="Tools 101 — the cast, and which one to open for which job." title="Tools 101 · The full textbook behind Ep 4's Handbook."></li>
-          <li class="tb-book"><img loading="lazy" src="/assets/library-101/textbook-setup-101.png" alt="Setup 101 — set up once so every tool knows how you work." title="Setup 101 · Memory, custom instructions, the Skeleton Key."></li>
-          <li class="tb-book"><img loading="lazy" src="/assets/library-101/textbook-accounts-101.png" alt="Accounts 101 — what's safe to paste and what never is." title="Accounts 101 · The line you don't cross."></li>
-        </ul>
-      </div>
-      <div class="tb-shelf-base" role="presentation" aria-hidden="true"></div>
-      <p class="tb-shelf-note">Seven textbooks, one per topic — more slide onto the shelf as we cover them (Claude 101, Gemini 101…). <b>On the shelf soon.</b></p>
+    <div class="bookcase" role="img" aria-label="The 101 bookcase: Vocab, Concepts, Briefing, Setup, and Accounts textbooks, with room for more.">
+      <ul class="bc-shelf bc-shelf-1">
+        <li><img loading="lazy" src="/assets/library-101/textbook-vocab-101.png" alt="Vocab 101 — every AI word in plain English."></li>
+        <li><img loading="lazy" src="/assets/library-101/textbook-concepts-101.png" alt="Concepts 101 — how it works, minus the math."></li>
+        <li><img loading="lazy" src="/assets/library-101/textbook-briefing-101.png" alt="Briefing 101 — how to ask so it comes back useful."></li>
+      </ul>
+      <ul class="bc-shelf bc-shelf-2">
+        <li><img loading="lazy" src="/assets/library-101/textbook-setup-101.png" alt="Setup 101 — set up once so every tool knows how you work."></li>
+        <li><img loading="lazy" src="/assets/library-101/textbook-accounts-101.png" alt="Accounts 101 — what's safe to paste and what never is."></li>
+      </ul>
+      <ul class="bc-shelf bc-shelf-3"></ul>
     </div>
+    <p class="tb-shelf-note">Vocab, Concepts, Briefing, Setup, Accounts — the basics, one textbook each. <b>The Cast and more land as we cover them.</b></p>
 
     <!-- Currently in the reading room — featured picks members are reading now -->
     <section style="margin: 40px 0 32px; padding: 26px 28px 22px; background: linear-gradient(155deg, rgba(232,197,200,0.24), rgba(255,253,251,0.7)); border-radius: 14px; border: 1.5px solid rgba(155,63,95,0.24);">
