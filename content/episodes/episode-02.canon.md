@@ -242,4 +242,12 @@ When you edit anything above, walk this list. ✅ = already true to canon · �
 | MAiKEOVER quote picker | quote field on the Residence Card | 🔧 feed `quotables[]` into the pickable pool |
 | Delta LAi Nu rooms | `delta-lai-nu.html` (sorority) | 🔧 seed the week's thread with `discussion_prompt` |
 
+---
+
+## MUST-MATCH (verbatim in script + article — enforced by `operations/check-episode.sh 2`)
+These exact strings must appear in BOTH the audio script and the article, so the demo prompt + expert quote can't drift between surfaces. Edit them here first, then propagate.
+- summarize this policy change for my stakeholders
+- Flag anything that only applies to some teams
+- turned out to be the hard ones
+
 See [[episode-canonical-source-spec.md]], [[article-derived-from-script]], [[episode-content-sync-surfaces]], [[quotables-are-funny-and-lyrics]], [[fact-verification-rule]].
