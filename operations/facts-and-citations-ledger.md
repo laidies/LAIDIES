@@ -113,6 +113,28 @@ Columns: **Claim** · **What it measures (scope/caveat)** · **Source** · **Ver
   See [[textbook-edition-analogy]], [[ai-model-currency-freshness-system]].
   · Used in: **Ep5** (drafting).
 
+- **Ep4 (What Is AI — the origin flashback) — history milestones, verified 2026-07-09.**
+  · **"Artificial intelligence" was coined at Dartmouth, 1956.** Term proposed by **John McCarthy** in the
+  Aug 31 1955 proposal for the 1956 Dartmouth Summer Research Project (workshop opened Jun 18 1956);
+  widely called the founding event of the field. Organizers/"founding fathers": McCarthy, Marvin Minsky,
+  Claude Shannon, Nathaniel Rochester (all men — the episode's hinge: they *named* it, women *built* it).
+  Source: home.dartmouth.edu/about/artificial-intelligence-ai-coined-dartmouth ; en.wikipedia.org/wiki/Dartmouth_workshop.
+  · **The deep-learning breakthrough = ImageNet → AlexNet, 2012.** **Fei-Fei Li** (Stanford) started ImageNet
+  ~2006–2009; her insight = the bottleneck was **data, not just algorithms**. AlexNet (Krizhevsky, Sutskever,
+  Hinton) won the ImageNet 2012 challenge (**30 Sep 2012**, top-5 error 15.3%, ~10.8 pts ahead), igniting the
+  modern deep-learning boom. **Scope:** credit Fei-Fei Li for the *dataset that made it possible* (accurate);
+  AlexNet itself was built by the three men. Source: en.wikipedia.org/wiki/ImageNet ; turingpost.com/p/cvhistory6.
+  · **Machines learned to talk: transformer 2017 → ChatGPT 2022.** "**Attention Is All You Need**," 8 Google
+  researchers, **June 2017** — the architecture behind ChatGPT/Claude/Gemini/Copilot. **ChatGPT** released
+  **30 Nov 2022** (free research preview); **~100M users in ~2 months = fastest-growing consumer app in
+  history.** Source: en.wikipedia.org/wiki/Attention_Is_All_You_Need ; ChatGPT launch coverage (EBSCO / startupbricks).
+  · **Mavens (from LUMINAiRY canon) used as the flashback's cast** — historical: Ada Lovelace (first algorithm,
+  1840s), Grace Hopper (compiler ~1952), Hedy Lamarr (frequency-hopping 1942), Karen Spärck Jones (TF-IDF 1972);
+  living: Fei-Fei Li, Joy Buolamwini (Gender Shades), Timnit Gebru (Stochastic Parrots), Kate Crawford (Atlas of AI),
+  Meredith Whittaker, Rachel Thomas, Hannah Fry. ⚠️ **Spot-check each individual claim before it ships in-script**
+  (the four historical ones are well-documented; keep living-Maven framing to their public work, no relitigating disputes).
+  · Used in: **Ep4** (rewrite — the flashback).
+
 ### ⚠️ NEEDS VERIFICATION before it ships again
 
 - ✅ **VERIFIED + corrected 2026-07-07 — Mollick quote.** Exact wording: *"The skills that are so often
