@@ -1,4 +1,4 @@
-# Episode 05 — "The Model Menu" · CANONICAL SOURCE
+# Episode 05 — "The Super Models" · CANONICAL SOURCE
 
 > **This is the single source of truth for Episode 5.** Edit the episode *here*. Every other surface
 > (article, quiz, study pack, LIBRAiRY, cocktail wall, KSVL, Closet quote picker) is *derived* from this
@@ -10,13 +10,21 @@
 > Ep 4: not the cold open, not the "mall" metaphor, not the "which tool for which job" cocktail. Ep 4 =
 > the *kinds* of AI; Ep 5 = *model ≠ tool, and the tools overlap*; Ep 6 = *move between them without
 > starting over*. **Not recorded.**
+>
+> **v3 — 2026-07-09 (retitle + reconcile):** renamed **"The Model Menu" → "The Super Models"** and folded
+> in the **90s-supermodel memory-jog** as the Model analogy (Ali's call; kept as pop-culture per the taste
+> ruling). Grounded in the Mall ("The Supermodels," Cindy-anchored, at *Rollin' with my Homies*). Cold-open
+> "ex at a party" metaphor CUT (an ex isn't a stranger) → plain *familiar-stranger*. George Michael
+> "Freedom '90" video CUT (too niche for the Mall taste filter). ⚠️ **Downstream rename cascade still TODO**
+> (slug in issue-05.json / episode-index, LIBRAiRY "Model Menu" / "The Lineup" book, season bible,
+> [[ep5-model-menu-resequence]] memory) — sweep when Ep 5 locks. Reviewed against `laidies-writing-lock.md`.
 
 ---
 
 ## meta
 - **number:** 5
-- **slug:** `the-model-menu`
-- **title:** The Model Menu
+- **slug:** `the-super-models`
+- **title:** The Super Models
 - **premise:** The big general assistants — ChatGPT, Claude, Gemini, and the **Copilot your company
   installed** — aren't interchangeable, but they're also not as separate as they look. The one thing that
   makes the whole shelf legible: **the company makes the *model*; the app is just the *store* you shop it
@@ -64,9 +72,15 @@ The beats the script (spoken) and the article (read) both render, in order:
    is nothing like ChatGPT?
 3. **To town — the LIBRAiRY.** Back to the reference shelf; she pulls **Who's Who in AI**; Miss Jeeves
    points to the spread. Cher's already there — she reads a floor plan for a living.
-4. **The fashion-house frame** *(→ concept: Model).* Every AI company is a **house**: OpenAI, Anthropic,
-   Google, Microsoft. A **model** — the thing with a version number — is one of the house's designs, the
-   *model who walks its runway*: a specific brain, trained and numbered by that house.
+4. **The 90s-supermodel plug → the fashion-house frame** *(→ concept: Model).* **First, the memory-jog
+   (grounded in the Mall — "The Supermodels" at *Rollin' with my Homies*, Cindy-anchored):** in the 90s the
+   *model* was more famous than the clothes — Cindy, Naomi, Linda, Christy, Claudia — and the same
+   supermodel walked Versace on Monday, Chanel on Tuesday, and did a Pepsi ad on Friday. *One star, booked
+   by everybody* — that's the entire map. **Then:** every AI company is a **house** (OpenAI, Anthropic,
+   Google, Microsoft), and a **model** — the thing with a version number — is the house's **supermodel**: a
+   specific brain, trained and numbered by that house, sent down its runway. *(⚠️ Taste note: supermodels
+   read glam vs the Mall's drugstore-suburban register; Ali kept them 2026-07-09 — "it's pop culture" —
+   anchored on the mainstream one, Cindy Crawford.)*
 5. **The one distinction — model ≠ tool** *(→ concept: Tool/app; THE core).* The house makes the models;
    the **app is the boutique** where you actually shop them. ChatGPT is OpenAI's store, Claude is
    Anthropic's, the Gemini app is Google's. So "ChatGPT vs Claude" isn't brain-vs-brain — it's two stores.
@@ -96,8 +110,9 @@ The beats the script (spoken) and the article (read) both render, in order:
 ## concepts[]
 *(→ glossary · LIBRAiRY · concept cards · SUNNYVAiLE High 101)*
 - **Model** — the actual AI brain, trained by one company, version-numbered (new one each season).
-  **Analogy (canon):** a design that walks a fashion house's runway. It's what got smarter; the app around
-  it is just the storefront.
+  **Analogy (canon):** the house's **supermodel** — the named star it sends down the runway; the *same*
+  supermodel gets booked by many stores (the 90s-supermodel plug). It's what got smarter; the app around it
+  is just the storefront.
 - **Tool / app** — the product you open and type into (ChatGPT, Claude, the Gemini app, Copilot).
   **Analogy (canon):** the house's **boutique**. "ChatGPT vs Claude" compares two stores, not two brains.
 - **Multi-model tool** — an app with no single house that resells several houses' models.
