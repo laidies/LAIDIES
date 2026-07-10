@@ -50,10 +50,15 @@ real woman, rendered in the stained-glass style — non-photoreal, but recogniza
 >   "cathedral of heroes," never baroque/fairytale. Same flatness and glass texture as
 >   the anchors — she should look like she belongs on the same wall as them.
 > - **No text, letters, names, or numbers anywhere.**
+> - **HER FACE AND HEAD ARE ALWAYS CLEAR.** Each portrait names a symbolic motif — weave it
+>   into the **background and lower foreground, in the glass AROUND her** (like the mainframe
+>   and punch-cards in the background corners of the anchors). **NEVER paste the motif as a
+>   floating object over her face, hat, glasses, or shoulders.** If it would cover her, move
+>   it behind or beside her, smaller. Nothing overlaps the face.
 >
 > Confirm you've got it and I'll send them one at a time with each woman's photo. If one
-> comes out too photo-real or too detailed, I'll say "more like the anchors" and you
-> flatten it back to the glass style.
+> comes out too photo-real or too detailed, I'll say "more like the anchors." If a motif
+> lands on her face, I'll say "move the motif to the background."
 
 ---
 
