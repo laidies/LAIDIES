@@ -150,6 +150,22 @@ The beats the script (spoken) and the article (read) both render, in order:
   why the app feels different over time *without you switching apps*, and it is **why the currency rule
   exists**: name the store and the line, never the version number (the star gets replaced; the address
   doesn't). Spoken form: *same house look, different woman.*
+  **The lines, in fashion terms (Ali, 2026-07-09).** A house runs several lines at once, and so does an AI
+  house:
+  · **Haute couture** = the flagship (**Opus** · **Sol**) — slowest, priciest, kept for the hardest jobs.
+  · **Ready-to-wear** = the everyday workhorse (**Sonnet** · **Terra**) — what most people should reach for.
+  · **Diffusion line** = the fast, cheap, everywhere one (**Haiku** · **Luna**). *(Y2K-correct term — DKNY,
+  Emporio Armani, CK.)* **NOT "resort wear":** resort is a **season**, not a tier — and in this metaphor the
+  season is already the version number.
+  **The lesson it unlocks:** *you don't wear couture to the grocery store.* Reaching for the flagship to
+  write one email is slow and expensive — which is the entire reason a house ships more than one line. It is
+  a better answer to "which should I use?" than any brand comparison.
+  ⚠️ It **is** partly a capability/price ladder (couture really is more capable). Teach *match the garment to
+  the occasion* — never "they're all the same."
+  ⚠️ Not every line is a rung: **Fable** is a different *kind* of line (Mythos-class), not a tier above Opus.
+  ⚠️ **Scope:** keep this OUT of the Ep5 script (it's already full, and Ep5 compares *apps*, not tiers).
+  This is future-episode material. If a script ever name-drops **DKNY / Emporio Armani / CK**, they get added
+  to the Mall first (*Hanger Management*), per [[analogies-grounded-in-mall-canon]].
 - **Tool / app** — the product you open and type into (ChatGPT, Claude, the Gemini app, Copilot).
   **Analogy (canon):** the house's **boutique**. "ChatGPT vs Claude" compares two stores, not two brains.
 - **Multi-model tool** — an app with no single house that resells several houses' models.
