@@ -45,6 +45,38 @@ done
 [ "$hit" = 0 ] && grn "none found"
 echo
 
+# 1b · SELF-HYPING TELLS — announce importance instead of just saying it — FAIL
+#   The "here's the one thing everybody fumbles" family. These read as AI-explainer
+#   slop and mask muddled exposition. Just say the thing; never announce that it's THE thing.
+echo "· tells (self-hyping scaffolds)"
+TELLS=( "here'?s the one (thing|line)" \
+        "here'?s the (twist|reveal|catch|kicker|secret)" \
+        "(one )?thing (absolutely )?(everybody|nobody|no one) (fumbles|misses|gets wrong|tells|says)" \
+        "the part that trips (everybody|you)" \
+        "the (one|single) line that" \
+        "the reveal[^.]{0,25}(selling|is really)" \
+        "absolutely everybody" \
+        "the [a-z]+ (that )?nobody (makes|says|tells|talks about)" )
+hit=0
+for t in "${TELLS[@]}"; do
+  m=$(grep -niE "$t" "${SURFACES[@]}" 2>/dev/null)
+  [ -n "$m" ] && { red "tell: /$t/"; echo "$m" | sed 's/^/          /' | cut -c1-150; hit=1; }
+done
+[ "$hit" = 0 ] && grn "none found"
+echo
+
+# 1c · ABSOLUTES / over-claims — some are load-bearing thesis, some are hype — WARN
+#   Not auto-fail: "you were never behind" is the point. Surface each for an eyeball.
+echo "· absolutes (eyeball each — is it load-bearing or hype?)"
+m=$(grep -noiE "the entire [a-z]+|the whole [a-z]+|absolutely [a-z]+|\b(everybody|nobody|no one)\b" "${SURFACES[@]}" 2>/dev/null | grep -viE "kit and caboodle")
+if [ -n "$m" ]; then
+  yel "over-claim words present — confirm each earns its place:"
+  echo "$m" | sed 's/^/          /' | head -20
+else
+  grn "none found"
+fi
+echo
+
 # 2 · SPELLING — FAIL (double-Y is the recurring one)
 echo "· spelling"
 m=$(grep -niE "SUNNYYV" "${SURFACES[@]}" 2>/dev/null)
