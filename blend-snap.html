@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Blend & Snap · LAiDIES · SUNNYVAiLE</title>
+  <meta name="description" content="The Blend & Snap at MAiN Street No. 8 — coffee shop, third place. Where the Study Pack lives. Read here, take the test at SUNNYVAiLE High.">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260707-a11y">
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260707-a11y"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260705-2"></script>
+</head>
+<body>
+
+  <header class="sv-header">
+    <a class="brand" href="/">LAiDIES</a>
+    <nav>
+      <a href="/">This Week</a>
+      <a href="/chick-flicks.html">Episodes</a>
+      <a href="/library.html">LIBRAiRY</a>
+      <a href="/blend-snap.html" style="color: var(--rose);">Blend & Snap</a>
+      <a href="/sorority-house.html">Sorority House</a>
+      <a href="/clubhouse-pass.html" class="sv-signin" style="color: var(--rose); font-weight: 600; border: 1.5px solid var(--rose); padding: 6px 14px; border-radius: 999px;">✉︎ Sign In</a>
+    </nav>
+  </header>
+
+  <div class="sv-hero"><img src="assets/building-interiors/blend-snap-cafe.jpg?v=20260707" alt="Inside the Blend &amp; Snap café — espresso machine, pastry case, bistro tables, and a corkboard reading POP QUIZ WEDNESDAY and STUDY BUDDY WANTED, with the SUNNYVAiLE street through the window" loading="eager"></div>
+
+  <main>
+
+    <div class="sv-eyebrow">
+      <span class="sv-eyebrow-label">★ MAiN Street · No. 4 · SUNNYVAiLE</span>
+      <button class="sv-theme" type="button"
+              aria-label="Play Down at the Blend & Snap by THE LAiDIES"
+              data-src="/content/music/the-laidies-down-at-the-blend-and-snap.mp3"
+              onclick="window.playLaidiesTheme(this);">
+        <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+        <span>♪ Down at the Blend &amp; Snap</span>
+      </button>
+    </div>
+
+    <h1>The Blend <span class="ai">&amp; Snap</span>.</h1>
+
+    <p class="sv-lede">
+      Coffee shop. Third place. Where the Study Pack lives and the second draft of everything happens. Order something with milk in it, open the notes, run into someone. Then walk to school for the quiz.
+    </p>
+
+    <h2 id="the-study-pack">The Study Pack</h2>
+
+    <a id="bs-current-pack" href="/issues/issue-04.html"
+       style="display: block; margin: 16px 0 14px; padding: 30px 34px; background: linear-gradient(135deg, var(--blush) 0%, #f4ddb4 100%); border: 2px solid var(--gold); border-radius: 14px; text-decoration: none; box-shadow: 0 8px 26px rgba(75, 33, 72, 0.12); transition: transform 200ms ease, box-shadow 200ms ease;"
+       onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 14px 34px rgba(75, 33, 72, 0.2)';"
+       onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 26px rgba(75, 33, 72, 0.12)';">
+      <p style="margin: 0 0 8px; font-weight: 700; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);">★ This Week · Fresh Off the Corkboard</p>
+      <h3 style="margin: 0 0 10px; font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700; color: var(--plum);">Class Notes for Episode 04</h3>
+      <p style="margin: 0 0 20px; font-size: 16px; line-height: 1.6; color: var(--plum); max-width: 56ch;">The cheat sheet for the Pop Quiz. Vocab, key concepts, what to actually remember. Read it here over a latte, then head to SUNNYVAiLE High and take the test.</p>
+      <span style="display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; background: var(--plum-deep); color: var(--cream); border-radius: 999px; font-weight: 800; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase;">☕ Grab this week's pack →</span>
+    </a>
+
+    <a class="stop" href="/games/trading-cards.html" style="display: block; margin: 0 0 36px;">
+      <span class="stop-num">★ TRADING CARDS</span>
+      <h3 class="stop-name">This week's Concept Card Pack →</h3>
+      <p class="stop-desc">Every Study Pack ships with a Trading Card Pack. Rip it open, flip each card, learn a concept. Duplicates are the point — trade them. Character Cards live in a separate deck (open the page to see both).</p>
+    </a>
+
+    <h2 id="back-shelf">The back shelf</h2>
+
+    <p>
+      Every Study Pack that's ever shipped stays on the shelf behind the counter. Missed a week? Started mid-season? Pull an old pack down — the coffee's fresh either way.
+    </p>
+
+    <div id="bs-archive" style="display: grid; gap: 12px; margin: 20px 0 36px;">
+      <p style="font-style: italic; color: var(--plum-soft, #6b3a66); font-size: 14px;">Pulling the packs off the shelf…</p>
+    </div>
+
+    <script>
+      (function () {
+        'use strict';
+        fetch('/content/episode-index.json')
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            var eps = (data.episodes || []).filter(function (e) { return e.status === 'published'; });
+            if (!eps.length) return;
+            eps.sort(function (a, b) { return b.number - a.number; });
+
+            // Newest published episode powers the THIS WEEK card
+            var current = eps[0];
+            var cur = document.getElementById('bs-current-pack');
+            if (cur && current.issueUrl) {
+              cur.href = '/' + current.issueUrl.replace(/^\//, '');
+              var name = cur.querySelector('.stop-name');
+              if (name) name.textContent = 'Class Notes for Episode ' + String(current.number).padStart(2, '0');
+            }
+
+            // Everything older goes on the back shelf
+            var host = document.getElementById('bs-archive');
+            if (!host) return;
+            host.innerHTML = '';
+            var past = eps.slice(1);
+            if (!past.length) {
+              host.innerHTML = '<p style="font-style: italic; color: var(--plum-soft, #6b3a66); font-size: 14px;">Season one is young — past packs land here as the weeks stack up.</p>';
+              return;
+            }
+            past.forEach(function (ep) {
+              var a = document.createElement('a');
+              a.className = 'stop';
+              a.href = '/' + (ep.issueUrl || '').replace(/^\//, '');
+              a.style.display = 'block';
+              a.innerHTML =
+                '<span class="stop-num">EP ' + String(ep.number).padStart(2, '0') + '</span>' +
+                '<h3 class="stop-name">' + ep.title + '</h3>' +
+                '<p class="stop-desc">' + (ep.oneLineDescription || ep.lesson || '') + '</p>';
+              host.appendChild(a);
+            });
+          })
+          .catch(function () {
+            var host = document.getElementById('bs-archive');
+            if (host) host.innerHTML = '<p style="font-style: italic; color: var(--plum-soft, #6b3a66); font-size: 14px;">The shelf is being restocked — check back in a minute.</p>';
+          });
+      })();
+    </script>
+
+    <h2>How the Wednesday lap works from here</h2>
+
+    <ol style="font-size: 17px; line-height: 1.7; padding-left: 22px; color: var(--plum);">
+      <li><strong>Read the episode</strong> at <a href="/chick-flicks.html" style="color: var(--rose); text-decoration: underline;">The Chick Flicks</a></li>
+      <li><strong>Grab coffee + the Study Pack</strong> right here</li>
+      <li><strong>Walk over to <a href="/sunnyvaile-high.html" style="color: var(--rose); text-decoration: underline;">SUNNYVAiLE High</a></strong> and take the Pop Quiz</li>
+      <li><strong>Optional:</strong> free time at <a href="/visitors-centre.html">any game in town</a> · happy hour at <a href="/bronze-aige.html">The BRONZE AiGE</a> at 4 · debrief at <a href="/sorority-house.html">Delta LAi Nu</a></li>
+    </ol>
+
+    <h2>It's also just a coffee shop</h2>
+
+    <p>
+      You don't have to be doing anything productive to be here. Sometimes you just want a Wednesday afternoon with a cortado and someone else's overheard meeting. That's allowed. That's most of why a third place matters.
+    </p>
+
+    <div class="sv-trip-tie">
+      <div class="sv-trip-tie__eyebrow">★ Your Residence Card</div>
+      <h3 class="sv-trip-tie__title">Study Pack — this is where you grab it.</h3>
+      <p class="sv-trip-tie__body">Your weekly trading cards drop into the Study Pack shelf of your Closet. The Blend & Snap is where they show up — order your usual, grab this week's stack, add them to your binder. <strong>Every customization is a trip somewhere in town.</strong></p>
+      <p class="sv-trip-tie__note">Full picker coming with the member card. For now, this is where it lives.</p>
+    </div>
+
+    <div class="sv-ctas">
+      <a class="sv-cta sv-cta--primary" href="#the-study-pack">
+        <span>
+          <span class="sv-cta-label">Open the Study Pack</span>
+          <span class="sv-cta-title">This week's class notes →</span>
+        </span>
+        <span class="sv-cta-arrow">→</span>
+      </a>
+      <a class="sv-cta" href="/sunnyvaile-high.html">
+        <span>
+          <span class="sv-cta-label">Ready for the test?</span>
+          <span class="sv-cta-title">Walk to SUNNYVAiLE High</span>
+        </span>
+        <span class="sv-cta-arrow">→</span>
+      </a>
+    </div>
+
+  </main>
+
+  <footer>© LAiDIES · Filed from SUNNYVAiLE · The Blend &amp; Snap</footer>
+
+  <script>
+    (function() {
+      'use strict';
+      var activeBtn = null, activeAudio = null;
+      function stopActive() {
+        if (activeBtn) activeBtn.classList.remove('is-playing');
+        if (activeAudio) { try { activeAudio.pause(); } catch(e){} }
+        activeBtn = null; activeAudio = null;
+      }
+      window.playLaidiesTheme = function(btn) {
+        if (!btn || btn.disabled) return;
+        var src = btn.getAttribute('data-src');
+        if (!src) return;
+        if (activeBtn === btn) { stopActive(); return; }
+        stopActive();
+        var audio = new Audio(src);
+        audio.preload = 'metadata';
+        audio.addEventListener('ended', function() { if (activeAudio === audio) stopActive(); });
+        audio.addEventListener('error', function() { if (activeAudio === audio) stopActive(); });
+        audio.play().catch(function() { if (activeAudio === audio) stopActive(); });
+        btn.classList.add('is-playing');
+        activeBtn = btn; activeAudio = audio;
+      };
+    })();
+  </script>
+
+  <script defer src="/content/site/sv-tour-checkin.js?v=20260702-2"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260705-21"></script>
+    <script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260707-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
+</body>
+</html>

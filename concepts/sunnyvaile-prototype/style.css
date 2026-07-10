@@ -1,0 +1,406 @@
+/* SUNNYVAiLE Prototype — shared stylesheet */
+
+:root {
+  --plum: #4b2148;
+  --plum-deep: #3a1838;
+  --plum-soft: #6b3a66;
+  --rose: #9b3f5f;
+  --rose-bright: #c25b7d;
+  --gold: #c9a227;
+  --cream: #fffdfb;
+  --pearl: #f8eef2;
+  --blush: #f9e6ee;
+  --cyan: #4ac4d4;
+  --line: rgba(75, 33, 72, 0.14);
+  --placeholder-bg: #fff4e8;
+  --placeholder-border: #c9a227;
+  --placeholder-ink: #6b3a66;
+  --status-done: #2d7a3d;
+  --status-partial: #c79830;
+  --status-missing: #b94b4b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Jost', sans-serif;
+  color: var(--plum);
+  background: var(--cream);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ============================================================
+   PROTOTYPE BANNER — always visible to remind this is a stub site
+   ============================================================ */
+.proto-banner {
+  background: linear-gradient(90deg, var(--plum), var(--rose));
+  color: var(--cream);
+  padding: 8px 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+}
+.proto-banner a {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+/* ============================================================
+   TOP NAV — shared across all prototype pages
+   ============================================================ */
+.proto-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+}
+.proto-nav-brand {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--plum);
+}
+.proto-nav-links {
+  display: flex;
+  gap: 18px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--plum-soft);
+}
+
+/* ============================================================
+   PAGE HEADER — for individual location pages
+   ============================================================ */
+.loc-header {
+  text-align: center;
+  padding: 56px 32px 36px;
+  background: var(--pearl);
+  border-bottom: 1px solid var(--line);
+}
+.loc-addr {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--rose);
+  border: 1.5px solid var(--rose);
+  border-radius: 999px;
+  padding: 6px 16px;
+  margin-bottom: 18px;
+}
+.loc-name {
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0 0 14px;
+  color: var(--plum);
+}
+.loc-tagline {
+  font-size: 16px;
+  color: var(--plum-soft);
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+/* ============================================================
+   MAIN CONTAINER
+   ============================================================ */
+main.loc-main {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 48px 32px 96px;
+}
+
+section.loc-section {
+  margin-bottom: 56px;
+}
+section.loc-section h2 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--plum);
+  margin: 0 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+p.loc-body {
+  font-size: 17px;
+  line-height: 1.65;
+  margin: 0 0 16px;
+}
+
+/* ============================================================
+   PLACEHOLDER BLOCKS — call out missing content visually
+   ============================================================ */
+.placeholder {
+  background: var(--placeholder-bg);
+  border: 2px dashed var(--placeholder-border);
+  border-radius: 8px;
+  padding: 22px 24px;
+  margin: 16px 0;
+  position: relative;
+}
+.placeholder::before {
+  content: 'PLACEHOLDER';
+  position: absolute;
+  top: -10px;
+  left: 16px;
+  background: var(--gold);
+  color: var(--plum-deep);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+.placeholder-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--placeholder-ink);
+  margin-bottom: 10px;
+}
+.placeholder-body {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--placeholder-ink);
+  margin: 0;
+  font-style: italic;
+}
+
+.placeholder--image {
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--placeholder-bg),
+    var(--placeholder-bg) 10px,
+    #fffaf0 10px,
+    #fffaf0 20px
+  );
+}
+.placeholder--image::before {
+  content: 'IMAGE PLACEHOLDER';
+}
+
+.placeholder--copy::before {
+  content: 'COPY PLACEHOLDER';
+}
+
+.placeholder--feature::before {
+  content: 'FEATURE PLACEHOLDER';
+}
+
+/* ============================================================
+   REAL CONTENT BLOCKS — when we have actual content
+   ============================================================ */
+.real-content {
+  background: var(--pearl);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 16px 0;
+  border-left: 3px solid var(--gold);
+}
+.real-content::before {
+  content: '✓ LIVE CONTENT';
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: var(--status-done);
+  background: #e6f3e9;
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* ============================================================
+   STATUS ROW — at the bottom of each section
+   ============================================================ */
+.status-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0;
+  padding: 14px 18px;
+  background: var(--blush);
+  border-radius: 6px;
+  font-size: 12px;
+}
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--cream);
+  font-weight: 600;
+}
+.status-chip.done { color: var(--status-done); }
+.status-chip.partial { color: var(--status-partial); }
+.status-chip.missing { color: var(--status-missing); }
+
+/* ============================================================
+   FOOTER NAV — back to town map + next stop
+   ============================================================ */
+.loc-footer-nav {
+  margin-top: 80px;
+  padding: 32px;
+  background: var(--plum);
+  color: var(--cream);
+  text-align: center;
+  border-radius: 12px;
+}
+.loc-footer-nav-back {
+  display: inline-block;
+  margin-bottom: 16px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.loc-footer-nav-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 18px;
+  font-size: 14px;
+}
+.loc-footer-nav-links a {
+  flex: 1;
+  background: rgba(255,255,255,0.06);
+  padding: 14px 18px;
+  border-radius: 6px;
+  color: var(--cream);
+  transition: background 200ms ease;
+}
+.loc-footer-nav-links a:hover {
+  background: rgba(255,255,255,0.12);
+  text-decoration: none;
+}
+.loc-footer-nav-links .nav-prev::before { content: '← '; }
+.loc-footer-nav-links .nav-next::after { content: ' →'; }
+
+/* ============================================================
+   TOWN MAP / INDEX
+   ============================================================ */
+.town-map {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 32px 96px;
+}
+.town-map-hero {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.town-map-hero h1 {
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  margin: 0 0 16px;
+  color: var(--plum);
+}
+.town-map-hero p {
+  font-size: 18px;
+  color: var(--plum-soft);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.street-section {
+  margin-bottom: 56px;
+}
+.street-section h2 {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin: 0 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--rose);
+}
+
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+a.loc-card {
+  display: block;
+  background: var(--pearl);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 22px 24px;
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+a.loc-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--rose);
+  box-shadow: 0 8px 24px rgba(75, 33, 72, 0.12);
+  text-decoration: none;
+}
+.loc-card-addr {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 10px;
+}
+.loc-card-name {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 6px;
+  color: var(--plum);
+}
+.loc-card-tag {
+  font-size: 13px;
+  color: var(--plum-soft);
+  margin: 0 0 14px;
+}
+.loc-card-status {
+  display: flex;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.loc-card-status span {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--cream);
+}
+.loc-card-status .s-done { color: var(--status-done); }
+.loc-card-status .s-partial { color: var(--status-partial); }
+.loc-card-status .s-missing { color: var(--status-missing); }
+
+@media (max-width: 640px) {
+  .proto-nav { padding: 14px 18px; }
+  .proto-nav-links { gap: 12px; font-size: 11px; }
+  main.loc-main { padding: 32px 20px 64px; }
+  .loc-header { padding: 40px 22px 28px; }
+  .town-map { padding: 32px 20px 64px; }
+  .locations-grid { grid-template-columns: 1fr; }
+}

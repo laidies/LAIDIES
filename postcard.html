@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Postcard from SUNNYVAiLE · The Post Office</title>
+  <meta name="description" content="Send a friend a postcard from SUNNYVAiLE — mailed from the Post Office. She joins, and you both earn a half of the BEST FRIENDS necklace.">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260707-a11y">
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260707-a11y"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <style>
+    .pc-wrap { max-width: 760px; margin: 0 auto; }
+    .pc-eyebrow { font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); }
+    .pc-note-hd { font-family: 'Playfair Display', Georgia, serif; }
+
+    /* postcard picker */
+    .pc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; margin: 18px 0 8px; }
+    .pc-thumb { position: relative; border: 2px solid rgba(75,33,72,0.14); border-radius: 12px; overflow: hidden; cursor: pointer; background: var(--cream); padding: 0; aspect-ratio: 3 / 2; transition: transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease; }
+    .pc-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pc-thumb:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(75,33,72,0.14); }
+    .pc-thumb.is-picked { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,162,39,0.35); }
+    .pc-thumb .pc-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 5px 8px; font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: linear-gradient(0deg, rgba(52,20,70,0.82), transparent); }
+
+    /* composer note */
+    .pc-note { width: 100%; min-height: 92px; margin: 8px 0 4px; padding: 14px 16px; border: 1.5px solid rgba(75,33,72,0.2); border-radius: 12px; background: var(--cream); font-family: 'Jost', sans-serif; font-size: 15px; color: var(--plum-deep); resize: vertical; }
+    .pc-handlerow { display: flex; align-items: center; gap: 8px; margin: 6px 0 2px; font-size: 13px; color: var(--plum-soft); }
+    .pc-handlerow input { flex: 0 1 220px; padding: 8px 12px; border: 1.5px solid rgba(75,33,72,0.2); border-radius: 999px; font: inherit; background: var(--cream); color: var(--plum-deep); }
+
+    /* share buttons */
+    .pc-send-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 6px; }
+    .pc-btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 999px; border: 1.5px solid var(--plum-deep); background: var(--plum-deep); color: var(--cream); font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; text-decoration: none; }
+    .pc-btn.ghost { background: transparent; color: var(--plum-deep); }
+    .pc-btn.gold { background: var(--gold); color: var(--plum-deep); border-color: var(--gold); }
+    .pc-btn[disabled] { opacity: 0.4; cursor: not-allowed; }
+    .pc-status { min-height: 1.2em; margin: 4px 0 0; font-size: 13px; color: var(--rose); font-weight: 600; }
+
+    /* reward strip */
+    .pc-reward { display: flex; gap: 14px; align-items: center; margin: 22px 0; padding: 18px 20px; border: 1.5px solid rgba(201,162,39,0.5); border-radius: 14px; background: linear-gradient(135deg, var(--blush) 0%, #f6e2c4 100%); }
+    .pc-reward .heart { flex: 0 0 auto; font-family: 'Playfair Display', serif; font-size: 30px; color: var(--rose); }
+    .pc-reward p { margin: 0; font-size: 14px; line-height: 1.5; color: var(--plum-deep); }
+    .pc-reward strong { color: var(--rose); }
+
+    /* ---- two-sided postcard (front scene / back message) ---- */
+    .pc-card { perspective: 1400px; margin: 10px 0 6px; }
+    .pc-card-inner { position: relative; width: 100%; aspect-ratio: 3 / 2; transition: transform 0.7s cubic-bezier(0.2,0.7,0.2,1); transform-style: preserve-3d; }
+    .pc-card.is-flipped .pc-card-inner { transform: rotateY(180deg); }
+    .pc-face { position: absolute; inset: 0; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 14px; overflow: hidden; border: 2px solid var(--gold); box-shadow: 0 14px 34px rgba(75,33,72,0.18); background: var(--cream); }
+    .pc-face--front { cursor: pointer; }
+    .pc-face--front img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pc-face--back { transform: rotateY(180deg); cursor: pointer; display: grid; grid-template-columns: 1.12fr 1fr; background: #fbf4ea; }
+    .pc-back-msg { padding: clamp(12px,2.2vw,22px); display: flex; flex-direction: column; gap: 7px; border-right: 2px dashed rgba(75,33,72,0.28); min-width: 0; }
+    .pc-back-post { margin: 0; font-family: 'Jost',sans-serif; font-size: clamp(8px,1.1vw,10px); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose); }
+    .pc-back-post .ai { color: var(--rose); }
+    .pc-back-note { margin: 2px 0; font-family: 'Dancing Script', cursive; font-size: clamp(15px,2.5vw,24px); line-height: 1.22; color: var(--plum-deep); flex: 1; overflow: hidden; }
+    .pc-back-blurb { margin: 0; font-family: 'Jost',sans-serif; font-size: clamp(8.5px,1.2vw,12px); line-height: 1.4; color: var(--plum-soft); }
+    .pc-back-addr { position: relative; padding: clamp(12px,2.2vw,22px); display: flex; flex-direction: column; min-width: 0; }
+    .pc-stamp { position: absolute; top: clamp(10px,1.8vw,18px); right: clamp(10px,1.8vw,18px); width: clamp(40px,6.6vw,58px); aspect-ratio: 4 / 5; border-radius: 4px; background: linear-gradient(135deg,var(--blush),#f6e2c4); border: 2px solid #fff; box-shadow: 0 0 0 2px rgba(201,162,39,0.6), 0 2px 6px rgba(75,33,72,0.2); display: grid; place-items: center; font-family: 'Playfair Display',serif; font-size: clamp(17px,2.8vw,26px); color: var(--rose); }
+    .pc-postmark { position: absolute; top: clamp(26px,4.2vw,38px); right: clamp(40px,7.4vw,60px); width: clamp(44px,7.2vw,64px); height: clamp(44px,7.2vw,64px); border-radius: 50%; border: 1.5px solid rgba(155,63,95,0.5); color: rgba(155,63,95,0.72); font-family: 'Jost',sans-serif; font-size: clamp(6px,0.9vw,8px); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; display: grid; place-items: center; text-align: center; line-height: 1.15; transform: rotate(-8deg); pointer-events: none; }
+    .pc-addr-to { margin: clamp(50px,8.4vw,70px) 0 0; font-family: 'Jost',sans-serif; font-size: clamp(10px,1.35vw,13px); font-weight: 700; color: var(--plum-deep); }
+    .pc-addr-to span { font-weight: 400; color: var(--plum-soft); }
+    .pc-addr-why { margin: 5px 0 0; font-family: 'Jost',sans-serif; font-size: clamp(8.5px,1.2vw,12px); line-height: 1.38; color: var(--plum-soft); }
+    .pc-addr-do { margin: auto 0 0; padding-top: 8px; font-family: 'Jost',sans-serif; font-size: clamp(8.5px,1.25vw,12px); font-weight: 700; line-height: 1.35; color: var(--rose); }
+    .pc-flip-row { display: flex; justify-content: center; margin: 4px 0 10px; }
+    .pc-flip { display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; border-radius: 999px; border: 1.5px solid rgba(75,33,72,0.3); background: var(--cream); color: var(--plum-deep); font-family: 'Jost',sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; }
+    .pc-flip:hover { border-color: var(--gold); }
+    .pc-postmark > span { display: block; text-align: center; }
+    .pc-postmark .ai { color: inherit !important; }
+    .pc-btn > span { min-width: 0; }
+    @media (prefers-reduced-motion: reduce) { .pc-card-inner { transition: none; } }
+    .pc-hidden { display: none !important; }
+  </style>
+</head>
+<body>
+
+  <header class="sv-header">
+    <a class="brand" href="/">LAiDIES</a>
+    <nav>
+      <a href="/">This Week</a>
+      <a href="/chick-flicks.html">Episodes</a>
+      <a href="/post-office.html" style="color: var(--rose);">Post Office</a>
+      <a href="/sorority-house.html">Sorority House</a>
+      <a href="/clubhouse-pass.html" class="sv-signin" style="color: var(--rose); font-weight: 600; border: 1.5px solid var(--rose); padding: 6px 14px; border-radius: 999px;">✉︎ Sign In</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="pc-wrap">
+
+      <!-- ============ COMPOSE MODE (default) ============ -->
+      <section id="pc-compose">
+        <p class="pc-eyebrow">★ The Post Office · Civic Square</p>
+        <h1>Postcard from SUNNYV<span class="ai">Ai</span>LE.</h1>
+        <p class="sv-lede">Know someone who'd love it here? Mail her a postcard. She comes to town, makes her card — and you <strong>both</strong> earn a half of the BEST FRIENDS necklace. The heart only finishes when she shows up.</p>
+
+        <h2 class="pc-note-hd">1 · Pick your postcard</h2>
+        <div class="pc-grid" id="pcGrid" aria-label="Choose a postcard"></div>
+
+        <h2 class="pc-note-hd">2 · Write your note</h2>
+        <textarea class="pc-note" id="pcNote" maxlength="240" placeholder="Come find me in Sunnyvale — it's exactly your kind of place. xo"></textarea>
+        <div class="pc-handlerow">
+          <span>from</span>
+          <input id="pcHandle" type="text" placeholder="your-handle" aria-label="Your handle" maxlength="24">
+          <span style="font-size:12px;">(so she knows who to thank)</span>
+        </div>
+
+        <h2 class="pc-note-hd">Your postcard</h2>
+        <p style="margin:2px 0 6px;font-size:13px;color:var(--plum-soft);">Front and back — this is exactly what she&rsquo;ll get. Tap to flip.</p>
+        <div class="pc-card" id="pcPrev">
+          <div class="pc-card-inner">
+            <div class="pc-face pc-face--front">
+              <img id="pcPrevImg" src="" alt="The front of your postcard">
+            </div>
+            <div class="pc-face pc-face--back">
+              <div class="pc-back-msg">
+                <p class="pc-back-post">Postcard from SUNNYV<span class="ai">Ai</span>LE</p>
+                <p class="pc-back-note" id="pcPrevNote">Come find me in Sunnyvale.</p>
+                <p class="pc-back-blurb">A little internet town where smart, busy women learn AI — one Wednesday at a time.</p>
+              </div>
+              <div class="pc-back-addr">
+                <div class="pc-stamp" aria-hidden="true">&#9825;</div>
+                <div class="pc-postmark" aria-hidden="true"><span>SUNNYV<span class="ai">Ai</span>LE &#9733; &rsquo;99</span></div>
+                <p class="pc-addr-to">To: <span>your friend</span></p>
+                <p class="pc-addr-why">She&rsquo;s getting this because you thought she&rsquo;d love it here.</p>
+                <p class="pc-addr-do">She makes her card &mdash; you both get the necklace.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pc-flip-row"><button class="pc-flip" id="pcPrevFlip" type="button">Flip the card &#8635;</button></div>
+
+        <h2 class="pc-note-hd">3 · Send it</h2>
+        <div class="pc-send-row">
+          <button class="pc-btn gold" id="pcShare" type="button">Send it →</button>
+          <a class="pc-btn ghost" id="pcText" href="#">Text it</a>
+          <a class="pc-btn ghost" id="pcEmail" href="#">Email it</a>
+          <button class="pc-btn ghost" id="pcCopy" type="button">Copy link</button>
+        </div>
+        <p class="pc-status" id="pcStatus" role="status"></p>
+
+        <div class="pc-reward">
+          <span class="heart">♡</span>
+          <p><strong>BEST FRIENDS necklace.</strong> Send this, and your half is waiting — engraved with her handle. When she makes her card, her half unlocks with yours, and the heart is whole. You can't finish it alone. That's the point.</p>
+        </div>
+      </section>
+
+      <!-- ============ RECEIVE MODE (?from=...) ============ -->
+      <section id="pc-receive" class="pc-hidden">
+        <p class="pc-eyebrow">★ You've got mail</p>
+        <h1 id="pcRecTitle">You've been invited to SUNNYV<span class="ai">Ai</span>LE.</h1>
+        <p class="sv-lede" id="pcRecLede">A friend mailed you a postcard from a little internet town where smart, busy women learn AI — one Wednesday at a time.</p>
+
+        <div class="pc-card" id="pcCard">
+          <div class="pc-card-inner">
+            <div class="pc-face pc-face--front">
+              <img id="pcRecImg" src="" alt="The front of your postcard from SUNNYVAiLE">
+            </div>
+            <div class="pc-face pc-face--back">
+              <div class="pc-back-msg">
+                <p class="pc-back-post">Postcard from SUNNYV<span class="ai">Ai</span>LE</p>
+                <p class="pc-back-note" id="pcRecNote"></p>
+                <p class="pc-back-blurb">A little internet town where smart, busy women learn AI — one Wednesday at a time.</p>
+              </div>
+              <div class="pc-back-addr">
+                <div class="pc-stamp" aria-hidden="true">&#9825;</div>
+                <div class="pc-postmark" aria-hidden="true"><span>SUNNYV<span class="ai">Ai</span>LE &#9733; &rsquo;99</span></div>
+                <p class="pc-addr-to">To: <span>a future resident</span></p>
+                <p class="pc-addr-why" id="pcRecWhy"></p>
+                <p class="pc-addr-do">Come make your card &mdash; you&rsquo;ll both get the BEST FRIENDS necklace.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pc-flip-row"><button class="pc-flip" id="pcFlip" type="button">Flip the card &#8635;</button></div>
+
+        <div class="pc-send-row">
+          <a class="pc-btn gold" id="pcJoin" href="/maikeover.html"><span>Come to SUNNYV<span class="ai">Ai</span>LE — make your card →</span></a>
+        </div>
+
+        <div class="pc-reward">
+          <span class="heart">♡</span>
+          <p>Make your card and you'll both earn your half of the <strong>BEST FRIENDS necklace</strong> — hers already has your name on it. Two minutes, free, and everything you collect in town starts counting.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>© LAiDIES · Filed from SUNNYVAiLE · Mailed from the Post Office at Civic Square</footer>
+
+  <script>
+  (function () {
+    'use strict';
+    // ---- Postcard set: the real "Postcard from SUNNYVAiLE" invite scenes (clean 3:2). ----
+    var PC_BASE = '/assets/postcards/from-sunnyvaile/';
+    var POSTCARDS = [
+      { id: 'welcome',        label: 'Welcome',         file: 'pc-welcome.png' },
+      { id: 'youve-got-mail', label: "You've Got Mail", file: 'pc-youve-got-mail.png' },
+      { id: 'dial-up',        label: 'Dial-Up',         file: 'pc-dial-up.png' },
+      { id: 'main-street',    label: 'Main Street',     file: 'pc-main-street.png' },
+      { id: 'blend-snap',    label: 'Blend & Snap', file: 'pc-blend-and-snap.png' },
+      { id: 'chick-flicks',  label: 'Chick Flicks', file: 'pc-chick-flicks.png' },
+      { id: 'mme-claio',     label: "Mme CLAi-O's", file: 'pc-mme-claio.png' },
+      { id: 'bronze-aige',   label: 'BRONZE AiGE',  file: 'pc-bronze-aige.png' },
+      { id: 'ksvl',          label: 'KSVL',         file: 'pc-ksvl.png' },
+      { id: 'library',       label: 'The LIBRAiRY', file: 'pc-library.png' },
+      { id: 'park',          label: 'The Park',     file: 'pc-park.png' },
+      { id: 'sorority',      label: 'Delta LAi Nu', file: 'pc-sorority-house.png' },
+      { id: 'puffy-binder',  label: 'Puffy Binder', file: 'pc-puffy-binder.png' }
+    ];
+    var byId = {}; POSTCARDS.forEach(function (p) { byId[p.id] = p; });
+
+    function ls(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+    function lsSet(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
+    function esc(s){ return String(s||'').replace(/[<>&"]/g, function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c];}); }
+    function bindFlip(cardId, btnId) {
+      var card = document.getElementById(cardId); if (!card) return;
+      function toggle() { card.classList.toggle('is-flipped'); }
+      Array.prototype.forEach.call(card.querySelectorAll('.pc-face'), function (f) { f.addEventListener('click', toggle); });
+      var btn = document.getElementById(btnId); if (btn) btn.addEventListener('click', function (e) { e.preventDefault(); toggle(); });
+    }
+
+    var params = new URLSearchParams(location.search);
+    var from = (params.get('from') || '').replace(/^@/, '').trim();
+
+    if (from) { renderReceive(); } else { renderCompose(); }
+
+    // ---------------- RECEIVE ----------------
+    function renderReceive() {
+      document.getElementById('pc-compose').classList.add('pc-hidden');
+      document.getElementById('pc-receive').classList.remove('pc-hidden');
+      // remember who invited me, so the reward can be granted when I make my card
+      lsSet('laidies_invited_by', from);
+
+      var pc = byId[params.get('pc')] || POSTCARDS[0];
+      document.getElementById('pcRecImg').src = PC_BASE + pc.file;
+      var note = params.get('note');
+      var noteEl = document.getElementById('pcRecNote');
+      if (note) { try { noteEl.textContent = decodeURIComponent(note); } catch(e){ noteEl.textContent = note; } }
+      else { noteEl.textContent = 'Come find me in Sunnyvale.'; }
+
+      document.getElementById('pcRecTitle').innerHTML =
+        '@' + esc(from) + ' invited you to SUNNYV<span class="ai">Ai</span>LE.';
+      document.getElementById('pcRecWhy').innerHTML =
+        '@' + esc(from) + ' sent you this &mdash; she thinks you&rsquo;d love it here.';
+      // carry the referrer into the join link
+      var join = document.getElementById('pcJoin');
+      join.href = '/maikeover.html?from=' + encodeURIComponent(from);
+      bindFlip('pcCard', 'pcFlip');
+    }
+
+    // ---------------- COMPOSE ----------------
+    var picked = POSTCARDS[0].id;
+
+    function renderCompose() {
+      var grid = document.getElementById('pcGrid');
+      POSTCARDS.forEach(function (p, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'pc-thumb' + (i === 0 ? ' is-picked' : '');
+        b.dataset.id = p.id;
+        b.innerHTML = '<img src="' + PC_BASE + p.file + '" alt="' + esc(p.label) + ' postcard" loading="lazy">'
+                    + '<span class="pc-caption">' + esc(p.label) + '</span>';
+        b.addEventListener('click', function () {
+          picked = p.id;
+          Array.prototype.forEach.call(grid.children, function (c) { c.classList.toggle('is-picked', c.dataset.id === picked); });
+          var pv = document.getElementById('pcPrevImg'); if (pv) pv.src = PC_BASE + p.file;
+        });
+        grid.appendChild(b);
+      });
+
+      // prefill handle from the resident's card if they have one
+      var h = ls('laidies_card_username');
+      if (h) document.getElementById('pcHandle').value = h;
+
+      // live two-sided preview
+      var pvImg = document.getElementById('pcPrevImg');
+      if (pvImg) pvImg.src = PC_BASE + POSTCARDS[0].file;
+      document.getElementById('pcNote').addEventListener('input', function () {
+        document.getElementById('pcPrevNote').textContent = note() || 'Come find me in Sunnyvale.';
+      });
+      bindFlip('pcPrev', 'pcPrevFlip');
+
+      document.getElementById('pcShare').addEventListener('click', doShare);
+      document.getElementById('pcCopy').addEventListener('click', doCopy);
+      document.getElementById('pcText').addEventListener('click', function (e) { e.preventDefault(); location.href = smsHref(); });
+      document.getElementById('pcEmail').addEventListener('click', function (e) { e.preventDefault(); location.href = mailHref(); });
+    }
+
+    function handle() { return (document.getElementById('pcHandle').value || '').replace(/^@/, '').trim(); }
+    function note()   { return (document.getElementById('pcNote').value || '').trim(); }
+
+    function inviteURL() {
+      var u = location.origin + '/postcard.html?from=' + encodeURIComponent(handle() || 'a-friend') + '&pc=' + encodeURIComponent(picked);
+      if (note()) u += '&note=' + encodeURIComponent(note());
+      return u;
+    }
+    function messageText() {
+      var n = note();
+      return (n ? n + '\n\n' : '') +
+        'Come to SUNNYVAiLE — a little internet town where we learn AI one Wednesday at a time. Make your card here: ' + inviteURL();
+    }
+    function smsHref()  { return 'sms:?&body=' + encodeURIComponent(messageText()); }
+    function mailHref() { return 'mailto:?subject=' + encodeURIComponent('A postcard from SUNNYVAiLE') + '&body=' + encodeURIComponent(messageText()); }
+
+    function status(msg) { document.getElementById('pcStatus').textContent = msg || ''; }
+
+    function doShare() {
+      var data = { title: 'A postcard from SUNNYVAiLE', text: messageText() };
+      if (navigator.share) {
+        navigator.share(data).then(function(){ status('Sent! Your half is waiting — it unlocks when she joins.'); })
+          .catch(function(){ /* user cancelled */ });
+      } else {
+        doCopy();
+        status('Link copied — paste it into a text or email.');
+      }
+    }
+    function doCopy() {
+      var url = inviteURL();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function(){ status('Link copied.'); }, function(){ prompt('Copy your invite link:', url); });
+      } else { prompt('Copy your invite link:', url); }
+    }
+  })();
+  </script>
+
+  <script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
+  <script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
+  <script defer src="/content/site/sunnyvaile-directory.js?v=20260707-1"></script>
+</body>
+</html>

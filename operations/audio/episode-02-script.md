@@ -1,0 +1,71 @@
+# Episode 2 — "Tell Me What You Want" · editable script
+
+> Edit this freely. The `##` headers are just for navigation — I'll strip them when I
+> sync your edits back into the recording master (`episode-02-elevenlabs-v3-tagged.txt`).
+> Text in **[brackets]** = ElevenLabs v3 delivery cues; keep, tweak, or delete them.
+
+---
+
+## ① Announcer — previously / this episode
+
+[tv announcer] Previously, on ladies: our heroine stopped feeling behind, and finally stopped putting it off — one avoided email, nine seconds flat, and the realization that AI is just the most talented new hire she'll ever manage. [playful] And on this episode: she types something vague into the machine, gets back a paragraph of absolutely nothing... and learns that talking to AI isn't coding — it's delegation. This is Episode Two: Tell Me What You Want.
+
+## ② Cold open
+
+It's nine-fifteen on a Tuesday, and I am losing a staring contest with a paragraph.
+
+I'd asked one of the AI tools to draft talking points for a meeting, and what it gave back is... technically words. [dry] "Leverage synergies." "Drive alignment." "Circle back to maximize stakeholder buy-in." It reads like a motivational poster that went to business school and came back worse.
+
+And the maddening part? Yesterday, the same tool wrote me a project update for my director that I barely had to touch. [thoughtful] Same app. Same me. Same tragic office lighting. One day it reads my mind, and the next it hands me a throw pillow.
+
+[thoughtful] And I couldn't help but wonder... why does AI read my mind some days, and completely ignore me on others?
+
+## ③ Welcome back
+
+[warm] Welcome back to ladies — smart, busy women learning AI one Wednesday at a time, from a little internet town called Sunnyvale. Last week, for your try-on, you held auditions: one task, all three tools, just to see how differently they each answer. [dry] So you already know the tool has opinions. This week is your half of the conversation — the ask itself. Because it turns out that matters even more than which tool you pick.
+
+## ④ The story (in town)
+
+So I did what I do with any problem I can't out-stubborn at my desk: I took it to town. [warm] Corner table at the Blend and Snap, oat latte, K-S-V-L on low. And I pulled them both back up — the word-salad talking points from that morning, and the director update I'd barely had to touch the day before — and set them side by side. [pointed] It wasn't the tool that changed between the two. It was me: what I'd typed to get each one. Because here's the punchline, and it took me an embarrassingly long time to see it: AI can't read your mind. What's in your head stays in your head... until you type it out.
+
+And that word everyone throws around — prompt? [dry] The computer nerds didn't even invent it. They lifted it from the theater kids. [beat] The two lunch tables that never once overlapped — and the AV club quietly swiped 'prompt' right off the drama club.
+
+Think about your coffee order. At your regular spot, you barely have to say it — [warm] they know your usual, because you built that over a hundred Tuesdays. [dry] But AI is not your regular spot. It's the brand-new café across town, and if you breeze in and say "the usual," you get a blank look — or a plain drip going cold on the counter, which you can't even be mad about, because you never told the barista what you actually wanted to drink. [pointed] And the AI isn't holding out on you — it genuinely can't see what you didn't say. It has your words, and nothing else. Not your job, not who's going to read this, not the meeting sitting on your calendar. Every detail you leave in your head is one it's forced to guess at. So you spell it out — every time — and the guessing stops. That's prompting.
+
+[thoughtful] So how long until it knows your order by heart, like your regular spot does? [dry] Right now — it doesn't. Every new chat, you walk into the café a stranger again. [warm] But you can teach it to remember you — your usual, your voice, the way you like things — so you stop starting from zero. That's an episode of its own, and we'll get there. For today: assume it forgot, and tell it again.
+
+The Spice Girls had this figured out decades ago. [dry] (Wait... Decades? Ooff. That is a jagged little pill to swallow, isn't it...) "Tell me what you want, what you really, really want." Those iconic lyrics from the Spice Girls were not gesturing at a vibe. They wanted specifics. [smirk] AI is exactly the same. It will zig-a-zig-ah all day long — but it only does useful work when you tell it precisely what you need.
+
+Which is why the patron saint of this episode is David Rose. [playful] I know, I know. You're thinking, "But he's not from the nineties, or the two-thousands?" And you're right. But he is so fabulous that we just had to make one exception. In the immortal words of Shakespeare: A Rose by any other name... If you've seen Schitt's Creek, you know David is pathologically specific — the wine, the sweater, the exact drape of the sweater. [dry] And you remember Moira telling him to "fold in the cheese," and him standing in that kitchen screaming, "WHAT DOES THAT MEAN?!" [beat] That is your AI, every single time you type "write me an email about the project." It is trying. But you handed it "fold in the cheese" — when what it needed was "scrape the spatula along the bottom of the bowl, lift, turn it over, turn the bowl, and repeat." [wry] And yes, full confession: I had AI write that cooking description for me, because I do not cook. [playful] (Oh, and P-S-A: if you haven't seen Schitt's Creek, what are you even doing with your life? Get on it!)
+
+Ok, back to what I did. The fix, it turned out, was something I already knew how to do. I stopped typing at AI like a Google search — three vague words, fingers crossed — and I started briefing it like a smart new hire in her first week. [measured] Who is this for? What do they care about? What's the tone? How long? What should it absolutely not include? Have we done one of these before that she can copy from? [pointed] Every one of those is a question you already ask when you hand work to a person. Prompting isn't technical. It's delegation. [warm] I even put those on a card for your study pack — a handful of questions, thirty seconds, and your ask stops being a shrug and starts being an instruction. But if you only ever steal one, steal the last: show it an example. Paste in one you already love — an email that landed, a summary that worked — and say "match this." Nothing gets you a better answer faster than handing it something to copy.
+
+[measured] Let me show you, because the difference is almost rude. Say you've got a twelve-page policy change to get in front of a meeting. [dry] The lazy ask — what you'd type without ladies — is just: "summarize this policy change for my stakeholders." And back comes... everything. A wall of text — accurate, thorough, and completely useless in the two minutes you've got. Background, rationale, timelines, exemptions, appendices A through D — all weighted exactly the same, because it can't tell what matters to you from what doesn't. [dry] It's Ross, screaming "PIVOT" — technically a direction, zero help getting the couch up the stairs. You still have to do the reading. [measured] So you try it again — only this time you brief it out loud, the way you'd brief a person. Something like: "Summarize this for six senior managers who have two minutes before a meeting. Tell them what's changing, when it takes effect, what their teams actually do differently, and whether it touches budget. Cut the backstory. Bullets — about a hundred and fifty words. And here's last quarter's summary that landed — match it." [warm] And this time, back comes something you would actually send: a subject line, then a handful of tight bullets, in exactly the shape you asked for. And buried in one of them — a line you would never have caught skimming twelve pages in two minutes: contractors are exempt until the new year, so your vendor team is on a different clock. [pointed] That one line is the whole reason you opened AI. You could have written the summary yourself — what you could not have done, not in the twenty minutes before the meeting, was read twelve pages of compliance language and catch the one exemption that would have blown the whole thing up. That's not a writing job; it's a reading job — and AI just did it, tailored to exactly what you asked for. [measured] Ninety seconds to write, forty-five to check — forward it without touching a word. [smirk] A full "It's Britney, bitch" moment — that unbothered confidence of asking for exactly what you wanted, and getting exactly what you needed. [measured] And if the first answer isn't quite right? You don't start from scratch — you tell it what's off, exactly like you would with a real new hire. It's calling into the radio and asking for exactly the song you want to hear (or finally shelling out twenty bucks at H-M-V for the CD), not spinning the dial, hoping it lands on one you like.
+
+[pointed] And if a voice in your head is going "briefing, context, knowing what to cut — that sounds a little soft to be a real skill" — hold that thought. [warm] Because later that week I went looking, at the LIBRAiRY in town, the reference desk where you go to actually look things up — and I found the proof. A study, Harvard and BCG, over seven hundred consultants. On the right kind of task, the ones using AI worked about twenty-five percent faster and turned out work rated roughly forty percent higher in quality. [pointed] But the thing that separated the winners was not technical. It was knowing how to brief, how to hand over context, when to push back. And the best line about it comes from someone who co-authored that very study — Ethan Mollick, a Wharton professor and one of the most-read, most-trusted voices on actually using AI. Here's what he said:
+
+[measured] The skills that are so often dismissed as soft turned out to be the hard ones.
+
+[knowing] Which means the woman who writes a thorough project brief — who thinks about her reader, spells out exactly what she needs, knows what to cut — is already ahead of the guy who types three words and expects the machine to read his mind. [pointed] And here's the part worth sitting with. Communicating clearly. Thinking critically. Reading what a person actually needs. Those got filed under "soft skills" for a generation — soft, as in nice-to-have, as in not the real work. [dry] The consolation prize. [warm] But study after study now lands in the same place: in the age of AI, those are the skills that separate the people who win. And not instead of the hard skills — on top of them. [knowing] So if you're a sharp communicator with real judgment who also knows her stuff — that was never the soft skill set. That's the one that wins. And it's exactly what makes this thing work for you.
+
+## ⑤ Cocktail party explanation
+
+Which brings me to my favourite part of every episode. We call it the cocktail party explanation — the line you can actually say out loud at happy hour when someone asks, "so, what's a prompt, really?" [deliberate] Here it is: a prompt isn't code. It's a delegation. [dry] You're not programming a machine — you're briefing an assistant. And you already know how to brief. You have been doing it your whole career, for people who needed clearer instructions. This one is just faster, never sleeps, and will absolutely fold the cheese wrong if you don't tell her how.
+
+## ⑥ The postcard
+
+[warm] Oh — and the first person I tried that line on? A friend who's been "meaning to get to this" for about a year. She got it in one sentence. So on my way out of town, I stopped by the Post Office and mailed her a postcard — the kind you send from a place you actually love — and wrote on the back: [smile] because Sunnyvale is even better with your people in it.
+
+## ⑦ Try-on
+
+[warm] And... that's the episode. Now — your try-on. Ten minutes, not homework, and everything you need lives at ladies dot A I. That's "ladies" spelled with an i in the middle: L, A, i, D, I, E, S. And if you'd rather read than listen — or you want to see that before-and-after with your own eyes — the whole episode's written up there too, laid out side by side. This week: hand one real task to an AI tool twice. First the lazy way — three vague words, the way you'd Google it. Then the David Rose way: who it's for, what they care about, the tone, the length, and what to leave out. [smile] Put the two answers side by side. The difference isn't the tool getting smarter between tries. It's you getting specific.
+
+[warm] Then, if you're feeling it: grab this week's study pack at the Blend and Snap, take the pop quiz at Sunnyvale High — ten questions, plus two bonus, banking butterfly clips in your closet — and turn on K-S-V-L, ninety-nine point nine, for this week's anthem — do not skip it. It's this week's lesson, in platform sandals. Don't just learn from books; learn from hooks. And if this is your first Wednesday with us, stop by Makeover on Main for your residence card. Two minutes, free, and everything you collect starts counting.
+
+## ⑧ Sign-off
+
+[warm] So remember, ladies: AI can't read your mind — so tell it what you want... what you really, really want. [smirk] See you next Wednesday... in Sunnyvale.
+
+## ⑨ Next time (announcer)
+
+[tv announcer] Next time on ladies: the machine hands our heroine a beautiful, confident answer — with one small detail that could blow up the whole meeting. Come back next week for Episode Three: The Burn Book Problem.

@@ -145,7 +145,7 @@ window.LAIDIES_SITE_DATA = {
         },
         {
           "label": "Read this week's Hot Goss",
-          "url": "hot-goss.html",
+          "url": "newsstand.html",
           "type": "hotGoss"
         },
         {
@@ -178,7 +178,7 @@ window.LAIDIES_SITE_DATA = {
     {
       "number": 4,
       "slug": "the-slaiyer-handbook",
-      "title": "A Slayer Needs a Watcher",
+      "title": "Every SLAiYER Needs a Watcher",
       "subtitle": "The SLAiYER Handbook · Chapter 1 — which AI tool to open for which job, what the words mean, and how to use any of them without getting vamped.",
       "status": "published",
       "releaseDate": "2026-06-24",
@@ -217,12 +217,36 @@ window.LAIDIES_SITE_DATA = {
           "Hallucination"
         ],
         "weeklySong": {
-          "title": "Open the Grimoire",
+          "title": "The LIBRAiRY",
           "artist": "DJ JAIDY",
-          "file": "content/music/dj-jaidy-week-04-open-the-grimoire.mp3",
+          "file": "content/music/dj-jaidy-week-04-the-library.mp3",
           "playerUrl": "games/dj-booth.html#djApp"
         },
         "hotGossPlacement": "homepage-only"
+      },
+      "issuePageStatus": "manual-page-kept"
+    },
+    {
+      "number": 5,
+      "slug": "welcome-to-sunnyvaile",
+      "title": "Welcome to SUNNYVAiLE",
+      "subtitle": "The one in which the whole town opens its doors.",
+      "status": "draft",
+      "releaseDate": "2026-07-01",
+      "issueUrl": "issues/issue-05.html",
+      "heroImage": "assets/sunnyvaile-town-map-locked.jpg",
+      "oneLineDescription": "The one in which the whole town opens its doors.",
+      "act": null,
+      "lesson": null,
+      "emotionalBeat": null,
+      "siteLinks": [],
+      "websiteModules": {
+        "quiz": null,
+        "cardPack": null,
+        "communityThread": null,
+        "glossaryTerms": [],
+        "weeklySong": null,
+        "hotGossPlacement": null
       },
       "issuePageStatus": "manual-page-kept"
     }
@@ -616,7 +640,7 @@ window.LAIDIES_SITE_DATA = {
     },
     "issue04": {
       "label": "Episode 04 Quiz",
-      "optionLabel": "Episode 04: A Slayer Needs a Watcher",
+      "optionLabel": "Episode 04: Every SLAiYER Needs a Watcher",
       "title": "Which tool, for which job — and staying the one who decides.",
       "rereadUrl": "grimoire/slaiyer-handbook-chapter-1.html",
       "rereadLabel": "Reread the Handbook",

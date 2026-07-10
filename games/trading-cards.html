@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Trading Card Pack | LAiDIES Clubhouse</title>
-    <meta name="description" content="Flip & collect AI concept trading cards. Open packs, discover rare cards, and build your binder." />
+    <title>Trading Cards | SUNNYVAiLE</title>
+    <meta name="description" content="Two tradable decks: Concept cards (AI ideas per episode, picked up at Blend & Snap) and Character cards (the pantheon — SAiNTS, MAiVENS, and the town characters)." />
     <meta name="theme-color" content="#b95d78" />
     <link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -119,17 +119,99 @@
         font-weight: 700;
       }
 
-      /* Hero Section */
-      .hero-section {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
-        align-items: center;
-        margin-bottom: 48px;
+      /* Hero — pure typographic lead. Two-decks fold below is the star. */
+      .tc-hero { padding: 32px 0 24px; text-align: center; max-width: 720px; margin: 0 auto; }
+      .tc-hero-eyebrow {
+        font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase;
+        color: var(--hot-pink); font-weight: 700; margin-bottom: 10px;
       }
-      @media (max-width: 680px) {
-        .hero-section { grid-template-columns: 1fr; gap: 20px; }
+      .tc-hero h1 {
+        font-family: Georgia, serif;
+        font-size: clamp(2.2rem, 5.5vw, 3.4rem);
+        line-height: 1.05; letter-spacing: -0.01em; color: var(--plum);
+        margin-bottom: 14px;
       }
+      .tc-lede {
+        color: var(--muted); font-size: 1.02rem; line-height: 1.6;
+        max-width: 640px; margin: 0 auto;
+      }
+      .tc-lede strong { color: var(--plum); }
+      .tc-lede a { font-weight: 600; }
+
+      /* Two-decks fold — the fold. Two big picker cards side by side. */
+      .tc-fold {
+        margin: 32px 0 48px;
+        display: grid; gap: 20px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      @media (max-width: 720px) { .tc-fold { grid-template-columns: 1fr; } }
+      .tc-fold-card {
+        position: relative;
+        display: flex; flex-direction: column; gap: 12px;
+        padding: 28px 26px 24px; border-radius: 22px;
+        color: var(--plum); text-decoration: none;
+        background: var(--panel-bg);
+        border: 1.5px solid var(--pink-border);
+        box-shadow: 0 16px 40px rgba(75, 33, 72, 0.10);
+        transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.2s;
+        overflow: hidden;
+      }
+      .tc-fold-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 28px 60px rgba(185, 93, 120, 0.24);
+        border-color: var(--hot-pink);
+        text-decoration: none;
+      }
+      .tc-fold-card::before {
+        content: "";
+        position: absolute; top: 0; left: 0; right: 0; height: 4px;
+        background: linear-gradient(90deg, var(--hot-pink), #7b2dff);
+      }
+      .tc-fold-card--character::before {
+        background: linear-gradient(90deg, var(--gold), var(--hot-pink));
+      }
+      .tc-fold-eyebrow {
+        font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
+        color: var(--hot-pink); font-weight: 700;
+      }
+      .tc-fold-card--character .tc-fold-eyebrow { color: var(--gold); }
+      .tc-fold-title {
+        font-family: Georgia, serif; font-size: 1.65rem; line-height: 1.1;
+        color: var(--plum); font-weight: 700; margin: 0;
+      }
+      .tc-fold-meta {
+        font-size: 0.82rem; color: var(--muted);
+      }
+      .tc-fold-meta strong { color: var(--plum); }
+      .tc-fold-body {
+        font-size: 0.9rem; color: var(--muted); line-height: 1.55;
+      }
+      .tc-fold-preview {
+        display: flex; gap: 10px; align-items: center;
+        padding: 6px 0; overflow: hidden;
+      }
+      .tc-fold-preview--concept span {
+        width: 44px; height: 44px; border-radius: 12px;
+        background: linear-gradient(135deg, #fffefc, #f7dcea);
+        border: 1.5px solid var(--pink-border);
+        display: inline-flex; align-items: center; justify-content: center;
+        font-size: 1.4rem; flex: 0 0 auto;
+        box-shadow: 0 4px 10px rgba(75, 33, 72, 0.08);
+      }
+      .tc-fold-preview--character img {
+        width: 54px; height: 54px; border-radius: 50%; object-fit: cover;
+        border: 2.5px solid #fff; flex: 0 0 auto;
+        box-shadow: 0 4px 12px rgba(75, 33, 72, 0.16);
+      }
+      .tc-fold-preview--character img + img { margin-left: -10px; }
+      .tc-fold-cta {
+        margin-top: auto; padding-top: 4px;
+        font-size: 0.86rem; font-weight: 700; letter-spacing: 0.04em;
+        color: var(--hot-pink);
+      }
+      .tc-fold-card--character .tc-fold-cta { color: var(--wine); }
+
+      .tc-outro { margin: 40px 0 8px; }
 
       /* Dramatic Hero Image */
       .hero-image {
@@ -193,6 +275,90 @@
         color: var(--muted);
         font-size: 1rem;
         margin-bottom: 16px;
+      }
+
+      /* Ai accent — every "Ai" span across the site renders in rose */
+      .ai { color: var(--hot-pink); }
+
+      /* ── Deck bands (Concept + Character section headers) ── */
+      .deck-band {
+        margin: 44px 0 24px;
+        padding: 28px 0 22px;
+        border-top: 1px solid rgba(75, 33, 72, 0.12);
+      }
+      .deck-band-head p.eyebrow {
+        font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+        color: var(--hot-pink); font-weight: 700; margin-bottom: 6px;
+      }
+      .deck-band-head h2 {
+        font-family: Georgia, serif; font-size: clamp(1.4rem, 3vw, 2rem);
+        line-height: 1.15; margin-bottom: 10px; color: var(--plum);
+      }
+      .deck-band-sub { color: var(--muted); font-size: 0.95rem; line-height: 1.55; max-width: 640px; }
+      .deck-band-sub a { color: var(--hot-pink); font-weight: 600; }
+      .deck-band-note {
+        margin-top: 24px; padding: 14px 18px; border-radius: 12px;
+        background: rgba(212, 168, 83, 0.14); border: 1px solid rgba(212, 168, 83, 0.42);
+        color: var(--plum); font-size: 0.9rem; line-height: 1.5;
+      }
+      .deck-band-note a { font-weight: 600; }
+
+      /* Character sub-deck cards */
+      .character-decks {
+        margin-top: 22px;
+        display: grid; gap: 18px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+      .char-deck {
+        display: flex; flex-direction: column; gap: 8px;
+        padding: 22px 22px 20px; border-radius: 18px;
+        background: var(--panel-bg);
+        border: 1px solid var(--pink-border);
+        box-shadow: 0 12px 30px rgba(75, 33, 72, 0.09);
+        color: var(--plum); text-decoration: none;
+        transition: transform 0.18s ease, box-shadow 0.22s ease, border-color 0.2s;
+        position: relative; overflow: hidden;
+      }
+      .char-deck:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 22px 48px rgba(185, 93, 120, 0.22);
+        border-color: var(--hot-pink);
+        text-decoration: none;
+      }
+      .char-deck-eyebrow {
+        font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+        color: var(--muted); font-weight: 700;
+      }
+      .char-deck-count {
+        position: absolute; top: 18px; right: 20px;
+        font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
+        color: var(--hot-pink); font-weight: 700;
+      }
+      .char-deck-title {
+        font-family: Georgia, serif; font-size: 1.35rem; line-height: 1.15;
+        color: var(--plum); font-weight: 700;
+      }
+      .char-deck-body { font-size: 0.86rem; color: var(--muted); line-height: 1.55; }
+      .char-deck-strip {
+        display: flex; gap: 6px; margin-top: 8px; flex-wrap: nowrap; overflow: hidden;
+      }
+      .char-deck-strip img {
+        width: 44px; height: 44px; border-radius: 50%; object-fit: cover;
+        border: 2px solid #fff; box-shadow: 0 4px 10px rgba(75, 33, 72, 0.15);
+        flex: 0 0 auto;
+      }
+      .char-deck-strip--placeholder span {
+        width: 44px; height: 44px; border-radius: 50%;
+        background: linear-gradient(135deg, #e8c5c8, var(--hot-pink));
+        color: #fff; font-weight: 700; font-size: 1rem;
+        display: inline-flex; align-items: center; justify-content: center;
+        border: 2px solid #fff; box-shadow: 0 4px 10px rgba(75, 33, 72, 0.15);
+        flex: 0 0 auto;
+      }
+      .char-deck-cta {
+        margin-top: 6px;
+        font-size: 0.82rem; font-weight: 700; letter-spacing: 0.03em;
+        color: var(--hot-pink);
       }
 
       /* Progress Bar */
@@ -463,7 +629,7 @@
       /* Rarity Borders */
       .rarity-common .card-face { border-color: var(--hot-pink); }
       .rarity-rare .card-face { border-color: var(--gold); box-shadow: 0 0 12px rgba(255, 215, 0, 0.3); }
-      .rarity-special .card-face {
+      .rarity-holo .card-face {
         border: 2px solid transparent;
         background-clip: padding-box;
         box-shadow: 0 0 16px rgba(123, 45, 255, 0.4), inset 0 0 0 2px rgba(123,45,255,0.6);
@@ -481,7 +647,7 @@
       }
       .rarity-common .rarity-badge { background: var(--hot-pink); color: #fff; }
       .rarity-rare .rarity-badge { background: var(--gold); color: #1a0a12; }
-      .rarity-special .rarity-badge { background: var(--holographic); background-size: 300% 300%; animation: holoShimmer 3s ease infinite; color: #fff; }
+      .rarity-holo .rarity-badge { background: var(--holographic); background-size: 300% 300%; animation: holoShimmer 3s ease infinite; color: #fff; }
 
       /* Duplicate badge */
       .dup-badge {
@@ -591,43 +757,76 @@
       plausible.init()
     </script>
       <link rel="stylesheet" href="../content/site/mini-player.css">
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260707-a11y"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260705-2"></script>
 </head>
   <body>
 
     <!-- Sticky Back to Clubhouse -->
-    <header class="sticky-back">
-      <a class="brand" href="../index.html" aria-label="LAiDIES home">
-        <img src="../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
-      </a>
-      <nav class="nav-links" aria-label="Trading Card Pack navigation">
-        <a class="wednesday-return-nav" data-wednesday-return href="../this-week.html?issue=2&amp;bag=open" hidden>&larr; Back to the Bag</a>
-        <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
-        <a href="../issues/issue-03.html">LATEST</a>
-        <a href="../hot-goss.html">THE BOOK</a>
-        <a href="../community.html">JOIN</a>
-      </nav>
-    </header>
+    <header class="sv-header">
+    <a class="brand" href="/">LAiDIES</a>
+    <nav>
+      <a href="/">This Week</a>
+      <a href="/chick-flicks.html">Episodes</a>
+      <a href="/library.html">LIBRAiRY</a>
+      <a href="/radio.html">KSVL</a>
+      <a href="/sorority-house.html">Sorority House</a>
+      <a href="/clubhouse-pass.html" class="sv-signin" style="color: #9b3f5f; font-weight: 600; border: 1.5px solid #9b3f5f; padding: 6px 14px; border-radius: 999px; text-decoration: none;">✉︎ Sign In</a>
+    </nav>
+  </header>
 
     <main>
       <div class="game-page-wrap">
 
-        <!-- Hero -->
-        <section class="hero-section">
-          <div class="hero-image">
-            <div class="hero-image-inner">
-              <img src="../assets/trading-card-pack.webp" alt="Shiny pink foil trading card pack with cards peeking out" />
-            </div>
-          </div>
-          <div class="hero-copy">
-            <p class="eyebrow">The Card Pack</p>
-            <h1>Trading Card Pack</h1>
-            <p class="subtitle">Flip &amp; collect AI concept cards</p>
-            <p style="color:rgba(75,33,72,0.68); font-size:0.85rem; margin-bottom: 20px;">Every Wednesday adds new cards to the collection. Pick an issue pack, rip it open, and flip each card to learn an AI concept. Duplicates count &mdash; just like the real thing.</p>
+        <!-- Hero — the story, not the mechanic -->
+        <section class="tc-hero">
+          <p class="tc-hero-eyebrow"><span class="ai">Ai</span> · Two decks · Both tradable</p>
+          <h1>Trading Cards</h1>
+          <p class="tc-lede"><strong>Concept cards</strong> teach an <span class="ai">Ai</span> idea &mdash; one deck per episode, picked up at <a href="../blend-snap.html">Blend &amp; Snap</a>. <strong>Character cards</strong> are the SUNNYV<span class="ai">Ai</span>LE pantheon &mdash; SAiNTS, MAiVENS, town regulars &mdash; earned by visiting a character or finishing their interaction. Duplicates aren&rsquo;t dead weight; trade them.</p>
+        </section>
 
-            <!-- Collection Progress -->
+        <!-- Two-decks fold: the star of the page -->
+        <section class="tc-fold" aria-label="Choose a deck">
+          <a class="tc-fold-card tc-fold-card--concept" href="#concept-deck">
+            <span class="tc-fold-eyebrow">Deck 1</span>
+            <h2 class="tc-fold-title">Concept Cards</h2>
+            <p class="tc-fold-meta">~8 per episode &middot; picked up at <strong>Blend &amp; Snap</strong></p>
+            <div class="tc-fold-preview tc-fold-preview--concept" aria-hidden="true">
+              <span>🎯</span><span>🧠</span><span>⚡</span><span>🔍</span><span>📊</span>
+            </div>
+            <p class="tc-fold-body">Every Wednesday, a new pack drops with the Study Pack. Rip it open, flip each card, learn the concept.</p>
+            <span class="tc-fold-cta">See the Concept deck &darr;</span>
+          </a>
+
+          <a class="tc-fold-card tc-fold-card--character" href="#character-deck">
+            <span class="tc-fold-eyebrow">Deck 2</span>
+            <h2 class="tc-fold-title">Character Cards</h2>
+            <p class="tc-fold-meta">22+ &middot; earned on visits around town</p>
+            <div class="tc-fold-preview tc-fold-preview--character" aria-hidden="true">
+              <img src="../assets/saints/cher-horowitz.png" alt="" loading="lazy" onerror="this.style.display='none'">
+              <img src="../assets/saints/buffy-summers.png" alt="" loading="lazy" onerror="this.style.display='none'">
+              <img src="../assets/saints/elle-woods.png" alt="" loading="lazy" onerror="this.style.display='none'">
+              <img src="../assets/saints/dolly-parton.png" alt="" loading="lazy" onerror="this.style.display='none'">
+              <img src="../assets/saints/deb.png" alt="" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <p class="tc-fold-body">SAiNTS, MAiVENS, and the SUNNYV<span class="ai">Ai</span>LE regulars. Fixed roster &mdash; grows when a new character gets canonized.</p>
+            <span class="tc-fold-cta">See the Character deck &darr;</span>
+          </a>
+        </section>
+
+        <!-- Deck 1 · Concept Cards (details) -->
+        <section class="deck-band" id="concept-deck" aria-labelledby="conceptDeckHeading">
+          <div class="deck-band-head">
+            <p class="eyebrow">Deck 1 · Concept Cards</p>
+            <h2 id="conceptDeckHeading">Every episode drops a new pack</h2>
+            <p class="deck-band-sub">Weekly packs are handed out with the Study Pack at <a href="../blend-snap.html">Blend &amp; Snap</a>. Open one below to preview a pull.</p>
+
+            <!-- Collection Progress (moved out of hero) -->
             <div class="collection-progress">
               <div class="progress-label">
-                <span>Cards collected: <strong id="progressCount">0/15</strong></span>
+                <span>Concept cards collected: <strong id="progressCount">0/15</strong></span>
                 <span id="progressPercent">0%</span>
               </div>
               <div class="progress-bar">
@@ -635,9 +834,9 @@
               </div>
             </div>
 
-            <!-- Pack Controls -->
+            <!-- Pack Controls (moved out of hero) -->
             <div class="pack-controls">
-              <select class="pack-select" id="packSelect">
+              <select class="pack-select" id="packSelect" aria-label="Pick a pack">
                 <option value="all">All released cards</option>
                 <option value="1">Issue 01 pack</option>
                 <option value="2">Issue 02 pack</option>
@@ -657,12 +856,94 @@
           </div>
         </section>
 
-        <!-- Collection Binder -->
+        <!-- Concept Card Binder -->
         <section class="binder-section">
-          <p class="eyebrow">The Binder</p>
+          <p class="eyebrow">The Concept Binder</p>
           <h2>Your plastic-sleeve collection page</h2>
-          <p>Owned cards stay bright. Empty sleeves show what&rsquo;s still missing. Duplicates stack on the pink count badge.</p>
+          <p>Owned cards stay bright. Empty sleeves show what&rsquo;s still missing. Duplicates stack on the pink count badge &mdash; trade the extras.</p>
           <div class="binder-grid" id="binderGrid"></div>
+        </section>
+
+        <!-- Deck 2 · Character Cards -->
+        <section class="deck-band deck-band--character" id="character-deck" aria-labelledby="characterDeckHeading">
+          <div class="deck-band-head">
+            <p class="eyebrow">Deck 2 · Character Cards</p>
+            <h2 id="characterDeckHeading">The SUNNYV<span class="ai">Ai</span>LE pantheon</h2>
+            <p class="deck-band-sub">Three sub-decks. Earn each character card by visiting their building or completing their interaction. Fixed roster &mdash; the collection grows only when a new character gets canonized.</p>
+          </div>
+
+          <div class="character-decks">
+            <a class="char-deck" href="../luminairy.html">
+              <span class="char-deck-eyebrow">Sub-deck A</span>
+              <span class="char-deck-count">8 cards</span>
+              <span class="char-deck-title">PATRON SAiNTS</span>
+              <span class="char-deck-body">Cher, Buffy, Miranda, Regina, Elle, Dolly, David, Deb. Pick up at <strong>LUMIN<span class="ai">Ai</span>RY</strong>.</span>
+              <div class="char-deck-strip" aria-hidden="true">
+                <img src="../assets/saints/cher-horowitz.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/saints/buffy-summers.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/saints/miranda-priestly.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/saints/regina-george.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/saints/elle-woods.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/saints/dolly-parton.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/saints/david-rose.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/saints/deb.png" alt="" loading="lazy" onerror="this.style.display='none'">
+              </div>
+              <span class="char-deck-cta">Visit LUMIN<span class="ai">Ai</span>RY &rarr;</span>
+            </a>
+
+            <a class="char-deck" href="../luminairy.html#mavens">
+              <span class="char-deck-eyebrow">Sub-deck B</span>
+              <span class="char-deck-count">8 cards</span>
+              <span class="char-deck-title">The MAiVENS</span>
+              <span class="char-deck-body">The Keepers &mdash; Hannah Fry, Fei-Fei Li, Timnit Gebru, Rachel Thomas, Joy Buolamwini, Kate Crawford, Meredith Whittaker, Emily Bender. Pick up at the MAiVENS wing.</span>
+              <div class="char-deck-strip" aria-hidden="true">
+                <img src="../assets/mavens/y2k-stained-glass-v2/hannah-fry-y2k-stained-glass.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/mavens/y2k-stained-glass-v2/fei-fei-li-y2k-stained-glass.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/mavens/y2k-stained-glass-v2/timnit-gebru-y2k-stained-glass.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/mavens/y2k-stained-glass-v2/rachel-thomas-y2k-stained-glass.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/mavens/y2k-stained-glass-v2/joy-buolamwini-y2k-stained-glass.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/mavens/y2k-stained-glass-v2/kate-crawford-y2k-stained-glass.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/mavens/y2k-stained-glass-v2/meredith-whittaker-y2k-stained-glass.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/mavens/y2k-stained-glass-v2/emily-bender-y2k-stained-glass.png" alt="" loading="lazy" onerror="this.style.display='none'">
+              </div>
+              <span class="char-deck-cta">Visit the MAiVENS wing &rarr;</span>
+            </a>
+
+            <a class="char-deck" href="../luminairy.html#builders">
+              <span class="char-deck-eyebrow">Sub-deck C</span>
+              <span class="char-deck-count">6 cards</span>
+              <span class="char-deck-title">The TRAiLBLAZERS</span>
+              <span class="char-deck-body">The women shipping frontier <span class="ai">Ai</span> &mdash; Mira Murati, Daniela Amodei, Lila Ibrahim, Fidji Simo, Chelsea Finn, Amanda Askell. Pick up at the TRAiLBLAZERS wing.</span>
+              <div class="char-deck-strip" aria-hidden="true">
+                <img src="../assets/builders/y2k-stained-glass-v2/mira-murati-y2k-stained-glass.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/builders/y2k-stained-glass-v2/daniela-amodei-y2k-stained-glass.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/builders/y2k-stained-glass-v2/lila-ibrahim-y2k-stained-glass.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/builders/y2k-stained-glass-v2/fidji-simo-y2k-stained-glass.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/builders/y2k-stained-glass-v2/chelsea-finn-y2k-stained-glass.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/builders/y2k-stained-glass-v2/amanda-askell-y2k-stained-glass.png" alt="" loading="lazy" onerror="this.style.display='none'">
+              </div>
+              <span class="char-deck-cta">Visit the TRAiLBLAZERS wing &rarr;</span>
+            </a>
+
+            <a class="char-deck" href="../town-hall.html#regulars">
+              <span class="char-deck-eyebrow">Sub-deck D</span>
+              <span class="char-deck-count">Growing</span>
+              <span class="char-deck-title">Town Characters</span>
+              <span class="char-deck-body">Mme CL<span class="ai">Ai</span>-O, F<span class="ai">Ai</span>RY Godmother, DJ SunnyV, Mayor Deb, and every canonized SUNNYV<span class="ai">Ai</span>LE regular. Meet them at Town Hall; visit each at her own building.</span>
+              <div class="char-deck-strip" aria-hidden="true">
+                <img src="../assets/town-characters/scenes/mme-claio-scene.jpg?v=20260708" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/town-characters/scenes/fairy-godmother-scene.jpg?v=20260708b" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/town-characters/scenes/dj-sunnyv-scene.jpg?v=20260708" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/town-characters/scenes/mayor-deb-scene.jpg?v=20260708b" alt="" loading="lazy" onerror="this.style.display='none'">
+              </div>
+              <span class="char-deck-cta">Meet them at Town Hall &rarr;</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- Trade + Closet -->
+        <section class="tc-outro">
+          <p class="deck-band-note"><strong>Trading is on for both decks.</strong> Send duplicates through the <a href="../post-office.html">Post Office</a>. Your full collection lives on your <a href="/laidies-card.html">Closet</a>.</p>
         </section>
 
       </div>
@@ -691,7 +972,7 @@
           icon: '\uD83C\uDF00',
           front: 'When AI says something confidently wrong and does not blush.',
           back: 'A hallucination is when AI generates information that sounds authoritative but is completely made up\u2014fake sources, invented stats, confident nonsense. Always verify claims that matter.',
-          rarity: 'rare',
+          rarity: 'common',
           episode: 1
         },
         {
@@ -709,7 +990,7 @@
           icon: '\uD83D\uDDD7\uFE0F',
           front: 'How much AI can hold in its head at once.',
           back: 'The context window is the maximum amount of text (measured in tokens) an AI can consider in one conversation. Go past it and the AI starts forgetting the beginning\u2014like a meeting that ran too long.',
-          rarity: 'rare',
+          rarity: 'common',
           episode: 2
         },
         {
@@ -736,7 +1017,7 @@
           icon: '\uD83D\uDCDA',
           front: 'Retrieval-Augmented Generation. Fancy name for \u201Clook it up first.\u201D',
           back: 'RAG is a technique where AI searches a knowledge base before answering, so it can cite real documents instead of guessing. It\'s like giving AI permission to check its notes before speaking.',
-          rarity: 'special',
+          rarity: 'rare',
           episode: 2
         },
         {
@@ -754,7 +1035,7 @@
           icon: '\uD83E\uDD16',
           front: 'AI that can actually do things, not just talk.',
           back: 'An AI agent can take actions\u2014browse the web, run code, send emails\u2014not just generate text. Think of the difference between someone who gives advice and someone who also books the appointment.',
-          rarity: 'special',
+          rarity: 'rare',
           episode: 1
         },
         {
@@ -799,7 +1080,7 @@
           icon: '\uD83D\uDD0E',
           front: 'The ordinary detail that makes the whole story collapse.',
           back: 'A Chutney detail is the tiny timeline, source, policy, quote, or domain-rule mismatch that exposes a confident answer. It is the fresh perm in the shower alibi.',
-          rarity: 'special',
+          rarity: 'holo',
           episode: 3
         },
         {
@@ -808,7 +1089,7 @@
           icon: '\uD83D\uDCCC',
           front: 'Bring the source into the room.',
           back: 'Grounding means giving AI access to the material it should use: a document, approved source, search/grounding tool, database, or transcript. It lowers the odds of nonsense; it does not eliminate the need to check.',
-          rarity: 'rare',
+          rarity: 'common',
           episode: 3
         },
         {
@@ -844,7 +1125,7 @@
           icon: '\uD83D\uDC41\uFE0F',
           front: 'AI that can see, hear, and read\u2014not just text.',
           back: 'Multimodal AI can process multiple types of input\u2014text, images, audio, video. It\'s the difference between texting someone and FaceTiming them. More input types means richer understanding.',
-          rarity: 'rare',
+          rarity: 'common',
           episode: 1
         },
         {
@@ -971,6 +1252,27 @@
       }
 
       // === Open pack ===
+      // Rarity weights — Common 70 / Rare 25 / Holo 5. Actually makes "rare" rare.
+      const RARITY_WEIGHTS = { common: 70, rare: 25, holo: 5 };
+      function rollRarity() {
+        const r = Math.random() * 100;
+        if (r < RARITY_WEIGHTS.holo) return 'holo';
+        if (r < RARITY_WEIGHTS.holo + RARITY_WEIGHTS.rare) return 'rare';
+        return 'common';
+      }
+      function pickWeightedCard(cards) {
+        const target = rollRarity();
+        // Fall back through tiers if the chosen rarity is empty in this pack
+        const tiers = target === 'holo' ? ['holo', 'rare', 'common']
+                    : target === 'rare' ? ['rare', 'common', 'holo']
+                    :                      ['common', 'rare', 'holo'];
+        for (const t of tiers) {
+          const pool = cards.filter(function(c) { return c.rarity === t; });
+          if (pool.length) return pool[Math.floor(Math.random() * pool.length)];
+        }
+        return cards[Math.floor(Math.random() * cards.length)];
+      }
+
       function openPack() {
         const cards = getSelectedCards();
         if (!cards.length) {
@@ -979,7 +1281,7 @@
         }
 
         const pulls = Array.from({ length: 3 }, function() {
-          return cards[Math.floor(Math.random() * cards.length)];
+          return pickWeightedCard(cards);
         });
 
         const newPulls = pulls.map(function(card) {
@@ -1069,5 +1371,11 @@
     </script>
       <script src="../content/site/mini-player.js?v=ep-04-songs-1"></script>
     <script src="../content/site/brand-polish.js?v=wm1" defer></script>
+  <script defer src="/content/site/sv-back-nav.js?v=1"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
+<script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
+<script defer src="/content/site/ksvl-player.js?v=20260705-21"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260707-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
 </body>
 </html>

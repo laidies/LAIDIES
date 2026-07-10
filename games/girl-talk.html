@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Girl Talk | LAiDIES Clubhouse</title>
+    <title>Girl Talk · Delta LAi Nu · LAiDIES · SUNNYVAiLE</title>
     <meta name="description" content="Truth or Dare for women who actually work for a living. Draw a card, do the thing, earn a sticker. Chicken out and take the penalty." />
     <meta name="theme-color" content="#fbf6f5" />
-    <meta property="og:title" content="Girl Talk | LAiDIES Clubhouse" />
+    <meta property="og:title" content="Girl Talk · Delta LAi Nu · LAiDIES · SUNNYVAiLE" />
     <meta property="og:description" content="Truth or Dare for women who actually work for a living. Draw, do, earn." />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
@@ -635,16 +635,16 @@
     <!-- Animated twinkle + glitter background layer (LAiDIES default, same as Dream Phone). -->
     <div class="laidies-bg laidies-bg--light" aria-hidden="true"></div>
 
-    <!-- Sticky Back to Clubhouse -->
-    <header class="sticky-back">
-      <a class="brand" href="../index.html" aria-label="LAiDIES home">
-        <img src="../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
-      </a>
-      <nav class="nav-links" aria-label="Girl Talk navigation">
-        <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
-        <a href="../issues/issue-04.html">LATEST</a>
-        <a href="../hot-goss.html">THE BOOK</a>
-        <a href="../community.html">JOIN</a>
+    <!-- Canonical SUNNYVAiLE header (sv-global-header.js rewrites this in place) -->
+    <header class="sv-header">
+      <a class="brand" href="/">LAiDIES</a>
+      <nav>
+        <a href="/">This Week</a>
+        <a href="/chick-flicks.html">Episodes</a>
+        <a href="/library.html">LIBRAiRY</a>
+        <a href="/mall.html">The Mall</a>
+        <a href="/sorority-house.html">Sorority House</a>
+        <a href="/clubhouse-pass.html" class="sv-signin">Sign In</a>
       </nav>
     </header>
 
@@ -657,7 +657,7 @@
 
         <!-- Title -->
         <div class="game-page-title">
-          <p class="eyebrow">Clubhouse Game</p>
+          <p class="eyebrow">Sorority House Game</p>
           <h1>Girl Talk</h1>
           <p class="subtitle">Truth or Dare for women who actually work for a living. Draw a card. Do the thing. Earn a sticker. Chicken out and take the penalty.</p>
         </div>
@@ -1222,5 +1222,12 @@
     <script src="../content/site/site-data.js?v=episode-04-quiz-1"></script>
     <script src="../script.js"></script>
     <script src="../content/site/mini-player.js?v=ep-04-songs-1"></script>
+    <!-- Canonical SUNNYVAiLE chrome — sv-global-header MUST load before sv-nav-auth -->
+    <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+    <script defer src="/content/site/sv-global-header.js?v=20260707-a11y"></script>
+    <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+    <script defer src="/content/site/sv-back-nav.js?v=1"></script>
+    <script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
+    <script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
   </body>
 </html>

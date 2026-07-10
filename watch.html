@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Screening Room · The Chick Flicks · SUNNYVAiLE</title>
+  <meta name="description" content="Watch the episode — narrated, scored, and synced. Rented from the Chick Flicks, played right here.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Jost:wght@400;500;700;800&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260707-a11y">
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260707-a11y"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <!-- Deliberately no ksvl-player / quick-rail on this page: the Screening
+       Room plays its own narration track and wants a dark, focused stage. -->
+  <style>
+    body { background: #17091b; }
+    main { max-width: 1160px; margin: 0 auto; padding: 26px clamp(14px, 3vw, 34px) 60px; }
+    .scr-eyebrow { font: 800 10.5px/1 'Jost', sans-serif; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--gold, #c9a227); margin: 14px 0 8px; }
+    .scr-title { font: 900 clamp(26px, 4vw, 40px)/1.1 'Playfair Display', serif; color: #fffdfb; margin: 0 0 4px; }
+    .scr-sub { font: 400 14px/1.5 'Jost', sans-serif; color: rgba(255,253,251,0.66); margin: 0 0 20px; }
+
+    /* ---- the stage -------------------------------------------------- */
+    .theatre { position: relative; border-radius: 14px; overflow: hidden; background: #000;
+      aspect-ratio: 16 / 9; border: 2px solid rgba(201,162,39,0.5); box-shadow: 0 30px 80px rgba(0,0,0,0.6); }
+    .scene { position: absolute; inset: 0; opacity: 0; transition: opacity 0.5s ease; }
+    .scene.is-live { opacity: 1; }
+    .scene-img { position: absolute; inset: -6%; width: 112%; height: 112%; object-fit: cover; }
+    .pan-ltr .scene-img { animation: panLtr var(--dur, 30s) linear forwards; }
+    .pan-rtl .scene-img { animation: panRtl var(--dur, 30s) linear forwards; }
+    .pan-zoom .scene-img { animation: panZoom var(--dur, 30s) linear forwards; }
+    @keyframes panLtr { from { transform: translateX(-2.5%) scale(1.02); } to { transform: translateX(2.5%) scale(1.08); } }
+    @keyframes panRtl { from { transform: translateX(2.5%) scale(1.02); } to { transform: translateX(-2.5%) scale(1.08); } }
+    @keyframes panZoom { from { transform: scale(1.0); } to { transform: scale(1.12); } }
+    @media (prefers-reduced-motion: reduce) { .scene-img { animation: none !important; } }
+
+    .scene-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 70px 34px 26px;
+      background: linear-gradient(transparent, rgba(10,2,12,0.88)); }
+    .scene-kicker { font: 800 10.5px/1 'Jost', sans-serif; letter-spacing: 0.26em; text-transform: uppercase;
+      color: var(--gold, #c9a227); margin: 0 0 7px; }
+    .scene-line { font: 700 clamp(16px, 2.3vw, 24px)/1.3 'Playfair Display', serif; color: #fffdfb; margin: 0; max-width: 640px; }
+
+    /* saint / portrait card scene */
+    .scene--card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+      background: radial-gradient(ellipse at 50% 40%, #3a1838 0%, #17091b 75%); }
+    .scene-portrait { height: 68%; border-radius: 10px; box-shadow: 0 0 60px rgba(201,162,39,0.35), 0 18px 50px rgba(0,0,0,0.6); }
+    .scene--card .scene-line { text-align: center; padding: 0 30px; font-size: clamp(14px, 1.9vw, 20px); }
+
+    /* stat scenes */
+    .scene--stat { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+      background: radial-gradient(ellipse at 50% 45%, #4b2148 0%, #17091b 78%); text-align: center; padding: 30px; }
+    .stat-big { font: 900 clamp(64px, 12vw, 130px)/1 'Playfair Display', serif; color: var(--gold, #c9a227);
+      font-variant-numeric: tabular-nums; }
+    .stat-big .stat-unit { font-size: 0.42em; color: rgba(255,253,251,0.8); }
+    .stat-label { font: 500 clamp(14px, 2vw, 19px)/1.45 'Jost', sans-serif; color: #fffdfb; max-width: 560px; }
+    .stat-source { font: 500 11px/1.4 'Jost', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,253,251,0.45); }
+    .stat-rows { display: flex; flex-direction: column; gap: 14px; width: min(560px, 86%); }
+    .stat-row { display: flex; align-items: baseline; gap: 16px; opacity: 0; transform: translateY(8px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .stat-row.is-in { opacity: 1; transform: none; }
+    .stat-row .n { font: 900 clamp(30px, 5vw, 52px)/1 'Playfair Display', serif; color: var(--gold); min-width: 2.6em; text-align: right; }
+    .stat-row .l { font: 500 clamp(13px, 1.7vw, 17px)/1.4 'Jost', sans-serif; color: #fffdfb; text-align: left; }
+
+    /* quote scene */
+    .scene--quote { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+      background: radial-gradient(ellipse at 50% 45%, #2c1030 0%, #17091b 80%); text-align: center; padding: 40px; }
+    .quote-text { font: 700 clamp(20px, 3.4vw, 34px)/1.35 'Playfair Display', serif; font-style: italic; color: #fffdfb; max-width: 700px; }
+    .quote-attrib { font: 700 11.5px/1.4 'Jost', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+
+    /* definition scene */
+    .scene--def { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+      background: radial-gradient(ellipse at 50% 45%, #3a1838 0%, #17091b 78%); text-align: center; padding: 40px; }
+    .def-num { font: 800 11px/1 'Jost', sans-serif; letter-spacing: 0.3em; color: rgba(255,253,251,0.5); }
+    .def-icon { margin: 6px 0; }
+    .def-term { font: 900 clamp(28px, 5vw, 52px)/1.1 'Playfair Display', serif; color: var(--gold); }
+    .def-line { font: 500 clamp(14px, 2vw, 19px)/1.5 'Jost', sans-serif; color: #fffdfb; max-width: 560px; }
+
+    /* CTA scene */
+    .scene--cta .scene-caption { padding-bottom: 32px; }
+    .cta-btn { display: inline-block; margin-top: 14px; background: var(--gold, #c9a227); color: #341446;
+      border-radius: 999px; padding: 11px 26px; font: 800 13px/1 'Jost', sans-serif; letter-spacing: 0.08em;
+      text-transform: uppercase; text-decoration: none; }
+    .cta-btn:hover { background: #fffdfb; }
+
+    /* title / end scenes */
+    .scene--title { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+      background: radial-gradient(ellipse at 50% 42%, #4b2148 0%, #17091b 80%); text-align: center; padding: 30px; }
+    .scene--title .scene-portrait { height: 52%; }
+    .title-main { font: 900 clamp(26px, 4.6vw, 48px)/1.15 'Playfair Display', serif; color: #fffdfb; }
+    .title-sub { font: 700 12px/1.5 'Jost', sans-serif; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
+    .scene--end .title-main { color: var(--gold); }
+
+    /* VHS chrome */
+    .vhs-osd { position: absolute; top: 16px; left: 20px; z-index: 6; font: 400 20px/1 'VT323', monospace;
+      color: rgba(255,253,251,0.85); text-shadow: 0 0 6px rgba(255,253,251,0.5); letter-spacing: 0.08em; pointer-events: none; }
+    .vhs-scan { position: absolute; inset: 0; z-index: 5; pointer-events: none; mix-blend-mode: overlay; opacity: 0.5;
+      background: repeating-linear-gradient(0deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 3px); }
+    .vhs-vignette { position: absolute; inset: 0; z-index: 5; pointer-events: none;
+      box-shadow: inset 0 0 120px rgba(0,0,0,0.55); }
+    .theatre.is-switching .vhs-scan { opacity: 0.9; background-size: 100% 2px;
+      animation: trackJitter 0.28s steps(3) 1; }
+    @keyframes trackJitter { 0% { transform: translateY(-3px); } 50% { transform: translateY(2px); } 100% { transform: none; } }
+
+    /* rough-cut banner (no narration yet) */
+    .rough-banner { position: absolute; top: 14px; right: 16px; z-index: 7; background: rgba(155,63,95,0.92);
+      color: #fffdfb; border-radius: 8px; padding: 7px 12px; font: 700 10.5px/1.4 'Jost', sans-serif;
+      letter-spacing: 0.1em; text-transform: uppercase; max-width: 250px; text-align: right; }
+
+    /* controls */
+    .deck { display: flex; align-items: center; gap: 14px; margin: 16px 0 8px; }
+    .deck-play { width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--gold); flex-shrink: 0;
+      background: linear-gradient(160deg, #4b2148, #341446); color: var(--gold); font-size: 19px;
+      cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+    .deck-play:hover { background: var(--gold); color: #341446; }
+    .deck-track { flex: 1; position: relative; height: 26px; cursor: pointer; }
+    .deck-rail { position: absolute; left: 0; right: 0; top: 11px; height: 5px; border-radius: 3px; background: rgba(255,253,251,0.18); }
+    .deck-fill { position: absolute; left: 0; top: 11px; height: 5px; border-radius: 3px; background: var(--gold); width: 0; }
+    .deck-mark { position: absolute; top: 9px; width: 2px; height: 9px; background: rgba(255,253,251,0.45); }
+    .deck-time { font: 400 19px/1 'VT323', monospace; color: rgba(255,253,251,0.8); flex-shrink: 0; min-width: 120px; text-align: right; }
+    .chapters { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; }
+    .chap { border: 1.5px solid rgba(201,162,39,0.4); background: transparent; color: rgba(255,253,251,0.75);
+      border-radius: 999px; padding: 6px 14px; font: 700 11px/1 'Jost', sans-serif; letter-spacing: 0.06em;
+      text-transform: uppercase; cursor: pointer; }
+    .chap:hover, .chap.is-now { border-color: var(--gold); color: var(--gold); }
+
+    .scr-note { margin-top: 22px; font: 400 13px/1.6 'Jost', sans-serif; color: rgba(255,253,251,0.55); max-width: 720px; }
+    .scr-note a { color: var(--gold); }
+
+    /* tune mode HUD */
+    .tune-hud { position: fixed; right: 16px; top: 90px; z-index: 9500; background: #17091b; border: 1.5px solid var(--gold);
+      border-radius: 10px; padding: 12px 14px; color: #fffdfb; font: 500 12px/1.6 'Jost', sans-serif; width: 240px; }
+    .tune-hud b { color: var(--gold); }
+    /* --- dark-page chrome + player affordances (readability pass) --- */
+    body { color: #f4e8ef; }
+    footer { background: transparent; color: rgba(244,232,239,0.5); border-top: 1px solid rgba(255,255,255,0.09);
+      text-align: center; padding: 22px 16px 40px; font: 500 12px/1.6 'Jost', sans-serif; }
+    footer a { color: var(--gold, #c9a227); }
+    .theatre { cursor: pointer; }
+    .big-play { position: absolute; inset: 0; margin: auto; z-index: 8; width: 96px; height: 96px; border-radius: 50%;
+      border: 2px solid rgba(255,253,251,0.92); background: rgba(20,8,25,0.5); color: #fffdfb; font-size: 34px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; padding-left: 5px;
+      transition: opacity .3s ease, transform .18s ease, background .2s ease, color .2s ease; }
+    .big-play:hover { transform: scale(1.07); background: var(--gold, #c9a227); color: #341446; border-color: var(--gold, #c9a227); }
+    .theatre.is-playing .big-play { opacity: 0; pointer-events: none; transform: scale(0.8); }
+    .deck-rail, .deck-fill { height: 6px; }
+    .deck-knob { position: absolute; top: 7px; left: 0; width: 14px; height: 14px; border-radius: 50%;
+      background: var(--gold, #c9a227); box-shadow: 0 0 0 4px rgba(201,162,39,0.22); transform: translateX(-50%); pointer-events: none; }
+    .chapters { gap: 6px; margin-top: 12px; }
+    .chap { padding: 5px 11px; font-size: 10px; opacity: 0.68; }
+    .chap:hover, .chap.is-now { opacity: 1; }
+    main.seg-bumper .chapters, main.seg-bumper .deck-mark { display: none; }
+  </style>
+</head>
+<body>
+
+  <!-- canonical header injected by sv-global-header.js -->
+
+  <main>
+    <p class="scr-eyebrow">The Chick Flicks · The Screening Room</p>
+    <h1 class="scr-title" id="scrTitle">Episode 01 · On Wednesdays We Use AI</h1>
+    <p class="scr-sub">Narrated, scored, and synced. Press play — the pictures follow the story.</p>
+
+    <div class="theatre" id="theatre">
+      <button class="big-play" id="bigPlay" type="button" aria-label="Play episode">▶</button>
+      <div class="vhs-osd" id="osd">⏸ STOP · SP 0:00:00</div>
+      <div class="vhs-scan"></div>
+      <div class="vhs-vignette"></div>
+    </div>
+
+    <div class="deck">
+      <button type="button" class="deck-play" id="btnPlay" aria-label="Play or pause">▶</button>
+      <div class="deck-track" id="track">
+        <div class="deck-rail"></div>
+        <div class="deck-fill" id="fill"></div>
+        <div class="deck-knob" id="knob"></div>
+      </div>
+      <div class="deck-time" id="time">0:00 / 0:00</div>
+    </div>
+    <div class="chapters" id="chapters"></div>
+
+    <p class="scr-note" id="scrNote">
+      Rented from <a href="/chick-flicks.html">the Chick Flicks</a>. The study pack, quiz, anthem, and extra
+      credit from this episode are all one click away when they come up on screen — or any time from the ☰ menu.
+    </p>
+  </main>
+
+  <footer>© LAiDIES · Filed from SUNNYVAiLE · No. 3 MAiN Street</footer>
+
+  <audio id="tape" preload="metadata"></audio>
+
+  <script>
+  (function () {
+    'use strict';
+
+    var params = new URLSearchParams(window.location.search);
+    var ep = (params.get('ep') || '01').replace(/[^0-9]/g, '') || '01';
+    var TUNE = params.has('tune');
+
+    var theatre = document.getElementById('theatre');
+    var osd = document.getElementById('osd');
+    var tape = document.getElementById('tape');
+    var btnPlay = document.getElementById('btnPlay');
+    var fill = document.getElementById('fill');
+    var track = document.getElementById('track');
+    var timeEl = document.getElementById('time');
+    var chaptersEl = document.getElementById('chapters');
+    var knob = document.getElementById('knob');
+    var bigPlay = document.getElementById('bigPlay');
+
+    var cues = [], duration = 0, demoMode = false;
+    var demoClock = 0, demoPlaying = false, lastTick = null;
+    var currentIdx = -1;
+    var segments = [], segIdx = 0, segKind = 'main', segDur = null, advancing = false, segStart = 0, seekPending = 0;
+
+    function fmt(s) {
+      s = Math.max(0, Math.floor(s));
+      var m = Math.floor(s / 60), r = s % 60;
+      return m + ':' + String(r).padStart(2, '0');
+    }
+    function fmtOsd(s) {
+      s = Math.max(0, Math.floor(s));
+      var h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), r = s % 60;
+      return h + ':' + String(m).padStart(2, '0') + ':' + String(r).padStart(2, '0');
+    }
+    function esc(x) {
+      return String(x == null ? '' : x).replace(/[&<>"]/g, function (c) {
+        return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c];
+      });
+    }
+    function brand(x) { return esc(x).replace(/Ai/g, '<span class="ai">Ai</span>'); }
+    function gold(key, uid, px) { return window.svGoldIcon ? window.svGoldIcon(key, uid, px || 30) : ''; }
+
+    function now() { return demoMode ? demoClock : tape.currentTime; }
+    function playing() { return demoMode ? demoPlaying : !tape.paused; }
+
+    // ---- scene builders --------------------------------------------------
+    function buildScene(c, i) {
+      var el = document.createElement('div');
+      el.className = 'scene';
+      var dur = ((cues[i + 1] ? cues[i + 1].t : duration || c.t + 30) - c.t) + 4;
+      el.style.setProperty('--dur', dur + 's');
+      var cap = function (kicker, line) {
+        return (kicker || line)
+          ? '<div class="scene-caption">' + (kicker ? '<p class="scene-kicker">' + brand(kicker) + '</p>' : '')
+            + (line ? '<p class="scene-line">' + brand(line) + '</p>' : '') + '</div>'
+          : '';
+      };
+      if (c.type === 'full' || c.type === 'cta') {
+        el.classList.add('pan-' + (c.pan || 'zoom'));
+        if (c.type === 'cta') el.classList.add('scene--cta');
+        el.innerHTML = '<img class="scene-img" src="' + esc(c.src) + '" alt="">'
+          + '<div class="scene-caption">'
+          + (c.kicker || c.label ? '<p class="scene-kicker">' + brand(c.kicker || c.label) + '</p>' : '')
+          + (c.line ? '<p class="scene-line">' + brand(c.line) + '</p>' : '')
+          + (c.type === 'cta' ? '<a class="cta-btn" href="' + esc(c.href) + '">' + brand(c.btn || 'Go') + ' →</a>' : '')
+          + '</div>';
+      } else if (c.type === 'video') {
+        el.innerHTML = '<video class="scene-img" src="' + esc(c.src) + '" muted autoplay playsinline></video>';
+      } else if (c.type === 'card') {
+        el.classList.add('scene--card');
+        el.innerHTML = '<img class="scene-portrait" src="' + esc(c.src) + '" alt="">'
+          + (c.label ? '<p class="scene-line">' + brand(c.label) + '</p>' : '');
+      } else if (c.type === 'stat') {
+        el.classList.add('scene--stat');
+        el.innerHTML = '<div class="stat-big"><span class="stat-n" data-target="' + Number(c.big) + '">0</span>'
+          + '<span class="stat-unit">' + esc(c.unit || '') + '</span></div>'
+          + '<p class="stat-label">' + brand(c.label || '') + '</p>'
+          + (c.source ? '<p class="stat-source">' + esc(c.source) + '</p>' : '');
+      } else if (c.type === 'stats3') {
+        el.classList.add('scene--stat');
+        el.innerHTML = '<div class="stat-rows">' + c.rows.map(function (r) {
+          return '<div class="stat-row"><span class="n">' + esc(r.n) + '</span><span class="l">' + brand(r.label) + '</span></div>';
+        }).join('') + '</div>' + (c.source ? '<p class="stat-source">' + esc(c.source) + '</p>' : '');
+      } else if (c.type === 'quote') {
+        el.classList.add('scene--quote');
+        el.innerHTML = '<p class="quote-text">“' + brand(c.text) + '”</p>'
+          + (c.attrib ? '<p class="quote-attrib">' + brand(c.attrib) + '</p>' : '');
+      } else if (c.type === 'def') {
+        el.classList.add('scene--def');
+        el.innerHTML = '<p class="def-num">WORD ' + esc(c.num) + '</p>'
+          + '<div class="def-icon">' + gold(c.icon || 'book', 'def' + i, 38) + '</div>'
+          + '<p class="def-term">' + brand(c.term) + '</p>'
+          + '<p class="def-line">' + brand(c.line) + '</p>';
+      } else if (c.type === 'title' || c.type === 'end') {
+        el.classList.add('scene--title');
+        if (c.type === 'end') el.classList.add('scene--end');
+        el.innerHTML = (c.src ? '<img class="scene-portrait" src="' + esc(c.src) + '" alt="" onerror="this.remove()">' : '')
+          + '<p class="title-main">' + brand(c.title || '') + '</p>'
+          + (c.sub ? '<p class="title-sub">' + brand(c.sub) + '</p>' : '');
+      }
+      return el;
+    }
+
+    function animateStat(el) {
+      var n = el.querySelector('.stat-n');
+      if (n) {
+        var target = Number(n.getAttribute('data-target')) || 0;
+        var t0 = performance.now();
+        (function step(t) {
+          var p = Math.min(1, (t - t0) / 1600);
+          n.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(step);
+        })(t0);
+      }
+      el.querySelectorAll('.stat-row').forEach(function (row, i) {
+        setTimeout(function () { row.classList.add('is-in'); }, 350 + i * 900);
+      });
+    }
+
+    function showScene(i) {
+      if (i === currentIdx || i < 0) return;
+      currentIdx = i;
+      var old = theatre.querySelector('.scene.is-live');
+      if (old) { old.classList.remove('is-live'); setTimeout(function () { old.remove(); }, 600); }
+      var el = buildScene(cues[i], i);
+      theatre.insertBefore(el, theatre.querySelector('.vhs-scan'));
+      theatre.classList.add('is-switching');
+      setTimeout(function () { theatre.classList.remove('is-switching'); }, 300);
+      // timer, not rAF — rAF never fires in background tabs and the scene
+      // would stay invisible if the user tabs away and back
+      setTimeout(function () {
+        el.classList.add('is-live');
+        animateStat(el);
+      }, 30);
+      // chapter highlight
+      var chapEls = chaptersEl.querySelectorAll('.chap');
+      chapEls.forEach(function (b) {
+        b.classList.toggle('is-now', Number(b.dataset.t) <= cues[i].t
+          && !Array.prototype.some.call(chapEls, function (o) {
+            return Number(o.dataset.t) > Number(b.dataset.t) && Number(o.dataset.t) <= cues[i].t;
+          }));
+      });
+    }
+
+    function cueIndexFor(t) {
+      var idx = 0;
+      for (var i = 0; i < cues.length; i++) { if (cues[i].t <= t) idx = i; else break; }
+      return idx;
+    }
+
+    // ---- transport -------------------------------------------------------
+    function tick() {
+      var el = now() - segStart;
+      if (segDur && el >= segDur && !demoMode) { advanceSegment(); return; }
+      if (segDur) tape.volume = Math.max(0, Math.min(1, el / 0.6, (segDur - el) / 0.6));
+      else if (!demoMode) tape.volume = 1;
+      showScene(cueIndexFor(el));
+      var d = segDur || duration || (cues.length ? cues[cues.length - 1].t + 26 : 0);
+      var pct = d ? Math.min(100, (el / d) * 100) : 0;
+      fill.style.width = pct + '%';
+      if (knob) knob.style.left = pct + '%';
+      theatre.classList.toggle('is-playing', playing());
+      var lbl = segKind === 'title' ? 'TITLES' : segKind === 'end' ? 'CREDITS' : 'PLAY';
+      timeEl.textContent = fmt(el) + ' / ' + fmt(d);
+      osd.textContent = (playing() ? '▶ ' + lbl : '⏸ PAUSE') + ' · SP ' + fmtOsd(el) + (demoMode ? ' · ROUGH CUT' : '');
+      btnPlay.textContent = playing() ? '❚❚' : '▶';
+    }
+
+    function demoLoop() {
+      // interval, not rAF, so the rough cut keeps advancing in background tabs
+      setInterval(function () {
+        var ts = performance.now();
+        if (demoPlaying) {
+          if (lastTick != null) demoClock += (ts - lastTick) / 1000;
+          var d = cues.length ? cues[cues.length - 1].t + 26 : 0;
+          if (demoClock >= d) { demoClock = d; demoPlaying = false; }
+          tick();
+        }
+        lastTick = ts;
+      }, 100);
+    }
+
+    function loadSegment(i) {
+      segIdx = i;
+      var seg = segments[i];
+      segKind = seg.kind; segDur = seg.dur || null; segStart = seg.start || 0;
+      cues = seg.cues.slice().sort(function (a, b) { return a.t - b.t; });
+      currentIdx = -1;
+      duration = segDur || 0;
+      document.querySelector('main').classList.toggle('seg-bumper', seg.kind !== 'main');
+      seekPending = segStart;
+      tape.src = seg.audio;
+      showScene(0); tick();
+    }
+    function advanceSegment() {
+      if (advancing) return;
+      advancing = true;
+      if (segIdx + 1 < segments.length) { loadSegment(segIdx + 1); tape.play().catch(function () {}); }
+      else { tape.pause(); }
+      setTimeout(function () { advancing = false; }, 400);
+    }
+    function togglePlay() {
+      if (demoMode) { demoPlaying = !demoPlaying; tick(); return; }
+      if (tape.paused) {
+        // one deck at a time — the Screening Room silences everything else
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== tape && !a.paused) a.pause(); });
+        tape.play().catch(function () {});
+      } else { tape.pause(); }
+    }
+
+    btnPlay.addEventListener('click', togglePlay);
+    if (bigPlay) bigPlay.addEventListener('click', togglePlay);
+    theatre.addEventListener('click', function (e) { if (e.target.closest('a, .cta-btn, .big-play')) return; togglePlay(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.code === 'Space' && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) {
+        e.preventDefault(); togglePlay();
+      }
+    });
+
+    track.addEventListener('click', function (e) {
+      if (segKind !== 'main' && !demoMode) return;
+      var r = track.getBoundingClientRect();
+      var p = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+      var d = duration || (cues.length ? cues[cues.length - 1].t + 26 : 0);
+      if (demoMode) { demoClock = p * d; } else { tape.currentTime = p * d; }
+      currentIdx = -1; tick();
+    });
+
+    // ---- boot ------------------------------------------------------------
+    fetch('/content/episodes/episode-' + ep + '-cues.json', { cache: 'no-store' })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        document.getElementById('scrTitle').innerHTML = 'Episode ' + esc(data.episode) + ' · '
+          + brand(data.title);
+        document.title = 'Episode ' + data.episode + ' · The Screening Room · SUNNYVAiLE';
+
+        // build the broadcast: title bumper -> narration -> end bumper
+        var mainCues = data.cues.slice().sort(function (a, b) { return a.t - b.t; });
+        segments = [];
+        if (data.title && data.title.audio) segments.push({ kind: 'title', audio: data.title.audio, dur: data.title.dur || 25, cues: (data.title.cues || []).slice() });
+        segments.push({ kind: 'main', audio: data.audio, dur: null, cues: mainCues });
+        if (data.end && data.end.audio) segments.push({ kind: 'end', audio: data.end.audio, dur: data.end.dur || 22, cues: (data.end.cues || []).slice() });
+        var mainSegIdx = segments.findIndex(function (s) { return s.kind === 'main'; });
+
+        // chapters + seek marks (from the MAIN narration only)
+        var d0 = mainCues[mainCues.length - 1].t + 26;
+        mainCues.forEach(function (c) {
+          if (!c.chapter) return;
+          var b = document.createElement('button');
+          b.type = 'button'; b.className = 'chap'; b.dataset.t = c.t;
+          b.textContent = c.chapter;
+          b.addEventListener('click', function () {
+            if (segKind !== 'main') { loadSegment(mainSegIdx); tape.play().catch(function () {}); }
+            if (!demoMode) tape.currentTime = c.t; else demoClock = c.t;
+            currentIdx = -1; tick();
+          });
+          chaptersEl.appendChild(b);
+          var m = document.createElement('span');
+          m.className = 'deck-mark'; m.style.left = (c.t / d0 * 100) + '%';
+          track.appendChild(m);
+        });
+
+        tape.addEventListener('loadedmetadata', function () { if (segKind === 'main') duration = tape.duration; if (seekPending > 0) { try { tape.currentTime = seekPending; } catch (e) {} } seekPending = 0; tick(); });
+        tape.addEventListener('error', function () {
+          demoMode = true;
+          var b = document.createElement('div');
+          b.className = 'rough-banner';
+          b.textContent = 'Rough cut — narration not recorded yet. Scenes auto-advance on estimated timing.';
+          theatre.appendChild(b);
+          demoLoop();
+          tick();
+        });
+        tape.addEventListener('timeupdate', tick);
+        tape.addEventListener('play', tick);
+        tape.addEventListener('pause', tick);
+        tape.addEventListener('ended', function () { advanceSegment(); });
+
+        loadSegment(0);
+
+        // ---- tune mode: play the real audio, tap N at each transition ----
+        if (TUNE) {
+          var hud = document.createElement('div');
+          hud.className = 'tune-hud';
+          var tuneIdx = 0;
+          function renderHud() {
+            var next = cues[tuneIdx];
+            hud.innerHTML = '<b>CUE TUNING</b><br>'
+              + (next ? ('Next stamp → #' + tuneIdx + ' <b>' + esc(next.type) + '</b> '
+                + esc(next.line || next.title || next.term || next.text || next.label || '') ).slice(0, 120)
+                : 'All cues stamped.')
+              + '<br><br><b>N</b> stamp at current time · <b>B</b> undo<br><b>J</b> copy tuned JSON';
+          }
+          renderHud();
+          document.body.appendChild(hud);
+          document.addEventListener('keydown', function (e) {
+            if (e.key === 'n' || e.key === 'N') {
+              if (cues[tuneIdx]) { cues[tuneIdx].t = Math.round(now() * 10) / 10; tuneIdx++; renderHud(); }
+            } else if (e.key === 'b' || e.key === 'B') {
+              if (tuneIdx > 0) { tuneIdx--; renderHud(); }
+            } else if (e.key === 'j' || e.key === 'J') {
+              var out = JSON.stringify({ episode: ep, title: data.title, audio: data.audio, cues: cues, end: data.end }, null, 2);
+              navigator.clipboard && navigator.clipboard.writeText(out);
+              console.log(out);
+              hud.innerHTML = '<b>Copied tuned JSON to clipboard.</b><br>Paste it into content/episodes/episode-' + ep + '-cues.json';
+            }
+          });
+        }
+      })
+      .catch(function () {
+        theatre.insertAdjacentHTML('beforeend',
+          '<div class="scene scene--title is-live"><p class="title-main">No tape on this shelf yet.</p>'
+          + '<p class="title-sub">Episode ' + esc(ep) + ' has no cue sheet</p></div>');
+      });
+  })();
+  </script>
+  <script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
+  <script defer src="/content/site/sunnyvaile-directory.js?v=20260707-1"></script>
+</body>
+</html>

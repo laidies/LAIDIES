@@ -21,9 +21,9 @@ The variable was me. What I was giving it determined what I got back.
 
 ## Tell Me What You Want, What You Really Really Want
 
-Prompting is like the drawing game where one person describes something and the other person draws it based only on the description. "Draw a house" gets you a triangle roof. "Draw the Victorian from Practical Magic with the wraparound porch, widow's walk, and overgrown garden" gives the other person enough to make something recognizable.
+Prompting is like ordering coffee. At your regular spot they know your usual, because you built that over a hundred Tuesdays. But AI is the brand-new café across town — say "the usual" and you get a blank look, or a plain drip going cold, which you can't even be annoyed about, because you never actually ordered.
 
-AI works the same way. It can execute the ask, but it cannot read your mind, does not know your meetings, and will not always stop to ask a clarifying question.
+AI works the same way — out of the box, it has never met you. It can execute the ask, but it can't read your mind, doesn't know your meetings, and won't always stop to ask a clarifying question. So you spell it out, every time, until you've built the relationship.
 
 The Spice Girls had the lesson: tell it what you want, what you really really want.
 

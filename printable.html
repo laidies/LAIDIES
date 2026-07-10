@@ -303,24 +303,25 @@
 .anthem-charm-reveal .brand-word-inline [data-brand-ai]{color:#f6a5c0!important}
 
       </style>
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260707-a11y"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260705-2"></script>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="LAiDIES home">
-      <img src="assets/brand/laidies-logo-header-approved-v6.png" alt="">
-    </a>
-    <button class="hamburger-btn" type="button" aria-label="Open menu" aria-expanded="false">&#9776;</button>
-    <nav class="nav" aria-label="Primary navigation">
-      <a href="issues/issue-03.html">LATEST</a>
-      <a href="start-here.html">START HERE</a>
-      <a href="episodes.html">SEASON</a>
-      <a href="hot-goss.html">THE BOOK</a>
-      <a href="clubhouse.html">CLUBHOUSE</a>
-      <a href="community.html">JOIN</a>
+  <header class="sv-header">
+    <a class="brand" href="/">LAiDIES</a>
+    <nav>
+      <a href="/">This Week</a>
+      <a href="/chick-flicks.html">Episodes</a>
+      <a href="/library.html">LIBRAiRY</a>
+      <a href="/radio.html">KSVL</a>
+      <a href="/sorority-house.html">Sorority House</a>
+      <a href="/clubhouse-pass.html" class="sv-signin" style="color: #9b3f5f; font-weight: 600; border: 1.5px solid #9b3f5f; padding: 6px 14px; border-radius: 999px; text-decoration: none;">✉︎ Sign In</a>
     </nav>
   </header>
 
-  <a class="wednesday-return" data-wednesday-return href="this-week.html?issue=2&bag=open">← Back to the Bag</a>
+  <a class="wednesday-return" data-wednesday-return href="/">← Back to the Bag</a>
 
   <main>
     <section class="preview-hero" aria-labelledby="printableTitle">
@@ -413,8 +414,8 @@
     }
 
     if (returnLink) {
-      returnLink.href = "this-week.html?issue=" + encodeURIComponent(issue) + "&bag=open&group=practice" + draftParam;
-      returnLink.textContent = fromBag ? "← Back to Weekly Study Pack" : "← Back to This Week";
+      returnLink.href = "/";
+      returnLink.textContent = "← Back to SUNNYVAiLE";
     }
 
     if (funPackLink) {
@@ -466,5 +467,10 @@
   })();
   </script>
     <script src="content/site/brand-polish.js?v=wm1" defer></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260705-21"></script>
+    <script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260707-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
 </body>
 </html>

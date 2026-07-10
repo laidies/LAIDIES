@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Chick Flicks · LAiDIES · SUNNYVAiLE</title>
+  <meta name="description" content="The Chick Flicks at MAiN Street No. 3 — the town video rental shop where the LAiDIES season lives. Pick up this week's episode. New releases on Wednesday.">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260707-a11y">
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260707-a11y"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260705-2"></script>
+  <style>
+    /* ══════════════════════════════════════════════════════════
+       Chick Flicks — video-rental storefront visual system
+       VHS cases on shelves, neon signage, "BE KIND · REWIND" energy
+       ══════════════════════════════════════════════════════════ */
+
+    /* Store signage strip */
+    .cf-signage {
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+      margin: 12px 0 32px; padding: 14px 22px;
+      background: linear-gradient(180deg, #2a1226 0%, #4b2148 100%);
+      border-radius: 14px; border: 1px solid rgba(212,168,83,0.3);
+      color: #fbe9f1; font-family: 'Jost', sans-serif;
+    }
+    .cf-signage-neon {
+      font-family: 'Playfair Display', Georgia, serif; font-style: italic;
+      font-size: 26px; font-weight: 800; color: #ff6ec7;
+      text-shadow: 0 0 8px rgba(255,110,199,0.7), 0 0 20px rgba(255,110,199,0.4);
+      letter-spacing: 0.06em;
+    }
+    .cf-signage-taglines {
+      display: flex; flex-wrap: wrap; gap: 16px 24px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: rgba(255,253,251,0.82);
+    }
+    .cf-signage-taglines .ai { color: #ffdc8c; }
+
+    /* Shelf sections */
+    .cf-shelf { margin: 44px 0 40px; }
+    .cf-shelf-head { margin-bottom: 22px; }
+    .cf-shelf-eyebrow {
+      margin: 0 0 6px; font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 800; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--rose);
+    }
+    .cf-shelf-title {
+      margin: 0 0 8px; font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(24px, 3.4vw, 34px); font-weight: 700; color: var(--plum);
+      line-height: 1.1;
+    }
+    .cf-shelf-note {
+      margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--plum);
+    }
+    .cf-inline-sticker {
+      display: inline-block; padding: 3px 10px; margin-left: 6px;
+      background: #ff6ec7; color: #fffdfb; border-radius: 4px;
+      font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 800;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      transform: rotate(-3deg);
+      box-shadow: 0 3px 8px rgba(255,110,199,0.4);
+    }
+
+    /* Rental-card text styles (used on the hero shelf card) */
+    .cf-vhs-tape {
+      font-family: 'Jost', sans-serif; font-size: 8.5px; font-weight: 800;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);
+      opacity: 0.82;
+    }
+    .cf-vhs-tape .ai { color: var(--rose); }
+    .cf-vhs-ep {
+      font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 800;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--plum-soft, var(--plum));
+      opacity: 0.72;
+    }
+    .cf-vhs-title {
+      margin: 2px 0 0; font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px; font-weight: 700; color: var(--plum-deep, var(--plum));
+      line-height: 1.15;
+    }
+    .cf-vhs-subtitle {
+      margin: 6px 0 0; font-size: 13.5px; line-height: 1.45;
+      color: var(--plum-soft, var(--plum));
+      font-style: italic; font-family: 'Playfair Display', Georgia, serif;
+    }
+    .cf-vhs-cta {
+      margin-top: 12px; font-family: 'Jost', sans-serif;
+      font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--rose);
+    }
+
+    /* Corner stickers — pinned to the top corner of the box art */
+    .cf-vhs-sticker {
+      position: absolute; top: 50px; right: -4px; z-index: 3;
+      padding: 5px 14px 5px 12px;
+      background: #ff6ec7; color: #fffdfb;
+      font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 800;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      border-radius: 4px;
+      transform: rotate(4deg);
+      box-shadow: 0 4px 10px rgba(255,110,199,0.5);
+    }
+    .cf-vhs-sticker--new { background: linear-gradient(90deg, #ff6ec7, #b95d78); }
+
+    /* Hanging aisle signs — hung big, centered, overlapping the shelf top
+       so they read as ceiling signage in front of the unit */
+    .cf-aisle-sign {
+      display: block; height: clamp(100px, 13vw, 160px); width: auto; max-width: 94%;
+      margin: 0 auto -38px; position: relative; z-index: 6;
+      border-radius: 10px; pointer-events: none;
+      box-shadow: 0 18px 34px rgba(42,18,38,0.4);
+    }
+    .cfs-hidden {
+      position: absolute; width: 1px; height: 1px; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+    }
+
+    /* ══ Shelf furniture — sliced from the shelf kit ══
+       Each 250px background band = kraft backing + shelf board at the
+       bottom; rows of fixed 250px height sit their tapes on the board. */
+    .cfs-wrap {
+      position: relative; border-radius: 14px; overflow: hidden;
+      box-shadow: 0 18px 40px rgba(75,33,72,0.28);
+    }
+    .cfs-wrap::before, .cfs-wrap::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 22px; z-index: 4;
+      background: url('assets/sunnyvaile-interiors/chick-flicks-shelf-parts/upright.webp') top center / 100% 520px repeat-y;
+    }
+    .cfs-wrap::before { left: 0; }
+    .cfs-wrap::after { right: 0; transform: scaleX(-1); }
+    .cfs-crown { height: 20px; background: url('assets/sunnyvaile-interiors/chick-flicks-shelf-parts/crown.webp') center / 100% 100% no-repeat; position: relative; z-index: 3; }
+    .cfs-kick { height: 36px; background: url('assets/sunnyvaile-interiors/chick-flicks-shelf-parts/kick.webp') center / 100% 100% no-repeat; position: relative; z-index: 3; }
+    .cfs-bay {
+      background: url('assets/sunnyvaile-interiors/chick-flicks-shelf-parts/row-tile.webp') top center / 100% 250px repeat-y;
+      padding: 0 30px;
+    }
+
+    /* Face-out shelves — real box art standing on the boards */
+    .cfs-shelf {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      grid-auto-rows: 250px;
+      align-items: end; justify-items: center; column-gap: 10px;
+    }
+    .cfs-slot {
+      position: relative; display: flex; flex-direction: column;
+      align-items: center; justify-content: flex-end;
+      height: 250px; padding-bottom: 20px; text-decoration: none;
+    }
+    .cfs-box {
+      display: block; height: 186px; width: auto;
+      filter: drop-shadow(0 10px 14px rgba(20,6,18,0.45));
+      transition: transform 240ms cubic-bezier(0.2, 0.9, 0.3, 1), filter 240ms ease;
+    }
+    a.cfs-slot:hover .cfs-box {
+      transform: translateY(-8px) rotate(-0.6deg);
+      filter: drop-shadow(0 20px 22px rgba(20,6,18,0.5));
+    }
+    .cfs-tag {
+      position: absolute; bottom: 1px; left: 50%; transform: translateX(-50%);
+      white-space: nowrap; padding: 3px 10px;
+      background: #fffdfb; color: var(--plum);
+      border-radius: 3px; font-family: 'Jost', sans-serif;
+      font-size: 9px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+      box-shadow: 0 2px 6px rgba(20,6,18,0.35);
+    }
+    .cfs-tag .ai { color: var(--rose); }
+    .cfs-tag--soon { color: var(--plum-soft, var(--plum)); background: #f3e3cb; }
+
+    /* Spine-out catalog stock — slots reserved for future episodes */
+    .cfs-shelf--spines { grid-template-columns: repeat(auto-fill, minmax(46px, 1fr)); column-gap: 6px; }
+    .cfs-spine {
+      position: relative; width: 38px; height: 178px; margin-bottom: 20px;
+      border-radius: 3px 3px 2px 2px;
+      background: linear-gradient(180deg, #35172f 0%, #23101f 100%);
+      box-shadow: inset 0 0 0 1px rgba(255,253,251,0.07), 0 8px 10px rgba(20,6,18,0.4);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cfs-spine::before {
+      content: ''; position: absolute; left: 4px; right: 4px; top: 10px; bottom: 10px;
+      border-radius: 2px;
+      background: linear-gradient(180deg, #fbf3e4 0%, #efe0c8 100%);
+      opacity: 0.92;
+    }
+    .cfs-spine span {
+      position: relative; writing-mode: vertical-rl;
+      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 800;
+      letter-spacing: 0.3em; text-transform: uppercase; color: #6b4a63;
+    }
+
+    /* Coming-soon shelf talkers — cardboard standees */
+    .cfs-standee {
+      position: relative; width: 138px; margin-bottom: 20px; flex: 0 0 auto;
+      padding: 13px 13px 12px;
+      background: linear-gradient(180deg, #fbf3e4 0%, #f3e3cb 100%);
+      border-radius: 4px; transform: rotate(-0.8deg);
+      box-shadow: 0 8px 12px rgba(20,6,18,0.28);
+      display: flex; flex-direction: column; gap: 5px; align-items: flex-start;
+    }
+    .cfs-standee-soon {
+      font-family: 'Jost', sans-serif; font-size: 8.5px; font-weight: 800;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose);
+    }
+    .cfs-standee-ep {
+      font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 800;
+      letter-spacing: 0.22em; text-transform: uppercase; color: #6b4a63;
+    }
+    .cfs-standee-title {
+      font-family: 'Playfair Display', Georgia, serif; font-size: 14px; font-weight: 700;
+      line-height: 1.25; color: var(--plum-deep, var(--plum));
+    }
+    .cfs-standee-title .ai { color: var(--rose); }
+
+    /* ══ The store wall — the rendered interior IS the shelf; the real
+       tapes stand inside its empty display bay ══ */
+    .cf-storewall-wrap {
+      width: min(1140px, 96vw);
+      position: relative; left: 50%; transform: translateX(-50%);
+    }
+    .cf-storewall {
+      position: relative; border-radius: 14px; overflow: hidden;
+      box-shadow: 0 24px 52px rgba(42,18,38,0.3);
+    }
+    .cf-storewall > img { display: block; width: 100%; height: auto; }
+    .cf-storewall-bay {
+      position: absolute; left: 9.3%; top: 36.5%; width: 50.9%; height: 31.6%;
+      display: flex; align-items: flex-end; justify-content: center; gap: 2%;
+    }
+    /* Right unit's bay — fills with episodes 06–10 as they release */
+    .cf-storewall-bay--right { left: 62.9%; width: 34.3%; }
+    .cf-storewall-bay--right .cf-bay-slot { width: 25.6%; }
+    .cf-bay-slot {
+      position: relative; width: 17.2%; height: 100%;
+      display: flex; align-items: flex-end; justify-content: center;
+      text-decoration: none;
+    }
+    .cf-bay-slot img {
+      display: block; width: 100%; height: auto;
+      filter: drop-shadow(0 5px 7px rgba(10, 18, 22, 0.5));
+      transition: transform 220ms cubic-bezier(0.2, 0.9, 0.3, 1);
+    }
+    a.cf-bay-slot:hover img { transform: translateY(-6%); }
+    .cf-bay-slot--soon img { opacity: 0.94; }
+    .cf-bay-sticker {
+      position: absolute; top: 6%; right: -5%; z-index: 2;
+      padding: 2px 8px;
+      background: linear-gradient(90deg, #ff6ec7, #b95d78); color: #fffdfb;
+      font-family: 'Jost', sans-serif; font-size: clamp(7px, 0.85vw, 10px); font-weight: 800;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      border-radius: 3px; transform: rotate(4deg);
+      box-shadow: 0 3px 8px rgba(255,110,199,0.5);
+    }
+    .cf-storewall-caption {
+      margin: 16px 0 0; text-align: center;
+      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 800;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--plum-soft, var(--plum));
+    }
+    .cf-storewall-caption a { color: var(--rose); text-decoration: none; }
+    .cf-storewall-caption a:hover { text-decoration: underline; }
+    .cf-storewall-caption .ai { color: var(--rose); }
+    /* Under ~640px the in-photo tapes get too small to tap — swap to a strip */
+    .cf-wall-mobile { display: none; margin-top: 16px; }
+    @media (max-width: 640px) {
+      .cf-storewall-bay { display: none; }
+      .cf-wall-mobile { display: flex; }
+    }
+
+    /* Paper note standing on an emptier shelf */
+    .cfs-note {
+      align-self: flex-end; margin-bottom: 22px;
+      flex: 0 1 auto; min-width: 250px; max-width: 540px;
+      padding: 14px 18px;
+      background: #fffdfb; border-radius: 6px; transform: rotate(-0.5deg);
+      box-shadow: 0 8px 14px rgba(20,6,18,0.22);
+      font-family: 'Playfair Display', Georgia, serif; font-style: italic;
+      font-size: 14px; line-height: 1.5; color: var(--plum);
+    }
+    .cfs-note a { color: var(--rose); font-weight: 600; }
+
+    @media (max-width: 620px) {
+      .cfs-bay { padding: 0 20px; }
+      .cfs-shelf { grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); }
+      .cfs-shelf .cfs-box { height: 150px; }
+    }
+
+    /* Aisle browser — episodes shelved by topic */
+    .cf-aisles { display: flex; flex-direction: column; gap: 52px; margin-top: 6px; }
+    .cf-aisle { padding: 0; border: 0; background: none; }
+    .cf-aisle-head {
+      display: flex; align-items: baseline; justify-content: space-between;
+      flex-wrap: wrap; gap: 10px; margin-bottom: 14px;
+    }
+    .cf-aisle-head-copy { max-width: 640px; }
+    .cf-aisle-num {
+      margin: 0; font-family: 'Jost', sans-serif; font-size: 11.5px; font-weight: 800;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose);
+    }
+    .cf-aisle-num .ai { color: var(--rose); }
+    .cf-aisle-blurb {
+      margin: 4px 0 0; font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic; font-size: 14.5px; color: var(--plum-soft, var(--plum));
+    }
+    .cf-aisle-count {
+      font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 800;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--plum);
+      padding: 5px 10px; border-radius: 999px;
+      background: rgba(212,168,83,0.18); border: 1px solid rgba(212,168,83,0.42);
+      white-space: nowrap;
+    }
+    /* Aisle strip = one shelf row you can scroll along */
+    .cf-aisle-strip {
+      display: flex; gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x proximity;
+      align-items: flex-end;
+      height: 250px; padding: 0 18px;
+      background: url('assets/sunnyvaile-interiors/chick-flicks-shelf-parts/row-tile.webp') left top / auto 250px repeat-x;
+      border-radius: 8px;
+      box-shadow: inset 0 0 0 1px rgba(75,33,72,0.16), inset 0 -8px 20px rgba(75,33,72,0.1);
+      -webkit-overflow-scrolling: touch;
+    }
+    .cf-aisle-strip::-webkit-scrollbar { height: 6px; }
+    .cf-aisle-strip::-webkit-scrollbar-thumb { background: rgba(155,63,95,0.28); border-radius: 3px; }
+    .cf-aisle-strip .cfs-slot { flex: 0 0 auto; scroll-snap-align: start; }
+    .cf-aisle-strip .cfs-box { height: 170px; }
+
+    /* House rules band */
+    .cf-rules {
+      margin: 48px 0 32px; padding: 32px 32px 28px;
+      border-radius: 14px;
+      background: linear-gradient(155deg, rgba(232,197,200,0.28) 0%, rgba(255,253,251,0.6) 100%);
+      border: 1.5px dashed rgba(155,63,95,0.42);
+    }
+    .cf-rules-eyebrow {
+      margin: 0 0 6px; font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 800; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--rose);
+    }
+    .cf-rules-title {
+      margin: 0 0 12px; font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(22px, 3vw, 30px); font-weight: 700; color: var(--plum);
+    }
+    .cf-rules-lede {
+      margin: 0 0 18px; font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic; font-size: 15px; color: var(--plum-soft, var(--plum)); line-height: 1.55;
+    }
+    .cf-rules-list { margin: 0; padding-left: 22px; list-style: '★  '; }
+    .cf-rules-list li {
+      margin-bottom: 10px; font-size: 15px; line-height: 1.55; color: var(--plum);
+      padding-left: 4px;
+    }
+    .cf-rules-list li::marker { color: var(--rose); }
+    .cf-rules-list a { color: var(--rose); font-weight: 600; }
+    .cf-rules-list strong { color: var(--plum-deep, var(--plum)); }
+  </style>
+</head>
+<body>
+
+  <header class="sv-header">
+    <a class="brand" href="/">LAiDIES</a>
+    <nav>
+      <a href="/issues/issue-04.html">This Week</a>
+      <a href="/chick-flicks.html" style="color: var(--rose);">Chick Flicks</a>
+      <a href="/library.html">LIBRAiRY</a>
+      <a href="/mall.html">The Mall</a>
+      <a href="/sorority-house.html">Sorority House</a>
+      <a href="/clubhouse-pass.html" class="sv-signin" style="color: var(--rose); font-weight: 600; border: 1.5px solid var(--rose); padding: 6px 14px; border-radius: 999px;">✉︎ Sign In</a>
+    </nav>
+  </header>
+
+  <div class="sv-hero"><img src="assets/building-interiors/chick-flicks-store.jpg?v=20260708" alt="Inside Chick Flicks — a Blockbuster-style video store with teal shelves of chick-flick covers, a checkerboard floor, a NEW RELEASES ON WEDNESDAY sign and a VHS return drop, the SUNNYVAiLE street through the window" loading="eager"></div>
+
+  <main>
+
+    <div class="sv-eyebrow">
+      <span class="sv-eyebrow-label">★ MAiN Street · No. 3 · SUNNYVAiLE</span>
+    </div>
+
+    <h1>The Chick <span class="ai">Flicks</span>.</h1>
+
+    <p class="sv-lede">
+      The town video rental shop. Pick up this week's episode from the New Releases wall, browse the back catalog on Aisle 1, or wander the genre aisles further in. Late fees apply &mdash; but we're not actually charging you. The joke is the joke.
+    </p>
+
+    <!-- Store signage strip — sets the video-rental register right after the h1 -->
+    <div class="cf-signage" aria-hidden="true">
+      <span class="cf-signage-neon">OPEN</span>
+      <span class="cf-signage-taglines">
+        <span>★ SUNNYV<span class="ai">Ai</span>LE HOME VIDEO</span>
+        <span>★ 24 hrs · 7 days · except Wednesdays 8&ndash;9 PM (Live at BRONZE <span class="ai">Ai</span>GE)</span>
+        <span>★ BE KIND · PLEASE · REWIND</span>
+      </span>
+    </div>
+
+    <!-- ═════════════════════════════════════════════════════════════
+         THE STORE WALL — the rendered rental wall, with the season's
+         real tapes standing in its empty display bay
+         ═════════════════════════════════════════════════════════════ -->
+    <section class="cf-shelf cf-shelf--wall" aria-labelledby="cf-new-title">
+      <h2 class="cf-shelf-title cfs-hidden" id="cf-new-title">The rental wall &mdash; Season 1 tapes</h2>
+      <div class="cf-storewall-wrap">
+        <div class="cf-storewall">
+          <img src="assets/sunnyvaile-interiors/chick-flicks-new-releases-empty-middle.webp" alt="Inside The Chick Flicks — the New Releases wall" width="1672" height="941">
+          <div class="cf-storewall-bay">
+            <a class="cf-bay-slot" href="/issues/issue-01.html" aria-label="Episode 01 — On Wednesdays We Use Ai. Take it home.">
+              <img src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-01.webp" alt="" width="554" height="720">
+            </a>
+            <a class="cf-bay-slot" href="/issues/issue-02.html" aria-label="Episode 02 — Tell Me What You Want. Take it home.">
+              <img src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-02.webp" alt="" width="554" height="720">
+            </a>
+            <a class="cf-bay-slot" href="/issues/issue-03.html" aria-label="Episode 03 — The Burn Book Problem. Take it home.">
+              <img src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-03.webp" alt="" width="554" height="720">
+            </a>
+            <a class="cf-bay-slot" href="/issues/issue-04.html" aria-label="Episode 04 — Every SLAiYER Needs a Watcher. New this week. Take it home.">
+              <span class="cf-bay-sticker">★ NEW</span>
+              <img src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-04.webp" alt="" width="554" height="720">
+            </a>
+            <div class="cf-bay-slot cf-bay-slot--soon" aria-label="Episode 05 — Welcome to SUNNYVAiLE. Coming soon.">
+              <img src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-05.webp" alt="" width="554" height="720">
+            </div>
+          </div>
+          <!-- Right bay — episodes 06–10 stand here as they release -->
+          <div class="cf-storewall-bay cf-storewall-bay--right"></div>
+        </div>
+        <p class="cf-storewall-caption">★ New this Wednesday &mdash; <a href="/issues/issue-04.html">EP 04 · Every SL<span class="ai">Ai</span>YER Needs a Watcher · ▶ Take it home</a></p>
+        <div class="cf-aisle-strip cf-wall-mobile">
+          <a class="cfs-slot" href="/issues/issue-01.html">
+            <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-01.webp" alt="Episode 01 VHS box — On Wednesdays We Use Ai" width="554" height="720" loading="lazy">
+            <span class="cfs-tag">EP 01 · Take home</span>
+          </a>
+          <a class="cfs-slot" href="/issues/issue-02.html">
+            <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-02.webp" alt="Episode 02 VHS box — Tell Me What You Want" width="554" height="720" loading="lazy">
+            <span class="cfs-tag">EP 02 · Take home</span>
+          </a>
+          <a class="cfs-slot" href="/issues/issue-03.html">
+            <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-03.webp" alt="Episode 03 VHS box — The Burn Book Problem" width="554" height="720" loading="lazy">
+            <span class="cfs-tag">EP 03 · Take home</span>
+          </a>
+          <a class="cfs-slot" href="/issues/issue-04.html">
+            <span class="cf-vhs-sticker cf-vhs-sticker--new">★ NEW</span>
+            <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-04.webp" alt="Episode 04 VHS box — Every SLAiYER Needs a Watcher" width="554" height="720" loading="lazy">
+            <span class="cfs-tag">EP 04 · Take home</span>
+          </a>
+          <div class="cfs-slot" aria-label="Episode 05 — Welcome to SUNNYVAiLE, coming soon">
+            <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-05.webp" alt="Episode 05 VHS box — Welcome to SUNNYVAiLE" width="554" height="720" loading="lazy">
+            <span class="cfs-tag cfs-tag--soon">EP 05 · Coming soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════════════
+         AISLE 1 — the full Season 1 shelf (24 slots)
+         ═════════════════════════════════════════════════════════════ -->
+    <section class="cf-shelf cf-shelf--catalog" aria-labelledby="cf-catalog-title">
+      <div class="cf-shelf-head">
+        <h2 class="cf-shelf-title cfs-hidden" id="cf-catalog-title">Season 1 · The Back Stock</h2>
+        <p class="cf-shelf-note">The season runs 24 episodes. Released tapes live on the wall above &mdash; the rest of the stock waits spine-out, labeled and ready.</p>
+      </div>
+
+      <img class="cf-aisle-sign" src="assets/sunnyvaile-interiors/chick-flicks-aisle-signs/aisle-1-season-1.webp" alt="Aisle 1 — Season 1" width="960" height="480">
+      <div class="cfs-wrap">
+        <div class="cfs-crown"></div>
+        <div class="cfs-bay">
+          <!-- Episodes 6–24 wait spine-out until they're shot -->
+          <div class="cfs-shelf cfs-shelf--spines" role="list" aria-label="Slots reserved for episodes 6 through 24">
+            <div class="cfs-spine" role="listitem"><span>EP 06</span></div>
+            <div class="cfs-spine" role="listitem"><span>EP 07</span></div>
+            <div class="cfs-spine" role="listitem"><span>EP 08</span></div>
+            <div class="cfs-spine" role="listitem"><span>EP 09</span></div>
+            <div class="cfs-spine" role="listitem"><span>EP 10</span></div>
+            <div class="cfs-spine" role="listitem"><span>EP 11</span></div>
+            <div class="cfs-spine" role="listitem"><span>EP 12</span></div>
+            <div class="cfs-spine" role="listitem"><span>EP 13</span></div>
+            <div class="cfs-spine" role="listitem"><span>EP 14</span></div>
+            <div class="cfs-spine" role="listitem"><span>EP 15</span></div>
+            <div class="cfs-spine" role="listitem"><span>EP 16</span></div>
+            <div class="cfs-spine" role="listitem"><span>EP 17</span></div>
+            <div class="cfs-spine" role="listitem"><span>EP 18</span></div>
+            <div class="cfs-spine" role="listitem"><span>EP 19</span></div>
+            <div class="cfs-spine" role="listitem"><span>EP 20</span></div>
+            <div class="cfs-spine" role="listitem"><span>EP 21</span></div>
+            <div class="cfs-spine" role="listitem"><span>EP 22</span></div>
+            <div class="cfs-spine" role="listitem"><span>EP 23</span></div>
+            <div class="cfs-spine" role="listitem"><span>EP 24</span></div>
+          </div>
+        </div>
+        <div class="cfs-kick"></div>
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════════════
+         Browse by Aisle — episodes shelved by topic (Aisles 2–7)
+         ═════════════════════════════════════════════════════════════ -->
+    <section class="cf-shelf cf-shelf--aisles" aria-labelledby="cf-aisles-title">
+      <div class="cf-shelf-head">
+        <p class="cf-shelf-eyebrow">◆ Aisles 2 – 7</p>
+        <h2 class="cf-shelf-title" id="cf-aisles-title">Browse by Aisle</h2>
+        <p class="cf-shelf-note">Every tape shelved by topic. One episode can sit on more than one shelf &mdash; that's how video stores work. Some aisles are quiet for now; they fill up as episodes drop.</p>
+      </div>
+
+      <div class="cf-aisles">
+
+        <!-- Aisle 2 · Prompting -->
+        <div class="cf-aisle" id="aisle-prompting">
+          <div class="cf-aisle-head">
+            <div class="cf-aisle-head-copy">
+              <p class="cf-aisle-blurb">How to talk to <span class="ai">Ai</span> so it actually gets you.</p>
+            </div>
+            <span class="cf-aisle-count">6 tapes · 3 on shelf</span>
+          </div>
+          <img class="cf-aisle-sign" src="assets/sunnyvaile-interiors/chick-flicks-aisle-signs/aisle-2-prompting.webp" alt="Aisle 2 — Prompting" width="960" height="480" loading="lazy">
+          <div class="cf-aisle-strip">
+            <a class="cfs-slot" href="/issues/issue-01.html">
+              <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-01.webp" alt="Episode 01 VHS box — On Wednesdays We Use Ai" width="554" height="720" loading="lazy">
+              <span class="cfs-tag">EP 01 · Take home</span>
+            </a>
+            <a class="cfs-slot" href="/issues/issue-02.html">
+              <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-02.webp" alt="Episode 02 VHS box — Tell Me What You Want" width="554" height="720" loading="lazy">
+              <span class="cfs-tag">EP 02 · Take home</span>
+            </a>
+            <a class="cfs-slot" href="/issues/issue-04.html">
+              <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-04.webp" alt="Episode 04 VHS box — Every SLAiYER Needs a Watcher" width="554" height="720" loading="lazy">
+              <span class="cfs-tag">EP 04 · Take home</span>
+            </a>
+            <div class="cfs-standee" aria-label="Episode 08 · coming later this season">
+              <span class="cfs-standee-soon">Coming soon</span>
+              <span class="cfs-standee-ep">EP 08</span>
+              <span class="cfs-standee-title">Cher's Closet Needs Context</span>
+            </div>
+            <div class="cfs-standee" aria-label="Episode 16 · coming later this season">
+              <span class="cfs-standee-soon">Coming soon</span>
+              <span class="cfs-standee-ep">EP 16</span>
+              <span class="cfs-standee-title">Caboodles for Your Workflows</span>
+            </div>
+            <div class="cfs-standee" aria-label="Episode 22 · coming later this season">
+              <span class="cfs-standee-soon">Coming soon</span>
+              <span class="cfs-standee-ep">EP 22</span>
+              <span class="cfs-standee-title">Bring It On, But With Briefs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aisle 3 · Style & Voice -->
+        <div class="cf-aisle" id="aisle-style-voice">
+          <div class="cf-aisle-head">
+            <div class="cf-aisle-head-copy">
+              <p class="cf-aisle-blurb">Writing with <span class="ai">Ai</span> without losing yours.</p>
+            </div>
+            <span class="cf-aisle-count">5 tapes · 2 on shelf</span>
+          </div>
+          <img class="cf-aisle-sign" src="assets/sunnyvaile-interiors/chick-flicks-aisle-signs/aisle-3-style-and-voice.webp" alt="Aisle 3 — Style &amp; Voice" width="960" height="480" loading="lazy">
+          <div class="cf-aisle-strip">
+            <a class="cfs-slot" href="/issues/issue-02.html">
+              <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-02.webp" alt="Episode 02 VHS box — Tell Me What You Want" width="554" height="720" loading="lazy">
+              <span class="cfs-tag">EP 02 · Take home</span>
+            </a>
+            <a class="cfs-slot" href="/issues/issue-03.html">
+              <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-03.webp" alt="Episode 03 VHS box — The Burn Book Problem" width="554" height="720" loading="lazy">
+              <span class="cfs-tag">EP 03 · Take home</span>
+            </a>
+            <div class="cfs-standee" aria-label="Episode 09 · coming later this season">
+              <span class="cfs-standee-soon">Coming soon</span>
+              <span class="cfs-standee-ep">EP 09</span>
+              <span class="cfs-standee-title">The <span class="ai">Ai</span>M Away Message Glow-Up</span>
+            </div>
+            <div class="cfs-standee" aria-label="Episode 15 · coming later this season">
+              <span class="cfs-standee-soon">Coming soon</span>
+              <span class="cfs-standee-ep">EP 15</span>
+              <span class="cfs-standee-title">No Doubt, That's Your Voice</span>
+            </div>
+            <div class="cfs-standee" aria-label="Episode 17 · coming later this season">
+              <span class="cfs-standee-soon">Coming soon</span>
+              <span class="cfs-standee-ep">EP 17</span>
+              <span class="cfs-standee-title">The Cerulean Business Case</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aisle 4 · Everyday Use -->
+        <div class="cf-aisle" id="aisle-everyday">
+          <div class="cf-aisle-head">
+            <div class="cf-aisle-head-copy">
+              <p class="cf-aisle-blurb">Practical rituals &mdash; the stuff you'll do on a Wednesday.</p>
+            </div>
+            <span class="cf-aisle-count">7 tapes · 2 on shelf</span>
+          </div>
+          <img class="cf-aisle-sign" src="assets/sunnyvaile-interiors/chick-flicks-aisle-signs/aisle-4-everyday-use.webp" alt="Aisle 4 — Everyday Use" width="960" height="480" loading="lazy">
+          <div class="cf-aisle-strip">
+            <a class="cfs-slot" href="/issues/issue-01.html">
+              <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-01.webp" alt="Episode 01 VHS box — On Wednesdays We Use Ai" width="554" height="720" loading="lazy">
+              <span class="cfs-tag">EP 01 · Take home</span>
+            </a>
+            <a class="cfs-slot" href="/issues/issue-04.html">
+              <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-04.webp" alt="Episode 04 VHS box — Every SLAiYER Needs a Watcher" width="554" height="720" loading="lazy">
+              <span class="cfs-tag">EP 04 · Take home</span>
+            </a>
+            <div class="cfs-slot" aria-label="Episode 05 — Welcome to SUNNYVAiLE, coming soon">
+              <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-05.webp" alt="Episode 05 VHS box — Welcome to SUNNYVAiLE" width="554" height="720" loading="lazy">
+              <span class="cfs-tag cfs-tag--soon">EP 05 · Coming soon</span>
+            </div>
+            <div class="cfs-standee" aria-label="Episode 07 · coming later this season">
+              <span class="cfs-standee-soon">Coming soon</span>
+              <span class="cfs-standee-ep">EP 07</span>
+              <span class="cfs-standee-title">9 to 5, But Delegate It</span>
+            </div>
+            <div class="cfs-standee" aria-label="Episode 10 · coming later this season">
+              <span class="cfs-standee-soon">Coming soon</span>
+              <span class="cfs-standee-ep">EP 10</span>
+              <span class="cfs-standee-title">The Devil Wears Agenda</span>
+            </div>
+            <div class="cfs-standee" aria-label="Episode 13 · coming later this season">
+              <span class="cfs-standee-soon">Coming soon</span>
+              <span class="cfs-standee-ep">EP 13</span>
+              <span class="cfs-standee-title">Is the Upgrade Giving VIP?</span>
+            </div>
+            <div class="cfs-standee" aria-label="Episode 24 · season finale">
+              <span class="cfs-standee-soon">Season finale</span>
+              <span class="cfs-standee-ep">EP 24</span>
+              <span class="cfs-standee-title">The Businesswomen's Special</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aisle 5 · Ethics -->
+        <div class="cf-aisle" id="aisle-ethics">
+          <div class="cf-aisle-head">
+            <div class="cf-aisle-head-copy">
+              <p class="cf-aisle-blurb">Bias, harm, and the should-you-vs-can-you questions.</p>
+            </div>
+            <span class="cf-aisle-count">5 tapes · 1 on shelf</span>
+          </div>
+          <img class="cf-aisle-sign" src="assets/sunnyvaile-interiors/chick-flicks-aisle-signs/aisle-5-ethics.webp" alt="Aisle 5 — Ethics" width="960" height="480" loading="lazy">
+          <div class="cf-aisle-strip">
+            <a class="cfs-slot" href="/issues/issue-03.html">
+              <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-03.webp" alt="Episode 03 VHS box — The Burn Book Problem" width="554" height="720" loading="lazy">
+              <span class="cfs-tag">EP 03 · Take home</span>
+            </a>
+            <div class="cfs-standee" aria-label="Episode 11 · coming later this season">
+              <span class="cfs-standee-soon">Coming soon</span>
+              <span class="cfs-standee-ep">EP 11</span>
+              <span class="cfs-standee-title">No Scrubs, No Sensitive Data</span>
+            </div>
+            <div class="cfs-standee" aria-label="Episode 12 · coming later this season">
+              <span class="cfs-standee-soon">Coming soon</span>
+              <span class="cfs-standee-ep">EP 12</span>
+              <span class="cfs-standee-title">That Don't Impress Me Much</span>
+            </div>
+            <div class="cfs-standee" aria-label="Episode 18 · coming later this season">
+              <span class="cfs-standee-soon">Coming soon</span>
+              <span class="cfs-standee-ep">EP 18</span>
+              <span class="cfs-standee-title">Receipts, Please</span>
+            </div>
+            <div class="cfs-standee" aria-label="Episode 23 · coming later this season">
+              <span class="cfs-standee-soon">Coming soon</span>
+              <span class="cfs-standee-ep">EP 23</span>
+              <span class="cfs-standee-title">The Golden Girls at the Grown-Up Table</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aisle 6 · History -->
+        <div class="cf-aisle" id="aisle-history">
+          <div class="cf-aisle-head">
+            <div class="cf-aisle-head-copy">
+              <p class="cf-aisle-blurb">Where <span class="ai">Ai</span> came from and the women who built it.</p>
+            </div>
+            <span class="cf-aisle-count">Empty shelf</span>
+          </div>
+          <img class="cf-aisle-sign" src="assets/sunnyvaile-interiors/chick-flicks-aisle-signs/aisle-6-history.webp" alt="Aisle 6 — History" width="960" height="480" loading="lazy">
+          <div class="cf-aisle-strip">
+          </div>
+        </div>
+
+        <!-- Aisle 7 · Creative -->
+        <div class="cf-aisle" id="aisle-creative">
+          <div class="cf-aisle-head">
+            <div class="cf-aisle-head-copy">
+              <p class="cf-aisle-blurb">Making things &mdash; images, music, writing.</p>
+            </div>
+            <span class="cf-aisle-count">2 tapes · 0 on shelf</span>
+          </div>
+          <img class="cf-aisle-sign" src="assets/sunnyvaile-interiors/chick-flicks-aisle-signs/aisle-7-creative.webp" alt="Aisle 7 — Creative" width="960" height="480" loading="lazy">
+          <div class="cf-aisle-strip">
+            <div class="cfs-standee" aria-label="Episode 14 · coming later this season">
+              <span class="cfs-standee-soon">Coming soon</span>
+              <span class="cfs-standee-ep">EP 14</span>
+              <span class="cfs-standee-title">The Clueless Closet Was Multimodal</span>
+            </div>
+            <div class="cfs-standee" aria-label="Episode 20 · coming later this season">
+              <span class="cfs-standee-soon">Coming soon</span>
+              <span class="cfs-standee-ep">EP 20</span>
+              <span class="cfs-standee-title">Meet Miranda</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════════════
+         How rental works — moved below the shelves (context after browsing)
+         ═════════════════════════════════════════════════════════════ -->
+    <section class="cf-rules">
+      <p class="cf-rules-eyebrow">◆ House rules · Chick Flicks Video · est. 1999</p>
+      <h2 class="cf-rules-title">How rental works.</h2>
+      <p class="cf-rules-lede">The Chick Flicks is a video store &mdash; but nothing's actually rented, nothing's ever due back, and no one's going to lecture you about the late fee.</p>
+      <ul class="cf-rules-list">
+        <li><strong>New releases</strong> drop every Wednesday on the front wall.</li>
+        <li><strong>The back catalog</strong> is open whenever &mdash; no late fees.</li>
+        <li><strong>The Study Pack</strong> for each episode lives next door at <a href="/blend-snap.html">The Blend &amp; Snap</a> &mdash; grab one before the Pop Quiz at <a href="/sunnyvaile-high.html">SUNNYV<span class="ai">Ai</span>LE High</a>.</li>
+        <li><strong>The Wednesday Postcard</strong> sends new releases straight to your inbox if you'd rather not walk over &mdash; sign up at <a href="/post-office.html">the L<span class="ai">Ai</span>DIES Post Office</a>.</li>
+        <li><strong>Be kind. Please. Rewind.</strong> Even though it's streaming. It's the principle.</li>
+      </ul>
+    </section>
+
+    <div class="sv-ctas">
+      <a class="sv-cta sv-cta--primary" href="/issues/issue-04.html">
+        <span>
+          <span class="sv-cta-label">Watch this week</span>
+          <span class="sv-cta-title">Episode 04 &mdash; Every SL<span class="ai">Ai</span>YER Needs a Watcher &rarr;</span>
+        </span>
+        <span class="sv-cta-arrow">&rarr;</span>
+      </a>
+      <a class="sv-cta" href="/watch.html?ep=01">
+        <span>
+          <span class="sv-cta-label">The Screening Room · new</span>
+          <span class="sv-cta-title">Play Episode 01 &mdash; narrated &amp; synced</span>
+        </span>
+        <span class="sv-cta-arrow">&rarr;</span>
+      </a>
+      <a class="sv-cta" href="/post-office.html">
+        <span>
+          <span class="sv-cta-label">Prefer delivery?</span>
+          <span class="sv-cta-title">Wednesday Postcard via the Post Office</span>
+        </span>
+        <span class="sv-cta-arrow">&rarr;</span>
+      </a>
+    </div>
+
+    <div style="margin: 30px 0 0;">
+      <p style="margin: 0 0 2px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose, #9b3f5f);">★ First time at the Chick Flicks?</p>
+      <p style="margin: 0 0 4px; font-size: 14px; color: var(--plum-soft, #6b4668);">Roll the Trailer before you rent — it's the whole town in one listen.</p>
+      <div data-sv-trailer-player></div>
+    </div>
+
+  </main>
+
+  <footer>© LAiDIES · Filed from SUNNYVAiLE · The Chick Flicks · MAiN Street No. 3</footer>
+
+  <script defer src="/content/site/sv-tour-checkin.js?v=20260702-2"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260705-21"></script>
+    <script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
+    <script defer src="/content/site/charm-hunt.js?v=20260705-dusk"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260707-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
+<script defer src="/content/site/sv-trailer-player.js?v=20260707-1"></script>
+</body>
+</html>

@@ -85,6 +85,8 @@
       .back-nav a:hover { opacity: 0.72; }
 
       .page-container { max-width: 940px; width: 100%; margin: 0 auto; padding: clamp(28px, 5vw, 52px) 22px 88px; }
+      /* When Just Call is open, the whole workspace widens so the phone + directory don't cramp */
+      body.dp-justcall-open .page-container { max-width: 1120px; }
 
       /* ── Hero ── */
       .hero { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 28px 0 30px; gap: 18px; }
@@ -340,12 +342,13 @@
         box-shadow: 0 20px 40px -14px var(--shadow);
         max-height: calc(100vh - 116px);   /* stays fully below the nav, never taller than the viewport */
       }
-      .jc-inst-phone { flex: 0 0 auto; width: min(400px, 40vw); display: flex; flex-direction: column; align-items: center; }
+      .jc-inst-phone { flex: 0 0 auto; width: min(580px, 52vw); display: flex; flex-direction: column; align-items: center; }
       .jc-inst-side { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
-      .jc-directory { position: relative; z-index: 1; padding-top: 6px; max-width: 940px; margin-inline: auto; }   /* scrolls beneath the header; centered so the cards fill the space with no right-side gap */
-      .jc-directory .caller-avatar { width: 104px; height: 104px; }
-      .jc-directory .caller-name { font-size: 1rem; }
-      .jc-directory .caller-number { font-size: 0.82rem; }
+      .jc-directory { position: relative; z-index: 1; padding-top: 6px; max-width: 1080px; margin-inline: auto; }   /* scrolls beneath the header; wider than the page-container so cards can breathe */
+      .jc-directory .caller-card { padding: 20px 14px; gap: 12px; }
+      .jc-directory .caller-avatar { width: 128px; height: 128px; border-width: 3px; }
+      .jc-directory .caller-name { font-size: 1.1rem; font-weight: 600; line-height: 1.15; }
+      .jc-directory .caller-number { font-size: 0.9rem; letter-spacing: 0.04em; }
 
       /* output hierarchy + payoff motion: the call result lands like an answer arriving */
       #dreamPhoneOutput.output-area { white-space: normal; }
@@ -359,7 +362,7 @@
       @media (max-width: 880px) {
         /* mobile/tablet: SINGLE column, STICKY. RULE: phone + dial box + a row of caller cards must all be visible without scrolling — so before a call the output AND remix are hidden, keeping the sticky header short. They appear only once a call populates the screen. */
         .jc-instrument { position: sticky; top: 92px; z-index: 6; flex-direction: column; gap: 4px; padding: 10px 14px 12px; margin-bottom: 14px; max-height: calc(100vh - 104px); }
-        .jc-inst-phone { width: 100%; max-width: 300px; margin: 0 auto; flex: 0 0 auto; }
+        .jc-inst-phone { width: 100%; max-width: 360px; margin: 0 auto; flex: 0 0 auto; }
         /* The phone PNG carries ~17% transparent space on top and ~21% on the bottom. Pull surrounding content INTO those dead zones with negative margins (image box unchanged, so the keypad hit-zones stay aligned) to reclaim the wasted real estate. Tight top crop frees room for the remix row after a call. */
         .jc-inst-phone .dp-phone-wrap { margin-top: -19%; margin-bottom: -25%; }
         .jc-inst-phone .dp-dial { margin-top: 2px; }
@@ -407,24 +410,55 @@
       .secret-badge strong { display: block; color: var(--plum); margin-bottom: 2px; }
       .secret-badge em { font-size: 0.82rem; color: var(--muted); font-style: normal; }
 
-      /* ── Merit-badge unlock toast → on-brand re-skin (page-scoped; the global default is off-brand #1a1a1a + hot-pink). Pearl-Plum card topped with the rose gem-heart signet as the medal. `body` prefix beats the JS-injected style. ── */
+      /* ── Merit-badge unlock toast → on-brand celebration. Pearl-Plum card topped with the rose gem-heart signet as the medal, plus a gold shimmer sweep + medallion pop-in the moment the badge lands. `body` prefix beats the JS-injected style. ── */
       body .badge-toast {
         background: linear-gradient(180deg, #fffefc 0%, #fbe9f1 100%);
-        border: 1px solid var(--card-edge);
+        border: 1px solid var(--gold);
         color: var(--plum);
         border-radius: 18px;
-        padding: 46px 26px 18px;
-        box-shadow: 0 24px 54px -14px var(--shadow-strong);
+        padding: 52px 28px 20px;
+        box-shadow: 0 24px 54px -14px var(--shadow-strong), 0 0 32px var(--gold-soft);
+        position: relative; overflow: hidden;
+        animation: dp-badge-in 0.55s cubic-bezier(0.2, 1.4, 0.4, 1) both;
       }
       body .badge-toast::before {
         content: "";
-        position: absolute; top: -28px; left: 50%; transform: translateX(-50%);
-        width: 62px; height: 62px;
+        position: absolute; top: -32px; left: 50%; transform: translateX(-50%) scale(0);
+        width: 72px; height: 72px;
         background: url("../assets/brand/laidies-signet-final-rose.svg") center / contain no-repeat;
-        filter: drop-shadow(0 8px 16px var(--shadow-strong));
+        filter: drop-shadow(0 8px 20px var(--shadow-strong));
+        animation: dp-medal-pop 0.85s cubic-bezier(0.2, 1.6, 0.4, 1) 0.18s both, dp-medal-glow 2.6s ease-in-out 1s infinite;
       }
-      body .badge-toast strong { color: var(--rose); font-size: 1rem; }
+      body .badge-toast::after {
+        content: "";
+        position: absolute; inset: 0; pointer-events: none;
+        background: linear-gradient(115deg, transparent 30%, rgba(255, 220, 140, 0.55) 48%, rgba(255, 255, 255, 0.85) 50%, rgba(255, 220, 140, 0.55) 52%, transparent 70%);
+        transform: translateX(-120%);
+        animation: dp-badge-shimmer 1.4s ease-out 0.4s 1;
+      }
+      body .badge-toast strong { color: var(--rose); font-size: 1.05rem; font-weight: 700; letter-spacing: 0.02em; }
       body .badge-toast .badge-toast-sticker { display: none; }   /* the signet IS the badge — drop the text chip */
+      @keyframes dp-badge-in {
+        0%   { opacity: 0; transform: translateY(24px) scale(0.94); }
+        100% { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      @keyframes dp-medal-pop {
+        0%   { transform: translateX(-50%) scale(0) rotate(-25deg); }
+        60%  { transform: translateX(-50%) scale(1.18) rotate(6deg); }
+        100% { transform: translateX(-50%) scale(1) rotate(0); }
+      }
+      @keyframes dp-medal-glow {
+        0%, 100% { filter: drop-shadow(0 8px 20px var(--shadow-strong)) drop-shadow(0 0 6px var(--gold-soft)); }
+        50%      { filter: drop-shadow(0 8px 20px var(--shadow-strong)) drop-shadow(0 0 18px var(--gold)); }
+      }
+      @keyframes dp-badge-shimmer {
+        0%   { transform: translateX(-120%); }
+        100% { transform: translateX(120%); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        body .badge-toast, body .badge-toast::before, body .badge-toast::after { animation: none; }
+        body .badge-toast::before { transform: translateX(-50%) scale(1); }
+      }
 
       .callers-section h2, .jc-specials-label { text-align: center; }
       .callers-section h2 { font-size: 1.2rem; font-weight: 600; margin-bottom: 18px; color: var(--muted); }
@@ -436,7 +470,7 @@
 
       /* ===== Image dialer (phone photo + % hit-zones; scales as one unit) — the instrument that anchors the console ===== */
       .dp-phone-wrap { display: flex; flex-direction: column; align-items: center; margin: 0 auto 12px; flex: 0 0 auto; width: 100%; position: relative; }
-      .dp-phone { position: relative; width: min(380px, 100%); margin: 0 auto; container-type: inline-size; }
+      .dp-phone { position: relative; width: min(560px, 100%); margin: 0 auto; container-type: inline-size; }
       .dp-phone-img { display: block; width: 100%; height: auto; user-select: none; -webkit-user-drag: none; pointer-events: none; filter: drop-shadow(0 8px 18px var(--shadow)); }
       .dp-key, .dp-zone { position: absolute; padding: 0; margin: 0; border: none; background: transparent; cursor: pointer; border-radius: 50%; -webkit-tap-highlight-color: transparent; }
       .dp-key { width: 7.8%; height: 5.3%; }
@@ -554,32 +588,49 @@
     </style>
       <link rel="stylesheet" href="../content/site/mini-player.css">
       <link rel="stylesheet" href="../content/site/laidies-bg.css">
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260707-a11y"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260705-2"></script>
 </head>
   <body>
     <!-- Site-wide light animated background: twinkle stars + drifting glitter (same component the rest of the site uses) -->
     <div class="laidies-bg laidies-bg--light" aria-hidden="true"></div>
     <!-- Sticky Back Nav -->
-    <header class="back-nav">
-      <a class="brand" href="../index.html" aria-label="LAiDIES home">
-        <img src="../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
-      </a>
-      <nav class="nav-links" aria-label="Dream Phone navigation">
-        <a href="../clubhouse.html" data-weekly-return-link>&larr; Clubhouse</a>
-        <a href="../issues/issue-03.html">LATEST</a>
-        <a href="../hot-goss.html">THE BOOK</a>
-        <a href="../community.html">JOIN</a>
-      </nav>
-    </header>
+    <header class="sv-header">
+    <a class="brand" href="/">LAiDIES</a>
+    <nav>
+      <a href="/">This Week</a>
+      <a href="/chick-flicks.html">Episodes</a>
+      <a href="/library.html">LIBRAiRY</a>
+      <a href="/radio.html">KSVL</a>
+      <a href="/sorority-house.html">Sorority House</a>
+      <a href="/clubhouse-pass.html" class="sv-signin" style="color: #9b3f5f; font-weight: 600; border: 1.5px solid #9b3f5f; padding: 6px 14px; border-radius: 999px; text-decoration: none;">✉︎ Sign In</a>
+    </nav>
+  </header>
+
+    <div style="width:100%; display:block; background:#f8eef2;">
+      <img src="../assets/sunnyvaile-buildings/y2k-v3/17-dream-phone-booth.webp?v=20260705-final" alt="The Phone Booth just outside The Mall on MAiN Street in SUNNYVAiLE" style="width:100%; height:auto; display:block;" loading="eager" />
+    </div>
 
     <div class="page-container">
       <!-- Hero -->
       <section class="hero">
-        <div class="hero-image-wrap">
-          <img src="../assets/portal/y2k-dream-phone-hero-v8.png" alt="The LAiDIES Dream Phone — a pink Y2K dialer laid out with butterfly clips, a mix CD, and a heart gem" />
-        </div>
         <div>
           <h1>Dream Phone</h1>
-          <p>One phone, two ways in. Call an advisor and get a straight answer — then, when you want the mystery, play the game to deduce who's secretly in your corner.</p>
+<div style="margin: 12px 0 20px;">
+  <button type="button"
+          aria-label="Play the Dream Phone song on KSVL"
+          data-src="/content/music/game-dream-phone.mp3"
+          onclick="window.playLaidiesTheme(this);"
+          style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px 8px 14px; background: transparent; border: 1.5px solid #9b3f5f; border-radius: 999px; color: #4b2148; font: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 200ms ease, color 200ms ease;"
+          onmouseover="this.style.background='#9b3f5f'; this.style.color='#fffdfb';"
+          onmouseout="this.style.background='transparent'; this.style.color='#4b2148';">
+    <svg viewBox="0 0 24 24" style="width:10px; height:10px; fill: currentColor;" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    <svg viewBox="0 0 24 24" style="width:10px; height:10px; fill: currentColor; display:none;" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+    <span>&#9834; Play the Dream Phone song</span>
+  </button>
+</div>
         </div>
       </section>
 
@@ -606,7 +657,7 @@
 
       <!-- ════════ THE GAME ════════ -->
       <section class="dp-section dp-game" id="dpGame" hidden aria-label="Dream Phone deduction game">
-        <button type="button" class="dp-back" data-dp-back>← Game or Just Call</button>
+        <button type="button" class="dp-back" data-dp-back>← Back to Dream Phone</button>
         <p class="dp-wip-banner">📞 Heads up — this line isn't fully connected yet. The deduction game is still being wired to the switchboard, so a few things may go straight to voicemail. <strong>Just Call</strong> is the only line that's live.</p>
         <div class="dp-game-head">
           <h2>Who's <span>secretly in your corner</span> this week?</h2>
@@ -654,7 +705,7 @@
 
       <!-- ════════ JUST CALL (preserved engine — wired by ../script.js) ════════ -->
       <section class="dp-section" id="dpJustCall" hidden aria-label="Just Call the hotline">
-        <button type="button" class="dp-back" data-dp-back>← Game or Just Call</button>
+        <button type="button" class="dp-back" data-dp-back>← Back to Dream Phone</button>
         <div class="dp-game-head">
           <h2>Just Call</h2>
           <p>To get someone on the line, type a number, tap the buttons, or pick a card to dial. The phone's worth playing with, too — the heart and the little button by the screen each do something. Everyone picks up with a straight answer; pull a remix card when the moment deserves more drama. <span class="dp-hint">Psst… rumour has it you can still call Jenny, if you know her number — and a couple of old ☆ codes still pull their old tricks, if your memory goes back far enough. ☎</span></p>
@@ -707,7 +758,7 @@
         <button id="dreamPhoneButton" class="dp-hidden-input" type="button" tabindex="-1" aria-hidden="true">Dial</button>
 
         <!-- Output — the screen of the instrument; the answer + remix land here, always in view because the whole header is sticky -->
-        <div class="output-area" id="dreamPhoneOutput" aria-live="polite">Tap a name and they'll pick up right here. Pull a remix card to spin the answer.</div>
+        <div class="output-area" id="dreamPhoneOutput" aria-live="polite">Three ways to dial: tap a name below, punch a number on the keypad, or pull a remix card to spin the answer.</div>
 
         <!-- Remix tray — same 3 power-ups, always visible; part of the instrument, just under the screen -->
         <p class="jc-specials-label">Remix cards — pick your drama</p>
@@ -717,14 +768,9 @@
           <button type="button" data-dream-special="hangup">Mom says hang up!</button>
         </div>
 
-        <!-- Secret Badge -->
-        <div class="secret-badge" id="dreamPhoneSecretBadge" hidden>
-          <span class="badge-icon" aria-hidden="true">867</span>
-          <div>
-            <strong>867 Club merit badge</strong>
-            <em>You found the secret Dream Phone line.</em>
-          </div>
-        </div>
+        <!-- 867 Club: unlock celebration lives in the badge-toast (see script.js dreamPhoneEgg → renderBadgeToast).
+             The persistent badge stays out of the sticky panel; it belongs in the Closet trophy shelf later. -->
+        <div class="secret-badge" id="dreamPhoneSecretBadge" hidden aria-hidden="true"></div>
 
         </div><!-- /jc-inst-side -->
         </div><!-- /jc-instrument -->
@@ -1162,10 +1208,16 @@
         var mq = window.matchMedia("(max-width: 600px)");
         function isMobile() { return mq.matches; }
 
-        // hide the hero once a track is open (CSS hook, mobile-only effect)
+        // hide the hero once a track is open (CSS hook, mobile-only effect) + widen page container when Just Call is open
         if (entry) {
-          var sync = function () { document.body.classList.toggle("dp-track-open", !!entry.hidden); };
+          var jcEl = document.getElementById("dpJustCall");
+          var sync = function () {
+            var trackOpen = !!entry.hidden;
+            document.body.classList.toggle("dp-track-open", trackOpen);
+            document.body.classList.toggle("dp-justcall-open", trackOpen && jcEl && !jcEl.hidden);
+          };
           new MutationObserver(sync).observe(entry, { attributes: true, attributeFilter: ["hidden"] });
+          if (jcEl) new MutationObserver(sync).observe(jcEl, { attributes: true, attributeFilter: ["hidden"] });
           sync();
         }
 
@@ -1203,5 +1255,35 @@
 
       <script src="../content/site/mini-player.js?v=ep-04-songs-1"></script>
       <script src="../content/site/laidies-bg.js" defer></script>
+<script>
+  (function() {
+    'use strict';
+    if (window.playLaidiesTheme) return;
+    var activeBtn = null, activeAudio = null;
+    function stopActive() {
+      if (activeBtn) activeBtn.classList.remove('is-playing');
+      if (activeAudio) { try { activeAudio.pause(); } catch(e){} }
+      activeBtn = null; activeAudio = null;
+    }
+    window.playLaidiesTheme = function(btn) {
+      if (!btn || btn.disabled) return;
+      var src = btn.getAttribute('data-src'); if (!src) return;
+      if (activeBtn === btn) { stopActive(); return; }
+      stopActive();
+      var audio = new Audio(src); audio.preload = 'metadata';
+      audio.addEventListener('ended', function() { if (activeAudio === audio) stopActive(); });
+      audio.addEventListener('error', function() { if (activeAudio === audio) stopActive(); });
+      audio.play().catch(function() { if (activeAudio === audio) stopActive(); });
+      btn.classList.add('is-playing');
+      activeBtn = btn; activeAudio = audio;
+    };
+  })();
+</script>
+  <script defer src="/content/site/sv-back-nav.js?v=1"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
+<script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260707-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
+<script defer src="/content/site/ksvl-player.js?v=20260705-21"></script>
 </body>
 </html>

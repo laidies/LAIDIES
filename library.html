@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Town LIBRAiRY · LAiDIES · SUNNYVAiLE</title>
+  <meta name="description" content="The Town LIBRAiRY at MAiN Street No. 3 in SUNNYVAiLE — houses the Grimoire reference shelves: Power Map, Chamber of Receipts, Ask Jeeves. Where you look it up.">
+  <meta property="og:title" content="The Town LIBRAiRY · LAiDIES">
+  <meta property="og:description" content="The Town LIBRAiRY houses the Grimoire reference shelves. Power Map · Chamber of Receipts · Ask Jeeves.">
+  <meta property="og:type" content="website">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --plum: #4b2148; --plum-deep: #3a1838; --plum-soft: #6b3a66;
+      --rose: #9b3f5f; --rose-bright: #c25b7d; --gold: #c9a227;
+      --cream: #fffdfb; --pearl: #f8eef2; --blush: #f9e6ee;
+      --line: rgba(75,33,72,0.14);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Jost', sans-serif;
+      color: var(--plum);
+      background: var(--cream);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .lib-header {
+      padding: 24px 40px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .lib-header .brand {
+      font-size: 22px; font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--plum);
+    }
+    .lib-header nav a {
+      font-size: 13px; font-weight: 500;
+      color: var(--plum-soft);
+      margin-left: 24px;
+    }
+    .lib-header nav a:hover { color: var(--rose); }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 40px 96px;
+    }
+
+    .lib-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .lib-eyebrow-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--rose);
+    }
+    .lib-theme {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 5px 11px 5px 8px;
+      background: var(--cream);
+      border: 1.5px solid var(--rose);
+      border-radius: 999px;
+      color: var(--plum);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      cursor: pointer;
+      transition: background 200ms ease, color 200ms ease, transform 200ms ease;
+    }
+    .lib-theme:hover { background: var(--rose); color: var(--cream); transform: scale(1.04); }
+    .lib-theme svg { width: 12px; height: 12px; fill: currentColor; }
+    .lib-theme .pause-icon { display: none; }
+    .lib-theme.is-playing .play-icon { display: none; }
+    .lib-theme.is-playing .pause-icon { display: block; }
+    .lib-theme.is-playing { background: var(--rose); color: var(--cream); }
+
+    h1 {
+      font-size: clamp(40px, 5.4vw, 60px);
+      font-weight: 700;
+      letter-spacing: -0.022em;
+      line-height: 1;
+      color: var(--plum);
+      margin: 0 0 28px;
+    }
+    h1 .ai {
+      color: var(--rose);
+    }
+
+    h2 {
+      font-size: clamp(22px, 2.6vw, 28px);
+      font-weight: 600;
+      letter-spacing: -0.014em;
+      color: var(--plum);
+      margin: 56px 0 14px;
+    }
+
+    p {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--plum);
+      margin: 0 0 18px;
+    }
+
+    .lib-lede {
+      font-size: 21px;
+      line-height: 1.5;
+      color: var(--plum);
+      margin-bottom: 36px;
+    }
+
+    .shelf-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin: 28px 0;
+    }
+    @media (min-width: 720px) {
+      .shelf-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .shelf {
+      display: block;
+      background: var(--pearl);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 24px 26px;
+      transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+    }
+    .shelf:hover {
+      transform: translateY(-3px);
+      border-color: var(--rose);
+      box-shadow: 0 8px 24px rgba(75,33,72,0.12);
+      text-decoration: none;
+    }
+    .shelf--brewing {
+      opacity: 0.7;
+      cursor: default;
+    }
+    .shelf--brewing:hover {
+      transform: none;
+      border-color: var(--line);
+      box-shadow: none;
+    }
+    .shelf-glyph {
+      font-size: 22px;
+      color: var(--gold);
+      margin-bottom: 6px;
+      display: inline-block;
+    }
+    .shelf-ico { display: inline-flex; width: 26px; height: 26px; margin-bottom: 8px; }
+    .shelf-ico svg { width: 100%; height: 100%; display: block; }
+    /* reference desk — the librarian (Jeeves), a character, not a shelf */
+    /* Ask Miss Jeeves — the reference desk (librarian + keyword search over site-index.json) */
+    .jeeves { display: grid; grid-template-columns: 1fr; background: var(--pearl); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; margin: 26px 0; }
+    @media (min-width: 720px) { .jeeves { grid-template-columns: 1.05fr 1fr; } }
+    .jeeves-portrait { margin: 0; background: #2a1622; }
+    .jeeves-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 220px; }
+    .jeeves-ask { padding: 24px 26px 26px; }
+    .jeeves-kicker { font: 800 10px/1 'Jost', sans-serif; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); }
+    .jeeves-ask h3 { font-size: 24px; font-weight: 700; margin: 7px 0 6px; color: var(--plum); }
+    .jeeves-ask > p { font-size: 14px; line-height: 1.55; color: var(--plum-soft); margin: 0 0 14px; }
+    .jeeves-form { display: flex; gap: 8px; }
+    .jeeves-form input { flex: 1; min-width: 0; padding: 11px 14px; border: 1.5px solid var(--line); border-radius: 9px; font: 15px 'Jost', sans-serif; color: var(--plum); background: #fff; }
+    .jeeves-form input:focus { outline: none; border-color: var(--rose); box-shadow: 0 0 0 3px rgba(155,63,95,0.12); }
+    .jeeves-form button { padding: 11px 20px; border: none; border-radius: 9px; background: var(--plum); color: #fff; font: 800 13px 'Jost', sans-serif; letter-spacing: 0.04em; cursor: pointer; }
+    .jeeves-form button:hover { background: var(--rose); }
+    .jeeves-results { margin-top: 14px; display: grid; gap: 8px; }
+    .jr-group-label { font: 800 10px/1 'Jost', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: var(--plum-soft); margin: 6px 0 0; }
+    .jr-item { display: block; padding: 10px 14px; border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 8px; text-decoration: none; background: #fff; transition: border-color 150ms ease, transform 150ms ease; }
+    .jr-item:hover { border-color: var(--rose); transform: translateX(2px); }
+    .jr-item b { color: var(--plum); font-size: 14.5px; }
+    .jr-item span { display: block; color: var(--plum-soft); font-size: 12.5px; line-height: 1.4; margin-top: 2px; }
+    .jeeves-empty { font-size: 13px; color: var(--plum-soft); font-style: italic; margin-top: 12px; }
+    /* coming to the shelves — quiet strip, clearly not-yet-live */
+    /* (.coming-* rules retired 2026-07-09 with the coming-soon strip — items now live as books on the Tools + Reference bookcases.) */
+    .shelf-name {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.014em;
+      margin: 0 0 6px;
+      color: var(--plum);
+    }
+    .shelf-desc {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--plum-soft);
+      margin: 0 0 12px;
+    }
+    .shelf-status {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rose);
+    }
+    .shelf--brewing .shelf-status {
+      color: var(--plum-soft);
+      font-style: italic;
+      letter-spacing: 0.1em;
+      text-transform: none;
+    }
+
+    .relocated {
+      margin-top: 56px;
+      padding: 28px 32px;
+      background: var(--blush);
+      border-radius: 10px;
+      border-left: 4px solid var(--gold);
+    }
+    .relocated h3 {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin: 0 0 16px;
+    }
+    .relocated ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .relocated li {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 10px;
+      color: var(--plum);
+    }
+    .relocated li:last-child { margin-bottom: 0; }
+    .relocated li strong { color: var(--plum-deep); }
+    .relocated li a {
+      color: var(--rose);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .relocated li a:hover { color: var(--plum); }
+
+    .lib-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 72px;
+      padding-top: 36px;
+      border-top: 2px solid var(--rose);
+    }
+    .lib-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 26px;
+      background: var(--pearl);
+      border-radius: 6px;
+      transition: background 200ms ease, transform 200ms ease;
+    }
+    .lib-cta:hover { background: var(--blush); transform: translateX(4px); }
+    .lib-cta-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 4px;
+    }
+    .lib-cta-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--plum);
+    }
+    .lib-cta-arrow {
+      font-size: 22px;
+      color: var(--rose);
+    }
+    .lib-cta--primary {
+      background: linear-gradient(135deg, var(--plum) 0%, var(--rose) 100%);
+    }
+    .lib-cta--primary .lib-cta-label { color: var(--gold); }
+    .lib-cta--primary .lib-cta-title { color: var(--cream); }
+    .lib-cta--primary .lib-cta-arrow { color: var(--cream); }
+    .lib-cta--primary:hover { background: linear-gradient(135deg, var(--plum-deep) 0%, var(--rose-bright) 100%); }
+
+    footer {
+      text-align: center;
+      padding: 32px 40px;
+      font-size: 12px;
+      color: var(--plum-soft);
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 640px) {
+      .lib-header { padding: 18px 22px; }
+      .lib-header nav a { margin-left: 12px; }
+      main { padding: 40px 22px 64px; }
+      .relocated { padding: 22px 22px; }
+    }
+  </style>
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260707-a11y"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260705-2"></script>
+</head>
+<body>
+
+  <header class="lib-header">
+    <a class="brand" href="/">LAiDIES</a>
+    <nav>
+      <a href="/">This Week</a>
+      <a href="/chick-flicks.html">Episodes</a>
+      <a href="/library.html" style="color: var(--rose);">LIBRAiRY</a>
+      <a href="/sorority-house.html">Sorority House</a>
+      <a href="/clubhouse-pass.html" class="sv-signin" style="color: var(--rose); font-weight: 600; border: 1.5px solid var(--rose); padding: 6px 14px; border-radius: 999px;">✉︎ Sign In</a>
+    </nav>
+  </header>
+
+  <div class="sv-hero"><img src="assets/building-interiors/library-reading-room.jpg?v=20260707" alt="Inside the LIBRAiRY reading room — two storeys of bookshelves with a rolling ladder, a mezzanine balcony, green banker's-lamp reading tables, a dictionary on a stand, and arched windows onto the SUNNYVAiLE street" loading="eager"></div>
+
+  <main>
+
+    <div class="lib-eyebrow">
+      <span class="lib-eyebrow-label">★ Civic Square · SUNNYVAiLE</span>
+      <button class="lib-theme" type="button"
+              aria-label="Play the LIBRAiRY theme song"
+              data-src="/content/music/dj-jaidy-week-04-the-library.mp3"
+              onclick="window.playLaidiesTheme(this);">
+        <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+        <span>♪ The LIBRAiRY</span>
+      </button>
+    </div>
+
+    <h1>The Town <span class="ai">LIBRAiRY</span>.</h1>
+
+    <p class="lib-lede">
+      Three shelves. One job: look it up. The reference rack for the SUNNYVAiLE world — the maps, the receipts, the answers to "wait, what does that actually mean?" — quiet, organized, open whenever you need it.
+    </p>
+
+    <p>
+      The Grimoire lives here — pure reference, the stuff you don't read straight through but pull off the shelf when a specific question shows up. A few shelves are open now, more are on the way, and Miss Jeeves works the reference desk if you don't know where to start.
+    </p>
+
+    <h2>The shelves</h2>
+
+    <div class="shelf-grid">
+
+      <a class="shelf" href="/grimoire/potions-shelf.html">
+        <span class="shelf-ico" data-ico="gradcap"></span>
+        <h3 class="shelf-name">The Glossary</h3>
+        <p class="shelf-desc">Every AI word in plain English — prompt, token, hallucination, model, context, agent. The one you'll actually reach for when someone throws jargon across the table.</p>
+        <span class="shelf-status">Live · Open the shelf →</span>
+      </a>
+
+      <a class="shelf" href="/grimoire/power-map.html">
+        <span class="shelf-ico" data-ico="map"></span>
+        <h3 class="shelf-name">Who's Who in AI</h3>
+        <p class="shelf-desc">Who makes what — OpenAI, Anthropic, Google and the rest — and which tool you'd open for which job. So you know the name when it wanders into a meeting.</p>
+        <span class="shelf-status">Live · Open the shelf →</span>
+      </a>
+
+      <a class="shelf" href="/grimoire/chamber-of-receipts.html">
+        <span class="shelf-ico" data-ico="news"></span>
+        <h3 class="shelf-name">Straight Answers About AI</h3>
+        <p class="shelf-desc">Sourced answers to the questions everyone actually asks — is it coming for my job, is my data safe, what about the environment. Real data, every claim with a source you can check.</p>
+        <span class="shelf-status">Live · Open the shelf →</span>
+      </a>
+
+      <a class="shelf" href="/grimoire/verification-rulebook.html">
+        <span class="shelf-ico" data-ico="book"></span>
+        <h3 class="shelf-name">How to Check AI's Work</h3>
+        <p class="shelf-desc">How to check an <span class="ai">Ai</span> answer without doing all the work yourself — the Prompt Like Elle method, plus when to trust a citation, when to Google it, and when to just ask a human.</p>
+        <span class="shelf-status">Live · from Ep 3 · Open the shelf →</span>
+      </a>
+
+    </div>
+
+    <!-- The reference desk — Ask Miss Jeeves, the librarian -->
+    <section class="jeeves" id="jeeves">
+      <figure class="jeeves-portrait">
+        <img src="/assets/library/jeeves-desk.jpg" alt="Miss Jeeves, the LIBRAiRY's librarian, at her reference desk" loading="lazy">
+      </figure>
+      <div class="jeeves-ask">
+        <span class="jeeves-kicker">The reference desk</span>
+        <h3>Ask Miss Jeeves</h3>
+        <p>Don't know what to even call the thing you're stuck on? Ask her in plain words — she'll find every place in town it lives and hand you the list.</p>
+        <form class="jeeves-form" id="jeevesForm" autocomplete="off">
+          <input type="search" id="jeevesQ" placeholder="e.g. is AI going to take my job?" aria-label="Ask Miss Jeeves a question">
+          <button type="submit">Ask</button>
+        </form>
+        <div class="jeeves-results" id="jeevesResults" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <script>
+    (function () {
+      var INDEX = null;
+      var LABEL = { episode:'In an episode', reference:'In the reference shelves', tool:'In The Tools', concept:'In the glossary', activity:'Something to do', building:'A place in town', character:'Ask in town' };
+      var ORDER = ['episode','reference','tool','concept','activity','building','character'];
+      function load(){ if(INDEX) return Promise.resolve(INDEX); return fetch('/content/site/site-index.json').then(function(r){return r.json();}).then(function(d){ INDEX = d.entries || []; return INDEX; }).catch(function(){ INDEX = []; return INDEX; }); }
+      function n(s){ return (s||'').toString().toLowerCase(); }
+      function score(q, e){
+        var ql = n(q); if(ql.length < 2) return 0;
+        var words = ql.split(/[^a-z0-9]+/).filter(function(w){ return w.length > 2; });
+        var s = 0;
+        (e.aliases||[]).forEach(function(a){ a = n(a); if(a && (ql.indexOf(a) >= 0 || a.indexOf(ql) >= 0)) s += 12; });
+        (e.topics||[]).forEach(function(t){ t = n(t); if(t && ql.indexOf(t) >= 0) s += 7; });
+        if(n(e.title).indexOf(ql) >= 0) s += 9;
+        var hay = n(e.title + ' ' + e.summary + ' ' + (e.topics||[]).join(' ') + ' ' + (e.aliases||[]).join(' '));
+        words.forEach(function(w){ if(hay.indexOf(w) >= 0) s += 2; });
+        return s;
+      }
+      function esc(s){ return (s||'').replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+      function render(results){
+        var box = document.getElementById('jeevesResults');
+        if(!results.length){ box.innerHTML = '<p class="jeeves-empty">Hmm — Miss Jeeves doesn’t have that one catalogued yet. Try different words, or browse the shelves above.</p>'; return; }
+        var byType = {}; results.forEach(function(e){ (byType[e.type] = byType[e.type] || []).push(e); });
+        var html = '';
+        ORDER.forEach(function(t){ if(!byType[t]) return; html += '<div class="jr-group-label">' + (LABEL[t] || t) + '</div>'; byType[t].forEach(function(e){ html += '<a class="jr-item" href="' + esc(e.url) + '"><b>' + esc(e.title) + '</b><span>' + esc(e.summary) + '</span></a>'; }); });
+        box.innerHTML = html;
+      }
+      function ask(q){ load().then(function(idx){ var r = idx.map(function(e){ return { e:e, s:score(q,e) }; }).filter(function(x){ return x.s > 0; }).sort(function(a,b){ return b.s - a.s; }).slice(0,7).map(function(x){ return x.e; }); render(r); }); }
+      document.addEventListener('DOMContentLoaded', function(){
+        var f = document.getElementById('jeevesForm'); if(!f) return;
+        f.addEventListener('submit', function(ev){ ev.preventDefault(); var q = (document.getElementById('jeevesQ').value || '').trim(); if(q) ask(q); });
+      });
+    })();
+    </script>
+
+    <!-- (Coming-soon strip retired 2026-07-09 — its items now stand as books on the Tools + Reference bookcases below: The Lineup / The Prompt Cookbook / What Not to Paste.) -->
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        if (!window.svGoldIcon) return;
+        document.querySelectorAll('.shelf-ico[data-ico]').forEach(function (el, i) {
+          el.innerHTML = window.svGoldIcon(el.getAttribute('data-ico'), 'shf' + i, el.classList.contains('rd-ico') ? 30 : 26);
+        });
+      });
+    </script>
+
+    <!-- The 101 shelf — numbered field textbooks (moved here from SUNNYVAiLE High) -->
+    <h2>The 101 shelf</h2>
+
+    <p>One textbook per topic — the deep dive for the week an episode leaves you wanting more. Not a course, though: no syllabus, no seat, no one taking attendance. Pull one down, read the page you need, slide it back. <em>(These used to sit up at SUNNYV<span class="ai">Ai</span>LE High — but textbooks belong in a library.)</em></p>
+
+    <!-- The 101 textbooks standing on the library shelf -->
+    <style>
+      .bookcase { position: relative; width: 100%; max-width: 900px; margin: 24px auto 8px; aspect-ratio: 2400 / 1600; background: url('/assets/library-101/101-shelf-kit.png') center / cover no-repeat; border-radius: 10px; overflow: hidden; box-shadow: 0 14px 40px rgba(40,20,30,0.22); }
+      .bc-shelf { position: absolute; left: 8%; right: 8%; margin: 0; padding: 0; list-style: none; display: flex; align-items: flex-end; justify-content: flex-start; gap: 2.2%; }
+      .bc-shelf-1 { top: 12.5%; height: 24.5%; }
+      .bc-shelf-2 { top: 40%; height: 22%; }
+      .bc-shelf-3 { top: 64.5%; height: 22.5%; }
+      .bc-shelf li { height: 100%; margin: 0; flex: 0 0 auto; }
+      .bc-shelf img { height: 100%; width: auto; display: block; filter: drop-shadow(0 6px 7px rgba(20,8,14,0.42)); transform-origin: bottom center; transition: transform .2s ease; }
+      .bc-shelf a:hover img, .bc-shelf a:focus-visible img { transform: translateY(-8px); }
+      .tb-shelf-note { text-align: center; font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 0.01em; color: var(--plum-soft, #6a4f60); margin: 12px 0 0; }
+      .tb-shelf-note b { color: var(--rose); font-weight: 700; }
+    </style>
+
+    <div class="bookcase" role="img" aria-label="The 101 bookcase: Vocab, Concepts, Briefing, Setup, and Accounts textbooks, with room for more.">
+      <ul class="bc-shelf bc-shelf-1">
+        <li><img loading="lazy" src="/assets/library-101/textbook-vocab-101.png" alt="Vocab 101 — every AI word in plain English."></li>
+        <li><img loading="lazy" src="/assets/library-101/textbook-concepts-101.png" alt="Concepts 101 — how it works, minus the math."></li>
+        <li><img loading="lazy" src="/assets/library-101/textbook-briefing-101.png" alt="Briefing 101 — how to ask so it comes back useful."></li>
+      </ul>
+      <ul class="bc-shelf bc-shelf-2">
+        <li><img loading="lazy" src="/assets/library-101/textbook-setup-101.png" alt="Setup 101 — set up once so every tool knows how you work."></li>
+        <li><img loading="lazy" src="/assets/library-101/textbook-accounts-101.png" alt="Accounts 101 — what's safe to paste and what never is."></li>
+      </ul>
+      <ul class="bc-shelf bc-shelf-3"></ul>
+    </div>
+    <p class="tb-shelf-note">Vocab, Concepts, Briefing, Setup, Accounts — the basics, one textbook each. <b>The Cast and more land as we cover them.</b></p>
+
+    <!-- The Tools bookcase — one book per app + who-makes-what -->
+    <style>
+      .bookcase--tools { background-image: url('/assets/library-101/tools-shelf-kit.png'); }
+      .bookcase--ref { background-image: url('/assets/library-101/reference-shelf-kit.png'); }
+      .bookcase--tools .bc-shelf, .bookcase--ref .bc-shelf { justify-content: center; }
+      .bc-shelf a, .bc-shelf span.bc-book { display: block; height: 100%; }
+      .bc-shelf .bc-soon img { opacity: 0.72; filter: drop-shadow(0 6px 7px rgba(20,8,14,0.34)) grayscale(0.18); }
+    </style>
+
+    <h2>The Tools</h2>
+    <p>One book per app — plus who makes what. Each AI company is its own fashion house; a <em>model</em> is one of its designs, and the <em>tool</em> is the boutique where you shop it. So "ChatGPT vs Claude" is really two houses' storefronts.</p>
+
+    <div class="bookcase bookcase--tools" role="img" aria-label="The Tools bookcase: Who's Who in AI, plus ChatGPT, Claude, Gemini, Copilot, Perplexity, and The Lineup.">
+      <ul class="bc-shelf bc-shelf-1">
+        <li><a href="/grimoire/power-map.html"><img loading="lazy" src="/assets/library-101/book-whos-who.png" alt="Who's Who in AI — who makes what, and which tool for which job."></a></li>
+        <li><span class="bc-book bc-soon"><img loading="lazy" src="/assets/library-101/book-chatgpt.png" alt="ChatGPT — guide coming with Episode 5."></span></li>
+        <li><span class="bc-book bc-soon"><img loading="lazy" src="/assets/library-101/book-claude.png" alt="Claude — guide coming with Episode 5."></span></li>
+      </ul>
+      <ul class="bc-shelf bc-shelf-2">
+        <li><span class="bc-book bc-soon"><img loading="lazy" src="/assets/library-101/book-gemini.png" alt="Gemini — guide coming with Episode 5."></span></li>
+        <li><span class="bc-book bc-soon"><img loading="lazy" src="/assets/library-101/book-copilot.png" alt="Copilot — guide coming with Episode 5."></span></li>
+        <li><span class="bc-book bc-soon"><img loading="lazy" src="/assets/library-101/book-perplexity.png" alt="Perplexity — guide coming with Episode 5."></span></li>
+      </ul>
+      <ul class="bc-shelf bc-shelf-3">
+        <li><span class="bc-book bc-soon"><img loading="lazy" src="/assets/library-101/book-the-lineup.png" alt="The Lineup — the side-by-side compare, with Episode 5."></span></li>
+      </ul>
+    </div>
+    <p class="tb-shelf-note">Who's Who in AI is open now. <b>The per-tool guides and The Lineup land with Episode 5, The Model Menu.</b></p>
+
+    <!-- The Reference bookcase — look-it-up guides -->
+    <h2>Reference</h2>
+    <p>Look it up. Pull one down when a specific question shows up, then close the cover and go — the plain-answer half of the LIBR<span class="ai">Ai</span>RY.</p>
+
+    <div class="bookcase bookcase--ref" role="img" aria-label="The Reference bookcase: Straight Answers About AI, How to Check AI's Work, What Not to Paste, and The Prompt Cookbook.">
+      <ul class="bc-shelf bc-shelf-1">
+        <li><a href="/grimoire/chamber-of-receipts.html"><img loading="lazy" src="/assets/library-101/book-straight-answers-about-ai.png" alt="Straight Answers About AI — sourced answers to the big questions."></a></li>
+        <li><a href="/grimoire/verification-rulebook.html"><img loading="lazy" src="/assets/library-101/book-how-to-check-ai-work.png" alt="How to Check AI's Work — the Prompt Like Elle method."></a></li>
+      </ul>
+      <ul class="bc-shelf bc-shelf-2">
+        <li><span class="bc-book bc-soon"><img loading="lazy" src="/assets/library-101/book-what-not-to-paste.png" alt="What Not to Paste — coming with Episode 7."></span></li>
+        <li><span class="bc-book bc-soon"><img loading="lazy" src="/assets/library-101/book-the-prompt-cookbook.png" alt="The Prompt Cookbook — ready-to-use prompts, coming soon."></span></li>
+      </ul>
+      <ul class="bc-shelf bc-shelf-3"></ul>
+    </div>
+    <p class="tb-shelf-note">Straight Answers About AI and How to Check AI's Work are open now. <b>What Not to Paste (Ep 7) and The Prompt Cookbook are on the way.</b></p>
+
+    <!-- Currently in the reading room — featured picks members are reading now -->
+    <section style="margin: 40px 0 32px; padding: 26px 28px 22px; background: linear-gradient(155deg, rgba(232,197,200,0.24), rgba(255,253,251,0.7)); border-radius: 14px; border: 1.5px solid rgba(155,63,95,0.24);">
+      <p style="margin: 0 0 4px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);">◆ Reading Room</p>
+      <h2 style="margin: 0 0 6px; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(22px, 3vw, 30px); font-weight: 700; color: var(--plum); line-height: 1.1;">Currently on the reading table.</h2>
+      <p style="margin: 0 0 18px; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 14.5px; color: var(--plum-soft, var(--plum));">Three things worth pulling this week. Skim, borrow, put back.</p>
+      <div style="display: grid; grid-template-columns: 1fr; gap: 14px;" class="reading-room-grid">
+        <a href="/grimoire/power-map.html" style="text-decoration: none; display: block; padding: 14px 16px; background: rgba(255,253,251,0.7); border-radius: 10px; border: 1px solid rgba(75,33,72,0.14); color: var(--plum);">
+          <div style="font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold, #d4a853); margin-bottom: 4px;">★ From the Power Map</div>
+          <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: 700; color: var(--plum); margin-bottom: 4px;">Who actually decides <span class="ai">Ai</span> at your org?</div>
+          <div style="font-size: 12.5px; line-height: 1.45; color: var(--plum);">A five-question walk-through that surfaces the real decision-makers behind the org chart. Bring it to your next stakeholder meeting.</div>
+        </a>
+        <a href="/grimoire/chamber-of-receipts.html" style="text-decoration: none; display: block; padding: 14px 16px; background: rgba(255,253,251,0.7); border-radius: 10px; border: 1px solid rgba(75,33,72,0.14); color: var(--plum);">
+          <div style="font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold, #d4a853); margin-bottom: 4px;">★ From the Chamber of Receipts</div>
+          <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: 700; color: var(--plum); margin-bottom: 4px;">The Chutney check.</div>
+          <div style="font-size: 12.5px; line-height: 1.45; color: var(--plum);">Elle Woods didn't argue &mdash; she brought receipts. Six patterns for turning "I think" into "here's what I found." Named after canon (Ep 03).</div>
+        </a>
+        <a href="/issues/issue-04.html" style="text-decoration: none; display: block; padding: 14px 16px; background: rgba(255,253,251,0.7); border-radius: 10px; border: 1px solid rgba(75,33,72,0.14); color: var(--plum);">
+          <div style="font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold, #d4a853); margin-bottom: 4px;">★ This week's episode</div>
+          <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: 700; color: var(--plum); margin-bottom: 4px;">The SL<span class="ai">Ai</span>YER Handbook.</div>
+          <div style="font-size: 12.5px; line-height: 1.45; color: var(--plum);">A tape from the front wall of Chick Flicks. The map of which <span class="ai">Ai</span> tool to open for which job &mdash; matched to the task, not ranked "best."</div>
+        </a>
+      </div>
+      <style>
+        @media (min-width: 800px) { .reading-room-grid { grid-template-columns: 1fr 1fr 1fr; } }
+      </style>
+    </section>
+
+    <div class="relocated">
+      <h3>What moved out of the Grimoire</h3>
+      <ul>
+        <li><strong>The SLAiYER Handbook</strong> — moved to <a href="#">SUNNYVAiLE High</a> as Season 1 courses (Concepts 101, Briefing 101, Tools 101, Practice 101, Accounts 101, ChatGPT 101). The Handbook chapters are sit-through-the-class material, not reference — they belong at school.</li>
+        <li><strong>The Decoder</strong> (formerly Potions Shelf) — moved to <a href="#">SUNNYVAiLE High</a> as <strong>Vocab 101</strong>. The glossary is its own course now.</li>
+        <li><strong>The Lore Closet</strong> — moved to <a href="#">The Mall</a> at MAiN Street No. 4. Pop-culture references got their own destination with ten stops and a directory you can search.</li>
+        <li><strong>The Coven</strong> (now your Luminaries) — moved to <a href="#">The LUMINAiRY</a> on Lantern Hill. The women leading in AI live with the saints now — sacred shelf, two wings.</li>
+        <li><strong>The PATRON SAiNTS</strong> — moved to <a href="#">The LUMINAiRY</a>. Halos belong in a chapel.</li>
+      </ul>
+    </div>
+
+    <h2>How to use the LIBRAiRY</h2>
+
+    <p>
+      You don't sit and read it. You pull what you need. Power Map when you're working a stakeholder problem. Chamber of Receipts when you need to back up the take. Ask Jeeves when you don't even know what to call the thing you're stuck on. Then you close the cover and go.
+    </p>
+
+    <p>
+      If you're trying to <em>learn</em> AI in a structured way — sit-through-the-class, take-the-quiz way — that's at <a href="#" style="color: var(--rose); text-decoration: underline;">SUNNYVAiLE High</a>, not here.
+    </p>
+
+    <div style="margin: 48px 0 32px; padding: 26px 28px 22px; background: var(--pearl); border-radius: 12px; border-left: 4px solid var(--rose);">
+      <div style="font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--rose); margin-bottom: 10px;">★ Your Residence Card</div>
+      <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(20px, 2.4vw, 24px); font-weight: 700; color: var(--plum); margin: 0 0 12px; line-height: 1.25;">Currently Reading — this is where you pick it.</h3>
+      <p style="font-size: 15px; line-height: 1.55; color: var(--plum); margin: 0 0 10px;">What you're currently reading shows up on the back of your Residence Card. The LIBRAiRY is where you set it — pull a book, pick it, done. <strong>Every customization is a trip somewhere in town.</strong></p>
+      <p style="font-size: 12px; line-height: 1.5; color: var(--plum-soft); margin: 0; font-style: italic;">Full picker coming with the member card. For now, this is where it lives.</p>
+    </div>
+
+    <div class="lib-ctas">
+      <a class="lib-cta lib-cta--primary" href="/grimoire/power-map.html">
+        <span>
+          <span class="lib-cta-label">Start with</span>
+          <span class="lib-cta-title">The Power Map →</span>
+        </span>
+        <span class="lib-cta-arrow">→</span>
+      </a>
+      <a class="lib-cta" href="/visitors-centre.html">
+        <span>
+          <span class="lib-cta-label">New in town?</span>
+          <span class="lib-cta-title">Stop by the Welcome Wagon first</span>
+        </span>
+        <span class="lib-cta-arrow">→</span>
+      </a>
+    </div>
+
+  </main>
+
+  <footer>
+    © LAiDIES · Filed from SUNNYVAiLE · The Town LIBRAiRY
+  </footer>
+
+  <script>
+    (function() {
+      'use strict';
+      var activeBtn = null;
+      var activeAudio = null;
+      function stopActive() {
+        if (activeBtn) activeBtn.classList.remove('is-playing');
+        if (activeAudio) { try { activeAudio.pause(); } catch(e){} }
+        activeBtn = null; activeAudio = null;
+      }
+      window.playLaidiesTheme = function(btn) {
+        if (!btn || btn.disabled) return;
+        var src = btn.getAttribute('data-src');
+        if (!src) return;
+        if (activeBtn === btn) { stopActive(); return; }
+        stopActive();
+        document.querySelectorAll('audio').forEach(function(a) { try { a.pause(); } catch(e){} });
+        var audio = new Audio(src);
+        audio.preload = 'metadata';
+        audio.addEventListener('ended', function() { if (activeAudio === audio) stopActive(); });
+        audio.addEventListener('error', function() { if (activeAudio === audio) stopActive(); });
+        audio.play().catch(function() { if (activeAudio === audio) stopActive(); });
+        btn.classList.add('is-playing');
+        activeBtn = btn; activeAudio = audio;
+      };
+    })();
+  </script>
+
+    <script defer src="/content/site/ksvl-player.js?v=20260705-21"></script>
+    <script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260707-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
+</body>
+</html>

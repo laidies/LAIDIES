@@ -749,35 +749,36 @@
 .anthem-charm-reveal .brand-word-inline [data-brand-ai]{color:#f6a5c0!important}
 
       </style>
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260707-a11y"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260705-2"></script>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="LAiDIES home">
-      <img src="assets/brand/laidies-logo-header-approved-v6.png" alt="">
-    </a>
-    <button class="hamburger-btn" type="button" aria-label="Open menu" aria-expanded="false">&#9776;</button>
-    <nav class="nav" aria-label="Primary navigation">
-      <a href="issues/issue-03.html">LATEST</a>
-      <a href="start-here.html">START HERE</a>
-      <a href="episodes.html">SEASON</a>
-      <a href="hot-goss.html">THE BOOK</a>
-      <a href="clubhouse.html">CLUBHOUSE</a>
-      <a href="community.html">JOIN</a>
+  <header class="sv-header">
+    <a class="brand" href="/">LAiDIES</a>
+    <nav>
+      <a href="/">This Week</a>
+      <a href="/chick-flicks.html">Episodes</a>
+      <a href="/library.html">LIBRAiRY</a>
+      <a href="/radio.html">KSVL</a>
+      <a href="/sorority-house.html">Sorority House</a>
+      <a href="/clubhouse-pass.html" class="sv-signin" style="color: #9b3f5f; font-weight: 600; border: 1.5px solid #9b3f5f; padding: 6px 14px; border-radius: 999px; text-decoration: none;">✉︎ Sign In</a>
     </nav>
   </header>
 
-  <a class="wednesday-return" data-wednesday-return href="this-week.html?issue=2&bag=open">&larr; Back to the Bag</a>
+  <a class="wednesday-return" data-wednesday-return href="/">&larr; Back to the Study Pack</a>
 
   <main>
     <section class="tryon-hero" aria-labelledby="tryonTitle">
       <div>
         <span class="eyebrow" id="episodeEyebrow">Episode Try-On</span>
         <h1 id="tryonTitle">The Try-On fitting room.</h1>
-        <p class="lede" id="tryonLede">The five-minute move from this week&rsquo;s Bag. Try the lesson on one real work task, compare the fit, and save what changed.</p>
+        <p class="lede" id="tryonLede">The five-minute move from this week&rsquo;s Study Pack. Try the lesson on one real work task, compare the fit, and save what changed.</p>
       </div>
       <aside class="desk-note" aria-label="Try-On reminder">
         <strong>Five-minute fit check</strong>
-        <p>Do not make this a whole productivity arc. One task. One before. One after. That is the point.</p>
+        <p>Do not turn this into a productivity arc. One task. One before. One after. That is the point.</p>
       </aside>
     </section>
 
@@ -786,7 +787,7 @@
         <span>Ritual connection</span>
         <p>The episode explains the idea. The Try-On is where you apply it to actual work before the week becomes another open tab.</p>
       </div>
-      <a class="button secondary" href="this-week.html?issue=2&bag=open">Back to the Bag</a>
+      <a class="button secondary" href="/">Back to the Study Pack</a>
     </aside>
 
     <section class="tryon-shell">
@@ -898,7 +899,7 @@
             <button class="button" id="saveButton" type="submit">Save Try-On</button>
             <a class="button secondary" id="communityLink" href="community.html?from=this-week&issue=2&bag=open">Share in Community</a>
           </div>
-          <p class="save-note">For now, this saves on this device. Clubhouse Pass saving is coming.</p>
+          <p class="save-note">For now, this saves on this device. Residence Card saving is in the works.</p>
           <p class="save-status" id="saveStatus" aria-live="polite" hidden></p>
         </form>
       </section>
@@ -1012,13 +1013,13 @@
       },
       4: {
         pad: "04",
-        title: "A Slayer Needs a Watcher",
+        title: "Every SLAiYER Needs a Watcher",
         exerciseTitle: "Make one real tool call — on purpose.",
         instruction: "The whole Handbook comes down to one move: stop saying \"just use AI\" and start choosing. Here's the rep.",
         steps: [
           "Name one real task from your week. A true one. (The delay email. The messy report. The half-formed plan.)",
           "Before you open anything, call it. Which of the five Field Guide categories does this need? Most of the time it's a big general assistant (ChatGPT, Claude, Gemini — same category, pick the one you've got). Sometimes the task tells you it's a specialist job — live sources, a real document, an image.",
-          "Say why out loud. One sentence: \"This is a generalist task because ___\" or \"This needs a specialist because ___.\" That sentence is the whole skill. That's the Watcher move — knowing what you're walking into before you walk in.",
+          "Say why out loud. One sentence: \"This is a generalist task because ___\" or \"This needs a specialist because ___.\" That sentence is the skill. That's the Watcher move — knowing what you're walking into before you walk in.",
           "Now go. Open the one you picked and do the task. You already know how to brief it and how to check it — that's not new. What's new is that you chose, instead of defaulting.",
           "The point: Episode 4 isn't \"how to use AI\" — you've been doing that since Episode 2. It's \"which AI, and why.\" One conscious choice beats ten reviews."
         ]
@@ -1195,14 +1196,14 @@
       var draftParam = params.get("draft") === "1" ? "&draft=1" : "";
       var returnGroup = params.get("group") || "practice";
       var groupParam = returnGroup ? "&group=" + encodeURIComponent(returnGroup) : "";
-      var returnHref = "this-week.html?issue=" + encodeURIComponent(issue) + "&bag=open" + groupParam + draftParam;
+      var returnHref = "/";
       if (returnLink) {
         returnLink.href = returnHref;
-        returnLink.textContent = returnGroup === "practice" ? "\u2190 Back to Weekly Study Pack" : "\u2190 Back to the Bag";
+        returnLink.textContent = "\u2190 Back to SUNNYVAiLE";
       }
       if (portalReturnLink) {
         portalReturnLink.href = returnHref;
-        portalReturnLink.textContent = returnGroup === "practice" ? "Back to Weekly Study Pack" : "Back to the Bag";
+        portalReturnLink.textContent = "Back to SUNNYVAiLE";
       }
       if (communityLink) communityLink.href = "community.html?from=this-week&issue=" + encodeURIComponent(issue) + "&bag=open&group=connect" + draftParam;
       if (tryonSteps) {
@@ -1312,5 +1313,10 @@
   })();
   </script>
     <script src="content/site/brand-polish.js?v=wm1" defer></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260705-21"></script>
+    <script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260707-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
 </body>
 </html>

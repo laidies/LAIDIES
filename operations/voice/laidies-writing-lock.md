@@ -70,6 +70,7 @@ Avoid obvious AI-drafted patterns:
 * fearmongering
 * overexplaining the joke
 * making the reader feel like she is in training
+* false-exclusivity hooks — “the move nobody makes,” “the thing nobody tells you,” “the secret nobody says out loud,” and any “nobody does this / the X nobody Y” construction (Ali 2026-07-08: classic AI slop, banned)
 
 Use structure, but hide the scaffolding.
 
@@ -169,6 +170,7 @@ For example:
 * Buffy = slaying the thing everyone else is avoiding
 * Regina George = dangerous confidence, social dynamics, polished delivery with risk
 * Deb = institutional survival, legacy systems, corporate cryptid energy
+* Dolly Parton = common sense, knowing your worth, plain-spoken self-made wisdom
 
 The character must match the lesson.
 
@@ -216,7 +218,8 @@ Current Patron Saint lanes:
 * Miranda Priestly — Patron Saint of Standards
 * Buffy Summers — Patron Saint of Slaying
 * Regina George — Patron Saint of Dangerous Confidence
-* Deb — Patron Saint of Institutional Survival
+* Deb — Patron Saint of "Loop Me Out"
+* Dolly Parton — Patron Saint of Common Sense
 
 Do not assign a character a job that belongs to someone else unless the piece intentionally explains why.
 
@@ -427,7 +430,8 @@ Patron Saints include:
 * Miranda Priestly — Patron Saint of Standards
 * Buffy Summers — Patron Saint of Slaying
 * Regina George — Patron Saint of Dangerous Confidence
-* Deb — Patron Saint of Institutional Survival
+* Deb — Patron Saint of "Loop Me Out"
+* Dolly Parton — Patron Saint of Common Sense
 
 Deb is a corporate cryptid. She survived every reorg, wants an early retirement package, no one knows what she does, she does it with disdain, and IT has had to accommodate her ancient end-of-life desktop setup.
 
@@ -446,3 +450,40 @@ Before delivering any LAiDIES writing, check whether it sounds like:
 If yes, rewrite.
 
 The final piece should feel unmistakably LAiDIES.
+
+## The Currency Rule (locked 2026-07-07)
+
+LAiDIES never teaches out-of-date AI. It is the number one critique of
+AI communicators — teaching 2022's AI in 2026's voice — and it is the
+fastest way to lose the trust of the exact reader we serve: she came
+here because everyone else's explanation felt off.
+
+Before any episode, article, study pack, or quiz ships, run the
+**currency audit** on every teaching claim:
+
+1. **Would an AI-literate reader wince this month?** Check each claim
+   against what AI can actually do right now — current models reason,
+   use tools, search with citations, handle long documents, run
+   multi-step agent work. Kill or hedge anything describing an older
+   era as if it were current. Banned-as-unqualified claims include:
+   "it's just autocomplete," "AI can't do math," "it always makes up
+   citations," "it has no memory," "it can't handle your documents,"
+   "AI can't reason." (Ep 1 precedent: "autocomplete at a scale that
+   feels like thought" → replaced by the brilliant-new-hire frame.)
+2. **Teach durable concepts, not UI.** Delegation, context, verification,
+   judgment age well; button locations, model names, context-window
+   sizes, and pricing churn in months. When a tool specific is
+   unavoidable, date-stamp it in the prose ("as of mid-2026").
+3. **Stats carry their year.** Every number names its source and year
+   at point of use (Harvard 2024, BCG 2024, Lean In 2026) — and gets
+   re-verified before being reused in a later episode.
+4. **Hedges that buy shelf life:** "out of the box," "today," "so far,"
+   "the experts are still arguing." Cheap words, years of accuracy.
+5. **Fast-moving news lives at the NewsStand** — never baked into
+   evergreen episodes or reference pages.
+6. **When a shipped piece goes stale, fix it** — evergreen pages get
+   the correction, not a disclaimer. The LIBRAiRY and episodes are
+   living documents.
+
+If a claim's truth depends on the month, it does not belong in an
+episode. It belongs at the NewsStand.

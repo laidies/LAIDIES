@@ -1,0 +1,59 @@
+name: AI model freshness check
+
+# Weekly nudge to re-verify content/site/current-models.js against each maker's own
+# page, so the SLAiYER Handbook never teaches out-of-date AI (the LOCKED rule).
+# It does NOT auto-rewrite teaching copy — the verify + edit stays human on purpose.
+
+on:
+  schedule:
+    - cron: '17 14 * * 1'   # Mondays ~14:17 UTC (off-minute on purpose)
+  workflow_dispatch: {}       # lets you run it manually any time
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let verified = 'unknown';
+            try {
+              const src = fs.readFileSync('content/site/current-models.js', 'utf8');
+              const m = src.match(/lastVerified:\s*'([^']+)'/);
+              if (m) verified = m[1];
+            } catch (e) {}
+            const title = 'Weekly: re-verify AI models (current-models.js)';
+            const body = [
+              'Weekly AI-model freshness check — the LOCKED rule is *never teach out-of-date AI*.',
+              '',
+              '`content/site/current-models.js` currently reads **verified ' + verified + '**.',
+              '',
+              '**Re-check each flagship against the maker\'s own page:**',
+              '- Anthropic — https://www.anthropic.com/transparency',
+              '- OpenAI — https://developers.openai.com/api/docs/models',
+              '- Google — https://ai.google.dev/gemini-api/docs/models',
+              '',
+              '**If a flagship / cutoff changed:** edit `flagships` / `cutoffExamples` in that file, bump `lastVerified` to today and the `?v=` on its `<script>` include. Every "Current AI models" callout refreshes at once.',
+              '',
+              '**If nothing changed:** just bump `lastVerified` to today so the visible date stays honest — then close this issue.',
+            ].join('\n');
+            const open = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo, state: 'open', per_page: 100
+            });
+            const found = open.data.find(function (i) { return i.title === title; });
+            if (found) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo, issue_number: found.number,
+                body: 'Weekly nudge — this check is still open. Re-verify the three pages and bump `lastVerified`.'
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo, title: title, body: body
+              });
+            }

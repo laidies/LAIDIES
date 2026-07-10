@@ -56,9 +56,9 @@ Your job is to become harder to embarrass.
 
 ## The Burn Book Problem
 
-The Burn Book did not work because it was verified. It worked because it had social authority.
+The Burn Book did not work because it was true — none of it was, and nobody checked. It worked because it had social authority.
 
-Same book. Same marker. Same layout. Same devastating teenage certainty. A true thing, a half-true thing, a rumor, a grudge, and something fully unhinged could all sit on the page with the same confidence.
+Same book. Same marker. Same layout. Same devastating teenage certainty. A rumor, a grudge, a wild guess, and something fully unhinged could all sit on the page with the same confidence.
 
 That is why the Bethany Byrd moment is such a perfect tiny sourcing disaster. The Burn Book sees "super-jumbo tampons" and decides it has solved a whole personal history. One private data point becomes a character verdict. Then the actual explanation walks in, much less scandalous and much more specific: heavy flow, wide-set situation, case closed.
 

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Mall · SUNNYVAiLE Prototype</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="proto-banner">Prototype · page state shown below · <a href="index.html">← Town map</a></div>
+  <nav class="proto-nav">
+    <a class="proto-nav-brand" href="index.html">SUNNYVAiLE Prototype</a>
+    <div class="proto-nav-links">
+      <a href="../../grimoire/lore-closet.html">→ Live (was Lore Closet, retiring)</a>
+      <a href="../concept-a-v2/">Concept A v2</a>
+    </div>
+  </nav>
+  <header class="loc-header">
+    <span class="loc-addr">★ MAiN Street · No. 4</span>
+    <h1 class="loc-name">The Mall</h1>
+    <p class="loc-tagline">Ten stops. All references. Take a lap.</p>
+  </header>
+  <main class="loc-main">
+
+    <section class="loc-section">
+      <h2>What this place is</h2>
+      <p class="loc-body">The curated pop-culture archive — every reference LAiDIES reaches for. Renamed from Lore Closet 2026-06-29. Ten "stops" under one roof, searchable via the Mall Directory. Empty-search → Burn Book ("Put it in the Burn Book →").</p>
+    </section>
+
+    <section class="loc-section">
+      <h2>Hero image</h2>
+      <div class="placeholder placeholder--image">
+        <div class="placeholder-label">Image brief</div>
+        <p class="placeholder-body">
+          Classic Y2K-suburban two-story shopping mall exterior — glass entrance, polished concrete + chrome trim, big illuminated "THE MALL" sign in chunky 3D bubble letters above the doors. Pink palm trees flanking the entry. Inside the glass entrance, a visible Y2K mall directory board with "YOU ARE HERE" arrow. Holographic plum + hot pink + cyan trim, lit from inside at dusk.
+        </p>
+      </div>
+    </section>
+
+    <section class="loc-section">
+      <h2>The 10 stops</h2>
+      <div class="real-content">
+        <ol style="margin: 8px 0 0 22px; padding: 0;">
+          <li><strong>CLAiRE'S</strong> — accessories, jewelry, hair clips, small wearables</li>
+          <li><strong>MAiYBE She's Born With It. (MAiYBE it's drugstore glitter.)</strong> — drug-store beauty</li>
+          <li><strong>As Seen on TV (and film)</strong> — TV shows + films</li>
+          <li><strong>Rollin' with my Homies (real or scripted)</strong> — people + characters</li>
+          <li><strong>Books and Records</strong> — books, quotes, songs</li>
+          <li><strong>Gizmos and Gadgets</strong> — Y2K tech</li>
+          <li><strong>Hanger Management</strong> — clothes / iconic outfits</li>
+          <li><strong>The Food Court</strong> — food + drink accessories</li>
+          <li><strong>I Know What You Did Last (x30) Summer</strong> — experiences</li>
+          <li><strong>The Mall Kiosk</strong> — random / catch-all</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="loc-section">
+      <h2>The Mall Directory (search)</h2>
+      <div class="placeholder placeholder--feature">
+        <div class="placeholder-label">Feature brief</div>
+        <p class="placeholder-body">
+          Top of page: search box ("Find a store / find a reference") + 10 filter pills (one per stop). Client-side title + blurb substring match. Empty-state CTA when no match: "We don't have [search term] yet. <strong>Put it in the Burn Book →</strong>" (links to /community/burn-book.html). Mall Directory board visual at top — Y2K "YOU ARE HERE" backlit directory in chunky 3D bubble type.
+        </p>
+      </div>
+    </section>
+
+    <section class="loc-section">
+      <h2>Inventory</h2>
+      <div class="real-content">
+        <p>~290 cards when fully populated (vs. 55 today). Sources consolidated in <a href="../../operations/the-mall-inventory-plan.md">the-mall-inventory-plan.md</a>: lore-closet.html (55 live) + REFERENCE-CLOSET.md (80+ working bank) + dream-phone-bundles.js (75 objects) + madame-claio.html (100 tarot cards). Editorial format TBD: 1-liner vs. CO read/message/move triplet vs. DP 4-voice bundle.</p>
+      </div>
+    </section>
+
+    <section class="loc-section">
+      <h2>How it connects</h2>
+      <p class="loc-body"><strong>Links in:</strong> nav, Concept A v2 tile (MAiN No. 4), episode cross-references when a reference is cited. <strong>Links out:</strong> Burn Book (empty-search funnel) · each stop's own anchor inside the page · external links per card if relevant.</p>
+    </section>
+
+    <section class="loc-section">
+      <h2>Current state</h2>
+      <div class="status-row">
+        <span class="status-chip missing">✗ Page: needs full rebuild from Lore Closet</span>
+        <span class="status-chip missing">✗ Copy: 10 stop sections + Mall Directory + ~290 card blurbs</span>
+        <span class="status-chip missing">✗ Image: P0 hero + Mall Directory board + 10 store fronts</span>
+      </div>
+    </section>
+
+    <section class="loc-section">
+      <h2>What's still needed</h2>
+      <ol style="font-size: 16px; line-height: 1.6; padding-left: 22px;">
+        <li><strong>Page structure decision</strong> — single page w/ filter pills (recommended) vs. 10 separate URLs vs. scroll-through</li>
+        <li><strong>Editorial format per card</strong> — pick one of three (CO triplet recommended)</li>
+        <li><strong>Mall Directory image</strong> — P0</li>
+        <li><strong>Mall exterior image</strong> — P1</li>
+        <li><strong>10 store fronts</strong> — P1 batch</li>
+        <li><strong>Inventory consolidation</strong> — merge dupes across the 4 sources (~20 dupes flagged)</li>
+        <li><strong>URL rename</strong> — <code>grimoire/lore-closet.html</code> → <code>the-mall/</code> or similar</li>
+      </ol>
+    </section>
+
+    <div class="loc-footer-nav">
+      <a class="loc-footer-nav-back" href="index.html">← BACK TO TOWN MAP</a>
+      <div class="loc-footer-nav-links">
+        <a class="nav-prev" href="library.html">No. 3 · The Town LIBRAiRY</a>
+        <a class="nav-next" href="bronze-aige.html">No. 5 · The BRONZE AiGE</a>
+      </div>
+    </div>
+
+  </main>
+</body>
+</html>

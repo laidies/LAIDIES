@@ -34,24 +34,24 @@
     <link rel="stylesheet" href="/content/site/mini-player.css">
     <link rel="stylesheet" href="content/site/laidies-bg.css?v=laidies-bg-1" />
     <style>body { background: transparent !important; }</style>
-  </head>
+    <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+    <script defer src="/content/site/sv-global-header.js?v=20260707-a11y"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260705-2"></script>
+</head>
   <body>
     <div class="laidies-bg laidies-bg--light" aria-hidden="true"></div>
-    <header class="site-header">
-      <a class="brand" href="index.html" aria-label="LAiDIES home">
-        <img src="assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
-      </a>
-      <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="var n=this.nextElementSibling;if(!n)return;var isOpen=n.style.display==='flex';n.style.display=isOpen?'none':'flex';n.style.flexDirection='column';this.textContent=isOpen?'☰':'✕';this.setAttribute('aria-expanded',!isOpen);">☰</button>
-      <nav class="nav" aria-label="Primary navigation">
-          <a href="start-here.html" aria-current="page">New? Start Here</a>
-          <a href="this-week.html">This Week</a>
-          <a href="episodes.html">Episodes</a>
-          <a href="learn.html">Learn</a>
-          <a href="clubhouse.html">Clubhouse</a>
-          <a href="community.html">Community</a>
-          <a href="clubhouse-pass.html" style="color: #b95d78; text-decoration: underline; margin-left: 8px;">Sign In</a>
-        </nav>
-    </header>
+    <header class="sv-header">
+    <a class="brand" href="/">LAiDIES</a>
+    <nav>
+      <a href="/">This Week</a>
+      <a href="/chick-flicks.html">Episodes</a>
+      <a href="/library.html">LIBRAiRY</a>
+      <a href="/radio.html">KSVL</a>
+      <a href="/sorority-house.html">Sorority House</a>
+      <a href="/clubhouse-pass.html" class="sv-signin" style="color: #9b3f5f; font-weight: 600; border: 1.5px solid #9b3f5f; padding: 6px 14px; border-radius: 999px; text-decoration: none;">✉︎ Sign In</a>
+    </nav>
+  </header>
 
     <main id="top">
       <section class="start-here-hero" aria-labelledby="start-here-title">
@@ -63,8 +63,8 @@
           </p>
           <div class="start-here-actions">
             <a class="button primary" href="issues/issue-01.html?from=start-here&amp;issue=1">Start with Episode 1</a>
-            <a class="button secondary" href="this-week.html">See This Week</a>
-            <a class="button secondary" href="clubhouse.html">Try Clubhouse activities</a>
+            <a class="button secondary" href="/">See This Week</a>
+            <a class="button secondary" href="visitors-centre.html">Tour the town map</a>
           </div>
         </div>
         <img src="assets/lets-chat.png" alt="Stylish corporate woman on a pink phone surrounded by 90s pop culture references" />
@@ -86,7 +86,7 @@
             <span>02</span>
             <h3>Check This Week</h3>
             <p>Use the weekly dashboard for the current episode, quiz, THE EXTRA CREDIT, printable, Hot Goss, track, and prompt.</p>
-            <a href="this-week.html">Open This Week</a>
+            <a href="/">Open This Week</a>
           </article>
           <article>
             <span>03</span>
@@ -110,9 +110,9 @@
         </div>
         <div class="path-grid">
           <a href="issues/issue-01.html?from=start-here&amp;issue=1"><strong>I’m starting from zero</strong><span>Episode 1</span></a>
-          <a href="this-week.html"><strong>I want this week’s stuff</strong><span>This Week</span></a>
+          <a href="/"><strong>I want this week’s stuff</strong><span>This Week</span></a>
           <a href="learn/glossary.html"><strong>I want terms explained</strong><span>Learn / Glossary</span></a>
-          <a href="clubhouse.html"><strong>I want practice tools</strong><span>Clubhouse / THE EXTRA CREDIT</span></a>
+          <a href="/"><strong>I want practice tools</strong><span>Clubhouse / THE EXTRA CREDIT</span></a>
           <a href="games/dj-booth.html"><strong>I want the music</strong><span>DJ Booth in the Clubhouse</span></a>
           <a href="clubhouse-pass.html"><strong>I want to save progress</strong><span>Sign In / Clubhouse Pass</span></a>
         </div>
@@ -176,8 +176,8 @@
 
       <section class="start-here-final" aria-label="Start buttons">
         <a class="button primary" href="issues/issue-01.html?from=start-here&amp;issue=1">Start with Episode 1</a>
-        <a class="button secondary" href="this-week.html">See This Week</a>
-        <a class="button secondary" href="clubhouse.html">Try Clubhouse activities</a>
+        <a class="button secondary" href="/">See This Week</a>
+        <a class="button secondary" href="visitors-centre.html">Tour the town map</a>
       </section>
     </main>
 
@@ -196,7 +196,7 @@
 
     <script src="content/site/supabase-config.js" defer></script>
     <script src="content/site/site-data.js?v=episode-04-quiz-1" defer></script>
-    <script src="script.js?v=wm1" defer></script>
+    <script src="script.js?v=20260705-closet-1" defer></script>
     <script>
 (function(){
   var btn = document.querySelector(".hamburger-btn");
@@ -225,5 +225,10 @@
 </script>
     <script src="/content/site/mini-player.js?v=ep-04-songs-1"></script>
     <script src="content/site/laidies-bg.js?v=laidies-bg-1" defer></script>
-  </body>
+    <script defer src="/content/site/ksvl-player.js?v=20260705-21"></script>
+    <script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
+  <script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
+  <script defer src="/content/site/sunnyvaile-directory.js?v=20260707-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
+</body>
 </html>

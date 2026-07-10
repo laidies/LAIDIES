@@ -37,19 +37,19 @@ And before your name goes on it, you need to know which kind of answer you are h
 
 ## I couldn't help but wonder...
 
-...if a paragraph can sound that sure of itself, why does one detail still get to ruin the whole story?
+...if a paragraph can sound that sure of itself — hair done, makeup done, "per our discussion" and everything — how am I supposed to catch the one line in it that's quietly, completely wrong?
 
-It has Chutney-before-the-perm-timeline energy: confident, composed, and not yet aware that one tiny detail is about to ruin the whole story.
+It has Chutney-before-the-perm-timeline energy: confident, composed, and not yet aware that one tiny detail is about to fall apart under cross-examination.
 
 The first useful AI answer is a tiny office miracle. You paste in the messy notes, and suddenly there is structure. You ask for a cleaner reply, and the passive-aggressive email becomes normal-human direct. You ask it to explain a concept, and for once the answer does not sound like it was written by a webinar wearing a quarter-zip.
 
 You get comfortable fast. Embarrassingly fast. One minute you are suspicious. The next minute you are thinking, "Fine, I will let the machine help me with this one thing because apparently I do enjoy having a will to live after 4 p.m."
 
-> This is Chutney Windham before the perm timeline: confident, composed, and one tiny detail away from the whole story collapsing in court.
+> This is Chutney Windham before the perm timeline: confident, composed, and one tiny detail away from the alibi collapsing in court.
 
 Then one sentence walks out looking ready to leave your laptop.
 
-Maybe the link does not open. Maybe the quote is almost right, which is somehow more irritating than fully wrong. Maybe the date belongs to last year's policy. Maybe the number came from a source that does not say what the answer says it says. Maybe the whole thing is accurate for a company that is not yours, a country you are not in, or a meeting that already happened.
+Maybe the link does not open. Maybe the quote is almost right, which is somehow more irritating than fully wrong. Maybe the date belongs to last year's policy. Maybe the number came from a source that does not say what the answer says it says. Maybe the answer is accurate for a company that is not yours, a country you are not in, or a meeting that already happened.
 
 And there you are, holding a paragraph that has hair, makeup, confidence, and a problem with its timeline.
 
@@ -63,11 +63,11 @@ Your job is to become harder to embarrass.
 
 ## The Burn Book Problem
 
-The Burn Book did not work because it was verified. It worked because it had social authority.
+The Burn Book did not work because it was true — none of it was, and nobody checked. It worked because it had social authority.
 
-Same book. Same marker. Same layout. Same devastating teenage certainty. A true thing, a half-true thing, a rumor, a grudge, and something fully unhinged could all sit on the page with the same confidence.
+Same book. Same marker. Same layout. Same devastating teenage certainty. A rumor, a grudge, a wild guess, and something fully unhinged could all sit on the page with the same confidence.
 
-That is why the Bethany Byrd moment is such a perfect tiny sourcing disaster. The Burn Book sees "super-jumbo tampons" and decides it has solved a whole personal history. One private data point becomes a character verdict. Then the actual explanation walks in, much less scandalous and much more specific: heavy flow, wide-set situation, case closed.
+That is why the Bethany Byrd moment is such a perfect tiny sourcing disaster. Somebody writes in the Burn Book that Bethany must be lying about being a virgin — because she buys super-jumbo tampons. One box of tampons, and boom — a character verdict. Then the actual explanation walks in, much less scandalous and much more specific: she's just got a heavy flow.
 
 That is not evidence. That is the Claire's-headband version of investigation: one tiny clue, sprinting directly to a conclusion.
 
@@ -85,25 +85,25 @@ So the question is not "can I use AI?"
 
 Yes. Use it. We are not here to churn butter by candlelight.
 
-The question is: which parts are draft, and which parts need receipts before they borrow your name?
+The question is: which parts is it just drafting for you — and which parts are claims that need receipts before they borrow your name?
 
 ## She Doesn't Even Go Here
 
-Some wrong answers are easy. The fake citation. The product that does not exist. The confident answer that cites a source with the energy of "my boyfriend goes to another school."
+A few wrong answers are easy. The product that does not exist. The answer that argues with itself. But the fake citation? That one is dressed to pass — it looks exactly like a real source, cited with the energy of "my boyfriend goes to another school," right up until you click it and it goes nowhere.
 
 The sneakier answer is not fully fake. It is misplaced.
 
 It brought the wrong ID but somehow made it past the door.
 
-That is a U.S. HR answer in a Canadian workplace. A pricing page from last year wearing this year's lip gloss. A summary of what usually happens in the industry instead of what this client actually said. A meeting recap that turns "we talked about it" into "we decided." A policy answer that is technically true, except for the part where the exception is the entire point.
+That is a U.S. HR answer in a Canadian workplace. A pricing page from last year wearing this year's lip gloss. A summary of what usually happens in the industry instead of what this client actually said. A meeting recap that turns "we talked about it" into "we decided." A policy answer that is technically true, except for the part where the exception is the thing that matters.
 
-That is when you stand up in the back in your pink hoodie and oversized sunglasses and yell: she doesn't even go here.
+That is when you stand up in the back in your blue hoodie and oversized sunglasses and yell: she doesn't even go here.
 
 It is not just a classic line. It is a quality control standard.
 
 The answer might be useful. It might be a good draft. It might even be 80 percent right, which is exactly why it is dangerous. Nobody gets embarrassed by the sentence that is obviously nonsense, or just wants to share its feelings. The sentence that gets you is the one that sounds normal until someone asks one specific question.
 
-> That is when you stand up in the back in your pink hoodie and oversized sunglasses and yell: she doesn't even go here.
+> That is when you stand up in the back in your blue hoodie and oversized sunglasses and yell: she doesn't even go here.
 
 Before you use it, ask:
 
@@ -119,7 +119,7 @@ If you cannot answer those, the output can stay in the prep pile. It is not read
 
 This is where Elle Woods becomes the patron saint of AI verification.
 
-Not because she makes "being thorough" sound corporate. Because she spots the one detail everyone else treated like lip gloss and realizes it is holding up the whole alibi.
+Not because she makes "being thorough" sound corporate. Because she spots the one detail everyone else treated like lip gloss and realizes it is holding up the alibi.
 
 She asks. Chutney answers. Elle asks again, almost the same way. Chutney gives the same story. The room basically rolls its eyes because it sounds like Elle is making haircare small talk in the middle of a murder trial.
 
@@ -165,7 +165,7 @@ Do not let the answer survive because it sounded calm twice.
 
 Cher's closet computer was assembling looks in 1995, and somehow modern apps still make me hunt for the button I need.
 
-The closet knows the pieces. It does not know the whole situation.
+The closet knows the pieces. It does not know the situation you are walking into.
 
 It can say the plaid set looks cute. It cannot know the meeting moved rooms, your boss is already annoyed, the client hates surprises, or the weather is doing that thing where your hair has opinions.
 
@@ -173,7 +173,7 @@ AI is like that. It is excellent for shape.
 
 Let it draft the outline. Let it turn notes into a first pass. Let it make a checklist. Let it give you questions you should ask. Let it translate a messy thought into something you can edit.
 
-But do not confuse a good outfit with the right place to wear it. That distinction is the whole wardrobe check.
+But do not confuse a good outfit with the right place to wear it. That distinction is the wardrobe check.
 
 A draft is an outfit. A claim is an alibi. Dress accordingly.
 
@@ -213,13 +213,13 @@ That is good news. We should want the tools to get better. We are pro-helpful ma
 
 But better is not solved.
 
-A 2026 Nature paper says hallucinations still persist even in state-of-the-art models. Stanford's 2026 AI Index reports hallucination rates ranging widely across top models in one benchmark. And source-connected tools do not magically become source-perfect tools: Stanford researchers found legal AI tools with retrieval were less prone to hallucination than GPT-4 in their test, but still produced misleading or false information.
+A 2026 Nature paper put a name to why: the way we grade these models rewards a confident guess over an honest "I don't know," so they guess. Stanford's 2026 AI Index found something scarier for our purposes: tell a top model something false that you seem to believe, and it will often just agree with you. And source-connected tools do not magically become source-perfect tools: Stanford researchers found legal AI tools with retrieval were less prone to hallucination than GPT-4 in their test, but still produced misleading or false information.
 
 Which is annoying, because attaching sources should feel like Elle walking in with the file. Sometimes it is still Chutney handing you a folder in her own handwriting.
 
 > "Sources attached" sounds very Elle with the file until the file is still in Chutney's handwriting.
 
-And because the universe enjoys a theme, KPMG just had to pull an agentic AI report after organizations said claims about their AI use were untrue, and GPTZero, an AI-detection company, told the Financial Times the inaccuracies stemmed from hallucinations.
+And because the universe enjoys a theme, KPMG had to pull an agentic AI report: organizations disputed the claims about them, and a source check found forty of its forty-five citations were fabricated — GPTZero, the AI-detection company, told the Financial Times the errors were hallucinations.
 
 Big Four. Tiny receipt drawer.
 
@@ -237,20 +237,23 @@ This means we are reducing the mess before it even starts. Receipts? Obviously. 
 
 The serious guidance is surprisingly consistent, which is how you know this is not just a lAIdies receipt-drawer fixation. OpenAI's hallucination paper, Anthropic's guardrail guidance, Google's grounding guidance, and Stanford's source-checking work all point in the same direction: give the model boundaries, make uncertainty acceptable, separate claims from language, and verify the important parts outside the same chat.
 
-In normal-human terms:
+In normal-human terms, it comes down to three moves — plus one rule over all of them.
 
-- Bring the source into the room. Paste the policy, upload the file, link the official page, turn on the tool's search/grounding mode when freshness matters, or name the source of truth.
-- Do not just say "don't hallucinate." That is asking the Ouija board to be detail-oriented. Give it boundaries.
-- Tell AI what it is allowed to use. "Answer only from the document I provided. If it is not there, say that."
-- Make "I don't know" a permitted outfit. "If you are not sure, say so. Do not guess to be helpful. Mark anything you inferred."
-- Ask for a claim table: claim, source, date, confidence, and what would change the answer.
-- Ask it to quote the exact line it relied on. If it cannot point to the line, treat the claim like it showed up at Spring Fling with no student ID.
-- Ban invented receipts. "Do not invent sources, links, dates, quotes, numbers, policies, or certainty. If the receipt is missing, mark it [needs receipt]."
-- Make the second check independent. Use the actual source, a search result, a human owner, or a different tool with access to the right material. Do not let the same witness validate herself.
+**Move one — give her the source.** Don't ask AI what it *remembers*; hand it the material. Paste the policy, upload the file, link the official page, turn on search/grounding mode when freshness matters, or name the source of truth. Then set the boundary: "Answer only from the document I provided. If it isn't there, say so." Elle doesn't argue from memory — she walks in with the file. (And don't just tell it "don't hallucinate." That's asking the Ouija board to be detail-oriented; give it boundaries, not a scolding.)
+
+**Move two — let her say "I don't know."** Add the sentence most people never think to add: "If you aren't sure, say so. Don't guess to be helpful. Mark anything you inferred." That one line turns a confident guess back into an honest blank.
+
+**Move three — make her show the line.** "Quote the exact sentence you relied on." If it cannot point to the line, treat that claim like it showed up at Spring Fling with no student ID.
+
+**The rule over all three: no invented receipts.** "Do not invent sources, links, dates, quotes, numbers, policies, or certainty. If the receipt is missing, mark it [needs receipt]."
+
+Two more that keep you honest: ask for a **claim table** — claim, source, date, confidence, and what would change the answer — and make the **second check independent** (the actual source, a human owner, or a different tool with access to the right material). Don't let the same witness validate herself.
 
 Then still check. The prompt can lower the odds of nonsense. It does not make the paragraph immune from cross-examination.
 
 That is the principle. The actual copy-paste move belongs in the Try-On, because it only makes sense once you have a low-risk task or source notes ready to give your AI tool.
+
+And the whole method — the three moves, the check patterns, the copy-paste prompt — lives on the [Verification Rulebook](/grimoire/verification-rulebook.html) shelf in the library, to keep and pull down whenever an answer looks a little too sure of itself.
 
 We are calling it Prompt Like Elle.
 
@@ -346,7 +349,7 @@ I can use the draft. I still check the alibi.
 - [Harvard/BCG jagged frontier study](https://www.hbs.edu/faculty/Pages/item.aspx?num=64700): AI helped consultants move faster and produce higher-quality work on some tasks, but users did worse on a task outside the model's frontier when the wrong answer was convincing.
 - [One Useful Thing writeup of the jagged frontier study](https://www.oneusefulthing.org/p/centaurs-and-cyborgs-on-the-jagged): an accessible summary of why AI can be very useful and still unreliable at the boundary.
 - [Nature on why accuracy-based evaluation can incentivize hallucinations](https://www.nature.com/articles/s41586-026-10549-w): says retrieval, tool use, and self-verification can help, but hallucinations still persist in state-of-the-art models.
-- [Stanford AI Index 2026 Responsible AI chapter](https://hai.stanford.edu/ai-index/2026-ai-index-report/responsible-ai): reports that, in one new accuracy benchmark, hallucination rates across 26 top models ranged from 22% to 94%.
+- [Stanford AI Index 2026 Responsible AI chapter](https://hai.stanford.edu/ai-index/2026-ai-index-report/responsible-ai): in a new benchmark testing how models handle false statements, accuracy across 26 top models ranged from 22% to 94% — and collapsed when the falsehood was framed as the user's own belief.
 - [Stanford study on AI legal research tools](https://dho.stanford.edu/wp-content/uploads/Legal_RAG_Hallucinations.pdf): source-connected legal AI tools were less prone to hallucination than GPT-4 in this test, but still produced misleading or false information.
 - [TechCrunch on KPMG pulling an AI report](https://techcrunch.com/2026/06/13/kpmg-pulls-report-on-ai-usage-due-to-apparent-hallucinations/): KPMG removed an agentic AI report after organizations said claims about them were untrue and GPTZero identified apparent hallucinations.
 - [OpenAI paper on why language models hallucinate](https://cdn.openai.com/pdf/d04913be-3f6f-4d2b-b283-ff432ef4aaa5/why-language-models-hallucinate.pdf): explains why models can guess instead of admitting uncertainty, which is exactly why the prompt makes "I don't know" acceptable.

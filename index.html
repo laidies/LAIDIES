@@ -1,2127 +1,1727 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LAiDIES | AI Fluency Newsletter for Women | New Episode Every Wednesday</title>
-    <meta name="description" content="LAiDIES is a Wednesday newsletter and community for women building practical AI fluency without pretending they have spare time." />
-    <meta property="og:title" content="LAiDIES | Girl Power Meets Machine Power" />
-    <meta property="og:description" content="AI fluency for women with full calendars, high standards, and no patience for beige tech explanations." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://laidies.ai/" />
-    <meta property="og:image" content="https://laidies.ai/assets/brand/social/laidies-logo-square-social-pearl-1080-v2.png" />
-    <meta property="og:image:width" content="1080" />
-    <meta property="og:image:height" content="1080" />
-    <meta property="og:image:alt" content="LAiDIES logo on a pearl background" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="LAiDIES | Girl Power Meets Machine Power" />
-    <meta name="twitter:description" content="AI fluency for women with full calendars, high standards, and no patience for beige tech explanations." />
-    <meta name="twitter:image" content="https://laidies.ai/assets/brand/social/laidies-logo-square-social-pearl-1080-v2.png" />
-    <meta name="theme-color" content="#4b2148" />
-    <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
-    <link rel="manifest" href="manifest.webmanifest" />
-    <link rel="apple-touch-icon" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
-    <link rel="stylesheet" href="styles.css?v=sticky-fix-2" />
-    <link rel="stylesheet" href="styles-new-sections.css?v=redesign-2" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Dancing+Script:wght@400;700&family=JetBrains+Mono:wght@400&family=Inter:wght@400;600;700&display=swap">
-    <!-- Privacy-friendly analytics by Plausible -->
-<script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
-<script>
-  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
-</script>
-    <style>
-      /* ═══════════════════════════════════════════════
-         LAiDIES HOMEPAGE
-         ═══════════════════════════════════════════════ */
-
-      /* ─── HERO SIZING ─── */
-      .home-masthead-banner {
-        position: relative;
-        display: flex;
-        align-items: center;
-        width: 100vw;
-        /* Full "let's chat" scene (assets/lets-chat.png, 1448x1086, 4:3) shown at its
-           natural framing — `cover` fits the FULL image width (no zoom), so only the
-           bottom (bed/lower magazines) crops vertically; anchored TOP to keep the
-           heads + magazine wall. NOT zoomed, so the figure/dark jacket stay to the
-           right and the copy sits over the lighter left of the room. A left blush
-           scrim keeps the wordmark/headline/tagline legible over the photo. */
-        min-height: clamp(460px, 48vw, 720px);
-        margin: calc(-1 * clamp(34px, 6vw, 78px)) calc(50% - 50vw) clamp(22px, 3vw, 34px);
-        padding: clamp(20px, 2.6vw, 44px) clamp(20px, 6.8vw, 126px);
-        overflow: hidden;
-        background-color: #f8e6ee;
-        background-image:
-          /* One smooth left→right wash across the FULL image: opaque blush over the
-             copy side, easing to a light veil over the figure (never fully clear) so
-             the whole scene reads as one soft pastel wash with no edge or box. */
-          linear-gradient(90deg,
-            rgba(249, 233, 241, 0.96) 0%,
-            rgba(249, 233, 241, 0.9) 28%,
-            rgba(249, 233, 241, 0.72) 46%,
-            rgba(249, 233, 241, 0.5) 62%,
-            rgba(249, 233, 241, 0.36) 80%,
-            rgba(249, 233, 241, 0.28) 100%),
-          url("assets/lets-chat.png");
-        background-position: center, center top;
-        background-size: cover, cover;
-        background-repeat: no-repeat, no-repeat;
-      }
-      .home-masthead-banner::after {
-        content: "";
-        position: absolute;
-        inset: auto 0 0;
-        height: 14%;
-        background: linear-gradient(180deg, transparent, rgba(248, 230, 239, 0.22));
-        pointer-events: none;
-      }
-      .home-masthead-copy {
-        position: relative;
-        z-index: 1;
-        width: min(72vw, 1040px);
-        max-width: 1040px;
-        color: var(--plum);
-      }
-      /* Soft frosted-blush panel behind the masthead copy — lifts the dark type off the
-         busy photo without a hard pill; translucent + blurred so the scene still shows. */
-      /* Three frosted pills, one behind each copy block (logo, headline, tagline).
-         width:fit-content makes the headline/tagline pills hug the text, not the column. */
-      .home-masthead-copy::before { content: none; }
-      .hero .home-masthead-copy h1,
-      .home-masthead-copy .hero-text {
-        position: relative;
-        z-index: 0;
-        width: fit-content;
-      }
-      /* No per-block panels behind the copy — the masthead-banner left wash carries
-         legibility instead, so there is no box/glow edge to detect. */
-      .home-masthead-logo-wrap {
-        position: relative;
-        display: block;
-        width: min(27vw, 490px);
-        margin: 0 0 clamp(28px, 4.1vw, 66px);
-      }
-      .home-masthead-logo {
-        display: block;
-        width: 100%;
-        height: auto;
-      }
-      .hero .home-masthead-copy h1 {
-        max-width: 760px !important;
-        margin: 0;
-        color: var(--plum);
-        font-family: var(--font-display);
-        font-size: clamp(2.1rem, 3.7vw, 4.2rem) !important;
-        font-weight: 600;
-        line-height: 0.94 !important;
-        letter-spacing: 0;
-        text-transform: uppercase;
-      }
-      /* Coloured bar reused from the articles' sign-off (issue-03 .signoff-showpiece):
-         a single rounded gradient — rose → teal → blush, fading at both ends. */
-      .home-masthead-rule {
-        display: block;
-        width: min(100%, 740px);
-        height: 10px;
-        margin: clamp(20px, 3vw, 42px) 0 clamp(16px, 2.4vw, 34px);
-        background: linear-gradient(90deg, transparent, #b95d78, #b9d7dc, rgba(252, 228, 242, 0.96), transparent);
-        border-radius: 999px;
-      }
-      .home-masthead-rule span { display: none; }
-      /* Divider repeating the rule between the tagline and the 90s/Y2K motto (mobile
-         only); mirrored direction so the two stacked bars read as a pair. */
-      .hero-copy--actions .hero-divider {
-        display: none;
-        width: min(100%, 420px);
-        margin: 0 auto clamp(16px, 2.4vw, 24px);
-        background: linear-gradient(270deg, transparent, #b95d78, #b9d7dc, rgba(252, 228, 242, 0.96), transparent);
-      }
-      .hero-logo {
-        max-width: 560px !important;
-        width: min(100%, 560px) !important;
-      }
-      .hero h1 {
-        max-width: 980px !important;
-        margin: 0 auto;
-        font-size: clamp(2.1rem, 5.8vw, 5.2rem) !important;
-        line-height: 0.88 !important;
-        text-transform: uppercase;
-        letter-spacing: 0;
-      }
-      .hero-motto {
-        max-width: 760px;
-        margin: 0 auto !important;
-        color: var(--wine) !important;
-        font-family: var(--font-display);
-        font-size: clamp(1.08rem, 2.2vw, 1.55rem) !important;
-        font-weight: 700;
-        line-height: 1.18 !important;
-        text-wrap: balance;
-      }
-      .hero-motto > span {
-        display: block;
-        white-space: nowrap;
-      }
-      .hero-motto > span * {
-        white-space: nowrap;
-      }
-      .hero-text {
-        max-width: 710px !important;
-        margin: 0 !important;
-        font-size: clamp(1rem, 1.8vw, 1.18rem) !important;
-        line-height: 1.55 !important;
-      }
-      .home-masthead-copy .hero-text {
-        max-width: 700px !important;
-        margin: clamp(28px, 3.4vw, 52px) 0 0 !important;
-        color: var(--plum) !important;
-        font-family: var(--font-display);
-        font-size: clamp(1.6rem, 2.3vw, 2.3rem) !important;
-        font-style: italic;
-        font-weight: 400;
-        line-height: 1.3 !important;
-        text-wrap: balance;
-      }
-      .hero-quote {
-        font-size: clamp(1.1rem, 2vw, 1.4rem) !important;
-      }
-      .hero .eyebrow .hero-quote-ai {
-        color: var(--wine);
-        font-family: inherit;
-        font-size: 1em;
-        font-weight: inherit;
-        letter-spacing: inherit;
-        line-height: inherit;
-        text-transform: inherit;
-        transform: none;
-      }
-      .hero {
-        min-height: auto !important;
-        padding: clamp(34px, 6vw, 78px) clamp(16px, 4vw, 48px) clamp(28px, 5vw, 58px) !important;
-        gap: 16px !important;
-        overflow: hidden;
-      }
-      .hero-copy {
-        width: min(100%, 1040px);
-        margin: 0 auto;
-        gap: 12px !important;
-      }
-      .hero-copy--actions {
-        width: min(100%, 760px);
-      }
-      .hero-actions {
-        justify-content: center;
-        margin-top: 12px !important;
-      }
-      .hero-secondary-link {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-width: min(100%, 280px);
-        min-height: 42px;
-        border: 1px solid rgba(142, 194, 198, 0.78);
-        border-radius: 999px;
-        padding: 0.95rem 1.35rem;
-        background:
-          linear-gradient(135deg, rgba(220, 245, 245, 0.98), rgba(190, 224, 226, 0.9));
-        color: var(--plum) !important;
-        /* Match the primary "Read the Current Episode" text size (1rem). */
-        font-size: 1rem;
-        font-weight: 800;
-        letter-spacing: 0.04em;
-        text-decoration: none;
-        text-transform: uppercase;
-        box-shadow:
-          0 14px 32px rgba(75, 33, 72, 0.1),
-          inset 0 1px 0 rgba(255, 253, 251, 0.7);
-        transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
-      }
-      .hero-secondary-link:hover,
-      .hero-secondary-link:focus-visible {
-        transform: translateY(-2px);
-        border-color: rgba(142, 194, 198, 1);
-        box-shadow:
-          0 18px 38px rgba(75, 33, 72, 0.14),
-          inset 0 1px 0 rgba(255, 253, 251, 0.82);
-        outline: none;
-      }
-      .home-route-note {
-        max-width: 580px;
-        margin: 0 auto;
-      }
-      .home-start-ritual-cue {
-        display: inline-flex;
-        width: fit-content;
-        margin-bottom: 2px;
-        border: 1px solid rgba(142, 194, 198, 0.66);
-        border-radius: 999px;
-        padding: 5px 9px;
-        background: rgba(220, 245, 245, 0.56);
-        color: var(--plum);
-        font-family: var(--font-body);
-        font-size: 0.66rem;
-        font-style: normal;
-        font-weight: 900;
-        letter-spacing: 0.08em;
-        line-height: 1;
-        text-transform: uppercase;
-      }
-      .home-status-pill,
-      .portal-status {
-        display: inline-flex;
-        width: fit-content;
-        align-items: center;
-        justify-content: center;
-        border-radius: 999px;
-        padding: 4px 8px;
-        color: var(--plum);
-        font-family: var(--font-body);
-        font-size: 0.58rem;
-        font-weight: 900;
-        letter-spacing: 0.08em;
-        line-height: 1;
-        text-transform: uppercase;
-        white-space: nowrap;
-      }
-      .home-status-pill {
-        margin-bottom: 2px;
-      }
-      .status-current {
-        border: 1px solid rgba(142, 194, 198, 0.72);
-        background: rgba(220, 245, 245, 0.7);
-      }
-      .status-available {
-        border: 1px solid rgba(185, 93, 120, 0.34);
-        background: rgba(255, 244, 249, 0.9);
-      }
-      .status-soon,
-      .status-in-works,
-      .status-member {
-        border: 1px solid rgba(75, 33, 72, 0.16);
-        background: rgba(255, 253, 251, 0.86);
-        color: rgba(75, 33, 72, 0.72);
-      }
-      /* Route-card status pills toned down to the palette so they read as quiet
-         status, not chips competing with the card headings. Scoped to
-         .home-status-pill, so the Grimoire/portal rows keep their own treatment.
-         status-current keeps a quiet wine text to still signal "this week". */
-      .home-status-pill.status-available,
-      .home-status-pill.status-current {
-        border: 1px solid rgba(75, 33, 72, 0.16);
-        background: rgba(255, 253, 251, 0.86);
-        color: rgba(75, 33, 72, 0.72);
-      }
-      .home-status-pill.status-current {
-        color: var(--wine);
-      }
-      .home-preview-note {
-        min-height: 42px;
-        padding: 10px 14px;
-        font-size: 0.68rem;
-        box-shadow: 0 10px 24px rgba(75, 33, 72, 0.08);
-      }
-      .home-anthem-row {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        margin-top: 8px;
-      }
-      .home-current-episode {
-        /* Unified section vertical rhythm (see also portal/world/about/social). */
-        padding: clamp(40px, 5vw, 64px) clamp(18px, 5vw, 64px);
-      }
-      /* Compact signup sits directly below the hero — density only, copy unchanged. */
-      .subscribe--compact {
-        padding-top: clamp(24px, 3.5vw, 40px);
-        padding-bottom: clamp(24px, 3.5vw, 40px);
-      }
-      .home-current-card {
-        display: grid;
-        grid-template-columns: minmax(280px, 0.95fr) minmax(0, 1.05fr);
-        gap: clamp(22px, 4vw, 46px);
-        align-items: center;
-        width: min(100%, 1120px);
-        margin: 0 auto;
-        border: 1px solid rgba(75, 33, 72, 0.16);
-        border-radius: 18px;
-        padding: clamp(16px, 3vw, 28px);
-        background:
-          radial-gradient(circle at 96% 4%, rgba(200, 220, 224, 0.22), transparent 20rem),
-          linear-gradient(145deg, rgba(255, 253, 251, 0.96), rgba(247, 238, 238, 0.78));
-        box-shadow: 0 24px 60px rgba(75, 33, 72, 0.12);
-      }
-      .home-current-card figure {
-        margin: 0;
-      }
-      .home-current-card img {
-        display: block;
-        width: 100%;
-        max-height: 430px;
-        border-radius: 14px;
-        object-fit: cover;
-        object-position: center center;
-        box-shadow: 0 18px 44px rgba(75, 33, 72, 0.14);
-      }
-      .home-current-copy {
-        display: grid;
-        gap: 12px;
-      }
-      .home-current-copy h2 {
-        margin: 0;
-        color: var(--plum);
-        font-family: var(--font-display);
-        font-size: clamp(2rem, 5vw, 4.15rem);
-        line-height: 0.92;
-        text-transform: uppercase;
-      }
-      .home-current-copy p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.55;
-      }
-      .home-current-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        align-items: center;
-        margin-top: 6px;
-      }
-      .home-world-preview {
-        padding: clamp(40px, 5vw, 64px) clamp(18px, 5vw, 64px);
-      }
-      .home-world-preview-inner {
-        display: grid;
-        grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
-        gap: clamp(20px, 4vw, 44px);
-        align-items: center;
-        width: min(100%, 1120px);
-        margin: 0 auto;
-      }
-      .home-world-preview-copy {
-        display: grid;
-        gap: 10px;
-      }
-      .home-world-preview-copy h2 {
-        margin: 0;
-        color: var(--plum);
-        font-family: var(--font-display);
-        font-size: clamp(2.1rem, 5vw, 4rem);
-        line-height: 0.98;
-        text-transform: uppercase;
-      }
-      .home-world-preview-copy p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.55;
-      }
-      .home-world-wink {
-        display: inline-block;
-        width: fit-content;
-        margin-top: 6px !important;
-        padding: 10px 16px;
-        border: 1px solid rgba(111, 38, 63, 0.18);
-        border-radius: 999px;
-        background: rgba(255, 244, 249, 0.84);
-        color: var(--plum) !important;
-        font-family: var(--font-display);
-        font-size: clamp(1.05rem, 1.9vw, 1.35rem);
-        font-weight: 700;
-        box-shadow: 0 14px 28px rgba(75, 33, 72, 0.08);
-      }
-      .home-world-wink .hero-quote-ai {
-        display: inline;
-        color: inherit;
-        font: inherit;
-        letter-spacing: inherit;
-        line-height: inherit;
-        text-transform: uppercase;
-        transform: none;
-      }
-      .home-world-preview .hero-image {
-        height: auto !important;
-        aspect-ratio: 16 / 10;
-      }
-      .hero-image {
-        height: clamp(280px, 38vw, 470px) !important;
-        max-width: 980px;
-        max-height: none !important;
-        overflow: hidden;
-        border: 1px solid rgba(75, 33, 72, 0.16);
-        border-radius: 16px;
-        margin: 0 auto;
-        width: min(100%, 980px);
-        box-shadow: 0 24px 58px rgba(75, 33, 72, 0.14);
-      }
-      .hero-image img {
-        height: 100% !important;
-        max-height: none !important;
-        width: 100% !important;
-        object-fit: cover !important;
-        object-position: center 42%;
-        border-radius: 12px;
-      }
-      .site-footer div {
-        flex-wrap: wrap;
-      }
-      /* ─── INTRO BAND ─── */
-      .intro-band {
-        padding: 28px 20px !important;
-        font-size: 0.95rem !important;
-      }
-
-      /* ─── CLUBHOUSE GRID ─── */
-      .clubhouse-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-        margin-top: 36px;
-      }
-
-      .clubhouse-grid-card {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        text-decoration: none;
-        color: inherit;
-        border-radius: 20px;
-        overflow: hidden;
-        border: 1px solid rgba(75, 33, 72, 0.18);
-        background: rgba(255, 253, 251, 0.9);
-        box-shadow:
-          0 20px 44px rgba(75, 33, 72, 0.12),
-          inset 0 1px 0 rgba(255, 255, 255, 0.52);
-        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      }
-
-      .clubhouse-grid-card:hover {
-        transform: translateY(-6px) scale(1.02);
-        border-color: rgba(111, 38, 63, 0.36);
-        box-shadow:
-          0 24px 56px rgba(75, 33, 72, 0.16),
-          inset 0 1px 0 rgba(255, 255, 255, 0.68);
-      }
-
-      /* Image fills entire top — no padding, edge to edge */
-      .clubhouse-grid-card img {
-        width: 100%;
-        height: 220px;
-        object-fit: cover;
-        display: block;
-        transition: transform 0.4s ease;
-      }
-
-      .clubhouse-grid-card:hover img {
-        transform: scale(1.08);
-      }
-
-      /* Text area below image */
-      .clubhouse-grid-card .card-text {
-        padding: 20px 20px 24px;
-        text-align: center;
-        background: linear-gradient(180deg, rgba(255, 253, 251, 0.96) 0%, rgba(247, 238, 238, 0.98) 100%);
-      }
-
-      .clubhouse-grid-card h3 {
-        margin: 0 0 6px;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 1.3rem;
-        font-weight: 700;
-        color: var(--plum);
-        text-shadow: none;
-      }
-
-      .clubhouse-grid-card p {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--muted);
-        line-height: 1.5;
-      }
-
-      /* ─── Room card (full width, horizontal) ─── */
-      .clubhouse-room-card {
-        grid-column: 1 / -1;
-        flex-direction: row !important;
-      }
-      .clubhouse-room-card img {
-        width: 280px !important;
-        height: auto !important;
-        min-height: 180px;
-        object-fit: cover;
-      }
-      .clubhouse-room-card .card-text {
-        text-align: left;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 28px 32px;
-      }
-      .clubhouse-room-card h3 {
-        font-size: 1.5rem;
-      }
-      .clubhouse-room-card p {
-        font-size: 0.9rem;
-      }
-
-      /* ─── Episode section ─── */
-      .episode-links {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin-top: 12px;
-        align-items: center;
-      }
-      .episode-links .button.episode-archive-link {
-        font-size: 0.82rem;
-        padding: 6px 14px;
-      }
-      .home-start {
-        padding: clamp(48px, 7vw, 88px) clamp(18px, 5vw, 64px);
-      }
-      .home-start .section-heading,
-      .home-community-teaser .section-heading {
-        position: static !important;
-        max-width: 820px;
-        margin: 0 auto clamp(18px, 3vw, 28px);
-        text-align: center;
-      }
-      .home-start-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 16px;
-        width: min(100%, 1060px);
-        margin: 0 auto;
-      }
-      .home-start-card,
-      .home-community-panel {
-        display: grid;
-        gap: 10px;
-        border: 1px solid rgba(75, 33, 72, 0.16);
-        border-radius: 16px;
-        padding: clamp(18px, 3vw, 24px);
-        background:
-          radial-gradient(circle at 92% 8%, rgba(200, 220, 224, 0.18), transparent 18rem),
-          linear-gradient(145deg, rgba(255, 253, 251, 0.96), rgba(247, 238, 238, 0.82));
-        box-shadow: 0 18px 42px rgba(75, 33, 72, 0.1);
-        color: var(--plum);
-        text-decoration: none;
-      }
-      .home-start-card:hover,
-      .home-start-card:focus-visible,
-      .portal-card-main:hover,
-      .portal-card-main:focus-visible {
-        transform: translateY(-3px);
-        border-color: rgba(111, 38, 63, 0.34);
-        box-shadow: 0 22px 46px rgba(75, 33, 72, 0.14);
-        outline: none;
-      }
-      .home-start-card span,
-      .portal-card-main,
-      .home-community-actions a {
-        color: var(--wine);
-        font-family: var(--font-body);
-        font-size: 0.72rem;
-        font-weight: 900;
-        letter-spacing: 0.09em;
-        text-transform: uppercase;
-      }
-      .home-start-card strong {
-        color: var(--plum);
-        font-family: var(--font-display);
-        /* Sized to sit cleanly (≈one line) in the narrower 3-up route cards. */
-        font-size: clamp(1.18rem, 1.5vw, 1.4rem);
-        line-height: 1.1;
-      }
-      /* Route-card images: same contained 16:10 treatment as the portal cards. */
-      .home-start-card > img {
-        width: 100%;
-        aspect-ratio: 16 / 10;
-        height: auto;
-        border-radius: 10px;
-        object-fit: cover;
-        object-position: center center;
-        display: block;
-        margin-bottom: 4px;
-      }
-      /* Closed-bag is 4:3 — anchor top so the backpack (hook → charms) stays whole
-         and the empty desk foreground crops instead. */
-      .home-start-card > img.home-route-img--top {
-        object-position: center top;
-      }
-      .home-start-card p,
-      .home-community-panel p {
-        margin: 0;
-        color: var(--muted) !important;
-        line-height: 1.5;
-      }
-      .home-start-card--primary {
-        border-color: rgba(185, 93, 120, 0.42);
-        background:
-          radial-gradient(circle at 92% 8%, rgba(200, 220, 224, 0.22), transparent 18rem),
-          linear-gradient(145deg, rgba(255, 253, 251, 0.98), rgba(255, 238, 246, 0.94));
-        box-shadow:
-          0 26px 58px rgba(75, 33, 72, 0.16),
-          inset 5px 0 0 rgba(185, 93, 120, 0.78);
-      }
-      /* Primary keeps its accent (border + coral spine) but matches the others'
-         title size so the three cards read as equal siblings. */
-      .home-start-card--primary strong {
-        font-size: clamp(1.18rem, 1.5vw, 1.4rem);
-      }
-      .home-start-card--quiet {
-        background:
-          radial-gradient(circle at 92% 8%, rgba(200, 220, 224, 0.14), transparent 18rem),
-          linear-gradient(145deg, rgba(255, 253, 251, 0.94), rgba(247, 238, 238, 0.66));
-      }
-      /* Three sibling route cards in one grid. Pills are group headers on row 1:
-         "New here?" over the premiere (col 1); "Returning?" spans the pair
-         (cols 2-3). All three cards sit on row 2 at equal width. */
-      .home-route-segments {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        column-gap: clamp(16px, 2vw, 26px);
-        row-gap: 12px;
-        width: min(100%, 1120px);
-        /* Breathing room so the pill row clears the current-episode box above. */
-        margin: clamp(30px, 3.6vw, 52px) auto 0;
-      }
-      .home-route-pill {
-        display: inline-flex;
-        width: fit-content;
-        margin: 0;
-        padding: 7px 16px;
-        border-radius: 999px;
-        border: 1px solid rgba(75, 33, 72, 0.16);
-        background: rgba(255, 253, 251, 0.86);
-        color: var(--wine);
-        font-family: var(--font-body);
-        font-size: 0.8rem;
-        font-weight: 900;
-        letter-spacing: 0.13em;
-        text-transform: uppercase;
-        align-self: end;
-      }
-      .home-route-pill--single { grid-column: 1; grid-row: 1; }
-      .home-route-pill--pair { grid-column: 2 / 4; grid-row: 1; }
-      .route-card--1 { grid-column: 1; grid-row: 2; }
-      .route-card--2 { grid-column: 2; grid-row: 2; }
-      .route-card--3 { grid-column: 3; grid-row: 2; }
-      /* ─── TYPE PASS: confident eyebrows + standard-size app-card text ─── */
-      /* Section eyebrows/kickers — modest bump so they read as intentional
-         labels, still subordinate to titles. (.laidies-eyebrow handled in
-         content/laidies-components.css for parity.) */
-      .eyebrow {
-        font-size: 0.82rem;
-        letter-spacing: 0.16em;
-      }
-      .home-screen-steps article span {
-        font-size: 0.8rem;
-        letter-spacing: 0.13em;
-      }
-      /* App card body + numbered steps to standard body size (were fine-print). */
-      .home-screen-copy p:not(.eyebrow) {
-        font-size: 1rem;
-      }
-      .home-screen-steps ol,
-      .home-screen-steps li {
-        font-size: 1rem;
-      }
-      /* After-hours accent image — fills the right slot left by the dropped QR
-         card; contained + rounded to match the section's panels. Portrait source
-         (0.68) shown at ~4:5 so it crops minimally and balances the copy. */
-      .social-after-hours-img {
-        display: block;
-        justify-self: end;
-        width: 100%;
-        max-width: 160px;
-        aspect-ratio: 4 / 5;
-        object-fit: cover;
-        object-position: center;
-        border-radius: 16px;
-        box-shadow: 0 16px 45px rgba(75, 33, 72, 0.14);
-      }
-      @media (max-width: 760px) {
-        /* Centre the after-hours accent image when the social section stacks. */
-        .social-after-hours-img { justify-self: center; max-width: 172px; }
-        /* Stack the route grid to one column; DOM order already reads
-           New here? → Premiere → Returning? → This Week → All Episodes. */
-        .home-route-segments { grid-template-columns: 1fr; row-gap: 10px; }
-        .home-route-pill--single,
-        .home-route-pill--pair,
-        .route-card--1,
-        .route-card--2,
-        .route-card--3 { grid-column: 1; grid-row: auto; align-self: auto; }
-        .home-route-pill--pair { margin-top: 16px; }
-        /* Mobile stack order: hero -> current episode + routes -> signup ->
-           portal -> world -> about -> social. Keeps the ask below real content
-           without changing desktop DOM order. */
-        main#top { display: flex; flex-direction: column; }
-        main#top > .site-header { order: 0; }
-        main#top > .hero { order: 1; }
-        main#top > #episodes { order: 2; }
-        main#top > #signup { order: 3; }
-        main#top > #portal-map { order: 4; }
-        main#top > .home-world-preview { order: 5; }
-        main#top > #about { order: 6; }
-        main#top > .social-strip { order: 7; }
-      }
-      .world-portal-map {
-        padding-top: clamp(40px, 5vw, 64px);
-        padding-bottom: clamp(40px, 5vw, 64px);
-        /* Base side padding so cards/text aren't flush below 1024px (the
-           ≥1024 media query overrides these with the larger desktop clamp). */
-        padding-left: clamp(18px, 5vw, 64px);
-        padding-right: clamp(18px, 5vw, 64px);
-      }
-      .home-universe-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: clamp(20px, 2.4vw, 30px);
-        align-items: stretch;
-        width: min(100%, 1100px);
-        margin: 0 auto;
-      }
-      /* Portal teasers as self-contained cards: bounded image on top, then
-         kicker/title/line/button inside the card's padding. Flex column +
-         height:100% keeps the 2-up row equal-height. */
-      .world-portal-card.world-portal-card--stack {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        height: 100%;
-        padding: clamp(16px, 1.6vw, 22px);
-        background:
-          radial-gradient(circle at 92% 6%, rgba(200, 220, 224, 0.16), transparent 18rem),
-          linear-gradient(145deg, rgba(255, 253, 251, 0.97), rgba(247, 238, 238, 0.82));
-        border: 1px solid rgba(75, 33, 72, 0.16);
-        border-radius: 16px;
-        box-shadow: 0 18px 42px rgba(75, 33, 72, 0.1);
-        overflow: hidden;
-      }
-      /* Header sits clear of the first card. */
-      #portal-map .section-heading {
-        margin-bottom: clamp(24px, 3vw, 40px);
-      }
-      .world-portal-card--stack > div > span {
-        display: block;
-        margin-bottom: 6px;
-        color: var(--wine);
-        font-family: var(--font-body);
-        font-size: 0.78rem;
-        font-weight: 900;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-      }
-      .world-portal-card--stack > img {
-        width: 100%;
-        aspect-ratio: 16 / 10;
-        height: auto;
-        min-height: 0;
-        border-radius: 10px;
-        object-fit: cover;
-        object-position: center center;
-        display: block;
-      }
-      /* Grimoire flat-lay at assets/portal/laidies-grimoire-teaser.png. Tighter crop
-         favours the cover + open book (LAiDIES GRIMOIRE legible) without squishing. */
-      .home-grimoire-card > img {
-        background: linear-gradient(145deg, rgba(252, 228, 242, 0.7), rgba(255, 244, 249, 0.9));
-        object-position: center center;
-      }
-      .world-portal-card--text {
-        grid-template-columns: 1fr !important;
-        border-color: rgba(185, 93, 120, 0.34);
-        background:
-          radial-gradient(circle at 92% 2%, rgba(200, 220, 224, 0.18), transparent 22rem),
-          linear-gradient(145deg, rgba(255, 253, 251, 0.98), rgba(255, 244, 249, 0.86));
-        box-shadow:
-          0 24px 58px rgba(75, 33, 72, 0.13),
-          inset 6px 0 0 rgba(185, 93, 120, 0.7);
-      }
-      .brand-nowrap {
-        white-space: nowrap;
-      }
-      .brand-word-inline {
-        display: inline !important;
-        margin: 0 !important;
-        white-space: nowrap;
-        font-family: inherit !important;
-        font-size: inherit !important;
-        font-weight: inherit !important;
-        letter-spacing: inherit !important;
-        line-height: inherit !important;
-        color: inherit !important;
-        /* Wordmark preserves its exact casing even inside an uppercased title,
-           so the lowercase accented "i" never becomes "I". */
-        text-transform: none !important;
-      }
-      .brand-word-inline > span {
-        display: inline !important;
-        margin: 0 !important;
-        color: inherit !important;
-        font-family: inherit !important;
-        font-size: inherit !important;
-        font-weight: inherit !important;
-        letter-spacing: inherit !important;
-        line-height: inherit !important;
-        text-transform: inherit !important;
-      }
-      .brand-word-inline [data-brand-ai] {
-        display: inline !important;
-        margin: 0 !important;
-        color: var(--rose) !important;
-        font-family: inherit !important;
-        font-size: inherit !important;
-        font-weight: inherit !important;
-        letter-spacing: inherit !important;
-        line-height: inherit !important;
-        text-transform: inherit !important;
-      }
-      .world-portal-card--stack > div > strong {
-        display: block;
-        margin-bottom: 10px;
-        color: var(--plum);
-        font-family: var(--font-display);
-        font-size: clamp(1.65rem, 3.1vw, 2.3rem);
-        line-height: 1.02;
-        text-transform: uppercase;
-        overflow-wrap: normal;
-        word-break: normal;
-        hyphens: none;
-        text-wrap: balance;
-      }
-      .world-portal-card--stack .portal-mini-list {
-        display: grid;
-        gap: 10px;
-        list-style: none;
-        margin: 16px 0 0;
-        padding: 0;
-      }
-      .world-portal-card--stack .portal-mini-list li {
-        border-top: 1px solid rgba(75, 33, 72, 0.12);
-        padding-top: 8px;
-      }
-      .world-portal-card--stack .portal-mini-list a {
-        display: grid;
-        gap: 3px;
-        color: var(--plum);
-        text-decoration: none;
-      }
-      .world-portal-card--stack .portal-mini-list .portal-preview {
-        display: grid;
-        gap: 3px;
-        color: var(--plum);
-        font-family: var(--font-body);
-        font-size: 1rem;
-        font-weight: 400;
-        letter-spacing: 0;
-        line-height: 1.35;
-        text-transform: none;
-      }
-      .world-portal-card--stack .portal-mini-list b {
-        display: block;
-        margin-bottom: 2px;
-        color: var(--wine);
-        font-family: var(--font-body);
-        font-size: 0.68rem;
-        font-weight: 900;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        overflow-wrap: normal;
-        word-break: normal;
-        hyphens: none;
-      }
-      .world-portal-card--stack .portal-mini-list b,
-      .world-portal-card--stack .portal-mini-list b * {
-        white-space: nowrap;
-      }
-      .hero-motto .laidies-inline-wordmark,
-      .world-portal-card--stack .laidies-inline-wordmark {
-        display: inline-flex !important;
-        align-items: baseline;
-        white-space: nowrap !important;
-      }
-      .hero-motto .laidies-inline-wordmark > span,
-      .world-portal-card--stack .laidies-inline-wordmark > span {
-        display: inline-flex !important;
-        align-items: baseline;
-        white-space: nowrap !important;
-      }
-      .hero-motto .laidies-inline-wordmark [data-laidies-part],
-      .world-portal-card--stack .laidies-inline-wordmark [data-laidies-part] {
-        display: inline !important;
-        white-space: nowrap !important;
-      }
-      .world-portal-card--stack .portal-mini-list b.brand-preserve-case {
-        text-transform: none;
-      }
-      .world-portal-card--stack .portal-mini-list em {
-        display: block;
-        color: var(--muted);
-        font-size: 0.78rem;
-        font-style: normal;
-        line-height: 1.35;
-        letter-spacing: 0;
-        text-transform: none;
-      }
-      .portal-card-main {
-        display: inline-flex;
-        width: fit-content;
-        margin-top: 18px;
-        border: 1px solid rgba(75, 33, 72, 0.22);
-        border-radius: 999px;
-        padding: 8px 12px;
-        background: rgba(255, 253, 251, 0.78);
-        text-decoration: none;
-        transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
-      }
-      .portal-card-main--primary {
-        border-color: rgba(111, 38, 63, 0.4);
-        background: var(--plum);
-        color: #fffdfb !important;
-        box-shadow: 0 16px 34px rgba(75, 33, 72, 0.16);
-      }
-      .site-header {
-        overflow: visible !important;
-      }
-      .site-menu-toggle {
-        display: inline-flex !important;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        min-width: 48px;
-        min-height: 48px;
-        border: 1px solid rgba(75, 33, 72, 0.18);
-        border-radius: 999px;
-        background: rgba(255, 253, 251, 0.88);
-        color: var(--plum) !important;
-        font-family: var(--font-body);
-        font-size: 0.82rem;
-        font-weight: 900;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        text-shadow: none !important;
-        box-shadow: 0 12px 28px rgba(75, 33, 72, 0.1);
-      }
-      .site-menu-label {
-        display: inline-block;
-      }
-      .site-menu-panel {
-        position: absolute;
-        top: calc(100% + 12px);
-        right: clamp(12px, 3vw, 42px);
-        z-index: 1200;
-        display: none;
-        width: min(920px, calc(100vw - 24px));
-        max-height: min(74vh, 720px);
-        overflow-y: auto;
-        border: 1px solid rgba(75, 33, 72, 0.18);
-        border-radius: 18px;
-        padding: clamp(16px, 3vw, 24px);
-        background:
-          radial-gradient(circle at 92% 0%, rgba(200, 220, 224, 0.2), transparent 18rem),
-          linear-gradient(145deg, rgba(255, 253, 251, 0.98), rgba(247, 238, 238, 0.96));
-        box-shadow: 0 28px 72px rgba(75, 33, 72, 0.2);
-      }
-      .site-menu-panel.is-open {
-        display: block;
-      }
-      .site-menu-topline {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 14px;
-        margin-bottom: 18px;
-        border-bottom: 1px solid rgba(75, 33, 72, 0.12);
-        padding-bottom: 14px;
-      }
-      .site-menu-topline p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.9rem;
-        line-height: 1.45;
-      }
-      .site-menu-title {
-        display: block;
-        margin-bottom: 3px;
-        color: var(--wine);
-        font-family: var(--font-body);
-        font-size: 0.72rem;
-        font-weight: 900;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-      .site-menu-close {
-        flex: 0 0 auto;
-        border: 1px solid rgba(75, 33, 72, 0.18);
-        border-radius: 999px;
-        padding: 9px 12px;
-        background: rgba(255, 253, 251, 0.86);
-        color: var(--plum);
-        font-family: var(--font-body);
-        font-size: 0.72rem;
-        font-weight: 900;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        cursor: pointer;
-      }
-      .site-menu-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 14px;
-      }
-      .site-menu-group {
-        display: grid;
-        gap: 8px;
-        border: 1px solid rgba(75, 33, 72, 0.12);
-        border-radius: 14px;
-        padding: 14px;
-        background: rgba(255, 253, 251, 0.72);
-      }
-      .site-menu-group h2 {
-        margin: 0 0 4px;
-        color: var(--plum);
-        font-family: var(--font-body);
-        font-size: 0.74rem;
-        font-weight: 900;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-      .site-menu-group a {
-        display: flex;
-        align-items: center;
-        min-height: 42px;
-        border-top: 1px solid rgba(75, 33, 72, 0.08);
-        padding-top: 8px;
-        color: var(--plum) !important;
-        font-family: var(--font-body);
-        font-size: 0.9rem;
-        font-weight: 800;
-        line-height: 1.25;
-        text-decoration: none;
-      }
-      .site-menu-group .site-menu-preview {
-        display: flex;
-        align-items: center;
-        min-height: 42px;
-        border-top: 1px solid rgba(75, 33, 72, 0.08);
-        padding-top: 8px;
-        color: rgba(75, 33, 72, 0.66);
-        font-family: var(--font-body);
-        font-size: 0.84rem;
-        font-weight: 800;
-        line-height: 1.25;
-      }
-      .site-menu-group a:first-of-type {
-        border-top: none;
-        padding-top: 0;
-      }
-      .site-menu-group .site-menu-preview:first-of-type {
-        border-top: none;
-        padding-top: 0;
-      }
-      .site-menu-group a:hover,
-      .site-menu-group a:focus-visible,
-      .site-menu-close:hover,
-      .site-menu-close:focus-visible,
-      .site-menu-toggle:hover,
-      .site-menu-toggle:focus-visible {
-        border-color: rgba(111, 38, 63, 0.34);
-        color: var(--wine) !important;
-        outline: none;
-        box-shadow: 0 12px 28px rgba(75, 33, 72, 0.12);
-      }
-
-      /* Desktop recovery: make the post-masthead homepage feel intentionally scaled. */
-      @media (min-width: 1024px) {
-        .hero-copy--actions {
-          width: min(100%, 880px);
-        }
-
-        .home-current-episode,
-        .home-start,
-        .world-portal-map,
-        .home-world-preview {
-          padding-left: clamp(34px, 6vw, 112px);
-          padding-right: clamp(34px, 6vw, 112px);
-        }
-
-        .home-current-card {
-          width: min(100%, 1280px);
-          grid-template-columns: minmax(360px, 0.95fr) minmax(420px, 1.05fr);
-          padding: clamp(22px, 2.6vw, 38px);
-        }
-
-        .home-current-card img {
-          max-height: 520px;
-        }
-
-        .home-start .section-heading,
-        .world-portal-map .section-heading {
-          max-width: 960px;
-        }
-
-        .home-start-grid {
-          width: min(100%, 1240px);
-          gap: clamp(18px, 2vw, 28px);
-        }
-
-        .home-start-card {
-          min-height: 220px;
-          align-content: start;
-        }
-
-        .home-universe-grid {
-          width: min(100%, 1320px);
-          gap: clamp(22px, 2.4vw, 34px);
-        }
-
-        .world-portal-card--stack {
-          padding: clamp(18px, 2vw, 28px);
-        }
-
-        .world-portal-card--stack > img {
-          aspect-ratio: 16 / 10;
-          height: auto;
-        }
-
-        .home-world-preview-inner {
-          width: min(100%, 1280px);
-          grid-template-columns: minmax(340px, 0.66fr) minmax(520px, 1.34fr);
-        }
-
-        .home-world-preview .hero-image {
-          width: min(100%, 800px);
-          aspect-ratio: 16 / 9;
-        }
-
-        .mini-subscribe {
-          max-width: 980px;
-        }
-
-        .subscribe {
-          width: min(calc(100% - 72px), 1240px);
-          max-width: none;
-          margin-left: auto;
-          margin-right: auto;
-          grid-template-columns: minmax(320px, 0.86fr) minmax(420px, 1.14fr);
-        }
-
-        .about-band {
-          width: min(calc(100% - 72px), 1280px);
-          margin-left: auto;
-          margin-right: auto;
-          border-radius: 18px;
-        }
-      }
-
-      @media (min-width: 1600px) {
-        .home-current-card,
-        .home-world-preview-inner {
-          width: min(100%, 1400px);
-        }
-
-        .home-universe-grid {
-          width: min(100%, 1440px);
-        }
-      }
-
-      /* ─── THE CLUBHOUSE section header ─── */
-      #the-clubhouse {
-        background:
-          radial-gradient(circle at 18% 14%, rgba(200, 220, 224, 0.26), transparent 24rem),
-          linear-gradient(165deg, #fffdfb 0%, #f7eeee 54%, rgba(232, 197, 200, 0.28) 100%) !important;
-        color: var(--ink);
-        border: 1px solid rgba(75, 33, 72, 0.12);
-        border-radius: 18px;
-        margin: 32px clamp(8px, 2vw, 24px);
-        padding: clamp(40px, 6vw, 80px) clamp(18px, 5vw, 64px) !important;
-      }
-      #the-clubhouse .section-heading {
-        background: none !important;
-        box-shadow: none !important;
-        border: none !important;
-      }
-      #the-clubhouse .section-heading h2 {
-        color: var(--plum);
-        text-shadow: none;
-      }
-      #the-clubhouse .section-heading .eyebrow {
-        letter-spacing: 0.15em;
-        color: var(--wine);
-        font-weight: 800;
-      }
-      #the-clubhouse .clubhouse-grid-card-body p {
-        color: var(--muted);
-      }
-      #the-clubhouse .clubhouse-grid-card-body strong {
-        color: var(--plum);
-      }
-
-      /* ─── Responsive ─── */
-      @media (max-width: 900px) {
-        .home-start-grid,
-        .home-universe-grid,
-        .home-world-preview-inner,
-        .home-current-card {
-          grid-template-columns: 1fr;
-        }
-        .site-menu-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-        .clubhouse-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 16px;
-        }
-        .clubhouse-room-card {
-          flex-direction: column !important;
-        }
-        .clubhouse-room-card img {
-          width: 100% !important;
-          height: 180px !important;
-        }
-        .clubhouse-room-card .card-text {
-          text-align: center;
-        }
-      }
-      @media (min-width: 521px) {
-        /* Desktop: the logo overhangs past the left edge; the headline, rule and
-           tagline are nudged left so they begin in the MIDDLE of the "L" stroke of
-           the overhanging wordmark. */
-        .home-masthead-logo-wrap { margin-left: clamp(-78px, -4.4vw, -44px) !important; }
-        .hero .home-masthead-copy h1 { margin-left: clamp(-46px, -3.1vw, -30px) !important; }
-        .home-masthead-copy .hero-text {
-          margin-top: 0 !important;
-          margin-left: clamp(-46px, -3.1vw, -30px) !important;
-        }
-        /* Coloured line sits BETWEEN the headline and the AI-fluency block, with
-           equal space above and below so the two text blocks read evenly spaced. */
-        .home-masthead-copy .home-masthead-rule {
-          display: block;
-          width: min(100%, 620px);
-          margin: clamp(32px, 3.6vw, 60px) 0;
-          margin-left: clamp(-46px, -3.1vw, -30px);
-        }
-        /* No second line lower down on desktop. */
-        .hero-copy--actions .hero-divider { display: none; }
-      }
-      @media (max-width: 520px) {
-        /* Mobile: stack a shorter landscape photo band on top (cropped so it's not too
-           tall) with a very light blush wash so it blends into the page, then the copy
-           below on the blush block — full image visible, copy fully legible. */
-        .home-masthead-banner {
-          flex-direction: column;
-          align-items: stretch;
-          min-height: 0;
-          margin-top: calc(-1 * clamp(34px, 6vw, 78px));
-          margin-bottom: 7px;
-          padding: 0 22px 8px;
-          background-image: none;
-          background-color: #f9eef3;
-        }
-        .home-masthead-banner::before {
-          content: "";
-          order: -1;
-          margin: 0 -22px 16px;
-          height: clamp(168px, 46vw, 224px);
-          background:
-            linear-gradient(rgba(248, 230, 239, 0.2), rgba(248, 230, 239, 0.2)),
-            url("assets/lets-chat.png") center top / cover no-repeat;
-        }
-        .home-masthead-banner::after { display: none; }
-        .home-masthead-copy {
-          width: 100%;
-          max-width: none;
-          padding-top: 0;
-          /* Centre the whole masthead stack on mobile so it matches the centred
-             motto + buttons below (a half-left/half-centre hero reads off-balance). */
-          text-align: center;
-        }
-        .home-masthead-copy::before { display: none; }
-        /* No per-block pills on mobile (stacked layout, copy on the blush block). */
-        .hero .home-masthead-copy h1::before,
-        .home-masthead-copy .hero-text::before { display: none; }
-        .hero .home-masthead-copy h1,
-        .home-masthead-copy .hero-text { width: auto; }
-        .hero-copy--actions .hero-divider {
-          display: block;
-          width: min(100%, 300px);
-          height: 8px;
-        }
-        /* Drop the big wordmark on mobile — it's already in the sticky header and was
-           adding a redundant text block + height. */
-        .home-masthead-logo-wrap { display: none; }
-        .hero .home-masthead-copy h1 {
-          max-width: none !important;
-          /* Keep the headline at/under the header wordmark's scale on mobile. */
-          font-size: clamp(1.5rem, 6.2vw, 1.95rem) !important;
-          line-height: 1 !important;
-        }
-        .home-masthead-rule {
-          width: min(100%, 300px);
-          height: 8px;
-          margin: 14px auto 31px;
-        }
-        .home-masthead-copy .hero-text {
-          /* 320px width @ ~17px wraps to 3 even ascending lines with no orphan,
-             and greedy == balanced here, so it holds in Safari too. */
-          max-width: 320px !important;
-          margin-left: auto !important;
-          margin-right: auto !important;
-          font-size: clamp(0.98rem, 4.5vw, 1.0625rem) !important;
-          line-height: 1.34 !important;
-          text-wrap: balance;
-        }
-        /* No per-line tint on mobile — the copy sits on a solid blush block. */
-        .home-masthead-copy .hero-text span {
-          padding: 0 !important;
-          background: none !important;
-        }
-        .hero h1 {
-          font-size: clamp(2rem, 10vw, 3.35rem) !important;
-          line-height: 0.92 !important;
-        }
-        .hero {
-          padding-left: 16px !important;
-          padding-right: 16px !important;
-          padding-bottom: 30px !important;
-        }
-        .hero-actions {
-          display: grid !important;
-          justify-items: center;
-        }
-        .home-anthem-row {
-          display: none;
-        }
-        .home-current-card {
-          padding: 14px;
-        }
-        .home-current-card img {
-          max-height: 260px;
-        }
-        .home-current-actions .button,
-        .home-current-actions a {
-          width: 100%;
-          justify-content: center;
-        }
-        .clubhouse-grid {
-          grid-template-columns: 1fr;
-        }
-        .home-start {
-          padding-top: 34px;
-          padding-bottom: 34px;
-        }
-        .world-portal-card.world-portal-card--stack {
-          grid-template-columns: 1fr;
-        }
-        .world-portal-card.world-portal-card--stack img {
-          width: 100%;
-          max-height: 220px;
-          object-fit: cover;
-        }
-        .world-portal-card--stack > div > strong {
-          font-size: clamp(1.42rem, 8.8vw, 2rem);
-          line-height: 1.05;
-        }
-        .portal-card-main,
-        .home-community-actions a {
-          width: 100%;
-          justify-content: center;
-        }
-        .site-menu-label {
-          display: none;
-        }
-        .site-menu-panel {
-          position: fixed;
-          top: 76px;
-          left: 12px;
-          right: 12px;
-          width: auto;
-          max-height: calc(100vh - 92px);
-          padding: 14px;
-        }
-        .site-menu-grid {
-          grid-template-columns: 1fr;
-        }
-        .site-menu-topline {
-          align-items: flex-start;
-        }
-        .site-menu-group a {
-          min-height: 46px;
-          font-size: 0.95rem;
-        }
-        .clubhouse-grid-card img {
-          height: 180px;
-        }
-        .hero-image {
-          height: auto !important;
-          aspect-ratio: 4 / 3;
-          width: min(100%, 390px);
-        }
-        .hero-image img {
-          object-position: center center;
-        }
-        .site-footer div {
-          justify-content: center;
-          gap: 10px 14px;
-        }
-      }
-
-      /* Force section heading to not be sticky in clubhouse section */
-      #the-clubhouse .section-heading {
-        position: static !important;
-        max-height: none !important;
-        overflow: visible !important;
-        padding-bottom: 0 !important;
-        margin-bottom: 0 !important;
-      }
-
-      /* Ensure dark card bg wins over styles.css */
-      .clubhouse-grid-card {
-        background: rgba(255, 253, 251, 0.9) !important;
-        border-color: rgba(75, 33, 72, 0.18) !important;
-      }
-      .clubhouse-grid-card .card-text {
-        background: linear-gradient(180deg, rgba(255, 253, 251, 0.96) 0%, rgba(247, 238, 238, 0.98) 100%) !important;
-      }
-      .clubhouse-grid-card h3 {
-        color: var(--plum) !important;
-      }
-      .clubhouse-grid-card p {
-        color: var(--muted) !important;
-      }
-
-      /* About section responsive */
-      @media (max-width: 768px) {
-        .about-band {
-          grid-template-columns: 1fr !important;
-        }
-      }
-    
-/* Dark-surface accent: lighter rose so the "Ai" stays visible on dark buttons/cards */
-.brand-word-inline--on-dark [data-brand-ai],
-.room-card .brand-word-inline [data-brand-ai],
-.anthem-charm-reveal .brand-word-inline [data-brand-ai]{color:#f6a5c0!important}
-
-      </style>
-  
-<style>
-/* Force member card photos to show full face - inline override */
-.member-card-photo,
-.spotlight-photo-preview {
-  aspect-ratio: 1 / 1 !important;
-}
-.member-card-photo img {
-  object-fit: contain !important;
-  object-position: center center !important;
-  width: 100% !important;
-  height: 100% !important;
-}
-</style>
-
-
-    <link rel="stylesheet" href="/content/site/mini-player.css">
-
-    <style>
-    .hero-anthem:hover { text-shadow: none; }
-    .hero-anthem:hover .anthem-play-hint { opacity: 1 !important; }
-    .hero-anthem.is-playing { animation: anthemPulse 2s ease-in-out infinite; }
-    @keyframes anthemPulse {
-      0%, 100% { text-shadow: none; }
-      50% { text-shadow: 0 10px 24px rgba(75,33,72,0.1); }
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LAiDIES — SUNNYVAiLE</title>
+  <meta name="description" content="LAiDIES lives in SUNNYVAiLE — the fictional small town where AI fluency meets women's full calendars, high standards, and no patience for beige tech explanations. New episode every Wednesday." />
+  <meta property="og:title" content="LAiDIES · SUNNYVAiLE" />
+  <meta property="og:description" content="AI fluency and community for women, in a fictional small town. New episode every Wednesday." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://laidies.ai/" />
+  <meta property="og:image" content="https://laidies.ai/assets/sunnyvaile-town-overview.jpg" />
+  <meta name="theme-color" content="#b95d78" />
+  <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Dancing+Script:wght@400;700&family=Inter:wght@400;600;700&family=Jost:wght@400;500;600;700;800&family=VT323&display=swap" />
+  <style>
+    :root {
+      --plum: #4b2148; --plum-deep: #3a1838; --plum-soft: #6b3a66;
+      --rose: #9b3f5f; --rose-bright: #c25b7d; --gold: #c9a227;
+      --cream: #fffdfb; --pearl: #f8eef2; --blush: #f9e6ee;
+      --line: rgba(75,33,72,0.14);
+      --pad-x: clamp(20px, 4vw, 48px);
     }
-    </style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Jost', sans-serif;
+      color: var(--plum);
+      background: var(--cream);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, h4 { letter-spacing: -0.014em; margin: 0; }
+    img { max-width: 100%; display: block; }
 
-    <!-- Shared LAiDIES components (episode-quality headings + standout boxes). Homepage-only for now; linked last so .laidies-* wins on equal specificity. -->
-    <link rel="stylesheet" href="content/laidies-components.css?v=hp-design-1" />
-    <link rel="stylesheet" href="content/site/laidies-bg.css?v=laidies-bg-1" />
-    <style>body { background: transparent !important; }</style>
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 var(--pad-x); }
 
+    /* HEADER */
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      background: var(--cream);
+      border-bottom: 1px solid var(--line);
+    }
+    .site-header-inner {
+      display: flex; align-items: center; gap: 18px;
+      padding: 14px var(--pad-x);
+    }
+    .site-logo { display: inline-flex; }
+    .site-logo img { height: 30px; width: auto; }
+    .site-header-spacer { flex: 1; }
+    .icon-btn, .menu-trigger {
+      background: none; border: 0; padding: 8px; cursor: pointer;
+      color: var(--plum); display: inline-flex; align-items: center;
+    }
+    .icon-btn svg, .menu-trigger svg { width: 22px; height: 22px; }
+    .signin-link {
+      color: var(--plum); font-weight: 600; font-size: 14px;
+      padding: 9px 12px; margin-right: 4px;
+      text-decoration: none;
+      transition: color 200ms ease;
+    }
+    .signin-link:hover { color: var(--rose); text-decoration: underline; }
+    .join-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 9px 22px;
+      background: var(--plum); color: var(--cream);
+      border-radius: 999px; font-weight: 700; font-size: 14px;
+      letter-spacing: 0.02em;
+      transition: background 200ms ease;
+    }
+    .join-btn:hover { background: var(--rose); }
+
+    /* MASTHEAD ARRIVAL */
+    .masthead {
+      position: relative;
+      background: var(--plum-deep);
+    }
+    .masthead-image {
+      position: relative;
+      width: 100%;
+      display: block;
+      background: var(--plum-deep);
+      max-height: 50vh;
+      overflow: hidden;
+    }
+    .masthead-image img,
+    .masthead-image video {
+      width: 100%; height: auto; display: block;
+      max-height: 50vh; object-fit: cover; object-position: center 40%;
+    }
+    .masthead-image .masthead-fallback { display: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .masthead-image video { display: none; }
+      .masthead-image .masthead-fallback { display: block; }
+    }
+    .masthead-bottom {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 36px var(--pad-x) 64px;
+      text-align: center;
+    }
+    .masthead-eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 18px;
+    }
+    .masthead-tag {
+      font-size: clamp(17px, 1.7vw, 19px);
+      color: var(--plum);
+      line-height: 1.5;
+      margin: 0 0 32px;
+    }
+    .masthead-ctas {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 14px;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 16px 36px;
+      background: var(--plum); color: var(--cream);
+      border-radius: 999px;
+      font-weight: 700; font-size: 17px;
+      letter-spacing: 0.01em;
+      transition: background 200ms ease, transform 200ms ease;
+    }
+    .btn-primary:hover { background: var(--rose); transform: translateY(-1px); }
+    .masthead-sub {
+      font-size: 14px;
+      color: var(--plum-soft);
+      margin: 0;
+    }
+    .masthead-sub a {
+      color: var(--rose);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    /* SECTION BANDS */
+    .band { padding: 72px 0; }
+    .band--pearl { background: var(--pearl); }
+    .band--blush { background: var(--blush); }
+    .band--cream { background: var(--cream); }
+
+    .section-head {
+      max-width: 780px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+    .section-head .kicker {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin: 0 0 12px;
+    }
+    .section-head h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      color: var(--plum);
+      margin: 0 0 14px;
+      line-height: 1.05;
+    }
+    .section-head p {
+      font-size: 17px;
+      color: var(--plum-soft);
+      margin: 0;
+      line-height: 1.55;
+    }
+
+    /* WHAT'S NEW — featured episode + ritual */
+    .whats-new-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+    @media (min-width: 880px) {
+      .whats-new-grid { grid-template-columns: 1.3fr 1fr; }
+    }
+    .episode-card {
+      background: var(--cream);
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .episode-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(75,33,72,0.12);
+    }
+    .episode-card-img {
+      width: 100%; aspect-ratio: 4/3; object-fit: cover;
+    }
+    .episode-card-body {
+      padding: 28px 32px 32px;
+    }
+    .episode-card-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin: 0 0 10px;
+    }
+    .episode-card h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(24px, 2.8vw, 32px);
+      font-weight: 700;
+      color: var(--plum);
+      margin: 0 0 16px;
+      line-height: 1.15;
+    }
+    .episode-card-body p {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--plum);
+      margin: 0 0 18px;
+    }
+    .episode-card-body em { color: var(--plum-deep); font-weight: 500; font-style: normal; }
+    .episode-card-cta {
+      display: inline-flex; align-items: center;
+      color: var(--rose); font-weight: 600;
+    }
+    .episode-card-cta::after { content: ' →'; margin-left: 4px; }
+
+    /* QUICK TRIP — cold entry + this-week shortcut */
+    .quick-trip-block {
+      background: var(--cream);
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      padding: 28px 28px;
+      display: flex;
+      flex-direction: column;
+    }
+    .quick-trip-intro {
+      margin: 0 0 20px;
+      font-size: 13px;
+      color: var(--plum-soft);
+      font-style: italic;
+    }
+    .quick-trip-opt {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 16px;
+      padding: 14px;
+      border: 1.5px solid var(--line);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--plum);
+      transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+    }
+    .quick-trip-opt:hover {
+      transform: translateY(-2px);
+      border-color: var(--rose);
+      box-shadow: 0 8px 20px rgba(75,33,72,0.10);
+    }
+    .quick-trip-opt-img {
+      width: 92px; height: 92px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .quick-trip-opt-eyebrow {
+      margin: 0 0 4px;
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 800;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--rose);
+    }
+    .quick-trip-opt-title {
+      margin: 0 0 6px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 17px; font-weight: 700;
+      color: var(--plum); line-height: 1.25;
+    }
+    .quick-trip-opt-desc {
+      margin: 0 0 8px;
+      font-size: 13px; line-height: 1.5;
+      color: var(--plum-soft);
+    }
+    .quick-trip-opt-desc em { color: var(--plum-deep); font-style: normal; font-weight: 500; }
+    .quick-trip-opt-cta {
+      display: inline-block;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--rose);
+    }
+    .quick-trip-divider {
+      margin: 18px 0;
+      text-align: center;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic; font-size: 13px;
+      color: var(--plum-soft);
+      position: relative;
+    }
+    @media (min-width: 640px) {
+      .quick-trip-divider::before,
+      .quick-trip-divider::after {
+        content: '';
+        position: absolute; top: 50%;
+        width: 60px; height: 1px;
+        background: var(--line);
+      }
+      .quick-trip-divider::before { left: 15%; }
+      .quick-trip-divider::after { right: 15%; }
+    }
+    .quick-trip-steps-label {
+      margin: 18px 0 0;
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 800;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--rose);
+    }
+    .quick-trip-steps {
+      display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;
+    }
+    .quick-trip-steps a {
+      flex: 1; min-width: 104px; text-align: center;
+      padding: 9px 10px;
+      border: 1.5px solid var(--line); border-radius: 999px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.03em;
+      color: var(--plum); text-decoration: none;
+      transition: border-color 200ms ease, transform 200ms ease, color 200ms ease;
+    }
+    .quick-trip-steps a:hover {
+      border-color: var(--rose); color: var(--rose);
+      transform: translateY(-1px);
+    }
+    .quick-trip-all {
+      margin-top: auto;
+      padding-top: 18px;
+      display: block;
+      text-align: center;
+      font-size: 13px;
+      color: var(--plum-soft);
+      text-decoration: none;
+      border-top: 1px solid var(--line);
+      margin-top: 20px;
+    }
+    .quick-trip-all strong { color: var(--rose); font-weight: 700; }
+    .quick-trip-all:hover strong { text-decoration: underline; }
+
+    /* RITUAL — 8-stop Wednesday tour */
+    .ritual-block {
+      background: var(--cream);
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      padding: 28px 28px;
+      display: flex;
+      flex-direction: column;
+    }
+    .ritual-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--plum);
+      margin: 0 0 18px;
+    }
+    .ritual-beats {
+      list-style: none;
+      margin: 0; padding: 0;
+      display: grid; gap: 10px;
+    }
+    .ritual-beat {
+      display: grid;
+      grid-template-columns: 40px 1fr auto;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      background: var(--cream);
+      border: 1.5px solid var(--line);
+      border-radius: 10px;
+      text-decoration: none;
+      color: inherit;
+      transition: background 150ms ease, border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+      position: relative;
+    }
+    .ritual-beat:hover, .ritual-beat:focus-visible {
+      background: var(--blush);
+      border-color: var(--rose);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(75,33,72,0.10);
+      outline: none;
+    }
+    .ritual-beat::after {
+      content: "→";
+      font-size: 18px; font-weight: 700; color: var(--rose);
+      opacity: 0.55;
+      transition: opacity 150ms ease, transform 150ms ease;
+    }
+    .ritual-beat:hover::after, .ritual-beat:focus-visible::after {
+      opacity: 1;
+      transform: translateX(3px);
+    }
+    .ritual-beat-n {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: rgba(201,162,39,0.14);
+      font-family: 'Jost', sans-serif;
+      font-size: 13px; font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 0;
+    }
+    .ritual-beat-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+    .ritual-beat-label {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 16px; font-weight: 700;
+      color: var(--plum-deep);
+      line-height: 1.2;
+    }
+    .ritual-beat-desc {
+      font-size: 13px;
+      color: var(--plum-soft);
+      line-height: 1.3;
+    }
+    .ritual-cta {
+      padding-top: 22px;
+      display: inline-flex; align-items: center;
+      color: var(--rose); font-weight: 600;
+      font-size: 14px;
+    }
+    .ritual-cta::after { content: ' →'; margin-left: 4px; }
+    .ritual-bonus {
+      margin-top: auto;
+      background: linear-gradient(135deg, rgba(197, 106, 138, 0.08) 0%, rgba(201, 162, 39, 0.10) 100%);
+      border: 1.5px solid rgba(201, 162, 39, 0.35);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-top: 22px;
+    }
+    .ritual-bonus-eyebrow {
+      margin: 0 0 8px;
+      font-size: 10px; font-weight: 800; letter-spacing: 0.20em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .ritual-bonus-hook {
+      margin: 0 0 10px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px; font-weight: 700; color: var(--plum);
+      line-height: 1.3;
+    }
+    .ritual-bonus-reward { color: var(--rose); }
+    .ritual-bonus-note {
+      margin: 0 0 14px;
+      font-size: 13px; line-height: 1.5; color: var(--plum-soft);
+    }
+    .ritual-bonus-note a { color: var(--rose); text-decoration: underline; text-underline-offset: 2px; }
+    .ritual-bonus-play {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px 8px 12px;
+      background: var(--cream);
+      border: 1.5px solid var(--rose);
+      border-radius: 999px;
+      color: var(--plum);
+      font: inherit;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      cursor: pointer;
+      transition: background 200ms ease, color 200ms ease;
+    }
+    .ritual-bonus-play svg { width: 10px; height: 10px; fill: currentColor; }
+    .ritual-bonus-play:hover { background: var(--rose); color: var(--cream); }
+    .ritual-bonus-play.is-playing .play-icon { display: none; }
+    .ritual-bonus-play.is-playing .pause-icon { display: block !important; }
+
+    /* TOOLS — 5 quick-access tool rails */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 720px) {
+      .tools-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1080px) {
+      .tools-grid { grid-template-columns: repeat(5, 1fr); }
+    }
+    .tool-card {
+      display: flex; flex-direction: column;
+      padding: 24px 22px;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+    }
+    .tool-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--rose);
+      box-shadow: 0 10px 24px rgba(75,33,72,0.12);
+    }
+    .tool-eyebrow {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--rose);
+      margin: 0 0 10px;
+    }
+    .tool-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--plum);
+      margin: 0 0 6px;
+      line-height: 1.15;
+    }
+    .tool-where {
+      font-size: 12px;
+      color: var(--plum-soft);
+      margin: 0 0 14px;
+    }
+    .tool-desc {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--plum);
+      margin: 0 0 16px;
+      flex: 1;
+    }
+    .tool-open {
+      font-size: 13px; font-weight: 700;
+      color: var(--rose);
+      letter-spacing: 0.04em;
+    }
+    .tool-open::after { content: ' →'; margin-left: 4px; }
+
+    /* PATRON SAINTS — preserved structure */
+    .saints-grid {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      gap: 16px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(155,63,95,0.35) transparent;
+      padding: 4px 24px 18px;
+      margin: 0 -24px;
+      scroll-padding: 0 24px;
+    }
+    .saints-grid::-webkit-scrollbar { height: 8px; }
+    .saints-grid::-webkit-scrollbar-track { background: transparent; }
+    .saints-grid::-webkit-scrollbar-thumb {
+      background: rgba(155,63,95,0.35);
+      border-radius: 999px;
+    }
+    .saints-grid::-webkit-scrollbar-thumb:hover { background: rgba(155,63,95,0.55); }
+    .saint-card-back {
+      flex: 0 0 240px;
+      scroll-snap-align: start;
+      display: flex; align-items: center; justify-content: center;
+      padding: 16px;
+    }
+    .saint-card-back img {
+      width: 100%; max-width: 200px; height: auto;
+    }
+    .saint-card {
+      flex: 0 0 240px;
+      scroll-snap-align: start;
+      display: flex; flex-direction: column;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+      text-decoration: none;
+    }
+    @media (max-width: 640px) {
+      .saint-card, .saint-card-back { flex: 0 0 220px; }
+    }
+    .saint-card:hover, .saint-card:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(75,33,72,0.14);
+    }
+    .saint-initial {
+      width: 100%;
+      aspect-ratio: 1/1;
+      background-size: cover; background-position: center;
+      background-color: var(--blush);
+      color: transparent;
+      font-size: 0;
+    }
+    .saint-card h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; font-weight: 700;
+      color: var(--plum);
+      padding: 16px 18px 0;
+      margin: 0;
+    }
+    .saint-lane {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--rose);
+      padding: 6px 18px 0;
+      margin: 0;
+    }
+    .saint-rule {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--plum);
+      padding: 10px 18px 20px;
+      margin: 0;
+    }
+
+    /* TOWN DIRECTORY — 17 tiles */
+    .directory-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 600px) {
+      .directory-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 940px) {
+      .directory-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .dir-card {
+      display: block;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 20px 22px;
+      transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+    }
+    .dir-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--rose);
+      box-shadow: 0 6px 18px rgba(75,33,72,0.10);
+    }
+    .dir-addr {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--rose);
+      margin: 0 0 8px;
+    }
+    .dir-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; font-weight: 700;
+      color: var(--plum);
+      margin: 0 0 6px;
+      line-height: 1.2;
+    }
+    .dir-tag {
+      font-size: 13px;
+      color: var(--plum-soft);
+      margin: 0;
+    }
+
+    /* POST OFFICE SIGNUP */
+    .signup-band {
+      background: linear-gradient(135deg, var(--plum) 0%, var(--rose) 100%);
+      border-radius: 18px;
+      padding: 48px 40px;
+      color: var(--cream);
+      text-align: center;
+    }
+    .signup-band h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 3.4vw, 40px);
+      font-weight: 700;
+      color: var(--cream);
+      margin: 0 0 12px;
+    }
+    .signup-band p {
+      font-size: 16px;
+      color: var(--cream);
+      opacity: 0.92;
+      margin: 0 0 26px;
+    }
+    .signup-form {
+      display: flex; flex-direction: column;
+      gap: 12px;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    @media (min-width: 520px) {
+      .signup-form { flex-direction: row; }
+    }
+    .signup-form input[type="email"] {
+      flex: 1;
+      padding: 13px 18px;
+      border: 0;
+      border-radius: 999px;
+      font: inherit;
+      font-size: 15px;
+      color: var(--plum);
+    }
+    .signup-form button {
+      padding: 13px 26px;
+      background: var(--gold);
+      color: var(--plum-deep);
+      border: 0;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      transition: background 200ms ease;
+    }
+    .signup-form button:hover { background: var(--cream); }
+
+    /* MEMBERSHIP — In the works */
+    .membership {
+      position: relative;
+      background: var(--cream);
+      border: 2px dashed var(--gold);
+      border-radius: 18px;
+      padding: 48px 40px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .coming-soon-overlay {
+      position: absolute;
+      top: 20px; right: -40px;
+      background: var(--gold);
+      color: var(--plum-deep);
+      padding: 8px 56px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      transform: rotate(35deg);
+      box-shadow: 0 4px 10px rgba(75,33,72,0.18);
+    }
+    .membership h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 3.4vw, 40px);
+      font-weight: 700;
+      color: var(--plum);
+      margin: 0 0 12px;
+    }
+    .membership p {
+      font-size: 16px;
+      color: var(--plum-soft);
+      max-width: 560px;
+      margin: 0 auto 24px;
+    }
+    .membership-cta-disabled {
+      display: inline-block;
+      padding: 14px 32px;
+      background: var(--plum-soft);
+      color: var(--cream);
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 15px;
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: var(--plum-deep);
+      color: var(--cream);
+      padding: 56px var(--pad-x) 40px;
+      text-align: center;
+      margin-top: 56px;
+    }
+    .site-footer p { margin: 0 0 12px; }
+    .footer-brand {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: -0.01em;
+    }
+    .footer-legal { font-size: 12px; opacity: 0.7; }
+    .footer-links {
+      margin-top: 18px;
+      font-size: 13px;
+    }
+    .footer-links a {
+      color: var(--cream);
+      opacity: 0.85;
+      margin: 0 10px;
+    }
+    .footer-links a:hover { opacity: 1; text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      .band { padding: 56px 0; }
+      .signup-band, .membership { padding: 36px 26px; }
+      .coming-soon-overlay { right: -50px; padding: 6px 56px; font-size: 11px; }
+    }
+
+  </style>
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260707-a11y"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260705-2"></script>
+  <script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
 </head>
-  <body>
-    <div class="laidies-bg laidies-bg--light" aria-hidden="true"></div>
-    <main id="top">
-      <!-- HEADER -->
-      <header class="site-header">
-        <a class="brand" href="index.html" aria-label="LAiDIES home">
-          <img src="assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
-        </a>
-        <button class="hamburger-btn site-menu-toggle" type="button" aria-label="Open site menu" aria-expanded="false" aria-controls="siteMenuPanel" aria-haspopup="true">☰ <span class="site-menu-label">Menu</span></button>
-        <aside class="site-menu-panel" id="siteMenuPanel" aria-label="LAiDIES site menu" hidden>
-          <div class="site-menu-topline">
-            <p><span class="site-menu-title"><span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> SITE MENU</span>Jump straight to the episode, today&rsquo;s AI dispatch, the reference closet, the Clubhouse, or community.</p>
-            <button class="site-menu-close" type="button" aria-label="Close site menu">Close</button>
-          </div>
-          <div class="site-menu-grid">
-            <section class="site-menu-group" aria-labelledby="site-menu-current">
-              <h2 id="site-menu-current">CURRENT</h2>
-              <a href="grimoire.html?open=1">The Grimoire</a>
-              <a href="grimoire.html?open=1">Read Current Episode</a>
-              <span class="site-menu-preview">Weekly Anthem — still brewing</span>
-            </section>
-            <section class="site-menu-group" aria-labelledby="site-menu-start">
-              <h2 id="site-menu-start">START HERE</h2>
-              <a href="this-week.html?issue=1&amp;bag=open">Start From The Beginning</a>
-              <a href="episodes.html">Read The Season</a>
-              <a href="start-here.html">How <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> Works</a>
-            </section>
-            <section class="site-menu-group" aria-labelledby="site-menu-book">
-              <h2 id="site-menu-book">THE <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> GRIMOIRE</h2>
-              <a href="grimoire.html">THE <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> GRIMOIRE / The book with the answers</a>
-              <a href="grimoire/slaiyer-handbook.html"><span class="brand-word-inline" aria-label="SLAiYER"><span aria-hidden="true">SL<span data-brand-ai>Ai</span>YER</span></span> Handbook / Using AI</a>
-              <a href="grimoire/potions-shelf.html">THE POTIONS SHELF / AI Terms</a>
-              <a href="grimoire/lore-closet.html">THE LORE CLOSET / Reference Closet</a>
-              <a href="grimoire/power-map.html">THE POWER MAP / Who&rsquo;s Who</a>
-              <a href="grimoire/chamber-of-receipts.html">THE CHAMBER OF RECEIPTS / Sources</a>
-              <a href="hot-goss.html">Today&rsquo;s AI Dispatch / Hot Goss</a>
-            </section>
-            <section class="site-menu-group" aria-labelledby="site-menu-clubhouse">
-              <h2 id="site-menu-clubhouse">THE <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> CLUBHOUSE</h2>
-              <a href="games/madame-claio.html">Madame <span class="brand-word-inline" aria-label="CLAi-O"><span aria-hidden="true">CL<span data-brand-ai>Ai</span>-O</span></span></a>
-              <a href="games/fairy-godmother.html"><span class="brand-word-inline" aria-label="FAiRY"><span aria-hidden="true">F<span data-brand-ai>Ai</span>RY</span></span> GODMOTHER</a>
-              <span class="site-menu-preview">Dream Phone — glow-up in the works</span>
-              <a href="games/girl-talk.html">Girl Talk</a>
-              <a href="games/dj-booth.html">DJ Booth</a>
-              <span class="site-menu-preview">THE EXTRA CREDIT — bonus shelf in the works</span>
-            </section>
-            <section class="site-menu-group" aria-labelledby="site-menu-join">
-              <h2 id="site-menu-join">JOIN THE CLUB</h2>
-              <span class="site-menu-preview"><span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> Card / Clubhouse Pass — member magic coming soon</span>
-              <a href="community.html">Community / <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> Room</a>
-              <a href="games/businesswomens-special.html">Businesswomen&rsquo;s Special / Happy Hour</a>
-            </section>
-          </div>
-        </aside>
-      </header>
+<body>
 
-      <!-- HERO -->
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="home-masthead-banner" aria-label="LAiDIES masthead">
-          <div class="home-masthead-copy">
-            <span class="home-masthead-logo-wrap"><img class="home-masthead-logo" src="assets/brand/laidies-logo-masthead-approved-v3.png" alt="LAiDIES" /></span>
-            <h1 id="hero-title">GIRL POWER MEETS<br />MACHINE POWER</h1>
-            <div class="home-masthead-rule" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <p class="hero-text"><span>AI fluency for women with full calendars, high standards, and no patience for beige tech explanations.</span></p>
-          </div>
-        </div>
-        <div class="hero-copy hero-copy--actions">
-          <div class="home-masthead-rule hero-divider" aria-hidden="true"><span></span><span></span><span></span></div>
-          <p class="hero-motto"><span>90s/Y2K defined us. AI is shaping now.</span><span><span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> is where they meet.</span></p>
-          <p class="home-route-note">New episodes every Wednesday, obviously.</p>
-          <div class="anthem-charm-reveal" id="anthemCharmReveal" hidden>
-            <section class="anthem-charm-card" role="dialog" aria-modal="true" aria-labelledby="anthemCharmTitle" aria-describedby="anthemCharmBody">
-              <span class="anthem-charm-kicker">Secret Charm Found</span>
-              <img src="assets/charms/teal-mini-disc-charm.svg" alt="Teal mini-disc charm sticker" width="112" height="112">
-              <h2 id="anthemCharmTitle"><span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> Anthem Mini-Disc Charm</h2>
-              <p id="anthemCharmBody">You listened long enough for the chorus to find you. Held in this browser for the future <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> Card charm bracelet.</p>
-              <span class="anthem-charm-link">Clubhouse Pass saving is member magic coming soon</span>
-              <button class="anthem-charm-close" id="anthemCharmClose" type="button">Back to the homepage</button>
-            </section>
-          </div>
-          <div class="hero-actions">
-            <!-- CURRENT EPISODE — update on new episode publish -->
-            <a class="button primary" href="grimoire.html?open=1">Open the Grimoire</a>
-            <a class="hero-secondary-link" href="issues/issue-01.html">New here? Start with Episode 1</a>
-          </div>
-        </div>
-      </section>
+  <!-- STICKY QUICK JUMP RAIL — floats on right, expands on hover -->
 
-      <!-- CURRENT EPISODE -->
-      <!-- ROUTE 1 — READ / THIS WEEK (current episode feature merged with the read options) -->
-      <section class="home-current-episode" id="episodes" aria-labelledby="episodes-title">
-        <article class="home-current-card laidies-standout">
-          <figure>
-            <!-- CURRENT EPISODE — update on new episode publish -->
-            <img loading="eager" src="assets/portal/laidies-grimoire-teaser.png" alt="The plum-and-gold LAiDIES Grimoire — closed cover and open spread in a styled flat-lay" />
-          </figure>
-          <div class="home-current-copy">
-            <p class="eyebrow laidies-eyebrow">CURRENT WEDNESDAY EPISODE</p>
-            <!-- CURRENT EPISODE — update on new episode publish -->
-            <h2 id="episodes-title" class="laidies-section-title">EPISODE 4: THE <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> GRIMOIRE</h2>
-            <p>The book with the answers, open at last. The words, the tools, the receipts, and how to actually use AI &mdash; so you stop guessing.</p>
-            <div class="home-current-actions">
-              <!-- CURRENT EPISODE — update on new episode publish -->
-              <a class="button primary" href="grimoire.html?open=1">OPEN THE GRIMOIRE</a>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="site-logo" href="/" aria-label="LAiDIES — home">
+        <img src="assets/brand/laidies-wordmark-final-b-light.svg" alt="LAiDIES" width="120" height="30" />
+      </a>
+      <div class="site-header-spacer"></div>
+      <a class="signin-link" href="/post-office.html#signin">Sign in</a>
+      <a class="join-btn" href="#signup">Join</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- 1 · ARRIVAL MASTHEAD -->
+    <section class="masthead" aria-labelledby="masthead-title">
+      <div class="masthead-image">
+        <video muted playsinline preload="auto"
+               poster="assets/video/sunnyvaile-logo-reveal-endframe.png?v=20260703-1"
+               aria-label="Welcome to SUNNYVAiLE — neon sign reveal. Where girl power meets machine power."
+               width="1600" height="900">
+          <source src="assets/video/sunnyvaile-logo-reveal.mp4?v=20260703-3" type="video/mp4">
+        </video>
+        <img class="masthead-fallback" src="assets/video/sunnyvaile-logo-reveal-endframe.png?v=20260703-1" alt="Welcome to SUNNYVAiLE — neon sign. Where girl power meets machine power." width="1600" height="900" />
+      </div>
+      <h1 id="masthead-title" class="sr-only">LAiDIES — AI fluency for women in a fictional small town called SUNNYVAiLE.</h1>
+    </section>
+
+    <!-- 1.2 · EXPLAINER — VHS tape section (Claude Design), chained off the logo reveal -->
+    <section id="sv-explainer" data-autostart="manual" data-anthem-src="/content/music/sunnyvaile-town-anthem.mp3">
+      <style>
+        /* ---------- scoped to #sv-explainer ---------- */
+        /* Light intro — reads like the rest of the homepage, not a dark VHS block. */
+        #sv-explainer {
+          position: relative;
+          background: var(--cream);
+          padding: clamp(40px, 5vw, 68px) 24px clamp(48px, 6vw, 76px);
+          text-align: center;
+          color: var(--plum);
+        }
+        #sv-explainer::after, #sv-explainer::before { content: none; }
+        #sv-explainer .sv-vcr, #sv-explainer .sv-track, #sv-explainer .sv-flicker { display: none !important; }
+        #sv-explainer .sv-vcr {
+          position: absolute; top: 22px; left: 0; right: 0;
+          display: flex; justify-content: space-between; padding: 0 28px;
+          font-family: 'VT323', monospace; font-size: clamp(16px, 1.6vw, 22px);
+          color: rgba(240,240,240,0.75); text-shadow: 2px 2px 0 rgba(0,0,0,0.6);
+          opacity: 0; z-index: 2;
+        }
+        #sv-explainer.sv-play .sv-vcr { opacity: 1; transition: opacity 0.3s; }
+        #sv-explainer .sv-track {
+          position: absolute; left: 0; right: 0; top: -60px; height: 40px;
+          background: linear-gradient(rgba(255,255,255,0.05), rgba(255,255,255,0.35), rgba(255,255,255,0.05));
+          filter: blur(1px); opacity: 0; z-index: 2; pointer-events: none;
+        }
+        #sv-explainer.sv-play .sv-track { animation: sv-sweep 8s linear 0.05s infinite; }
+        @keyframes sv-sweep {
+          0%   { opacity: 0.45; transform: translateY(0); }
+          10%  { opacity: 0;    transform: translateY(70vh); }
+          100% { opacity: 0;    transform: translateY(70vh); }
+        }
+        #sv-explainer .sv-flicker {
+          position: absolute; inset: 0; background: #fff; opacity: 0;
+          pointer-events: none; z-index: 2;
+        }
+        #sv-explainer.sv-play .sv-flicker { animation: sv-flick 0.18s steps(2) infinite; }
+        @keyframes sv-flick {
+          0%   { opacity: 0.012; }
+          50%  { opacity: 0.03; }
+          100% { opacity: 0.012; }
+        }
+        #sv-explainer .sv-inner {
+          position: relative; z-index: 1;
+          max-width: 860px; margin: 0 auto;
+          display: flex; flex-direction: column; align-items: center;
+          gap: clamp(18px, 2.6vw, 30px);
+        }
+        #sv-explainer.sv-play .sv-inner { animation: none; }
+        @keyframes sv-drift {
+          from { transform: translateY(-2px); }
+          to   { transform: translateY(2px); }
+        }
+        @keyframes sv-idle-glitch {
+          0%, 96%, 100% { filter: none; }
+          97% { filter: drop-shadow(-2px 0 rgba(255,60,120,0.5)) drop-shadow(2px 0 rgba(60,235,220,0.5)); transform: translate(2px, -1px); }
+          98% { filter: drop-shadow(3px 0 rgba(255,60,120,0.5)) drop-shadow(-3px 0 rgba(60,235,220,0.5)); transform: translate(-2px, 1px); }
+          99% { filter: drop-shadow(-1px 0 rgba(255,60,120,0.35)) drop-shadow(1px 0 rgba(60,235,220,0.35)); }
+        }
+        /* Text is ALWAYS on (Ali's rule) — visible even if the entrance
+           animation never fires. The staggered block-in only enhances the
+           first-ever visit; every later load shows the text immediately. */
+        #sv-explainer .sv-reveal { opacity: 1; }
+        #sv-explainer.sv-play:not(.sv-instant) .sv-reveal {
+          animation: sv-fade-up 0.55s ease both;
+        }
+        @keyframes sv-fade-up { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+        #sv-explainer.sv-instant .sv-reveal { animation: none !important; opacity: 1 !important; }
+        @keyframes sv-block-in {
+          0% {
+            opacity: 0; transform: translateY(26px) translateX(-3px);
+            filter: drop-shadow(-5px 0 rgba(255,60,120,0.75)) drop-shadow(5px 0 rgba(60,235,220,0.75));
+          }
+          25% {
+            opacity: 0.6; transform: translateY(14px) translateX(3px);
+            filter: drop-shadow(4px 0 rgba(255,60,120,0.6)) drop-shadow(-4px 0 rgba(60,235,220,0.6));
+          }
+          45% {
+            opacity: 0.35; transform: translateY(8px) translateX(-2px);
+            filter: drop-shadow(-3px 0 rgba(255,60,120,0.5)) drop-shadow(3px 0 rgba(60,235,220,0.5));
+          }
+          70% { filter: drop-shadow(-1px 0 rgba(255,60,120,0.25)) drop-shadow(1px 0 rgba(60,235,220,0.25)); }
+          100% { opacity: 1; transform: translateY(0) translateX(0); filter: none; }
+        }
+        #sv-explainer.sv-play .sv-d1 { animation-delay: 0.25s; }
+        #sv-explainer.sv-play .sv-d2 { animation-delay: 0.85s; }
+        #sv-explainer.sv-play .sv-d3 { animation-delay: 1.65s; }
+        #sv-explainer.sv-play .sv-d4 { animation-delay: 2.35s; }
+        #sv-explainer.sv-play .sv-d5 { animation-delay: 2.95s; }
+        #sv-explainer.sv-play .sv-d6 { animation-delay: 3.55s; }
+        #sv-explainer .sv-eyebrow {
+          font-family: 'Jost', sans-serif;
+          font-size: 11px; font-weight: 700; letter-spacing: 0.32em;
+          text-transform: uppercase; color: var(--rose);
+        }
+        #sv-explainer .sv-body {
+          font-family: 'Playfair Display', Georgia, serif;
+          font-size: clamp(23px, 3vw, 34px); line-height: 1.2; font-weight: 700;
+          color: var(--plum); text-wrap: pretty; margin: 0;
+        }
+        #sv-explainer .sv-body--dim {
+          font-family: 'Jost', sans-serif; font-weight: 400;
+          font-size: clamp(15px, 1.7vw, 18px); line-height: 1.55;
+          color: var(--plum-soft);
+        }
+        #sv-explainer .sv-hl-pink { color: #b45f6b; }
+        #sv-explainer .sv-hl-teal { color: #2b7d7a; }
+        #sv-explainer .sv-wed {
+          font-family: 'Jost', sans-serif; font-weight: 700;
+          letter-spacing: 0.16em; text-transform: uppercase;
+          font-size: 12px; color: var(--rose);
+        }
+        #sv-explainer .sv-anthem {
+          font-family: 'Jost', sans-serif; font-weight: 700;
+          font-size: 13px; letter-spacing: 0.04em;
+          color: var(--rose); background: transparent;
+          border: 1.5px solid var(--rose); border-radius: 999px;
+          padding: 10px 22px; margin-top: 4px; cursor: pointer;
+          transition: background 0.15s, color 0.15s;
+        }
+        #sv-explainer .sv-anthem:hover,
+        #sv-explainer .sv-anthem:focus-visible {
+          background: var(--rose); color: var(--cream); outline: none;
+        }
+        #sv-explainer .sv-ctas { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 12px; }
+        #sv-explainer .sv-ctas .masthead-sub { color: var(--plum-soft); font-size: 14px; margin: 0; }
+        #sv-explainer .sv-ctas .masthead-sub a { color: var(--rose); text-decoration: underline; text-underline-offset: 3px; }
+        /* Repeat visits this session: skip the staggered reveal entirely */
+        #sv-explainer.sv-instant.sv-play .sv-reveal { animation-duration: 0.01s !important; animation-delay: 0s !important; }
+        @media (prefers-reduced-motion: reduce) {
+          #sv-explainer.sv-play .sv-reveal { animation-duration: 0.01s; animation-delay: 0s; }
+          #sv-explainer.sv-play .sv-track,
+          #sv-explainer.sv-play .sv-flicker,
+          #sv-explainer.sv-play .sv-inner { animation: none; }
+        }
+      </style>
+
+      <div class="sv-track"></div>
+      <div class="sv-flicker"></div>
+      <div class="sv-vcr">
+        <span>&#9654; PLAY</span>
+        <span class="sv-counter">SP 0:00:00</span>
+      </div>
+
+      <div class="sv-inner">
+        <div class="sv-eyebrow sv-reveal sv-d1">&#9733; POPULATION: WOMEN&nbsp;JUST&nbsp;LIKE&nbsp;YOU&nbsp;&#9733;</div>
+
+        <p class="sv-body sv-reveal sv-d2">
+          AI fluency and community for women with full calendars, high standards,
+          and <span class="sv-hl-pink">no patience for beige tech explanations</span>.
+        </p>
+
+        <p class="sv-body sv-body--dim sv-reveal sv-d3">
+          A full AI learning system built around a fictional
+          <span class="sv-hl-teal">Y2K small town</span> where episodes, study packs,
+          quizzes, and tracks each have an address.
+        </p>
+
+        <div class="sv-wed sv-reveal sv-d4">NEW EPISODES ON WEDNESDAYS (OBVIOUSLY)</div>
+
+        <button class="sv-anthem sv-reveal sv-d5" type="button">&#9834; LISTEN TO THE TOWN ANTHEM</button>
+
+        <div class="sv-ctas sv-reveal sv-d6">
+          <a class="btn-primary" href="/chick-flicks.html">Pick up this week's episode →</a>
+          <p class="masthead-sub">New in town? <a href="/visitors-centre.html?welcome-tour=start">🚌 Take the Welcome Tour →</a></p>
+        </div>
+      </div>
+
+      <script>
+      (function () {
+        var root = document.getElementById('sv-explainer');
+        var counter = root.querySelector('.sv-counter');
+        var btn = root.querySelector('.sv-anthem');
+        var audio = null;
+        var counterTimer = null;
+        var startedAt = 0;
+
+        function start() {
+          if (root.classList.contains('sv-play')) return;
+          // The full VCR reveal plays ONCE, ever (Ali's rule). After the
+          // first play the flag is permanent — every later homepage load,
+          // any tab, any day, shows the section instantly.
+          var seen = false;
+          try { seen = !!localStorage.getItem('laidies_intro_seen_at'); } catch (e) {}
+          if (seen) root.classList.add('sv-instant');
+          else { try { localStorage.setItem('laidies_intro_seen_at', String(Date.now())); } catch (e) {} }
+          root.classList.add('sv-play');
+          startedAt = Date.now();
+          counterTimer = setInterval(function () {
+            var s = Math.floor((Date.now() - startedAt) / 1000);
+            var mm = String(Math.floor(s / 60)).padStart(2, '0');
+            var ss = String(s % 60).padStart(2, '0');
+            counter.textContent = 'SP 0:' + mm + ':' + ss;
+          }, 500);
+        }
+
+        function reset() {
+          root.classList.remove('sv-play');
+          clearInterval(counterTimer);
+          counter.textContent = 'SP 0:00:00';
+        }
+
+        btn.addEventListener('click', function () {
+          if (!audio) audio = new Audio(root.getAttribute('data-anthem-src') || 'anthem.mp3');
+          if (audio.paused) {
+            audio.play().then(function () {
+              btn.innerHTML = '&#9632; STOP THE ANTHEM';
+            }).catch(function () { /* file missing — no-op */ });
+          } else {
+            audio.pause();
+            audio.currentTime = 0;
+            btn.innerHTML = '&#9834; LISTEN TO THE TOWN ANTHEM';
+          }
+        });
+
+        if (root.getAttribute('data-autostart') !== 'manual') {
+          if ('IntersectionObserver' in window) {
+            var io = new IntersectionObserver(function (entries) {
+              if (entries[0].isIntersecting) { start(); io.disconnect(); }
+            }, { threshold: 0.35 });
+            io.observe(root);
+          } else { start(); }
+        }
+
+        window.SunnyvaileExplainer = { start: start, reset: reset };
+
+        // The masthead neon reveal plays ONCE PER VISIT (session). First load
+        // of a session: play it, then chain the explainer off its ending.
+        // Every later navigation this session leaves the video on its end
+        // frame and loads the explainer instantly (text is always on).
+        var mv = document.querySelector('.masthead-image video');
+        var playedThisVisit = false;
+        try { playedThisVisit = !!sessionStorage.getItem('sv_masthead_played'); } catch (e) {}
+
+        if (mv && !playedThisVisit) {
+          try { sessionStorage.setItem('sv_masthead_played', '1'); } catch (e) {}
+          var pp = mv.play();
+          if (pp && pp.catch) pp.catch(function () { start(); });
+          mv.addEventListener('ended', start);
+          mv.addEventListener('error', start);
+          setTimeout(start, 6000);
+        } else {
+          // repeat visit this session (or reduced motion / no video): load now
+          start();
+        }
+      })();
+      </script>
+    </section>
+
+    <!-- 1.5 · THE WHOLE POINT (why 90s / why a town) -->
+    <section class="band band--pearl" style="padding: 64px 0;">
+      <div class="container" style="max-width: 780px;">
+        <header class="section-head" style="text-align: left; margin-bottom: 24px;">
+          <p class="kicker" style="color: var(--rose);">★ Girl power meets machine power</p>
+          <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 3.6vw, 40px); font-weight: 700; color: var(--plum); margin: 0 0 20px; line-height: 1.1;"><span style="text-transform: none;">LAiDIES</span> teaches AI in the language you already speak.</h2>
+        </header>
+        <div style="font-size: 17px; line-height: 1.65; color: var(--plum);">
+          <p style="margin: 0 0 24px; padding: 20px 24px; background: var(--blush); border-left: 4px solid var(--rose); border-radius: 6px; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(19px, 2.2vw, 24px); font-style: italic; line-height: 1.3; color: var(--plum-deep);">The 90s had <strong style="font-style: normal;">Sunnydale, Bayside, and Capeside</strong>. Silicon Valley has <strong style="font-style: normal;">Sunnyvale</strong>. You have <strong style="font-style: normal; color: var(--rose);"><span style="text-transform: none;">SUNNYVAiLE</span></strong>.</p>
+          <p style="margin: 0 0 18px;">The 90s wired us. Boy bands, girl groups, sleepover games, hair full of butterfly clips, blow-up furniture, calling in to request a song on the radio so you could record it on a cassette, and the glory days of 24-episode seasons.</p>
+          <p style="margin: 0 0 18px;">Now AI is wiring the next thing. This is where you come to learn it.</p>
+          <p style="margin: 0 0 18px;"><strong style="color: var(--plum-deep);"><span style="text-transform: none;">SUNNYVAiLE</span> is a functional town designed to help you learn AI and have fun doing it.</strong> It's <strong>a learning system</strong> grounded in fun examples and analogies to help the concepts stick. Episodes teach the concept. Study Packs reinforce. Songs on KSVL turn it into an <em>earworm you can't forget</em>. Pop quizzes test recall. Games practice application. The community pressure-checks. Every part of town echoes the others — that's how the learning sticks.</p>
+          <style>
+            details.town-guide summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 7px;
+              font-family: 'Jost', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.02em; color: var(--rose); }
+            details.town-guide summary::-webkit-details-marker { display: none; }
+            details.town-guide summary::after { content: '▾'; font-size: 11px; transition: transform 0.15s ease; }
+            details.town-guide[open] summary::after { transform: rotate(180deg); }
+            details.town-guide summary:hover { text-decoration: underline; }
+          </style>
+          <details class="town-guide" style="margin: 0 0 18px;">
+            <summary>What every building teaches</summary>
+            <p style="margin: 14px 0 0;">The <a href="/newsstand.html" style="color: var(--rose); text-decoration: underline;">NewsStand</a> is where you read the latest AI headlines and connect what you're learning to the real world. The <a href="/chick-flicks.html" style="color: var(--rose); text-decoration: underline;">Chick Flicks</a> is the video store where every weekly episode lives. The <a href="/blend-snap.html" style="color: var(--rose); text-decoration: underline;">Blend &amp; Snap</a> is the coffee shop where the Study Packs live. <a href="/sunnyvaile-high.html" style="color: var(--rose); text-decoration: underline;"><span style="text-transform: none;">SUNNYVAiLE</span> High</a> is where you take the Pop Quizzes and dive deeper into core concepts. The <a href="/library.html" style="color: var(--rose); text-decoration: underline;">LIBRAiRY</a> is where you check the references. <a href="/radio.html" style="color: var(--rose); text-decoration: underline;">KSVL</a> is where you listen to the tracks. The <a href="/luminairy.html" style="color: var(--rose); text-decoration: underline;">LUMINAiRY</a> is where the PATRON SAiNTS of SUNNYVAiLE teach through their moves — and where the MAiVENS leading the field of AI are honored. And we even have our very own <a href="/games/fairy-godmother.html" style="color: var(--rose); text-decoration: underline;">FAiRY Godmother</a> who helps you with prompts and practical advice. Take a lap around the town map below to see every place you can visit.</p>
+          </details>
+          <p style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 20px; color: var(--rose);">Analogies that stick. In a fictional town from an era we know and love. That's how we're teaching it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 · WHAT'S NEW THIS WEEK -->
+    <section class="band band--cream">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">Every Wednesday in town</p>
+          <h2>Wednesday in <span style="text-transform: none;">SUNNYVAiLE</span>.</h2>
+          <p>The Wednesday walk-through, stop by stop: a new <strong>episode</strong> at <a href="/chick-flicks.html" style="color: var(--rose); text-decoration: underline;">The Chick Flicks</a>, a <strong>Study Pack</strong> at <a href="/blend-snap.html" style="color: var(--rose); text-decoration: underline;">Blend &amp; Snap</a>, a <strong>Pop Quiz</strong> at <a href="/sunnyvaile-high.html" style="color: var(--rose); text-decoration: underline;">SUNNYVAiLE High</a>, this week's <strong>AI news round-up</strong> at <a href="/newsstand.html" style="color: var(--rose); text-decoration: underline;">the NewsStand</a>, and this week's <strong>episode song</strong> on <a href="/radio.html" style="color: var(--rose); text-decoration: underline;">KSVL RAiDIO</a>. The <a href="/post-office.html" style="color: var(--rose); text-decoration: underline;">Post Office</a> sends you a note when it's all in — links to every stop, one letter.</p>
+          <button type="button"
+                  aria-label="Play the THE LAiDIES song 'Wednesday in SUNNYVAiLE'"
+                  data-src="/content/music/the-laidies-wednesday-in-sunnyvaile.mp3"
+                  onclick="window.playLaidiesTheme(this);"
+                  style="margin-top: 18px; display: inline-flex; align-items: center; gap: 6px; padding: 9px 20px 9px 16px; background: var(--cream); border: 1.5px solid var(--rose); border-radius: 999px; color: var(--plum); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 200ms ease, color 200ms ease;"
+                  onmouseover="this.style.background='var(--rose)'; this.style.color='var(--cream)';"
+                  onmouseout="this.style.background='var(--cream)'; this.style.color='var(--plum)';">
+            <svg viewBox="0 0 24 24" style="width:11px; height:11px; fill: currentColor;" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" style="width:11px; height:11px; fill: currentColor; display:none;" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span>♪ Hear the Wednesday Anthem · THE LAiDIES</span>
+          </button>
+        </header>
+        <script>
+          (function() {
+            'use strict';
+            if (window.playLaidiesTheme) return;
+            var activeBtn = null, activeAudio = null;
+            function stopActive() {
+              if (activeBtn) activeBtn.classList.remove('is-playing');
+              if (activeAudio) { try { activeAudio.pause(); } catch(e){} }
+              activeBtn = null; activeAudio = null;
+            }
+            window.playLaidiesTheme = function(btn) {
+              if (!btn || btn.disabled) return;
+              var src = btn.getAttribute('data-src'); if (!src) return;
+              if (activeBtn === btn) { stopActive(); return; }
+              stopActive();
+              var audio = new Audio(src); audio.preload = 'metadata';
+              audio.addEventListener('ended', function() { if (activeAudio === audio) stopActive(); });
+              audio.addEventListener('error', function() { if (activeAudio === audio) stopActive(); });
+              audio.play().catch(function() { if (activeAudio === audio) stopActive(); });
+              btn.classList.add('is-playing');
+              activeBtn = btn; activeAudio = audio;
+            };
+          })();
+        </script>
+
+        <figure style="margin: 32px 0 40px; padding: 0; text-align: center;">
+          <img src="assets/sunnyvaile-main-street-walk-panorama.png?v=20260706-walk"
+               alt="MAiN Street walk-through panorama — the Welcome Wagon Visitor's Center, the NewsStand, The Chick Flicks, Blend & Snap, Mme CLAi-O's, MAiKEOVER on MAiN, BRONZE AiGE, the Dream Phone booth, The Mall, and KSVL Community RAiDIO"
+               style="width: 100%; height: auto; display: block; border-radius: 12px; box-shadow: 0 12px 32px rgba(75, 33, 72, 0.14);"
+               loading="lazy" />
+          <figcaption style="margin-top: 14px; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 15px; color: var(--plum-soft);">The walk, stop by stop. Visitor's Center → NewsStand → Chick Flicks → Blend &amp; Snap → Mme CLAi-O's → MAiKEOVER → BRONZE AiGE → Dream Phone → The Mall → KSVL.</figcaption>
+        </figure>
+
+        <div class="ritual-choose" id="tour" style="scroll-margin-top: 86px;">
+          <p class="ritual-choose-kicker">★ Choose your tour for this Wednesday</p>
+          <h3 class="ritual-choose-title">Express or Full Tour — either counts.</h3>
+          <p class="ritual-choose-body">Do as few or as many activities as you want — these are just the routes we recommend to help make it stick, and both tick off your week. The Express Tour is four stops — this week's episode, the Study Pack, the Pop Quiz, and the episode song. The Full Tour walks all eight stops. Pick what fits your calendar — your Tour Guide keeps track either way.</p>
+        </div>
+        <style>
+          .ritual-choose { margin: 0 0 26px; padding: 20px 24px; border: 1.5px solid rgba(155,63,95,0.28); border-radius: 12px; background: rgba(155,63,95,0.04); }
+          .ritual-choose-kicker { margin: 0 0 4px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose); }
+          .ritual-choose-title { margin: 0 0 6px; font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--plum-deep); line-height: 1.2; }
+          .ritual-choose-body { margin: 0; font-size: 14px; line-height: 1.5; color: var(--plum-soft); }
+        </style>
+
+        <div class="whats-new-grid">
+
+          <div class="quick-trip-block">
+            <p class="ritual-heading">Express Tour</p>
+            <p class="quick-trip-intro">Four stops: read this week's episode, grab the Study Pack, take the Pop Quiz, and play the episode song. The Full Tour is on the right when you've got the time.</p>
+
+            <a class="quick-trip-opt" href="/issues/issue-01.html">
+              <img class="quick-trip-opt-img" src="assets/ugh-as-if.png" alt="Episode 1 art" loading="lazy" />
+              <div class="quick-trip-opt-body">
+                <p class="quick-trip-opt-eyebrow">★ New here? Start at the start.</p>
+                <h4 class="quick-trip-opt-title">Episode 1 · On Wednesdays We Use AI</h4>
+                <p class="quick-trip-opt-desc">The one in which she realizes AI is already being added to the invisible load, says "ugh, as if," and opens the tab anyway.</p>
+                <span class="quick-trip-opt-cta">Start from the beginning →</span>
+              </div>
+            </a>
+
+            <p class="quick-trip-divider">— or drop in this week —</p>
+
+            <a class="quick-trip-opt" href="/chick-flicks.html">
+              <img class="quick-trip-opt-img" data-ep-image src="assets/episodes/issue-04/section-slaiyer-handbook-v1.png" alt="This week's episode art" loading="lazy" />
+              <div class="quick-trip-opt-body">
+                <p class="quick-trip-opt-eyebrow">★ This week · Episode <span data-ep-num>04</span></p>
+                <h4 class="quick-trip-opt-title" data-ep-title>Every SL<span class="ai">Ai</span>YER Needs a Watcher</h4>
+                <p class="quick-trip-opt-desc">The one in which she opens five browser tabs — one per tool — and asks not which tool is best, but <em>who is right for this scene.</em></p>
+                <span class="quick-trip-opt-cta">Pick up this week's episode →</span>
+              </div>
+            </a>
+
+            <p class="quick-trip-steps-label">★ Then finish the core ritual</p>
+            <div class="quick-trip-steps">
+              <a href="/blend-snap.html#the-study-pack">Study Pack</a>
+              <a href="/sunnyvaile-high.html">Pop Quiz</a>
+              <a href="/radio.html">Episode Song</a>
             </div>
-            <p>Buffy, the Halliwells, the girls of The Craft &mdash; every one of them had a power she had to learn to wield. Yours is AI &mdash; and like them, you&rsquo;ve got a whole story arc to master the craft, episode by episode, ritual by ritual. Demons not included.</p>
+
+            <a href="/chick-flicks.html" class="quick-trip-all">Mid-season? <strong>See all episodes →</strong></a>
           </div>
-        </article>
 
-        <div class="home-route-segments">
-          <p class="home-route-pill home-route-pill--single">First time</p>
-          <a class="home-start-card home-start-card--primary route-card route-card--1" href="issues/issue-01.html">
-            <img loading="lazy" src="assets/episodes/issue-01/episode-01-what-like-its-hard.png" alt="Episode 1 hero — translucent iMac reading WHAT, LIKE IT'S HARD? beside a FIRST STEP neon sign" />
-            <strong>The Season Premiere</strong>
-            <p>You wouldn&rsquo;t drop into a series at the finale and expect to know why everyone&rsquo;s crying tears of pure joy. Start at the premiere &mdash; Episode 1, in order, the way it&rsquo;s meant to be binged. It builds for a reason.</p>
-          </a>
-          <p class="home-route-pill home-route-pill--pair">Welcome back</p>
-          <a class="home-start-card home-start-card--quiet route-card route-card--2" href="grimoire.html?open=1">
-            <!-- CURRENT EPISODE — update on new episode publish -->
-            <img loading="lazy" class="home-route-img--top" src="assets/portal/laidies-grimoire-closed-v1.png" alt="The plum-and-gold LAiDIES Grimoire — closed cover, gold-embossed star on a soft styled surface" />
-            <strong>This Week&rsquo;s Ritual</strong>
-            <p>Open the Grimoire &mdash; the book with the answers. Start with Chapter 1 or raid the shelf.</p>
-          </a>
-          <a class="home-start-card home-start-card--quiet route-card route-card--3" href="episodes.html">
-            <img loading="lazy" src="assets/9-to-5-chaos.png" alt="9-to-5 chaos desk scene — green iBook with AOL, Vogue, planner, and a GIRL POWER ENERGY neon" />
-            <strong>All Episodes</strong>
-            <p>The whole season, in order &mdash; they build on purpose. Start at the top and keep going; a new one lands every Wednesday.</p>
-          </a>
-        </div>
-      </section>
+          <div class="ritual-block">
+            <p class="ritual-heading">Full Tour · 8 stops</p>
+            <p class="quick-trip-intro">Spend Wednesday walking every stop. Each stop teaches something the next builds on. Your Tour Guide ticks as you go.</p>
+            <p class="ritual-progress" id="ritualProgress" aria-live="polite">★ Your Tour Guide · <span id="ritualProgressCount">0</span> of 8 stops complete</p>
+            <p class="ritual-progress ritual-progress--charms" id="charmProgress" aria-live="polite">★ Charm Hunt · <span id="charmProgressCount">0</span> of 7 charms found</p>
+            <ol class="ritual-beats" id="ritualBeats">
+              <li data-stop="newsstand"><a class="ritual-beat" href="/newsstand.html"><span class="ritual-beat-n">01</span><span class="ritual-beat-body"><span class="ritual-beat-label">NewsStand</span><span class="ritual-beat-desc">the week's headlines</span></span></a></li>
+              <li data-stop="chick-flicks"><a class="ritual-beat" href="/chick-flicks.html"><span class="ritual-beat-n">02</span><span class="ritual-beat-body"><span class="ritual-beat-label">The Chick Flicks</span><span class="ritual-beat-desc">pick up this week's episode</span></span></a></li>
+              <li data-stop="blend-snap"><a class="ritual-beat" href="/blend-snap.html"><span class="ritual-beat-n">03</span><span class="ritual-beat-body"><span class="ritual-beat-label">The Blend &amp; Snap</span><span class="ritual-beat-desc">grab coffee, study the notes</span></span></a></li>
+              <li data-stop="sunnyvaile-high"><a class="ritual-beat" href="/sunnyvaile-high.html"><span class="ritual-beat-n">04</span><span class="ritual-beat-body"><span class="ritual-beat-label">SUNNYVAiLE High</span><span class="ritual-beat-desc">take the pop quiz</span></span></a></li>
+              <li data-stop="mall"><a class="ritual-beat" href="/mall.html"><span class="ritual-beat-n">05</span><span class="ritual-beat-body"><span class="ritual-beat-label">Free time</span><span class="ritual-beat-desc">wander town — your call</span></span></a></li>
+              <li data-stop="maikeover"><a class="ritual-beat" href="/maikeover.html"><span class="ritual-beat-n">06</span><span class="ritual-beat-body"><span class="ritual-beat-label">MAiKEOVER on MAiN</span><span class="ritual-beat-desc">see your card, freshen up</span></span></a></li>
+              <li data-stop="bronze-aige"><a class="ritual-beat" href="/bronze-aige.html"><span class="ritual-beat-n">07</span><span class="ritual-beat-body"><span class="ritual-beat-label">The BRONZE AiGE</span><span class="ritual-beat-desc">happy hour and live music</span></span></a></li>
+              <li data-stop="sorority-house"><a class="ritual-beat" href="/sorority-house.html"><span class="ritual-beat-n">08</span><span class="ritual-beat-body"><span class="ritual-beat-label">Delta LAi Nu</span><span class="ritual-beat-desc">Girl Talk with the LAiDIES</span></span></a></li>
+            </ol>
+            <style>
+              .ritual-progress { margin: 4px 0 4px; font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose); }
+              .ritual-progress--charms { margin-bottom: 12px; }
+              .ritual-progress--complete { color: var(--gold); }
+              #ritualProgressCount { color: var(--plum-deep); font-weight: 800; }
+              .ritual-beats li { position: relative; }
+              .ritual-beats li[data-checked] .ritual-beat { border-color: rgba(201,162,39,0.42); background: rgba(201,162,39,0.06); }
+              .ritual-beats li[data-checked] .ritual-beat-n { color: var(--gold); background: rgba(201,162,39,0.24); }
+              .ritual-beats li[data-checked] .ritual-beat-label { color: var(--plum-soft); text-decoration: line-through; text-decoration-color: rgba(201,162,39,0.5); }
+              .ritual-beats li[data-checked] .ritual-beat::after { content: '✓'; color: var(--gold); opacity: 1; transform: none; }
+            </style>
+            <script>
+              (function(){
+                function paintTour() {
+                  if (!window.svTour || typeof window.svTour.getState !== 'function') { setTimeout(paintTour, 80); return; }
+                  var st = window.svTour.getState();
+                  var count = document.getElementById('ritualProgressCount');
+                  var progress = document.getElementById('ritualProgress');
+                  if (count) count.textContent = st.count;
+                  if (progress) {
+                    progress.classList.toggle('ritual-progress--complete', st.complete);
+                    if (st.complete && st.rewardedThisWeek) {
+                      progress.innerHTML = '★ Full Tour done · +1 FAiRY wish banked · resets Wednesday';
+                    }
+                  }
+                  st.stops.forEach(function(s) {
+                    var li = document.querySelector('.ritual-beats li[data-stop="' + s.key + '"]');
+                    if (!li) return;
+                    if (s.checked) li.setAttribute('data-checked', '1');
+                    else li.removeAttribute('data-checked');
+                  });
+                }
+                function paintCharms() {
+                  if (!window.CHARM_HUNT || typeof window.CHARM_HUNT.charmsFoundInWeek !== 'function') { setTimeout(paintCharms, 80); return; }
+                  var TARGET = 7;
+                  var week = window.CHARM_HUNT.personalWeek();
+                  var found = window.CHARM_HUNT.charmsFoundInWeek(week);
+                  var complete = found >= TARGET;
+                  var progress = document.getElementById('charmProgress');
+                  if (progress) {
+                    progress.classList.toggle('ritual-progress--complete', complete);
+                    if (complete) {
+                      progress.innerHTML = '★ Charm Hunt · 7 of 7 charms found this week ✓';
+                    } else {
+                      progress.innerHTML = '★ Charm Hunt · <span id="charmProgressCount">' + found + '</span> of 7 charms found this week';
+                    }
+                  }
+                }
+                function paint() { paintTour(); paintCharms(); }
+                if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', paint);
+                else paint();
+                // Also repaint if we come back from another tab or after check-in / charm find
+                document.addEventListener('sv:tour-checkin', paint);
+                document.addEventListener('charmhunt:found', paintCharms);
+                document.addEventListener('charmhunt:week-unlocked', paintCharms);
+                document.addEventListener('visibilitychange', function(){ if (document.visibilityState === 'visible') paint(); });
+              })();
+            </script>
 
-      <!-- PORTAL MAP -->
-      <section class="world-portal-map" id="portal-map" aria-labelledby="portal-map-title">
-        <div class="section-heading">
-          <p class="eyebrow laidies-eyebrow">WHAT&rsquo;S INSIDE <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span></p>
-          <h2 id="portal-map-title" class="laidies-section-title">The universe has a map.</h2>
-          <p class="laidies-section-deck">Start with the Bag. Then open the Grimoire, go to <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> After Hours, join the Club, or get oriented before the next Wednesday Episode.</p>
-        </div>
-        <div class="world-portal-grid home-universe-grid">
-          <article class="world-portal-card world-portal-card--stack home-grimoire-card">
-            <img loading="lazy" src="assets/portal/laidies-grimoire-teaser.png" alt="The plum-and-gold LAiDIES Grimoire book — closed cover reading LAiDIES GRIMOIRE beside its open pages in a styled flat-lay" />
-            <div>
-              <span>The book with the answers</span>
-              <strong>THE <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> GRIMOIRE</strong>
-              <p>The terms, tools, who&rsquo;s-who, and receipts &mdash; so you never nod along pretending you knew what that meant.</p>
-              <a class="portal-card-main portal-card-main--primary" href="grimoire.html">OPEN THE GRIMOIRE</a>
-            </div>
-          </article>
-          <article class="world-portal-card world-portal-card--stack">
-            <img loading="lazy" src="assets/clubhouse-compact-grimoire-warm-open-v1.png" alt="Open warm-toned LAiDIES Clubhouse compact on marble — DJ booth, vanity, and phone nook" />
-            <div>
-              <span>Office hours, after hours</span>
-              <strong>THE <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> CLUBHOUSE</strong>
-              <p>Readings, prompt coaching, and the weekly anthem &mdash; the extras that make the lesson stick without feeling like homework.</p>
-              <a class="portal-card-main" href="clubhouse.html">OPEN THE CLUBHOUSE</a>
-            </div>
-          </article>
-          <article class="world-portal-card world-portal-card--stack">
-            <img loading="lazy" src="assets/girl-talk.png" alt="Warm LAiDIES Girl Talk desk scene — the game, prompts, and ritual objects laid out together" />
-            <div>
-              <span>You can sit with us</span>
-              <strong>JOIN THE CLUB</strong>
-              <p>Other women, all figuring it out together &mdash; bring the weekly work to the rooms, swap wins, and turn what you learned into something you say out loud.</p>
-              <a class="portal-card-main" href="community.html">JOIN THE CLUB</a>
-            </div>
-          </article>
-          <article class="world-portal-card world-portal-card--stack">
-            <img loading="lazy" src="assets/closet-organizer-natural-swaps-drawer-lip-v7.png" alt="Open warm-graded LAiDIES closet organizer with labelled drawers of tools and lore" />
-            <div>
-              <span>New girl orientation</span>
-              <strong>HOW <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> WORKS</strong>
-              <p>The quick map &mdash; what to read, what to try, and why Wednesday is the whole ritual.</p>
-              <a class="portal-card-main" href="start-here.html">START HERE</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- SIGNUP — sits below the portal-map cards. Buttondown endpoint unchanged. -->
-      <section class="subscribe subscribe--compact laidies-standout" id="signup" aria-labelledby="subscribe-title">
-        <div>
-          <p class="eyebrow laidies-eyebrow">Gimme, Gimme More</p>
-          <h2 id="subscribe-title">Get the next one in your inbox.</h2>
-          <p>
-            As Cher teaches us, it does not say RSVP on the Statue of Liberty &mdash; but we&rsquo;d love yours. One useful episode a week, plus the occasional excellent detour. No spam. No homework spiral.
-          </p>
-        </div>
-        <form
-          class="subscribe-form"
-          action="https://buttondown.com/api/emails/embed-subscribe/laidies"
-          method="post"
-          target="laidiesSubscribeFrame"
-        >
-          <div class="subscribe-form__fields">
-            <label for="email">Email address</label>
-            <div class="field-row">
-              <input id="email" name="email" type="email" placeholder="itsbritneybitch@icon.com" required />
-              <button type="submit" data-default-label="Subscribe">Subscribe</button>
-            </div>
-          </div>
-          <div class="subscribe-form__result" data-result hidden aria-live="polite"></div>
-          <p class="subscribe-fallback" style="margin:8px 0 0;font-size:0.88rem;"><a href="https://buttondown.com/laidies" target="_blank" rel="noopener" style="color:#6f263f;font-weight:800;">Subscribe through Buttondown if the form acts dramatic.</a></p>
-        </form>
-        <iframe
-          class="subscribe-frame"
-          name="laidiesSubscribeFrame"
-          title="LAiDIES subscription response"
-          aria-hidden="true"
-        ></iframe>
-      </section>
-
-      <!-- WORLD PREVIEW -->
-      <section class="home-world-preview" aria-labelledby="home-world-title">
-        <div class="home-world-preview-inner">
-          <div class="home-world-preview-copy">
-            <h2 id="home-world-title">Get in, loser. We&rsquo;re learning AI.</h2>
-            <div class="home-anthem-row" aria-label="LAiDIES anthem">
-              <button class="anthem-play-button" type="button" onclick="playAnthem(this)" title="Play or pause the LAiDIES anthem" aria-label="Play or pause music: the LAiDIES anthem">
-                <span class="anthem-play-hint" aria-hidden="true">▶</span>
-                Play the anthem
+            <div class="ritual-bonus">
+              <p class="ritual-bonus-eyebrow">★ Bonus for finishing the Full Tour</p>
+              <p class="ritual-bonus-hook">All 8 stops on your Tour Guide · <span class="ritual-bonus-reward">+1 FAiRY wish</span></p>
+              <p class="ritual-bonus-note">One extra wish with the <a href="/games/fairy-godmother.html">FAiRY Godmother</a>, banked on your Closet. Resets Wednesday. Your Tour Guide auto-ticks each stop when you visit — no clicking required.</p>
+              <button type="button" class="ritual-bonus-play"
+                      aria-label="Play this week's Wednesday Anthem"
+                      data-src="/content/music/the-laidies-wednesday-in-sunnyvaile.mp3"
+                      onclick="window.playLaidiesTheme(this);">
+                <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true" style="display:none"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+                <span>♪ The Wednesday Anthem</span>
               </button>
             </div>
-          </div>
-          <figure class="hero-image">
-            <img src="assets/lets-chat.png" alt="Stylish LAiDIES bedroom scene with a woman on a pink phone surrounded by 90s pop culture objects" />
-          </figure>
-        </div>
-      </section>
 
+            <a class="ritual-cta" href="/chick-flicks.html">Spend this Wednesday in SUNNYVAiLE</a>
+          </div>
 
-      <!-- ORIGIN STORY -->
-      <section class="about-band" id="about" aria-labelledby="about-title" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; padding: clamp(40px, 5vw, 64px) clamp(20px, 5vw, 80px);">
-        <div>
-          <p class="eyebrow">The Origin Story</p>
-          <h2 id="about-title">Built by one woman, pushed forward by the right group chat.</h2>
-          <p>
-            Six months ago, I could not get an Amazon Women-in-Tax newsletter to send properly. I work in tax, not tech — not a developer. The ideas were there, but they kept stalling behind someone else's time, budget, or availability.
-          </p>
-          <p>
-            Then I started using AI. Since then I have built a personal command centre, designed agents for research and operations, and joined an Amazon Women-in-Tax hackathon where our team built Echo — an AI product VPs now want in production. And I built everything you are looking at right now.
-          </p>
-          <div class="origin-proof-card" aria-label="Origin story proof point">
-            <span>Receipt</span>
-            <h3>Five days from "I have never built a website" to a living, glitter-covered AI world.</h3>
-            <p>
-              With AI, the idea stopped waiting for a traditional tech on-ramp. In under three weeks, the vision became a newsletter, website, visual system, quiz archive, games, agents, Episode packs, and a community space people can actually use.
-            </p>
-          </div>
-          <p style="font-style: italic; font-size: 0.9rem; color: var(--muted); line-height: 1.55; margin: 18px 0 0;">
-            P.S. I do not have this all perfectly figured out. If you spot a problem, have a better idea, or know a shortcut — tell me. We are all in this together, preferably with better snacks.
-          </p>
         </div>
-        <div style="display: flex; flex-direction: column; gap: 24px;">
-          <div style="text-align: center;">
-            <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--hot-pink); font-weight: 800; margin: 0 0 12px;">Ali's <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> Card Preview</p>
-            <img loading="lazy" src="assets/dream-phone-boss-ali.png" alt="Ali Eakin — Founder of LAiDIES" style="width: 100%; max-width: 380px; border-radius: 12px; box-shadow: 0 12px 40px rgba(185,93,120,0.25);" />
-            <div style="margin-top: 16px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-              <span class="home-status-pill status-member home-preview-note">Card glow-up in the works</span>
-            </div>
+
+        <!-- 2.5 · MOVE TO SUNNYVAiLE (elevated primary CTA) -->
+        <div class="join-band">
+          <div class="join-band-body">
+            <p class="join-band-kicker">★ Make it official</p>
+            <h3 class="join-band-title">Move to SUNNYVAiLE.</h3>
+            <p class="join-band-desc">Sign up for the Wednesday delivery, or design your Residence Card and unlock the whole town — Sorority House rooms, the Charm Hunt, gifting, and your Closet.</p>
           </div>
-          <div style="background: linear-gradient(145deg, #fffdfb, #f8eef2); border: 1px solid rgba(75,33,72,0.14); border-radius: 12px; padding: 24px; color: #4b2148; box-shadow: 0 16px 45px rgba(75,33,72,0.1);">
-            <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--hot-pink); margin: 0 0 12px;">The Founding Group Chat</p>
-            <p style="margin: 0 0 12px; font-size: 0.95rem; color: rgba(75,33,72,0.78); line-height: 1.6;"><strong>Ali Eakin</strong> — Founder of <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span>. Writer, builder, and the woman who got tired of waiting for a traditional tech on-ramp. Created the newsletter, website, visuals, games, and community space with AI.</p>
-            <p style="margin: 0 0 12px; font-size: 0.95rem; color: rgba(75,33,72,0.78); line-height: 1.6;"><strong>Sara Baxter</strong> — early reviewer, Echo hackathon teammate, feedback giver, OG member of the original <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> group chat, and the energy that made it feel worth building out loud.</p>
-            <p style="margin: 0 0 12px; font-size: 0.95rem; color: rgba(75,33,72,0.78); line-height: 1.6;"><strong>Eugina Lim</strong> — Echo was her idea. One of Amazon Tax's AI experts, hackathon teammate, and OG member of the original <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> group chat.</p>
-            <p style="margin: 0; font-size: 0.95rem; color: rgba(75,33,72,0.78); line-height: 1.6;"><strong>Josh Hudson</strong> — You know him as DJ <span class="brand-word-inline" aria-label="JAiDY"><span aria-hidden="true">J<span data-brand-ai>Ai</span>DY</span></span>. Girl dad, AI steering committee champion, huge supporter of the <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> mission, weekly episode song maker, and the person who decided this project needed a House DJ.</p>
+          <div class="join-band-ctas">
+            <a class="join-cta join-cta--primary" href="/maikeover.html">
+              <span class="join-cta-title">Design your Residence Card</span>
+              <span class="join-cta-sub">at MAiKEOVER · No. 6 MAiN →</span>
+            </a>
+            <a class="join-cta join-cta--secondary" href="#signup">
+              <span class="join-cta-title">Just the Wednesday delivery</span>
+              <span class="join-cta-sub">at the Post Office →</span>
+            </a>
           </div>
         </div>
-      </section>
-
-      <!-- SOCIAL -->
-      <section class="social-strip" aria-labelledby="social-title">
-        <div>
-          <p class="eyebrow"><span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> After Hours</p>
-          <h2 id="social-title">Come sit with us.</h2>
-          <p>
-            Follow @laidies.ai for extra posts, behind-the-scenes notes, reminders, and the bits that keep going after the Episode.
-          </p>
-          <div class="home-current-actions">
-            <a class="button primary" href="https://www.instagram.com/laidies.ai/" target="_blank" rel="noreferrer">Open Instagram</a>
-            <a class="button secondary" href="https://www.linkedin.com/company/wearelaidies/?viewAsMember=true" target="_blank" rel="noreferrer">Open LinkedIn</a>
-          </div>
-        </div>
-        <img class="social-after-hours-img" loading="lazy" src="assets/socials-link-image.png" alt="Warm flip-phone scene with Instagram and LinkedIn polaroids — LAiDIES after-hours" />
-        <div class="home-screen-card home-screen-card--social" aria-labelledby="home-screen-title">
-          <div class="home-screen-copy">
-            <p class="eyebrow">Use it like an app</p>
-            <h3 id="home-screen-title">Add <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> to your Home Screen.</h3>
-            <p>
-              Quick access from your home screen — one tap, no app store. For now, scores and rewards stay on the browser and device you use.
-            </p>
-          </div>
-          <div class="home-screen-steps" aria-label="Home screen instructions">
-            <article>
-              <span>iPhone / iPad</span>
-              <ol>
-                <li>Open the site in Safari.</li>
-                <li>Tap Share. On newer iOS versions, tap the Share button in the toolbar or open the More menu first.</li>
-                <li>Choose Add to Home Screen. If you see Open as Web App, leave it on.</li>
-                <li>Name it <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span>, then tap Add.</li>
-              </ol>
-            </article>
-            <article>
-              <span>Android</span>
-              <ol>
-                <li>Open the site in Chrome.</li>
-                <li>Tap More, the three dots in the top right.</li>
-                <li>Tap Add to Home screen. Some Android versions say Install app or Create shortcut.</li>
-                <li>Confirm Add or Install, then move the icon wherever you want it.</li>
-              </ol>
-            </article>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="site-footer" id="site-end">
-      <p><span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span></p>
-      <div>
-        <a href="https://www.instagram.com/laidies.ai/" target="_blank" rel="noreferrer">Instagram</a>
-        <a href="grimoire.html?open=1">The Grimoire</a>
-        <a href="episodes.html">Read The Season</a>
-        <a href="grimoire/lore-closet.html">THE LORE CLOSET</a>
-        <a href="community.html">Join The Club</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+        <style>
+          .join-band { margin: 32px 0 0; padding: 34px clamp(24px, 4vw, 44px); background: linear-gradient(135deg, var(--plum-deep, #341446) 0%, var(--rose, #9b3f5f) 100%); color: var(--cream); border-radius: 16px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; align-items: center; box-shadow: 0 10px 32px rgba(75,33,72,0.28); }
+          @media (max-width: 720px) { .join-band { grid-template-columns: 1fr; padding: 26px 24px; } }
+          .join-band-kicker { margin: 0 0 8px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); }
+          .join-band-title { margin: 0 0 10px; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 3.6vw, 38px); font-weight: 700; color: var(--cream); line-height: 1.1; }
+          .join-band-desc { margin: 0; font-size: 15px; line-height: 1.6; color: rgba(255,253,251,0.9); }
+          .join-band-ctas { display: flex; flex-direction: column; gap: 12px; }
+          .join-cta { display: block; padding: 16px 22px; border-radius: 12px; text-decoration: none; transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease; }
+          .join-cta-title { display: block; font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 700; line-height: 1.2; }
+          .join-cta-sub { display: block; margin-top: 4px; font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; opacity: 0.86; }
+          .join-cta--primary { background: var(--gold, #c9a227); color: var(--plum-deep, #341446); box-shadow: 0 4px 14px rgba(0,0,0,0.24); }
+          .join-cta--primary:hover, .join-cta--primary:focus-visible { transform: translateY(-2px); background: var(--cream, #fffdfb); outline: none; }
+          .join-cta--secondary { background: rgba(255,253,251,0.10); color: var(--cream); border: 1.5px solid rgba(255,253,251,0.45); }
+          .join-cta--secondary:hover, .join-cta--secondary:focus-visible { background: rgba(255,253,251,0.20); border-color: var(--gold, #c9a227); outline: none; }
+        </style>
       </div>
-    </footer>
+    </section>
 
-    <script src="content/site/supabase-config.js" defer></script>
-    <script src="content/site/site-data.js?v=episode-04-quiz-1" defer></script>
-    <script src="script.js?v=wm3" defer></script>
-    <script>
-      (function(){
-        var btn = document.querySelector(".hamburger-btn");
-        var panel = document.getElementById("siteMenuPanel");
-        var closeBtn = document.querySelector(".site-menu-close");
-        if (!btn || !panel) return;
-        function setMenu(open) {
-          panel.classList.toggle("is-open", open);
-          panel.hidden = !open;
-          btn.setAttribute("aria-expanded", open);
-          btn.setAttribute("aria-label", open ? "Close site menu" : "Open site menu");
-          btn.innerHTML = open ? "✕ <span class=\"site-menu-label\">Close</span>" : "☰ <span class=\"site-menu-label\">Menu</span>";
-          if (open) {
-            var closeControl = panel.querySelector(".site-menu-close");
-            if (closeControl) closeControl.focus({ preventScroll: true });
-          }
-        }
-        btn.addEventListener("click", function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          setMenu(!panel.classList.contains("is-open"));
-        }, true);
-        if (closeBtn) {
-          closeBtn.addEventListener("click", function() {
-            setMenu(false);
-            btn.focus({ preventScroll: true });
-          });
-        }
-        panel.addEventListener("click", function(e) {
-          e.stopPropagation();
-          if (e.target.tagName === "A") setMenu(false);
-        });
-        document.addEventListener("click", function(e) {
-          if (!panel.classList.contains("is-open")) return;
-          if (!btn.contains(e.target) && !panel.contains(e.target)) {
-            setMenu(false);
-          }
-        });
-        document.addEventListener("keydown", function(e) {
-          if (e.key === "Escape" && panel.classList.contains("is-open")) {
-            setMenu(false);
-            btn.focus({ preventScroll: true });
-          }
-        });
-      })();
-    </script>
-    <script>
-      (function(){
-        var parkedRows = {
-          "Dream Phone": "glow-up in the works",
-          "THE EXTRA CREDIT": "bonus shelf in the works",
-          "LAiDIES Card / Clubhouse Pass": "member magic coming soon"
-        };
-        var renamedLinks = {
-          "THE EVIDENCE DRAWER / Sources": "THE CHAMBER OF RECEIPTS / Sources",
-          "SLAiYER HANDBOOK / Glossary": "SLAiYER HANDBOOK / AI Terms"
-        };
+    <!-- 3 · TOWN DIRECTORY -->
+    <section class="band band--pearl">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">The town directory</p>
+          <h2>Take a lap around SUNNYVAiLE.</h2>
+          <p>Every section of the site has an address. Click any place to step inside.</p>
+        </header>
 
-        function installPreviewStyle() {
-          if (document.getElementById("homepage-live-menu-preview-style")) return;
-          var style = document.createElement("style");
-          style.id = "homepage-live-menu-preview-style";
-          style.textContent = [
-            ".laidies-menu-group .laidies-menu-preview{display:block!important;padding:9px 0!important;border-top:1px solid rgba(75,33,72,.1)!important;color:rgba(63,23,55,.7)!important;font:800 .86rem/1.25 Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif!important;}",
-            ".laidies-menu-group .laidies-menu-preview em{display:block!important;margin-top:3px!important;color:#9b3f5f!important;font:900 .62rem/1.1 'JetBrains Mono',monospace!important;letter-spacing:.1em!important;text-transform:uppercase!important;}"
-          ].join("");
-          document.head.appendChild(style);
-        }
+        <div id="sv-map-directory" style="margin: 24px 0 40px;"></div>
+        <script defer src="/content/site/sunnyvaile-directory.js?v=20260707-1"></script>
 
-        function rewriteSharedMenu() {
-          var panel = document.getElementById("laidiesUnifiedMenu");
-          if (!panel) return false;
-          installPreviewStyle();
-          panel.querySelectorAll("h2").forEach(function(heading) {
-            if (heading.textContent.trim() === "THE BOOK OF RECEIPTS") heading.textContent = "THE LAiDIES GRIMOIRE";
-          });
-          var intro = panel.querySelector(".laidies-menu-top p");
-          if (intro) {
-            intro.innerHTML = '<span class="laidies-menu-kicker">LAiDIES Site Menu</span>Jump to this week, the Grimoire, the Clubhouse, or Meet & Celebrate without solving the site architecture first.';
-          }
-          panel.querySelectorAll("a").forEach(function(link) {
-            var label = link.textContent.trim();
-            if (renamedLinks[label]) {
-              link.textContent = renamedLinks[label];
-              return;
-            }
-            if (!parkedRows[label]) return;
-            var preview = document.createElement("span");
-            preview.className = "laidies-menu-preview";
-            preview.innerHTML = label + "<em>" + parkedRows[label] + "</em>";
-            link.replaceWith(preview);
-          });
-          return true;
-        }
+        <div class="directory-grid" style="display:none;" aria-hidden="true">
 
-        document.addEventListener("DOMContentLoaded", function() {
-          rewriteSharedMenu();
-          var observer = new MutationObserver(function() {
-            if (rewriteSharedMenu()) observer.disconnect();
-          });
-          observer.observe(document.documentElement, { childList: true, subtree: true });
-          window.setTimeout(rewriteSharedMenu, 600);
-          window.setTimeout(rewriteSharedMenu, 1400);
-        });
-      })();
-    </script>
-    <script src="/content/site/mini-player.js?v=ep-04-songs-1"></script>
+          <a class="dir-card" href="/visitors-centre.html">
+            <p class="dir-addr">★ MAiN Street · No. 1</p>
+            <h3 class="dir-name">The Welcome Wagon</h3>
+            <p class="dir-tag">First stop. Start Here + About.</p>
+          </a>
 
-    <script>
-    function playAnthem(el) {
-      var a = document.getElementById('anthemAudio');
-      if (!a) {
-        a = document.createElement('audio');
-        a.id = 'anthemAudio';
-        a.src = 'content/music/dj-jaidy-week-01-on-wednesday-we-do-ai.mp3';
-        a.setAttribute('data-title', 'On Wednesdays We Do AI');
-        document.body.appendChild(a);
-      }
-      var hint = el.querySelector('.anthem-play-hint');
-      if (a.paused) {
-        a.play();
-        scheduleAnthemCharmUnlock();
-        if (hint) hint.textContent = '⏸';
-        if (hint) hint.style.opacity = '1';
-        el.style.textShadow = '0 0 20px rgba(185,93,120,0.6)';
-        el.classList.add('is-playing');
-      } else {
-        a.pause();
-        clearAnthemCharmTimer();
-        if (hint) hint.textContent = '▶';
-        if (hint) hint.style.opacity = '0.4';
-        el.style.textShadow = '';
-        el.classList.remove('is-playing');
-      }
-      a.onended = function() {
-        unlockAnthemCharm();
-        if (hint) hint.textContent = '▶';
-        if (hint) hint.style.opacity = '0.4';
-        el.style.textShadow = '';
-        el.classList.remove('is-playing');
-      };
-    }
+          <a class="dir-card" href="/newsstand.html">
+            <p class="dir-addr">★ MAiN Street · No. 2</p>
+            <h3 class="dir-name">The NewsStand</h3>
+            <p class="dir-tag">Today · Wednesday · Tribune.</p>
+          </a>
 
-    var anthemCharmTimer = null;
-    var anthemCharmId = "site-anthem-mini-disc-charm";
+          <a class="dir-card" href="/library.html">
+            <p class="dir-addr">★ Civic Square</p>
+            <h3 class="dir-name">The Town LIBRAiRY</h3>
+            <p class="dir-tag">The Grimoire reference shelves.</p>
+          </a>
 
-    function clearAnthemCharmTimer() {
-      if (anthemCharmTimer) {
-        window.clearTimeout(anthemCharmTimer);
-        anthemCharmTimer = null;
-      }
-    }
+          <a class="dir-card" href="/mall.html">
+            <p class="dir-addr">★ MAiN Street · No. 9</p>
+            <h3 class="dir-name">The Mall</h3>
+            <p class="dir-tag">Ten stops. All references. Searchable.</p>
+          </a>
 
-    function scheduleAnthemCharmUnlock() {
-      clearAnthemCharmTimer();
-      if (hasAnthemCharm()) return;
-      anthemCharmTimer = window.setTimeout(unlockAnthemCharm, 12000);
-    }
+          <a class="dir-card" href="/bronze-aige.html">
+            <p class="dir-addr">★ MAiN Street · No. 7</p>
+            <h3 class="dir-name">The BRONZE AiGE</h3>
+            <p class="dir-tag">Happy hour + live show after 8.</p>
+          </a>
 
-    function hasAnthemCharm() {
-      try {
-        var charms = JSON.parse(localStorage.getItem("laidiesSecretCharms") || "{}");
-        return Boolean(charms[anthemCharmId]);
-      } catch (error) {
-        return false;
-      }
-    }
+          <a class="dir-card" href="/games/madame-claio.html">
+            <p class="dir-addr">★ MAiN Street · No. 5</p>
+            <h3 class="dir-name">Mme CLAi-O's Shop</h3>
+            <p class="dir-tag">The town oracle. Crystal ball, tarot.</p>
+          </a>
 
-    function pushUniqueReward(key, reward) {
-      try {
-        var queue = JSON.parse(localStorage.getItem(key) || "[]");
-        if (!queue.some(function(item) { return item.id === reward.id; })) {
-          queue.push(reward);
-          localStorage.setItem(key, JSON.stringify(queue));
-        }
-      } catch (error) {
-        // Reward storage should never block the reader from seeing the charm.
-      }
-    }
+          <a class="dir-card" href="/chick-flicks.html">
+            <p class="dir-addr">★ MAiN Street · No. 3</p>
+            <h3 class="dir-name">The Chick Flicks</h3>
+            <p class="dir-tag">The season. Video rental shop.</p>
+          </a>
 
-    function unlockAnthemCharm() {
-      clearAnthemCharmTimer();
-      var reward = {
-        id: anthemCharmId,
-        title: "LAiDIES Anthem Mini-Disc Charm",
-        body: "Earned by listening to the LAiDIES anthem.",
-        source: "Homepage anthem",
-        asset: "assets/charms/teal-mini-disc-charm.svg",
-        alt: "Teal mini-disc charm sticker",
-        type: "secret-charm",
-        rewardType: "charm",
-        charmKind: "site-charm",
-        braceletSlot: "site-anthem",
-        braceletStatus: "pending-charm-bracelet",
-        cardSurface: "charm-bracelet",
-        earnedAt: new Date().toISOString()
-      };
-      try {
-        var charms = JSON.parse(localStorage.getItem("laidiesSecretCharms") || "{}");
-        charms[anthemCharmId] = charms[anthemCharmId] || reward;
-        localStorage.setItem("laidiesSecretCharms", JSON.stringify(charms));
+          <a class="dir-card" href="/blend-snap.html">
+            <p class="dir-addr">★ MAiN Street · No. 4</p>
+            <h3 class="dir-name">The Blend &amp; Snap</h3>
+            <p class="dir-tag">Coffee shop. Study Pack lives here.</p>
+          </a>
 
-        var bracelet = JSON.parse(localStorage.getItem("laidiesCharmBracelet") || "{}");
-        bracelet[anthemCharmId] = bracelet[anthemCharmId] || reward;
-        localStorage.setItem("laidiesCharmBracelet", JSON.stringify(bracelet));
-      } catch (error) {
-        // Browser-only storage may be unavailable; still show the reward moment.
-      }
-      pushUniqueReward("laidiesCharmBraceletPendingRewards", reward);
-      pushUniqueReward("laidiesCardPendingRewards", reward);
-      showAnthemCharmReveal();
-    }
+          <a class="dir-card" href="/maikeover.html">
+            <p class="dir-addr">★ MAiN Street · No. 6</p>
+            <h3 class="dir-name">MAiKEOVER on MAiN</h3>
+            <p class="dir-tag">Beauty parlor · Residence Card maker.</p>
+          </a>
 
-    function showAnthemCharmReveal() {
-      var reveal = document.getElementById("anthemCharmReveal");
-      var close = document.getElementById("anthemCharmClose");
-      if (!reveal || !close) return;
-      reveal.hidden = false;
-      close.focus({ preventScroll: true });
-    }
+          <a class="dir-card" href="/sorority-house.html">
+            <p class="dir-addr">★ Wisteria Lane</p>
+            <h3 class="dir-name">The Sorority House</h3>
+            <p class="dir-tag">Delta LAi Nu · residents only.</p>
+          </a>
 
-    function closeAnthemCharmReveal() {
-      var reveal = document.getElementById("anthemCharmReveal");
-      if (reveal) reveal.hidden = true;
-    }
+          <a class="dir-card" href="/games/fairy-godmother.html">
+            <p class="dir-addr">★ Willow Lane</p>
+            <h3 class="dir-name">FAiRY Godmother's House</h3>
+            <p class="dir-tag">Ask LAiDY lives here.</p>
+          </a>
 
-    (function setupAnthemCharmReveal() {
-      var reveal = document.getElementById("anthemCharmReveal");
-      var close = document.getElementById("anthemCharmClose");
-      if (!reveal || !close) return;
-      close.addEventListener("click", closeAnthemCharmReveal);
-      reveal.addEventListener("click", function(event) {
-        if (event.target === reveal) closeAnthemCharmReveal();
-      });
-      document.addEventListener("keydown", function(event) {
-        if (event.key === "Escape" && !reveal.hidden) closeAnthemCharmReveal();
-      });
-    })();
-    window.playAnthem = playAnthem;
-    window.unlockAnthemCharm = unlockAnthemCharm;
-    </script>
-    <script src="content/site/laidies-bg.js?v=laidies-bg-1" defer></script>
+          <a class="dir-card" href="/town-hall.html">
+            <p class="dir-addr">★ Civic Square</p>
+            <h3 class="dir-name">Town Hall</h3>
+            <p class="dir-tag">Mayor Deb's office.</p>
+          </a>
 
+          <a class="dir-card" href="/post-office.html">
+            <p class="dir-addr">★ Civic Square</p>
+            <h3 class="dir-name">The SUNNYVAiLE Post Office</h3>
+            <p class="dir-tag">Sign up for the Wednesday Postcard.</p>
+          </a>
+
+          <a class="dir-card" href="/sunnyvaile-high.html">
+            <p class="dir-addr">★ Schoolhouse Road</p>
+            <h3 class="dir-name">SUNNYVAiLE High</h3>
+            <p class="dir-tag">Pop quiz, Study Hall, Book Fair.</p>
+          </a>
+
+          <a class="dir-card" href="/luminairy.html">
+            <p class="dir-addr">★ Lantern Hill</p>
+            <h3 class="dir-name">The LUMINAiRY</h3>
+            <p class="dir-tag">SAiNTS · MAiVENS · TRAiLBLAZERS.</p>
+          </a>
+
+          <a class="dir-card" href="/radio.html">
+            <p class="dir-addr">★ MAiN Street · No. 10 · KSVL</p>
+            <h3 class="dir-name">Community RAiDIO</h3>
+            <p class="dir-tag">Music broadcast all day.</p>
+          </a>
+
+          <a class="dir-card" href="/games/dream-phone.html">
+            <p class="dir-addr">★ Corner of MAiN &amp; Willow Lane</p>
+            <h3 class="dir-name">The Phone Booth</h3>
+            <p class="dir-tag">Dream Phone. Call in for advice.</p>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3.5 · HOW THE TOWN WORKS — the seven mechanics -->
+    <section class="band band--blush" aria-labelledby="how-it-works-title" style="padding: 64px 0;">
+      <div class="container">
+        <header class="section-head" style="margin-bottom: 28px;">
+          <p class="kicker" style="color: var(--rose);">★ The mechanics</p>
+          <h2 id="how-it-works-title" style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 3.4vw, 38px); font-weight: 700; color: var(--plum); margin: 0 0 8px; line-height: 1.15;">How the town works.</h2>
+          <p style="font-size: 15px; color: var(--plum-soft); margin: 0 0 8px; max-width: 640px;">Seven little systems that turn a tour into a way to live here. Every mechanic has a building — that's where it happens.</p>
+        </header>
+
+        <figure style="margin: 0 0 28px; border-radius: 14px; overflow: hidden; box-shadow: 0 14px 36px rgba(75,33,72,0.16);">
+          <img src="assets/sunnyvaile-town-overview.jpg?v=20260708" alt="SUNNYVAiLE at golden hour — MAiN Street and its storefronts: NewsStand, LIBRAiRY, Mme CLAi-O's, The Mall, The Chick Flicks, BRONZE AiGE, and Blend & Snap Café, under a pink sunset." width="1664" height="757" style="width: 100%; height: auto; display: block;" loading="lazy" />
+        </figure>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px;">
+
+          <a href="/maikeover.html" style="display: flex; flex-direction: column; padding: 22px 20px; background: var(--cream); border: 1.5px solid rgba(155, 63, 95, 0.18); border-radius: 12px; text-decoration: none; color: var(--plum); transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--rose)'; this.style.boxShadow='0 8px 20px rgba(75,33,72,0.14)';" onmouseout="this.style.transform=''; this.style.borderColor='rgba(155, 63, 95, 0.18)'; this.style.boxShadow='';">
+            <span style="font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin-bottom: 6px;"><span style="text-transform: none;">MAiKEOVER</span> · No. 6 <span style="text-transform: none;">MAiN</span></span>
+            <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--plum-deep); margin-bottom: 6px;">Your Residence Card</span>
+            <span style="font-size: 14px; color: var(--plum-soft); line-height: 1.5;">Your ID in SUNNYVAiLE. Made at the beauty parlor. Required at every residents-only door.</span>
+          </a>
+
+          <a href="/post-office.html" style="display: flex; flex-direction: column; padding: 22px 20px; background: var(--cream); border: 1.5px solid rgba(155, 63, 95, 0.18); border-radius: 12px; text-decoration: none; color: var(--plum); transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--rose)'; this.style.boxShadow='0 8px 20px rgba(75,33,72,0.14)';" onmouseout="this.style.transform=''; this.style.borderColor='rgba(155, 63, 95, 0.18)'; this.style.boxShadow='';">
+            <span style="font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin-bottom: 6px;">Post Office · Civic Square</span>
+            <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--plum-deep); margin-bottom: 6px;">The Wednesday Postcard</span>
+            <span style="font-size: 14px; color: var(--plum-soft); line-height: 1.5;">One letter, every Wednesday. Study Pack, episode song, Pop Quiz, AI news, note from Ali. No spam.</span>
+          </a>
+
+          <a href="/mall.html" style="display: flex; flex-direction: column; padding: 22px 20px; background: var(--cream); border: 1.5px solid rgba(155, 63, 95, 0.18); border-radius: 12px; text-decoration: none; color: var(--plum); transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--rose)'; this.style.boxShadow='0 8px 20px rgba(75,33,72,0.14)';" onmouseout="this.style.transform=''; this.style.borderColor='rgba(155, 63, 95, 0.18)'; this.style.boxShadow='';">
+            <span style="font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin-bottom: 6px;">Hidden all over town</span>
+            <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--plum-deep); margin-bottom: 6px;">The Charm Hunt</span>
+            <span style="font-size: 14px; color: var(--plum-soft); line-height: 1.5;">Charms hide in the storefronts. Spot one, click it, it's yours. Duplicates are giftable at the Post Office.</span>
+          </a>
+
+          <a href="/games/trading-cards.html" style="display: flex; flex-direction: column; padding: 22px 20px; background: var(--cream); border: 1.5px solid rgba(155, 63, 95, 0.18); border-radius: 12px; text-decoration: none; color: var(--plum); transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--rose)'; this.style.boxShadow='0 8px 20px rgba(75,33,72,0.14)';" onmouseout="this.style.transform=''; this.style.borderColor='rgba(155, 63, 95, 0.18)'; this.style.boxShadow='';">
+            <span style="font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin-bottom: 6px;">Blend &amp; Snap · No. 8 <span style="text-transform: none;">MAiN</span></span>
+            <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--plum-deep); margin-bottom: 6px;">Trading Cards</span>
+            <span style="font-size: 14px; color: var(--plum-soft); line-height: 1.5;">One pack per episode. Some are common, some are hard to complete. Mail duplicates to friends.</span>
+          </a>
+
+          <a href="/sorority-house.html" style="display: flex; flex-direction: column; padding: 22px 20px; background: var(--cream); border: 1.5px solid rgba(155, 63, 95, 0.18); border-radius: 12px; text-decoration: none; color: var(--plum); transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--rose)'; this.style.boxShadow='0 8px 20px rgba(75,33,72,0.14)';" onmouseout="this.style.transform=''; this.style.borderColor='rgba(155, 63, 95, 0.18)'; this.style.boxShadow='';">
+            <span style="font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin-bottom: 6px;">Delta <span style="text-transform: none;">LAi</span> Nu · Wisteria Lane</span>
+            <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--plum-deep); margin-bottom: 6px;">Girl Talk</span>
+            <span style="font-size: 14px; color: var(--plum-soft); line-height: 1.5;">Truth or dare. Truth stays. Dare gets posted to Dare Reports by Sunday, or spend a Hall Pass.</span>
+          </a>
+
+          <a href="/post-office.html" style="display: flex; flex-direction: column; padding: 22px 20px; background: var(--cream); border: 1.5px solid rgba(155, 63, 95, 0.18); border-radius: 12px; text-decoration: none; color: var(--plum); transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--rose)'; this.style.boxShadow='0 8px 20px rgba(75,33,72,0.14)';" onmouseout="this.style.transform=''; this.style.borderColor='rgba(155, 63, 95, 0.18)'; this.style.boxShadow='';">
+            <span style="font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin-bottom: 6px;">Post Office · Civic Square</span>
+            <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--plum-deep); margin-bottom: 6px;">Gifting</span>
+            <span style="font-size: 14px; color: var(--plum-soft); line-height: 1.5;">Mail a friend a note. A trading card she needs. A Hall Pass. One-way. She keeps it. You've got mail.</span>
+          </a>
+
+          <a href="/laidies-card.html" style="display: flex; flex-direction: column; padding: 22px 20px; background: var(--cream); border: 1.5px solid rgba(155, 63, 95, 0.18); border-radius: 12px; text-decoration: none; color: var(--plum); transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--rose)'; this.style.boxShadow='0 8px 20px rgba(75,33,72,0.14)';" onmouseout="this.style.transform=''; this.style.borderColor='rgba(155, 63, 95, 0.18)'; this.style.boxShadow='';">
+            <span style="font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin-bottom: 6px;">The private side of your Card</span>
+            <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--plum-deep); margin-bottom: 6px;">Your Closet</span>
+            <span style="font-size: 14px; color: var(--plum-soft); line-height: 1.5;">Where your saint, song, avatar, stickers, and badges live. Every customization is a trip to a building in town.</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · TOOLS YOU CAN USE RIGHT NOW -->
+    <section class="band band--cream">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">★ Around town</p>
+          <h2>What you can do in SUNNYVAiLE.</h2>
+          <p>Ways to spend a Wednesday afternoon in town — or a Tuesday, or a Sunday. Pick one and go.</p>
+        </header>
+
+        <div class="tools-grid">
+
+          <a class="tool-card" href="/games/fairy-godmother.html">
+            <p class="tool-eyebrow">Tool · Anywhere</p>
+            <h3 class="tool-name">Ask LAiDY</h3>
+            <p class="tool-where">At the FAiRY Godmother's House · Willow Lane</p>
+            <p class="tool-desc">Your in-house AI assistant. Ask the FAiRY Godmother. Bring the question — she'll bring the answer.</p>
+            <span class="tool-open">Open Ask LAiDY</span>
+          </a>
+
+          <a class="tool-card" href="/games/madame-claio.html">
+            <p class="tool-eyebrow">Tool · Tarot</p>
+            <h3 class="tool-name">Mme CLAi-O</h3>
+            <p class="tool-where">Her Shop · MAiN Street · No. 5</p>
+            <p class="tool-desc">Pull a card. Get the read, the message, and the move. The town fortune-teller answers what to do.</p>
+            <span class="tool-open">Consult the oracle</span>
+          </a>
+
+          <a class="tool-card" href="/games/businesswomens-special.html">
+            <p class="tool-eyebrow">Tool · Drink picker</p>
+            <h3 class="tool-name">Businesswomen's Special</h3>
+            <p class="tool-where">The BRONZE AiGE · MAiN Street · No. 7</p>
+            <p class="tool-desc">Spin for your happy-hour drink. Coven has a reservation at 4 — yours doesn't need one.</p>
+            <span class="tool-open">Pick your drink</span>
+          </a>
+
+          <a class="tool-card" href="/games/dream-phone.html">
+            <p class="tool-eyebrow">Tool · Call-in advice</p>
+            <h3 class="tool-name">Dream Phone</h3>
+            <p class="tool-where">The Phone Booth · Corner of MAiN &amp; Willow Lane</p>
+            <p class="tool-desc">Pick up the receiver. Ask your question. Pick the voice — Receipts, Boundary, Bestie. The right LAiDY answers.</p>
+            <span class="tool-open">Make the call</span>
+          </a>
+
+          <a class="tool-card" href="/games/girl-talk.html">
+            <p class="tool-eyebrow">Tool · Members only</p>
+            <h3 class="tool-name">Girl Talk</h3>
+            <p class="tool-where">The Sorority House · Wisteria Lane</p>
+            <p class="tool-desc">Truth or dare for the LAiDIES. Dares ask you to post in the chat rooms — members at the door.</p>
+            <span class="tool-open">Play Girl Talk</span>
+          </a>
+
+          <a class="tool-card" href="/post-office.html">
+            <p class="tool-eyebrow">Errand · Post Office</p>
+            <h3 class="tool-name">Check your mail</h3>
+            <p class="tool-where">The SUNNYVAiLE Post Office · Civic Square</p>
+            <p class="tool-desc">Sign for the Wednesday delivery. Read the note. See what came in from other LAiDIES this week.</p>
+            <span class="tool-open">Open your PO box</span>
+          </a>
+
+          <a class="tool-card" href="/post-office.html#gifts">
+            <p class="tool-eyebrow">Errand · Post Office</p>
+            <h3 class="tool-name">Send a gift</h3>
+            <p class="tool-where">The SUNNYVAiLE Post Office · Civic Square</p>
+            <p class="tool-desc">Ship a note, a charm, or a saint card to someone in town. The Post Office handles the delivery.</p>
+            <span class="tool-open">Wrap something up</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · PATRON SAINTS -->
+    <section id="saints" class="band band--blush" style="scroll-margin-top: 24px;">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">★ Meet the PATRON SAiNTS · A stop on your visit</p>
+          <h2>The town's PATRON SAiNTS.</h2>
+          <p style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(18px, 2.1vw, 22px); color: var(--rose); margin: 0 0 18px; line-height: 1.35;">"We pledge Allegiance to the united SAiNTS of SUNNYVAiLE."</p>
+          <p>Every town has its patron saints — the figures locals point at when a stranger asks who this place is really about. Ours are eight women (and one Rose) from the movies and TV that shaped a generation. Cher's wardrobe recommender in 1995. Elle's pink-stationery receipts. Miranda's chess-master gaze. Regina's lunch-ender. They live at <a href="/luminairy.html" style="color: var(--rose); font-weight: 600; text-decoration: underline;">the LUMINAiRY</a> on Lantern Hill — visit any time. When a moment shows up you don't know how to handle, borrow their move.</p>
+        </header>
+        <div class="saints-grid">
+          <a class="saint-card" href="/luminairy.html">
+            <div class="saint-initial" role="img" aria-label="Cher Horowitz" style="background-image: url('assets/saints/y2k-stained-glass-v2/cher-horowitz-y2k-stained-glass.png');">C</div>
+            <h3>Cher Horowitz</h3>
+            <p class="saint-lane">Early adoption</p>
+            <p class="saint-rule">Cher had a wardrobe recommender in 1995. The story isn't that the tech existed. It's that she was first in the cafeteria to use it.</p>
+          </a>
+          <a class="saint-card" href="/luminairy.html">
+            <div class="saint-initial" role="img" aria-label="Elle Woods" style="background-image: url('assets/saints/y2k-stained-glass-v2/elle-woods-y2k-stained-glass.png');">E</div>
+            <h3>Elle Woods</h3>
+            <p class="saint-lane">Receipts</p>
+            <p class="saint-rule">Elle walked into court with the perm rule, the timeline, and the witness already lined up. She didn't bring receipts. She had them.</p>
+          </a>
+          <a class="saint-card" href="/luminairy.html">
+            <div class="saint-initial" role="img" aria-label="Miranda Priestly" style="background-image: url('assets/saints/y2k-stained-glass-v2/miranda-priestly-y2k-stained-glass.png');">M</div>
+            <h3>Miranda Priestly</h3>
+            <p class="saint-lane">Standards</p>
+            <p class="saint-rule">Miranda knew the cerulean's whole history before it touched a closet. Knowing what you're looking at is the difference between a yes and a yes-with-changes.</p>
+          </a>
+          <a class="saint-card" href="/luminairy.html">
+            <div class="saint-initial" role="img" aria-label="Buffy Summers" style="background-image: url('assets/saints/y2k-stained-glass-v2/buffy-summers-y2k-stained-glass.png');">B</div>
+            <h3>Buffy Summers</h3>
+            <p class="saint-lane">Slaying the tools</p>
+            <p class="saint-rule">Buffy runs toward the vampire. Everybody else is still in the parking lot trying to get away.</p>
+          </a>
+
+          <div class="saint-card-back" aria-hidden="true">
+            <img src="assets/saints/card-back.png" alt="" />
+          </div>
+
+          <a class="saint-card" href="/luminairy.html">
+            <div class="saint-initial" role="img" aria-label="Regina George" style="background-image: url('assets/saints/y2k-stained-glass-v2/regina-george-y2k-stained-glass.png');">R</div>
+            <h3>Regina George</h3>
+            <p class="saint-lane">Dangerous confidence</p>
+            <p class="saint-rule">Regina told Cady the skirt was cute, then told someone else it was ugly. Same skirt. Different audience. Polished delivery — and the receipts are still in the Burn Book.</p>
+          </a>
+          <a class="saint-card" href="/luminairy.html">
+            <div class="saint-initial" role="img" aria-label="David Rose" style="background-image: url('assets/saints/y2k-stained-glass-v2/david-rose-y2k-stained-glass.png');">D</div>
+            <h3>David Rose</h3>
+            <p class="saint-lane">Specificity</p>
+            <p class="saint-rule">"Fold in the cheese" is an instruction. "Make this better" is also an instruction. They fail the same way.</p>
+          </a>
+          <a class="saint-card" href="/luminairy.html">
+            <div class="saint-initial" role="img" aria-label="Deb" style="background-image: url('assets/saints/y2k-stained-glass-v2/deb-y2k-stained-glass.png');">D</div>
+            <h3>Deb</h3>
+            <p class="saint-lane">Loop Me Out</p>
+            <p class="saint-rule">Deb trademarked Deb-flection™ in 1997 and has survived every reorg since 2004 by looping herself OUT of every request. Also the PATRON SAiNT of Deb.</p>
+          </a>
+          <a class="saint-card" href="/luminairy.html">
+            <div class="saint-initial" role="img" aria-label="Dolly Parton" style="background-image: url('assets/saints/y2k-stained-glass-v2/dolly-parton-y2k-stained-glass.png');">DP</div>
+            <h3>Dolly Parton</h3>
+            <p class="saint-lane">Common Sense</p>
+            <p class="saint-rule">You better get to building your own bridge, because ain't nobody building it for you, honey.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+<!-- 6 · WELCOME WAGON — unified signup + card announcement -->
+    <section class="band band--pearl" id="signup" aria-labelledby="welcome-wagon-title">
+      <div class="container" style="max-width: 720px;">
+        <header class="section-head" style="margin-bottom: 20px;">
+          <p class="kicker" style="color: var(--rose);">★ Welcome Wagon</p>
+          <h2 id="welcome-wagon-title" style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(30px, 3.8vw, 42px); font-weight: 700; color: var(--plum); margin: 0 0 12px; line-height: 1.1;">Move to SUNNYVAiLE.</h2>
+          <p style="font-size: 16px; color: var(--plum); margin: 0; line-height: 1.55;">Two ways to be here. Pick what you want.</p>
+        </header>
+
+        <!-- Path A · Just the newsletter (Post Office signup) -->
+        <div class="signup-band" style="margin-bottom: 20px;">
+          <p style="font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin: 0 0 6px;">Just the mail · The Post Office · Civic Square</p>
+          <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(22px, 2.6vw, 28px); font-weight: 700; color: var(--plum-deep); margin: 0 0 10px; line-height: 1.2;">Sign up for the Wednesday Postcard.</h3>
+          <p style="margin: 0 0 16px;">All five in one letter: the episode, the Study Pack, the Pop Quiz, this week's AI news, and this week's episode song from KSVL. Just the newsletter, once a week. No card needed.</p>
+          <form class="signup-form"
+                action="https://buttondown.com/api/emails/embed-subscribe/laidies"
+                method="post"
+                target="popupwindow"
+                onsubmit="window.open('https://buttondown.com/laidies', 'popupwindow')">
+            <input type="email" name="email" placeholder="you@yourcompany.com" required aria-label="Email address" />
+            <button type="submit">Sign up at the Post Office</button>
+          </form>
+        </div>
+
+        <!-- Path B · Full residency + card (in the works) -->
+        <div id="membership" style="padding: 24px 26px; background: var(--cream); border: 1.5px dashed rgba(155, 63, 95, 0.4); border-radius: 10px; position: relative;">
+          <p style="font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin: 0 0 6px;">The full residency · <span style="text-transform: none;">MAiKEOVER</span> · No. 6 <span style="text-transform: none;">MAiN</span> · In the works</p>
+          <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(20px, 2.4vw, 26px); font-weight: 700; color: var(--plum-deep); margin: 0 0 10px; line-height: 1.2;">Design your Residence Card.</h3>
+          <p style="margin: 0 0 8px; font-size: 15px; line-height: 1.55;">Everything the newsletter gets you — plus a card that unlocks the Sorority House chat rooms (Wins · Dear LAiDIES · Burn Book · Girl Talk · and more), the Charm Hunt, gifting through the Post Office, and your Closet. Every stop in town saves onto it.</p>
+          <p style="margin: 0; font-size: 14px; font-style: italic; color: var(--plum-soft);">Walk into MAiKEOVER, pick your colors, leave a resident. The chair is being prepped — back soon.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>
+      <span class="footer-brand">LAiDIES<sup style="font-size:0.5em; opacity:0.8;">™</sup></span>
+    </p>
+    <p class="footer-legal">© 2026 Ali Eakin · Filed from SUNNYVAiLE · All rights reserved.</p>
+    <div class="footer-links">
+      <a href="/visitors-centre.html">Welcome Wagon</a>
+      <a href="/library.html">LIBRAiRY</a>
+      <a href="/mall.html">The Mall</a>
+      <a href="/luminairy.html">LUMINAiRY</a>
+      <a href="/post-office.html">Post Office</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </footer>
+
+    <script defer src="/content/site/ksvl-player.js?v=20260705-21"></script>
+    <script defer src="/content/site/sv-tour-checkin.js?v=20260702-2"></script>
+    <script defer src="/content/site/charm-hunt.js?v=20260705-dusk"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
 </body>
-</html><!-- deploy trigger -->
+</html>

@@ -219,8 +219,8 @@
       }
       if (/^(dream-phone|madame-claio|fairy-godmother|girl-talk|dj-booth|fun-pack)\.html$/.test(filename)) {
         return {
-          href: local("clubhouse.html"),
-          label: "← Back to the Clubhouse",
+          href: local("visitors-centre.html"),
+          label: "← Back to the town map",
         };
       }
       if (filename === "episodes.html") {
@@ -299,8 +299,9 @@
           links: [
             ["This Week's Bag", local("this-week.html") + "?issue=" + encodeURIComponent(currentIssue) + "&bag=open"],
             ["Read the Season", local("episodes.html")],
-            ["The Grimoire", local("grimoire.html")],
-            ["The Clubhouse", local("clubhouse.html")],
+            ["The LIBRAiRY", local("library.html")],
+            ["Sorority House", local("sorority-house.html")],
+            ["Town Hall", local("town-hall.html")],
             ["Join the Club", local("community.html")],
             ["Start Here", local("start-here.html")],
           ],

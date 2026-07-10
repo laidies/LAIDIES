@@ -309,10 +309,10 @@ const fortuneCards = [
     move: "Create the simpler version that still gets the job done.",
   },
   {
-    card: "The Spice Rack",
-    read: "You are saying you want flavor, but the prompt is giving plain oatmeal.",
-    message: "Specificity is seasoning. Add audience, tone, examples, and what good looks like.",
-    move: "Rewrite one vague ask with five concrete details.",
+    card: "The Pixie Stick",
+    read: "You wanted flavour, but handed over a prompt with the sugar content of an empty paper straw.",
+    message: "Specificity is the sugar. The more info (audience, tone, context, examples, and what \"good\" looks like), the sweeter the output. Sprinkle in at least 5 pixie sticks.",
+    move: "Rewrite one vague ask with five concrete details and watch what comes back.",
   },
   {
     card: "The Denim Jacket",
@@ -1071,7 +1071,7 @@ const cocktailWheelPalette = [
 
 const cocktailFortuneFlaps = [
   {
-    label: "Bubble",
+    label: "Bubbles",
     description: "sparkly, easy, celebratory",
     count: 6,
     drinks: {
@@ -2128,12 +2128,13 @@ function removeStoredJson(key) {
   deviceMemoryFallback.delete(key);
 }
 
-function resetMemberPassExperience(status = "Reset complete. Enter an email when you are ready to test again.") {
+function resetMemberPassExperience(status = "Reset complete. Drop your address when you're ready to start over.") {
   removeStoredJson(memberPassStorageKey);
   removeStoredJson(memberAuthPendingStorageKey);
   memberAuthStatus = memberAuthSession?.user ? "signed-in" : "guest";
   if (memberPassEmail) memberPassEmail.value = "";
-  if (memberPassNewsletter) memberPassNewsletter.checked = false;
+  // Newsletter back to its pre-checked default on reset
+  if (memberPassNewsletter) memberPassNewsletter.checked = true;
   memberProfileButtons.forEach((button) => button.classList.remove("is-selected"));
   renderMemberPass(status);
 }
@@ -2155,7 +2156,9 @@ function getMemberPass() {
   return {
     email: "",
     profile: {},
-    newsletterOptIn: false,
+    // Newsletter pre-checked by default (Wednesday Drop combo signup).
+    // Returning members keep whatever they last saved.
+    newsletterOptIn: true,
     ...stored,
     profile: { ...(stored?.profile || {}) },
   };
@@ -2203,6 +2206,16 @@ function renderMemberProfileButtons(profile = {}) {
   });
 }
 
+// Generate a hidden random password for Supabase signUp.
+// User never sees or uses this — they only sign in via magic link.
+// Required because Supabase's signUp API rejects empty passwords even in
+// passwordless magic-link flows.
+function generateHiddenPassword() {
+  const bytes = new Uint8Array(32);
+  (window.crypto || window.msCrypto).getRandomValues(bytes);
+  return Array.from(bytes, b => b.toString(16).padStart(2, "0")).join("") + "Aa1!";
+}
+
 function getMemberRedirectUrl() {
   const url = new URL(window.location.pathname || "/index.html", window.location.origin);
   if (!url.pathname.endsWith(".html")) url.pathname = `${url.pathname.replace(/\/$/, "")}/index.html`;
@@ -2222,11 +2235,9 @@ function getLAiDIESAssetVersion() {
 }
 
 function getMemberCardBuilderUrl() {
-  const url = new URL("community/laidy-spotlight.html", window.location.href);
-  const version = getLAiDIESAssetVersion();
-  if (version) url.searchParams.set("v", version);
-  url.hash = "spotlight-form-title";
-  return url.toString();
+  // Signed-in members land in their Closet — the personal card home.
+  // (Previously routed to the retired Clubhouse-era laidy-spotlight builder.)
+  return new URL("/laidies-card.html", window.location.origin).toString();
 }
 
 function openMemberCardBuilder(delay = 0) {
@@ -2364,7 +2375,9 @@ function renderMemberPass(statusOverride = "") {
   } else if (memberPassEmail && !memberPassEmail.value && pass.email) {
     memberPassEmail.value = pass.email;
   }
-  if (memberPassNewsletter) memberPassNewsletter.checked = pass.newsletterOptIn === true;
+  // Newsletter pre-checked by default for new visitors (Y2K Wednesday Drop combo signup).
+  // Only false if user explicitly opted out previously.
+  if (memberPassNewsletter) memberPassNewsletter.checked = pass.newsletterOptIn !== false;
   renderMemberProfileButtons(pass.profile);
 
   memberAuthConfigured = isMemberAuthConfigured();
@@ -2380,14 +2393,15 @@ function renderMemberPass(statusOverride = "") {
   if (isLoading) {
     setMemberPassConfirmation(
       true,
-      "Sending email...",
-      "Hold tight for a moment. If you recently requested a pass email, the service may ask you to wait before another one arrives.",
+      "Posting your note...",
+      "Hold tight. The Post Office is dropping your magic link in the mail.",
     );
   } else if (pendingStep === "email") {
+    const pendingEmail = pass.email || activeEmail || "your inbox";
     setMemberPassConfirmation(
       true,
-      "Clubhouse Pass email sent",
-      "Open the newest Clubhouse Pass email from this same browser or computer. It may say confirm signup or sign in; either one should open your Clubhouse Pass.",
+      "The mail is on the way!",
+      `Check your inbox at ${pendingEmail}. The note has a link inside — click it and you're in. (Open it on this same browser.)`,
     );
   } else {
     setMemberPassConfirmation(false);
@@ -2396,54 +2410,54 @@ function renderMemberPass(statusOverride = "") {
   if (saveMemberPassButton) {
     saveMemberPassButton.disabled = isLoading || pendingStep === "email";
     saveMemberPassButton.textContent = isSignedIn
-      ? "Preview your LAiDIES Card"
+      ? "See My Card →"
       : isLoading
-        ? "Sending..."
+        ? "Posting..."
       : pendingStep === "email"
-        ? "Email sent"
+        ? "Note sent"
           : canSendMagicLink
-            ? "Email me my Clubhouse Pass"
+            ? "Send my note →"
             : "Save guest pass";
   }
 
   if (isSignedIn) {
     setMemberPassStepState("create", ["profile"]);
-    memberPassStatus.textContent = "Clubhouse Pass opened.";
-    memberPassDetail.textContent = `Signed in as ${signedInEmail}. Member magic is still getting polished, so treat this as a pass preview rather than a complete saved-progress system.`;
-    memberPassNote.textContent = statusOverride || "Next: preview the card direction. Direct community and reward syncing are not live yet.";
+    memberPassStatus.textContent = "You're in.";
+    memberPassDetail.textContent = `Signed in as ${signedInEmail}. Your card is saved — pick your profile bits below or jump straight to the card view.`;
+    memberPassNote.textContent = statusOverride || "Next: customize your card or go straight to See My Card.";
     return;
   }
 
   if (isLoading) {
     setMemberPassStepState("profile", []);
-    memberPassStatus.textContent = "Sending account email...";
-    memberPassDetail.textContent = "The request is going to the Clubhouse email service now. You should see either a confirmation message here or a clear error if another send is temporarily blocked.";
-    memberPassNote.textContent = statusOverride || "Do not keep clicking while it is sending.";
+    memberPassStatus.textContent = "Posting your note...";
+    memberPassDetail.textContent = "The Post Office is sending your magic link now.";
+    memberPassNote.textContent = statusOverride || "One click in your inbox and you're in.";
     return;
   }
 
   if (pendingStep === "email") {
     setMemberPassStepState("profile", []);
-    memberPassStatus.textContent = "Check your email to open the Clubhouse Pass preview.";
-    memberPassDetail.textContent = `We sent ${pass.email || activeEmail} the Clubhouse Pass email. The subject may say confirm signup or sign in. Open the newest one from this same browser or computer.`;
-    memberPassNote.textContent = statusOverride || "The pass is still member magic coming soon; rewards and profile syncing are not promised yet.";
+    memberPassStatus.textContent = "The mail is on the way!";
+    memberPassDetail.textContent = `Check ${pass.email || activeEmail} for a note from the SUNNYVAiLE Post Office. Subject line: "You've Got Mail from the SUNNYVAiLE Post Office."`;
+    memberPassNote.textContent = statusOverride || "Open it on this same browser. Click the link inside.";
     return;
   }
 
   if (memberAuthConfigured) {
     setMemberPassStepState("profile", []);
-    memberPassStatus.textContent = "Create or open the Clubhouse Pass preview.";
-    memberPassDetail.textContent = "Enter your email and choose any profile answers you want. We will send one Clubhouse Pass email.";
-    memberPassNote.textContent = statusOverride || "Newsletter signup is optional. Full reward syncing and member identity are still being polished.";
+    memberPassStatus.textContent = "Drop your address and step into the chair.";
+    memberPassDetail.textContent = "Type your email above. We'll send a note from the SUNNYVAiLE Post Office with your magic link.";
+    memberPassNote.textContent = statusOverride || "Optional profile bits below help us tune your card. Skip any you want.";
     return;
   }
 
   setMemberPassStepState("profile", []);
-  memberPassStatus.textContent = pass.email ? "Guest pass preview ready." : "Create or open the Clubhouse Pass preview.";
+  memberPassStatus.textContent = pass.email ? "Guest preview ready." : "Drop your address and step into the chair.";
   memberPassDetail.textContent = pass.email
-    ? `${pass.email} is ready for Clubhouse Pass sign-in. Member magic is coming soon, so use this as a preview while rewards stay mostly local.`
-    : "Badges, stickers, card pulls, and quiz progress are planned for the future card. For now, most progress stays on this browser/device.";
-  memberPassNote.textContent = statusOverride || "Cross-device saving and the full Clubhouse Pass are still being polished.";
+    ? `${pass.email} is ready. The Post Office sign-in is configured — drop your email up top and send the note.`
+    : "Badges, stickers, charms, and trading cards will sync to your card once you sign in.";
+  memberPassNote.textContent = statusOverride || "Sign-in still being polished — most progress stays on this browser until the Post Office goes live.";
 }
 
 function submitNewsletterOptIn(email) {
@@ -2806,7 +2820,7 @@ async function initMemberAuth() {
       removeStoredJson(memberAuthPendingStorageKey);
       await syncMemberRewards("Signed in. Member magic is still being polished, so rewards remain mostly local for now.");
       if (returningToMemberPass) {
-        renderMemberPass("Clubhouse Pass preview opened. Taking you to the LAiDIES Card direction next.");
+        renderMemberPass("Residence Card preview opened. Taking you to the Residence Card direction next.");
         openMemberCardBuilder(450);
         return;
       }
@@ -2817,21 +2831,21 @@ async function initMemberAuth() {
   } catch (error) {
     memberAuthClient = null;
     memberAuthStatus = "guest";
-    renderMemberPass(`Clubhouse Pass login needs attention: ${error.message || "check the Supabase settings."}`);
+    renderMemberPass(`Residence Card login needs attention: ${error.message || "check the Supabase settings."}`);
   }
 }
 
 saveMemberPassButton?.addEventListener("click", async () => {
   const email = memberPassEmail?.value.trim();
   if (!email || !email.includes("@")) {
-    renderMemberPass("Add an email first so we know where to send the Clubhouse Pass email.");
+    renderMemberPass("Drop your address first so the Post Office knows where to send the note.");
     memberPassEmail?.focus();
     return;
   }
   const normalizedEmail = normalizeMemberEmail(email);
   const pendingAuth = getActiveMemberAuthPending(normalizedEmail);
   if (pendingAuth?.step) {
-    renderMemberPass("We already requested a Clubhouse Pass email. Check the newest Clubhouse Pass email before requesting another one.");
+    renderMemberPass("Your note's already in the mail. Check your inbox before sending another.");
     return;
   }
 
@@ -2844,13 +2858,13 @@ saveMemberPassButton?.addEventListener("click", async () => {
   });
 
   if (!memberAuthConfigured || !memberAuthClient) {
-    renderMemberPass(memberPassNewsletter?.checked ? "Guest pass preview ready. The standalone newsletter form below is still the live email-only signup until login is configured." : "Guest pass preview ready. Member magic is coming soon, so rewards stay mostly local for now.");
+    renderMemberPass(memberPassNewsletter?.checked ? "Guest preview ready. Newsletter signup is live below, sign-in coming soon." : "Guest preview ready. Sign-in goes live shortly — for now, progress saves locally.");
     return;
   }
 
   if (memberAuthSession?.user) {
     try {
-      await syncMemberRewards("Clubhouse Pass preview opened. Taking you to the LAiDIES Card direction next.");
+      await syncMemberRewards("You're already in. Taking you to your card next.");
       submitNewsletterOptIn(email);
       openMemberCardBuilder(150);
     } catch (error) {
@@ -2861,28 +2875,54 @@ saveMemberPassButton?.addEventListener("click", async () => {
 
   try {
     memberAuthStatus = "loading";
-    renderMemberPass("Sending account email...");
+    renderMemberPass("Posting your note...");
     saveMemberPassButton.disabled = true;
-    const { error } = await memberAuthClient.auth.signInWithOtp({
+    // Supabase signUp requires a password even when we want passwordless magic-link
+    // flow. We generate a hidden random password the user never sees or uses; they
+    // only ever sign in via magic link. This unlocks the two-template flow:
+    //   - New email → signUp succeeds → "Confirm Signup" (Welcome to SUNNYVAiLE) email
+    //   - Existing email → signUp errors → fall back to signInWithOtp → "Magic Link"
+    //     (Welcome back, Now Entering SUNNYVAiLE) email
+    let authError = null;
+    const hiddenPassword = generateHiddenPassword();
+    const signUpResult = await memberAuthClient.auth.signUp({
       email,
-      options: {
-        emailRedirectTo: getMemberRedirectUrl(),
-        shouldCreateUser: true,
-      },
+      password: hiddenPassword,
+      options: { emailRedirectTo: getMemberRedirectUrl() },
     });
-    if (error) throw error;
+    // Supabase's anti-enumeration behavior: for ALREADY-REGISTERED emails, signUp
+    // returns success (no error) but with an empty `identities` array — and does
+    // NOT send any email. We detect this and fall back to signInWithOtp, which
+    // sends the Magic Link (Welcome Back) template. This is also the fallback
+    // for the explicit error case (some Supabase versions still return errors).
+    const isExistingUser =
+      (signUpResult.error && /already|registered|exist/i.test(signUpResult.error.message || "")) ||
+      (!signUpResult.error && Array.isArray(signUpResult.data?.user?.identities) && signUpResult.data.user.identities.length === 0);
+    if (isExistingUser) {
+      const otpResult = await memberAuthClient.auth.signInWithOtp({
+        email,
+        options: {
+          emailRedirectTo: getMemberRedirectUrl(),
+          shouldCreateUser: false,
+        },
+      });
+      authError = otpResult.error;
+    } else if (signUpResult.error) {
+      authError = signUpResult.error;
+    }
+    if (authError) throw authError;
     memberAuthStatus = "link-sent";
     rememberMemberAuthReturn(email, "login");
-    renderMemberPass("Clubhouse Pass email sent. Open the newest Clubhouse Pass email from this same browser or computer.");
+    renderMemberPass("The mail is on the way! Check your inbox — open the note on this same browser.");
   } catch (error) {
     memberAuthStatus = pendingAuth?.step ? "link-sent" : "guest";
     const authError = error.message || "try again.";
     const friendlyError = /rate limit/i.test(authError)
-      ? "The email service is temporarily blocking repeat sends because several were requested close together. Wait a few minutes, then request only one new Clubhouse Pass email."
+      ? "The Post Office is temporarily blocking repeat sends. Wait a few minutes, then send one new note."
       : /magic link|otp|smtp|email/i.test(authError)
-        ? "The Clubhouse Pass email service needs one setting fixed before it can send. Check the sender, SMTP password, and Resend API key, then try once."
+        ? "The Post Office sign-in needs one Supabase setting fixed. Check the sender, SMTP password, and email-template config."
         : authError;
-    renderMemberPass(`Could not send account email: ${friendlyError}`);
+    renderMemberPass(`Couldn't post the note: ${friendlyError}`);
   } finally {
     if (saveMemberPassButton) saveMemberPassButton.disabled = false;
   }
@@ -2897,7 +2937,7 @@ memberSignOutButton?.addEventListener("click", async () => {
   memberAuthSession = null;
   memberAuthStatus = "guest";
   removeStoredJson(memberAuthPendingStorageKey);
-  renderMemberPass("Signed out. Sign in again to reconnect your Clubhouse Pass rewards.");
+  renderMemberPass("Signed out. Drop your address any time to come back.");
 });
 
 memberPassNewsletter?.addEventListener("change", () => {
@@ -4530,7 +4570,7 @@ function getQuizReward(score, maxScore, bonusScore = 0) {
       tier: "double",
       sticker: "2 Sticker Drop",
       title: "Caboodle Valedictorian + Receipts Queen",
-      message: "12/10. You get two stickers, one for the quiz and one for reading next week's diary early. Very limited-edition energy.",
+      message: `${totalScore}/${coreMax}. You get two stickers, one for the quiz and one for reading next week's diary early. Very limited-edition energy.`,
     };
   }
   if (bonusMax && numericScore > coreMax) {
@@ -4538,7 +4578,7 @@ function getQuizReward(score, maxScore, bonusScore = 0) {
       tier: "receipts-plus",
       sticker: "Receipts Queen + Bonus Clip",
       title: "Receipts Queen Extra Credit Sticker",
-      message: "11/10. Perfect core score plus one bonus receipt. You found the tiny timeline detail and still had time to fix your lip gloss.",
+      message: `${numericScore}/${coreMax}. Perfect core score plus one bonus receipt. You found the tiny timeline detail and still had time to fix your lip gloss.`,
     };
   }
   if (numericScore >= coreMax) {
@@ -4587,14 +4627,17 @@ function getQuizButterflyRating(score, maxScore, bonusScore = 0) {
   const visualMax = Math.max(coreMax, totalMax);
   const capped = Math.max(0, Math.min(Number(score || 0), visualMax));
   const clips = Math.round(capped);
-  if (bonusScore && clips >= totalMax) return { clips, title: "Full extra-credit hairstyle.", tone: "perfect" };
-  if (bonusScore && clips > coreMax) return { clips, title: "Extra-credit clip secured.", tone: "perfect" };
-  if (clips >= coreMax) return { clips: coreMax, title: "Almost enough for a full hairstyle.", tone: "perfect" };
-  if (clips >= 8) return { clips, title: "Main character hold.", tone: "high" };
-  if (clips >= 6) return { clips, title: "Calendar-ready.", tone: "high" };
-  if (clips >= 4) return { clips, title: "Half-up, half-helpful.", tone: "mid" };
-  if (clips >= 2) return { clips, title: "Barely clipped, but showing effort.", tone: "low" };
-  return { clips: Math.max(clips, 1), title: "Ouch. Stepped on a broken butterfly clip.", tone: "low" };
+  if (bonusScore && clips >= totalMax) return { clips, title: "Every clip in the Caboodle — a full extra-credit hairstyle.", tone: "perfect" };
+  if (bonusScore && clips > coreMax) return { clips, title: "A full hairstyle plus a bonus clip. Extra credit secured.", tone: "perfect" };
+  if (clips >= coreMax) return { clips: coreMax, title: "A full butterfly-clip hairstyle. Iconic.", tone: "perfect" };
+  if (clips === 0) return { clips: 0, title: "Zero clips. You stepped on a broken butterfly clip in the dark. Reread and retry.", tone: "low" };
+  if (clips === 1) return { clips: 1, title: "One lonely butterfly clip. How are you styling your hair with that? Better retry.", tone: "low" };
+  const pct = coreMax > 0 ? clips / coreMax : 0;
+  if (pct >= 0.8) return { clips, title: "Almost a full head of clips — main-character hair.", tone: "high" };
+  if (pct >= 0.6) return { clips, title: "A real handful of clips. An actual hairstyle is happening.", tone: "high" };
+  if (pct >= 0.4) return { clips, title: "Half-up, half-helpful — enough clips for a messy-cute half-do.", tone: "mid" };
+  if (pct >= 0.2) return { clips, title: "A few clips in. Effort is showing, the hairstyle is not — reread and add more.", tone: "low" };
+  return { clips, title: "Just a clip or two. Barely a start — reread and clip more in.", tone: "low" };
 }
 
 const quizStickerAssetManifest = {
@@ -4625,7 +4668,11 @@ function renderButterflyRating(score, quiz) {
     clip.setAttribute("aria-hidden", "true");
     return clip;
   });
-  quizButterflyRating.replaceChildren(label, ...clips);
+  const jarLink = document.createElement("a");
+  jarLink.className = "butterfly-jar-link";
+  jarLink.href = resolveSiteUrl("laidies-card.html") + "#butterflyJar";
+  jarLink.textContent = "Banked in your Butterfly Clip Jar →";
+  quizButterflyRating.replaceChildren(label, ...clips, jarLink);
   quizButterflyRating.dataset.ratingTone = rating.tone;
   quizButterflyRating.setAttribute("aria-label", "Butterfly-clip rating: " + rating.title);
 }
@@ -4700,7 +4747,7 @@ function renderQuizResult(score, quiz, reward, coreScore = score) {
   ratingLine.textContent = `Butterfly-clip rating: ${rating.clips}/${maxScore} · ${rating.title}`;
 
   const message = document.createElement("p");
-  message.textContent = `${reward.title}. ${reward.message} Clubhouse Pass score and sticker syncing is member magic coming soon; for now, this reward stays mostly on this browser/device.`;
+  message.textContent = `${reward.title}. ${reward.message} Residence Card score and sticker syncing is member magic coming soon; for now, this reward stays mostly on this browser/device.`;
 
   card.append(scoreLine, ratingLine, message);
   quizResult.appendChild(card);
@@ -5946,7 +5993,7 @@ function updateSpotlightPhotoPreview(formData, style) {
     spotlightPhotoPreview.innerHTML = "";
     const image = document.createElement("img");
     image.src = spotlightPhotoObjectUrl;
-    image.alt = "Selected member card photo preview";
+    image.alt = "Selected Residence Card photo preview";
     spotlightPhotoPreview.append(image);
     return;
   }
@@ -6070,7 +6117,7 @@ function filterLAiDIESCards(filter = "all") {
     const statusByFilter = {
       all: `Showing all ${visibleCount} cards.`,
       stock: `Showing ${visibleCount} stock card${visibleCount === 1 ? "" : "s"}.`,
-      member: `Showing ${visibleCount} member card${visibleCount === 1 ? "" : "s"}.`,
+      member: `Showing ${visibleCount} Residence Card${visibleCount === 1 ? "" : "s"}.`,
       help: `Showing ${visibleCount} card${visibleCount === 1 ? "" : "s"} with help to offer.`,
       progress: `Showing ${visibleCount} card${visibleCount === 1 ? "" : "s"} in progress mode.`,
       connect: `Showing ${visibleCount} card${visibleCount === 1 ? "" : "s"} open to connection.`,

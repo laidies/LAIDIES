@@ -1,5 +1,13 @@
--- lAIdies Clubhouse Pass magic-link setup
--- Run this in the Supabase SQL editor for the project that will own member login.
+-- LAiDIES — Member Pass schema (Supabase)
+-- Project: laidies-member-pass
+-- Last updated: 2026-06-30 (extended for Girl Talk events, charm hunt, merit badges, card customization)
+--
+-- Run this in the Supabase SQL editor. Idempotent — safe to re-run.
+-- After the existing v1 was first drafted, this file was extended to cover the
+-- full card surface (stickers from quiz AND Girl Talk, dares completed +
+-- penalties, hidden charms found in town images, merit badges, and card
+-- visual customization fields). The reward_type check constraint expansion
+-- + new columns at the bottom apply cleanly whether or not v1 ran first.
 
 create table if not exists public.member_profiles (
   id uuid primary key references auth.users(id) on delete cascade,
@@ -13,6 +21,12 @@ create table if not exists public.member_profiles (
   goals text[] not null default '{}'::text[],
   member_card_is_public boolean not null default false,
   member_card_status text not null default 'private' check (member_card_status in ('private', 'submitted', 'approved', 'published', 'hidden')),
+  -- Card visual customization (MAiKEOVER builder)
+  card_color_primary text,      -- hex code, e.g. '#4b2148' (plum)
+  card_color_accent text,       -- hex code, e.g. '#c9a227' (gold)
+  card_avatar_url text,         -- URL to the avatar image picked at MAiKEOVER
+  card_role text,               -- the role tag the member chose (free text, kept open for now)
+  -- Newsletter
   newsletter_opt_in boolean not null default false,
   newsletter_opted_in_at timestamptz,
   created_at timestamptz not null default now(),
@@ -28,7 +42,17 @@ create table if not exists public.member_reward_events (
   user_id uuid not null references auth.users(id) on delete cascade,
   dedupe_key text not null,
   reward_type text not null check (
-    reward_type in ('quiz_score', 'quiz_sticker', 'trading_card', 'secret_badge')
+    reward_type in (
+      'quiz_score',         -- per-quiz score event (denormed onto member_issue_progress)
+      'quiz_sticker',       -- the sticker awarded for that quiz attempt
+      'sticker_girl_talk',  -- Girl Talk sticker (from completing dares, etc.)
+      'trading_card',       -- one card unwrapped from the weekly pack (metadata.card_id)
+      'hidden_charm',       -- charm spotted in a town image (metadata.charm_id, metadata.image)
+      'merit_badge',        -- earned-on-purpose milestone (full week, every quiz, etc.)
+      'secret_badge',       -- Easter-egg badge (found by accident)
+      'dare_completed',     -- Girl Talk dare completed
+      'dare_penalty'        -- Girl Talk dare declined → penalty
+    )
   ),
   issue_key text,
   title text not null,
@@ -124,3 +148,37 @@ create policy "Members can update their issue progress"
 on public.member_issue_progress for update
 using (auth.uid() = user_id)
 with check (auth.uid() = user_id);
+
+-- ============================================================================
+-- Idempotent migration block — applies extensions if v1 already ran
+-- (CREATE TABLE IF NOT EXISTS above won't add new columns to an existing
+--  table or update a check constraint, so we re-apply them here.)
+-- ============================================================================
+
+-- Card customization columns (no-op if already present)
+alter table public.member_profiles add column if not exists card_color_primary text;
+alter table public.member_profiles add column if not exists card_color_accent text;
+alter table public.member_profiles add column if not exists card_avatar_url text;
+alter table public.member_profiles add column if not exists card_role text;
+
+-- Extend reward_type constraint to v2 set
+alter table public.member_reward_events drop constraint if exists member_reward_events_reward_type_check;
+alter table public.member_reward_events add constraint member_reward_events_reward_type_check
+  check (reward_type in (
+    'quiz_score',
+    'quiz_sticker',
+    'sticker_girl_talk',
+    'trading_card',
+    'hidden_charm',
+    'merit_badge',
+    'secret_badge',
+    'dare_completed',
+    'dare_penalty'
+  ));
+
+-- Helpful indexes for the dashboard reads at MAiKEOVER (this week's haul)
+create index if not exists member_reward_events_user_earned_idx
+on public.member_reward_events(user_id, earned_at desc);
+
+create index if not exists member_reward_events_user_type_idx
+on public.member_reward_events(user_id, reward_type);

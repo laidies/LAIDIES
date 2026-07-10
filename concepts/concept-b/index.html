@@ -1,0 +1,1291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LAiDIES · Concept B — The Type Sculpture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --plum: #4b2148;
+      --plum-deep: #3a1838;
+      --plum-soft: #6b3a66;
+      --rose: #9b3f5f;
+      --rose-bright: #c25b7d;
+      --cream: #fffdfb;
+      --pearl: #f8eef2;
+      --blush: #f9e6ee;
+      --powder: #f6d7e2;
+      --gold: #c9a227;
+      --line: rgba(75,33,72,.14);
+      --line-soft: rgba(75,33,72,.08);
+      --max-w: 1380px;
+      --pad-x: clamp(24px, 5vw, 80px);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Jost', sans-serif; color: var(--plum); background: var(--cream); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    ul, ol { margin: 0; padding: 0; list-style: none; }
+    h1, h2, h3, h4, p { margin: 0; }
+    button { font: inherit; cursor: pointer; }
+
+    .brand-word-inline { font-weight: inherit; }
+    [data-brand-ai] { color: var(--rose); }
+
+    /* Concept switcher */
+    .concept-switcher {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 24px;
+      background: #1a0a12; color: var(--cream);
+      font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+    }
+    .concept-switcher strong { color: var(--gold); margin-right: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    .concept-switcher a { color: var(--cream); margin-right: 14px; padding: 4px 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.18); }
+    .concept-switcher a.is-active { background: var(--gold); color: var(--plum-deep); border-color: var(--gold); font-weight: 700; }
+    .concept-switcher a:hover { background: rgba(255,255,255,0.08); }
+    .concept-switcher a.is-active:hover { background: var(--gold); color: var(--plum-deep); }
+
+    .container { width: 100%; max-width: var(--max-w); margin-inline: auto; padding-inline: var(--pad-x); }
+
+    /* ============================================================
+       1. THE COVER — TYPE SCULPTURE (no image, type carries)
+       ============================================================ */
+    .cover {
+      background: var(--cream);
+      padding: 64px var(--pad-x) 96px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::after {
+      /* Subtle decorative star/sparkle in upper right */
+      content: "";
+      position: absolute;
+      top: 14%; right: 6%;
+      width: 14px; height: 14px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      opacity: 0.5;
+    }
+    .cover-stamp {
+      display: inline-block;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.36em; text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 56px;
+      padding-bottom: 10px;
+      border-bottom: 1.5px solid var(--gold);
+    }
+    .cover-wordmark {
+      font-size: clamp(120px, 22vw, 320px);
+      font-weight: 700;
+      line-height: 0.82;
+      letter-spacing: -0.04em;
+      color: var(--plum);
+      margin-bottom: 32px;
+      display: block;
+    }
+    .cover-wordmark .ai { color: var(--rose); font-style: italic; font-weight: 500; }
+    .cover-headline-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: end;
+      margin-bottom: 48px;
+      padding-top: 24px;
+      border-top: 2px solid var(--plum);
+    }
+    .cover-headline {
+      font-size: clamp(40px, 5.2vw, 80px);
+      font-weight: 700;
+      line-height: 0.94;
+      letter-spacing: -0.024em;
+      color: var(--plum);
+    }
+    .cover-headline em {
+      display: block;
+      font-size: clamp(20px, 2.4vw, 32px);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--rose);
+      margin: 4px 0;
+      letter-spacing: 0;
+    }
+    .cover-tag-block {
+      align-self: end;
+      padding-bottom: 6px;
+    }
+    .cover-tag-kicker {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.36em; text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 14px;
+    }
+    .cover-tag {
+      font-size: 19px;
+      color: var(--plum);
+      line-height: 1.45;
+      max-width: 42ch;
+      margin-bottom: 24px;
+    }
+    .cover-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 28px;
+      background: var(--plum);
+      color: var(--cream);
+      border-radius: 999px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: background 180ms ease;
+    }
+    .cover-cta:hover { background: var(--rose); }
+    .cover-inside {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 32px;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+    .cover-inside-kicker {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.36em; text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .cover-inside-links {
+      display: flex; flex-wrap: wrap; gap: 6px 24px;
+      font-size: 14px;
+      color: var(--plum);
+    }
+    .cover-inside-links a {
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+      transition: border-color 180ms ease, color 180ms ease;
+    }
+    .cover-inside-links a:hover { border-bottom-color: var(--rose); color: var(--rose); }
+    .cover-inside-links .sep { color: var(--rose); opacity: 0.6; }
+
+    /* ============================================================
+       2. THIS WEEK — asymmetric featured story
+       ============================================================ */
+    .this-week {
+      background: var(--cream);
+      padding: 96px 0;
+      border-top: 1px solid var(--line);
+    }
+    .this-week-inner {
+      display: grid;
+      grid-template-columns: 0.6fr 1.4fr;
+      gap: 96px;
+      align-items: flex-start;
+    }
+    .this-week-side {
+      position: sticky;
+      top: 80px;
+    }
+    .this-week-meta-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+    .this-week-img-wrap {
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      box-shadow: 0 24px 56px -24px rgba(75,33,72,0.4);
+    }
+    .this-week-img { width: 100%; height: 100%; object-fit: cover; }
+    .this-week-img-cap {
+      font-size: 11px; color: var(--plum-soft); margin-top: 10px; letter-spacing: 0.08em;
+    }
+    .this-week-main { padding-top: 8px; }
+    .this-week-title {
+      font-size: clamp(48px, 6.4vw, 100px);
+      font-weight: 700;
+      line-height: 0.94;
+      letter-spacing: -0.028em;
+      color: var(--plum);
+      margin-bottom: 24px;
+    }
+    .this-week-title em {
+      display: block;
+      font-size: clamp(20px, 2.4vw, 32px);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--rose);
+      letter-spacing: 0;
+      margin: 6px 0;
+    }
+    .this-week-dek {
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--plum);
+      line-height: 1.4;
+      margin-bottom: 32px;
+      max-width: 38ch;
+      padding-left: 16px;
+      border-left: 3px solid var(--rose);
+    }
+    .this-week-excerpt {
+      font-size: 17px;
+      color: var(--plum);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 56ch;
+      column-count: 1;
+    }
+    .this-week-excerpt::before {
+      content: "PLACEHOLDER · episode opening";
+      display: block;
+      font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .this-week-cta {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 15px; font-weight: 600;
+      color: var(--plum);
+      padding: 12px 0;
+      border-bottom: 2px solid var(--plum);
+      letter-spacing: 0.04em;
+      transition: color 180ms ease, border-color 180ms ease;
+    }
+    .this-week-cta:hover { color: var(--rose); border-color: var(--rose); }
+
+    /* ============================================================
+       3. BRAND BAND — quieter, italic, the bridge
+       ============================================================ */
+    .brand-band {
+      background: var(--plum);
+      color: var(--cream);
+      padding: 120px var(--pad-x);
+      text-align: center;
+    }
+    .brand-band-line {
+      font-size: clamp(24px, 3.4vw, 44px);
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(255,253,251,0.65);
+      max-width: 30ch;
+      margin: 0 auto 40px;
+      line-height: 1.3;
+    }
+    .brand-band-head {
+      font-size: clamp(64px, 10vw, 160px);
+      font-weight: 700;
+      line-height: 0.86;
+      letter-spacing: -0.028em;
+      color: var(--cream);
+      margin-bottom: 20px;
+    }
+    .brand-band-head .ai { color: var(--rose-bright); font-style: italic; font-weight: 500; }
+    .brand-band-tail {
+      font-size: clamp(18px, 2.2vw, 28px);
+      font-weight: 400;
+      color: var(--cream);
+      opacity: 0.9;
+    }
+
+    /* ============================================================
+       4. INSIDE LAiDIES — list-led with thumbnail edges
+       ============================================================ */
+    .inside-laidies {
+      background: var(--cream);
+      padding: 120px 0;
+    }
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 48px;
+      margin-bottom: 64px;
+      border-bottom: 2px solid var(--plum);
+      padding-bottom: 24px;
+    }
+    .section-head-left .kicker {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 14px;
+    }
+    .section-head h2 {
+      font-size: clamp(56px, 7vw, 112px);
+      font-weight: 700;
+      letter-spacing: -0.028em;
+      line-height: 0.94;
+      color: var(--plum);
+    }
+    .section-head-right {
+      max-width: 38ch;
+      font-size: 16px;
+      color: var(--plum-soft);
+      line-height: 1.55;
+      padding-bottom: 14px;
+    }
+    .rooms-list {
+      display: flex; flex-direction: column;
+    }
+    .room-row {
+      display: grid;
+      grid-template-columns: 80px 1fr 200px auto;
+      gap: 32px;
+      align-items: center;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--line);
+      transition: padding 240ms ease;
+      position: relative;
+    }
+    .room-row:hover { padding-left: 16px; }
+    .room-row-num {
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--gold);
+      font-feature-settings: "tnum" 1;
+      letter-spacing: -0.02em;
+    }
+    .room-row-body h3 {
+      font-size: clamp(28px, 3.2vw, 44px);
+      font-weight: 600;
+      letter-spacing: -0.014em;
+      line-height: 1.05;
+      color: var(--plum);
+      margin-bottom: 6px;
+    }
+    .room-row-body p {
+      font-size: 15px;
+      color: var(--plum-soft);
+      max-width: 56ch;
+      line-height: 1.5;
+    }
+    .room-row-thumb {
+      width: 200px; height: 120px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--plum-deep), var(--plum));
+      position: relative;
+      border-radius: 2px;
+    }
+    .room-row-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .room-row-thumb-placeholder {
+      width: 100%; height: 100%;
+      background:
+        repeating-linear-gradient(135deg, rgba(255,253,251,0.04), rgba(255,253,251,0.04) 8px, rgba(255,253,251,0.08) 8px, rgba(255,253,251,0.08) 16px),
+        linear-gradient(135deg, var(--plum-deep), var(--plum));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      padding: 8px;
+    }
+    .room-row-arrow {
+      font-size: 24px;
+      color: var(--plum);
+      transition: transform 240ms ease, color 240ms ease;
+    }
+    .room-row:hover .room-row-arrow {
+      transform: translateX(8px);
+      color: var(--rose);
+    }
+    .room-row-saints-thumb {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      width: 100%; height: 100%;
+    }
+    .room-row-saints-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ARCAiDE feature row — wider treatment to do the cabinet image justice */
+    .arcaide-feature {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding: 40px 0 0;
+      margin-top: 8px;
+    }
+    .arcaide-feature-imgwrap {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+    .arcaide-feature-imgwrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 600ms ease;
+    }
+    .arcaide-feature:hover .arcaide-feature-imgwrap img { transform: scale(1.02); }
+    .arcaide-feature-text {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 32px;
+      align-items: center;
+    }
+    .arcaide-feature-kicker {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 8px;
+    }
+    .arcaide-feature-text h3 {
+      font-size: clamp(32px, 4vw, 56px);
+      font-weight: 600;
+      letter-spacing: -0.018em;
+      line-height: 0.98;
+      color: var(--plum);
+      margin-bottom: 8px;
+    }
+    .arcaide-feature-text p:not(.arcaide-feature-kicker) {
+      font-size: 16px;
+      color: var(--plum-soft);
+      max-width: 64ch;
+      line-height: 1.45;
+    }
+    .arcaide-feature:hover .room-row-arrow { transform: translateX(8px); color: var(--rose); }
+
+    /* ============================================================
+       QUICK PICKS — 4 active picks, type-led
+       ============================================================ */
+    .quick-picks { padding: 80px 0 96px; background: var(--cream); border-top: 1px solid var(--line); }
+    .quick-picks-head { margin-bottom: 32px; }
+    .quick-picks-head h2 {
+      font-size: clamp(40px, 5vw, 68px);
+      font-weight: 700;
+      letter-spacing: -0.022em;
+      color: var(--plum);
+      line-height: 0.98;
+      margin-top: 8px;
+    }
+    .quick-picks-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--line);
+    }
+    .quick-pick {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 20px;
+      padding: 28px 24px 56px;
+      border-bottom: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      align-items: start;
+      transition: padding 240ms ease, background 240ms ease;
+      position: relative;
+      min-height: 220px;
+    }
+    .qp-body { display: flex; flex-direction: column; gap: 6px; }
+    .qp-sub {
+      font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.18em;
+      color: var(--gold);
+      margin-top: 4px;
+    }
+    .qp-list {
+      list-style: none;
+      padding: 0; margin: 6px 0 4px;
+      display: flex; flex-direction: column;
+      gap: 5px;
+    }
+    .qp-list li {
+      font-size: 13px;
+      color: var(--plum-soft);
+      line-height: 1.4;
+      padding-left: 12px;
+      position: relative;
+    }
+    .qp-list li::before {
+      content: "";
+      position: absolute; left: 0; top: 8px;
+      width: 4px; height: 4px;
+      background: var(--rose);
+      border-radius: 50%;
+    }
+    .quick-pick--hero .qp-list li { color: rgba(255,253,251,0.88); }
+    .quick-pick--hero .qp-list li::before { background: var(--gold); }
+    .qp-blurb {
+      font-size: 13.5px;
+      color: var(--plum-soft);
+      line-height: 1.5;
+      margin: 6px 0 4px;
+    }
+    .quick-pick--hero .qp-blurb { color: rgba(255,253,251,0.88); }
+    .qp-cta {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--rose);
+      margin-top: 12px;
+    }
+    .quick-pick--hero .qp-cta { color: var(--gold); }
+    .qp-play { position: absolute; bottom: 20px; right: 24px; }
+    .quick-pick:nth-child(2n) { border-right: none; }
+    .quick-pick:hover { padding-left: 32px; background: var(--pearl); }
+    .qp-num {
+      font-size: 22px; font-weight: 300;
+      color: var(--gold);
+      font-feature-settings: "tnum" 1;
+    }
+    .qp-label {
+      font-size: 22px; font-weight: 600;
+      letter-spacing: -0.012em;
+      color: var(--plum);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .qp-sub {
+      font-size: 13px;
+      color: var(--plum-soft);
+      letter-spacing: 0.02em;
+    }
+    .quick-pick--hero { background: linear-gradient(135deg, var(--plum) 0%, var(--rose) 100%); color: var(--cream); border-color: transparent; }
+    .quick-pick--hero .qp-num { color: var(--gold); }
+    .quick-pick--hero .qp-label { color: var(--cream); }
+    .quick-pick--hero .qp-sub { color: rgba(255,253,251,0.85); }
+    .quick-pick--hero:hover { background: linear-gradient(135deg, var(--plum-deep) 0%, var(--rose-bright) 100%); }
+
+    .qp-play {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 5px 10px 5px 7px;
+      background: var(--cream);
+      border: 1px solid rgba(75,33,72,0.18);
+      border-radius: 999px;
+      color: var(--plum);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+    }
+    .quick-pick--hero .qp-play { background: rgba(255,253,251,0.95); border-color: var(--gold); }
+    .qp-play:hover { background: var(--rose); color: var(--cream); border-color: var(--rose); }
+    .qp-play .play-icon, .qp-play .pause-icon { width: 12px; height: 12px; fill: currentColor; }
+    .qp-play .pause-icon { display: none; }
+    .qp-play.is-playing .play-icon { display: none; }
+    .qp-play.is-playing .pause-icon { display: block; }
+    .qp-play.is-playing { background: var(--rose); color: var(--cream); border-color: var(--rose); }
+    .qp-play-text { line-height: 1; }
+
+    /* SAINT cards — play-theme pill below portrait */
+    .saint-card { display: flex; flex-direction: column; }
+    .saint-card > .saint-portrait { order: 1; }
+    .saint-card > .saint-play { order: 2; }
+    .saint-card > .saint-body { order: 3; }
+    .saint-play {
+      align-self: flex-end;
+      margin: 10px 14px 0 0;
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 5px 10px 5px 7px;
+      background: var(--cream);
+      border: 1px solid rgba(75,33,72,0.18);
+      border-radius: 999px;
+      color: var(--plum);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 200ms ease, border-color 200ms ease, color 200ms ease, transform 200ms ease;
+    }
+    .saint-play:hover { background: var(--rose); color: var(--cream); border-color: var(--rose); transform: scale(1.04); }
+    .saint-play .play-icon, .saint-play .pause-icon { width: 12px; height: 12px; fill: currentColor; }
+    .saint-play .pause-icon { display: none; }
+    .saint-play.is-playing .play-icon { display: none; }
+    .saint-play.is-playing .pause-icon { display: block; }
+    .saint-play.is-playing { background: var(--rose); color: var(--cream); border-color: var(--rose); }
+    .saint-play-text { line-height: 1; }
+
+    /* ============================================================
+       5. SAINTS — staggered grid (asymmetric)
+       ============================================================ */
+    .saints {
+      background: var(--blush);
+      padding: 120px 0 96px;
+    }
+    .section-head--saints {
+      flex-direction: column;
+      align-items: stretch;
+      text-align: center;
+      border-bottom: none;
+    }
+    .section-head--saints .section-head-left {
+      text-align: center;
+    }
+    .saints-grid-b {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .saint-card {
+      background: var(--cream);
+      overflow: hidden;
+      transition: transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 280ms ease;
+      display: block;
+    }
+    .saint-card:nth-child(2n) { transform: translateY(28px); }
+    .saint-card:hover { transform: translateY(-6px) !important; box-shadow: 0 28px 56px -24px rgba(75,33,72,0.32); }
+    .saint-card:nth-child(2n):hover { transform: translateY(22px) !important; }
+    .saint-portrait { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+    .saint-body { padding: 18px 22px 24px; }
+    .saint-body h3 {
+      font-size: 20px; font-weight: 600;
+      margin-bottom: 4px;
+      letter-spacing: -0.005em;
+    }
+    .saint-lane {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 12px;
+    }
+    .saint-rule {
+      font-size: 13px;
+      color: var(--plum-soft);
+      line-height: 1.55;
+    }
+
+    /* ============================================================
+       6A. WEDNESDAY DROP signup
+       ============================================================ */
+    .wednesday-drop {
+      background: var(--pearl);
+      padding: 120px 0;
+    }
+    .wednesday-drop-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .wednesday-drop h2 {
+      font-size: clamp(48px, 6vw, 96px);
+      font-weight: 700;
+      line-height: 0.94;
+      letter-spacing: -0.024em;
+      color: var(--plum);
+      margin-bottom: 18px;
+    }
+    .wednesday-drop h2 em {
+      display: block;
+      font-size: clamp(22px, 2.6vw, 36px);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--rose);
+      letter-spacing: 0;
+      margin: 4px 0;
+    }
+    .wednesday-drop > .container > .wednesday-drop-inner > div > p {
+      font-size: 18px; color: var(--plum); line-height: 1.55; margin-bottom: 32px; max-width: 38ch;
+    }
+    .wednesday-drop-form {
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .wednesday-drop-form input {
+      height: 56px; padding: 0 22px;
+      border: 1.5px solid var(--plum); border-radius: 999px;
+      background: var(--cream);
+      color: var(--plum); font: inherit; font-size: 16px;
+    }
+    .wednesday-drop-form input::placeholder { color: var(--plum-soft); }
+    .wednesday-drop-form button {
+      height: 56px; padding: 0 32px;
+      border-radius: 999px; border: none;
+      background: var(--plum); color: var(--cream);
+      font-weight: 500; letter-spacing: 0.04em; font-size: 16px;
+      align-self: flex-start;
+      transition: background 180ms ease;
+    }
+    .wednesday-drop-form button:hover { background: var(--rose); }
+    .wednesday-drop-small { font-size: 12px; color: var(--plum-soft); margin-top: 12px; }
+
+    /* ============================================================
+       6B. THE CLUB — placeholder, no form
+       ============================================================ */
+    .club {
+      background: var(--cream);
+      padding: 80px var(--pad-x);
+    }
+    .club-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      position: relative;
+      isolation: isolate;
+      background:
+        radial-gradient(circle at 50% 16%, rgba(185, 93, 120, 0.22), transparent 58%),
+        linear-gradient(160deg, #1a0a12, #2d0f1f, #1a0a12);
+      color: var(--cream);
+      overflow: hidden;
+      min-height: 360px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      align-items: center;
+      padding: 80px 80px;
+      gap: 48px;
+    }
+    .club-inner::before {
+      content: "";
+      position: absolute; inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        radial-gradient(1.6px 1.6px at 12% 24%, rgba(255, 215, 0, 0.65), transparent),
+        radial-gradient(1.4px 1.4px at 28% 64%, rgba(255, 255, 255, 0.50), transparent),
+        radial-gradient(1.8px 1.8px at 42% 18%, rgba(255, 215, 0, 0.50), transparent),
+        radial-gradient(1.2px 1.2px at 58% 78%, rgba(255, 255, 255, 0.42), transparent),
+        radial-gradient(1.6px 1.6px at 72% 28%, rgba(255, 215, 0, 0.55), transparent),
+        radial-gradient(1.3px 1.3px at 86% 62%, rgba(255, 255, 255, 0.45), transparent);
+    }
+    .club-inner > * { position: relative; z-index: 1; }
+    .club-status {
+      display: inline-block;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold);
+      padding: 6px 12px; border: 1px solid var(--gold);
+      border-radius: 999px;
+      margin-bottom: 22px;
+    }
+    .club h2 {
+      font-size: clamp(40px, 5.6vw, 76px);
+      font-weight: 700;
+      line-height: 0.94;
+      letter-spacing: -0.025em;
+      margin-bottom: 18px;
+      color: var(--cream);
+    }
+    .club-copy p { font-size: 17px; color: rgba(255,253,251,0.82); line-height: 1.55; margin-bottom: 12px; max-width: 44ch; }
+    .club-fine { font-size: 12px; color: rgba(255,253,251,0.5); margin-top: 14px; }
+    .club-card-back {
+      width: clamp(180px, 24vw, 260px);
+      transform: rotate(-4deg);
+      filter: drop-shadow(0 0 50px rgba(194,91,125,0.45)) drop-shadow(0 18px 36px rgba(0,0,0,0.4));
+      margin-left: auto;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .site-footer { background: var(--plum); color: var(--cream); padding: 64px 0 28px; }
+    .site-footer-inner { display: flex; justify-content: space-between; gap: 36px; flex-wrap: wrap; align-items: flex-end; }
+    .footer-tagline { font-size: clamp(20px, 2.8vw, 30px); font-weight: 600; max-width: 18ch; line-height: 1.12; margin-bottom: 14px; }
+    .footer-handle { font-size: 12px; color: rgba(255,253,251,0.6); letter-spacing: 0.08em; }
+    .footer-nav { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 13px; }
+    .footer-nav a { color: rgba(255,253,251,0.78); }
+    .footer-nav a:hover { color: var(--cream); }
+    .footer-bottom { font-size: 11px; color: rgba(255,253,251,0.45); margin-top: 32px; border-top: 1px solid rgba(255,253,251,0.12); padding-top: 18px; letter-spacing: 0.08em; }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 880px) {
+      .cover-headline-row { grid-template-columns: 1fr; gap: 32px; }
+      .this-week-inner { grid-template-columns: 1fr; gap: 32px; }
+      .this-week-side { position: static; }
+      .section-head { flex-direction: column; align-items: flex-start; gap: 14px; }
+      .room-row { grid-template-columns: 40px 1fr; gap: 16px; padding: 20px 0; }
+      .room-row-thumb { display: none; }
+      .room-row-arrow { display: none; }
+      .arcaide-feature-text { grid-template-columns: 40px 1fr; gap: 16px; }
+      .quick-picks-grid { grid-template-columns: 1fr; }
+      .quick-pick { border-right: none; grid-template-columns: 40px 1fr auto; gap: 14px; padding: 22px 16px; }
+      .saints-grid-b { grid-template-columns: 1fr 1fr; }
+      .saint-card:nth-child(2n) { transform: none; }
+      .wednesday-drop-inner { grid-template-columns: 1fr; }
+      .club-inner { grid-template-columns: 1fr; padding: 48px 32px; text-align: center; }
+      .club-card-back { margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CONCEPT SWITCHER -->
+  <nav class="concept-switcher" aria-label="Concept switcher">
+    <span><strong>Concept</strong>3 visual directions for review · live preview</span>
+    <span>
+      <a href="../concept-a/">A · The Cover</a>
+      <a href="../concept-b/" class="is-active">B · Type Sculpture</a>
+      <a href="../concept-c/">C · The Zine</a>
+      <a href="../../">↩ Current homepage</a>
+    </span>
+  </nav>
+
+  <!-- 1. COVER — TYPE SCULPTURE -->
+  <section class="cover">
+    <div class="container">
+      <p class="cover-stamp">This Week · Issue 04 · Wednesday June 29 2026</p>
+
+      <h1 class="cover-wordmark">L<span class="ai">Ai</span>DIES</h1>
+
+      <div class="cover-headline-row">
+        <div class="cover-headline-block">
+          <p class="cover-headline">
+            GIRL POWER
+            <em>meets</em>
+            MACHINE POWER
+          </p>
+        </div>
+        <div class="cover-tag-block">
+          <p class="cover-tag-kicker">What this is</p>
+          <p class="cover-tag">AI fluency and community for women with full calendars, high standards, and no patience for beige tech explanations.</p>
+          <a class="cover-cta" href="../../this-week.html">Read This Week →</a>
+        </div>
+      </div>
+
+      <div class="cover-inside">
+        <p class="cover-inside-kicker">Inside</p>
+        <p class="cover-inside-links">
+          <a href="../../this-week.html">Every SLAiYER Needs a Watcher</a>
+          <span class="sep">·</span>
+          <a href="../../grimoire.html">The Grimoire</a>
+          <span class="sep">·</span>
+          <a href="../../clubhouse.html">The Clubhouse</a>
+          <span class="sep">·</span>
+          <a href="../../games/madame-claio.html">Mme CLAi-O</a>
+          <span class="sep">·</span>
+          <a href="../../episodes.html">The Season</a>
+          <span class="sep">·</span>
+          <a href="../../start-here.html">Start Here</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. THIS WEEK -->
+  <section class="this-week">
+    <div class="container">
+      <div class="this-week-inner">
+        <aside class="this-week-side">
+          <p class="this-week-meta-label">This Week · Episode 04</p>
+          <div class="this-week-img-wrap">
+            <img class="this-week-img" src="../../assets/episodes/issue-04/section-slaiyer-handbook-v1.png" alt="Episode 04">
+          </div>
+          <p class="this-week-img-cap">4-min read · Published June 24, 2026</p>
+        </aside>
+        <div class="this-week-main">
+          <h2 class="this-week-title">
+            A Slayer
+            <em>Needs a</em>
+            Watcher
+          </h2>
+          <p class="this-week-dek">The SLAiYER Handbook, Chapter 1 — which AI tool to open for which job, what the words mean, and how to use any of them without getting staked.</p>
+          <div class="this-week-excerpt">
+            This week I watched a CFO type "just make it better" into ChatGPT and act betrayed by what came back. Make what better. For whom. By when. Compared to what. The tools are good. The instructions are the gig — and the instructions are the part nobody is teaching us. So we wrote it down. Episode 4 is the SLAiYER Handbook: which AI to open for which job, what the words actually mean, and how to use any of them without getting staked.
+          </div>
+          <a class="this-week-cta" href="../../this-week.html">Read the full episode →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. BRAND BAND — the bridge -->
+  <section class="brand-band">
+    <p class="brand-band-line">The 90s/Y2K defined us. AI is shaping now.</p>
+    <h2 class="brand-band-head">L<span class="ai">Ai</span>DIES</h2>
+    <p class="brand-band-tail">is where they meet.</p>
+  </section>
+
+  <!-- 4. INSIDE LAiDIES — list with thumbs -->
+  <section class="inside-laidies">
+    <div class="container">
+      <header class="section-head">
+        <div class="section-head-left">
+          <p class="kicker">Inside LAiDIES</p>
+          <h2>The LAiDIES Universe in six rooms</h2>
+        </div>
+        <div class="section-head-right">
+          Not just the weekly newsletter — a reference library, a community, a season arc, a cast of patron saints, and a set of games for when you need to take five.
+        </div>
+      </header>
+
+      <div class="rooms-list">
+        <a class="room-row" href="../../grimoire.html">
+          <span class="room-row-num">01</span>
+          <div class="room-row-body">
+            <h3>The Grimoire</h3>
+            <p>The reference shelf. SLAiYER Handbook · Power Map · Lore Closet · Chamber of Receipts · The Decoder · and more.</p>
+          </div>
+          <div class="room-row-thumb">
+            <div class="room-row-thumb-placeholder">Placeholder<br>Art</div>
+          </div>
+          <span class="room-row-arrow">→</span>
+        </a>
+
+        <a class="room-row" href="../../clubhouse.html">
+          <span class="room-row-num">02</span>
+          <div class="room-row-body">
+            <h3>The Clubhouse</h3>
+            <p>Wins · Burn Book · Dear LAiDIES · the rooms are open. Drop in whenever.</p>
+          </div>
+          <div class="room-row-thumb">
+            <div class="room-row-thumb-placeholder">Placeholder<br>Art</div>
+          </div>
+          <span class="room-row-arrow">→</span>
+        </a>
+
+        <a class="room-row" href="../../hot-goss.html">
+          <span class="room-row-num">03</span>
+          <div class="room-row-body">
+            <h3>SUNNYVAiLE NewsStand</h3>
+            <p>Daily headlines · weekly stories · the occasional hot take. AI translated.</p>
+          </div>
+          <div class="room-row-thumb">
+            <div class="room-row-thumb-placeholder">Placeholder<br>Art</div>
+          </div>
+          <span class="room-row-arrow">→</span>
+        </a>
+
+        <a class="room-row" href="../../episodes.html">
+          <span class="room-row-num">04</span>
+          <div class="room-row-body">
+            <h3>The Season</h3>
+            <p>24 episodes, in order. Start at one or jump to what you need.</p>
+          </div>
+          <div class="room-row-thumb">
+            <div class="room-row-thumb-placeholder">Placeholder<br>Art</div>
+          </div>
+          <span class="room-row-arrow">→</span>
+        </a>
+
+        <a class="room-row" href="../../start-here.html">
+          <span class="room-row-num">05</span>
+          <div class="room-row-body">
+            <h3>Start Here</h3>
+            <p>New? Two minutes, then your first episode.</p>
+          </div>
+          <div class="room-row-thumb">
+            <div class="room-row-thumb-placeholder">Placeholder<br>Art</div>
+          </div>
+          <span class="room-row-arrow">→</span>
+        </a>
+      </div>
+
+      <!-- ARCAiDE feature — full-width hero with cabinet imagery -->
+      <a class="arcaide-feature" href="../../clubhouse.html#games">
+        <div class="arcaide-feature-imgwrap">
+          <img src="../../assets/arcaide-cabinets.png" alt="" loading="lazy">
+        </div>
+        <div class="arcaide-feature-text">
+          <span class="room-row-num">06</span>
+          <div>
+            <p class="arcaide-feature-kicker">Take a Break</p>
+            <h3>ARCAiDE — The Games</h3>
+            <p>Mme CLAi-O · Dream Phone · Girl Talk · Ask LAiDY · DJ Booth · Businesswomen's Special.</p>
+          </div>
+          <span class="room-row-arrow">→</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- 4b. QUICK PICKS — 4 active picks -->
+  <section class="quick-picks">
+    <div class="container">
+      <header class="quick-picks-head">
+        <p class="kicker">Right Now · No Hunting</p>
+        <h2>Quick picks.</h2>
+      </header>
+      <div class="quick-picks-grid">
+
+        <a class="quick-pick" href="../../hot-goss.html">
+          <span class="qp-num">01</span>
+          <div class="qp-body">
+            <p class="qp-label">SUNNYVAiLE · Today</p>
+            <ul class="qp-list">
+              <li>Anthropic ships Claude memory across sessions</li>
+              <li>OpenAI talks GPT-6 timeline</li>
+              <li>The board deck rewriting AI literacy</li>
+            </ul>
+            <span class="qp-cta">All headlines →</span>
+          </div>
+        </a>
+
+        <a class="quick-pick quick-pick--with-play" href="../../games/businesswomens-special.html">
+          <span class="qp-num">02</span>
+          <div class="qp-body">
+            <p class="qp-label">Businesswomen's Special</p>
+            <p class="qp-blurb">Coven has a reservation at 4. Pick your happy hour drink!</p>
+            <span class="qp-cta">Pick your drink →</span>
+          </div>
+          <button class="qp-play" type="button"
+                  aria-label="Play Businesswomen's Special theme"
+                  data-src="../../content/music/game-businesswomens-special.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="qp-play-text">♪ theme</span>
+          </button>
+        </a>
+
+        <a class="quick-pick" href="../../games/dj-booth.html">
+          <span class="qp-num">03</span>
+          <div class="qp-body">
+            <p class="qp-label">DJ Booth</p>
+            <p class="qp-sub">On rotation:</p>
+            <ul class="qp-list">
+              <li>♪ The LIBRAiRY — DJ SunnyV</li>
+              <li>♪ Tomorrow's Problem — Deb</li>
+              <li>♪ Call Me Now — Mme CLAi-O</li>
+            </ul>
+            <span class="qp-cta">Open the booth →</span>
+          </div>
+        </a>
+
+        <a class="quick-pick quick-pick--with-play quick-pick--hero" href="../../games/fairy-godmother.html">
+          <span class="qp-num">04</span>
+          <div class="qp-body">
+            <p class="qp-label">Ask LAiDY</p>
+            <p class="qp-blurb">Stuck on a prompt? Need to translate an AI memo? She'll fix it, explain it, or coach you through.</p>
+            <span class="qp-cta">Open her up →</span>
+          </div>
+          <button class="qp-play" type="button"
+                  aria-label="Play LAiDY's theme"
+                  data-src="../../content/music/game-ask-laidy.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="qp-play-text">♪ theme</span>
+          </button>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. SAINTS — staggered grid -->
+  <section class="saints" id="saints">
+    <div class="container">
+      <header class="section-head section-head--saints">
+        <div class="section-head-left">
+          <p class="kicker">Your Patron Saints</p>
+          <h2>The cast you already know.</h2>
+          <p style="font-size:16px;color:var(--plum-soft);max-width:54ch;margin-top:14px;line-height:1.5;">The pop-culture cast we keep coming back to. They walked into rooms full of people who underestimated them — and walked out with the upper hand. Borrow what they did.</p>
+        </div>
+      </header>
+      <div class="saints-grid-b">
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/cher-horowitz.png" alt="Cher Horowitz">
+          <button class="saint-play" type="button"
+                  aria-label="Play Cher's theme"
+                  data-src="../../content/music/saint-cher-horowitz.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
+          <div class="saint-body">
+            <h3>Cher Horowitz</h3>
+            <p class="saint-lane">Early Adoption</p>
+            <p class="saint-rule">Cher had a wardrobe recommender in 1995. The story isn't that the tech existed. It's that she was first in the cafeteria to use it.</p>
+          </div>
+        </a>
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/elle-woods.png" alt="Elle Woods">
+          <button class="saint-play" type="button"
+                  aria-label="Play Elle's theme"
+                  data-src="../../content/music/saint-elle-woods.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
+          <div class="saint-body">
+            <h3>Elle Woods</h3>
+            <p class="saint-lane">Receipts</p>
+            <p class="saint-rule">Elle walked into court with the perm rule, the timeline, and the witness already lined up. She didn't bring receipts. She had them.</p>
+          </div>
+        </a>
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/miranda-priestly.png" alt="Miranda Priestly">
+          <button class="saint-play" type="button"
+                  aria-label="Play Miranda's theme"
+                  data-src="../../content/music/saint-miranda-priestly.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
+          <div class="saint-body">
+            <h3>Miranda Priestly</h3>
+            <p class="saint-lane">Standards</p>
+            <p class="saint-rule">Miranda knew the cerulean's whole history before it touched a closet. Knowing what you're looking at is the difference between a yes and a yes-with-changes.</p>
+          </div>
+        </a>
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/buffy-summers.png" alt="Buffy Summers">
+          <button class="saint-play" type="button"
+                  aria-label="Play Buffy's theme"
+                  data-src="../../content/music/saint-buffy-summers.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
+          <div class="saint-body">
+            <h3>Buffy Summers</h3>
+            <p class="saint-lane">Slaying the Tools</p>
+            <p class="saint-rule">Buffy runs toward the vampire. Everybody else is still in the parking lot trying to get away.</p>
+          </div>
+        </a>
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/regina-george.png" alt="Regina George">
+          <button class="saint-play" type="button"
+                  aria-label="Play Regina's theme"
+                  data-src="../../content/music/saint-regina-george.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
+          <div class="saint-body">
+            <h3>Regina George</h3>
+            <p class="saint-lane">Dangerous Confidence</p>
+            <p class="saint-rule">Regina told Cady the skirt was cute, then told someone else it was ugly. Same skirt. Different audience. Polished delivery.</p>
+          </div>
+        </a>
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/david-rose.png" alt="David Rose">
+          <button class="saint-play" type="button"
+                  aria-label="Play David's theme"
+                  data-src="../../content/music/saint-david-rose.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
+          <div class="saint-body">
+            <h3>David Rose</h3>
+            <p class="saint-lane">Specificity</p>
+            <p class="saint-rule">"Fold in the cheese" is an instruction. "Make this better" is also an instruction. They fail the same way.</p>
+          </div>
+        </a>
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/deb.png" alt="Deb">
+          <button class="saint-play" type="button"
+                  aria-label="Play Deb's theme"
+                  data-src="../../content/music/saint-deb.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
+          <div class="saint-body">
+            <h3>Deb</h3>
+            <p class="saint-lane">Loop Me Out</p>
+            <p class="saint-rule">Deb has survived every reorg since 2004. AI doesn't know she exists — and half your job runs through her.</p>
+          </div>
+        </a>
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/dolly-parton.png" alt="Dolly Parton">
+          <button class="saint-play" type="button"
+                  aria-label="Play Dolly's theme"
+                  data-src="../../content/music/saint-dolly-parton.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
+          <div class="saint-body">
+            <h3>Dolly Parton</h3>
+            <p class="saint-lane">Common Sense</p>
+            <p class="saint-rule">You better get to building your own bridge, because ain't nobody building it for you, honey.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6A. WEDNESDAY DROP -->
+  <section class="wednesday-drop">
+    <div class="container">
+      <div class="wednesday-drop-inner">
+        <div>
+          <h2>
+            Every Wednesday,
+            <em>in your inbox.</em>
+          </h2>
+          <p>AI fluency and community for women who get things done. One email. No homework you didn't sign up for.</p>
+        </div>
+        <form class="wednesday-drop-form" action="https://buttondown.com/api/emails/embed-subscribe/laidies" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/laidies', 'popupwindow')">
+          <input type="email" name="email" placeholder="your@email.com" required>
+          <input type="hidden" name="tag" value="concept-b-newsletter">
+          <button type="submit">Subscribe to the Wednesday drop</button>
+          <p class="wednesday-drop-small">No spam. Unsubscribe whenever.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6B. THE CLUB -->
+  <section class="club">
+    <div class="club-inner">
+      <div class="club-copy">
+        <p class="club-status">Member Magic · Coming Soon</p>
+        <h2>The Club opens soon.</h2>
+        <p>Member cards. The rooms. The Wednesday debrief. Saved for you when the doors open.</p>
+        <p>Subscribers get first dibs — join the Wednesday drop above and we'll let you know.</p>
+        <p class="club-fine">Member magic — coming in Part C.</p>
+      </div>
+      <img class="club-card-back" src="../../assets/saints/card-back.png" alt="" aria-hidden="true">
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer-inner">
+        <div>
+          <img src="../../assets/brand/laidies-wordmark-final-b-dark.svg" alt="LAiDIES" style="height:24px;margin-bottom:16px;opacity:0.95;">
+          <p class="footer-tagline">AI fluency and community for women with full calendars, high standards, and no patience for beige tech explanations.</p>
+          <p class="footer-handle">@laidies.ai · the Wednesday drop</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="../../this-week.html">This Week</a>
+          <a href="../../grimoire.html">The Grimoire</a>
+          <a href="../../clubhouse.html">The Clubhouse</a>
+          <a href="../../episodes.html">The Season</a>
+          <a href="../../start-here.html">Start Here</a>
+        </nav>
+      </div>
+      <p class="footer-bottom">© LAiDIES · Concept B prototype · 2026-06-29</p>
+    </div>
+  </footer>
+
+
+  <!-- LAiDIES audio controller — single-track-at-a-time enforcement -->
+  <script>
+    (function() {
+      'use strict';
+      var activeBtn = null;
+      var activeAudio = null;
+
+      function stopActive() {
+        if (activeBtn) activeBtn.classList.remove('is-playing');
+        if (activeAudio) { try { activeAudio.pause(); } catch(e){} }
+        activeBtn = null;
+        activeAudio = null;
+      }
+
+      window.playLaidiesTheme = function(btn) {
+        if (!btn || btn.disabled) return;
+        var src = btn.getAttribute('data-src');
+        if (!src) return;
+
+        if (activeBtn === btn) { stopActive(); return; }
+        stopActive();
+        document.querySelectorAll('audio').forEach(function(a) { try { a.pause(); } catch(e){} });
+
+        var audio = new Audio(src);
+        audio.preload = 'metadata';
+        audio.addEventListener('ended', function() { if (activeAudio === audio) stopActive(); });
+        audio.addEventListener('error', function() {
+          console.warn('LAiDIES audio failed to load:', src);
+          if (activeAudio === audio) stopActive();
+        });
+
+        var playPromise = audio.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(function(err) {
+            console.warn('LAiDIES audio play() rejected:', err);
+            if (activeAudio === audio) stopActive();
+          });
+        }
+
+        btn.classList.add('is-playing');
+        activeBtn = btn;
+        activeAudio = audio;
+      };
+    })();
+  </script>
+
+</body>
+</html>

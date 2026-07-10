@@ -1,861 +1,337 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Businesswomen's Special | LAiDIES Clubhouse</title>
-    <meta name="description" content="Paper fortune teller picks your drink order. Choose cocktails or spirit-free, pick a mood, and open your drink fortune." />
-    <meta property="og:title" content="Businesswomen's Special | LAiDIES" />
-    <meta property="og:description" content="The coven has a reservation at 7. Paper fortune teller meets premium cocktail bar." />
-    <meta name="theme-color" content="#b95d78" />
-    <link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap">
-    <link rel="stylesheet" href="../styles.css?v=sticky-fix-2" />
-    <style>
-      :root {
-        --bws-pink: #b95d78;
-        --bws-gold: #d4a853;
-        --bws-amber: #c98f3f;
-        --bws-dark: #fffdfb;
-        --bws-plum: #4b2148;
-        --bws-plum-mid: #f7eeee;
-        --bws-card-bg: rgba(255, 253, 251, 0.9);
-        --bws-card-border: rgba(212, 168, 83, 0.3);
-        --bws-glow-pink: rgba(185, 93, 120, 0.18);
-        --bws-glow-gold: rgba(212, 168, 83, 0.18);
-        --bws-text: #4b2148;
-        --bws-text-muted: rgba(75, 33, 72, 0.64);
-      }
-
-      html,
-      body {
-        max-width: 100%;
-        overflow-x: clip;
-      }
-
-      body {
-        background:
-          radial-gradient(circle at 12% 0%, rgba(200, 220, 224, 0.24), transparent 24rem),
-          radial-gradient(circle at 88% 10%, rgba(212, 168, 83, 0.16), transparent 22rem),
-          linear-gradient(180deg, var(--bws-dark) 0%, var(--bws-plum-mid) 58%, var(--bws-dark) 100%) !important;
-        min-height: 100vh;
-        font-family: 'Inter', sans-serif;
-        color: var(--bws-text);
-        overflow-x: hidden;
-      }
-
-      /* ===== Site Header ===== */
-      .site-header {
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        background: rgba(255, 253, 251, 0.96);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(75, 33, 72, 0.16);
-        box-shadow: 0 12px 28px rgba(75, 33, 72, 0.08);
-      }
-      .site-header .nav a { color: var(--bws-text); }
-      .site-header .nav a:hover { color: var(--bws-pink); }
-
-      /* ===== Page Layout ===== */
-      .game-page-wrap {
-        max-width: 780px;
-        margin: 0 auto;
-        padding: clamp(20px, 5vw, 60px) clamp(16px, 4vw, 40px);
-      }
-
-      /* ===== Hero Section ===== */
-      .bws-hero {
-        text-align: center;
-        margin-bottom: 48px;
-        position: relative;
-      }
-      .bws-hero-image {
-        position: relative;
-        display: inline-block;
-        margin-bottom: 28px;
-      }
-      .bws-hero-image img {
-        max-width: 280px;
-        width: 100%;
-        height: auto;
-        filter: drop-shadow(0 0 30px rgba(185, 93, 120, 0.15));
-        transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-      }
-      .bws-hero-image.is-animating img {
-        animation: fortuneFold 1.2s ease-in-out;
-      }
-      @keyframes fortuneFold {
-        0% { transform: scale(1) rotateY(0deg); }
-        15% { transform: scale(0.95) rotateY(8deg); }
-        30% { transform: scale(0.9) rotateY(-6deg); }
-        45% { transform: scale(0.95) rotateY(5deg); }
-        60% { transform: scale(0.9) rotateY(-4deg); }
-        75% { transform: scale(0.95) rotateY(3deg); }
-        90% { transform: scale(0.98) rotateY(-1deg); }
-        100% { transform: scale(1) rotateY(0deg); }
-      }
-      .bws-hero-glow {
-        position: absolute;
-        top: 50%; left: 50%;
-        width: 300px; height: 300px;
-        transform: translate(-50%, -50%);
-        background: radial-gradient(circle, rgba(185, 93, 120, 0.08) 0%, transparent 70%);
-        pointer-events: none;
-        z-index: 0;
-      }
-      .bws-hero h1 {
-        font-family: 'Playfair Display', Georgia, serif;
-        font-size: clamp(2rem, 5vw, 3.2rem);
-        font-weight: 900;
-        letter-spacing: -0.02em;
-        margin: 0 0 8px;
-        background: linear-gradient(135deg, var(--bws-plum) 0%, var(--bws-pink) 58%, var(--bws-gold) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-      .bws-hero .subtitle {
-        font-size: clamp(0.9rem, 2vw, 1.1rem);
-        color: var(--bws-text-muted);
-        font-style: italic;
-        margin: 0;
-      }
-
-      /* ===== Step Sections ===== */
-      .bws-step {
-        margin-bottom: 24px;
-      }
-      .bws-step-label {
-        font-size: 0.7rem;
-        font-weight: 800;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: var(--bws-gold);
-        margin-bottom: 12px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .bws-step-label::after {
-        content: '';
-        flex: 1;
-        height: 1px;
-        background: linear-gradient(90deg, var(--bws-gold), transparent);
-        opacity: 0.3;
-      }
-
-      /* ===== Lane Selection ===== */
-      .bws-lane-buttons {
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
-      .bws-lane-btn {
-        flex: 1;
-        min-width: 160px;
-        padding: 16px 20px;
-        background: rgba(255, 253, 251, 0.82);
-        border: 2px solid rgba(75, 33, 72, 0.14);
-        border-radius: 14px;
-        cursor: pointer;
-        text-align: center;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        position: relative;
-        overflow: hidden;
-      }
-      .bws-lane-btn::after {
-        content: '';
-        position: absolute;
-        bottom: 0; left: 50%;
-        width: 0; height: 3px;
-        background: var(--bws-pink);
-        border-radius: 2px;
-        transform: translateX(-50%);
-        transition: width 0.3s ease, box-shadow 0.3s ease;
-      }
-      .bws-lane-btn:hover {
-        border-color: rgba(185, 93, 120, 0.36);
-        background: rgba(255, 253, 251, 0.96);
-      }
-      .bws-lane-btn.is-selected {
-        border-color: var(--bws-pink);
-        background: rgba(185, 93, 120, 0.12);
-        box-shadow: 0 12px 26px rgba(75, 33, 72, 0.08), inset 0 0 20px rgba(185, 93, 120, 0.04);
-      }
-      .bws-lane-btn.is-selected::after {
-        width: 60%;
-        box-shadow: 0 0 12px var(--bws-pink), 0 0 24px rgba(185, 93, 120, 0.3);
-      }
-      .bws-lane-btn strong {
-        display: block;
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: var(--bws-plum);
-        margin-bottom: 4px;
-      }
-      .bws-lane-btn span {
-        font-size: 0.78rem;
-        color: var(--bws-text-muted);
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-      }
-
-      /* ===== Mood Grid ===== */
-      .bws-mood-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-      }
-      @media (min-width: 540px) {
-        .bws-mood-grid { grid-template-columns: repeat(4, 1fr); }
-      }
-      .bws-mood-btn {
-        position: relative;
-        padding: 24px 16px;
-        background: rgba(255, 253, 251, 0.84);
-        border: 2px solid rgba(75, 33, 72, 0.13);
-        border-radius: 16px;
-        cursor: pointer;
-        text-align: center;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-      }
-      .bws-mood-btn:hover {
-        transform: translateY(-2px);
-        border-color: rgba(185, 93, 120, 0.34);
-      }
-      .bws-mood-btn.is-selected {
-        transform: translateY(-3px);
-        box-shadow: 0 14px 28px rgba(75, 33, 72, 0.1);
-      }
-      .bws-mood-icon {
-        font-size: 1.8rem;
-        display: block;
-        margin-bottom: 4px;
-        transition: transform 0.3s ease;
-      }
-      .bws-mood-btn:hover .bws-mood-icon { transform: scale(1.1); }
-      .bws-mood-btn strong {
-        display: block;
-        font-size: 0.95rem;
-        font-weight: 700;
-        color: var(--bws-plum);
-      }
-      .bws-mood-btn span {
-        font-size: 0.72rem;
-        color: var(--bws-text-muted);
-        line-height: 1.3;
-      }
-
-      /* Mood-specific colors */
-      .bws-mood-btn--bubble:hover, .bws-mood-btn--bubble.is-selected {
-        border-color: #f5c6d0;
-        background: rgba(245, 198, 208, 0.08);
-        box-shadow: 0 4px 20px rgba(245, 198, 208, 0.15);
-      }
-      .bws-mood-btn--citrus:hover, .bws-mood-btn--citrus.is-selected {
-        border-color: #ffd700;
-        background: rgba(255, 215, 0, 0.06);
-        box-shadow: 0 4px 20px rgba(255, 215, 0, 0.12);
-      }
-      .bws-mood-btn--classic:hover, .bws-mood-btn--classic.is-selected {
-        border-color: var(--bws-gold);
-        background: rgba(212, 168, 83, 0.06);
-        box-shadow: 0 4px 20px rgba(212, 168, 83, 0.12);
-      }
-      .bws-mood-btn--after-dark:hover, .bws-mood-btn--after-dark.is-selected {
-        border-color: #9b59b6;
-        background: rgba(155, 89, 182, 0.08);
-        box-shadow: 0 4px 20px rgba(155, 89, 182, 0.15);
-      }
-
-      /* ===== Drink Reveal Area ===== */
-      .bws-reveal-area {
-        min-height: 80px;
-        margin: 32px 0;
-        perspective: 1000px;
-      }
-      .bws-drink-card {
-        position: relative;
-        background: linear-gradient(145deg, rgba(20, 8, 14, 0.95), rgba(35, 15, 25, 0.95));
-        border: 1.5px solid var(--bws-card-border);
-        border-radius: 20px;
-        padding: 32px 28px;
-        opacity: 0;
-        transform: rotateX(90deg) translateY(20px);
-        transform-origin: center bottom;
-        transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-        box-shadow:
-          0 16px 48px rgba(0, 0, 0, 0.4),
-          0 0 0 1px rgba(212, 168, 83, 0.1),
-          inset 0 1px 0 rgba(255, 255, 255, 0.05);
-      }
-      .bws-drink-card.is-visible {
-        opacity: 1;
-        transform: rotateX(0deg) translateY(0);
-      }
-      .bws-drink-card::before {
-        content: '';
-        position: absolute;
-        top: -1px; left: -1px; right: -1px; bottom: -1px;
-        border-radius: 21px;
-        background: linear-gradient(135deg, var(--bws-gold), transparent 40%, var(--bws-pink), transparent 80%);
-        opacity: 0.15;
-        z-index: -1;
-        pointer-events: none;
-      }
-      .bws-drink-number {
-        position: absolute;
-        top: 16px; right: 20px;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.7rem;
-        color: var(--bws-gold);
-        opacity: 0.6;
-        letter-spacing: 0.1em;
-      }
-      .bws-drink-flap {
-        font-size: 0.68rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--bws-pink);
-        margin-bottom: 8px;
-        display: inline-block;
-        padding: 3px 10px;
-        background: rgba(185, 93, 120, 0.08);
-        border-radius: 4px;
-      }
-      .bws-drink-name {
-        font-family: 'Playfair Display', Georgia, serif;
-        font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-        font-weight: 700;
-        color: #fff;
-        margin: 0 0 16px;
-        line-height: 1.15;
-      }
-      .bws-drink-vibe {
-        font-size: 0.92rem;
-        font-style: italic;
-        color: rgba(255, 255, 255, 0.7);
-        margin-bottom: 16px;
-        line-height: 1.5;
-        padding-bottom: 16px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      }
-      .bws-drink-section-label {
-        font-size: 0.65rem;
-        font-weight: 800;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: var(--bws-gold);
-        margin-bottom: 6px;
-      }
-      .bws-drink-order {
-        font-size: 0.88rem;
-        color: rgba(255, 255, 255, 0.85);
-        margin-bottom: 16px;
-        line-height: 1.5;
-      }
-      .bws-drink-note {
-        font-size: 0.82rem;
-        color: var(--bws-text-muted);
-        line-height: 1.5;
-        padding-top: 12px;
-        border-top: 1px solid rgba(255, 255, 255, 0.06);
-      }
-
-      /* ===== Choose For Me Button ===== */
-      .bws-random-wrap {
-        text-align: center;
-        margin: 14px 0 0;
-      }
-      .bws-random-btn {
-        position: relative;
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 14px 32px;
-        background: linear-gradient(135deg, var(--bws-plum), var(--bws-pink));
-        border: none;
-        border-radius: 50px;
-        color: #fff;
-        font-size: 0.95rem;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 20px rgba(185, 93, 120, 0.3);
-        overflow: hidden;
-      }
-      .bws-random-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 32px rgba(185, 93, 120, 0.4);
-      }
-      .bws-random-btn:active {
-        transform: translateY(0);
-      }
-      .bws-random-btn.is-shuffling {
-        pointer-events: none;
-      }
-      .bws-random-btn.is-shuffling .bws-random-icon {
-        animation: shuffleSpin 0.6s ease-in-out infinite;
-      }
-      @keyframes shuffleSpin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-      .bws-random-icon {
-        font-size: 1.2rem;
-        transition: transform 0.3s ease;
-      }
-
-      /* ===== Main Character Spritz Card ===== */
-      .bws-signature {
-        margin-top: 48px;
-        padding: 28px 24px;
-        background: linear-gradient(135deg, rgba(185, 93, 120, 0.06), rgba(212, 168, 83, 0.04));
-        border: 1.5px solid rgba(185, 93, 120, 0.25);
-        border-radius: 18px;
-        position: relative;
-        overflow: hidden;
-      }
-      .bws-signature::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; right: 0;
-        height: 3px;
-        background: linear-gradient(90deg, var(--bws-pink), var(--bws-gold), var(--bws-pink));
-        opacity: 0.6;
-      }
-      .bws-signature-badge {
-        font-size: 0.6rem;
-        font-weight: 800;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: var(--bws-pink);
-        margin-bottom: 8px;
-      }
-      .bws-signature h3 {
-        font-family: 'Playfair Display', Georgia, serif;
-        font-size: 1.4rem;
-        font-weight: 700;
-        color: var(--bws-plum);
-        margin: 0 0 10px;
-      }
-      .bws-signature-recipe {
-        font-size: 0.88rem;
-        color: rgba(75, 33, 72, 0.72);
-        margin-bottom: 8px;
-        line-height: 1.5;
-      }
-      .bws-signature-note {
-        font-size: 0.78rem;
-        color: var(--bws-text-muted);
-        font-style: italic;
-      }
-
-      
-
-      /* ===== Animations for counting state ===== */
-      .bws-hero-image.is-counting img {
-        animation: fortuneCount 0.5s ease-in-out 3;
-      }
-      @keyframes fortuneCount {
-        0%, 100% { transform: scaleX(1); }
-        50% { transform: scaleX(0.85) scaleY(1.02); }
-      }
-
-      /* ===== Shuffle overlay on drink card ===== */
-      .bws-shuffle-overlay {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(13, 5, 9, 0.85);
-        border-radius: 20px;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s;
-        z-index: 5;
-      }
-      .bws-shuffle-overlay.is-active {
-        opacity: 1;
-      }
-      .bws-shuffle-text {
-        font-family: 'Playfair Display', Georgia, serif;
-        font-size: 1.4rem;
-        color: var(--bws-gold);
-        animation: shuffleFlicker 0.15s infinite alternate;
-      }
-      @keyframes shuffleFlicker {
-        0% { opacity: 0.5; }
-        100% { opacity: 1; }
-      }
-
-      /* ===== Badge ===== */
-      .bws-badge-reveal {
-        margin-top: 20px;
-        padding: 14px 18px;
-        border: 2px dashed var(--bws-gold);
-        border-radius: 12px;
-        text-align: center;
-        display: none;
-        animation: badgePop 0.4s ease;
-      }
-      .bws-badge-reveal.is-visible { display: block; }
-      @keyframes badgePop {
-        0% { opacity: 0; transform: scale(0.9); }
-        100% { opacity: 1; transform: scale(1); }
-      }
-      .bws-badge-reveal strong { color: var(--bws-gold); }
-      .bws-badge-reveal span { font-size: 0.82rem; color: var(--bws-text-muted); display: block; margin-top: 4px; }
-
-      /* ===== Mobile nav fix ===== */
-      @media (max-width: 700px) {
-        .site-header .nav {
-          display: none;
-          position: absolute;
-          top: 100%;
-          left: 0; right: 0;
-          background: rgba(255, 253, 251, 0.98);
-          padding: 16px;
-          flex-direction: column;
-          gap: 12px;
-          border-bottom: 1px solid rgba(75, 33, 72, 0.16);
-          z-index: 200;
-          box-shadow: 0 18px 34px rgba(75, 33, 72, 0.12);
-        }
-        .site-header .nav.is-open { display: flex; }
-      }
-      @media (min-width: 701px) {
-        .hamburger-btn { display: none; }
-      }
-
-      /* ===== State gating: hide mood until lane selected ===== */
-      .bws-step--mood {
-        opacity: 0.4;
-        pointer-events: none;
-        transition: opacity 0.3s;
-      }
-      .bws-step--mood.is-active {
-        opacity: 1;
-        pointer-events: auto;
-      }
-    </style>
-    <!-- Privacy-friendly analytics by Plausible -->
-    <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
-    <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
-      <link rel="stylesheet" href="../content/site/mini-player.css">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Businesswomen's Special · The BRONZE AiGE · SUNNYVAiLE</title>
+  <meta name="description" content="The bar's paper fortune teller at The BRONZE AiGE. Pick a lane, pick a mood, and the bar picks your happy-hour drink — best played at a table full of LAiDIES.">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260707-a11y">
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260707-a11y"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260705-2"></script>
 </head>
-  <body>
-    <header class="site-header">
-      <button onclick="history.back()" style="background:none;border:none;color:var(--bws-pink);font-size:0.85rem;cursor:pointer;padding:4px 8px;text-decoration:underline;" aria-label="Go back">← Back</button>
-      <a href="../clubhouse.html" style="color:var(--bws-pink);text-decoration:none;font-size:0.85rem;font-weight:600;white-space:nowrap;">&larr; Back to Clubhouse</a>
-      <a class="brand" href="../index.html" aria-label="LAiDIES home">
-        <img src="../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
+<body>
+
+  <header class="sv-header">
+    <a class="brand" href="/">LAiDIES</a>
+    <nav>
+      <a href="/">This Week</a>
+      <a href="/chick-flicks.html">Episodes</a>
+      <a href="/library.html">LIBRAiRY</a>
+      <a href="/bronze-aige.html" style="color: var(--rose);">BRONZE AiGE</a>
+      <a href="/sorority-house.html">Sorority House</a>
+      <a href="/clubhouse-pass.html" class="sv-signin" style="color: var(--rose); font-weight: 600; border: 1.5px solid var(--rose); padding: 6px 14px; border-radius: 999px;">✉︎ Sign In</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <p style="margin: 4px 0 14px;"><a href="/bronze-aige.html" style="color: var(--rose); text-decoration: none; font-size: 14px; font-weight: 700;">← The BRONZE AiGE</a></p>
+
+    <div class="sv-eyebrow">
+      <span class="sv-eyebrow-label">★ Inside The BRONZE AiGE · Happy Hour from 4</span>
+    </div>
+
+    <h1>The Businesswomen's Special.</h1>
+
+    <p class="sv-lede">
+      The bar's paper fortune teller. Pick a lane, pick a mood, and the bar picks your drink — twenty a lane, no wrong answers. Best played at a table full of LAiDIES.
+    </p>
+
+    <div style="margin: 0 0 26px;">
+      <button type="button"
+              aria-label="Play Businesswomen's Special by The Embeddings"
+              data-src="/content/music/game-businesswomens-special.mp3"
+              onclick="window.playLaidiesTheme(this);"
+              style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: transparent; border: 1.5px solid var(--rose); border-radius: 999px; color: var(--plum); font-family: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer;">
+        <svg viewBox="0 0 24 24" style="width: 11px; height: 11px; fill: currentColor;" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        ♪ The song — "Businesswomen's Special" by The Embeddings
+      </button>
+    </div>
+
+    <style>
+      .bws-cols { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 30px; align-items: start; margin: 8px 0 36px; }
+      @media (max-width: 900px) { .bws-cols { grid-template-columns: 1fr; } }
+      .bws-lane { flex: 1 1 0; padding: 14px 10px; border-radius: 12px; border: 2px solid var(--gold); background: var(--cream); font-family: inherit; cursor: pointer; text-align: center; color: var(--plum); transition: background 0.2s ease, border-color 0.2s ease; }
+      .bws-lane strong { display: block; font-size: 16px; }
+      .bws-lane span { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--plum-soft); }
+      .bws-lane.is-selected { background: var(--blush); border-color: var(--rose); box-shadow: 0 4px 14px rgba(75,33,72,0.15); }
+      .bws-mood { padding: 14px 8px; border-radius: 12px; border: 1.5px solid var(--gold); background: var(--cream); font-family: inherit; cursor: pointer; text-align: center; color: var(--plum); transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease; }
+      .bws-mood:hover { transform: translateY(-2px); }
+      .bws-mood .bws-mood-emoji { display: block; font-size: 20px; margin-bottom: 4px; }
+      .bws-mood strong { display: block; font-size: 14px; }
+      .bws-mood span { font-size: 11px; color: var(--plum-soft); }
+      .bws-mood.is-selected { background: var(--blush); border-color: var(--rose); }
+      @media (prefers-reduced-motion: reduce) { .bws-mood:hover { transform: none; } }
+      .bws-menu-rule { border: 0; border-top: 1.5px dashed var(--gold); margin: 16px 0; }
+    </style>
+
+    <div class="bws-cols">
+
+      <!-- THE GAME -->
+      <section aria-label="The fortune teller">
+        <p style="margin: 0 0 8px; font-weight: 700; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);">1 · Pick your lane</p>
+        <div id="bwsLanes" style="display: flex; gap: 12px; margin: 0 0 20px;">
+          <button type="button" class="bws-lane is-selected" data-lane="cocktail"><strong>Summon Spirits</strong><span>Cocktails</span></button>
+          <button type="button" class="bws-lane" data-lane="spiritFree"><strong>Ghostbusters</strong><span>Spirit-Free</span></button>
+        </div>
+
+        <p style="margin: 0 0 8px; font-weight: 700; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);">2 · Pinch open a mood</p>
+        <div id="bwsMoods" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 0 0 14px;">
+          <button type="button" class="bws-mood" data-flap="0"><span class="bws-mood-emoji">🫧</span><strong>Bubbles</strong><span>sparkly / easy</span></button>
+          <button type="button" class="bws-mood" data-flap="1"><span class="bws-mood-emoji">🍋</span><strong>Citrus</strong><span>bright / tart</span></button>
+          <button type="button" class="bws-mood" data-flap="2"><span class="bws-mood-emoji">🥂</span><strong>Classic</strong><span>polished / iconic</span></button>
+          <button type="button" class="bws-mood" data-flap="3"><span class="bws-mood-emoji">🌙</span><strong>After Dark</strong><span>bitter / bold</span></button>
+        </div>
+
+        <div style="text-align: center; margin: 0 0 22px;">
+          <button type="button" id="bwsRandomBtn" style="padding: 13px 28px; background: var(--plum-deep); color: var(--cream); border: 0; border-radius: 999px; font-family: inherit; font-weight: 800; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;">🎲 Let the teller decide</button>
+        </div>
+
+        <p style="margin: 0 0 8px; font-weight: 700; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);">3 · The paper speaks</p>
+        <div style="text-align: center; margin: 0 0 18px;">
+          <img id="bwsFortuneImg"
+               src="/assets/bws-fortune-teller/frame-1-closed.webp"
+               data-frame-closed="/assets/bws-fortune-teller/frame-1-closed.webp"
+               data-frame-open-a="/assets/bws-fortune-teller/frame-2-open-vertical.webp"
+               data-frame-open-b="/assets/bws-fortune-teller/frame-3-open-horizontal.webp"
+               data-frame-reveal="/assets/bws-fortune-teller/frame-4-reveal.webp"
+               data-frame-reveal-h="/assets/bws-fortune-teller/frame-5-reveal.webp"
+               alt="Paper fortune teller for the Businesswomen's Special"
+               style="width: 100%; max-width: 340px; border-radius: 14px; box-shadow: 0 10px 30px rgba(75,33,72,0.18);">
+        </div>
+
+        <div id="bwsResult" style="display: none; padding: 26px 30px; background: var(--cream); border: 2px solid var(--gold); border-radius: 14px; box-shadow: 0 8px 26px rgba(75,33,72,0.12);">
+          <p id="bwsResultMood" style="margin: 0 0 6px; font-weight: 700; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose);"></p>
+          <h2 id="bwsResultName" style="margin: 0 0 8px; font-family: 'Playfair Display', Georgia, serif; font-size: 34px; font-weight: 700; color: var(--plum-deep); line-height: 1.1;"></h2>
+          <p id="bwsResultVibe" style="margin: 0 0 16px; font-size: 15px; font-style: italic; color: var(--plum-soft); line-height: 1.5;"></p>
+          <p style="margin: 0 0 2px; font-weight: 700; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--plum-soft);">Order</p>
+          <p id="bwsResultOrder" style="margin: 0 0 14px; font-size: 15px; color: var(--plum); line-height: 1.55;"></p>
+          <p style="margin: 0 0 2px; font-weight: 700; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--plum-soft);">Garnish notes</p>
+          <p id="bwsResultNote" style="margin: 0 0 16px; font-size: 15px; color: var(--plum); line-height: 1.55;"></p>
+          <p style="margin: 0; font-size: 13px; color: var(--plum-soft);">Pass the phone — next LAiDY picks her mood. Then <a href="/bronze-aige.html#stamp" style="color: var(--rose); text-decoration: underline;">stamp your coaster at the bar →</a></p>
+        </div>
+
+        <p id="bwsBadge" style="display: none; margin: 14px 0 0; padding: 14px 18px; background: var(--blush); border-left: 4px solid var(--gold); border-radius: 8px; font-size: 14px; color: var(--plum);"><strong>🏆 All four corners opened.</strong> The teller has nothing left to hide from you — the full menu's yours.</p>
+      </section>
+
+      <!-- THE MENU -->
+      <aside aria-label="Happy hour menu" style="padding: 24px 26px; background: var(--cream); border: 2px solid var(--gold); border-radius: 14px;">
+        <p style="margin: 0; text-align: center; font-weight: 800; font-size: 12px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--plum-deep);">The BRONZE AiGE</p>
+        <p style="margin: 2px 0 0; text-align: center; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--plum-soft);">Happy Hour Menu · from 4</p>
+
+        <hr class="bws-menu-rule">
+
+        <p style="margin: 0 0 10px; font-weight: 700; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose);">☰ Tonight's Specials <span style="font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--plum-soft);">— conversation, order for the table</span></p>
+        <ul style="list-style: none; margin: 0; padding: 0; display: grid; gap: 10px;">
+          <li style="font-size: 14px; line-height: 1.5; color: var(--plum);"><strong>The One That Worked</strong> <span style="color: var(--rose);">· $0</span><br><span style="color: var(--plum-soft);">The thing you tried with AI this week that landed.</span></li>
+          <li style="font-size: 14px; line-height: 1.5; color: var(--plum);"><strong>The Disaster</strong> <span style="color: var(--rose);">· free refills</span><br><span style="color: var(--plum-soft);">The prompt that went sideways. Funnier out loud.</span></li>
+          <li style="font-size: 14px; line-height: 1.5; color: var(--plum);"><strong>The Hot Take</strong> <span style="color: var(--rose);">· market price</span><br><span style="color: var(--plum-soft);">The AI headline you're not buying.</span></li>
+          <li style="font-size: 14px; line-height: 1.5; color: var(--plum);"><strong>The Wednesday Special</strong> <span style="color: var(--rose);">· pairs with the episode</span><br><span style="color: var(--plum-soft);">The bit from this week's episode you're still thinking about.</span></li>
+        </ul>
+
+        <hr class="bws-menu-rule">
+
+        <p style="margin: 0 0 6px; font-weight: 700; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose);">✦ The House Cocktail</p>
+        <p style="margin: 0 0 4px; font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: var(--plum);">Main Character Spritz</p>
+        <p style="margin: 0 0 8px; font-size: 13px; font-style: italic; color: var(--plum-soft);">Blanco tequila · Aperol · lemon · simple syrup · rocks · Prosecco · orange zest.</p>
+        <p style="margin: 0; font-size: 13px; line-height: 1.55; color: var(--plum);">By <strong>Ryan C</strong> at <a href="https://www.charfive.com/" target="_blank" rel="noopener" style="color: var(--rose); text-decoration: underline;">CHAR No.5</a>, Toronto — exclusive to LAiDIES. Ask for Ryan and tell him Ali sent you.</p>
+
+        <hr class="bws-menu-rule">
+
+        <p style="margin: 0; font-size: 12px; font-style: italic; color: var(--plum-soft); text-align: center;">Drinks are dealt by the fortune teller. Forty on file. No substitutions.</p>
+      </aside>
+
+    </div>
+
+    <p style="font-size: 14px; font-style: italic; color: var(--plum-soft); margin: 0 0 36px;">Named for the booth scene in <em>Romy and Michele's High School Reunion</em>. Some patrons get stained glass at The LUMINAiRY; Romy and Michele get a cocktail game.</p>
+
+    <div class="sv-ctas">
+      <a class="sv-cta sv-cta--primary" href="/bronze-aige.html">
+        <span>
+          <span class="sv-cta-label">Back at the bar</span>
+          <span class="sv-cta-title">The BRONZE AiGE →</span>
+        </span>
+        <span class="sv-cta-arrow">→</span>
       </a>
-      <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false">☰</button>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="../episodes.html">Episodes</a>
-        <a href="../learn.html">Learn</a>
-        <a href="../clubhouse.html">Clubhouse</a>
-        <a href="../community.html">Community</a>
-        <a href="../games/dj-booth.html">Listen</a>
-        <a href="../this-week.html">This Week</a>
-        <a href="../clubhouse-pass.html" style="color: #b95d78; text-decoration: underline; margin-left: 8px;">Sign In</a>
-</nav>
-    </header>
+      <a class="sv-cta" href="/bronze-aige.html#call">
+        <span>
+          <span class="sv-cta-label">No table yet?</span>
+          <span class="sv-cta-title">Copy the invite · call a happy hour</span>
+        </span>
+        <span class="sv-cta-arrow">→</span>
+      </a>
+    </div>
 
-    <main>
-      <div class="game-page-wrap">
+  </main>
 
-        <!-- Hero -->
-        <section class="bws-hero">
-          <div class="bws-hero-glow"></div>
-          <div class="bws-hero-image" id="bwsHeroImage">
-            <img
-              src="../assets/businesswomen-special-fortune-teller-v1.png"
-              alt="Paper fortune teller for the Businesswomen's Special cocktail game"
-              id="bwsFortuneImg"
-              data-closed-src="../assets/businesswomen-special-fortune-teller-v1.png"
-              data-open-src="../assets/businesswomen-special-fortune-teller-open-v1.png"
-            />
-          </div>
-          <h1>Businesswomen's Special</h1>
-          <p class="subtitle">The coven has a reservation at 7.</p>
-        </section>
+  <footer>© LAiDIES · Filed from SUNNYVAiLE · The BRONZE AiGE</footer>
 
-        <!-- Step 1: Lane -->
-        <section class="bws-step">
-          <div class="bws-step-label">Step 1 — Choose your lane</div>
-          <div class="bws-lane-buttons" id="bwsLaneButtons">
-            <button class="bws-lane-btn is-selected" type="button" data-lane="cocktail">
-              <strong>Summon Spirits</strong>
-              <span>Cocktails</span>
-            </button>
-            <button class="bws-lane-btn" type="button" data-lane="spiritFree">
-              <strong>Ghostbusters</strong>
-              <span>Spirit-Free</span>
-            </button>
-          </div>
-        </section>
-
-        <!-- Step 2: Mood -->
-        <section class="bws-step bws-step--mood is-active" id="bwsMoodStep">
-          <div class="bws-step-label">Step 2 — Pick the mood</div>
-          <div class="bws-mood-grid" id="bwsMoodGrid">
-            <button class="bws-mood-btn bws-mood-btn--bubble" type="button" data-flap="0">
-              <span class="bws-mood-icon">🫧</span>
-              <strong>Bubble</strong>
-              <span>sparkly / easy</span>
-            </button>
-            <button class="bws-mood-btn bws-mood-btn--citrus" type="button" data-flap="1">
-              <span class="bws-mood-icon">🍋</span>
-              <strong>Citrus</strong>
-              <span>bright / tart</span>
-            </button>
-            <button class="bws-mood-btn bws-mood-btn--classic" type="button" data-flap="2">
-              <span class="bws-mood-icon">🥂</span>
-              <strong>Classic</strong>
-              <span>polished / iconic</span>
-            </button>
-            <button class="bws-mood-btn bws-mood-btn--after-dark" type="button" data-flap="3">
-              <span class="bws-mood-icon">🌙</span>
-              <strong>After Dark</strong>
-              <span>bitter / bold</span>
-            </button>
-          </div>
-          <div class="bws-random-wrap">
-            <button class="bws-random-btn" type="button" id="bwsRandomBtn">
-              <span class="bws-random-icon">🎲</span>
-              Choose for me
-            </button>
-          </div>
-        </section>
-
-        <!-- Drink Reveal -->
-        <section class="bws-reveal-area" id="bwsRevealArea">
-          <div class="bws-drink-card" id="bwsDrinkCard">
-            <div class="bws-shuffle-overlay" id="bwsShuffleOverlay">
-              <span class="bws-shuffle-text" id="bwsShuffleText">...</span>
-            </div>
-            <span class="bws-drink-number" id="bwsDrinkNumber"></span>
-            <div class="bws-drink-flap" id="bwsDrinkFlap"></div>
-            <h2 class="bws-drink-name" id="bwsDrinkName"></h2>
-            <p class="bws-drink-vibe" id="bwsDrinkVibe"></p>
-            <p class="bws-drink-section-label">Order</p>
-            <p class="bws-drink-order" id="bwsDrinkOrder"></p>
-            <p class="bws-drink-section-label">Garnish Notes</p>
-            <p class="bws-drink-note" id="bwsDrinkNote"></p>
-          </div>
-          <div class="bws-badge-reveal" id="bwsBadge">
-            <strong>🏆 Coven Reservation Unlocked</strong>
-            <span>You've explored all 4 moods. The whole menu is yours.</span>
-          </div>
-        </section>
-
-        <!-- Choose For Me -->
-        
-
-        <!-- Main Character Spritz -->
-        <section class="bws-signature">
-          <p class="bws-signature-badge">✦ The LAiDIES House Cocktail</p>
-          <h3>Main Character Spritz</h3>
-          <p class="bws-signature-recipe">Blanco tequila, Aperol, lemon, simple syrup, rocks, Prosecco, orange zest.</p>
-          <p class="bws-signature-note">Developed exclusively for LAiDIES by Ryan C at CHAR No.5. Ask for Ryan and tell him Ali sent you.</p>
-        </section>
-
-        <!-- Back -->
-        
-
-      </div>
-    </main>
-
-    <!-- Scripts -->
-    <script src="../content/site/supabase-config.js"></script>
-    <script src="../content/site/site-data.js?v=episode-04-quiz-1"></script>
-    <script src="../script.js"></script>
-    <script>
+  <script src="/content/site/bws-data.js?v=20260704-1"></script>
+  <script>
     (function() {
-      /* ===== DOM refs ===== */
-      const heroImage = document.getElementById('bwsHeroImage');
-      const fortuneImg = document.getElementById('bwsFortuneImg');
-      const laneButtons = document.getElementById('bwsLaneButtons');
-      const moodStep = document.getElementById('bwsMoodStep');
-      const moodGrid = document.getElementById('bwsMoodGrid');
-      const drinkCard = document.getElementById('bwsDrinkCard');
-      const shuffleOverlay = document.getElementById('bwsShuffleOverlay');
-      const shuffleText = document.getElementById('bwsShuffleText');
-      const drinkNumber = document.getElementById('bwsDrinkNumber');
-      const drinkFlap = document.getElementById('bwsDrinkFlap');
-      const drinkName = document.getElementById('bwsDrinkName');
-      const drinkVibe = document.getElementById('bwsDrinkVibe');
-      const drinkOrder = document.getElementById('bwsDrinkOrder');
-      const drinkNote = document.getElementById('bwsDrinkNote');
-      const randomBtn = document.getElementById('bwsRandomBtn');
-      const badge = document.getElementById('bwsBadge');
+      'use strict';
+      var img = document.getElementById('bwsFortuneImg');
+      var lanes = document.getElementById('bwsLanes');
+      var moods = document.getElementById('bwsMoods');
+      var randomBtn = document.getElementById('bwsRandomBtn');
+      var result = document.getElementById('bwsResult');
+      var rMood = document.getElementById('bwsResultMood');
+      var rName = document.getElementById('bwsResultName');
+      var rVibe = document.getElementById('bwsResultVibe');
+      var rOrder = document.getElementById('bwsResultOrder');
+      var rNote = document.getElementById('bwsResultNote');
+      var badge = document.getElementById('bwsBadge');
+      if (!img || !window.cocktailMenus || !window.cocktailFortuneFlaps) return;
 
-      let activeLane = 'cocktail';
-      let activeFlap = -1;
-      let flapsUsed = new Set();
-      let isAnimating = false;
+      var activeLane = 'cocktail';
+      var flapsUsed = {};
+      var flapsCount = 0;
+      var isAnimating = false;
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      /* ===== Lane buttons ===== */
-      laneButtons.addEventListener('click', function(e) {
-        const btn = e.target.closest('.bws-lane-btn');
+      // Counting flipbook — closed/open pulse like a real cootie catcher
+      // mid-count, landing on the reveal frame. Frames preloaded up front.
+      var FRAMES = {
+        closed: img.getAttribute('data-frame-closed'),
+        openA: img.getAttribute('data-frame-open-a'),
+        openB: img.getAttribute('data-frame-open-b'),
+        reveal: img.getAttribute('data-frame-reveal'),
+        revealH: img.getAttribute('data-frame-reveal-h')
+      };
+      ['closed', 'openA', 'openB', 'reveal', 'revealH'].forEach(function(k) { var pre = new Image(); pre.src = FRAMES[k]; });
+
+      // The reveal continues from the direction the picked mood opens:
+      // Citrus + Classic lift from the vertical open (openA), Bubbles +
+      // After Dark from the horizontal open (openB). The count must land
+      // on the matching open frame right before the reveal.
+      var FLAP_ORIENT = { 0: 'h', 1: 'v', 2: 'v', 3: 'h' };
+      function countFor(orient) {
+        return orient === 'h'
+          ? [FRAMES.openA, FRAMES.closed, FRAMES.openB, FRAMES.closed, FRAMES.openA, FRAMES.closed, FRAMES.openB]
+          : [FRAMES.openB, FRAMES.closed, FRAMES.openA, FRAMES.closed, FRAMES.openB, FRAMES.closed, FRAMES.openA];
+      }
+
+      // Reveal frames are generic on purpose — frame 4 (vertical open) for
+      // Citrus + Classic, frame 5 (horizontal open) for Bubbles + After Dark.
+      // The drink name lives in the result card below, so new drinks need
+      // no artwork at all.
+
+      lanes.addEventListener('click', function(e) {
+        var btn = e.target.closest('.bws-lane');
         if (!btn) return;
-        const lane = btn.dataset.lane;
-        activeLane = lane;
-        laneButtons.querySelectorAll('.bws-lane-btn').forEach(b => b.classList.remove('is-selected'));
+        activeLane = btn.getAttribute('data-lane');
+        lanes.querySelectorAll('.bws-lane').forEach(function(b) { b.classList.remove('is-selected'); });
         btn.classList.add('is-selected');
-        moodStep.classList.add('is-active');
-        // Sync with script.js
-        if (window.setActiveCocktailType) window.setActiveCocktailType(lane);
       });
 
-      /* ===== Mood buttons ===== */
-      moodGrid.addEventListener('click', function(e) {
-        const btn = e.target.closest('.bws-mood-btn');
+      moods.addEventListener('click', function(e) {
+        var btn = e.target.closest('.bws-mood');
         if (!btn || isAnimating) return;
-        const flapIndex = Number(btn.dataset.flap);
-        activeFlap = flapIndex;
-        flapsUsed.add(flapIndex);
-
-        // Visual select
-        moodGrid.querySelectorAll('.bws-mood-btn').forEach(b => b.classList.remove('is-selected'));
-        btn.classList.add('is-selected');
-
-        revealDrink(activeLane, flapIndex);
+        select(Number(btn.getAttribute('data-flap')));
       });
 
-      /* ===== Random button ===== */
       randomBtn.addEventListener('click', function() {
         if (isAnimating) return;
-        const flapIndex = Math.floor(Math.random() * 4);
-        activeFlap = flapIndex;
-        flapsUsed.add(flapIndex);
-
-        // Visual select the mood button
-        const moodBtns = moodGrid.querySelectorAll('.bws-mood-btn');
-        moodBtns.forEach(b => b.classList.remove('is-selected'));
-
-        // Animate shuffle
-        randomBtn.classList.add('is-shuffling');
+        var flap = Math.floor(Math.random() * 4);
+        var btns = moods.querySelectorAll('.bws-mood');
+        if (reduceMotion) { select(flap); return; }
         isAnimating = true;
-
-        // Shuffle through moods visually
-        let shuffleCount = 0;
-        const shuffleInterval = setInterval(() => {
-          const rndFlap = shuffleCount % 4;
-          moodBtns.forEach((b, i) => {
-            b.classList.toggle('is-selected', i === rndFlap);
-          });
-          shuffleCount++;
+        var n = 0;
+        var shuffle = setInterval(function() {
+          btns.forEach(function(b, i) { b.classList.toggle('is-selected', i === n % 4); });
+          n++;
         }, 100);
-
-        setTimeout(() => {
-          clearInterval(shuffleInterval);
-          moodBtns.forEach(b => b.classList.remove('is-selected'));
-          moodBtns[flapIndex].classList.add('is-selected');
-          randomBtn.classList.remove('is-shuffling');
-          revealDrink(activeLane, flapIndex);
-        }, 800);
+        setTimeout(function() {
+          clearInterval(shuffle);
+          isAnimating = false;
+          select(flap);
+        }, 700);
       });
 
-      /* ===== Core reveal function ===== */
-      function revealDrink(type, flapIndex) {
+      function select(flapIndex) {
         isAnimating = true;
+        var btns = moods.querySelectorAll('.bws-mood');
+        btns.forEach(function(b, i) { b.classList.toggle('is-selected', i === flapIndex); });
+        if (!flapsUsed[flapIndex]) { flapsUsed[flapIndex] = true; flapsCount++; }
+        img.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' });
 
-        // Animate fortune teller
-        heroImage.classList.add('is-counting');
-        if (fortuneImg.dataset.closedSrc) fortuneImg.src = fortuneImg.dataset.closedSrc;
+        var menu = window.cocktailMenus[activeLane] || window.cocktailMenus.cocktail;
+        var flap = window.cocktailFortuneFlaps[flapIndex];
+        var pool = flap.drinks[activeLane] || flap.drinks.cocktail;
+        var drink = menu[pool[Math.floor(Math.random() * pool.length)]];
 
-        // Hide card during counting
-        drinkCard.classList.remove('is-visible');
+        // Pinch through the count, land on the reveal frame — opening in
+        // the direction the picked mood's flap opens
+        result.style.display = 'none';
+        var orient = FLAP_ORIENT[flapIndex];
+        var revealSrc = orient === 'h' ? FRAMES.revealH : FRAMES.reveal;
+        var totalMs = 0;
+        if (reduceMotion) {
+          setTimeout(function() { img.src = revealSrc; }, 60);
+          totalMs = 80;
+        } else {
+          var count = countFor(orient);
+          img.src = FRAMES.closed;
+          count.forEach(function(frameSrc, i) {
+            setTimeout(function() { img.src = frameSrc; }, 180 * (i + 1));
+          });
+          setTimeout(function() { img.src = revealSrc; }, 180 * (count.length + 1));
+          totalMs = 180 * (count.length + 1) + 120;
+        }
 
-        // Get drink from script.js data
-        const menu = (typeof cocktailMenus !== 'undefined') ? (cocktailMenus[type] || cocktailMenus.cocktail) : null;
-        const flaps = (typeof cocktailFortuneFlaps !== 'undefined') ? cocktailFortuneFlaps : null;
-
-        if (!menu || !flaps) {
-          // Fallback if script.js data not available
+        setTimeout(function() {
+          rMood.textContent = flap.label + ' — ' + flap.description;
+          rName.textContent = drink.name;
+          rVibe.textContent = drink.vibe;
+          rOrder.textContent = drink.order;
+          rNote.textContent = drink.note;
+          result.style.display = 'block';
+          if (flapsCount >= 4) badge.style.display = 'block';
           isAnimating = false;
-          heroImage.classList.remove('is-counting');
-          return;
-        }
-
-        const flap = flaps[flapIndex];
-        const drinkPool = flap.drinks[type] || flap.drinks.cocktail;
-        const drinkIndex = drinkPool[Math.floor(Math.random() * drinkPool.length)];
-        const drink = menu[drinkIndex];
-
-        setTimeout(() => {
-          heroImage.classList.remove('is-counting');
-          heroImage.classList.add('is-animating');
-
-          // Switch to open image
-          if (fortuneImg.dataset.openSrc) fortuneImg.src = fortuneImg.dataset.openSrc;
-
-          // Populate card
-          drinkNumber.textContent = String(drinkIndex + 1).padStart(2, '0');
-          drinkFlap.textContent = flap.label + ' — ' + flap.description;
-          drinkName.textContent = drink.name;
-          drinkVibe.textContent = drink.vibe;
-          drinkOrder.textContent = drink.order;
-          drinkNote.textContent = drink.note;
-
-          // Reveal card with flip
-          setTimeout(() => {
-            drinkCard.classList.add('is-visible');
-            isAnimating = false;
-            heroImage.classList.remove('is-animating');
-            // Auto-scroll to revealed drink card
-            setTimeout(function() {
-              drinkCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 100);
-          }, 200);
-
-          // Check badge
-          if (flapsUsed.size >= 4) {
-            badge.classList.add('is-visible');
-            if (typeof unlockSecretBadge === 'function') {
-              unlockSecretBadge('coven-reservation', "Businesswomen\'s Special");
-            }
-          }
-        }, 600);
-
-        // Also call script.js spinCocktail for state sync
-        if (window.spinCocktail) {
-          try { window.spinCocktail(type, flapIndex); } catch(e) {}
-        }
-      }
-
-      /* ===== Hamburger menu ===== */
-      var hamburger = document.querySelector('.hamburger-btn');
-      var nav = document.querySelector('.site-header .nav');
-      if (hamburger && nav) {
-        hamburger.addEventListener('click', function() {
-          var isOpen = nav.classList.toggle('is-open');
-          hamburger.setAttribute('aria-expanded', isOpen);
-          hamburger.textContent = isOpen ? '✕' : '☰';
-        });
-        nav.addEventListener('click', function(e) {
-          if (e.target.tagName === 'A') {
-            nav.classList.remove('is-open');
-            hamburger.setAttribute('aria-expanded', 'false');
-            hamburger.textContent = '☰';
-          }
-        });
+          try {
+            localStorage.setItem('laidies_bws_drink', JSON.stringify({
+              name: drink.name, lane: activeLane, mood: flap.label,
+              date: new Date().toISOString().slice(0, 10)
+            }));
+          } catch(err) {}
+          result.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' });
+        }, totalMs);
       }
     })();
-    </script>
-      <script src="../content/site/mini-player.js?v=ep-04-songs-1"></script>
+  </script>
+
+  <script>
+    (function() {
+      'use strict';
+      if (window.playLaidiesTheme) return;
+      var activeBtn = null, activeAudio = null;
+      function stopActive() {
+        if (activeBtn) activeBtn.classList.remove('is-playing');
+        if (activeAudio) { try { activeAudio.pause(); } catch(e){} }
+        activeBtn = null; activeAudio = null;
+      }
+      window.playLaidiesTheme = function(btn) {
+        if (!btn || btn.disabled) return;
+        var src = btn.getAttribute('data-src'); if (!src) return;
+        if (activeBtn === btn) { stopActive(); return; }
+        stopActive();
+        var audio = new Audio(src); audio.preload = 'metadata';
+        audio.addEventListener('ended', function() { if (activeAudio === audio) stopActive(); });
+        audio.addEventListener('error', function() { if (activeAudio === audio) stopActive(); });
+        audio.play().catch(function() { if (activeAudio === audio) stopActive(); });
+        btn.classList.add('is-playing');
+        activeBtn = btn; activeAudio = audio;
+      };
+    })();
+  </script>
+
+    <script defer src="/content/site/ksvl-player.js?v=20260705-21"></script>
+    <script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260707-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
 </body>
 </html>

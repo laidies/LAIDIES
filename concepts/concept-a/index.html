@@ -1,0 +1,1414 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LAiDIES · Concept A — The Cover</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --plum: #4b2148;
+      --plum-deep: #3a1838;
+      --plum-soft: #6b3a66;
+      --rose: #9b3f5f;
+      --rose-bright: #c25b7d;
+      --cream: #fffdfb;
+      --pearl: #f8eef2;
+      --blush: #f9e6ee;
+      --powder: #f6d7e2;
+      --gold: #c9a227;
+      --line: rgba(75,33,72,.14);
+      --line-soft: rgba(75,33,72,.08);
+      --max-w: 1240px;
+      --pad-x: clamp(20px, 4vw, 56px);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Jost', sans-serif; color: var(--plum); background: var(--cream); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    ul, ol { margin: 0; padding: 0; list-style: none; }
+    h1, h2, h3, h4, p { margin: 0; }
+    button { font: inherit; cursor: pointer; }
+
+    /* Brand wordmark text treatment */
+    .brand-word-inline { font-weight: inherit; }
+    [data-brand-ai] { color: var(--rose); }
+
+    /* Concept switcher (sticky bar above the page) */
+    .concept-switcher {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 24px;
+      background: #1a0a12; color: var(--cream);
+      font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+    }
+    .concept-switcher strong { color: var(--gold); margin-right: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    .concept-switcher a { color: var(--cream); margin-right: 14px; padding: 4px 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.18); }
+    .concept-switcher a.is-active { background: var(--gold); color: var(--plum-deep); border-color: var(--gold); font-weight: 700; }
+    .concept-switcher a:hover { background: rgba(255,255,255,0.08); }
+    .concept-switcher a.is-active:hover { background: var(--gold); color: var(--plum-deep); }
+
+    .container { width: 100%; max-width: var(--max-w); margin-inline: auto; padding-inline: var(--pad-x); }
+
+    /* ============================================================
+       1. THE COVER — full-bleed image with type ON the image
+       ============================================================ */
+    .cover {
+      position: relative;
+      min-height: 92vh;
+      background:
+        linear-gradient(180deg, rgba(58,24,56,0.25) 0%, rgba(58,24,56,0) 35%, rgba(58,24,56,0) 50%, rgba(58,24,56,0.78) 100%),
+        url("../../assets/lets-chat.png") center 28% / cover no-repeat;
+      color: var(--cream);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: 28px var(--pad-x) 48px;
+    }
+    .cover-flag {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px;
+    }
+    .cover-wordmark {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: rgba(255,253,251,0.92);
+      padding: 10px 18px;
+      border-radius: 4px;
+      box-shadow: 0 6px 20px rgba(58,24,56,0.25);
+    }
+    .cover-wordmark img { height: 28px; width: auto; }
+    .cover-stamp-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .cover-stamp-town {
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      color: var(--rose);
+    }
+    .cover-anthem {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 5px 11px 5px 8px;
+      background: var(--cream);
+      border: 1px solid var(--rose);
+      border-radius: 999px;
+      color: var(--plum);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      cursor: pointer;
+      transition: background 200ms ease, color 200ms ease, transform 200ms ease;
+    }
+    .cover-anthem:hover { background: var(--rose); color: var(--cream); transform: scale(1.04); }
+    .cover-anthem .play-icon, .cover-anthem .pause-icon { width: 12px; height: 12px; fill: currentColor; }
+    .cover-anthem .pause-icon { display: none; }
+    .cover-anthem.is-playing .play-icon { display: none; }
+    .cover-anthem.is-playing .pause-icon { display: block; }
+    .cover-anthem.is-playing { background: var(--rose); color: var(--cream); }
+
+    .cover-stamp {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--plum-deep);
+      padding: 10px 18px;
+      border: 1.5px solid var(--plum-deep);
+      border-radius: 999px;
+      background: var(--cream);
+      box-shadow: 0 4px 12px -6px rgba(58,24,56,0.25);
+    }
+    .cover-stamp .gold { color: var(--gold); }
+    .cover-middle { display: block; }
+    .cover-bottom {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: end;
+    }
+    .cover-headline-block { max-width: 880px; }
+    .cover-headline {
+      font-size: clamp(56px, 8.6vw, 152px);
+      font-weight: 700;
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      color: var(--cream);
+      text-shadow: 0 4px 28px rgba(58,24,56,0.55);
+      margin-bottom: 24px;
+    }
+    .cover-headline .cover-meets {
+      display: block;
+      font-size: clamp(20px, 2.4vw, 32px);
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--cream);
+      margin: 4px 0 6px;
+      opacity: 0.9;
+    }
+    .cover-tag {
+      font-size: clamp(15px, 1.4vw, 18px);
+      max-width: 50ch;
+      color: var(--cream);
+      opacity: 0.92;
+      line-height: 1.45;
+      margin-bottom: 28px;
+    }
+    .cover-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 28px;
+      background: var(--rose);
+      color: var(--cream);
+      border-radius: 999px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      box-shadow: 0 14px 32px rgba(155,63,95,0.4);
+      transition: background 180ms ease, transform 180ms ease;
+    }
+    .cover-cta:hover { background: var(--rose-bright); transform: translateY(-2px); }
+    .cover-lines {
+      display: flex; flex-direction: column; gap: 14px;
+      min-width: 260px;
+      padding: 18px 22px;
+      background: rgba(255,253,251,0.06);
+      border-left: 1.5px solid var(--gold);
+      backdrop-filter: blur(6px);
+    }
+    .cover-lines-kicker {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.36em; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .cover-lines a {
+      display: block;
+      font-size: 13px;
+      color: var(--cream);
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(255,253,251,0.15);
+      transition: padding-left 200ms ease, color 200ms ease;
+    }
+    .cover-lines a:last-of-type { border-bottom: none; }
+    .cover-lines a:hover { padding-left: 6px; color: var(--gold); }
+    .cover-lines a strong { display: block; font-weight: 600; }
+    .cover-lines a span { font-size: 12px; opacity: 0.7; }
+
+    /* ============================================================
+       2. THIS WEEK — episode featured, image-led, not the headline
+       ============================================================ */
+    .this-week {
+      background: var(--cream);
+      padding: 96px 0;
+    }
+    .this-week-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .this-week-img-wrap {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border-radius: 4px;
+      box-shadow: 0 30px 60px -30px rgba(75,33,72,0.4);
+    }
+    .this-week-img { width: 100%; height: 100%; object-fit: cover; }
+    .this-week-img-stamp {
+      position: absolute;
+      bottom: 18px; left: 18px;
+      padding: 6px 14px;
+      background: var(--cream);
+      color: var(--plum);
+      font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;
+    }
+    .this-week-eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 18px;
+      display: inline-flex; align-items: center; gap: 12px;
+    }
+    .this-week-eyebrow::after { content: ""; width: 32px; height: 1.5px; background: var(--gold); display: inline-block; }
+    .this-week-title {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700;
+      line-height: 0.98;
+      letter-spacing: -0.018em;
+      color: var(--plum);
+      margin-bottom: 20px;
+    }
+    .this-week-dek {
+      font-size: 18px;
+      color: var(--plum-soft);
+      line-height: 1.5;
+      margin-bottom: 28px;
+      max-width: 38ch;
+    }
+    .this-week-excerpt {
+      font-size: 16px;
+      color: var(--plum);
+      line-height: 1.65;
+      margin-bottom: 28px;
+      max-width: 44ch;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+    .this-week-excerpt::before {
+      content: "PLACEHOLDER — episode opening 120 words go here";
+      display: block;
+      font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .this-week-cta {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 15px; font-weight: 500;
+      color: var(--plum);
+      padding: 14px 26px;
+      background: transparent;
+      border: 1.5px solid var(--plum);
+      border-radius: 999px;
+      transition: background 180ms ease, color 180ms ease;
+    }
+    .this-week-cta:hover { background: var(--plum); color: var(--cream); }
+    .this-week-meta {
+      font-size: 12px; color: var(--plum-soft);
+      margin-top: 12px;
+      letter-spacing: 0.08em;
+    }
+
+    /* ============================================================
+       3. EDITOR'S LETTER
+       ============================================================ */
+    .editors {
+      background: var(--blush);
+      padding: 80px 0;
+      text-align: center;
+    }
+    .editors-inner { max-width: 720px; margin: 0 auto; }
+    .editors-kicker {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 22px;
+    }
+    .editors-body {
+      font-size: clamp(20px, 2.4vw, 28px);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.42;
+      color: var(--plum);
+      margin-bottom: 26px;
+      letter-spacing: -0.006em;
+    }
+    .editors-body .dropcap {
+      float: left;
+      font-size: clamp(72px, 8vw, 108px);
+      font-weight: 700;
+      font-style: normal;
+      color: var(--rose);
+      line-height: 0.78;
+      padding: 6px 18px 0 0;
+      margin-top: 6px;
+    }
+    .editors-signoff {
+      font-size: 14px; color: var(--plum-soft); letter-spacing: 0.06em;
+    }
+    .editors-signoff strong {
+      font-weight: 600; color: var(--plum);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 2px;
+    }
+
+    /* ============================================================
+       4. BRAND BAND — the bridging line, the 90s/Y2K poetic moment
+       ============================================================ */
+    .brand-band {
+      background: var(--pearl);
+      padding: 120px 0;
+      text-align: center;
+    }
+    .brand-band-pre {
+      font-size: clamp(16px, 1.8vw, 22px);
+      color: var(--plum-soft);
+      margin-bottom: 14px;
+      letter-spacing: -0.004em;
+    }
+    .brand-band-head {
+      font-size: clamp(44px, 7vw, 92px);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -0.025em;
+      color: var(--plum);
+    }
+
+    /* ============================================================
+       5. INSIDE LAiDIES — universe entry points, image-led variable grid
+       ============================================================ */
+    .inside-laidies {
+      background: var(--cream);
+      padding: 96px 0;
+    }
+    .section-head { margin-bottom: 56px; max-width: 720px; }
+    .section-head .kicker {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 14px;
+    }
+    .section-head h2 {
+      font-size: clamp(40px, 5.4vw, 64px);
+      font-weight: 600;
+      letter-spacing: -0.022em;
+      line-height: 0.98;
+      color: var(--plum);
+      margin-bottom: 14px;
+    }
+    .section-head p {
+      font-size: 18px;
+      color: var(--plum-soft);
+      max-width: 54ch;
+      line-height: 1.5;
+    }
+    .rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 360px;
+      gap: 18px;
+    }
+    .room {
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      background: linear-gradient(135deg, var(--pearl), var(--blush));
+      color: var(--cream);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 24px;
+      transition: transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 320ms ease;
+    }
+    .room::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(58,24,56,0) 30%, rgba(58,24,56,0.8) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .room > * { position: relative; z-index: 2; }
+    .room:hover, .room:focus-visible {
+      transform: translateY(-4px);
+      box-shadow: 0 28px 48px -24px rgba(75,33,72,0.4);
+    }
+    .room.lead { grid-column: span 2; grid-row: span 2; }
+    .room.tall { grid-row: span 2; }
+    .room-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 600ms ease;
+      z-index: 0;
+    }
+    .room:hover .room-img { transform: scale(1.04); }
+    .room-kicker {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--cream);
+      margin-bottom: 6px;
+      opacity: 0.85;
+    }
+    .room-address {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .room.lead .room-address, .room.tall .room-address, .room--wide .room-address { color: var(--gold); }
+    .room h3 {
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -0.012em;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+    .room.lead h3 { font-size: 44px; }
+    .room p {
+      font-size: 14px;
+      color: rgba(255,253,251,0.88);
+      line-height: 1.5;
+      max-width: 30ch;
+    }
+    /* Wide ARCAiDE tile — full-width hero at bottom of grid, fits the 16:9 cabinet lineup */
+    .room--wide {
+      grid-column: 1 / -1;
+      min-height: 380px;
+      background: var(--plum-deep); /* no fallback gradient — the cabinet image owns the tile */
+    }
+    .room--wide::after { display: none; } /* drop the default room scrim; use the dedicated .room-scrim below */
+    .room-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+    }
+    .room-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg,
+        rgba(58,24,56,0.0) 0%,
+        rgba(58,24,56,0.0) 50%,
+        rgba(58,24,56,0.85) 100%);
+      z-index: 1;
+    }
+    .room--wide .room-kicker,
+    .room--wide h3,
+    .room--wide p { color: var(--cream); position: relative; z-index: 2; }
+    .room--wide .room-kicker { color: var(--gold); }
+    .room--wide p { opacity: 0.92; }
+
+    .placeholder-room {
+      background:
+        repeating-linear-gradient(135deg, rgba(255,253,251,0.04), rgba(255,253,251,0.04) 10px, rgba(255,253,251,0.08) 10px, rgba(255,253,251,0.08) 20px),
+        linear-gradient(135deg, var(--plum-deep), var(--plum));
+    }
+    .placeholder-stamp {
+      position: absolute;
+      top: 18px; right: 18px;
+      padding: 4px 10px;
+      background: var(--gold);
+      color: var(--plum-deep);
+      font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+      z-index: 3;
+      border-radius: 999px;
+    }
+    /* ============================================================
+       QUICK PICKS — 5 rail cards, no hunting
+       ============================================================ */
+    .quick-picks {
+      background: var(--pearl);
+      padding: 64px 0 72px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .quick-picks-head {
+      display: flex; align-items: baseline; justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .quick-picks-kicker {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--rose);
+    }
+    .quick-picks-head h2 {
+      font-size: clamp(28px, 3.4vw, 40px);
+      font-weight: 600;
+      letter-spacing: -0.014em;
+      color: var(--plum);
+    }
+    .quick-picks-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+    .quick-pick {
+      display: flex; flex-direction: column; gap: 8px;
+      padding: 22px 20px;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      color: var(--plum);
+      transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+    }
+    .quick-pick:hover {
+      transform: translateY(-3px);
+      border-color: var(--rose);
+      box-shadow: 0 16px 32px -16px rgba(75,33,72,0.28);
+    }
+    .qp-icon {
+      width: 22px; height: 22px;
+      stroke: var(--rose);
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round; stroke-linejoin: round;
+      margin-bottom: 4px;
+    }
+    .qp-label {
+      font-size: 14px; font-weight: 600;
+      letter-spacing: -0.005em;
+      color: var(--plum);
+    }
+    .qp-sub {
+      font-size: 12px;
+      color: var(--plum-soft);
+      letter-spacing: 0.02em;
+    }
+    .qp-list {
+      list-style: none;
+      padding: 0; margin: 4px 0 8px;
+      display: flex; flex-direction: column;
+      gap: 4px;
+    }
+    .qp-list li {
+      font-size: 12px;
+      color: var(--plum-soft);
+      line-height: 1.4;
+      padding-left: 10px;
+      position: relative;
+    }
+    .qp-list li::before {
+      content: "";
+      position: absolute; left: 0; top: 7px;
+      width: 3px; height: 3px;
+      background: var(--rose);
+      border-radius: 50%;
+    }
+    .quick-pick--hero .qp-list li { color: rgba(255,253,251,0.88); }
+    .quick-pick--hero .qp-list li::before { background: var(--gold); }
+    .qp-blurb {
+      font-size: 12.5px;
+      color: var(--plum-soft);
+      line-height: 1.42;
+      margin: 2px 0 8px;
+    }
+    .quick-pick--hero .qp-blurb { color: rgba(255,253,251,0.88); }
+    .qp-cta {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--rose);
+      margin-top: auto;
+      padding-top: 4px;
+    }
+    .quick-pick--hero .qp-cta { color: var(--gold); }
+    .quick-picks-grid--4 { grid-template-columns: repeat(4, 1fr); }
+    .quick-pick--with-play { padding-bottom: 44px; position: relative; }
+    .quick-pick--hero {
+      background: linear-gradient(135deg, var(--plum) 0%, var(--rose) 100%);
+      color: var(--cream);
+      border-color: transparent;
+    }
+    .quick-pick--hero .qp-icon { stroke: var(--gold); }
+    .quick-pick--hero .qp-label { color: var(--cream); }
+    .quick-pick--hero .qp-sub { color: rgba(255,253,251,0.85); }
+    .quick-pick--hero:hover { transform: translateY(-3px); box-shadow: 0 20px 40px -16px rgba(75,33,72,0.5); border-color: var(--gold); }
+
+    .qp-play {
+      position: absolute;
+      bottom: 12px; right: 12px;
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 4px 9px 4px 6px;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--plum);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+    }
+    .quick-pick--hero .qp-play { background: rgba(255,253,251,0.95); border-color: var(--gold); }
+    .qp-play:hover { background: var(--rose); color: var(--cream); border-color: var(--rose); }
+    .qp-play .play-icon, .qp-play .pause-icon { width: 12px; height: 12px; fill: currentColor; }
+    .qp-play .pause-icon { display: none; }
+    .qp-play.is-playing .play-icon { display: none; }
+    .qp-play.is-playing .pause-icon { display: block; }
+    .qp-play.is-playing { background: var(--rose); color: var(--cream); border-color: var(--rose); }
+    .qp-play-text { line-height: 1; }
+
+    /* ============================================================
+       SAINT CARDS — play-theme pill sits BELOW portrait so it
+       never covers the face/halo. Uses flex-order, no HTML changes.
+       ============================================================ */
+    .saint-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .saint-card .saint-portrait { order: 1; }
+    .saint-card .saint-play { order: 2; }
+    .saint-card .saint-card-body { order: 3; }
+
+    .saint-play {
+      align-self: flex-end;
+      margin: 10px 14px 0 0;
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 5px 10px 5px 7px;
+      background: var(--cream);
+      border: 1px solid rgba(75,33,72,0.18);
+      border-radius: 999px;
+      color: var(--plum);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 200ms ease, border-color 200ms ease, color 200ms ease, transform 200ms ease;
+    }
+    .saint-play:hover { background: var(--rose); color: var(--cream); border-color: var(--rose); transform: scale(1.04); }
+    .saint-play .play-icon, .saint-play .pause-icon { width: 12px; height: 12px; fill: currentColor; }
+    .saint-play .pause-icon { display: none; }
+    .saint-play.is-playing .play-icon { display: none; }
+    .saint-play.is-playing .pause-icon { display: block; }
+    .saint-play.is-playing { background: var(--rose); color: var(--cream); border-color: var(--rose); }
+    .saint-play--coming-soon { opacity: 0.55; cursor: not-allowed; }
+    .saint-play--coming-soon:hover { background: rgba(255,253,251,0.94); color: var(--plum); border-color: rgba(75,33,72,0.18); transform: none; }
+    .saint-play-text { line-height: 1; }
+
+    /* Saints mini-card uses real portraits in a montage */
+    .room-saints-montage {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: absolute; inset: 0;
+      z-index: 0;
+    }
+    .room-saints-montage img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    /* ============================================================
+       6. SAINTS — the cast (full portrait grid below)
+       ============================================================ */
+    .saints {
+      background: var(--blush);
+      padding: 96px 0;
+    }
+    .section-head--centered { text-align: center; margin: 0 auto 56px; max-width: 760px; }
+    .section-head--centered p { max-width: 56ch; margin: 0 auto; }
+    .saints-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .saint-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      transition: transform 280ms ease, box-shadow 280ms ease, border-color 240ms ease;
+    }
+    .saint-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 44px -22px rgba(75,33,72,0.3);
+      border-color: var(--rose);
+    }
+    .saint-portrait {
+      width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block;
+    }
+    .saint-card-body { padding: 18px 22px 22px; }
+    .saint-card-body h3 {
+      font-size: 19px; font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .saint-lane {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 12px;
+    }
+    .saint-rule {
+      font-size: 13px;
+      color: var(--plum-soft);
+      line-height: 1.55;
+    }
+
+    /* ============================================================
+       7A. THE WEDNESDAY DROP — newsletter signup band (LIVE)
+       ============================================================ */
+    .wednesday-drop {
+      background: var(--plum);
+      color: var(--cream);
+      padding: 80px 0;
+    }
+    .wednesday-drop-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .wednesday-drop h2 {
+      font-size: clamp(40px, 5.4vw, 64px);
+      font-weight: 700;
+      line-height: 0.98;
+      letter-spacing: -0.022em;
+      color: var(--cream);
+      margin-bottom: 16px;
+    }
+    .wednesday-drop p {
+      font-size: 17px;
+      color: rgba(255,253,251,0.75);
+      margin-bottom: 32px;
+      max-width: 44ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .wednesday-drop-form {
+      display: flex; gap: 10px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .wednesday-drop-form input {
+      flex: 1; height: 52px; padding: 0 20px;
+      border: 1px solid rgba(255,253,251,0.22);
+      border-radius: 999px;
+      background: rgba(255,253,251,0.06);
+      color: var(--cream); font: inherit; font-size: 15px;
+    }
+    .wednesday-drop-form input::placeholder { color: rgba(255,253,251,0.5); }
+    .wednesday-drop-form button {
+      height: 52px; padding: 0 28px;
+      border-radius: 999px; border: none;
+      background: var(--rose); color: var(--cream);
+      font-weight: 500; letter-spacing: 0.04em;
+      white-space: nowrap;
+      transition: background 180ms ease;
+    }
+    .wednesday-drop-form button:hover { background: var(--rose-bright); }
+    .wednesday-drop-small {
+      margin-top: 18px;
+      font-size: 12px;
+      color: rgba(255,253,251,0.5);
+    }
+
+    /* ============================================================
+       7B. THE CLUB — membership coming soon (PLACEHOLDER, no form)
+       ============================================================ */
+    .club {
+      padding: 80px var(--pad-x);
+    }
+    .club-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      position: relative;
+      isolation: isolate;
+      background:
+        radial-gradient(circle at 50% 16%, rgba(185, 93, 120, 0.22), transparent 58%),
+        linear-gradient(160deg, #1a0a12, #2d0f1f, #1a0a12);
+      color: var(--cream);
+      border-radius: 4px;
+      overflow: hidden;
+      min-height: 380px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      align-items: center;
+      padding: 72px 72px;
+      gap: 48px;
+    }
+    .club-inner::before {
+      content: "";
+      position: absolute; inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        radial-gradient(1.6px 1.6px at 12% 24%, rgba(255, 215, 0, 0.65), transparent),
+        radial-gradient(1.4px 1.4px at 28% 64%, rgba(255, 255, 255, 0.50), transparent),
+        radial-gradient(1.8px 1.8px at 42% 18%, rgba(255, 215, 0, 0.50), transparent),
+        radial-gradient(1.2px 1.2px at 58% 78%, rgba(255, 255, 255, 0.42), transparent),
+        radial-gradient(1.6px 1.6px at 72% 28%, rgba(255, 215, 0, 0.55), transparent),
+        radial-gradient(1.3px 1.3px at 86% 62%, rgba(255, 255, 255, 0.45), transparent),
+        radial-gradient(1.1px 1.1px at 18% 86%, rgba(255, 215, 0, 0.40), transparent),
+        radial-gradient(1.4px 1.4px at 92% 14%, rgba(255, 255, 255, 0.38), transparent);
+    }
+    .club-inner > * { position: relative; z-index: 1; }
+    .club-status {
+      display: inline-block;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold);
+      padding: 6px 12px;
+      border: 1px solid var(--gold);
+      border-radius: 999px;
+      margin-bottom: 22px;
+    }
+    .club h2 {
+      font-size: clamp(40px, 5.6vw, 72px);
+      font-weight: 700;
+      line-height: 0.96;
+      letter-spacing: -0.025em;
+      margin-bottom: 18px;
+      color: var(--cream);
+    }
+    .club-copy p {
+      font-size: 17px;
+      color: rgba(255,253,251,0.82);
+      line-height: 1.55;
+      margin-bottom: 12px;
+      max-width: 44ch;
+    }
+    .club-fine {
+      font-size: 12px;
+      color: rgba(255,253,251,0.5);
+      margin-top: 14px;
+    }
+    .club-card-wrap { display: flex; align-items: center; justify-content: center; }
+    .club-card-back {
+      width: clamp(180px, 24vw, 260px);
+      transform: rotate(-4deg);
+      filter: drop-shadow(0 0 50px rgba(194,91,125,0.45)) drop-shadow(0 18px 36px rgba(0,0,0,0.4));
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .site-footer {
+      background: var(--plum);
+      color: var(--cream);
+      padding: 56px 0 28px;
+    }
+    .site-footer-inner { display: flex; justify-content: space-between; gap: 36px; align-items: flex-end; flex-wrap: wrap; }
+    .footer-tagline {
+      font-size: clamp(20px, 2.8vw, 28px);
+      font-weight: 600;
+      max-width: 18ch;
+      line-height: 1.12;
+      margin-bottom: 14px;
+    }
+    .footer-handle { font-size: 12px; color: rgba(255,253,251,0.6); letter-spacing: 0.08em; }
+    .footer-nav { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 13px; }
+    .footer-nav a { color: rgba(255,253,251,0.78); }
+    .footer-nav a:hover { color: var(--cream); }
+    .footer-bottom { font-size: 11px; color: rgba(255,253,251,0.45); margin-top: 28px; border-top: 1px solid rgba(255,253,251,0.12); padding-top: 18px; letter-spacing: 0.08em; }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 880px) {
+      .cover { min-height: 80vh; padding: 24px 24px 40px; }
+      .cover-bottom { grid-template-columns: 1fr; gap: 24px; }
+      .cover-lines { min-width: 0; }
+      .this-week-inner { grid-template-columns: 1fr; gap: 32px; }
+      .this-week-img-wrap { aspect-ratio: 4/3; }
+      .rooms-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; gap: 12px; }
+      .room { min-height: 260px; }
+      .room.lead, .room.tall { grid-column: auto; grid-row: auto; }
+      .room--wide { grid-column: 1 / -1; min-height: 240px; }
+      .quick-picks-grid { grid-template-columns: 1fr 1fr; }
+      .quick-picks-grid--4 { grid-template-columns: 1fr 1fr; }
+      .saints-grid { grid-template-columns: repeat(2, 1fr); }
+      .club-inner { grid-template-columns: 1fr; padding: 48px 32px; text-align: center; }
+      .club-copy p { margin-left: auto; margin-right: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CONCEPT SWITCHER (visible bar above page so Ali can switch) -->
+  <nav class="concept-switcher" aria-label="Concept switcher">
+    <span><strong>Concept</strong>3 visual directions for review · live preview</span>
+    <span>
+      <a href="../concept-a/" class="is-active">A · The Cover</a>
+      <a href="../concept-b/">B · Type Sculpture</a>
+      <a href="../concept-c/">C · The Zine</a>
+      <a href="../../">↩ Current homepage</a>
+    </span>
+  </nav>
+
+  <!-- 1. THE COVER -->
+  <section class="cover">
+    <div class="cover-flag">
+      <a class="cover-wordmark" href="../../" aria-label="LAiDIES home">
+        <img src="../../assets/brand/laidies-wordmark-final-b-light.svg" alt="LAiDIES">
+      </a>
+      <div class="cover-stamp-wrap">
+        <span class="cover-stamp">
+          <strong class="cover-stamp-town">SUNNYVAiLE</strong>
+          <span class="gold">·</span> Episode 04
+          <span class="gold">·</span> Wednesday, June 29, 2026
+        </span>
+        <button class="cover-anthem" type="button"
+                aria-label="Play the SUNNYVAiLE town anthem"
+                data-src="../../content/music/sunnyvaile-town-anthem.mp3"
+                onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+          <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+          <span class="cover-anthem-text">♪ town anthem</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="cover-middle"></div>
+
+    <div class="cover-bottom">
+      <div class="cover-headline-block">
+        <h1 class="cover-headline">
+          GIRL POWER
+          <span class="cover-meets">meets</span>
+          MACHINE POWER
+        </h1>
+        <p class="cover-tag">AI fluency and community for women with full calendars, high standards, and no patience for beige tech explanations.</p>
+        <a class="cover-cta" href="../../this-week.html">Read This Week →</a>
+      </div>
+      <div class="cover-lines">
+        <p class="cover-lines-kicker">Inside</p>
+        <a href="../../this-week.html"><strong>Every SLAiYER Needs a Watcher</strong><span>This week · 4-min read</span></a>
+        <a href="../../grimoire.html"><strong>The Grimoire</strong><span>The reference shelf</span></a>
+        <a href="../../clubhouse.html"><strong>The Clubhouse</strong><span>Drop in whenever</span></a>
+        <a href="../../games/madame-claio.html"><strong>Mme CLAi-O</strong><span>Ask the oracle</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. THIS WEEK — featured episode story -->
+  <section class="this-week">
+    <div class="container">
+      <div class="this-week-inner">
+        <div class="this-week-img-wrap">
+          <img class="this-week-img" src="../../assets/episodes/issue-04/section-slaiyer-handbook-v1.png" alt="Episode 04 — Every SLAiYER Needs a Watcher">
+          <span class="this-week-img-stamp">This Week · Episode 04</span>
+        </div>
+        <div>
+          <p class="this-week-eyebrow">The SLAiYER Handbook · Chapter 1</p>
+          <h2 class="this-week-title">Every SLAiYER Needs a Watcher</h2>
+          <p class="this-week-dek">Your field guide to actually using AI at work — which tool, what to say, and how not to get staked.</p>
+          <div class="this-week-excerpt">
+            This week I watched a CFO type "just make it better" into ChatGPT and act betrayed by what came back. The tools are good. The instructions are the gig — and the instructions are the part nobody is teaching us. So we wrote it down. Episode 4 is the SLAiYER Handbook: which AI to open for which job, what the words actually mean, and how to use any of them without getting staked.
+          </div>
+          <a class="this-week-cta" href="../../this-week.html">Read the episode →</a>
+          <p class="this-week-meta">4-min read · Published June 24, 2026</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. EDITOR'S LETTER -->
+  <section class="editors">
+    <div class="container">
+      <div class="editors-inner">
+        <p class="editors-kicker">From the Editor</p>
+        <p class="editors-body">
+          <span class="dropcap">I</span> grew up in the era of 24-episode seasons, iconic female characters, and a lesson woven into every story arc. I think in analogies, and it turns out it's a pretty useful (and fun!) way to explain AI.
+        </p>
+        <p class="editors-body">
+          I'm also passionate about women being the ones who shape AI, not just catch up to it. That's why I started LAiDIES.
+        </p>
+        <p class="editors-body">
+          So I built us a whole world to learn it in. LAiDIES lives in the fictional small town of SUNNYVAiLE — full of the shops, spots, and characters we grew up with. Every section of the site has an address here. Every Wednesday, a new episode drops at the video rental shop.
+        </p>
+        <p class="editors-body">
+          AI fluency and community for smart women with full calendars, high standards, and no patience for beige tech explanations. The 90s and Y2K shaped us. AI is shaping now. LAiDIES and SUNNYVAiLE is where they meet.
+        </p>
+        <p class="editors-body">
+          I'm glad you're here. Now get in loser — we're learning AI.
+        </p>
+        <p class="editors-signoff">— <strong>Ali, Founder</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. BRAND BAND — the bridge -->
+  <section class="brand-band">
+    <div class="container">
+      <p class="brand-band-pre">The 90s/Y2K defined us. AI is shaping now.</p>
+      <h2 class="brand-band-head">
+        <span class="brand-word-inline"><span>L<span data-brand-ai>Ai</span>DIES</span></span>
+        is where they meet.
+      </h2>
+    </div>
+  </section>
+
+  <!-- 5. INSIDE LAiDIES — universe rooms, image-led variable grid -->
+  <section class="inside-laidies">
+    <div class="container">
+      <header class="section-head">
+        <p class="kicker">Inside LAiDIES</p>
+        <h2>The LAiDIES Universe in six rooms</h2>
+        <p>Not just the weekly newsletter — a reference library, a community, a season arc, a cast of patron saints, and a set of games for when you need to take five.</p>
+      </header>
+
+      <div class="rooms-grid">
+
+        <!-- The Grimoire -->
+        <a class="room" href="../../grimoire.html">
+          <span class="placeholder-stamp">Placeholder Art</span>
+          <div class="placeholder-room" style="position:absolute;inset:0;z-index:0;"></div>
+          <span class="room-kicker">The Reference</span>
+          <h3>The Grimoire</h3>
+          <p class="room-address">at the Town Library</p>
+          <p>SLAiYER Handbook · Power Map · Chamber of Receipts · The Decoder · and more.</p>
+        </a>
+
+        <!-- The Clubhouse -->
+        <a class="room" href="../../clubhouse.html">
+          <span class="placeholder-stamp">Placeholder Art</span>
+          <div class="placeholder-room" style="position:absolute;inset:0;z-index:0;"></div>
+          <span class="room-kicker">The Hangout</span>
+          <h3>The Clubhouse</h3>
+          <p class="room-address">at the Sorority House</p>
+          <p>Wins · Burn Book · Dear LAiDIES · drop in whenever.</p>
+        </a>
+
+        <!-- The Lore Closet — pulled out of the Grimoire, its own shop on Main Street -->
+        <a class="room" href="../../grimoire/lore-closet.html">
+          <span class="placeholder-stamp">Placeholder Art</span>
+          <div class="placeholder-room" style="position:absolute;inset:0;z-index:0;"></div>
+          <span class="room-kicker">The Closet</span>
+          <h3>The Lore Closet</h3>
+          <p class="room-address">on Main Street</p>
+          <p>Clueless · Mean Girls · Buffy · Devil Wears Prada · Legally Blonde · Schitt's Creek · the references LAiDIES reaches for.</p>
+        </a>
+
+        <!-- SUNNYVAiLE NewsStand -->
+        <a class="room" href="../../hot-goss.html">
+          <span class="placeholder-stamp">Placeholder Art</span>
+          <div class="placeholder-room" style="position:absolute;inset:0;z-index:0;"></div>
+          <span class="room-kicker">The News</span>
+          <h3>SUNNYVAiLE NewsStand</h3>
+          <p class="room-address">on Main Street</p>
+          <p>Daily headlines · weekly stories · the occasional hot take. AI translated.</p>
+        </a>
+
+        <!-- Season -->
+        <a class="room" href="../../episodes.html">
+          <span class="placeholder-stamp">Placeholder Art</span>
+          <div class="placeholder-room" style="position:absolute;inset:0;z-index:0;"></div>
+          <span class="room-kicker">24 Episodes</span>
+          <h3>The Season</h3>
+          <p class="room-address">at the Video Rental Shop</p>
+          <p>Start at one. Jump to what you need.</p>
+        </a>
+
+        <!-- Start Here -->
+        <a class="room" href="../../start-here.html">
+          <span class="placeholder-stamp">Placeholder Art</span>
+          <div class="placeholder-room" style="position:absolute;inset:0;z-index:0;"></div>
+          <span class="room-kicker">First Time</span>
+          <h3>Start Here</h3>
+          <p class="room-address">at the Visitor's Centre</p>
+          <p>New? Two minutes, then your first episode.</p>
+        </a>
+
+        <!-- ARCAiDE — reframed as "the games of SUNNYVAiLE" -->
+        <a class="room room--wide" href="../../clubhouse.html#games">
+          <img class="room-img" src="../../assets/arcaide-cabinets.png" alt="" loading="lazy">
+          <div class="room-scrim"></div>
+          <span class="room-kicker">Around Town</span>
+          <h3>The Games of SUNNYVAiLE</h3>
+          <p>Each game at its own spot — Mme CLAi-O's shop · The BRONZE AiGE · the town hotline · the sorority house.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK PICKS — 4 active picks, no hunting -->
+  <section class="quick-picks">
+    <div class="container">
+      <header class="quick-picks-head">
+        <p class="quick-picks-kicker">Right Now · No Hunting</p>
+        <h2>Quick picks.</h2>
+      </header>
+      <div class="quick-picks-grid quick-picks-grid--4">
+
+        <!-- 1. SUNNYVAiLE Today — 3 sample headlines (placeholder until live feed wired) -->
+        <a class="quick-pick" href="../../hot-goss.html">
+          <svg class="qp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h12v16H6a2 2 0 0 1-2-2V4z"/><path d="M16 8h4v10a2 2 0 0 1-2 2"/><path d="M7 8h6M7 12h6M7 16h4"/></svg>
+          <span class="qp-label">SUNNYVAiLE · Today</span>
+          <ul class="qp-list">
+            <li>Anthropic ships Claude memory across sessions</li>
+            <li>OpenAI talks GPT-6 timeline</li>
+            <li>The board deck rewriting AI literacy</li>
+          </ul>
+          <span class="qp-cta">All headlines →</span>
+        </a>
+
+        <!-- 2. BWS = happy hour fortune (pick your drink) -->
+        <a class="quick-pick quick-pick--with-play" href="../../games/businesswomens-special.html">
+          <svg class="qp-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 4h14L12 13z"/>
+            <path d="M12 13v6"/>
+            <path d="M8 20h8"/>
+          </svg>
+          <span class="qp-label">Businesswomen's Special</span>
+          <p class="qp-blurb">Coven has a reservation at 4. Pick your happy hour drink!</p>
+          <span class="qp-cta">Pick your drink →</span>
+          <button class="qp-play" type="button"
+                  aria-label="Play Businesswomen's Special theme"
+                  data-src="../../content/music/game-businesswomens-special.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="qp-play-text">♪ theme</span>
+          </button>
+        </a>
+
+        <!-- 3. DJ Booth — on rotation (the player itself, no theme song) -->
+        <a class="quick-pick" href="../../games/dj-booth.html">
+          <svg class="qp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v3a2 2 0 0 0 2 2h1v-7H6a2 2 0 0 0-2 2z"/><path d="M20 12v3a2 2 0 0 1-2 2h-1v-7h1a2 2 0 0 1 2 2z"/><path d="M4 12V11a8 8 0 0 1 16 0v1"/></svg>
+          <span class="qp-label">DJ Booth</span>
+          <p class="qp-sub">On rotation:</p>
+          <ul class="qp-list">
+            <li>♪ The LIBRAiRY — DJ SunnyV</li>
+            <li>♪ Tomorrow's Problem — Deb</li>
+            <li>♪ Call Me Now — Mme CLAi-O</li>
+          </ul>
+          <span class="qp-cta">Open the booth →</span>
+        </a>
+
+        <!-- 4. Ask LAiDY — what she does + play her theme -->
+        <a class="quick-pick quick-pick--with-play quick-pick--hero" href="../../games/fairy-godmother.html">
+          <svg class="qp-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3l1.8 4.5L18 9l-3.5 3 1 4.5L12 14.5 8.5 16.5l1-4.5L6 9l4.2-1.5z"/>
+            <circle cx="18" cy="6" r="1" fill="currentColor"/>
+            <circle cx="6" cy="18" r="0.8" fill="currentColor"/>
+          </svg>
+          <span class="qp-label">Ask LAiDY</span>
+          <p class="qp-blurb">Stuck on a prompt? Need to translate an AI memo? She'll fix it, explain it, or coach you through.</p>
+          <span class="qp-cta">Open her up →</span>
+          <button class="qp-play" type="button"
+                  aria-label="Play LAiDY's theme"
+                  data-src="../../content/music/game-ask-laidy.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="qp-play-text">♪ theme</span>
+          </button>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. SAINTS — full grid -->
+  <section class="saints" id="saints">
+    <div class="container">
+      <header class="section-head section-head--centered">
+        <p class="kicker">Your Patron Saints</p>
+        <h2>The cast you already know.</h2>
+        <p>The pop-culture cast we keep coming back to. They walked into rooms full of people who underestimated them — and walked out with the upper hand. Borrow what they did.</p>
+      </header>
+
+      <div class="saints-grid">
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/cher-horowitz.png" alt="Cher Horowitz">
+          <button class="saint-play" type="button"
+                  aria-label="Play Cher's theme"
+                  data-src="../../content/music/saint-cher-horowitz.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
+          <div class="saint-card-body">
+            <h3>Cher Horowitz</h3>
+            <p class="saint-lane">Early Adoption</p>
+            <p class="saint-rule">Cher had a wardrobe recommender in 1995. The story isn't that the tech existed. It's that she was first in the cafeteria to use it.</p>
+          </div>
+        </a>
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/elle-woods.png" alt="Elle Woods">
+          <button class="saint-play" type="button"
+                  aria-label="Play Elle's theme"
+                  data-src="../../content/music/saint-elle-woods.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
+          <div class="saint-card-body">
+            <h3>Elle Woods</h3>
+            <p class="saint-lane">Receipts</p>
+            <p class="saint-rule">Elle walked into court with the perm rule, the timeline, and the witness already lined up. She didn't bring receipts. She had them.</p>
+          </div>
+        </a>
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/miranda-priestly.png" alt="Miranda Priestly">
+          <button class="saint-play" type="button"
+                  aria-label="Play Miranda's theme"
+                  data-src="../../content/music/saint-miranda-priestly.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
+          <div class="saint-card-body">
+            <h3>Miranda Priestly</h3>
+            <p class="saint-lane">Standards</p>
+            <p class="saint-rule">Miranda knew the cerulean's whole history before it touched a closet. Knowing what you're looking at is the difference between a yes and a yes-with-changes.</p>
+          </div>
+        </a>
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/buffy-summers.png" alt="Buffy Summers">
+          <button class="saint-play" type="button"
+                  aria-label="Play Buffy's theme"
+                  data-src="../../content/music/saint-buffy-summers.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
+          <div class="saint-card-body">
+            <h3>Buffy Summers</h3>
+            <p class="saint-lane">Slaying the Tools</p>
+            <p class="saint-rule">Buffy runs toward the vampire. Everybody else is still in the parking lot trying to get away.</p>
+          </div>
+        </a>
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/regina-george.png" alt="Regina George">
+          <button class="saint-play" type="button"
+                  aria-label="Play Regina's theme"
+                  data-src="../../content/music/saint-regina-george.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
+          <div class="saint-card-body">
+            <h3>Regina George</h3>
+            <p class="saint-lane">Dangerous Confidence</p>
+            <p class="saint-rule">Regina told Cady the skirt was cute, then told someone else it was ugly. Same skirt. Different audience. Polished delivery — and the receipts are still in the Burn Book.</p>
+          </div>
+        </a>
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/david-rose.png" alt="David Rose">
+          <button class="saint-play" type="button"
+                  aria-label="Play David's theme"
+                  data-src="../../content/music/saint-david-rose.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
+          <div class="saint-card-body">
+            <h3>David Rose</h3>
+            <p class="saint-lane">Specificity</p>
+            <p class="saint-rule">"Fold in the cheese" is an instruction. "Make this better" is also an instruction. They fail the same way.</p>
+          </div>
+        </a>
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/deb.png" alt="Deb">
+          <button class="saint-play" type="button"
+                  aria-label="Play Deb's theme"
+                  data-src="../../content/music/saint-deb.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
+          <div class="saint-card-body">
+            <h3>Deb</h3>
+            <p class="saint-lane">Loop Me Out</p>
+            <p class="saint-rule">Deb has survived every reorg since 2004. AI doesn't know she exists — and half your job runs through her.</p>
+          </div>
+        </a>
+        <a class="saint-card" href="../../grimoire.html">
+          <img class="saint-portrait" src="../../assets/saints/dolly-parton.png" alt="Dolly Parton">
+          <button class="saint-play" type="button"
+                  aria-label="Play Dolly's theme"
+                  data-src="../../content/music/saint-dolly-parton.mp3"
+                  onclick="event.preventDefault();event.stopPropagation();window.playLaidiesTheme(this);">
+            <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span class="saint-play-text">♪ theme</span>
+          </button>
+          <div class="saint-card-body">
+            <h3>Dolly Parton</h3>
+            <p class="saint-lane">Common Sense</p>
+            <p class="saint-rule">You better get to building your own bridge, because ain't nobody building it for you, honey.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7A. THE WEDNESDAY DROP — newsletter signup -->
+  <section class="wednesday-drop">
+    <div class="container">
+      <div class="wednesday-drop-inner">
+        <h2>Every Wednesday, in your inbox.</h2>
+        <p>AI fluency and community for women who get things done. One email. No homework you didn't sign up for.</p>
+        <form class="wednesday-drop-form" action="https://buttondown.com/api/emails/embed-subscribe/laidies" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/laidies', 'popupwindow')">
+          <input type="email" name="email" placeholder="your@email.com" required>
+          <input type="hidden" name="tag" value="concept-a-newsletter">
+          <button type="submit">Subscribe</button>
+        </form>
+        <p class="wednesday-drop-small">No spam. Unsubscribe whenever.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7B. THE CLUB — membership coming soon -->
+  <section class="club">
+    <div class="club-inner">
+      <div class="club-copy">
+        <p class="club-status">Member Magic · Coming Soon</p>
+        <h2>The Club opens soon.</h2>
+        <p>Member cards. The rooms. The Wednesday debrief. Saved for you when the doors open.</p>
+        <p>Subscribers get first dibs — join the Wednesday drop above and we'll let you know.</p>
+        <p class="club-fine">Member magic — coming in Part C.</p>
+      </div>
+      <div class="club-card-wrap">
+        <img class="club-card-back" src="../../assets/saints/card-back.png" alt="" aria-hidden="true">
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer-inner">
+        <div>
+          <img src="../../assets/brand/laidies-wordmark-final-b-dark.svg" alt="LAiDIES" style="height:24px;margin-bottom:16px;opacity:0.95;">
+          <p class="footer-tagline">AI fluency and community for women with full calendars, high standards, and no patience for beige tech explanations.</p>
+          <p class="footer-handle">@laidies.ai · the Wednesday drop</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="../../this-week.html">This Week</a>
+          <a href="../../grimoire.html">The Grimoire</a>
+          <a href="../../clubhouse.html">The Clubhouse</a>
+          <a href="../../episodes.html">The Season</a>
+          <a href="../../start-here.html">Start Here</a>
+        </nav>
+      </div>
+      <p class="footer-bottom">© LAiDIES · Concept A prototype · 2026-06-29</p>
+    </div>
+  </footer>
+
+
+  <!-- LAiDIES audio controller — single-track-at-a-time enforcement -->
+  <script>
+    (function() {
+      'use strict';
+      var activeBtn = null;
+      var activeAudio = null;
+
+      function stopActive() {
+        if (activeBtn) activeBtn.classList.remove('is-playing');
+        if (activeAudio) { try { activeAudio.pause(); } catch(e){} }
+        activeBtn = null;
+        activeAudio = null;
+      }
+
+      window.playLaidiesTheme = function(btn) {
+        if (!btn || btn.disabled) return;
+        var src = btn.getAttribute('data-src');
+        if (!src) return;
+
+        // Toggle off if same button clicked
+        if (activeBtn === btn) { stopActive(); return; }
+
+        // Stop any currently playing
+        stopActive();
+
+        // Also pause the mini-player if present (respect existing single-audio convention)
+        document.querySelectorAll('audio').forEach(function(a) { try { a.pause(); } catch(e){} });
+
+        var audio = new Audio(src);
+        audio.preload = 'metadata';
+        audio.addEventListener('ended', function() {
+          if (activeAudio === audio) stopActive();
+        });
+        audio.addEventListener('error', function() {
+          console.warn('LAiDIES audio failed to load:', src);
+          if (activeAudio === audio) stopActive();
+        });
+
+        var playPromise = audio.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(function(err) {
+            console.warn('LAiDIES audio play() rejected:', err);
+            if (activeAudio === audio) stopActive();
+          });
+        }
+
+        btn.classList.add('is-playing');
+        activeBtn = btn;
+        activeAudio = audio;
+      };
+    })();
+  </script>
+
+</body>
+</html>

@@ -217,13 +217,13 @@
       .crystal-ball-container img {
         position: relative;
         z-index: 1;
-        max-width: 400px;
+        max-width: 340px;
         width: 100%;
         height: auto;
-        border-radius: 50%;
-        border: 3px solid rgba(185, 93, 120, 0.5);
-        box-shadow: 0 0 40px rgba(185, 93, 120, 0.4), 0 0 80px rgba(128, 0, 128, 0.2);
-        filter: drop-shadow(0 8px 32px rgba(185, 93, 120, 0.35));
+        border-radius: 14px;
+        border: 2.5px solid rgba(185, 93, 120, 0.55);
+        box-shadow: 0 8px 30px rgba(185, 93, 120, 0.35), 0 0 60px rgba(128, 0, 128, 0.16);
+        filter: drop-shadow(0 8px 24px rgba(185, 93, 120, 0.32));
         animation: crystalFloat 4s ease-in-out infinite;
         transition: transform 0.3s ease;
       }
@@ -525,26 +525,30 @@
     </script>
       <link rel="stylesheet" href="../content/site/mini-player.css">
     <link rel="stylesheet" href="../content/site/laidies-bg.css?v=laidies-bg-1" />
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260707-a11y"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260705-2"></script>
 </head>
   <body>
     <!-- Site background component (dark variant) -->
     <div class="laidies-bg laidies-bg--dark" aria-hidden="true"></div>
 
-    <header class="site-header">
-      <a href="../clubhouse.html" style="color: var(--hotline-pink, #b95d78); font-size: 0.85rem; font-weight: 700; padding: 4px 8px; text-decoration: none; white-space: nowrap;">← Back to Clubhouse</a>
-      <a class="brand" href="../index.html" aria-label="LAiDIES home">
-        <img src="../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
-      </a>
-      <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false">☰</button>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="../issues/issue-03.html">LATEST</a>
-        <a href="../start-here.html">START HERE</a>
-        <a href="../episodes.html">SEASON</a>
-        <a href="../hot-goss.html">THE BOOK</a>
-        <a href="../clubhouse.html">CLUBHOUSE</a>
-        <a href="../community.html">JOIN</a>
-</nav>
-    </header>
+    <header class="sv-header">
+    <a class="brand" href="/">LAiDIES</a>
+    <nav>
+      <a href="/">This Week</a>
+      <a href="/chick-flicks.html">Episodes</a>
+      <a href="/library.html">LIBRAiRY</a>
+      <a href="/radio.html">KSVL</a>
+      <a href="/sorority-house.html">Sorority House</a>
+      <a href="/clubhouse-pass.html" class="sv-signin" style="color: #9b3f5f; font-weight: 600; border: 1.5px solid #9b3f5f; padding: 6px 14px; border-radius: 999px; text-decoration: none;">✉︎ Sign In</a>
+    </nav>
+  </header>
+
+    <div class="sv-hero" style="width:100%; display:block; background:#f8eef2; position:relative;">
+      <img src="../assets/building-interiors/mme-claio-reading-room.jpg?v=20260707" alt="Inside Mme CLAi-O's reading room — a glowing crystal ball on a velvet table with a fan of tarot cards, candles, crystals and beaded curtains, all in plum and rose" style="width:100%; height:auto; display:block;" loading="eager" />
+    </div>
 
     <!-- Call Counter -->
     <div class="call-counter" id="callCounter">📞 Call #0</div>
@@ -552,12 +556,25 @@
     <main>
       <div class="game-page-wrap">
         <div class="game-page-header">
-          <a href="../clubhouse.html" data-weekly-return-link>&larr; Back to Clubhouse</a>
+          <a href="/" data-weekly-return-link>&larr; Back to Clubhouse</a>
         </div>
 
         <div class="game-page-title">
           <p class="eyebrow">✨ Psychic Hotline ✨</p>
           <h1>Madame CLAi-O</h1>
+<div style="margin: 12px 0 20px;">
+  <button type="button"
+          aria-label="Play the Madame CLAi-O song on KSVL"
+          data-src="/content/music/game-mme-claio.mp3"
+          onclick="window.playLaidiesTheme(this);"
+          style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px 8px 14px; background: transparent; border: 1.5px solid #9b3f5f; border-radius: 999px; color: #4b2148; font: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 200ms ease, color 200ms ease;"
+          onmouseover="this.style.background='#9b3f5f'; this.style.color='#fffdfb';"
+          onmouseout="this.style.background='transparent'; this.style.color='#4b2148';">
+    <svg viewBox="0 0 24 24" style="width:10px; height:10px; fill: currentColor;" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    <svg viewBox="0 0 24 24" style="width:10px; height:10px; fill: currentColor; display:none;" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+    <span>&#9834; Play the Madame CLAi-O song</span>
+  </button>
+</div>
           <p class="subtitle">Practical advice, late-night-commercial drama.</p>
         </div>
 
@@ -571,7 +588,7 @@
             <img src="../assets/madame-claio-character-v1.png" alt="Madame CLAi-O" />
           </div>
           <div>
-            <button class="call-button" type="button" id="fortuneButton">📞 CALL NOW FOR YOUR READING</button>
+            <button class="call-button" type="button" id="fortuneButton">🔮 STEP IN FOR YOUR READING</button>
           </div>
         </div>
 
@@ -583,15 +600,22 @@
 
         <!-- Fortune Card -->
         <div class="fortune-card" id="fortuneCard">
-          <p class="fortune-card-flourish" id="fortuneFlourish">🔮 <em>crystal ball activates</em> 🔮</p>
+          <p class="fortune-card-flourish" id="fortuneFlourish">★ Your Reading</p>
+          <img class="fortune-card-art" id="fortuneArt" alt="" style="display:none;" />
           <p class="fortune-card-name" id="fortuneCardName"></p>
+          <p class="fortune-card-section-label">The Sign</p>
           <p class="fortune-card-read" id="fortuneRead"></p>
+          <p class="fortune-card-section-label">The Message</p>
           <p class="fortune-card-message" id="fortuneMessage"></p>
           <div class="fortune-card-move">
             <strong>🃏 Madame says do this:</strong>
             <p id="fortuneMove"></p>
           </div>
         </div>
+        <style>
+          .fortune-card-section-label { margin: 22px 0 6px; font-family: 'Jost', sans-serif; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.28em; text-transform: uppercase; color: var(--hotline-gold, #d4a833); opacity: 0.85; }
+          .fortune-card-art { display: block; width: min(260px, 70%); margin: 14px auto 4px; border-radius: 14px; box-shadow: 0 10px 28px rgba(75, 33, 72, 0.35); }
+        </style>
 
         <!-- Progress toward badge -->
         <div class="reading-progress" id="readingProgress">
@@ -615,7 +639,12 @@
         </div>
       </div>
 
-      
+      <div style="max-width: 720px; margin: 36px auto 8px; padding: 22px 26px; background: rgba(75, 33, 72, 0.06); border: 1.5px dashed rgba(155, 63, 95, 0.35); border-radius: 14px;">
+        <p style="margin: 0 0 6px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--hot-pink, #9b3f5f);">★ Your Residence Card</p>
+        <h3 style="margin: 0 0 10px; font-family: Georgia, serif; font-size: 19px; color: #4b2148;">Your reading of the week — this is where you get it.</h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #5f4558;">The reading on your Residence Card comes from this shop. Walk in, pull a card, and Mme CL<span class="ai">Ai</span>-O's latest read rides home with you. <strong style="color: #4b2148;">Every customization is a trip somewhere in town.</strong></p>
+      </div>
+
     </main>
 
     <script>
@@ -645,7 +674,7 @@
 {card:"The Tamagotchi",read:"A tiny obligation is beeping because you ignored it for too long.",message:"Maintenance is not glamorous, but neither is explaining why the whole thing died.",move:"Feed the system: update the tracker, reply to the message, or clean the data."},
 {card:"The Magic 8 Ball",read:"You already know the answer, but you would like a plastic orb to take liability.",message:"Outlook good, but only if you stop outsourcing your judgment to anything round and mysterious.",move:"Write the recommendation and the reason. Then send it to one reviewer."},
 {card:"The Scrunchie Collection",read:"You have forty options on your wrist and somehow your hair is still down.",message:"Hoarding choices is not the same as having range. Pick one and commit to the ponytail.",move:"Choose the option you keep circling back to and officially retire the other three."},
-{card:"The Spice Rack",read:"You asked for flavor and handed over a prompt with the seasoning profile of boiled water.",message:"Specificity is the seasoning. Audience, tone, examples, and what good looks like — that is the recipe.",move:"Rewrite one vague ask with five concrete details and watch what comes back."},
+{card:"The Pixie Stick",read:"You wanted flavour, but handed over a prompt with the sugar content of an empty paper straw.",message:"Specificity is the sugar. The more info (audience, tone, context, examples, and what \"good\" looks like), the sweeter the output. Sprinkle in at least 5 pixie sticks.",move:"Rewrite one vague ask with five concrete details and watch what comes back."},
 {card:"The Denim Jacket",read:"You do not need a new personality. You need one reliable layer.",message:"Build a reusable frame for the work you keep doing from scratch.",move:"Turn your last good email, prompt, or summary into a template."},
 {card:"The Platform Sneaker",read:"You want height without admitting you are ambitious. Interesting.",message:"Wanting more does not make you difficult. It makes you awake.",move:"Say the ambition plainly in one sentence and do not laugh it off."},
 {card:"The Yearbook Caption",read:"You are writing your own legacy in self-deprecating font.",message:"The caption matters. Make it accurate, not humble to the point of erasure.",move:"Describe your last win without shrinking it for comfort."},
@@ -788,6 +817,27 @@
         return i;
       }
 
+      // Card art — filenames derive from card names ("The Butterfly Clip" → butterfly-clip.png).
+      // Aliases cover the two files whose delivered names drifted from the derived slug.
+      const ART_DIR = '/assets/mme-claio/reading-cards/';
+      const ART_ALIASES = {
+        'pixie-stick': 'pixie-sticks',
+        'secret-diary-with-the-lock': 'secret-diary-with-lock'
+      };
+      const artEl = document.getElementById('fortuneArt');
+      function cardSlug(name) {
+        const s = name.replace(/^The /, '').replace(/['’]/g, '').toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+        return ART_ALIASES[s] || s;
+      }
+      function showCardArt(name) {
+        artEl.style.display = 'none';
+        artEl.onload = () => { artEl.style.display = 'block'; };
+        artEl.onerror = () => { artEl.style.display = 'none'; };
+        artEl.alt = name;
+        artEl.src = ART_DIR + cardSlug(name) + '.webp';
+      }
+
       button?.addEventListener("click", () => {
         // Hide previous card
         cardEl.classList.remove("is-visible");
@@ -809,6 +859,7 @@
           readEl.textContent = fortune.read;
           messageEl.textContent = fortune.message;
           moveEl.textContent = fortune.move;
+          showCardArt(fortune.card);
 
           // Reset flourish animation
           flourishEl.style.animation = 'none';
@@ -907,5 +958,36 @@
       <script src="../content/site/mini-player.js?v=ep-04-songs-1"></script>
     <script src="../content/site/brand-polish.js?v=wm1" defer></script>
     <script src="../content/site/laidies-bg.js?v=laidies-bg-1" defer></script>
+<script>
+  (function() {
+    'use strict';
+    if (window.playLaidiesTheme) return;
+    var activeBtn = null, activeAudio = null;
+    function stopActive() {
+      if (activeBtn) activeBtn.classList.remove('is-playing');
+      if (activeAudio) { try { activeAudio.pause(); } catch(e){} }
+      activeBtn = null; activeAudio = null;
+    }
+    window.playLaidiesTheme = function(btn) {
+      if (!btn || btn.disabled) return;
+      var src = btn.getAttribute('data-src'); if (!src) return;
+      if (activeBtn === btn) { stopActive(); return; }
+      stopActive();
+      var audio = new Audio(src); audio.preload = 'metadata';
+      audio.addEventListener('ended', function() { if (activeAudio === audio) stopActive(); });
+      audio.addEventListener('error', function() { if (activeAudio === audio) stopActive(); });
+      audio.play().catch(function() { if (activeAudio === audio) stopActive(); });
+      btn.classList.add('is-playing');
+      activeBtn = btn; activeAudio = audio;
+    };
+  })();
+</script>
+  <script defer src="/content/site/sv-back-nav.js?v=1"></script>
+    <script defer src="/content/site/charm-hunt.js?v=20260705-dusk"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
+<script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260707-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
+<script defer src="/content/site/ksvl-player.js?v=20260705-21"></script>
 </body>
 </html>

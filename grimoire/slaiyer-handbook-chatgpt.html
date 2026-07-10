@@ -6,7 +6,7 @@
     <title>ChatGPT — SLAiYER Handbook field notes | LAiDIES</title>
     <meta
       name="description"
-      content="The SLAiYER Handbook's ChatGPT entry: what it's best and worst at, where to get it, what it costs, how to set it up, and how to use it without getting vamped."
+      content="The SLAiYER Handbook's ChatGPT entry: what it's best and worst at, where to get it, what it costs, how to set it up, and how to use it without getting staked."
     />
     <meta property="og:title" content="ChatGPT — SLAiYER Handbook field notes" />
     <meta property="og:description" content="The big general assistant most people start with — what it's for, what it costs, and how to brief it." />
@@ -79,11 +79,11 @@
 
         <p><strong>4. Custom GPTs</strong> <em>(Plus, Business, Enterprise).</em> When you have a job you do <em>repeatedly</em> the same way — same audience, same format, same tone — build a Custom GPT for it. It's a Custom Instructions block + saved reference files + a name, bundled into one assistant you can pin and reuse. Keep them private or share inside your org.</p>
 
-        <p><strong>5. Temporary Chat.</strong> <em>The icon at the top-right of the chat screen.</em> Won't appear in your history, won't write to memory, won't be used to train the model — and auto-deletes after 30 days. Reach for it when you're pasting something one-off you don't want associated with your account.</p>
+        <p><strong>5. Temporary Chat.</strong> <em>The icon at the top-right of the chat screen.</em> Stays off the record — it won't appear in your history and won't be used to train the model, and it auto-deletes after 30 days. Reach for it when you're pasting something one-off you don't want kept.</p>
 
         <div class="hb-formula">
           <span class="hb-label">Don't re-learn this here</span>
-          <p>How to brief any tool — deliverable + audience + constraints + check — lives in <a class="hb-xlink" href="/grimoire/slaiyer-handbook-chapter-2.html">Chapter 1, Part 3</a>. This card assumes you've read it.</p>
+          <p>How to brief any tool — deliverable + audience + constraints + check — lives in <a class="hb-xlink" href="/grimoire/slaiyer-handbook-chapter-2.html">Chapter 2</a>. This card assumes you've read it.</p>
         </div>
 
         <h2 class="hb-part">How to prompt it (the ChatGPT-specific moves)</h2>
@@ -92,7 +92,7 @@
         <p><strong>1. Skip "you are an expert" — give context instead.</strong></p>
         <p><em>Vague:</em> "You are a world-class marketing expert. Write me a launch email."<br>
         <em>Better:</em> "I'm drafting a launch email to B2B SaaS buyers who've heard of us but haven't bought. Tone: confident, not breathless. Length under 150 words. Highlight one specific feature benefit. End on a soft CTA. Show me three versions."</p>
-        <p><em>Why:</em> Old advice said start every prompt with "You are a world-class…" — and for older models, that helped. OpenAI's own GPT-5.2 guide now calls that <em>noise</em>: the model already knows how to write a marketing email. What it doesn't know is <em>your</em> situation, your audience, your taste. Treat ChatGPT like a sharp new hire — they don't need you to tell them they're smart. They need to know the job, the audience, and when they're done.</p>
+        <p><em>Why:</em> Old advice said start every prompt with "You are a world-class…" — and for older models, that helped. OpenAI's own current prompting guide now calls that <em>noise</em>: the model already knows how to write a marketing email. What it doesn't know is <em>your</em> situation, your audience, your taste. Treat ChatGPT like a sharp new hire — they don't need you to tell them they're smart. They need to know the job, the audience, and when they're done.</p>
 
         <p><strong>2. Tell it what "done" actually looks like.</strong></p>
         <p><em>Vague:</em> "Help me with my landing page."<br>
@@ -118,7 +118,7 @@
         <p>The <em>default</em> model is fast and good enough for almost all everyday chat — drafting, summarizing, brainstorming. The <em>reasoning</em> / "thinking" models (the slower ones in the model picker) are worth switching to when the job needs careful logic — multi-step analysis, math, code, untangling a complex decision with trade-offs. The picker is in the chat header; switch per task. Don't waste the slow one on chitchat; don't use the fast one for a multi-step audit.</p>
 
         <h2 class="hb-part">The one safety note for ChatGPT</h2>
-        <p class="hb-inline-warn">On a <strong>personal free or Plus account, your conversations may be used to improve the model by default</strong> — you can turn that off in <strong>Settings → Data Controls → Improve the model for everyone</strong>. For one-off sensitive things, use a <strong>Temporary Chat</strong> instead. Anything confidential — work data, client info — belongs in a <strong>company-approved</strong> Business or Enterprise account, used within policy (those don't train on your data by default). The full rule is in <a class="hb-xlink" href="/grimoire/slaiyer-handbook-chapter-5.html">Chapter 1, Part 5</a>.</p>
+        <p class="hb-inline-warn">On a <strong>personal free or Plus account, your conversations may be used to improve the model by default</strong> — you can turn that off in <strong>Settings → Data Controls → Improve the model for everyone</strong>. For one-off sensitive things, use a <strong>Temporary Chat</strong> instead. Anything confidential — work data, client info — belongs in a <strong>company-approved</strong> Business or Enterprise account, used within policy (those don't train on your data by default). The full rule is in <a class="hb-xlink" href="/grimoire/slaiyer-handbook-chapter-5.html">Chapter 5</a>.</p>
 
         <div class="hb-deb">
           <h3>Don't be Deb</h3>
@@ -137,7 +137,7 @@
           <h3>Receipts</h3>
           <ul>
             <li><a href="https://help.openai.com/en/articles/10032626-prompt-engineering-best-practices-for-chatgpt">Prompt engineering best practices for ChatGPT</a> — OpenAI's official guidance: be specific, name audience and format, iterate, break tasks into steps.</li>
-            <li><a href="https://developers.openai.com/cookbook/examples/gpt-5/gpt-5-2_prompting_guide">GPT-5.2 prompting guide</a> — OpenAI's current model-specific guidance, including why the old "you are a world-class expert" opener is now considered noise.</li>
+            <li><a href="https://developers.openai.com/cookbook/examples/gpt-5/gpt-5-2_prompting_guide">OpenAI's prompting guide</a> — OpenAI's current model-specific guidance, including why the old "you are a world-class expert" opener is now considered noise.</li>
             <li><a href="https://help.openai.com/en/articles/8096356-chatgpt-custom-instructions">ChatGPT Custom Instructions</a> — how to set them up, what the fields are for, the 1,500-character limit.</li>
             <li><a href="https://help.openai.com/en/articles/8590148-memory-faq">Memory FAQ</a> — how Memory works, how to review and edit what's stored, how to turn it off.</li>
             <li><a href="https://help.openai.com/en/articles/10169521-using-projects-in-chatgpt">Using Projects in ChatGPT</a> — when to make a Project, how project memory works, how to add files and instructions.</li>
@@ -155,5 +155,6 @@
     <script src="/content/site/site-data.js?v=episode-04-quiz-1"></script>
     <script src="/script.js?v=wm1"></script>
     <script src="/content/site/mini-player.js?v=ep-04-songs-1"></script>
+  <script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
   </body>
 </html>
