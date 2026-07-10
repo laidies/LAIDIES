@@ -3,13 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Girl Talk Prompt Deck | LAiDIES Clubhouse</title>
-    <meta name="description" content="Draw a question card for work drama, ambition, confidence, or group-chat honesty." />
-    <meta name="theme-color" content="#b95d78" />
+    <title>Girl Talk | LAiDIES Clubhouse</title>
+    <meta name="description" content="Truth or Dare for women who actually work for a living. Draw a card, do the thing, earn a sticker. Chicken out and take the penalty." />
+    <meta name="theme-color" content="#fbf6f5" />
+    <meta property="og:title" content="Girl Talk | LAiDIES Clubhouse" />
+    <meta property="og:description" content="Truth or Dare for women who actually work for a living. Draw, do, earn." />
+    <meta property="og:type" content="website" />
     <link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <style>
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -19,30 +22,35 @@
         --pink-soft: rgba(185, 93, 120, 0.15);
         --plum: #4b2148;
         --wine: #6f263f;
-        --bg-dark: #fffdfb;
-        --bg-mid: #fbf6f5;
-        --card-bg: rgba(255, 253, 251, 0.92);
+        --rose: #9b3f5f;
+        --gold: #c9a227;
+        --pearl: #fffdfb;
+        --cream: #fbf6f5;
+        --card-bg: rgba(255, 253, 251, 0.94);
         --card-border: rgba(75, 33, 72, 0.16);
         --text-primary: #4b2148;
         --text-secondary: rgba(75, 33, 72, 0.74);
         --text-muted: rgba(75, 33, 72, 0.58);
+
+        --truth-bg: linear-gradient(155deg, #fff5f7 0%, #fbe5ec 60%, #f7d8e3 100%);
+        --truth-border: #b95d78;
+        --dare-bg: linear-gradient(155deg, #2a1330 0%, #4b2148 60%, #6f263f 100%);
+        --dare-border: #c9a227;
       }
 
       html { scroll-behavior: smooth; }
 
       body {
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        background:
-          radial-gradient(circle at 10% 0%, rgba(200, 220, 224, 0.24), transparent 22rem),
-          linear-gradient(180deg, #fffdfb 0%, #fbf6f5 52%, #fffdfb 100%);
-        background-attachment: fixed;
+        /* Animated .laidies-bg--light layer (twinkles + drifting glitter) sits behind at z-index:-1. */
+        background: transparent;
         color: var(--text-primary);
         min-height: 100vh;
         line-height: 1.6;
         -webkit-font-smoothing: antialiased;
       }
 
-      /* Sticky LAiDIES shell nav */
+      /* === STICKY NAV === */
       .sticky-back {
         position: sticky;
         top: 0;
@@ -60,11 +68,7 @@
         align-items: center;
         gap: 18px;
       }
-      .sticky-back .brand {
-        display: inline-flex;
-        line-height: 0;
-        overflow: visible;
-      }
+      .sticky-back .brand { display: inline-flex; line-height: 0; }
       .sticky-back .brand img {
         display: block;
         width: clamp(120px, 11.5vw, 164px);
@@ -91,297 +95,12 @@
       }
       .sticky-back a:hover { opacity: 0.8; text-decoration: underline; }
 
-      /* Main Content */
+      /* === PAGE LAYOUT === */
       .game-page-wrap {
-        max-width: 720px;
+        max-width: 760px;
         margin: 0 auto;
-        padding: clamp(32px, 5vw, 56px) clamp(16px, 4vw, 40px) 60px;
+        padding: clamp(28px, 5vw, 56px) clamp(16px, 4vw, 40px) 60px;
       }
-
-      /* Hero Image — Circular with Pink Glow */
-      .hero-image-wrap {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 40px;
-        position: relative;
-      }
-      .hero-image-wrap::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 280px;
-        height: 280px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(185, 93, 120, 0.35) 0%, transparent 70%);
-        filter: blur(30px);
-        z-index: 0;
-      }
-      .hero-image-wrap img {
-        width: 240px;
-        height: 240px;
-        object-fit: cover;
-        border-radius: 50%;
-        border: 3px solid rgba(185, 93, 120, 0.4);
-        box-shadow:
-          0 0 30px rgba(185, 93, 120, 0.3),
-          0 0 60px rgba(185, 93, 120, 0.15),
-          inset 0 0 30px rgba(0, 0, 0, 0.3);
-        position: relative;
-        z-index: 1;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      .hero-image-wrap img:hover {
-        transform: scale(1.03);
-        box-shadow:
-          0 0 40px rgba(185, 93, 120, 0.4),
-          0 0 80px rgba(185, 93, 120, 0.2),
-          inset 0 0 30px rgba(0, 0, 0, 0.3);
-      }
-
-      /* Title Section */
-      .game-page-title {
-        text-align: center;
-        margin-bottom: 40px;
-      }
-      .game-page-title .eyebrow {
-        font-size: 0.75rem;
-        font-weight: 700;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: var(--hot-pink);
-        margin-bottom: 12px;
-      }
-      .game-page-title h1 {
-        font-family: 'Playfair Display', serif;
-        font-size: clamp(2rem, 5vw, 3.2rem);
-        font-weight: 800;
-        line-height: 1.1;
-        margin-bottom: 16px;
-        background: linear-gradient(135deg, var(--plum) 0%, var(--hot-pink) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-      .game-page-title p {
-        color: var(--text-secondary);
-        font-size: 1.05rem;
-        max-width: 540px;
-        margin: 0 auto;
-      }
-      .status-banner {
-        max-width: 600px;
-        margin: 0 auto 26px;
-        padding: 16px 18px;
-        border: 1px solid rgba(75, 33, 72, 0.16);
-        border-radius: 16px;
-        background: linear-gradient(135deg, rgba(255, 253, 251, 0.96), rgba(252, 228, 242, 0.58));
-        box-shadow: 0 16px 34px rgba(75, 33, 72, 0.08);
-      }
-      .status-pill {
-        display: inline-flex;
-        margin-bottom: 7px;
-        padding: 5px 9px;
-        border: 1px solid rgba(155, 63, 95, 0.24);
-        border-radius: 999px;
-        background: rgba(252, 228, 242, 0.78);
-        color: #8a2d50;
-        font-size: 0.63rem;
-        font-weight: 900;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-      .status-banner p {
-        color: var(--text-secondary);
-        font-size: 0.9rem;
-        margin: 0;
-      }
-
-      /* Card — real card face (Truth = plum, Dare = rose) */
-      .girl-talk-card {
-        position: relative;
-        margin: 32px auto;
-        max-width: 460px;
-        min-height: 300px;
-        border-radius: 20px;
-        padding: 22px 24px 26px;
-        display: flex; flex-direction: column; gap: 14px;
-        font-family: 'Playfair Display', Georgia, serif;
-        color: #fffdfb;
-        overflow: hidden;
-        box-shadow: 0 22px 46px rgba(75,33,72,0.28), 0 0 0 1px rgba(255,255,255,0.06) inset;
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
-      }
-      /* Backing pattern — subtle diagonal foil so the card looks printed, not painted-CSS */
-      .girl-talk-card::before {
-        content: ''; position: absolute; inset: 0; pointer-events: none;
-        background:
-          repeating-linear-gradient(135deg, transparent 0 22px, rgba(255,255,255,0.05) 22px 24px);
-      }
-      /* Empty/prompt state (no card drawn yet) */
-      .girl-talk-card--empty {
-        background: linear-gradient(155deg, #fffdfb 0%, #fbe9f1 100%);
-        color: var(--plum);
-        border: 1.5px dashed rgba(185,93,120,0.4);
-        text-align: center; align-items: center; justify-content: center;
-        min-height: 220px;
-        font-family: 'Playfair Display', Georgia, serif; font-style: italic;
-        font-size: 1.05rem; line-height: 1.5;
-      }
-      .girl-talk-card--empty::before { display: none; }
-      /* Truth face — plum */
-      .girl-talk-card--truth {
-        background: linear-gradient(165deg, #4b2148 0%, #6f263f 100%);
-        border: 1.5px solid rgba(212,168,83,0.4);
-      }
-      /* Dare face — rose */
-      .girl-talk-card--dare {
-        background: linear-gradient(165deg, #9b3f5f 0%, #6f263f 100%);
-        border: 1.5px solid rgba(212,168,83,0.5);
-      }
-      /* Corner suit marks */
-      .gt-suit {
-        position: absolute; font-family: 'Playfair Display', Georgia, serif;
-        font-size: 22px; font-weight: 700; line-height: 1;
-        opacity: 0.42;
-      }
-      .gt-suit--tl { top: 14px; left: 18px; }
-      .gt-suit--br { bottom: 14px; right: 18px; transform: rotate(180deg); }
-      .girl-talk-card--truth .gt-suit { color: #d4a853; }
-      .girl-talk-card--dare .gt-suit { color: #fce4c4; }
-
-      /* Type header chip */
-      .gt-type {
-        align-self: center;
-        padding: 6px 16px;
-        border-radius: 999px;
-        background: rgba(255,253,251,0.14);
-        border: 1px solid rgba(255,253,251,0.4);
-        font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 800;
-        letter-spacing: 0.28em; text-transform: uppercase;
-        color: #fffdfb;
-        position: relative; z-index: 1;
-      }
-      .girl-talk-card--truth .gt-type { background: rgba(212,168,83,0.2); border-color: rgba(212,168,83,0.65); color: #f4cf85; }
-      .girl-talk-card--dare  .gt-type { background: rgba(255,253,251,0.14); border-color: rgba(255,253,251,0.55); color: #fffdfb; }
-
-      /* Prompt text */
-      .gt-prompt {
-        font-family: 'Playfair Display', Georgia, serif;
-        font-size: clamp(1.15rem, 2.5vw, 1.45rem);
-        line-height: 1.35;
-        color: #fffdfb;
-        text-align: center;
-        position: relative; z-index: 1;
-        margin: auto 0;
-      }
-
-      /* Dare completion bar — only visible on dare faces */
-      .gt-done {
-        display: none;
-        align-self: center;
-        position: relative; z-index: 1;
-        padding: 10px 22px;
-        border-radius: 999px;
-        border: 1.5px solid rgba(255,253,251,0.65);
-        background: rgba(255,253,251,0.16);
-        color: #fffdfb;
-        font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700;
-        letter-spacing: 0.14em; text-transform: uppercase;
-        cursor: pointer;
-        transition: background 200ms ease, transform 120ms ease;
-      }
-      .girl-talk-card--dare .gt-done { display: inline-flex; align-items: center; gap: 8px; }
-      .gt-done:hover { background: #fffdfb; color: #6f263f; }
-      .gt-done:active { transform: scale(0.97); }
-      .gt-done.is-claimed {
-        background: #d4a853; border-color: #d4a853; color: #4b2148;
-        cursor: default;
-      }
-      .gt-done.is-claimed::before { content: '✓ '; }
-      .girl-talk-card.is-new { animation: cardFlip 0.42s ease; }
-      @keyframes cardFlip {
-        0%   { transform: perspective(900px) rotateY(-90deg) scale(0.94); opacity: 0.2; }
-        60%  { transform: perspective(900px) rotateY(12deg) scale(1.02);  opacity: 1; }
-        100% { transform: perspective(900px) rotateY(0)     scale(1);      opacity: 1; }
-      }
-
-      /* Sticker counter */
-      .gt-sticker-count {
-        display: inline-flex; align-items: center; gap: 6px;
-        margin: 12px auto 0;
-        padding: 6px 14px 6px 12px;
-        border-radius: 999px;
-        background: rgba(212,168,83,0.14);
-        border: 1px solid rgba(212,168,83,0.42);
-        color: var(--plum);
-        font-size: 12px; font-weight: 700;
-        letter-spacing: 0.08em; text-transform: uppercase;
-      }
-      .gt-sticker-count::before { content: '★'; color: #d4a853; }
-
-      /* Draw Button */
-      .draw-section { text-align: center; margin-top: 24px; }
-      .draw-button {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 16px 36px;
-        font-size: 1rem;
-        font-weight: 700;
-        font-family: inherit;
-        color: #fff;
-        background: linear-gradient(135deg, var(--plum), #9b3f5f);
-        border: none;
-        border-radius: 50px;
-        cursor: pointer;
-        transition: all 0.25s ease;
-        box-shadow:
-          0 4px 20px rgba(185, 93, 120, 0.4),
-          0 0 40px rgba(185, 93, 120, 0.15);
-        text-transform: none;
-        letter-spacing: 0.01em;
-      }
-      .draw-button:hover {
-        transform: translateY(-2px) scale(1.03);
-        box-shadow:
-          0 6px 30px rgba(185, 93, 120, 0.55),
-          0 0 60px rgba(185, 93, 120, 0.25);
-      }
-      .draw-button:active {
-        transform: translateY(0) scale(0.98);
-      }
-
-      /* Microcopy */
-      .microcopy {
-        font-size: 0.82rem;
-        color: var(--text-muted);
-        margin-top: 16px;
-        text-align: center;
-      }
-
-      /* Badge Reveal */
-      .badge-reveal {
-        margin: 28px auto 0;
-        max-width: 500px;
-        padding: 18px 20px;
-        border: 2px dashed var(--hot-pink);
-        border-radius: 12px;
-        text-align: center;
-        display: none;
-        background: rgba(185, 93, 120, 0.08);
-        animation: badgePop 0.4s ease;
-      }
-      .badge-reveal.is-visible { display: block; }
-      .badge-reveal strong { color: var(--hot-pink); font-size: 1rem; }
-      .badge-reveal p { color: var(--text-secondary); font-size: 0.9rem; margin-top: 6px; }
-      @keyframes badgePop {
-        0% { transform: scale(0.9); opacity: 0; }
-        100% { transform: scale(1); opacity: 1; }
-      }
-
-      /* Ambient glow effects */
       .game-page-wrap::before {
         content: '';
         position: fixed;
@@ -405,23 +124,502 @@
         z-index: -1;
       }
 
-      /* Responsive */
-      @media (max-width: 480px) {
-        .sticky-back {
-          align-items: flex-start;
-          gap: 10px;
-          min-height: 76px;
-        }
-        .sticky-back .brand img {
-          width: clamp(106px, 30vw, 134px);
-        }
-        .sticky-back .nav-links {
-          gap: 10px;
-        }
+      /* === HERO + TITLE === */
+      .hero-image-wrap {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 32px;
+        position: relative;
+      }
+      .hero-image-wrap::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(185, 93, 120, 0.35) 0%, transparent 70%);
+        filter: blur(30px);
+        z-index: 0;
+      }
+      .hero-image-wrap img {
+        width: 220px;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 3px solid rgba(185, 93, 120, 0.4);
+        box-shadow:
+          0 0 30px rgba(185, 93, 120, 0.3),
+          0 0 60px rgba(185, 93, 120, 0.15);
+        position: relative;
+        z-index: 1;
+      }
+      .game-page-title {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .game-page-title .eyebrow {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--hot-pink);
+        margin-bottom: 12px;
+      }
+      .game-page-title h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(2.2rem, 5vw, 3.4rem);
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 14px;
+        background: linear-gradient(135deg, var(--plum) 0%, var(--hot-pink) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .game-page-title .subtitle {
+        color: var(--text-secondary);
+        font-size: 1.05rem;
+        max-width: 540px;
+        margin: 0 auto;
+      }
+
+      /* === HOW IT WORKS === */
+      .gt-howto {
+        max-width: 600px;
+        margin: 0 auto 20px;
+        padding: 16px 20px;
+        border-left: 3px solid var(--gold);
+        border-radius: 0 12px 12px 0;
+        background: linear-gradient(155deg, rgba(255, 245, 225, 0.6), rgba(252, 228, 242, 0.42));
+        font-size: 0.92rem;
+        line-height: 1.55;
+        color: var(--text-secondary);
+      }
+      .gt-howto strong {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.05rem;
+        font-weight: 800;
+        color: var(--plum);
+        display: block;
+        margin-bottom: 6px;
+        letter-spacing: 0.01em;
+      }
+
+      /* === SCORE PANEL === */
+      .gt-score {
+        max-width: 600px;
+        margin: 0 auto 28px;
+        padding: 18px 20px;
+        border: 1px solid var(--card-border);
+        border-radius: 18px;
+        background: var(--card-bg);
+        box-shadow: 0 14px 32px rgba(75, 33, 72, 0.08);
+      }
+      .gt-score-row {
+        display: flex;
+        justify-content: space-around;
+        gap: 14px;
+        flex-wrap: wrap;
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: var(--plum);
+        margin-bottom: 14px;
+      }
+      .gt-score-row span { white-space: nowrap; }
+      .gt-progress-label {
+        font-size: 0.82rem;
+        color: var(--text-secondary);
+        text-align: center;
+        margin-bottom: 8px;
+      }
+      .gt-progress-label strong { color: var(--plum); }
+      .gt-progress-bar {
+        position: relative;
+        height: 10px;
+        background: rgba(75, 33, 72, 0.08);
+        border-radius: 999px;
+        overflow: hidden;
+        margin-bottom: 12px;
+      }
+      .gt-progress-fill {
+        position: absolute;
+        inset: 0;
+        width: 0%;
+        background: linear-gradient(90deg, var(--hot-pink), var(--gold));
+        border-radius: 999px;
+        transition: width 0.5s ease;
+      }
+      .gt-wishes-pending {
+        text-align: center;
+        font-size: 0.88rem;
+        color: var(--gold);
+        font-weight: 800;
+      }
+      .gt-wishes-pending small {
+        display: block;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        margin-top: 2px;
+        font-style: italic;
+      }
+      .gt-wishes-pending.is-hidden { display: none; }
+
+      /* === CARD STAGE + FLIP === */
+      .gt-stage {
+        max-width: 440px;
+        margin: 0 auto 28px;
+        perspective: 1400px;
+      }
+      .gt-card {
+        position: relative;
+        width: 100%;
+        /* Match the Codex card artwork (1024x1536 = 2:3 portrait playing-card
+           proportions). Aspect-ratio keeps the full artwork visible without
+           cropping when background-size: cover is applied. */
+        aspect-ratio: 2 / 3;
+        transform-style: preserve-3d;
+        transition: transform 0.55s cubic-bezier(0.4, 0.0, 0.2, 1);
+      }
+      .gt-card.is-flipped { transform: rotateY(180deg); }
+      .gt-card-face {
+        position: absolute;
+        inset: 0;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        border-radius: 22px;
+        padding: 32px clamp(24px, 5vw, 36px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;  /* prompt sits in lower portion of card image */
+        text-align: center;
+        box-shadow: 0 18px 40px rgba(75, 33, 72, 0.18);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+      .gt-card-back {
+        background-image: url('../assets/games/girl-talk/card-back.png');
+        background-color: #2a1330; /* fallback while image loads / if 404s */
+        color: var(--pearl);
+      }
+      /* Card back text is decoration only — the card-back.png has GIRL TALK
+         baked in. Kept for screen readers / asset fallback, hidden visually. */
+      .gt-card-back-art,
+      .gt-card-back-hint {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      .gt-card-front {
+        transform: rotateY(180deg);
+        padding-bottom: clamp(28px, 6vw, 44px);
+      }
+      .gt-card-front.is-truth {
+        background-image: url('../assets/games/girl-talk/truth-card-face.png');
+        background-color: #fbe5ec; /* fallback */
+        color: var(--plum);
+      }
+      .gt-card-front.is-dare {
+        background-image: url('../assets/games/girl-talk/dare-card-face.png');
+        background-color: #4b2148; /* fallback */
+        color: var(--pearl);
+      }
+      /* The TRUTH / DARE label is baked into the card-face images.
+         Hidden visually, kept for screen readers. */
+      .gt-card-type {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      .gt-card-prompt {
+        font-size: clamp(1rem, 2.3vw, 1.18rem);
+        line-height: 1.45;
+        font-weight: 600;
+        margin: 0 0 10px;
+        max-width: 420px;
+        /* Sit in the lower portion of the card art where the "empty centre
+           space for text overlay" lives in the Codex-generated faces.
+           Subtle backing so the prompt stays readable against varied art. */
+        padding: 12px 14px;
+        background: rgba(255, 253, 251, 0.78);
+        border-radius: 10px;
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+      }
+      .gt-card-front.is-dare .gt-card-prompt {
+        background: rgba(35, 12, 38, 0.62);
+        color: var(--pearl);
+      }
+      .gt-card-room {
+        font-size: 0.86rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        margin-top: 4px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(255, 253, 251, 0.85);
+        color: var(--plum);
+      }
+      .gt-card-front.is-dare .gt-card-room {
+        background: rgba(201, 162, 39, 0.92);
+        color: var(--plum);
+      }
+      .gt-card-room a {
+        color: inherit;
+        text-decoration: underline;
+        text-decoration-thickness: 1.5px;
+        text-underline-offset: 3px;
+      }
+
+      /* === ACTIONS === */
+      .gt-actions {
+        max-width: 540px;
+        margin: 0 auto 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+      }
+      .gt-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 14px 26px;
+        font-size: 0.95rem;
+        font-weight: 800;
+        font-family: inherit;
+        letter-spacing: 0.02em;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+        border: 2px solid transparent;
+        text-decoration: none;
+      }
+      .gt-button.primary {
+        color: var(--pearl);
+        background: linear-gradient(135deg, var(--plum), var(--rose));
+        box-shadow: 0 8px 24px rgba(185, 93, 120, 0.36);
+      }
+      .gt-button.primary:hover {
+        transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 12px 30px rgba(185, 93, 120, 0.5);
+      }
+      .gt-button.gold {
+        color: var(--plum);
+        background: linear-gradient(135deg, #f5d76e, var(--gold));
+        box-shadow: 0 8px 24px rgba(201, 162, 39, 0.36);
+      }
+      .gt-button.gold:hover {
+        transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 12px 30px rgba(201, 162, 39, 0.5);
+      }
+      .gt-button.secondary {
+        color: var(--plum);
+        background: rgba(255, 253, 251, 0.92);
+        border-color: rgba(111, 38, 63, 0.32);
+      }
+      .gt-button.secondary:hover {
+        background: rgba(255, 253, 251, 1);
+        border-color: var(--hot-pink);
+        transform: translateY(-1px);
+      }
+      .gt-button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none !important;
+      }
+
+      /* === RESULT (sticker / penalty reveal) === */
+      .gt-result {
+        max-width: 540px;
+        margin: 0 auto 24px;
+        min-height: 1px;
+      }
+      .gt-result:empty { margin-bottom: 0; }
+      .gt-reward, .gt-penalty {
+        position: relative;
+        padding: 26px 24px 22px;
+        border-radius: 20px;
+        text-align: center;
+        animation: rewardPop 0.42s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      .gt-reward {
+        background: linear-gradient(155deg, #fff5e1 0%, #fde9c2 60%, #f8d990 100%);
+        border: 2px solid var(--gold);
+        box-shadow: 0 16px 36px rgba(201, 162, 39, 0.28);
+      }
+      .gt-penalty {
+        background: linear-gradient(150deg, #fef0f3 0%, #fbd6dc 100%);
+        border: 2px solid var(--hot-pink);
+        box-shadow: 0 14px 32px rgba(185, 93, 120, 0.3);
+        transform: rotate(-1.5deg);
+      }
+      .gt-penalty::before {
+        content: '🩹';
+        position: absolute;
+        top: -16px;
+        left: 18px;
+        font-size: 1.8rem;
+        transform: rotate(-15deg);
+      }
+      @keyframes rewardPop {
+        0% { transform: scale(0.85) rotate(-3deg); opacity: 0; }
+        100% { transform: scale(1) rotate(-1.5deg); opacity: 1; }
+      }
+      .gt-reward .gt-sticker-label,
+      .gt-penalty .gt-sticker-label {
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--wine);
+        margin-bottom: 10px;
+        display: block;
+      }
+      .gt-penalty .gt-sticker-label {
+        color: var(--hot-pink);
+      }
+      .gt-sticker-image {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 253, 251, 0.72);
+        border: 1.5px dashed rgba(75, 33, 72, 0.22);
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .gt-sticker-image img {
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        animation: stickerSettle 0.5s ease;
+      }
+      .gt-sticker-image.is-fallback {
+        font-family: 'Dancing Script', cursive;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--plum);
+        padding: 12px;
+        text-align: center;
+        line-height: 1.3;
+      }
+      @keyframes stickerSettle {
+        0% { transform: rotate(-15deg) scale(0.7); opacity: 0; }
+        100% { transform: rotate(0) scale(1); opacity: 1; }
+      }
+      .gt-sticker-name {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.18rem;
+        font-weight: 800;
+        color: var(--plum);
+        margin-bottom: 6px;
+      }
+      .gt-sticker-line {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        line-height: 1.45;
+        max-width: 420px;
+        margin: 0 auto;
+      }
+      .gt-reward-flavor {
+        font-size: 0.95rem;
+        color: var(--wine);
+        font-style: italic;
+        margin-top: 8px;
+      }
+      .gt-reward-tip {
+        margin: 14px auto 0;
+        max-width: 440px;
+        padding: 10px 14px;
+        background: rgba(255, 253, 251, 0.7);
+        border-left: 3px solid var(--gold);
+        border-radius: 4px 10px 10px 4px;
+        font-size: 0.92rem;
+        line-height: 1.45;
+        color: var(--plum);
+        text-align: left;
+      }
+      .gt-reward-tip a {
+        color: var(--wine);
+        font-weight: 800;
+        text-decoration: underline;
+        text-decoration-thickness: 1.5px;
+        text-underline-offset: 2px;
+      }
+      .gt-reward-tip a:hover { color: var(--hot-pink); }
+
+      /* Wish unlock celebration */
+      .gt-wish-unlocked {
+        margin-top: 14px;
+        padding: 12px 16px;
+        background: linear-gradient(135deg, rgba(201, 162, 39, 0.18), rgba(185, 93, 120, 0.12));
+        border: 1.5px dashed var(--gold);
+        border-radius: 14px;
+        font-size: 0.92rem;
+        color: var(--plum);
+        font-weight: 700;
+      }
+      .gt-wish-unlocked strong { color: var(--gold); }
+      .gt-wish-unlocked small {
+        display: block;
+        font-size: 0.78rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        font-style: italic;
+        margin-top: 4px;
+      }
+
+      /* === FOOTER MICROCOPY === */
+      .gt-microcopy {
+        max-width: 540px;
+        margin: 24px auto 0;
+        padding-top: 18px;
+        border-top: 1px dashed var(--card-border);
+        text-align: center;
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+      }
+      .gt-microcopy code {
+        background: rgba(75, 33, 72, 0.06);
+        padding: 1px 5px;
+        border-radius: 4px;
+        font-size: 0.78rem;
+      }
+
+      /* === RESPONSIVE === */
+      @media (max-width: 540px) {
+        .sticky-back { gap: 10px; min-height: 76px; }
+        .sticky-back .brand img { width: clamp(106px, 30vw, 134px); }
+        .sticky-back .nav-links { gap: 10px; }
         .hero-image-wrap img { width: 180px; height: 180px; }
         .hero-image-wrap::before { width: 220px; height: 220px; }
-        .girl-talk-card { padding: 24px 18px; }
-        .draw-button { padding: 14px 28px; font-size: 0.95rem; }
+        .gt-stage { max-width: 320px; }
+        .gt-card-face { padding: 22px 18px; }
+        .gt-actions { flex-direction: column; }
+        .gt-actions .gt-button { width: 100%; }
+        .gt-score-row { font-size: 0.85rem; gap: 8px; }
       }
     </style>
     <!-- Privacy-friendly analytics by Plausible -->
@@ -430,220 +628,599 @@
       window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
       plausible.init()
     </script>
-      <link rel="stylesheet" href="../content/site/mini-player.css">
-  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260707-a11y"></script>
-  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
-  <script defer src="/content/site/sv-welcome-tour.js?v=20260705-2"></script>
-</head>
+    <link rel="stylesheet" href="../content/site/laidies-bg.css?v=laidies-bg-1">
+    <link rel="stylesheet" href="../content/site/mini-player.css">
+  </head>
   <body>
+    <!-- Animated twinkle + glitter background layer (LAiDIES default, same as Dream Phone). -->
+    <div class="laidies-bg laidies-bg--light" aria-hidden="true"></div>
+
     <!-- Sticky Back to Clubhouse -->
-    <header class="sv-header">
-    <a class="brand" href="/">LAiDIES</a>
-    <nav>
-      <a href="/">This Week</a>
-      <a href="/chick-flicks.html">Episodes</a>
-      <a href="/library.html">LIBRAiRY</a>
-      <a href="/radio.html">KSVL</a>
-      <a href="/sorority-house.html">Sorority House</a>
-      <a href="/clubhouse-pass.html" class="sv-signin" style="color: #9b3f5f; font-weight: 600; border: 1.5px solid #9b3f5f; padding: 6px 14px; border-radius: 999px; text-decoration: none;">✉︎ Sign In</a>
-    </nav>
-  </header>
+    <header class="sticky-back">
+      <a class="brand" href="../index.html" aria-label="LAiDIES home">
+        <img src="../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
+      </a>
+      <nav class="nav-links" aria-label="Girl Talk navigation">
+        <a href="../clubhouse.html">&larr; Back to Clubhouse</a>
+        <a href="../issues/issue-04.html">LATEST</a>
+        <a href="../hot-goss.html">THE BOOK</a>
+        <a href="../community.html">JOIN</a>
+      </nav>
+    </header>
 
     <main>
       <div class="game-page-wrap">
-        <!-- Hero Image -->
+        <!-- Hero -->
         <div class="hero-image-wrap">
-          <img src="../assets/girl-talk-board.webp" alt="Girl Talk game board" />
+          <img src="../assets/games/girl-talk/card-back.png" alt="Girl Talk card back — plum and gold with a pink and teal heart gem" onerror="this.style.display='none'; this.parentNode.style.display='none';" />
         </div>
 
         <!-- Title -->
         <div class="game-page-title">
-          <p class="eyebrow">Clubhouse Game / Beta</p>
-          <h1>Girl Talk Prompt Deck</h1>
-<div style="margin: 12px 0 20px;">
-  <button type="button"
-          aria-label="Play the Girl Talk song on KSVL"
-          data-src="/content/music/game-girl-talk.mp3"
-          onclick="window.playLaidiesTheme(this);"
-          style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px 8px 14px; background: transparent; border: 1.5px solid #9b3f5f; border-radius: 999px; color: #4b2148; font: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 200ms ease, color 200ms ease;"
-          onmouseover="this.style.background='#9b3f5f'; this.style.color='#fffdfb';"
-          onmouseout="this.style.background='transparent'; this.style.color='#4b2148';">
-    <svg viewBox="0 0 24 24" style="width:10px; height:10px; fill: currentColor;" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-    <svg viewBox="0 0 24 24" style="width:10px; height:10px; fill: currentColor; display:none;" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
-    <span>&#9834; Play the Girl Talk song</span>
-  </button>
-</div>
-          <p>Draw a question card for work drama, ambition, confidence, or group-chat honesty. Truth or dare, but make it corporate.</p>
+          <p class="eyebrow">Clubhouse Game</p>
+          <h1>Girl Talk</h1>
+          <p class="subtitle">Truth or Dare for women who actually work for a living. Draw a card. Do the thing. Earn a sticker. Chicken out and take the penalty.</p>
         </div>
 
-        <section class="status-banner" aria-label="Girl Talk status">
-          <span class="status-pill">Getting polished</span>
-          <p>The deck is safe to preview, but it is not a finished reward or member feature yet. Use it as a light prompt beta while the full Clubhouse activity gets cleaned up.</p>
+        <!-- How it works -->
+        <aside class="gt-howto" aria-label="How Girl Talk works">
+          <strong>How it works</strong>
+          Draw as many as you want, stop whenever &mdash; progress saves on this device for now, and your LAiDIES member card will pick it up when sign-in lands. Honest truths and completed dares each earn their own sticker. Chicken outs come with a penalty sticker (sorry &mdash; but they&rsquo;re collectible too). Every 5 dares earns a bonus LAiDY wish, ready when member accounts launch.
+        </aside>
+
+        <!-- Score Panel -->
+        <section class="gt-score" aria-label="Girl Talk score">
+          <div class="gt-score-row">
+            <span>✨ <span id="gtStickerCount">0</span> stickers earned</span>
+            <span>🎯 <span id="gtDareCount">0</span> dares completed</span>
+            <span>🩹 <span id="gtPenaltyCount">0</span> penalty stickers</span>
+          </div>
+          <p class="gt-progress-label"><strong id="gtProgressLabel">0/5</strong> dares toward your next LAiDY wish</p>
+          <div class="gt-progress-bar"><div class="gt-progress-fill" id="gtProgressFill"></div></div>
+          <p class="gt-wishes-pending is-hidden" id="gtWishesPending">
+            🌟 <span id="gtWishCount">0</span> LAiDY wish<span id="gtWishPlural">es</span> waiting
+            <small>Your wish is waiting — we'll unlock it when we launch member accounts.</small>
+          </p>
         </section>
 
-        <!-- Card Display -->
-        <div class="girl-talk-card girl-talk-card--empty" id="girlTalkCard" aria-live="polite">
-          The deck is shuffled. Draw a card — you'll get either a Truth or a Dare.
+        <!-- Card Stage -->
+        <div class="gt-stage">
+          <div class="gt-card" id="gtCard" aria-live="polite">
+            <div class="gt-card-face gt-card-back" id="gtCardBack">
+              <div class="gt-card-back-art">GIRL TALK</div>
+              <div class="gt-card-back-hint">Tap "Draw a card" to flip your first card.</div>
+            </div>
+            <div class="gt-card-face gt-card-front is-truth" id="gtCardFront" aria-hidden="true">
+              <span class="gt-card-type" id="gtCardType">TRUTH</span>
+              <p class="gt-card-prompt" id="gtCardPrompt">&nbsp;</p>
+              <p class="gt-card-room" id="gtCardRoom"></p>
+            </div>
+          </div>
         </div>
 
-        <!-- Draw Button -->
-        <div class="draw-section">
-          <button class="draw-button" type="button" id="drawButton">&#x1F0CF; Draw a card</button>
+        <!-- Actions -->
+        <div class="gt-actions" id="gtActions">
+          <button class="gt-button primary" type="button" id="gtDrawButton">🎴 Draw a card</button>
         </div>
 
-        <p class="microcopy" id="drawCount">Cards drawn: 0</p>
-        <p class="gt-sticker-count" id="gtStickerCount"><span id="gtStickerCountNum">0</span> Dare stickers earned</p>
+        <!-- Result -->
+        <div class="gt-result" id="gtResult"></div>
 
-        <!-- Badge -->
-        <div class="badge-reveal" id="badgeReveal">
-          <strong>Beta deck complete.</strong>
-          <p>No member badge has been saved. The real reward layer is member magic coming soon.</p>
-        </div>
+        <!-- Microcopy -->
+        <p class="gt-microcopy">
+          Honour system on stickers — you tell us if you did it.
+          Your progress saves to this device for now, and your LAiDIES member card will pick it up when sign-in lands.
+          Wishes will validate against your community room posts then (the post is the receipt).
+        </p>
       </div>
     </main>
 
-    <!-- Game Logic (preserved) -->
+    <!-- ============================================================ -->
+    <!-- GAME LOGIC                                                    -->
+    <!-- ============================================================ -->
     <script>
-      // Restructured deck — each card is {type, prompt} instead of a raw string
-      const girlTalkPromptDeckCards = [
-        { type: 'truth', prompt: "What are you calling 'busy' that is actually avoidance in a blazer?" },
-        { type: 'dare',  prompt: "Ask for the thing in one sentence — no apology confetti." },
-        { type: 'truth', prompt: "Which meeting could have been a voice note and a lip gloss application?" },
-        { type: 'dare',  prompt: "Send one message that is 30% shorter and 80% clearer." },
-        { type: 'truth', prompt: "What part of your ambition are you making sound smaller so everyone stays comfortable?" },
-        { type: 'dare',  prompt: "Post the question you think everyone else already knows the answer to." },
-        { type: 'truth', prompt: "Who in the room has the context, template, or shortcut you keep pretending you do not need?" },
-        { type: 'dare',  prompt: "Give yourself the title you keep waiting for someone else to hand you." },
-      ];
+      (function () {
+        "use strict";
 
-      let lastIndex = -1;
-      let drawCount = 0;
-      let currentCardId = null;
-      const BADGE_THRESHOLD = 8;
+        // ===== ROOM URLS =====
+        // TODO: Receipts Desk doesn't have its own community room yet —
+        // currently pointing at chat-room-digest as the closest match.
+        // Swap to community/receipts-desk.html when that page exists.
+        const ROOM_URLS = {
+          "Wins":              "../community/wins.html",
+          "Send It Energy":    "../community/send-it-energy.html",
+          "Burn Book":         "../community/burn-book.html",
+          "Try-On Debrief":    "../community/try-on-debrief.html",
+          "Dear LAiDIES":      "../community/dear-laidies.html",
+          "Ask the Room":      "../community/ask-the-room.html",
+          "Mix CD Exchange":   "../community/mix-cd-exchange.html",
+          "Comment Card":      "../community/comment-card.html",
+          "Receipts Desk":     "../community/chat-room-digest.html"   // TODO: replace when Receipts Desk page ships
+        };
 
-      // Dare completion state — the tangible reward, sticker per dare completed
-      const STICKER_KEY = 'laidies_girl_talk_stickers';
-      const CLAIMED_KEY = 'laidies_girl_talk_claimed';   // per-card, so you can't double-claim the same dare
-      function readClaimed() {
-        try { const v = localStorage.getItem(CLAIMED_KEY); return v ? new Set(JSON.parse(v)) : new Set(); } catch (e) { return new Set(); }
-      }
-      function writeClaimed(set) {
-        try { localStorage.setItem(CLAIMED_KEY, JSON.stringify(Array.from(set))); } catch (e) {}
-      }
-      function readStickers() {
-        try { return Number(localStorage.getItem(STICKER_KEY) || 0); } catch (e) { return 0; }
-      }
-      function writeStickers(n) {
-        try { localStorage.setItem(STICKER_KEY, String(n)); } catch (e) {}
-      }
-      let claimedDares = readClaimed();
-      const stickerCountEl = document.querySelector('#gtStickerCountNum');
-      function renderStickerCount() {
-        if (stickerCountEl) stickerCountEl.textContent = String(readStickers());
-      }
-      renderStickerCount();
+        // ===== TRUTH CARDS (25) ===== id: T1-T25
+        // Each truth has a `tip` — a one-line "now what" the user sees after
+        // answering honestly. AI-flavoured truths route to FAiRY GODMOTHER,
+        // creating a flywheel between the games.
+        const TRUTHS = [
+          { id: "T1",  text: "What AI task are you avoiding because you don't know how to start?",
+            tip: "→ Take that task to FAiRY GODMOTHER. Let LAiDY glow up your first prompt." },
+          { id: "T2",  text: "What's the last thing you copy-pasted from AI without reading properly?",
+            tip: "→ Run it back through LAiDY. See what changes when you actually brief it." },
+          { id: "T3",  text: "What work task do you secretly hope AI will make disappear?",
+            tip: "→ Ask LAiDY to plan the first 30 minutes." },
+          { id: "T4",  text: "When did you last pretend to understand something in a meeting and then Google it after?",
+            tip: "→ Next time, ask AI in the moment. Three sentences, no judgment." },
+          { id: "T5",  text: "What's the most embarrassing prompt you've ever sent?",
+            tip: "→ Glow it up on FAiRY GODMOTHER. The embarrassing ones usually have bones." },
+          { id: "T6",  text: "What are you most scared AI will be able to do better than you?",
+            tip: "→ Name the task. Take it to LAiDY. Notice what you bring that AI can't." },
+          { id: "T7",  text: "What's a skill you've been meaning to learn for two years and haven't?",
+            tip: "→ Ask AI to teach you the first 30 minutes today." },
+          { id: "T8",  text: "What meeting are you in that you genuinely don't need to be in?",
+            tip: "→ Decline it. Use LAiDY for the wording if you need it." },
+          { id: "T9",  text: "What do you say you'll “circle back on” that you have no intention of circling back on?",
+            tip: "→ Either close the loop or kill it. AI can write either." },
+          { id: "T10", text: "What's your actual relationship with your inbox right now?",
+            tip: "→ Take three real emails to FAiRY GODMOTHER. Watch what an hour gets you." },
+          { id: "T11", text: "What's the last piece of feedback you got that was right and you didn't want to hear?",
+            tip: "→ Ask AI to surface the one move that'd actually address it." },
+          { id: "T12", text: "Who do you most wish had a LAiDY in their corner?",
+            tip: "→ Send them the LAiDIES link. They'll thank you." },
+          { id: "T13", text: "What's something you did with AI this week you haven't told anyone?",
+            tip: "→ Tell someone here. Post it in Try-On Debrief." },
+          { id: "T14", text: "What's the task you always save for last and why?",
+            tip: "→ Ask LAiDY for the smallest version that ships." },
+          { id: "T15", text: "What would your manager say your biggest strength is vs. what you think it actually is?",
+            tip: "→ Use AI to draft both versions. The gap is information." },
+          { id: "T16", text: "What work problem would you solve first if you had zero budget and unlimited AI?",
+            tip: "→ Mock it up with LAiDY this week. Free is exactly your budget." },
+          { id: "T17", text: "What's the email you've been drafting in your head for three weeks?",
+            tip: "→ Drop it on FAiRY GODMOTHER. Pick the energy you needed three weeks ago." },
+          { id: "T18", text: "What do you know about AI that your team doesn't?",
+            tip: "→ Teach one person this week. Share what landed." },
+          { id: "T19", text: "What's the dumbest meeting agenda you've seen this month?",
+            tip: "→ Use AI to rewrite the next one. Send your version." },
+          { id: "T20", text: "What would you do differently if you started your current job today?",
+            tip: "→ Pick one move. Make it this week." },
+          { id: "T21", text: "What's the task you'd delegate to AI in a heartbeat if you knew how?",
+            tip: "→ Take it to FAiRY GODMOTHER. Get LAiDY's version of the prompt." },
+          { id: "T22", text: "What's one thing you're pretending is fine?",
+            tip: "→ Name it out loud. To yourself first. Then to one person." },
+          { id: "T23", text: "What's the last time AI surprised you?",
+            tip: "→ Run the same kind of move again this week." },
+          { id: "T24", text: "What work habit do you have that you know is bad but haven't stopped?",
+            tip: "→ Pick one. Replace it with the version AI suggests." },
+          { id: "T25", text: "What's the thing you're most proud of at work that nobody noticed?",
+            tip: "→ Add it to your performance review draft. AI helps you write it." }
+        ];
 
-      const card = document.querySelector("#girlTalkCard");
-      const button = document.querySelector("#drawButton");
-      const countEl = document.querySelector("#drawCount");
-      const badgeEl = document.querySelector("#badgeReveal");
+        // ===== DARE CARDS (28) ===== id: D1-D28
+        // Rule: each card serves a LAiDIES theme (AI fluency / career / community /
+        // support / boundaries). The post is about THE MOVE the user made, not the
+        // confidential work artifact — share the prompt, the line, the surprise,
+        // not the email/decline/raise-case content.
+        const DARES = [
+          { id: "D1",  text: "Book a happy hour with your team. Post proof.", room: "Wins" },
+          { id: "D2",  text: "Use AI to draft the email you've been putting off. Share the prompt — or the one line that finally made you hit send.", room: "Send It Energy" },
+          { id: "D3",  text: "Use AI to write your next meeting agenda. Tell us if it was actually good.", room: "Try-On Debrief" },
+          { id: "D4",  text: "Set an out-of-office right now even if you're not going anywhere. Share the move.", room: "Send It Energy" },
+          { id: "D5",  text: "Ask AI to roast your last presentation. Share the line that stung — or the prompt that got you the funniest roast.", room: "Burn Book" },
+          { id: "D6",  text: "Use AI to draft your own performance review. Share the line you wouldn't have written about yourself.", room: "Wins" },
+          { id: "D7",  text: "Decline a meeting this week using LAiDY. Share the prompt — or the move LAiDY suggested.", room: "Send It Energy" },
+          { id: "D8",  text: "Ask AI what job you'd be good at based on patterns in your work. Share what surprised you about the answer.", room: "Try-On Debrief" },
+          { id: "D9",  text: "Ask AI to surface what wasn't said at your last all-hands. Share the move you'd make in response.", room: "Comment Card" },
+          { id: "D10", text: "Use AI to draft your one-paragraph case for a raise. Share the line that surprised you. (You don't have to send it. But you could.)", room: "Send It Energy" },
+          { id: "D11", text: "Ask AI to rewrite your LinkedIn headline. Share the before, after, and the prompt that worked.", room: "Try-On Debrief" },
+          { id: "D12", text: "Use AI to draft the message you've been scared to send. Share what AI helped you finally say.", room: "Dear LAiDIES" },
+          { id: "D13", text: "Name the work nonsense you've stopped tolerating this year. No names.", room: "Burn Book" },
+          { id: "D14", text: "Ask AI to explain your job to a five-year-old. Share the version that made you laugh — or made you proud.", room: "Ask the Room" },
+          { id: "D15", text: "Make a playlist for your current work mood and post it.", room: "Mix CD Exchange" },
+          { id: "D16", text: "Use AI to write a polite but firm reply to the most annoying email in your inbox. Share the prompt that got you a version you'd actually send.", room: "Send It Energy" },
+          { id: "D17", text: "Post your hot take on AI at work. No hedging.", room: "Ask the Room" },
+          { id: "D18", text: "Use AI to plan your ideal workday. Post it as evidence of what's possible.", room: "Wins" },
+          { id: "D19", text: "Take the prompt you've sent AI most lately. Run it through FAiRY GODMOTHER. Share what LAiDY changed.", room: "Try-On Debrief" },
+          { id: "D20", text: "Audit your last week: how many hours were actually useful? Post the number — and the one thing you'll cut next week.", room: "Comment Card" },
+          { id: "D21", text: "Use LAiDY to glow up a prompt you've been struggling with. Post before and after.", room: "Try-On Debrief" },
+          { id: "D22", text: "Use AI to write your team a thank-you, then send it. Share what AI helped you say.", room: "Wins" },
+          { id: "D23", text: "Ask AI to identify the subtext in an email you received this week. Share what AI saw that you didn't — no names, just the pattern.", room: "Burn Book" },
+          { id: "D24", text: "Find one thing in the LAiDIES Grimoire you didn't know existed and share it.", room: "Ask the Room" },
+          { id: "D25", text: "Send the LAiDIES link to one woman you know who needs this. Post the move.", room: "Wins" },
+          { id: "D26", text: "DM one woman whose work you admire. Tell her one specific thing. No agenda. Share the move.", room: "Dear LAiDIES" },
+          { id: "D27", text: "Bring a recent LAiDIES insight to your team. Share what landed.", room: "Wins" },
+          { id: "D28", text: "Book a happy hour. (You knew it was coming back.)", room: "Wins" }
+        ];
 
-      function nextIndex(length, prev) {
-        if (length <= 1) return 0;
-        let i = prev;
-        while (i === prev) { i = Math.floor(Math.random() * length); }
-        return i;
-      }
+        // ===== REWARD STICKERS (53) ===== keyed by card id
+        const REWARD_STICKERS = {
+          // Truth stickers
+          T1:  { name: "The Pending (reward)",       image: "T1-pending-reward.png" },
+          T2:  { name: "The Flip Phone",             image: "T2-flip-phone.png" },
+          T3:  { name: "The Magic Wand",             image: "T3-magic-wand.png" },
+          T4:  { name: "The Nodding Dog",            image: "T4-nodding-dog.png" },
+          T5:  { name: "The Roll On Glitter",        image: "T5-roll-on-glitter.png" },
+          T6:  { name: "The Mirror",                 image: "T6-mirror.png" },
+          T7:  { name: "The Butterfly Clip",         image: "T7-butterfly-clip.png" },
+          T8:  { name: "The Empty Chair",            image: "T8-empty-chair.png" },
+          T9:  { name: "The Voicemail",              image: "T9-voicemail.png" },
+          T10: { name: "The Overflowing Bag",        image: "T10-overflowing-bag.png" },
+          T11: { name: "The Receipts",               image: "T11-receipts.png" },
+          T12: { name: "The Tamagotchi",             image: "T12-tamagotchi.png" },
+          T13: { name: "The Secret Diary",           image: "T13-secret-diary.png" },
+          T14: { name: "The Lip Gloss Wand",         image: "T14-lip-gloss-wand.png" },
+          T15: { name: "The Two-Way Mirror",         image: "T15-two-way-mirror.png" },
+          T16: { name: "The Glitter Gel Pen",        image: "T16-glitter-gel-pen.png" },
+          T17: { name: "The Unsent Letter",          image: "T17-unsent-letter.png" },
+          T18: { name: "The Mix CD",                 image: "T18-mix-cd.png" },
+          T19: { name: "The Sticky Note",            image: "T19-sticky-note.png" },
+          T20: { name: "The Fresh Page",             image: "T20-fresh-page.png" },
+          T21: { name: "The Magic 8 Ball",           image: "T21-magic-8-ball.png" },
+          T22: { name: "The Smiley Face",            image: "T22-smiley-face.png" },
+          T23: { name: "The Lightning Bolt",         image: "T23-lightning-bolt.png" },
+          T24: { name: "The Snooze Button",          image: "T24-snooze-button.png" },
+          T25: { name: "The Gold Star",              image: "T25-gold-star.png" },
+          // Dare stickers
+          D1:  { name: "The Main Character Spritz",  image: "D1-main-character-spritz.png" },
+          D2:  { name: "The Send Button",            image: "D2-send-button.png" },
+          D3:  { name: "The Organised Binder",       image: "D3-organised-binder.png" },
+          D4:  { name: "The Beach Chair",            image: "D4-beach-chair.png" },
+          D5:  { name: "The Burn Book",              image: "D5-burn-book.png" },
+          D6:  { name: "The Trophy",                 image: "D6-trophy.png" },
+          D7:  { name: "The Closed Door",            image: "D7-closed-door.png" },
+          D8:  { name: "The Rolodex",                image: "D8-rolodex.png" },
+          D9:  { name: "The Fine Print",             image: "D9-fine-print.png" },
+          D10: { name: "The Approved Stamp",         image: "D10-approved-stamp.png" },
+          D11: { name: "The Headshot",               image: "D11-headshot.png" },
+          D12: { name: "The Courage Badge",          image: "D12-courage-badge.png" },
+          D13: { name: "The Flame",                  image: "D13-flame.png" },
+          D14: { name: "The Crayons",                image: "D14-crayons.png" },
+          D15: { name: "The Mix CD (dare)",          image: "D15-mix-cd-dare.png" },
+          D16: { name: "The Miranda",                image: "D16-miranda.png" },
+          D17: { name: "The Microphone",             image: "D17-microphone.png" },
+          D18: { name: "The Day Planner",            image: "D18-day-planner.png" },
+          D19: { name: "The Brain",                  image: "D19-brain.png" },
+          D20: { name: "The Stopwatch",              image: "D20-stopwatch.png" },
+          D21: { name: "The Wand",                   image: "D21-wand.png" },
+          D22: { name: "The Heart Note",             image: "D22-heart-note.png" },
+          D23: { name: "The Decoder Ring",           image: "D23-decoder-ring.png" },
+          D24: { name: "The Grimoire",               image: "D24-grimoire.png" },
+          D25: { name: "The Butterfly",              image: "D25-butterfly.png" },
+          D26: { name: "The Flip Phone (dare)",      image: "D26-flip-phone-dare.png" },
+          D27: { name: "The Envelope",               image: "D27-envelope.png" },
+          D28: { name: "The Repeat",                 image: "D28-repeat.png" }
+        };
 
-      function renderCard(idx) {
-        const item = girlTalkPromptDeckCards[idx];
-        currentCardId = 'gt-' + idx;
-        card.className = 'girl-talk-card girl-talk-card--' + item.type;
-        const isClaimed = claimedDares.has(currentCardId);
-        const doneBtnHtml = item.type === 'dare'
-          ? `<button class="gt-done ${isClaimed ? 'is-claimed' : ''}" type="button" id="gtDoneBtn">${isClaimed ? 'Sticker earned' : 'I did it → earn a sticker'}</button>`
-          : '';
-        const suit = item.type === 'truth' ? '♠' : '♥';
-        card.innerHTML =
-          '<span class="gt-suit gt-suit--tl" aria-hidden="true">' + suit + '</span>' +
-          '<span class="gt-suit gt-suit--br" aria-hidden="true">' + suit + '</span>' +
-          '<span class="gt-type">' + item.type.toUpperCase() + '</span>' +
-          '<p class="gt-prompt">' + item.prompt + '</p>' +
-          doneBtnHtml;
-      }
+        // ===== PENALTY STICKERS (8) =====
+        // Per brief: duplicates are allowed and intentional — getting The Beige
+        // Sticker three times is funnier than avoiding repeats. Do NOT add
+        // no-immediate-repeat logic to this pool.
+        const PENALTIES = [
+          { id: "BEIGE",            name: "The Beige Sticker",      line: "You played it safe. We're not mad. We're just disappointed.",          image: "P-beige-sticker.png" },
+          { id: "CIRCLE_BACK",      name: "The Circle Back",        line: "You said you'd revisit this. You won't. We all know.",                  image: "P-circle-back.png" },
+          { id: "PER_MY_LAST",      name: "The Per My Last Email",  line: "You didn't read the room. The room read you.",                          image: "P-per-my-last-email.png" },
+          { id: "SCREENSAVER",      name: "The Screensaver",        line: "You went idle when it mattered. We saw.",                               image: "P-screensaver.png" },
+          { id: "REPLY_ALL",        name: "The Reply All",          line: "Nobody needed to know. And yet.",                                       image: "P-reply-all.png" },
+          { id: "PENDING_PENALTY",  name: "The Pending",            line: "Still thinking about it since 2022. Groundbreaking.",                   image: "P-pending.png" },
+          { id: "CALENDAR_HOLD",    name: "The Calendar Hold",      line: "Blocked: 9–10am. Agenda: unknown. Attendees: suffering.",          image: "P-calendar-hold.png" },
+          { id: "JUST_CHECKING",    name: "The Just Checking In",   line: "The lowest form of follow-up. And here we are.",                        image: "P-just-checking-in.png" }
+        ];
 
-      button?.addEventListener("click", () => {
-        lastIndex = nextIndex(girlTalkPromptDeckCards.length, lastIndex);
-        renderCard(lastIndex);
-        card.classList.remove("is-new");
-        void card.offsetWidth; // trigger reflow
-        card.classList.add("is-new");
+        // ===== ASSET PATHS =====
+        const STICKER_BASE = "../assets/games/girl-talk/stickers/";
 
-        drawCount++;
-        countEl.textContent = `Cards drawn: ${drawCount}`;
+        // ===== LOCAL STORAGE =====
+        // Keys designed to be easily swappable for Part C (member backend).
+        // Sticker IDs stored as arrays so we can show a collection view later.
+        //
+        // MIGRATION NOTE (Part C / sign-in plumbing): when the LAiDIES member
+        // card / sign-in ships, the data below moves from this device to the
+        // user's member account. The arrays should map 1:1 to columns/rows
+        // server-side — no schema change needed. Keep new keys under the
+        // `laidies_gt_*` prefix so the migration script can find them.
+        const LS = {
+          STICKERS:   "laidies_gt_stickers_earned",   // JSON array of sticker IDs (T1, D5, ...)
+          DARES:      "laidies_gt_dares_completed",   // JSON array of dare IDs
+          PENALTIES:  "laidies_gt_penalties_earned",  // JSON array of penalty IDs (dupes allowed)
+          WISHES:     "laidies_gt_pending_wishes"     // number — earned-but-not-yet-granted bonus LAiDY wishes
+        };
+        const WISH_THRESHOLD = 5;  // every 5 completed dares earns 1 pending wish
 
-        // Auto-scroll to card after draw
-        setTimeout(() => {
-          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 50);
-
-        // Badge unlock after drawing all unique cards
-        if (drawCount >= BADGE_THRESHOLD) {
-          badgeEl.classList.add("is-visible");
+        function readArray(key) {
+          try {
+            const raw = window.localStorage.getItem(key);
+            const parsed = raw ? JSON.parse(raw) : [];
+            return Array.isArray(parsed) ? parsed : [];
+          } catch { return []; }
         }
-      });
+        function writeArray(key, value) {
+          try { window.localStorage.setItem(key, JSON.stringify(value)); } catch {}
+        }
+        function readNumber(key) {
+          const n = parseInt(window.localStorage.getItem(key) || "0", 10);
+          return Number.isFinite(n) ? n : 0;
+        }
+        function writeNumber(key, value) {
+          try { window.localStorage.setItem(key, String(value)); } catch {}
+        }
 
-      // Dare completion — click "I did it" to claim a sticker (honor system, per-card, no double-claim)
-      card?.addEventListener("click", (e) => {
-        const doneBtn = e.target.closest && e.target.closest('.gt-done');
-        if (!doneBtn) return;
-        if (doneBtn.classList.contains('is-claimed')) return;
-        if (!currentCardId) return;
-        if (claimedDares.has(currentCardId)) return;
-        claimedDares.add(currentCardId);
-        writeClaimed(claimedDares);
-        writeStickers(readStickers() + 1);
-        renderStickerCount();
-        doneBtn.classList.add('is-claimed');
-        doneBtn.textContent = 'Sticker earned';
-      });
+        // ===== DOM =====
+        const els = {
+          card:           document.getElementById("gtCard"),
+          cardBack:       document.getElementById("gtCardBack"),
+          cardFront:      document.getElementById("gtCardFront"),
+          cardType:       document.getElementById("gtCardType"),
+          cardPrompt:     document.getElementById("gtCardPrompt"),
+          cardRoom:       document.getElementById("gtCardRoom"),
+          actions:        document.getElementById("gtActions"),
+          result:         document.getElementById("gtResult"),
+          drawBtn:        document.getElementById("gtDrawButton"),
+          stickerCount:   document.getElementById("gtStickerCount"),
+          dareCount:      document.getElementById("gtDareCount"),
+          penaltyCount:   document.getElementById("gtPenaltyCount"),
+          progressLabel:  document.getElementById("gtProgressLabel"),
+          progressFill:   document.getElementById("gtProgressFill"),
+          wishesPending:  document.getElementById("gtWishesPending"),
+          wishCount:      document.getElementById("gtWishCount"),
+          wishPlural:     document.getElementById("gtWishPlural")
+        };
+
+        let lastTruthIndex = -1;
+        let lastDareIndex = -1;
+        let currentCard = null;
+        let wishJustUnlocked = false;
+
+        // ===== SCORE RENDER =====
+        function updateScore() {
+          const stickers = readArray(LS.STICKERS);
+          const dares = readArray(LS.DARES);
+          const penalties = readArray(LS.PENALTIES);
+          const wishes = readNumber(LS.WISHES);
+
+          els.stickerCount.textContent = stickers.length;
+          els.dareCount.textContent = dares.length;
+          els.penaltyCount.textContent = penalties.length;
+
+          const towardNext = dares.length % WISH_THRESHOLD;
+          els.progressLabel.textContent = `${towardNext}/${WISH_THRESHOLD}`;
+          els.progressFill.style.width = `${(towardNext / WISH_THRESHOLD) * 100}%`;
+
+          if (wishes > 0) {
+            els.wishesPending.classList.remove("is-hidden");
+            els.wishCount.textContent = wishes;
+            els.wishPlural.textContent = wishes === 1 ? "" : "es";
+          } else {
+            els.wishesPending.classList.add("is-hidden");
+          }
+        }
+
+        // ===== CARD ANIMATION =====
+        function showCardBack() {
+          els.card.classList.remove("is-flipped");
+          els.cardFront.setAttribute("aria-hidden", "true");
+          els.cardBack.setAttribute("aria-hidden", "false");
+        }
+        function showCardFront() {
+          els.card.classList.add("is-flipped");
+          els.cardFront.setAttribute("aria-hidden", "false");
+          els.cardBack.setAttribute("aria-hidden", "true");
+        }
+
+        // ===== NEXT INDEX (no immediate repeat for truth/dare) =====
+        function nextIndex(length, previous) {
+          if (length <= 1) return 0;
+          let i = previous;
+          let safety = 12;
+          while (i === previous && safety-- > 0) {
+            i = Math.floor(Math.random() * length);
+          }
+          return i;
+        }
+
+        // ===== ACTIONS PANEL =====
+        function setActions(html) {
+          els.actions.innerHTML = html;
+        }
+        function clearResult() {
+          els.result.innerHTML = "";
+        }
+
+        // ===== DRAW =====
+        function drawCard() {
+          clearResult();
+          wishJustUnlocked = false;
+
+          // Flip back to back side briefly, then show the new front
+          if (els.card.classList.contains("is-flipped")) {
+            showCardBack();
+            window.setTimeout(prepareAndFlip, 300);
+          } else {
+            prepareAndFlip();
+          }
+        }
+        function prepareAndFlip() {
+          const isTruth = Math.random() < 0.5;
+          if (isTruth) {
+            lastTruthIndex = nextIndex(TRUTHS.length, lastTruthIndex);
+            const t = TRUTHS[lastTruthIndex];
+            currentCard = { kind: "truth", id: t.id, text: t.text, tip: t.tip || "" };
+          } else {
+            lastDareIndex = nextIndex(DARES.length, lastDareIndex);
+            const d = DARES[lastDareIndex];
+            currentCard = { kind: "dare", id: d.id, text: d.text, room: d.room, url: ROOM_URLS[d.room] || "#" };
+          }
+
+          // Wire up the card front
+          els.cardFront.classList.remove("is-truth", "is-dare");
+          els.cardFront.classList.add(currentCard.kind === "truth" ? "is-truth" : "is-dare");
+          els.cardType.textContent = currentCard.kind === "truth" ? "TRUTH" : "DARE";
+          els.cardPrompt.textContent = currentCard.text;
+          if (currentCard.kind === "dare") {
+            els.cardRoom.innerHTML = `Post in <a href="${currentCard.url}" target="_blank" rel="noopener">${currentCard.room}</a>`;
+          } else {
+            els.cardRoom.textContent = "";
+          }
+
+          window.setTimeout(() => {
+            showCardFront();
+            renderPostDrawActions();
+          }, 40);
+        }
+
+        function renderPostDrawActions() {
+          if (currentCard.kind === "truth") {
+            setActions(`
+              <button class="gt-button gold" type="button" data-action="honest">I answered honestly</button>
+              <button class="gt-button secondary" type="button" data-action="chicken">I chickened out</button>
+            `);
+          } else {
+            setActions(`
+              <a class="gt-button gold" id="gtDidItLink" href="${currentCard.url}" target="_blank" rel="noopener">I did it &rarr;</a>
+              <button class="gt-button secondary" type="button" data-action="chicken">I chickened out</button>
+            `);
+          }
+        }
+
+        // ===== AWARD (sticker earned) =====
+        function awardSticker() {
+          const stickerId = currentCard.id;
+          const sticker = REWARD_STICKERS[stickerId];
+          if (!sticker) return;
+
+          const stickers = readArray(LS.STICKERS);
+          stickers.push(stickerId);
+          writeArray(LS.STICKERS, stickers);
+
+          let newWish = false;
+          if (currentCard.kind === "dare") {
+            const dares = readArray(LS.DARES);
+            dares.push(currentCard.id);
+            writeArray(LS.DARES, dares);
+            // Check wish unlock — every WISH_THRESHOLD dares
+            if (dares.length > 0 && dares.length % WISH_THRESHOLD === 0) {
+              writeNumber(LS.WISHES, readNumber(LS.WISHES) + 1);
+              newWish = true;
+            }
+          }
+
+          renderRewardCard(sticker, currentCard.kind, newWish);
+          updateScore();
+          setActions(`<button class="gt-button primary" type="button" data-action="draw">🎴 Draw again</button>`);
+        }
+
+        function renderRewardCard(sticker, kind, newWish) {
+          const flavorByKind = {
+            truth: "Honesty looks good on you.",
+            dare:  "Proof or it didn't happen — and you brought proof."
+          };
+          const wishHtml = newWish ? `
+            <div class="gt-wish-unlocked">
+              ⭐ <strong>LAiDY wish unlocked!</strong> Five dares in.
+              <small>Your wish is waiting — we'll unlock the actual wand when member accounts launch.</small>
+            </div>
+          ` : "";
+          // Truth follow-up tip — turns the moment of honest reflection into a
+          // concrete next move. AI-flavoured tips reference FAiRY GODMOTHER,
+          // which we linkify so users can jump straight to LAiDY's wand.
+          const tipHtml = (kind === "truth" && currentCard && currentCard.tip)
+            ? `<div class="gt-reward-tip">${linkifyFairy(escapeHtml(currentCard.tip))}</div>`
+            : "";
+          els.result.innerHTML = `
+            <div class="gt-reward">
+              <span class="gt-sticker-label">✨ Sticker earned</span>
+              ${renderStickerImage(sticker.image, sticker.name, "reward")}
+              <div class="gt-sticker-name">${escapeHtml(sticker.name)}</div>
+              <div class="gt-reward-flavor">${escapeHtml(flavorByKind[kind] || "")}</div>
+              ${tipHtml}
+              ${wishHtml}
+            </div>
+          `;
+        }
+
+        // Linkify references to FAiRY GODMOTHER / LAiDY's wand inside truth tips,
+        // pointing to the live game so users can jump straight there.
+        function linkifyFairy(html) {
+          return html.replace(/FAiRY GODMOTHER/g,
+            '<a href="fairy-godmother.html">FAiRY GODMOTHER</a>');
+        }
+
+        // ===== PENALTY (chickened out) =====
+        // Per brief: pure random, duplicates allowed and intentional.
+        function drawPenalty() {
+          const index = Math.floor(Math.random() * PENALTIES.length);
+          const penalty = PENALTIES[index];
+
+          const earned = readArray(LS.PENALTIES);
+          earned.push(penalty.id);
+          writeArray(LS.PENALTIES, earned);
+
+          els.result.innerHTML = `
+            <div class="gt-penalty">
+              <span class="gt-sticker-label">🩹 Girl Talk penalty sticker</span>
+              ${renderStickerImage(penalty.image, penalty.name, "penalty")}
+              <div class="gt-sticker-name">${escapeHtml(penalty.name)}</div>
+              <div class="gt-sticker-line">${escapeHtml(penalty.line)}</div>
+            </div>
+          `;
+          updateScore();
+          setActions(`<button class="gt-button primary" type="button" data-action="draw">🎴 Draw again</button>`);
+        }
+
+        // ===== STICKER IMAGE (graceful fallback if asset 404s) =====
+        function renderStickerImage(filename, alt, kind) {
+          // The asset may not exist yet (Codex is regenerating in a new gouache
+          // style). If the image fails to load, the <img> hides itself and the
+          // fallback text card shows the sticker name (read from `this.alt`).
+          const src = STICKER_BASE + filename;
+          const safeAlt = escapeHtml(alt);
+          return `
+            <div class="gt-sticker-image" data-kind="${kind}">
+              <img src="${src}" alt="${safeAlt}"
+                onload="this.parentNode.classList.remove('is-fallback');"
+                onerror="this.style.display='none'; this.parentNode.classList.add('is-fallback'); this.parentNode.textContent=this.alt;" />
+            </div>
+          `;
+        }
+
+        // ===== ESCAPE HELPER =====
+        function escapeHtml(str) {
+          return String(str || "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;");
+        }
+
+        // ===== EVENT HANDLERS =====
+        els.actions.addEventListener("click", (event) => {
+          // "I did it" link for dares: count it BEFORE the link navigates,
+          // and prevent default so we can render the reward + room link opens
+          // in a new tab.
+          const didIt = event.target.closest("#gtDidItLink");
+          if (didIt) {
+            // The href has target="_blank" so the new tab opens; we still
+            // award the sticker on this page.
+            awardSticker();
+            return;
+          }
+          const action = event.target.closest("[data-action]")?.dataset.action;
+          if (!action) return;
+          if (action === "draw") drawCard();
+          if (action === "honest") awardSticker();
+          if (action === "chicken") drawPenalty();
+        });
+
+        els.drawBtn.addEventListener("click", drawCard);
+
+        // ===== INIT =====
+        updateScore();
+      })();
     </script>
 
     <!-- Site scripts -->
+    <script src="../content/site/laidies-bg.js?v=laidies-bg-1" defer></script>
     <script src="../content/site/supabase-config.js"></script>
     <script src="../content/site/site-data.js?v=episode-04-quiz-1"></script>
     <script src="../script.js"></script>
-      <script src="../content/site/mini-player.js?v=ep-04-songs-1"></script>
-<script>
-  (function() {
-    'use strict';
-    if (window.playLaidiesTheme) return;
-    var activeBtn = null, activeAudio = null;
-    function stopActive() {
-      if (activeBtn) activeBtn.classList.remove('is-playing');
-      if (activeAudio) { try { activeAudio.pause(); } catch(e){} }
-      activeBtn = null; activeAudio = null;
-    }
-    window.playLaidiesTheme = function(btn) {
-      if (!btn || btn.disabled) return;
-      var src = btn.getAttribute('data-src'); if (!src) return;
-      if (activeBtn === btn) { stopActive(); return; }
-      stopActive();
-      var audio = new Audio(src); audio.preload = 'metadata';
-      audio.addEventListener('ended', function() { if (activeAudio === audio) stopActive(); });
-      audio.addEventListener('error', function() { if (activeAudio === audio) stopActive(); });
-      audio.play().catch(function() { if (activeAudio === audio) stopActive(); });
-      btn.classList.add('is-playing');
-      activeBtn = btn; activeAudio = audio;
-    };
-  })();
-</script>
-  <script defer src="/content/site/sv-back-nav.js?v=1"></script>
-<script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
-<script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
-<script defer src="/content/site/ksvl-player.js?v=20260705-21"></script>
-<script defer src="/content/site/sunnyvaile-directory.js?v=20260707-1"></script>
-<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
-</body>
+    <script src="../content/site/mini-player.js?v=ep-04-songs-1"></script>
+  </body>
 </html>
