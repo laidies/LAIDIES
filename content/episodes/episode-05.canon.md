@@ -78,9 +78,9 @@ The beats the script (spoken) and the article (read) both render, in order:
    supermodel walked Versace on Monday, Chanel on Tuesday, and did a Pepsi ad on Friday. *One star, booked
    by everybody* — that's the entire map. **Then:** every AI company is a **house** (OpenAI, Anthropic,
    Google, Microsoft), and a **model** — the thing with a version number — is the house's **supermodel**: a
-   specific brain, trained and numbered by that house, sent down its runway. *(⚠️ Taste note: supermodels
-   read glam vs the Mall's drugstore-suburban register; Ali kept them 2026-07-09 — "it's pop culture" —
-   anchored on the mainstream one, Cindy Crawford.)*
+   specific brain, trained and numbered by that house, sent down its runway. *(Supermodels are pop
+   culture — same lane as the Mall's movies, singers, bands, and people; no special asterisk. Grounded at
+   *Rollin' with my Homies*, Cindy-anchored.)*
 5. **The one distinction — model ≠ tool** *(→ concept: Tool/app; THE core).* The house makes the models;
    the **app is the boutique** where you actually shop them. ChatGPT is OpenAI's store, Claude is
    Anthropic's, the Gemini app is Google's. So "ChatGPT vs Claude" isn't brain-vs-brain — it's two stores.
