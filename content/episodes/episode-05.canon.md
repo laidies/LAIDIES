@@ -167,8 +167,14 @@ The beats the script (spoken) and the article (read) both render, in order:
   ⚠️ The tiers **are** partly a capability ladder (couture really is more capable). Teach *match the garment
   to the occasion* — never "they're all the same."
   ⚠️ Not every line is a rung: **Fable** is a different *kind* of line (Mythos-class), not a tier above Opus.
-  ⚠️ **Scope:** keep this OUT of the Ep5 script (it's already full, and Ep5 compares *apps*, not tiers).
-  Future-episode material.
+  ⚠️ **Scope — LOCKED (Ali, 2026-07-09).** **Ep5 is the DIRECTORY OF STORES**, not the inside of a boutique.
+  Which houses exist, which stores they run, who each store carries. The **lines on the rail inside one
+  store** — couture vs. resort, which to pull down — are a **later episode**. Ep5 gives it *one brief mention
+  and an explicit hand-off* ("its own episode, and it isn't this one"), the same way it teases the
+  specialists. Do not teach the tiers here.
+  · Word discipline: **"directory"** = the store-level map (Ep5). **"line"** = what's inside a boutique.
+  **"rack"** is already taken (the *specialists* back rack — other apps). Avoid **"map"** entirely; retired
+  as an overclaim.
 - **Tool / app** — the product you open and type into (ChatGPT, Claude, the Gemini app, Copilot).
   **Analogy (canon):** the house's **boutique**. "ChatGPT vs Claude" compares two stores, not two brains.
   **A boutique is a place of CHOOSING (Ali, 2026-07-09).** You walk in and pick the line the occasion calls
