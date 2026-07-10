@@ -171,6 +171,12 @@ The beats the script (spoken) and the article (read) both render, in order:
   Future-episode material.
 - **Tool / app** — the product you open and type into (ChatGPT, Claude, the Gemini app, Copilot).
   **Analogy (canon):** the house's **boutique**. "ChatGPT vs Claude" compares two stores, not two brains.
+  **A boutique is a place of CHOOSING (Ali, 2026-07-09).** You walk in and pick the line the occasion calls
+  for — that is the **model picker**. Never *"book"* the supermodel; **shop** her (matches the MUST-MATCH
+  line, *"the app is just where you shop it"*). A house has a **rack**, not a single star.
+  **The contrast that pays off later:** in the **boutique, you pick.** In the **department store** (Copilot),
+  **the store picks for you** — it walks the job to whichever counter fits. That is exactly what a
+  single-house app vs. a multi-model router does, and it's the seed of the model-picker episode.
 - **Multi-model tool** — an app with no single house that resells several houses' models.
   **Analogy (canon):** the **department store** (Copilot). It designs nothing; it rents floor space to the
   houses — an **OpenAI counter**, an **Anthropic counter** (+ some of Microsoft's own) — and walks each job
