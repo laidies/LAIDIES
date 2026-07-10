@@ -129,8 +129,12 @@ The beats the script (spoken) and the article (read) both render, in order:
 - **Tool / app** — the product you open and type into (ChatGPT, Claude, the Gemini app, Copilot).
   **Analogy (canon):** the house's **boutique**. "ChatGPT vs Claude" compares two stores, not two brains.
 - **Multi-model tool** — an app with no single house that resells several houses' models.
-  **Analogy (canon):** the **department store** (Copilot) — carries OpenAI's + Anthropic's lines (+
-  Microsoft's own), which is *why the work app feels familiar: same models, different storefront.*
+  **Analogy (canon):** the **department store** (Copilot). It designs nothing; it rents floor space to the
+  houses — an **OpenAI counter**, an **Anthropic counter** (+ some of Microsoft's own) — and walks each job
+  to whichever counter fits. *Why the work app feels familiar: same face, different counter.*
+  **Note (Ali, 2026-07-09):** a department store does not "stock" a *person.* Say **counters / corners** —
+  never "stocks supermodels." This is where the two canon framings (model-as-merchandise, "where you shop
+  it"; model-as-person, "the supermodel") collide, and counters are what reconcile them.
 
 ## facts[]
 *(→ ledger: [operations/facts-and-citations-ledger.md](../../operations/facts-and-citations-ledger.md),
