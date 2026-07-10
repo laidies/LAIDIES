@@ -12,8 +12,9 @@ promises in the announcer's season promo are the four act milestones:
 
 ## Format (locked)
 
-- **Length:** SHORT. 8–12 minutes target. One lesson per episode, no
-  exceptions. The article carries the depth; the episode carries the story.
+- **Length:** **15–20 minutes** (corrected 2026-07-09, Ali — the old "8–12
+  minutes" was never real: Ep 4 ran 17:48, Ep 5 ~16). One lesson per episode.
+  The article carries the depth; the episode carries the story.
 - **The cocktail party explanation delivers a QUOTABLE (Ali 2026-07-07):**
   the segment leads with a short line you could actually repeat at a
   party (Ep 1: "It read everything. It's lived nothing. And it never
