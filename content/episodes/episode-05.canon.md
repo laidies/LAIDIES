@@ -77,13 +77,22 @@ The beats the script (spoken) and the article (read) both render, in order:
    points to the spread. Cher's already there — she reads a floor plan for a living.
 4. **The 90s-supermodel plug → the fashion-house frame** *(→ concept: Model).* **First, the memory-jog
    (grounded in the Mall — "The Supermodels" at *Rollin' with my Homies*, Cindy-anchored):** in the 90s the
-   *model* was more famous than the clothes — Cindy, Naomi, Linda, Christy, Claudia — and the same
-   supermodel walked Versace on Monday, Chanel on Tuesday, and did a Pepsi ad on Friday. *One star, booked
-   by everybody* — that's the entire map. **Then:** every AI company is a **house** (OpenAI, Anthropic,
-   Google, Microsoft), and a **model** — the thing with a version number — is the house's **supermodel**: a
-   specific brain, trained and numbered by that house, sent down its runway. *(Supermodels are pop
-   culture — same lane as the Mall's movies, singers, bands, and people; no special asterisk. Grounded at
-   *Rollin' with my Homies*, Cindy-anchored.)*
+   *model* was more famous than the clothes — Cindy, Naomi, Linda, Christy, Claudia, Kate. **The obsession
+   was the star, not the dress** (Ali's beat, 2026-07-09): who she was dating, what she wore off-duty, which
+   house booked her next. Her face *was* the campaign — the poster in the shop window, the ad in the back of
+   the magazine; that's how you knew whose store you were standing in. She was as famous as any movie star
+   and never had to say a word. *That is exactly how people talk about AI models now — when's the new one
+   out, what's she good at, what can she do that the last one couldn't. Same obsession, different decade.*
+   **Then:** every AI company is a **house** (OpenAI, Anthropic, Google, Microsoft), and a **model** — the
+   thing with a version number — is the house's **supermodel**: a specific brain, trained and numbered by
+   that house, sent down its runway.
+   **CORRECTION (2026-07-09, Ali).** Do NOT write "a supermodel didn't belong to one designer" / "one star,
+   booked by everybody — that's the entire map." That is **backwards.** Each house **builds its own** models;
+   you will never find OpenAI's star working the floor of Anthropic's boutique. State the contrast out loud:
+   *in the 90s a house booked her; an AI house builds her.* The one place a face appears outside her own
+   house is the **department store** (beat 6) — that is the reveal, not the premise.
+   *(Supermodels are pop culture — same lane as the Mall's movies, singers, bands, and people; no special
+   asterisk. Grounded at *Rollin' with my Homies*, Cindy-anchored — Kate added 2026-07-09.)*
 5. **The one distinction — model ≠ tool** *(→ concept: Tool/app; THE core).* The house makes the models;
    the **app is the boutique** where you actually shop them. ChatGPT is OpenAI's store, Claude is
    Anthropic's, the Gemini app is Google's. So "ChatGPT vs Claude" isn't brain-vs-brain — it's two stores.
@@ -113,9 +122,10 @@ The beats the script (spoken) and the article (read) both render, in order:
 ## concepts[]
 *(→ glossary · LIBRAiRY · concept cards · SUNNYVAiLE High 101)*
 - **Model** — the actual AI brain, trained by one company, version-numbered (new one each season).
-  **Analogy (canon):** the house's **supermodel** — the named star it sends down the runway; the *same*
-  supermodel gets booked by many stores (the 90s-supermodel plug). It's what got smarter; the app around it
-  is just the storefront.
+  **Analogy (canon):** the house's **supermodel** — the named star that house **builds** and sends down its
+  own runway. Houses do **not** share models: OpenAI's star never walks Anthropic's boutique. (The one place
+  another house's star turns up is the **department store** — see Multi-model tool.) It's what got smarter;
+  the app around it is just the storefront.
 - **Tool / app** — the product you open and type into (ChatGPT, Claude, the Gemini app, Copilot).
   **Analogy (canon):** the house's **boutique**. "ChatGPT vs Claude" compares two stores, not two brains.
 - **Multi-model tool** — an app with no single house that resells several houses' models.
