@@ -115,6 +115,18 @@ The beats the script (spoken) and the article (read) both render, in order:
    images, your pile of documents, the notetaker sitting in your meetings. That's its own trip, and we'll
    take it. For now: get fluent with your all-rounder first."* → seeds the future **"Specialists"** episode.
    (Perplexity = the natural one-line example; do NOT roster it as a core tool here.)
+   **Specialist ruling — house vs window (Ali, 2026-07-09; sources in the ledger).** Two different things get
+   called "specialist." The test is the house-vs-store question, one level out: *does it build its own star,
+   or is it only a window?*
+   · **Specialist houses** build their own model in one medium — **ElevenLabs** (proprietary speech models)
+   and **Suno** (proprietary text-to-audio model). *A house that only makes shoes.* Each runs its own single
+   boutique. They are NOT boutiques reselling OpenAI/Anthropic — a common wrong assumption.
+   · **Windows** are apps with no house: they book a big house's star and only ever dress her for one job.
+   This is why some specialist tools feel eerily like ChatGPT — they *are* its star, restyled.
+   · **Perplexity is both, and is the best teaching example.** It routes to other houses' frontier models
+   (OpenAI, Anthropic, Google, xAI) **and** sells a house-brand line — **Sonar**, fine-tuned from Meta's open
+   Llama 3.3 70B. In the metaphor: *a department store that also sells a private label, cut from a pattern
+   somebody else published.* That is the cleanest way this town will ever get to teach **open-weights**.
 9. **Cocktail-party explanation** (below).
 10. **Sign-off + Next time** (Ep 6, The Skeleton Key — *move between them without starting over*).
 11. **Before-you-go tail:** try-on, study pack, quiz, soundtrack, activities.
@@ -126,11 +138,18 @@ The beats the script (spoken) and the article (read) both render, in order:
   own runway. Houses do **not** share models: OpenAI's star never walks Anthropic's boutique. (The one place
   another house's star turns up is the **department store** — see Multi-model tool.) It's what got smarter;
   the app around it is just the storefront.
-  **Hierarchy (Ali, 2026-07-09): house → supermodel → boutique.** The house builds the star; the boutique is
-  where you meet her. **The storefront is stable; the star rotates.** ChatGPT stays "ChatGPT" while the model
-  behind it is swapped every season — same sign over the door, new face in the window. That is why the app
-  feels different over time *without you switching apps*, and it is **why the currency rule exists**: name
-  the store, never the version number (the star will be replaced; the address won't).
+  **Hierarchy (Ali, 2026-07-09): house → line → star → boutique.** The house builds the star; the boutique
+  is where you meet her.
+  **It is NOT a restyle.** A version bump (Opus 4.7 → 4.8) is a *new model* — its own weights, its own ID,
+  deprecated on its own schedule — not last season's model with new hair. Nor is it a rival's star: it's the
+  **same line's next face**, cut in the house style. A new *name* (Fable) = a **new line**, not a newer Opus.
+  **Verified 2026-07-09:** OpenAI formalised exactly this — *the **number** (5.6) = the generation; the
+  **name** (Sol / Terra / Luna) = a durable capability **tier**.* Anthropic reads the same: Opus / Sonnet /
+  Haiku / Fable are **lines**; the number is the season. **The line name is durable; the star rotates.**
+  **The storefront is stable too.** ChatGPT stays "ChatGPT" while the face in its window changes — which is
+  why the app feels different over time *without you switching apps*, and it is **why the currency rule
+  exists**: name the store and the line, never the version number (the star gets replaced; the address
+  doesn't). Spoken form: *same house look, different woman.*
 - **Tool / app** — the product you open and type into (ChatGPT, Claude, the Gemini app, Copilot).
   **Analogy (canon):** the house's **boutique**. "ChatGPT vs Claude" compares two stores, not two brains.
 - **Multi-model tool** — an app with no single house that resells several houses' models.

@@ -213,3 +213,40 @@ Columns: **Claim** · **What it measures (scope/caveat)** · **Source** · **Ver
   · **Ep5 (The Model Menu) impact:** none to the recording script — it names houses/stores only, **zero
   version numbers** (currency-safe by design). The Sol launch actually *validates* the fashion-house line
   ("named + numbered models who walk the runway"): a generation number + named tiers is exactly that.
+
+### Ep 5 (The Super Models) — the analogy's load-bearing claims · verified 2026-07-09
+
+- **CLAIM (in script): the work AI is a "department store" that rents corners to OpenAI *and* Anthropic.**
+  ✅ **VERIFIED.** Microsoft 365 Copilot expanded beyond OpenAI-only to offer **Anthropic models**
+  (Claude Sonnet 4 / Claude Opus 4.1) alongside OpenAI's; the Researcher agent can be powered by either.
+  **What it measures = which houses' models a single Microsoft product can serve.** ⚠️ Nuance the script
+  doesn't need but must not contradict: **OpenAI remains the default**; Anthropic must be **admin-enabled**
+  in the M365 Admin Center; on by default in commercial tenancies from **Jan 2026 except EU/EFTA/UK**.
+  Sources: microsoft.com/en-us/microsoft-365/blog/2025/09/24/expanding-model-choice-in-microsoft-365-copilot/ ·
+  learn.microsoft.com/en-us/microsoft-365/copilot/copilot-anthropic-apps ·
+  microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/anthropic-joins-the-multi-model-lineup-in-microsoft-copilot-studio/
+
+- **CLAIM (canon, specialists beat): ElevenLabs and Suno are *houses* — they train their own models — NOT
+  boutiques reselling OpenAI/Anthropic.** ✅ **VERIFIED.**
+  · **ElevenLabs** builds **proprietary** deep-learning speech models and ships its own model families
+  (Eleven v3; Multilingual v2; Turbo). **What it measures = who trained the model the product runs on.**
+  Sources: elevenlabs.io/docs/overview/models · en.wikipedia.org/wiki/ElevenLabs · research.contrary.com/company/elevenlabs
+  · **Suno** runs lyrics through its **own proprietary text-to-audio model**. **What it measures = same.**
+  ⚠️ Don't call it a moat: Suno's CEO says the advantage is the *product*, not the architecture. ⚠️ Suno's
+  training data is under active litigation (Warner settled Nov 2025; Universal + Sony still suing as of
+  June 2026) — **do not hold Suno up as an ethics example.** Sources: sacra.com/c/suno/ · eesel.ai/blog/suno-review
+
+- **CLAIM (canon): Perplexity is both a store and a private label.** ✅ **VERIFIED.** It **routes to other
+  houses' frontier models** (OpenAI, Anthropic, Google, xAI) **and** fields its **own Sonar family**, which
+  is **fine-tuned from Meta's open Llama 3.3 70B** (not a frontier pretrain of its own).
+  **What it measures = whether the company trains its own model vs. serves someone else's.** This is the
+  town's cleanest hook for teaching **open weights** — a private label cut from a published pattern.
+  Sources: perplexity.ai/help-center/en/articles/10354919 · docs.perplexity.ai/docs/agent-api/models
+
+- **CLAIM (canon): a version bump is a NEW model, not a restyle; the *name* is a durable line, the *number*
+  is the generation.** ✅ **VERIFIED for OpenAI**, which formalised it: number (5.6) = generation, name
+  (**Sol** / **Terra** / **Luna**) = durable capability tier. Anthropic parallels it (Opus / Sonnet / Haiku /
+  **Fable** = lines; number = season). **What it measures = the naming scheme, NOT training lineage.**
+  ⚠️ **NOT verified, not publicly disclosed:** whether e.g. Opus 4.8 was trained fresh or continued from
+  4.7's base. Assert neither. Listener-safe statement: *it's a different model, and it's the same line's
+  next face.*
