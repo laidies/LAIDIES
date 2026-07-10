@@ -144,11 +144,12 @@
         filter: blur(30px);
         z-index: 0;
       }
+      /* card-back.png is a 2:3 portrait card — never crop it into a circle */
       .hero-image-wrap img {
-        width: 220px;
-        height: 220px;
-        object-fit: cover;
-        border-radius: 50%;
+        width: 200px;
+        height: 300px;
+        object-fit: contain;
+        border-radius: 16px;
         border: 3px solid rgba(185, 93, 120, 0.4);
         box-shadow:
           0 0 30px rgba(185, 93, 120, 0.3),
@@ -613,7 +614,7 @@
         .sticky-back { gap: 10px; min-height: 76px; }
         .sticky-back .brand img { width: clamp(106px, 30vw, 134px); }
         .sticky-back .nav-links { gap: 10px; }
-        .hero-image-wrap img { width: 180px; height: 180px; }
+        .hero-image-wrap img { width: 160px; height: 240px; }
         .hero-image-wrap::before { width: 220px; height: 220px; }
         .gt-stage { max-width: 320px; }
         .gt-card-face { padding: 22px 18px; }
