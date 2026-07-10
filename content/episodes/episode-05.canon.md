@@ -44,9 +44,15 @@
   the map of which part does what."* ✅ **Ep 5 picks up that exact thread in the welcome-back — "this week,
   we draw the map."** Supersedes the old "range of powers / kinds" recap: Ep 4 is the Founding Mothers, not
   kinds-of-AI; the "which part does what" question Ep 4 defers is precisely Ep 5's job.
-- **next-time hook** *(teases Ep 6, "The Skeleton Key"):* *"now she's got three of these open at once —
-  and she's tired of re-introducing herself to every one of them, every single morning. Next week: set
-  yourself up once, and carry it across all of them. This is Episode Six: The Skeleton Key."*
+- **next-time hook** *(teases Ep 6, **"Groundbreaking."** — re-sequenced 2026-07-09, Ali; Skeleton Key moved
+  to Ep 7):* *"our heroine walks back into the store — and finally looks at the rack. Every house keeps more
+  than one line, it turns out, and she has been wearing couture to the grocery store all month. Then a woman
+  with a silver bob reads three lines of her work, hands it back, and says exactly one word. Come back next
+  week for Episode Six: Groundbreaking."*
+  **Why the swap:** Ep 5 opens the boutique door ("we'll go in next week"); making her wait three episodes
+  was the "jumping around" Ali flagged. Practical too — pick the line early so she isn't burning quota (and
+  time) running couture jobs on Tuesday errands. Ep 6 → Ep 7 weld still holds: she leaves Ep 6 with two or
+  three stores *and* a rack in each, then Ep 7 opens on her re-introducing herself to every one of them.
 - **emotional beat:** the quiet click of *"ohh — the work one isn't a mystery, it's the same brains in a
   different coat."*
 - **main-character-energy line:** *"I stopped asking which one was best and started asking which store I
