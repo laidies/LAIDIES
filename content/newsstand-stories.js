@@ -42,7 +42,7 @@ window.NEWSSTAND_STORIES = [
     cocktail_party: "“You know that stat about AI saving you eleven hours a week? Turns out you hand six of them right back babysitting the thing — feeding it context, fixing what it got confidently wrong — basically scanning your own groceries at self-checkout. The time-save is real; so is the cleanup nobody counts.”",
     watch_fors: null,
     closing_note: null,
-    class_notes: "Catching confident-but-wrong output is the spine of <a href=\"/issues/issue-03.html\"><strong>Episode 3 — Don't Be Chutney on the Stand</strong></a> (the hallucination lesson), and the <a href=\"/grimoire/slaiyer-handbook.html\"><strong>SLAiYER Handbook</strong></a>'s source-checking section is the how-to. <em>(New terms “botsitting”/“botshitting” aren't in the Decoder yet — drafted as entries in the Integrity Report.)</em>",
+    class_notes: "Catching confident-but-wrong output is the spine of <a href=\"/issues/issue-03.html\"><strong>Episode 3 — The Burn Book Problem</strong></a> (the hallucination lesson), and the <a href=\"/grimoire/slaiyer-handbook.html\"><strong>SLAiYER Handbook</strong></a>'s source-checking section is the how-to. <em>(New terms “botsitting”/“botshitting” aren't in the Decoder yet — drafted as entries in the Integrity Report.)</em>",
     sources: [
       { label: "Work AI Index 2026 — Glean Work AI Institute", url: "https://www.glean.com/work-ai-institute/work-ai-index", flag: "vendor-sponsored" }
     ],
