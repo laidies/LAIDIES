@@ -126,6 +126,11 @@ The beats the script (spoken) and the article (read) both render, in order:
   own runway. Houses do **not** share models: OpenAI's star never walks Anthropic's boutique. (The one place
   another house's star turns up is the **department store** — see Multi-model tool.) It's what got smarter;
   the app around it is just the storefront.
+  **Hierarchy (Ali, 2026-07-09): house → supermodel → boutique.** The house builds the star; the boutique is
+  where you meet her. **The storefront is stable; the star rotates.** ChatGPT stays "ChatGPT" while the model
+  behind it is swapped every season — same sign over the door, new face in the window. That is why the app
+  feels different over time *without you switching apps*, and it is **why the currency rule exists**: name
+  the store, never the version number (the star will be replaced; the address won't).
 - **Tool / app** — the product you open and type into (ChatGPT, Claude, the Gemini app, Copilot).
   **Analogy (canon):** the house's **boutique**. "ChatGPT vs Claude" compares two stores, not two brains.
 - **Multi-model tool** — an app with no single house that resells several houses' models.
