@@ -28,22 +28,32 @@ real woman, rendered in the stained-glass style — non-photoreal, but recogniza
 
 ## STYLE LOCK — paste first
 
-> I'm making 11 stained-glass portraits that must be **indistinguishable in style** from
-> the 3 reference images I just uploaded (study them). For each one I'll also give you a
-> **photo of the real woman** — make the portrait a **recognizable likeness of her**
-> (same face shape, hair, glasses), but rendered entirely in this style:
+> I'm making 11 stained-glass portraits for a "hall of heroes" wing. For each one I'll
+> give you TWO inputs, and they have DIFFERENT jobs — this is the most important rule:
 >
+> - The **3 reference images I just uploaded** define the **STYLE**, and the style always
+>   wins. Every portrait must be **indistinguishable in style** from them.
+> - The **photo of each woman** I send is ONLY for her **LIKENESS** — her actual face,
+>   hair, glasses, age. Use it to get *who she is*, never *how it's rendered*.
+>
+> So: **take her real face from the photo, and rebuild it entirely in the anchors' glass
+> style.** Do NOT carry over anything photographic — no photo lighting, no photo
+> background, no realistic skin/detail. If in doubt, match the anchors, not the photo.
+>
+> The style, every time:
 > - Y2K illuminated **stained-glass portrait**: one dignified woman in a leaded-glass
 >   arch, lead cames as flowing dark outlines, warm gold halo/backlight, soft glow.
 > - Palette: plum #4b2148, gold #b49764, teal #5b8c92, rose #9b3f5f, warm gold light.
 > - **Dark leaded-glass background** (like the anchors — not transparent, not white).
 > - **2:3 vertical portrait, 1024×1536.**
 > - **Non-photoreal** — a stylized glass likeness, not a photo. Reverent, modern,
->   "cathedral of heroes," never baroque/fairytale.
+>   "cathedral of heroes," never baroque/fairytale. Same flatness and glass texture as
+>   the anchors — she should look like she belongs on the same wall as them.
 > - **No text, letters, names, or numbers anywhere.**
 >
-> Match the arch, crop, lighting, and glass texture of the anchors every time. Confirm
-> you've got it and I'll send them one at a time with each woman's photo.
+> Confirm you've got it and I'll send them one at a time with each woman's photo. If one
+> comes out too photo-real or too detailed, I'll say "more like the anchors" and you
+> flatten it back to the glass style.
 
 ---
 
