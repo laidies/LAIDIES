@@ -38,11 +38,12 @@
   which piece, which occasion — and would never wear the food-court fit to the nice lunch. She's already
   scouted the lineup so you don't have to. ⚠️ **NOT the closet-computer** (that "it sets you up / picks
   for you" beat is Ep 6's, [[coffee-relationship-ai-memory-metaphor]]) — here Cher *reads the floor.*
-- **previously hook** *(recaps Ep 4, "the kinds of AI"):* *"our heroine learned that 'AI' was never one
-  thing — it's a range of powers: the one that drafts, the one that thinks it through, the one that goes
-  and does. So now she can name the power a job needs."* ⚠️ **depends on the Ep 4 trim** (Ep 4's tail is
-  being cut back to *kinds only* — [[ep5-model-menu-resequence]]); keep this recap about *powers/kinds*,
-  not products.
+- **previously hook** *(recaps Ep 4, "The Founding Mothers"):* *"our heroine went looking for where AI even
+  came from — found almost two hundred years of a real science, built by women — and learned that 'just use
+  AI' was never an instruction, because AI isn't one thing, it's a whole field, and nobody had handed her
+  the map of which part does what."* ✅ **Ep 5 picks up that exact thread in the welcome-back — "this week,
+  we draw the map."** Supersedes the old "range of powers / kinds" recap: Ep 4 is the Founding Mothers, not
+  kinds-of-AI; the "which part does what" question Ep 4 defers is precisely Ep 5's job.
 - **next-time hook** *(teases Ep 6, "The Skeleton Key"):* *"now she's got three of these open at once —
   and she's tired of re-introducing herself to every one of them, every single morning. Next week: set
   yourself up once, and carry it across all of them. This is Episode Six: The Skeleton Key."*
