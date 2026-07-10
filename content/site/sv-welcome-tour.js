@@ -18,14 +18,14 @@
     { href: '/visitors-centre.html', name: "The Welcome Wagon", icon: 'map',
       line: "Every good town starts at the Visitor's Centre. Have a look around — this is what SUNNYVAiLE is." },
     { href: '/chick-flicks.html', name: 'The Chick Flicks', icon: 'vhs',
-      line: "Rent this week's episode — it's how the whole town learns AI. One a week, always a chick flick." },
+      line: "Rent this week's episode — it's how the town learns AI. One a week, always a chick flick." },
     { href: '/sunnyvaile-high.html', name: 'SUNNYVAiLE High', icon: 'gradcap',
       line: 'Take the pop quiz on what you watched. Your score banks butterfly clips for your Closet.' },
     { href: '/radio.html', name: 'KSVL 99.9', icon: 'radio',
       line: 'Turn the radio on. DJ SunnyV plays the town — and the music follows you everywhere you go.' },
     { href: '/games/madame-claio.html', name: "Mme CLAi-O's", icon: 'crystal',
       line: 'One fortune before you go. The paper knows best.' },
-    { href: '/clubhouse-pass.html', name: 'MAiKEOVER on MAiN', icon: 'lipstick',
+    { href: '/maikeover.html', name: 'MAiKEOVER on MAiN', icon: 'lipstick',
       line: "You've seen the town — time to live here. Make your Residence Card and become a resident." }
   ];
 
@@ -51,7 +51,7 @@
   }
 
   var STYLE = ''
-    + '.svwt-chip { position: fixed; right: 16px; bottom: 88px; z-index: 9300; width: min(320px, calc(100vw - 32px));'
+    + '.svwt-chip { position: fixed; left: 16px; right: auto; bottom: 88px; z-index: 9300; width: min(320px, calc(100vw - 32px));'
     + '  background: linear-gradient(160deg, #3a1838 0%, #4b2148 100%); color: #fffdfb;'
     + '  border: 2px solid var(--gold, #c9a227); border-radius: 14px; padding: 14px 16px 12px;'
     + '  box-shadow: 0 14px 40px rgba(26,8,24,0.45); font-family: "Jost", sans-serif; }'
@@ -69,7 +69,7 @@
     + '.svwt-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,253,251,0.25); }'
     + '.svwt-dot.is-done { background: var(--gold, #c9a227); }'
     + '.svwt-dot.is-here { background: #fffdfb; box-shadow: 0 0 6px rgba(255,253,251,0.8); }'
-    + '.svwt-offer { position: fixed; right: 16px; bottom: 88px; z-index: 9300;'
+    + '.svwt-offer { position: fixed; left: 16px; right: auto; bottom: 88px; z-index: 9300;'
     + '  display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px;'
     + '  background: linear-gradient(160deg, #3a1838 0%, #4b2148 100%); color: #fffdfb;'
     + '  border: 2px solid var(--gold, #c9a227); border-radius: 999px; cursor: pointer;'
@@ -77,7 +77,7 @@
     + '.svwt-offer:hover { transform: translateY(-2px); }'
     + '.svwt-offer .svwt-offer-x { color: rgba(255,253,251,0.5); margin-left: 4px; font-size: 14px; }'
     + '.svwt-ic { display: inline-flex; vertical-align: -3px; margin-right: 2px; }'
-    + '@media (max-width: 640px) { .svwt-chip, .svwt-offer { bottom: 80px; right: 10px; } }';
+    + '@media (max-width: 640px) { .svwt-chip, .svwt-offer { bottom: 80px; left: 10px; right: auto; } }';
 
   function injectStyle() {
     if (document.getElementById('svwt-style')) return;
