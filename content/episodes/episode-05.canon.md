@@ -15,7 +15,9 @@
 > in the **90s-supermodel memory-jog** as the Model analogy (Ali's call; kept as pop-culture per the taste
 > ruling). Grounded in the Mall ("The Supermodels," Cindy-anchored, at *Rollin' with my Homies*). Cold-open
 > "ex at a party" metaphor CUT (an ex isn't a stranger) → plain *familiar-stranger*. George Michael
-> "Freedom '90" video CUT (too niche for the Mall taste filter). ⚠️ **Downstream rename cascade still TODO**
+> "Freedom '90" beat KEPT — it self-explains in the script ("stacks a lineup of them into a music video,
+> lip-syncing 'Freedom'") and is an incidental name-drop inside the (grounded) supermodel plug, like
+> Versace/Pepsi — no separate Mall card needed. ⚠️ **Downstream rename cascade still TODO**
 > (slug in issue-05.json / episode-index, LIBRAiRY "Model Menu" / "The Lineup" book, season bible,
 > [[ep5-model-menu-resequence]] memory) — sweep when Ep 5 locks. Reviewed against `laidies-writing-lock.md`.
 
