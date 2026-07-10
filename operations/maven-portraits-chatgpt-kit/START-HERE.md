@@ -51,68 +51,68 @@ real woman, rendered in the stained-glass style — non-photoreal, but recogniza
 
 ### §1 — The ENIAC Six  →  `eniac-six-y2k-stained-glass.png`
 **Reference (era + machine, not exact faces — it's a GROUP window of six):**
-https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Two_women_operating_ENIAC_%28full_resolution%29.jpg/900px-Two_women_operating_ENIAC_%28full_resolution%29.jpg
+https://upload.wikimedia.org/wikipedia/commons/8/8c/Two_women_operating_ENIAC_%28full_resolution%29.jpg
 > A **group** stained-glass window: six haloed 1940s women at a wall of patch-cables and
 > glowing vacuum tubes (like the machine in the photo); the cables become the lead-came
 > lines. Not one face — a group. 1945 era, same palette/dark glass, no text.
 
 ### §2 — Margaret Hamilton  →  `margaret-hamilton-y2k-stained-glass.png`
 **Reference (short light hair, glasses):**
-https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Margaret_Hamilton_1995.jpg/800px-Margaret_Hamilton_1995.jpg
+https://upload.wikimedia.org/wikipedia/commons/6/68/Margaret_Hamilton_1995.jpg
 > A likeness of this woman beside a tall stack of code listings; a small Moon, lunar
 > module, and stars in the upper glass; her glasses. Same style, dark glass, no text.
 
 ### §3 — Frances Allen  →  `frances-allen-y2k-stained-glass.png`
 **Reference (older woman, short light hair, glasses):**
-https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Allen_mg_2528-3750K-b.jpg/800px-Allen_mg_2528-3750K-b.jpg
+https://upload.wikimedia.org/wikipedia/commons/1/15/Allen_mg_2528-3750K-b.jpg
 > A likeness of this woman; branching arrows / a control-flow graph turning tangled code
 > into clean flowing leaded lines behind her. Same style, dark glass, no text.
 
 ### §4 — Grace Wahba  →  `grace-wahba-y2k-stained-glass.png`
 **Reference (short dark hair, glasses):**
-https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Grace_Wahba_1986.jpg/800px-Grace_Wahba_1986.jpg
+https://upload.wikimedia.org/wikipedia/commons/3/35/Grace_Wahba_1986.jpg
 > A likeness of this woman; a smooth curve threading through scattered points (a spline)
 > on a chalkboard motif. Same style, dark glass, no text.
 
 ### §5 — Cynthia Dwork  →  `cynthia-dwork-y2k-stained-glass.png`
 **Reference (dark hair):**
-https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Cynthia_Dwork_lectures_at_Harvard_Kennedy_School.jpg/800px-Cynthia_Dwork_lectures_at_Harvard_Kennedy_School.jpg
+https://upload.wikimedia.org/wikipedia/commons/6/6a/Cynthia_Dwork_lectures_at_Harvard_Kennedy_School.jpg
 > A likeness of this woman; a protective shield/veil arced over a small crowd of tiny
 > figures (privacy). Same style, dark glass, no text.
 
 ### §6 — Daphne Koller  →  `daphne-koller-y2k-stained-glass.png`
 **Reference (shoulder-length dark hair, glasses):**
-https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Daphne_Koller_2019.jpg/800px-Daphne_Koller_2019.jpg
+https://upload.wikimedia.org/wikipedia/commons/4/44/Daphne_Koller_2019.jpg
 > A likeness of this woman; a glowing web of connected nodes (a graph) around her. Same
 > style, dark glass, no text.
 
 ### §7 — Barbara Liskov  →  `barbara-liskov-y2k-stained-glass.png`
 **Reference (gray hair, glasses):**
-https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Barbara_Liskov_MIT_computer_scientist_2010.jpg/800px-Barbara_Liskov_MIT_computer_scientist_2010.jpg
+https://upload.wikimedia.org/wikipedia/commons/3/38/Barbara_Liskov_MIT_computer_scientist_2010.jpg
 > A likeness of this woman; clean nested modular boxes / building blocks (abstraction) in
 > the leadwork. Same style, dark glass, no text.
 
 ### §8 — Jean Sammet  →  `jean-sammet-y2k-stained-glass.png`
 **Reference (short gray hair, eyeglasses):**
-https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Jean_Sammet_UMD_1979.jpg/800px-Jean_Sammet_UMD_1979.jpg
+https://upload.wikimedia.org/wikipedia/commons/1/1f/Jean_Sammet_UMD_1979.jpg
 > A likeness of this woman; punch cards fanning out beside her in glass. Same style, dark
 > glass, no text.
 
 ### §9 — Adele Goldberg  →  `adele-goldberg-y2k-stained-glass.png`
 **Reference (short gray hair, glasses):**
-https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Adele_Goldberg_at_PyCon_2007.jpg/800px-Adele_Goldberg_at_PyCon_2007.jpg
+https://upload.wikimedia.org/wikipedia/commons/3/36/Adele_Goldberg_at_PyCon_2007.jpg
 > A likeness of this woman; overlapping early-GUI windows and an early computer mouse
 > (Xerox PARC) in the glass. Same style, dark glass, no text.
 
 ### §10 — Shafi Goldwasser  →  `shafi-goldwasser-y2k-stained-glass.png`
 **Reference (shoulder-length dark hair):**
-https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Shafi_Goldwasser.JPG/800px-Shafi_Goldwasser.JPG
+https://upload.wikimedia.org/wikipedia/commons/8/84/Shafi_Goldwasser.JPG
 > A likeness of this woman; a key and a sealed envelope / cipher lattice (zero-knowledge)
 > in the glasswork. Same style, dark glass, no text.
 
 ### §11 — Lynn Conway  →  `lynn-conway-y2k-stained-glass.png`
 **Reference (reddish-blonde hair):**
-https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Lynn_Conway_July_2006.jpg/800px-Lynn_Conway_July_2006.jpg
+https://upload.wikimedia.org/wikipedia/commons/5/50/Lynn_Conway_July_2006.jpg
 > A likeness of this woman, portrayed with full dignity; a glowing microchip grid /
 > silicon wafer (VLSI) behind her. Same style, dark glass, no text.
 
