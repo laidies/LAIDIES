@@ -2571,6 +2571,78 @@ function getLocalRewardEvents(userId) {
       metadata: { sticker: badge.sticker || "" },
     });
   });
+
+  // Hidden charms — Charm Hunt stores found charm slugs as an array under
+  // `laidies_charms_found` (written by content/site/charm-hunt.js on other
+  // pages). Enrich with the canonical name/week from window.CHARM_HUNT when
+  // it happens to be loaded, otherwise derive a readable title from the slug.
+  const foundCharmSlugs = getStoredJson("laidies_charms_found", []);
+  if (Array.isArray(foundCharmSlugs)) {
+    const charmApi = typeof window !== "undefined" ? window.CHARM_HUNT : null;
+    foundCharmSlugs.forEach((slug) => {
+      if (!slug || typeof slug !== "string") return;
+      const meta = charmApi && typeof charmApi.findCharmBySlug === "function" ? charmApi.findCharmBySlug(slug) : null;
+      const weekMatch = slug.match(/^w(\d+)-/);
+      const week = meta && meta.week ? meta.week : weekMatch ? Number(weekMatch[1]) : 0;
+      const title = meta && meta.name
+        ? meta.name
+        : slug.replace(/^w\d+-/, "").replace(/-/g, " ").replace(/\b\w/g, (ch) => ch.toUpperCase());
+      events.push({
+        user_id: userId,
+        dedupe_key: `hidden-charm:${slug}`,
+        reward_type: "hidden_charm",
+        issue_key: "",
+        title,
+        source: "Charm Hunt",
+        earned_at: new Date().toISOString(),
+        metadata: { charm_id: slug, image: `/assets/charms/${slug}.png`, week, building: (meta && meta.building) || "" },
+      });
+    });
+  }
+
+  // Girl Talk rewards — games/girl-talk.html stores earned sticker IDs and
+  // (chickened-out) penalty IDs as arrays, plus a `laidies_gt_names` cache
+  // that maps each ID to its display name so the Closet can show real titles.
+  const girlTalkNames = getStoredJson("laidies_gt_names", {}) || {};
+
+  const girlTalkStickers = getStoredJson("laidies_gt_stickers_earned", []);
+  if (Array.isArray(girlTalkStickers)) {
+    const seenStickers = {};
+    girlTalkStickers.forEach((stickerId) => {
+      if (!stickerId || seenStickers[stickerId]) return;
+      seenStickers[stickerId] = true;
+      events.push({
+        user_id: userId,
+        dedupe_key: `girl-talk-sticker:${stickerId}`,
+        reward_type: "sticker_girl_talk",
+        issue_key: "",
+        title: girlTalkNames[stickerId] || stickerId,
+        source: "Girl Talk",
+        earned_at: new Date().toISOString(),
+        metadata: { stickerId },
+      });
+    });
+  }
+
+  // Penalties allow intentional duplicates — each chicken-out is its own
+  // detention slip, so dedupe per array position rather than per penalty id.
+  const girlTalkPenalties = getStoredJson("laidies_gt_penalties_earned", []);
+  if (Array.isArray(girlTalkPenalties)) {
+    girlTalkPenalties.forEach((penaltyId, index) => {
+      if (!penaltyId) return;
+      events.push({
+        user_id: userId,
+        dedupe_key: `dare-penalty:${index}:${penaltyId}`,
+        reward_type: "dare_penalty",
+        issue_key: "",
+        title: girlTalkNames[penaltyId] || penaltyId,
+        source: "Girl Talk",
+        earned_at: new Date().toISOString(),
+        metadata: { penaltyId },
+      });
+    });
+  }
+
   return events;
 }
 

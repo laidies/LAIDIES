@@ -208,7 +208,7 @@
       <div class="saints-playlist-body">
         <p class="saints-playlist-eyebrow">★ The full pantheon in order</p>
         <p class="saints-playlist-title">Play all 8 SAiNT anthems</p>
-        <p class="saints-playlist-note" id="saintsPlaylistStatus">Cher → Dolly → Elle → Miranda → Buffy → Regina → David → Deb. About 24 minutes.</p>
+        <p class="saints-playlist-note" id="saintsPlaylistStatus">Cher → Dolly → Elle → Miranda → Buffy → David → Deb → Regina. About 24 minutes.</p>
       </div>
       <button type="button" class="saints-playlist-btn" id="saintsPlaylistBtn" aria-label="Play all 8 SAiNT anthems in order">
         <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
@@ -246,7 +246,7 @@
           if (!status) return;
           var songs = collect();
           if (i < 0 || i >= songs.length) {
-            status.innerHTML = 'Cher → Dolly → Elle → Miranda → Buffy → Regina → David → Deb. About 24 minutes.';
+            status.innerHTML = 'Cher → Dolly → Elle → Miranda → Buffy → David → Deb → Regina. About 24 minutes.';
           } else {
             status.innerHTML = '<strong>Now playing:</strong> ' + songs[i].name + ' &middot; ' + (i+1) + ' of ' + songs.length;
           }
@@ -300,9 +300,13 @@
       <div class="stop stop--saint"><div class="saint-portrait"><img src="assets/saints/y2k-stained-glass-v2/elle-woods-y2k-stained-glass.png" alt="Elle Woods — Y2K stained-glass portrait" loading="lazy"></div><span class="stop-num">★</span><h3 class="stop-name">Elle Woods</h3><p class="stop-desc">PATRON SAiNT of Receipts · Legally Blonde.</p><button class="saint-song" data-src="/content/music/saint-elle-woods.mp3" data-intro="/content/music/ksvl-transitions/dj-sunnyv-intro-saint-elle-woods.mp3" onclick="window.playLaidiesTheme(this);" aria-label="Play Elle's saint song"><svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>♪ Her song</span></button></div>
       <div class="stop stop--saint"><div class="saint-portrait"><img src="assets/saints/y2k-stained-glass-v2/miranda-priestly-y2k-stained-glass.png" alt="Miranda Priestly — Y2K stained-glass portrait" loading="lazy"></div><span class="stop-num">★</span><h3 class="stop-name">Miranda Priestly</h3><p class="stop-desc">PATRON SAiNT of Standards · The Devil Wears Prada.</p><button class="saint-song" data-src="/content/music/saint-miranda-priestly.mp3" data-intro="/content/music/ksvl-transitions/dj-sunnyv-intro-saint-miranda-priestly.mp3" onclick="window.playLaidiesTheme(this);" aria-label="Play Miranda's saint song"><svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>♪ Her song</span></button></div>
       <div class="stop stop--saint"><div class="saint-portrait"><img src="assets/saints/y2k-stained-glass-v2/buffy-summers-y2k-stained-glass.png" alt="Buffy Summers — Y2K stained-glass portrait" loading="lazy"></div><span class="stop-num">★</span><h3 class="stop-name">Buffy Summers</h3><p class="stop-desc">PATRON SAiNT of SLAiYING · Buffy the Vampire Slayer.</p><button class="saint-song" data-src="/content/music/saint-buffy-summers.mp3" data-intro="/content/music/ksvl-transitions/dj-sunnyv-intro-saint-buffy-summers.mp3" onclick="window.playLaidiesTheme(this);" aria-label="Play Buffy's saint song"><svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>♪ Her song</span></button></div>
-      <div class="stop stop--saint"><div class="saint-portrait"><img src="assets/saints/y2k-stained-glass-v2/regina-george-y2k-stained-glass.png" alt="Regina George — Y2K stained-glass portrait" loading="lazy"></div><span class="stop-num">★</span><h3 class="stop-name">Regina George</h3><p class="stop-desc">THE CAUTIONARY TALE · Mean Girls. Not a saint — the one you don't imitate (confidently wrong, careless with secrets).</p><button class="saint-song" data-src="/content/music/saint-regina-george.mp3" data-intro="/content/music/ksvl-transitions/dj-sunnyv-intro-saint-regina-george.mp3" onclick="window.playLaidiesTheme(this);" aria-label="Play Regina's saint song"><svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>♪ Her song</span></button></div>
       <div class="stop stop--saint"><div class="saint-portrait"><img src="assets/saints/y2k-stained-glass-v2/david-rose-y2k-stained-glass.png" alt="David Rose — Y2K stained-glass portrait" loading="lazy"></div><span class="stop-num">★</span><h3 class="stop-name">David Rose</h3><p class="stop-desc">PATRON SAiNT of Specificity · Schitt's Creek (standing exception — specificity is the point).</p><button class="saint-song" data-src="/content/music/saint-david-rose.mp3" data-intro="/content/music/ksvl-transitions/dj-sunnyv-intro-saint-david-rose.mp3" onclick="window.playLaidiesTheme(this);" aria-label="Play David Rose's saint song"><svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>♪ His song</span></button></div>
       <div class="stop stop--saint"><div class="saint-portrait"><img src="assets/saints/y2k-stained-glass-v2/deb-y2k-stained-glass.png" alt="Deb — Y2K stained-glass portrait" loading="lazy"></div><span class="stop-num">★</span><h3 class="stop-name">Deb</h3><p class="stop-desc">PATRON SAiNT of "Loop Me Out" (also the PATRON SAiNT of Deb; trademarked Deb-flection™ in 1997) · SUNNYVAiLE's mayor.</p><button class="saint-song" data-src="/content/music/saint-deb.mp3" data-intro="/content/music/ksvl-transitions/dj-sunnyv-intro-saint-deb.mp3" onclick="window.playLaidiesTheme(this);" aria-label="Play Deb's saint song"><svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>♪ Her song</span></button></div>
+      <div class="stop stop--saint" data-saint-slug="samantha-jones"><div class="saint-portrait"><img src="assets/saints/y2k-stained-glass-v2/samantha-jones-y2k-stained-glass.png" alt="Samantha Jones — Y2K stained-glass portrait" loading="lazy"></div><span class="stop-num">★</span><h3 class="stop-name">Samantha Jones</h3><p class="stop-desc">PATRON SAiNT of Orientation · Sex and the City. The Publicist — reads the whole room and walks in like she owns it.</p></div>
+      <div class="stop stop--saint" data-saint-slug="oprah-winfrey"><div class="saint-portrait"><img src="assets/saints/y2k-stained-glass-v2/oprah-winfrey-y2k-stained-glass.png" alt="Oprah Winfrey — Y2K stained-glass portrait" loading="lazy"></div><span class="stop-num">★</span><h3 class="stop-name">Oprah Winfrey</h3><p class="stop-desc">PATRON SAiNT of Staying Current · The Talk Show Host — on top of it, and she tells you the one worth your time.</p></div>
+      <div class="stop stop--saint" data-saint-slug="jennifer-lopez"><div class="saint-portrait"><img src="assets/saints/y2k-stained-glass-v2/jennifer-lopez-y2k-stained-glass.png" alt="Jennifer Lopez — Y2K stained-glass portrait" loading="lazy"></div><span class="stop-num">★</span><h3 class="stop-name">Jennifer Lopez</h3><p class="stop-desc">PATRON SAiNT of Range · The Triple Threat — sings, acts, dances, runs the label. Don't be just one thing.</p></div>
+      <div class="stop stop--saint" data-saint-slug="sister-mary-clarence"><div class="saint-portrait"><img src="assets/saints/y2k-stained-glass-v2/sister-mary-clarence-y2k-stained-glass.png" alt="Sister Mary Clarence — Y2K stained-glass portrait" loading="lazy"></div><span class="stop-num">★</span><h3 class="stop-name">Sister Mary Clarence</h3><p class="stop-desc">PATRON SAiNT of Teaching · Sister Act. The Choir Director — brings the whole room up with her.</p></div>
+      <div class="stop stop--saint"><div class="saint-portrait"><img src="assets/saints/y2k-stained-glass-v2/regina-george-cautionary-red-y2k-stained-glass.png" alt="Regina George — cautionary-red Y2K stained-glass portrait" loading="lazy"></div><span class="stop-num">★</span><h3 class="stop-name">Regina George</h3><p class="stop-desc">THE CAUTIONARY TALE · Mean Girls. Not a saint — the one you don't imitate (confidently wrong, careless with secrets).</p><button class="saint-song" data-src="/content/music/saint-regina-george.mp3" data-intro="/content/music/ksvl-transitions/dj-sunnyv-intro-saint-regina-george.mp3" onclick="window.playLaidiesTheme(this);" aria-label="Play Regina's saint song"><svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>♪ Her song</span></button></div>
     </div>
 
     <script>
@@ -324,7 +328,11 @@
           'Regina George':   { rule: 'Confidence is not the problem. What you do with it is.', song: 'The Embeddings',  source: 'Mean Girls (2004)' },
           'David Rose':      { rule: 'Be specific. Say what kind of cheese. Actually say the year.', song: 'Chain of Thought', source: "Schitt's Creek" },
           'Deb':             { rule: 'The most powerful word is NOPE. Then move on.',          song: 'Latent Space',    source: "SUNNYVAiLE's mayor",
-                               devotion: 'The PATRON SAiNT for women who say yes to too much. It’s time to start saying NOPE. You’re in your Deb-flection™ era.' }
+                               devotion: 'The PATRON SAiNT for women who say yes to too much. It’s time to start saying NOPE. You’re in your Deb-flection™ era.' },
+          'Samantha Jones':  { rule: 'Read the room first. Then walk in like you own it.',     song: '', source: 'Sex and the City (1998)' },
+          'Oprah Winfrey':   { rule: 'You don’t have to read everything — just point to the one worth the time.', song: '', source: 'Herself' },
+          'Jennifer Lopez':  { rule: 'Don’t be just one thing.',                               song: '', source: 'Herself' },
+          'Sister Mary Clarence': { rule: 'Bring the whole room up with you.',                 song: '', source: 'Sister Act (1992)' }
         };
         function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
 
@@ -956,81 +964,81 @@
     </div>
 
     <p class="maven-wing-subhead">The wider wing — more of the lineage</p>
-    <p style="max-width:64ch;margin:0 auto 18px;text-align:center;opacity:0.72;font-size:0.95rem;line-height:1.6;">The women our heroine didn't have time to name — read their stories here. Their stained-glass portraits are being illuminated.</p>
+    <p style="max-width:64ch;margin:0 auto 18px;text-align:center;opacity:0.72;font-size:0.95rem;line-height:1.6;">The women our heroine didn't have time to name — tap <em>✦ Meet her</em> to read their stories. Their stained-glass portraits are lit now, too.</p>
 
     <div class="stop-grid">
       <div class="stop stop--maven" data-maven-slug="eniac-six" data-maven-extra="1">
-        <div class="maven-portrait"><div class="maven-portrait-placeholder"><span class="maven-portrait-initial">E</span><span class="maven-portrait-note">portrait coming</span></div></div>
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/eniac-six-y2k-stained-glass.png" alt="The ENIAC Six — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">The ENIAC Six</h3>
         <p class="stop-desc">Keepers of the First Program · 1945 · the first coders, uncaptioned for 40 years.</p>
         <button class="maven-meet" type="button" aria-label="Meet the ENIAC Six">✦ Meet them</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="margaret-hamilton" data-maven-extra="1">
-        <div class="maven-portrait"><div class="maven-portrait-placeholder"><span class="maven-portrait-initial">M</span><span class="maven-portrait-note">portrait coming</span></div></div>
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/margaret-hamilton-y2k-stained-glass.png" alt="Margaret Hamilton — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Margaret Hamilton</h3>
         <p class="stop-desc">Keeper of Software Itself · Apollo · named the craft, saved the landing.</p>
         <button class="maven-meet" type="button" aria-label="Meet Margaret Hamilton">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="frances-allen" data-maven-extra="1">
-        <div class="maven-portrait"><div class="maven-portrait-placeholder"><span class="maven-portrait-initial">F</span><span class="maven-portrait-note">portrait coming</span></div></div>
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/frances-allen-y2k-stained-glass.png" alt="Frances Allen — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Frances Allen</h3>
         <p class="stop-desc">Keeper of Fast Code · IBM · optimizing compilers. First woman to win the Turing.</p>
         <button class="maven-meet" type="button" aria-label="Meet Frances Allen">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="grace-wahba" data-maven-extra="1">
-        <div class="maven-portrait"><div class="maven-portrait-placeholder"><span class="maven-portrait-initial">G</span><span class="maven-portrait-note">portrait coming</span></div></div>
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/grace-wahba-y2k-stained-glass.png" alt="Grace Wahba — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Grace Wahba</h3>
         <p class="stop-desc">Keeper of the Curve-Fit · the math inside machine learning.</p>
         <button class="maven-meet" type="button" aria-label="Meet Grace Wahba">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="cynthia-dwork" data-maven-extra="1">
-        <div class="maven-portrait"><div class="maven-portrait-placeholder"><span class="maven-portrait-initial">C</span><span class="maven-portrait-note">portrait coming</span></div></div>
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/cynthia-dwork-y2k-stained-glass.png" alt="Cynthia Dwork — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Cynthia Dwork</h3>
         <p class="stop-desc">Keeper of Private Data · differential privacy. Learn without exposing anyone.</p>
         <button class="maven-meet" type="button" aria-label="Meet Cynthia Dwork">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="daphne-koller" data-maven-extra="1">
-        <div class="maven-portrait"><div class="maven-portrait-placeholder"><span class="maven-portrait-initial">D</span><span class="maven-portrait-note">portrait coming</span></div></div>
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/daphne-koller-y2k-stained-glass.png" alt="Daphne Koller — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Daphne Koller</h3>
         <p class="stop-desc">Keeper of Reasoning Under Uncertainty · graphical models · Coursera.</p>
         <button class="maven-meet" type="button" aria-label="Meet Daphne Koller">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="barbara-liskov" data-maven-extra="1">
-        <div class="maven-portrait"><div class="maven-portrait-placeholder"><span class="maven-portrait-initial">B</span><span class="maven-portrait-note">portrait coming</span></div></div>
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/barbara-liskov-y2k-stained-glass.png" alt="Barbara Liskov — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Barbara Liskov</h3>
         <p class="stop-desc">Keeper of Clean Code · abstraction. Turing Award, 2008.</p>
         <button class="maven-meet" type="button" aria-label="Meet Barbara Liskov">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="jean-sammet" data-maven-extra="1">
-        <div class="maven-portrait"><div class="maven-portrait-placeholder"><span class="maven-portrait-initial">J</span><span class="maven-portrait-note">portrait coming</span></div></div>
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/jean-sammet-y2k-stained-glass.png" alt="Jean Sammet — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Jean Sammet</h3>
         <p class="stop-desc">Keeper of the Languages · COBOL &amp; FORMAC.</p>
         <button class="maven-meet" type="button" aria-label="Meet Jean Sammet">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="adele-goldberg" data-maven-extra="1">
-        <div class="maven-portrait"><div class="maven-portrait-placeholder"><span class="maven-portrait-initial">A</span><span class="maven-portrait-note">portrait coming</span></div></div>
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/adele-goldberg-y2k-stained-glass.png" alt="Adele Goldberg — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Adele Goldberg</h3>
         <p class="stop-desc">Keeper of the Interface · Smalltalk at PARC · the GUI Jobs borrowed.</p>
         <button class="maven-meet" type="button" aria-label="Meet Adele Goldberg">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="shafi-goldwasser" data-maven-extra="1">
-        <div class="maven-portrait"><div class="maven-portrait-placeholder"><span class="maven-portrait-initial">S</span><span class="maven-portrait-note">portrait coming</span></div></div>
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/shafi-goldwasser-y2k-stained-glass.png" alt="Shafi Goldwasser — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Shafi Goldwasser</h3>
         <p class="stop-desc">Keeper of Trust · zero-knowledge proofs. Turing Award, 2012.</p>
         <button class="maven-meet" type="button" aria-label="Meet Shafi Goldwasser">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="lynn-conway" data-maven-extra="1">
-        <div class="maven-portrait"><div class="maven-portrait-placeholder"><span class="maven-portrait-initial">L</span><span class="maven-portrait-note">portrait coming</span></div></div>
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/lynn-conway-y2k-stained-glass.png" alt="Lynn Conway — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Lynn Conway</h3>
         <p class="stop-desc">Keeper of the Chip · the silicon underneath · erased by IBM, restored in 2020.</p>
@@ -1040,6 +1048,7 @@
 
     <div class="turing-memoriam" style="max-width:60ch;margin:56px auto 8px;padding:30px 30px 26px;text-align:center;border-top:1px solid rgba(201,162,39,0.45);border-bottom:1px solid rgba(201,162,39,0.45);">
       <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">✦&nbsp;&nbsp;In memoriam&nbsp;&nbsp;✦</div>
+      <img src="assets/mavens/y2k-stained-glass-v2/alan-turing-y2k-stained-glass.png" alt="Alan Turing — Y2K stained-glass portrait" loading="lazy" style="width:96px;height:96px;object-fit:cover;border-radius:12px;border:1.5px solid var(--gold);margin:0 auto 14px;display:block;">
       <h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.5rem;color:var(--plum-deep,#37142f);margin:0 0 14px;line-height:1.15;">Alan Turing<br><span style="font-size:0.85rem;font-weight:400;opacity:0.7;">1912–1954</span></h3>
       <p style="max-width:none;margin:0;font-size:0.98rem;line-height:1.72;opacity:0.86;">This wing is the women's. But it rests on a foundation, and one of its architects was Alan Turing — who imagined the machine itself, and the test we still use to ask whether it thinks. In 1952, the country he had helped save prosecuted him for being gay and chemically castrated him — the price of staying out of prison. He was dead within two years; it took Britain half a century to apologize. He is not a MAiVEN — he is the reason so many of them had a machine to build on, and a reminder that brilliance has been erased here for <em>who you love</em> as much as <em>what you are</em>. We keep his name lit, too.</p>
     </div>
@@ -1366,6 +1375,8 @@
 
         // Derive the saint slug from the existing audio path (the saint cards don't have a data attribute yet)
         function saintSlugFrom(card) {
+          var explicit = card.getAttribute('data-saint-slug');
+          if (explicit) return explicit;
           var songBtn = card.querySelector('.saint-song');
           if (!songBtn) return '';
           var src = songBtn.getAttribute('data-src') || '';

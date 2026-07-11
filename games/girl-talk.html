@@ -922,7 +922,8 @@
           STICKERS:   "laidies_gt_stickers_earned",   // JSON array of sticker IDs (T1, D5, ...)
           DARES:      "laidies_gt_dares_completed",   // JSON array of dare IDs
           PENALTIES:  "laidies_gt_penalties_earned",  // JSON array of penalty IDs (dupes allowed)
-          WISHES:     "laidies_gt_pending_wishes"     // number — earned-but-not-yet-granted bonus LAiDY wishes
+          WISHES:     "laidies_gt_pending_wishes",    // number — earned-but-not-yet-granted bonus LAiDY wishes
+          NAMES:      "laidies_gt_names"              // JSON map of reward id → display name (so the Closet syncs real titles)
         };
         const WISH_THRESHOLD = 5;  // every 5 completed dares earns 1 pending wish
 
@@ -942,6 +943,20 @@
         }
         function writeNumber(key, value) {
           try { window.localStorage.setItem(key, String(value)); } catch {}
+        }
+        // Cache reward id → display name so the Closet (which syncs by id via
+        // script.js getLocalRewardEvents) can render real titles on stickers
+        // and detention slips without duplicating the tables above.
+        function recordName(id, name) {
+          if (!id || !name) return;
+          try {
+            const raw = window.localStorage.getItem(LS.NAMES);
+            const map = raw ? JSON.parse(raw) : {};
+            if (map[id] !== name) {
+              map[id] = name;
+              window.localStorage.setItem(LS.NAMES, JSON.stringify(map));
+            }
+          } catch {}
         }
 
         // ===== DOM =====
@@ -1090,6 +1105,7 @@
           const stickers = readArray(LS.STICKERS);
           stickers.push(stickerId);
           writeArray(LS.STICKERS, stickers);
+          recordName(stickerId, sticker.name);
 
           let newWish = false;
           if (currentCard.kind === "dare") {
@@ -1153,6 +1169,7 @@
           const earned = readArray(LS.PENALTIES);
           earned.push(penalty.id);
           writeArray(LS.PENALTIES, earned);
+          recordName(penalty.id, penalty.name);
 
           els.result.innerHTML = `
             <div class="gt-penalty">
