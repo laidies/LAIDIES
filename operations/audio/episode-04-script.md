@@ -60,8 +60,16 @@ And AGI is the prophesied one everybody's waiting for — the all-powerful figur
 
 ## ⑧ Next time (announcer)
 
-[tv announcer] Next time on ladies: she stops re-introducing herself to the machine every single morning — and learns to set herself up once, so every tool starts already knowing how she works. This is Episode Five: The Skeleton Key.
+[tv announcer] Next time on ladies: back in the 90s, you could tell all five supermodels apart on sight — Cindy, Naomi, Linda, the whole runway. [playful] So why do the big AI names — ChatGPT, Claude, Gemini — all blur into one confident beige rectangle? Next week we line them up and figure out which one you actually reach for, for which job — and why they're not interchangeable. This is Episode Five: The Super Models.
 
-> ⚠️ Ep 5 tease is a placeholder — the Handbook flags "the full Skeleton Key build" as its next
-> piece, which makes a clean Ep 5, but confirm against whatever Ep 5 actually becomes before this
-> locks.
+> Retitled: Ep 5 is now "The Super Models" (was "The Skeleton Key" / "Model Menu"; Skeleton Key moved
+> later). This tease commits ONLY to Ep 5's locked title + hook (meet the big-name models; which one
+> for what + why) — safe to record now even while the Ep 5 body is still being finalized. Names only
+> ChatGPT/Claude/Gemini (the houses that build their own model); Copilot stays out (it's the
+> department store). AI kept as "it," never gendered.
+>
+> Alt tease (leans harder into the payoff): "[tv announcer] Next time on ladies: last week she
+> learned AI is a whole cast. This week she meets the headliners — ChatGPT, Claude, Gemini — the big
+> names everyone drops like they're all the same. [playful] They're not. One's fast, one's careful,
+> one reads all sixty pages before it answers. Next week: which one you call for what, and why. This
+> is Episode Five: The Super Models."
