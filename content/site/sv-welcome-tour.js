@@ -1,10 +1,11 @@
 /**
  * THE WELCOME TOUR — first-visit guided walk through SUNNYVAiLE.
  *
- * Six stops, one escort chip: Visitor's Centre → Chick Flicks → SUNNYVAiLE
- * High → KSVL → Mme CLAi-O's → MAiKEOVER (make your card). Starts ONLY when
- * the visitor asks (menu item, homepage button, or the Visitor's Centre
- * offer) — never auto-plays, never returns after finish/skip.
+ * Seventeen stops, one escort chip — the full guided walk through
+ * SUNNYVAiLE in order, from the Visitor's Centre all the way to MAiKEOVER
+ * (make your card), which ends the tour. Starts ONLY when the visitor asks
+ * (menu item, homepage button, or the Visitor's Centre offer) — never
+ * auto-plays, never returns after finish/skip.
  *
  * State: localStorage 'laidies_welcome_tour' = { step, startedAt, done, skipped }
  * Start link format: any page can link to /visitors-centre.html?welcome-tour=start
@@ -16,17 +17,39 @@
 
   var STOPS = [
     { href: '/visitors-centre.html', name: "The Welcome Wagon", icon: 'map',
-      line: "Every good town starts at the Visitor's Centre. Have a look around — this is what SUNNYVAiLE is." },
+      line: "Every good town starts at the Visitor's Centre — press play on the trailer up top for a quick taste, then follow me and I'll walk you through every stop in town." },
+    { href: '/newsstand.html', name: 'The NewsStand', icon: 'news',
+      line: "This week's AI news, translated — grab the WEDNESDAY Edition for the one line to say when it comes up at the meeting." },
     { href: '/chick-flicks.html', name: 'The Chick Flicks', icon: 'vhs',
-      line: "Rent this week's episode — it's how the town learns AI. One a week, always a chick flick." },
+      line: "Pull this week's episode off the New Releases wall and take it home — one tape a week, always a chick flick." },
+    { href: '/blend-snap.html', name: 'The Blend & Snap', icon: 'cup',
+      line: "Order something with milk in it and grab this week's Study Pack — the cheat sheet for the quiz, a fresh pack of trading cards tucked inside." },
     { href: '/sunnyvaile-high.html', name: 'SUNNYVAiLE High', icon: 'gradcap',
-      line: 'Take the pop quiz on what you watched. Your score banks butterfly clips for your Closet.' },
-    { href: '/radio.html', name: 'KSVL 99.9', icon: 'radio',
-      line: 'Turn the radio on. DJ SunnyV plays the town — and the music follows you everywhere you go.' },
+      line: "Sit this Wednesday's Pop Quiz on the episode — collect a sticker and watch your score land on your permanent Report Card." },
+    { href: '/library.html', name: 'The LIBRAiRY', icon: 'book',
+      line: "When the jargon lands on the table, this is the rack where you look it up — the Glossary, the straight answers, and Miss Jeeves at the desk." },
+    { href: '/luminairy.html', name: 'The LUMINAiRY', icon: 'candle',
+      line: "Pay your respects on Lantern Hill — the PATRON SAiNTS on one wall, the real women leading AI on the other, each with a ♪ Her song to play." },
     { href: '/games/madame-claio.html', name: "Mme CLAi-O's", icon: 'crystal',
-      line: 'One fortune before you go. The paper knows best.' },
+      line: "Call the psychic hotline and step in for your reading — practical advice, late-night-commercial drama." },
+    { href: '/games/fairy-godmother.html', name: 'FAiRY Godmother', icon: 'wand',
+      line: "Bring the prompt you can't finish, wave the wand, and Ask LAiDY for real advice in your favorite PATRON SAiNT's energy." },
+    { href: '/bronze-aige.html', name: 'The BRONZE AiGE', icon: 'martini',
+      line: "The town bar — round up your crew, let the Businesswomen's Special pick the drinks, and steal the conversation menu for happy hour at 4." },
+    { href: '/mall.html', name: 'The Mall', icon: 'bag',
+      line: "Ten stores, all references — every pop-culture moment the town reaches for has its own storefront, with a Directory at the door." },
+    { href: '/games/dream-phone.html', name: 'Dream Phone', icon: 'phone',
+      line: "Pick up the Dream Phone and Just Call an advisor for a straight answer on career, confidence, AI, or drama." },
+    { href: '/sorority-house.html', name: 'Delta LAi Nu', icon: 'home',
+      line: "Delta LAi Nu on Wisteria Lane — the clubhouse where the chat rooms live and your Closet locker waits, the minute your card's on file." },
+    { href: '/town-hall.html', name: 'Town Hall', icon: 'columns',
+      line: "Deb's office — meet the mayor who's been here longer than anyone, read the poster saga, and drop a Comment Card if something needs handling." },
+    { href: '/post-office.html', name: 'The Post Office', icon: 'mail',
+      line: "Sign up here and your email becomes your PO box — one delivery every Wednesday when the new episode lands, no spam, ever." },
+    { href: '/radio.html', name: 'KSVL 99.9', icon: 'radio',
+      line: "Turn the dial to 99.9 — DJ SunnyV plays the town all day, and once it's on, the music follows you everywhere you go." },
     { href: '/maikeover.html', name: 'MAiKEOVER on MAiN', icon: 'lipstick',
-      line: "You've seen the town — time to live here. Make your Residence Card and become a resident." }
+      line: "You've seen the town — now take the chair, pick your colors, and make the Residence Card that turns a tourist into a resident." }
   ];
 
   function readState() {
@@ -51,7 +74,7 @@
   }
 
   var STYLE = ''
-    + '.svwt-chip { position: fixed; left: 16px; right: auto; bottom: 88px; z-index: 9300; width: min(320px, calc(100vw - 32px));'
+    + '.svwt-chip { position: fixed; left: 16px; right: auto; bottom: 150px; z-index: 9300; width: min(320px, calc(100vw - 32px));'
     + '  background: linear-gradient(160deg, #3a1838 0%, #4b2148 100%); color: #fffdfb;'
     + '  border: 2px solid var(--gold, #c9a227); border-radius: 14px; padding: 14px 16px 12px;'
     + '  box-shadow: 0 14px 40px rgba(26,8,24,0.45); font-family: "Jost", sans-serif; }'
@@ -69,7 +92,7 @@
     + '.svwt-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,253,251,0.25); }'
     + '.svwt-dot.is-done { background: var(--gold, #c9a227); }'
     + '.svwt-dot.is-here { background: #fffdfb; box-shadow: 0 0 6px rgba(255,253,251,0.8); }'
-    + '.svwt-offer { position: fixed; left: 16px; right: auto; bottom: 88px; z-index: 9300;'
+    + '.svwt-offer { position: fixed; left: 16px; right: auto; bottom: 150px; z-index: 9300;'
     + '  display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px;'
     + '  background: linear-gradient(160deg, #3a1838 0%, #4b2148 100%); color: #fffdfb;'
     + '  border: 2px solid var(--gold, #c9a227); border-radius: 999px; cursor: pointer;'
@@ -77,7 +100,7 @@
     + '.svwt-offer:hover { transform: translateY(-2px); }'
     + '.svwt-offer .svwt-offer-x { color: rgba(255,253,251,0.5); margin-left: 4px; font-size: 14px; }'
     + '.svwt-ic { display: inline-flex; vertical-align: -3px; margin-right: 2px; }'
-    + '@media (max-width: 640px) { .svwt-chip, .svwt-offer { bottom: 80px; left: 10px; right: auto; } }';
+    + '@media (max-width: 640px) { .svwt-chip, .svwt-offer { bottom: 130px; left: 10px; right: auto; } }';
 
   function injectStyle() {
     if (document.getElementById('svwt-style')) return;
@@ -171,7 +194,7 @@
     chip.innerHTML =
       '<p class="svwt-eyebrow"><span>' + ic('bus', 'eb3', 13) + ' Welcome Tour · complete</span></p>'
       + '<p class="svwt-name">' + ic('star', 'fin', 17) + ' Official Tourist!</p>'
-      + '<p class="svwt-line">You walked the whole town. Make your Residence Card right here and it all starts counting — clips, charms, stickers, the works.</p>'
+      + '<p class="svwt-line">You\'ve done the essential stops — you know your way around now. Make your Residence Card right here and it all starts counting — clips, charms, stickers, the works.</p>'
       + '<a class="svwt-next" href="#maikeover-form" onclick="this.closest(\'.svwt-chip\').remove()">Make my card ★</a>';
     document.body.appendChild(chip);
     setTimeout(function () {

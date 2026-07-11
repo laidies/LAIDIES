@@ -131,15 +131,23 @@ teased. Grounded vs 2026 AI-skills demand + agentic/multimodal/embedded trends (
 23. **Staying Current Without Doomscrolling** — the sustainable weekly diet.
 24. **Wear the Crown** — finale: the woman they come to; Steve asks HER; she gives the cocktail-party explanation, her version. Season promo fulfilled, line by line.
 
-### YOUR COURT — the saint-cabinet (Ali 2026-07-08; see [[your-court-saint-agents]])
-Act III's "squad" = the patron saints as specialized agents; each returns from her single-episode
-patron slot to join the working Court. Roles are canon (each saint's "PATRON SAiNT of X" domain in
-`luminairy.html` — verify there before changing):
-- **Miranda Priestly** (Standards) → **The Editor** · **Elle Woods** (Receipts) → **The Researcher** ·
-  **David Rose** (Specificity) → **The Brief** · **Dolly Parton** (Common Sense) → **The Translator** ·
-  **Buffy Summers** (SLAiYING) → **The Doer** · **Cher Horowitz** (Early Adoption) → **The Scout** ·
-  **Regina George** (Dangerous Confidence) → **The Closer** · **Deb** (Loop Me Out) → **The Gatekeeper**.
+### YOUR COURT — the saint-cabinet (Ali 2026-07-08; roster rethought 2026-07-10; see [[your-court-saint-agents]] + [[saint-roster-rethink-2026-07]])
+Act III's "squad" = the patron saints as specialized agents. A saint = a durable THEME (a way of being),
+NOT an episode slot — she recurs across the whole season, and an episode may invoke two or three of them
+(like the week's two songs). Each returns with her **native Court title** — the job she actually holds in
+her own story (Miranda really is an editor), NOT an assigned one:
+- **Cher Horowitz** (make it yours) → **The Makeover Artist** · **David Rose** (specificity) → **The Curator** ·
+  **Elle Woods** (receipts) → **The Attorney** · **Samantha Jones** (orientation) → **The Publicist** ·
+  **Miranda Priestly** (standards) → **The Editor** · **Deb** (boundaries) → **The Gatekeeper** ·
+  **Buffy** (slaying) → **The Slayer** · **Dolly Parton** (common sense) → **The Boss** ·
+  **Sister Mary Clarence / Deloris Van Cartier** (teaching) → **The Choir Director** · **Oprah** (staying current) → **The Talk Show Host** ·
+  **J.Lo** (multimodal / range) → **The Triple Threat**.
+- **Regina George** = **The Cautionary Tale** — the anti-saint, NOT a Court member; lives in the LUMINAiRY as
+  the one red window, set off to the side ("…don't be like Regina").
 "Build your own saint" = a Custom GPT/Project tuned as one of them. "The whole Court" = orchestrate them together.
+(Willow/automation was considered and cut — automation is an *episode* that borrows Cher + Buffy, not its own saint.)
+**Production cascade still owed** (not one-per-episode): LUMINAiRY entries, portraits, saint songs, homepage strip
+and Closet "Your Luminaries" picker for the 4 new saints (Samantha/Deloris/Oprah/J.Lo) + Cher/Deb/Regina copy.
 
 **Re-sequencing moves (2026-07-08):** Ep 4 keeps "the cast" (old "picking your tool" Ep 5 **dropped**, not duplicated) · privacy → Ep 6 · verification = concept once (Ep 3) + workflow once (Ep 11) · staying-current → Ep 23. **Added:** multimodal (7), embedded (10), the saint Court (18–19). **Merged:** teach+mentor (21), judgment+centaur (22).
 

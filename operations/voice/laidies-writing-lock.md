@@ -163,18 +163,31 @@ Say what aspect of Cher matters.
 
 For example:
 
-* Cher Horowitz = early adoption, personal tech, visual systems, confidence trying the new thing
-* David Rose = specificity, not vague instructions
-* Elle Woods = receipts, preparation, cross-examination, underestimated competence
-* Miranda Priestly = standards, stakes, discernment, no beige work
-* Buffy = slaying the thing everyone else is avoiding
-* Regina George = dangerous confidence, social dynamics, polished delivery with risk
-* Deb = institutional survival, legacy systems, corporate cryptid energy
-* Dolly Parton = common sense, knowing your worth, plain-spoken self-made wisdom
+* Cher Horowitz = make it yours — fearless with the new thing; sets it up so it truly knows her (the closet computer; "make over my soul")
+* David Rose = specificity — know exactly what you want; "make it nice" gets you nothing
+* Elle Woods = receipts — preparation, cross-examination, underestimated competence ("I did the reading")
+* Samantha Jones = orientation — reads the whole room, the right one for the occasion, unintimidated by the options
+* Miranda Priestly = standards — discernment, no beige work ("not good enough — again")
+* Buffy = slaying — takes the thing everyone else is avoiding
+* Deb = boundaries ("Loop Me Out") — knows when to say Nope; won't let AI quietly take over. Corporate cryptid.
+* Dolly Parton = common sense — knows her worth; plain-spoken, self-made
+* Sister Mary Clarence, aka Deloris Van Cartier (Sister Act) = teaching — lifts the whole room up with her (lead with "Sister Mary Clarence" / "the Sister Act nun" for instant recognition)
+* Oprah = staying current — on top of it; tells you the one worth your time (NOT "curiosity")
+* J.Lo = range / multimodal — sings, acts, dances, all of it; don't be just one thing
 
-The character must match the lesson.
+Regina George = the ANTI-SAINT ("…don't be like Regina"). Confidently wrong AND careless with secrets — the Burn Book is both. The Cautionary Tale; not a Court member.
 
-David is specificity. Cher is early adoption. Do not blur them.
+The character must match the lesson. A saint is a durable THEME, not an episode slot — she recurs all season, and an episode may invoke two or three (like the week's two songs).
+
+David is specificity. Cher is make-it-yours. Samantha is orientation. Do not blur them.
+
+AI Pronoun Rule
+
+The AI, a model, or an app is always **"it"** — never "she," "her," or "a woman." Do NOT gender or personify the product (it's the default-female-assistant trope, and it undercuts a brand about women commanding AI). Only real humans get she/her: the actual 90s supermodels in the Ep5 flashback (Cindy, Naomi…), the patron saints, the MAiVENS, the listener/heroine. The fashion metaphor compares a model TO a supermodel, but the model itself is "it." (Ali 2026-07-10 — this keeps leaking into Ep5.)
+
+Plain-Teaching Rule
+
+Write the teaching exactly as plainly as you'd explain it to a smart friend in conversation — lead with the plain mechanic, in plain words, in the shortest true sentence. The Y2K voice and the analogy are **garnish**: they decorate a clear idea; they never carry it. Test: if the plain chat-style explanation is clearer than the drafted script, **the script is wrong** — flatten it until the script is as clear as the plain version. One term per concept (don't call the same thing a supermodel, a face, a star, AND a poster). Introduce a metaphor once, lightly; never build a parallel vocabulary the listener has to translate mid-sentence. And make the episode's opening question get answered by the core teaching itself, not by a side-metaphor bolted on at the end. (Ali 2026-07-10 — Ep5: "the way we laid it out in chat is much clearer than what's coming out in the article.")
 
 Analogy Depth Rule
 
@@ -210,16 +223,21 @@ Canon Consistency Rule
 
 Use recurring LAiDIES references consistently.
 
-Current Patron Saint lanes:
+Current Patron Saints — each is a durable THEME (a way of being) plus her **native Court title** (the job she holds in her own story). Rethought 2026-07-10 (see [[saint-roster-rethink-2026-07]]). They recur across the season, NOT one per episode; an episode may invoke two or three.
 
-* Cher Horowitz — Patron Saint of Early Adoption
-* David Rose — Patron Saint of Specificity
-* Elle Woods — Patron Saint of Receipts
-* Miranda Priestly — Patron Saint of Standards
-* Buffy Summers — Patron Saint of Slaying
-* Regina George — Patron Saint of Dangerous Confidence
-* Deb — Patron Saint of "Loop Me Out"
-* Dolly Parton — Patron Saint of Common Sense
+* Cher Horowitz — make it yours (Setup) — **The Makeover Artist**
+* David Rose — say exactly what you want (Specificity) — **The Curator**
+* Elle Woods — I did the reading (Receipts) — **The Attorney**
+* Samantha Jones — I know my way around (Orientation) — **The Publicist**
+* Miranda Priestly — not good enough, again (Standards) — **The Editor**
+* Deb — that's not mine to carry (Boundaries / "Loop Me Out") — **The Gatekeeper**
+* Buffy Summers — I'll take the hard one (Slaying) — **The Slayer**
+* Dolly Parton — I know what I'm worth (Common Sense) — **The Boss**
+* Sister Mary Clarence (aka Deloris Van Cartier) / Sister Act — I bring the whole room up with me (Teaching) — **The Choir Director**
+* Oprah — on top of it; here's the one worth your time (Staying Current) — **The Talk Show Host**
+* J.Lo — don't be just one thing (Multimodal / range) — **The Triple Threat**
+
+Anti-saint: **Regina George — The Cautionary Tale** ("…don't be like Regina"). Lives in the LUMINAiRY as the one red window, set off to the side. NOT a Court member.
 
 Do not assign a character a job that belongs to someone else unless the piece intentionally explains why.
 
@@ -422,16 +440,7 @@ The LAiDIES Grimoire includes:
 * Ask the Book
 * Patron Saints
 
-Patron Saints include:
-
-* Cher Horowitz — Patron Saint of Early Adoption
-* David Rose — Patron Saint of Specificity
-* Elle Woods — Patron Saint of Receipts
-* Miranda Priestly — Patron Saint of Standards
-* Buffy Summers — Patron Saint of Slaying
-* Regina George — Patron Saint of Dangerous Confidence
-* Deb — Patron Saint of "Loop Me Out"
-* Dolly Parton — Patron Saint of Common Sense
+Patron Saints (full themes + titles above under Canon Consistency Rule): Cher (The Makeover Artist), David Rose (The Curator), Elle Woods (The Attorney), Samantha Jones (The Publicist), Miranda Priestly (The Editor), Deb (The Gatekeeper), Buffy (The Slayer), Dolly Parton (The Boss), Sister Mary Clarence / Deloris Van Cartier (The Choir Director), Oprah (The Talk Show Host), J.Lo (The Triple Threat). Anti-saint: Regina George (The Cautionary Tale) — not a Court member.
 
 Deb is a corporate cryptid. She survived every reorg, wants an early retirement package, no one knows what she does, she does it with disdain, and IT has had to accommodate her ancient end-of-life desktop setup.
 

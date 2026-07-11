@@ -8,9 +8,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260707-a11y">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260707-a11y"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260710-hdr"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
-  <script defer src="/content/site/sv-welcome-tour.js?v=20260710-1"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260710-2"></script>
   <script src="/content/site/supabase-config.js" defer></script>
 </head>
 <body>
@@ -283,7 +283,7 @@
 
       <div class="th-regulars-grid">
 
-        <a class="th-regular" href="/games/madame-claio.html">
+        <a class="th-regular" href="/games/madame-claio.html" data-town-slug="mme-claio">
           <div class="th-regular-portrait"><img src="assets/town-characters/scenes/mme-claio-scene.jpg?v=20260708" alt="Mme CLAi-O" loading="lazy"></div>
           <span class="th-regular-role">Psychic · Oracle</span>
           <h3 class="th-regular-name">Mme CL<span class="ai">Ai</span>-O</h3>
@@ -291,7 +291,7 @@
           <span class="th-regular-cta">Visit her shop &rarr;</span>
         </a>
 
-        <a class="th-regular" href="/games/fairy-godmother.html">
+        <a class="th-regular" href="/games/fairy-godmother.html" data-town-slug="fairy-godmother">
           <div class="th-regular-portrait"><img src="assets/town-characters/scenes/fairy-godmother-scene.jpg?v=20260708b" alt="FAiRY Godmother" loading="lazy"></div>
           <span class="th-regular-role">Wishmaker · Willow Lane</span>
           <h3 class="th-regular-name">F<span class="ai">Ai</span>RY Godmother</h3>
@@ -299,7 +299,7 @@
           <span class="th-regular-cta">Visit her bungalow &rarr;</span>
         </a>
 
-        <a class="th-regular" href="/radio.html">
+        <a class="th-regular" href="/radio.html" data-town-slug="dj-sunnyv">
           <div class="th-regular-portrait"><img src="assets/town-characters/scenes/dj-sunnyv-scene.jpg?v=20260708" alt="DJ SunnyV" loading="lazy"></div>
           <span class="th-regular-role">Voice of KSVL</span>
           <h3 class="th-regular-name">DJ SunnyV</h3>
@@ -307,7 +307,7 @@
           <span class="th-regular-cta">Tune in at KSVL &rarr;</span>
         </a>
 
-        <a class="th-regular" href="#about-mayor-deb">
+        <a class="th-regular" href="#about-mayor-deb" data-town-slug="mayor-deb">
           <div class="th-regular-portrait"><img src="assets/town-characters/scenes/mayor-deb-scene.jpg?v=20260708b" alt="Mayor Deb" loading="lazy"></div>
           <span class="th-regular-role">Mayor · Deb-flection™</span>
           <h3 class="th-regular-name">Mayor Deb</h3>
@@ -316,6 +316,85 @@
         </a>
 
       </div>
+
+      <!-- Residence Card tie: pick your Town Regular. Writes laidies_town_regular,
+           read by the Closet's "Your Luminaries" band (laidies-card.html #covenTownPick / TOWN_LABEL). -->
+      <div class="sv-trip-tie" id="townRegularTie">
+        <div class="sv-trip-tie__eyebrow">★ Your Residence Card</div>
+        <h3 class="sv-trip-tie__title">Your Town Regular &mdash; this is where you pick her.</h3>
+        <p class="sv-trip-tie__body">One Regular rides in the <strong>Your Luminaries</strong> band on your Residence Card. Meeting her is a trip to Town Hall &mdash; so this is where you pick her. <strong>Every customization is a trip somewhere in town.</strong></p>
+        <div class="tr-pick-row" role="group" aria-label="Pick your Town Regular">
+          <button type="button" class="tr-pick" data-town-slug="mme-claio">Mme CL<span class="ai">Ai</span>-O</button>
+          <button type="button" class="tr-pick" data-town-slug="fairy-godmother">F<span class="ai">Ai</span>RY Godmother</button>
+          <button type="button" class="tr-pick" data-town-slug="dj-sunnyv">DJ SunnyV</button>
+          <button type="button" class="tr-pick" data-town-slug="mayor-deb">Mayor Deb</button>
+        </div>
+        <p class="sv-trip-tie__note" id="townRegularNote">Pick one and she lands in Your Luminaries. <a href="/laidies-card.html#covenSection" style="color: var(--rose);">See it on your card &rarr;</a></p>
+      </div>
+
+      <style>
+        #townRegularTie .tr-pick-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 2px 0 14px; }
+        #townRegularTie .tr-pick {
+          font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 600;
+          letter-spacing: 0.02em; color: var(--plum);
+          background: var(--cream); border: 1.5px solid rgba(75, 33, 72, 0.18);
+          border-radius: 999px; padding: 9px 16px; cursor: pointer;
+          transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+        }
+        #townRegularTie .tr-pick:hover { transform: translateY(-1px); border-color: var(--rose); }
+        #townRegularTie .tr-pick.is-picked {
+          background: rgba(201, 162, 39, 0.14);
+          border-color: var(--gold);
+          color: var(--plum-deep);
+          box-shadow: 0 0 0 1px var(--gold) inset;
+        }
+        .th-regular.is-town-regular { outline: 2px solid var(--gold); outline-offset: 3px; }
+      </style>
+
+      <script>
+        (function () {
+          'use strict';
+          // MIGRATION NOTE (Part C / sign-in plumbing): when the LAiDIES member card / sign-in ships,
+          // this Town Regular pick moves from this device to the user's account.
+          var KEY = 'laidies_town_regular';
+          var tie = document.getElementById('townRegularTie');
+          if (!tie) return;
+          var chips = tie.querySelectorAll('.tr-pick');
+          var note = document.getElementById('townRegularNote');
+          var NAMES = {
+            'mme-claio': 'Mme CL<span class="ai">Ai</span>-O',
+            'fairy-godmother': 'F<span class="ai">Ai</span>RY Godmother',
+            'dj-sunnyv': 'DJ SunnyV',
+            'mayor-deb': 'Mayor Deb'
+          };
+          function read() { try { return localStorage.getItem(KEY) || ''; } catch (e) { return ''; } }
+          function write(slug) { try { localStorage.setItem(KEY, slug); } catch (e) {} }
+          function clear() { try { localStorage.removeItem(KEY); } catch (e) {} }
+          function paint() {
+            var cur = read();
+            chips.forEach(function (c) { c.classList.toggle('is-picked', c.getAttribute('data-town-slug') === cur); });
+            document.querySelectorAll('.th-regular[data-town-slug]').forEach(function (a) {
+              a.classList.toggle('is-town-regular', !!cur && a.getAttribute('data-town-slug') === cur);
+            });
+            if (note) {
+              if (cur && NAMES[cur]) {
+                note.innerHTML = '★ <strong>' + NAMES[cur] + '</strong> is in Your Luminaries. <a href="/laidies-card.html#covenSection" style="color: var(--rose);">See it on your card →</a>';
+              } else {
+                note.innerHTML = 'Pick one and she lands in Your Luminaries. <a href="/laidies-card.html#covenSection" style="color: var(--rose);">See it on your card →</a>';
+              }
+            }
+          }
+          chips.forEach(function (c) {
+            c.addEventListener('click', function () {
+              var slug = c.getAttribute('data-town-slug');
+              if (read() === slug) { clear(); } else { write(slug); }
+              paint();
+            });
+          });
+          if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', paint);
+          else paint();
+        })();
+      </script>
 
       <p class="th-regulars-note">The roster grows when a new town regular gets canonized. Each card links to that character's own building — <em>where you actually meet her.</em></p>
     </section>

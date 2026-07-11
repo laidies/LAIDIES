@@ -33,11 +33,12 @@
   in — and some stores sell the same models** (which is why the work one feels so familiar).
 - **act:** Act 1 — the foundational-fluency run *(confirm boundary vs `operations/audio/season-01-bible.md`).*
 - **release date:** TBD — next open Wednesday drop *(confirm cadence in bible; don't hardcode a guess).*
-- **patron saint:** **Cher Horowitz** (*Clueless*, 1995). Court role: **Early Adoption / the Scout**
-  ([[your-court-saint-agents]]). **Canon reason (spoken):** Cher knows the whole floor — which designer,
-  which piece, which occasion — and would never wear the food-court fit to the nice lunch. She's already
-  scouted the lineup so you don't have to. ⚠️ **NOT the closet-computer** (that "it sets you up / picks
-  for you" beat is Ep 6's, [[coffee-relationship-ai-memory-metaphor]]) — here Cher *reads the floor.*
+- **patron saint:** **Samantha Jones** (*Sex and the City*). Court role: **Orientation / The Publicist**
+  ([[your-court-saint-agents]], [[saint-roster-rethink-2026-07]]). **Canon reason (spoken):** Samantha has
+  worked every room in the city — knows every label, which one belongs at which party, and would never
+  turn up overdressed for the wrong crowd. She reads the floor plan for a living. ⚠️ **Swapped from Cher
+  (2026-07-10 roster rethink):** orientation is Samantha's lane now; Cher = make-it-yours / the closet
+  computer, which is Ep 6's setup beat ([[coffee-relationship-ai-memory-metaphor]]). Do NOT put Cher back here.
 - **previously hook** *(recaps Ep 4, "The Founding Mothers"):* *"our heroine went looking for where AI even
   came from — found almost two hundred years of a real science, built by women — and learned that 'just use
   AI' was never an instruction, because AI isn't one thing, it's a whole field, and nobody had handed her
@@ -80,7 +81,7 @@ The beats the script (spoken) and the article (read) both render, in order:
    one feel identical to my home one? And if they're all secretly the same, why does everyone swear Claude
    is nothing like ChatGPT?
 3. **To town — the LIBRAiRY.** Back to the reference shelf; she pulls **Who's Who in AI**; Miss Jeeves
-   points to the spread. Cher's already there — she reads a floor plan for a living.
+   points to the spread. Samantha's already there — she reads a floor plan for a living.
 4. **The 90s-supermodel plug → the fashion-house frame** *(→ concept: Model).* **First, the memory-jog
    (grounded in the Mall — "The Supermodels" at *Rollin' with my Homies*, Cindy-anchored):** in the 90s the
    *model* was more famous than the clothes — Cindy, Naomi, Linda, Christy, Claudia, Kate. **The obsession
@@ -253,7 +254,7 @@ at record time**; phrase "best at X" as tendencies, never a ranking.)*
 *(→ try-on.html · study pack. ~10 min, not homework.)*
 Two moves. **One:** open the AI your *company* gave you and one you use on your *own*, hand both the exact
 same task, and read the two answers side by side — notice how alike (or not) they are. That's the
-model-vs-store thing, live. **Two:** take one real job and, before you type, ask the Cher question — is
+model-vs-store thing, live. **Two:** take one real job and, before you type, ask the Samantha question — is
 this an all-rounder job, or is it really a *specialist* job in disguise (research with sources, an image,
 a stack of documents)? You're not finding the best AI. You're learning to read the floor.
 

@@ -67,19 +67,18 @@
     + '  border: 1.5px solid rgba(75,33,72,0.28); color: var(--plum, #4b2148); font-size: 16px; line-height: 1;'
     + '  cursor: pointer; transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease; flex-shrink: 0; }'
     + '.svgh-histbtn:hover { border-color: var(--rose, #9b3f5f); color: var(--rose, #9b3f5f); background: rgba(155,63,95,0.06); }'
-    + '@media (max-width: 480px) { .svgh-fwd { display: none; } }'
     + '.svgh-menu-btn { display: inline-flex; align-items: center; gap: 8px; background: transparent;'
-    + '  border: 1.5px solid rgba(75,33,72,0.28); border-radius: 999px; padding: 7px 15px;'
+    + '  border: 1.5px solid rgba(75,33,72,0.28); border-radius: 999px; padding: 7px 15px; white-space: nowrap;'
     + '  font: 700 12px/1 "Jost", sans-serif; letter-spacing: 0.1em; text-transform: uppercase;'
     + '  color: var(--plum, #4b2148); cursor: pointer; transition: border-color 0.15s ease, color 0.15s ease; }'
     + '.svgh-menu-btn:hover, .svgh-menu-btn[aria-expanded="true"] { border-color: var(--rose, #9b3f5f); color: var(--rose, #9b3f5f); }'
     + '.svgh--dark .svgh-menu-btn { border-color: rgba(255,253,251,0.4); color: rgba(255,253,251,0.92); }'
     + '.svgh--dark .svgh-menu-btn:hover, .svgh--dark .svgh-menu-btn[aria-expanded="true"] { border-color: #e8a6bb; color: #e8a6bb; }'
     + '.svgh-join { background: var(--rose, #9b3f5f); color: var(--cream, #fffdfb) !important; padding: 8px 18px;'
-    + '  border-radius: 999px; font-weight: 700; }'
+    + '  border-radius: 999px; font-weight: 700; white-space: nowrap; }'
     + '.svgh-join:hover { background: var(--plum, #4b2148); color: var(--cream, #fffdfb) !important; }'
     + '.svgh-signin { color: var(--rose, #9b3f5f); font-weight: 600; border: 1.5px solid var(--rose, #9b3f5f);'
-    + '  padding: 7px 14px; border-radius: 999px; }'
+    + '  padding: 7px 14px; border-radius: 999px; white-space: nowrap; }'
     + '.svgh-panel { position: fixed; top: 74px; right: 16px; left: auto; z-index: 9400; width: min(560px, calc(100vw - 32px));'
     + '  max-height: min(72vh, 640px); overflow: auto; background: #fffdfb;'
     + '  border: 1.5px solid rgba(75,33,72,0.16); border-radius: 16px; padding: 18px 18px 14px;'
@@ -104,6 +103,27 @@
     + '.site-header .svgh-nav a:hover { color: var(--rose, #9b3f5f); }'
     + '@media (max-width: 760px) { .svgh-quick { display: none !important; } }'
     + '@media (max-width: 640px) { .svgh-panel { top: 64px; } }'
+    /* Phones (≤480px): drop the redundant history arrows and tighten the three
+       quick actions into ONE uniform pill row (Join filled · Sign In outline ·
+       Menu outline) so nothing wraps or crowds at 375px. Placed last so these
+       equal-specificity rules win the cascade over the base pill rules above,
+       on both .site-header (homepage) and .sv-header (inner) pages.
+       white-space:nowrap on the pills already stops text wrapping into ovals. */
+    + '@media (max-width: 480px) {'
+    + '  .svgh-histbtn { display: none; }'
+    + '  :where(.sv-header) { gap: 10px; padding-left: 14px; padding-right: 14px; }'
+    + '  .svgh-nav, .site-header .svgh-nav { gap: 9px; }'
+    /* .svgh-nav-scoped selectors (specificity 0,2,0) beat the page CSS
+       ".sv-header nav a" (0,1,1) that otherwise forces the anchor pills to
+       13px and adds a 24px left-margin the Menu button never gets — which is
+       what made the three pills mismatched and unevenly spaced on inner pages.
+       margin:0 + the shared font/padding make them one matched set. */
+    + '  .svgh-nav .svgh-join, .svgh-nav .svgh-signin, .svgh-nav .svgh-menu-btn,'
+    + '  .site-header .svgh-nav a.svgh-join, .site-header .svgh-nav a.svgh-signin {'
+    + '    font-size: 12px; line-height: 1.2; margin: 0; padding: 6px 12px; border-radius: 999px; box-sizing: border-box; }'
+    + '  .svgh-join { border: 1.5px solid transparent; }'
+    + '  .svgh-menu-btn { letter-spacing: 0.04em; }'
+    + '}'
     + '.svgh-skip { position: fixed; top: 8px; left: 8px; z-index: 10000; background: var(--plum,#4b2148); color: #fffdfb; padding: 10px 16px; border-radius: 8px; font: 700 14px/1 "Jost", sans-serif; text-decoration: none; transform: translateY(-160%); transition: transform 0.15s ease; }'
     + '.svgh-skip:focus { transform: translateY(0); outline: 2px solid #e8a6bb; outline-offset: 2px; }'
     + ':focus-visible { outline: 2px solid var(--rose,#9b3f5f); outline-offset: 2px; }';

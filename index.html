@@ -192,7 +192,9 @@
       align-items: stretch;
     }
     @media (min-width: 880px) {
-      .whats-new-grid { grid-template-columns: 1.3fr 1fr; }
+      /* Express + Full Tour read as two equal peers — equal width, and equal
+         height via `align-items: stretch` on the grid above. */
+      .whats-new-grid { grid-template-columns: 1fr 1fr; }
     }
     .episode-card {
       background: var(--cream);
@@ -799,9 +801,9 @@
 
   </style>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260707-a11y"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260710-hdr"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
-  <script defer src="/content/site/sv-welcome-tour.js?v=20260710-1"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260710-2"></script>
   <script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
 </head>
 <body>
@@ -825,7 +827,7 @@
     <!-- 1 · ARRIVAL MASTHEAD -->
     <section class="masthead" aria-labelledby="masthead-title">
       <div class="masthead-image">
-        <video muted playsinline preload="auto"
+        <video autoplay muted playsinline preload="auto"
                poster="assets/video/sunnyvaile-logo-reveal-endframe.png?v=20260703-1"
                aria-label="Welcome to SUNNYVAiLE — neon sign reveal. Where girl power meets machine power."
                width="1600" height="900">
@@ -1068,18 +1070,37 @@
         // Every later navigation this session leaves the video on its end
         // frame and loads the explainer instantly (text is always on).
         var mv = document.querySelector('.masthead-image video');
+        var prefersReduced = false;
+        try { prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
         var playedThisVisit = false;
         try { playedThisVisit = !!sessionStorage.getItem('sv_masthead_played'); } catch (e) {}
 
-        if (mv && !playedThisVisit) {
+        if (mv && !prefersReduced && !playedThisVisit) {
           try { sessionStorage.setItem('sv_masthead_played', '1'); } catch (e) {}
-          var pp = mv.play();
-          if (pp && pp.catch) pp.catch(function () { start(); });
           mv.addEventListener('ended', start);
           mv.addEventListener('error', start);
+          // Force playback — muted autoplay is frequently deferred by the
+          // browser until it's kicked via JS. Retry once data has buffered.
+          var kick = function () {
+            var pp = mv.play();
+            if (pp && pp.catch) pp.catch(function () { start(); });
+          };
+          kick();
+          mv.addEventListener('canplay', kick, { once: true });
+          // Safety net: reveal the explainer even if 'ended' never fires.
           setTimeout(start, 6000);
+        } else if (mv && !prefersReduced && playedThisVisit) {
+          // Repeat visit this session — don't replay; rest on the end frame
+          // (which matches the poster) instead of restarting the reveal.
+          try {
+            mv.removeAttribute('autoplay');
+            var freeze = function () { try { mv.currentTime = (mv.duration || 0); } catch (e) {} mv.pause(); };
+            if (isFinite(mv.duration) && mv.duration > 0) freeze();
+            else mv.addEventListener('loadedmetadata', freeze, { once: true });
+          } catch (e) {}
+          start();
         } else {
-          // repeat visit this session (or reduced motion / no video): load now
+          // Reduced motion, or no <video> — go straight to the explainer text.
           start();
         }
       })();
@@ -1185,13 +1206,13 @@
             <p class="ritual-heading">Express Tour</p>
             <p class="quick-trip-intro">Four stops: read this week's episode, grab the Study Pack, take the Pop Quiz, and play the episode song. The Full Tour is on the right when you've got the time.</p>
 
-            <a class="quick-trip-opt" href="/issues/issue-01.html">
-              <img class="quick-trip-opt-img" src="assets/ugh-as-if.png" alt="Episode 1 art" loading="lazy" />
+            <a class="quick-trip-opt" href="#main" data-replay-trailer>
+              <img class="quick-trip-opt-img" src="assets/video/sunnyvaile-logo-reveal-endframe.png?v=20260703-1" alt="The SUNNYVAiLE welcome trailer" loading="lazy" />
               <div class="quick-trip-opt-body">
                 <p class="quick-trip-opt-eyebrow">★ New here? Start at the start.</p>
-                <h4 class="quick-trip-opt-title">Episode 1 · On Wednesdays We Use AI</h4>
-                <p class="quick-trip-opt-desc">The one in which she realizes AI is already being added to the invisible load, says "ugh, as if," and opens the tab anyway.</p>
-                <span class="quick-trip-opt-cta">Start from the beginning →</span>
+                <h4 class="quick-trip-opt-title">Roll the welcome trailer</h4>
+                <p class="quick-trip-opt-desc">Brand new in town? Rewind to the top for the SUNNYV<span class="ai">Ai</span>LE reveal, then let the Welcome Tour walk you around the block — <em>then</em> pick up an episode.</p>
+                <span class="quick-trip-opt-cta">Watch the trailer, then tour →</span>
               </div>
             </a>
 
@@ -1309,6 +1330,36 @@
           </div>
 
         </div>
+
+        <script>
+          // "New here? Start at the start" → rewind newcomers to the masthead
+          // trailer (the welcome reveal) and replay it, rather than dropping
+          // them straight into an episode. The masthead's "Take the Welcome
+          // Tour" CTA then carries them into the tour. Falls back to a plain
+          // #main anchor jump when JS is unavailable.
+          (function () {
+            var link = document.querySelector('[data-replay-trailer]');
+            if (!link) return;
+            link.addEventListener('click', function (e) {
+              e.preventDefault();
+              try { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+              catch (err) { window.scrollTo(0, 0); }
+              var vid = document.querySelector('.masthead-image video');
+              if (vid) {
+                try {
+                  vid.currentTime = 0;
+                  var pp = vid.play();
+                  if (pp && pp.catch) pp.catch(function () {});
+                } catch (err) {}
+              }
+              var ex = window.SunnyvaileExplainer;
+              if (ex && typeof ex.reset === 'function' && typeof ex.start === 'function') {
+                ex.reset();
+                ex.start();
+              }
+            });
+          })();
+        </script>
 
         <!-- 2.5 · MOVE TO SUNNYVAiLE (elevated primary CTA) -->
         <div class="join-band">
@@ -1611,8 +1662,8 @@
           <a class="saint-card" href="/luminairy.html">
             <div class="saint-initial" role="img" aria-label="Cher Horowitz" style="background-image: url('assets/saints/y2k-stained-glass-v2/cher-horowitz-y2k-stained-glass.png');">C</div>
             <h3>Cher Horowitz</h3>
-            <p class="saint-lane">Early adoption</p>
-            <p class="saint-rule">Cher had a wardrobe recommender in 1995. The story isn't that the tech existed. It's that she was first in the cafeteria to use it.</p>
+            <p class="saint-lane">Making it yours</p>
+            <p class="saint-rule">Cher's closet computer didn't just hold clothes — it knew her closet, her occasions, her rules. Set the tool up to know you, and it dresses you right every morning.</p>
           </a>
           <a class="saint-card" href="/luminairy.html">
             <div class="saint-initial" role="img" aria-label="Elle Woods" style="background-image: url('assets/saints/y2k-stained-glass-v2/elle-woods-y2k-stained-glass.png');">E</div>
@@ -1640,8 +1691,8 @@
           <a class="saint-card" href="/luminairy.html">
             <div class="saint-initial" role="img" aria-label="Regina George" style="background-image: url('assets/saints/y2k-stained-glass-v2/regina-george-y2k-stained-glass.png');">R</div>
             <h3>Regina George</h3>
-            <p class="saint-lane">Dangerous confidence</p>
-            <p class="saint-rule">Regina told Cady the skirt was cute, then told someone else it was ugly. Same skirt. Different audience. Polished delivery — and the receipts are still in the Burn Book.</p>
+            <p class="saint-lane">The Cautionary Tale</p>
+            <p class="saint-rule">The anti-saint. Regina told Cady the skirt was cute, then someone else it was ugly — same skirt, total confidence, all of it in the Burn Book. Confidently wrong, careless with secrets. Don't be like Regina.</p>
           </a>
           <a class="saint-card" href="/luminairy.html">
             <div class="saint-initial" role="img" aria-label="David Rose" style="background-image: url('assets/saints/y2k-stained-glass-v2/david-rose-y2k-stained-glass.png');">D</div>

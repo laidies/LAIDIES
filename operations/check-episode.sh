@@ -51,12 +51,14 @@ echo
 echo "· tells (self-hyping scaffolds)"
 TELLS=( "here'?s the one (thing|line)" \
         "here'?s the (twist|reveal|catch|kicker|secret)" \
-        "(one )?thing (absolutely )?(everybody|nobody|no one) (fumbles|misses|gets wrong|tells|says)" \
+        "(one )?thing (absolutely )?(everybody|nobody|no one|everyone) (fumbles|misses|gets wrong|tells|says)" \
         "the part that trips (everybody|you)" \
         "the (one|single) line that" \
         "the reveal[^.]{0,25}(selling|is really)" \
         "absolutely everybody" \
-        "the [a-z]+ (that )?nobody (makes|says|tells|talks about)" )
+        "the [a-z]+ (that )?nobody (makes|says|tells|talks about)" \
+        "(everyone|everybody|most people) (gets?|got)( it| this| that)? (wrong|backwards)" \
+        "where (everyone|everybody) gets?" )
 hit=0
 for t in "${TELLS[@]}"; do
   m=$(grep -niE "$t" "${SURFACES[@]}" 2>/dev/null)
@@ -68,7 +70,7 @@ echo
 # 1c · ABSOLUTES / over-claims — some are load-bearing thesis, some are hype — WARN
 #   Not auto-fail: "you were never behind" is the point. Surface each for an eyeball.
 echo "· absolutes (eyeball each — is it load-bearing or hype?)"
-m=$(grep -noiE "the entire [a-z]+|the whole [a-z]+|absolutely [a-z]+|\b(everybody|nobody|no one)\b" "${SURFACES[@]}" 2>/dev/null | grep -viE "kit and caboodle")
+m=$(grep -noiE "the entire [a-z]+|the whole [a-z]+|absolutely [a-z]+|\b(everybody|nobody|no one|everyone)\b" "${SURFACES[@]}" 2>/dev/null | grep -viE "kit and caboodle")
 if [ -n "$m" ]; then
   yel "over-claim words present — confirm each earns its place:"
   echo "$m" | sed 's/^/          /' | head -20
