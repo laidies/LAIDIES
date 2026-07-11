@@ -1,3 +1,21 @@
+# ⚠️ TEMPORARY AUDIT EXCEPTION — added 2026-07-10, REMOVE after the audit run
+
+For the CURRENT task ONLY — an exhaustive site review/audit — the "images only" scope
+below is relaxed, and ONLY as follows:
+- You MAY read ANY file in the repo (HTML, CSS, JS, JSON, MD, data, config) and browse the
+  live site, in order to review it.
+- You MAY create/write EXACTLY ONE file — `operations/external-review.md` — the findings report.
+
+EVERYTHING ELSE in the contract below still holds with NO exceptions:
+- Do NOT edit, create, move, rename, or delete ANY other file (no code, no content, no "helpful fixes").
+- Do NOT run ANY git command (checkout / restore / reset / clean / stash / commit / push). This
+  is the rule that saved a day of work — it is NOT relaxed.
+- You are REVIEW-ONLY: report problems, do NOT fix them.
+
+Once the audit report is delivered, this block is removed and the images-only contract fully resumes.
+
+---
+
 # CODEX SCOPE CONTRACT — read this before doing anything
 
 **Your job is images. Nothing else.**
