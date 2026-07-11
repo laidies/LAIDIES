@@ -48,6 +48,87 @@
       The LUMINAiRY isn't a church. It's where you come to pay homage to the women and roses that light the way. The SAiNTS guide us, the MAiVENS guide the field.
     </p>
 
+    <style>
+      /* ── The Wings — hub-and-reveal doors (one wing opens at a time) ── */
+      .wing-doors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 12px 0 10px; }
+      @media (max-width: 760px) { .wing-doors { grid-template-columns: 1fr; gap: 14px; } }
+      .wing-door {
+        position: relative; display: block; text-align: left; padding: 0; cursor: pointer; width: 100%;
+        border: 1.5px solid rgba(75,33,72,0.18); border-radius: 16px; overflow: hidden;
+        background: var(--pearl, #faf4f7); color: inherit; font-family: 'Jost', sans-serif;
+        transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      }
+      .wing-door:hover, .wing-door:focus-visible { transform: translateY(-3px); box-shadow: 0 16px 34px rgba(75,33,72,0.20); border-color: var(--gold); outline: none; }
+      .wing-door__frame { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: linear-gradient(135deg, rgba(75,33,72,0.12) 0%, rgba(201,162,39,0.16) 100%); }
+      .wing-door__frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transition: transform 0.5s ease; }
+      .wing-door:hover .wing-door__frame img { transform: scale(1.04); }
+      .wing-door__frame::before { content: ''; position: absolute; inset: 8px; border: 1.5px solid rgba(201,162,39,0.55); border-radius: 130px 130px 10px 10px; pointer-events: none; z-index: 2; }
+      .wing-door__scrim { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; padding: 44px 16px 14px; background: linear-gradient(to top, rgba(40,14,38,0.94) 0%, rgba(40,14,38,0.72) 48%, transparent 100%); }
+      .wing-door__eyebrow { margin: 0 0 4px; font-size: 10px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold, #d4a853); }
+      .wing-door__name { margin: 0 0 5px; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(19px, 2.2vw, 23px); font-weight: 700; line-height: 1.05; color: var(--cream, #fffdfb); }
+      .wing-door__line { margin: 0 0 10px; font-size: 12px; line-height: 1.4; color: rgba(255,253,251,0.88); }
+      .wing-door__foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+      .wing-door__count { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold, #d4a853); }
+      .wing-door__cta { font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream, #fffdfb); }
+      .wing-door__cta .when-open { display: none; }
+      .wing-door.is-open { border-color: var(--gold); box-shadow: 0 0 0 2px var(--gold, #d4a853), 0 16px 34px rgba(75,33,72,0.22); }
+      .wing-door.is-open .wing-door__cta .when-open { display: inline; }
+      .wing-door.is-open .wing-door__cta .when-closed { display: none; }
+      .wing-panel { scroll-margin-top: 86px; margin: 6px 0 12px; animation: wingPanelIn 0.3s ease; }
+      .wing-panel[hidden] { display: none; }
+      .wing-panel > h2:first-child { margin-top: 0; }
+      @keyframes wingPanelIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+      @media (prefers-reduced-motion: reduce) { .wing-panel { animation: none; } .wing-door, .wing-door__frame img { transition: none; } }
+    </style>
+
+    <p class="sv-eyebrow" style="text-align:center;"><span class="sv-eyebrow-label">★ Pick a wing — the door opens right here.</span></p>
+
+    <div class="wing-doors" id="wingDoors" role="group" aria-label="The three wings of the LUMINAiRY">
+      <button type="button" class="wing-door" aria-controls="wing-saints" aria-expanded="false">
+        <div class="wing-door__frame">
+          <img src="assets/saints/cher-horowitz.png" alt="Cher Horowitz — Y2K stained-glass portrait, representing the PATRON SAiNTS wing" loading="eager">
+          <div class="wing-door__scrim">
+            <p class="wing-door__eyebrow">★ Wing I</p>
+            <p class="wing-door__name">PATRON SAiNTS</p>
+            <p class="wing-door__line">The pop-culture pantheon, with halos.</p>
+            <div class="wing-door__foot">
+              <span class="wing-door__count">12 portraits · 8 anthems</span>
+              <span class="wing-door__cta"><span class="when-closed">Enter →</span><span class="when-open">Close ×</span></span>
+            </div>
+          </div>
+        </div>
+      </button>
+      <button type="button" class="wing-door" aria-controls="wing-mavens" aria-expanded="false">
+        <div class="wing-door__frame">
+          <img src="assets/mavens/y2k-stained-glass-v2/ada-lovelace-y2k-stained-glass.png" alt="Ada Lovelace — Y2K stained-glass portrait, representing the MAiVENS wing" loading="eager">
+          <div class="wing-door__scrim">
+            <p class="wing-door__eyebrow">✦ Wing II</p>
+            <p class="wing-door__name">The MAiVENS</p>
+            <p class="wing-door__line">The real women leading in AI right now.</p>
+            <div class="wing-door__foot">
+              <span class="wing-door__count">23 women · 4 Foundresses sealed</span>
+              <span class="wing-door__cta"><span class="when-closed">Enter →</span><span class="when-open">Close ×</span></span>
+            </div>
+          </div>
+        </div>
+      </button>
+      <button type="button" class="wing-door" aria-controls="wing-builders" aria-expanded="false">
+        <div class="wing-door__frame">
+          <img src="assets/builders/y2k-stained-glass-v2/mira-murati-y2k-stained-glass.png" alt="Mira Murati — Y2K blueprint-arc portrait, representing the TRAiLBLAZERS wing" loading="eager">
+          <div class="wing-door__scrim">
+            <p class="wing-door__eyebrow">◆ Wing III</p>
+            <p class="wing-door__name">TRAiLBLAZERS</p>
+            <p class="wing-door__line">The women shipping frontier Ai.</p>
+            <div class="wing-door__foot">
+              <span class="wing-door__count">6 founders</span>
+              <span class="wing-door__cta"><span class="when-closed">Enter →</span><span class="when-open">Close ×</span></span>
+            </div>
+          </div>
+        </div>
+      </button>
+    </div>
+
+    <div class="wing-panel" id="wing-saints" hidden>
     <h2 id="saints">The PATRON SAiNTS wing</h2>
 
     <p>
@@ -473,6 +554,9 @@
       })();
     </script>
 
+    </div>
+
+    <div class="wing-panel" id="wing-mavens" hidden>
     <h2 id="mavens">The MAiVENS wing</h2>
 
     <p>
@@ -1103,6 +1187,9 @@
       Portraits and deep-dive pages ship as each MAiVEN is approached and credited properly.
     </p>
 
+    </div>
+
+    <div class="wing-panel" id="wing-builders" hidden>
     <h2 id="builders">The TRAiLBLAZERS wing</h2>
 
     <p>
@@ -1148,6 +1235,8 @@
       </div>
     </div>
 
+    </div>
+
     <h2>Same person, two addresses?</h2>
 
     <p>
@@ -1177,6 +1266,51 @@
         <span class="sv-cta-arrow">→</span>
       </a>
     </div>
+
+    <script>
+      // The LUMINAiRY wings — hub-and-reveal: one wing open at a time; hash deep-links open their wing.
+      (function() {
+        'use strict';
+        var doors = Array.prototype.slice.call(document.querySelectorAll('.wing-door'));
+        function panelFor(door) { return document.getElementById(door.getAttribute('aria-controls')); }
+        function closeAll() {
+          doors.forEach(function(d) {
+            d.classList.remove('is-open');
+            d.setAttribute('aria-expanded', 'false');
+            var p = panelFor(d);
+            if (p) p.hidden = true;
+          });
+        }
+        function openWing(door, scroll) {
+          closeAll();
+          door.classList.add('is-open');
+          door.setAttribute('aria-expanded', 'true');
+          var p = panelFor(door);
+          if (p) {
+            p.hidden = false;
+            if (scroll) p.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+        doors.forEach(function(d) {
+          d.addEventListener('click', function() {
+            if (d.classList.contains('is-open')) { closeAll(); } else { openWing(d, true); }
+          });
+        });
+        var HASH_MAP = {
+          '#wing-saints': 'wing-saints', '#saints': 'wing-saints',
+          '#wing-mavens': 'wing-mavens', '#mavens': 'wing-mavens',
+          '#wing-builders': 'wing-builders', '#builders': 'wing-builders', '#trailblazers': 'wing-builders'
+        };
+        function openFromHash(scroll) {
+          var target = HASH_MAP[window.location.hash];
+          if (!target) return;
+          var door = doors.filter(function(d) { return d.getAttribute('aria-controls') === target; })[0];
+          if (door) openWing(door, scroll);
+        }
+        openFromHash(true);
+        window.addEventListener('hashchange', function() { openFromHash(true); });
+      })();
+    </script>
 
   </main>
 
