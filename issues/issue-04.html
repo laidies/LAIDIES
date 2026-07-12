@@ -84,6 +84,20 @@ figcaption .tag::after{content:"";display:inline-block;width:22px;height:1px;bac
 .trio figcaption{margin-top:10px;flex-direction:column;gap:4px;}
 .trio figcaption .tag{white-space:normal;}
 
+/* ---------- CAST (relevant saints / mavens · small cards) ---------- */
+.cast{max-width:var(--wide);margin:34px auto 10px;}
+.cast .h{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:18px;}
+.cast .h b{color:var(--rose);font-weight:500;}
+.cast-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:13px;}
+.cast-card{text-decoration:none;color:var(--ink);text-align:center;display:flex;flex-direction:column;gap:7px;transition:transform .15s;}
+.cast-card:hover{transform:translateY(-4px);}
+.cast-card:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px;}
+.cast-card img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:6px;border:1px solid rgba(180,151,100,.4);box-shadow:0 14px 30px -16px rgba(55,20,47,.58);}
+.cast-card b{font-family:"Playfair Display",serif;font-weight:700;font-size:.9rem;color:var(--plum);line-height:1.08;}
+.cast-card span{font-family:"JetBrains Mono",monospace;font-size:8.5px;letter-spacing:.3px;color:var(--muted);line-height:1.3;text-transform:uppercase;}
+@media(max-width:900px){.cast-grid{grid-template-columns:repeat(4,1fr);}}
+@media(max-width:520px){.cast-grid{grid-template-columns:repeat(2,1fr);}.cast-card b{font-size:1.02rem;}.cast-card span{font-size:10px;}}
+
 /* ---------- SECTION MARKERS ---------- */
 .mark{max-width:var(--measure);margin:64px auto 8px;}
 .mark .k{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;
@@ -374,7 +388,7 @@ figcaption .tag::after{content:"";display:inline-block;width:22px;height:1px;bac
   <!-- NEXT -->
   <div class="next">
     <div class="k">Next time on L<span class="ai">Ai</span>DIES</div>
-    <h3>Episode 05 · The Model Menu</h3>
+    <h3>Episode 05 · The Super Models</h3>
     <p>Our heroine opens the AI her company installed… and it answers exactly like the one she uses at home. She learns the difference between the brand on the door and the brains behind it. See you next Wednesday, in Sunnyvale.</p>
   </div>
 
@@ -386,6 +400,21 @@ figcaption .tag::after{content:"";display:inline-block;width:22px;height:1px;bac
     <h3>Go meet a Maven</h3>
     <p>No try-on task this week. Go up to the LUMIN<span class="ai">Ai</span>RY, walk into the quiet wing, and meet one M<span class="ai">Ai</span>VEN you'd genuinely never heard of before today — I only had time to introduce you to a handful. Then text one friend a single sentence about her. It's very hard to feel behind on something the moment you find out it took almost two hundred years and a hundred brilliant women to hand it to you.</p>
     <a class="btn" href="../luminairy.html">Meet the M<span class="ai">Ai</span>VENS →</a>
+  </div>
+
+  <!-- CAST · the MAiVENS in this episode -->
+  <div class="cast">
+    <div class="h">The M<span class="ai">Ai</span>VENS in this episode <b>· tap a portrait to visit her</b></div>
+    <div class="cast-grid">
+      <a class="cast-card" href="../luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/ada-lovelace-y2k-stained-glass.png" alt="Ada Lovelace"><b>Ada Lovelace</b><span>The first algorithm · 1843</span></a>
+      <a class="cast-card" href="../luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/hedy-lamarr-y2k-stained-glass.png" alt="Hedy Lamarr"><b>Hedy Lamarr</b><span>The signal · 1942</span></a>
+      <a class="cast-card" href="../luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/grace-hopper-y2k-stained-glass.png" alt="Grace Hopper"><b>Grace Hopper</b><span>The compiler · 1952</span></a>
+      <a class="cast-card" href="../luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/karen-sparck-jones-y2k-stained-glass.png" alt="Karen Spärck Jones"><b>Karen Spärck Jones</b><span>The finding · 1972</span></a>
+      <a class="cast-card" href="../luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/fei-fei-li-y2k-stained-glass.png" alt="Fei-Fei Li"><b>Fei-Fei Li</b><span>The sight · 2012</span></a>
+      <a class="cast-card" href="../luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/joy-buolamwini-y2k-stained-glass.png" alt="Joy Buolamwini"><b>Joy Buolamwini</b><span>The mirror</span></a>
+      <a class="cast-card" href="../luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/timnit-gebru-y2k-stained-glass.png" alt="Timnit Gebru"><b>Timnit Gebru</b><span>The room</span></a>
+      <a class="cast-card" href="../luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/kate-crawford-y2k-stained-glass.png" alt="Kate Crawford"><b>Kate Crawford</b><span>The map</span></a>
+    </div>
   </div>
 
   <!-- STUDY PACK -->
@@ -425,6 +454,7 @@ figcaption .tag::after{content:"";display:inline-block;width:22px;height:1px;bac
       <li><a href="../games/trading-cards.html"><span class="num"></span><span class="t">Card Pack</span><span class="s">Algorithm · Compiler · AI Winter</span></a></li>
       <li><a class="saintcard" href="../luminairy.html"><span class="num"></span><span class="t">The M<span class="ai">Ai</span>VENS</span><span class="s">The wing of women who built it</span></a></li>
       <li><a class="songcard" href="../radio.html"><span class="num"></span><span class="t">This week's anthem</span><span class="s">KSVL 99.9</span></a></li>
+      <li><a href="../printable.html?issue=4&amp;from=this-week&amp;bag=open&amp;group=practice"><span class="num"></span><span class="t">Cheat Sheet</span><span class="s">The Founding Mothers timeline · printable</span></a></li>
       <li><a href="../learn/quiz.html"><span class="num"></span><span class="t">Pop Quiz</span><span class="s">10 + 2 bonus · bank clips</span></a></li>
     </ol>
   </div>
@@ -445,7 +475,7 @@ figcaption .tag::after{content:"";display:inline-block;width:22px;height:1px;bac
     <button type="button" class="mini-player-close" id="miniPlayerClose" aria-label="Close player">✕</button>
   </div>
 </div>
-<script src="/content/site/mini-player.js?v=ep-04-songs-1"></script>
+<script src="/content/site/mini-player.js?v=20260712ep-04-songs-1"></script>
 
 </body>
 </html>

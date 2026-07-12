@@ -1040,9 +1040,9 @@
       <span class="send-note-icon">✉️</span>
       <div class="send-note-copy">
         <strong>Send a note via the SUNNYVAiLE Post Office</strong>
-        <p>Your message arrives in their inbox from <em>postoffice@laidies.ai</em>. On-brand mail delivery.</p>
+        <p>Soon: send a note or a gift through the SUNNYVAiLE Post Office, straight to her PO box.</p>
       </div>
-      <button type="button" class="card-action-btn card-action-btn--primary" id="sendNoteBtn">Send a note →</button>
+      <p class="send-note-soon" style="margin: 0; font-size: 13px; font-style: italic; color: var(--plum-soft, #6b3a66);">The mail counter is still being built — notes and gifts are in the works at the Post Office.</p>
     </div>
   </section>
 
@@ -1294,6 +1294,26 @@
     <h2 class="passport-section-title">Your Collections</h2>
 
     <!-- Sticker Book -->
+    <div class="vessel vessel--puffy-board">
+      <h3 class="vessel-title">★ The Puffy Board</h3>
+      <p class="vessel-note">Sections you marked in the Handbook with a butterfly clip. Tap one to jump back; peel it off any time.</p>
+      <div id="puffyBoard" class="puffy-board"></div>
+      <style>
+        .puffy-board { display: grid; gap: 10px; margin-top: 12px; }
+        .puffy-empty { font-size: 13.5px; font-style: italic; color: var(--plum-soft, #6b3a66); margin: 0; }
+        .puffy-empty a { color: var(--rose, #9b3f5f); font-weight: 600; }
+        .puffy-item { position: relative; display: grid; grid-template-columns: 34px 1fr 26px; align-items: center; gap: 12px;
+          padding: 12px 14px; background: var(--cream, #fffdfb); border: 1.5px solid rgba(155,63,95,0.25); border-radius: 10px;
+          text-decoration: none; color: var(--plum, #4b2148); transition: border-color .15s, transform .15s; }
+        .puffy-item:hover { border-color: var(--rose, #9b3f5f); transform: translateY(-1px); }
+        .puffy-item-clip { width: 30px; height: 30px; background: url(/assets/butterfly-clip-rating-token.png) center/contain no-repeat; }
+        .puffy-item-body b { display: block; font-size: 14px; font-weight: 700; }
+        .puffy-item-body small { display: block; font-size: 12px; color: var(--plum-soft, #6b3a66); }
+        .puffy-peel { border: 0; background: transparent; color: var(--plum-soft, #6b3a66); font-size: 18px; cursor: pointer; line-height: 1; }
+        .puffy-peel:hover { color: var(--rose, #9b3f5f); }
+      </style>
+    </div>
+
     <div class="vessel vessel--sticker-book">
       <div class="vessel-header">
         <h3 class="vessel-title">📓 Sticker Book</h3>
@@ -1490,7 +1510,7 @@
         <option value="high">Pop quiz at SUNNYVAiLE High</option>
         <option value="chick-flicks">Movie night at the Chick Flicks</option>
         <option value="mme-claio">Fortune reading with Mme CLAi-O</option>
-        <option value="fairy-godmother">Ask LAiDY with the FAiRY Godmother</option>
+        <option value="fairy-godmother">Wishes with the FAiRY Godmother</option>
         <option value="sorority-house">Girl Talk at Delta LAi Nu</option>
         <option value="sanctuary">Picking my Luminaries at the LUMINAiRY</option>
         <option value="wednesday-tour">The Wednesday tour</option>
@@ -1605,7 +1625,7 @@
 
   var ARCHETYPES = { 'founder':'THE FOUNDER','strategist':'THE STRATEGIST','editor':'THE EDITOR','storyteller':'THE STORYTELLER','analyst':'THE ANALYST','coach':'THE COACH','artist':'THE ARTIST','iconoclast':'THE ICONOCLAST','elder':'THE ELDER','bestie':'THE BESTIE','confidant':'THE CONFIDANT','provocateur':'THE PROVOCATEUR' };
   var SONG_LABEL = { 'wednesday-in-sunnyvaile':'Wednesday in SUNNYVAiLE','down-at-the-blend-and-snap':'Down at the Blend & Snap','the-library':'The LIBRAiRY','on-wednesday-we-do-ai':'On Wednesday We Do AI','tell-me-what-you-want':'Tell Me What You Want','dont-be-chutney':"Don't Be Chutney on the Stand" };
-  var ACTIVITY_LABEL = { 'library':'Reading at the LIBRAiRY','blend-snap':'Coffee at the Blend & Snap','mall':'Shopping at the Mall','bronze-aige':'Dancing at the BRONZE AiGE','high':'Pop quiz at SUNNYVAiLE High','chick-flicks':'Movie night at the Chick Flicks','mme-claio':'Fortune reading with Mme CLAi-O','fairy-godmother':'Ask LAiDY with the FAiRY Godmother','sorority-house':'Girl Talk at Delta LAi Nu','sanctuary':'Picking my Luminaries at the LUMINAiRY','wednesday-tour':'The Wednesday tour' };
+  var ACTIVITY_LABEL = { 'library':'Reading at the LIBRAiRY','blend-snap':'Coffee at the Blend & Snap','mall':'Shopping at the Mall','bronze-aige':'Dancing at the BRONZE AiGE','high':'Pop quiz at SUNNYVAiLE High','chick-flicks':'Movie night at the Chick Flicks','mme-claio':'Fortune reading with Mme CLAi-O','fairy-godmother':'Wishes with the FAiRY Godmother','sorority-house':'Girl Talk at Delta LAi Nu','sanctuary':'Picking my Luminaries at the LUMINAiRY','wednesday-tour':'The Wednesday tour' };
   var SAINT_LABEL = { 'cher-horowitz':'Cher Horowitz','dolly-parton':'Dolly Parton','elle-woods':'Elle Woods','miranda-priestly':'Miranda Priestly','buffy-summers':'Buffy Summers','regina-george':'Regina George','david-rose':'David Rose','deb':'Deb','samantha-jones':'Samantha Jones','oprah-winfrey':'Oprah Winfrey','jennifer-lopez':'Jennifer Lopez','sister-mary-clarence':'Sister Mary Clarence' };
   var STOREFRONT_LABEL = { 'visitors-centre':"The Welcome Wagon Visitor's Centre",'newsstand':'The NewsStand','library':'The Town LIBRAiRY','mall':'The Mall','bronze-aige':'The BRONZE AiGE','mme-claio':"Mme CLAi-O's Shop",'chick-flicks':'The Chick Flicks','blend-snap':'The Blend & Snap','maikeover':'MAiKEOVER on MAiN','sorority-house':'Delta LAi Nu','fairy-godmother':"The FAiRY Godmother's House",'town-hall':'Town Hall','post-office':'The SUNNYVAiLE Post Office','sunnyvaile-high':'SUNNYVAiLE High','sanctuary':'The LUMINAiRY','ksvl':'KSVL Community RAiDIO','dream-phone':'The Dream Phone booth' };
   var CHARACTER_LABEL = { 'mayor-deb':'Mayor Deb','mme-claio':'Mme CLAi-O','fairy-godmother':'The FAiRY Godmother','dj-sunnyv':'DJ SunnyV' };
@@ -1734,7 +1754,8 @@
     avatar: 'laidies_avatar',
     maven: 'laidies_maven',
     builder: 'laidies_builder',
-    townRegular: 'laidies_town_regular'
+    townRegular: 'laidies_town_regular',
+    episode: 'laidies_favorite_episode'
   };
 
   // Your Coven — pantheon label maps (SAiNT map already lives above as SAINT_LABEL)
@@ -1879,6 +1900,7 @@
     return {
       display_name: read(LS.displayName) || undefined,
       favorite_saint: read(LS.saint) || undefined,
+      favorite_episode: read(LS.episode) || undefined,
       favorite_song: read(LS.song) || undefined,
       favorite_activity: read(LS.activity) || undefined,
       card_motto: read(LS.motto) || undefined,
@@ -1893,6 +1915,7 @@
     var write = function(k, v) { try { if (v) localStorage.setItem(k, v); } catch(e){} };
     write(LS.displayName, p.display_name);
     write(LS.saint, p.favorite_saint);
+    write(LS.episode, p.favorite_episode);
     write(LS.song, p.favorite_song);
     write(LS.activity, p.favorite_activity);
     write(LS.motto, p.card_motto);
@@ -2324,7 +2347,7 @@
   init();
 })();
 </script>
-  <script src="/content/site/sv-tour-checkin.js?v=20260702-2"></script>
+  <script src="/content/site/sv-tour-checkin.js?v=20260712-ksvl"></script>
   <script src="/content/site/sunnyvaile-directory.js?v=20260707-1"></script>
   <script>
   (function renderWallet() {
@@ -2469,9 +2492,10 @@
     document.addEventListener('sv:tour-checkin', renderTour);
   })();
   </script>
-    <script defer src="/content/site/ksvl-player.js?v=20260705-21"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260712-21"></script>
     <script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
     <script defer src="/content/site/charm-hunt.js?v=20260705-dusk" onload="if(typeof renderCharmBracelet==='function')renderCharmBracelet();"></script>
-<script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+<script defer src="/content/site/puffy-bookmarks.js?v=20260712-1"></script>
 </body>
 </html>

@@ -1,0 +1,1621 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The LUMINAiRY · LAiDIES · SUNNYVAiLE</title>
+  <meta name="description" content="The LUMINAiRY on Lantern Hill — home to the PATRON SAiNTS (pop-culture pantheon) and The MAiVENS (women leading in AI). Two wings, same chapel.">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260707-a11y">
+  <script defer src="content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="content/site/sv-global-header.js?v=20260710-hdr"></script>
+  <script defer src="content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="content/site/sv-welcome-tour.js?v=20260710-2"></script>
+</head>
+<body>
+
+  <header class="sv-header">
+    <a class="brand" href="">LAiDIES</a>
+    <nav>
+      <a href="">This Week</a>
+      <a href="chick-flicks.html">Episodes</a>
+      <a href="library.html">LIBRAiRY</a>
+      <a href="luminairy.html" style="color: var(--rose);">LUMINAiRY</a>
+      <a href="sorority-house.html">Sorority House</a>
+      <a href="clubhouse-pass.html" class="sv-signin" style="color: var(--rose); font-weight: 600; border: 1.5px solid var(--rose); padding: 6px 14px; border-radius: 999px;">✉︎ Sign In</a>
+    </nav>
+  </header>
+
+  <div class="sv-hero"><img src="assets/building-interiors/luminairy-nave.jpg?v=20260707" alt="Inside the LUMINAiRY — a jewel-toned nave with a great rose window, gilt columns, stained glass, and a marble compass-star floor" loading="eager"></div>
+
+  <main>
+
+    <div class="sv-eyebrow">
+      <span class="sv-eyebrow-label">★ Lantern Hill · SUNNYVAiLE · Pay homage to your SAiNTS and MAiVENS.</span>
+    </div>
+
+    <h1>The <span class="ai">LUMINAiRY</span>.</h1>
+
+    <p style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(20px, 2.4vw, 26px); color: var(--rose); text-align: center; margin: 0 0 32px; padding: 0 16px; line-height: 1.35;">
+      "We pledge Allegiance to the united SAiNTS of SUNNYVAiLE."
+    </p>
+
+    <p class="sv-lede">
+      Two wings, same chapel. Pay homage to your SAiNTS and MAiVENS. <strong>PATRON SAiNTS</strong> on one side — the pop-culture pantheon, with halos. <strong>MAiVENS</strong> on the other — the real women leading in AI right now. Same reverent register, different shelves.
+    </p>
+
+    <p>
+      The LUMINAiRY isn't a church. It's where you come to pay homage to the women and roses that light the way. The SAiNTS guide us, the MAiVENS guide the field.
+    </p>
+
+    <style>
+      /* ── The Wings — hub-and-reveal doors (one wing opens at a time) ── */
+      .wing-doors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 12px 0 10px; }
+      @media (max-width: 760px) { .wing-doors { grid-template-columns: 1fr; gap: 14px; } }
+      .wing-door {
+        position: relative; display: block; text-align: left; padding: 0; cursor: pointer; width: 100%;
+        border: 1.5px solid rgba(75,33,72,0.18); border-radius: 16px; overflow: hidden;
+        background: var(--pearl, #faf4f7); color: inherit; font-family: 'Jost', sans-serif;
+        transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      }
+      .wing-door:hover, .wing-door:focus-visible { transform: translateY(-3px); box-shadow: 0 16px 34px rgba(75,33,72,0.20); border-color: var(--gold); outline: none; }
+      .wing-door__frame { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: linear-gradient(135deg, rgba(75,33,72,0.12) 0%, rgba(201,162,39,0.16) 100%); }
+      .wing-door__frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transition: transform 0.5s ease; }
+      .wing-door:hover .wing-door__frame img { transform: scale(1.04); }
+      .wing-door__frame::before { content: ''; position: absolute; inset: 8px; border: 1.5px solid rgba(201,162,39,0.55); border-radius: 130px 130px 10px 10px; pointer-events: none; z-index: 2; }
+      .wing-door__scrim { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; padding: 44px 16px 14px; background: linear-gradient(to top, rgba(40,14,38,0.94) 0%, rgba(40,14,38,0.72) 48%, transparent 100%); }
+      .wing-door__eyebrow { margin: 0 0 4px; font-size: 10px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold, #d4a853); }
+      .wing-door__name { margin: 0 0 5px; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(19px, 2.2vw, 23px); font-weight: 700; line-height: 1.05; color: var(--cream, #fffdfb); }
+      .wing-door__line { margin: 0 0 10px; font-size: 12px; line-height: 1.4; color: rgba(255,253,251,0.88); }
+      .wing-door__foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+      .wing-door__count { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold, #d4a853); }
+      .wing-door__cta { font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream, #fffdfb); }
+      .wing-door__cta .when-open { display: none; }
+      .wing-door.is-open { border-color: var(--gold); box-shadow: 0 0 0 2px var(--gold, #d4a853), 0 16px 34px rgba(75,33,72,0.22); }
+      .wing-door.is-open .wing-door__cta .when-open { display: inline; }
+      .wing-door.is-open .wing-door__cta .when-closed { display: none; }
+      .wing-panel { scroll-margin-top: 86px; margin: 6px 0 12px; animation: wingPanelIn 0.3s ease; }
+      .wing-panel[hidden] { display: none; }
+      .wing-panel > h2:first-child { margin-top: 0; }
+      @keyframes wingPanelIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+      @media (prefers-reduced-motion: reduce) { .wing-panel { animation: none; } .wing-door, .wing-door__frame img { transition: none; } }
+    </style>
+
+    <p class="sv-eyebrow" style="text-align:center;"><span class="sv-eyebrow-label">★ Pick a wing — the door opens right here.</span></p>
+
+    <div class="wing-doors" id="wingDoors" role="group" aria-label="The three wings of the LUMINAiRY">
+      <button type="button" class="wing-door" aria-controls="wing-saints" aria-expanded="false">
+        <div class="wing-door__frame">
+          <img src="assets/sunnyvaile-interiors/luminairy-saints-wing-door.jpg?v=20260711-1" alt="The PATRON SAiNTS wing — rose stained-glass chapel entrance, candles and roses lining the archway" loading="eager">
+          <div class="wing-door__scrim">
+            <p class="wing-door__eyebrow">★ Wing I</p>
+            <p class="wing-door__name">PATRON SAiNTS</p>
+            <p class="wing-door__line">The pop-culture pantheon, with halos.</p>
+            <div class="wing-door__foot">
+              <span class="wing-door__count">12 portraits · 8 anthems</span>
+              <span class="wing-door__cta"><span class="when-closed">Enter →</span><span class="when-open">Close ×</span></span>
+            </div>
+          </div>
+        </div>
+      </button>
+      <button type="button" class="wing-door" aria-controls="wing-mavens" aria-expanded="false">
+        <div class="wing-door__frame">
+          <img src="assets/sunnyvaile-interiors/luminairy-maivens-wing-door.jpg?v=20260711-1" alt="The MAiVENS wing — teal-blue stained-glass chapel entrance with gilded gears and forget-me-nots" loading="eager">
+          <div class="wing-door__scrim">
+            <p class="wing-door__eyebrow">✦ Wing II</p>
+            <p class="wing-door__name">The MAiVENS</p>
+            <p class="wing-door__line">The real women leading in AI right now.</p>
+            <div class="wing-door__foot">
+              <span class="wing-door__count">23 women · 4 Foundresses sealed</span>
+              <span class="wing-door__cta"><span class="when-closed">Enter →</span><span class="when-open">Close ×</span></span>
+            </div>
+          </div>
+        </div>
+      </button>
+      <button type="button" class="wing-door" aria-controls="wing-builders" aria-expanded="false">
+        <div class="wing-door__frame">
+          <img src="assets/sunnyvaile-interiors/luminairy-trailblazers-wing-door.jpg?v=20260711-1" alt="The TRAiLBLAZERS wing — amber stained-glass chapel entrance lined with poppies" loading="eager">
+          <div class="wing-door__scrim">
+            <p class="wing-door__eyebrow">◆ Wing III</p>
+            <p class="wing-door__name">TRAiLBLAZERS</p>
+            <p class="wing-door__line">The women shipping frontier Ai.</p>
+            <div class="wing-door__foot">
+              <span class="wing-door__count">6 founders</span>
+              <span class="wing-door__cta"><span class="when-closed">Enter →</span><span class="when-open">Close ×</span></span>
+            </div>
+          </div>
+        </div>
+      </button>
+    </div>
+
+    <div class="wing-panel" id="wing-saints" hidden>
+    <h2 id="saints">The PATRON SAiNTS wing</h2>
+
+    <p>
+      Pop-culture icons we keep coming back to (plus Deb). They walked into rooms full of people who underestimated them and walked out with the upper hand. Hit the <strong>♪ Her song</strong> button under any portrait to hear her anthem. Deep-dive per-saint pages coming soon — for now, borrow the move.
+    </p>
+
+    <style>
+
+      /* Flippable saint card: click anywhere on the front to reveal the back.
+         Uses a 3D flip transform. Song button + Coven picker capture clicks so
+         they don't trigger the flip. */
+      .stop--saint { position: relative; padding: 0; overflow: visible; perspective: 1200px; background: transparent; border: 0; box-shadow: none; }
+      .stop--saint .saint-flip {
+        position: relative; width: 100%; height: 100%;
+        transform-style: preserve-3d;
+        transition: transform 520ms cubic-bezier(0.4, 0.05, 0.2, 1);
+        border-radius: 14px;
+      }
+      .stop--saint.is-flipped .saint-flip { transform: rotateY(180deg); }
+      .stop--saint .saint-face {
+        position: relative;
+        display: flex; flex-direction: column;
+        background: var(--cream, #fef8ef);
+        border: 1px solid var(--line, rgba(75,33,72,0.14));
+        border-radius: 14px;
+        overflow: hidden;
+        backface-visibility: hidden;
+        box-shadow: 0 4px 16px rgba(75,33,72,0.08);
+      }
+      .stop--saint .saint-face--back {
+        position: absolute; inset: 0;
+        transform: rotateY(180deg);
+        background: linear-gradient(155deg, #fef8ef 0%, #f4dfe4 100%);
+        padding: 22px 22px 20px;
+        justify-content: space-between;
+      }
+      .stop--saint .saint-back-eyebrow {
+        margin: 0 0 8px; font-family: 'Jost', sans-serif;
+        font-size: 10px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase;
+        color: var(--gold, #d4a853);
+      }
+      .stop--saint .saint-back-name {
+        margin: 0 0 14px; font-family: 'Playfair Display', Georgia, serif;
+        font-size: 22px; line-height: 1.1; color: var(--plum);
+      }
+      .stop--saint .saint-back-rule {
+        margin: 0 0 14px; font-family: 'Playfair Display', Georgia, serif;
+        font-style: italic; font-size: 15px; line-height: 1.4; color: var(--plum);
+      }
+      .stop--saint .saint-back-devotion {
+        margin: 0 0 14px; font-family: 'Jost', sans-serif;
+        font-size: 12px; line-height: 1.5; color: var(--plum-soft, #766171);
+      }
+      .stop--saint .saint-back-meta {
+        margin-top: auto;
+        display: flex; flex-direction: column; gap: 8px;
+      }
+      .stop--saint .saint-back-row {
+        font-family: 'Jost', sans-serif;
+        font-size: 11px; letter-spacing: 0.06em; color: var(--plum);
+        display: flex; align-items: baseline; gap: 6px;
+      }
+      .stop--saint .saint-back-row strong {
+        font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase;
+        font-size: 9.5px; color: var(--rose); flex-shrink: 0;
+      }
+      .stop--saint .saint-back-actions {
+        display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 12px;
+      }
+      .stop--saint .saint-back-flip-back {
+        font-family: 'Jost', sans-serif;
+        font-size: 10px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase;
+        color: var(--rose); background: transparent; border: 1.5px solid var(--rose);
+        border-radius: 999px; padding: 5px 12px; cursor: pointer;
+        transition: background 200ms ease, color 200ms ease;
+      }
+      .stop--saint .saint-back-flip-back:hover { background: var(--rose); color: var(--cream); }
+      /* Hover cue: subtle lift + tilt to signal "tap me" */
+      .stop--saint { cursor: pointer; transition: transform 220ms ease; }
+      .stop--saint:hover { transform: translateY(-2px); }
+      .stop--saint > .saint-flip > .saint-face--front,
+      .stop--saint .saint-face--front { display: flex; flex-direction: column; padding: 0; overflow: hidden; }
+      .stop--saint .saint-portrait { aspect-ratio: 2 / 3; overflow: hidden; background: var(--pearl); }
+      .stop--saint .saint-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 400ms ease; }
+      .stop--saint:hover .saint-portrait img { transform: scale(1.03); }
+      .stop--saint > .stop-num { display: none; }
+      .stop--saint > .stop-name { padding: 16px 18px 0; }
+      .stop--saint > .stop-name::before { content: '★'; color: var(--gold); margin-right: 8px; font-size: 0.85em; vertical-align: 2px; }
+      .stop--saint > .stop-desc { padding: 6px 18px 0; }
+      .stop--saint > .saint-song { margin: 10px 18px 18px; align-self: flex-start; margin-top: auto; }
+      .saint-song {
+        display: inline-flex; align-items: center; gap: 5px;
+        margin-top: 10px;
+        padding: 6px 12px 6px 10px;
+        background: transparent;
+        border: 1.5px solid var(--rose);
+        border-radius: 999px;
+        color: var(--plum);
+        font: inherit; font-size: 11px; font-weight: 700;
+        letter-spacing: 0.08em; text-transform: uppercase;
+        cursor: pointer;
+        transition: background 200ms ease, color 200ms ease;
+      }
+      .saint-song:hover { background: var(--rose); color: var(--cream); }
+      .saint-song svg { width: 9px; height: 9px; fill: currentColor; }
+      .saint-song .pause-icon { display: none; }
+      .saint-song.is-playing .play-icon { display: none; }
+      .saint-song.is-playing .pause-icon { display: block; }
+      .saint-song.is-playing { background: var(--rose); color: var(--cream); }
+      .saints-playlist {
+        margin: 24px 0 28px;
+        padding: 20px 24px;
+        background: linear-gradient(135deg, rgba(75,33,72,0.06) 0%, rgba(201,162,39,0.14) 100%);
+        border: 1.5px solid rgba(201,162,39,0.42);
+        border-radius: 14px;
+        display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+      }
+      .saints-playlist-body { flex: 1 1 240px; }
+      .saints-playlist-eyebrow {
+        margin: 0 0 6px;
+        font-family: 'Jost', sans-serif;
+        font-size: 11px; font-weight: 800;
+        letter-spacing: 0.22em; text-transform: uppercase;
+        color: var(--gold);
+      }
+      .saints-playlist-title {
+        margin: 0 0 4px;
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 20px; font-weight: 700;
+        color: var(--plum-deep);
+      }
+      .saints-playlist-note {
+        margin: 0;
+        font-size: 13px; line-height: 1.5;
+        color: var(--plum-soft);
+      }
+      .saints-playlist-note strong { color: var(--rose); font-weight: 700; }
+      .saints-playlist-btn {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 12px 22px 12px 18px;
+        background: var(--rose);
+        border: 0;
+        border-radius: 999px;
+        color: var(--cream);
+        font: inherit; font-size: 13px; font-weight: 800;
+        letter-spacing: 0.08em; text-transform: uppercase;
+        cursor: pointer;
+        transition: background 200ms ease, transform 200ms ease;
+      }
+      .saints-playlist-btn:hover { background: var(--plum-deep); transform: translateY(-2px); }
+      .saints-playlist-btn svg { width: 12px; height: 12px; fill: currentColor; }
+      .saints-playlist-btn .pause-icon { display: none; }
+      .saints-playlist-btn.is-playing .play-icon { display: none; }
+      .saints-playlist-btn.is-playing .pause-icon { display: block; }
+    </style>
+
+    <div class="saints-playlist">
+      <div class="saints-playlist-body">
+        <p class="saints-playlist-eyebrow">★ The full pantheon in order</p>
+        <p class="saints-playlist-title">Play all 8 SAiNT anthems</p>
+        <p class="saints-playlist-note" id="saintsPlaylistStatus">Cher → Dolly → Elle → Miranda → Buffy → David → Deb → Regina. About 24 minutes.</p>
+      </div>
+      <button type="button" class="saints-playlist-btn" id="saintsPlaylistBtn" aria-label="Play all 8 SAiNT anthems in order">
+        <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+        <span id="saintsPlaylistLabel">Press play →</span>
+      </button>
+    </div>
+
+    <script>
+      (function() {
+        'use strict';
+        var btn = document.getElementById('saintsPlaylistBtn');
+        var label = document.getElementById('saintsPlaylistLabel');
+        var status = document.getElementById('saintsPlaylistStatus');
+        if (!btn) return;
+
+        var saintSongs = null;
+        var currentIndex = -1;
+        var playing = false;
+
+        function collect() {
+          if (saintSongs) return saintSongs;
+          saintSongs = Array.from(document.querySelectorAll('.stop--saint .saint-song')).map(function(el){
+            var card = el.closest('.stop--saint');
+            return {
+              btn: el,
+              src: el.getAttribute('data-src'),
+              name: card ? card.querySelector('.stop-name').textContent : ''
+            };
+          });
+          return saintSongs;
+        }
+
+        function updateStatus(i) {
+          if (!status) return;
+          var songs = collect();
+          if (i < 0 || i >= songs.length) {
+            status.innerHTML = 'Cher → Dolly → Elle → Miranda → Buffy → David → Deb → Regina. About 24 minutes.';
+          } else {
+            status.innerHTML = '<strong>Now playing:</strong> ' + songs[i].name + ' &middot; ' + (i+1) + ' of ' + songs.length;
+          }
+        }
+
+        function playIndex(i) {
+          var songs = collect();
+          if (i >= songs.length) { stopAll(); return; }
+          currentIndex = i;
+          if (window.playLaidiesTheme) window.playLaidiesTheme(songs[i].btn);
+          updateStatus(i);
+          // Attach ended handler for auto-advance: we don't have direct access to
+          // the Audio element, so poll for song-end via the is-playing class.
+          var pollInterval = setInterval(function() {
+            var stillPlaying = songs[i].btn.classList.contains('is-playing');
+            if (!stillPlaying) {
+              clearInterval(pollInterval);
+              if (playing) playIndex(i + 1);
+            }
+          }, 400);
+        }
+
+        function stopAll() {
+          playing = false;
+          currentIndex = -1;
+          btn.classList.remove('is-playing');
+          if (label) label.textContent = 'Press play →';
+          updateStatus(-1);
+          // Stop any active saint song via the existing theme controller
+          var songs = collect();
+          songs.forEach(function(s){
+            if (s.btn.classList.contains('is-playing') && window.playLaidiesTheme) {
+              window.playLaidiesTheme(s.btn);
+            }
+          });
+        }
+
+        btn.addEventListener('click', function() {
+          if (playing) { stopAll(); return; }
+          playing = true;
+          btn.classList.add('is-playing');
+          if (label) label.textContent = 'Stop the pantheon';
+          playIndex(0);
+        });
+      })();
+    </script>
+
+    <div class="stop-grid">
+      <div class="stop stop--saint"><div class="saint-portrait"><img src="assets/saints/y2k-stained-glass-v2/cher-horowitz-y2k-stained-glass.png" alt="Cher Horowitz — Y2K stained-glass portrait" loading="lazy"></div><span class="stop-num">★</span><h3 class="stop-name">Cher Horowitz</h3><p class="stop-desc">PATRON SAiNT of Making It Yours · Clueless. The Makeover Artist — sets it up so it knows you.</p><button class="saint-song" data-src="content/music/saint-cher-horowitz.mp3" data-intro="/content/music/ksvl-transitions/dj-sunnyv-intro-saint-cher-horowitz.mp3" onclick="window.playLaidiesTheme(this);" aria-label="Play Cher's saint song"><svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>♪ Her song</span></button></div>
+      <div class="stop stop--saint"><div class="saint-portrait"><img src="assets/saints/y2k-stained-glass-v2/dolly-parton-y2k-stained-glass.png" alt="Dolly Parton — Y2K stained-glass portrait" loading="lazy"></div><span class="stop-num">★</span><h3 class="stop-name">Dolly Parton</h3><p class="stop-desc">PATRON SAiNT of Common Sense · Singer, songwriter, philanthropist, unapologetically herself.</p><button class="saint-song" data-src="content/music/saint-dolly-parton.mp3" data-intro="/content/music/ksvl-transitions/dj-sunnyv-intro-saint-dolly-parton.mp3" onclick="window.playLaidiesTheme(this);" aria-label="Play Dolly's saint song"><svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>♪ Her song</span></button></div>
+      <div class="stop stop--saint"><div class="saint-portrait"><img src="assets/saints/y2k-stained-glass-v2/elle-woods-y2k-stained-glass.png" alt="Elle Woods — Y2K stained-glass portrait" loading="lazy"></div><span class="stop-num">★</span><h3 class="stop-name">Elle Woods</h3><p class="stop-desc">PATRON SAiNT of Receipts · Legally Blonde.</p><button class="saint-song" data-src="content/music/saint-elle-woods.mp3" data-intro="/content/music/ksvl-transitions/dj-sunnyv-intro-saint-elle-woods.mp3" onclick="window.playLaidiesTheme(this);" aria-label="Play Elle's saint song"><svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>♪ Her song</span></button></div>
+      <div class="stop stop--saint"><div class="saint-portrait"><img src="assets/saints/y2k-stained-glass-v2/miranda-priestly-y2k-stained-glass.png" alt="Miranda Priestly — Y2K stained-glass portrait" loading="lazy"></div><span class="stop-num">★</span><h3 class="stop-name">Miranda Priestly</h3><p class="stop-desc">PATRON SAiNT of Standards · The Devil Wears Prada.</p><button class="saint-song" data-src="content/music/saint-miranda-priestly.mp3" data-intro="/content/music/ksvl-transitions/dj-sunnyv-intro-saint-miranda-priestly.mp3" onclick="window.playLaidiesTheme(this);" aria-label="Play Miranda's saint song"><svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>♪ Her song</span></button></div>
+      <div class="stop stop--saint"><div class="saint-portrait"><img src="assets/saints/y2k-stained-glass-v2/buffy-summers-y2k-stained-glass.png" alt="Buffy Summers — Y2K stained-glass portrait" loading="lazy"></div><span class="stop-num">★</span><h3 class="stop-name">Buffy Summers</h3><p class="stop-desc">PATRON SAiNT of SLAiYING · Buffy the Vampire Slayer.</p><button class="saint-song" data-src="content/music/saint-buffy-summers.mp3" data-intro="/content/music/ksvl-transitions/dj-sunnyv-intro-saint-buffy-summers.mp3" onclick="window.playLaidiesTheme(this);" aria-label="Play Buffy's saint song"><svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>♪ Her song</span></button></div>
+      <div class="stop stop--saint"><div class="saint-portrait"><img src="assets/saints/y2k-stained-glass-v2/david-rose-y2k-stained-glass.png" alt="David Rose — Y2K stained-glass portrait" loading="lazy"></div><span class="stop-num">★</span><h3 class="stop-name">David Rose</h3><p class="stop-desc">PATRON SAiNT of Specificity · Schitt's Creek (standing exception — specificity is the point).</p><button class="saint-song" data-src="content/music/saint-david-rose.mp3" data-intro="/content/music/ksvl-transitions/dj-sunnyv-intro-saint-david-rose.mp3" onclick="window.playLaidiesTheme(this);" aria-label="Play David Rose's saint song"><svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>♪ His song</span></button></div>
+      <div class="stop stop--saint"><div class="saint-portrait"><img src="assets/saints/y2k-stained-glass-v2/deb-y2k-stained-glass.png" alt="Deb — Y2K stained-glass portrait" loading="lazy"></div><span class="stop-num">★</span><h3 class="stop-name">Deb</h3><p class="stop-desc">PATRON SAiNT of "Loop Me Out" (also the PATRON SAiNT of Deb; trademarked Deb-flection™ in 1997) · SUNNYVAiLE's mayor.</p><button class="saint-song" data-src="content/music/saint-deb.mp3" data-intro="/content/music/ksvl-transitions/dj-sunnyv-intro-saint-deb.mp3" onclick="window.playLaidiesTheme(this);" aria-label="Play Deb's saint song"><svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>♪ Her song</span></button></div>
+      <div class="stop stop--saint" data-saint-slug="samantha-jones"><div class="saint-portrait"><img src="assets/saints/y2k-stained-glass-v2/samantha-jones-y2k-stained-glass.png" alt="Samantha Jones — Y2K stained-glass portrait" loading="lazy"></div><span class="stop-num">★</span><h3 class="stop-name">Samantha Jones</h3><p class="stop-desc">PATRON SAiNT of Orientation · Sex and the City. The Publicist — reads the whole room and walks in like she owns it.</p></div>
+      <div class="stop stop--saint" data-saint-slug="oprah-winfrey"><div class="saint-portrait"><img src="assets/saints/y2k-stained-glass-v2/oprah-winfrey-y2k-stained-glass.png" alt="Oprah Winfrey — Y2K stained-glass portrait" loading="lazy"></div><span class="stop-num">★</span><h3 class="stop-name">Oprah Winfrey</h3><p class="stop-desc">PATRON SAiNT of Staying Current · The Talk Show Host — on top of it, and she tells you the one worth your time.</p></div>
+      <div class="stop stop--saint" data-saint-slug="jennifer-lopez"><div class="saint-portrait"><img src="assets/saints/y2k-stained-glass-v2/jennifer-lopez-y2k-stained-glass.png" alt="Jennifer Lopez — Y2K stained-glass portrait" loading="lazy"></div><span class="stop-num">★</span><h3 class="stop-name">Jennifer Lopez</h3><p class="stop-desc">PATRON SAiNT of Range · The Triple Threat — sings, acts, dances, runs the label. Don't be just one thing.</p></div>
+      <div class="stop stop--saint" data-saint-slug="sister-mary-clarence"><div class="saint-portrait"><img src="assets/saints/y2k-stained-glass-v2/sister-mary-clarence-y2k-stained-glass.png" alt="Sister Mary Clarence — Y2K stained-glass portrait" loading="lazy"></div><span class="stop-num">★</span><h3 class="stop-name">Sister Mary Clarence</h3><p class="stop-desc">PATRON SAiNT of Teaching · Sister Act. The Choir Director — brings the whole room up with her.</p></div>
+      <div class="stop stop--saint"><div class="saint-portrait"><img src="assets/saints/y2k-stained-glass-v2/regina-george-cautionary-red-y2k-stained-glass.png" alt="Regina George — cautionary-red Y2K stained-glass portrait" loading="lazy"></div><span class="stop-num">★</span><h3 class="stop-name">Regina George</h3><p class="stop-desc">THE CAUTIONARY TALE · Mean Girls. Not a saint — the one you don't imitate (confidently wrong, careless with secrets).</p><button class="saint-song" data-src="content/music/saint-regina-george.mp3" data-intro="/content/music/ksvl-transitions/dj-sunnyv-intro-saint-regina-george.mp3" onclick="window.playLaidiesTheme(this);" aria-label="Play Regina's saint song"><svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>♪ Her song</span></button></div>
+    </div>
+
+    <script>
+      // ── SAiNT card flip hydrator ─────────────────────────────────────
+      // Wraps each existing .stop--saint into a flippable card. Front stays
+      // as-is (portrait, name, desc, song button). Back reveals the rule +
+      // song artist + source on tap. Song button + Coven picker clicks are
+      // stopped from triggering the flip.
+      (function () {
+        'use strict';
+        // Canonical rule (one-line lesson) + song artist + source per saint.
+        // Rule = a distilled sentence of what she teaches, not an invention.
+        var CANON = {
+          'Cher Horowitz':   { rule: 'Try the new thing on. Ugly or not.',                     song: 'The Overfits',    source: 'Clueless (1995)' },
+          'Dolly Parton':    { rule: 'Say the simple thing everyone else is too clever to say.', song: "Grand Ol' Query", source: 'Herself' },
+          'Elle Woods':      { rule: 'Bring the receipts. Then bring twelve more.',            song: 'The Regressions', source: 'Legally Blonde (2001)' },
+          'Miranda Priestly':{ rule: 'The bar is where you put it. Put it high.',              song: 'Latent Space',    source: 'The Devil Wears Prada (2006)' },
+          'Buffy Summers':   { rule: 'Do the scary thing anyway. That is the job.',            song: 'The Overfits',    source: 'Buffy the Vampire Slayer (1997)' },
+          'Regina George':   { rule: 'Confidence is not the problem. What you do with it is.', song: 'The Embeddings',  source: 'Mean Girls (2004)' },
+          'David Rose':      { rule: 'Be specific. Say what kind of cheese. Actually say the year.', song: 'Chain of Thought', source: "Schitt's Creek" },
+          'Deb':             { rule: 'The most powerful word is NOPE. Then move on.',          song: 'Latent Space',    source: "SUNNYVAiLE's mayor",
+                               devotion: 'The PATRON SAiNT for women who say yes to too much. It’s time to start saying NOPE. You’re in your Deb-flection™ era.' },
+          'Samantha Jones':  { rule: 'Read the room first. Then walk in like you own it.',     song: '', source: 'Sex and the City (1998)' },
+          'Oprah Winfrey':   { rule: 'You don’t have to read everything — just point to the one worth the time.', song: '', source: 'Herself' },
+          'Jennifer Lopez':  { rule: 'Don’t be just one thing.',                               song: '', source: 'Herself' },
+          'Sister Mary Clarence': { rule: 'Bring the whole room up with you.',                 song: '', source: 'Sister Act (1992)' }
+        };
+        function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
+
+        function hydrate() {
+          var cards = document.querySelectorAll('.stop--saint');
+          Array.prototype.forEach.call(cards, function (card) {
+            if (card.dataset.flipHydrated === '1') return;
+            var nameEl = card.querySelector('.stop-name');
+            var name = nameEl ? nameEl.textContent.trim() : '';
+            var descEl = card.querySelector('.stop-desc');
+            var descText = descEl ? descEl.textContent.trim() : '';
+            var title = descText.split('·')[0].trim();   // "PATRON SAiNT of X"
+            var canon = CANON[name] || { rule: 'The rule she embodies.', song: '', source: '' };
+
+            // Build .saint-flip wrapper + move existing children into .saint-face--front
+            var flip = document.createElement('div');
+            flip.className = 'saint-flip';
+            var front = document.createElement('div');
+            front.className = 'saint-face saint-face--front';
+            // Move all current children into the front face
+            while (card.firstChild) front.appendChild(card.firstChild);
+            flip.appendChild(front);
+
+            // Build back face
+            var back = document.createElement('div');
+            back.className = 'saint-face saint-face--back';
+            back.innerHTML =
+              '<div>' +
+              '  <p class="saint-back-eyebrow">★ ' + esc(title) + '</p>' +
+              '  <h3 class="saint-back-name">' + esc(name) + '</h3>' +
+              '  <p class="saint-back-rule">&ldquo;' + esc(canon.rule) + '&rdquo;</p>' +
+              (canon.devotion ? '  <p class="saint-back-devotion">' + esc(canon.devotion) + '</p>' : '') +
+              '</div>' +
+              '<div class="saint-back-meta">' +
+              (canon.song ? '  <div class="saint-back-row"><strong>Anthem by</strong> ' + esc(canon.song) + '</div>' : '') +
+              (canon.source ? '  <div class="saint-back-row"><strong>From</strong> ' + esc(canon.source) + '</div>' : '') +
+              '  <div class="saint-back-actions"><button type="button" class="saint-back-flip-back">↺ Flip back</button></div>' +
+              '</div>';
+            flip.appendChild(back);
+            card.appendChild(flip);
+            card.dataset.flipHydrated = '1';
+            card.setAttribute('role', 'button');
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('aria-label', name + ' — tap to reveal rule');
+          });
+          // The Ai-accent autowrap (defer) runs before this hydrator fires at
+          // DOMContentLoaded — rewrap so injected back faces get the accent.
+          if (window.LAiDIESAccentRewrap) window.LAiDIESAccentRewrap(document.body);
+        }
+
+        function isInteractive(target) {
+          // Do not flip when clicking song button, coven pick chip, or any button inside a card
+          return !!(target.closest('.saint-song') || target.closest('.coven-pick') || target.closest('.saint-back-flip-back') || target.closest('a'));
+        }
+
+        function onCardClick(e) {
+          var card = e.target.closest('.stop--saint');
+          if (!card) return;
+          if (isInteractive(e.target)) return;
+          card.classList.toggle('is-flipped');
+        }
+
+        function onBackFlipBtn(e) {
+          var btn = e.target.closest('.saint-back-flip-back');
+          if (!btn) return;
+          e.stopPropagation();
+          var card = btn.closest('.stop--saint');
+          if (card) card.classList.remove('is-flipped');
+        }
+
+        function onKey(e) {
+          if (e.key !== 'Enter' && e.key !== ' ') return;
+          var card = e.target.closest('.stop--saint');
+          if (!card || document.activeElement !== card) return;
+          if (isInteractive(e.target)) return;
+          e.preventDefault();
+          card.classList.toggle('is-flipped');
+        }
+
+        function init() {
+          hydrate();
+          document.addEventListener('click', onCardClick);
+          document.addEventListener('click', onBackFlipBtn);
+          document.addEventListener('keydown', onKey);
+        }
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+        else init();
+      })();
+    </script>
+
+    <script>
+      (function() {
+        'use strict';
+        if (window.playLaidiesTheme) return;
+        var activeBtn = null, activeAudio = null;
+        function stopActive() {
+          if (activeBtn) activeBtn.classList.remove('is-playing');
+          if (activeAudio) { try { activeAudio.pause(); } catch(e){} }
+          activeBtn = null; activeAudio = null;
+        }
+        window.playLaidiesTheme = function(btn) {
+          if (!btn || btn.disabled) return;
+          var src = btn.getAttribute('data-src'); if (!src) return;
+          if (activeBtn === btn) { stopActive(); return; }
+          stopActive();
+          btn.classList.add('is-playing');
+          activeBtn = btn;
+
+          var intro = btn.getAttribute('data-intro');
+
+          function playMain() {
+            var audio = new Audio(src); audio.preload = 'metadata';
+            audio.addEventListener('ended', function() { if (activeAudio === audio) stopActive(); });
+            audio.addEventListener('error', function() { if (activeAudio === audio) stopActive(); });
+            audio.play().catch(function() { if (activeAudio === audio) stopActive(); });
+            activeAudio = audio;
+          }
+
+          if (intro) {
+            var introAudio = new Audio(intro); introAudio.preload = 'auto';
+            introAudio.addEventListener('ended', function() {
+              if (activeAudio !== introAudio) return; // stopped mid-intro
+              playMain();
+            });
+            introAudio.addEventListener('error', function() {
+              if (activeAudio !== introAudio) return;
+              playMain();
+            });
+            introAudio.play().catch(function() {
+              if (activeAudio !== introAudio) return;
+              playMain();
+            });
+            activeAudio = introAudio;
+          } else {
+            playMain();
+          }
+        };
+      })();
+    </script>
+
+    </div>
+
+    <div class="wing-panel" id="wing-mavens" hidden>
+    <h2 id="mavens">The MAiVENS wing</h2>
+
+    <p>
+      The women building the room next. If the SAiNTS handle the made-up moves, the MAiVENS handle the machine ones. <strong>Meet all 8 Keepers</strong> — tap <em>✦ Meet her</em> on each portrait — and the four historical Foundresses (Ada Lovelace, Grace Hopper, Hedy Lamarr, Karen Spärck Jones) unlock in the Holo Foundress case at the top of the wing.
+    </p>
+
+    <div class="maven-progress" role="status" aria-live="polite">
+      <span class="maven-progress-label">MAiVENS met</span>
+      <span class="maven-progress-count"><span id="mavensCollectedCount">0</span> / 8</span>
+      <div class="maven-progress-bar"><div class="maven-progress-fill" id="mavensProgressFill"></div></div>
+    </div>
+
+    <style>
+      .maven-foundress {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 28px;
+        align-items: center;
+        margin: 28px 0 40px;
+        padding: 28px;
+        background: linear-gradient(135deg, rgba(75,33,72,0.06) 0%, rgba(201,162,39,0.14) 100%);
+        border: 1.5px solid rgba(201,162,39,0.42);
+        border-radius: 14px;
+        position: relative;
+      }
+      .maven-foundress::before {
+        content: '';
+        position: absolute; top: 0; left: 0; right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%);
+        border-radius: 14px 14px 0 0;
+      }
+      .maven-foundress-portrait {
+        aspect-ratio: 2 / 3;
+        overflow: hidden;
+        border-radius: 8px;
+        background: linear-gradient(135deg, rgba(75,33,72,0.12) 0%, rgba(201,162,39,0.16) 100%);
+        display: flex; align-items: center; justify-content: center;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .maven-foundress-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .maven-foundress-portrait .maven-portrait-initial {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 72px; font-weight: 700;
+        color: var(--plum-deep); line-height: 1;
+      }
+      .maven-foundress-portrait .maven-portrait-note {
+        font-family: 'Jost', sans-serif;
+        font-size: 9px; font-weight: 700;
+        letter-spacing: 0.16em; text-transform: uppercase;
+        color: var(--plum-soft);
+      }
+      .maven-foundress-eyebrow {
+        margin: 0 0 8px;
+        font-family: 'Jost', sans-serif;
+        font-size: 11px; font-weight: 800;
+        letter-spacing: 0.22em; text-transform: uppercase;
+        color: var(--gold);
+      }
+      .maven-foundress-name {
+        margin: 0 0 6px;
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 32px; font-weight: 700;
+        color: var(--plum-deep); line-height: 1.1;
+      }
+      .maven-foundress-title {
+        margin: 0 0 14px;
+        font-family: 'Playfair Display', Georgia, serif;
+        font-style: italic; font-size: 18px;
+        color: var(--rose);
+      }
+      .maven-foundress-body {
+        margin: 0;
+        font-size: 15px; line-height: 1.6;
+        color: var(--plum);
+      }
+      @media (max-width: 640px) {
+        .maven-foundress { grid-template-columns: 1fr; gap: 20px; padding: 24px 22px; }
+        .maven-foundress-portrait { max-width: 200px; margin: 0 auto; }
+        .maven-foundress-name { font-size: 26px; }
+        .maven-foundress-title { font-size: 16px; }
+      }
+      .maven-wing-subhead {
+        margin: 32px 0 16px;
+        font-family: 'Jost', sans-serif;
+        font-size: 12px; font-weight: 800;
+        letter-spacing: 0.20em; text-transform: uppercase;
+        color: var(--rose);
+      }
+      .maven-band {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin: 24px 0 12px;
+      }
+      @media (max-width: 720px) {
+        .maven-band { grid-template-columns: 1fr; }
+      }
+      .maven-band-card {
+        display: grid;
+        grid-template-columns: 84px 1fr;
+        gap: 14px;
+        padding: 14px;
+        background: var(--pearl);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+      }
+      .maven-band-portrait {
+        aspect-ratio: 2 / 3;
+        border-radius: 6px;
+        background: linear-gradient(135deg, rgba(75,33,72,0.08) 0%, rgba(201,162,39,0.14) 100%);
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        gap: 4px;
+      }
+      .maven-band-portrait .maven-band-initial {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 28px; font-weight: 700;
+        color: var(--plum-deep); line-height: 1;
+      }
+      .maven-band-portrait .maven-band-note {
+        font-size: 8px; font-weight: 700;
+        letter-spacing: 0.14em; text-transform: uppercase;
+        color: var(--plum-soft);
+      }
+      .maven-band-body { display: flex; flex-direction: column; justify-content: center; }
+      .maven-band-years {
+        font-family: 'Jost', sans-serif;
+        font-size: 10px; font-weight: 700;
+        letter-spacing: 0.14em; text-transform: uppercase;
+        color: var(--gold);
+        margin: 0 0 2px;
+      }
+      .maven-band-name {
+        margin: 0 0 4px;
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 17px; font-weight: 700;
+        color: var(--plum);
+        line-height: 1.15;
+      }
+      .maven-band-title {
+        margin: 0 0 4px;
+        font-family: 'Playfair Display', Georgia, serif;
+        font-style: italic; font-size: 13px;
+        color: var(--rose);
+      }
+      .maven-band-desc {
+        margin: 0;
+        font-size: 12px; line-height: 1.45;
+        color: var(--plum-soft);
+      }
+      .maven-honesty {
+        margin: 22px 0 8px;
+        padding: 20px 22px;
+        background: rgba(75, 33, 72, 0.05);
+        border-left: 3px solid var(--rose);
+        border-radius: 4px;
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--plum);
+      }
+      .maven-honesty strong { color: var(--plum-deep); }
+      .stop--maven { display: flex; flex-direction: column; padding: 0; overflow: hidden; }
+      .stop--maven .maven-portrait {
+        aspect-ratio: 2 / 3; overflow: hidden;
+        background: linear-gradient(135deg, rgba(75,33,72,0.10) 0%, rgba(201,162,39,0.12) 100%);
+        position: relative;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .stop--maven .maven-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 400ms ease; }
+      .stop--maven:hover .maven-portrait img { transform: scale(1.03); }
+      .stop--maven .maven-portrait-placeholder {
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        gap: 8px;
+        text-align: center;
+        padding: 0 12px;
+      }
+      .stop--maven .maven-portrait-initial {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 64px; font-weight: 700;
+        color: var(--plum-deep);
+        line-height: 1;
+        letter-spacing: -0.02em;
+      }
+      .stop--maven .maven-portrait-note {
+        font-family: 'Jost', sans-serif;
+        font-size: 9px; font-weight: 700;
+        letter-spacing: 0.16em; text-transform: uppercase;
+        color: var(--plum-soft);
+      }
+      .stop--maven > .stop-num { display: none; }
+      .stop--maven > .stop-name { padding: 16px 18px 0; }
+      .stop--maven > .stop-name::before { content: '✦'; color: var(--gold); margin-right: 8px; font-size: 0.85em; vertical-align: 2px; }
+      .stop--maven > .stop-desc { padding: 6px 18px 4px; }
+
+      /* Meet-her button — the collect mechanic */
+      .maven-meet {
+        display: inline-flex; align-items: center; gap: 6px;
+        margin: 6px 18px 18px; align-self: flex-start; margin-top: auto;
+        padding: 7px 14px 7px 12px;
+        background: transparent; border: 1.5px solid var(--gold);
+        border-radius: 999px;
+        color: var(--plum-deep, var(--plum));
+        font: inherit; font-size: 11px; font-weight: 700;
+        letter-spacing: 0.08em; text-transform: uppercase;
+        cursor: pointer;
+        transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+      }
+      .maven-meet:hover { background: var(--gold); color: var(--pearl); }
+      .stop--maven.is-met .maven-meet { background: var(--gold); color: var(--pearl); border-color: var(--gold); }
+      .stop--maven.is-met .maven-meet::before { content: '✓ '; }
+      .stop--maven.is-met .maven-portrait::after {
+        content: ''; position: absolute; inset: 0; pointer-events: none;
+        box-shadow: inset 0 0 0 3px var(--gold);
+      }
+      .stop--maven.is-met .maven-portrait { position: relative; }
+
+      /* Progress bar */
+      .maven-progress {
+        margin: 22px 0 28px;
+        padding: 16px 20px;
+        border: 1px solid rgba(201,162,39,0.35);
+        border-radius: 12px;
+        background: rgba(255,253,251,0.6);
+        display: grid; grid-template-columns: auto auto; align-items: baseline; gap: 8px 18px;
+      }
+      .maven-progress-label {
+        font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700;
+        letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold);
+      }
+      .maven-progress-count {
+        justify-self: end;
+        font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 700; color: var(--plum);
+      }
+      .maven-progress-bar {
+        grid-column: 1 / -1;
+        height: 6px; background: rgba(75,33,72,0.1); border-radius: 999px; overflow: hidden;
+      }
+      .maven-progress-fill {
+        height: 100%; width: 0%;
+        background: linear-gradient(90deg, var(--gold), var(--rose));
+        transition: width 320ms ease;
+      }
+
+      /* Holo Foundress Case — locked state by default */
+      .foundress-case {
+        position: relative; margin: 32px 0 40px; padding: 28px;
+        border-radius: 16px; overflow: hidden;
+        background: linear-gradient(135deg, rgba(75,33,72,0.08) 0%, rgba(201,162,39,0.16) 100%);
+        border: 1.5px solid rgba(201,162,39,0.38);
+      }
+      .foundress-case::before {
+        content: ''; position: absolute; inset: 0; pointer-events: none;
+        background: repeating-linear-gradient(45deg, transparent 0 22px, rgba(75,33,72,0.06) 22px 24px);
+        opacity: 0.4;
+      }
+      .foundress-case-head { position: relative; margin-bottom: 20px; text-align: center; }
+      .foundress-case-eyebrow {
+        margin: 0 0 8px;
+        font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 800;
+        letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);
+      }
+      .foundress-case-title {
+        margin: 0 0 6px;
+        font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, 3vw, 32px);
+        font-weight: 700; color: var(--plum-deep, var(--plum));
+      }
+      .foundress-case-sub {
+        margin: 0; font-family: 'Playfair Display', Georgia, serif; font-style: italic;
+        font-size: 15px; color: var(--plum-soft, var(--plum));
+      }
+      .foundress-case .foundress-unlocked-msg { display: none; }
+      .foundress-case.is-unlocked .foundress-locked-msg { display: none; }
+      .foundress-case.is-unlocked .foundress-unlocked-msg { display: inline; color: var(--gold); }
+
+      .foundress-grid {
+        position: relative;
+        display: grid; gap: 18px;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      }
+      .foundress-card {
+        position: relative; padding: 14px 14px 16px; border-radius: 12px;
+        background: var(--pearl, #fffdfb); border: 1px solid rgba(75,33,72,0.1);
+        display: flex; flex-direction: column;
+      }
+      .foundress-portrait {
+        position: relative; aspect-ratio: 2 / 3; border-radius: 8px;
+        overflow: hidden; margin-bottom: 12px; background: rgba(75,33,72,0.08);
+      }
+      .foundress-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .foundress-lock {
+        position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+        color: var(--gold); font-size: 48px;
+        background: rgba(75,33,72,0.72); backdrop-filter: blur(6px);
+      }
+      /* Default locked state: blur portraits + show lock overlay */
+      .foundress-case:not(.is-unlocked) .foundress-portrait img { filter: blur(14px) saturate(0.5); }
+      .foundress-case.is-unlocked .foundress-lock { display: none; }
+      /* Holo unlock — shimmering border on all 4 cards when the case is open */
+      .foundress-case.is-unlocked .foundress-card {
+        border: 1.5px solid transparent;
+        background:
+          linear-gradient(var(--pearl, #fffdfb), var(--pearl, #fffdfb)) padding-box,
+          linear-gradient(135deg, #b95d78, #7b2dff, #2dd4ff, #d4a853, #b95d78) border-box;
+        background-size: auto, 400% 400%;
+        animation: foundress-holo 5s ease infinite;
+        box-shadow: 0 8px 22px rgba(201,162,39,0.18);
+      }
+      @keyframes foundress-holo {
+        0%, 100% { background-position: 0% 0%, 0% 0%; }
+        50%      { background-position: 0% 0%, 100% 100%; }
+      }
+      .foundress-years {
+        margin: 0 0 4px;
+        font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700;
+        letter-spacing: 0.16em; text-transform: uppercase; color: var(--plum-soft, var(--plum));
+      }
+      .foundress-name {
+        margin: 0 0 4px;
+        font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 700;
+        color: var(--plum-deep, var(--plum));
+      }
+      .foundress-title {
+        margin: 0 0 8px;
+        font-size: 12px; font-weight: 600; color: var(--rose);
+      }
+      .foundress-desc {
+        margin: 0; font-size: 13px; line-height: 1.45; color: var(--plum-soft, var(--plum));
+      }
+
+      /* Coven picker chip — shared across SAiNT/MAiVEN/TRAiLBLAZER cards */
+      .coven-pick {
+        display: inline-flex; align-items: center; gap: 6px;
+        margin: 6px 18px 18px; align-self: flex-start; margin-top: auto;
+        padding: 7px 14px 7px 12px;
+        background: transparent; border: 1.5px solid var(--rose);
+        border-radius: 999px;
+        color: var(--plum-deep, var(--plum));
+        font: inherit; font-size: 11px; font-weight: 700;
+        letter-spacing: 0.08em; text-transform: uppercase;
+        cursor: pointer;
+        transition: background 200ms ease, color 200ms ease, border-color 200ms ease, transform 120ms ease;
+      }
+      .coven-pick:hover { background: var(--rose); color: var(--pearl); }
+      .coven-pick:active { transform: scale(0.98); }
+      .stop.is-coven-pick .coven-pick { background: var(--rose); color: var(--pearl); }
+      .stop.is-coven-pick .coven-pick::before { content: '★ '; }
+      .stop.is-coven-pick .stop-name::after {
+        content: ' · one of your Luminaries';
+        color: var(--rose); font-family: 'Jost', sans-serif; font-size: 10px;
+        font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+        margin-left: 4px;
+      }
+      /* SAiNT cards need the chip to sit next to the ♪ Her song button, not stacked */
+      .stop--saint { display: flex; flex-direction: column; }
+      .stop--saint .coven-pick, .stop--saint .saint-song { margin-top: 0; }
+      .stop--saint .coven-pick { margin: 0 18px 18px; }
+      .stop--saint .saint-song { margin: 10px 18px 8px; }
+
+      /* TRAiLBLAZERS Wing — parallel to MAiVENS now that portraits landed */
+      .stop--builder { display: flex; flex-direction: column; padding: 0; overflow: hidden; }
+      .stop--builder .builder-portrait {
+        aspect-ratio: 2 / 3; overflow: hidden; background: var(--pearl);
+      }
+      .stop--builder .builder-portrait img {
+        width: 100%; height: 100%; object-fit: cover; display: block;
+        transition: transform 400ms ease;
+      }
+      .stop--builder:hover .builder-portrait img { transform: scale(1.03); }
+      .stop--builder > .stop-num { display: none; }
+      .stop--builder > .stop-name { padding: 16px 18px 0; }
+      .stop--builder > .stop-name::before { content: '◆'; color: var(--gold); margin-right: 8px; font-size: 0.85em; vertical-align: 2px; }
+      .stop--builder > .stop-desc { padding: 6px 18px 18px; }
+    </style>
+
+    <section class="foundress-case" id="foundressCase" aria-label="Holo Foundress case">
+      <header class="foundress-case-head">
+        <p class="foundress-case-eyebrow">◆ HOLO FOUNDRESSES · Chase tier</p>
+        <h3 class="foundress-case-title">The First Four</h3>
+        <p class="foundress-case-sub"><span class="foundress-locked-msg">Sealed until you meet all 8 living Keepers below.</span><span class="foundress-unlocked-msg">Case unsealed. Every living Keeper in this wing descends from these four.</span></p>
+      </header>
+      <div class="foundress-grid">
+        <div class="foundress-card" data-foundress-slug="ada-lovelace">
+          <div class="foundress-portrait">
+            <img src="assets/mavens/y2k-stained-glass-v2/ada-lovelace-y2k-stained-glass.png" alt="Ada Lovelace — Y2K stained-glass portrait" loading="lazy">
+            <span class="foundress-lock" aria-hidden="true">◆</span>
+          </div>
+          <p class="foundress-years">1815–1852</p>
+          <h4 class="foundress-name">Ada Lovelace</h4>
+          <p class="foundress-title">Keeper of the First Algorithm</p>
+          <p class="foundress-desc">Wrote the first algorithm — for a machine that wouldn't exist for a century. The credit went to the man whose machine it was.</p>
+        </div>
+        <div class="foundress-card" data-foundress-slug="grace-hopper">
+          <div class="foundress-portrait">
+            <img src="assets/mavens/y2k-stained-glass-v2/grace-hopper-y2k-stained-glass.png" alt="Grace Hopper — Y2K stained-glass portrait" loading="lazy">
+            <span class="foundress-lock" aria-hidden="true">◆</span>
+          </div>
+          <p class="foundress-years">1906–1992</p>
+          <h4 class="foundress-name">Grace Hopper</h4>
+          <p class="foundress-title">Keeper of the Compiler</p>
+          <p class="foundress-desc">Built one of the first compilers — so we could tell machines what to do in words, not raw code. No LLMs without her.</p>
+        </div>
+        <div class="foundress-card" data-foundress-slug="hedy-lamarr">
+          <div class="foundress-portrait">
+            <img src="assets/mavens/y2k-stained-glass-v2/hedy-lamarr-y2k-stained-glass.png" alt="Hedy Lamarr — Y2K stained-glass portrait" loading="lazy">
+            <span class="foundress-lock" aria-hidden="true">◆</span>
+          </div>
+          <p class="foundress-years">1914–2000</p>
+          <h4 class="foundress-name">Hedy Lamarr</h4>
+          <p class="foundress-title">Keeper of the Airwaves</p>
+          <p class="foundress-desc">Co-invented frequency-hopping (1942) — the idea in the family tree of Wi-Fi and Bluetooth. A movie star no one believed was an inventor.</p>
+        </div>
+        <div class="foundress-card" data-foundress-slug="karen-sparck-jones">
+          <div class="foundress-portrait">
+            <img src="assets/mavens/y2k-stained-glass-v2/karen-sparck-jones-y2k-stained-glass.png" alt="Karen Spärck Jones — Y2K stained-glass portrait" loading="lazy">
+            <span class="foundress-lock" aria-hidden="true">◆</span>
+          </div>
+          <p class="foundress-years">1935–2007</p>
+          <h4 class="foundress-name">Karen Spärck Jones</h4>
+          <p class="foundress-title">Keeper of the Index</p>
+          <p class="foundress-desc">Invented IDF (1972) — the math under every search box, and the AI that looks things up. "Computing is too important to be left to men."</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="maven-honesty">
+      <p style="margin: 0;"><strong>Recorded history has an honesty problem.</strong> The historical AI foundation was built while women of color were systematically kept out of the field. The lineage above (Ada → Grace, Hedy, Karen) is real, and it's also incomplete for reasons that had nothing to do with the women who were missing. The Keepers building it now — <strong>Gebru, Buolamwini, Li</strong> in the 8 below — are correcting the record in real time.</p>
+    </div>
+
+    <p class="maven-wing-subhead">The 8 Keepers building it now</p>
+
+    <div class="stop-grid">
+      <div class="stop stop--maven" data-maven-slug="hannah-fry">
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/hannah-fry-y2k-stained-glass.png" alt="Hannah Fry — Y2K stained-glass portrait" loading="lazy"></div>
+        <span class="stop-num">✦</span>
+        <h3 class="stop-name">Hannah Fry</h3>
+        <p class="stop-desc">Keeper of the Probabilities · Cambridge · <em>Hello World</em>.</p>
+        <button class="maven-meet" type="button" aria-label="Meet Hannah Fry">✦ Meet her</button>
+      </div>
+      <div class="stop stop--maven" data-maven-slug="fei-fei-li">
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/fei-fei-li-y2k-stained-glass.png" alt="Fei-Fei Li — Y2K stained-glass portrait" loading="lazy"></div>
+        <span class="stop-num">✦</span>
+        <h3 class="stop-name">Fei-Fei Li</h3>
+        <p class="stop-desc">Keeper of the Field · Stanford · ImageNet, "Godmother of AI."</p>
+        <button class="maven-meet" type="button" aria-label="Meet Fei-Fei Li">✦ Meet her</button>
+      </div>
+      <div class="stop stop--maven" data-maven-slug="timnit-gebru">
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/timnit-gebru-y2k-stained-glass.png" alt="Timnit Gebru — Y2K stained-glass portrait" loading="lazy"></div>
+        <span class="stop-num">✦</span>
+        <h3 class="stop-name">Timnit Gebru</h3>
+        <p class="stop-desc">Keeper of the Room · DAIR · <em>Stochastic Parrots</em>. Who's in, who's not, who pays.</p>
+        <button class="maven-meet" type="button" aria-label="Meet Timnit Gebru">✦ Meet her</button>
+      </div>
+      <div class="stop stop--maven" data-maven-slug="rachel-thomas">
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/rachel-thomas-y2k-stained-glass.png" alt="Rachel Thomas — Y2K stained-glass portrait" loading="lazy"></div>
+        <span class="stop-num">✦</span>
+        <h3 class="stop-name">Rachel Thomas</h3>
+        <p class="stop-desc">Keeper of the Door · fast.ai · AI for everyone not in the room yet.</p>
+        <button class="maven-meet" type="button" aria-label="Meet Rachel Thomas">✦ Meet her</button>
+      </div>
+      <div class="stop stop--maven" data-maven-slug="joy-buolamwini">
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/joy-buolamwini-y2k-stained-glass.png" alt="Joy Buolamwini — Y2K stained-glass portrait" loading="lazy"></div>
+        <span class="stop-num">✦</span>
+        <h3 class="stop-name">Joy Buolamwini</h3>
+        <p class="stop-desc">Keeper of the Mirror · MIT · Algorithmic Justice League. <em>Gender Shades</em>.</p>
+        <button class="maven-meet" type="button" aria-label="Meet Joy Buolamwini">✦ Meet her</button>
+      </div>
+      <div class="stop stop--maven" data-maven-slug="kate-crawford">
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/kate-crawford-y2k-stained-glass.png" alt="Kate Crawford — Y2K stained-glass portrait" loading="lazy"></div>
+        <span class="stop-num">✦</span>
+        <h3 class="stop-name">Kate Crawford</h3>
+        <p class="stop-desc">Keeper of the Map · <em>Atlas of AI</em>. The mines, the water, the labor.</p>
+        <button class="maven-meet" type="button" aria-label="Meet Kate Crawford">✦ Meet her</button>
+      </div>
+      <div class="stop stop--maven" data-maven-slug="meredith-whittaker">
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/meredith-whittaker-y2k-stained-glass.png" alt="Meredith Whittaker — Y2K stained-glass portrait" loading="lazy"></div>
+        <span class="stop-num">✦</span>
+        <h3 class="stop-name">Meredith Whittaker</h3>
+        <p class="stop-desc">Keeper of the Signal · Signal Foundation · ex-Google Walkout. Privacy is labor.</p>
+        <button class="maven-meet" type="button" aria-label="Meet Meredith Whittaker">✦ Meet her</button>
+      </div>
+      <div class="stop stop--maven" data-maven-slug="emily-bender">
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/emily-bender-y2k-stained-glass.png" alt="Emily Bender — Y2K stained-glass portrait" loading="lazy"></div>
+        <span class="stop-num">✦</span>
+        <h3 class="stop-name">Emily Bender</h3>
+        <p class="stop-desc">Keeper of the Language · UW linguist · Stochastic Parrots. LLMs don't understand.</p>
+        <button class="maven-meet" type="button" aria-label="Meet Emily Bender">✦ Meet her</button>
+      </div>
+    </div>
+
+    <p class="maven-wing-subhead">The wider wing — more of the lineage</p>
+    <p style="max-width:64ch;margin:0 auto 18px;text-align:center;opacity:0.72;font-size:0.95rem;line-height:1.6;">The women our heroine didn't have time to name — tap <em>✦ Meet her</em> to read their stories. Their stained-glass portraits are lit now, too.</p>
+
+    <div class="stop-grid">
+      <div class="stop stop--maven" data-maven-slug="eniac-six" data-maven-extra="1">
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/eniac-six-y2k-stained-glass.png" alt="The ENIAC Six — Y2K stained-glass portrait" loading="lazy"></div>
+        <span class="stop-num">✦</span>
+        <h3 class="stop-name">The ENIAC Six</h3>
+        <p class="stop-desc">Keepers of the First Program · 1945 · the first coders, uncaptioned for 40 years.</p>
+        <button class="maven-meet" type="button" aria-label="Meet the ENIAC Six">✦ Meet them</button>
+      </div>
+      <div class="stop stop--maven" data-maven-slug="margaret-hamilton" data-maven-extra="1">
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/margaret-hamilton-y2k-stained-glass.png" alt="Margaret Hamilton — Y2K stained-glass portrait" loading="lazy"></div>
+        <span class="stop-num">✦</span>
+        <h3 class="stop-name">Margaret Hamilton</h3>
+        <p class="stop-desc">Keeper of Software Itself · Apollo · named the craft, saved the landing.</p>
+        <button class="maven-meet" type="button" aria-label="Meet Margaret Hamilton">✦ Meet her</button>
+      </div>
+      <div class="stop stop--maven" data-maven-slug="frances-allen" data-maven-extra="1">
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/frances-allen-y2k-stained-glass.png" alt="Frances Allen — Y2K stained-glass portrait" loading="lazy"></div>
+        <span class="stop-num">✦</span>
+        <h3 class="stop-name">Frances Allen</h3>
+        <p class="stop-desc">Keeper of Fast Code · IBM · optimizing compilers. First woman to win the Turing.</p>
+        <button class="maven-meet" type="button" aria-label="Meet Frances Allen">✦ Meet her</button>
+      </div>
+      <div class="stop stop--maven" data-maven-slug="grace-wahba" data-maven-extra="1">
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/grace-wahba-y2k-stained-glass.png" alt="Grace Wahba — Y2K stained-glass portrait" loading="lazy"></div>
+        <span class="stop-num">✦</span>
+        <h3 class="stop-name">Grace Wahba</h3>
+        <p class="stop-desc">Keeper of the Curve-Fit · the math inside machine learning.</p>
+        <button class="maven-meet" type="button" aria-label="Meet Grace Wahba">✦ Meet her</button>
+      </div>
+      <div class="stop stop--maven" data-maven-slug="cynthia-dwork" data-maven-extra="1">
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/cynthia-dwork-y2k-stained-glass.png" alt="Cynthia Dwork — Y2K stained-glass portrait" loading="lazy"></div>
+        <span class="stop-num">✦</span>
+        <h3 class="stop-name">Cynthia Dwork</h3>
+        <p class="stop-desc">Keeper of Private Data · differential privacy. Learn without exposing anyone.</p>
+        <button class="maven-meet" type="button" aria-label="Meet Cynthia Dwork">✦ Meet her</button>
+      </div>
+      <div class="stop stop--maven" data-maven-slug="daphne-koller" data-maven-extra="1">
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/daphne-koller-y2k-stained-glass.png" alt="Daphne Koller — Y2K stained-glass portrait" loading="lazy"></div>
+        <span class="stop-num">✦</span>
+        <h3 class="stop-name">Daphne Koller</h3>
+        <p class="stop-desc">Keeper of Reasoning Under Uncertainty · graphical models · Coursera.</p>
+        <button class="maven-meet" type="button" aria-label="Meet Daphne Koller">✦ Meet her</button>
+      </div>
+      <div class="stop stop--maven" data-maven-slug="barbara-liskov" data-maven-extra="1">
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/barbara-liskov-y2k-stained-glass.png" alt="Barbara Liskov — Y2K stained-glass portrait" loading="lazy"></div>
+        <span class="stop-num">✦</span>
+        <h3 class="stop-name">Barbara Liskov</h3>
+        <p class="stop-desc">Keeper of Clean Code · abstraction. Turing Award, 2008.</p>
+        <button class="maven-meet" type="button" aria-label="Meet Barbara Liskov">✦ Meet her</button>
+      </div>
+      <div class="stop stop--maven" data-maven-slug="jean-sammet" data-maven-extra="1">
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/jean-sammet-y2k-stained-glass.png" alt="Jean Sammet — Y2K stained-glass portrait" loading="lazy"></div>
+        <span class="stop-num">✦</span>
+        <h3 class="stop-name">Jean Sammet</h3>
+        <p class="stop-desc">Keeper of the Languages · COBOL &amp; FORMAC.</p>
+        <button class="maven-meet" type="button" aria-label="Meet Jean Sammet">✦ Meet her</button>
+      </div>
+      <div class="stop stop--maven" data-maven-slug="adele-goldberg" data-maven-extra="1">
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/adele-goldberg-y2k-stained-glass.png" alt="Adele Goldberg — Y2K stained-glass portrait" loading="lazy"></div>
+        <span class="stop-num">✦</span>
+        <h3 class="stop-name">Adele Goldberg</h3>
+        <p class="stop-desc">Keeper of the Interface · Smalltalk at PARC · the GUI Jobs borrowed.</p>
+        <button class="maven-meet" type="button" aria-label="Meet Adele Goldberg">✦ Meet her</button>
+      </div>
+      <div class="stop stop--maven" data-maven-slug="shafi-goldwasser" data-maven-extra="1">
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/shafi-goldwasser-y2k-stained-glass.png" alt="Shafi Goldwasser — Y2K stained-glass portrait" loading="lazy"></div>
+        <span class="stop-num">✦</span>
+        <h3 class="stop-name">Shafi Goldwasser</h3>
+        <p class="stop-desc">Keeper of Trust · zero-knowledge proofs. Turing Award, 2012.</p>
+        <button class="maven-meet" type="button" aria-label="Meet Shafi Goldwasser">✦ Meet her</button>
+      </div>
+      <div class="stop stop--maven" data-maven-slug="lynn-conway" data-maven-extra="1">
+        <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/lynn-conway-y2k-stained-glass.png" alt="Lynn Conway — Y2K stained-glass portrait" loading="lazy"></div>
+        <span class="stop-num">✦</span>
+        <h3 class="stop-name">Lynn Conway</h3>
+        <p class="stop-desc">Keeper of the Chip · the silicon underneath · erased by IBM, restored in 2020.</p>
+        <button class="maven-meet" type="button" aria-label="Meet Lynn Conway">✦ Meet her</button>
+      </div>
+    </div>
+
+    <div class="turing-memoriam" style="max-width:60ch;margin:56px auto 8px;padding:30px 30px 26px;text-align:center;border-top:1px solid rgba(201,162,39,0.45);border-bottom:1px solid rgba(201,162,39,0.45);">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">✦&nbsp;&nbsp;In memoriam&nbsp;&nbsp;✦</div>
+      <img src="assets/mavens/y2k-stained-glass-v2/alan-turing-y2k-stained-glass.png" alt="Alan Turing — Y2K stained-glass portrait" loading="lazy" style="width:96px;height:96px;object-fit:cover;border-radius:12px;border:1.5px solid var(--gold);margin:0 auto 14px;display:block;">
+      <h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.5rem;color:var(--plum-deep,#37142f);margin:0 0 14px;line-height:1.15;">Alan Turing<br><span style="font-size:0.85rem;font-weight:400;opacity:0.7;">1912–1954</span></h3>
+      <p style="max-width:none;margin:0;font-size:0.98rem;line-height:1.72;opacity:0.86;">This wing is the women's. But it rests on a foundation, and one of its architects was Alan Turing — who imagined the machine itself, and the test we still use to ask whether it thinks. In 1952, the country he had helped save prosecuted him for being gay and chemically castrated him — the price of staying out of prison. He was dead within two years; it took Britain half a century to apologize. He is not a MAiVEN — he is the reason so many of them had a machine to build on, and a reminder that brilliance has been erased here for <em>who you love</em> as much as <em>what you are</em>. We keep his name lit, too.</p>
+    </div>
+
+    <!-- Maven bio modal — opened by "✦ Meet her" and by the Foundress cards (once unlocked) -->
+    <style>
+      .mvbio[hidden] { display: none; }
+      .mvbio { position: fixed; inset: 0; z-index: 1200; display: flex; align-items: center; justify-content: center; padding: 20px; }
+      .mvbio-backdrop { position: absolute; inset: 0; background: rgba(28,10,26,0.74); backdrop-filter: blur(3px); }
+      .mvbio-card { position: relative; max-width: 560px; width: 100%; max-height: 88vh; overflow-y: auto;
+        background: var(--cream, #fbf3ea); color: var(--plum, #43213c); border: 2px solid var(--gold, #c9a24a);
+        border-radius: 16px; padding: 28px 26px 22px; box-shadow: 0 24px 70px rgba(20,8,20,0.5); animation: mvbio-in .22s ease; }
+      @keyframes mvbio-in { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: none; } }
+      .mvbio-x { position: absolute; top: 8px; right: 14px; background: none; border: none; font-size: 28px; line-height: 1; color: var(--plum, #43213c); cursor: pointer; opacity: .55; }
+      .mvbio-x:hover { opacity: 1; }
+      .mvbio-head { display: flex; gap: 16px; align-items: center; margin-bottom: 16px; }
+      .mvbio-portrait { width: 88px; height: 88px; border-radius: 12px; object-fit: cover; flex: 0 0 auto; border: 1.5px solid var(--gold, #c9a24a); }
+      .mvbio-title { margin: 0; font: 800 11px/1.3 'Jost', sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--rose, #b95d78); }
+      .mvbio-name { margin: 2px 0 3px; font-family: 'Playfair Display', Georgia, serif; font-size: 27px; line-height: 1.05; color: var(--plum, #43213c); }
+      .mvbio-meta { margin: 0; font-size: 12.5px; color: var(--plum-soft, #6a4f60); }
+      .mvbio-did { margin: 0 0 12px; font-size: 15px; line-height: 1.55; }
+      .mvbio-fight { margin: 0 0 14px; font-size: 14px; line-height: 1.5; }
+      .mvbio-fight b { color: var(--rose, #b95d78); text-transform: uppercase; font-size: 11px; letter-spacing: .1em; }
+      .mvbio-quote[hidden] { display: none; }
+      .mvbio-quote { margin: 0 0 14px; padding: 12px 16px; border-left: 3px solid var(--gold, #c9a24a); background: rgba(201,162,74,0.10);
+        font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 15px; line-height: 1.5; color: var(--plum, #43213c); }
+      .mvbio-source { display: inline-block; font: 700 12px 'Jost', sans-serif; color: var(--rose, #b95d78); text-decoration: none; }
+      .mvbio-source:hover { text-decoration: underline; }
+      .foundress-case.is-unlocked .foundress-card { cursor: pointer; }
+      @media (max-width: 520px) { .mvbio-head { flex-direction: column; text-align: center; } .mvbio-name { font-size: 24px; } }
+    </style>
+    <div id="mavenModal" class="mvbio" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="mvbioName">
+      <div class="mvbio-backdrop" data-mvbio-close></div>
+      <div class="mvbio-card" role="document">
+        <button class="mvbio-x" type="button" aria-label="Close" data-mvbio-close>&times;</button>
+        <div class="mvbio-head">
+          <img class="mvbio-portrait" id="mvbioImg" src="" alt="" loading="lazy">
+          <div class="mvbio-headtext">
+            <p class="mvbio-title" id="mvbioTitle"></p>
+            <h3 class="mvbio-name" id="mvbioName"></h3>
+            <p class="mvbio-meta" id="mvbioMeta"></p>
+          </div>
+        </div>
+        <p class="mvbio-did" id="mvbioDid"></p>
+        <p class="mvbio-fight"><b>The fight:</b> <span id="mvbioFight"></span></p>
+        <blockquote class="mvbio-quote" id="mvbioQuoteWrap"><span id="mvbioQuote"></span></blockquote>
+        <a class="mvbio-source" id="mvbioSource" href="#" target="_blank" rel="noopener">Source ↗</a>
+      </div>
+    </div>
+
+    <p style="margin-top: 24px; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 15px; color: var(--plum-soft);">
+      Portraits and deep-dive pages ship as each MAiVEN is approached and credited properly.
+    </p>
+
+    </div>
+
+    <div class="wing-panel" id="wing-builders" hidden>
+    <h2 id="builders">The TRAiLBLAZERS wing</h2>
+
+    <p>
+      The women <em>shipping</em> frontier <span class="ai">Ai</span>. If the MAiVENS interpret and critique the machine, the TRAiLBLAZERS build it — inside OpenAI, Anthropic, DeepMind, and their own new labs. Six for now; the roster grows as new frontier founders emerge. Portraits brewing.
+    </p>
+
+    <div class="stop-grid">
+      <div class="stop stop--builder" data-builder-slug="mira-murati">
+        <div class="builder-portrait"><img src="assets/builders/y2k-stained-glass-v2/mira-murati-y2k-stained-glass.png" alt="Mira Murati — Y2K blueprint-arc portrait" loading="lazy"></div>
+        <span class="stop-num">◆</span>
+        <h3 class="stop-name">Mira Murati</h3>
+        <p class="stop-desc">TRAiLBLAZER of the ChatGPT era · ex-OpenAI CTO, briefly interim CEO · Thinking Machines Lab (2025).</p>
+      </div>
+      <div class="stop stop--builder" data-builder-slug="daniela-amodei">
+        <div class="builder-portrait"><img src="assets/builders/y2k-stained-glass-v2/daniela-amodei-y2k-stained-glass.png" alt="Daniela Amodei — Y2K blueprint-arc portrait" loading="lazy"></div>
+        <span class="stop-num">◆</span>
+        <h3 class="stop-name">Daniela Amodei</h3>
+        <p class="stop-desc">TRAiLBLAZER of Anthropic · co-founder + President. Ops, product, safety.</p>
+      </div>
+      <div class="stop stop--builder" data-builder-slug="lila-ibrahim">
+        <div class="builder-portrait"><img src="assets/builders/y2k-stained-glass-v2/lila-ibrahim-y2k-stained-glass.png" alt="Lila Ibrahim — Y2K blueprint-arc portrait" loading="lazy"></div>
+        <span class="stop-num">◆</span>
+        <h3 class="stop-name">Lila Ibrahim</h3>
+        <p class="stop-desc">TRAiLBLAZER of DeepMind's operations · COO. Turned a research house into a lab that ships.</p>
+      </div>
+      <div class="stop stop--builder" data-builder-slug="fidji-simo">
+        <div class="builder-portrait"><img src="assets/builders/y2k-stained-glass-v2/fidji-simo-y2k-stained-glass.png" alt="Fidji Simo — Y2K blueprint-arc portrait" loading="lazy"></div>
+        <span class="stop-num">◆</span>
+        <h3 class="stop-name">Fidji Simo</h3>
+        <p class="stop-desc">TRAiLBLAZER of the <span class="ai">Ai</span> storefront · CEO of Applications at OpenAI. Ex-Instacart.</p>
+      </div>
+      <div class="stop stop--builder" data-builder-slug="chelsea-finn">
+        <div class="builder-portrait"><img src="assets/builders/y2k-stained-glass-v2/chelsea-finn-y2k-stained-glass.png" alt="Chelsea Finn — Y2K blueprint-arc portrait" loading="lazy"></div>
+        <span class="stop-num">◆</span>
+        <h3 class="stop-name">Chelsea Finn</h3>
+        <p class="stop-desc">TRAiLBLAZER of embodied <span class="ai">Ai</span> · Stanford + Physical Intelligence co-founder. Robotics frontier.</p>
+      </div>
+      <div class="stop stop--builder" data-builder-slug="amanda-askell">
+        <div class="builder-portrait"><img src="assets/builders/y2k-stained-glass-v2/amanda-askell-y2k-stained-glass.png" alt="Amanda Askell — Y2K blueprint-arc portrait" loading="lazy"></div>
+        <span class="stop-num">◆</span>
+        <h3 class="stop-name">Amanda Askell</h3>
+        <p class="stop-desc">TRAiLBLAZER of Claude's character · Anthropic philosopher shaping model behavior.</p>
+      </div>
+    </div>
+
+    </div>
+
+    <h2>Same person, two addresses?</h2>
+
+    <p>
+      Yes — that's allowed. A PATRON SAiNT also lives at <a href="mall.html" style="color: var(--rose); text-decoration: underline;">The Mall</a> under <em>Rollin' with my Homies (real or scripted)</em>. The LUMINAiRY holds their <strong>role as patron saint</strong> (Dolly as PATRON SAiNT of Common Sense — the venerated saint-function). The Mall holds their <strong>character or real person</strong> (Dolly the singer, Cher Horowitz the character — the reference itself). Same person can appear in both. LUMINAiRY venerates the role; The Mall catalogs the source.
+    </p>
+
+    <div class="sv-trip-tie">
+      <div class="sv-trip-tie__eyebrow">★ Your Residence Card</div>
+      <h3 class="sv-trip-tie__title">Your PATRON SAiNT — this is where you devote.</h3>
+      <p class="sv-trip-tie__body">Your PATRON SAiNT shows up on the back of your Residence Card. The LUMINAiRY is where you pick her — light a candle, pledge your allegiance, done. <strong>Every customization is a trip somewhere in town.</strong></p>
+      <p class="sv-trip-tie__note">Full picker still brewing with the member card. For now, this is where it lives.</p>
+    </div>
+
+    <div class="sv-ctas">
+      <a class="sv-cta sv-cta--primary" href="#saints">
+        <span>
+          <span class="sv-cta-label">See the saints</span>
+          <span class="sv-cta-title">The portraits on the homepage →</span>
+        </span>
+        <span class="sv-cta-arrow">→</span>
+      </a>
+      <a class="sv-cta" href="mall.html">
+        <span>
+          <span class="sv-cta-label">Look up a reference?</span>
+          <span class="sv-cta-title">Rollin' with my Homies at The Mall</span>
+        </span>
+        <span class="sv-cta-arrow">→</span>
+      </a>
+    </div>
+
+    <script>
+      // The LUMINAiRY wings — hub-and-reveal: one wing open at a time; hash deep-links open their wing.
+      (function() {
+        'use strict';
+        var doors = Array.prototype.slice.call(document.querySelectorAll('.wing-door'));
+        function panelFor(door) { return document.getElementById(door.getAttribute('aria-controls')); }
+        function closeAll() {
+          doors.forEach(function(d) {
+            d.classList.remove('is-open');
+            d.setAttribute('aria-expanded', 'false');
+            var p = panelFor(d);
+            if (p) p.hidden = true;
+          });
+        }
+        function openWing(door, scroll) {
+          closeAll();
+          door.classList.add('is-open');
+          door.setAttribute('aria-expanded', 'true');
+          var p = panelFor(door);
+          if (p) {
+            p.hidden = false;
+            if (scroll) p.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+        doors.forEach(function(d) {
+          d.addEventListener('click', function() {
+            if (d.classList.contains('is-open')) { closeAll(); } else { openWing(d, true); }
+          });
+        });
+        var HASH_MAP = {
+          '#wing-saints': 'wing-saints', '#saints': 'wing-saints',
+          '#wing-mavens': 'wing-mavens', '#mavens': 'wing-mavens',
+          '#wing-builders': 'wing-builders', '#builders': 'wing-builders', '#trailblazers': 'wing-builders'
+        };
+        function openFromHash(scroll) {
+          var target = HASH_MAP[window.location.hash];
+          if (!target) return;
+          var door = doors.filter(function(d) { return d.getAttribute('aria-controls') === target; })[0];
+          if (door) openWing(door, scroll);
+        }
+        openFromHash(true);
+        window.addEventListener('hashchange', function() { openFromHash(true); });
+      })();
+    </script>
+
+  </main>
+
+  <footer>© LAiDIES · Filed from SUNNYVAiLE · The LUMINAiRY at Lantern Hill</footer>
+
+    <script defer src="content/site/ksvl-player.js?v=20260712-21"></script>
+    <script defer src="content/site/quick-rail.js?v=20260705-5"></script>
+
+    <!-- MAiVEN click-to-collect + Foundress unlock gate + Coven pickers (SAiNT/MAiVEN/TRAiLBLAZER) -->
+    <script>
+      (function () {
+        'use strict';
+
+        // ── MAiVEN collect + Foundress unlock ──
+        var COLLECT_KEY = 'laidies_mavens_collected';
+        var LIVING = 8;
+        function readCollect() {
+          try { var v = localStorage.getItem(COLLECT_KEY); return v ? JSON.parse(v) : []; } catch (e) { return []; }
+        }
+        function writeCollect(list) {
+          try { localStorage.setItem(COLLECT_KEY, JSON.stringify(list)); } catch (e) {}
+        }
+        var collected = new Set(readCollect());
+        var fill = document.getElementById('mavensProgressFill');
+        var count = document.getElementById('mavensCollectedCount');
+        var caseEl = document.getElementById('foundressCase');
+
+        function renderCollect() {
+          document.querySelectorAll('.stop--maven:not([data-maven-extra])').forEach(function (card) {
+            var slug = card.getAttribute('data-maven-slug');
+            var btn = card.querySelector('.maven-meet');
+            if (collected.has(slug)) {
+              card.classList.add('is-met');
+              if (btn) btn.textContent = '✓ Met';
+            } else {
+              card.classList.remove('is-met');
+              if (btn) btn.textContent = '✦ Meet her';
+            }
+          });
+          if (count) count.textContent = String(collected.size);
+          if (fill) fill.style.width = Math.min(100, (collected.size / LIVING) * 100) + '%';
+          if (caseEl) caseEl.classList.toggle('is-unlocked', collected.size >= LIVING);
+        }
+
+        // ── Maven bio modal (verified; sources in the ledger) ──
+        var MAVEN_BIOS = {
+          'ada-lovelace': { name: 'Ada Lovelace', title: 'Keeper of the First Algorithm', meta: '1815–1852 · England',
+            did: 'In 1843 she looked at a machine built only to crunch numbers and saw further than anyone — that with the right instructions it could work with symbols, even compose music. Her Note G is the first algorithm ever written for a machine.',
+            fight: 'The machine wasn’t built for another century, and for most of it the credit went to the man whose machine it was — on the assumption a woman couldn’t have done the math.',
+            quote: 'The Analytical Engine has no pretensions whatever to originate anything. It can do whatever we know how to order it to perform.',
+            source: 'https://www.britannica.com/biography/Ada-Lovelace' },
+          'grace-hopper': { name: 'Grace Hopper', title: 'Keeper of the Compiler', meta: '1906–1992 · U.S. Navy',
+            did: 'Told for years that computers could only handle numbers, not words, she built one of the first compilers (the A-0 System, ~1952) — a translator so people could tell a machine what to do in something close to plain English. Nearly all modern software descends from that idea.',
+            fight: 'The Navy first turned her away — too old at 36, they said, and underweight. She got in anyway, and rose to Rear Admiral.',
+            quote: 'I’ve always been more interested in the future than in the past.',
+            source: 'https://www.britannica.com/biography/Grace-Hopper' },
+          'hedy-lamarr': { name: 'Hedy Lamarr', title: 'Keeper of the Airwaves', meta: '1914–2000 · Vienna → Hollywood',
+            did: 'Between takes as one of Hollywood’s biggest stars, she co-invented — with composer George Antheil — a 1942 frequency-hopping design: a signal that leaps between frequencies to dodge jamming. Those ideas sit in the family tree of modern wireless.',
+            fight: 'Billed as the most beautiful woman in the world, no one believed the inventor. The Navy shelved her design, she never earned a cent from it, and real recognition came only near the end of her life.',
+            quote: '',
+            source: 'https://www.nationalww2museum.org/war/articles/hedy-lamarrs-wwii-invention-helped-shape-modern-tech' },
+          'karen-sparck-jones': { name: 'Karen Spärck Jones', title: 'Keeper of the Index', meta: '1935–2007 · Cambridge',
+            did: 'In 1972 she worked out how a machine finds what matters in a mountain of documents: rare words carry meaning, common ones don’t. Her inverse document frequency is the math under every search box — and under the modern AI that looks things up before it answers.',
+            fight: 'She had no permanent academic post until 1993 — which she said plainly was because she was a woman — and was usually the only one in the room.',
+            quote: 'Computing is too important to be left to men.',
+            source: 'https://en.wikipedia.org/wiki/Karen_Sp%C3%A4rck_Jones' },
+          'hannah-fry': { name: 'Hannah Fry', title: 'Keeper of the Probabilities', meta: 'University of Cambridge',
+            did: 'A mathematician who became Cambridge’s first Professor of the Public Understanding of Mathematics. Her book Hello World (2018) is a clear-eyed tour of how algorithms already decide things in medicine, justice, and money — and where they go wrong.',
+            fight: 'She argues, loudly, that the shortage of women in maths is about culture and confidence, not ability.',
+            quote: 'These models are a representation of reality, not reality itself.',
+            source: 'https://www.cam.ac.uk/research/news/hannah-fry-joins-cambridge-as-professor-of-the-public-understanding-of-mathematics' },
+          'fei-fei-li': { name: 'Fei-Fei Li', title: 'Keeper of the Field', meta: 'Stanford',
+            did: 'Everyone was trying to build a smarter brain; she said the problem was data. She built ImageNet — millions of labeled images — and in 2012 a program trained on it suddenly learned to see, igniting the modern AI boom. The world calls her the Godmother of AI.',
+            fight: 'She arrived in the U.S. at sixteen barely speaking English, working weekends in her family’s dry-cleaning shop — and was told ImageNet was far too big to bother building.',
+            quote: 'It is deeply against my principles to work on any project that I think is to weaponize AI.',
+            source: 'https://hai.stanford.edu/people/fei-fei-li' },
+          'timnit-gebru': { name: 'Timnit Gebru', title: 'Keeper of the Room', meta: 'DAIR Institute',
+            did: 'A computer-vision PhD — advised by Fei-Fei Li — who co-wrote On the Dangers of Stochastic Parrots, warning that language models can sound brilliant while understanding nothing, and naming what they cost. She co-founded Black in AI and now runs her own institute, DAIR.',
+            fight: 'She raised those concerns inside Google and, in December 2020, was abruptly gone — she says she was fired; Google says it accepted a resignation. Thousands of colleagues signed their names in protest.',
+            quote: '',
+            source: 'https://www.technologyreview.com/2020/12/04/1013294/google-ai-ethics-research-paper-forced-out-timnit-gebru/' },
+          'rachel-thomas': { name: 'Rachel Thomas', title: 'Keeper of the Door', meta: 'fast.ai',
+            did: 'Co-founded fast.ai to make deep learning free and learnable for people without PhDs, and founded the Center for Applied Data Ethics (2019). She writes on algorithmic bias and the danger of over-trusting metrics.',
+            fight: 'She wrote some of the most-cited essays on why women leave tech — arguing it’s not a pipeline problem but a culture that pushes them out.',
+            quote: 'It doesn’t matter how many girls you teach to code if you keep driving adult women out of the tech industry.',
+            source: 'https://rachel.fast.ai/posts/2015-07-27-not-pipeline/' },
+          'joy-buolamwini': { name: 'Joy Buolamwini', title: 'Keeper of the Mirror', meta: 'MIT · Algorithmic Justice League',
+            did: 'At MIT, face-detection software couldn’t see her dark-skinned face until she held up a white mask — so she proved the bias. Her Gender Shades study (2018) showed the big commercial systems failed hardest on darker-skinned women, and she founded the Algorithmic Justice League.',
+            fight: 'She named it the coded gaze — the priorities and prejudices of whoever gets to build the technology.',
+            quote: 'The coded gaze is a reflection of the preferences, priorities, and at times prejudices of those who have the power to shape technology.',
+            source: 'https://www.fordfoundation.org/news-and-stories/stories/fighting-the-coded-gaze/' },
+          'kate-crawford': { name: 'Kate Crawford', title: 'Keeper of the Map', meta: 'Atlas of AI · AI Now',
+            did: 'In Atlas of AI (2021) she mapped what the "magic" actually costs — the mines, the water, the energy, and the underpaid human labor behind every system. She co-founded the AI Now Institute to study AI’s real-world power.',
+            fight: 'Doing critical, cross-disciplinary work like this means constantly pushing against a field that would rather just celebrate itself.',
+            quote: 'AI is neither artificial nor intelligent.',
+            source: 'https://yalebooks.yale.edu/book/9780300264630/atlas-of-ai/' },
+          'meredith-whittaker': { name: 'Meredith Whittaker', title: 'Keeper of the Signal', meta: 'Signal Foundation',
+            did: 'Now president of Signal, the encrypted messenger, she co-founded the AI Now Institute (with Kate Crawford) and argues AI’s real problem is power — that it’s an outgrowth of the surveillance-advertising business, concentrating control in a few giant firms.',
+            fight: 'At Google she helped organize the 20,000-strong 2018 Walkout over how the company handled harassment. She says she then faced retaliation; Google denied it. She left in 2019.',
+            quote: 'AI is not some dematerialized technology that exists in the ether. AI is the product of significantly concentrated resources that right now are in the hands of large companies.',
+            source: 'https://websummit.com/blog/tech/meredith-whittaker-ai-chatgpt-surveillance-tech/' },
+          'emily-bender': { name: 'Emily M. Bender', title: 'Keeper of the Language', meta: 'University of Washington',
+            did: 'A linguist at the University of Washington and first author of Stochastic Parrots (2021) — she coined the term itself: a language model stitches words together convincingly with no idea what they mean. She’s one of the field’s clearest voices against mistaking fluency for understanding.',
+            fight: 'Being the loudest skeptic in a hype-driven field makes you a target — she’s both a leading critic and a frequently-contested one.',
+            quote: 'A language model is a system for haphazardly stitching together sequences of linguistic forms it has observed, without any reference to meaning: a stochastic parrot.',
+            source: 'https://dl.acm.org/doi/10.1145/3442188.3445922' },
+          'eniac-six': { name: 'The ENIAC Six', title: 'Keepers of the First Program', meta: '1945 · ENIAC · Philadelphia',
+            did: 'In 1945 they became the first people to program a general-purpose electronic computer — the ENIAC — sequencing it by hand from its logic blueprints, before any programming language or stored-program idea existed. They effectively invented programming. Jean Bartik, Betty Holberton, Kay McNulty, Marlyn Meltzer, Ruth Teitelbaum, and Frances Spence.',
+            fight: 'Hired as human "computers" for ballistics math, they appear in the famous ENIAC press photos but were never named in the captions — so their work stayed invisible for roughly forty years, until historian Kathy Kleiman tracked them down.',
+            quote: '',
+            source: 'https://spectrum.ieee.org/the-women-behind-eniac' },
+          'margaret-hamilton': { name: 'Margaret Hamilton', title: 'Keeper of Software Itself', meta: 'b. 1936 · MIT · Apollo',
+            did: 'She led the MIT team that wrote the onboard flight software for the Apollo Guidance Computer. Her priority-scheduling and error-detection design let Apollo 11 recover mid-descent when the computer overloaded — the moment that arguably saved the Moon landing. She championed the term "software engineering" to make code count as real engineering.',
+            fight: 'She was building a discipline that did not exist yet — no schools, no textbooks, little respect for software as "real" engineering. She had to name the profession to defend it.',
+            quote: 'Looking back, we were the luckiest people in the world; there was no choice but to be pioneers.',
+            source: 'https://news.mit.edu/2016/scene-at-mit-margaret-hamilton-apollo-code-0817' },
+          'frances-allen': { name: 'Frances Allen', title: 'Keeper of Fast Code', meta: '1932–2020 · IBM',
+            did: 'She founded the field of optimizing compilers — the science of automatically turning human-written code into fast machine code — inventing core techniques (control-flow analysis, the program dependence graph) that every modern compiler, and every machine-learning framework underneath, still relies on.',
+            fight: 'Her impact was invisible because it just worked. She became the first woman to win the Turing Award — but not until 2006, decades after the foundational work.',
+            quote: '',
+            source: 'https://amturing.acm.org/award_winners/allen_1012327.cfm' },
+          'grace-wahba': { name: 'Grace Wahba', title: 'Keeper of the Curve-Fit', meta: 'b. 1934 · Wisconsin',
+            did: 'She built the mathematical foundations of smoothing splines and reproducing-kernel Hilbert spaces — the regularization-and-kernel theory that sits inside support vector machines and much of statistical machine learning. She was doing data science before the term existed.',
+            fight: 'She was the first woman on the faculty of the University of Wisconsin–Madison statistics department, in 1967; recognition for her field-defining math came only very late in a fifty-one-year career.',
+            quote: '',
+            source: 'https://en.wikipedia.org/wiki/Grace_Wahba' },
+          'cynthia-dwork': { name: 'Cynthia Dwork', title: 'Keeper of Private Data', meta: 'b. 1958 · Harvard',
+            did: 'She co-invented differential privacy — the rigorous definition of learning from data without exposing any individual, now the standard for privacy in AI training — and co-authored "Fairness Through Awareness," a founding paper of algorithmic-fairness theory.',
+            fight: 'She brought hard math to "privacy" and "fairness" — areas long treated as peripheral to real computer science, until AI made them central.',
+            quote: '',
+            source: 'https://en.wikipedia.org/wiki/Cynthia_Dwork' },
+          'daphne-koller': { name: 'Daphne Koller', title: 'Keeper of Reasoning Under Uncertainty', meta: 'b. 1968 · Stanford · Coursera',
+            did: 'She is a principal architect of probabilistic graphical models — the framework that lets machines reason under uncertainty — and co-author of its standard textbook. Her work bridges classical statistical AI and modern machine learning; she later co-founded Coursera.',
+            fight: 'Widely credited and decorated — included here for the lineage: a pillar of the statistical-AI era who then worked to make machine learning learnable by everyone.',
+            quote: '',
+            source: 'https://en.wikipedia.org/wiki/Daphne_Koller' },
+          'barbara-liskov': { name: 'Barbara Liskov', title: 'Keeper of Clean Code', meta: 'b. 1939 · MIT',
+            did: 'She invented data abstraction and abstract data types (the CLU language) and the Liskov Substitution Principle — foundations of object-oriented programming, and so of how essentially all modern AI software is structured. She won the Turing Award in 2008.',
+            fight: 'She was one of the first women in the United States to earn a computer-science PhD (Stanford, 1968), after being told computing was not for women.',
+            quote: '',
+            source: 'https://amturing.acm.org/award_winners/liskov_1108679.cfm' },
+          'jean-sammet': { name: 'Jean Sammet', title: 'Keeper of the Languages', meta: '1928–2017 · IBM',
+            did: 'She co-designed COBOL, created FORMAC — the first widely used language for symbolic algebra, an ancestor of computer-algebra systems — and wrote the definitive early history of programming languages.',
+            fight: 'A woman leading language design in the 1950s and 60s, she was long overshadowed by her male contemporaries.',
+            quote: '',
+            source: 'https://en.wikipedia.org/wiki/Jean_E._Sammet' },
+          'adele-goldberg': { name: 'Adele Goldberg', title: 'Keeper of the Interface', meta: 'b. 1945 · Xerox PARC',
+            did: 'She co-created Smalltalk-80 at Xerox PARC and the object-oriented and graphical-interface ideas that shaped every visual interface since — including the ones we reach AI through today.',
+            fight: 'She was famously reluctant to demo Smalltalk to Steve Jobs, whose team drew on PARC ideas for the Mac — a lasting parable about ideas taken without credit.',
+            quote: '',
+            source: 'https://en.wikipedia.org/wiki/Adele_Goldberg_(computer_scientist)' },
+          'shafi-goldwasser': { name: 'Shafi Goldwasser', title: 'Keeper of Trust', meta: 'b. 1958 · MIT',
+            did: 'She laid the mathematical foundations of modern cryptography — probabilistic encryption and zero-knowledge proofs — the theory now underpinning privacy-preserving and verifiable AI. She won the Turing Award in 2012.',
+            fight: 'Highly decorated; included here for the lineage — the provable-secrecy math that trustworthy AI increasingly leans on.',
+            quote: '',
+            source: 'https://amturing.acm.org/award_winners/goldwasser_8627889.cfm' },
+          'lynn-conway': { name: 'Lynn Conway', title: 'Keeper of the Chip', meta: '1938–2024 · IBM · Xerox PARC',
+            did: 'She co-authored the Mead–Conway revolution — the scalable chip-design method that democratized how microchips are made, the lineage of the silicon AI runs on. Earlier, at IBM, she pioneered dynamic instruction scheduling.',
+            fight: 'One of the most literal erasures in computing: IBM fired her in 1968 for being transgender (the company apologized in 2020), wiping her early work from her own résumé and forcing her to rebuild her career under a new name.',
+            quote: '',
+            source: 'https://en.wikipedia.org/wiki/Lynn_Conway' }
+        };
+        var mvModal = document.getElementById('mavenModal');
+        function setText(id, t) { var el = document.getElementById(id); if (el) el.textContent = t; }
+        function openMavenBio(slug) {
+          var b = MAVEN_BIOS[slug]; if (!b || !mvModal) return;
+          var img = document.getElementById('mvbioImg');
+          if (img) { img.style.display = ''; img.onerror = function () { this.style.display = 'none'; }; img.src = 'assets/mavens/y2k-stained-glass-v2/' + slug + '-y2k-stained-glass.png'; img.alt = b.name + ' — stained-glass portrait'; }
+          setText('mvbioTitle', b.title); setText('mvbioName', b.name); setText('mvbioMeta', b.meta);
+          setText('mvbioDid', b.did); setText('mvbioFight', b.fight);
+          var qWrap = document.getElementById('mvbioQuoteWrap');
+          if (b.quote) { setText('mvbioQuote', '“' + b.quote + '”'); if (qWrap) qWrap.hidden = false; }
+          else if (qWrap) { qWrap.hidden = true; }
+          var src = document.getElementById('mvbioSource'); if (src) src.href = b.source;
+          mvModal.hidden = false; mvModal.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        }
+        function closeMavenBio() {
+          if (!mvModal) return;
+          mvModal.hidden = true; mvModal.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        }
+
+        // ── Coven pickers ──
+        // One pick per pantheon (radio semantics). Reads/writes the same keys the Closet's Coven band uses.
+        var COVEN_KEYS = { saint: 'laidies_saint', maven: 'laidies_maven', builder: 'laidies_builder' };
+        function readPick(pantheon) {
+          try { return localStorage.getItem(COVEN_KEYS[pantheon]) || ''; } catch (e) { return ''; }
+        }
+        function writePick(pantheon, slug) {
+          try {
+            if (slug) localStorage.setItem(COVEN_KEYS[pantheon], slug);
+            else localStorage.removeItem(COVEN_KEYS[pantheon]);
+          } catch (e) {}
+        }
+
+        // Derive the saint slug from the existing audio path (the saint cards don't have a data attribute yet)
+        function saintSlugFrom(card) {
+          var explicit = card.getAttribute('data-saint-slug');
+          if (explicit) return explicit;
+          var songBtn = card.querySelector('.saint-song');
+          if (!songBtn) return '';
+          var src = songBtn.getAttribute('data-src') || '';
+          var m = src.match(/saint-([a-z0-9-]+)\.mp3/i);
+          return m ? m[1] : '';
+        }
+
+        // Inject "In my Coven" chip on every SAiNT/MAiVEN/TRAiLBLAZER card at page-load
+        function injectPickers() {
+          document.querySelectorAll('.stop--saint').forEach(function (card) {
+            if (card.querySelector('.coven-pick')) return;
+            var slug = saintSlugFrom(card);
+            if (!slug) return;
+            card.setAttribute('data-saint-slug', slug);
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'coven-pick';
+            btn.setAttribute('data-pantheon', 'saint');
+            btn.textContent = '★ One of my Luminaries';
+            card.appendChild(btn);
+          });
+          document.querySelectorAll('.stop--maven:not([data-maven-extra])').forEach(function (card) {
+            if (card.querySelector('.coven-pick')) return;
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'coven-pick';
+            btn.setAttribute('data-pantheon', 'maven');
+            btn.textContent = '★ One of my Luminaries';
+            card.appendChild(btn);
+          });
+          document.querySelectorAll('.stop--builder').forEach(function (card) {
+            if (card.querySelector('.coven-pick')) return;
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'coven-pick';
+            btn.setAttribute('data-pantheon', 'builder');
+            btn.textContent = '★ One of my Luminaries';
+            card.appendChild(btn);
+          });
+        }
+
+        function slugFor(card, pantheon) {
+          if (pantheon === 'saint')   return card.getAttribute('data-saint-slug');
+          if (pantheon === 'maven')   return card.getAttribute('data-maven-slug');
+          if (pantheon === 'builder') return card.getAttribute('data-builder-slug');
+          return '';
+        }
+
+        function renderCoven() {
+          Object.keys(COVEN_KEYS).forEach(function (pantheon) {
+            var pick = readPick(pantheon);
+            var selector = '.stop--' + pantheon;
+            document.querySelectorAll(selector).forEach(function (card) {
+              var isPicked = pick && slugFor(card, pantheon) === pick;
+              card.classList.toggle('is-coven-pick', !!isPicked);
+              var btn = card.querySelector('.coven-pick');
+              if (btn) btn.textContent = isPicked ? '★ One of your Luminaries' : '★ One of my Luminaries';
+            });
+          });
+        }
+
+        // Click delegation — one handler for both collect + coven-pick
+        document.addEventListener('click', function (e) {
+          var covenBtn = e.target.closest && e.target.closest('.coven-pick');
+          if (covenBtn) {
+            e.preventDefault();
+            var card = covenBtn.closest('.stop');
+            if (!card) return;
+            var pantheon = covenBtn.getAttribute('data-pantheon');
+            var slug = slugFor(card, pantheon);
+            if (!slug) return;
+            var current = readPick(pantheon);
+            writePick(pantheon, current === slug ? '' : slug);   // toggle: click again to un-pick
+            renderCoven();
+            return;
+          }
+          if (e.target.closest && e.target.closest('[data-mvbio-close]')) { closeMavenBio(); return; }
+          var meetBtn = e.target.closest && e.target.closest('.maven-meet');
+          if (meetBtn) {
+            e.preventDefault();
+            var mCard = meetBtn.closest('.stop--maven');
+            if (!mCard) return;
+            var mSlug = mCard.getAttribute('data-maven-slug');
+            if (!mSlug) return;
+            if (mCard.getAttribute('data-maven-extra')) { openMavenBio(mSlug); return; }
+            if (!collected.has(mSlug)) { collected.add(mSlug); writeCollect(Array.from(collected)); renderCollect(); }
+            openMavenBio(mSlug);
+            return;
+          }
+          var fCard = e.target.closest && e.target.closest('.foundress-card');
+          if (fCard && caseEl && caseEl.classList.contains('is-unlocked')) {
+            openMavenBio(fCard.getAttribute('data-foundress-slug'));
+            return;
+          }
+        });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' || e.keyCode === 27) closeMavenBio(); });
+
+        injectPickers();
+        renderCollect();
+        renderCoven();
+      })();
+    </script>
+<script defer src="content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+<script defer src="content/site/sunnyvaile-directory.js?v=20260707-1"></script>
+<script defer src="content/site/sv-you-are-here.js?v=20260705-2"></script>
+<div style="position:fixed;bottom:12px;right:12px;z-index:999;background:#4b2148;color:#fffdfb;font:700 11px 'Jost',sans-serif;letter-spacing:.14em;padding:7px 14px;border-radius:999px;opacity:.85;">PREVIEW — NOT LIVE</div>
+</body>
+</html>

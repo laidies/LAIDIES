@@ -3,7 +3,7 @@ window.LAIDIES_SITE_DATA = {
     {
       "number": 1,
       "slug": "on-wednesdays-we-use-ai",
-      "title": "On Wednesdays We Use AI",
+      "title": "On Wednesdays We Do AI",
       "status": "published",
       "issueUrl": "issues/issue-01.html",
       "heroImage": "assets/ugh-as-if.png",
@@ -177,14 +177,14 @@ window.LAIDIES_SITE_DATA = {
     },
     {
       "number": 4,
-      "slug": "the-slaiyer-handbook",
-      "title": "Every SLAiYER Needs a Watcher",
-      "subtitle": "The SLAiYER Handbook · Chapter 1 — which AI tool to open for which job, what the words mean, and how to use any of them without getting vamped.",
+      "slug": "the-founding-mothers",
+      "title": "The Founding Mothers",
+      "subtitle": "AI was never one thing, and never new — it's a real science almost two hundred years old, built leap after leap by women. Every major advance has a woman's name on it.",
       "status": "published",
       "releaseDate": "2026-06-24",
-      "issueUrl": "grimoire/slaiyer-handbook-chapter-1.html",
-      "heroImage": "assets/episodes/issue-04/section-slaiyer-handbook-v1.png",
-      "oneLineDescription": "The one in which \"just use AI\" finally gets a map — which tool to open for which job, what the words mean, and how to use any of them without getting vamped.",
+      "issueUrl": "issues/issue-04.html",
+      "heroImage": "assets/building-interiors/luminairy-nave.jpg",
+      "oneLineDescription": "The one in which she realizes she's talked to AI every day for weeks with no idea where it came from — goes looking for the origin story, and finds out it was women all along.",
       "act": "Act 1: The Awakening",
       "lesson": "Which AI tool to open for which job, what the words everyone says actually mean, and how to work with any of them — matching the type to the task, not ranking who's \"best.\"",
       "emotionalBeat": "Overwhelm becomes orientation: she stops asking which tool is best and starts matching the type to the task.",
@@ -229,7 +229,7 @@ window.LAIDIES_SITE_DATA = {
     {
       "number": 5,
       "slug": "welcome-to-sunnyvaile",
-      "title": "Welcome to SUNNYVAiLE",
+      "title": "The Super Models",
       "subtitle": "The one in which the whole town opens its doors.",
       "status": "draft",
       "releaseDate": "2026-07-01",
@@ -252,9 +252,472 @@ window.LAIDIES_SITE_DATA = {
     }
   ],
   "quizzes": {
+    "foundation": {
+      "label": "Foundation Quiz",
+      "optionLabel": "Foundation: Why LAIDIES Exists",
+      "title": "The AI gap is not a side plot. It is the reason this room exists.",
+      "rereadUrl": "index.html#about",
+      "rereadLabel": "Reread the lAIdies why",
+      "intro": "Answer fifteen foundation questions, then try the two bonus questions. The score is out of 15, but the extra credit girls can still get 17/15.",
+      "maxScore": 15,
+      "bonusScore": 2,
+      "questions": [
+        {
+          "id": "gap-is-power-gap",
+          "points": 1,
+          "prompt": "Why does the AI gap between men and women matter for lAIdies?",
+          "options": [
+            "Because AI is a personality test",
+            "Because confidence and access gaps can become power, pay, and influence gaps",
+            "Because the topic should be watered down",
+            "Because everyone should chase every tech trend"
+          ],
+          "answer": "Because confidence and access gaps can become power, pay, and influence gaps",
+          "explain": "The point is not novelty. If one group gets fluent sooner, that group gets more say in how the work changes.",
+          "review": "Find it in the lAIdies positioning and About section.",
+          "reviewUrl": "index.html#about"
+        },
+        {
+          "id": "not-remedial",
+          "points": 1,
+          "prompt": "What is the lAIdies stance on women learning AI?",
+          "options": [
+            "The references are the whole lesson",
+            "Smart professionals deserve accurate, practical AI learning that is also enjoyable and memorable",
+            "AI should stay with technical teams only",
+            "Learning AI is mostly about memorizing product names"
+          ],
+          "answer": "Smart professionals deserve accurate, practical AI learning that is also enjoyable and memorable",
+          "explain": "The references are a memory and joy system. They do not replace substance, and they are not remedial packaging.",
+          "review": "Find it in the brand promise and About section.",
+          "reviewUrl": "index.html#about"
+        },
+        {
+          "id": "waiting-compounds",
+          "points": 1,
+          "prompt": "What happens if busy women wait until AI feels perfectly clear before trying it?",
+          "options": [
+            "The gap quietly gets smaller by itself",
+            "Someone else builds the habits, vocabulary, and confidence first",
+            "AI stops changing work",
+            "The tools become risk-free"
+          ],
+          "answer": "Someone else builds the habits, vocabulary, and confidence first",
+          "explain": "Waiting feels reasonable in a full calendar, but early comfort compounds into workplace advantage.",
+          "review": "Find it in the lAIdies purpose and Episode 1 starting point.",
+          "reviewUrl": "issues/issue-01.html"
+        },
+        {
+          "id": "invisible-load",
+          "points": 1,
+          "prompt": "Why is AI becoming part of the invisible load at work?",
+          "options": [
+            "Because everyone is expected to magically know what to use, when to use it, and how to judge the output",
+            "Because AI only affects engineers",
+            "Because meetings got shorter",
+            "Because the tools explain office politics perfectly"
+          ],
+          "answer": "Because everyone is expected to magically know what to use, when to use it, and how to judge the output",
+          "explain": "lAIdies exists because AI fluency is becoming another quiet expectation, and quiet expectations rarely land evenly.",
+          "review": "Find it in the Episode 1 working summary.",
+          "reviewUrl": "issues/issue-01.html"
+        },
+        {
+          "id": "learning-changes-work",
+          "points": 1,
+          "prompt": "When women learn AI, what changes besides individual productivity?",
+          "options": [
+            "They can shape workflows, ask sharper questions, challenge weak outputs, and influence how AI gets used",
+            "They stop needing judgment",
+            "They become the office help desk by default",
+            "They should use AI to make every answer sound the same"
+          ],
+          "answer": "They can shape workflows, ask sharper questions, challenge weak outputs, and influence how AI gets used",
+          "explain": "The larger goal is agency. Fluency helps women participate in decisions about the work, not just speed through tasks.",
+          "review": "Find it in the lAIdies purpose and community framing.",
+          "reviewUrl": "index.html#community-board"
+        },
+        {
+          "id": "not-becoming-technical",
+          "points": 1,
+          "prompt": "What does lAIdies reject as the price of AI fluency?",
+          "options": [
+            "Learning useful vocabulary",
+            "Trying low-risk tools",
+            "Having to become a totally different technical identity before participating",
+            "Keeping standards and judgment"
+          ],
+          "answer": "Having to become a totally different technical identity before participating",
+          "explain": "The bar is not becoming someone else. The bar is enough fluency to use the tools, evaluate the output, and stay in the conversation.",
+          "review": "Find it in Episode 1 and the About section.",
+          "reviewUrl": "issues/issue-01.html"
+        },
+        {
+          "id": "confidence-loop",
+          "points": 1,
+          "prompt": "Why does lAIdies make the first AI moves small?",
+          "options": [
+            "Small moves make confidence real enough to repeat",
+            "Small moves mean the topic is not serious",
+            "Small moves avoid learning anything practical",
+            "Small moves are only for beginners forever"
+          ],
+          "answer": "Small moves make confidence real enough to repeat",
+          "explain": "The confidence loop starts with usable experience: try, compare, notice what works, keep judgment, and try again.",
+          "review": "Find it in the Episode 1 Fun Pack Try-On.",
+          "reviewUrl": "issues/issue-01.html"
+        },
+        {
+          "id": "group-chat-learning",
+          "points": 1,
+          "prompt": "Why is community part of closing the AI gap?",
+          "options": [
+            "Because private confusion becomes shared vocabulary, examples, receipts, and shortcuts",
+            "Because AI works only when discussed publicly",
+            "Because every question needs consensus",
+            "Because women should outsource judgment to the group"
+          ],
+          "answer": "Because private confusion becomes shared vocabulary, examples, receipts, and shortcuts",
+          "explain": "A room changes the learning curve. People move faster when they can trade questions, warnings, examples, and wins.",
+          "review": "Find it in the community section.",
+          "reviewUrl": "index.html#community-board"
+        },
+        {
+          "id": "human-judgment",
+          "points": 1,
+          "prompt": "What must stay with the human as AI becomes more useful?",
+          "options": [
+            "Judgment, standards, context, and accountability",
+            "Every first draft",
+            "A fear of clicking the wrong button",
+            "The belief that polished output is always right"
+          ],
+          "answer": "Judgment, standards, context, and accountability",
+          "explain": "Fluency is not blind trust. It is knowing how to use help without handing over your name, standards, or responsibility.",
+          "review": "Find it in Episode 1's core lesson.",
+          "reviewUrl": "issues/issue-01.html"
+        },
+        {
+          "id": "foundational-reason",
+          "points": 1,
+          "prompt": "What is one foundational reason lAIdies was created?",
+          "options": [
+            "To make AI fluency practical, credible, and culturally alive for women before the gap gets wider",
+            "To make AI feel unserious",
+            "To replace source checking with confidence",
+            "To prove one AI tool is always best"
+          ],
+          "answer": "To make AI fluency practical, credible, and culturally alive for women before the gap gets wider",
+          "explain": "The mission is practical fluency with taste and standards: useful enough for work, memorable enough to stick, and welcoming enough to start.",
+          "review": "Find it in the site promise and Episode 1.",
+          "reviewUrl": "index.html#about"
+        },
+        {
+          "id": "why-now",
+          "points": 1,
+          "prompt": "Why does starting now — instead of waiting until AI feels clearer — actually matter?",
+          "options": [
+            "Because the tools will be discontinued soon",
+            "Because women are adopting AI less than men right now, and early comfort quietly compounds into a real workplace advantage",
+            "Because you have to be first or it is pointless",
+            "Because AI stops improving if you wait"
+          ],
+          "answer": "Because women are adopting AI less than men right now, and early comfort quietly compounds into a real workplace advantage",
+          "explain": "The gap today is an adoption gap — fewer women are reaching for these tools. The fix is not talent; it is starting. Comfort built now compounds later.",
+          "review": "Find it in Episode 1's opening.",
+          "reviewUrl": "issues/issue-01.html"
+        },
+        {
+          "id": "skills-you-have",
+          "points": 1,
+          "prompt": "What do you already have that makes you good at working with AI?",
+          "options": [
+            "A computer science degree",
+            "A career's worth of judgment, communication, and taste — the skills AI cannot replicate",
+            "Nothing, until you learn to code",
+            "A perfect memory for product names"
+          ],
+          "answer": "A career's worth of judgment, communication, and taste — the skills AI cannot replicate",
+          "explain": "The skills long dismissed as soft — briefing clearly, catching what is off, knowing what good looks like — turned out to be the hard ones. You have been training for this.",
+          "review": "Find it in Episode 2 and the About section.",
+          "reviewUrl": "issues/issue-02.html"
+        },
+        {
+          "id": "why-a-town",
+          "points": 1,
+          "prompt": "Why does lAIdies teach AI through a town — SUNNYVAiLE — instead of a plain how-to guide?",
+          "options": [
+            "Because a how-to guide would be more accurate",
+            "Because a story you can walk around in makes the lessons stick, and gives you a reason to come back every week",
+            "Because AI can only be explained through fiction",
+            "Because the town is just decoration over the real lessons"
+          ],
+          "answer": "Because a story you can walk around in makes the lessons stick, and gives you a reason to come back every week",
+          "explain": "You forget a listicle by lunch. You remember Cher, Elle, and a coffee order — and a place you actually want to revisit. Do not just learn from books; learn from hooks.",
+          "review": "Find it in the SUNNYVAiLE welcome and the town map.",
+          "reviewUrl": "index.html#about"
+        },
+        {
+          "id": "why-1999",
+          "points": 1,
+          "prompt": "Why is SUNNYVAiLE frozen in 1999, full of the pop culture and gadgets of the era?",
+          "options": [
+            "Because AI did not exist after 1999",
+            "Because a warm, familiar world takes the fear out of an intimidating topic and makes it fun to learn",
+            "Because older technology works better",
+            "Because the 90s had the best AI tools"
+          ],
+          "answer": "Because a warm, familiar world takes the fear out of an intimidating topic and makes it fun to learn",
+          "explain": "AI can feel cold and intimidating. Wrapping it in something you already love — the mixtapes, the Dream Phone, the movies — makes it approachable instead of alienating.",
+          "review": "Find it in the SUNNYVAiLE welcome.",
+          "reviewUrl": "index.html#about"
+        },
+        {
+          "id": "not-just-google",
+          "points": 1,
+          "prompt": "What can you do in SUNNYVAiLE that you cannot get by googling how to use AI?",
+          "options": [
+            "Nothing — it is the same information with a filter",
+            "Hand your real prompt to the Fairy Godmother and watch it get fixed, take the quiz, and learn with a crew — tools and a town, not just tips",
+            "Only read definitions",
+            "Buy a certificate"
+          ],
+          "answer": "Hand your real prompt to the Fairy Godmother and watch it get fixed, take the quiz, and learn with a crew — tools and a town, not just tips",
+          "explain": "Anyone can google a prompt template. Only here can you hand over your real prompt, watch it get glowed up, and learn why — with people, every week.",
+          "review": "Find it at the FAiRY Godmother and around town.",
+          "reviewUrl": "games/fairy-godmother.html"
+        },
+        {
+          "id": "bonus-who-shapes-ai",
+          "points": 1,
+          "bonus": true,
+          "prompt": "Bonus: why does representation in AI use and decision-making matter?",
+          "options": [
+            "The people who use, question, and shape the tools influence what gets automated, trusted, funded, and normalized",
+            "Only engineers can shape AI outcomes",
+            "Representation matters only in marketing",
+            "The tools are neutral enough that workplace context does not matter"
+          ],
+          "answer": "The people who use, question, and shape the tools influence what gets automated, trusted, funded, and normalized",
+          "explain": "AI adoption is not just personal productivity. It affects whose standards and assumptions get built into future workflows.",
+          "review": "Find it in the lAIdies purpose and community framing.",
+          "reviewUrl": "index.html#about"
+        },
+        {
+          "id": "bonus-what-learning-does",
+          "points": 1,
+          "bonus": true,
+          "prompt": "Bonus: what happens when women build real AI fluency together?",
+          "options": [
+            "They become harder to sideline in conversations about the future of work",
+            "They never need expert advice again",
+            "They should accept every AI answer faster",
+            "They turn every task into a tech project"
+          ],
+          "answer": "They become harder to sideline in conversations about the future of work",
+          "explain": "Shared fluency changes posture: more questions, better standards, stronger participation, and less waiting for permission.",
+          "review": "Find it in the lAIdies mission and community framing.",
+          "reviewUrl": "index.html#community-board"
+        }
+      ]
+    },
+    "issue03": {
+      "label": "Episode 03 Quiz",
+      "optionLabel": "Episode 03: The Burn Book Problem",
+      "title": "The Burn Book Problem",
+      "rereadUrl": "issues/issue-03.html",
+      "rereadLabel": "Reread Episode 03",
+      "intro": "Do not be Chutney on the stand. Be Elle with the timeline. Answer ten Episode 3 questions, then try the two bonus questions from next week's locker. The score is out of 10, but the extra credit girls can still get 12/10.",
+      "maxScore": 10,
+      "bonusScore": 2,
+      "questions": [
+        {
+          "id": "burn-book-problem",
+          "points": 1,
+          "prompt": "What is The Burn Book Problem in Episode 3?",
+          "options": [
+            "AI is always malicious when it is wrong",
+            "AI can make unsupported information look as finished as supported information",
+            "AI should only be used for jokes",
+            "AI works only when every answer has a pink notebook"
+          ],
+          "answer": "AI can make unsupported information look as finished as supported information",
+          "explain": "The Episode teaches that the same confident format can make real facts, stale facts, assumptions, and made-up claims look equally finished.",
+          "review": "Find it in The Burn Book Problem section.",
+          "reviewUrl": "issues/issue-03.html#article"
+        },
+        {
+          "id": "confident-and-wrong",
+          "points": 1,
+          "prompt": "What is the key judgment skill this week?",
+          "options": [
+            "Never use AI again",
+            "Trust every polished answer",
+            "Check the alibi before it gets on the stand",
+            "Make the prompt longer no matter what"
+          ],
+          "answer": "Check the alibi before it gets on the stand",
+          "explain": "Episode 3 is not paranoia. It is judgment: use the draft, then verify the claim, timeline, source, or context before you rely on it.",
+          "review": "Find it in the Episode Promise and opening.",
+          "reviewUrl": "issues/issue-03.html#article"
+        },
+        {
+          "id": "she-doesnt-go-here",
+          "points": 1,
+          "prompt": "What does “She doesn’t even go here” mean at work?",
+          "options": [
+            "The answer is formatted badly",
+            "The answer may sound plausible but does not match your actual company, customer, market, policy, date, or decision",
+            "The answer used too many bullets",
+            "The answer is too short to use"
+          ],
+          "answer": "The answer may sound plausible but does not match your actual company, customer, market, policy, date, or decision",
+          "explain": "The line becomes a context check for adjacent-but-wrong output.",
+          "review": "Find it in She Doesn’t Even Go Here.",
+          "reviewUrl": "issues/issue-03.html#article"
+        },
+        {
+          "id": "draft-claim-receipt",
+          "points": 1,
+          "prompt": "In the Cher's Closet section, how should you sort AI output before using it?",
+          "options": [
+            "Drafts, claims, and receipts",
+            "Fonts, colors, and captions",
+            "Long answers, short answers, and medium answers",
+            "Compliments, caveats, and calendar invites"
+          ],
+          "answer": "Drafts, claims, and receipts",
+          "explain": "Drafts can help with wording and structure. Claims need checking. Receipts are the source, date, quote, number, or record you can point to.",
+          "review": "Find it in Cher's Closet Can Pick The Outfit. You Check The Dress Code.",
+          "reviewUrl": "issues/issue-03.html#article"
+        },
+        {
+          "id": "trust-layer",
+          "points": 1,
+          "prompt": "What kind of work can AI usually help with safely as a first pass?",
+          "options": [
+            "Structure, drafts, checklists, plain-language rewrites, and possible gaps",
+            "Final legal conclusions with no review",
+            "Current pricing without opening the source",
+            "Company policy exceptions it has never seen"
+          ],
+          "answer": "Structure, drafts, checklists, plain-language rewrites, and possible gaps",
+          "explain": "Episode 3 says AI can be useful for shaping the work, while exact facts and high-stakes claims still need verification.",
+          "review": "Find it in Cher's Closet Can Pick The Outfit. You Check The Dress Code.",
+          "reviewUrl": "issues/issue-03.html#article"
+        },
+        {
+          "id": "verify-list",
+          "points": 1,
+          "prompt": "Which items should you verify before using AI output at work?",
+          "options": [
+            "Names, dates, numbers, links, quotes, prices, policies, customer commitments, and anything you would defend in a meeting",
+            "Only the font and paragraph length",
+            "Only whether the answer sounds confident",
+            "Nothing if the answer has bullets"
+          ],
+          "answer": "Names, dates, numbers, links, quotes, prices, policies, customer commitments, and anything you would defend in a meeting",
+          "explain": "The receipts habit is about checking the claims that could embarrass you, mislead someone, cost money, or create real risk.",
+          "review": "Find it in Elle Woods Would Like To See The File and The Receipts Pass Study Montage.",
+          "reviewUrl": "issues/issue-03.html#article"
+        },
+        {
+          "id": "challenge-prompt",
+          "points": 1,
+          "prompt": "Why is asking “Are you sure?” again, and again, not enough?",
+          "options": [
+            "Because it asks the same unreliable answer to certify itself",
+            "Because it makes the answer too short",
+            "Because AI refuses yes-or-no questions",
+            "Because it removes all useful structure"
+          ],
+          "answer": "Because it asks the same unreliable answer to certify itself",
+          "explain": "Chutney can repeat the same alibi. Verification means checking the claim against a source, date, quote, number, context, or domain rule.",
+          "review": "Find it in Chutney Can Say It Thrice. Elle Still Checks The Timeline.",
+          "reviewUrl": "issues/issue-03.html#article"
+        },
+        {
+          "id": "direct-supported",
+          "points": 1,
+          "prompt": "What should Prompt Like Elle ask AI to separate?",
+          "options": [
+            "Draft language, claims needing receipts, assumptions, fragile details, and the receipt to check",
+            "Only the funny sentences",
+            "Only the shortest bullets",
+            "Only what sounds most executive"
+          ],
+          "answer": "Draft language, claims needing receipts, assumptions, fragile details, and the receipt to check",
+          "explain": "The prompt moves the answer from monologue to testimony: claim over here, source over there, suspicious timeline detail where you can see it.",
+          "review": "Find it in Chutney Can Say It Thrice. Elle Still Checks The Timeline.",
+          "reviewUrl": "issues/issue-03.html#article"
+        },
+        {
+          "id": "high-stakes",
+          "points": 1,
+          "prompt": "For legal, HR, finance, privacy, security, or policy-sensitive work, AI should be treated as:",
+          "options": [
+            "The final authority",
+            "A helper for preparing questions and organizing facts, not the owner of the answer",
+            "A replacement for source review",
+            "A shortcut around approval"
+          ],
+          "answer": "A helper for preparing questions and organizing facts, not the owner of the answer",
+          "explain": "The Episode keeps high-stakes work inside human/source review boundaries.",
+          "review": "Find it in Cher's Closet Can Pick The Outfit. You Check The Dress Code.",
+          "reviewUrl": "issues/issue-03.html#article"
+        },
+        {
+          "id": "try-on",
+          "points": 1,
+          "prompt": "What is the Episode 3 Try-On?",
+          "options": [
+            "Use Prompt Like Elle on a low-risk task, then verify the claims yourself",
+            "Ask AI to write a movie review",
+            "Use AI output without edits for speed",
+            "Compare every AI company in one sitting"
+          ],
+          "answer": "Use Prompt Like Elle on a low-risk task, then verify the claims yourself",
+          "explain": "The Try-On asks readers to open their own AI tool, paste Prompt Like Elle, add a low-risk task or source notes, and then do three human checks: a fact, a context-dependent claim, and a claim you would be embarrassed to say without a receipt.",
+          "review": "Find it in The Receipts Pass Study Montage.",
+          "reviewUrl": "issues/issue-03.html#article"
+        },
+        {
+          "id": "bonus-boy-band-lineup",
+          "points": 1,
+          "bonus": true,
+          "prompt": "Bonus: next week is a flashback episode, the origin story of AI. Roughly how old is the science?",
+          "options": [
+            "Almost two hundred years old",
+            "About seventy years old, born with the computer",
+            "About twenty-five years old",
+            "It started with the internet"
+          ],
+          "answer": "Almost two hundred years old",
+          "explain": "The math started in 1843. What's brand new is your access to it. The whole family history, next Wednesday.",
+          "review": "Next time on LAiDIES.",
+          "reviewUrl": "issues/issue-04.html"
+        },
+        {
+          "id": "bonus-lead-singer",
+          "points": 1,
+          "bonus": true,
+          "prompt": "Bonus: also from next week. Who published the first computer program?",
+          "options": [
+            "A mathematician named Ada Lovelace, in 1843, for a machine that hadn't been built yet",
+            "An engineer at IBM in the 1950s",
+            "The men who coined the term artificial intelligence",
+            "Nobody knows"
+          ],
+          "answer": "A mathematician named Ada Lovelace, in 1843, for a machine that hadn't been built yet",
+          "explain": "Babbage had earlier unpublished sketches, but her 1843 program is the first ever published, and by far the most complete. She's the first stop in next week's episode: the women who built AI.",
+          "review": "Next time on LAiDIES.",
+          "reviewUrl": "issues/issue-04.html"
+        }
+      ]
+    },
     "issue01": {
       "label": "Episode 01 Quiz",
-      "optionLabel": "Episode 01: On Wednesdays We Use AI",
+      "optionLabel": "Episode 01: On Wednesdays We Do AI",
       "title": "Opening the tab without making it a whole personality crisis.",
       "rereadUrl": "issues/issue-01.html",
       "rereadLabel": "Reread Episode 01",
@@ -640,178 +1103,179 @@ window.LAIDIES_SITE_DATA = {
     },
     "issue04": {
       "label": "Episode 04 Quiz",
-      "optionLabel": "Episode 04: Every SLAiYER Needs a Watcher",
-      "title": "Which tool, for which job — and staying the one who decides.",
-      "rereadUrl": "grimoire/slaiyer-handbook-chapter-1.html",
-      "rereadLabel": "Reread the Handbook",
-      "intro": "Answer ten Episode 4 questions from the SLAiYER Handbook, then try the two bonus questions teasing next week's roll call. A perfect 12/10 gets two stickers, because we are not monsters.",
+      "optionLabel": "Episode 04: The Founding Mothers",
+      "title": "Almost two hundred years of women built this. Pop quiz.",
+      "rereadUrl": "issues/issue-04.html",
+      "rereadLabel": "Reread Episode 04",
+      "intro": "Answer ten Episode 4 questions from the quiet wing of the LUMINAiRY, then try the two bonus questions teasing next week's episode. A perfect 12/10 gets two stickers, because we are not monsters.",
       "maxScore": 10,
       "bonusScore": 2,
       "questions": [
         {
-          "id": "watcher-job",
+          "id": "ada-algorithm",
           "points": 1,
-          "prompt": "Chapter 1 opens with \"Every Slayer needs a Watcher.\" In that framing, what is the Handbook's job?",
+          "prompt": "What did Ada Lovelace understand first, back in 1843?",
           "options": [
-            "The Handbook is your Watcher — it tells you what you're walking into before you walk in, while you stay the Slayer doing the work",
-            "The Handbook is the Slayer, and you're its sidekick",
-            "The Handbook fights your battles for you so you don't have to",
-            "The Handbook is just a glossary — no Slayer or Watcher involved"
+            "If a machine can follow instructions, numbers are only the beginning",
+            "Machines would one day think for themselves",
+            "Computers needed better keyboards",
+            "Programming should be left to mathematicians"
           ],
-          "answer": "The Handbook is your Watcher — it tells you what you're walking into before you walk in, while you stay the Slayer doing the work",
-          "explain": "You're always the Slayer — the one who goes out and does the work. The Handbook is the Watcher: it briefs you, names what's in front of you, but never swings for you.",
-          "review": "Find it in Chapter 1, Every Slayer Needs a Watcher.",
-          "reviewUrl": "grimoire/slaiyer-handbook-chapter-1.html"
+          "answer": "If a machine can follow instructions, numbers are only the beginning",
+          "explain": "The founding insight of the whole field: precise instructions, faithfully followed. Everything in your browser tab descends from it.",
+          "review": "Reread the scene in Episode 04.",
+          "reviewUrl": "issues/issue-04.html"
         },
         {
-          "id": "which-tool",
+          "id": "not-one-thing",
           "points": 1,
-          "prompt": "Your colleague says \"just use AI for it.\" What's missing from that sentence?",
+          "prompt": "Why was \"just use AI\" never a real instruction?",
           "options": [
-            "Nothing — that's exactly the right instinct",
-            "AI can't really help with work tasks anyway",
-            "\"AI\" isn't one thing — which tool, for which job, is the whole question",
-            "You should clear it with IT first"
+            "AI isn't one thing. It's a whole field, built piece by piece over almost two hundred years",
+            "Because AI is too new for instructions to exist",
+            "Because only engineers can use it properly",
+            "Because the tools change too fast to learn"
           ],
-          "answer": "\"AI\" isn't one thing — which tool, for which job, is the whole question",
-          "explain": "\"Just use AI\" lands like \"just use internet.\" The Handbook exists because the useful question is never whether — it's which tool, for which job.",
-          "review": "Find it in Chapter 1's opening.",
-          "reviewUrl": "grimoire/slaiyer-handbook-chapter-1.html"
+          "answer": "AI isn't one thing. It's a whole field, built piece by piece over almost two hundred years",
+          "explain": "Ada's math, Grace's translator, Karen's search, Fei-Fei's data: different pieces, different jobs. Nobody hands you a map when they say \"just use it.\" Next week, we draw the map.",
+          "review": "Reread the scene in Episode 04.",
+          "reviewUrl": "issues/issue-04.html"
         },
         {
-          "id": "graduate-now",
+          "id": "ai-winter",
           "points": 1,
-          "prompt": "The Field Guide says \"graduate to a specialist only when the generalist fails in front of you.\" Which of these is a real graduate-now moment?",
+          "prompt": "The episode says AI has had roughly two \"winters.\" What's an AI winter?",
           "options": [
-            "The generalist gave you a draft you'd like to tweak a little",
-            "You're just curious whether a fancier tool exists",
-            "You need live, current sources with links — and the generalist can't actually browse or cite them",
-            "The generalist answered, but a coworker prefers a different brand"
+            "A long stretch when the promises outran the results and the money froze",
+            "The gap between one model's release and the next",
+            "When a government pauses AI research on safety grounds",
+            "The early period before computers could handle language"
           ],
-          "answer": "You need live, current sources with links — and the generalist can't actually browse or cite them",
-          "explain": "Graduate when the generalist hits a real wall — needs live web sources, a true document tool, image work it can't do. Not because the draft's imperfect, not because something shinier exists. The task tells you, not the marketing.",
-          "review": "Find it in Chapter 4, The Field Guide.",
-          "reviewUrl": "grimoire/slaiyer-handbook-chapter-4.html"
+          "answer": "A long stretch when the promises outran the results and the money froze",
+          "explain": "After Dartmouth's overpromise, the funding dried up and \"artificial intelligence\" became an embarrassing thing to say out loud. It happened roughly twice. The work didn't stop in the cold; the money did.",
+          "review": "Reread the scene in Episode 04.",
+          "reviewUrl": "issues/issue-04.html"
         },
         {
-          "id": "training-default",
+          "id": "hedy-hopping",
           "points": 1,
-          "prompt": "Chapter 1's \"training data\" entry warns that what you type today might train tomorrow's model. For free/personal accounts, what's the usual default?",
+          "prompt": "Billed at the time as the most beautiful woman in the world, Hedy Lamarr spent 1942 inventing. Radio-controlled torpedoes kept getting jammed. What was her and George Antheil's fix?",
           "options": [
-            "Training is OFF unless you turn it on",
-            "Training is often ON by default — your inputs can feed the model",
-            "There's no difference between free and paid on this",
-            "Only images get used, never text"
+            "Their signal never stayed on one frequency long enough to be blocked",
+            "The signal was encrypted with an unbreakable code",
+            "It broadcast at a power no jammer could overwhelm",
+            "It switched from radio to sonar"
           ],
-          "answer": "Training is often ON by default — your inputs can feed the model",
-          "explain": "Personal/free accounts commonly default to training ON; business-approved accounts default OFF. What you paste can become tomorrow's training set. (Ch 5 turns this into the account rule.)",
-          "review": "Find it in Chapter 1's Vocabulary, the training-data entry.",
-          "reviewUrl": "grimoire/slaiyer-handbook-chapter-1.html"
+          "answer": "Their signal never stayed on one frequency long enough to be blocked",
+          "explain": "It jumped constantly between dozens of frequencies, and the receiver jumped in the same pattern. You can't jam what you can't find. The Navy shelved it as too bulky, but frequency hopping is in the family tree of Wi-Fi and Bluetooth. Hedy Lamarr: world-famous actor, incredible inventor. Both, fully.",
+          "review": "Reread the scene in Episode 04.",
+          "reviewUrl": "issues/issue-04.html"
         },
         {
-          "id": "skeleton-key",
+          "id": "grace-compiler",
           "points": 1,
-          "prompt": "The Skeleton Key (Chapter 3) is the reusable profile that travels across every tool. What three things is it made of?",
+          "prompt": "What did Grace Hopper's compiler change?",
           "options": [
-            "Username, password, payment method",
-            "Custom Instructions, Memory, and Projects",
-            "Prompts, files, and bookmarks",
-            "The paid plan, the app, and the login"
+            "You could write near-plain English and the machine did the translating",
+            "It let machines finally understand human intent",
+            "It replaced programming languages entirely",
+            "It made computers dramatically faster at calculation"
           ],
-          "answer": "Custom Instructions, Memory, and Projects",
-          "explain": "Custom Instructions (standing orders), Memory (the part that pays attention on its own — but it rots, so check it), Projects (rooms for one job). \"One key, every door.\"",
-          "review": "Find it in Chapter 3, The Skeleton Key.",
-          "reviewUrl": "grimoire/slaiyer-handbook-chapter-3.html"
+          "answer": "You could write near-plain English and the machine did the translating",
+          "explain": "Everyone said computers could only do numbers; she called that a failure of imagination. Every plain sentence you type at an AI lives in her world.",
+          "review": "Reread the scene in Episode 04.",
+          "reviewUrl": "issues/issue-04.html"
         },
         {
-          "id": "generalist-category",
+          "id": "dartmouth-summer",
           "points": 1,
-          "prompt": "Chapter 4's Field Guide sorts tools into five categories. Where do ChatGPT, Claude, and Gemini all sit?",
+          "prompt": "What did the men who named \"artificial intelligence\" promise?",
           "options": [
-            "Each is its own separate category",
-            "They're all \"big general assistants\" — the same category",
-            "They're \"specialists\"",
-            "They're \"power tools\""
+            "That it would be basically solved by the end of the summer",
+            "That machines would think like humans within a generation",
+            "That the field would never need another naming",
+            "That industry, not universities, would finish the job"
           ],
-          "answer": "They're all \"big general assistants\" — the same category",
-          "explain": "The famous names are all generalists — same category, not rivals in different tiers. Specialists (Perplexity, NotebookLM), visual tools, power tools, and advanced agents are the other four.",
-          "review": "Find it in Chapter 4, The Field Guide.",
-          "reviewUrl": "grimoire/slaiyer-handbook-chapter-4.html"
+          "answer": "That it would be basically solved by the end of the summer",
+          "explain": "It took decades, not a summer. The funding froze, the promises curdled, and the field kept the founding fathers' names anyway.",
+          "review": "Reread the scene in Episode 04.",
+          "reviewUrl": "issues/issue-04.html"
         },
         {
-          "id": "pick-the-tool",
+          "id": "sparck-jones-words",
           "points": 1,
-          "prompt": "What's the Field Guide's rule for actually picking a tool?",
+          "prompt": "How did Karen Spärck Jones teach machines to find what matters?",
           "options": [
-            "Always start with a specialist built for your exact task",
-            "Pick whichever your company pays for",
-            "Default to the generalist; graduate to a specialist only when it fails in front of you",
-            "Try all five categories and compare every time"
+            "Weigh the rare words, because the common ones tell you nothing",
+            "Count every word equally",
+            "Only read the first paragraph",
+            "Ask a librarian"
           ],
-          "answer": "Default to the generalist; graduate to a specialist only when it fails in front of you",
-          "explain": "Start with the generalist. Reach for a specialist only when the generalist visibly falls short on the real task — not before. Match the type to the job and the right tool falls out.",
-          "review": "Find it in Chapter 4, The Field Guide.",
-          "reviewUrl": "grimoire/slaiyer-handbook-chapter-4.html"
+          "answer": "Weigh the rare words, because the common ones tell you nothing",
+          "explain": "\"The\" and \"and\" are useless; the unusual words carry the meaning. Every search you've ever run leans on her.",
+          "review": "Reread the scene in Episode 04.",
+          "reviewUrl": "issues/issue-04.html"
         },
         {
-          "id": "watcher-not-believer",
+          "id": "feifei-data",
           "points": 1,
-          "prompt": "Chapter 1 says to be \"a Watcher, not a believer.\" When the tool hands you a confident answer, what does that mean you do?",
+          "prompt": "Everyone was chasing smarter algorithms, and colleagues warned Fei-Fei Li she had taken her idea too far. What was the idea?",
           "options": [
-            "Trust it — confidence means it checked its work",
-            "Reject everything it says and do it yourself anyway",
-            "Take it as a lead to verify, not a verdict to accept — you stay the one who decides what's true",
-            "Only double-check if it actually sounds unsure"
+            "The brain was never the problem. The machine had just never seen enough examples",
+            "The machines needed to be bigger, not smarter",
+            "Language mattered more than images",
+            "AI needed better marketing"
           ],
-          "answer": "Take it as a lead to verify, not a verdict to accept — you stay the one who decides what's true",
-          "explain": "A Watcher doesn't take the tool's word — she reads what it brings back with her eyes open. Confident ≠ correct. You direct and you verify; the tool advises.",
-          "review": "Find it in Chapter 1, be a Watcher, not a believer.",
-          "reviewUrl": "grimoire/slaiyer-handbook-chapter-1.html"
+          "answer": "The brain was never the problem. The machine had just never seen enough examples",
+          "explain": "\"Pre-ImageNet, people did not believe in data,\" as she put it. She built the mountain of examples anyway, and in 2012 image recognition won by a landslide. That was the spark of the current boom.",
+          "review": "Reread the scene in Episode 04.",
+          "reviewUrl": "issues/issue-04.html"
         },
         {
-          "id": "account-rule",
+          "id": "works-for-everyone",
           "points": 1,
-          "prompt": "Chapter 5's Account Rule is the data-safety rule. What's its core warning about free tools at work?",
+          "prompt": "Face-detection software couldn't see Joy Buolamwini's dark skin until she held up a white mask. What's the real lesson?",
           "options": [
-            "Free tools are always fine for anything",
-            "Free tools are just slower, that's the only downside",
-            "\"When the tool is free, the product is you\" — use the company-approved account for work data",
-            "You should personally pay for every tool you use"
+            "AI has to work for everyone. That takes representative data and diverse builders, not data soaked in decades of bias",
+            "Always test software before trusting it",
+            "Early face detection was simply low-resolution",
+            "Bias patches itself out as models improve"
           ],
-          "answer": "\"When the tool is free, the product is you\" — use the company-approved account for work data",
-          "explain": "Free/personal accounts can turn your work data into someone's training set. Use the approved account. Read the box. Don't be Deb.",
-          "review": "Find it in Chapter 5, The Account Rule.",
-          "reviewUrl": "grimoire/slaiyer-handbook-chapter-5.html"
+          "answer": "AI has to work for everyone. That takes representative data and diverse builders, not data soaked in decades of bias",
+          "explain": "The software learned from data shaped by years of who got photographed, hired, and counted, so it inherited those gaps. That doesn't fix itself. It takes better data and more kinds of people in the room deciding what gets built, which is why who builds AI matters as much as what it can do.",
+          "review": "Reread the scene in Episode 04.",
+          "reviewUrl": "issues/issue-04.html"
         },
         {
-          "id": "approved-meaning",
+          "id": "why-it-matters",
           "points": 1,
-          "prompt": "The Account Rule closes on the difference between \"I wasn't sure, so I asked\" and \"I figured it was probably fine.\" What does \"approved\" actually mean?",
+          "prompt": "Why does two hundred years of this history matter right now?",
           "options": [
-            "The tool has good reviews online",
-            "Lots of your coworkers already use it",
-            "A person with the authority to decide looked at this exact tool and said yes",
-            "It's free, so there's nothing to approve"
+            "AI's next chapter is being written right now. Women built this field, and it needs them back in the room",
+            "So the historical record can finally be corrected",
+            "It makes AI feel less intimidating to newcomers",
+            "It shows the field has always been fair underneath"
           ],
-          "answer": "A person with the authority to decide looked at this exact tool and said yes",
-          "explain": "\"Approved means a human with the authority to decide looked at this exact tool and said yes.\" Not vibes, not popularity — an actual yes from someone who can give it. The one Deb skips.",
-          "review": "Find it in Chapter 5, The Account Rule.",
-          "reviewUrl": "grimoire/slaiyer-handbook-chapter-5.html"
+          "answer": "AI's next chapter is being written right now. Women built this field, and it needs them back in the room",
+          "explain": "From Ada to Fei-Fei, it was never a boys' field. It just gets told that way, and the credit and the seats still skew one direction today. The newest chapter is being written right now. That's the part you can do something about.",
+          "review": "Reread the scene in Episode 04.",
+          "reviewUrl": "issues/issue-04.html"
         },
         {
-          "id": "bonus-anthropic-founders",
+          "id": "bonus-what-is-a-model",
           "points": 1,
           "bonus": true,
-          "prompt": "⭐ BONUS — a preview of next week's roll call. Claude is made by Anthropic. Who founded Anthropic — and where did they come from?",
+          "prompt": "⭐ BONUS — from next week. Next episode is called The Super Models. In AI, a \"model\" is:",
           "options": [
-            "Google researchers who left to start fresh",
-            "Dario and Daniela Amodei — siblings who left OpenAI (the makers of ChatGPT)",
-            "The same team that built Gemini",
-            "A university spinout with no big-company ties"
+            "The trained brain doing the actual work, no matter which app you open",
+            "A smaller test version of an AI",
+            "The template you fill in when writing a prompt",
+            "The company behind the app"
           ],
-          "answer": "Dario and Daniela Amodei — siblings who left OpenAI (the makers of ChatGPT)",
-          "explain": "Next week is the roll call — who makes what, and who's who. Preview: Anthropic (Claude) was founded by the Amodei siblings, who left OpenAI (ChatGPT) over where AI should go. Didn't know it? Perfect — that's Episode 5.",
-          "review": "Preview Episode 5, The AI Group Chat Roll Call, when it drops."
+          "answer": "The trained brain doing the actual work, no matter which app you open",
+          "explain": "ChatGPT, Claude, Gemini: those are apps. Underneath each one is a model, the trained brain doing the work. Next Wednesday, the whole lineup gets introduced properly.",
+          "review": "Reread the scene in Episode 04.",
+          "reviewUrl": "issues/issue-04.html"
         },
         {
           "id": "bonus-company-vs-product",

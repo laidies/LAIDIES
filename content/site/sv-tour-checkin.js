@@ -2,12 +2,12 @@
  * SUNNYVAiLE Wednesday Tour — check-in module.
  *
  * Any building page can include this script to expose:
- *  - A "Check in for the Wednesday tour" pill that auto-injects on the 8 tour stops.
+ *  - A "Check in for the Wednesday tour" pill that auto-injects on the 9 tour stops.
  *  - window.svTourCheckIn(stopKey) — call to mark a stop complete programmatically
  *    (e.g. after a specific interaction like clicking play on the episode song).
  *
  * State lives in localStorage under `laidies_tour_<isoWeekKey>` = array of stop keys.
- * When all 8 stops are checked, awards +1 FAiRY wish (localStorage `laidies_fairy_plays`).
+ * When all 9 stops are checked, awards +1 FAiRY wish (localStorage `laidies_fairy_plays`).
  * Weekly reset is implicit: a new ISO week = a new empty checklist.
  *
  * Server sync (Supabase member_ritual_checkins table) is a future add — leave a hook.
@@ -22,11 +22,12 @@
     { key: 'newsstand',       num: 1, path: '/newsstand.html',        label: 'NewsStand',       teaser: 'The week\'s headlines' },
     { key: 'chick-flicks',    num: 2, path: '/chick-flicks.html',     label: 'Chick Flicks',    teaser: 'This week\'s episode' },
     { key: 'blend-snap',      num: 3, path: '/blend-snap.html',       label: 'Blend & Snap',    teaser: 'Coffee + notes' },
-    { key: 'sunnyvaile-high', num: 4, path: '/sunnyvaile-high.html',  label: 'SUNNYVAiLE High', teaser: 'Pop quiz' },
-    { key: 'mall',            num: 5, path: '/mall.html',             label: 'Free Time',       teaser: 'Wander the Mall' },
-    { key: 'maikeover',       num: 6, path: '/maikeover.html',        label: 'MAiKEOVER',       teaser: 'See your card' },
-    { key: 'bronze-aige',     num: 7, path: '/bronze-aige.html',      label: 'BRONZE AiGE',     teaser: 'Happy hour + live show' },
-    { key: 'sorority-house',  num: 8, path: '/sorority-house.html',   label: 'Delta LAi Nu',    teaser: 'Girl Talk' }
+    { key: 'ksvl',            num: 4, path: '/radio.html',            label: 'KSVL 99.9',       teaser: 'The episode song' },
+    { key: 'sunnyvaile-high', num: 5, path: '/sunnyvaile-high.html',  label: 'SUNNYVAiLE High', teaser: 'Pop quiz' },
+    { key: 'mall',            num: 6, path: '/mall.html',             label: 'Free Time',       teaser: 'Wander the Mall' },
+    { key: 'maikeover',       num: 7, path: '/maikeover.html',        label: 'MAiKEOVER',       teaser: 'See your card' },
+    { key: 'bronze-aige',     num: 8, path: '/bronze-aige.html',      label: 'BRONZE AiGE',     teaser: 'Happy hour + live show' },
+    { key: 'sorority-house',  num: 9, path: '/sorority-house.html',   label: 'Delta LAi Nu',    teaser: 'Girl Talk' }
   ];
   var STOP_BY_KEY = {};
   var STOP_BY_PATH = {};
@@ -95,7 +96,7 @@
     checked.push(stopKey);
     writeWeek(weekKey, checked);
 
-    // Reward when all 8 land for this week, once per week
+    // Reward when all stops land for this week, once per week
     var rewardIssued = false;
     if (checked.length === STOPS.length && readLastRewardedWeek() !== weekKey) {
       incrementFairyPlays();

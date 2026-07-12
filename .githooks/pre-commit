@@ -1,0 +1,11 @@
+#!/bin/sh
+# SUNNYVAiLE pre-commit gate — runs the town consistency check before every commit.
+# Bypass consciously with: git commit --no-verify
+TOPLEVEL="$(git rev-parse --show-toplevel)"
+if [ -f "$TOPLEVEL/scripts/check-town.js" ]; then
+  node "$TOPLEVEL/scripts/check-town.js" || {
+    echo ""
+    echo "Commit blocked by check-town. Fix the drift above, or bypass with --no-verify if you mean it."
+    exit 1
+  }
+fi

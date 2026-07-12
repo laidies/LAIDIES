@@ -666,7 +666,7 @@
         <!-- How it works -->
         <aside class="gt-howto" aria-label="How Girl Talk works">
           <strong>How it works</strong>
-          Draw as many as you want, stop whenever &mdash; progress saves on this device for now, and your LAiDIES member card will pick it up when sign-in lands. Honest truths and completed dares each earn their own sticker. Chicken outs come with a penalty sticker (sorry &mdash; but they&rsquo;re collectible too). Every 5 dares earns a bonus LAiDY wish, ready when member accounts launch.
+          Draw as many as you want, stop whenever &mdash; progress saves on this device for now, and your LAiDIES member card will pick it up when sign-in lands. Honest truths and completed dares each earn their own sticker. Chicken outs come with a penalty sticker (sorry &mdash; but they&rsquo;re collectible too). Every 5 dares earns a bonus FAiRY wish, ready when member accounts launch.
         </aside>
 
         <!-- Score Panel -->
@@ -676,10 +676,10 @@
             <span>🎯 <span id="gtDareCount">0</span> dares completed</span>
             <span>🩹 <span id="gtPenaltyCount">0</span> penalty stickers</span>
           </div>
-          <p class="gt-progress-label"><strong id="gtProgressLabel">0/5</strong> dares toward your next LAiDY wish</p>
+          <p class="gt-progress-label"><strong id="gtProgressLabel">0/5</strong> dares toward your next FAiRY wish</p>
           <div class="gt-progress-bar"><div class="gt-progress-fill" id="gtProgressFill"></div></div>
           <p class="gt-wishes-pending is-hidden" id="gtWishesPending">
-            🌟 <span id="gtWishCount">0</span> LAiDY wish<span id="gtWishPlural">es</span> waiting
+            🌟 <span id="gtWishCount">0</span> FAiRY wish<span id="gtWishPlural">es</span> waiting
             <small>Your wish is waiting — we'll unlock it when we launch member accounts.</small>
           </p>
         </section>
@@ -745,37 +745,37 @@
         // creating a flywheel between the games.
         const TRUTHS = [
           { id: "T1",  text: "What AI task are you avoiding because you don't know how to start?",
-            tip: "→ Take that task to FAiRY GODMOTHER. Let LAiDY glow up your first prompt." },
+            tip: "→ Take that task to FAiRY GODMOTHER. Let her glow up your first prompt." },
           { id: "T2",  text: "What's the last thing you copy-pasted from AI without reading properly?",
-            tip: "→ Run it back through LAiDY. See what changes when you actually brief it." },
+            tip: "→ Run it back through the FAiRY Godmother. See what changes when you actually brief it." },
           { id: "T3",  text: "What work task do you secretly hope AI will make disappear?",
-            tip: "→ Ask LAiDY to plan the first 30 minutes." },
+            tip: "→ Ask the FAiRY Godmother to plan the first 30 minutes." },
           { id: "T4",  text: "When did you last pretend to understand something in a meeting and then Google it after?",
             tip: "→ Next time, ask AI in the moment. Three sentences, no judgment." },
           { id: "T5",  text: "What's the most embarrassing prompt you've ever sent?",
             tip: "→ Glow it up on FAiRY GODMOTHER. The embarrassing ones usually have bones." },
           { id: "T6",  text: "What are you most scared AI will be able to do better than you?",
-            tip: "→ Name the task. Take it to LAiDY. Notice what you bring that AI can't." },
+            tip: "→ Name the task. Take it to the FAiRY Godmother. Notice what you bring that AI can't." },
           { id: "T7",  text: "What's a skill you've been meaning to learn for two years and haven't?",
             tip: "→ Ask AI to teach you the first 30 minutes today." },
           { id: "T8",  text: "What meeting are you in that you genuinely don't need to be in?",
-            tip: "→ Decline it. Use LAiDY for the wording if you need it." },
+            tip: "→ Decline it. Use the FAiRY Godmother for the wording if you need it." },
           { id: "T9",  text: "What do you say you'll “circle back on” that you have no intention of circling back on?",
             tip: "→ Either close the loop or kill it. AI can write either." },
           { id: "T10", text: "What's your actual relationship with your inbox right now?",
             tip: "→ Take three real emails to FAiRY GODMOTHER. Watch what an hour gets you." },
           { id: "T11", text: "What's the last piece of feedback you got that was right and you didn't want to hear?",
             tip: "→ Ask AI to surface the one move that'd actually address it." },
-          { id: "T12", text: "Who do you most wish had a LAiDY in their corner?",
+          { id: "T12", text: "Who do you most wish had a FAiRY Godmother in their corner?",
             tip: "→ Send them the LAiDIES link. They'll thank you." },
           { id: "T13", text: "What's something you did with AI this week you haven't told anyone?",
             tip: "→ Tell someone here. Post it in Try-On Debrief." },
           { id: "T14", text: "What's the task you always save for last and why?",
-            tip: "→ Ask LAiDY for the smallest version that ships." },
+            tip: "→ Ask the FAiRY Godmother for the smallest version that ships." },
           { id: "T15", text: "What would your manager say your biggest strength is vs. what you think it actually is?",
             tip: "→ Use AI to draft both versions. The gap is information." },
           { id: "T16", text: "What work problem would you solve first if you had zero budget and unlimited AI?",
-            tip: "→ Mock it up with LAiDY this week. Free is exactly your budget." },
+            tip: "→ Mock it up with the FAiRY Godmother this week. Free is exactly your budget." },
           { id: "T17", text: "What's the email you've been drafting in your head for three weeks?",
             tip: "→ Drop it on FAiRY GODMOTHER. Pick the energy you needed three weeks ago." },
           { id: "T18", text: "What do you know about AI that your team doesn't?",
@@ -785,7 +785,7 @@
           { id: "T20", text: "What would you do differently if you started your current job today?",
             tip: "→ Pick one move. Make it this week." },
           { id: "T21", text: "What's the task you'd delegate to AI in a heartbeat if you knew how?",
-            tip: "→ Take it to FAiRY GODMOTHER. Get LAiDY's version of the prompt." },
+            tip: "→ Take it to FAiRY GODMOTHER. Get her version of the prompt." },
           { id: "T22", text: "What's one thing you're pretending is fine?",
             tip: "→ Name it out loud. To yourself first. Then to one person." },
           { id: "T23", text: "What's the last time AI surprised you?",
@@ -808,7 +808,7 @@
           { id: "D4",  text: "Set an out-of-office right now even if you're not going anywhere. Share the move.", room: "Send It Energy" },
           { id: "D5",  text: "Ask AI to roast your last presentation. Share the line that stung — or the prompt that got you the funniest roast.", room: "Burn Book" },
           { id: "D6",  text: "Use AI to draft your own performance review. Share the line you wouldn't have written about yourself.", room: "Wins" },
-          { id: "D7",  text: "Decline a meeting this week using LAiDY. Share the prompt — or the move LAiDY suggested.", room: "Send It Energy" },
+          { id: "D7",  text: "Decline a meeting this week using the FAiRY Godmother. Share the prompt — or the move the FAiRY Godmother suggested.", room: "Send It Energy" },
           { id: "D8",  text: "Ask AI what job you'd be good at based on patterns in your work. Share what surprised you about the answer.", room: "Try-On Debrief" },
           { id: "D9",  text: "Ask AI to surface what wasn't said at your last all-hands. Share the move you'd make in response.", room: "Comment Card" },
           { id: "D10", text: "Use AI to draft your one-paragraph case for a raise. Share the line that surprised you. (You don't have to send it. But you could.)", room: "Send It Energy" },
@@ -820,9 +820,9 @@
           { id: "D16", text: "Use AI to write a polite but firm reply to the most annoying email in your inbox. Share the prompt that got you a version you'd actually send.", room: "Send It Energy" },
           { id: "D17", text: "Post your hot take on AI at work. No hedging.", room: "Ask the Room" },
           { id: "D18", text: "Use AI to plan your ideal workday. Post it as evidence of what's possible.", room: "Wins" },
-          { id: "D19", text: "Take the prompt you've sent AI most lately. Run it through FAiRY GODMOTHER. Share what LAiDY changed.", room: "Try-On Debrief" },
+          { id: "D19", text: "Take the prompt you've sent AI most lately. Run it through FAiRY GODMOTHER. Share what she changed.", room: "Try-On Debrief" },
           { id: "D20", text: "Audit your last week: how many hours were actually useful? Post the number — and the one thing you'll cut next week.", room: "Comment Card" },
-          { id: "D21", text: "Use LAiDY to glow up a prompt you've been struggling with. Post before and after.", room: "Try-On Debrief" },
+          { id: "D21", text: "Use the FAiRY Godmother to glow up a prompt you've been struggling with. Post before and after.", room: "Try-On Debrief" },
           { id: "D22", text: "Use AI to write your team a thank-you, then send it. Share what AI helped you say.", room: "Wins" },
           { id: "D23", text: "Ask AI to identify the subtext in an email you received this week. Share what AI saw that you didn't — no names, just the pattern.", room: "Burn Book" },
           { id: "D24", text: "Find one thing in the LAiDIES Grimoire you didn't know existed and share it.", room: "Ask the Room" },
@@ -922,7 +922,7 @@
           STICKERS:   "laidies_gt_stickers_earned",   // JSON array of sticker IDs (T1, D5, ...)
           DARES:      "laidies_gt_dares_completed",   // JSON array of dare IDs
           PENALTIES:  "laidies_gt_penalties_earned",  // JSON array of penalty IDs (dupes allowed)
-          WISHES:     "laidies_gt_pending_wishes",    // number — earned-but-not-yet-granted bonus LAiDY wishes
+          WISHES:     "laidies_gt_pending_wishes",    // number — earned-but-not-yet-granted bonus FAiRY wishes
           NAMES:      "laidies_gt_names"              // JSON map of reward id → display name (so the Closet syncs real titles)
         };
         const WISH_THRESHOLD = 5;  // every 5 completed dares earns 1 pending wish
@@ -1131,13 +1131,13 @@
           };
           const wishHtml = newWish ? `
             <div class="gt-wish-unlocked">
-              ⭐ <strong>LAiDY wish unlocked!</strong> Five dares in.
+              ⭐ <strong>FAiRY wish unlocked!</strong> Five dares in.
               <small>Your wish is waiting — we'll unlock the actual wand when member accounts launch.</small>
             </div>
           ` : "";
           // Truth follow-up tip — turns the moment of honest reflection into a
           // concrete next move. AI-flavoured tips reference FAiRY GODMOTHER,
-          // which we linkify so users can jump straight to LAiDY's wand.
+          // which we linkify so users can jump straight to the FAiRY Godmother's wand.
           const tipHtml = (kind === "truth" && currentCard && currentCard.tip)
             ? `<div class="gt-reward-tip">${linkifyFairy(escapeHtml(currentCard.tip))}</div>`
             : "";
@@ -1153,7 +1153,7 @@
           `;
         }
 
-        // Linkify references to FAiRY GODMOTHER / LAiDY's wand inside truth tips,
+        // Linkify references to FAiRY GODMOTHER / the FAiRY Godmother's wand inside truth tips,
         // pointing to the live game so users can jump straight there.
         function linkifyFairy(html) {
           return html.replace(/FAiRY GODMOTHER/g,
@@ -1237,15 +1237,54 @@
     <!-- Site scripts -->
     <script src="../content/site/laidies-bg.js?v=laidies-bg-1" defer></script>
     <script src="../content/site/supabase-config.js"></script>
-    <script src="../content/site/site-data.js?v=episode-04-quiz-1"></script>
+    <script src="../content/site/site-data.js?v=quizzes-complete-20260712"></script>
     <script src="../script.js"></script>
-    <script src="../content/site/mini-player.js?v=ep-04-songs-1"></script>
+    <script src="../content/site/mini-player.js?v=20260712ep-04-songs-1"></script>
     <!-- Canonical SUNNYVAiLE chrome — sv-global-header MUST load before sv-nav-auth -->
     <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
     <script defer src="/content/site/sv-global-header.js?v=20260710-hdr"></script>
     <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
     <script defer src="/content/site/sv-back-nav.js?v=1"></script>
-    <script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
+    <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
     <script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
+  
+    <script>
+    // Residents-only gate — canon: Girl Talk requires a Residence Card (Ali, 2026-07-11).
+    // Residency = a valid Supabase session OR a claimed card on this device (laidies_card_username).
+    (function () {
+      function hasSession() {
+        try {
+          var raw = localStorage.getItem('sb-swqnkxzebxdbgyrzpdne-auth-token');
+          if (!raw) return false;
+          var t = JSON.parse(raw);
+          if (!t || !t.user || !t.user.email) return false;
+          if (t.expires_at && t.expires_at * 1000 <= Date.now()) return false;
+          return true;
+        } catch (_) { return false; }
+      }
+      function hasCard() {
+        try { return !!localStorage.getItem('laidies_card_username'); } catch (_) { return false; }
+      }
+      function gate() {
+        if (hasSession() || hasCard()) return;
+        var main = document.querySelector('main');
+        if (!main) return;
+        var door = document.createElement('div');
+        door.setAttribute('role', 'region');
+        door.setAttribute('aria-label', 'Residents only');
+        door.style.cssText = 'max-width:560px;margin:40px auto 60px;text-align:center;background:var(--cream,#fffdfb);border:1.5px solid rgba(155,63,95,0.35);border-radius:16px;padding:38px 34px;box-shadow:0 14px 36px rgba(75,33,72,0.16);';
+        door.innerHTML =
+          '<p style="font-family:Jost,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--rose,#9b3f5f);margin:0 0 10px;">Delta LAi Nu \u00b7 Wisteria Lane</p>' +
+          '<h2 style="font-family:\'Playfair Display\',Georgia,serif;font-size:30px;font-weight:700;color:var(--plum,#4b2148);margin:0 0 10px;">Residents only.</h2>' +
+          '<p style="font-size:15px;line-height:1.55;color:var(--plum-soft,#6b3a66);margin:0 0 22px;">Girl Talk happens inside the Sorority House \u2014 you\u2019ll need a Residence Card to come in. It\u2019s free, and it keeps your stickers, dares, and FAiRY wishes.</p>' +
+          '<a href="/maikeover.html" style="display:inline-block;background:var(--plum,#4b2148);color:#fffdfb;font-family:Jost,sans-serif;font-weight:600;font-size:15px;padding:13px 28px;border-radius:999px;text-decoration:none;">Design your Residence Card \u2192</a>' +
+          '<p style="font-size:13px;margin:14px 0 0;color:var(--plum-soft,#6b3a66);">Already a resident? <a href="/clubhouse-pass.html" style="color:var(--rose,#9b3f5f);font-weight:600;">Sign in</a> and come back.</p>';
+        Array.prototype.forEach.call(main.children, function (el) { el.style.display = 'none'; });
+        main.appendChild(door);
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', gate);
+      else gate();
+    })();
+    </script>
   </body>
 </html>

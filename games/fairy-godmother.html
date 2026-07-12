@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>FAiRY GODMOTHER | LAiDIES Clubhouse</title>
-    <meta name="description" content="LAiDY gives advice like a wise, glamorous fairy who actually helps with real work problems. Wave the wand." />
+    <meta name="description" content="The FAiRY Godmother gives advice like a wise, glamorous fairy who actually helps with real work problems. Wave the wand." />
     <meta property="og:title" content="FAiRY GODMOTHER | LAiDIES" />
     <meta property="og:description" content="The sad dress walks in. The dress walks out. Real advice, a better prompt, a draft you can send." />
     <meta property="og:type" content="website" />
@@ -622,7 +622,7 @@
         transform: translateY(-2px);
       }
 
-      /* === LAiDY MARKDOWN OUTPUT === */
+      /* === FAiRY GODMOTHER MARKDOWN OUTPUT === */
       .laidy-output > :first-child { margin-top: 0; }
       .laidy-output > :last-child { margin-bottom: 0; }
       .laidy-output h3.laidy-h3 {
@@ -910,7 +910,7 @@
 
         <!-- HERO -->
         <section class="fairy-hero">
-          <p class="eyebrow brand-preserve-case">Ask LAiDY</p>
+          <p class="eyebrow brand-preserve-case">The FAiRY Godmother</p>
           <h1>FA<span class="ai-highlight">i</span>RY GODMOTHER</h1>
 <div style="margin: 12px 0 20px;">
   <button type="button"
@@ -925,10 +925,10 @@
     <span>&#9834; Play the FAiRY Godmother song</span>
   </button>
 </div>
-          <p class="subtitle">The sad dress walks in. The dress walks out. Bring the prompt you can&rsquo;t finish or the situation you can&rsquo;t unstick &mdash; LAiDY gives you real advice in your favourite PATRON SAiNT&rsquo;s energy. (Deb wasn&rsquo;t invited. For obvious reasons.) A better prompt and something you can actually send.</p>
+          <p class="subtitle">The sad dress walks in. The dress walks out. Bring the prompt you can&rsquo;t finish or the situation you can&rsquo;t unstick &mdash; the FAiRY Godmother gives you real advice in your favourite PATRON SAiNT&rsquo;s energy. (Deb wasn&rsquo;t invited. For obvious reasons.) A better prompt and something you can actually send.</p>
 
           <div class="fairy-character-wrap">
-            <img src="../assets/laidy-character-v1.png" alt="LAiDY — big blonde hair, rhinestones, pink sequin jacket, diamond tiara, bedazzled wand" />
+            <img src="../assets/laidy-character-v1.png" alt="The FAiRY Godmother — big blonde hair, rhinestones, pink sequin jacket, diamond tiara, bedazzled wand" />
             <!-- Sparkle stars around wand area -->
             <div class="sparkle-field" id="sparkleField"></div>
           </div>
@@ -938,7 +938,7 @@
         <section class="fairy-console">
           <label for="fairyMode">Pick the energy</label>
           <select id="fairyMode">
-            <option value="auto" selected>LAiDY picks the right energy &#10024;</option>
+            <option value="auto" selected>The FAiRY Godmother picks the right energy &#10024;</option>
             <option value="dolly">Dolly Energy &mdash; warm &amp; direct</option>
             <option value="miranda">Miranda Polish &mdash; executive clean</option>
             <option value="elle">Elle Evidence &mdash; facts in heels</option>
@@ -950,7 +950,7 @@
 
           <label for="fairyQuestion">What do you need help with?</label>
           <textarea id="fairyQuestion" rows="3" placeholder="Example: I need to ask my VP for more time without sounding chaotic."></textarea>
-          <p class="fairy-disclosure">LAiDY is AI-powered. Don&rsquo;t paste confidential details &mdash; anonymize anything sensitive before you send it.</p>
+          <p class="fairy-disclosure">The FAiRY Godmother is AI-powered. Don&rsquo;t paste confidential details &mdash; anonymize anything sensitive before you send it.</p>
 
           <div class="fairy-buttons">
             <button class="wand-button" type="button" id="wandButton">
@@ -994,7 +994,7 @@
         <!-- BADGE -->
         <div class="badge-reveal" id="badgeReveal">
           <strong>&#10024; FAiRY GODMOTHER&rsquo;s Favorite merit badge unlocked!</strong>
-          <p>You have asked more questions than Dorothy, Cinderella, and Elle Woods combined. LAiDY recognizes your main character energy.</p>
+          <p>You have asked more questions than Dorothy, Cinderella, and Elle Woods combined. The FAiRY Godmother recognizes your main character energy.</p>
         </div>
       </div>
 
@@ -1003,9 +1003,9 @@
 
     <!-- Scripts -->
     <script src="../content/site/supabase-config.js"></script>
-    <script src="../content/site/site-data.js?v=episode-04-quiz-1"></script>
+    <script src="../content/site/site-data.js?v=quizzes-complete-20260712"></script>
     <script>
-    // ===== FAiRY GODMOTHER — Worker-powered LAiDY =====
+    // ===== FAiRY GODMOTHER — Worker-powered =====
     const WORKER_URL = "https://laidies-fairy-godmother.wednesday-laidies.workers.dev";
 
     const ENERGY_KEY_MAP = {
@@ -1020,7 +1020,7 @@
     };
 
     const ENERGY_LABEL = {
-      fairy: "LAiDY picked the energy",
+      fairy: "The FAiRY Godmother picked the energy",
       dolly: "Dolly Energy",
       miranda: "Miranda Polish",
       elle: "Elle Evidence",
@@ -1201,7 +1201,7 @@
       wandBtn.disabled = loading;
       randomBtn.disabled = loading;
       wandBtn.innerHTML = loading
-        ? '<span class="wand-icon">✨</span> LAiDY is reading…'
+        ? '<span class="wand-icon">✨</span> The FAiRY Godmother is reading…'
         : ORIGINAL_WAND_HTML;
     }
 
@@ -1215,7 +1215,7 @@
     }
 
     function showError(message) {
-      scrollHeader.textContent = "A note from LAiDY";
+      scrollHeader.textContent = "A note from the FAiRY Godmother";
       scrollMode.textContent = "";
       scrollBody.innerHTML = "<p>" + escapeHtml(message) + "</p>";
       scrollFooter.textContent = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
@@ -1235,14 +1235,14 @@
       const gate = document.createElement("div");
       gate.className = "laidy-gate";
       gate.innerHTML = `
-        <h3>LAiDY&rsquo;s full closet is open to LAiDIES.</h3>
-        <p>Drop your email and join the newsletter. LAiDY keeps going, and the Wednesday issue lands in your inbox.</p>
+        <h3>The FAiRY Godmother&rsquo;s full closet is open to LAiDIES.</h3>
+        <p>Drop your email and join the newsletter. The FAiRY Godmother keeps going, and the Wednesday issue lands in your inbox.</p>
         <form class="laidy-gate-form" autocomplete="email">
           <input type="email" required placeholder="you@yourdomain.com" aria-label="Email address" />
           <button type="submit">Sign me up</button>
         </form>
         <p class="laidy-gate-already">Already a LAiDIES subscriber? <a data-already>You&rsquo;re in &mdash; click here, honey.</a></p>
-        <p class="laidy-gate-ps"><em>P.S. Ali pays for LAiDY&rsquo;s wand out of pocket right now, so unlimited wishes aren&rsquo;t in the budget &mdash; yet. Subscribers get 5 wishes a day. Do the Full Wednesday Ritual and bank bonus wishes to your FAiRY Plays. Higher caps unlock with LAiDIES membership&hellip; (in the works!)</em></p>
+        <p class="laidy-gate-ps"><em>P.S. Ali pays for the FAiRY Godmother&rsquo;s wand out of pocket right now, so unlimited wishes aren&rsquo;t in the budget &mdash; yet. Subscribers get 5 wishes a day. Do the Full Wednesday Ritual and bank bonus wishes to your FAiRY Plays. Higher caps unlock with LAiDIES membership&hellip; (in the works!)</em></p>
         <p class="laidy-gate-status" aria-live="polite"></p>
       `;
 
@@ -1444,7 +1444,7 @@
         const data = await response.json();
         const revised = data && data.response ? String(data.response).trim() : "";
         if (!revised) {
-          status.textContent = "LAiDY came back empty. Try again.";
+          status.textContent = "The FAiRY Godmother came back empty. Try again.";
           return;
         }
         swapPostGlowUpContent(revised, row);
@@ -1452,7 +1452,7 @@
         status.textContent = "Revised — " + opt.label.toLowerCase() + ".";
       } catch (err) {
         console.error("Revision error:", err);
-        status.textContent = "LAiDY's signal flickered. Try again.";
+        status.textContent = "The FAiRY Godmother's signal flickered. Try again.";
       } finally {
         buttons.forEach((b, i) => {
           b.disabled = false;
@@ -1488,7 +1488,7 @@
       const promptHeader = findSectionHeader(/prompt\s*glow[\s-]*up/i);
       if (promptHeader && lastPromptGlowUpText) {
         const caption = makeCallout(
-          "Paste this into ChatGPT, Claude, or your tool of choice &mdash; you&rsquo;ll get a result built on your real context, not what LAiDY guessed."
+          "Paste this into ChatGPT, Claude, or your tool of choice &mdash; you&rsquo;ll get a result built on your real context, not what the FAiRY Godmother guessed."
         );
         const action = makeInlineAction("Copy prompt", () => lastPromptGlowUpText);
         promptHeader.parentNode.insertBefore(caption, promptHeader.nextSibling);
@@ -1512,7 +1512,7 @@
         const disclosure = document.createElement("div");
         disclosure.className = "laidy-disclosure";
         disclosure.innerHTML =
-          "LAiDY is AI, and AI can wear a great outfit with the price tag still on. <strong>Check yourself in the mirror before you walk out the door</strong> &mdash; verify the names, dates, numbers, and anything in [brackets]. Prompt Like Elle.";
+          "The FAiRY Godmother is AI, and AI can wear a great outfit with the price tag still on. <strong>Check yourself in the mirror before you walk out the door</strong> &mdash; verify the names, dates, numbers, and anything in [brackets]. Prompt Like Elle.";
         output.appendChild(disclosure);
       }
     }
@@ -1551,7 +1551,7 @@
         try {
           const badges = JSON.parse(localStorage.getItem("laidiesSecretBadges") || "{}");
           if (!badges["fairy-favorite"]) {
-            badges["fairy-favorite"] = { id: "fairy-favorite", title: "FAiRY GODMOTHER’s Favorite", sticker: "LAiDY", unlockedAt: new Date().toISOString(), source: "FAiRY GODMOTHER" };
+            badges["fairy-favorite"] = { id: "fairy-favorite", title: "FAiRY GODMOTHER’s Favorite", sticker: "FAiRY", unlockedAt: new Date().toISOString(), source: "FAiRY GODMOTHER" };
             localStorage.setItem("laidiesSecretBadges", JSON.stringify(badges));
           }
         } catch (e) {}
@@ -1575,7 +1575,7 @@
         body: JSON.stringify(payload)
       });
       // Try to parse the body even on non-OK so we can surface friendly
-      // LAiDY-voice messages from 429 responses (per-IP rate limit, daily cap).
+      // the FAiRY Godmother-voice messages from 429 responses (per-IP rate limit, daily cap).
       const data = await response.json().catch(() => null);
       if (!response.ok) {
         if (data && data.response) {
@@ -1592,11 +1592,11 @@
     async function runWand() {
       const q = questionEl.value.trim();
       if (!q) {
-        showError("LAiDY needs an actual prompt to read. Tell her in a sentence or two what you’re trying to do.");
+        showError("The FAiRY Godmother needs an actual prompt to read. Tell her in a sentence or two what you’re trying to do.");
         return;
       }
       if (q.split(/\s+/).length < 3) {
-        showError("That’s a little brief for LAiDY. Add a sentence about what you’re trying to do and who it’s for.");
+        showError("That’s a little brief for the FAiRY Godmother. Add a sentence about what you’re trying to do and who it’s for.");
         return;
       }
       const selectedValue = modeEl.value || "auto";
@@ -1614,7 +1614,7 @@
       try {
         const markdown = await callWorker(q, energyKey, subscriber ? subscriber.email : null);
         if (!markdown.trim()) {
-          showError("LAiDY came back empty-handed. Try waving the wand again.");
+          showError("The FAiRY Godmother came back empty-handed. Try waving the wand again.");
           return;
         }
         showResponse(markdown, energyKey, q);
@@ -1624,7 +1624,7 @@
         if (err && err.userFacingMessage) {
           showError(err.userFacingMessage);
         } else {
-          showError("LAiDY’s signal flickered for a second. Try the wand again in a moment.");
+          showError("The FAiRY Godmother’s signal flickered for a second. Try the wand again in a moment.");
         }
       } finally {
         setLoading(false);
@@ -1757,7 +1757,7 @@
       });
     })();
     </script>
-      <script src="../content/site/mini-player.js?v=ep-04-songs-1"></script>
+      <script src="../content/site/mini-player.js?v=20260712ep-04-songs-1"></script>
     <script src="../content/site/brand-polish.js?v=wm1" defer></script>
 <script>
   (function() {
@@ -1784,10 +1784,10 @@
   })();
 </script>
   <script defer src="/content/site/sv-back-nav.js?v=1"></script>
-<script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
 <script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260707-1"></script>
 <script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
-<script defer src="/content/site/ksvl-player.js?v=20260705-21"></script>
+<script defer src="/content/site/ksvl-player.js?v=20260712-21"></script>
 </body>
 </html>

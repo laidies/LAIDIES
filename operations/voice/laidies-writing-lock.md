@@ -71,6 +71,7 @@ Avoid obvious AI-drafted patterns:
 * overexplaining the joke
 * making the reader feel like she is in training
 * false-exclusivity hooks — “the move nobody makes,” “the thing nobody tells you,” “the secret nobody says out loud,” and any “nobody does this / the X nobody Y” construction (Ali 2026-07-08: classic AI slop, banned)
+* deficit framing about women — “women need the confidence / need to catch up / lack the language.” Women aren’t missing anything; the room is. Patronizing, banned (Ali 2026-07-12)
 
 Use structure, but hide the scaffolding.
 

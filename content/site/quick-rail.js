@@ -79,7 +79,7 @@
   var ITEMS = [
     FIRST,
     { href: '/library.html',                icon: 'book',     label: 'Look it up',     title: 'Look it up · The LIBRAiRY' },
-    { href: '/games/fairy-godmother.html',  icon: 'wand',     label: 'Ask LAiDY',      title: 'Ask LAiDY · FAiRY Godmother' },
+    { href: '/games/fairy-godmother.html',  icon: 'wand',     label: 'FAiRY Godmother', title: "The FAiRY Godmother's House" },
     { href: '/newsstand.html',              icon: 'news',     label: 'Read the news',  title: 'The NewsStand' },
     { href: '/blend-snap.html',             icon: 'cup',      label: 'Study Pack',     title: 'The Blend & Snap · Study Pack' },
     { href: '/games/fun-pack.html',         icon: 'joystick', label: 'Have fun',       title: 'Have fun · the games arcade' },

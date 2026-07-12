@@ -7,10 +7,15 @@
   // Locked canon: rose accent by default, inherit inside links/buttons/cards.
   var ACCENT_STYLE_ID = 'laidies-ai-accent-style';
   if (!document.getElementById(ACCENT_STYLE_ID)) {
-    // Canonical: rose everywhere. The Ai letters are the pop; matching parent color defeats the point.
-    // Also force text-transform:none — parents with text-transform:uppercase (eyebrows, buttons,
+    // Palette lock 2026-07-12: rose is RETIRED. Default Ai accent = pink #e982ab, themeable per
+    // page via --ai-accent, and NOT !important so contextual rules (.town .ai, logo spans) can win.
+    // text-transform:none stays forced — parents with text-transform:uppercase (eyebrows, buttons,
     // nav) would otherwise uppercase "Ai" into "AI" and defeat the whole thing.
-    var css = '.ai{color:var(--rose,#9b3f5f)!important;text-transform:none!important;font-variant-caps:normal!important}';
+    // Canon: Ai accent colour on BIG BOLD HEADINGS + logo only (Ali, reaffirmed 2026-07-12 —
+    // in paragraph text it distracts). Body Ai keeps the lowercase i but inherits colour.
+    var css = '.ai{color:inherit;text-transform:none!important;font-variant-caps:normal!important}'
+      + 'h1 .ai,h2 .ai,h3 .ai,.logo .ai,.logo span{color:var(--ai-accent,#e982ab)}'
+      + '.ai,.ai-run{display:inline!important}';
     var style = document.createElement('style');
     style.id = ACCENT_STYLE_ID;
     style.appendChild(document.createTextNode(css));
@@ -26,7 +31,7 @@
       acceptNode: function (n) {
         if (!n.parentNode) return NodeFilter.FILTER_REJECT;
         if (SKIP_TAGS[n.parentNode.nodeName]) return NodeFilter.FILTER_REJECT;
-        if (n.parentElement && n.parentElement.closest && n.parentElement.closest('.ai, .brand-word-inline, [data-brand-ai]')) return NodeFilter.FILTER_REJECT;
+        if (n.parentElement && n.parentElement.closest && n.parentElement.closest('.ai, .ai-run, .brand-word-inline, [data-brand-ai]')) return NodeFilter.FILTER_REJECT;
         return BRAND_RE.test(n.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
       }
     });
@@ -56,7 +61,13 @@
         lastIdx = m.index + word.length;
       }
       if (lastIdx < text.length) frag.appendChild(document.createTextNode(text.slice(lastIdx)));
-      if (t.parentNode) t.parentNode.replaceChild(frag, t);
+      // Wrap the whole rebuilt run in ONE inline span so flex/grid parents with gap
+      // (chips, route stops, buttons) still see a single child - splitting a text node
+      // into siblings turns each piece into its own flex item and gaps blow the word apart.
+      var holder = document.createElement('span');
+      holder.className = 'ai-run';
+      holder.appendChild(frag);
+      if (t.parentNode) t.parentNode.replaceChild(holder, t);
     }
   }
 

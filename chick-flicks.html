@@ -405,7 +405,7 @@
         <div class="cf-storewall">
           <img src="assets/sunnyvaile-interiors/chick-flicks-new-releases-empty-middle.webp" alt="Inside The Chick Flicks — the New Releases wall" width="1672" height="941">
           <div class="cf-storewall-bay">
-            <a class="cf-bay-slot" href="/issues/issue-01.html" aria-label="Episode 01 — On Wednesdays We Use Ai. Take it home.">
+            <a class="cf-bay-slot" href="/issues/issue-01.html" aria-label="Episode 01 — On Wednesdays We Do AI. Take it home.">
               <img src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-01.webp" alt="" width="554" height="720">
             </a>
             <a class="cf-bay-slot" href="/issues/issue-02.html" aria-label="Episode 02 — Tell Me What You Want. Take it home.">
@@ -414,21 +414,55 @@
             <a class="cf-bay-slot" href="/issues/issue-03.html" aria-label="Episode 03 — The Burn Book Problem. Take it home.">
               <img src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-03.webp" alt="" width="554" height="720">
             </a>
-            <a class="cf-bay-slot" href="/issues/issue-04.html" aria-label="Episode 04 — Every SLAiYER Needs a Watcher. New this week. Take it home.">
+            <a class="cf-bay-slot" href="/issues/issue-04.html" aria-label="Episode 04 — The Founding Mothers. New this week. Take it home.">
               <span class="cf-bay-sticker">★ NEW</span>
               <img src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-04.webp" alt="" width="554" height="720">
             </a>
-            <div class="cf-bay-slot cf-bay-slot--soon" aria-label="Episode 05 — Welcome to SUNNYVAiLE. Coming soon.">
+            <div class="cf-bay-slot cf-bay-slot--soon" aria-label="Episode 05 — The Super Models. Coming soon.">
               <img src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-05.webp" alt="" width="554" height="720">
             </div>
           </div>
           <!-- Right bay — episodes 06–10 stand here as they release -->
           <div class="cf-storewall-bay cf-storewall-bay--right"></div>
         </div>
-        <p class="cf-storewall-caption">★ New this Wednesday &mdash; <a href="/issues/issue-04.html">EP 04 · Every SL<span class="ai">Ai</span>YER Needs a Watcher · ▶ Take it home</a></p>
+        <div class="cf-fav-tie" style="margin: 26px auto 6px; max-width: 720px; text-align: center; padding: 20px 24px; border: 1.5px solid rgba(155,63,95,0.3); border-radius: 12px; background: rgba(155,63,95,0.05);">
+      <p style="margin: 0 0 4px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose, #9b3f5f);">★ Your favourite tape · a Residence Card trip</p>
+      <p style="margin: 0 0 14px; font-size: 14px; color: var(--plum-soft, #6b3a66);">Pick the episode that goes on your card. It saves to your Closet.</p>
+      <div id="cfFavRow" style="display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;"></div>
+      <p id="cfFavNote" style="margin: 12px 0 0; font-size: 12.5px; font-style: italic; color: var(--plum-soft, #6b3a66);"></p>
+    </div>
+    <script>
+    (function () {
+      var KEY = 'laidies_favorite_episode';
+      var EPISODES = { '01': 'Ep 01', '02': 'Ep 02', '03': 'Ep 03', '04': 'Ep 04' };
+      var row = document.getElementById('cfFavRow');
+      var note = document.getElementById('cfFavNote');
+      if (!row) return;
+      function current() { try { return localStorage.getItem(KEY) || ''; } catch (e) { return ''; } }
+      function paint() {
+        var cur = current();
+        row.innerHTML = '';
+        Object.keys(EPISODES).forEach(function (k) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.textContent = (cur === k ? '★ ' : '') + EPISODES[k];
+          b.style.cssText = 'padding:9px 18px;border-radius:999px;font-family:Jost,sans-serif;font-weight:700;font-size:13px;cursor:pointer;border:1.5px solid ' + (cur === k ? 'var(--rose,#9b3f5f)' : 'rgba(75,33,72,0.25)') + ';background:' + (cur === k ? 'var(--rose,#9b3f5f)' : 'transparent') + ';color:' + (cur === k ? '#fffdfb' : 'var(--plum,#4b2148)') + ';';
+          b.addEventListener('click', function () {
+            try { localStorage.setItem(KEY, k); } catch (e) {}
+            paint();
+            note.textContent = 'On the card. It\u2019ll show in your Closet \u2014 confirm it in the edit panel to sync everywhere.';
+          });
+          row.appendChild(b);
+        });
+        if (cur && !note.textContent) note.textContent = 'Your favourite is ' + EPISODES[cur] + '.';
+      }
+      paint();
+    })();
+    </script>
+    <p class="cf-storewall-caption">★ New this Wednesday &mdash; <a href="/issues/issue-04.html">EP 04 · The Founding Mothers · ▶ Take it home</a></p>
         <div class="cf-aisle-strip cf-wall-mobile">
           <a class="cfs-slot" href="/issues/issue-01.html">
-            <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-01.webp" alt="Episode 01 VHS box — On Wednesdays We Use Ai" width="554" height="720" loading="lazy">
+            <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-01.webp" alt="Episode 01 VHS box — On Wednesdays We Do AI" width="554" height="720" loading="lazy">
             <span class="cfs-tag">EP 01 · Take home</span>
           </a>
           <a class="cfs-slot" href="/issues/issue-02.html">
@@ -441,11 +475,11 @@
           </a>
           <a class="cfs-slot" href="/issues/issue-04.html">
             <span class="cf-vhs-sticker cf-vhs-sticker--new">★ NEW</span>
-            <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-04.webp" alt="Episode 04 VHS box — Every SLAiYER Needs a Watcher" width="554" height="720" loading="lazy">
+            <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-04.webp" alt="Episode 04 VHS box — The Founding Mothers" width="554" height="720" loading="lazy">
             <span class="cfs-tag">EP 04 · Take home</span>
           </a>
-          <div class="cfs-slot" aria-label="Episode 05 — Welcome to SUNNYVAiLE, coming soon">
-            <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-05.webp" alt="Episode 05 VHS box — Welcome to SUNNYVAiLE" width="554" height="720" loading="lazy">
+          <div class="cfs-slot" aria-label="Episode 05 — The Super Models, coming soon">
+            <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-05.webp" alt="Episode 05 VHS box — The Super Models" width="554" height="720" loading="lazy">
             <span class="cfs-tag cfs-tag--soon">EP 05 · Coming soon</span>
           </div>
         </div>
@@ -515,7 +549,7 @@
           <img class="cf-aisle-sign" src="assets/sunnyvaile-interiors/chick-flicks-aisle-signs/aisle-2-prompting.webp" alt="Aisle 2 — Prompting" width="960" height="480" loading="lazy">
           <div class="cf-aisle-strip">
             <a class="cfs-slot" href="/issues/issue-01.html">
-              <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-01.webp" alt="Episode 01 VHS box — On Wednesdays We Use Ai" width="554" height="720" loading="lazy">
+              <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-01.webp" alt="Episode 01 VHS box — On Wednesdays We Do AI" width="554" height="720" loading="lazy">
               <span class="cfs-tag">EP 01 · Take home</span>
             </a>
             <a class="cfs-slot" href="/issues/issue-02.html">
@@ -523,7 +557,7 @@
               <span class="cfs-tag">EP 02 · Take home</span>
             </a>
             <a class="cfs-slot" href="/issues/issue-04.html">
-              <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-04.webp" alt="Episode 04 VHS box — Every SLAiYER Needs a Watcher" width="554" height="720" loading="lazy">
+              <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-04.webp" alt="Episode 04 VHS box — The Founding Mothers" width="554" height="720" loading="lazy">
               <span class="cfs-tag">EP 04 · Take home</span>
             </a>
             <div class="cfs-standee" aria-label="Episode 08 · coming later this season">
@@ -591,15 +625,15 @@
           <img class="cf-aisle-sign" src="assets/sunnyvaile-interiors/chick-flicks-aisle-signs/aisle-4-everyday-use.webp" alt="Aisle 4 — Everyday Use" width="960" height="480" loading="lazy">
           <div class="cf-aisle-strip">
             <a class="cfs-slot" href="/issues/issue-01.html">
-              <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-01.webp" alt="Episode 01 VHS box — On Wednesdays We Use Ai" width="554" height="720" loading="lazy">
+              <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-01.webp" alt="Episode 01 VHS box — On Wednesdays We Do AI" width="554" height="720" loading="lazy">
               <span class="cfs-tag">EP 01 · Take home</span>
             </a>
             <a class="cfs-slot" href="/issues/issue-04.html">
-              <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-04.webp" alt="Episode 04 VHS box — Every SLAiYER Needs a Watcher" width="554" height="720" loading="lazy">
+              <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-04.webp" alt="Episode 04 VHS box — The Founding Mothers" width="554" height="720" loading="lazy">
               <span class="cfs-tag">EP 04 · Take home</span>
             </a>
-            <div class="cfs-slot" aria-label="Episode 05 — Welcome to SUNNYVAiLE, coming soon">
-              <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-05.webp" alt="Episode 05 VHS box — Welcome to SUNNYVAiLE" width="554" height="720" loading="lazy">
+            <div class="cfs-slot" aria-label="Episode 05 — The Super Models, coming soon">
+              <img class="cfs-box" src="assets/sunnyvaile-interiors/episode-vhs-boxes/ep-05.webp" alt="Episode 05 VHS box — The Super Models" width="554" height="720" loading="lazy">
               <span class="cfs-tag cfs-tag--soon">EP 05 · Coming soon</span>
             </div>
             <div class="cfs-standee" aria-label="Episode 07 · coming later this season">
@@ -751,11 +785,11 @@
 
   <footer>© LAiDIES · Filed from SUNNYVAiLE · The Chick Flicks · MAiN Street No. 3</footer>
 
-  <script defer src="/content/site/sv-tour-checkin.js?v=20260702-2"></script>
-    <script defer src="/content/site/ksvl-player.js?v=20260705-21"></script>
+  <script defer src="/content/site/sv-tour-checkin.js?v=20260712-ksvl"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260712-21"></script>
     <script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
     <script defer src="/content/site/charm-hunt.js?v=20260705-dusk"></script>
-<script defer src="/content/site/ai-accent-autowrap.js?v=20260705-1"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260707-1"></script>
 <script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
 <script defer src="/content/site/sv-trailer-player.js?v=20260707-1"></script>

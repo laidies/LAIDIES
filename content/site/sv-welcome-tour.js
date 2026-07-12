@@ -33,7 +33,7 @@
     { href: '/games/madame-claio.html', name: "Mme CLAi-O's", icon: 'crystal',
       line: "Call the psychic hotline and step in for your reading — practical advice, late-night-commercial drama." },
     { href: '/games/fairy-godmother.html', name: 'FAiRY Godmother', icon: 'wand',
-      line: "Bring the prompt you can't finish, wave the wand, and Ask LAiDY for real advice in your favorite PATRON SAiNT's energy." },
+      line: "Bring the prompt you can't finish, wave the wand, and ask the FAiRY Godmother for real advice in your favorite PATRON SAiNT's energy." },
     { href: '/bronze-aige.html', name: 'The BRONZE AiGE', icon: 'martini',
       line: "The town bar — round up your crew, let the Businesswomen's Special pick the drinks, and steal the conversation menu for happy hour at 4." },
     { href: '/mall.html', name: 'The Mall', icon: 'bag',

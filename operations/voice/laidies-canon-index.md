@@ -64,7 +64,7 @@ The Grimoire is the durable library. These are the weekly and interactive surfac
 - **The Season** — 24-Episode archive; read in order; current episode highlighted.
 - **Episode pages** — polished editorial features. Episode 1 = gold-standard voice and visual benchmark.
 - **Clubhouse / The Extra Credit** — bonus shelf / community-adjacent space. No fake member persistence (that's Part C).
-- **Activities:** Mme CLAi-O (strong — quality reference) · FAiRY Godmother (restore the magic/practical balance; it went dry) · LAiDY (restore + redesign: energy → tailored answer → prompt glow-up) · Dream Phone (**parked — do not patch**; "Glow-up in the works").
+- **Activities:** Mme CLAi-O (strong — quality reference) · FAiRY Godmother (restore the magic/practical balance; it went dry) · **Girl Talk = residents only** (Residence Card required — Ali, 2026-07-11; note: the live game currently plays without a card via local saves, so the gate needs enforcing in-game — build item, not a copy change). · **Miss Jeeves** = the LIBRAiRY reference-desk character (canonical name confirmed by Ali 2026-07-11 — always "Miss Jeeves," never plain "Jeeves" or "Ask Jeeves"; her site-search feature is in the works, label honestly). · LAiDY (**RETIRED 2026-07-11** — no separate character name; she is just the FAiRY Godmother. The advice/glow-up flow lives under the FAiRY Godmother name) · Dream Phone (**parked — do not patch**; "Glow-up in the works").
 
 ---
 
@@ -126,3 +126,22 @@ Pieces in other styles — even ones already on disk — are out of scope for th
 1. **Weekly news lane name.** Retiring "Hot Goss" leaves the weekly news cards (including the fake pop-culture headline cards) without a label. Option A: keep them unbranded inside This Week ("the news"). Option B: a new in-world name. Pick one — don't let it sit unnamed and drift.
 2. **Potions Shelf reader label.** Resolved — renamed to **The Decoder** (plain-English name; "Potions Shelf" retired). The Legally Blonde subtitle — *"Feel comfortable using AI jargon in everyday life. I ~~object~~ prompt!"* — now rides on The Decoder. Site pages/URL still say "potions-shelf" until a separate rename pass.
 3. **Where this index lives.** Resolved — the writing lock and this index now live in the repo at `Website/operations/voice/`, versioned alongside the site. Start every agent brief with "read the canon index first."
+
+
+## Standing process rule (added 2026-07-12, after the Ep04 quiz drafting session)
+**Before creating ANY new instance of an existing content type** (quiz, study pack, episode card,
+trading card, caller bundle, saint blurb, postcard copy — anything with prior examples), you MUST:
+1. Read ALL existing instances of that type first — for register, cadence, length, and format,
+   not just data schema. Match them.
+2. Run the accuracy pass BEFORE presenting: every factual claim traced to the episode text or an
+   external source (fact-verification is locked canon).
+3. Present for review in a rendered, readable form — never a raw JSON/code file.
+Drafting from personal defaults and calibrating afterwards wastes Ali's time; the exemplars are the spec.
+
+**Ada wording ruling (Ali, 2026-07-12):** the episode keeps "Ada wrote the first one (1843)" — accepted popular usage. Scholarly nuance (Babbage's ~26 unpublished fragments 1836–1840; Note G = first PUBLISHED and most complete program) goes in the Ep4 canon facts ledger with sources. Quiz surfaces may use "published" where precision reads naturally.
+
+**Ep1 title ruling (Ali, 2026-07-12):** "On Wednesdays We DO AI" — never "Use." Swept across surfaces; check-town enforces via episode-index parity.
+
+**Glossary home ruling (Ali, 2026-07-12):** the glossary lives at **the LIBRAiRY** (Glossary shelf). "Potions Shelf" is fully retired as a visible name anywhere. Page file is still grimoire/potions-shelf.html until a URL rename pass; the High's Vocab 101 card points at the same page. Ep4 words (Algorithm, Compiler, AI winter, Training data) added 2026-07-12.
+
+**Dream Phone clarification (Ali, 2026-07-12):** the Dream Phone page IS LIVE — calls, advice and Easter eggs work. Only the GAME component is parked for its glow-up. Do not grey out or 'back soon' the Dream Phone itself; label only the game part honestly where it appears.

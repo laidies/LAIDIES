@@ -1814,7 +1814,7 @@ function buildLaidyAdvice(rawQuestion, modeKey) {
   const question = normalizeLaidyText(rawQuestion);
 
   if (!question) {
-    return `Cup of ambition check: Tell me the actual situation first. LAiDY can do many things, but she cannot read a blank text box through a Claire's mood ring.\n\nTry: "I need to ask my VP for more time without sounding chaotic" or "I need to push back on a meeting request without sounding unhelpful."`;
+    return `Cup of ambition check: Tell me the actual situation first. The FAiRY Godmother can do many things, but she cannot read a blank text box through a Claire's mood ring.\n\nTry: "I need to ask my VP for more time without sounding chaotic" or "I need to push back on a meeting request without sounding unhelpful."`;
   }
 
   const signals = getLaidySignals(question);
@@ -1844,7 +1844,7 @@ function buildLaidyPromptFeedback(rawQuestion) {
   const score = checks.filter(Boolean).length;
 
   if (score >= 4) {
-    return "Prompt check: strong ask. You gave LAiDY enough job, audience, context, and boundaries to work with. The next level is adding an example of what good looks like.";
+    return "Prompt check: strong ask. You gave the FAiRY Godmother enough job, audience, context, and boundaries to work with. The next level is adding an example of what good looks like.";
   }
 
   if (score >= 2) {
@@ -3188,10 +3188,10 @@ const clubhouseZoneMessages = {
   "mix-cds": "<strong>Mix CDs:</strong> Open the DJ Booth for playlists, mix CDs, and weekly track slots.",
   psychic: "<strong>Call Psychic Hotline:</strong> Jump to Madame CLAi-O for the crystal-phone reading.",
   "dream-phone": "<strong>Dream Phone:</strong> Glow-up in the works. The hotline is parked until the concept and asset pass Council.",
-  "girl-talk": "<strong>Open Girl Talk:</strong> Draw a Truth or a Dare. Stickers, penalties, and the LAiDY wish unlock at every five dares.",
+  "girl-talk": "<strong>Open Girl Talk:</strong> Draw a Truth or a Dare. Stickers, penalties, and the FAiRY wish unlock at every five dares.",
   "try-on": "<strong>5min Try-On:</strong> Open the Power Suit Playbook for quick practice prompts.",
   business: "<strong>Businesswomen's Special:</strong> Jump to the paper fortune teller drink picker.",
-  fairy: "<strong>Ask FAiRY GODMOTHER:</strong> Open LAiDY's advice console.",
+  fairy: "<strong>Ask FAiRY GODMOTHER:</strong> Open her advice console.",
 };
 
 const clubhouseRevealSelectorsByZone = {
@@ -5606,7 +5606,7 @@ laidyButton?.addEventListener("click", () => {
   const promptFeedback = buildLaidyPromptFeedback(cleanedQuestion);
 
   if (next === lastLaidyAdvice) {
-    laidyAdviceEl.textContent = `${next}\n\nSame advice because LAiDY meant it. Annoying, but efficient.`;
+    laidyAdviceEl.textContent = `${next}\n\nSame advice because she meant it. Annoying, but efficient.`;
   } else {
     laidyAdviceEl.textContent = next;
   }
@@ -6039,7 +6039,7 @@ function resolveSpotlightCardStyle(value) {
     }
     return {
       ...spotlightCardStyles[spotlightSurpriseChoices[selected]],
-      surpriseLabel: selected === "laidy-surprise" ? "LAiDY picked" : "Mme CLAi-O picked",
+      surpriseLabel: selected === "laidy-surprise" ? "FAiRY Godmother picked" : "Mme CLAi-O picked",
     };
   }
 

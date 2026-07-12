@@ -50,9 +50,10 @@
     { id: 'ep-01',                 title: 'Ep 01 · On Wednesdays We Do AI',                       artist: 'The Regressions', src: MUSIC + 'dj-jaidy-week-01-on-wednesday-we-do-ai.mp3',           intro: SAINT_INTROS + 'dj-sunnyv-intro-episode-01.mp3', mixes: ['episodes'] },
     { id: 'ep-02',                 title: 'Ep 02 · Tell Me What You Want',                        artist: 'The Predicts',    src: MUSIC + 'dj-jaidy-week-02-tell-me-what-you-want.mp3',           intro: SAINT_INTROS + 'dj-sunnyv-intro-episode-02.mp3', mixes: ['episodes'] },
     { id: 'ep-03',                 title: "Ep 03 · Don't Be Chutney on the Stand",                artist: 'The Overfits',    src: MUSIC + 'dj-jaidy-week-03-dont-be-chutney-on-the-stand.mp3',    intro: SAINT_INTROS + 'dj-sunnyv-intro-episode-03.mp3', mixes: ['episodes'] },
-    { id: 'every-slaiyer-watcher', title: 'Every SLAiYER Needs a Watcher',                        artist: 'The Embeddings',  src: MUSIC + 'dj-jaidy-every-slaiyer-needs-a-watcher.mp3',           intro: SAINT_INTROS + 'dj-sunnyv-intro-episode-04.mp3', mixes: ['episodes'] },
+    { id: 'ep-04',                 title: 'Ep 04 · It Was Women All Along',                       artist: 'The Priors',      src: MUSIC + 'dj-jaidy-week-04-it-was-women-all-along.mp3',          intro: SAINT_INTROS + 'dj-sunnyv-intro-episode-04.mp3', mixes: ['episodes'] },
 
     // B-side
+    { id: 'every-slaiyer-watcher', title: 'Every SLAiYER Needs a Watcher',                       artist: 'The Embeddings',  src: MUSIC + 'dj-jaidy-every-slaiyer-needs-a-watcher.mp3',           mixes: ['bside'] },
     { id: 'impossible',            title: 'Impossible to Underestimate You',                    artist: 'The Overfits',   src: MUSIC + 'dj-jaidy-impossible-to-underestimate-you.mp3',        mixes: ['bside'] },
     { id: 'debs-tomorrow',         title: "Deb's Tomorrow Problem",                              artist: 'The Overfits',   src: MUSIC + 'debs-tomorrow-problem.mp3',                            mixes: ['bside'] }
   ];

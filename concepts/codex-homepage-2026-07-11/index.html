@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>LAiDIES — SUNNYVAiLE concept</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="#top" aria-label="LAiDIES home">L<span>Ai</span>DIES</a>
+    <nav aria-label="Primary">
+      <a href="#learn">Learn</a><a href="#reference">Look it up</a><a href="#play">Activities</a><a href="#town">Explore town</a>
+    </nav>
+    <button class="menu" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+  </header>
+  <div id="mobile-nav" class="mobile-nav" hidden><a href="#learn">Learn</a><a href="#reference">Look it up</a><a href="#play">Activities</a><a href="#town">Explore town</a></div>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <img src="../../assets/sunnyvaile-streets/town-park-afternoon.png" alt="SUNNYVAiLE town park with Main Street storefronts in the distance">
+      <div class="hero-shade"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">Girl power meets machine power</p>
+        <h1 id="hero-title">Get genuinely good at <span>AI</span>—one entertaining Wednesday at a time.</h1>
+        <p class="lede">LAiDIES teaches practical AI through episodes, useful tools, games, and a fictional Y2K town designed to make everything easier to remember.</p>
+        <div class="actions"><a class="button primary" href="#learn">Start learning</a><a class="button secondary" href="#town">Explore SUNNYVAiLE</a></div>
+        <button class="why" aria-expanded="false" aria-controls="why-town">Why is there a town?</button>
+        <div id="why-town" class="why-answer" hidden>Information sticks when it has somewhere to live. Episodes are at the video store, news is at the NewsStand, Study Packs are at the café, and reference material is in the LIBRAiRY. The town is the memory system—not homework you need to learn first.</div>
+      </div>
+    </section>
+
+    <section class="intent" aria-labelledby="intent-title">
+      <div><p class="eyebrow">Skip the tour if you know what you need</p><h2 id="intent-title">What brought you here?</h2></div>
+      <div class="intent-grid">
+        <a href="#learn"><strong>Learn something</strong><span>Start this week or begin at Episode 1</span></a>
+        <a href="#reference"><strong>Look something up</strong><span>Definitions, explainers, receipts, and guides</span></a>
+        <a href="#help"><strong>Get help</strong><span>Bring a prompt or a real work situation</span></a>
+        <a href="#play"><strong>Play something</strong><span>Advice, tarot, music, drinks, and Girl Talk</span></a>
+      </div>
+    </section>
+
+    <section id="learn" class="weekly">
+      <div class="section-heading"><p class="eyebrow">The recommended route</p><h2>This Wednesday in SUNNYVAiLE</h2><p class="onair-pulse">● NEW THIS WEEK · S1·E04 — THE FOUNDING MOTHERS</p><p>A complete learning session when you want one. Each stop explains what it does, how long it takes, and what comes next.</p></div>
+      <div class="weekly-layout">
+        <article class="feature-card"><img src="../../assets/postcards/from-sunnyvaile/pc-chick-flicks.png" alt="The Chick Flicks video rental postcard"><div><span class="tag">Start here · New this week</span><h3>E04 · The Founding Mothers</h3><p>She goes looking for the origin story of AI — it was women all along. No town knowledge required.</p><a class="text-link" href="../../issues/issue-04.html">Read the episode →</a></div></article>
+        <ol class="ritual">
+          <li><button onclick="location.href='../../chick-flicks.html'"><span>1</span><div><strong>Read the episode</strong><small>The Chick Flicks · 12 min</small></div><b>Start</b></button></li>
+          <li><button onclick="location.href='../../blend-snap.html'"><span>2</span><div><strong>Review the Study Pack</strong><small>Blend & Snap · 5 min</small></div><b>Next</b></button></li>
+          <li><button onclick="location.href='../../sunnyvaile-high.html'"><span>3</span><div><strong>Take the Pop Quiz</strong><small>SUNNYVAiLE High · 3 min</small></div><b>Then</b></button></li>
+          <li><button onclick="location.href='../../radio.html'"><span>4</span><div><strong>Play the episode song</strong><small>KSVL · 3 min</small></div><b>Finish</b></button></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="play" class="activities">
+      <div class="section-heading"><p class="eyebrow">Come for one thing. Stay if you feel like it.</p><h2>Activities, games, and useful little detours</h2><p>Browse by what you want—not by whether you already know the town address.</p></div>
+      <div class="filter" role="group" aria-label="Filter activities"><button class="active" data-filter="all">Everything</button><button data-filter="help">Work help</button><button data-filter="decide">Help me decide</button><button data-filter="fun">Make me laugh</button><button data-filter="quick">Under 5 min</button></div>
+      <div class="activity-grid">
+        <article data-tags="help quick" id="help"><img src="../../assets/town-characters/scenes/fairy-godmother-scene.png" alt="FAiRY Godmother on her porch"><div><span class="tag">Practical help · 3–5 min</span><h3>FAiRY Godmother</h3><p>Improve a prompt or unstick a real work situation. It explains what to change and gives you something usable.</p><button onclick="location.href='../../games/fairy-godmother.html'">Ask the FAiRY Godmother</button></div></article>
+        <article data-tags="decide quick"><img src="../../assets/town-characters/scenes/mme-claio-scene.png" alt="Mme CLAi-O with tarot cards"><div><span class="tag">Decision activity · 2 min</span><h3>Mme CLAi-O</h3><p>Pull a card, get a read, and leave with a concrete next move.</p><button onclick="location.href='../../games/madame-claio.html'">Consult Mme CLAi-O</button></div></article>
+        <article data-tags="fun quick"><img src="../../assets/postcards/from-sunnyvaile/pc-bronze-aige.png" alt="The BRONZE AiGE postcard"><div><span class="tag">Just for fun · 1 min</span><h3>Businesswomen’s Special</h3><p>Spin for a perfectly unnecessary happy-hour recommendation.</p><button onclick="location.href='../../games/businesswomens-special.html'">Pick a drink</button></div></article>
+        <article data-tags="help fun"><img src="../../assets/sunnyvaile-streets/layout-consistency-pass-20260704/main-street-dusk-connected-v1.png" alt="Main Street at dusk with Dream Phone booth"><div><span class="tag">Advice game · 3–5 min</span><h3>Dream Phone</h3><p>Call the right personality for the kind of answer you need.</p><button onclick="location.href='../../games/dream-phone.html'">Make the call</button></div></article>
+        <article data-tags="fun"><img src="../../assets/sunnyvaile-streets/layout-consistency-pass-20260704/wisteria-lane-morning-connected-v1.png" alt="Delta LAi Nu on Wisteria Lane"><div><span class="tag">Community · 5–10 min</span><h3>Girl Talk</h3><p>Truth or dare for LAiDIES. Residence Card required.</p><button onclick="location.href='../../sorority-house.html'">Visit Delta LAi Nu</button></div></article>
+        <article data-tags="fun quick"><img src="../../assets/town-characters/scenes/dj-sunnyv-scene.jpg" alt="DJ SunnyV at KSVL"><div><span class="tag">Music · 3 min</span><h3>KSVL RAiDIO</h3><p>Play this week’s learning song—or wander through the back catalogue.</p><button onclick="location.href='../../radio.html'">Tune in</button></div></article>
+      </div>
+    </section>
+
+    <section id="reference" class="reference">
+      <img src="../../assets/library/jeeves-scene.png" alt="Miss Jeeves at the SUNNYVAiLE LIBRAiRY reference desk">
+      <div><p class="eyebrow">Need one answer—not a tour?</p><h2>Miss Jeeves will help you look it up.</h2><p>Search AI terms, models, companies, practical guides, sources, and previous episode lessons from one place. <em class="soon">The desk is being staffed — browsing the LIBRAiRY works today.</em></p><form><label for="lookup">What are you trying to understand?</label><div><input id="lookup" placeholder="Try: What is an AI agent?"><button type="submit">Search the LIBRAiRY</button></div></form><div class="popular"><span>Popular:</span><button>Hallucinations</button><button>ChatGPT vs Claude</button><button>Prompting</button></div></div>
+    </section>
+
+    <section id="town" class="town">
+      <div class="section-heading"><p class="eyebrow">Guided first. Explorable always.</p><h2>See everything in SUNNYVAiLE</h2><p>You never have to explore the town to use LAiDIES. But if you want to wander, every feature has a memorable place to live.</p></div>
+      <div class="district-tabs" role="tablist"><button role="tab" aria-selected="true" data-image="../../assets/sunnyvaile-streets/layout-consistency-pass-20260704/main-street-dusk-connected-v1.png" data-title="Main Street" data-copy="Episodes, Study Packs, tarot, makeovers, happy hour, Dream Phone, the Mall, and KSVL.">Main Street</button><button role="tab" data-image="../../assets/sunnyvaile-streets/layout-consistency-pass-20260704/civic-square-midday-connected-v1.png" data-title="Civic Square" data-copy="Town Hall, the Post Office, and town notices.">Civic Square</button><button role="tab" data-image="../../assets/sunnyvaile-streets/layout-consistency-pass-20260704/schoolhouse-road-morning-connected-v1.png" data-title="Schoolhouse Road" data-copy="Quizzes, Study Hall, and the Book Fair at SUNNYVAiLE High.">Schoolhouse Road</button><button role="tab" data-image="../../assets/sunnyvaile-streets/layout-consistency-pass-20260704/wisteria-lane-morning-connected-v1.png" data-title="Wisteria Lane" data-copy="Community rooms and Girl Talk at Delta LAi Nu.">Wisteria Lane</button><button role="tab" data-image="../../assets/sunnyvaile-streets/layout-consistency-pass-20260704/lantern-hill-evening-connected-v1.png" data-title="Lantern Hill" data-copy="The LUMINAiRY, PATRON SAiNTS, MAiVENS, and the women who built the field.">Lantern Hill</button></div>
+      <figure class="district-view"><img src="../../assets/sunnyvaile-streets/layout-consistency-pass-20260704/main-street-dusk-connected-v1.png" alt="Main Street at dusk"><figcaption><h3>Main Street</h3><p>Episodes, Study Packs, tarot, makeovers, happy hour, Dream Phone, the Mall, and KSVL.</p></figcaption></figure>
+    </section>
+
+    <section class="closet"><div><p class="eyebrow">For returning residents</p><h2>Your place remembers where you left off.</h2><p>Progress, saved references, charms, cards, badges, and favourites belong together—without getting in the way of someone who only came to play Dream Phone.</p><button onclick="location.href='../../laidies-card.html'">Open My Stuff</button></div><img src="../../assets/postcards/from-sunnyvaile/pc-puffy-binder.png" alt="A Y2K puffy binder covered with LAiDIES stickers"></section>
+    <section class="movein" id="movein">
+      <div class="section-heading"><p class="eyebrow">When you're ready to make it weekly</p><h2>Move to SUNNYVAiLE</h2><p>Two honest ways in. Both free.</p></div>
+      <div class="movein-grid">
+        <div class="mi-card">
+          <img src="../../assets/postcards/from-sunnyvaile/pc-youve-got-mail.png" alt="A postcard from SUNNYVAiLE: You have got mail">
+          <div>
+            <span class="tag">Just the mail · The Post Office</span>
+            <h3>The Wednesday Postcard</h3>
+            <p>The episode, the Study Pack, the Pop Quiz, the week's AI news, and the song — one letter, once a week. No spam.</p>
+            <form class="mi-form" action="https://buttondown.com/api/emails/embed-subscribe/laidies" method="post" target="popupwindow"><input type="email" name="email" placeholder="you@yourcompany.com" required aria-label="Email address"><button type="submit">Sign up</button></form>
+          </div>
+        </div>
+        <div class="mi-card mi-card--res">
+          <div>
+            <span class="tag">Full residency · MAiKEOVER, No. 6 MAiN</span>
+            <h3>Design your Residence Card</h3>
+            <p>Everything the Postcard gets you — plus the Sorority House rooms, the Charm Hunt, and your Closet. Every stop in town saves onto it.</p>
+            <p class="mi-note">The chair is being prepped — back soon.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><a class="logo" href="#top">L<span>Ai</span>DIES</a><p>AI fluency for women who are already too busy to add one more thing to the list.</p><p>Concept mock for comparison—not the live website.</p></footer>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAiDIES Episode 01: On Wednesdays We Do AI</title>
+<meta name="description" content="The pilot. Our heroine admits she put off learning AI for an embarrassingly long time — and finds out the gender gap isn't a confidence problem, it's a physics problem. Get in loser, we're learning AI. One Wednesday at a time.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+<link rel="stylesheet" href="/content/site/mini-player.css">
+<script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+<script defer src="/content/site/sv-global-header.js?v=20260710-hdr"></script>
+<script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+<script src="/content/site/supabase-config.js" defer></script>
+<style>
+:root{
+  --paper:#faf5f3; --paper2:#f4ebe9; --ink:#2a1622; --plum:#4b2148; --plum-deep:#37142f;
+  --rose:#9b3f5f; --rose-soft:#c98aa0; --gold:#b49764; --gold-deep:#8a6f3e; --gold-lt:#dcc086;
+  --teal:#5b8c92; --teal-deep:#3f6d72; --muted:#8a7580;
+  --mono-bg:#2c1826; --mono-ink:#efe2e9; --line:rgba(75,33,72,.14);
+  --measure:642px; --wide:920px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:"Jost",ui-sans-serif,system-ui,sans-serif;color:var(--ink);background:var(--paper);
+  line-height:1.72;font-size:18px;-webkit-font-smoothing:antialiased;}
+::selection{background:var(--rose);color:var(--paper);}
+.ai{color:var(--rose);}
+
+/* layout: centered 920 stage; text runs at 642 measure, media breaks wide */
+main{max-width:var(--wide);margin:0 auto;padding:0 24px 10px;}
+.m{max-width:var(--measure);margin-inline:auto;}
+p{margin:0 auto 22px;max-width:var(--measure);}
+p.lead{font-size:1.24rem;line-height:1.6;color:var(--plum);}
+em{font-style:italic;}
+strong,b{font-weight:700;}
+a{color:var(--rose);text-decoration-thickness:1px;text-underline-offset:3px;}
+
+/* ---------- COVER ---------- */
+.cover{text-align:center;padding:78px 24px 62px;position:relative;overflow:hidden;color:var(--paper);
+  background:radial-gradient(135% 105% at 50% 4%, #5f2c5a 0%, var(--plum) 45%, var(--plum-deep) 100%);
+  border-bottom:3px solid var(--gold);}
+.cover::before,.cover::after{content:"✦";position:absolute;color:var(--gold-lt);pointer-events:none;}
+.cover::before{top:72px;left:12%;font-size:22px;opacity:.55;transform:rotate(-10deg);}
+.cover::after{bottom:74px;right:12%;font-size:15px;opacity:.4;}
+.cover .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold-lt);margin-bottom:26px;position:relative;}
+.cover .eyebrow .dot{color:var(--rose-soft);}
+.cover h1{font-family:"Playfair Display",serif;font-weight:900;font-size:clamp(2.7rem,8vw,5.2rem);
+  line-height:.98;letter-spacing:-.015em;color:var(--paper);text-wrap:balance;max-width:13ch;margin:0 auto;position:relative;
+  text-shadow:0 2px 40px rgba(0,0,0,.3), 0 0 55px rgba(220,192,128,.14);}
+.cover h1 em{font-style:italic;color:var(--gold-lt);}
+.cover .logline{font-family:"Playfair Display",serif;font-style:italic;font-size:1.22rem;line-height:1.55;
+  color:rgba(250,245,243,.9);max-width:37ch;margin:26px auto 0;position:relative;}
+.cover .meta{display:flex;flex-wrap:wrap;gap:0;justify-content:center;margin-top:34px;position:relative;
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(250,245,243,.6);}
+.cover .meta span{padding:0 16px;position:relative;}
+.cover .meta span+span::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:1px;height:12px;background:rgba(255,253,251,.22);}
+.cover .meta b{color:var(--gold-lt);font-weight:500;}
+.prevbar{max-width:var(--measure);margin:6px auto 0;padding:16px 20px;background:var(--paper2);border-left:3px solid var(--rose);border-radius:0 6px 6px 0;}
+.prevbar .k{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--rose);display:block;margin-bottom:6px;}
+.prevbar .k b{color:var(--plum);}
+.prevbar p{margin:0;max-width:none;font-family:"Playfair Display",serif;font-style:italic;font-size:1.04rem;color:var(--muted);line-height:1.5;}
+
+/* ---------- FIGURES ---------- */
+figure{margin:44px auto;max-width:var(--wide);}
+figure img{width:100%;display:block;border-radius:3px;box-shadow:0 30px 60px -30px rgba(55,20,47,.5);}
+figcaption{display:flex;gap:12px;align-items:baseline;margin-top:12px;padding-top:10px;
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.4px;color:var(--muted);}
+figcaption .tag{color:var(--gold-deep);text-transform:uppercase;letter-spacing:2px;white-space:nowrap;font-weight:500;}
+figcaption .tag::after{content:"";display:inline-block;width:22px;height:1px;background:var(--gold);vertical-align:middle;margin-left:10px;}
+
+/* ---------- PORTRAIT (illuminated maven) ---------- */
+.portrait{max-width:400px;margin:40px auto 46px;}
+.portrait img{border-radius:8px;border:1px solid rgba(180,151,100,.4);box-shadow:0 26px 54px -26px rgba(55,20,47,.62), 0 0 0 6px rgba(255,255,255,.35);}
+.portrait figcaption{justify-content:center;}
+/* three critics side by side */
+.trio{max-width:var(--wide);margin:32px auto 44px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.trio figure{margin:0;}
+.trio img{width:100%;border-radius:8px;border:1px solid rgba(180,151,100,.4);box-shadow:0 20px 44px -24px rgba(55,20,47,.6);}
+.trio figcaption{margin-top:10px;flex-direction:column;gap:4px;}
+.trio figcaption .tag{white-space:normal;}
+
+/* ---------- CAST (relevant saints / mavens · small cards) ---------- */
+.cast{max-width:var(--wide);margin:34px auto 10px;}
+.cast .h{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:18px;}
+.cast .h b{color:var(--rose);font-weight:500;}
+.cast-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:13px;}
+.cast-card{text-decoration:none;color:var(--ink);text-align:center;display:flex;flex-direction:column;gap:7px;transition:transform .15s;}
+.cast-card:hover{transform:translateY(-4px);}
+.cast-card:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px;}
+.cast-card img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:6px;border:1px solid rgba(180,151,100,.4);box-shadow:0 14px 30px -16px rgba(55,20,47,.58);}
+.cast-card b{font-family:"Playfair Display",serif;font-weight:700;font-size:.9rem;color:var(--plum);line-height:1.08;}
+.cast-card span{font-family:"JetBrains Mono",monospace;font-size:8.5px;letter-spacing:.3px;color:var(--muted);line-height:1.3;text-transform:uppercase;}
+@media(max-width:900px){.cast-grid{grid-template-columns:repeat(4,1fr);}}
+@media(max-width:520px){.cast-grid{grid-template-columns:repeat(2,1fr);}.cast-card b{font-size:1.02rem;}.cast-card span{font-size:10px;}}
+
+/* ---------- SECTION MARKERS ---------- */
+.mark{max-width:var(--measure);margin:64px auto 8px;}
+.mark .k{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--rose);display:flex;align-items:center;gap:12px;}
+.mark .k::before{content:"";width:26px;height:2px;background:var(--rose);}
+.mark h2{font-family:"Playfair Display",serif;font-weight:800;font-size:clamp(1.9rem,4.5vw,2.7rem);
+  line-height:1.08;color:var(--plum);margin-top:14px;text-wrap:balance;}
+.mark .sub{font-family:"Playfair Display",serif;font-style:italic;color:var(--muted);font-size:1.1rem;margin-top:8px;}
+
+/* drop cap on the cold open */
+.dropcap::first-letter{font-family:"Playfair Display",serif;font-weight:800;font-size:4.4rem;line-height:.72;
+  float:left;margin:8px 12px 0 0;color:var(--rose);}
+
+/* ---------- PULL QUOTE ---------- */
+.pull{max-width:760px;margin:56px auto;text-align:center;position:relative;padding:0 8px;}
+.pull p{font-family:"Playfair Display",serif;font-weight:700;font-size:clamp(1.7rem,4.4vw,2.5rem);
+  line-height:1.24;color:var(--plum);max-width:none;text-wrap:balance;}
+.pull p em{color:var(--rose);font-style:italic;}
+.pull .rule{width:44px;height:2px;background:var(--gold);margin:22px auto 0;}
+.pull .who{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:16px;}
+
+/* ---------- RECEIPTS ---------- */
+.receipts{max-width:var(--measure);margin:34px auto;}
+.receipts .h{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:14px;}
+.stat{display:flex;gap:20px;align-items:baseline;padding:16px 0;border-top:2px solid var(--plum);}
+.stat .n{font-family:"Playfair Display",serif;font-weight:900;font-size:2.6rem;color:var(--teal-deep);min-width:150px;line-height:1;font-variant-numeric:tabular-nums;}
+.stat .d{font-size:1rem;line-height:1.5;}
+.stat .d small{display:block;color:var(--muted);font-size:.84rem;margin-top:3px;}
+.receipts .src{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--muted);margin-top:16px;line-height:1.6;padding-top:12px;border-top:1px solid var(--line);}
+
+/* ---------- GLOSSARY ---------- */
+.gloss{max-width:var(--measure);margin:26px auto;}
+.gloss details{border-bottom:1px solid var(--line);}
+.gloss details[open]{background:linear-gradient(var(--paper2),transparent);}
+.gloss summary{list-style:none;cursor:pointer;padding:18px 4px;display:flex;gap:16px;align-items:baseline;}
+.gloss summary::-webkit-details-marker{display:none;}
+.gloss .term{font-family:"Playfair Display",serif;font-weight:700;font-size:1.4rem;color:var(--plum);min-width:150px;}
+.gloss .peek{color:var(--muted);font-size:.95rem;flex:1;}
+.gloss .plus{font-family:"JetBrains Mono",monospace;color:var(--rose);font-size:1.2rem;}
+.gloss details[open] .plus{transform:rotate(45deg);}
+.gloss .def{padding:0 4px 20px 4px;max-width:none;color:var(--ink);}
+
+/* ---------- CALLOUT CARD ---------- */
+.slab{max-width:var(--wide);margin:40px auto;padding:36px clamp(24px,4vw,44px);border-radius:6px;}
+.slab .k{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;display:block;margin-bottom:14px;}
+.slab h3{font-family:"Playfair Display",serif;font-size:1.8rem;color:var(--plum);margin-bottom:14px;line-height:1.1;}
+.slab p{max-width:none;}
+.cocktail{background:var(--plum);color:var(--paper);}
+.cocktail .k{color:var(--gold-lt);} .cocktail h3{color:var(--paper);}
+.cocktail .say{font-family:"Playfair Display",serif;font-style:italic;font-size:1.34rem;line-height:1.42;color:var(--paper);max-width:44ch;}
+.tryon{background:#eef4f2;border:1px solid #cfe3dd;text-align:center;}
+.tryon .k{color:var(--teal-deep);}
+.tryon p{max-width:52ch;margin-inline:auto;}
+.btn{display:inline-block;background:var(--rose);color:var(--paper);text-decoration:none;font-weight:700;
+  font-size:.92rem;letter-spacing:.3px;padding:14px 30px;border-radius:40px;margin-top:8px;transition:background .15s,transform .15s;}
+.btn:hover{background:var(--plum);transform:translateY(-2px);}
+.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+
+/* ---------- SOUNDTRACK + RAIL ---------- */
+.stx{max-width:var(--measure);margin:44px auto 0;display:flex;gap:16px;align-items:center;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 4px;}
+.stx .disc{width:50px;height:50px;border-radius:50%;flex-shrink:0;position:relative;background:#241019;
+  box-shadow:inset 0 0 0 1.5px rgba(180,151,100,.45), inset 0 0 0 8px rgba(255,255,255,.05);}
+.stx .disc::before{content:"";position:absolute;inset:34%;background:var(--rose);border-radius:50%;}
+.stx .disc::after{content:"";position:absolute;inset:46%;background:var(--paper);border-radius:50%;}
+.stx p{margin:0;max-width:none;font-size:.98rem;color:var(--ink);}
+.stx p b{color:var(--plum);}
+.stx .motto{display:block;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.4px;color:var(--gold-deep);margin-top:5px;}
+
+.rail{max-width:var(--wide);margin:34px auto;}
+.rail .h{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:16px;}
+.rail ol{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);gap:12px;counter-reset:r;}
+.rail a{display:flex;flex-direction:column;height:100%;text-decoration:none;color:var(--ink);background:var(--paper);
+  border:1px solid var(--line);border-radius:4px;padding:16px 14px;transition:border-color .15s,transform .15s;}
+.rail a:hover{border-color:var(--rose);transform:translateY(-3px);}
+.rail a:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+.rail li{counter-increment:r;}
+.rail .num{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:1px;color:var(--gold-deep);}
+.rail .num::before{content:"0" counter(r);}
+.rail .t{font-family:"Playfair Display",serif;font-weight:700;font-size:1.12rem;color:var(--plum);margin:8px 0 4px;line-height:1.1;}
+.rail .s{font-size:.82rem;color:var(--muted);line-height:1.35;}
+.rail .saintcard,.rail .songcard{background:var(--plum);border-color:var(--plum);}
+.rail .saintcard .num,.rail .songcard .num{color:var(--gold-lt);}
+.rail .saintcard .t,.rail .songcard .t{color:var(--paper);}
+.rail .saintcard .s,.rail .songcard .s{color:rgba(250,245,243,.72);}
+.rail .songcard .t::before{content:"\266A  ";color:var(--gold-lt);}
+
+/* ---------- SIGN-OFF ---------- */
+.signoff{max-width:760px;margin:60px auto 26px;text-align:center;}
+.signoff .r{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--rose);margin-bottom:16px;}
+.signoff .line{font-family:"Playfair Display",serif;font-weight:700;font-size:clamp(1.5rem,3.6vw,2rem);line-height:1.28;color:var(--plum);text-wrap:balance;}
+.rooms{max-width:var(--measure);margin:0 auto;text-align:center;color:var(--muted);font-size:.98rem;}
+.rooms b{color:var(--ink);font-weight:600;}
+
+/* ---------- NEXT ---------- */
+.next{max-width:var(--wide);margin:56px auto 0;border-top:1px solid var(--line);padding-top:30px;text-align:center;}
+.next .k{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
+.next h3{font-family:"Playfair Display",serif;font-size:1.9rem;color:var(--plum);margin:8px 0 6px;}
+.next p{color:var(--muted);font-style:italic;}
+
+.foot{background:var(--plum);color:rgba(250,245,243,.6);text-align:center;padding:40px 24px 50px;margin-top:54px;}
+.foot .wm{font-weight:800;letter-spacing:.05em;font-size:1.5rem;color:var(--paper);}
+.foot .wm .ai{color:var(--rose-soft);}
+.foot .sec{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:1.5px;margin-top:12px;}
+
+@media(max-width:900px){.rail ol{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:680px){
+  body{font-size:16.5px;}
+  .trio{grid-template-columns:1fr;}
+  .rail ol{grid-template-columns:1fr 1fr;}
+  .stx{flex-direction:column;text-align:center;}
+  .stat .n{min-width:0;}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto;transition:none!important;}}
+</style>
+</head>
+<body>
+
+<header class="sv-header">
+  <a class="brand" href="/">LAiDIES</a>
+  <nav>
+    <a href="/">This Week</a>
+    <a href="/chick-flicks.html">Episodes</a>
+    <a href="/library.html">LIBRAiRY</a>
+    <a href="/radio.html">KSVL</a>
+    <a href="/sorority-house.html">Sorority House</a>
+    <a href="/clubhouse-pass.html" class="sv-signin" style="color: var(--rose); font-weight: 600; border: 1.5px solid var(--rose); padding: 6px 14px; border-radius: 999px;">✉︎ Sign In</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- COVER -->
+  <section class="cover">
+    <div class="eyebrow">Act 1 — The Awakening <span class="dot">·</span> Episode 01</div>
+    <h1>On Wednesdays We Use <em>AI</em></h1>
+    <p class="logline">Get in loser, we're learning AI. One Wednesday at a time.</p>
+    <div class="meta"><span>Lesson · <b>It's not a confidence problem. It's a physics problem.</b></span><span>Stars · <b>Cher, Elle &amp; Dolly</b></span><span><b>~9 min read</b></span></div>
+  </section>
+
+  <!-- ON THIS SEASON / EPISODE -->
+  <div class="gloss">
+    <details open>
+      <summary><span class="term">On this season</span><span class="peek">A 24-episode season, one new Episode every Wednesday — and every skill leads somewhere.</span><span class="plus">+</span></summary>
+      <div class="def">
+        <p>This is a 24-episode season. Like the glory days, when TV actually let you fall in love with the characters before cancelling them after eight. No bingeing. New episode every Wednesday. And every skill you pick up here? It's all leading somewhere. Think of it like Cher's outfit planner building one look at a time. By the finale, you'll have built your own squad of AI employees, each named after a woman from our favourite era of pop culture.</p>
+        <p>The arc: she stops feeling behind, learns to delegate to machines, keeps her standards, builds her squad, and becomes the woman other people come to when the future gets confusing. That's where we're headed. One Wednesday at a time.</p>
+      </div>
+    </details>
+    <details>
+      <summary><span class="term">On this episode</span><span class="peek">The one in which our heroine admits she put off AI too long, and learns the gap is physics, not confidence.</span><span class="plus">+</span></summary>
+      <div class="def">
+        <p>The one in which our heroine admits she put off learning AI for an embarrassingly long time, discovers the gender gap is a physics problem not a confidence problem, learns that for every 100 men using AI only 78 women do (and it's not because we can't &mdash; we're already drowning), compares AI to Regina George (uncanny), explains the whole thing in 90 seconds using Cher's closet from Clueless, and points to a 10-minute Club Pack try-on that takes less time than ordering an espresso martini. Nobody here knows what they're doing. We're all figuring it out together, every Wednesday. Dolly would approve. Miranda Priestly might even give this the nod. You know the one. Oh, and there are Easter eggs hidden in the images and text. If you spot them all, you can sit with us.</p>
+      </div>
+    </details>
+  </div>
+
+  <figure>
+    <img src="../assets/episodes/issue-01/episode-01-what-like-its-hard.png" alt="Episode 01 masthead with a pink iMac, What, Like It's Hard on the screen, First Step neon sign, keyboard, Harvard Law School application, and Y2K desk objects">
+    <figcaption><span class="tag">The scene</span> A pink iMac glowing &ldquo;What, Like It's Hard,&rdquo; a First Step neon sign, and a Harvard Law application on a Y2K desk.</figcaption>
+  </figure>
+
+  <!-- COLD OPEN -->
+  <div class="mark"><div class="k">Cold open</div><h2>I couldn't help but wonder&hellip;</h2></div>
+
+  <p class="lead m">&hellip;why every AI resource I found was either written by men in fleece vests (say no more), or so surface-level it basically amounted to &ldquo;AI is transformative!&rdquo; AI is transformative? <em>Groundbreaking&hellip;</em></p>
+
+  <p class="dropcap">I have a full-time job, a team to manage, and a calendar that is perpetually a Tetris game I'm losing. The idea of adding &ldquo;become AI-literate&rdquo; to that pile felt about as realistic as Miranda Priestly asking me to get her the unpublished Harry Potter manuscript. Technically possible, but at what personal cost?</p>
+
+  <p>Meanwhile I was watching people build AI tools that weren't solving the right problems because they weren't asking the right questions. And I kept thinking: I know what the right questions are. I just don't know how to use this thing yet.</p>
+
+  <p>So eventually I stopped waiting and started tinkering. I built something small that actually helped with my real job. It wasn't pretty. It definitely wasn't perfect. But it worked well enough to make me realize: oh. I can do this. The thing stopping me wasn't ability. It was that nobody had explained it in a way that made me want to start.</p>
+
+  <p>I want to be clear: I am no AI Slayer. There is no Watcher guiding me through a prophecy, no ancient training montage that happened off-screen. I'm further down the path than I was, but I'm still learning, still getting things wrong, still googling stuff mid-conversation.</p>
+
+  <p>But I got tired of waiting for something that didn't exist. So I'm writing it. For me. And for you. And I'm not doing it alone. Throughout this series you'll hear from other women who are figuring this out in real time alongside me. This isn't a lecture. It's a group chat.</p>
+
+  <p><strong>If any of that sounds familiar: get in loser, we're learning AI.</strong></p>
+
+  <!-- THE INVISIBLE LOAD -->
+  <div class="mark"><div class="k">The gap</div><h2>The Invisible Load Has an AI Layer Now</h2></div>
+
+  <figure>
+    <img src="../assets/9-to-5-chaos.png" alt="Girl Power Energy 9 to 5 Chaos desk scene with lime iBook, phone, coffee, planner, magazines, and stacked work objects">
+    <figcaption><span class="tag">The 9-to-5</span> Girl-power 9-to-5 chaos: a lime iBook, phone, coffee, planner, magazines, and stacked work objects.</figcaption>
+  </figure>
+
+  <p>There's a growing body of research on why women are less engaged with AI than men, and the commentary loves to focus on confidence and imposter syndrome. Those are real, but they're not what I experienced and they're not what I hear from the women I talk to. What I hear is: I'm already drowning. I have no idea where to start. And even if I did, when exactly am I supposed to do this?</p>
+
+  <p>You cannot add hours to a day that's already over-subscribed. And women in corporate roles are already carrying more context, more logistics, more emotional labor, more &ldquo;office housework&rdquo; than their male peers. You know how there's always one person who preps the deck before the meeting, remembers the feedback from last time, follows up on the action items nobody else tracked, and also somehow delivers her own work on time? That person is usually not named Steve. No offense to all the Steves out there fightin' the good fight.</p>
+
+  <div class="pull"><p>It's not a confidence problem. It's a <em>physics</em> problem.</p><div class="rule"></div></div>
+
+  <div class="receipts">
+    <div class="h">The physics of it</div>
+    <div class="stat"><span class="n">78 : 100</span><span class="d">For every 100 men using generative AI tools, only 78 women do. Even when you control for job type, age, education, and access.<small>Same tools, same desks, different adoption rates.</small></span></div>
+    <p class="src">Harvard Digital Data Design Institute, 2024 &middot; 140,000 participants globally. <a href="https://aiinstitute.hbs.edu/the-gender-divide-in-generative-ai-a-global-challenge/" target="_blank">Otis, N. et al. (2024). &ldquo;The Gender Divide in Generative AI: A Global Challenge.&rdquo; Harvard Business School.</a></p>
+  </div>
+
+  <p>Lean In's 2026 survey gets into the specifics and they're uncomfortable enough to be useful:</p>
+
+  <div class="receipts">
+    <div class="h">Lean In's 2026 survey</div>
+    <div class="stat"><span class="n">23%</span><span class="d">more likely men are encouraged by managers to use AI</span></div>
+    <div class="stat"><span class="n">27%</span><span class="d">more likely men are praised when they use AI</span></div>
+    <div class="stat"><span class="n">32%</span><span class="d">more likely women worry AI use looks like cutting corners</span></div>
+    <p class="src"><a href="https://leanin.org/research/ai-women-gender-gap-data" target="_blank">Lean In. (2026). &ldquo;AI and the Gender Gap.&rdquo;</a> &middot; <a href="https://www.forbes.com/sites/kimelsesser/2026/04/01/the-gender-gap-in-ai-use-and-whats-driving-it-according-to-lean-in-survey/" target="_blank">Elsesser, K. (2026). Forbes.</a> &middot; <a href="https://www.forbes.com/sites/laurensoni/2026/04/15/ai-and-the-gender-gap-the-new-broken-rung-most-women-dont-know-exists/" target="_blank">Soni, L. (2026). Forbes.</a></p>
+  </div>
+
+  <p>That last stat hit me like Samantha Jones delivering an uncomfortable truth over brunch. It captures something real about how women have been conditioned in professional environments. We've spent entire careers building credibility through preparation, thoroughness, and visible effort. Now there's a tool that makes hard things look easy, and some part of our brain calculates (correctly, based on historical data) that &ldquo;easy&rdquo; might get held against us.</p>
+
+  <p><strong>It's not imposter syndrome. It's pattern recognition.</strong> (Ironic, given what AI actually is, but we'll get there.)</p>
+
+  <p>And here's the cruel part: the tool that could give you time back requires time you don't have to learn. So you don't start. The gap compounds week over week. And a year from now the distance between you and your colleague who started six months ago isn't a gap. It's a canyon.</p>
+
+  <p>And as Dolly would say, you better get to building your own bridge, because ain't nobody building it for you, honey.</p>
+
+  <!-- WHY YOU CAN'T AFFORD THE GLACIAL PACE -->
+  <div class="mark"><div class="k">The stakes</div><h2>Why You Can't Afford the Glacial Pace</h2></div>
+
+  <figure>
+    <img src="../assets/episodes/issue-01/episode-01-inline-article-image.jpg" alt="Hand grabbing pink Motorola Razr, Spice Girls magazine, GO GET IT sticky note — she's making moves">
+    <figcaption><span class="tag">Making moves</span> A hand grabbing a pink Motorola Razr, a Spice Girls magazine, and a GO GET IT sticky note.</figcaption>
+  </figure>
+
+  <p>Fei-Fei Li, the Stanford professor known as the &ldquo;Godmother of AI,&rdquo; said it plainly:</p>
+
+  <div class="pull"><p>If we don't get women involved in AI, we're going to have a future that's built by half the population for all of the population.</p><div class="rule"></div><div class="who">Fei-Fei Li, Stanford AI Lab</div></div>
+
+  <p>And this isn't just about fairness. Harvard research found that when women don't use AI, the tools literally get worse for everyone because they learn from a skewed pool of users. The less women use them, the less they work for women, and the cycle keeps going. Getting women involved in AI isn't charity. It makes the technology better for all of us.</p>
+
+  <p>And right now? That's exactly what's happening. The colleague who got encouraged to try AI while you were organizing the team offsite or prepping your VP presentation is already six months ahead.</p>
+
+  <p>Here's what it actually looks like when women start using AI: they draft the board memo in twenty minutes instead of two hours. They prep for a meeting by having AI summarize the last three months of project updates so they walk in already knowing what everyone else forgot. They get a first pass on that awkward email to the difficult stakeholder, tweak it with their own judgment, and send it in five minutes instead of agonizing over it for thirty. The work doesn't get worse. It gets done faster, and the time you get back is yours. Is it perfect every time? No. Sometimes AI gives you something useless and you start over. But even then, you've lost five minutes instead of an hour.</p>
+
+  <p><strong>Wait &mdash; didn't we just say women use AI <em>less</em>?</strong> We did, and that's still true. Both facts fit together once you see <em>which</em> women, at <em>which</em> stage:</p>
+
+  <p><strong>&#9312; The gap &mdash; where most women are today.</strong> Across the board, women adopt AI less than men, and it's <em>widest</em> for women earlier in their careers. (That's the 78-to-100 from up top.)</p>
+
+  <p><strong>&#9313; The flip &mdash; where the women who start end up.</strong> Zoom in on the senior women who pushed past that first awkward phase, and it reverses: they're not behind &mdash; they <em>lead</em> their male peers by 14 percentage points. (<a href="https://www.bcg.com/publications/2024/women-leaders-in-tech-are-paving-the-way-in-genai" target="_blank">BCG, 2024</a>.)</p>
+
+  <p><strong>The takeaway.</strong> The gap is a starting line, not a finish line. The women who begin now are the ones who end up in front &mdash; because they bring the one thing AI cannot replicate: a career's worth of judgment. The instinct that something is off in a document before you can even articulate why.</p>
+
+  <p>This isn't about becoming technical. It's about not leaving a genuinely useful tool sitting unopened on your desk while everyone else figures out what it can do.</p>
+
+  <!-- THE DRESS CODE -->
+  <div class="mark"><div class="k">The on-ramp</div><h2>The Dress Code</h2><div class="sub">What to expect. What not to expect. What to wear is your business — but whatever it is, we're sure it's fabulous.</div></div>
+
+  <figure>
+    <img src="../assets/episodes/issue-01/episode-01-inline-article-image-02.jpg" alt="Pink journal with fluffy pen, espresso martini, and Girl Talk board game on dark marble">
+    <figcaption><span class="tag">The dress code</span> A pink journal with a fluffy pen, an espresso martini, and the Girl Talk board game on dark marble.</figcaption>
+  </figure>
+
+  <p>I started <strong>L<span class="ai">Ai</span>DIES</strong> because the on-ramp I needed didn't exist. Everything was either too technical (written for people who wanted to build models, not use them), too shallow (listicles with all the nutritional value of a rice cake), or too time-consuming (40-hour courses marketed to people who apparently don't have jobs, children, or a standing Thursday businesswomen's special happy hour with friends).</p>
+
+  <p>So I made something different. Posted every Wednesday (as if we would choose any other day), written for women in corporate roles who are already competent, already busy, and just need someone to explain this in a way that connects to actual work rather than theoretical computer science.</p>
+
+  <p>Think of it like Elle Woods' approach to Harvard Law. She didn't show up knowing everything. She showed up being underestimated, learned the system faster than anyone expected, and won her case because she brought a different kind of intelligence that nobody in that room had thought to apply. You don't need a technical background. You just need someone to explain it clearly and a group of women to figure it out with.</p>
+
+  <!-- THE COCKTAIL PARTY EXPLANATION -->
+  <div class="mark"><div class="k">The explainer</div><h2>The Cocktail Party Explanation</h2><div class="sub">What you'd say if someone asked you &ldquo;so what IS AI?&rdquo; over drinks.</div></div>
+
+  <figure>
+    <img src="../assets/episodes/issue-01/episode-01-inline-article-image-03.jpg" alt="Retro iMac G3 with glowing pink screen, Burn Book, cassette tapes, and 90s nostalgia">
+    <figcaption><span class="tag">Happy hour</span> A retro iMac G3 with a glowing pink screen, a Burn Book, cassette tapes, and 90s nostalgia.</figcaption>
+  </figure>
+
+  <p>Before next week, I want you armed with a mental model solid enough to hold up at any dinner table, boardroom, or group chat where someone says &ldquo;AI&rdquo; like they know what they're talking about.</p>
+
+  <div class="slab cocktail">
+    <span class="k">🍸 Say it at happy hour</span>
+    <h3>&ldquo;So&hellip; what IS AI?&rdquo;</h3>
+    <p class="say">It read everything. It's lived nothing. And it never says &ldquo;I don't know.&rdquo;</p>
+  </div>
+
+  <p>That's the line &mdash; it fits in the lull before the drinks arrive, and it holds up under follow-up questions. Here's why it holds:</p>
+
+  <p>Imagine someone who has absorbed an enormous amount of human writing &mdash; books, articles, websites, forums, manuals &mdash; billions of documents, but has never lived a single day of real life. No job, no relationships, no consequences, no awkward moment at a holiday party that taught them something about human nature. They can sound incredibly knowledgeable because they've absorbed enormous volumes of how language works, how ideas connect, how arguments are typically structured. But they don't understand any of it the way you do &mdash; through experience, through getting things wrong, through building judgment one decision at a time over a career.</p>
+
+  <p>So the honest picture isn't a robot genius, and it isn't a toy either. It's the most talented new hire you will ever manage: superhuman range, astonishing speed, first drafts that will genuinely scare you &mdash; and zero lived judgment, no sense of your office politics, and no stake in what happens if it's wrong. But that is where your experience comes in. You have to onboard them: guidance and guardrails, the lay of the land around the office. You have to manage them and review their work. And you've done this all before.</p>
+
+  <p>Under the hood, when you type something into ChatGPT or Claude or Gemini, what it's doing is prediction &mdash; generating what comes next, word by word, based on everything it absorbed in training. And here's the strange part: underneath, it's still just that. But what grew out of all that prediction &mdash; it drafts, it reasons, it can even run multi-step errands (we'll get there later this season) &mdash; is impressive enough that the experts genuinely can't agree what to call it, or even whether &ldquo;reasoning&rdquo; is the right word. But two limits aren't up for debate &mdash; and they're the two that decide whether it helps you or embarrasses you.</p>
+
+  <p>Limit one: it doesn't know your context until you hand it over. Think of it like Cher's closet computer from <em>Clueless</em> &mdash; it can generate outfit combinations all day long, but it has no idea the meeting is with a conservative client who's already looking for reasons to dismiss you... unless you tell it. That contextual judgment lives with you, and handing it over well is a skill &mdash; it's literally next week's episode. It's the Louboutins of the professional world. Anyone can buy a shoe, but not everyone knows how to walk in them.</p>
+
+  <p>Limit two: AI can be confidently, spectacularly wrong. Out of the box, it doesn't verify whether what it generates is true &mdash; it only knows whether it's <em>plausible</em>. It's the Burn Book from <em>Mean Girls</em>: a collection of observations written with absolute authority, some accurate, some completely fabricated, all presented with the same unbothered confidence. &ldquo;Made out with a hot dog&rdquo;? AI would generate that statement with the exact same certainty as an actual fact, because it has no mechanism for distinguishing between the two. <strong>Regina George energy, but make it software.</strong></p>
+
+  <div class="pull"><p>Your job is knowing which parts to trust and which to push back on. You've been doing that with other people's work your entire career. <em>This is no different.</em></p><div class="rule"></div></div>
+
+  <figure>
+    <img src="../assets/episodes/issue-01/episode-01-what-like-its-hard.png" alt="Pink iMac with What, Like It's Hard on the screen, First Step neon sign, keyboard, Harvard Law School application, and Y2K desk objects">
+    <figcaption><span class="tag">What, like it's hard?</span> The pink iMac, the First Step neon, and the Harvard Law application — the case for starting.</figcaption>
+  </figure>
+
+  <!-- COCKTAIL / SIGN-OFF -->
+  <div class="signoff">
+    <div class="r">Remember, ladies</div>
+    <div class="line">You'll need more than a cup of ambition to keep up in the male-dominated world of AI. Lucky for you, this series comes in small sips.</div>
+    <div class="r" style="margin:16px 0 0;">Small sips. Big moves.</div>
+  </div>
+  <p class="rooms">Got a sharper <b>&ldquo;remember, ladies&rdquo;</b> line that would make Dolly proud? Post your version in <a href="../sorority-house.html"><b>the Rooms</b></a> &mdash; our members-only chat at the sorority house in SUNNYV<span class="ai">Ai</span>LE. Your Residence Card gets you in the door. Favorites may be featured, with credit, in a future Episode. We're trailblazers here, not idea thieves.</p>
+
+  <!-- NEXT -->
+  <div class="next">
+    <div class="k">Next time on L<span class="ai">Ai</span>DIES</div>
+    <h3>Episode 02 · Tell Me What You Want</h3>
+    <p>She learns to actually talk to AI so it gives her something useful back. Turns out, prompting is just delegation. And you already know how to do that.</p>
+  </div>
+
+  <!-- ============ BEFORE YOU GO ============ -->
+  <div class="mark" style="margin-top:58px;"><div class="k">Before you go</div><h2>Complete the Weekly Ritual</h2><div class="sub">Step 1 is this article. After that, the Wednesday Bag keeps the first AI move small, practical, and connected to the rest of the L<span class="ai">Ai</span>DIES world.</div></div>
+
+  <div class="slab tryon">
+    <span class="k">✎ Your scene · the try-on</span>
+    <h3>Get in, loser. We're learning AI.</h3>
+    <p>Open ChatGPT, Claude, and Gemini. Give all three the same small, real task and compare the drafts that come back. Pick the one that feels most useful <em>for this task</em> &mdash; they're good at different things &mdash; and in every draft, notice the twenty percent only you can see.</p>
+    <p>Ten minutes counts when it is pointed at a real thing you actually need.</p>
+    <a class="btn" href="../blend-snap.html#the-study-pack">Open the Study Pack →</a>
+  </div>
+
+  <!-- CAST · the Patron SAiNTS in this episode -->
+  <div class="cast">
+    <div class="h">The Patron S<span class="ai">Ai</span>NTS in this episode <b>· tap a portrait to visit her</b></div>
+    <div class="cast-grid" style="grid-template-columns:repeat(3,1fr);max-width:600px;margin-inline:auto;">
+      <a class="cast-card" href="../luminairy.html"><img src="../assets/saints/y2k-stained-glass-v2/cher-horowitz-y2k-stained-glass.png" alt="Cher Horowitz"><b>Cher Horowitz</b><span>The closet computer · context is yours</span></a>
+      <a class="cast-card" href="../luminairy.html"><img src="../assets/saints/y2k-stained-glass-v2/elle-woods-y2k-stained-glass.png" alt="Elle Woods"><b>Elle Woods</b><span>What, like it's hard?</span></a>
+      <a class="cast-card" href="../luminairy.html"><img src="../assets/saints/y2k-stained-glass-v2/dolly-parton-y2k-stained-glass.png" alt="Dolly Parton"><b>Dolly Parton</b><span>Build your own bridge</span></a>
+    </div>
+  </div>
+
+  <!-- STUDY PACK -->
+  <div class="mark"><div class="k">The study pack</div><h2>So You Don't Pull a Cher</h2><div class="sub">Quick definitions so you can use these words confidently in a meeting without accidentally arguing that it doesn't say RSVP on the Statue of Liberty.</div></div>
+
+  <div class="gloss">
+    <details open>
+      <summary><span class="term">Generative AI</span><span class="peek">Think of it like having a Carrie Bradshaw in your laptop — one that writes the column, not one that finds it.</span><span class="plus">+</span></summary>
+      <p class="def">Think of it like having a Carrie Bradshaw in your laptop. Not one that finds you articles to read (that's Google). One that actually writes the column for you. Generative AI creates new content &mdash; text, images, code, summaries, first drafts &mdash; instead of just searching, sorting, or analyzing what already exists. In most office conversations in 2026, when someone says &ldquo;AI,&rdquo; this is what they mean.</p>
+    </details>
+    <details>
+      <summary><span class="term">Model</span><span class="peek">The apps are the products; the model is the trained brain powering each one.</span><span class="plus">+</span></summary>
+      <p class="def">ChatGPT, Claude, and Gemini are products &mdash; the apps you open. The model is the trained brain powering each one. Same way Vogue, Elle, and Harper's Bazaar are all fashion magazines, but each has a different editor-in-chief with different taste, judgment, and style. You give the same brief to all three and get back wildly different results. That's the model difference. (ChatGPT runs on GPT models from OpenAI. Claude runs on Anthropic's models. Gemini is Google.)</p>
+    </details>
+    <details>
+      <summary><span class="term">Hallucination</span><span class="peek">When AI produces something confident and polished but factually wrong — no intent, just no receipts.</span><span class="plus">+</span></summary>
+      <p class="def">When AI produces something that sounds confident and polished but is factually wrong or completely made up. It's not lying &mdash; lying requires intent. It just has no built-in &ldquo;hold on, do we have receipts for this?&rdquo; mechanism. Think of it as your most confident friend who will answer any question with total authority whether they actually know or not. (&ldquo;I'm not a regular mom, I'm a cool mom&rdquo; &mdash; AI trying to be helpful and completely misreading the room, every single time.)</p>
+    </details>
+  </div>
+
+  <!-- SOUNDTRACK -->
+  <div class="stx">
+    <div class="disc" aria-hidden="true"></div>
+    <p><b>This week's anthem</b> is playing on KSVL 99.9 — the pilot's theme, girl power meets machine power, in platform sandals. Don't skip it. <span class="motto">Don't just learn from books. Learn from hooks.</span></p>
+  </div>
+
+  <!-- RAIL -->
+  <div class="rail">
+    <div class="h">The rest of the episode</div>
+    <ol>
+      <li><a href="../watch.html?ep=01"><span class="num"></span><span class="t">Narration</span><span class="s">Hear it in the Screening Room</span></a></li>
+      <li><a href="../blend-snap.html#the-study-pack"><span class="num"></span><span class="t">Study Pack</span><span class="s">Grab it at the Blend &amp; Snap</span></a></li>
+      <li><a href="../games/trading-cards.html?from=this-week&amp;issue=1&amp;bag=open&amp;group=practice"><span class="num"></span><span class="t">Card Pack</span><span class="s">Generative AI · Model · Hallucination</span></a></li>
+      <li><a class="saintcard" href="../luminairy.html"><span class="num"></span><span class="t">The Patron S<span class="ai">Ai</span>NTS</span><span class="s">Cher, Elle &amp; Dolly at the LUMIN<span class="ai">Ai</span>RY</span></a></li>
+      <li><a class="songcard" href="../radio.html"><span class="num"></span><span class="t">This week's anthem</span><span class="s">KSVL 99.9</span></a></li>
+      <li><a href="../learn/quiz.html?from=this-week&amp;issue=1&amp;bag=open#quiz-start"><span class="num"></span><span class="t">Pop Quiz</span><span class="s">Bank the clips</span></a></li>
+    </ol>
+  </div>
+
+  <!-- GIMME, GIMME MORE (go deeper) -->
+  <div class="rail">
+    <div class="h">Gimme, gimme more</div>
+    <ol style="grid-template-columns:repeat(3,1fr);">
+      <li><a href="https://www.oneusefulthing.org" target="_blank"><span class="num"></span><span class="t">One Useful Thing</span><span class="s">Ethan Mollick's newsletter. If you read one AI writer, make it him.</span></a></li>
+      <li><a href="https://www.womendefiningai.com" target="_blank"><span class="num"></span><span class="t">Women Defining AI</span><span class="s">Live cohorts, supportive community of women learning together.</span></a></li>
+      <li><a href="https://theresanaiforthat.com" target="_blank"><span class="num"></span><span class="t">There's an AI For That</span><span class="s">Browse thousands of AI tools by use case. Dangerous for your free time.</span></a></li>
+    </ol>
+  </div>
+
+</main>
+
+<footer class="foot">
+  <div class="wm">L<span class="ai">Ai</span>DIES</div>
+  <div class="sec">See you next Wednesday… in SUNNYV<span class="ai" style="color:var(--rose-soft)">Ai</span>LE.</div>
+</footer>
+
+<div id="miniPlayer" class="mini-player" hidden>
+  <div class="mini-player-inner">
+    <button type="button" class="mini-player-btn" id="miniPlayerPrev" aria-label="Previous track">⏮</button>
+    <button type="button" class="mini-player-btn mini-player-play" id="miniPlayerPlay" aria-label="Play/Pause">⏸</button>
+    <button type="button" class="mini-player-btn" id="miniPlayerNext" aria-label="Next track">⏭</button>
+    <span class="mini-player-title" id="miniPlayerTitle">Now playing</span>
+    <button type="button" class="mini-player-close" id="miniPlayerClose" aria-label="Close player">✕</button>
+  </div>
+</div>
+<script src="/content/site/mini-player.js?v=20260712ep-01-songs-1"></script>
+
+</body>
+</html>

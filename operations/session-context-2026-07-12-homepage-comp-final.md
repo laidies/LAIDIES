@@ -126,3 +126,52 @@ Comp stylesheet now cache-busted (styles.css?v=N — bump on every CSS change).
   this and "Games and tools"; flip is one word if she changes her mind on the page).
 - Comp is FINAL and approved ("ok great. this is it."). Next: port to live index.html (task #27).
 - Sandbox cannot commit (iCloud .git perms) — Ali runs the git add/commit from Terminal.
+
+## PORT EXECUTED (task #27 — built, awaiting Ali preview + commit + push)
+New live index.html = live head (meta/icons/manifest/fonts/title) + inlined comp CSS (asset
+paths remapped to canonical) + comp body + live script stack. 688 lines (was 1802).
+- content/site/homepage.js NEW (v=20260712-1): menu/filters/tabs, map popups, song chips →
+  DOM audio (mini-player adopts), route progress paint (svTour getState + sv:tour-checkin
+  event), season-panel week-keying + windowing from /content/episode-index.json (re-renders
+  only when latest published ≠ 4; anthem chip auto-hides if WEEKLY_SONG.ep falls behind),
+  svShowResume hook. Lookup form → /library.html (Miss Jeeves has no ?q= support yet).
+- sv-tour-checkin.js: ksvl stop added (num 4, /radio.html), stops renumbered 1–9, comments
+  updated; cache-buster ?v=20260712-ksvl bumped on 11 pages; radio.html now INCLUDES the
+  check-in script (it was missing).
+- FACT CORRECTION at port: Ep 04 EPISODE = "The Founding Mothers" (issues/issue-04.html);
+  "It Was Women All Along" is the SONG (The Priors, ksvl id ep-04). Season track + weekly h3
+  corrected; why-box "Listen to Ep 04 · It Was Women All Along →" kept (points at the song).
+- EXCLUDED from new homepage (old-markup scripts): sunnyvaile-directory.js (comp has its own
+  directory + tabs), ksvl-player.js (mini-player is the homepage audio dock now), and all four
+  old inline script blocks (sv-explainer anthem, playLaidiesTheme, ritualProgress painter,
+  replay-trailer) — reimplemented or obsolete. KEPT: sv-gold-icons, sv-global-header (no-ops
+  without .site-header markup — comp topbar retained as approved), sv-nav-auth (.signin-link/
+  .join-btn present), sv-welcome-tour, quick-rail, sv-tour-checkin, charm-hunt,
+  ai-accent-autowrap, mini-player (css+js, NEW on homepage).
+- map-pop fallback href="#" → "#town" (comp + live) after check-town caught it.
+- check-town: clean except 4 PRE-EXISTING items (canon files ×3 = task #25, merit_badge =
+  task #20) — commit with --no-verify.
+- New tasks: #33 resume wiring (member_issue_progress via script.js memberAuthClient),
+  #34 weekly rotation checklist (episode-index + ksvl catalogue + WEEKLY_SONG in homepage.js).
+
+## Post-port polish round (Ali reviewing local preview)
+- ai-accent-autowrap.js REWRITTEN: rose+!important removed; Ai colour = headings/logo ONLY
+  (canon rule reaffirmed — body Ai inherits); themeable via --ai-accent (town = teal);
+  ?v=20260712-headings bumped on 83 pages.
+- quick-rail REMOVED from homepage (redundant with jump buttons/nav/directory). Site-wide
+  retirement proposed — full site map = global header Menu panel (full town directory).
+  Awaiting Ali's call: pull from all 50 pages now vs at task #31.
+- Ada canonical file assets/mavens/y2k-stained-glass-v3-finished/ada-lovelace-y2k-stained-glass.png
+  was an OLD DAMAGED version (baked-in white arrow mark) — RETIRED by overwriting with the
+  approved comp copy (md5 45401f06…). Also improves luminairy.html + issue-04 pages.
+- why-box gradient rebuilt from locked palette: 150deg #5f5494 → #8d82c6 → #b3abe7
+  (periwinkle shades — option A) in comp + live. Old violet G1 retired for this box.
+- NEXT ROUND (after ship): background system — each accent gets deep/mid/pale ramp; ALL
+  section backgrounds become 2-colour gradients from ramps + cream; adjacency rule stands;
+  review as swatches per section, then one sweep + ramp table added to palette lock.
+- Image frame ruling (Ali OK'd): photos = frameless, rounded, shadow; postcard art keeps its
+  PRINTED baked-in frame (it reads as a postcard — never paint over/crop). No CSS keylines
+  anywhere. Any image that still bugs her live → task #30 image audit.
+- autowrap follow-ups shipped: .ai-run single-run wrapper (flex/gap word-splitting fix) +
+  .ai,.ai-run{display:inline!important} (block-span line-break fix) — ?v=20260712-inline on
+  83 pages. "eight-stop" → "nine-stop" corrected (live + comp).

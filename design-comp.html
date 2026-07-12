@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>CONCEPT · MAiN STREET, ON AIR</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@400;500;600;700&display=swap" />
+<style>
+  :root {
+    --paper: #EEF6F5; --card: #FFFFFF; --ink: #17393B; --spruce: #23807B; --spruce-soft: #4E7B78;
+    --teal: #3aa8a4; --gold: #C9A227; --pink: #C05C78; --pink-soft: #F7E9ED; --sunset: #B97C5A;
+    --hair: rgba(35,128,123,0.22);
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Jost', sans-serif; line-height: 1.55; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+  header { display: flex; align-items: center; gap: 30px; padding: 20px 48px; border-bottom: 1px solid var(--hair); }
+  .brand { font-weight: 700; font-size: 22px; letter-spacing: 0.12em; }
+  .brand .ai { color: var(--pink); }
+  header nav { margin-left: auto; display: flex; align-items: center; gap: 28px; font-weight: 500; font-size: 14.5px; color: var(--spruce); }
+  .signin { border: 1.5px solid var(--pink); color: var(--pink); border-radius: 999px; padding: 8px 20px; font-weight: 600; font-size: 13.5px; }
+
+  .claim { text-align: center; padding: 40px 48px 0; }
+  .claim p { font-size: 13px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--spruce-soft); }
+
+  .onair { text-align: center; padding: 26px 48px 54px; }
+  .live { display: inline-flex; align-items: center; gap: 9px; font-size: 12px; font-weight: 700; letter-spacing: 0.18em; color: var(--pink); text-transform: uppercase; white-space: nowrap; }
+  .live::before { content: ''; width: 9px; height: 9px; border-radius: 50%; background: var(--pink); }
+  .onair h1 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(40px, 4.6vw, 62px); line-height: 1.1; letter-spacing: -0.015em; max-width: 20ch; margin: 10px auto 0; }
+  .lower3 { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px 14px;
+    margin: 26px auto 0; max-width: 980px; padding: 16px 28px;
+    border: 3px dotted var(--gold); border-radius: 12px; background: var(--ink);
+    color: #F4FBFA; font-size: 14.5px; text-align: left;
+    box-shadow: 0 14px 34px rgba(23,57,59,0.28); }
+  .lower3 b { font-family: 'Playfair Display', serif; font-size: 20px; color: #fff; }
+  .lower3 .dash { color: rgba(244,251,250,0.6); }
+  .lower3 .teaser { color: rgba(244,251,250,0.85); }
+  .lower3 .watch { font-weight: 600; color: #FFD873; border-bottom: 1.5px solid #FFD873; white-space: nowrap; }
+  .lower3 .live { color: #FF9FB6; }
+  .lower3 .live::before { background: #FF9FB6; }
+  .onair .prem { font-size: 17px; color: var(--spruce-soft); max-width: 62ch; margin: 18px auto 26px; }
+  .hero-ctas { display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .onair .cta { display: inline-block; background: var(--pink); color: #fff; font-weight: 600; font-size: 16px; padding: 15px 34px; border-radius: 999px; box-shadow: 0 10px 24px rgba(192,92,120,0.3); }
+  .onair .cta--ghost { background: transparent; color: var(--spruce); border: 1.5px solid var(--teal); box-shadow: none; }
+  .onair .sub { margin-top: 14px; font-size: 13.5px; color: var(--spruce-soft); }
+  .onair .sub a { color: var(--spruce); font-weight: 600; border-bottom: 1px solid var(--gold); }
+  .howto { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px 36px; margin-top: 30px; font-size: 14.5px; font-weight: 500; color: var(--ink); }
+  .howto i { font-style: normal; display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; border-radius: 50%; background: var(--teal); color: #fff;
+    font-size: 12px; font-weight: 700; margin-right: 8px; }
+
+  .site-claim { text-align: center; font-size: clamp(15px, 1.6vw, 18px); font-weight: 500; letter-spacing: 0.02em; color: var(--ink); padding: 26px 48px 18px; }
+  .town-map { display: block; }
+  .town-map img { width: 100%; display: block; }
+  .street-cap { text-align: center; font-size: 14px; color: var(--spruce-soft); padding: 16px 48px 0; }
+  .street-cap b { color: var(--ink); font-weight: 600; }
+
+  .directory { padding: 26px 0 60px; }
+  .dir-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 34px; padding-top: 26px; }
+  .dir-col h4 { font-size: 12px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--spruce-soft); border-bottom: 1px solid var(--hair); padding-bottom: 8px; margin-bottom: 10px; }
+  .dir-col a { display: block; font-size: 14.5px; padding: 4px 0; font-weight: 500; }
+  .dir-col a small { color: var(--spruce-soft); font-weight: 400; }
+
+  .awning-div { height: 13px; background: repeating-linear-gradient(-55deg, var(--adc, var(--teal)) 0 16px, #fff 16px 32px); border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
+  .errands { padding: 56px 0 64px; background: var(--card); }
+  .sec-sign { text-align: center; margin-bottom: 34px; }
+  .sec-sign .star { color: var(--gold); font-size: 15px; letter-spacing: 0.5em; }
+  .sec-sign h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 38px; letter-spacing: -0.01em; margin-top: 6px; }
+  .sec-sign p { font-size: 15px; color: var(--spruce-soft); margin-top: 6px; }
+  .err-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 22px; max-width: 940px; margin: 0 auto;
+    background: #fff; border: 6px solid var(--teal); border-radius: 14px; padding: 28px; box-shadow: 0 16px 38px rgba(23,57,59,0.12); }
+  .err { position: relative; display: flex; flex-direction: column; gap: 4px; padding: 16px 16px 14px;
+    background: var(--paper); border-radius: 4px; box-shadow: 0 5px 14px rgba(23,57,59,0.13);
+    border-bottom: 0; }
+  .err::before { content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%);
+    width: 12px; height: 12px; border-radius: 50%; background: var(--pink); box-shadow: 0 2px 4px rgba(0,0,0,0.25); }
+  .err:nth-child(odd) { transform: rotate(-0.7deg); }
+  .err:nth-child(even) { transform: rotate(0.6deg); }
+  .err:nth-child(3n)::before { background: var(--teal); }
+  .err:nth-child(4n)::before { background: var(--sunset); }
+  .err b { font-size: 16.5px; font-weight: 600; white-space: nowrap; }
+  .err span { font-size: 13.5px; color: var(--spruce-soft); }
+  .err span em { font-style: normal; color: var(--spruce); font-weight: 600; }
+
+  .proof { padding: 56px 0 64px; background: var(--pink-soft); }
+  .saints-row { display: flex; justify-content: center; gap: 18px; margin-top: 30px; }
+  .saints-row img { width: 132px; aspect-ratio: 3/4; object-fit: cover; border-radius: 8px; box-shadow: 0 10px 26px rgba(20,32,28,0.18); }
+  .proof .more { text-align: center; margin-top: 22px; font-size: 14px; }
+  .proof .more a { color: var(--spruce); font-weight: 600; border-bottom: 1px solid var(--gold); }
+
+  .movein { padding: 56px 0 70px; }
+  .paths { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; max-width: 900px; margin: 30px auto 0; }
+  .path { border: 1px solid var(--hair); border-radius: 12px; padding: 26px; background: var(--card); box-shadow: 0 10px 26px rgba(23,57,59,0.08); }
+  .path .k { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--spruce-soft); }
+  .path h3 { font-family: 'Playfair Display', serif; font-size: 25px; font-weight: 700; margin: 8px 0 8px; }
+  .path p { font-size: 14px; color: var(--spruce-soft); }
+  .form { display: flex; gap: 10px; margin-top: 16px; }
+  .form .in { flex: 1; border: 1px solid var(--hair); border-radius: 999px; padding: 11px 16px; font-size: 13.5px; color: var(--spruce-soft); background: var(--paper); }
+  .form .go { background: var(--pink); color: var(--paper); border-radius: 999px; padding: 11px 22px; font-weight: 600; font-size: 13.5px; }
+  .path .note { margin-top: 14px; font-style: italic; font-size: 13px; }
+
+  .credits { background: var(--ink); color: #F4FBFA; text-align: center; padding: 42px 48px 46px; }
+  .credits .bye { font-family: 'Playfair Display', serif; font-style: italic; font-size: 24px; }
+  .credits nav { margin-top: 16px; display: flex; justify-content: center; gap: 26px; font-size: 13px; color: rgba(244,251,250,0.72); }
+  .street-pan { position: relative; }
+  .street-strip { display: none; }
+  @media (max-width: 1180px) {
+    .chip { min-width: 0; padding: 5px 9px 4px; }
+    .chip b { font-size: 10px; }
+    .chip span, .chip.new i { display: none; }
+    .post { font-size: 10px; padding: 7px 10px; }
+  }
+  @media (max-width: 940px) {
+    .wrap { padding: 0 24px; }
+    header { padding: 14px 24px; gap: 16px; }
+    header nav a:not(.signin) { display: none; }
+    .onair { padding: 22px 24px 44px; }
+    .lower3 { margin-top: 32px; }
+    .street-pan { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .street-pan img { height: 300px; width: auto; max-width: none; }
+    .street-pan .chip, .street-pan .post { display: none; }
+    .street-strip { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding: 16px 20px 0; }
+    .street-strip a { border: 1px solid var(--hair); background: #fff; border-radius: 999px; padding: 7px 14px; font-size: 12px; font-weight: 600; }
+    .street-strip a.new { border-color: var(--gold); box-shadow: 0 0 0 1.5px var(--gold); }
+    .dir-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; }
+    .err-grid { grid-template-columns: 1fr; max-width: 560px; }
+    .paths { grid-template-columns: 1fr; max-width: 560px; }
+    .saints-row { flex-wrap: wrap; }
+    .saints-row img { width: 100px; }
+  }
+  @media (max-width: 480px) {
+    .onair h1 { font-size: 34px; }
+    .street-pan img { height: 240px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">L<span class="ai">Ai</span>DIES</div>
+  <nav><a>This Week</a><a>Episodes</a><a>The Town</a><a>My Closet</a><a class="signin">Sign in</a></nav>
+</header>
+
+<p class="site-claim">AI fluency, taught through the pop culture you never forgot. Welcome to town.</p>
+<section class="town">
+  <a class="town-map" href="#directory" aria-label="The SUNNYVAiLE town map - every building is a real destination; the full directory is below">
+    <img src="assets/sunnyvaile-town-map-locked.jpg" alt="SUNNYVAiLE - the whole town: MAiN Street storefronts, Civic Square, SUNNYVAiLE High, the FAiRY Godmother house, Delta LAi Nu, the LUMINAiRY on Lantern Hill, and the KSVL tower under a blue sky" />
+  </a>
+</section>
+<p class="street-cap"><b>This is SUNNYVAiLE — the little Y2K town the whole thing lives in.</b> Every building is real: click anywhere to walk in.</p>
+<div class="wrap"><div class="lower3">
+    <span class="live">Now showing · S1 E04</span>
+    <b>The Founding Mothers</b>
+    <span class="dash">—</span>
+    <span class="teaser">she goes looking for AI's origin story; it was women all along.</span>
+    <a class="watch">Pick up the tape →</a>
+  </div></div>
+
+<div class="wrap directory">
+  <div class="dir-grid">
+    <div class="dir-col"><h4>MAiN Street</h4>
+      <a>The Chick Flicks <small>· episodes</small></a>
+      <a>Blend &amp; Snap <small>· study packs</small></a>
+      <a>The NewsStand <small>· AI news</small></a>
+      <a>Mme CLAi-O <small>· readings</small></a>
+      <a>MAiKEOVER <small>· your card</small></a>
+      <a>BRONZE AiGE <small>· happy hour</small></a>
+      <a>The Mall <small>· reference shops</small></a>
+      <a>KSVL RAiDIO <small>· the songs</small></a>
+    </div>
+    <div class="dir-col"><h4>Civic Square</h4>
+      <a>The LIBRAiRY <small>· look it up</small></a>
+      <a>The Post Office <small>· your mail</small></a>
+      <a>Town Hall <small>· Mayor Deb</small></a>
+    </div>
+    <div class="dir-col"><h4>The Hills</h4>
+      <a>The LUMINAiRY <small>· saints &amp; mavens</small></a>
+      <a>SUNNYVAiLE High <small>· pop quiz</small></a>
+    </div>
+    <div class="dir-col"><h4>The Lanes</h4>
+      <a>FAiRY Godmother <small>· prompt help</small></a>
+      <a>Sorority House <small>· Girl Talk</small></a>
+      <a>The Phone Booth <small>· Dream Phone</small></a>
+    </div>
+  </div>
+</div>
+
+<div class="awning-div" style="--adc: var(--teal);"></div>
+<section class="errands">
+  <div class="wrap">
+    <div class="sec-sign"><span class="star">★ ★ ★</span><h2>The community noticeboard.</h2><p>Outside the Post Office, Civic Square. No tour required — get the thing, keep your afternoon.</p></div>
+    <div class="err-grid">
+      <div class="err"><b>Get prompt help</b><span>→ <em>the FAiRY Godmother</em>, Willow Lane</span></div>
+      <div class="err"><b>Catch up on AI news</b><span>→ <em>the NewsStand</em>, MAiN St</span></div>
+      <div class="err"><b>Look something up</b><span>→ <em>the LIBRAiRY</em>, Civic Square</span></div>
+      <div class="err"><b>Take a 10-minute break</b><span>→ <em>Mme CLAi-O</em> will read your cards</span></div>
+      <div class="err"><b>Start from zero</b><span>→ <em>Episode 1</em>, the Chick Flicks</span></div>
+      <div class="err"><b>Test yourself</b><span>→ <em>the Pop Quiz</em>, SUNNYVAiLE High</span></div>
+      <div class="err"><b>Meet the women who built AI</b><span>→ <em>the LUMINAiRY</em>, Lantern Hill</span></div>
+      <div class="err"><b>Learn while you commute</b><span>→ <em>the episode songs</em>, KSVL 99.9</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="awning-div" style="--adc: var(--pink);"></div>
+<section class="proof">
+  <div class="wrap">
+    <div class="sec-sign"><span class="star">★ ★ ★</span><h2>The town has patron saints.</h2><p>Cher's closet computer. Elle's receipts. Miranda's standards. Borrow their moves at the LUMINAiRY.</p></div>
+    <div class="saints-row">
+      <img src="assets/saints/cher-horowitz.png" alt="Cher Horowitz" />
+      <img src="assets/saints/elle-woods.png" alt="Elle Woods" />
+      <img src="assets/saints/miranda-priestly.png" alt="Miranda Priestly" />
+      <img src="assets/saints/buffy-summers.png" alt="Buffy Summers" />
+      <img src="assets/saints/dolly-parton.png" alt="Dolly Parton" />
+    </div>
+    <p class="more"><a>Meet all twelve at the LUMINAiRY →</a></p>
+  </div>
+</section>
+
+<div class="awning-div" style="--adc: var(--sunset);"></div>
+<section class="movein">
+  <div class="wrap">
+    <div class="sec-sign"><span class="star">★ ★ ★</span><h2>Move to SUNNYVAiLE.</h2></div>
+    <div class="paths">
+      <div class="path">
+        <p class="k">Just the mail · the Post Office</p>
+        <h3>The Wednesday Postcard.</h3>
+        <p>The episode, the Study Pack, the Pop Quiz, the week's AI news, and the song — one letter, once a week.</p>
+        <div class="form"><div class="in">you@yourcompany.com</div><div class="go">Sign up</div></div>
+      </div>
+      <div class="path">
+        <p class="k">Full residency · MAiKEOVER, No. 6 MAiN</p>
+        <h3>Design your Residence Card.</h3>
+        <p>Everything the Postcard gets you — plus the Sorority House, the Charm Hunt, and your Closet.</p>
+        <p class="note">The chair is being prepped — back soon.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="credits">
+  <p class="bye">See you next Wednesday.</p>
+  <nav><a>Welcome Wagon</a><a>LIBRAiRY</a><a>The Mall</a><a>Post Office</a><a>Privacy</a></nav>
+</footer>
+
+<script>
+(function(){
+  if (location.hash !== '#claude-tour') return;
+  var y = 0;
+  function step(){
+    y += 720;
+    window.scrollTo(0, y);
+    if (y < document.documentElement.scrollHeight - window.innerHeight) setTimeout(step, 5000);
+    else setTimeout(function(){ location.reload(); }, 7000);
+  }
+  setTimeout(step, 14000);
+})();
+</script>
+</body>
+</html>
