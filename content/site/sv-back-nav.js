@@ -47,7 +47,7 @@
     '/this-week.html': 'this week',
     '/episodes.html': 'Episodes',
     '/laidies-card.html': 'your Closet',
-    '/clubhouse-pass.html': 'sign-in',
+    '/resident-card.html': 'sign-in',
     '/mall/claires.html': 'PIECES OF FLAiR',
     '/mall/pieces-of-flair.html': 'PIECES OF FLAiR',
     '/games/dream-phone.html': 'Dream Phone',

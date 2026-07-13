@@ -2566,7 +2566,7 @@ function getLocalRewardEvents(userId) {
       reward_type: "secret_badge",
       issue_key: "",
       title: badge.title || badge.id,
-      source: badge.source || "Clubhouse",
+      source: badge.source || "SUNNYVAiLE",
       earned_at: badge.unlockedAt || new Date().toISOString(),
       metadata: { sticker: badge.sticker || "" },
     });

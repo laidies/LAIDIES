@@ -140,7 +140,7 @@
       if (/^(quiz|try-on|printable|trading-cards)\.html$/.test(filename)) return "practice";
       if (/^(fun-pack|dream-phone|madame-claio|fairy-godmother|girl-talk|dj-booth)\.html$/.test(filename)) return "fun";
       if (/^(hot-goss|reference-closet|learn|receipts)\.html$/.test(filename) || path.endsWith("/learn/glossary.html")) return "realworld";
-      if (path.includes("/community/") || filename === "community.html" || filename === "clubhouse-pass.html" || filename === "businesswomens-special.html") return "connect";
+      if (path.includes("/community/") || filename === "community.html" || filename === "resident-card.html" || filename === "businesswomens-special.html") return "connect";
       return "";
     }
 
@@ -211,7 +211,7 @@
           label: "← Back to THE LAiDIES GRIMOIRE",
         };
       }
-      if (path.includes("/community/") || filename === "community.html" || filename === "clubhouse-pass.html" || filename === "businesswomens-special.html") {
+      if (path.includes("/community/") || filename === "community.html" || filename === "resident-card.html" || filename === "businesswomens-special.html") {
         return {
           href: local("this-week.html") + contextQuery("connect"),
           label: "← Back to Meet & Celebrate",

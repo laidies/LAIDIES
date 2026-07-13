@@ -16,8 +16,8 @@
 (function () {
   'use strict';
 
-  var JOIN_HREF = '/clubhouse-pass.html';
-  var SIGNIN_HREF = '/clubhouse-pass.html';
+  var JOIN_HREF = '/resident-card.html';
+  var SIGNIN_HREF = '/resident-card.html';
   var QUICK_LINKS = [
     { label: "This Week's Tour", href: '/#tour' },
     { label: 'Radio', href: '/radio.html' }
