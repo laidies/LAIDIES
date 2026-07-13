@@ -178,6 +178,11 @@
           ? '<button class="play-chip pc-mini" data-audio="' + WEEKLY_SONG.src + '" data-title="' + WEEKLY_SONG.title + '" aria-label="Play this week\'s anthem"><span class="pc-icon">&#9654;</span></button>'
           : '') + '</li>');
       track.innerHTML = rows.join('');
+      // Keep the Read / Listen buttons pointed at the current episode.
+      var readBtn = document.querySelector('.fc-default .fc-btn-teal');
+      var listenBtn = document.querySelector('.fc-default .fc-btn-coral');
+      if (readBtn) { readBtn.href = '/' + current.issueUrl; readBtn.textContent = 'Read this week →'; }
+      if (listenBtn) { listenBtn.href = '/watch.html?ep=' + pad(current.number); listenBtn.textContent = 'Listen this week →'; }
     }).catch(function () { /* static markup remains the fallback */ });
   })();
 
