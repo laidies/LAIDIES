@@ -2892,7 +2892,7 @@ async function initMemberAuth() {
       removeStoredJson(memberAuthPendingStorageKey);
       await syncMemberRewards("Signed in. Member magic is still being polished, so rewards remain mostly local for now.");
       if (returningToMemberPass) {
-        renderMemberPass("Residence Card preview opened. Taking you to the Residence Card direction next.");
+        renderMemberPass("Resident Card preview opened. Taking you to the Resident Card direction next.");
         openMemberCardBuilder(450);
         return;
       }
@@ -2903,7 +2903,7 @@ async function initMemberAuth() {
   } catch (error) {
     memberAuthClient = null;
     memberAuthStatus = "guest";
-    renderMemberPass(`Residence Card login needs attention: ${error.message || "check the Supabase settings."}`);
+    renderMemberPass(`Resident Card login needs attention: ${error.message || "check the Supabase settings."}`);
   }
 }
 
@@ -4819,7 +4819,7 @@ function renderQuizResult(score, quiz, reward, coreScore = score) {
   ratingLine.textContent = `Butterfly-clip rating: ${rating.clips}/${maxScore} · ${rating.title}`;
 
   const message = document.createElement("p");
-  message.textContent = `${reward.title}. ${reward.message} Residence Card score and sticker syncing is member magic coming soon; for now, this reward stays mostly on this browser/device.`;
+  message.textContent = `${reward.title}. ${reward.message} Resident Card score and sticker syncing is member magic coming soon; for now, this reward stays mostly on this browser/device.`;
 
   card.append(scoreLine, ratingLine, message);
   quizResult.appendChild(card);
@@ -6065,7 +6065,7 @@ function updateSpotlightPhotoPreview(formData, style) {
     spotlightPhotoPreview.innerHTML = "";
     const image = document.createElement("img");
     image.src = spotlightPhotoObjectUrl;
-    image.alt = "Selected Residence Card photo preview";
+    image.alt = "Selected Resident Card photo preview";
     spotlightPhotoPreview.append(image);
     return;
   }
@@ -6189,7 +6189,7 @@ function filterLAiDIESCards(filter = "all") {
     const statusByFilter = {
       all: `Showing all ${visibleCount} cards.`,
       stock: `Showing ${visibleCount} stock card${visibleCount === 1 ? "" : "s"}.`,
-      member: `Showing ${visibleCount} Residence Card${visibleCount === 1 ? "" : "s"}.`,
+      member: `Showing ${visibleCount} Resident Card${visibleCount === 1 ? "" : "s"}.`,
       help: `Showing ${visibleCount} card${visibleCount === 1 ? "" : "s"} with help to offer.`,
       progress: `Showing ${visibleCount} card${visibleCount === 1 ? "" : "s"} in progress mode.`,
       connect: `Showing ${visibleCount} card${visibleCount === 1 ? "" : "s"} open to connection.`,

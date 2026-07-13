@@ -49,7 +49,7 @@
     { href: '/radio.html', name: 'KSVL 99.9', icon: 'radio',
       line: "Turn the dial to 99.9 — DJ SunnyV plays the town all day, and once it's on, the music follows you everywhere you go." },
     { href: '/maikeover.html', name: 'MAiKEOVER on MAiN', icon: 'lipstick',
-      line: "You've seen the town — now take the chair, pick your colors, and make the Residence Card that turns a tourist into a resident." }
+      line: "You've seen the town — now take the chair, pick your colors, and make the Resident Card that turns a tourist into a resident." }
   ];
 
   function readState() {
@@ -194,7 +194,7 @@
     chip.innerHTML =
       '<p class="svwt-eyebrow"><span>' + ic('bus', 'eb3', 13) + ' Welcome Tour · complete</span></p>'
       + '<p class="svwt-name">' + ic('star', 'fin', 17) + ' Official Tourist!</p>'
-      + '<p class="svwt-line">You\'ve done the essential stops — you know your way around now. Make your Residence Card right here and it all starts counting — clips, charms, stickers, the works.</p>'
+      + '<p class="svwt-line">You\'ve done the essential stops — you know your way around now. Make your Resident Card right here and it all starts counting — clips, charms, stickers, the works.</p>'
       + '<a class="svwt-next" href="#maikeover-form" onclick="this.closest(\'.svwt-chip\').remove()">Make my card ★</a>';
     document.body.appendChild(chip);
     setTimeout(function () {
