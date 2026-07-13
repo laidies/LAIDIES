@@ -107,6 +107,14 @@
     }
     chips.forEach(function (chip) {
       chip.addEventListener('click', function () {
+        // Route through the KSVL player so the song plays as ITSELF (not the
+        // radio rotation) with the persistent bar + pop-out. Falls back to the
+        // inline audio only if the KSVL player isn't present.
+        if (window.KSVL_playTrack) {
+          window.KSVL_playTrack(chip.dataset.audio, chip.dataset.title || '', 'LAiDIES');
+          setIcon(current, false); current = chip; setIcon(chip, true);
+          return;
+        }
         if (current === chip && !audio.paused) { audio.pause(); setIcon(chip, false); return; }
         setIcon(current, false);
         if (current !== chip) { audio.src = chip.dataset.audio; audio.dataset.title = chip.dataset.title || ''; }

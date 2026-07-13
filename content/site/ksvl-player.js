@@ -403,7 +403,9 @@
       ? LIVE_MIX
       : MIXES.filter(function(m) { return m.id === state.mixId; })[0];
     var label;
-    if (state.mixId === 'live') {
+    if (state.mixId === 'single') {
+      label = 'Now playing';
+    } else if (state.mixId === 'live') {
       label = 'KSVL LIVE · ' + (state.index + 1) + ' on air';
     } else if (state.mixId && state.mixId.indexOf('album:') === 0) {
       var albumArtist = state.mixId.slice(6);
@@ -710,6 +712,7 @@
 
   function advanceOnEnded() {
     if (state.signingOff) { realStopPlayer(); return; }
+    if (state.mixId === 'single') { realStopPlayer(); return; }
     if (state.repeatMode === 'one') { playIndex(state.index); return; }
     if (state.shuffle) { playIndex(Math.floor(Math.random() * state.queue.length)); return; }
     if (state.repeatMode === 'off' && state.index >= state.queue.length - 1) { stopPlayer(); return; }
@@ -787,6 +790,23 @@
   }
   window.KSVL_startAlbum = startAlbum;
   window.KSVL_tracksForArtist = tracksForArtist;
+
+  // Play a SINGLE track through the KSVL deck. A song plays as itself — NOT the
+  // station rotation — but still gets the persistent Now-Playing bar + pop-out,
+  // so a specific song and the radio share one player. Used by the ♪ song chips.
+  function startSingle(track) {
+    if (!track || !track.src) return;
+    state.mixId = 'single';
+    state.queue = [{ title: track.title || 'LAiDIES', artist: track.artist || 'LAiDIES', src: track.src }];
+    state.index = 0;
+    state.currentPart = 0;
+    state.shuffle = false;
+    state.repeatMode = 'off';
+    if (npShuffleBtn) npShuffleBtn.classList.remove('is-active');
+    if (npRepeatBtn) { npRepeatBtn.classList.remove('is-active'); setBtnIcon(npRepeatBtn, '🔁'); }
+    playIndex(0);
+  }
+  window.KSVL_playTrack = function(src, title, artist) { startSingle({ src: src, title: title, artist: artist }); };
 
   function nextTrack() { if (state.queue.length) playIndex(state.index + 1); }
   function prevTrack() { if (state.queue.length) playIndex(state.index - 1); }
@@ -964,6 +984,7 @@
         }
       }
       else if (MIXES.some(function(m){ return m.id === state.mixId; })) { ctx = 'mix'; extra.mixId = state.mixId; }
+      else if (state.mixId === 'single') { return; }
       else { localStorage.removeItem(LS_KEY); return; }
       var track = state.queue[state.index];
       var currentTime = 0;
@@ -1093,6 +1114,22 @@
   }
 
   bindPersistenceHooks();
+
+  // ---- Header "Radio" button → tune the station IN (Ali) ----
+  // Pressing Radio should START KSVL, not just open the radio page. First press
+  // tunes in right here (the bar + pop-out follow you across pages); if the
+  // station is already live, the link falls through and opens the radio building.
+  // Any element tagged [data-ksvl-start-live] gets the same behavior.
+  if (!IS_POPUP) {
+    document.addEventListener('click', function (e) {
+      var t = e.target;
+      if (!t || !t.closest) return;
+      var a = t.closest('a.svgh-quick[href$="/radio.html"], a.nav-ksvl, a.tune-in, [data-ksvl-start-live]');
+      if (!a) return;
+      var stationOn = state.mixId === 'live' && !!state.audio;
+      if (!stationOn) { e.preventDefault(); startLive(); }
+    }, true);
+  }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', mount);

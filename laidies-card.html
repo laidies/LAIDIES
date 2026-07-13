@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Closet · LAiDIES · SUNNYVAiLE</title>
-  <meta name="description" content="Your SUNNYVAiLE Closet — Residence Card, sticker book, sash, charm bracelet, and the collectible journey. Yours across every device.">
+  <meta name="description" content="Your SUNNYVAiLE Closet — Resident Card, sticker book, sash, charm bracelet, and the collectible journey. Yours across every device.">
   <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260707-a11y">
@@ -920,7 +920,7 @@
     <span style="font-size: 20px;">👀</span>
     <div>
       <strong>You're looking at another resident's Closet.</strong>
-      Want your own? <a href="/maikeover.html" style="color: var(--rose); font-weight: 600; text-decoration: underline;">Get your Residence Card at MAiKEOVER →</a>
+      Want your own? <a href="/maikeover.html" style="color: var(--rose); font-weight: 600; text-decoration: underline;">Get your Resident Card at MAiKEOVER →</a>
     </div>
   </div>
 
@@ -929,9 +929,9 @@
        ============================================== -->
   <section class="passport-section" id="sectionCard">
     <p class="passport-section-eyebrow">★ <a href="/sorority-house.html" style="color: inherit; text-decoration: none;">Delta L<span class="ai">Ai</span> Nu</a> · Your Closet · Your Card</p>
-    <h1 class="passport-section-title" id="cardSectionTitle">Your Residence Card</h1>
+    <h1 class="passport-section-title" id="cardSectionTitle">Your Resident Card</h1>
 
-    <!-- The Town Wallet — the Residence Card rides in the front pocket;
+    <!-- The Town Wallet — the Resident Card rides in the front pocket;
          every building's membership card fills the slots below -->
     <div class="wallet-shell">
       <div class="wallet-label" aria-hidden="true">★ THE TOWN WALLET · SUNNYVAiLE · est. 1999</div>
@@ -943,7 +943,7 @@
         <div class="card-face card-face--front card-front">
           <button class="card-flip-toggle" type="button" onclick="document.getElementById('cardFlip').classList.add('is-flipped')">Flip →</button>
           <div class="card-corner-header">
-            <span>★ SUNNYVAiLE Residence Card</span>
+            <span>★ SUNNYVAiLE Resident Card</span>
             <span class="resident-no" id="residentNo">No. 0000</span>
           </div>
           <div class="card-front-body">
@@ -1230,7 +1230,7 @@
 
     <div class="vessel vessel--tour" id="tourVessel">
       <div class="vessel-header">
-        <h3 class="vessel-title">🌸 Tour Progress</h3>
+        <h3 class="vessel-title">Tour Progress</h3>
         <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
           <span class="vessel-count" id="tourCount">0 of 8</span>
           <span id="tourRewardBadge" style="display: none; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); background: rgba(201,162,39,0.14); padding: 4px 10px; border-radius: 999px;">🧚 +1 wish earned</span>
@@ -1295,7 +1295,7 @@
 
     <!-- Sticker Book -->
     <div class="vessel vessel--puffy-board">
-      <h3 class="vessel-title">★ The Puffy Board</h3>
+      <h3 class="vessel-title">The Puffy Board</h3>
       <p class="vessel-note">Sections you marked in the Handbook with a butterfly clip. Tap one to jump back; peel it off any time.</p>
       <div id="puffyBoard" class="puffy-board"></div>
       <style>
@@ -1316,7 +1316,7 @@
 
     <div class="vessel vessel--sticker-book">
       <div class="vessel-header">
-        <h3 class="vessel-title">📓 Sticker Book</h3>
+        <h3 class="vessel-title">Sticker Book</h3>
         <span class="vessel-count" id="stickerCount">0 collected</span>
       </div>
       <div class="sticker-grid" id="stickerGrid">
@@ -1333,7 +1333,7 @@
     <!-- Merit Sash -->
     <div class="vessel vessel--sash">
       <div class="vessel-header">
-        <h3 class="vessel-title">🎗️ Merit Sash</h3>
+        <h3 class="vessel-title">Merit Sash</h3>
         <span class="vessel-count" id="meritCount">0 earned</span>
       </div>
       <div class="sash-grid" id="meritGrid">
@@ -1348,9 +1348,9 @@
     </div>
 
     <!-- Charm Bracelet — reads from charm-hunt.js (window.CHARM_HUNT) if present, else empty state -->
-    <div class="vessel vessel--charm-bracelet">
+    <div class="vessel vessel--charm-bracelet" id="charmVessel">
       <div class="vessel-header">
-        <h3 class="vessel-title">🌸 Charm Bracelet</h3>
+        <h3 class="vessel-title">Charm Bracelet</h3>
         <span class="vessel-count" id="charmCount">0 of 7 found this week</span>
       </div>
       <div class="charm-chain" id="charmBracelet"></div>
@@ -1360,7 +1360,7 @@
     <!-- Butterfly Clip Jar — Pop Quiz scores, banked as clips -->
     <div class="vessel vessel--clip-jar" id="butterflyJar">
       <div class="vessel-header">
-        <h3 class="vessel-title">🦋 Butterfly Clip Jar</h3>
+        <h3 class="vessel-title">Butterfly Clip Jar</h3>
         <span class="vessel-count" id="clipJarCount">Empty jar</span>
       </div>
       <div class="clip-jar">
@@ -1376,7 +1376,7 @@
     <!-- Trading Card Binder -->
     <div class="vessel vessel--card-binder">
       <div class="vessel-header">
-        <h3 class="vessel-title">🃏 Trading Card Binder</h3>
+        <h3 class="vessel-title">Trading Card Binder</h3>
         <span class="vessel-count" id="tradingCount">0 cards</span>
       </div>
       <div class="card-binder-grid" id="tradingGrid">
@@ -1391,7 +1391,7 @@
     <!-- Detention Slips (dare penalties) -->
     <div class="vessel vessel--detention">
       <div class="vessel-header">
-        <h3 class="vessel-title">📌 Detention Slips</h3>
+        <h3 class="vessel-title">Detention Slips</h3>
         <div style="display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;">
           <span style="font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); background: rgba(201,162,39,0.14); padding: 4px 10px; border-radius: 999px;">🎫 <span id="hallPassCount">1</span> Hall Pass</span>
           <span class="vessel-count" id="penaltyCount">0 this week</span>
@@ -1412,7 +1412,7 @@
     <!-- Locked Diary (secret badges) -->
     <div class="vessel vessel--diary">
       <div class="vessel-header">
-        <h3 class="vessel-title">🔐 Locked Diary</h3>
+        <h3 class="vessel-title">Locked Diary</h3>
         <span class="vessel-count" id="secretCount">0 discovered</span>
       </div>
       <div class="diary-grid" id="secretGrid">
@@ -1430,7 +1430,7 @@
        ============================================== -->
   <section class="passport-section" id="fairyBankSection">
     <p class="passport-section-eyebrow">★ Your Wallet</p>
-    <h2 class="passport-section-title">FAiRY Plays Bank 🧚</h2>
+    <h2 class="passport-section-title">FAiRY Plays Bank</h2>
 
     <div class="fairy-bank">
       <div class="fairy-bank-icon">🧚</div>
@@ -1471,7 +1471,7 @@
        SECTION 5: EDIT MY CARD (collapsed by default)
        ============================================== -->
   <div class="edit-panel" id="editPanel" hidden>
-    <h3>Edit your Residence Card</h3>
+    <h3>Edit your Resident Card</h3>
 
     <div class="edit-field">
       <label class="edit-field-label">Pick your archetype (this is your card face)</label>
@@ -1606,7 +1606,7 @@
 
     <div class="save-actions">
       <button type="button" class="cancel-btn" id="cancelEditBtn">Cancel</button>
-      <button type="button" class="save-btn" id="saveCardBtn">Stamp my Residence Card ✨</button>
+      <button type="button" class="save-btn" id="saveCardBtn">Stamp my Resident Card</button>
     </div>
   </div>
 
@@ -1655,7 +1655,7 @@
 
   function applyPublicMode() {
     document.getElementById('publicModeBanner').hidden = false;
-    document.getElementById('cardSectionTitle').textContent = "Their Residence Card";
+    document.getElementById('cardSectionTitle').textContent = "Their Resident Card";
     document.getElementById('selfCardActions').hidden = true;
     document.getElementById('publicCardActions').hidden = false;
     document.getElementById('tripGuide').hidden = true;
@@ -1666,6 +1666,7 @@
     document.getElementById('walletSlots').hidden = true;
     document.getElementById('butterflyJar').hidden = true;
     document.getElementById('tourSection').hidden = true;
+    document.getElementById('charmVessel').hidden = true;
   }
 
   function updateCardFromProfile(profile) {
@@ -1755,7 +1756,10 @@
     maven: 'laidies_maven',
     builder: 'laidies_builder',
     townRegular: 'laidies_town_regular',
-    episode: 'laidies_favorite_episode'
+    episode: 'laidies_favorite_episode',
+    storefront: 'laidies_favorite_storefront',
+    character: 'laidies_favorite_character',
+    cocktail: 'laidies_favorite_cocktail'
   };
 
   // Your Coven — pantheon label maps (SAiNT map already lives above as SAINT_LABEL)
@@ -1906,7 +1910,10 @@
       card_motto: read(LS.motto) || undefined,
       favorite_quote: read(LS.quote) || undefined,
       card_archetype: read(LS.archetype) || undefined,
-      avatar_slug: read(LS.avatar) || undefined
+      avatar_slug: read(LS.avatar) || undefined,
+      favorite_storefront: read(LS.storefront) || undefined,
+      favorite_character: read(LS.character) || undefined,
+      favorite_cocktail: read(LS.cocktail) || undefined
     };
   }
 
@@ -1922,6 +1929,9 @@
     write(LS.quote, p.favorite_quote);
     write(LS.archetype, p.card_archetype);
     write(LS.avatar, p.avatar_slug);
+    write(LS.storefront, p.favorite_storefront);
+    write(LS.character, p.favorite_character);
+    write(LS.cocktail, p.favorite_cocktail);
   }
 
   function updateAvatar(profile) {
@@ -1930,14 +1940,14 @@
     // Town Characters ship a full portrait path; members use PIECES OF FLAiR slugs.
     if (profile.card_avatar_url && /^\/assets\//.test(profile.card_avatar_url)) {
       el.innerHTML = '<img src="' + profile.card_avatar_url +
-                     '" alt="Residence Card portrait" style="width:100%;height:100%;object-fit:cover;">';
+                     '" alt="Resident Card portrait" onerror="this.remove()" style="width:100%;height:100%;object-fit:cover;">';
       return;
     }
     if (!profile.avatar_slug) return;
     var slug = String(profile.avatar_slug).replace(/[^a-z0-9-]/gi, '');
     if (!slug) return;
     el.innerHTML = '<img src="/assets/avatars/claires/claires-avatar-' + slug +
-                   '.png?v=20260701-1" alt="Residence Card avatar" style="width:100%;height:100%;object-fit:cover;">';
+                   '.png?v=20260701-1" alt="Resident Card avatar" onerror="this.remove()" style="width:100%;height:100%;object-fit:cover;">';
   }
 
   function renderProfile(p) {
@@ -2492,7 +2502,7 @@
     document.addEventListener('sv:tour-checkin', renderTour);
   })();
   </script>
-    <script defer src="/content/site/ksvl-player.js?v=20260712-21"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
     <script defer src="/content/site/quick-rail.js?v=20260705-5"></script>
     <script defer src="/content/site/charm-hunt.js?v=20260705-dusk" onload="if(typeof renderCharmBracelet==='function')renderCharmBracelet();"></script>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
