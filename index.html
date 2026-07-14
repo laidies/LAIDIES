@@ -440,6 +440,24 @@ footer .logo span{color:#cabbe8}
 .ritual li.stop-done .ritual-stop{outline:2px solid rgba(255,253,251,.55);outline-offset:-2px}
 .ritual li.stop-done .ritual-stop>span::after{content:" ✓"}
 
+/* ============================================================
+   MOBILE SPACING CAP — authoritative, LAST in source so it wins.
+   Class selectors (0,1,0) to match the base rules' specificity.
+   One place that governs every section's vertical rhythm on phones.
+   ============================================================ */
+@media(max-width:560px){
+  /* inter-section gaps: one uniform, tight value */
+  .explainer,.intent,.weekly,.activities,.spotlights,.reference,.town,.closet,.postcard-band,.manifesto{margin-top:16px;margin-bottom:16px}
+  .hero{margin-top:0;margin-bottom:16px}
+  /* in-section top/bottom padding: the 56px / 52px offenders come down to 30 */
+  .explainer,.postcard-band,.intent,.weekly,.activities,.town{padding-top:30px;padding-bottom:30px}
+  .reference>div,.closet>div{padding-top:34px;padding-bottom:34px}
+  .spotlights{padding-top:0;padding-bottom:0}
+  /* dead space under the hero pills */
+  .hero-jumps{margin-bottom:0;padding-bottom:8px}
+  .hero-copy{padding-bottom:22px}
+}
+
   </style>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260713-1"></script>
