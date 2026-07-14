@@ -24,15 +24,14 @@ signs off. Think the closing of a 90s sitcom — the cozy final shot, the "goodn
 - Y2K SUNNYVAiLE, ~1999.
 
 ## Audio
-- Soundtrack = **"Wednesdays in SUNNYVAiLE"** — same song as the opening
-  (`content/music/the-laidies-wednesday-in-sunnyvaile.mp3`). Use **this exact segment: 3:27.7 → the end
-  (~4:03.7 / 243.7s)** — i.e. from **0:36 before the end to the end**, about **36 seconds**. Picks up right
-  where the opening segment left off and rides the song's own ending. Bake it into the video's audio.
-- Video length = that segment (~**36s**).
+- Soundtrack = the **SUNNYVAiLE town anthem, "Welcome to SUNNYVAiLE"** — same song as the opening
+  (`content/music/sunnyvaile-town-anthem.mp3`, ~3:38 / 218.4s). *(Swapped off the "Wednesdays" song.)*
+- **SEGMENT: ⟨Ali to confirm on the anthem⟩** — ideally a softer/outro-feeling part than the opening's,
+  and if possible the part that **rides the anthem's own ending**. Target ~**36s**. Bake it into the video's audio.
 - Plays **with sound** in the `end` bumper — the music is the video's own audio.
-- **Fade IN only.** The start is a mid-song cut, so ramp the audio **up over ~1s** (fade in from black).
-  **Do NOT add a fade-out** — the song already resolves/ends on its own; let it ride out naturally
-  (a visual fade to black on the last frame is fine).
+- **Fade IN** (~1s, from black) since the start is a mid-song cut. **Fade-out:** skip it if the segment ends
+  on the anthem's natural ending (let it ride to silence); otherwise fade the audio out ~1.5s. Visual fade to
+  black on the last frame either way.
 
 ## Technique for every shot (same as the opening + town scenes)
 Grace-style **living stills** — the composition holds, never freezes: subtle ambient motion throughout, one

@@ -23,14 +23,15 @@ like a real show is starting.
 - Y2K SUNNYVAiLE, ~1999. No AI-cliché imagery.
 
 ## Audio
-- Soundtrack = **"Wednesdays in SUNNYVAiLE"** — `content/music/the-laidies-wednesday-in-sunnyvaile.mp3`
-  (full track ~4:04 / 243.7s). Use **this exact segment: 2:50.7 → 3:27.7** — i.e. from **1:13 before the end
-  to 0:36 before the end**, about **37 seconds**. Bake it into the video's own audio; time the cuts/motion to it.
-- Video length = that segment (~**37s**).
+- Soundtrack = the **SUNNYVAiLE town anthem, "Welcome to SUNNYVAiLE"** —
+  `content/music/sunnyvaile-town-anthem.mp3` (full track ~3:38 / 218.4s). *(The "Wednesdays in SUNNYVAiLE"
+  song was swapped out — it didn't sit right for the credits.)*
+- **SEGMENT: ⟨Ali to confirm on the anthem⟩** — the old timestamps were for the other song and don't map here.
+  Target ~**37s** to fit the shot list. Bake the chosen segment into the video's own audio; time the cuts to it.
 - Plays **with sound** in the bumper — the music is the video's own audio; don't leave it silent.
-- **This is a mid-song cut on BOTH ends, so it needs a fade IN and a fade OUT** or both edges are abrupt:
-  ramp the audio **up over ~0.75s** at the start and **down over ~1s** at the end, matched visually
-  (**fade in from black** at the top, **fade out to black** at the end — the tour begins right after).
+- **Fades:** if the segment is a mid-song cut, fade the audio **in ~0.75s** and **out ~1s** (both edges),
+  matched visually (fade in/out from/to black). If the segment ends on the anthem's own ending, skip the
+  fade-out. Either way, fade in from black at the top.
 
 ## Technique for every shot (same as the town scenes)
 Each shot is a **Grace-style living still**: the composition holds, but it **never freezes** — subtle
