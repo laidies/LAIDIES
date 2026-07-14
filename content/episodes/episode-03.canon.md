@@ -35,12 +35,12 @@
 - **on-this-episode hook** *(script announcer, verbatim):* *"she gets an answer with full Regina George
   confidence, almost uses it... and then notices one tiny detail tugging at the corner of the story.
   This is Episode Three: The Burn Book Problem."*
-- **next-time hook:** ⏳ **CONFLICT — do not ship until reconciled.** The recorded script's closing
-  announcer says: *"our heroine learns she doesn't have to do this alone. Come back next week for
-  Episode Four: Every Slayer Needs a Watcher."* But Episode 4 shipped as **"The Founding Mothers"** (the
-  origin-story flashback — Ada Lovelace 1843, etc.), which is exactly what the Ep3 **quiz bonus
-  questions** tease. The audio next-time hook is **stale** (old sequencing). Reconcile to the real Ep4
-  ("The Founding Mothers" / origin flashback) before re-record; do not invent replacement copy.
+- **next-time hook** *(recorded, verbatim):* *"three weeks in, our heroine realizes she's been using
+  this thing every day and never once asked where it came from — or what it even is. She goes looking
+  for the origin story… and finds out it was women all along. Come back next week for Episode Four: The
+  Founding Mothers."* *(RESOLVED 2026-07-13 from Ali's recording — replaces the stale repo draft, which
+  wrongly read "our heroine learns she doesn't have to do this alone… Every Slayer Needs a Watcher"
+  (old pre-resequence title). Text script `episode-03-elevenlabs-v3-tagged.txt` synced to the recording.)*
 - **emotional beat:** *"First betrayal: AI sounded certain, she caught it, and now she trusts herself more."*
 - **main-character-energy line:** *"I can use the draft. I still check the alibi."* (also the article's
   "This Week's Rule" block).
@@ -339,7 +339,7 @@ When you edit anything above, walk this list. ✅ = already true to canon · �
 
 | Surface | File / location | Status |
 |---|---|---|
-| Script (audio) | `operations/audio/episode-03-elevenlabs-v3-tagged.txt` | ✅ canon source · ⏳ next-time hook stale ("Every Slayer Needs a Watcher" → should be Ep4 "The Founding Mothers") |
+| Script (audio) | `operations/audio/episode-03-elevenlabs-v3-tagged.txt` | ✅ canon source · next-time hook synced to "The Founding Mothers" (2026-07-13) |
 | Article (current) | `content/issues/issue-03.md` + `issues/issue-03-reskin.html` | ✅ matches script |
 | Article (served) | `issues/issue-03.html` | 🔧 **STALE — pre-Elle rewrite**; lacks "draft is an outfit" / "July rollout" / Chutney depth. Reskin must replace it before launch |
 | Quiz | `content/site/quizzes.json → issue03` | ✅ matches |
@@ -359,10 +359,13 @@ When you edit anything above, walk this list. ✅ = already true to canon · �
 
 ## MUST-MATCH (verbatim in script + article — enforce with `operations/check-episode.sh 3`)
 These exact strings must appear in BOTH the narration script AND the current article. Confirmed present in
-`operations/audio/episode-03-elevenlabs-v3-tagged.txt` AND `issues/issue-03-reskin.html` / `content/issues/issue-03.md`.
+`operations/audio/episode-03-elevenlabs-v3-tagged.txt` (re-synced to Ali's recording 2026-07-13) AND
+`issues/issue-03-reskin.html` / `content/issues/issue-03.md`.
 ⚠️ They are **absent from the stale served `issues/issue-03.html`** — enforcement must target the reskin/updated article.
-- she doesn't even go here
 - Do not be Chutney on the stand. Be Elle with the timeline.
 - A draft is an outfit. A claim is an alibi. Dress accordingly.
+- *she doesn't even go here* — ⚠️ **match case-insensitively:** the narration **shouts it in caps**
+  (`"SHE DOESN'T EVEN GO HERE!"`, [man voice impersonation]) while the article renders it lowercase.
+  Intentional style difference, not drift — a strict case-sensitive grep will (correctly) differ.
 
 See [[episode-canonical-source-spec.md]], [[article-derived-from-script]], [[episode-content-sync-surfaces]], [[receipts-term-reserved]], [[burn-book-not-true-canon]], [[cher-rsvp-confident-wrong-answer]], [[fact-verification-rule]].
