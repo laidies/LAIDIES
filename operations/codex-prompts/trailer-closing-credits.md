@@ -23,6 +23,13 @@ signs off. Think the closing of a 90s sitcom — the cozy final shot, the "goodn
   lavender, vibrant teal + hot pink, gold twinkly lights + warm window glow, pink neon. Plum for depth.
 - Y2K SUNNYVAiLE, ~1999.
 
+## CONSISTENCY — ONE pixelation level, no exceptions (critical)
+Same hard rule as the opening: **every shot at the same level of videogame pixelation** — same pixel
+grid/size, same dither density — anchored to `assets/episodes/ep-04/pixel/ep04-heroine-sheet-v2.png`. The
+town art is inconsistent right now; don't inherit that. **You'll need to make NEW night shots** (staged
+town-at-dusk + interiors that don't exist yet) — generate them fresh at that one pixelation level; **don't
+drop in mismatched old art.** Must match the opening credits exactly, just in the night/dusk palette.
+
 ## Audio
 - Soundtrack = the **SUNNYVAiLE town anthem, "Welcome to SUNNYVAiLE"** — same song as the opening
   (`content/music/sunnyvaile-town-anthem.mp3`, ~3:38 / 218.4s). *(Swapped off the "Wednesdays" song.)*

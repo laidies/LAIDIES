@@ -31,6 +31,18 @@ Not a slideshow, not a building tour. The opening of a **show you love**. Refere
   proportions, town palette (plum #4b2148, rose #9b3f5f, pink #e982ab, teal #57b6c0, gold #c9a227, cream).
 - Y2K SUNNYVAiLE, ~1999. No AI-cliché imagery.
 
+## CONSISTENCY — ONE pixelation level, no exceptions (critical)
+The town's pixel art is **all over the place right now** — some images chunkier, some finer. In a credit
+sequence that inconsistency is glaring. **Every shot must read as the same videogame:** the **same level of
+videogame pixelation** throughout — same effective pixel grid / pixel size, same dither density, same
+palette depth — whether it's a wide town shot or a character close-up. A character shot must **not** be
+finer/higher-res than a town shot.
+- **Anchor the pixel size to** `assets/episodes/ep-04/pixel/ep04-heroine-sheet-v2.png`. If a shot looks more
+  or less pixelated than that, it's wrong — redo it.
+- **You will need to make NEW images/shots.** The shot list calls for staged character-in-building and town
+  shots that don't exist yet — generate them fresh, all at that one pixelation level. Use the portraits only
+  for likeness/wardrobe. **Do not drop in existing old art that doesn't match** — when in doubt, re-render.
+
 ## Audio
 - Soundtrack = the **SUNNYVAiLE town anthem, "Welcome to SUNNYVAiLE"** —
   `content/music/sunnyvaile-town-anthem.mp3` (full track ~3:38 / 218.4s). *(The "Wednesdays in SUNNYVAiLE"
