@@ -292,6 +292,10 @@ footer .logo span{color:#cabbe8}
 .chip-route{margin-bottom:12px;align-self:flex-start}
 .route-cell{display:flex;flex-direction:column}
 .route-cell .ritual{flex:1}
+/* route header — labels the stops as the weekly tour; also the sticky anchor on mobile */
+.route-head{margin:0 0 12px;padding:12px 15px;border-radius:11px;background:rgba(255,253,251,.1);border:1px solid rgba(255,253,251,.26);display:flex;flex-direction:column;gap:2px}
+.route-head strong{font:800 1.05rem Jost;color:var(--cream);letter-spacing:.005em}
+.route-head small{font-size:.82rem;font-weight:600;color:#e5dfff;line-height:1.4}
 @media(max-width:560px){
   /* "How it all works": an OBVIOUS tap-to-expand bar (not a whisper caret) */
   .steps-title{cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;margin:24px 0 0;padding:15px 18px;border:1.6px solid var(--rose);border-radius:12px;background:rgba(155,63,95,.08);font-size:1.12rem;-webkit-tap-highlight-color:transparent}
@@ -299,7 +303,7 @@ footer .logo span{color:#cabbe8}
   .explainer:not(.steps-collapsed) .steps-title::after{content:"HIDE \25B4"}
   .explainer.steps-collapsed .explainer-steps{display:none}
   /* JS-driven sticky (see stickyHeader script): opaque bar while pinned so the list scrolls behind it */
-  .chip-route.sticky-pinned{transition:none;background:rgba(38,24,44,.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-color:rgba(255,253,251,.35);box-shadow:0 12px 24px rgba(14,7,20,.5)}
+  .route-head.sticky-pinned{transition:none;background:linear-gradient(135deg,#2f8f8b,#5f7a97);border-color:rgba(255,253,251,.42);box-shadow:0 12px 26px rgba(14,7,20,.5)}
   .filter.sticky-pinned{transition:none;background:var(--cream);box-shadow:0 10px 18px rgba(33,24,32,.12);border-radius:0}
 }
 
@@ -458,7 +462,8 @@ footer .logo span{color:#cabbe8}
   .hero-copy{padding-bottom:22px}
   /* INTERNAL rhythm — these gaps were just default 1em <p> margins, never tuned for phones.
      This is the real "extra padding": space above every eyebrow + airy gaps between text blocks. */
-  .explainer .eyebrow,.intent .eyebrow,.weekly .eyebrow,.activities .eyebrow,.town .eyebrow,.spotlights .eyebrow,.reference .eyebrow,.closet .eyebrow{margin-top:0;margin-bottom:6px}
+  .explainer .eyebrow,.intent .eyebrow,.weekly .eyebrow,.activities .eyebrow,.town .eyebrow,.spotlights .eyebrow,.reference .eyebrow,.closet .eyebrow,.postcard-band .eyebrow{margin-top:0;margin-bottom:6px}
+  .why-box-lg>.eyebrow{margin-top:4px;margin-bottom:6px}  /* nested card: 26px card-pad + 4 = 30, matches sections */
   .explainer p,.intent p,.weekly p,.activities p,.town p,.spotlights p,.reference p,.closet p{margin-top:10px;margin-bottom:10px}
   .explainer-head{margin-bottom:2px}
   .explainer .explainer-right{margin:14px 0}
@@ -580,7 +585,7 @@ footer .logo span{color:#cabbe8}
           </div>
         </article>
       </div>
-        <div class="route-cell"><button class="play-chip chip-route chip-ghost" data-audio="/content/music/the-laidies-wednesday-in-sunnyvaile.mp3" data-title="Wednesdays in SUNNYVAiLE"><span class="pc-icon">&#9654;</span> The Wednesday theme &middot; &ldquo;Wednesdays in SUNNYVAiLE&rdquo;</button>
+        <div class="route-cell"><div class="route-head"><strong>The Full Route</strong><small>All 8 stops, in order &mdash; your weekly tour of SUNNYV<span class="ai">Ai</span>LE</small></div><button class="play-chip chip-route chip-ghost" data-audio="/content/music/the-laidies-wednesday-in-sunnyvaile.mp3" data-title="Wednesdays in SUNNYVAiLE"><span class="pc-icon">&#9654;</span> The Wednesday theme &middot; &ldquo;Wednesdays in SUNNYVAiLE&rdquo;</button>
         <ol class="ritual">
           <li data-stop="newsstand"><a class="ritual-stop" href="/newsstand.html"><span>1</span><div><strong>Catch up on the news</strong><small>NewsStand · stories translated by LAiDIES</small></div><b>Full Route</b></a></li>
           <li data-stop="chick-flicks"><a class="ritual-stop" href="/chick-flicks.html"><span>2</span><div><strong>Read or hear the episode</strong><small>The Chick Flicks · this week’s episode, or start at Episode 1</small></div><b>Learn</b></a></li>
@@ -762,7 +767,7 @@ footer .logo span{color:#cabbe8}
     var tick=false;
     function onScroll(){ if(tick)return; tick=true; requestAnimationFrame(function(){ reg.forEach(update); tick=false; }); }
     try{
-      add(document.querySelector('.route-cell .chip-route'), document.querySelector('.route-cell'));
+      add(document.querySelector('.route-cell .route-head'), document.querySelector('.route-cell'));
       add(document.querySelector('#activities .filter'), document.querySelector('#activities'));
     }catch(e){}
     window.addEventListener('scroll',onScroll,{passive:true});
