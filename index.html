@@ -298,6 +298,9 @@ footer .logo span{color:#cabbe8}
   .steps-title::after{content:"SHOW \25BE";color:var(--rose);font-size:.72rem;font-weight:800;letter-spacing:.09em;white-space:nowrap}
   .explainer:not(.steps-collapsed) .steps-title::after{content:"HIDE \25B4"}
   .explainer.steps-collapsed .explainer-steps{display:none}
+  /* JS-driven sticky (see stickyHeader script): opaque bar while pinned so the list scrolls behind it */
+  .chip-route.sticky-pinned{transition:none;background:rgba(38,24,44,.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-color:rgba(255,253,251,.35);box-shadow:0 12px 24px rgba(14,7,20,.5)}
+  .filter.sticky-pinned{transition:none;background:var(--cream);box-shadow:0 10px 18px rgba(33,24,32,.12);border-radius:0}
 }
 
 /* weekly side column: main panel + quick links */
@@ -704,6 +707,43 @@ footer .logo span{color:#cabbe8}
     function toggle(){ if(!mq.matches) return; var c=sec.classList.toggle('steps-collapsed'); t.setAttribute('aria-expanded', c?'false':'true'); }
     t.addEventListener('click',toggle);
     t.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(); } });
+  })();
+
+  /* JS sticky headers — reliable on iOS (CSS position:sticky fails inside flex/grid there).
+     Pins with position:fixed while its section scrolls (placeholder holds the space so nothing jumps),
+     then releases (absolute) at the section's end. Mobile only. */
+  (function(){
+    var OFFSET=54, reg=[], mq=window.matchMedia('(max-width:560px)');
+    function outerH(el){var cs=getComputedStyle(el);return el.offsetHeight+(parseFloat(cs.marginTop)||0)+(parseFloat(cs.marginBottom)||0);}
+    function add(el,c){ if(!el||!c)return; var ph=document.createElement('div'); ph.setAttribute('aria-hidden','true'); ph.style.display='none'; el.parentNode.insertBefore(ph,el); if(getComputedStyle(c).position==='static')c.style.position='relative'; reg.push({el:el,c:c,ph:ph,state:''}); }
+    function clear(it){var s=it.el.style; s.position=s.top=s.left=s.right=s.width=s.margin=s.zIndex=''; it.el.classList.remove('sticky-pinned'); it.ph.style.display='none'; it.state='';}
+    function update(it){
+      if(!mq.matches){ if(it.state) clear(it); return; }
+      var el=it.el,c=it.c,ph=it.ph,oh=outerH(el),h=el.offsetHeight;
+      var naturalTop=(it.state?ph:el).getBoundingClientRect().top, cr=c.getBoundingClientRect();
+      if(naturalTop>OFFSET || cr.bottom<=OFFSET){ if(it.state) clear(it); return; }
+      if(cr.bottom>=OFFSET+h){
+        if(it.state!=='pinned'){
+          ph.style.height=oh+'px'; ph.style.display='block';
+          var b=ph.getBoundingClientRect();
+          el.style.position='fixed'; el.style.top=OFFSET+'px'; el.style.left=Math.round(b.left)+'px'; el.style.width=Math.round(b.width)+'px'; el.style.margin='0'; el.style.zIndex='15';
+          el.classList.add('sticky-pinned'); it.state='pinned';
+        }
+      } else {
+        ph.style.height=oh+'px'; ph.style.display='block';
+        el.style.position='absolute'; el.style.top=Math.max(0,c.clientHeight-h)+'px'; el.style.left='0'; el.style.right='0'; el.style.width='auto'; el.style.margin='0'; el.style.zIndex='15';
+        el.classList.add('sticky-pinned'); it.state='released';
+      }
+    }
+    var tick=false;
+    function onScroll(){ if(tick)return; tick=true; requestAnimationFrame(function(){ reg.forEach(update); tick=false; }); }
+    try{
+      add(document.querySelector('.route-cell .chip-route'), document.querySelector('.route-cell'));
+      add(document.querySelector('#activities .filter'), document.querySelector('#activities'));
+    }catch(e){}
+    window.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',function(){ reg.forEach(clear); requestAnimationFrame(function(){ reg.forEach(update); }); },{passive:true});
+    reg.forEach(update);
   })();
   </script>
 </body>
