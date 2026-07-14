@@ -30,6 +30,9 @@ like a real show is starting.
 - Video length = the length of that segment (roughly **~15–20s**).
 - The Screening Room will play this bumper video **with sound** (the baked-in segment), so the music comes
   from the video itself — don't leave it silent.
+- **Fade in / fade out** so it's not abrupt: ramp the audio **up over ~0.75s** at the start and **down over
+  ~1s** at the end, and match it visually — **fade in from black** at the top and **fade out to black** at
+  the end (the tour begins right after).
 
 ## Cast to feature (name · job — for the lower-thirds)
 - **Your Heroine** · a few steps ahead of you  (ref `ali-founder-portrait-pixel-v1.png`)

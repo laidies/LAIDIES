@@ -30,6 +30,9 @@ signs off. Think the closing of a 90s sitcom — the cozy final shot, the "goodn
   segment and **bake it into the video's audio track**, timed to the wind-down.
 - Video length = the length of that segment (roughly **~12–18s**).
 - Plays **with sound** in the Screening Room's `end` bumper — the music is the video's own audio.
+- **Fade in / fade out** so it eases in from the episode and settles out at the end: ramp the audio **up
+  over ~1s** at the start and **down over ~1.5s** to silence at the end, matched visually — **fade in from
+  black** and **fade out to black**. (Gentler than the opening — it's the wind-down.)
 
 ## Content beats (in order)
 1. Warm dusk establishing shot of SUNNYVAiLE (Main Street glowing / the whole town at golden hour).
