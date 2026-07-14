@@ -14,10 +14,16 @@ That scene works because it's a **living still**: the whole pixel painting holds
 
 **Every scene below follows that recipe:**
 - A rich, fully-detailed **pixel** painting (same language as the Ep4 scenes + pixel character portraits).
-- **Hold the frame static.** Then animate **ONE hero detail** + **ambient light flicker**. That's it.
-  No camera moves needed (a *very* slow push-in is optional); no busy motion.
-- Build it the Grace way: **~3 keyframes** (start → mid → end of the one moving element) interpolated.
-- **Loop cleanly**, ~**4–8s**. **1920×1080, 16:9, mp4 (H.264).**
+- **The composition holds** (no camera move, or a *very* slow push-in) — but it should **never freeze.**
+  Give it a gentle timeline that **fills the whole time the scene is on screen:**
+  1. **Open** on subtle ambient motion — an arm shifting, a head tilt, lights flashing, steam curling.
+  2. **The hero beat** in the middle — the one signature moment (the moth settling onto the logbook).
+  3. **Settle** back into subtle ambient motion — so from the first frame to the last, something is quietly alive.
+- Keep it to **ONE hero detail + ambient flicker/drift**; still restrained, just never dead-static.
+- Build it the Grace way: keyframes (start → mid → end of each moving element) interpolated.
+- **Loop seamlessly** so one clip can cover however long the scene holds — trailer beats run **~20–30s**, so
+  make the ambient motion a clean ~**6–10s loop**; the hero beat can land once and then let the ambient carry,
+  or recur gently. **1920×1080, 16:9, mp4 (H.264).**
 - Palette + world = locked town style (plum #4b2148, rose #9b3f5f, pink #e982ab, teal #57b6c0, gold, cream).
 
 ## Light mode per scene (from the town canon)
