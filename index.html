@@ -31,7 +31,7 @@
    overlaid exactly on your baked heart (measured: 37.8% / 16.1%, 4.6%×14.1%) */
 .logo{text-decoration:none;position:relative;display:inline-block;line-height:0}
 .logo-word{display:block;height:34px;width:auto}
-.logo-heart{position:absolute;left:37.8%;top:15%;width:5.4%;height:16%;transform:translateX(-50%);transform-origin:center bottom;color:#e982ab;pointer-events:none}
+.logo-heart{position:absolute;left:37.9%;top:16.5%;width:4.29%;height:12.63%;transform:translateX(-50%);color:#e982ab;pointer-events:none}
 .logo-heart svg{position:absolute;inset:0;width:100%;height:100%;display:block}
 .logo-heart svg rect{fill:currentColor}
 .town-kicker span{color:var(--teal)}
@@ -795,11 +795,8 @@ footer{background:linear-gradient(135deg,#2f8f8b 0%,#5b7a99 55%,#75639a 108%);co
     var SPEED=1.8;
     if(matchMedia('(prefers-reduced-motion: reduce)').matches){ hearts.forEach(function(h){h.style.color=PALETTE[0];}); return; }
     function frame(now){
-      var t=now/1000;
-      var idx=Math.floor(t/SPEED)%PALETTE.length;
-      var scale=0.9+0.1*(0.5+0.5*Math.cos((t/1.6)*Math.PI*2));  // gentle breathe, never >1
-      var tf='translateX(-50%) scale('+scale.toFixed(3)+')';
-      hearts.forEach(function(h){ h.style.color=PALETTE[idx]; h.style.transform=tf; });
+      var idx=Math.floor((now/1000)/SPEED)%PALETTE.length;  // v61: cycle color only, no breathe
+      hearts.forEach(function(h){ h.style.color=PALETTE[idx]; });
       requestAnimationFrame(frame);
     }
     requestAnimationFrame(frame);
