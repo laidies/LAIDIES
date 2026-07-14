@@ -27,16 +27,13 @@
 }
 *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--cream);color:var(--ink);font-family:Jost,system-ui,sans-serif} a{color:inherit}
 .topbar{height:76px;padding:0 clamp(20px,5vw,76px);display:flex;align-items:center;justify-content:space-between;background:rgba(255,253,251,.95);border-bottom:2px solid rgba(255,224,138,.8);position:sticky;top:0;z-index:20;backdrop-filter:blur(14px)}
-/* LAiDIES wordmark — lifted from the live StaticLogo (logo-web.jsx) DOM: spine + concave-mask D */
-.logo{text-decoration:none;display:inline-block}
-.logo .lw{font-family:Archivo,system-ui,sans-serif;font-weight:800;font-size:30px;line-height:1;letter-spacing:-.055em;color:#1f0a1d;white-space:nowrap;transform:scaleY(1.14);transform-origin:center;display:inline-block}
-.logo .la{color:#57b6c0;margin-left:-.09em;position:relative;z-index:2}
-.logo .li{display:inline-block;position:relative;top:0;width:.16em;height:.72em;margin:0 -.02em 0 .005em;background:#57b6c0;vertical-align:baseline;z-index:2}
-.logo .logo-heart{position:absolute;left:50%;bottom:100%;transform:translateX(-50%);width:.24em;height:calc(.24em * 6 / 7);display:block;z-index:3;transform-origin:center bottom;color:#e982ab}
-.logo .logo-heart svg{position:absolute;inset:0;width:100%;height:100%;display:block}
-.logo .logo-heart svg rect{fill:currentColor}
-.logo .ld{display:inline-block;margin-left:-.34em;position:relative;z-index:0;clip-path:inset(0 0 0 .135em);-webkit-mask-image:radial-gradient(circle .46em at .02em -.14em,transparent .45em,#000 .46em);mask-image:radial-gradient(circle .46em at .02em -.14em,transparent .45em,#000 .46em)}
-.logo--rev .lw{color:#fffdfb}
+/* LAiDIES logo = your final export PNG (laidies-logo-color / -reverse) + the cycling heart
+   overlaid exactly on your baked heart (measured: 37.8% / 16.1%, 4.6%×14.1%) */
+.logo{text-decoration:none;position:relative;display:inline-block;line-height:0}
+.logo-word{display:block;height:34px;width:auto}
+.logo-heart{position:absolute;left:37.8%;top:15%;width:5.4%;height:16%;transform:translateX(-50%);transform-origin:center bottom;color:#e982ab;pointer-events:none}
+.logo-heart svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.logo-heart svg rect{fill:currentColor}
 .town-kicker span{color:var(--teal)}
 nav{display:flex;gap:24px;align-items:center} nav a{text-decoration:none;font-weight:700;font-size:.94rem}.menu{display:none}.mobile-nav{position:fixed;top:76px;left:0;right:0;padding:18px 24px;background:var(--cream);z-index:30;border-bottom:1px solid var(--line)}.mobile-nav a{display:block;padding:12px 0;text-decoration:none;font-weight:700}
 .hero{min-height:calc(100vh - 76px);position:relative;display:grid;align-items:center;overflow:hidden}.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,253,251,.99) 0%,rgba(255,253,251,.9) 38%,rgba(255,253,251,.18) 69%)}
@@ -486,7 +483,7 @@ footer{background:linear-gradient(135deg,#2f8f8b 0%,#5b7a99 55%,#75639a 108%);co
 </head>
 <body>
 <header class="topbar">
-    <a class="logo" href="#top" aria-label="LAiDIES home"><span class="lw"><span>L</span><span class="la">A</span><span class="li"><span class="logo-heart" aria-hidden="true"></span></span><span class="ld">D</span><span>IES</span></span></a>
+    <a class="logo" href="#top" aria-label="LAiDIES home"><img class="logo-word" src="/assets/logo/laidies-wordmark.png" alt="LAiDIES" width="1024" height="298" fetchpriority="high"><span class="logo-heart" aria-hidden="true"></span></a>
     <nav aria-label="Primary">
       <a href="#this-week">Latest Episode</a><a href="#new-here">Start learning</a><a href="#reference">Look it up</a><a href="#activities">Activities</a><a href="#town">Explore SUNNYVAiLE</a><a class="nav-ksvl" href="/radio.html"><span class="onair-dot"></span>KSVL 99.9</a><a class="signin-link" href="/post-office.html#signin">Sign in</a><a class="join-btn" href="/maikeover.html">Join the town</a></nav>
     <button class="menu" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
@@ -725,7 +722,7 @@ footer{background:linear-gradient(135deg,#2f8f8b 0%,#5b7a99 55%,#75639a 108%);co
     </section>
 
   </main>
-  <footer><a class="logo logo--rev" href="#top" aria-label="LAiDIES home"><span class="lw"><span>L</span><span class="la">A</span><span class="li"><span class="logo-heart" aria-hidden="true"></span></span><span class="ld">D</span><span>IES</span></span></a><p>Girl power meets machine power.</p><p>The ’90s shaped us. AI is shaping now. SUNNYVAiLE is where they meet.</p></footer>
+  <footer><a class="logo" href="#top" aria-label="LAiDIES home"><img class="logo-word" src="/assets/logo/laidies-wordmark-reverse.png" alt="LAiDIES" loading="lazy"><span class="logo-heart" aria-hidden="true"></span></a><p>Girl power meets machine power.</p><p>The ’90s shaped us. AI is shaping now. SUNNYVAiLE is where they meet.</p></footer>
   <script defer src="/content/site/sv-tour-checkin.js?v=20260712-ksvl"></script>
   <script defer src="/content/site/charm-hunt.js?v=20260705-dusk"></script>
   <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
