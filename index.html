@@ -43,7 +43,7 @@ h1,h2,h3{font-family:Jost,sans-serif}h1{font-size:clamp(3.1rem,5.6vw,5.8rem);lin
 .closet{display:grid;grid-template-columns:1fr 1fr;background:var(--jacaranda);color:var(--cream);align-items:center}.closet>div{padding:70px clamp(28px,7vw,100px)}.closet img{width:100%;height:100%;max-height:650px;object-fit:cover}.closet button{background:#f4a636;color:#3a1838}footer{padding:55px clamp(24px,7vw,112px);background:var(--plum-deep);color:var(--cream);display:grid;grid-template-columns:auto 1fr 1fr;gap:30px;align-items:center}footer p{margin:0;color:#fffdfb}
 @media(max-width:1050px){nav{gap:16px;font-size:.88rem}.intent-grid{grid-template-columns:1fr 1fr}.weekly-layout{grid-template-columns:1fr}.ritual{grid-template-columns:1fr 1fr}.town-directory{grid-template-columns:1fr 1fr}}
 @media(max-width:820px){nav{display:none}.menu{display:block;border:1px solid var(--plum);background:transparent;padding:9px 14px;border-radius:8px;font-weight:700}.hero{min-height:auto;padding-top:440px}.hero>img{height:440px}.hero-shade{background:linear-gradient(0deg,var(--cream) 0%,rgba(255,253,251,.15) 62%);height:540px}.hero-copy{background:var(--cream);margin:0;padding:38px 24px 52px;max-width:none}.intent{grid-template-columns:1fr;gap:22px}.reference,.closet{grid-template-columns:1fr}.activity-grid{grid-template-columns:1fr 1fr}.reference>img,.closet img{max-height:520px}.district-view figcaption{position:static;border-radius:0;max-width:none}footer{grid-template-columns:1fr}}
-@media(max-width:560px){.play-chip{width:100%;justify-content:center}.topbar{height:54px;padding:0 18px}.logo{font-size:24px}.mobile-nav{top:54px}.hero{padding-top:300px}.hero>img{height:300px}.hero-shade{height:360px}.hero-copy{padding:30px 20px 42px}.hero-copy h1{font-size:2.65rem}.town-kicker{margin-bottom:18px}.lede{font-size:1rem}.actions{display:grid}.button{text-align:center}.intent,.weekly,.activities,.town{padding:58px 20px}.intent-grid,.activity-grid,.ritual,.town-directory{grid-template-columns:1fr}.reference>div,.closet>div{padding:54px 20px}.reference form>div{display:grid;gap:8px}.reference input,.reference form button{border-radius:8px;padding:14px}.district-view{border-radius:12px}.district-view img{aspect-ratio:4/3}.ritual button,.ritual .ritual-stop{grid-template-columns:38px 1fr}.town-directory article{min-height:auto}}
+@media(max-width:560px){.play-chip{width:100%;justify-content:center}.topbar{height:54px;padding:0 18px}.logo{font-size:24px}.mobile-nav{top:54px}.hero{padding-top:300px}.hero>img{height:300px}.hero-shade{height:360px}.hero-copy{padding:30px 20px 42px}.hero-copy h1{font-size:2.65rem}.town-kicker{margin-bottom:18px}.lede{font-size:1rem}.actions{display:grid}.button{text-align:center}.intent,.weekly,.activities,.town{padding:34px 20px}.intent-grid,.activity-grid,.ritual,.town-directory{grid-template-columns:1fr}.reference>div,.closet>div{padding:54px 20px}.reference form>div{display:grid;gap:8px}.reference input,.reference form button{border-radius:8px;padding:14px}.district-view{border-radius:12px}.district-view img{aspect-ratio:4/3}.ritual button,.ritual .ritual-stop{grid-template-columns:38px 1fr}.town-directory article{min-height:auto}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.intent-grid a{transition:none}}
 
 
@@ -138,11 +138,11 @@ html{scroll-padding-top:96px}
 
 /* --- Unified panel system: saturated sections float on the cream field --- */
 body{background:var(--cream)}
-.weekly,.reference{margin:46px clamp(20px,5vw,72px);border-radius:24px;overflow:hidden;box-shadow:0 18px 44px rgba(33,24,32,.14)}
-.weekly{padding:64px clamp(24px,4.5vw,72px)}
+.weekly,.reference{margin:clamp(22px,4vw,46px) clamp(20px,5vw,72px);border-radius:24px;overflow:hidden;box-shadow:0 18px 44px rgba(33,24,32,.14)}
+.weekly{padding:clamp(30px,5vw,64px) clamp(18px,4.5vw,72px)}
 .spotlights{padding:0 clamp(20px,5vw,72px);margin:46px 0}
-.intent{padding:76px clamp(24px,7vw,112px)}
-.activities,.town{padding:64px clamp(24px,7vw,112px)}
+.intent{padding:clamp(32px,6vw,76px) clamp(18px,7vw,112px)}
+.activities,.town{padding:clamp(30px,5vw,64px) clamp(18px,7vw,112px)}
 
 .weekly-layout{align-items:stretch}
 .ritual{display:flex;flex-direction:column;justify-content:space-between;height:100%;margin:0;gap:12px}
@@ -180,10 +180,10 @@ body{background:linear-gradient(150deg,#f8ecdd 0%,#f6dfe4 32%,#e9ede2 58%,#c9e5d
 .topbar .logo span{color:var(--teal)}
 .nav-ksvl{color:var(--ink);border-color:var(--teal)}
 .menu{color:var(--ink)}
-.activities,.town{background:linear-gradient(160deg,#e4d9f1 0%,#f5dbe8 100%);margin:46px clamp(20px,5vw,72px);border-radius:24px;padding:64px clamp(24px,4.5vw,72px);box-shadow:0 16px 38px rgba(58,24,56,.13)}
+.activities,.town{background:linear-gradient(160deg,#e4d9f1 0%,#f5dbe8 100%);margin:clamp(22px,4vw,46px) clamp(20px,5vw,72px);border-radius:24px;padding:clamp(30px,5vw,64px) clamp(18px,4.5vw,72px);box-shadow:0 16px 38px rgba(58,24,56,.13)}
 .town{background:linear-gradient(165deg,#d3ebe7 0%,#e2ddf1 100%)}
 .spotlights{background:transparent}
-.intent{margin:46px clamp(20px,5vw,72px);border-radius:24px;box-shadow:0 16px 38px rgba(58,24,56,.13);background:linear-gradient(135deg,#c96652 0%,#db7581 55%,#e982ab 112%)}
+.intent{margin:clamp(22px,4vw,46px) clamp(20px,5vw,72px);border-radius:24px;box-shadow:0 16px 38px rgba(58,24,56,.13);background:linear-gradient(135deg,#c96652 0%,#db7581 55%,#e982ab 112%)}
 .intent .eyebrow{color:#cabbe8}
 .intent h2{color:var(--cream)}
 .intent>div>p:last-child{color:#fffdfb}
@@ -212,7 +212,7 @@ footer .logo span{color:#cabbe8}
 .town{--ai-accent:var(--teal)}
 
 /* THE LAiDIES METHOD — copy + postcard left, five steps right (Ali layout) */
-.explainer{margin:46px clamp(20px,5vw,72px);border-radius:24px;box-shadow:0 16px 38px rgba(58,24,56,.13);background:linear-gradient(160deg,#dcefe9 0%,#f3efe2 100%);padding:56px clamp(24px,4.5vw,72px);display:grid;grid-template-columns:1.05fr .95fr;column-gap:clamp(28px,4vw,64px);align-items:start}
+.explainer{margin:clamp(22px,4vw,46px) clamp(20px,5vw,72px);border-radius:24px;box-shadow:0 16px 38px rgba(58,24,56,.13);background:linear-gradient(160deg,#dcefe9 0%,#f3efe2 100%);padding:56px clamp(24px,4.5vw,72px);display:grid;grid-template-columns:1.05fr .95fr;column-gap:clamp(28px,4vw,64px);align-items:start}
 .explainer-left{grid-column:1}
 .explainer-head{margin-bottom:8px}
 .explainer-copy{display:block;margin:4px 0 0}
@@ -241,7 +241,7 @@ footer .logo span{color:#cabbe8}
 @media(max-width:900px){.explainer{grid-template-columns:1fr}.explainer .explainer-right{grid-column:1;grid-row:auto;margin:22px 0;order:1}.explainer-steps{columns:1}}
 
 /* Wednesday Postcard signup band (weekly-only path) */
-.postcard-band{margin:46px clamp(20px,5vw,72px);border-radius:24px;box-shadow:0 16px 38px rgba(58,24,56,.13);background:linear-gradient(160deg,#e4d9f1 0%,#f5dbe8 100%);padding:52px clamp(24px,4.5vw,72px);display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
+.postcard-band{margin:clamp(22px,4vw,46px) clamp(20px,5vw,72px);border-radius:24px;box-shadow:0 16px 38px rgba(58,24,56,.13);background:linear-gradient(160deg,#e4d9f1 0%,#f5dbe8 100%);padding:52px clamp(24px,4.5vw,72px);display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
 .postcard-band h2{font-size:clamp(1.7rem,2.8vw,2.5rem)}
 .postcard-band p{max-width:56ch;line-height:1.6;color:var(--muted)}
 .postcard-note{font-size:.92rem;font-style:italic}
@@ -261,7 +261,7 @@ footer .logo span{color:#cabbe8}
 .b-lilac{background:#b3abe7;color:#3a1838}
 
 /* manifesto + closet join the floating-panel system (were full-bleed outliers) */
-.manifesto,.closet{margin:46px clamp(20px,5vw,72px);border-radius:24px;overflow:hidden;box-shadow:0 16px 38px rgba(58,24,56,.13)}
+.manifesto,.closet{margin:clamp(22px,4vw,46px) clamp(20px,5vw,72px);border-radius:24px;overflow:hidden;box-shadow:0 16px 38px rgba(58,24,56,.13)}
 
 .inline-link{color:inherit;font-weight:700;text-decoration:underline;text-underline-offset:3px}
 
@@ -292,13 +292,7 @@ footer .logo span{color:#cabbe8}
 .chip-route{margin-bottom:12px;align-self:flex-start}
 .route-cell{display:flex;flex-direction:column}
 .route-cell .ritual{flex:1}
-/* Mobile: the theme chip pins as a sticky header; the 9 route stops scroll up behind it, then release at the list's end */
 @media(max-width:560px){
-  .weekly{overflow:visible}   /* required: overflow:hidden (rounded-card clip) breaks position:sticky */
-  .route-cell{position:relative;display:block}   /* block, not flex — position:sticky is unreliable as a flex item on iOS Safari */
-  .chip-route{position:sticky;position:-webkit-sticky;top:54px;z-index:6;margin-bottom:14px;background:rgba(38,24,44,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-color:rgba(255,253,251,.32);box-shadow:0 10px 22px rgba(14,7,20,.42)}
-  /* Activities: the filter pills pin so you can re-filter while the grid scrolls behind them */
-  .activities .filter{position:sticky;position:-webkit-sticky;top:54px;z-index:6;background:var(--cream);margin:0 -20px 4px;padding:12px 20px;box-shadow:0 8px 14px rgba(33,24,32,.09)}
   /* "How it all works": an OBVIOUS tap-to-expand bar (not a whisper caret) */
   .steps-title{cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;margin:24px 0 0;padding:15px 18px;border:1.6px solid var(--rose);border-radius:12px;background:rgba(155,63,95,.08);font-size:1.12rem;-webkit-tap-highlight-color:transparent}
   .steps-title::after{content:"SHOW \25BE";color:var(--rose);font-size:.72rem;font-weight:800;letter-spacing:.09em;white-space:nowrap}
