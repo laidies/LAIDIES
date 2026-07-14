@@ -26,6 +26,26 @@ That scene works because it's a **living still**: the whole pixel painting holds
   or recur gently. **1920×1080, 16:9, mp4 (H.264).**
 - Palette + world = locked town style (plum #4b2148, rose #9b3f5f, pink #e982ab, teal #57b6c0, gold, cream).
 
+## DURATION — build each clip to fill its scene's on-screen time
+Every scene holds on screen for a set time (each **episode scene list gives the per-scene duration**, derived
+from that episode's cue sheet; trailer/credits beats run ~5–30s). Structure the animation to **fill that whole
+time without obvious repetition:**
+- **Short holds (≤ ~12s):** make the clip that exact length — one full arc: ambient open → hero beat → settle.
+- **Long holds (> ~12s):** the **hero beat happens ONCE** (never repeat the signature moment); after it, the
+  frame settles into **ambient-only motion that loops seamlessly** to fill the rest. *(A 30s scene = one moth
+  landing, then ~24s of gentle flicker/steam/sway that loops invisibly — NOT a 6s clip looped 5× with the moth
+  landing five times.)*
+- Place the hero beat in the **first third**, so it reads before the narration moves on.
+- Deliver at the scene's target length, or as a hero clip + a seamless ambient loop the player can extend.
+
+## TRANSITIONS — leave them to the player (don't bake them in)
+Scene-to-scene transitions are handled by the **Screening Room player**, not by you: a short **VHS dissolve /
+dip-to-black with a light tracking glitch** (you're watching a tape — the tape *is* the transition, same for
+every episode). So **every clip is a clean loop with NO baked-in fade or wipe** — start and end on full,
+matching frames so the player can cut/dissolve cleanly. *(One exception, **Ep4 only**: the LUMINAiRY / Maven
+Hall may use a "zoom into the next window" move — its scene list will call it out. Everywhere else: clean
+loops, player handles the dissolve.)*
+
 ## Light mode per scene (from the town canon)
 - **DAY** = bright sunny 90s (blue sky, midday sun) — most Main-Street storefronts.
 - **NIGHT/DUSK** = warm sunset→lavender, neon + gold twinkle (the "Dial-Up to SUNNYVAiLE" postcard look).

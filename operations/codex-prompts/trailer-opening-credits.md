@@ -26,9 +26,12 @@ Not a slideshow, not a building tour. The opening of a **show you love**. Refere
   everyone glad you're here. Motion in every frame (living stills), never a blank stare.
 
 ## Style (locked)
-- **Pixel art**, same language as the Ep4 scene work (`assets/episodes/ep-04/pixel/`) and the pixel
-  character portraits (`assets/pixel-restyle/characters/`). Visible pixels + dither, real adult
-  proportions, town palette (plum #4b2148, rose #9b3f5f, pink #e982ab, teal #57b6c0, gold #c9a227, cream).
+- **Pixel art.** The **ONLY finished visual references** are `assets/episodes/ep-04/pixel/ep04-scene-05-grace.png`
+  (the Grace living-still — the gold standard for scene look + motion) and `…/ep04-heroine-sheet-v2.png`
+  (faces, fidelity, and the pixel size). **Match those two.** ⚠️ The *other* scenes in `ep-04/pixel/` are **NOT
+  final** — do NOT use them as references. Use the pixel character portraits (`assets/pixel-restyle/characters/`)
+  for likeness/wardrobe only. Visible pixels + dither, real adult proportions, town palette (plum #4b2148,
+  rose #9b3f5f, pink #e982ab, teal #57b6c0, gold #c9a227, cream).
 - Y2K SUNNYVAiLE, ~1999. No AI-cliché imagery.
 
 ## CONSISTENCY — ONE pixelation level, no exceptions (critical)

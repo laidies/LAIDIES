@@ -17,7 +17,9 @@ signs off. Think the closing of a 90s sitcom — the cozy final shot, the "goodn
 - Optional gentle credits roll (roles below) — but keep it short and legible.
 
 ## Style (locked)
-- **Pixel art**, same language as the opening credits and the Ep4 scene work. Visible pixels + dither.
+- **Pixel art** — same as the opening credits. **ONLY finished references:** `ep04-scene-05-grace.png`
+  (Grace living-still, gold standard) + `ep04-heroine-sheet-v2.png` (faces/pixel size). ⚠️ The *other*
+  `ep-04/pixel/` scenes are NOT final — don't reference them. Visible pixels + dither.
 - **NIGHT / DUSK town palette** — match the "Dial-Up to SUNNYVAiLE" postcard
   (`assets/postcards/from-sunnyvaile/pc-dial-up.png`, Ali's pick for night): warm coral/orange sunset →
   lavender, vibrant teal + hot pink, gold twinkly lights + warm window glow, pink neon. Plum for depth.
