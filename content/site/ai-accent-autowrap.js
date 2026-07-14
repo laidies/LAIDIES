@@ -14,7 +14,7 @@
     // Canon: Ai accent colour on BIG BOLD HEADINGS + logo only (Ali, reaffirmed 2026-07-12 —
     // in paragraph text it distracts). Body Ai keeps the lowercase i but inherits colour.
     var css = '.ai{color:inherit;text-transform:none!important;font-variant-caps:normal!important}'
-      + 'h1 .ai,h2 .ai,h3 .ai,.logo .ai,.logo span{color:var(--ai-accent,#e982ab)}'
+      + 'h1 .ai,h2 .ai,h3 .ai,.logo .ai{color:var(--ai-accent,#e982ab)}'
       + '.ai,.ai-run{display:inline!important}';
     var style = document.createElement('style');
     style.id = ACCENT_STYLE_ID;
