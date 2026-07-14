@@ -10,11 +10,20 @@ it's wrong). Think **Friends / Fresh Prince / Full House**: the theme plays, the
 world doing their thing*, names + jobs come up as lower-thirds, and it lands on the title. It should feel
 like a real show is starting.
 
-## The feel (reference these)
-- Cast montage over the theme song — characters mid-action in their own buildings, not staring at camera.
-- **Lower-third name cards** slide/pop in (NAME on top, job under it), the way a sitcom credits each cast member.
-- Quick, rhythmic cuts on the beat; gentle push-ins / pans (Ken Burns) so every shot has motion.
-- Warm, celebratory, Y2K. Ends on the **LAiDIES wordmark → "SUNNYVAiLE"** title.
+## THE #1 NOTE — make it feel like a REAL TV opening-credits sequence
+Not a slideshow, not a building tour. The opening of a **show you love**. Reference the openings of
+**Friends · Full House · Fresh Prince · Gilmore Girls · Sex and the City**. What makes those read as
+*credits* (do all of these):
+- **It's the cast list, brought to life.** Each character gets her own **credit moment** — a couple seconds
+  of personality business in her world that lands on a **look-to-camera** (or a little freeze) as her **name
+  card pops**. The **name card is the hero of the shot** — big, styled, "STARRING"-energy — not a tiny subtitle.
+- **One consistent frame + type treatment** for every cast card (same position, same pop-in, same font), so
+  the whole thing reads as one unified credit roll.
+- **Cut on the beat.** Each cast reveal lands on a musical hit of the anthem — the montage moves *with* the song.
+- **The logo is the anchor:** the **LAiDIES wordmark** hits **early** (over the opening town shot, à la Full
+  House's logo over the Golden Gate) **and again as the climax** with **SUNNYVAiLE**.
+- **Warm, celebratory, nostalgic** — the feeling of *"my show is starting."* Golden hour, string lights,
+  everyone glad you're here. Motion in every frame (living stills), never a blank stare.
 
 ## Style (locked)
 - **Pixel art**, same language as the Ep4 scene work (`assets/episodes/ep-04/pixel/`) and the pixel
@@ -43,7 +52,7 @@ bold on top, job under), sitcom-credits style, held ~2.5s then out. Cut on the b
 ## SHOT LIST (11 shots, ~56s — cast intros interwoven with town beats; time to the music)
 | # | Time | Shot & staging | Motion (hero beat + ambient) | Lower-third |
 |---|------|----------------|------------------------------|-------------|
-| 1 | 0:00–0:05 | **Establishing** — wide SUNNYVAiLE Main Street at golden dusk (à la `pc-welcome.png`): lit storefronts, jacaranda, mountains. Slow push-in. **Fade in from black.** | KSVL tower beacon pulses; string lights twinkle; a palm sways; the little KSVL car rolls past | — (soft "SUNNYVAiLE, est. 1999" ok) |
+| 1 | 0:00–0:05 | **Establishing + logo** — wide SUNNYVAiLE Main Street at golden dusk (à la `pc-welcome.png`): lit storefronts, jacaranda, mountains. Slow push-in. **Fade in from black.** | KSVL beacon pulses; string lights twinkle; palm sways; KSVL car rolls past — then the **LAiDIES wordmark blooms** over the town | **L`Ai`DIES** (logo, hero) |
 | 2 | 0:05–0:10 | **Your Heroine** — Blend & Snap corner table; Ali writing in her LAiDIES notebook, coffee + flip phone. | looks up & smiles / flip phone lights pink · steam curls, café lights | **YOUR HEROINE** · a few steps ahead of you |
 | 3 | 0:10–0:15 | **Mme CLAi-O** — plum reading room; crystal ball, tarot spread, Magic 8-Ball. | crystal ball swells / she flips a card · candle flames, beaded curtain sways | **MME CLAi-O** · the read, the message, the move |
 | 4 | 0:15–0:20 | **Town beat — KSVL tower** — the radio tower against the dusk sky. | beacon pulses; broadcast rings ripple out; a bird lifts off | — |
