@@ -24,9 +24,12 @@ signs off. Think the closing of a 90s sitcom — the cozy final shot, the "goodn
 - Y2K SUNNYVAiLE, ~1999.
 
 ## Audio
-- The **town anthem** — `content/music/sunnyvaile-town-anthem.mp3` — a softer/outro feel (reprise or tail).
-  Video can carry the audio or run silent under the Screening Room's bumper audio (say which you did).
-- Length: **~12–18s**.
+- Soundtrack = a **specific segment of "Wednesdays in SUNNYVAiLE"** —
+  `content/music/the-laidies-wednesday-in-sunnyvaile.mp3` (same song as the opening; full track ~4:04).
+  **Ali names the exact segment** — likely a softer/outro-feeling part than the opening's — use ONLY that
+  segment and **bake it into the video's audio track**, timed to the wind-down.
+- Video length = the length of that segment (roughly **~12–18s**).
+- Plays **with sound** in the Screening Room's `end` bumper — the music is the video's own audio.
 
 ## Content beats (in order)
 1. Warm dusk establishing shot of SUNNYVAiLE (Main Street glowing / the whole town at golden hour).

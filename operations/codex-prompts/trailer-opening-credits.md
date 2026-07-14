@@ -23,10 +23,13 @@ like a real show is starting.
 - Y2K SUNNYVAiLE, ~1999. No AI-cliché imagery.
 
 ## Audio
-- Cut to the **instrumental intro of the town anthem** — `content/music/sunnyvaile-town-anthem.mp3`,
-  the part **before the vocals start**. The video can carry that audio, or be silent and let the
-  Screening Room play the anthem under it (either is fine — tell us which you did).
-- Target length: **~15–20s** (roughly the instrumental intro length).
+- Soundtrack = a **specific segment of "Wednesdays in SUNNYVAiLE"** —
+  `content/music/the-laidies-wednesday-in-sunnyvaile.mp3` (the Wednesday theme song; full track ~4:04).
+  **Ali names the exact segment** (start → end timestamps) — use ONLY that segment and **bake it into the
+  video's own audio track**, with the cuts/motion timed to it.
+- Video length = the length of that segment (roughly **~15–20s**).
+- The Screening Room will play this bumper video **with sound** (the baked-in segment), so the music comes
+  from the video itself — don't leave it silent.
 
 ## Cast to feature (name · job — for the lower-thirds)
 - **Your Heroine** · a few steps ahead of you  (ref `ali-founder-portrait-pixel-v1.png`)
