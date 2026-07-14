@@ -24,15 +24,15 @@ signs off. Think the closing of a 90s sitcom — the cozy final shot, the "goodn
 - Y2K SUNNYVAiLE, ~1999.
 
 ## Audio
-- Soundtrack = a **specific segment of "Wednesdays in SUNNYVAiLE"** —
-  `content/music/the-laidies-wednesday-in-sunnyvaile.mp3` (same song as the opening; full track ~4:04).
-  **Ali names the exact segment** — likely a softer/outro-feeling part than the opening's — use ONLY that
-  segment and **bake it into the video's audio track**, timed to the wind-down.
-- Video length = the length of that segment (roughly **~12–18s**).
-- Plays **with sound** in the Screening Room's `end` bumper — the music is the video's own audio.
-- **Fade in / fade out** so it eases in from the episode and settles out at the end: ramp the audio **up
-  over ~1s** at the start and **down over ~1.5s** to silence at the end, matched visually — **fade in from
-  black** and **fade out to black**. (Gentler than the opening — it's the wind-down.)
+- Soundtrack = **"Wednesdays in SUNNYVAiLE"** — same song as the opening
+  (`content/music/the-laidies-wednesday-in-sunnyvaile.mp3`). Use **this exact segment: 3:27.7 → the end
+  (~4:03.7 / 243.7s)** — i.e. from **0:36 before the end to the end**, about **36 seconds**. Picks up right
+  where the opening segment left off and rides the song's own ending. Bake it into the video's audio.
+- Video length = that segment (~**36s**).
+- Plays **with sound** in the `end` bumper — the music is the video's own audio.
+- **Fade IN only.** The start is a mid-song cut, so ramp the audio **up over ~1s** (fade in from black).
+  **Do NOT add a fade-out** — the song already resolves/ends on its own; let it ride out naturally
+  (a visual fade to black on the last frame is fine).
 
 ## Content beats (in order)
 1. Warm dusk establishing shot of SUNNYVAiLE (Main Street glowing / the whole town at golden hour).

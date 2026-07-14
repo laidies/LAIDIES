@@ -23,16 +23,14 @@ like a real show is starting.
 - Y2K SUNNYVAiLE, ~1999. No AI-cliché imagery.
 
 ## Audio
-- Soundtrack = a **specific segment of "Wednesdays in SUNNYVAiLE"** —
-  `content/music/the-laidies-wednesday-in-sunnyvaile.mp3` (the Wednesday theme song; full track ~4:04).
-  **Ali names the exact segment** (start → end timestamps) — use ONLY that segment and **bake it into the
-  video's own audio track**, with the cuts/motion timed to it.
-- Video length = the length of that segment (roughly **~15–20s**).
-- The Screening Room will play this bumper video **with sound** (the baked-in segment), so the music comes
-  from the video itself — don't leave it silent.
-- **Fade in / fade out** so it's not abrupt: ramp the audio **up over ~0.75s** at the start and **down over
-  ~1s** at the end, and match it visually — **fade in from black** at the top and **fade out to black** at
-  the end (the tour begins right after).
+- Soundtrack = **"Wednesdays in SUNNYVAiLE"** — `content/music/the-laidies-wednesday-in-sunnyvaile.mp3`
+  (full track ~4:04 / 243.7s). Use **this exact segment: 2:50.7 → 3:27.7** — i.e. from **1:13 before the end
+  to 0:36 before the end**, about **37 seconds**. Bake it into the video's own audio; time the cuts/motion to it.
+- Video length = that segment (~**37s**).
+- Plays **with sound** in the bumper — the music is the video's own audio; don't leave it silent.
+- **This is a mid-song cut on BOTH ends, so it needs a fade IN and a fade OUT** or both edges are abrupt:
+  ramp the audio **up over ~0.75s** at the start and **down over ~1s** at the end, matched visually
+  (**fade in from black** at the top, **fade out to black** at the end — the tour begins right after).
 
 ## Cast to feature (name · job — for the lower-thirds)
 - **Your Heroine** · a few steps ahead of you  (ref `ali-founder-portrait-pixel-v1.png`)
