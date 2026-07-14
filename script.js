@@ -1364,6 +1364,31 @@ const hiddenMeritBadges = {
   },
 };
 
+// Which hidden badges are TRUE merit badges — earned TASK achievements that fill
+// the Closet merit sash — versus easter-egg discoveries that stay in the diary.
+// Every entry above is unlocked and stored the same way (getSecretBadges); this
+// set is the only thing that decides which Closet collection each one feeds.
+// Per CURRENT-PRIORITIES: repeat-task/completionist achievements are merit
+// badges, while bonus finds like the Dream Phone 867-5309 line are discoveries
+// (slated to become charms in the later "secret merit badge" audit) and are
+// intentionally left OUT of this set so they keep landing in the diary.
+const MERIT_BADGE_IDS = new Set([
+  "hotline-regular", // 5 Madame CLAi-O readings
+  "remix-scholar", // played all Dream Phone remix cards in one call
+  "cold-read", // won Dream Phone first-try, zero wrong numbers (skill achievement)
+  "try-on-regular", // 5 Five-Minute Try-On dares
+  "group-chat-regular", // 5 Girl Talk draws
+  "coven-reservation", // opened every Businesswomen's Special fortune lane
+  "room-tour", // posted a lap of every Chat Room
+  // NOTE: full Wednesday Ritual badges are NOT listed here — they are minted
+  // per episode (id "full-ritual-ep-NN") directly as reward_type "merit_badge"
+  // from `laidies_ritual_done`, see getLocalRewardEvents. The old static
+  // "issue-03-full-ritual-merit-badge" catalog entry is orphaned/superseded.
+  // The Dream Phone dial-eggs (867-club, blocked-and-iconic / *67,
+  // redial-royalty / *69, deb-unlocked) are intentionally OMITTED — they are
+  // easter-egg discoveries that stay in the diary (secret_badge), per canon.
+]);
+
 const quizStickerAwards = [
   {
     id: "double",
@@ -2558,12 +2583,16 @@ function getLocalRewardEvents(userId) {
     });
   });
 
+  // Hidden badges live in one store but feed two Closet collections: true merit
+  // badges (earned task achievements — see MERIT_BADGE_IDS) fill the merit sash
+  // as reward_type "merit_badge"; everything else stays a diary "secret_badge".
   Object.values(getSecretBadges()).forEach((badge) => {
     if (!badge?.id) return;
+    const isMerit = MERIT_BADGE_IDS.has(badge.id);
     events.push({
       user_id: userId,
-      dedupe_key: `secret-badge:${badge.id}`,
-      reward_type: "secret_badge",
+      dedupe_key: `${isMerit ? "merit-badge" : "secret-badge"}:${badge.id}`,
+      reward_type: isMerit ? "merit_badge" : "secret_badge",
       issue_key: "",
       title: badge.title || badge.id,
       source: badge.source || "SUNNYVAiLE",
@@ -2571,6 +2600,27 @@ function getLocalRewardEvents(userId) {
       metadata: { sticker: badge.sticker || "" },
     });
   });
+
+  // Full Wednesday Ritual — one merit badge per episode whose complete 9-stop
+  // tour the reader has finished. sv-tour-checkin.js stamps `laidies_ritual_done`
+  // (keyed by episode number) the week that episode's tour is completed.
+  const ritualDone = getStoredJson("laidies_ritual_done", {});
+  if (ritualDone && typeof ritualDone === "object") {
+    Object.values(ritualDone).forEach((entry) => {
+      if (!entry || !entry.episode) return;
+      const epNum = String(entry.episode).padStart(2, "0");
+      events.push({
+        user_id: userId,
+        dedupe_key: `merit-badge:full-ritual-ep-${epNum}`,
+        reward_type: "merit_badge",
+        issue_key: `issue${epNum}`,
+        title: entry.title ? `${entry.title} — Full Ritual` : `Episode ${epNum} — Full Ritual`,
+        source: "The Wednesday Ritual",
+        earned_at: entry.completedAt || new Date().toISOString(),
+        metadata: { episode: Number(entry.episode), weekKey: entry.weekKey || "", sticker: `EP${epNum}` },
+      });
+    });
+  }
 
   // Hidden charms — Charm Hunt stores found charm slugs as an array under
   // `laidies_charms_found` (written by content/site/charm-hunt.js on other

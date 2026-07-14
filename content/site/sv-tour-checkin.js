@@ -7,7 +7,9 @@
  *    (e.g. after a specific interaction like clicking play on the episode song).
  *
  * State lives in localStorage under `laidies_tour_<isoWeekKey>` = array of stop keys.
- * When all 9 stops are checked, awards +1 FAiRY wish (localStorage `laidies_fairy_plays`).
+ * When all 9 stops are checked, awards +1 FAiRY wish (localStorage `laidies_fairy_plays`)
+ * AND stamps that week's episode into `laidies_ritual_done` so the Closet mints a
+ * per-episode "Full Ritual" merit badge (see getLocalRewardEvents in script.js).
  * Weekly reset is implicit: a new ISO week = a new empty checklist.
  *
  * Server sync (Supabase member_ritual_checkins table) is a future add — leave a hook.
@@ -36,6 +38,7 @@
   var LS_PREFIX = 'laidies_tour_';
   var LS_FAIRY = 'laidies_fairy_plays';
   var LS_LAST_REWARDED_WEEK = 'laidies_tour_last_rewarded_week';
+  var LS_RITUAL_DONE = 'laidies_ritual_done';
 
   function isoWeekKey(d) {
     var t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
@@ -82,6 +85,57 @@
     try { localStorage.setItem(LS_LAST_REWARDED_WEEK, w); } catch (_) {}
   }
 
+  function readRitualDone() {
+    try {
+      var raw = localStorage.getItem(LS_RITUAL_DONE);
+      var obj = raw ? JSON.parse(raw) : {};
+      return obj && typeof obj === 'object' ? obj : {};
+    } catch (_) { return {}; }
+  }
+
+  function latestPublishedEpisode(episodes) {
+    if (!Array.isArray(episodes)) return null;
+    return episodes
+      .filter(function (e) { return e && e.status === 'published' && typeof e.number === 'number'; })
+      .sort(function (a, b) { return a.number - b.number; })
+      .pop() || null;
+  }
+
+  // Stamp the episode whose Wednesday Ritual (all 9 stops) the reader just
+  // completed. Keyed by episode number so re-completing the same episode in a
+  // later week is a no-op, and each episode earns exactly one Full Ritual badge.
+  // The Closet reads laidies_ritual_done and mints the merit badge from it.
+  function recordRitualComplete(weekKey) {
+    function stamp(ep) {
+      if (!ep) return;
+      var done = readRitualDone();
+      if (done[ep.number]) return; // already have this episode's ritual badge
+      done[ep.number] = {
+        episode: ep.number,
+        title: ep.title || ('Episode ' + ep.number),
+        weekKey: weekKey,
+        completedAt: new Date().toISOString()
+      };
+      try { localStorage.setItem(LS_RITUAL_DONE, JSON.stringify(done)); } catch (_) {}
+      try {
+        document.dispatchEvent(new CustomEvent('sv:ritual-complete', {
+          detail: { episode: ep.number, title: done[ep.number].title, weekKey: weekKey }
+        }));
+      } catch (_) {}
+    }
+
+    // Prefer site-data already in memory; otherwise fetch the episode index.
+    var inline = (window.LAIDIES_SITE_DATA && window.LAIDIES_SITE_DATA.episodes) || null;
+    var ep = latestPublishedEpisode(inline);
+    if (ep) { stamp(ep); return; }
+    try {
+      fetch('/content/episode-index.json')
+        .then(function (r) { return r.json(); })
+        .then(function (data) { stamp(latestPublishedEpisode(data && data.episodes)); })
+        .catch(function () {});
+    } catch (_) {}
+  }
+
   function isCheckedIn(stopKey, weekKey) {
     return readWeek(weekKey).indexOf(stopKey) !== -1;
   }
@@ -101,6 +155,7 @@
     if (checked.length === STOPS.length && readLastRewardedWeek() !== weekKey) {
       incrementFairyPlays();
       writeLastRewardedWeek(weekKey);
+      recordRitualComplete(weekKey);
       rewardIssued = true;
     }
 
