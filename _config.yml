@@ -1,0 +1,19 @@
+# GitHub Pages (Jekyll) build config for laidies.ai
+#
+# Purpose: keep internal working folders and agent-config files OUT of the
+# published site. Everything listed here STAYS in the repo (you and the agents
+# keep using it locally) — it just stops being copied to what laidies.ai serves.
+#
+# Jekyll is already active on this site (there is no .nojekyll), so this only
+# ADDS exclusions; it changes nothing else about how pages are built.
+#
+# Takes effect on the next commit + push. After deploying, spot-check that
+# https://laidies.ai/operations/weekly-command-center.html now 404s and the
+# real site pages still load.
+
+exclude:
+  - operations          # internal briefs, drafts, canon, weekly command center, agent-council reviews, growth scorecards
+  - concepts            # old homepage/town prototypes and design comps
+  - AGENTS.md           # Codex scope contract (agent config, not site content)
+  - CODEX_GUARDRAILS.md # Codex delivery conventions (agent config)
+  - SARA-EUGINA-LAIDIES-CREDIT-DRAFT.md  # loose working draft at root

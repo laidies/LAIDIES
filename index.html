@@ -71,6 +71,8 @@ html{scroll-padding-top:96px}
 .hero-dusk .secondary{border:1.5px solid var(--teal);color:#fffdfb;background:rgba(26,10,20,.35)}
 .hero-dusk .why{color:#fffdfb}
 .hero-dusk .why-answer{background:rgba(26,10,20,.78);color:#fffdfb;border-left:4px solid #57b6c0;box-shadow:none}
+/* Mobile: keep the dusk hero a title card — copy + buttons sit OVER the image (not stacked below on cream) */
+@media(max-width:820px){.hero-dusk{min-height:auto;padding-top:0}.hero-dusk>img{position:absolute;inset:0;height:100%;width:100%}.hero-dusk .hero-shade{height:100%;background:linear-gradient(180deg,rgba(26,10,20,.5) 0%,rgba(26,10,20,.82) 58%,rgba(26,10,20,.93) 100%)}.hero-dusk .hero-copy{position:relative;background:transparent;color:#fffdfb;margin:0;padding:34px 22px 20px;max-width:none}.hero-dusk .hero-copy h1,.hero-dusk .lede,.hero-dusk .namecheck{color:#fffdfb}.hero-dusk .hero-tagline{color:#cabbe8;white-space:normal}.hero-dusk .hero-jumps{position:relative;background:transparent;padding:4px 22px 30px}}
 .namecheck{font-family:Jost,sans-serif;font-style:normal;font-weight:600;font-size:clamp(1rem,1.4vw,1.2rem);color:#fffdfb;margin:20px 0 6px;padding:10px 0 10px 18px;border-left:4px solid #57b6c0;max-width:none}.namecheck strong{color:#8bbde9;font-style:normal;font-family:Jost,sans-serif;font-weight:800;letter-spacing:.02em}
 
 /* district cards */
@@ -236,7 +238,7 @@ footer .logo span{color:#cabbe8}
 .n-teal{background:var(--teal)} .n-pink{background:#e982ab;color:#3a1838} .n-coral{background:#ec7a78;color:#3a1838}
 .explainer-card{margin:0;max-width:none}
 .explainer-card img{display:block;width:100%;border:0;border-radius:6px;box-shadow:0 16px 36px rgba(58,24,56,.22)}
-@media(max-width:900px){.explainer{grid-template-columns:1fr}.explainer .explainer-right{grid-column:1;grid-row:auto;margin:22px 0}.explainer-steps{columns:1}}
+@media(max-width:900px){.explainer{grid-template-columns:1fr}.explainer .explainer-right{grid-column:1;grid-row:auto;margin:22px 0;order:1}.explainer-steps{columns:1}}
 
 /* Wednesday Postcard signup band (weekly-only path) */
 .postcard-band{margin:46px clamp(20px,5vw,72px);border-radius:24px;box-shadow:0 16px 38px rgba(58,24,56,.13);background:linear-gradient(160deg,#e4d9f1 0%,#f5dbe8 100%);padding:52px clamp(24px,4.5vw,72px);display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
@@ -250,7 +252,7 @@ footer .logo span{color:#cabbe8}
 
 /* hero jump buttons: one shape, one size, palette colours */
 .hero-jumps{position:absolute;left:clamp(24px,7vw,112px);right:clamp(24px,7vw,112px);bottom:38px;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:none}
-.hero-jumps .button{text-align:center;padding:14px 18px;border:0}
+.hero-jumps .button{display:flex;align-items:center;justify-content:center;text-align:center;padding:14px 18px;border:0}
 @media(max-width:820px){.hero-jumps{position:static;grid-template-columns:1fr 1fr;padding:0 24px 44px;background:var(--cream)}}
 @media(max-width:560px){.hero-jumps{grid-template-columns:1fr}}
 .b-pink{background:#e982ab;color:#3a1838}
@@ -438,10 +440,10 @@ footer .logo span{color:#cabbe8}
 <header class="topbar">
     <a class="logo" href="#top" aria-label="LAiDIES home">L<span>Ai</span>DIES</a>
     <nav aria-label="Primary">
-      <a href="#this-week">This Wednesday</a><a href="#new-here">Start learning</a><a href="#reference">Look it up</a><a href="#activities">Activities</a><a href="#town">Explore SUNNYVAiLE</a><a class="nav-ksvl" href="/radio.html"><span class="onair-dot"></span>KSVL 99.9</a><a class="signin-link" href="/post-office.html#signin">Sign in</a><a class="join-btn" href="/maikeover.html">Join the town</a></nav>
+      <a href="#this-week">Latest Episode</a><a href="#new-here">Start learning</a><a href="#reference">Look it up</a><a href="#activities">Activities</a><a href="#town">Explore SUNNYVAiLE</a><a class="nav-ksvl" href="/radio.html"><span class="onair-dot"></span>KSVL 99.9</a><a class="signin-link" href="/post-office.html#signin">Sign in</a><a class="join-btn" href="/maikeover.html">Join the town</a></nav>
     <button class="menu" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
   </header>
-  <div id="mobile-nav" class="mobile-nav" hidden><a href="#this-week">This Wednesday</a><a href="#new-here">Start learning</a><a href="#reference">Look it up</a><a href="#activities">Activities</a><a href="#town">Explore SUNNYVAiLE</a><a class="nav-ksvl" href="/radio.html"><span class="onair-dot"></span>Listen · KSVL 99.9</a><a class="signin-link" href="/post-office.html#signin">Sign in</a><a class="join-btn" href="/maikeover.html">Join the town</a></div>
+  <div id="mobile-nav" class="mobile-nav" hidden><a href="#this-week">Latest Episode</a><a href="#new-here">Start learning</a><a href="#reference">Look it up</a><a href="#activities">Activities</a><a href="#town">Explore SUNNYVAiLE</a><a class="nav-ksvl" href="/radio.html"><span class="onair-dot"></span>Listen · KSVL 99.9</a><a class="signin-link" href="/post-office.html#signin">Sign in</a><a class="join-btn" href="/maikeover.html">Join the town</a></div>
 
   <main id="top">
     <section class="hero hero-dusk" aria-labelledby="hero-title">
@@ -455,7 +457,7 @@ footer .logo span{color:#cabbe8}
         </div>
       <div class="actions hero-jumps">
         <a class="button b-pink" href="#method">New in town?</a>
-        <a class="button b-teal" href="#this-week">This Week's episode</a>
+        <a class="button b-teal" href="#this-week">The latest episode</a>
         <a class="button b-coral" href="#today">Just running an errand?</a>
         <a class="button b-lilac" href="#town">Explore the town</a>
       </div>
