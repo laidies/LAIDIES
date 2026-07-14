@@ -1,333 +1,299 @@
 /* ============================================================================
-   Dream Phone — THE GAME (deduction track)
+   Dream Phone — THE GAME (patron-saint deduction track)
    ---------------------------------------------------------------------------
    Loaded AFTER ../script.js on games/dream-phone.html. Classic scripts share
    the page's global scope, so this file can read/extend script.js globals
    (unlockSecretBadge, hiddenMeritBadges, dreamPhoneSecretBadges) when present,
    and degrades gracefully when they are not.
 
-   This file owns its own DOM subtree (#dpGame*) and its own trait data. It does
-   NOT touch script.js's Just Call engine — that stays wired by script.js.
+   THE GAME: one of the 12 patron saints is "secretly in your corner" this week.
+   You DIAL saints (3-digit extensions). If it's not her, she says "not me" and
+   hands you one true clue about the saint who IS — which crosses non-matching
+   saints off the board. Dial the right saint and she picks up: you win. Because
+   the saints are known characters with VISIBLE traits, the clues are guessable
+   and WHO you dial matters. Faithful to the Milton Bradley original.
+
+   This file owns its own DOM subtree (#dpGame*). It does NOT touch script.js's
+   Just Call engine.
    ========================================================================== */
 (function () {
   "use strict";
 
-  /* ---- v4 trait table (LOCKED — Ali's canon) -------------------------------
-     Energy stored as a key; the saint name is a subtitle only and never used
-     in clue text (clues are description-led). */
-  var TRAITS = {
-    mentor:     { beat: "career",          energy: "warm-direct", drink: "Classic",    accessory: "Tamagotchi",      favourite: "The Grimoire" },
-    bestie:     { beat: "drama",           energy: "warm-direct", drink: "Bubble",     accessory: "Tamagotchi",      favourite: "Mme CLAi-O" },
-    boundary:   { beat: "drama",           energy: "exacting",    drink: "Citrus",     accessory: "Caboodle",        favourite: "Happy Hour" },
-    receipts:   { beat: "drama",           energy: "evidence",    drink: "Citrus",     accessory: "Butterfly clips", favourite: "Hot Goss" },
-    hype:       { beat: "confidence",      energy: "style",       drink: "Bubble",     accessory: "Lip Smackers",    favourite: "DJ Booth" },
-    steady:     { beat: "career",          energy: "warm-direct", drink: "After Dark", accessory: "Tamagotchi",      favourite: "Happy Hour" },
-    strategist: { beat: "career",          energy: "exec-clean",  drink: "Classic",    accessory: "Caboodle",        favourite: "The Quiz" },
-    bigbro:     { beat: "confidence",      energy: "bold",        drink: "After Dark", accessory: "NO FEAR tee",     favourite: "Mme CLAi-O" },
-    wildcard:   { beat: "ai",              energy: "style",       drink: "Bubble",     accessory: "Dance Mix CD",    favourite: "Mme CLAi-O" },
-    creative:   { beat: "confidence",      energy: "bold",        drink: "Bubble",     accessory: "Dance Mix CD",    favourite: "DJ Booth" },
-    research:   { beat: "ai",              energy: "evidence",    drink: "Citrus",     accessory: "Dance Mix CD",    favourite: "The Grimoire" },
-    aihelp:     { beat: "ai",              energy: "bold",        drink: "After Dark", accessory: "Caboodle",        favourite: "The Grimoire" },
-    boss:       { beat: "leadership/ops",  energy: "exec-clean",  drink: "Classic",    accessory: "NO FEAR tee",     favourite: "The Quiz" },
-    coach:      { beat: "confidence",      energy: "warm-direct", drink: "Bubble",     accessory: "Tamagotchi",      favourite: "The Quiz" },
-    operator:   { beat: "leadership/ops",  energy: "exacting",    drink: "Citrus",     accessory: "Caboodle",        favourite: "Happy Hour" },
-    counsel:    { beat: "drama",           energy: "wise",        drink: "Classic",    accessory: "Butterfly clips", favourite: "The Grimoire" },
-    finance:    { beat: "voice/evidence",  energy: "exacting",    drink: "After Dark", accessory: "Butterfly clips", favourite: "Hot Goss" },
-    product:    { beat: "leadership/ops",  energy: "exacting",    drink: "After Dark", accessory: "Dance Mix CD",    favourite: "The Quiz" },
-    comms:      { beat: "voice/evidence",  energy: "style",       drink: "Bubble",     accessory: "Lip Smackers",    favourite: "DJ Booth" },
-    data:       { beat: "voice/evidence",  energy: "evidence",    drink: "Citrus",     accessory: "Butterfly clips", favourite: "Hot Goss" },
-    founder:    { beat: "leadership/ops",  energy: "wise",        drink: "Classic",    accessory: "Lip Smackers",    favourite: "Hot Goss" },
-    sponsor:    { beat: "career",          energy: "wise",        drink: "Classic",    accessory: "Lip Smackers",    favourite: "Mme CLAi-O" },
-    builder:    { beat: "ai",              energy: "bold",        drink: "After Dark", accessory: "NO FEAR tee",     favourite: "DJ Booth" },
-    closer:     { beat: "voice/evidence",  energy: "exec-clean",  drink: "Citrus",     accessory: "NO FEAR tee",     favourite: "Happy Hour" }
-  };
-
-  /* Display + dial + portrait. Order = board order (table #1..#24). */
-  var CALLERS = [
-    { key: "mentor",     name: "Mentor",     number: "555-1995", img: "../assets/dream-phone-mentor.webp" },
-    { key: "bestie",     name: "Bestie",     number: "555-2001", img: "../assets/dream-phone-bestie.webp" },
-    { key: "boundary",   name: "Boundary",   number: "555-2003", img: "../assets/dream-phone-boundary.webp" },
-    { key: "receipts",   name: "Receipts",   number: "555-2004", img: "../assets/dream-phone-receipts.webp" },
-    { key: "hype",       name: "Hype",       number: "555-2007", img: "../assets/dream-phone-hype.webp" },
-    { key: "steady",     name: "Steady",     number: "555-2008", img: "../assets/dream-phone-steady.webp" },
-    { key: "strategist", name: "Strategist", number: "555-1999", img: "../assets/dream-phone-strategist.webp" },
-    { key: "bigbro",     name: "Big Bro",    number: "555-2010", img: "../assets/dream-phone-bigbro.webp" },
-    { key: "wildcard",   name: "Wildcard",   number: "555-2013", img: "../assets/dream-phone-wildcard.webp" },
-    { key: "creative",   name: "Creative",   number: "555-2016", img: "../assets/dream-phone-creative.webp" },
-    { key: "research",   name: "Research",   number: "555-2024", img: "../assets/dream-phone-research.webp" },
-    { key: "aihelp",     name: "AI Help",    number: "555-2026", img: "../assets/dream-phone-ai-help.webp" },
-    { key: "boss",       name: "Boss",       number: "555-2027", img: "../assets/dream-phone-boss-ali.webp" },
-    { key: "coach",      name: "Coach",      number: "555-2028", img: "../assets/dream-phone-coach.jpg" },
-    { key: "operator",   name: "Operator",   number: "555-2029", img: "../assets/dream-phone-operator.jpg" },
-    { key: "counsel",    name: "Counsel",    number: "555-2030", img: "../assets/dream-phone-counsel.jpg" },
-    { key: "finance",    name: "Finance",    number: "555-2031", img: "../assets/dream-phone-finance.jpg" },
-    { key: "product",    name: "Product",    number: "555-2032", img: "../assets/dream-phone-product.jpg" },
-    { key: "comms",      name: "Comms",      number: "555-2033", img: "../assets/dream-phone-comms.jpg" },
-    { key: "data",       name: "Data",       number: "555-2034", img: "../assets/dream-phone-data.jpg" },
-    { key: "founder",    name: "Founder",    number: "555-2035", img: "../assets/dream-phone-founder.jpg" },
-    { key: "sponsor",    name: "Sponsor",    number: "555-2036", img: "../assets/dream-phone-sponsor.jpg" },
-    { key: "builder",    name: "Builder",    number: "555-2037", img: "../assets/dream-phone-builder.jpg" },
-    { key: "closer",     name: "Closer",     number: "555-2038", img: "../assets/dream-phone-closer.jpg" }
+  /* ---- The 12 patron saints (roster + canon domains) -----------------------
+     Three deduction axes, all canon-true and shown to the player:
+       origin  — where you know her from (movie | tv | real | town)
+       domain  — her patron power (self | truth | voice | judgment)
+       emblem  — her signature energy (glam | fighter | queen | warmth)
+     Every (origin, domain, emblem) triple is unique → always solvable.
+     ext = 3-digit dial-in (themed; Jenny 867-5309 lives off-board as an egg). */
+  var SAINTS = [
+    { key: "cher",     name: "Cher Horowitz",       ext: "902", img: "../assets/saints/cher-horowitz.png",       domainLabel: "Making It Yours", origin: "movie", domain: "self",     emblem: "glam",    power: "Take charge of your world — and lift everyone you bring into it." },
+    { key: "elle",     name: "Elle Woods",          ext: "411", img: "../assets/saints/elle-woods.png",          domainLabel: "Receipts",        origin: "movie", domain: "truth",    emblem: "fighter", power: "Let them underestimate you — then do the work and prove them wrong." },
+    { key: "miranda",  name: "Miranda Priestly",    ext: "100", img: "../assets/saints/miranda-priestly.png",    domainLabel: "Standards",       origin: "movie", domain: "truth",    emblem: "queen",   power: "Never apologize for holding the bar high." },
+    { key: "regina",   name: "Regina George",       ext: "666", img: "../assets/saints/regina-george.png",       domainLabel: "The Cautionary Tale", origin: "movie", domain: "judgment", emblem: "queen", power: "Real power lifts people up — it doesn't keep a Burn Book." },
+    { key: "mary",     name: "Sister Mary Clarence", ext: "777", img: "../assets/saints/sister-mary-clarence.png", domainLabel: "Teaching",       origin: "movie", domain: "voice",    emblem: "warmth",  power: "Meet people where they are, and bring out the best in them." },
+    { key: "buffy",    name: "Buffy Summers",       ext: "007", img: "../assets/saints/buffy-summers.png",       domainLabel: "SLAiYING",        origin: "tv",    domain: "self",     emblem: "fighter", power: "You're braver than the thing you're scared of. Do it anyway." },
+    { key: "samantha", name: "Samantha Jones",      ext: "212", img: "../assets/saints/samantha-jones.png",      domainLabel: "Orientation",     origin: "tv",    domain: "self",     emblem: "glam",    power: "Walk into any room like you belong — because you do." },
+    { key: "david",    name: "David Rose",          ext: "143", img: "../assets/saints/david-rose.png",          domainLabel: "Specificity",     origin: "tv",    domain: "voice",    emblem: "fighter", power: "Know exactly what you want — and never apologize for asking for it." },
+    { key: "dolly",    name: "Dolly Parton",        ext: "905", img: "../assets/saints/dolly-parton.png",        domainLabel: "Common Sense",    origin: "real",  domain: "truth",    emblem: "warmth",  power: "Know exactly who you are, and do it on purpose." },
+    { key: "oprah",    name: "Oprah Winfrey",       ext: "001", img: "../assets/saints/oprah-winfrey.png",       domainLabel: "Staying Current", origin: "real",  domain: "judgment", emblem: "queen",   power: "Stay curious — and lift others as you rise." },
+    { key: "jlo",      name: "Jennifer Lopez",      ext: "646", img: "../assets/saints/jennifer-lopez.png",      domainLabel: "Range",           origin: "real",  domain: "voice",    emblem: "glam",    power: "You were never meant to be just one thing." },
+    { key: "deb",      name: "Deb",                 ext: "000", img: "../assets/saints/deb.png",                 domainLabel: "NOPE",            origin: "town",  domain: "judgment", emblem: "warmth",  power: "“No” is a complete sentence. Protect your time and your peace." }
   ];
   var META = {};
-  CALLERS.forEach(function (c) { META[c.key] = c; });
+  SAINTS.forEach(function (s) { META[s.key] = s; });
 
-  var AXES = ["beat", "energy", "drink", "accessory", "favourite"];
-  var AXIS_VALUES = {
-    beat: ["career", "drama", "confidence", "ai", "leadership/ops", "voice/evidence"],
-    energy: ["warm-direct", "exec-clean", "evidence", "style", "wise", "exacting", "bold"],
-    drink: ["Bubble", "Citrus", "Classic", "After Dark"],
-    accessory: ["Tamagotchi", "Caboodle", "Butterfly clips", "Lip Smackers", "NO FEAR tee", "Dance Mix CD"],
-    favourite: ["Hot Goss", "The Grimoire", "The Quiz", "DJ Booth", "Happy Hour", "Mme CLAi-O"]
+  var AXES = ["origin", "domain", "emblem"];
+
+  /* Player-facing labels + gossip phrasing for every trait value. */
+  var VALUE = {
+    origin: {
+      movie: { chip: "Big screen",   is: "a big-screen icon",          isnt: "no movie star" },
+      tv:    { chip: "TV",           is: "on your TV every week",      isnt: "not a TV girl" },
+      real:  { chip: "The real deal", is: "the real deal, no script",  isnt: "not a real-life icon" },
+      town:  { chip: "SUNNYVAiLE",   is: "SUNNYVAiLE's very own",       isnt: "not a local" }
+    },
+    domain: {
+      self:     { chip: "Confidence", is: "all about owning the room",       isnt: "not the walk-in-like-you-own-it type" },
+      truth:    { chip: "Receipts",   is: "a receipts-and-standards girl",   isnt: "not a receipts girl" },
+      voice:    { chip: "Voice",      is: "about saying exactly what she means", isnt: "not the say-it-plainly type" },
+      judgment: { chip: "Judgment",   is: "about knowing what's worth her time", isnt: "not the gatekeeper type" }
+    },
+    emblem: {
+      glam:    { chip: "Glam",     is: "pure sparkle — glam to the bone",   isnt: "not the glam type" },
+      fighter: { chip: "Fighter",  is: "underdog energy — counted out, then wins", isnt: "no underdog" },
+      queen:   { chip: "Queen",    is: "a total boss — runs the room",       isnt: "no boss-queen" },
+      warmth:  { chip: "Warmth",   is: "heart of gold — leads with warmth",  isnt: "not the soft-warm type" }
+    }
   };
 
-  var ENERGY_DISPLAY = { "warm-direct": "warm & direct", "exec-clean": "executive-clean", evidence: "evidence-backed", style: "style-first", wise: "wise & brief", exacting: "exacting", bold: "bold & brave" };
-  var BEAT_DISPLAY = { career: "career", drama: "drama", confidence: "confidence", ai: "AI", "leadership/ops": "leadership & ops", "voice/evidence": "voice & evidence" };
-  var DRINK_PHRASE = { Bubble: "a Bubble", Citrus: "a Citrus", Classic: "a Classic", "After Dark": "an After Dark" };
-  var ACC_PHRASE = { Tamagotchi: "a Tamagotchi", Caboodle: "a Caboodle", "Butterfly clips": "Butterfly clips", "Lip Smackers": "Lip Smackers", "NO FEAR tee": "a NO FEAR tee", "Dance Mix CD": "a Dance Mix CD" };
-
-  var FAVOURITE_LINK = {
-    "Hot Goss":     { url: "../hot-goss.html",                    blurb: "the Hot Goss" },
-    "The Grimoire": { url: "../grimoire.html",                    blurb: "the Grimoire" },
-    "The Quiz":     { url: "../learn/quiz.html",                  blurb: "the Quiz" },
-    "DJ Booth":     { url: "../games/dj-booth.html",              blurb: "the DJ Booth" },
-    "Happy Hour":   { url: "../games/businesswomens-special.html", blurb: "Happy Hour" },
-    "Mme CLAi-O":   { url: "../games/madame-claio.html",          blurb: "Mme CLAi-O" }
-  };
-
-  var PREFIXES = ["Pssst —", "Okay, between us:", "Word on the line:", "Heard it straight:", "Don't say I told you, but"];
-  var DUDS = [
-    "“Ha ha — not telling!” *click*",
-    "She just giggled and hung up. Rude. Helpful? No.",
-    "Static, a laugh, and a dial tone. Nothing this round.",
-    "“Nice try.” Wrong number for gossip today."
-  ];
+  var PREFIXES = ["It's not me 💅", "Ha — not me, but between us:", "Wrong number, hon. Still,", "Not me! But here's the tea:"];
 
   /* ---- helpers ----------------------------------------------------------- */
   function rand(n) { return Math.floor(Math.random() * n); }
   function pick(arr) { return arr[rand(arr.length)]; }
   function digitsOf(s) { return String(s || "").replace(/\D/g, ""); }
-  function clueValueText(axis, value) {
-    if (axis === "beat") return "Her beat isn't " + BEAT_DISPLAY[value] + ".";
-    if (axis === "energy") return "Her energy isn't " + ENERGY_DISPLAY[value] + ".";
-    if (axis === "drink") return "Her drink order isn't " + DRINK_PHRASE[value] + ".";
-    if (axis === "accessory") return "She isn't carrying " + ACC_PHRASE[value] + ".";
-    return "Her favourite corner isn't " + value + ".";
+
+  // Star/short codes still pull their old tricks from the GAME dialer too —
+  // caught on the RAW value before digitsOf() strips the "*". (The booth's
+  // image dialer routes to the same badges via window.dreamPhoneEgg.)
+  function starCode(raw) {
+    var t = String(raw || "").trim().replace(/\s+/g, "");
+    if (t === "*67" || t === "*69" || t === "867") return t;
+    return null;
+  }
+  // Star codes are hidden one-per-game perks with a real in-game effect, not
+  // just a badge wink — each maps to what the code actually does on a phone.
+  function playStarCode(code) {
+    var res = (typeof dreamPhoneEgg === "function") ? dreamPhoneEgg(code) : { first: false };
+    var badge = res && res.first ? " (Badge unlocked!)" : "";
+
+    // 867 is Jenny's line — a wink, not a game move.
+    if (code === "867") { setOutput("☎️ 867 — you know the line. Jenny says hey." + badge); return; }
+
+    if (!S || S.over) { setOutput("☎️ " + code + " connects — but there's no game running for it to work on." + badge); return; }
+    if (S.starUsed[code]) { setOutput("You already worked " + code + " this game — that trick's one per line." + badge); return; }
+    if (code === "*69" && S.calls === 0) { setOutput("☎️ *69 returns your last call — but you haven't dialed anyone yet. Call a saint first."); return; }
+
+    S.starUsed[code] = true;
+    var c = bestSecretClue(null);
+    if (!c) { setOutput("☎️ " + code + " — but the board's already narrow. Trust what you've got." + badge); render(); return; }
+    var r = applyClue(c.axis, c.value, true);
+    // Neither star code counts as a dial (no S.calls++), so both help Cold Read.
+    if (code === "*67") setOutput("☎️ *67 — caller ID off, so she spills freely: " + r.text + " Blocked & Iconic." + badge);
+    else setOutput("☎️ *69 — you call the last number back and she cracks: " + r.text + " Redial Royalty." + badge);
+    render();
   }
 
-  /* ---- one-time validation (balance + uniqueness) ------------------------ */
+  /* ---- one-time validation (uniqueness) ---------------------------------- */
   function validateTable() {
     var seen = {}, dupes = [];
-    CALLERS.forEach(function (c) {
-      var t = TRAITS[c.key];
-      var sig = [t.beat, t.energy, t.drink, t.accessory, t.favourite].join("|");
-      if (seen[sig]) dupes.push(c.key + " == " + seen[sig]); else seen[sig] = c.key;
+    SAINTS.forEach(function (s) {
+      var sig = [s.origin, s.domain, s.emblem].join("|");
+      if (seen[sig]) dupes.push(s.key + " == " + seen[sig]); else seen[sig] = s.key;
     });
-    if (dupes.length) console.warn("[DreamPhone] NON-UNIQUE callers:", dupes);
-    AXES.forEach(function (axis) {
-      var counts = {};
-      CALLERS.forEach(function (c) { var v = TRAITS[c.key][axis]; counts[v] = (counts[v] || 0) + 1; });
-      var vals = Object.keys(counts).map(function (k) { return counts[k]; });
-      var min = Math.min.apply(null, vals), max = Math.max.apply(null, vals);
-      if (max - min > 1) console.warn("[DreamPhone] axis '" + axis + "' uneven:", counts);
-    });
-    if (!dupes.length) console.log("[DreamPhone] trait table OK — " + CALLERS.length + " unique callers across " + AXES.length + " axes.");
+    if (dupes.length) console.warn("[DreamPhone] NON-UNIQUE saints:", dupes);
+    else console.log("[DreamPhone] saint table OK — " + SAINTS.length + " unique across " + AXES.length + " axes.");
     return !dupes.length;
   }
 
   /* ---- game state -------------------------------------------------------- */
-  var S = null; // current game
+  var S = null;
 
-  function newGame(mode) {
-    var lineup = CALLERS.map(function (c) { return c.key; });
-    if (mode === "quick") {
-      // supporter + 11 random others
-      var supporterKey = pick(lineup);
-      var others = lineup.filter(function (k) { return k !== supporterKey; });
-      // shuffle others
-      for (var i = others.length - 1; i > 0; i--) { var j = rand(i + 1); var tmp = others[i]; others[i] = others[j]; others[j] = tmp; }
-      lineup = [supporterKey].concat(others.slice(0, 11));
-      // keep board order stable by table order
-      lineup.sort(function (a, b) { return CALLERS.findIndex(function (c) { return c.key === a; }) - CALLERS.findIndex(function (c) { return c.key === b; }); });
-      S = { mode: mode, lineup: lineup, supporter: supporterKey };
-    } else {
-      S = { mode: "full", lineup: lineup, supporter: pick(lineup) };
-    }
-    S.active = {}; lineup.forEach(function (k) { S.active[k] = true; });
-    S.clues = [];          // {axis, value, text} given
-    S.givenSet = {};       // axis|value -> true
-    S.calls = 0;
-    S.duds = 0;
-    S.lastWasDud = false;
-    S.wrongAccusations = 0;
-    S.solveMode = false;
-    S.powersUsed = {};     // secret/speaker/hangup -> true
-    S.over = false;
-    // solvability guarantee: every non-supporter differs from supporter on >=1 axis.
-    validateSolvable();
+  function newGame() {
+    var lineup = SAINTS.map(function (s) { return s.key; });
+    S = {
+      lineup: lineup,
+      supporter: pick(lineup),
+      active: {},
+      clues: [],       // {axis, value, positive, text}
+      givenSet: {},    // "axis|value|pol" -> true (avoid repeating a clue)
+      calls: 0,        // dials at a saint
+      wrongCalls: 0,   // dials at a non-supporter
+      powersUsed: {},  // secret/speaker/hangup
+      starUsed: {},    // *67/*69 — one perk each per game
+      pending: null,   // queued power effect for the next action
+      over: false
+    };
+    lineup.forEach(function (k) { S.active[k] = true; });
     buildBoard();
     render();
-    setOutput("New line open. Someone in this list is secretly in your corner. Dial around — every call rules someone out. Deduce her, then Solve.");
-  }
-
-  function validateSolvable() {
-    var sup = TRAITS[S.supporter];
-    var bad = [];
-    S.lineup.forEach(function (k) {
-      if (k === S.supporter) return;
-      var diff = AXES.some(function (a) { return TRAITS[k][a] !== sup[a]; });
-      if (!diff) bad.push(k);
-    });
-    if (bad.length) console.warn("[DreamPhone] UNSOLVABLE — indistinguishable from supporter:", bad);
+    setOutput("New line open. One of your girls is secretly in your corner this week. Dial around — every wrong number hands you a clue. Match the tea to the traits on the board, then dial the right saint.");
   }
 
   function activeKeys() { return S.lineup.filter(function (k) { return S.active[k]; }); }
-  function activeNonSupporters() { return activeKeys().filter(function (k) { return k !== S.supporter; }); }
+  function activeExcept(key) { return activeKeys().filter(function (k) { return k !== key; }); }
 
-  /* ---- clue engine: a true NEGATIVE about the supporter that still cuts ---
-     someone currently active. (Clue is about the supporter, not the dialed
-     caller, so calling the supporter herself never gives a tell.) */
-  function candidateClues() {
-    var sup = TRAITS[S.supporter];
-    var out = [];
-    AXES.forEach(function (axis) {
-      AXIS_VALUES[axis].forEach(function (value) {
-        if (value === sup[axis]) return;            // must be a true negative
-        if (S.givenSet[axis + "|" + value]) return; // not already said
-        var cuts = activeNonSupporters().filter(function (k) { return TRAITS[k][axis] === value; });
-        if (cuts.length) out.push({ axis: axis, value: value, cuts: cuts });
-      });
+  /* ---- clue application -------------------------------------------------- */
+  // A clue is a true statement about the supporter on one axis.
+  //   positive: "she IS <value>"  -> cross off active saints whose axis != value
+  //   negative: "she is NOT <value>" -> cross off active saints whose axis == value
+  function clueText(axis, value, positive) {
+    var v = VALUE[axis][value];
+    return positive ? ("she's " + v.is + ".") : ("she's " + v.isnt + ".");
+  }
+
+  function clueCut(axis, value, positive) {
+    // saints (excluding supporter, excluding already-out) this clue removes
+    return activeKeys().filter(function (k) {
+      if (k === S.supporter) return false;
+      var match = META[k][axis] === value;
+      return positive ? !match : match;
     });
-    return out;
   }
 
-  function applyClue(c) {
-    S.givenSet[c.axis + "|" + c.value] = true;
-    var text = clueValueText(c.axis, c.value);
-    S.clues.push({ axis: c.axis, value: c.value, text: text });
-    c.cuts.forEach(function (k) { S.active[k] = false; });
-    return text;
+  function applyClue(axis, value, positive) {
+    S.givenSet[axis + "|" + value + "|" + (positive ? 1 : 0)] = true;
+    var cut = clueCut(axis, value, positive);
+    cut.forEach(function (k) { S.active[k] = false; });
+    var text = clueText(axis, value, positive);
+    S.clues.push({ axis: axis, value: value, positive: positive, text: text });
+    return { text: text, cut: cut.length };
   }
 
-  function makeCall() {
-    if (S.over) return;
-    if (S.solveMode) { setOutput("You're in Solve mode — tap the caller you've deduced, or switch back to Calling to gather more clues."); return; }
-    var remaining = activeNonSupporters();
-    if (!remaining.length) {
-      setOutput("Everyone else is crossed off. Only one name left standing — hit Solve and call her.");
-      return;
-    }
+  // Best fresh POSITIVE clue about an axis the player hasn't pinned yet
+  // (used by Share a Secret / Speaker Phone). Returns null if none informative.
+  function bestSecretClue(excludeAxis) {
+    var sup = META[S.supporter];
+    var best = null;
+    AXES.forEach(function (axis) {
+      if (axis === excludeAxis) return;
+      var value = sup[axis];
+      if (S.givenSet[axis + "|" + value + "|1"]) return;
+      var cut = clueCut(axis, value, true).length;
+      if (cut > 0 && (!best || cut > best.cut)) best = { axis: axis, value: value, cut: cut };
+    });
+    return best;
+  }
+
+  // The clue a specific caller X hands you: compare X to the supporter.
+  // Prefer the shared-axis positive that cuts the most; else a negative on an
+  // axis where X differs. Returns null if X can tell you nothing new.
+  function callerClue(xKey) {
+    var x = META[xKey], sup = META[S.supporter];
+    var best = null;
+    AXES.forEach(function (axis) {
+      var xv = x[axis], sv = sup[axis];
+      var positive = xv === sv;
+      var value = xv;
+      if (S.givenSet[axis + "|" + value + "|" + (positive ? 1 : 0)]) return;
+      var cut = clueCut(axis, value, positive).length;
+      if (cut > 0 && (!best || cut > best.cut)) best = { axis: axis, value: value, positive: positive, cut: cut };
+    });
+    return best;
+  }
+
+  /* ---- calling a saint --------------------------------------------------- */
+  function callSaint(key) {
+    if (S.over || !S.active[key]) return;
     S.calls++;
-    var forceClue = S.pendingSecret || S.pendingSpeaker;
 
-    // dud (capped ~1 in 5, never twice in a row, never when a special forces a clue)
-    if (!forceClue && !S.lastWasDud && (S.duds / Math.max(S.calls, 1)) < 0.2 && Math.random() < 0.22) {
-      S.duds++; S.lastWasDud = true;
-      setOutput(pick(DUDS));
-      render();
-      return;
-    }
-    S.lastWasDud = false;
+    if (key === S.supporter) { win(); return; }
 
-    var cands = candidateClues();
-    if (!cands.length) { setOutput("That's everything worth knowing — only one name fits now. Solve when ready."); render(); return; }
+    // Wrong number: she declines, crosses herself off, and drops a clue.
+    S.wrongCalls++;
+    S.active[key] = false;
+    var lead = pick(PREFIXES);
 
-    if (S.pendingSpeaker) {
-      // Speaker phone: two clues on different axes when possible
-      S.pendingSpeaker = false; S.pendingSecret = false;
-      var first = pick(cands);
-      var t1 = applyClue(first);
-      var rest = candidateClues().filter(function (c) { return c.axis !== first.axis; });
-      if (rest.length) {
-        var t2 = applyClue(pick(rest));
-        setOutput("📢 On speaker, for the whole room: " + t1 + " And: " + t2);
-      } else {
-        setOutput("📢 On speaker: " + t1);
+    // A queued remix effect fires now if present.
+    if (S.pending === "secret" || S.pending === "speaker") {
+      var double = S.pending === "speaker";
+      S.pending = null;
+      var c1 = bestSecretClue(null);
+      if (c1) {
+        var r1 = applyClue(c1.axis, c1.value, true);
+        if (double) {
+          var c2 = bestSecretClue(c1.axis);
+          if (c2) { var r2 = applyClue(c2.axis, c2.value, true); setOutput("📢 " + META[key].name + " puts you on speaker for the whole room: " + r1.text + " And — " + r2.text); render(); return; }
+        }
+        setOutput("🤫 " + META[key].name + " leans in with a guaranteed secret: " + r1.text); render(); return;
       }
-      render();
-      return;
     }
 
-    if (S.pendingSecret) {
-      S.pendingSecret = false;
-      var ts = applyClue(pick(cands));
-      setOutput("🤫 Guaranteed secret: " + ts);
-      render();
-      return;
+    var clue = callerClue(key);
+    if (clue) {
+      var r = applyClue(clue.axis, clue.value, clue.positive);
+      setOutput(lead + " " + r.text);
+    } else {
+      setOutput(lead + " honestly, she's nothing like me — that's all I've got. One less name, though.");
     }
-
-    var c = pick(cands);
-    var text = applyClue(c);
-    setOutput(pick(PREFIXES) + " " + text);
     render();
   }
 
-  /* ---- specials as power-ups -------------------------------------------- */
+  /* ---- remix cards (power-ups) ------------------------------------------- */
   function usePower(key) {
     if (S.over) return;
     if (S.powersUsed[key]) { setOutput("That remix card's already been pulled this game."); return; }
     S.powersUsed[key] = true;
-    if (key === "speaker") { S.pendingSpeaker = true; setOutput("Speaker Phone is up. Your next call comes in loud — a double clue for the whole room."); }
-    else if (key === "secret") { S.pendingSecret = true; setOutput("Share a Secret is pulled. Your next call is a guaranteed clue — no duds."); }
-    else if (key === "hangup") {
-      // Mom says hang up: dodge a wasted turn -> free elimination of one active non-supporter
-      var remaining = activeNonSupporters();
+
+    if (key === "hangup") {
+      var remaining = activeExcept(S.supporter);
       if (remaining.length) {
         var victim = pick(remaining);
         S.active[victim] = false;
-        setOutput("☎️ Mom grabbed the phone: “Not " + META[victim].name + ", trust me.” *click* — one less to worry about.");
+        setOutput("☎️ Mom grabs the phone: “Not " + META[victim].name + ", trust me.” *click* — one less to worry about.");
       } else {
-        setOutput("Mom says hang up — but there's only one name left. Go Solve.");
+        setOutput("Mom says hang up — but there's only one name left. Dial her!");
       }
+    } else if (key === "secret") {
+      var c = bestSecretClue(null);
+      if (c) { var r = applyClue(c.axis, c.value, true); setOutput("🤫 Share a Secret: " + r.text); }
+      else { setOutput("🤫 Share a Secret — but the board's already narrow. Trust what you've got."); }
+    } else if (key === "speaker") {
+      var a = bestSecretClue(null);
+      if (a) {
+        var ra = applyClue(a.axis, a.value, true);
+        var b = bestSecretClue(a.axis);
+        if (b) { var rb = applyClue(b.axis, b.value, true); setOutput("📢 Speaker Phone, for the whole room: " + ra.text + " And — " + rb.text); }
+        else { setOutput("📢 Speaker Phone: " + ra.text); }
+      } else { setOutput("📢 Speaker Phone — nothing new to broadcast. You're close."); }
     }
     maybeRemixScholar();
     render();
   }
 
   function maybeRemixScholar() {
-    var count = Object.keys(S.powersUsed).length;
-    if (count >= 3) {
+    if (Object.keys(S.powersUsed).length >= 3) {
       var msg = safeUnlock("remix-scholar", "Dream Phone");
       if (msg) appendOutput("\n\n🎴 Merit badge: Remix Scholar — you played all three remix cards in one game.");
     }
   }
 
-  /* ---- solve / accuse ---------------------------------------------------- */
-  function setSolveMode(on) {
-    if (S.over) return;
-    S.solveMode = on;
-    render();
-    setOutput(on ? "Solve mode on. Tap the caller you've deduced is secretly in your corner. (Wrong guess just crosses her off — keep going, no penalty.)" : "Back to Calling. Keep dialing for more clues.");
-  }
-
-  function accuse(key) {
-    if (S.over || !S.active[key]) return;
-    if (key === S.supporter) { win(); return; }
-    // wrong: cross off, warm line, continue
-    S.active[key] = false;
-    S.wrongAccusations++;
-    setOutput("Not " + META[key].name + " — but now you know one more it's not. Keep dialing. 💛");
-    render();
-  }
-
+  /* ---- win / give up ----------------------------------------------------- */
   function win() {
     S.over = true;
-    var t = TRAITS[S.supporter];
     var meta = META[S.supporter];
-    var link = FAVOURITE_LINK[t.favourite];
-    var firstTry = S.wrongAccusations === 0;
-    if (firstTry) safeUnlock("cold-read", "Dream Phone");
-    showReveal(meta, t, link, firstTry);
+    // Cold Read: found her in four dials or fewer (a real deduction, not a slog).
+    var coldRead = S.calls <= 4;
+    if (coldRead) safeUnlock("cold-read", "Dream Phone");
+    showReveal(meta, coldRead, false);
     render();
   }
 
   function justTellMe() {
     if (S.over) return;
     S.over = true;
-    var meta = META[S.supporter];
-    var t = TRAITS[S.supporter];
-    var link = FAVOURITE_LINK[t.favourite];
-    showReveal(meta, t, link, false, true);
+    showReveal(META[S.supporter], false, true);
     render();
   }
 
@@ -335,7 +301,7 @@
   function tryEasterEgg(digits) {
     if (digits !== "8675309") return false;
     var msg = safeUnlock("867-club", "Dream Phone");
-    setOutput("☎️ 867-5309 connected. I like the way you think — you found the secret line." + (msg ? " (867 Club badge unlocked.)" : " (You're already in the 867 Club.)"));
+    setOutput("☎️ 867-5309 connected. Jenny says hey — you found the secret line." + (msg ? " (867 Club badge unlocked.)" : " (You're already in the 867 Club.)"));
     return true;
   }
 
@@ -350,7 +316,6 @@
     return "";
   }
 
-  // Inject the new Cold Read badge into the runtime catalog + de-park stale copy.
   var catalogPatched = false;
   function ensureBadgeCatalog() {
     if (catalogPatched) return;
@@ -358,40 +323,16 @@
     try {
       if (typeof hiddenMeritBadges === "object" && hiddenMeritBadges) {
         if (!hiddenMeritBadges["cold-read"]) {
-          hiddenMeritBadges["cold-read"] = {
-            id: "cold-read",
-            title: "Cold Read merit badge",
-            sticker: "COLD READ",
-            source: "Dream Phone",
-            unlockMessage: "Cold Read unlocked. First-try solve, zero wrong numbers. You read the room before the room knew it was being read."
-          };
+          hiddenMeritBadges["cold-read"] = { id: "cold-read", title: "Cold Read merit badge", sticker: "COLD READ", source: "Dream Phone", unlockMessage: "Cold Read unlocked. You read the room in four dials flat. Deduction, not luck." };
         }
         if (!hiddenMeritBadges["redial-royalty"]) {
-          hiddenMeritBadges["redial-royalty"] = {
-            id: "redial-royalty",
-            title: "Redial Royalty merit badge",
-            sticker: "*69",
-            source: "Dream Phone",
-            unlockMessage: "Redial Royalty unlocked. You *69'd like a true Y2K detective. The last call never stood a chance."
-          };
+          hiddenMeritBadges["redial-royalty"] = { id: "redial-royalty", title: "Redial Royalty merit badge", sticker: "*69", source: "Dream Phone", unlockMessage: "Redial Royalty unlocked. You *69'd like a true Y2K detective. The last call never stood a chance." };
         }
         if (!hiddenMeritBadges["blocked-and-iconic"]) {
-          hiddenMeritBadges["blocked-and-iconic"] = {
-            id: "blocked-and-iconic",
-            title: "Blocked & Iconic merit badge",
-            sticker: "*67",
-            source: "Dream Phone",
-            unlockMessage: "Blocked & Iconic unlocked. Caller ID off, mystique on. Nobody saw you coming."
-          };
+          hiddenMeritBadges["blocked-and-iconic"] = { id: "blocked-and-iconic", title: "Blocked & Iconic merit badge", sticker: "*67", source: "Dream Phone", unlockMessage: "Blocked & Iconic unlocked. Caller ID off, mystique on. Nobody saw you coming." };
         }
         if (!hiddenMeritBadges["deb-unlocked"]) {
-          hiddenMeritBadges["deb-unlocked"] = {
-            id: "deb-unlocked",
-            title: "Found Deb merit badge",
-            sticker: "DEB",
-            source: "Dream Phone",
-            unlockMessage: "Found Deb unlocked. You blocked your number, she actually picked up, and she still told you nothing. Iconic, useless, immovable."
-          };
+          hiddenMeritBadges["deb-unlocked"] = { id: "deb-unlocked", title: "Found Deb merit badge", sticker: "DEB", source: "Dream Phone", unlockMessage: "Found Deb unlocked. You blocked your number, she actually picked up, and she still told you nothing. Iconic, useless, immovable." };
         }
         if (hiddenMeritBadges["867-club"]) hiddenMeritBadges["867-club"].unlockMessage = "867 Club unlocked. You found the secret Dream Phone line. Pin the sticker and be a little smug in the group chat.";
         if (hiddenMeritBadges["remix-scholar"]) hiddenMeritBadges["remix-scholar"].unlockMessage = "Remix Scholar unlocked. You played all three remix cards in one game. The drama was fully utilised.";
@@ -402,10 +343,8 @@
     } catch (e) { /* no-op */ }
   }
 
-  /* ---- *69 / *67 dial eggs (additive; the image dialer in dream-phone.html
-     calls this — engine caller/number/867 logic is untouched). Badges ride the
-     same hidden-badge mechanism as 867 Club. Returns { first } so the dialer can
-     play the first-time wink. ------------------------------------------------ */
+  /* ---- *69 / *67 dial eggs (additive; image dialer in dream-phone.html
+     calls this). Returns { first } so the dialer can play the first-time wink. */
   function dreamPhoneEgg(code) {
     if (code === "*69") return { first: !!safeUnlock("redial-royalty", "Dream Phone") };
     if (code === "*67") return { first: !!safeUnlock("blocked-and-iconic", "Dream Phone") };
@@ -420,25 +359,28 @@
   var el = {};
   function $(id) { return document.getElementById(id); }
 
+  function chip(label) { return '<span class="dp-trait">' + label + "</span>"; }
+
   function buildBoard() {
     el.board.innerHTML = "";
     S.lineup.forEach(function (key) {
-      var c = META[key];
+      var s = META[key];
       var btn = document.createElement("button");
       btn.type = "button";
       btn.className = "dp-suspect";
       btn.setAttribute("data-suspect", key);
       btn.innerHTML =
-        '<span class="dp-suspect-photo"><img src="' + c.img + '" alt="' + c.name + '" loading="lazy" ' +
-        'onerror="this.style.display=\'none\';this.parentNode.classList.add(\'dp-noimg\');this.parentNode.setAttribute(\'data-initial\',\'' + c.name.charAt(0) + '\')" />' +
+        '<span class="dp-suspect-photo"><img src="' + s.img + '" alt="' + s.name + '" loading="lazy" ' +
+        'onerror="this.style.display=\'none\';this.parentNode.classList.add(\'dp-noimg\');this.parentNode.setAttribute(\'data-initial\',\'' + s.name.charAt(0) + '\')" />' +
         '<span class="dp-cross" aria-hidden="true">✕</span></span>' +
-        '<span class="dp-suspect-name">' + c.name + "</span>" +
-        '<span class="dp-suspect-num">' + c.number + "</span>";
+        '<span class="dp-suspect-name">' + s.name + "</span>" +
+        '<span class="dp-suspect-domain">' + s.domainLabel + "</span>" +
+        '<span class="dp-suspect-traits">' + chip(VALUE.origin[s.origin].chip) + chip(VALUE.domain[s.domain].chip) + chip(VALUE.emblem[s.emblem].chip) + "</span>" +
+        '<span class="dp-suspect-num">ext. ' + s.ext + "</span>";
       btn.addEventListener("click", function () {
-        if (S.over) return;
-        if (!S.active[key]) return; // crossed off — inert
-        if (S.solveMode) accuse(key);
-        else { setDialer(c.number); makeCall(); }
+        if (S.over || !S.active[key]) return;
+        setDialer(s.ext);
+        callSaint(key);
       });
       el.board.appendChild(btn);
     });
@@ -446,59 +388,53 @@
 
   function render() {
     if (!S) return;
-    // suspects
     Array.prototype.forEach.call(el.board.querySelectorAll(".dp-suspect"), function (btn) {
       var key = btn.getAttribute("data-suspect");
-      var out = !S.active[key];
-      btn.classList.toggle("is-out", out);
-      btn.classList.toggle("is-target", S.solveMode && !out);
+      btn.classList.toggle("is-out", !S.active[key]);
     });
-    // count
     var left = activeKeys().length;
-    el.count.textContent = left + (left === 1 ? " left — that's her!" : " left");
-    el.count.classList.toggle("is-close", left <= 3 && left > 1);
-    // clue log
-    el.clues.innerHTML = "";
-    if (!S.clues.length) {
-      var li0 = document.createElement("li");
-      li0.className = "dp-clue-empty";
-      li0.textContent = "No clues yet. Dial a caller to start ruling people out.";
-      el.clues.appendChild(li0);
-    } else {
-      S.clues.forEach(function (cl) {
-        var li = document.createElement("li");
-        li.textContent = cl.text;
-        el.clues.appendChild(li);
+    if (el.count) {
+      el.count.textContent = left + (left === 1 ? " left — that's her!" : " still in the running");
+      el.count.classList.toggle("is-close", left <= 3 && left > 1);
+    }
+    if (el.clues) {
+      el.clues.innerHTML = "";
+      if (!S.clues.length) {
+        var li0 = document.createElement("li");
+        li0.className = "dp-clue-empty";
+        li0.textContent = "No clues yet. Dial a saint — a wrong number still gives you the tea.";
+        el.clues.appendChild(li0);
+      } else {
+        S.clues.forEach(function (cl) {
+          var li = document.createElement("li");
+          li.textContent = cl.text.charAt(0).toUpperCase() + cl.text.slice(1);
+          el.clues.appendChild(li);
+        });
+      }
+    }
+    if (el.powers) {
+      Array.prototype.forEach.call(el.powers.querySelectorAll("[data-power]"), function (b) {
+        var used = !!S.powersUsed[b.getAttribute("data-power")];
+        b.classList.toggle("is-spent", used);
+        b.disabled = used || S.over;
       });
     }
-    // power buttons
-    Array.prototype.forEach.call(el.powers.querySelectorAll("[data-power]"), function (b) {
-      b.classList.toggle("is-spent", !!S.powersUsed[b.getAttribute("data-power")]);
-      b.disabled = !!S.powersUsed[b.getAttribute("data-power")] || S.over;
-    });
-    // solve toggle label
-    el.solveToggle.textContent = S.solveMode ? "← Back to Calling" : "I'm ready to Solve";
-    el.solveToggle.classList.toggle("is-active", S.solveMode);
-    el.game.classList.toggle("dp-solving", S.solveMode);
   }
 
-  function showReveal(meta, t, link, firstTry, gaveUp) {
+  function showReveal(meta, coldRead, gaveUp) {
     var html = '<div class="dp-reveal-card">' +
-      '<img class="dp-reveal-photo" src="' + meta.img + '" alt="' + meta.name + '" ' +
-      'onerror="this.style.display=\'none\'" />' +
-      '<p class="dp-reveal-kicker">' + (gaveUp ? "Your Secret Supporter was…" : "You found her.") + '</p>' +
+      '<img class="dp-reveal-photo" src="' + meta.img + '" alt="' + meta.name + '" onerror="this.style.display=\'none\'" />' +
+      '<p class="dp-reveal-kicker">' + (gaveUp ? "Secretly in your corner this week…" : "You found her.") + '</p>' +
       '<h3 class="dp-reveal-name">' + meta.name + "</h3>" +
-      '<p class="dp-reveal-line">Secretly in your corner this week — ' +
-        ENERGY_DISPLAY[t.energy] + ", " + BEAT_DISPLAY[t.beat] + " energy, " +
-        ACC_PHRASE[t.accessory] + " in her bag.</p>" +
-      (firstTry ? '<p class="dp-reveal-badge">🎯 Cold Read badge unlocked — first-try solve, zero wrong numbers.</p>' : "") +
-      '<a class="dp-reveal-cta" href="' + link.url + '">"You found me. Now go see why I live in ' + link.blurb + '" →</a>' +
+      '<p class="dp-reveal-domain">Patron saint of ' + meta.domainLabel + "</p>" +
+      '<p class="dp-reveal-line">“' + meta.power + '”</p>' +
+      (coldRead ? '<p class="dp-reveal-badge">🎯 Cold Read badge — four dials flat. Deduction, not luck.</p>' : "") +
       '<div class="dp-reveal-actions"><button type="button" class="dp-btn" id="dpPlayAgain">Play again</button></div>' +
       "</div>";
     el.reveal.innerHTML = html;
     el.reveal.hidden = false;
     var again = $("dpPlayAgain");
-    if (again) again.addEventListener("click", function () { el.reveal.hidden = true; newGame(S.mode); });
+    if (again) again.addEventListener("click", function () { el.reveal.hidden = true; newGame(); });
     el.reveal.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
@@ -512,7 +448,7 @@
     el.entry.hidden = section !== "entry";
     el.game.hidden = section !== "game";
     if (el.justcall) el.justcall.hidden = section !== "justcall";
-    if (section === "game" && !S) newGame("full");
+    if (section === "game" && !S) newGame();
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -527,52 +463,47 @@
     el.output = $("dpGameOutput");
     el.reveal = $("dpReveal");
     el.dialer = $("dpDialer");
-    el.solveToggle = $("dpSolveToggle");
     if (!el.entry || !el.game || !el.board) { console.warn("[DreamPhone] game DOM not found; skipping init."); return; }
 
     validateTable();
 
-    // two-door
     var doorGame = $("dpDoorGame"); if (doorGame) doorGame.addEventListener("click", function () { show("game"); });
     var doorCall = $("dpDoorCall"); if (doorCall) doorCall.addEventListener("click", function () { show("justcall"); });
     Array.prototype.forEach.call(document.querySelectorAll("[data-dp-back]"), function (b) {
       b.addEventListener("click", function () { show("entry"); });
     });
 
-    // game controls
-    var nb = $("dpNewGame"); if (nb) nb.addEventListener("click", function () { el.reveal.hidden = true; newGame(S ? S.mode : "full"); });
+    var nb = $("dpNewGame"); if (nb) nb.addEventListener("click", function () { if (el.reveal) el.reveal.hidden = true; newGame(); });
     var tellBtn = $("dpJustTellMe"); if (tellBtn) tellBtn.addEventListener("click", justTellMe);
-    if (el.solveToggle) el.solveToggle.addEventListener("click", function () { setSolveMode(!S.solveMode); });
 
-    // mode toggle (Full / Quick)
-    Array.prototype.forEach.call(document.querySelectorAll("[data-mode]"), function (b) {
-      b.addEventListener("click", function () {
-        var mode = b.getAttribute("data-mode");
-        Array.prototype.forEach.call(document.querySelectorAll("[data-mode]"), function (x) { x.classList.toggle("is-active", x === b); });
-        el.reveal.hidden = true;
-        newGame(mode);
+    if (el.powers) {
+      Array.prototype.forEach.call(el.powers.querySelectorAll("[data-power]"), function (b) {
+        b.addEventListener("click", function () { usePower(b.getAttribute("data-power")); });
       });
-    });
+    }
 
-    // power-ups
-    Array.prototype.forEach.call(el.powers.querySelectorAll("[data-power]"), function (b) {
-      b.addEventListener("click", function () { usePower(b.getAttribute("data-power")); });
-    });
-
-    // game dialer
+    // game dialer — 3-digit extensions (Jenny 8675309 still works as an egg)
     var dialBtn = $("dpDialBtn");
     if (dialBtn) dialBtn.addEventListener("click", function () {
+      var star = starCode(el.dialer.value);
+      if (star) { playStarCode(star); return; }
       var d = digitsOf(el.dialer.value);
       if (tryEasterEgg(d)) return;
-      var hit = CALLERS.filter(function (c) { return digitsOf(c.number) === d; })[0];
-      if (!hit) { setOutput("Busy signal — no one on this line has that number."); return; }
-      if (!S.active[hit.key] && !S.solveMode) { setOutput(META[hit.key].name + " is already crossed off. Try a name that's still in the running."); return; }
-      if (S.solveMode) accuse(hit.key); else makeCall();
+      var hit = SAINTS.filter(function (s) { return s.ext === d; })[0];
+      if (!hit) { setOutput("Busy signal — no saint at that extension. Try a 3-digit ext from the board."); return; }
+      if (!S.active[hit.key]) { setOutput(META[hit.key].name + " is already crossed off. Try one still in the running."); return; }
+      callSaint(hit.key);
     });
     if (el.dialer) el.dialer.addEventListener("keydown", function (e) { if (e.key === "Enter" && dialBtn) dialBtn.click(); });
 
-    // default door state
     show("entry");
+  }
+
+  // Test hook (non-DOM): lets a headless harness exercise the pure engine.
+  if (typeof window !== "undefined") {
+    window.__dpGame = { SAINTS: SAINTS, AXES: AXES, VALUE: VALUE,
+      _state: function () { return S; }, _new: newGame, _call: callSaint,
+      _star: playStarCode, _starCode: starCode };
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);

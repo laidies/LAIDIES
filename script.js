@@ -1578,31 +1578,35 @@ const dreamPhoneCallers = {
   closer: { friend: "Closer", type: "voice" },
 };
 
+// 3-digit extensions, grouped by advice beat (1xx career, 2xx drama,
+// 3xx confidence, 4xx AI, 5xx leadership, 6xx ops, 7xx evidence, 8xx voice).
+// Deb is tap-only via her card (ext 000) and stays out of this dial map.
+// Jenny keeps her full 8675309 line (dreamPhoneSecretBadges).
 const dreamPhoneNumbers = {
-  5551995: "mentor",
-  5551999: "strategist",
-  5552001: "bestie",
-  5552003: "boundary",
-  5552004: "receipts",
-  5552007: "hype",
-  5552008: "steady",
-  5552010: "bigbro",
-  5552013: "wildcard",
-  5552016: "creative",
-  5552024: "research",
-  5552026: "aihelp",
-  5552027: "boss",
-  5552028: "coach",
-  5552029: "operator",
-  5552030: "counsel",
-  5552031: "finance",
-  5552032: "product",
-  5552033: "comms",
-  5552034: "data",
-  5552035: "founder",
-  5552036: "sponsor",
-  5552037: "builder",
-  5552038: "closer",
+  101: "mentor",
+  102: "strategist",
+  103: "steady",
+  104: "sponsor",
+  201: "bestie",
+  202: "boundary",
+  203: "receipts",
+  204: "counsel",
+  301: "hype",
+  302: "bigbro",
+  303: "creative",
+  304: "coach",
+  401: "aihelp",
+  402: "research",
+  403: "wildcard",
+  404: "builder",
+  501: "boss",
+  502: "founder",
+  601: "operator",
+  602: "product",
+  701: "finance",
+  702: "data",
+  801: "comms",
+  802: "closer",
 };
 
 const siteData = window.LAIDIES_SITE_DATA || {};
@@ -4164,7 +4168,7 @@ dreamPhoneKeypadButtons.forEach((button) => {
     setDreamPhoneNumber(nextDigits);
     dreamPhoneNumber?.focus();
 
-    if (dreamPhoneOutput && nextDigits.length === 7) {
+    if (dreamPhoneOutput && (dreamPhoneNumbers[nextDigits] || nextDigits === "8675309")) {
       dreamPhoneOutput.textContent = "Number is in. Press Dial and prepare to overreact responsibly.";
     }
   });

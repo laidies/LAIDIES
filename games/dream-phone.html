@@ -210,6 +210,9 @@
       }
       .dp-suspect-name, .caller-name { font-size: 0.95rem; font-weight: 600; color: var(--plum); line-height: 1.12; }
       .dp-suspect-num, .caller-number { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.03em; }
+      .dp-suspect-domain { font-size: 0.72rem; font-weight: 600; color: var(--rose); letter-spacing: 0.02em; line-height: 1.1; }
+      .dp-suspect-traits { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; }
+      .dp-trait { font-size: 0.62rem; font-weight: 600; color: var(--plum); background: var(--gold-soft); border: 1px solid var(--card-edge); border-radius: 20px; padding: 2px 7px; letter-spacing: 0.02em; }
       /* eliminated state = GAME logic only (Just Call has no suspects) */
       .dp-suspect.is-out { opacity: 0.5; filter: grayscale(1); pointer-events: none; border-color: var(--line); background: var(--paper); }
       .dp-suspect.is-out .dp-suspect-name { color: var(--muted); }
@@ -643,12 +646,11 @@
             <p>Call an advisor and get a straight answer on career, confidence, AI, or drama. Pull a remix card to twist it.</p>
             <span class="dp-door-go">Open the hotline →</span>
           </button>
-          <button type="button" class="dp-door dp-door--wip" id="dpDoorGame">
-            <span class="dp-door-status">Out of service</span>
+          <button type="button" class="dp-door" id="dpDoorGame">
             <span class="dp-door-icon" aria-hidden="true">▶</span>
             <h2>Play the Game</h2>
-            <p>Someone's secretly in your corner this week. Dial around, collect clues, deduce who — then solve.</p>
-            <span class="dp-door-go">Take a peek →</span>
+            <p>One of the patron saints is secretly in your corner this week. Dial around, collect clues, deduce who — then dial her.</p>
+            <span class="dp-door-go">Start dialing →</span>
           </button>
         </div>
         <!-- Jenny easter-egg teaser (approved copy) -->
@@ -658,18 +660,13 @@
       <!-- ════════ THE GAME ════════ -->
       <section class="dp-section dp-game" id="dpGame" hidden aria-label="Dream Phone deduction game">
         <button type="button" class="dp-back" data-dp-back>← Back to Dream Phone</button>
-        <p class="dp-wip-banner">📞 Heads up — this line isn't fully connected yet. The deduction game is still being wired to the switchboard, so a few things may go straight to voicemail. <strong>Just Call</strong> is the only line that's live.</p>
         <div class="dp-game-head">
           <h2>Who's <span>secretly in your corner</span> this week?</h2>
-          <p>Dial callers to collect clues. Every clue crosses suspects off the board. Deduce her, then Solve.</p>
+          <p>One of your patron saints has your back this week. Dial a saint — even a wrong number hands you a clue. Match the tea to the traits on the board, then dial the right saint.</p>
         </div>
 
         <div class="dp-controls">
-          <span class="dp-count" id="dpCount">24 left</span>
-          <div class="dp-mode-group" role="group" aria-label="Game size">
-            <button type="button" class="dp-btn-ghost is-active" data-mode="full">Full · 24</button>
-            <button type="button" class="dp-btn-ghost" data-mode="quick">Quick · 12</button>
-          </div>
+          <span class="dp-count" id="dpCount">12 still in the running</span>
           <button type="button" class="dp-btn-ghost" id="dpNewGame">New game</button>
         </div>
 
@@ -687,17 +684,16 @@
         </div>
 
         <div class="dp-dialer-row">
-          <input id="dpDialer" type="tel" inputmode="numeric" autocomplete="off" placeholder="555-0000" aria-label="Dial a caller's number" />
+          <input id="dpDialer" type="tel" inputmode="numeric" autocomplete="off" maxlength="7" placeholder="ext." aria-label="Dial a saint's 3-digit extension" />
           <button type="button" class="dp-btn" id="dpDialBtn">Dial</button>
         </div>
         <!-- Mobile two-step commit: tap a card to load it, then Call (routes through #dpDialBtn → engine). Hidden on desktop. -->
         <button type="button" class="dp-mobile-call" id="dpMobileCall">Call</button>
 
-        <div class="dp-output" id="dpGameOutput" aria-live="polite">New line open. Tap a caller to start ruling people out.</div>
+        <div class="dp-output" id="dpGameOutput" aria-live="polite">New line open. Tap a saint to dial — a wrong number still gives you the tea.</div>
 
         <div class="dp-actions-row">
-          <button type="button" class="dp-btn" id="dpSolveToggle">I'm ready to Solve</button>
-          <button type="button" class="dp-btn-ghost" id="dpJustTellMe">Just tell me</button>
+          <button type="button" class="dp-btn-ghost" id="dpJustTellMe">Just tell me who</button>
         </div>
 
         <div class="dp-reveal" id="dpReveal" hidden aria-live="polite"></div>
@@ -782,60 +778,60 @@
           <div class="caller-beat">
             <h3 class="beat-label">When the eye-rolling counts as cardio</h3>
             <div class="caller-grid">
-            <button class="caller-card" type="button" data-dream-pick="receipts" data-dream-number="555-2004"><img class="caller-avatar" src="../assets/dream-phone-receipts.webp" alt="Receipts" /><span class="caller-name">Receipts</span><span class="caller-number">555-2004</span></button>
-            <button class="caller-card" type="button" data-dream-pick="boundary" data-dream-number="555-2003"><img class="caller-avatar" src="../assets/dream-phone-boundary.webp" alt="Boundary" /><span class="caller-name">Boundary</span><span class="caller-number">555-2003</span></button>
-            <button class="caller-card" type="button" data-dream-pick="bestie" data-dream-number="555-2001"><img class="caller-avatar" src="../assets/dream-phone-bestie.webp" alt="Bestie" /><span class="caller-name">Bestie</span><span class="caller-number">555-2001</span></button>
-            <button class="caller-card" type="button" data-dream-pick="counsel" data-dream-number="555-2030"><img class="caller-avatar" src="../assets/dream-phone-counsel.jpg" alt="Counsel" /><span class="caller-name">Counsel</span><span class="caller-number">555-2030</span></button>
+            <button class="caller-card" type="button" data-dream-pick="receipts" data-dream-number="203"><img class="caller-avatar" src="../assets/dream-phone-receipts.webp" alt="Receipts" /><span class="caller-name">Receipts</span><span class="caller-number">203</span></button>
+            <button class="caller-card" type="button" data-dream-pick="boundary" data-dream-number="202"><img class="caller-avatar" src="../assets/dream-phone-boundary.webp" alt="Boundary" /><span class="caller-name">Boundary</span><span class="caller-number">202</span></button>
+            <button class="caller-card" type="button" data-dream-pick="bestie" data-dream-number="201"><img class="caller-avatar" src="../assets/dream-phone-bestie.webp" alt="Bestie" /><span class="caller-name">Bestie</span><span class="caller-number">201</span></button>
+            <button class="caller-card" type="button" data-dream-pick="counsel" data-dream-number="204"><img class="caller-avatar" src="../assets/dream-phone-counsel.jpg" alt="Counsel" /><span class="caller-name">Counsel</span><span class="caller-number">204</span></button>
             </div>
           </div>
 
           <div class="caller-beat">
             <h3 class="beat-label">When LinkedIn thinks you're "open to work" and you didn't tell it that</h3>
             <div class="caller-grid">
-            <button class="caller-card" type="button" data-dream-pick="mentor" data-dream-number="555-1995"><img class="caller-avatar" src="../assets/dream-phone-mentor.webp" alt="Mentor" /><span class="caller-name">Mentor</span><span class="caller-number">555-1995</span></button>
-            <button class="caller-card" type="button" data-dream-pick="strategist" data-dream-number="555-1999"><img class="caller-avatar" src="../assets/dream-phone-strategist.webp" alt="Strategist" /><span class="caller-name">Strategist</span><span class="caller-number">555-1999</span></button>
-            <button class="caller-card" type="button" data-dream-pick="steady" data-dream-number="555-2008"><img class="caller-avatar" src="../assets/dream-phone-steady.webp" alt="Steady" /><span class="caller-name">Steady</span><span class="caller-number">555-2008</span></button>
-            <button class="caller-card" type="button" data-dream-pick="sponsor" data-dream-number="555-2036"><img class="caller-avatar" src="../assets/dream-phone-sponsor.jpg" alt="Sponsor" /><span class="caller-name">Sponsor</span><span class="caller-number">555-2036</span></button>
+            <button class="caller-card" type="button" data-dream-pick="mentor" data-dream-number="101"><img class="caller-avatar" src="../assets/dream-phone-mentor.webp" alt="Mentor" /><span class="caller-name">Mentor</span><span class="caller-number">101</span></button>
+            <button class="caller-card" type="button" data-dream-pick="strategist" data-dream-number="102"><img class="caller-avatar" src="../assets/dream-phone-strategist.webp" alt="Strategist" /><span class="caller-name">Strategist</span><span class="caller-number">102</span></button>
+            <button class="caller-card" type="button" data-dream-pick="steady" data-dream-number="103"><img class="caller-avatar" src="../assets/dream-phone-steady.webp" alt="Steady" /><span class="caller-name">Steady</span><span class="caller-number">103</span></button>
+            <button class="caller-card" type="button" data-dream-pick="sponsor" data-dream-number="104"><img class="caller-avatar" src="../assets/dream-phone-sponsor.jpg" alt="Sponsor" /><span class="caller-name">Sponsor</span><span class="caller-number">104</span></button>
             </div>
           </div>
 
           <div class="caller-beat">
             <h3 class="beat-label">When you rewrote the Slack message until it had three exclamation points and an apology</h3>
             <div class="caller-grid">
-            <button class="caller-card" type="button" data-dream-pick="hype" data-dream-number="555-2007"><img class="caller-avatar" src="../assets/dream-phone-hype.webp" alt="Hype" /><span class="caller-name">Hype</span><span class="caller-number">555-2007</span></button>
-            <button class="caller-card" type="button" data-dream-pick="bigbro" data-dream-number="555-2010"><img class="caller-avatar" src="../assets/dream-phone-bigbro.webp" alt="Big Bro" /><span class="caller-name">Big Bro</span><span class="caller-number">555-2010</span></button>
-            <button class="caller-card" type="button" data-dream-pick="creative" data-dream-number="555-2016"><img class="caller-avatar" src="../assets/dream-phone-creative.webp" alt="Creative" /><span class="caller-name">Creative</span><span class="caller-number">555-2016</span></button>
-            <button class="caller-card" type="button" data-dream-pick="coach" data-dream-number="555-2028"><img class="caller-avatar" src="../assets/dream-phone-coach.jpg" alt="Coach" /><span class="caller-name">Coach</span><span class="caller-number">555-2028</span></button>
+            <button class="caller-card" type="button" data-dream-pick="hype" data-dream-number="301"><img class="caller-avatar" src="../assets/dream-phone-hype.webp" alt="Hype" /><span class="caller-name">Hype</span><span class="caller-number">301</span></button>
+            <button class="caller-card" type="button" data-dream-pick="bigbro" data-dream-number="302"><img class="caller-avatar" src="../assets/dream-phone-bigbro.webp" alt="Big Bro" /><span class="caller-name">Big Bro</span><span class="caller-number">302</span></button>
+            <button class="caller-card" type="button" data-dream-pick="creative" data-dream-number="303"><img class="caller-avatar" src="../assets/dream-phone-creative.webp" alt="Creative" /><span class="caller-name">Creative</span><span class="caller-number">303</span></button>
+            <button class="caller-card" type="button" data-dream-pick="coach" data-dream-number="304"><img class="caller-avatar" src="../assets/dream-phone-coach.jpg" alt="Coach" /><span class="caller-name">Coach</span><span class="caller-number">304</span></button>
             </div>
           </div>
 
           <div class="caller-beat">
             <h3 class="beat-label">When turning it off and on again isn't working</h3>
             <div class="caller-grid">
-            <button class="caller-card" type="button" data-dream-pick="aihelp" data-dream-number="555-2026"><img class="caller-avatar" src="../assets/dream-phone-ai-help.webp" alt="AI Help" /><span class="caller-name">AI Help</span><span class="caller-number">555-2026</span></button>
-            <button class="caller-card" type="button" data-dream-pick="research" data-dream-number="555-2024"><img class="caller-avatar" src="../assets/dream-phone-research.webp" alt="Research" /><span class="caller-name">Research</span><span class="caller-number">555-2024</span></button>
-            <button class="caller-card" type="button" data-dream-pick="wildcard" data-dream-number="555-2013"><img class="caller-avatar" src="../assets/dream-phone-wildcard.webp" alt="Wildcard" /><span class="caller-name">Wildcard</span><span class="caller-number">555-2013</span></button>
-            <button class="caller-card" type="button" data-dream-pick="builder" data-dream-number="555-2037"><img class="caller-avatar" src="../assets/dream-phone-builder.jpg" alt="Builder" /><span class="caller-name">Builder</span><span class="caller-number">555-2037</span></button>
+            <button class="caller-card" type="button" data-dream-pick="aihelp" data-dream-number="401"><img class="caller-avatar" src="../assets/dream-phone-ai-help.webp" alt="AI Help" /><span class="caller-name">AI Help</span><span class="caller-number">401</span></button>
+            <button class="caller-card" type="button" data-dream-pick="research" data-dream-number="402"><img class="caller-avatar" src="../assets/dream-phone-research.webp" alt="Research" /><span class="caller-name">Research</span><span class="caller-number">402</span></button>
+            <button class="caller-card" type="button" data-dream-pick="wildcard" data-dream-number="403"><img class="caller-avatar" src="../assets/dream-phone-wildcard.webp" alt="Wildcard" /><span class="caller-name">Wildcard</span><span class="caller-number">403</span></button>
+            <button class="caller-card" type="button" data-dream-pick="builder" data-dream-number="404"><img class="caller-avatar" src="../assets/dream-phone-builder.jpg" alt="Builder" /><span class="caller-name">Builder</span><span class="caller-number">404</span></button>
             </div>
           </div>
 
           <div class="caller-beat">
             <h3 class="beat-label">When you said "I'll own that" and immediately regretted it</h3>
             <div class="caller-grid">
-            <button class="caller-card" type="button" data-dream-pick="boss" data-dream-number="555-2027"><img class="caller-avatar" src="../assets/dream-phone-founder.jpg" alt="Boss" /><span class="caller-name">Boss</span><span class="caller-number">555-2027</span></button>
-            <button class="caller-card" type="button" data-dream-pick="founder" data-dream-number="555-2035"><img class="caller-avatar" src="../assets/dream-phone-boss-ali.webp" alt="Founder" /><span class="caller-name">Founder</span><span class="caller-number">555-2035</span></button>
-            <button class="caller-card" type="button" data-dream-pick="operator" data-dream-number="555-2029"><img class="caller-avatar" src="../assets/dream-phone-operator.jpg" alt="Operator" /><span class="caller-name">Operator</span><span class="caller-number">555-2029</span></button>
-            <button class="caller-card" type="button" data-dream-pick="product" data-dream-number="555-2032"><img class="caller-avatar" src="../assets/dream-phone-product.jpg" alt="Product" /><span class="caller-name">Product</span><span class="caller-number">555-2032</span></button>
+            <button class="caller-card" type="button" data-dream-pick="boss" data-dream-number="501"><img class="caller-avatar" src="../assets/dream-phone-founder.jpg" alt="Boss" /><span class="caller-name">Boss</span><span class="caller-number">501</span></button>
+            <button class="caller-card" type="button" data-dream-pick="founder" data-dream-number="502"><img class="caller-avatar" src="../assets/dream-phone-boss-ali.webp" alt="Founder" /><span class="caller-name">Founder</span><span class="caller-number">502</span></button>
+            <button class="caller-card" type="button" data-dream-pick="operator" data-dream-number="601"><img class="caller-avatar" src="../assets/dream-phone-operator.jpg" alt="Operator" /><span class="caller-name">Operator</span><span class="caller-number">601</span></button>
+            <button class="caller-card" type="button" data-dream-pick="product" data-dream-number="602"><img class="caller-avatar" src="../assets/dream-phone-product.jpg" alt="Product" /><span class="caller-name">Product</span><span class="caller-number">602</span></button>
             </div>
           </div>
 
           <div class="caller-beat">
             <h3 class="beat-label">When "per my last email" is forming in your mouth</h3>
             <div class="caller-grid">
-            <button class="caller-card" type="button" data-dream-pick="comms" data-dream-number="555-2033"><img class="caller-avatar" src="../assets/dream-phone-comms.jpg" alt="Comms" /><span class="caller-name">Comms</span><span class="caller-number">555-2033</span></button>
-            <button class="caller-card" type="button" data-dream-pick="closer" data-dream-number="555-2038"><img class="caller-avatar" src="../assets/dream-phone-closer.jpg" alt="Closer" /><span class="caller-name">Closer</span><span class="caller-number">555-2038</span></button>
-            <button class="caller-card" type="button" data-dream-pick="finance" data-dream-number="555-2031"><img class="caller-avatar" src="../assets/dream-phone-finance.jpg" alt="Finance" /><span class="caller-name">Finance</span><span class="caller-number">555-2031</span></button>
-            <button class="caller-card" type="button" data-dream-pick="data" data-dream-number="555-2034"><img class="caller-avatar" src="../assets/dream-phone-data.jpg" alt="Data" /><span class="caller-name">Data</span><span class="caller-number">555-2034</span></button>
+            <button class="caller-card" type="button" data-dream-pick="comms" data-dream-number="801"><img class="caller-avatar" src="../assets/dream-phone-comms.jpg" alt="Comms" /><span class="caller-name">Comms</span><span class="caller-number">801</span></button>
+            <button class="caller-card" type="button" data-dream-pick="closer" data-dream-number="802"><img class="caller-avatar" src="../assets/dream-phone-closer.jpg" alt="Closer" /><span class="caller-name">Closer</span><span class="caller-number">802</span></button>
+            <button class="caller-card" type="button" data-dream-pick="finance" data-dream-number="701"><img class="caller-avatar" src="../assets/dream-phone-finance.jpg" alt="Finance" /><span class="caller-name">Finance</span><span class="caller-number">701</span></button>
+            <button class="caller-card" type="button" data-dream-pick="data" data-dream-number="702"><img class="caller-avatar" src="../assets/dream-phone-data.jpg" alt="Data" /><span class="caller-name">Data</span><span class="caller-number">702</span></button>
             </div>
           </div>
 
@@ -843,7 +839,7 @@
           <div class="caller-beat dp-deb-beat">
             <h3 class="beat-label">…and then there's Deb</h3>
             <div class="caller-grid">
-            <button class="caller-card dp-deb-card" type="button" data-dream-pick="deb" data-dream-number="555-2099"><img class="caller-avatar" src="../assets/deb-80s-portrait-stare-v1.png" alt="Deb" /><span class="caller-name">Deb</span><span class="caller-number">555-2099</span></button>
+            <button class="caller-card dp-deb-card" type="button" data-dream-pick="deb" data-dream-number="000"><img class="caller-avatar" src="../assets/deb-80s-portrait-stare-v1.png" alt="Deb" /><span class="caller-name">Deb</span><span class="caller-number">000</span></button>
             </div>
           </div>
 
@@ -901,7 +897,7 @@
         var CALLERS = (typeof dreamPhoneCallers !== "undefined" && dreamPhoneCallers) ? dreamPhoneCallers : {};
         var NUMS = (typeof dreamPhoneNumbers !== "undefined" && dreamPhoneNumbers) ? dreamPhoneNumbers : {};
         var BUNDLES = window.dreamPhoneBundles || {};
-        var DEB_DIGITS = "5552099";  // Deb — hidden caller (number is a flag for Ali: theme + discovery)
+        var DEB_DIGITS = "000";  // Deb — hidden caller (ext 000; tap-only via her card)
         var REMIX_LABEL = { secret: "Share a Secret", speaker: "Speaker Phone", hangup: "Mom Says Hang Up!" };
 
         var buf = "", lastCall = null, calls = [], resetT = null, busy = false;
@@ -1113,7 +1109,9 @@
           if (ch === "*") return;           // * only starts a star code; ignored mid-number
           var d = onlyDigits(next).slice(0, 7);
           buf = d; setScreen(fmtDigits(d));
-          if (d.length === 7) connect(d);
+          // Connect as soon as a valid number is complete: a 3-digit caller ext,
+          // Deb's 000, or Jenny's full 7-digit line.
+          if (NUMS[d] || d === DEB_DIGITS || d.length === 7) connect(d);
         }
 
         // keypad keys
