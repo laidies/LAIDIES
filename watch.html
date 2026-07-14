@@ -194,7 +194,8 @@
     'use strict';
 
     var params = new URLSearchParams(window.location.search);
-    var ep = (params.get('ep') || '01').replace(/[^0-9]/g, '') || '01';
+    var epRaw = (params.get('ep') || '01').toLowerCase();
+    var ep = epRaw === 'trailer' ? 'trailer' : (epRaw.replace(/[^0-9]/g, '') || '01');
     var TUNE = params.has('tune');
 
     var theatre = document.getElementById('theatre');
@@ -421,9 +422,14 @@
     fetch('/content/episodes/episode-' + ep + '-cues.json', { cache: 'no-store' })
       .then(function (r) { return r.json(); })
       .then(function (data) {
-        document.getElementById('scrTitle').innerHTML = 'Episode ' + esc(data.episode) + ' · '
-          + brand(data.title);
-        document.title = 'Episode ' + data.episode + ' · The Screening Room · SUNNYVAiLE';
+        if (ep === 'trailer') {
+          document.getElementById('scrTitle').innerHTML = brand('The Trailer · Welcome to SUNNYVAiLE');
+          document.title = 'The Trailer · The Screening Room · SUNNYVAiLE';
+        } else {
+          document.getElementById('scrTitle').innerHTML = 'Episode ' + esc(data.episode) + ' · '
+            + brand(data.title);
+          document.title = 'Episode ' + data.episode + ' · The Screening Room · SUNNYVAiLE';
+        }
 
         // build the broadcast: title bumper -> narration -> end bumper
         var mainCues = data.cues.slice().sort(function (a, b) { return a.t - b.t; });
