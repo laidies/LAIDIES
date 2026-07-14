@@ -26,12 +26,13 @@ like a real show is starting.
 - Soundtrack = the **SUNNYVAiLE town anthem, "Welcome to SUNNYVAiLE"** —
   `content/music/sunnyvaile-town-anthem.mp3` (full track ~3:38 / 218.4s). *(The "Wednesdays in SUNNYVAiLE"
   song was swapped out — it didn't sit right for the credits.)*
-- **SEGMENT: ⟨Ali to confirm on the anthem⟩** — the old timestamps were for the other song and don't map here.
-  Target ~**37s** to fit the shot list. Bake the chosen segment into the video's own audio; time the cuts to it.
+- **SEGMENT: 0:00 → 1:11** (the anthem's opening, ~**71s**). Bake it into the video's own audio; time the
+  cuts to it. *(71s is a lush, long-form opening — the shot list below is expanded to fill it; if it drags
+  musically, trim the out-point to a phrase end ~0:40 and drop the town-beat rows.)*
 - Plays **with sound** in the bumper — the music is the video's own audio; don't leave it silent.
-- **Fades:** if the segment is a mid-song cut, fade the audio **in ~0.75s** and **out ~1s** (both edges),
-  matched visually (fade in/out from/to black). If the segment ends on the anthem's own ending, skip the
-  fade-out. Either way, fade in from black at the top.
+- **Fades:** the segment **starts at the anthem's own beginning** (0:00), so no abrupt cut-in — a gentle
+  **visual fade-in from black** is enough, audio can start clean. It **ends mid-song at 1:11**, so **fade the
+  audio out ~1s** and **fade to black** on the last frame.
 
 ## Technique for every shot (same as the town scenes)
 Each shot is a **Grace-style living still**: the composition holds, but it **never freezes** — subtle
@@ -40,24 +41,30 @@ the rest of its time on screen. Use the pixel portraits for **likeness/wardrobe 
 character in her building, mid-action**, don't pan a static portrait. Lower-thirds **slide/pop in** (NAME
 bold on top, job under), sitcom-credits style, held ~2.5s then out. Cut on the beat.
 
-## SHOT LIST (8 shots, ~37s — time to the music)
-| # | Time | Shot & staging | Hero beat + ambient | Lower-third |
-|---|------|----------------|---------------------|-------------|
-| 1 | 0:00–0:04.5 | **Establishing** — wide SUNNYVAiLE Main Street at golden dusk (à la `pc-welcome.png`): lit storefronts, jacaranda, mountains behind. Slow push-in. **Fade in from black.** | KSVL tower beacon pulses; string lights twinkle; a palm sways; the little KSVL car rolls past | — (soft "SUNNYVAiLE, est. 1999" watermark ok) |
-| 2 | 0:04.5–0:09 | **Your Heroine** — Blend & Snap corner table; Ali writing in her LAiDIES notebook, coffee + flip phone. | she looks up & smiles / flip phone screen lights pink · coffee steam curls, café lights | **YOUR HEROINE** · a few steps ahead of you |
-| 3 | 0:09–0:13.5 | **Mme CLAi-O** — her plum reading room; crystal ball, tarot spread, Magic 8-Ball. | the crystal ball swells with light / she flips a card · candle flames, beaded curtain sways | **MME CLAi-O** · the read, the message, the move |
-| 4 | 0:13.5–0:18 | **DJ SunnyV** — the KSVL booth; ON AIR sign, turntables, headphones. | she leans into the mic / vinyl spins up / ON AIR flares · EQ bars bounce, pink neon flicker | **DJ SUNNYV** · KSVL 99.9, on the air |
-| 5 | 0:18–0:22.5 | **Mayor Deb** — Town Hall desk; MAYOR sash, "Yippee-Ki-Ay" poster, MAYOR DEB mug. | she thumps a stamp on a document / a knowing look to camera · desk-lamp glow | **MAYOR DEB** · Mayor of SUNNYVAiLE |
-| 6 | 0:22.5–0:27 | **The FAiRY Godmother** — cozy parlor; star-mailbox stuffed with letters, teacup, votive. | wand tips a sparkle / a letter lifts and floats · string lights, candle flicker | **THE FAiRY GODMOTHER** · the town's own AI |
-| 7 | 0:27–0:31.5 | **The Barista** — Blend & Snap counter; espresso machine, menu board. | steam bursts / she slides a heart-foam cup forward · pastry-case glow, hanging plants | **THE BARISTA** · at the Blend & Snap |
-| 8 | 0:31.5–0:37 | **Title** — pull to a warm wide of Main Street (cast glimpsed), then the **LAiDIES wordmark** blooms and **"SUNNYVAiLE"** lands under it. **Fade out to black** over the last ~1s. | title pops; town lights sparkle | — |
+## SHOT LIST (14 shots, ~71s — cast intros interwoven with town beats; time to the music)
+| # | Time | Shot & staging | Motion (hero beat + ambient) | Lower-third |
+|---|------|----------------|------------------------------|-------------|
+| 1 | 0:00–0:05 | **Establishing** — wide SUNNYVAiLE Main Street at golden dusk (à la `pc-welcome.png`): lit storefronts, jacaranda, mountains. Slow push-in. **Fade in from black.** | KSVL tower beacon pulses; string lights twinkle; a palm sways; the little KSVL car rolls past | — (soft "SUNNYVAiLE, est. 1999" ok) |
+| 2 | 0:05–0:10 | **Your Heroine** — Blend & Snap corner table; Ali writing in her LAiDIES notebook, coffee + flip phone. | looks up & smiles / flip phone lights pink · steam curls, café lights | **YOUR HEROINE** · a few steps ahead of you |
+| 3 | 0:10–0:15 | **Town beat — NewsStand** — the storefront, racks of papers ("SUNNYVAiLE TODAY"). | a paper flutters; the vendor light buzzes on; a headline flips | — |
+| 4 | 0:15–0:20 | **Mme CLAi-O** — plum reading room; crystal ball, tarot spread, Magic 8-Ball. | crystal ball swells / she flips a card · candle flames, beaded curtain sways | **MME CLAi-O** · the read, the message, the move |
+| 5 | 0:20–0:25 | **Town beat — Chick Flicks** — the video-store marquee lit, VHS tapes in the window. | marquee bulbs chase; neon flickers; a tape tips forward | — |
+| 6 | 0:25–0:30 | **DJ SunnyV** — the KSVL booth; ON AIR sign, turntables, headphones. | leans into the mic / vinyl spins up / ON AIR flares · EQ bars bounce | **DJ SUNNYV** · KSVL 99.9, on the air |
+| 7 | 0:30–0:35 | **Town beat — KSVL tower** — the radio tower against the dusk sky. | beacon pulses; broadcast rings ripple out; a bird lifts off | — |
+| 8 | 0:35–0:40 | **Mayor Deb** — Town Hall desk; MAYOR sash, "Yippee-Ki-Ay" poster, MAYOR DEB mug. | thumps a stamp / a knowing look to camera · desk-lamp glow | **MAYOR DEB** · Mayor of SUNNYVAiLE |
+| 9 | 0:40–0:45 | **Town beat — The Mall** — the atrium; fountain, storefronts, glass elevator. | fountain ripples; the elevator glides; shopper silhouettes drift | — |
+| 10 | 0:45–0:50 | **The FAiRY Godmother** — cozy parlor; star-mailbox stuffed with letters, teacup, votive. | wand tips a sparkle / a letter lifts and floats · string lights, candle flicker | **THE FAiRY GODMOTHER** · the town's own AI |
+| 11 | 0:50–0:55 | **Town beat — the LUMINAiRY** — Lantern Hill, stained-glass windows glowing, lanterns along the path. | stained glass shimmers; lanterns flicker | — |
+| 12 | 0:55–1:00 | **The Barista** — Blend & Snap counter; espresso machine, menu board. | steam bursts / slides a heart-foam cup forward · pastry-case glow, hanging plants | **THE BARISTA** · at the Blend & Snap |
+| 13 | 1:00–1:06 | **The crew** — wide of Main Street at magic hour, the cast out on the street together. | everyone in gentle motion; lights twinkle; the KSVL car passes again | — |
+| 14 | 1:06–1:11 | **Title** — the **LAiDIES wordmark** blooms and **"SUNNYVAiLE"** lands under it. **Fade out to black** over the last ~1s. | title pops; town lights sparkle | — |
 
 Portrait refs (likeness/wardrobe): `assets/pixel-restyle/characters/` — `ali-founder-…`, `mme-claio-…`,
 `dj-sunnyv-…`, `mayor-deb-…`, `laidy-fairy-godmother-…`, `blend-and-snap-barista-…`. Whole-town look:
 `assets/postcards/from-sunnyvaile/pc-welcome.png`.
 
 ## Output
-- **mp4, 16:9, 1920×1080**, **~37s** (= the song segment), H.264.
+- **mp4, 16:9, 1920×1080**, **~71s** (= the song segment 0:00–1:11), H.264.
 - **Deliver to:** `assets/video/sunnyvaile-opening-credits-v1.mp4`
 - Report length + whether audio is baked in.
 
