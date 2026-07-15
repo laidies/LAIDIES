@@ -5993,8 +5993,9 @@ h3 {
 
 .community-thread {
   background:
-    linear-gradient(120deg, rgba(155, 63, 95, 0.08), rgba(201, 168, 76, 0.12)),
-    #fff8fc;
+    radial-gradient(120% 80% at 50% -10%, rgba(155, 63, 95, 0.10), transparent 60%),
+    repeating-linear-gradient(90deg, rgba(75,33,72,0.028) 0 1px, transparent 1px 26px),
+    linear-gradient(180deg, #efe1cf 0%, #f6eee1 44%, #f8f1e6 100%);
   min-height: calc(100vh - 72px);
   padding: clamp(34px, 6vw, 72px) clamp(18px, 5vw, 64px);
 }
@@ -6007,16 +6008,35 @@ h3 {
 }
 
 .thread-hero {
+  position: relative;
   margin-bottom: 28px;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: white;
-  padding: clamp(24px, 5vw, 46px);
-  box-shadow: var(--shadow);
+  border-top: 5px solid var(--rose);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #fffdfb 0%, #fdf6ee 100%);
+  padding: clamp(28px, 5vw, 48px);
+  box-shadow: 0 18px 44px rgba(75, 33, 72, 0.12);
+}
+
+.thread-hero .eyebrow {
+  display: inline-block;
+  font-family: "Jost", sans-serif;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fdf3f7;
+  background: var(--plum);
+  border-radius: 6px;
+  padding: 6px 13px;
+  margin-bottom: 16px;
 }
 
 .thread-hero h1 {
-  font-size: clamp(3rem, 8vw, 5.8rem);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.7rem, 7vw, 4.8rem);
+  line-height: 1.02;
+  color: var(--plum);
 }
 
 .thread-hero p:not(.eyebrow) {
@@ -6027,19 +6047,35 @@ h3 {
 }
 
 .thread-hero .thread-subhead {
-  margin: -10px 0 18px;
-  color: var(--hot-pink);
-  font-family: Georgia, "Times New Roman", serif;
+  margin: 6px 0 16px;
+  color: var(--rose);
+  font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(1.35rem, 3vw, 2rem);
   font-style: italic;
-  line-height: 1.1;
+  line-height: 1.15;
 }
 
 .thread-comments {
+  position: relative;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: white;
-  padding: clamp(18px, 4vw, 32px);
+  border-radius: 14px;
+  background: #fffdfb;
+  padding: clamp(20px, 4vw, 34px);
+  box-shadow: 0 12px 30px rgba(75, 33, 72, 0.08);
+}
+
+.thread-comments::before {
+  content: "\2605  Pinned to the wall \2014 add yours";
+  display: block;
+  font-family: "Jost", sans-serif;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rose);
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+  border-bottom: 1.5px dashed rgba(155, 63, 95, 0.32);
 }
 
 .thread-prompt {
