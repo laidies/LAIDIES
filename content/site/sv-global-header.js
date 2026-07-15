@@ -33,11 +33,12 @@
     add('apple-touch-icon', '/assets/brand/laidies-favicon-180.png');
   })();
 
-  var JOIN_HREF = '/resident-card.html';
-  var SIGNIN_HREF = '/resident-card.html';
+  var JOIN_HREF = '/maikeover.html';
+  var SIGNIN_HREF = '/post-office.html#signin';
   var QUICK_LINKS = [
-    { label: "This Week's Tour", href: '/#tour' },
-    { label: 'Radio', href: '/radio.html' }
+    { label: 'Latest Episode', href: '/chick-flicks.html' },
+    { label: 'Look it up', href: '/library.html' },
+    { label: 'Explore SUNNYVAiLE', href: '/visitors-centre.html' }
   ];
   // Icons come from the shared gold kit (sv-gold-icons.js) — no emoji in
   // interface chrome (Ali, 2026-07-05).
@@ -75,7 +76,12 @@
   var STYLE = ''
     /* Zero-specificity fallbacks (:where) — give rebased legacy pages a
        proper header without overriding sunnyvaile-page.css anywhere. */
-    + ':where(.sv-header) { position: sticky; top: 0; z-index: 9000; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px clamp(16px, 3vw, 32px); background: #fffdfb; border-bottom: 1px solid rgba(75,33,72,0.12); font-family: "Jost", sans-serif; }'
+    + ':where(.sv-header) { position: sticky; top: 0; z-index: 9000; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px clamp(16px, 3vw, 32px); background: linear-gradient(110deg, rgba(228,216,244,0.97) 0%, rgba(246,214,226,0.97) 48%, rgba(201,229,223,0.97) 100%); border-bottom: 2px solid rgba(255,224,138,0.8); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); font-family: "Jost", sans-serif; }'
+    /* KSVL pill — live on-air link, ported from the homepage topbar. */
+    + '.svgh-ksvl { display: inline-flex; align-items: center; gap: 7px; color: #4b2148 !important; font-weight: 700; font-size: 13.5px; white-space: nowrap; }'
+    + '.svgh-ksvl .onair-dot { width: 8px; height: 8px; border-radius: 50%; background: #e0455f; box-shadow: 0 0 0 0 rgba(224,69,95,0.55); animation: svgh-pulse 1.8s ease-out infinite; }'
+    + '@keyframes svgh-pulse { 0% { box-shadow: 0 0 0 0 rgba(224,69,95,0.5); } 70% { box-shadow: 0 0 0 7px rgba(224,69,95,0); } 100% { box-shadow: 0 0 0 0 rgba(224,69,95,0); } }'
+    + '@media (prefers-reduced-motion: reduce) { .svgh-ksvl .onair-dot { animation: none; } }'
     + ':where(.sv-header .brand) { position: relative; display: inline-block; font-weight: 800; font-size: 20px; letter-spacing: 0.035em; color: #2b1622; text-decoration: none; white-space: nowrap; line-height: 1; }'
     + '.sv-header .brand .lac { color: #57b6c0; }'
     + '.sv-header .brand .logo-iw { position: relative; }'
@@ -121,7 +127,8 @@
     + '.site-header .svgh-nav { gap: 22px; }'
     + '.site-header .svgh-nav a { color: var(--plum, #4b2148); font-family: "Jost", sans-serif; font-size: 14px; font-weight: 600; }'
     + '.site-header .svgh-nav a:hover { color: var(--rose, #9b3f5f); }'
-    + '@media (max-width: 760px) { .svgh-quick { display: none !important; } }'
+    + '@media (max-width: 760px) { .svgh-quick, .svgh-ksvl { display: none !important; } }'
+    + '@media (max-width: 560px) { .svgh-jointail { display: none; } }'
     + '@media (max-width: 640px) { .svgh-panel { top: 64px; } }'
     /* Phones (≤480px): drop the redundant history arrows and tighten the three
        quick actions into ONE uniform pill row (Join filled · Sign In outline ·
@@ -227,16 +234,15 @@
 
     container.innerHTML =
       '<div class="svgh-left">'
-      + '<button type="button" class="svgh-histbtn svgh-back" aria-label="Back" title="Back">←</button>'
-      + '<button type="button" class="svgh-histbtn svgh-fwd" aria-label="Forward" title="Forward">→</button>'
       + brandHtmlStr
       + '</div>'
       + (container === header ? '' : '<div class="site-header-spacer"></div>')
       + '<nav class="svgh-nav">'
       + quick
-      + '<a class="svgh-join" href="' + esc(JOIN_HREF) + '">Join →</a>'
-      + '<a class="sv-signin svgh-signin" href="' + esc(SIGNIN_HREF) + '">✉︎ Sign In</a>'
-      + '<button type="button" class="svgh-menu-btn" aria-haspopup="true" aria-expanded="false" aria-controls="svghPanel">☰ Menu</button>'
+      + '<a class="svgh-ksvl" href="/radio.html"><span class="onair-dot"></span>KSVL 99.9</a>'
+      + '<a class="sv-signin svgh-signin" href="' + esc(SIGNIN_HREF) + '">Sign in</a>'
+      + '<a class="svgh-join" href="' + esc(JOIN_HREF) + '">Join<span class="svgh-jointail"> the town</span></a>'
+      + '<button type="button" class="svgh-menu-btn" aria-haspopup="true" aria-expanded="false" aria-controls="svghPanel">Menu</button>'
       + '</nav>';
 
     var panel = document.createElement('div');
@@ -247,33 +253,8 @@
     document.body.appendChild(panel);
     buildPanel(panel);
 
-    // ← / → — browser-honest history. Back uses real history when the
-    // visitor came from inside the town (so → still works afterwards);
-    // a cold landing falls back to the page's natural parent.
-    function parentFallback() {
-      var p = window.location.pathname;
-      if (p.indexOf('/mall/') === 0) return '/mall.html';
-      if (p.indexOf('/issues/') === 0) return '/chick-flicks.html';
-      if (p.indexOf('/community/') === 0) return '/sorority-house.html';
-      // Games go home to the building they live in.
-      var GAME_HOME = {
-        '/games/businesswomens-special.html': '/bronze-aige.html',
-        '/games/girl-talk.html': '/sorority-house.html',
-        '/games/trading-cards.html': '/blend-snap.html'
-      };
-      return GAME_HOME[p] || '/';
-    }
-    header.querySelector('.svgh-back').addEventListener('click', function () {
-      // ALWAYS the previous page (Ali's rule) — real history, wherever it
-      // leads. Only when back genuinely does nothing (cold landing, first
-      // page in the tab) does the parent fallback kick in.
-      var fallback = setTimeout(function () { window.location.href = parentFallback(); }, 400);
-      window.addEventListener('pagehide', function () { clearTimeout(fallback); }, { once: true });
-      window.history.back();
-    });
-    header.querySelector('.svgh-fwd').addEventListener('click', function () {
-      window.history.forward();
-    });
+    // (The ← / → history arrows were retired 2026-07-15 — the Menu is the
+    // single wayfinder and the header now wears the homepage's gradient skin.)
 
     var btn = header.querySelector('.svgh-menu-btn');
     function close() { panel.classList.remove('is-open'); btn.setAttribute('aria-expanded', 'false'); }
