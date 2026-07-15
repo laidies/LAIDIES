@@ -16,6 +16,23 @@
 (function () {
   'use strict';
 
+  // Site-wide favicon: the pink-heart LAiDIES tile. Runs on every page that
+  // loads this script, so sub-pages match the homepage. Skips pages that
+  // already declare their own PNG icon (e.g. index.html). /favicon.ico at the
+  // site root is the default fallback for anything this doesn't touch.
+  (function ensureFavicon() {
+    if (document.querySelector('link[rel="icon"][type="image/png"]')) return;
+    var add = function (rel, href, sizes) {
+      var l = document.createElement('link');
+      l.rel = rel; l.href = href;
+      if (sizes) l.setAttribute('sizes', sizes);
+      (document.head || document.documentElement).appendChild(l);
+    };
+    add('icon', '/assets/brand/laidies-favicon-32.png', '32x32');
+    add('icon', '/assets/brand/laidies-favicon-512.png', '512x512');
+    add('apple-touch-icon', '/assets/brand/laidies-favicon-180.png');
+  })();
+
   var JOIN_HREF = '/resident-card.html';
   var SIGNIN_HREF = '/resident-card.html';
   var QUICK_LINKS = [
