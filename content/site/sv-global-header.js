@@ -59,7 +59,10 @@
     /* Zero-specificity fallbacks (:where) — give rebased legacy pages a
        proper header without overriding sunnyvaile-page.css anywhere. */
     + ':where(.sv-header) { position: sticky; top: 0; z-index: 9000; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px clamp(16px, 3vw, 32px); background: #fffdfb; border-bottom: 1px solid rgba(75,33,72,0.12); font-family: "Jost", sans-serif; }'
-    + ':where(.sv-header .brand) { font-weight: 800; font-size: 20px; letter-spacing: 0.04em; color: #4b2148; text-decoration: none; }'
+    + ':where(.sv-header .brand) { position: relative; display: inline-block; font-weight: 800; font-size: 20px; letter-spacing: 0.035em; color: #2b1622; text-decoration: none; white-space: nowrap; line-height: 1; }'
+    + '.sv-header .brand .lac { color: #57b6c0; }'
+    + '.sv-header .brand .logo-iw { position: relative; }'
+    + '.sv-header .brand .logo-tit { position: absolute; left: 46%; bottom: 0.905em; transform: translateX(-50%); width: 0.17em; height: 0.17em; border-radius: 0.045em; background: currentColor; color: #e982ab; pointer-events: none; }'
     + ':where(.sv-header nav) { display: flex; align-items: center; gap: 18px; }'
     + ':where(.sv-header nav a) { color: #4b2148; text-decoration: none; font-size: 14px; font-weight: 600; }'
     + '.svgh-left { display: flex; align-items: center; gap: 10px; }'
@@ -185,11 +188,20 @@
     style.textContent = STYLE;
     document.head.appendChild(style);
 
+    // Ensure the wordmark's font is available (dot alignment assumes Jost metrics).
+    if (!document.querySelector('link[href*="family=Jost"]')) {
+      var jl = document.createElement('link');
+      jl.rel = 'stylesheet';
+      jl.href = 'https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700;800&display=swap';
+      document.head.appendChild(jl);
+    }
+
     // Preserve the page's brand/logo element if it has one, and rebuild
     // inside the layout wrapper when the page uses one (homepage).
     var container = header.querySelector('.site-header-inner') || header;
     var brand = header.querySelector('.brand, .site-logo');
-    var brandHtmlStr = brand ? brand.outerHTML : '<a class="brand" href="/">L<span class="ai">Ai</span>DIES</a>';
+    var brandHref = (brand && brand.getAttribute('href')) || '/';
+    var brandHtmlStr = '<a class="brand" href="' + esc(brandHref) + '" aria-label="LAiDIES home">L<span class="lac">A</span><span class="logo-iw"><span class="lac">&#305;</span><span class="logo-tit" aria-hidden="true"></span></span>DIES</a>';
 
     var quick = QUICK_LINKS.map(function (l) {
       var current = window.location.pathname === l.href ? ' style="color: var(--rose);"' : '';
@@ -257,6 +269,21 @@
       if (panel.classList.contains('is-open') && !panel.contains(e.target)) close();
     });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+
+    // Animate the i's tittle: cycle the six accent colours (matches homepage).
+    (function () {
+      var tits = [].slice.call(header.querySelectorAll('.logo-tit'));
+      if (!tits.length) return;
+      var PALETTE = ['#e982ab', '#57b6c0', '#f4a636', '#b3abe7', '#ec7a78', '#8bbde9'];
+      var SPEED = 1.8;
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) { tits.forEach(function (t) { t.style.color = PALETTE[0]; }); return; }
+      function frame(now) {
+        var idx = Math.floor((now / 1000) / SPEED) % PALETTE.length;
+        tits.forEach(function (t) { t.style.color = PALETTE[idx]; });
+        requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    })();
   }
 
   if (document.readyState === 'loading') {
