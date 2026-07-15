@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>LAiDIES logo — pick the tittle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;800&display=swap" rel="stylesheet">
+<style>
+ :root{--plum:#2b1622;--teal:#57b6c0;--cream:#fffdfb;--ink:#2b1622}
+ *{box-sizing:border-box}
+ body{margin:0;background:#efe9ee;font-family:Jost,system-ui,sans-serif;color:#2b1622;padding:34px 20px 80px}
+ h1{font-weight:800;font-size:22px;letter-spacing:.01em;margin:0 0 4px}
+ .sub{font-weight:500;font-size:14px;color:#6b5c67;margin:0 0 30px;max-width:640px;line-height:1.5}
+ .card{max-width:720px;margin:0 auto 22px;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(20,10,26,.10)}
+ .card .head{font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:14px 22px;background:#fff;color:#8a2f66;border-bottom:1px solid #efe2ea}
+ .panel{display:grid;grid-template-columns:1fr 1fr}
+ .g{padding:40px 20px;display:grid;place-items:center;gap:34px}
+ .g-light{background:var(--cream)}
+ .g-dark{background:#1a0a18}
+ .wrap{max-width:720px;margin:0 auto}
+
+ /* ---- the wordmark, live Jost ---- */
+ .lg{font-weight:800;letter-spacing:.035em;color:var(--ink);white-space:nowrap;line-height:1;display:inline-block}
+ .g-dark .lg{color:var(--cream)}
+ .lg .ac{color:var(--teal)}
+ .big{font-size:96px}
+ .hdr{font-size:34px}
+ .iw{position:relative}
+ .tit{position:absolute;left:50%;bottom:.94em;transform:translateX(-50%);color:#e982ab;pointer-events:none}
+ .dot .tit{width:.17em;height:.17em;border-radius:.045em;background:currentColor}
+ .heart .tit{width:.30em;height:calc(.30em*6/7)}
+ .heart .tit svg{width:100%;height:100%;display:block}
+ .heart .tit rect{fill:currentColor}
+ .foot{font-weight:500;font-size:12.5px;color:#6b5c67;text-align:center;padding:14px 22px;background:#fff;border-top:1px solid #efe2ea}
+</style></head>
+<body>
+ <div class="wrap">
+  <h1>Two ways for the tittle to flash</h1>
+  <p class="sub">Clean wordmark spacing, teal <b>Ai</b>. The only animated element is the dot over the&nbsp;i — it cycles the six accent colours on a slow ~1.8s beat. Same on a light and a dark bar. Which one?</p>
+ </div>
+
+ <div class="card">
+  <div class="head">Option A — flashing dot</div>
+  <div class="panel dot">
+   <div class="g g-light">
+     <span class="lg big">L<span class="ac">A</span><span class="iw"><span class="ac">&#305;</span><span class="tit"></span></span>DIES</span>
+     <span class="lg hdr">L<span class="ac">A</span><span class="iw"><span class="ac">&#305;</span><span class="tit"></span></span>DIES</span>
+   </div>
+   <div class="g g-dark">
+     <span class="lg big">L<span class="ac">A</span><span class="iw"><span class="ac">&#305;</span><span class="tit"></span></span>DIES</span>
+     <span class="lg hdr">L<span class="ac">A</span><span class="iw"><span class="ac">&#305;</span><span class="tit"></span></span>DIES</span>
+   </div>
+  </div>
+  <div class="foot">A round pixel dot — quieter, reads as a normal i until you notice it changing colour.</div>
+ </div>
+
+ <div class="card">
+  <div class="head">Option B — flashing pixel heart</div>
+  <div class="panel heart">
+   <div class="g g-light">
+     <span class="lg big">L<span class="ac">A</span><span class="iw"><span class="ac">&#305;</span><span class="tit"></span></span>DIES</span>
+     <span class="lg hdr">L<span class="ac">A</span><span class="iw"><span class="ac">&#305;</span><span class="tit"></span></span>DIES</span>
+   </div>
+   <div class="g g-dark">
+     <span class="lg big">L<span class="ac">A</span><span class="iw"><span class="ac">&#305;</span><span class="tit"></span></span>DIES</span>
+     <span class="lg hdr">L<span class="ac">A</span><span class="iw"><span class="ac">&#305;</span><span class="tit"></span></span>DIES</span>
+   </div>
+  </div>
+  <div class="foot">A 7×6 pixel heart — louder, more Y2K, the little wink in the name.</div>
+ </div>
+
+<script>
+(function(){
+ var H=[[0,1,1,0,1,1,0],[1,1,1,1,1,1,1],[1,1,1,1,1,1,1],[0,1,1,1,1,1,0],[0,0,1,1,1,0,0],[0,0,0,1,0,0,0]];
+ var s='<svg viewBox="0 0 7 6" preserveAspectRatio="none" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg">';
+ H.forEach(function(r,y){r.forEach(function(o,x){if(o)s+='<rect x="'+x+'" y="'+y+'" width="1.02" height="1.02"/>';});});s+='</svg>';
+ [].forEach.call(document.querySelectorAll('.heart .tit'),function(h){h.innerHTML=s;});
+ var PALETTE=['#e982ab','#57b6c0','#f4a636','#b3abe7','#ec7a78','#8bbde9']; // pink,teal,tangerine,peri,coral,sky
+ var SPEED=1.8, tits=[].slice.call(document.querySelectorAll('.tit'));
+ if(matchMedia('(prefers-reduced-motion: reduce)').matches){tits.forEach(function(t){t.style.color=PALETTE[0];});return;}
+ function frame(now){
+   var idx=Math.floor((now/1000)/SPEED)%PALETTE.length;
+   tits.forEach(function(t){t.style.color=PALETTE[idx];});
+   requestAnimationFrame(frame);
+ }
+ requestAnimationFrame(frame);
+})();
+</script>
+</body></html>
