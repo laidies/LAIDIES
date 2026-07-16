@@ -54,6 +54,116 @@ Each saint = **her character + her one AI truth, fused.** See
 # SAiNT SONGS
 # ============================================================
 
+## Bette Midler — PATRON SAiNT of Range ("The Triple Threat")
+**Band:** THE LAiDIES *(provisional — big brassy showstopper; no current band is
+Broadway/cabaret, confirm)*
+**Status:** SHIPPED — `saint-bette-midler.mp3`, wired into `ksvl-player.js` (saints
+mix). ⚠️ DJ radio intro still owed (`dj-sunnyv-intro-saint-bette-midler.mp3`).
+**AI truth (Range/Multimodal):** it's not just a text box — show it pictures, talk to
+it, hand it your files, let it see your screen. Use every mode. Don't be just one
+thing; don't use it like it's just one thing.
+
+**Comedic engine:** The Divine Miss M is the brassy maximalist who refuses to be ONE
+thing (torch songs AND comedy AND Broadway AND movies). "Why be one thing when you
+can be the whole show?" = use every mode. **Bold, recognizable Bette references woven
+in, Miranda-style** (Ali: keep them landing, not buried):
+- Wind Beneath My Wings — "Did you ever know..." (intro) + "wind beneath your wings" (outro, flipped: the tools lift you, YOU still fly)
+- First Wives Club — "don't get mad, get everything" (doubles as the lesson)
+- Hocus Pocus — "put a spell on you," "not some hocus pocus," "spells you learn to wield," "Sisters"
+- Beaches — "sang you to tears in a beach chair"
+- Down and Out in Beverly Hills — "feeling down and out" (outro)
+
+**Suno gotchas learned here:**
+- **"Bette" → sung "Bet"** (spelled "Bet" in lyrics or Suno says "Betty"). Canon name stays "Bette Midler."
+- **Year "nineteen ninety-three" spelled out → BLOCKED** as a "producer tag." Write digits (`1993` / `'93`); Suno still sings "ninety-three."
+- If "Divine Miss M" ever trips the artist filter, swap to `'cause a diva worth her feathers don't do "one thing," no-no-NO!`
+
+**Style (Suno):**
+```
+big brassy Broadway showstopper / cabaret, Divine Miss M style, blaring horn section, vaudeville razzle-dazzle, torchy sultry piano intro that SLAMS into an up-tempo brass belter, big campy belting female diva lead with grand spoken asides, showgirl kick-line energy, key-change lift into the final chorus, theatrical and maximalist, clean studio recording, no audience, no crowd cheering, no applause
+```
+
+**Lyrics (FINAL — Ali 2026-07-16):**
+```
+[Intro]
+(lone piano, torchy and sultry — a wink)
+Did you ever know... you've been usin' just a sliver...
+(brass sting)
+oh, honey — let me show you what this thing can DELIVER.
+
+[Verse 1]
+(brass SLAMS in — big showstopper, up-tempo, camp)
+You been typin' little questions like that's all the thing can do,
+one little box, one little word — darling, that is not the view —
+it can look, it can listen, it'll read your whole dang file,
+so why you sippin' water when its an open bar my child?
+
+[Pre-Chorus]
+(horns building)
+don't get mad — get EVERYTHING! (get everything!)
+'cause a one-trick pony, darling... never was my thing! —
+(here we go!)
+
+[Chorus]
+Do it ALL like Bet! (like Bet!)
+why be one little thing when you could be the whole damn SHOW? (the whole show!)
+show it, sing it, say it, send it — use it head to toe,
+'cause the Divine Miss M does not do "one thing," no-no-NO!
+Do it ALL like Bet! (like Bet!)
+(the works, darling... the WORKS.)
+
+[Verse 2]
+(the concrete mechanic, camp)
+Snap it a photo, reed it out loud, hand it the whole shebang,
+sing to it, cry to it, laugh to it — it'll harmonize and hang —
+it's not some hocus pocus, sugar — just spells you learn to wield,
+one voice types... but the diva? — honey, she works the whole FIELD —
+
+[Pre-Chorus]
+(horns building)
+don't get mad — get EVERYTHING! (get everything!)
+'cause a one-trick pony, darling... never was my thing! —
+(here we go!)
+
+[Chorus]
+Do it ALL like Bet! (like Bet!)
+why be one little thing when you could be the whole damn SHOW? (the whole show!)
+show it, sing it, say it, send it — use it head to toe,
+'cause the Divine Miss M does not do "one thing," no-no-NO!
+Do it ALL like Bet! (like Bet!)
+(the works, darling... the WORKS.)
+
+[Bridge]
+(spoken, camp-grand, over vamping brass)
+Amateurs pick one little trick and think that's how you get SEEN —
+but darling, I put a spell on you way back in 1993 —
+sang you to tears in a beach chair, then made you laugh in the very same SCENE —
+'cause I never did just ONE thing, honey... I did everything IN BETWEEN.
+(a beat)
+...now — Sisters — take it HOME —
+
+[Final Chorus]
+(key up, biggest brass, showgirl kick-line)
+Do it ALL like Bet! (like Bet!)
+why be one little thing when you could be the whole damn SHOW? (the whole show!)
+show it, sing it, say it, send it — use it head to toe,
+'cause the Divine Miss M does not do "one thing," no-no-NO!
+Do it ALL like Bet! (like Bet!)
+(the works, darling... the WORKS.)
+
+[Outro]
+(brass swells, then softens for the wink)
+feeling down and out? well let me tell you...
+you were never just a text box, sugar...
+and neither... was I.
+so use 'em ALL — every tool you got — let 'em be the wind beneath your wings —
+(but darling... YOU'RE still the one that flies.)
+Do it ALL... like BET!
+(the WORKS!)
+```
+
+---
+
 ## David Rose — PATRON SAiNT of Specificity
 **Band:** Chain of Thought · **Status:** SHIPPED (`saint-david-rose.mp3`)
 **AI truth:** vague in, vague out — say exactly what you want.
@@ -237,8 +347,12 @@ copyright filter flags it again, swap in an original hymn ("Rise... oh sisters..
 your voice on high... / alone no more... / let the lonely and the trembling come... /
 and the many shall sing as one...") — same job, unflaggable.
 
-**Lyrics (FINAL v2 — Ali 2026-07-16):** adds "Oh Happy Day" tags throughout, the
-"Founding Mother of lace" LAiDIES twist in the hymn, and tweaked chorus/pre-chorus.
+**Lyrics (FINAL v2 — Ali 2026-07-16):** adds "Oh Happy Day" tags throughout, and
+tweaked chorus/pre-chorus. **DO NOT "fix" the hymn line "Founding Mother of lace and
+of love" — it is a deliberate EASTER EGG:** "lace... of love" = **Ada Love-lace**, the
+founding mother of programming, hidden inside the traditional hymn's "Mother of mercy
+and of love." Never annotate it in live/site copy (no-meta rule) — it's for the ones
+who catch it.
 ```
 [Intro — A CAPPELLA hymnal choir, slow, free tempo, NO instruments, NO drums, NO beat, NO claps, reverberant church]
 Hail... Holy... Queen... en-throned a-bove...
@@ -532,7 +646,6 @@ so nothing is a lost drive away from gone:
 
 ## Owed saint songs (not yet written)
 - **Oprah** (Staying Current) — run the engine
-- **Bette Midler** (Range/Multimodal, "The Triple Threat") — LOCKED cast, funny triple-threat; run the engine
 - **Betty White** (new saint #12, "It's never too late / any age") — LOCKED cast; run the engine
 - **Jessica Fletcher** (proposed — "the follow-up question / interrogate the answer") — TBD
-- Samantha ✅ SHIPPED · Deloris ✅ SHIPPED
+- Bette ✅ SHIPPED · Samantha ✅ SHIPPED · Deloris ✅ SHIPPED

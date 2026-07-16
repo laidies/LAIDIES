@@ -28,6 +28,7 @@
     { id: 'wednesdays-in-sv',      title: 'Wednesdays in SUNNYVAiLE',              artist: 'THE LAiDIES',   src: MUSIC + 'the-laidies-wednesday-in-sunnyvaile.mp3',           mixes: ['anthems'] },
 
     // PATRON SAiNTS
+    { id: 'saint-bette',           title: 'Bette Midler · PATRON SAiNT of Range',             artist: 'THE LAiDIES',     src: MUSIC + 'saint-bette-midler.mp3',       /* DJ intro TODO */                                                mixes: ['saints'] },
     { id: 'saint-buffy',           title: 'Buffy · PATRON SAiNT of SLAiYING',                 artist: 'The Overfits',    src: MUSIC + 'saint-buffy-summers.mp3',      intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-buffy-summers.mp3',    mixes: ['saints'] },
     { id: 'saint-cher',            title: 'Cher · PATRON SAiNT of Early Adoption',            artist: 'The Overfits',    src: MUSIC + 'saint-cher-horowitz.mp3',      intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-cher-horowitz.mp3',    mixes: ['saints'] },
     { id: 'saint-david',           title: 'David Rose · PATRON SAiNT of Specificity',         artist: 'Chain of Thought', src: MUSIC + 'saint-david-rose.mp3',         intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-david-rose.mp3',       mixes: ['saints'] },
