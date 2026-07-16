@@ -844,8 +844,9 @@
       .foundress-grid {
         position: relative;
         display: grid; gap: 18px;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
+      @media (max-width: 640px) { .foundress-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } }
       .foundress-card {
         position: relative; padding: 14px 14px 16px; border-radius: 12px;
         background: var(--pearl, #fffdfb); border: 1px solid rgba(75,33,72,0.1);
@@ -941,7 +942,7 @@
       .stop--builder > .stop-desc { padding: 6px 18px 18px; }
     </style>
 
-    <section class="foundress-case" id="foundressCase" aria-label="Holo Foundress case">
+    <section class="foundress-case is-unlocked" id="foundressCase" aria-label="Holo Foundress case">
       <header class="foundress-case-head">
         <p class="foundress-case-eyebrow">◆ HOLO FOUNDRESSES · Chase tier</p>
         <h3 class="foundress-case-title">The First Four</h3>
@@ -1360,7 +1361,7 @@
           });
           if (count) count.textContent = String(collected.size);
           if (fill) fill.style.width = Math.min(100, (collected.size / LIVING) * 100) + '%';
-          if (caseEl) caseEl.classList.toggle('is-unlocked', collected.size >= LIVING);
+          if (caseEl) caseEl.classList.add('is-unlocked'); // Foundresses always shown (seal retired)
         }
 
         // ── Maven bio modal (verified; sources in the ledger) ──
