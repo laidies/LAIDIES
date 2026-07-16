@@ -36,6 +36,7 @@
     { id: 'saint-elle',            title: 'Elle Woods · PATRON SAiNT of Receipts',            artist: 'The Regressions', src: MUSIC + 'saint-elle-woods.mp3',         intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-elle-woods.mp3',       mixes: ['saints'] },
     { id: 'saint-miranda',         title: 'Miranda · PATRON SAiNT of Standards',              artist: 'Latent Space',    src: MUSIC + 'saint-miranda-priestly.mp3',   intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-miranda-priestly.mp3', mixes: ['saints'] },
     { id: 'saint-regina',          title: 'Regina · PATRON SAiNT of Dangerous Confidence',    artist: 'The Embeddings',  src: MUSIC + 'saint-regina-george.mp3',      intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-regina-george.mp3',    mixes: ['saints'] },
+    { id: 'saint-sister-mary-clarence', title: 'Sister Mary Clarence · PATRON SAiNT of Teaching', artist: 'The Embeddings', src: MUSIC + 'saint-sister-mary-clarence.mp3', intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-sister-mary-clarence.mp3', mixes: ['saints'] },
 
     // Activities
     { id: 'ask-laidy',             title: 'Ask LAiDY',                             artist: 'DJ SunnyV',       src: MUSIC + 'game-ask-laidy.mp3',                                 mixes: ['activities'] },
