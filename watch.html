@@ -426,9 +426,14 @@
           document.getElementById('scrTitle').innerHTML = brand('The Trailer · Welcome to SUNNYVAiLE');
           document.title = 'The Trailer · The Screening Room · SUNNYVAiLE';
         } else {
-          document.getElementById('scrTitle').innerHTML = 'Episode ' + esc(data.episode) + ' · '
-            + brand(data.title);
-          document.title = 'Episode ' + data.episode + ' · The Screening Room · SUNNYVAiLE';
+          var titleText = typeof data.title === 'string' ? data.title
+            : ((((data.title && data.title.cues) || []).filter(function (c) { return c.type === 'title'; })[0]) || {}).title
+              || ((data.cues || []).filter(function (c) { return c.type === 'title'; })[0] || {}).title
+              || '';
+          document.getElementById('scrTitle').innerHTML = 'Episode ' + esc(data.episode)
+            + (titleText ? ' · ' + brand(titleText) : '');
+          document.title = 'Episode ' + data.episode
+            + (titleText ? ' · ' + titleText : '') + ' · The Screening Room · SUNNYVAiLE';
         }
 
         // build the broadcast: title bumper -> narration -> end bumper

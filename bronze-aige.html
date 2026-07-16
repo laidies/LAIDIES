@@ -60,7 +60,12 @@
 
     <div style="margin: 24px 0 40px; padding: 26px 30px; background: var(--blush); border: 2px solid var(--gold); border-radius: 14px;">
       <p style="margin: 0 0 12px; font-weight: 700; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);">✉ The Invite</p>
-      <div id="bzInviteBlock" style="margin: 0 0 18px; padding: 18px 20px; background: var(--cream); border-radius: 10px; font-size: 15px; line-height: 1.7; color: var(--plum); white-space: pre-line;">🍸 LAiDIES happy hour — Friday at 4.
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 0 0 16px;">
+        <span style="font-weight: 700; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--plum-soft);">When</span>
+        <input type="date" id="bzWhenDate" aria-label="Happy hour date" style="padding: 9px 12px; border: 1.5px solid var(--gold); border-radius: 8px; background: var(--cream); color: var(--plum); font-family: inherit; font-size: 14px;">
+        <input type="time" id="bzWhenTime" step="900" aria-label="Happy hour time" style="padding: 9px 12px; border: 1.5px solid var(--gold); border-radius: 8px; background: var(--cream); color: var(--plum); font-family: inherit; font-size: 14px;">
+      </div>
+      <div id="bzInviteBlock" style="margin: 0 0 18px; padding: 18px 20px; background: var(--cream); border-radius: 10px; font-size: 15px; line-height: 1.7; color: var(--plum); white-space: pre-line;">🍸 LAiDIES happy hour — <span id="bzInviteWhen">Friday at 4pm</span>.
 One rule: bring the thing you tried with AI this week. The win or the disaster — both count.
 The bar picks our drinks: <span id="bzInviteUrl" style="color: var(--rose); word-break: break-all;">/games/businesswomens-special.html</span>
 Dress code: main character.</div>
@@ -68,7 +73,7 @@ Dress code: main character.</div>
         <button type="button" id="bzCopyBtn" style="padding: 12px 24px; background: var(--plum-deep); color: var(--cream); border: 0; border-radius: 999px; font-family: inherit; font-weight: 800; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;">Copy the invite</button>
         <button type="button" id="bzIcsBtn" style="padding: 12px 24px; background: var(--cream); color: var(--plum-deep); border: 1.5px solid var(--plum-deep); border-radius: 999px; font-family: inherit; font-weight: 800; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;">📅 Add to calendar</button>
       </div>
-      <p style="margin: 12px 0 0; font-size: 13px; font-style: italic; color: var(--plum-soft);">The calendar file lands on next Friday at 4. Move it — the bar doesn't check.</p>
+      <p id="bzWhenNote" style="margin: 12px 0 0; font-size: 13px; font-style: italic; color: var(--plum-soft);">The calendar file lands on Friday at 4pm. Move it — the bar doesn't check.</p>
     </div>
 
     <h2 id="play">Step 2 · Play it (happy hour's from 4)</h2>
@@ -96,9 +101,35 @@ Dress code: main character.</div>
         <li style="font-size: 15px; line-height: 1.55; color: var(--plum);"><strong style="font-family: 'Playfair Display', Georgia, serif; font-size: 17px;">The One That Worked</strong> <span style="color: var(--rose); font-weight: 700;">· $0</span><br>The thing you tried with AI this week that actually landed. Everyone orders one.</li>
         <li style="font-size: 15px; line-height: 1.55; color: var(--plum);"><strong style="font-family: 'Playfair Display', Georgia, serif; font-size: 17px;">The Disaster</strong> <span style="color: var(--rose); font-weight: 700;">· free refills</span><br>The prompt that went sideways. Funnier told out loud.</li>
         <li style="font-size: 15px; line-height: 1.55; color: var(--plum);"><strong style="font-family: 'Playfair Display', Georgia, serif; font-size: 17px;">The Hot Take</strong> <span style="color: var(--rose); font-weight: 700;">· market price</span><br>The AI headline you're not buying.</li>
-        <li style="font-size: 15px; line-height: 1.55; color: var(--plum);"><strong style="font-family: 'Playfair Display', Georgia, serif; font-size: 17px;">The Wednesday Special</strong> <span style="color: var(--rose); font-weight: 700;">· pairs with the episode</span><br>The bit from this week's episode you're still thinking about.</li>
+        <li style="font-size: 15px; line-height: 1.55; color: var(--plum);"><strong style="font-family: 'Playfair Display', Georgia, serif; font-size: 17px;">The Wednesday Special</strong> <span id="bzWedTag" style="color: var(--rose); font-weight: 700;">· pairs with the episode</span><br><span id="bzWedBody">The bit from this week's episode you're still thinking about.</span></li>
       </ul>
     </div>
+
+    <script>
+      // Tonight's Specials — "The Wednesday Special" follows the latest PUBLISHED episode.
+      (function () {
+        'use strict';
+        var tag = document.getElementById('bzWedTag');
+        var body = document.getElementById('bzWedBody');
+        if (!tag || !body) return;
+        fetch('/content/episode-index.json', { cache: 'no-store' })
+          .then(function (r) { return r.json(); })
+          .then(function (idx) {
+            var pub = (idx.episodes || []).filter(function (e) { return e.status === 'published'; });
+            if (!pub.length) return;
+            var latest = pub.reduce(function (a, b) { return b.number > a.number ? b : a; });
+            var n = latest.number < 10 ? '0' + latest.number : '' + latest.number;
+            return fetch('/content/episodes/issue-' + n + '.json', { cache: 'no-store' })
+              .then(function (r) { return r.json(); })
+              .then(function (ep) {
+                var title = ep.title || latest.title;
+                if (title) tag.textContent = '· pairs with “' + title + '”';
+                if (ep.communityPrompt) body.textContent = ep.communityPrompt;
+              });
+          })
+          .catch(function () { /* keep the evergreen copy on any failure */ });
+      })();
+    </script>
 
     <aside style="margin: 24px 0 40px; padding: 22px 26px; background: var(--blush); border-radius: 10px; border-left: 4px solid var(--gold);">
       <p style="margin: 0 0 8px; font-weight: 700; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose);">✦ The LAiDIES House Cocktail</p>
@@ -126,7 +157,7 @@ Dress code: main character.</div>
         <p style="margin: 0 0 6px; font-weight: 700; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose);">Episode 03 · "wait — why does it just make things up?"</p>
         <p style="margin: 0; font-size: 15px; line-height: 1.65; color: var(--plum);">"It's not lying. Lying takes intent. It's guessing — when it doesn't know, it doesn't stop, it reaches for the most plausible-sounding thing and says it with its whole chest. It's your most confident friend: she'll answer any question, whether or not she actually knows. The fix was never to catch her in a lie. It's to ask for the receipt before you repeat her in a meeting."</p>
       </div>
-      <div style="padding: 22px 26px; background: var(--cream); border: 2px solid var(--gold); border-radius: 12px;">
+      <div id="cocktail-ep04" style="padding: 22px 26px; background: var(--cream); border: 2px solid var(--gold); border-radius: 12px;">
         <p style="margin: 0 0 6px; font-weight: 700; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose);">Episode 04 · "so… is this whole AI thing brand new, or what?"</p>
         <p style="margin: 0; font-size: 15px; line-height: 1.65; color: var(--plum);">"It's almost two hundred years old and about three years old at the same time. The science has been building for centuries; your access to it is brand new. And every real leap in it — the idea, the signal, the language, the finding, the sight — has a woman's name on it. Whether or not the textbook bothered to write it down."</p>
       </div>
@@ -161,10 +192,58 @@ Dress code: main character.</div>
         var url = location.origin + '/games/businesswomens-special.html';
         var urlSpan = document.getElementById('bzInviteUrl');
         if (urlSpan) urlSpan.textContent = url;
-        var INVITE = '🍸 LAiDIES happy hour — Friday at 4.\n' +
-          'One rule: bring the thing you tried with AI this week. The win or the disaster — both count.\n' +
-          'The bar picks our drinks: ' + url + '\n' +
-          'Dress code: main character.';
+
+        // --- Editable date/time: feeds both the copied invite AND the .ics ---
+        function pad(n) { return String(n).length < 2 ? '0' + n : String(n); }
+        var dateInput = document.getElementById('bzWhenDate');
+        var timeInput = document.getElementById('bzWhenTime');
+        var whenSpan = document.getElementById('bzInviteWhen');
+        var noteEl = document.getElementById('bzWhenNote');
+        var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        var INVITE = '';
+
+        // Default: the next Friday at 4pm (roll to next week if it's already past).
+        function nextFriday() {
+          var d = new Date();
+          var diff = (5 - d.getDay() + 7) % 7;
+          if (diff === 0 && d.getHours() >= 16) diff = 7;
+          var f = new Date(d); f.setDate(d.getDate() + diff);
+          f.setHours(16, 0, 0, 0);
+          return f;
+        }
+        // Build a Date from the two inputs; fall back to next Friday 4pm.
+        function picked() {
+          if (dateInput && dateInput.value) {
+            var p = dateInput.value.split('-');
+            var t = (timeInput && timeInput.value) ? timeInput.value.split(':') : ['16', '00'];
+            return new Date(+p[0], +p[1] - 1, +p[2], +t[0], +t[1], 0, 0);
+          }
+          return nextFriday();
+        }
+        function timePhrase(h, m) {
+          var ampm = h >= 12 ? 'pm' : 'am';
+          var h12 = h % 12; if (h12 === 0) h12 = 12;
+          return h12 + (m ? ':' + pad(m) : '') + ampm;
+        }
+        function whenPhrase(d) {
+          return DAYS[d.getDay()] + ' at ' + timePhrase(d.getHours(), d.getMinutes());
+        }
+        function rebuildInvite() {
+          var phrase = whenPhrase(picked());
+          if (whenSpan) whenSpan.textContent = phrase;
+          INVITE = '🍸 LAiDIES happy hour — ' + phrase + '.\n' +
+            'One rule: bring the thing you tried with AI this week. The win or the disaster — both count.\n' +
+            'The bar picks our drinks: ' + url + '\n' +
+            'Dress code: main character.';
+          if (noteEl) noteEl.textContent = 'The calendar file lands on ' + phrase + '. Move it — the bar doesn’t check.';
+        }
+        // Seed inputs with next Friday 4pm, then render.
+        var seed = nextFriday();
+        if (dateInput) dateInput.value = seed.getFullYear() + '-' + pad(seed.getMonth() + 1) + '-' + pad(seed.getDate());
+        if (timeInput) timeInput.value = pad(seed.getHours()) + ':' + pad(seed.getMinutes());
+        if (dateInput) dateInput.addEventListener('change', rebuildInvite);
+        if (timeInput) timeInput.addEventListener('change', rebuildInvite);
+        rebuildInvite();
 
         var copyBtn = document.getElementById('bzCopyBtn');
         if (copyBtn) copyBtn.addEventListener('click', function() {
@@ -186,12 +265,8 @@ Dress code: main character.</div>
 
         var icsBtn = document.getElementById('bzIcsBtn');
         if (icsBtn) icsBtn.addEventListener('click', function() {
-          function pad(n) { return String(n).length < 2 ? '0' + n : String(n); }
-          var d = new Date();
-          var diff = (5 - d.getDay() + 7) % 7;
-          if (diff === 0 && d.getHours() >= 16) diff = 7;
-          var f = new Date(d); f.setDate(d.getDate() + diff);
-          var start = '' + f.getFullYear() + pad(f.getMonth() + 1) + pad(f.getDate()) + 'T160000';
+          var f = picked();
+          var start = '' + f.getFullYear() + pad(f.getMonth() + 1) + pad(f.getDate()) + 'T' + pad(f.getHours()) + pad(f.getMinutes()) + '00';
           var stamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
           var ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//LAiDIES//SUNNYVAiLE//EN',
             'BEGIN:VEVENT', 'UID:happy-hour-' + start + '@laidies',

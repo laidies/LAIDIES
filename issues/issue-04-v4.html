@@ -28,6 +28,9 @@
   p strong{font-weight:700;color:#ffffff}
   em{font-style:italic}
   a{color:#8bbde9}
+  /* Keep the sky link color for the dark article body only — the light global header needs legible plum. */
+  .sv-header nav a, .sv-header .svgh-nav a, .sv-header .brand{color:#4b2148}
+  .sv-header .brand .lac{color:#57b6c0}
   .eyebrow{font-size:.74rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
 
   /* Store shelf strip */
@@ -187,7 +190,7 @@
   .rail-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
   .rail-btn{text-decoration:none;text-align:center;padding:16px 12px;border-radius:12px;font-weight:700;font-size:.98rem;color:var(--plum-deep)}
   .rail-btn small{display:block;font-weight:500;font-size:.76rem;opacity:.72;margin-top:3px}
-  .rb1{background:var(--teal)} .rb2{background:var(--pink)} .rb3{background:var(--peri)} .rb4{background:var(--tang)} .rb5{background:var(--sky)}
+  .rb1{background:var(--teal)} .rb2{background:var(--pink)} .rb3{background:var(--peri)} .rb4{background:var(--tang)} .rb5{background:var(--sky)} .rb6{background:var(--coral)}
 
   @media(max-width:640px){ body{font-size:16.5px} .tv-title{font-size:2.5rem} .trio{grid-template-columns:1fr} .cast-grid{grid-template-columns:repeat(2,1fr)} }
 </style>
@@ -473,8 +476,9 @@
   <div class="rail-row">
     <a class="rail-btn rb1" href="/watch.html?ep=04">Listen<small>Narration</small></a>
     <a class="rail-btn rb2" href="/blend-snap.html#the-study-pack">Study Pack<small>Try-On · Cheat Sheet · Cards</small></a>
-    <a class="rail-btn rb3" href="/games/trading-cards.html">Card Pack<small>Concept cards</small></a>
     <a class="rail-btn rb4" href="/radio.html">The Song<small>It Was Women All Along</small></a>
+    <a class="rail-btn rb6" href="/bronze-aige.html#cocktail-ep04">Cocktail<small>What IS it, actually?</small></a>
+    <a class="rail-btn rb3" href="/community.html">Rooms<small>Talk it over at Delta LAi Nu</small></a>
     <a class="rail-btn rb5" href="/learn/quiz.html">Quiz<small>Collect your sticker</small></a>
   </div>
 </div>
