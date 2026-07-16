@@ -319,6 +319,112 @@ RE-GEEEEEEE-NAHHHHHHHHHHH [-END]
 
 ---
 
+## Samantha Jones — PATRON SAiNT of Orientation
+**Band:** The Bots *(provisional — town's dance/club act; confirm)*
+**Status:** SHIPPED — `saint-samantha-jones.mp3`, wired into `ksvl-player.js` (saints mix). ⚠️ DJ radio intro still owed (no `intro` field yet — add `dj-sunnyv-intro-saint-samantha-jones.mp3` when recorded).
+**AI truth:** size up the tools before you start and pick the right one for the job —
+the quick-draft one isn't the deep-research one. It's casting, not a popularity
+contest. Rule: *"Read the room first. Then walk in like you own it."*
+
+**Comedic engine:** Samantha sizes up the room and picks exactly who she wants →
+picking the right *tool* the way she picks the right *man*. Double-entendre runs the
+whole song ("the fast little fling for a laugh, or the pro who's gonna stay").
+
+**Style (Suno):**
+```
+late-90s / Y2K sassy diva dance-pop, Cher "Believe" / Whitney "It's Not Right But It's Okay" (Thunderpuss) / Kylie Minogue energy, punchy four-on-the-floor, BIG catchy euphoric SUNG chorus with a strong vocal hook, bright pumping synths and bass, confident sultry female diva lead, ~128 bpm, driving and infectious — catchy pop NOT hypnotic groove, euphoric drop on the chorus, clean studio recording, no crowd cheering, no applause
+```
+
+**Lyrics (FINAL — Ali 2026-07-16):**
+```
+[Intro]
+(club track, four-on-the-floor kicks in, filtered groove)
+(spoken, low and confident)
+Honey... I've been in every room in this town.
+I know exactly which one you want.
+
+[Verse 1]
+(sultry, cool, talky over the groove)
+She walks in the party and she scans the whole floor,
+she's not takin' the first thing that comes through the door —
+the loudest, the flashiest, the one with all the hype? —
+darling, "everybody's got one" don't mean it's your type —
+
+[Pre-Chorus]
+(filter opening up, build)
+so read the room, baby — what's the play? (what's the play?)
+the fast little fling for a laugh — or the pro who's gonna stay? —
+(here comes the drop)
+
+[Chorus]
+(the drop — big catchy sung chorus)
+Size 'em up like Samantha! (like Samantha!)
+you don't take what's popular — you take what's LEGIT! (legit!)
+read the room, know the job, and you commit —
+it ain't about the hype, honey... it's about the FIT!
+Size 'em up like Samantha! (like Samantha!)
+
+[Post-Chorus — big hook, all voices]
+(size 'em up!) oh-oh-oh! (size 'em up!) oh-oh-oh!
+find the one that FITS — the best one for the job, that's it!
+(oh-oh-oh... oh-oh-oh...)
+
+[Verse 2]
+One's a quick little fling — good for a draft and a laugh,
+one's in it for the long haul — the research, the math,
+one will look at your pictures, one will hear you all night —
+you don't take the first, sugar... you take the one that's RIGHT —
+
+[Pre-Chorus]
+so read the room, baby — what's the play? (what's the play?)
+the fast little fling for a laugh — or the pro who's gonna stay? —
+(here comes the drop)
+
+[Chorus]
+Size 'em up like Samantha! (like Samantha!)
+you don't take what's popular — you take what's LEGIT! (legit!)
+read the room, know the job, and you commit —
+it ain't about the hype, honey... it's about the FIT!
+Size 'em up like Samantha! (like Samantha!)
+
+[Post-Chorus — big hook, all voices]
+(size 'em up!) oh-oh-oh! (size 'em up!) oh-oh-oh!
+find the one that FITS — the best one for the job, that's it!
+(oh-oh-oh... oh-oh-oh...)
+
+[Bridge]
+(spoken, filthy-confident, over the groove)
+Sweetheart, I don't do "whatever everybody else is using."
+I find out what I need... and I go get exactly that.
+The trick was never having the most of them.
+It's knowing which one... for which... occasion.
+(a beat)
+...I have never once been disappointed.
+(drop back in!)
+
+[Final Chorus]
+(biggest, filter wide open)
+Size 'em up like Samantha! (like Samantha!)
+you don't take what's popular — you take what's LEGIT! (legit!)
+read the room, know the job, and you commit —
+it ain't about the hype, honey... it's about the FIT!
+Size 'em up like Samantha! (like Samantha!)
+
+[Post-Chorus — big hook, all voices]
+(size 'em up!) oh-oh-oh! (size 'em up!) oh-oh-oh!
+find the one that FITS — the best one for the job, that's it!
+(oh-oh-oh... oh-oh-oh...)
+
+[Outro]
+(club groove, spoken, fading out)
+...auditions are over, darling.
+I know exactly who I'm takin' home.
+(size 'em up.)
+Samantha.
+```
+
+---
+
 ## Deb — PATRON SAiNT of "Loop Me Out"
 **Band:** Latent Space · **Status:** SHIPPED, LOCKED (`saint-deb.mp3`)
 Full locked lyrics + production notes live in memory `deb-loop-me-out-song-locked`.
@@ -422,6 +528,8 @@ so nothing is a lost drive away from gone:
   Ask LAiDY, Debs Tomorrow Problem, episode Wednesday Anthems (weeks 01–04)
 
 ## Owed saint songs (not yet written)
-- **Samantha Jones** (Orientation) — run the engine
 - **Oprah** (Staying Current) — run the engine
-- **Range/Multimodal saint** — casting still open (J.Lo cut as "too current")
+- **Bette Midler** (Range/Multimodal, "The Triple Threat") — LOCKED cast, funny triple-threat; run the engine
+- **Betty White** (new saint #12, "It's never too late / any age") — LOCKED cast; run the engine
+- **Jessica Fletcher** (proposed — "the follow-up question / interrogate the answer") — TBD
+- Samantha ✅ SHIPPED · Deloris ✅ SHIPPED
