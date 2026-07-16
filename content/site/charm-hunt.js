@@ -55,14 +55,25 @@
     { week: 3, slug: 'w3-star-chart',       emoji: '🌟',  name: 'Star Chart',       building: "Mme CLAi-O's Shop",    page: 'mme-claios-shop', x: 78, y: 46 },
     { week: 3, slug: 'w3-burn-bookmark',    emoji: '📔',  name: 'Burn Book Mark',   building: 'Delta LAi Nu',         page: 'sorority-house',  x: 93, y: 55 },
     { week: 3, slug: 'w3-ballot-stub',      emoji: '🗳️', name: 'Ballot Stub',      building: 'Town Hall',            page: 'town-hall',       x: 10, y: 72 },
-    { week: 3, slug: 'w3-film-reel',        emoji: '🎞️', name: 'Film Reel',        building: 'Chick Flicks',         page: 'chick-flicks',    x: 23, y: 55 }
+    { week: 3, slug: 'w3-film-reel',        emoji: '🎞️', name: 'Film Reel',        building: 'Chick Flicks',         page: 'chick-flicks',    x: 23, y: 55 },
+
+    // ── Week 4 · The Keepsake Set ────────────────────────────────────
+    // Coords are first-pass estimates — fine-tune per hero with ?charmDev=1.
+    { week: 4, slug: 'w4-mood-ring',        emoji: '💍',  name: 'Mood Ring',        building: 'MAiKEOVER',            page: 'maikeover',       x: 60, y: 73 },
+    { week: 4, slug: 'w4-gel-pen',          emoji: '🖊️', name: 'Gel Pen',          building: 'Post Office',          page: 'post-office',     x: 42, y: 52 },
+    { week: 4, slug: 'w4-disco-ball',       emoji: '🪩',  name: 'Disco Ball',       building: 'BRONZE AiGE',          page: 'bronze-aige',     x: 42, y: 50 },
+    { week: 4, slug: 'w4-evil-eye',         emoji: '🧿',  name: 'Evil Eye',         building: "Mme CLAi-O's Shop",    page: 'mme-claios-shop', x: 46, y: 70 },
+    { week: 4, slug: 'w4-heart-locket',     emoji: '💜',  name: 'Heart Locket',     building: 'Delta LAi Nu',         page: 'sorority-house',  x: 85, y: 82 },
+    { week: 4, slug: 'w4-award-rosette',    emoji: '🏵️', name: 'Award Rosette',    building: 'Town Hall',            page: 'town-hall',       x: 30, y: 48 },
+    { week: 4, slug: 'w4-movie-ticket',     emoji: '🎟️', name: 'Movie Ticket',     building: 'Chick Flicks',         page: 'chick-flicks',    x: 78, y: 50 }
   ];
 
   // Weeks meta — used for bracelet labels + total-per-week counts
   var WEEKS = [
     { number: 1, title: 'The Starter Set' },
     { number: 2, title: 'The Vanity Set' },
-    { number: 3, title: 'The Bright Set' }
+    { number: 3, title: 'The Bright Set' },
+    { number: 4, title: 'The Keepsake Set' }
   ];
 
   function escapeHtml(value) {
@@ -86,7 +97,7 @@
     if (!slug) return '<span class="' + className + '"><span class="charm-hunt-toast-emoji">' + emoji + '</span></span>';
     return (
       '<span class="' + className + '">' +
-      '  <img src="' + escapeHtml(charmImagePath(slug)) + '" alt="" loading="lazy" decoding="async" onerror="this.remove();this.nextElementSibling.hidden=false;">' +
+      '  <img src="' + escapeHtml(charmImagePath(slug)) + '" alt="" loading="eager" decoding="async" onerror="this.style.display=\'none\';if(this.nextElementSibling)this.nextElementSibling.hidden=false;">' +
       '  <span class="charm-hunt-toast-emoji" hidden>' + emoji + '</span>' +
       '</span>'
     );
