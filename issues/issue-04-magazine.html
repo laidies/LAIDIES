@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAiDIES Episode 04: The Founding Mothers</title>
+<meta name="description" content="Three weeks in, our heroine goes looking for where AI even came from — and finds out it was women all along. The Founding Mothers: almost two hundred years of a real science, built leap after leap by the women the textbook forgot to name.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+<link rel="stylesheet" href="/content/site/mini-player.css">
+<script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+<script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+<script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+<script src="/content/site/supabase-config.js" defer></script>
+<style>
+:root{
+  --paper:#faf5f3; --paper2:#f4ebe9; --ink:#2a1622; --plum:#4b2148; --plum-deep:#37142f;
+  --rose:#9b3f5f; --rose-soft:#c98aa0; --gold:#b49764; --gold-deep:#8a6f3e; --gold-lt:#dcc086;
+  --teal:#5b8c92; --teal-deep:#3f6d72; --muted:#8a7580;
+  --mono-bg:#2c1826; --mono-ink:#efe2e9; --line:rgba(75,33,72,.14);
+  --measure:642px; --wide:920px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:"Jost",ui-sans-serif,system-ui,sans-serif;color:var(--ink);background:var(--paper);
+  line-height:1.72;font-size:18px;-webkit-font-smoothing:antialiased;}
+::selection{background:var(--rose);color:var(--paper);}
+.ai{color:var(--rose);}
+
+/* layout: centered 920 stage; text runs at 642 measure, media breaks wide */
+main{max-width:var(--wide);margin:0 auto;padding:0 24px 10px;}
+.m{max-width:var(--measure);margin-inline:auto;}
+p{margin:0 auto 22px;max-width:var(--measure);}
+p.lead{font-size:1.24rem;line-height:1.6;color:var(--plum);}
+em{font-style:italic;}
+strong,b{font-weight:700;}
+a{color:var(--rose);text-decoration-thickness:1px;text-underline-offset:3px;}
+
+/* ---------- COVER ---------- */
+.cover{text-align:center;padding:78px 24px 62px;position:relative;overflow:hidden;color:var(--paper);
+  background:radial-gradient(135% 105% at 50% 4%, #5f2c5a 0%, var(--plum) 45%, var(--plum-deep) 100%);
+  border-bottom:3px solid var(--gold);}
+.cover::before,.cover::after{content:"✦";position:absolute;color:var(--gold-lt);pointer-events:none;}
+.cover::before{top:72px;left:12%;font-size:22px;opacity:.55;transform:rotate(-10deg);}
+.cover::after{bottom:74px;right:12%;font-size:15px;opacity:.4;}
+.cover .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold-lt);margin-bottom:26px;position:relative;}
+.cover .eyebrow .dot{color:var(--rose-soft);}
+.cover h1{font-family:"Playfair Display",serif;font-weight:900;font-size:clamp(2.7rem,8vw,5.2rem);
+  line-height:.98;letter-spacing:-.015em;color:var(--paper);text-wrap:balance;max-width:13ch;margin:0 auto;position:relative;
+  text-shadow:0 2px 40px rgba(0,0,0,.3), 0 0 55px rgba(220,192,128,.14);}
+.cover h1 em{font-style:italic;color:var(--gold-lt);}
+.cover .logline{font-family:"Playfair Display",serif;font-style:italic;font-size:1.22rem;line-height:1.55;
+  color:rgba(250,245,243,.9);max-width:37ch;margin:26px auto 0;position:relative;}
+.cover .meta{display:flex;flex-wrap:wrap;gap:0;justify-content:center;margin-top:34px;position:relative;
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(250,245,243,.6);}
+.cover .meta span{padding:0 16px;position:relative;}
+.cover .meta span+span::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:1px;height:12px;background:rgba(255,253,251,.22);}
+.cover .meta b{color:var(--gold-lt);font-weight:500;}
+.prevbar{max-width:var(--measure);margin:6px auto 0;padding:16px 20px;background:var(--paper2);border-left:3px solid var(--rose);border-radius:0 6px 6px 0;}
+.prevbar .k{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--rose);display:block;margin-bottom:6px;}
+.prevbar .k b{color:var(--plum);}
+.prevbar p{margin:0;max-width:none;font-family:"Playfair Display",serif;font-style:italic;font-size:1.04rem;color:var(--muted);line-height:1.5;}
+
+/* ---------- FIGURES ---------- */
+figure{margin:44px auto;max-width:var(--wide);}
+figure img{width:100%;display:block;border-radius:3px;box-shadow:0 30px 60px -30px rgba(55,20,47,.5);}
+figcaption{display:flex;gap:12px;align-items:baseline;margin-top:12px;padding-top:10px;
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.4px;color:var(--muted);}
+figcaption .tag{color:var(--gold-deep);text-transform:uppercase;letter-spacing:2px;white-space:nowrap;font-weight:500;}
+figcaption .tag::after{content:"";display:inline-block;width:22px;height:1px;background:var(--gold);vertical-align:middle;margin-left:10px;}
+
+/* ---------- PORTRAIT (illuminated maven) ---------- */
+.portrait{max-width:400px;margin:40px auto 46px;}
+.portrait img{border-radius:8px;border:1px solid rgba(180,151,100,.4);box-shadow:0 26px 54px -26px rgba(55,20,47,.62), 0 0 0 6px rgba(255,255,255,.35);}
+.portrait figcaption{justify-content:center;}
+/* three critics side by side */
+.trio{max-width:var(--wide);margin:32px auto 44px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.trio figure{margin:0;}
+.trio img{width:100%;border-radius:8px;border:1px solid rgba(180,151,100,.4);box-shadow:0 20px 44px -24px rgba(55,20,47,.6);}
+.trio figcaption{margin-top:10px;flex-direction:column;gap:4px;}
+.trio figcaption .tag{white-space:normal;}
+
+/* ---------- CAST (relevant saints / mavens · small cards) ---------- */
+.cast{max-width:var(--wide);margin:34px auto 10px;}
+.cast .h{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:18px;}
+.cast .h b{color:var(--rose);font-weight:500;}
+.cast-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:13px;}
+.cast-card{text-decoration:none;color:var(--ink);text-align:center;display:flex;flex-direction:column;gap:7px;transition:transform .15s;}
+.cast-card:hover{transform:translateY(-4px);}
+.cast-card:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px;}
+.cast-card img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:6px;border:1px solid rgba(180,151,100,.4);box-shadow:0 14px 30px -16px rgba(55,20,47,.58);}
+.cast-card b{font-family:"Playfair Display",serif;font-weight:700;font-size:.9rem;color:var(--plum);line-height:1.08;}
+.cast-card span{font-family:"JetBrains Mono",monospace;font-size:8.5px;letter-spacing:.3px;color:var(--muted);line-height:1.3;text-transform:uppercase;}
+@media(max-width:900px){.cast-grid{grid-template-columns:repeat(4,1fr);}}
+@media(max-width:520px){.cast-grid{grid-template-columns:repeat(2,1fr);}.cast-card b{font-size:1.02rem;}.cast-card span{font-size:10px;}}
+
+/* ---------- SECTION MARKERS ---------- */
+.mark{max-width:var(--measure);margin:64px auto 8px;}
+.mark .k{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--rose);display:flex;align-items:center;gap:12px;}
+.mark .k::before{content:"";width:26px;height:2px;background:var(--rose);}
+.mark h2{font-family:"Playfair Display",serif;font-weight:800;font-size:clamp(1.9rem,4.5vw,2.7rem);
+  line-height:1.08;color:var(--plum);margin-top:14px;text-wrap:balance;}
+.mark .sub{font-family:"Playfair Display",serif;font-style:italic;color:var(--muted);font-size:1.1rem;margin-top:8px;}
+
+/* drop cap on the cold open */
+.dropcap::first-letter{font-family:"Playfair Display",serif;font-weight:800;font-size:4.4rem;line-height:.72;
+  float:left;margin:8px 12px 0 0;color:var(--rose);}
+
+/* ---------- PULL QUOTE ---------- */
+.pull{max-width:760px;margin:56px auto;text-align:center;position:relative;padding:0 8px;}
+.pull p{font-family:"Playfair Display",serif;font-weight:700;font-size:clamp(1.7rem,4.4vw,2.5rem);
+  line-height:1.24;color:var(--plum);max-width:none;text-wrap:balance;}
+.pull p em{color:var(--rose);font-style:italic;}
+.pull .rule{width:44px;height:2px;background:var(--gold);margin:22px auto 0;}
+.pull .who{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:16px;}
+
+/* ---------- RECEIPTS ---------- */
+.receipts{max-width:var(--measure);margin:34px auto;}
+.receipts .h{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:14px;}
+.stat{display:flex;gap:20px;align-items:baseline;padding:16px 0;border-top:2px solid var(--plum);}
+.stat .n{font-family:"Playfair Display",serif;font-weight:900;font-size:2.6rem;color:var(--teal-deep);min-width:150px;line-height:1;font-variant-numeric:tabular-nums;}
+.stat .d{font-size:1rem;line-height:1.5;}
+.stat .d small{display:block;color:var(--muted);font-size:.84rem;margin-top:3px;}
+.receipts .src{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--muted);margin-top:16px;line-height:1.6;padding-top:12px;border-top:1px solid var(--line);}
+
+/* ---------- GLOSSARY ---------- */
+.gloss{max-width:var(--measure);margin:26px auto;}
+.gloss details{border-bottom:1px solid var(--line);}
+.gloss details[open]{background:linear-gradient(var(--paper2),transparent);}
+.gloss summary{list-style:none;cursor:pointer;padding:18px 4px;display:flex;gap:16px;align-items:baseline;}
+.gloss summary::-webkit-details-marker{display:none;}
+.gloss .term{font-family:"Playfair Display",serif;font-weight:700;font-size:1.4rem;color:var(--plum);min-width:150px;}
+.gloss .peek{color:var(--muted);font-size:.95rem;flex:1;}
+.gloss .plus{font-family:"JetBrains Mono",monospace;color:var(--rose);font-size:1.2rem;}
+.gloss details[open] .plus{transform:rotate(45deg);}
+.gloss .def{padding:0 4px 20px 4px;max-width:none;color:var(--ink);}
+
+/* ---------- CALLOUT CARD ---------- */
+.slab{max-width:var(--wide);margin:40px auto;padding:36px clamp(24px,4vw,44px);border-radius:6px;}
+.slab .k{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;display:block;margin-bottom:14px;}
+.slab h3{font-family:"Playfair Display",serif;font-size:1.8rem;color:var(--plum);margin-bottom:14px;line-height:1.1;}
+.slab p{max-width:none;}
+.cocktail{background:var(--plum);color:var(--paper);}
+.cocktail .k{color:var(--gold-lt);} .cocktail h3{color:var(--paper);}
+.cocktail .say{font-family:"Playfair Display",serif;font-style:italic;font-size:1.34rem;line-height:1.42;color:var(--paper);max-width:44ch;}
+.tryon{background:#eef4f2;border:1px solid #cfe3dd;text-align:center;}
+.tryon .k{color:var(--teal-deep);}
+.tryon p{max-width:52ch;margin-inline:auto;}
+.btn{display:inline-block;background:var(--rose);color:var(--paper);text-decoration:none;font-weight:700;
+  font-size:.92rem;letter-spacing:.3px;padding:14px 30px;border-radius:40px;margin-top:8px;transition:background .15s,transform .15s;}
+.btn:hover{background:var(--plum);transform:translateY(-2px);}
+.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+
+/* ---------- SOUNDTRACK + RAIL ---------- */
+.stx{max-width:var(--measure);margin:44px auto 0;display:flex;gap:16px;align-items:center;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 4px;}
+.stx .disc{width:50px;height:50px;border-radius:50%;flex-shrink:0;position:relative;background:#241019;
+  box-shadow:inset 0 0 0 1.5px rgba(180,151,100,.45), inset 0 0 0 8px rgba(255,255,255,.05);}
+.stx .disc::before{content:"";position:absolute;inset:34%;background:var(--rose);border-radius:50%;}
+.stx .disc::after{content:"";position:absolute;inset:46%;background:var(--paper);border-radius:50%;}
+.stx p{margin:0;max-width:none;font-size:.98rem;color:var(--ink);}
+.stx p b{color:var(--plum);}
+.stx .motto{display:block;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.4px;color:var(--gold-deep);margin-top:5px;}
+
+.rail{max-width:var(--wide);margin:34px auto;}
+.rail .h{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:16px;}
+.rail ol{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);gap:12px;counter-reset:r;}
+.rail a{display:flex;flex-direction:column;height:100%;text-decoration:none;color:var(--ink);background:var(--paper);
+  border:1px solid var(--line);border-radius:4px;padding:16px 14px;transition:border-color .15s,transform .15s;}
+.rail a:hover{border-color:var(--rose);transform:translateY(-3px);}
+.rail a:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+.rail li{counter-increment:r;}
+.rail .num{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:1px;color:var(--gold-deep);}
+.rail .num::before{content:"0" counter(r);}
+.rail .t{font-family:"Playfair Display",serif;font-weight:700;font-size:1.12rem;color:var(--plum);margin:8px 0 4px;line-height:1.1;}
+.rail .s{font-size:.82rem;color:var(--muted);line-height:1.35;}
+.rail .saintcard,.rail .songcard{background:var(--plum);border-color:var(--plum);}
+.rail .saintcard .num,.rail .songcard .num{color:var(--gold-lt);}
+.rail .saintcard .t,.rail .songcard .t{color:var(--paper);}
+.rail .saintcard .s,.rail .songcard .s{color:rgba(250,245,243,.72);}
+.rail .songcard .t::before{content:"\266A  ";color:var(--gold-lt);}
+
+/* ---------- SIGN-OFF ---------- */
+.signoff{max-width:760px;margin:60px auto 26px;text-align:center;}
+.signoff .r{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--rose);margin-bottom:16px;}
+.signoff .line{font-family:"Playfair Display",serif;font-weight:700;font-size:clamp(1.5rem,3.6vw,2rem);line-height:1.28;color:var(--plum);text-wrap:balance;}
+.rooms{max-width:var(--measure);margin:0 auto;text-align:center;color:var(--muted);font-size:.98rem;}
+.rooms b{color:var(--ink);font-weight:600;}
+
+/* ---------- NEXT ---------- */
+.next{max-width:var(--wide);margin:56px auto 0;border-top:1px solid var(--line);padding-top:30px;text-align:center;}
+.next .k{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
+.next h3{font-family:"Playfair Display",serif;font-size:1.9rem;color:var(--plum);margin:8px 0 6px;}
+.next p{color:var(--muted);font-style:italic;}
+
+.foot{background:var(--plum);color:rgba(250,245,243,.6);text-align:center;padding:40px 24px 50px;margin-top:54px;}
+.foot .wm{font-weight:800;letter-spacing:.05em;font-size:1.5rem;color:var(--paper);}
+.foot .wm .ai{color:var(--rose-soft);}
+.foot .sec{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:1.5px;margin-top:12px;}
+
+@media(max-width:900px){.rail ol{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:680px){
+  body{font-size:16.5px;}
+  .trio{grid-template-columns:1fr;}
+  .rail ol{grid-template-columns:1fr 1fr;}
+  .stx{flex-direction:column;text-align:center;}
+  .stat .n{min-width:0;}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto;transition:none!important;}}
+</style>
+</head>
+<body>
+
+<header class="sv-header">
+  <a class="brand" href="/">LAiDIES</a>
+  <nav>
+    <a href="/">This Week</a>
+    <a href="/chick-flicks.html">Episodes</a>
+    <a href="/library.html">LIBRAiRY</a>
+    <a href="/radio.html">KSVL</a>
+    <a href="/sorority-house.html">Sorority House</a>
+    <a href="/resident-card.html" class="sv-signin" style="color: var(--rose); font-weight: 600; border: 1.5px solid var(--rose); padding: 6px 14px; border-radius: 999px;">✉︎ Sign In</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- COVER -->
+  <section class="cover">
+    <div class="eyebrow">Act 1 — The Awakening <span class="dot">·</span> Episode 04</div>
+    <h1>The Founding <em>Mothers</em></h1>
+    <p class="logline">The one in which she's talked to this thing every day for three weeks — and has no idea where it came from. So she goes looking for the origin story, and finds out it was women all along.</p>
+    <div class="meta"><span>Lesson · <b>AI was never one thing — or new</b></span><span>Stars · <b>The MAiVENS</b></span><span><b>~12 min read</b></span></div>
+  </section>
+
+  <div class="prevbar">
+    <span class="k">◀◀ Previously, on <b>L<span class="ai">Ai</span>DIES</b></span>
+    <p>Our heroine got a gorgeous, confident answer from the machine — and caught the one quiet line in it that was completely, confidently wrong. She learned that before her name goes on anything, she checks it like Elle Woods.</p>
+  </div>
+
+  <figure>
+    <img src="../assets/building-interiors/luminairy-nave.jpg" alt="The candlelit stone nave of the LUMINAiRY, SUNNYVAiLE's hall of heroes, with stained-glass portraits glowing along a quiet back wing." loading="lazy">
+    <figcaption><span class="tag">The scene</span> Up the hill, in the quiet back wing of the LUMIN<span class="ai">Ai</span>RY — the women who actually built the thing.</figcaption>
+  </figure>
+
+  <!-- COLD OPEN -->
+  <div class="mark"><div class="k">Cold open</div></div>
+  <p class="lead m">It's a slow Wednesday, and it hits me mid-sentence — I actually stop typing.</p>
+  <p class="dropcap">I have been talking to this thing every single day for three weeks. I've briefed it, argued with it, caught it lying to my face. And I could not tell you the first thing about where it came from. What it even is. Who made it.</p>
+
+  <p>It's like I moved in with someone and realized I'd never once asked to meet their family. And I couldn't help but wonder — this thing that showed up and rearranged my whole workweek: is it actually <em>new?</em> And the question underneath that one, the one I almost didn't let myself ask:</p>
+
+  <div class="pull"><p>Who <em>built</em> it?</p><div class="rule"></div></div>
+
+  <p>Three weeks ago you stopped feeling behind. Then you learned to brief it like a new hire. Last week, to fact-check it like a lawyer. So you can genuinely <em>use</em> the thing now. But I'd learned to drive the car without ever once asking who built the engine. So this week: no new trick. This week's a flashback.</p>
+
+  <!-- THE FLASHBACK -->
+  <div class="mark"><div class="k">This week, a flashback</div><h2>The quiet wing at the back of the LUMIN<span class="ai">Ai</span>RY</h2><div class="sub">Everyone knows the front room — the patron saints, the Chers and the Elles. Almost nobody walks to the back.</div></div>
+
+  <p>So I went up the hill, to the <strong>LUMIN<span class="ai">Ai</span>RY</strong> — SUNNYV<span class="ai">Ai</span>LE's hall of heroes. Everybody knows the front room. But there's a quieter wing behind it I'd never once walked into. No movie stars in there. <em>…Well. Almost no movie stars.</em> Just the women who actually built the thing this whole town is about. They call them the <strong>M<span class="ai">Ai</span>VENS</strong>. And if you sit down in that wing and ask "so, how did we get here" — they will tell you the entire story. The lights go soft. Somewhere, a harp. Stay with me. We're going back.</p>
+
+  <!-- 1843 · ADA -->
+  <figure class="portrait">
+    <img src="../assets/mavens/y2k-stained-glass-v2/ada-lovelace-y2k-stained-glass.png" alt="Stained-glass portrait of Ada Lovelace, Keeper of the first algorithm." loading="lazy">
+    <figcaption><span class="tag">1843 · The Idea</span> Ada Lovelace</figcaption>
+  </figure>
+
+  <p>It starts in the <strong>eighteen-forties</strong> — before the lightbulb — with a young woman staring at a giant mechanical calculator, a machine that could do exactly one thing: crunch numbers. Everyone who looked at it saw arithmetic. A very expensive adding machine. <em>Ada Lovelace looked at it and saw something else entirely.</em></p>
+
+  <p>She understood the thing no one else did: if a machine can follow instructions, and you can write those instructions down precisely enough, then numbers are only the beginning. It could work with symbols. It could set them to music. It could make things no one had made before. So she wrote the instructions down — a method, step by step, for the machine to follow. <strong>The first algorithm.</strong> And in the same breath, she told us exactly what it could and couldn't be: <em>it has no pretensions to originate anything. It only ever does what we know how to order it to do.</em> (Remember that part. Everyone forgets that part.)</p>
+
+  <p>For the next hundred years, they handed the credit to the man whose machine it was — and quietly decided a woman couldn't possibly have done the math.</p>
+
+  <!-- 1942 · HEDY -->
+  <figure class="portrait">
+    <img src="../assets/mavens/y2k-stained-glass-v2/hedy-lamarr-y2k-stained-glass.png" alt="Stained-glass portrait of Hedy Lamarr, Keeper of the signal." loading="lazy">
+    <figcaption><span class="tag">1942 · The Signal</span> Hedy Lamarr</figcaption>
+  </figure>
+
+  <p>Jump ahead a century, to <strong>nineteen forty-two</strong>. This next one you already know — she was billed, at the time, as the most beautiful woman in the world. Movie star. Bombshell. <em>And between takes, she was inventing.</em> "It is a very useful thing," she said, "to be underestimated — no one watches what you're actually doing."</p>
+
+  <p>There was a war on, and the radio-controlled torpedoes kept getting jammed — the signal was too easy to find and block. So Hedy Lamarr and the composer George Antheil designed a system that <em>hops</em>: the signal leaps from frequency to frequency, dozens of them, too fast to catch — and the receiver hops right along with it, in step. You cannot jam a signal you cannot find. The Navy said no — too bulky — and shelved it. But that idea, a signal hopping to stay hidden, is in the family tree of the whole wireless world you're standing in: the Wi-Fi, the Bluetooth, the invisible hum that carries everything to everywhere. She never made a dime from it, and no one called her an inventor until she was nearly gone.</p>
+
+  <!-- 1952 · GRACE -->
+  <figure class="portrait">
+    <img src="../assets/mavens/y2k-stained-glass-v2/grace-hopper-y2k-stained-glass.png" alt="Stained-glass portrait of Grace Hopper, Keeper of the compiler." loading="lazy">
+    <figcaption><span class="tag">1952 · The Language</span> Grace Hopper</figcaption>
+  </figure>
+
+  <p><strong>Nineteen fifty-two.</strong> The machines are real now — but talking to one is agony. You had to write in raw code, the machine's own language, every instruction by hand. Enter a mathematician the Navy almost didn't take — too old, they said, at thirty-six. Too small. They took her anyway. Thank goodness.</p>
+
+  <p>They kept telling <strong>Grace Hopper</strong> a computer could only handle numbers — that it could never understand words. She found that a failure of imagination. <em>Why should a person have to learn to think like a machine?</em> So she built a translator — a <strong>compiler</strong>. You write what you want in something close to plain English, and it does the converting into code for you. She taught the machine to meet us halfway. Every app you tap, every chatbot you open, sits on top of that one idea. (She'd make Rear Admiral; they named a warship after her. And when an actual moth once flew into the machine and jammed it, her team taped it into the logbook — "first actual case of a bug being found." That is where <em>debugging</em> comes from.)</p>
+
+  <!-- 1956 · THE MEN NAME IT -->
+  <div class="mark"><div class="k">1956 · The naming</div><h2>The men show up and give it a name</h2><div class="sub">A room at Dartmouth for the summer — and a promise that did not age well.</div></div>
+
+  <p>It's right here — <strong>nineteen fifty-six</strong> — that a handful of men get a room at Dartmouth for the summer, write up a proposal, and christen the whole dream: "<strong>artificial intelligence.</strong>" Names on it as the founding fathers. And then they promise the world it'll be basically solved… by the end of the summer.</p>
+
+  <div class="pull"><p>It was <em>not</em> solved by the end of the summer.</p><div class="rule"></div></div>
+
+  <p>It wasn't solved for decades. The funding dried up, the promises curdled, and "AI" became a slightly embarrassing thing to say out loud. They call those the <strong>AI winters</strong>. Roughly two of them. It got cold more than once. But even in the cold, the work didn't stop.</p>
+
+  <!-- 1972 · KAREN -->
+  <figure class="portrait">
+    <img src="../assets/mavens/y2k-stained-glass-v2/karen-sparck-jones-y2k-stained-glass.png" alt="Stained-glass portrait of Karen Spärck Jones, Keeper of the finding." loading="lazy">
+    <figcaption><span class="tag">1972 · The Finding</span> Karen Spärck Jones</figcaption>
+  </figure>
+
+  <p><strong>Nineteen seventy-two.</strong> A woman at Cambridge cracks a problem that sounds tiny and turns out to be enormous: how does a machine find the <em>right</em> thing? Hand it a mountain of documents and ask it to find what matters, and here's the trick <strong>Karen Spärck Jones</strong> saw — the common words tell you nothing. "The." "And." "Is." Useless. It's the <em>rare</em> words that carry the meaning. So she built a way to weigh them — to let the machine value the word that's unusual over the word that's everywhere. It is the arithmetic underneath every search box you have ever typed into. And underneath the modern ones, too — the systems that go and look things up before they dare to answer you.</p>
+
+  <p>She spent most of her career on short contracts — no permanent post until nineteen ninety-three, which she said plainly was because she was a woman. Usually the only one in the room. And she had a line she liked to repeat, that I want carved over the door of this entire episode:</p>
+
+  <div class="pull"><p>"Computing is too important to be left to <em>men.</em>"</p><div class="rule"></div><div class="who">Karen Spärck Jones</div></div>
+
+  <!-- 2012 · FEI-FEI -->
+  <figure class="portrait">
+    <img src="../assets/mavens/y2k-stained-glass-v2/fei-fei-li-y2k-stained-glass.png" alt="Stained-glass portrait of Fei-Fei Li, Keeper of the field." loading="lazy">
+    <figcaption><span class="tag">2012 · The Sight</span> Fei-Fei Li</figcaption>
+  </figure>
+
+  <p>And then — decades later, after almost everyone had given up — the thaw. It comes from a professor at Stanford named <strong>Fei-Fei Li</strong>, and a heretical idea. Everyone was busy trying to build a smarter brain. She said the brain was never the problem — the problem was we'd never given it enough to look at. She'd come to this country at sixteen, barely speaking English, working weekends in her family's dry-cleaning shop. And she builds the thing everyone told her was far too big to bother with: a collection of millions upon millions of labeled images — the <strong>training data</strong> — so a machine could finally learn what the world actually looks like.</p>
+
+  <p>In <strong>twenty-twelve</strong>, a program trained on her pictures suddenly <em>sees</em> — recognizes images better than anything before it, by a landslide. That is the spark. That "AI boom" people won't stop talking about starts right there, with her data. The world took to calling her the Godmother of AI. <em>Godmother. Not godfather.</em></p>
+
+  <!-- FAST FORWARD -->
+  <div class="mark"><div class="k">And then it moves fast</div><h2>The day it landed on your desk</h2></div>
+
+  <p>In <strong>twenty-seventeen</strong>, a team at Google publishes a new design that finally cracks how a machine handles language — and for the first time, the thing can really <em>write.</em> And then, one perfectly ordinary Wednesday — November, <strong>twenty-twenty-two</strong> — someone wraps all of it in a little chat box, puts it online for free, and calls it ChatGPT.</p>
+
+  <div class="receipts">
+    <div class="h">How fast it landed</div>
+    <div class="stat"><span class="n">~100M</span><span class="d">people using it in about two months<small>the fastest anything had ever caught on — the day AI stopped being a lab thing and became a <em>you</em> thing</small></span></div>
+    <p class="src">The "~100M in two months / fastest-growing app" figure is a widely-cited UBS/Similarweb <em>estimate</em>, not an OpenAI-confirmed number. Verified 2026-07-09. The point holds either way: the science is old; your access to it is brand new.</p>
+  </div>
+
+  <p>That's the day it landed on your desk — the very desk you were sitting at three weeks ago, feeling behind.</p>
+
+  <!-- THE WOMEN WHO CHECK THE MACHINE -->
+  <div class="mark"><div class="k">The part the highlight reel skips</div><h2>The women who check the whole machine</h2><div class="sub">As it got powerful, another set of women got loud — on purpose.</div></div>
+
+  <div class="trio">
+    <figure>
+      <img src="../assets/mavens/y2k-stained-glass-v2/joy-buolamwini-y2k-stained-glass.png" alt="Stained-glass portrait of Joy Buolamwini." loading="lazy">
+      <figcaption><span class="tag">Joy Buolamwini · the mirror</span></figcaption>
+    </figure>
+    <figure>
+      <img src="../assets/mavens/y2k-stained-glass-v2/timnit-gebru-y2k-stained-glass.png" alt="Stained-glass portrait of Timnit Gebru." loading="lazy">
+      <figcaption><span class="tag">Timnit Gebru · the room</span></figcaption>
+    </figure>
+    <figure>
+      <img src="../assets/mavens/y2k-stained-glass-v2/kate-crawford-y2k-stained-glass.png" alt="Stained-glass portrait of Kate Crawford." loading="lazy">
+      <figcaption><span class="tag">Kate Crawford · the map</span></figcaption>
+    </figure>
+  </div>
+
+  <p><strong>Joy Buolamwini</strong>, a grad student at MIT, goes to use face-detection software — and it can't see her. Her dark skin. Not until she literally holds up a white mask. So she proves it: tests the big commercial systems and shows they fail hardest of all on darker-skinned women.</p>
+
+  <p><strong>Timnit Gebru</strong> — whose own doctoral advisor was Fei-Fei Li — teamed up with a linguist, <strong>Emily Bender</strong>, to warn that these language machines can sound brilliant while understanding nothing, and to name what that costs. Bender gave the problem a name that stuck: a <em>stochastic parrot</em> — a bird that mimics speech perfectly, with not the faintest idea what it's saying. Gebru raised it inside Google, and in twenty-twenty she was abruptly gone — she says she was fired; Google says it accepted a resignation. What is not in dispute: thousands of her colleagues signed their names in protest.</p>
+
+  <p>And <strong>Kate Crawford</strong> maps the part nobody wants to look at — that behind the "magic" is a supply chain of mines, water, electricity, and underpaid human hands. Her line: <em>AI is neither artificial nor intelligent.</em></p>
+
+  <p>These are not the buzzkills at the party. They are the reason the thing you're about to trust is worth trusting. Last week you learned to check the machine. <strong>These are the women who check the whole machine.</strong></p>
+
+  <!-- WRAP -->
+  <div class="mark"><div class="k">The lights come up</div><h2>Not magic. Not born last Tuesday.</h2></div>
+
+  <p>And then the lights come up, and it's just me, in the back of the LUMIN<span class="ai">Ai</span>RY, holding all of it. Almost two hundred years. A room full of women, most of whom had to fight to be believed. One very confident chatbot. And <em>that</em> is what's been sitting quietly in your browser tab this whole time. The newest chapter, the one still being written this very minute — <strong>agentic AI</strong>, the kind that doesn't just answer you, it goes and does the thing — that's the edge of the map right now. But that's another Wednesday.</p>
+
+  <!-- COCKTAIL -->
+  <div class="slab cocktail">
+    <span class="k">🍸 Say it at happy hour</span>
+    <h3>"So… is this whole AI thing brand new, or what?"</h3>
+    <p class="say">It's almost two hundred years old and about three years old at the same time. The science has been building for centuries; your access to it is brand new. And every real leap in it — the idea, the signal, the language, the finding, the sight — has a woman's name on it. Whether or not the textbook bothered to write it down.</p>
+  </div>
+
+  <!-- SIGN-OFF -->
+  <div class="signoff">
+    <div class="r">So remember, ladies</div>
+    <div class="line">You were never behind on AI. You were just never told it was yours — built by women, for almost two hundred years, until it finally knocked on your door.</div>
+  </div>
+  <p class="rooms">Got a sharper <b>"remember, ladies"</b> than that one? Post it in <b>the rooms</b> — our residents-only chats at the sorority house. Your Resident Card gets you in the door, and favourites get featured, with credit.</p>
+
+  <!-- NEXT -->
+  <div class="next">
+    <div class="k">Next time on L<span class="ai">Ai</span>DIES</div>
+    <h3>Episode 05 · The Super Models</h3>
+    <p>Our heroine opens the AI her company installed… and it answers exactly like the one she uses at home. She learns the difference between the brand on the door and the brains behind it. See you next Wednesday, in Sunnyvale.</p>
+  </div>
+
+  <!-- ============ BEFORE YOU GO ============ -->
+  <div class="mark" style="margin-top:58px;"><div class="k">Before you go</div><h2>Your Wednesday</h2><div class="sub">No homework this week — a field trip, four words worth keeping, and the rest of the episode.</div></div>
+
+  <div class="slab tryon">
+    <span class="k">✎ Your scene · the field trip</span>
+    <h3>Go meet a Maven</h3>
+    <p>No try-on task this week. Go up to the LUMIN<span class="ai">Ai</span>RY, walk into the quiet wing, and meet one M<span class="ai">Ai</span>VEN you'd genuinely never heard of before today — I only had time to introduce you to a handful. Then text one friend a single sentence about her. It's very hard to feel behind on something the moment you find out it took almost two hundred years and a hundred brilliant women to hand it to you.</p>
+    <a class="btn" href="../luminairy.html">Meet the M<span class="ai">Ai</span>VENS →</a>
+  </div>
+
+  <!-- CAST · the MAiVENS in this episode -->
+  <div class="cast">
+    <div class="h">The M<span class="ai">Ai</span>VENS in this episode <b>· tap a portrait to visit her</b></div>
+    <div class="cast-grid">
+      <a class="cast-card" href="../luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/ada-lovelace-y2k-stained-glass.png" alt="Ada Lovelace" loading="lazy"><b>Ada Lovelace</b><span>The first algorithm · 1843</span></a>
+      <a class="cast-card" href="../luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/hedy-lamarr-y2k-stained-glass.png" alt="Hedy Lamarr" loading="lazy"><b>Hedy Lamarr</b><span>The signal · 1942</span></a>
+      <a class="cast-card" href="../luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/grace-hopper-y2k-stained-glass.png" alt="Grace Hopper" loading="lazy"><b>Grace Hopper</b><span>The compiler · 1952</span></a>
+      <a class="cast-card" href="../luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/karen-sparck-jones-y2k-stained-glass.png" alt="Karen Spärck Jones" loading="lazy"><b>Karen Spärck Jones</b><span>The finding · 1972</span></a>
+      <a class="cast-card" href="../luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/fei-fei-li-y2k-stained-glass.png" alt="Fei-Fei Li" loading="lazy"><b>Fei-Fei Li</b><span>The sight · 2012</span></a>
+      <a class="cast-card" href="../luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/joy-buolamwini-y2k-stained-glass.png" alt="Joy Buolamwini" loading="lazy"><b>Joy Buolamwini</b><span>The mirror</span></a>
+      <a class="cast-card" href="../luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/timnit-gebru-y2k-stained-glass.png" alt="Timnit Gebru" loading="lazy"><b>Timnit Gebru</b><span>The room</span></a>
+      <a class="cast-card" href="../luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/kate-crawford-y2k-stained-glass.png" alt="Kate Crawford" loading="lazy"><b>Kate Crawford</b><span>The map</span></a>
+    </div>
+  </div>
+
+  <!-- STUDY PACK -->
+  <div class="mark"><div class="k">The study pack</div><h2>Four words, defined</h2></div>
+
+  <div class="gloss">
+    <details open>
+      <summary><span class="term">Algorithm</span><span class="peek">A precise set of steps a machine follows — Ada wrote the first one.</span><span class="plus">+</span></summary>
+      <p class="def">A precise, repeatable set of steps for solving a problem — the recipe a machine follows, in order, every time. Ada Lovelace wrote the first one in 1843, for a machine that wouldn't be built for another century. Not magic, not thinking: just very careful instructions, followed exactly.</p>
+    </details>
+    <details>
+      <summary><span class="term">Compiler</span><span class="peek">A translator from human-ish words into machine code — Grace Hopper's idea.</span><span class="plus">+</span></summary>
+      <p class="def">A translator that turns instructions written in something close to plain language into the raw code a machine actually runs. Grace Hopper built one of the first, so people would stop having to think like the machine and could tell it what they wanted in words. Every app you tap sits on top of that one idea.</p>
+    </details>
+    <details>
+      <summary><span class="term">AI winter</span><span class="peek">A long stretch when the promises outran the results and the money froze.</span><span class="plus">+</span></summary>
+      <p class="def">One of the long stretches — there were roughly two — when AI's big promises outran what it could actually do, the funding froze, and "artificial intelligence" became a slightly embarrassing thing to say out loud. The work didn't stop; it just went quiet, until the thaw.</p>
+    </details>
+    <details>
+      <summary><span class="term">Training data</span><span class="peek">The mountain of examples a model learns from — Fei-Fei Li's millions of pictures.</span><span class="plus">+</span></summary>
+      <p class="def">The examples a model learns from — the more it sees, the more it can do. Fei-Fei Li's insight was that the bottleneck was never the machine's "brain"; it was that no one had shown it enough of the world. Her ImageNet — millions of labeled pictures — is why, in 2012, a machine finally learned to see.</p>
+    </details>
+  </div>
+
+  <!-- SOUNDTRACK -->
+  <div class="stx">
+    <div class="disc" aria-hidden="true"></div>
+    <p><b>This week's anthem</b> is playing on KSVL 99.9 — the whole history of this town's favourite machine, in platform sandals. Don't skip it. <span class="motto">Don't just learn from books. Learn from hooks.</span></p>
+  </div>
+
+  <!-- RAIL -->
+  <div class="rail">
+    <div class="h">The rest of the episode</div>
+    <ol>
+      <li><a href="../watch.html?ep=04"><span class="num"></span><span class="t">Narration</span><span class="s">Hear it in the Screening Room</span></a></li>
+      <li><a href="../blend-snap.html#the-study-pack"><span class="num"></span><span class="t">Study Pack</span><span class="s">Grab it at the Blend &amp; Snap</span></a></li>
+      <li><a href="../games/trading-cards.html"><span class="num"></span><span class="t">Card Pack</span><span class="s">Algorithm · Compiler · AI Winter</span></a></li>
+      <li><a class="saintcard" href="../luminairy.html"><span class="num"></span><span class="t">The M<span class="ai">Ai</span>VENS</span><span class="s">The wing of women who built it</span></a></li>
+      <li><a class="songcard" href="../radio.html"><span class="num"></span><span class="t">This week's anthem</span><span class="s">KSVL 99.9</span></a></li>
+      <li><a href="../printable.html?issue=4&amp;from=this-week&amp;bag=open&amp;group=practice"><span class="num"></span><span class="t">Cheat Sheet</span><span class="s">The Founding Mothers timeline · printable</span></a></li>
+      <li><a href="../learn/quiz.html"><span class="num"></span><span class="t">Pop Quiz</span><span class="s">10 + 2 bonus · bank clips</span></a></li>
+    </ol>
+  </div>
+
+</main>
+
+<footer class="foot">
+  <div class="wm">L<span class="ai">Ai</span>DIES</div>
+  <div class="sec">See you next Wednesday… in SUNNYV<span class="ai" style="color:var(--rose-soft)">Ai</span>LE.</div>
+</footer>
+
+<div id="miniPlayer" class="mini-player" hidden>
+  <div class="mini-player-inner">
+    <button type="button" class="mini-player-btn" id="miniPlayerPrev" aria-label="Previous track">⏮</button>
+    <button type="button" class="mini-player-btn mini-player-play" id="miniPlayerPlay" aria-label="Play/Pause">⏸</button>
+    <button type="button" class="mini-player-btn" id="miniPlayerNext" aria-label="Next track">⏭</button>
+    <span class="mini-player-title" id="miniPlayerTitle">Now playing</span>
+    <button type="button" class="mini-player-close" id="miniPlayerClose" aria-label="Close player">✕</button>
+  </div>
+</div>
+<script src="/content/site/mini-player.js?v=20260712ep-04-songs-1"></script>
+
+</body>
+</html>

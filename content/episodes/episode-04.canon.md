@@ -7,7 +7,7 @@
 >
 > Spec: [operations/episode-canonical-source-spec.md](../../operations/episode-canonical-source-spec.md).
 > Reverse-extracted 2026-07-13 from the verified sources — the current written article
-> (`issues/issue-04-v4.html`), the narration master (`operations/audio/episode-04-elevenlabs-v3-tagged.txt`),
+> (`issues/issue-04.html`), the narration master (`operations/audio/episode-04-elevenlabs-v3-tagged.txt`),
 > the canonical quiz (`quizzes.json → issue04`), and the facts ledger. History episode: every name,
 > date, and quote is fact-checked per [[fact-verification-rule]] — do not edit a fact here without
 > re-checking the ledger. **Note:** `content/issues/issue-04.md` is the STALE old "SLAiYER Handbook"
@@ -168,7 +168,7 @@ When you edit anything above, walk this list. ✅ = already true to canon · �
 |---|---|---|
 | Narration (audio master) | `operations/audio/episode-04-elevenlabs-v3-tagged.txt` | ✅ canon source *(Ali re-recording after Ep5 locks — has ENIAC beat)* |
 | Stale old script | `operations/audio/episode-04-script.md` | ⚠️ STALE (old SLAiYER ep) — do not use; the v3-tagged file is the master |
-| Article (written, current) | `issues/issue-04-v4.html` | ✅ primary written source *(reconcile the two narration-only beats + the article-only Turing memoriam — see MUST-MATCH)* |
+| Article (written, current) | `issues/issue-04.html` | ✅ primary written source *(reconcile the two narration-only beats + the article-only Turing memoriam — see MUST-MATCH)* |
 | Article (older) | `issues/issue-04.html` | 🔧 older "Founding Mothers" version — confirm superseded by v4 before it serves |
 | Stale markdown body | `content/issues/issue-04.md` | ⚠️ STALE (old "SLAiYER Handbook") — NOT this episode; do not derive from it |
 | Quiz | `content/site/quizzes.json → issue04` | ✅ matches |
@@ -187,7 +187,7 @@ When you edit anything above, walk this list. ✅ = already true to canon · �
 ---
 
 ## MUST-MATCH (verbatim in narration + article — candidates for `operations/check-episode.sh 4`)
-These exact strings are confirmed **verbatim in BOTH** `operations/audio/episode-04-elevenlabs-v3-tagged.txt` **and** `issues/issue-04-v4.html`, so the signature quotes can't drift between surfaces. Edit them here first, then propagate. *(The Karen Spärck Jones line ends `…left to men.` with `men.` wrapped in `<em>` in the article, so the check locks the tag-free prefix; the full sentence is verbatim in the narration.)*
+These exact strings are confirmed **verbatim in BOTH** `operations/audio/episode-04-elevenlabs-v3-tagged.txt` **and** `issues/issue-04.html`, so the signature quotes can't drift between surfaces. Edit them here first, then propagate. *(The Karen Spärck Jones line ends `…left to men.` with `men.` wrapped in `<em>` in the article, so the check locks the tag-free prefix; the full sentence is verbatim in the narration.)*
 - it has no pretensions to originate anything
 - You cannot jam a signal you cannot find
 - AI is neither artificial nor intelligent
