@@ -237,16 +237,17 @@ copyright filter flags it again, swap in an original hymn ("Rise... oh sisters..
 your voice on high... / alone no more... / let the lonely and the trembling come... /
 and the many shall sing as one...") — same job, unflaggable.
 
-**Lyrics (FINAL — Ali 2026-07-15):**
+**Lyrics (FINAL v2 — Ali 2026-07-16):** adds "Oh Happy Day" tags throughout, the
+"Founding Mother of lace" LAiDIES twist in the hymn, and tweaked chorus/pre-chorus.
 ```
 [Intro — A CAPPELLA hymnal choir, slow, free tempo, NO instruments, NO drums, NO beat, NO claps, reverberant church]
 Hail... Holy... Queen... en-throned a-bove...
 Ohhhh Ma-reeee-ahhhh...
-Hail... Mo-ther of mer-cy... and of love...
+Founding  Mo-ther of lace  and of love...
 Ohhhh Ma-reeee-ahhhh...
 
 [Pivot — full band SLAMS in: drums, hand-claps, tambourine, tempo snaps up]
-Sal-vay (sal-vay!) sal-vay! (sal-vay!) sal-vay Re-gee-nahhhh — whoo!
+Sal-vay (sal-vay!) sal-vay! (sal-vay!) sal-vay Re-gee-nahhhh — whoo! (oh happy day!, oh happy day!, oh happy day!)
 
 [Verse 1]
 (Motown groove, dry and sassy, fast)
@@ -258,7 +259,7 @@ you gon' sing it with me, then you teach the next one how you can!"
 [Pre-Chorus]
 (claps building)
 'cause one little voice can only carry so far —
-but a whole choir together, — you hear how big we are —
+but a whole choir baby, now you hear how big we are —
 (here we go!)
 
 [Chorus]
@@ -266,11 +267,11 @@ Come on — bring her along! (bring her along!)
 don't leave a single sister in the back singin' wrong! (singin' wrong!)
 what you learn, you teach — that's how we get STRONG —
 it's a SISTER ACT, baby — everybody sing along!
-(na-na-na — bring her along!)
-(na-na-na — bring her along!)
+na-na-na — oh happy day!
+na-na-na — Sal-vay!
 
 [Verse 2]
-One nun learns the harmony, she turns and teaches three,
+One nun learns the harmony, she turns around and teaches three,
 by Sunday mornin' it's the loudest chorus singin' all in key —
 somebody said "too loud in here!" — well baby, that's the point, my dear —
 the more of us who know the words, the more the world's gonna HEAR!
@@ -278,7 +279,7 @@ the more of us who know the words, the more the world's gonna HEAR!
 [Pre-Chorus]
 (claps building)
 'cause one little voice can only carry so far —
-but a whole choir together,  you hear how big we are —
+but a whole choir  baby,  now you hear how big we are —
 (here we go!)
 
 [Chorus]
@@ -286,8 +287,8 @@ Come on — bring her along! (bring her along!)
 don't leave a single sister in the back singin' wrong! (singin' wrong!)
 what you learn, you teach  — that's how we get STRONG —
 it's a SISTER ACT, baby — everybody sing along!
-(na-na-na — bring her along!)
-(na-na-na — bring her along!)
+na-na-na — oh happy day!
+na-na-na — Sal-vay!
 
 [Bridge]
 (spoken, bossy-warm, groove never stops)
@@ -302,19 +303,21 @@ Come on — bring her along! (bring her along!)
 don't leave a single sister in the back singin' wrong! (singin' wrong!)
 what you learn, you teach — that's how we get STRONG —
 it's a SISTER ACT, baby — everybody sing along!
-(na-na-na — bring her along!)
-(na-na-na — bring her along!)
+na-na-na — oh happy day!
+na-na-na — Sal-vay!
 
 [Outro — full choir, big finish]
 ...alone, she was just Deloris.
 (sing, sister, sing!)
 together? honey... that's a sister act.
-(ain't nobody actin'!)
+(oh happy day!!)
 Sal-ve! (sal-ve!) Sal-ve! (sal-ve!)
 Sal-vay.. Re-geeeeee-naaaaaah!
-(big band hit)
+(bring her along!)
+(oh happy day!)
 (Choir together)
-RE-GEEEEEEE-NAHHHHHHHHHHH [-END]
+RE-GEEEEEEE-NAHHHHHHHHHHH
+OH HAPPY DAY!  [-END]
 ```
 
 ---
