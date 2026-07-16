@@ -6,7 +6,7 @@
   <title>PIECES OF FLAiR · The Mall · LAiDIES · SUNNYVAiLE</title>
   <meta name="description" content="PIECES OF FLAiR at The Mall — pick your Resident Card avatar from the accessories shelf. 20 Y2K objects. Butterfly clips, mood rings, gel pens, jelly friendship necklaces.">
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260707-a11y">
+  <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
@@ -216,29 +216,30 @@
         { slug: 'claires-receipt',         name: "Mall receipt" }
       ];
 
-      var STORAGE_KEY = 'laidies_avatar';
+      // The card shows "Carrying · <name>", so we store the item NAME here.
+      var STORAGE_KEY = 'laidies_carry';
       function getWorn() { try { return localStorage.getItem(STORAGE_KEY); } catch(e) { return null; } }
-      function setWorn(slug) { try { localStorage.setItem(STORAGE_KEY, slug); return true; } catch(e) { return false; } }
+      function setWorn(name) { try { localStorage.setItem(STORAGE_KEY, name); return true; } catch(e) { return false; } }
 
       var toast = document.getElementById('wearToast');
       var toastTimer = null;
       function showToast(name) {
-        toast.innerHTML = '★ Wearing <strong>' + name + '</strong> · <a href="/laidies-card.html">See it on your card →</a>';
+        toast.innerHTML = '★ Carrying <strong>' + name + '</strong> this week · <a href="/laidies-card.html">See it on your card →</a>';
         toast.classList.add('is-visible');
         if (toastTimer) clearTimeout(toastTimer);
         toastTimer = setTimeout(function() { toast.classList.remove('is-visible'); }, 4200);
       }
 
-      function markWorn(slug) {
+      function markWorn(name) {
         document.querySelectorAll('.avatar-tile').forEach(function(t) {
-          if (t.getAttribute('data-slug') === slug) t.classList.add('is-worn');
+          if (t.getAttribute('data-name') === name) t.classList.add('is-worn');
           else t.classList.remove('is-worn');
         });
       }
 
       function wear(slug, name) {
-        if (setWorn(slug)) {
-          markWorn(slug);
+        if (setWorn(name)) {
+          markWorn(name);
           showToast(name);
         }
       }
@@ -252,8 +253,9 @@
           btn.className = 'avatar-tile';
           btn.setAttribute('type', 'button');
           btn.setAttribute('data-slug', a.slug);
-          btn.setAttribute('aria-label', 'Wear ' + a.name);
-          if (worn === a.slug) btn.classList.add('is-worn');
+          btn.setAttribute('data-name', a.name);
+          btn.setAttribute('aria-label', 'Carry ' + a.name);
+          if (worn === a.name) btn.classList.add('is-worn');
           var img = document.createElement('img');
           img.src = '/assets/avatars/claires/claires-avatar-' + a.slug + '.png?v=20260701-1';
           img.alt = a.name;
@@ -265,7 +267,7 @@
           nm.textContent = a.name;
           var cta = document.createElement('span');
           cta.className = 'avatar-cta';
-          cta.textContent = worn === a.slug ? 'Wearing' : 'Wear this →';
+          cta.textContent = worn === a.name ? 'Carrying' : 'Carry this →';
           cap.appendChild(nm);
           cap.appendChild(cta);
           btn.appendChild(img);

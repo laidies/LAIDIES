@@ -1,0 +1,13 @@
+# LAiDIES avatar maker — Cloudflare Worker.
+# Photo -> vision description -> prompt (+ user traits) -> Flux pixel character.
+# Deploy from this dir:  wrangler deploy
+name = "laidies-avatar"
+main = "avatar.js"
+compatibility_date = "2026-06-25"
+
+[ai]
+binding = "AI"
+
+# Cloudflare Images binding — used to convert HEIC/any upload to PNG server-side.
+[images]
+binding = "IMAGES"
