@@ -1,0 +1,3246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LAiDIES #3: The Burn Book Problem</title>
+    <meta name="description" content="AI judgment, hallucinations, and why polished output still needs receipts." />
+    <meta property="og:title" content="LAiDIES #3: The Burn Book Problem" />
+    <meta property="og:description" content="AI judgment, hallucinations, and why polished output still needs receipts." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://laidies.ai/issues/issue-03.html" />
+    <meta property="og:image" content="https://laidies.ai/assets/episodes/issue-03/section-dont-pull-a-cher-v1.png" />
+    <meta property="og:image:width" content="1672" />
+    <meta property="og:image:height" content="941" />
+    <meta property="og:image:alt" content="Pink gavel objection desk with Burn Book, receipts checklist, and plaid clue for Episode 3" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="LAiDIES #3: The Burn Book Problem" />
+    <meta name="twitter:description" content="AI judgment, hallucinations, and why polished output still needs receipts." />
+    <meta name="twitter:image" content="https://laidies.ai/assets/episodes/issue-03/section-dont-pull-a-cher-v1.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+
+      :root {
+        --paper: #fffaf7;
+        --pearl: #f8f1ee;
+        --cream: #fff7ed;
+        --profile-blush: #fce4f2;
+        --ink: #2a1625;
+        --plum: #4b2148;
+        --wine: #6f263f;
+        --rose: #b95d78;
+        --pink: #df7fa5;
+        --blue: #b9d7dc;
+        --silver: #d8d4d0;
+        --line: rgba(75, 33, 72, 0.16);
+        --shadow: 0 28px 70px rgba(75, 33, 72, 0.16);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          linear-gradient(180deg, rgba(255, 250, 247, 0.98), rgba(248, 241, 238, 0.94) 44%, rgba(255, 253, 251, 0.98)),
+          var(--paper);
+        font-family: "Jost", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 17px;
+        line-height: 1.7;
+      }
+
+      a {
+        color: var(--wine);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.22em;
+      }
+
+      .preview-ribbon {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 11px clamp(16px, 4vw, 44px);
+        background: rgba(255, 253, 251, 0.94);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 12px 30px rgba(75, 33, 72, 0.08);
+        backdrop-filter: blur(16px);
+      }
+
+      .preview-ribbon strong {
+        color: var(--plum);
+      }
+
+      .preview-ribbon span {
+        color: #6e5c68;
+        font-size: 0.86rem;
+        line-height: 1.3;
+      }
+
+      .preview-ribbon nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+
+      .preview-ribbon nav a,
+      .button-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 36px;
+        padding: 8px 12px;
+        color: var(--plum);
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid rgba(111, 38, 63, 0.22);
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.01em;
+        text-decoration: none;
+      }
+
+      .button-link.is-disabled {
+        cursor: not-allowed;
+        color: rgba(75, 33, 72, 0.58);
+        background: rgba(255, 255, 255, 0.46);
+        border-style: dashed;
+      }
+
+      .reader-hero {
+        position: relative;
+        min-height: min(86vh, 820px);
+        display: grid;
+        align-items: end;
+        overflow: hidden;
+        isolation: isolate;
+        background: var(--plum);
+      }
+
+      .reader-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        background-image:
+          linear-gradient(90deg, rgba(28, 9, 26, 0.74) 0%, rgba(28, 9, 26, 0.46) 38%, rgba(28, 9, 26, 0.04) 76%),
+          linear-gradient(180deg, rgba(28, 9, 26, 0.1), rgba(28, 9, 26, 0.66)),
+          url("../assets/episodes/issue-03/section-dont-pull-a-cher-v1.png");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .reader-hero::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 34%;
+        z-index: -1;
+        background: linear-gradient(0deg, var(--paper), rgba(255, 250, 247, 0));
+      }
+
+      .hero-inner {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 96px 0 54px;
+      }
+
+      .brand-lockup {
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        max-width: 84vw;
+        margin: 0 0 clamp(22px, 4vw, 42px);
+        padding: 24px 26px 28px;
+        background: rgba(252, 228, 242, 0.78);
+        border: 1px solid rgba(255, 248, 252, 0.64);
+        border-radius: 8px;
+        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.22);
+        filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.12));
+        line-height: 0;
+        overflow: visible;
+      }
+
+      .brand-lockup img {
+        display: block;
+        width: min(340px, calc(84vw - 52px));
+        height: auto;
+        max-height: none;
+        object-fit: contain;
+        object-position: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        width: fit-content;
+        margin: 0 0 16px;
+        padding: 8px 11px;
+        color: var(--profile-blush);
+        background: rgba(75, 33, 72, 0.72);
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .hero-title {
+        max-width: 900px;
+        margin: 0;
+        color: var(--profile-blush);
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(3.45rem, 11vw, 8.7rem);
+        line-height: 0.86;
+        letter-spacing: 0;
+        text-shadow: 0 16px 46px rgba(0, 0, 0, 0.42);
+      }
+
+      .dek {
+        max-width: 760px;
+        margin: 22px 0 0;
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(1.25rem, 2.6vw, 2.05rem);
+        line-height: 1.12;
+        text-wrap: balance;
+        text-shadow:
+          0 1px 0 rgba(255, 253, 251, 0.72),
+          0 12px 28px rgba(75, 33, 72, 0.18);
+      }
+
+      .preview-shell {
+        width: min(1100px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 30px 0 80px;
+      }
+
+      .reader-kit {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin: -38px 0 34px;
+        position: relative;
+        z-index: 3;
+      }
+
+      .kit-card,
+      .activity-card,
+      .launch-card,
+      .status-card {
+        background: rgba(255, 253, 251, 0.92);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: 0 18px 42px rgba(75, 33, 72, 0.1);
+      }
+
+      .kit-card {
+        padding: 18px 18px 20px;
+      }
+
+      .label {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--wine);
+        font-size: 0.7rem;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .kit-card p,
+      .activity-card p,
+      .launch-card p,
+      .status-card p {
+        margin: 0;
+        color: #4c3b46;
+        line-height: 1.52;
+      }
+
+      .activity-section {
+        scroll-margin-top: 96px;
+        margin: 0 0 42px;
+        padding: clamp(22px, 4vw, 30px);
+        background:
+          radial-gradient(circle at 92% 12%, rgba(185, 215, 220, 0.18), transparent 20rem),
+          linear-gradient(135deg, rgba(255, 253, 251, 0.92), rgba(248, 241, 238, 0.78));
+        border: 1px solid rgba(75, 33, 72, 0.12);
+        border-radius: 8px;
+        box-shadow: 0 18px 42px rgba(75, 33, 72, 0.08);
+      }
+
+      .activity-section-header {
+        display: grid;
+        gap: 8px;
+        max-width: 760px;
+        margin-bottom: 18px;
+      }
+
+      .activity-section-header h2 {
+        margin: 0;
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(2rem, 4vw, 3.6rem);
+        line-height: 0.95;
+      }
+
+      .activity-section-header p {
+        margin: 0;
+        color: #4c3b46;
+        max-width: 660px;
+        line-height: 1.48;
+      }
+
+      .activity-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .activity-card {
+        position: relative;
+        display: grid;
+        gap: 10px;
+        min-height: 168px;
+        padding: 18px;
+        color: var(--plum);
+        text-decoration: none;
+        transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+      }
+
+      .activity-card[href]:hover,
+      .activity-card[href]:focus-visible {
+        transform: translateY(-2px);
+        border-color: rgba(185, 93, 120, 0.44);
+        box-shadow: 0 22px 48px rgba(75, 33, 72, 0.14);
+        text-decoration: none;
+      }
+
+      .activity-card strong {
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(1.25rem, 2vw, 1.62rem);
+        line-height: 1.02;
+      }
+
+      .activity-card em {
+        align-self: end;
+        color: var(--rose);
+        font-size: 0.75rem;
+        font-style: normal;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .activity-card.is-pending {
+        color: rgba(75, 33, 72, 0.68);
+        background: rgba(255, 253, 251, 0.58);
+        border-style: dashed;
+        box-shadow: none;
+      }
+
+      .activity-card--primary {
+        background:
+          radial-gradient(circle at 88% 12%, rgba(185, 215, 220, 0.28), transparent 10rem),
+          linear-gradient(135deg, rgba(252, 228, 242, 0.96), rgba(255, 253, 251, 0.98));
+        border-color: rgba(185, 93, 120, 0.36);
+      }
+
+      .review-shortcuts {
+        margin-top: 18px;
+        color: #4c3b46;
+      }
+
+      .review-shortcuts summary {
+        cursor: pointer;
+        color: var(--plum);
+        font-weight: 900;
+      }
+
+      .review-shortcut-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .article-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 720px) minmax(220px, 280px);
+        gap: clamp(24px, 4vw, 52px);
+        align-items: start;
+      }
+
+      .article-card {
+        padding: 0;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .laidies-inline-wordmark {
+        display: inline;
+        white-space: nowrap;
+        font: inherit;
+        letter-spacing: inherit;
+      }
+
+      .laidies-inline-wordmark [data-laidies-part="plum"] {
+        color: var(--plum);
+      }
+
+      .laidies-inline-wordmark [data-laidies-part="rose"] {
+        color: var(--rose);
+      }
+
+      .article-card h2 {
+        scroll-margin-top: 130px;
+        margin: 2.25rem 0 0.7rem;
+        padding: 0 0 0.18em;
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(1.95rem, 3.35vw, 2.8rem);
+        font-weight: 700;
+        line-height: 1.08;
+        letter-spacing: 0;
+        border-top: 0;
+        text-shadow: 0 1px 0 rgba(255, 248, 252, 0.9);
+        background:
+          linear-gradient(180deg, transparent 62%, rgba(252, 228, 242, 0.86) 62%, rgba(252, 228, 242, 0.86) 91%, transparent 91%);
+      }
+
+      .article-card h2:first-child {
+        margin-top: 0;
+      }
+
+      .article-card h2::before {
+        content: "";
+        display: block;
+        width: 86px;
+        height: 9px;
+        margin: 0 0 1.05rem;
+        background:
+          linear-gradient(90deg, var(--rose), var(--blue));
+        border-radius: 999px;
+        box-shadow:
+          22px 0 0 rgba(252, 228, 242, 0.9),
+          44px 0 0 rgba(111, 38, 63, 0.12);
+      }
+
+      .article-card h2:first-child::before {
+        display: none;
+      }
+
+      .article-card h3 {
+        margin: 1.6rem 0 0.55rem;
+        color: var(--wine);
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(1.18rem, 1.7vw, 1.35rem);
+        line-height: 1.24;
+      }
+
+      .article-card p,
+      .article-card li {
+        color: #1d121b;
+        font-size: clamp(1rem, 1.15vw, 1.06rem);
+        line-height: 1.62;
+      }
+
+      .article-card p {
+        margin: 0 0 0.95em;
+      }
+
+      .article-card ul,
+      .article-card ol {
+        margin: 0.4rem 0 1.25rem;
+        padding-left: 0;
+      }
+
+      .article-card li {
+        position: relative;
+        margin-bottom: 0.62rem;
+        padding-left: 1.15rem;
+        list-style: none;
+      }
+
+      .article-card li::before {
+        content: "";
+        position: absolute;
+        top: 0.76em;
+        left: 0;
+        width: 7px;
+        height: 7px;
+        background: var(--wine);
+        border-radius: 50%;
+      }
+
+      .article-card h2,
+      .article-card h3,
+      .section-image,
+      .article-card pre {
+        clear: both;
+      }
+
+      .signoff-showpiece {
+        clear: both;
+        position: relative;
+        overflow: hidden;
+        margin: clamp(3rem, 7vw, 5rem) 0 clamp(2rem, 5vw, 3.5rem);
+        color: var(--plum);
+        text-align: center;
+      }
+
+      .signoff-showpiece::before {
+        content: "";
+        display: block;
+        width: min(360px, 72%);
+        height: 10px;
+        margin: 0 auto 22px;
+        background: linear-gradient(90deg, transparent, var(--rose), var(--blue), rgba(252, 228, 242, 0.96), transparent);
+        border-radius: 999px;
+      }
+
+      .signoff-banner {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(34px, 6vw, 58px) clamp(24px, 5vw, 46px);
+        background:
+          radial-gradient(circle at 10% 18%, rgba(185, 215, 220, 0.36), transparent 10rem),
+          radial-gradient(circle at 92% 82%, rgba(185, 93, 120, 0.22), transparent 12rem),
+          linear-gradient(135deg, rgba(252, 228, 242, 0.98), rgba(255, 253, 251, 0.96) 48%, rgba(248, 241, 238, 0.96));
+        border: 1px solid rgba(111, 38, 63, 0.18);
+        border-radius: 8px;
+        box-shadow: 0 24px 52px rgba(75, 33, 72, 0.16);
+      }
+
+      .signoff-banner::before,
+      .signoff-banner::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+      }
+
+      .signoff-banner::before {
+        inset: 18px;
+        border: 1px solid rgba(255, 253, 251, 0.76);
+        border-radius: 6px;
+      }
+
+      .signoff-banner::after {
+        right: clamp(14px, 4vw, 36px);
+        bottom: clamp(10px, 3vw, 24px);
+        width: clamp(72px, 14vw, 118px);
+        height: clamp(72px, 14vw, 118px);
+        opacity: 0.2;
+        background:
+          linear-gradient(90deg, var(--rose) 50%, transparent 50%) 0 0 / 20px 20px,
+          linear-gradient(var(--rose) 50%, transparent 50%) 0 0 / 20px 20px;
+        transform: rotate(-8deg);
+      }
+
+      .signoff-remember {
+        position: relative;
+        z-index: 1;
+        display: block;
+        margin-bottom: 14px;
+        color: var(--rose);
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(1.4rem, 3vw, 2.05rem);
+        font-style: italic;
+        font-weight: 700;
+        line-height: 1.08;
+      }
+
+      .signoff-line {
+        position: relative;
+        z-index: 1;
+        display: block;
+        max-width: 640px;
+        margin: 0 auto;
+        color: #1d121b;
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(1.55rem, 3.3vw, 2.35rem);
+        font-weight: 700;
+        line-height: 1.18;
+      }
+
+      .signoff-sips {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 22px;
+        padding: 9px 15px;
+        color: var(--wine);
+        background: rgba(255, 253, 251, 0.68);
+        border: 1px solid rgba(111, 38, 63, 0.16);
+        border-radius: 999px;
+        font-size: 0.76rem;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .signoff-sips::before,
+      .signoff-sips::after {
+        content: "";
+        width: 9px;
+        height: 9px;
+        background: var(--rose);
+        border-radius: 50%;
+      }
+
+      .signoff-bottom {
+        display: grid;
+        gap: 14px;
+        margin: 22px auto 0;
+        max-width: 640px;
+      }
+
+      .challenge-box {
+        padding: 22px clamp(18px, 4vw, 30px);
+        background: rgba(255, 253, 251, 0.84);
+        border: 2px solid rgba(185, 93, 120, 0.48);
+        border-radius: 8px;
+        box-shadow: 0 14px 32px rgba(75, 33, 72, 0.08);
+      }
+
+      .challenge-title {
+        margin-bottom: 8px;
+        color: var(--wine);
+        font-size: 0.76rem;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .challenge-box p,
+      .signoff-share {
+        margin: 0;
+        color: #4c3b46;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .signoff-share {
+        font-weight: 800;
+      }
+
+      .article-card blockquote {
+        position: relative;
+        clear: both;
+        display: block;
+        isolation: isolate;
+        max-width: min(94%, 760px);
+        margin: clamp(3.1rem, 7vw, 5rem) auto;
+        padding: clamp(1.35rem, 3vw, 1.9rem) clamp(1.55rem, 4vw, 2.35rem) clamp(1.35rem, 3vw, 1.9rem) clamp(5.2rem, 13vw, 8.8rem);
+        color: var(--plum);
+        background:
+          linear-gradient(90deg, rgba(185, 93, 120, 0.7), rgba(185, 93, 120, 0.7)) 0 0 / 46% 2px no-repeat,
+          linear-gradient(180deg, rgba(185, 93, 120, 0.7), rgba(185, 93, 120, 0.7)) 0 0 / 2px 100% no-repeat,
+          linear-gradient(270deg, rgba(185, 215, 220, 0.85), rgba(185, 215, 220, 0.85)) 100% 100% / 38% 2px no-repeat,
+          linear-gradient(0deg, rgba(185, 215, 220, 0.85), rgba(185, 215, 220, 0.85)) 100% 100% / 2px 54% no-repeat;
+        border: 0;
+        box-shadow: none;
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(1.38rem, 2.35vw, 2rem);
+        font-style: italic;
+        font-weight: 600;
+        line-height: 1.18;
+        overflow: visible;
+        text-wrap: balance;
+      }
+
+      .article-card blockquote.pullquote-side {
+        width: min(82%, 650px);
+        max-width: min(82%, 650px);
+        float: none;
+        margin: clamp(3rem, 6.4vw, 4.75rem) 0 clamp(3rem, 6.4vw, 4.9rem) auto;
+        padding: clamp(1.15rem, 3vw, 1.65rem) clamp(1.45rem, 4vw, 2.1rem) clamp(1.15rem, 3vw, 1.65rem) clamp(4.9rem, 12vw, 7.8rem);
+        font-size: clamp(1.28rem, 2.2vw, 1.86rem);
+        line-height: 1.2;
+        text-align: left;
+      }
+
+      .article-card blockquote.pullquote-left {
+        margin-left: 0;
+        margin-right: auto;
+        text-align: left;
+      }
+
+      .article-card blockquote.pullquote-compact {
+        max-width: min(86%, 610px);
+        margin: clamp(3rem, 6.4vw, 4.7rem) auto;
+        padding: clamp(1.45rem, 3.5vw, 2rem) clamp(1.55rem, 4vw, 2.25rem) clamp(1.35rem, 3vw, 1.9rem) clamp(4.35rem, 11vw, 6.4rem);
+        text-align: left;
+        background:
+          linear-gradient(90deg, rgba(185, 93, 120, 0.78), rgba(185, 93, 120, 0.78)) 0 0 / 44% 2px no-repeat,
+          linear-gradient(180deg, rgba(185, 93, 120, 0.78), rgba(185, 93, 120, 0.78)) 0 0 / 2px 100% no-repeat,
+          linear-gradient(270deg, rgba(185, 215, 220, 0.92), rgba(185, 215, 220, 0.92)) 100% 100% / 44% 2px no-repeat,
+          linear-gradient(0deg, rgba(185, 215, 220, 0.92), rgba(185, 215, 220, 0.92)) 100% 100% / 2px 54% no-repeat;
+        font-size: clamp(1.28rem, 2.18vw, 1.86rem);
+      }
+
+      .article-card blockquote.pullquote-sticker {
+        max-width: min(92%, 720px);
+        margin: clamp(3.2rem, 6.6vw, 5rem) auto;
+        padding: clamp(2.3rem, 5vw, 3rem) clamp(1.4rem, 4vw, 2.2rem) clamp(1.2rem, 3vw, 1.75rem);
+        background:
+          linear-gradient(90deg, rgba(185, 93, 120, 0), rgba(185, 93, 120, 0.42), rgba(185, 215, 220, 0.55), rgba(185, 93, 120, 0)) 50% 100% / 62% 2px no-repeat;
+        border: 0;
+        transform: none;
+        font-size: clamp(1.38rem, 2.42vw, 2.08rem);
+        text-align: center;
+      }
+
+      .article-card blockquote::before {
+        content: "\201C";
+        position: absolute;
+        left: clamp(0.4rem, 1.4vw, 0.8rem);
+        top: 50%;
+        transform: translateY(-50%);
+        width: auto;
+        height: auto;
+        color: rgba(185, 93, 120, 0.26);
+        background: transparent;
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(5.8rem, 14vw, 11rem);
+        font-style: normal;
+        font-weight: 900;
+        line-height: 0.72;
+        pointer-events: none;
+      }
+
+      .article-card blockquote::after {
+        content: "";
+        position: absolute;
+        right: clamp(0.7rem, 2vw, 1.2rem);
+        bottom: clamp(0.52rem, 1.4vw, 0.85rem);
+        width: clamp(28px, 7vw, 64px);
+        height: clamp(28px, 7vw, 64px);
+        border-right: 2px solid rgba(185, 215, 220, 0.78);
+        border-bottom: 2px solid rgba(185, 215, 220, 0.78);
+        background: transparent;
+        pointer-events: none;
+      }
+
+      .article-card blockquote.pullquote-compact::before {
+        left: clamp(0.55rem, 1.6vw, 0.95rem);
+        top: 50%;
+        color: rgba(185, 93, 120, 0.26);
+        font-size: clamp(4.8rem, 12vw, 8.4rem);
+        transform: translateY(-50%);
+      }
+
+      .article-card blockquote.pullquote-compact::after {
+        content: "";
+        display: block;
+        right: clamp(0.65rem, 2vw, 1.05rem);
+        bottom: clamp(0.55rem, 1.5vw, 0.9rem);
+        width: clamp(24px, 7vw, 58px);
+        height: clamp(24px, 7vw, 58px);
+        border-right: 2px solid rgba(185, 215, 220, 0.78);
+        border-bottom: 2px solid rgba(185, 215, 220, 0.78);
+        transform: none;
+      }
+
+      .article-card blockquote.pullquote-sticker::before {
+        content: "\201C";
+        position: absolute;
+        display: block;
+        left: 50%;
+        top: -0.54em;
+        width: auto;
+        height: auto;
+        color: rgba(185, 93, 120, 0.26);
+        background: transparent;
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(4.6rem, 10vw, 7.4rem);
+        font-style: normal;
+        font-weight: 900;
+        letter-spacing: 0;
+        line-height: 1;
+        text-transform: none;
+        transform: translateX(-50%);
+      }
+
+      .article-card blockquote.pullquote-sticker::after {
+        display: none;
+      }
+
+      @media (min-width: 980px) {
+        .article-card blockquote.pullquote-side {
+          float: right;
+          clear: right;
+          width: min(39%, 360px);
+          max-width: 360px;
+          margin: 0.4rem 0 1.45rem 2rem;
+          padding: 1.1rem 1rem 1.2rem 3.2rem;
+          font-size: clamp(1.24rem, 1.45vw, 1.58rem);
+        }
+
+        .article-card blockquote.pullquote-left {
+          float: left;
+          clear: left;
+          margin: 0.35rem 2rem 1.45rem 0;
+        }
+
+        .article-card blockquote.pullquote-compact {
+          width: min(46%, 460px);
+          max-width: 460px;
+        }
+
+        .article-card blockquote.pullquote-feature,
+        .article-card blockquote.pullquote-sticker {
+          clear: both;
+        }
+      }
+
+      .article-card h2#last-week-on-laidies,
+      .article-card h2#on-this-episode {
+        margin: clamp(2.4rem, 5vw, 3.8rem) 0 1.15rem;
+        padding: clamp(1rem, 2.2vw, 1.4rem) clamp(1rem, 2.8vw, 1.7rem);
+        background:
+          linear-gradient(90deg, rgba(252, 228, 242, 0.78), rgba(255, 253, 251, 0.12)),
+          linear-gradient(180deg, rgba(255, 253, 251, 0.92), rgba(247, 238, 238, 0.78));
+        border-left: 5px solid rgba(185, 93, 120, 0.64);
+        border-radius: 0 16px 16px 0;
+        font-style: italic;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+
+      .article-card pre {
+        white-space: pre-wrap;
+        margin: 1.2rem 0 1.35rem;
+        padding: 20px 22px;
+        color: #24111f;
+        background: rgba(255, 253, 251, 0.94);
+        border: 1px solid rgba(111, 38, 63, 0.18);
+        border-radius: 8px;
+        overflow: auto;
+        box-shadow: 0 10px 28px rgba(75, 33, 72, 0.07);
+      }
+
+      .article-card pre.handwritten-notes {
+        position: relative;
+        width: min(92%, 560px);
+        margin: 1.35rem 0 1.65rem 1rem;
+        padding: 34px 24px 22px 28px;
+        overflow: visible;
+        color: #4d253f;
+        background:
+          repeating-linear-gradient(
+            180deg,
+            rgba(255, 248, 232, 0.96) 0,
+            rgba(255, 248, 232, 0.96) 29px,
+            rgba(185, 93, 120, 0.2) 30px
+          );
+        border: 1px solid rgba(185, 93, 120, 0.2);
+        border-radius: 3px;
+        box-shadow: 0 16px 32px rgba(75, 33, 72, 0.12);
+        transform: rotate(-0.7deg);
+      }
+
+      .article-card pre.handwritten-notes::before {
+        content: "Actual notes";
+        position: absolute;
+        top: -12px;
+        left: 22px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(252, 228, 242, 0.96);
+        color: var(--wine);
+        font-family: "Jost", ui-sans-serif, system-ui, sans-serif;
+        font-size: 0.66rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        box-shadow: 0 8px 18px rgba(75, 33, 72, 0.12);
+      }
+
+      .article-card pre.handwritten-notes::after {
+        content: "";
+        position: absolute;
+        top: -8px;
+        right: 28px;
+        width: 74px;
+        height: 20px;
+        border-radius: 4px;
+        background: rgba(185, 215, 220, 0.64);
+        box-shadow: 0 4px 14px rgba(75, 33, 72, 0.1);
+        transform: rotate(3deg);
+      }
+
+      .article-card pre.handwritten-notes code {
+        display: block;
+        font-family: "Bradley Hand", "Marker Felt", "Segoe Print", "Comic Sans MS", cursive;
+        font-size: clamp(1.08rem, 2vw, 1.34rem);
+        font-weight: 700;
+        line-height: 1.48;
+        letter-spacing: 0.01em;
+      }
+
+      .article-card code {
+        font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.86em;
+      }
+
+      .section-image {
+        margin: 1rem 0 1.15rem;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .section-image img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border: 1px solid rgba(111, 38, 63, 0.13);
+        border-radius: 12px;
+        box-shadow: 0 16px 34px rgba(75, 33, 72, 0.1);
+      }
+
+      .section-image figcaption {
+        margin-top: 8px;
+        color: #765d6d;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .section-dek {
+        color: var(--wine) !important;
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(1.02rem, 1.45vw, 1.18rem) !important;
+        font-style: italic;
+        line-height: 1.35 !important;
+        margin: -0.2rem 0 1rem !important;
+      }
+
+      .side-rail {
+        position: sticky;
+        top: 84px;
+        display: grid;
+        gap: 14px;
+      }
+
+      .section-nav-details {
+        padding: 16px;
+        background: rgba(255, 253, 251, 0.9);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      .section-nav-details summary {
+        color: var(--plum);
+        cursor: pointer;
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+        list-style: none;
+        text-transform: uppercase;
+      }
+
+      .section-nav-details summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .section-nav-details summary::after {
+        content: "+";
+        float: right;
+        color: var(--wine);
+      }
+
+      .section-nav-details[open] summary::after {
+        content: "-";
+      }
+
+      .section-nav {
+        margin-top: 10px;
+      }
+
+      .section-nav a {
+        display: block;
+        padding: 9px 0;
+        color: var(--plum);
+        border-bottom: 1px solid rgba(75, 33, 72, 0.1);
+        font-size: 0.86rem;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .section-nav a:last-child {
+        border-bottom: 0;
+      }
+
+      .ritual-side-card {
+        position: relative;
+        overflow: hidden;
+        padding: 18px;
+        color: var(--plum);
+        background:
+          radial-gradient(circle at 88% 2%, rgba(185, 215, 220, 0.38), transparent 8rem),
+          radial-gradient(circle at 8% 96%, rgba(252, 228, 242, 0.86), transparent 9rem),
+          linear-gradient(145deg, rgba(255, 253, 251, 0.98), rgba(247, 238, 238, 0.9));
+        border: 1px solid rgba(185, 93, 120, 0.28);
+        border-radius: 10px;
+        box-shadow: 0 20px 44px rgba(75, 33, 72, 0.12);
+      }
+
+      .ritual-side-card::before {
+        content: "";
+        display: block;
+        width: 86px;
+        height: 8px;
+        margin-bottom: 14px;
+        background:
+          linear-gradient(90deg, var(--rose), var(--blue));
+        border-radius: 999px;
+        box-shadow:
+          24px 0 0 rgba(252, 228, 242, 0.96),
+          48px 0 0 rgba(75, 33, 72, 0.1);
+      }
+
+      .ritual-side-card .label {
+        color: var(--wine);
+      }
+
+      .ritual-side-card h3 {
+        margin: 8px 0 8px;
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(1.45rem, 2.2vw, 1.95rem);
+        line-height: 0.96;
+      }
+
+      .ritual-side-card p {
+        margin: 0 0 14px;
+        color: #5d4856;
+        font-size: 0.86rem;
+        font-weight: 650;
+        line-height: 1.45;
+      }
+
+      .ritual-side-note {
+        margin-top: 12px;
+        border-top: 1px solid rgba(75, 33, 72, 0.12);
+        padding-top: 12px;
+        color: #6f263f;
+        font-size: 0.78rem;
+        font-weight: 850;
+        line-height: 1.4;
+      }
+
+      .ritual-side-primary {
+        display: inline-flex;
+        width: 100%;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 12px;
+        padding: 10px 14px;
+        color: #fffdfb;
+        background: var(--plum);
+        border: 1px solid rgba(75, 33, 72, 0.22);
+        border-radius: 999px;
+        font-size: 0.82rem;
+        font-weight: 900;
+        text-align: center;
+        text-decoration: none;
+        box-shadow: 0 14px 28px rgba(75, 33, 72, 0.18);
+      }
+
+      .ritual-side-primary:hover,
+      .ritual-side-primary:focus-visible {
+        background: var(--wine);
+        text-decoration: none;
+        outline: none;
+      }
+
+      .ritual-side-links {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .ritual-side-links a {
+        display: inline-flex;
+        min-height: 36px;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 9px;
+        color: var(--wine);
+        background: rgba(255, 253, 251, 0.76);
+        border: 1px solid rgba(185, 93, 120, 0.22);
+        border-radius: 999px;
+        font-size: 0.74rem;
+        font-weight: 900;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      .ritual-side-links a:hover,
+      .ritual-side-links a:focus-visible {
+        color: var(--plum);
+        border-color: rgba(185, 93, 120, 0.48);
+        text-decoration: none;
+        outline: none;
+      }
+
+      .launch-section {
+        margin-top: 50px;
+        padding-top: 42px;
+        border-top: 1px solid var(--line);
+      }
+
+      .section-heading {
+        margin: 0 0 18px;
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: clamp(2.2rem, 5vw, 4.8rem);
+        line-height: 0.92;
+        letter-spacing: 0;
+      }
+
+      .launch-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .launch-card {
+        padding: 18px;
+      }
+
+      .launch-card h3,
+      .status-card h3 {
+        margin: 0 0 10px;
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: 1.35rem;
+        line-height: 1.05;
+      }
+
+      .launch-card strong {
+        color: var(--wine);
+      }
+
+      .status-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      .status-card {
+        padding: 18px;
+      }
+
+      .status-card.ready {
+        border-color: rgba(36, 123, 131, 0.28);
+      }
+
+      .status-card.review {
+        border-color: rgba(185, 93, 120, 0.38);
+      }
+
+      .status-card.blocked {
+        border-color: rgba(111, 38, 63, 0.38);
+      }
+
+      .loading,
+      .error {
+        padding: 32px;
+        background: rgba(255, 253, 251, 0.9);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      @media (max-width: 900px) {
+        .preview-ribbon {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .preview-ribbon nav {
+          justify-content: flex-start;
+        }
+
+        .reader-kit,
+        .activity-grid,
+        .article-layout,
+        .launch-grid,
+        .status-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .side-rail {
+          position: relative;
+          top: auto;
+          order: -1;
+        }
+
+        .section-nav {
+          display: none;
+        }
+
+        .ritual-side-card {
+          margin-bottom: 8px;
+        }
+
+      }
+
+      @media (max-width: 660px) {
+        .article-card blockquote.pullquote-side,
+        .article-card blockquote.pullquote-left,
+        .article-card blockquote.pullquote-right,
+        .article-card blockquote.pullquote-sticker,
+        .article-card blockquote.pullquote-compact {
+          float: none;
+          width: auto;
+          max-width: none;
+          margin: 1.45rem 0 1.6rem;
+          transform: none;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .reader-hero {
+          min-height: 78vh;
+        }
+
+        .reader-hero::before {
+          background-image:
+            linear-gradient(180deg, rgba(28, 9, 26, 0.35), rgba(28, 9, 26, 0.78)),
+            url("../assets/episodes/issue-03/section-dont-pull-a-cher-v1.png");
+          background-position: 57% center;
+        }
+
+        .hero-inner {
+          padding-bottom: 38px;
+        }
+
+        .hero-title {
+          font-size: clamp(3.1rem, 18vw, 5.2rem);
+        }
+
+        .reader-kit {
+          margin-top: 0;
+        }
+
+        .article-card {
+          padding: 0;
+        }
+      }
+
+      /* Episode 03 alignment to the approved Episode 1/2 hybrid reader system. */
+      body[data-issue-number="3"] {
+        --episode-endcap-width: 1120px;
+        background:
+          radial-gradient(circle at 4% 18%, rgba(252, 228, 242, 0.34), transparent 31rem),
+          radial-gradient(circle at 96% 14%, rgba(185, 215, 220, 0.18), transparent 30rem),
+          radial-gradient(circle at 88% 58%, rgba(255, 244, 248, 0.52), transparent 34rem),
+          linear-gradient(180deg, #fffaf8 0%, #fff8fb 48%, #fffdfb 100%);
+      }
+
+      .issue-site-nav.issue-episode-nav {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 10px 18px;
+        align-items: center;
+        min-height: 64px;
+        padding: 10px clamp(16px, 3vw, 32px);
+        color: #fffdfb;
+        background: rgba(36, 17, 29, 0.94);
+        border-bottom: 1px solid rgba(255, 253, 251, 0.18);
+        box-shadow: 0 12px 30px rgba(75, 33, 72, 0.16);
+        backdrop-filter: blur(16px);
+      }
+
+      .issue-episode-meta {
+        display: grid;
+        gap: 2px;
+        min-width: 0;
+        color: #fffdfb;
+        line-height: 1.24;
+      }
+
+      .issue-episode-kicker {
+        color: rgba(255, 253, 251, 0.68);
+        font-size: 0.68rem;
+        font-weight: 900;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .issue-episode-title {
+        display: block;
+        overflow: hidden;
+        color: #fffdfb;
+        font-size: clamp(0.9rem, 1.55vw, 1.05rem);
+        font-weight: 850;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .issue-episode-title time {
+        display: inline-block;
+        margin-left: 0.4em;
+        color: rgba(255, 253, 251, 0.68);
+        font-weight: 750;
+      }
+
+      .issue-episode-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: flex-end;
+      }
+
+      /* Episode-reader meta relocated into the body (light background) — was white-on-dark in the nav. */
+      .issue-episode-meta--body {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 6px 14px;
+        width: min(1060px, calc(100% - 32px));
+        margin: 12px auto 0;
+        color: #3f1737;
+      }
+      .issue-episode-meta--body .issue-episode-kicker {
+        color: #9b3f5f;
+      }
+      .issue-episode-meta--body .issue-episode-title {
+        color: #3f1737;
+        white-space: normal;
+        overflow: visible;
+      }
+      .issue-episode-meta--body .issue-episode-title time {
+        color: #6f263f;
+      }
+      .issue-episode-jump {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-left: auto;
+      }
+      .issue-episode-jump a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 32px;
+        padding: 6px 11px;
+        border: 1px solid rgba(75, 33, 72, 0.2);
+        border-radius: 999px;
+        background: rgba(255, 253, 251, 0.8);
+        color: #3f1737;
+        font-size: 0.74rem;
+        font-weight: 850;
+        text-decoration: none;
+      }
+      .issue-episode-jump a:hover,
+      .issue-episode-jump a:focus-visible {
+        border-color: rgba(111, 38, 63, 0.42);
+        color: #6f263f;
+      }
+
+      .issue-site-nav.issue-episode-nav a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 34px;
+        padding: 7px 11px;
+        color: #fffdfb;
+        background: rgba(255, 253, 251, 0.06);
+        border: 1px solid rgba(255, 253, 251, 0.28);
+        border-radius: 999px;
+        font-size: 0.76rem;
+        font-weight: 850;
+        letter-spacing: 0.01em;
+        line-height: 1;
+        text-decoration: none;
+      }
+
+      .issue-site-nav.issue-episode-nav a:hover,
+      .issue-site-nav.issue-episode-nav a:focus-visible {
+        color: #fffdfb;
+        background: rgba(255, 253, 251, 0.14);
+        border-color: rgba(255, 253, 251, 0.52);
+      }
+
+      .issue-site-nav.issue-episode-nav .issue-return-link {
+        background: rgba(252, 228, 242, 0.14);
+        border-color: rgba(252, 228, 242, 0.45);
+      }
+
+      .issue-site-nav.issue-episode-nav.laidies-nav-enhanced {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) auto !important;
+        grid-template-rows: auto !important;
+        align-items: center !important;
+        gap: 10px 18px !important;
+        min-height: 64px !important;
+        padding: 10px clamp(16px, 3vw, 32px) !important;
+        color: #fffdfb !important;
+        background: rgba(36, 17, 29, 0.94) !important;
+        border-bottom: 1px solid rgba(255, 253, 251, 0.18) !important;
+      }
+
+      .issue-site-nav.issue-episode-nav > .laidies-context-return,
+      .issue-site-nav.issue-episode-nav > .hamburger-btn,
+      .issue-site-nav.issue-episode-nav > .laidies-menu-panel {
+        display: none !important;
+      }
+
+      body[data-issue-number="3"] nav.issue-site-nav.issue-episode-nav.laidies-nav-enhanced > a.laidies-context-return,
+      body[data-issue-number="3"] nav.issue-site-nav.issue-episode-nav.laidies-nav-enhanced > button.hamburger-btn,
+      body[data-issue-number="3"] nav.issue-site-nav.issue-episode-nav.laidies-nav-enhanced > aside.laidies-menu-panel {
+        display: none !important;
+        visibility: hidden !important;
+      }
+
+      .episode-03-reader-hero {
+        min-height: 0;
+        padding: clamp(22px, 4vw, 48px) clamp(22px, 5vw, 72px) clamp(36px, 6vw, 68px);
+        background:
+          radial-gradient(circle at 16% 8%, rgba(185, 215, 220, 0.14), transparent 26rem),
+          linear-gradient(135deg, #fffdfb 0%, #fbf6f5 100%);
+        border-bottom: 1px solid rgba(75, 33, 72, 0.14);
+        box-shadow: 0 18px 42px rgba(75, 33, 72, 0.08);
+      }
+
+      .episode-03-reader-hero::before,
+      .episode-03-reader-hero::after {
+        display: none;
+      }
+
+      .episode-03-reader-hero .hero-inner {
+        width: 100%;
+        max-width: min(1320px, calc(100vw - 96px));
+        margin: 0 auto;
+        padding: 0;
+      }
+
+      .episode-03-masthead-banner {
+        position: relative;
+        display: flex;
+        align-items: end;
+        min-height: clamp(560px, 60vh, 720px);
+        padding: clamp(72px, 8vw, 112px) clamp(22px, 6.8vw, 104px) clamp(44px, 6vw, 68px);
+        color: var(--plum);
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 18% 16%, rgba(252, 228, 242, 0.24), transparent 24rem),
+          linear-gradient(135deg, #fff9fc, #fff8fb 58%, #fff4f8);
+        border: 1px solid rgba(75, 33, 72, 0.14);
+        border-radius: 8px;
+        box-shadow: 0 22px 54px rgba(75, 33, 72, 0.14);
+      }
+
+      .episode-03-masthead-banner::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background:
+          linear-gradient(0deg, rgba(255, 253, 251, 0.78) 0%, rgba(255, 249, 252, 0.46) 42%, rgba(255, 249, 252, 0.2) 100%),
+          linear-gradient(96deg, rgba(255, 249, 252, 0.82) 0%, rgba(255, 248, 251, 0.58) 52%, rgba(255, 244, 248, 0.34) 100%);
+        pointer-events: none;
+      }
+
+      .episode-03-masthead-image {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 54% center;
+        border: 0;
+        filter: saturate(1.04) contrast(0.98) brightness(1.08);
+        opacity: 0.78;
+      }
+
+      .episode-03-masthead-copy {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        justify-items: start;
+        width: min(860px, 100%);
+        pointer-events: none;
+      }
+
+      .episode-03-masthead-copy .episode-masthead-brand-bar {
+        display: inline-flex;
+        align-items: center;
+        margin: 0 0 clamp(28px, 4.1vw, 58px);
+        padding: clamp(18px, 2.4vw, 24px) clamp(20px, 2.8vw, 28px) clamp(20px, 2.8vw, 30px);
+        background: rgba(252, 228, 242, 0.62);
+        border: 1px solid rgba(255, 248, 252, 0.64);
+        border-radius: 8px;
+        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.22);
+        filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.12));
+        line-height: 0;
+      }
+
+      .episode-03-masthead-copy .episode-masthead-brand-bar img {
+        display: block;
+        width: min(31vw, 480px);
+        max-width: 100%;
+        height: auto;
+      }
+
+      .episode-masthead-copy-line {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 10px clamp(16px, 2.4vw, 28px);
+        align-items: end;
+        width: 100%;
+        color: var(--plum);
+        text-align: left;
+      }
+
+      .episode-masthead-phone {
+        grid-column: 1 / -1;
+        display: inline-flex;
+        gap: 0.42em;
+        width: fit-content;
+        padding: 8px 11px;
+        color: #9b3f5f;
+        background: rgba(255, 253, 251, 0.76);
+        border: 1px solid rgba(111, 38, 63, 0.18);
+        border-radius: 999px;
+        font-size: clamp(0.68rem, 0.92vw, 0.82rem);
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .episode-masthead-note {
+        grid-column: 1 / -1;
+        width: 100%;
+        max-width: 940px;
+        margin: 0;
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: clamp(3.15rem, 8.2vw, 7.4rem);
+        font-weight: 700;
+        letter-spacing: 0;
+        line-height: 0.86;
+        overflow-wrap: break-word;
+        text-shadow: 0 1px 0 rgba(255, 253, 251, 0.88);
+        text-wrap: balance;
+      }
+
+      .episode-masthead-premise {
+        position: relative;
+        grid-column: 1;
+        width: fit-content;
+        max-width: 720px;
+        margin-top: clamp(10px, 1.7vw, 18px);
+        padding: clamp(24px, 3vw, 30px) clamp(14px, 2.4vw, 20px) clamp(12px, 2vw, 16px);
+        color: var(--plum);
+        background: rgba(255, 253, 251, 0.78);
+        border: 1px solid rgba(255, 248, 252, 0.64);
+        border-radius: 8px;
+        box-shadow: 0 18px 38px rgba(75, 33, 72, 0.1);
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: clamp(1.08rem, 1.75vw, 1.48rem);
+        font-weight: 700;
+        line-height: 1.16;
+      }
+
+      .episode-masthead-premise::before {
+        content: "";
+        position: absolute;
+        left: clamp(14px, 2.4vw, 20px);
+        top: 12px;
+        width: 92px;
+        height: 9px;
+        background: linear-gradient(90deg, var(--rose), var(--blue));
+        border-radius: 999px;
+        box-shadow:
+          24px 0 0 rgba(252, 228, 242, 0.9),
+          48px 0 0 rgba(111, 38, 63, 0.12);
+      }
+
+      .episode-masthead-date {
+        grid-column: 2;
+        justify-self: end;
+        align-self: end;
+        width: fit-content;
+        margin-bottom: clamp(12px, 2vw, 18px);
+        color: var(--wine);
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-shadow: 0 1px 0 rgba(255, 253, 251, 0.8);
+        text-transform: uppercase;
+      }
+
+      .visually-hidden-title {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .preview-shell {
+        --episode-endcap-width: min(1180px, calc(100vw - 96px));
+        width: min(1320px, calc(100vw - 96px));
+        padding: 0 0 clamp(48px, 7vw, 88px);
+      }
+
+      .reader-kit {
+        margin: clamp(-48px, -4vw, -18px) 0 clamp(24px, 4vw, 40px);
+      }
+
+      .article-layout {
+        grid-template-columns: minmax(0, 860px) minmax(280px, 320px);
+        gap: clamp(32px, 3.2vw, 56px);
+        justify-content: center;
+      }
+
+      .article-layout .article-container {
+        max-width: none;
+        margin: 0;
+        padding: clamp(30px, 4vw, 52px) 0 clamp(52px, 7vw, 80px);
+      }
+
+      .article-card h2 {
+        padding: clamp(0.82rem, 2vw, 1.08rem) clamp(0.95rem, 2.4vw, 1.25rem);
+        font-size: clamp(2.45rem, 3vw, 3.35rem);
+        background: linear-gradient(135deg, rgba(252, 228, 242, 0.92), rgba(255, 253, 251, 0.96));
+        border-left: 5px solid var(--rose);
+        border-radius: 8px;
+        box-shadow:
+          inset 0 0 0 1px rgba(111, 38, 63, 0.1),
+          0 16px 34px rgba(75, 33, 72, 0.07);
+      }
+
+      .article-card h2:first-child::before {
+        display: block;
+      }
+
+      .article-card p,
+      .article-card li,
+      .lead-paragraph,
+      .article-card details.glossary-term .term-def,
+      .term-preview {
+        max-width: 76ch;
+        font-size: clamp(1.08rem, 0.6vw + 0.9rem, 1.15rem);
+        line-height: 1.68;
+      }
+
+      .episode-intro-card {
+        display: block;
+        margin-bottom: 2.3em;
+        padding: clamp(24px, 5vw, 36px) clamp(18px, 5vw, 32px);
+        background:
+          radial-gradient(circle at 92% 12%, rgba(185, 215, 220, 0.14), transparent 12rem),
+          linear-gradient(135deg, rgba(255, 253, 251, 0.92), rgba(248, 238, 238, 0.72));
+        border: 1px solid rgba(75, 33, 72, 0.14);
+        border-radius: 8px;
+        box-shadow: 0 16px 36px rgba(75, 33, 72, 0.08);
+      }
+
+      details.episode-intro-card summary {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px 14px;
+        align-items: center;
+        color: var(--plum);
+        cursor: pointer;
+        list-style: none;
+        text-align: left;
+      }
+
+      details.episode-intro-card summary::-webkit-details-marker {
+        display: none;
+      }
+
+      details.episode-intro-card summary::after {
+        content: "+";
+        display: inline-grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        color: var(--wine);
+        background: rgba(252, 228, 242, 0.86);
+        border: 1px solid rgba(111, 38, 63, 0.16);
+        border-radius: 999px;
+        font-size: 1.18rem;
+        font-weight: 850;
+        line-height: 1;
+      }
+
+      details.episode-intro-card[open] summary::after {
+        content: "-";
+      }
+
+      .episode-intro-label {
+        display: block;
+        margin: 0 0 14px;
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: clamp(2.15rem, 2.5vw, 2.9rem);
+        font-style: italic;
+        font-weight: 700;
+        line-height: 1.05;
+      }
+
+      .episode-intro-summary-copy {
+        display: -webkit-box;
+        grid-column: 1;
+        max-width: 62ch;
+        overflow: hidden;
+        color: #4c3b46;
+        font-size: clamp(1.04rem, 0.88vw, 1.16rem);
+        line-height: 1.58;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+
+      details.episode-intro-card[open] .episode-intro-summary-copy {
+        display: none;
+      }
+
+      .episode-intro-body {
+        margin-top: 16px;
+      }
+
+      .concept-definitions,
+      .article-receipts-panel,
+      .next-week,
+      .weekly-rule-card {
+        margin: 2.4em 0;
+        padding: clamp(22px, 4vw, 34px);
+        border: 1px solid rgba(75, 33, 72, 0.16);
+        border-left: 8px solid #5f9f8d;
+        border-radius: 8px;
+        background:
+          radial-gradient(circle at 92% 12%, rgba(185, 215, 220, 0.14), transparent 12rem),
+          linear-gradient(135deg, rgba(255, 253, 251, 0.96), rgba(255, 242, 247, 0.68));
+        box-shadow: 0 16px 36px rgba(75, 33, 72, 0.08);
+      }
+
+      .concept-definitions .article-subheading,
+      .article-receipts-panel h3,
+      .next-week h3 {
+        margin: 0 0 0.85rem;
+        padding: clamp(0.82rem, 2vw, 1.08rem) clamp(0.95rem, 2.4vw, 1.25rem);
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: clamp(1.95rem, 3.35vw, 2.8rem);
+        line-height: 1.08;
+        background: linear-gradient(135deg, rgba(252, 228, 242, 0.92), rgba(255, 253, 251, 0.96));
+        border-left: 5px solid var(--rose);
+        border-radius: 8px;
+        box-shadow:
+          inset 0 0 0 1px rgba(111, 38, 63, 0.1),
+          0 16px 34px rgba(75, 33, 72, 0.07);
+      }
+
+      .concept-definitions .article-subheading::before,
+      .article-receipts-panel h3::before,
+      .next-week h3::before {
+        content: "";
+        display: block;
+        width: 86px;
+        height: 9px;
+        margin: 0 0 1.05rem;
+        background: linear-gradient(90deg, var(--rose), var(--blue));
+        border-radius: 999px;
+        box-shadow:
+          22px 0 0 rgba(252, 228, 242, 0.9),
+          44px 0 0 rgba(111, 38, 63, 0.12);
+      }
+
+      .concept-definitions .section-subhed {
+        max-width: 62ch;
+        color: #765d6d;
+        font-size: 0.98rem;
+        font-style: italic;
+        line-height: 1.55;
+      }
+
+      .article-card details.glossary-term {
+        margin: 18px 0;
+        padding: 20px;
+        background: rgba(255, 253, 251, 0.84);
+        border: 1px solid rgba(75, 33, 72, 0.14);
+        border-radius: 8px;
+      }
+
+      .article-card details.glossary-term summary {
+        cursor: pointer;
+        list-style: none;
+      }
+
+      .article-card details.glossary-term summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .term-name {
+        display: block;
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: clamp(1.36rem, 2.5vw, 1.68rem);
+        font-weight: 700;
+        line-height: 1.08;
+      }
+
+      .term-preview {
+        display: -webkit-box;
+        margin-top: 8px;
+        overflow: hidden;
+        color: #3a2230;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+
+      .term-toggle {
+        display: inline-flex;
+        margin-top: 14px;
+        color: #9b3f5f;
+        font-size: 0.74rem;
+        font-weight: 850;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .term-toggle .when-open,
+      details.glossary-term[open] .term-toggle .when-closed,
+      details.glossary-term[open] .term-preview {
+        display: none;
+      }
+
+      details.glossary-term[open] .term-toggle .when-open {
+        display: inline;
+      }
+
+      .article-card details.glossary-term .term-def {
+        margin-top: 8px;
+        color: #3a2230;
+      }
+
+      .article-receipts-panel ul {
+        margin-bottom: 0;
+      }
+
+      .next-week {
+        position: relative;
+        overflow: hidden;
+        border-color: rgba(185, 93, 120, 0.36);
+        border-left-color: var(--rose);
+        text-align: center;
+      }
+
+      .next-week p {
+        margin-inline: auto;
+      }
+
+      .weekly-rule-card {
+        border-color: rgba(185, 93, 120, 0.34);
+        border-left-color: var(--rose);
+        text-align: center;
+      }
+
+      .weekly-rule-label {
+        margin: 0 0 0.55rem !important;
+        color: var(--wine) !important;
+        font-size: 0.75rem !important;
+        font-weight: 900 !important;
+        letter-spacing: 0.14em;
+        line-height: 1.2 !important;
+        text-transform: uppercase;
+      }
+
+      .weekly-rule-card h3 {
+        max-width: 28ch;
+        margin: 0 auto;
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: clamp(1.65rem, 3vw, 2.35rem);
+        line-height: 1.08;
+      }
+
+      .reader-next {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+        gap: 14px;
+        width: min(var(--episode-endcap-width), 100%);
+        margin: 24px auto 42px;
+        text-align: left;
+      }
+
+      .reader-next-card {
+        padding: clamp(18px, 3vw, 26px);
+        color: var(--plum);
+        background: rgba(255, 253, 251, 0.92);
+        border: 1px solid rgba(75, 33, 72, 0.14);
+        border-radius: 8px;
+        box-shadow: 0 14px 32px rgba(75, 33, 72, 0.08);
+      }
+
+      .reader-next-card.featured {
+        background:
+          radial-gradient(circle at 90% 8%, rgba(252, 228, 242, 0.48), transparent 10rem),
+          linear-gradient(135deg, rgba(255, 253, 251, 0.96), rgba(255, 244, 248, 0.78));
+        border-left: 8px solid var(--rose);
+      }
+
+      .reader-next-card.after-hours {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: clamp(14px, 3vw, 26px);
+        align-items: center;
+        background:
+          radial-gradient(circle at 96% 18%, rgba(185, 215, 220, 0.42), transparent 11rem),
+          radial-gradient(circle at 8% 98%, rgba(252, 228, 242, 0.7), transparent 12rem),
+          rgba(255, 253, 251, 0.94);
+      }
+
+      .reader-next-card h3 {
+        margin: 0;
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: clamp(1.7rem, 4vw, 2.45rem);
+        line-height: 0.98;
+      }
+
+      .reader-next-card p {
+        margin: 10px 0 0;
+        color: rgba(58, 34, 48, 0.86);
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .resources-section {
+        position: relative;
+        width: min(var(--episode-endcap-width), calc(100% - 32px));
+        margin: 3em auto 0;
+        padding: clamp(28px, 4.5vw, 44px) clamp(22px, 4vw, 36px);
+        overflow: hidden;
+        color: var(--plum);
+        background:
+          radial-gradient(circle at 92% 8%, rgba(185, 215, 220, 0.22), transparent 16rem),
+          radial-gradient(circle at 8% 94%, rgba(252, 228, 242, 0.58), transparent 16rem),
+          linear-gradient(135deg, rgba(255, 253, 251, 0.96), rgba(255, 244, 248, 0.82));
+        border: 1px solid rgba(185, 93, 120, 0.3);
+        border-left: 8px solid var(--rose);
+        border-radius: 8px;
+        box-shadow: 0 20px 44px rgba(75, 33, 72, 0.1);
+      }
+
+      .resources-inner {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+
+      .resources-section h3 {
+        margin: 0 0 0.85em;
+        padding: clamp(0.82rem, 2vw, 1.08rem) clamp(0.95rem, 2.4vw, 1.25rem);
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: clamp(1.95rem, 3.35vw, 2.8rem);
+        line-height: 1.08;
+        background: linear-gradient(135deg, rgba(252, 228, 242, 0.92), rgba(255, 253, 251, 0.96));
+        border-left: 5px solid var(--rose);
+        border-radius: 8px;
+        box-shadow:
+          inset 0 0 0 1px rgba(111, 38, 63, 0.1),
+          0 16px 34px rgba(75, 33, 72, 0.07);
+      }
+
+      .resources-section h3::before {
+        content: "";
+        display: block;
+        width: 86px;
+        height: 9px;
+        margin: 0 0 1.05rem;
+        background: linear-gradient(90deg, var(--rose), var(--blue));
+        border-radius: 999px;
+        box-shadow:
+          22px 0 0 rgba(252, 228, 242, 0.9),
+          44px 0 0 rgba(111, 38, 63, 0.12);
+      }
+
+      .resources-section h3:not(:first-of-type) {
+        margin-top: clamp(28px, 4vw, 42px);
+      }
+
+      .resource-note {
+        margin: -0.2rem 0 1.4rem;
+        color: #765d6d;
+        font-size: 0.92rem;
+        font-style: italic;
+        line-height: 1.5;
+      }
+
+      .go-deeper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+        margin: 20px 0 26px;
+      }
+
+      .resource-card {
+        display: block;
+        min-height: 100%;
+        padding: 16px;
+        color: inherit;
+        background: rgba(255, 253, 251, 0.82);
+        border: 1px solid rgba(75, 33, 72, 0.13);
+        border-radius: 8px;
+        text-decoration: none;
+        box-shadow: 0 12px 26px rgba(75, 33, 72, 0.06);
+      }
+
+      .resource-card:hover,
+      .resource-card:focus-visible {
+        border-color: rgba(185, 93, 120, 0.46);
+        transform: translateY(-1px);
+      }
+
+      .resource-name {
+        color: var(--plum);
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: 1.14rem;
+        font-weight: 800;
+        line-height: 1.05;
+      }
+
+      .resource-desc {
+        margin-top: 8px;
+        color: rgba(58, 34, 48, 0.78);
+        font-size: 0.88rem;
+        line-height: 1.42;
+      }
+
+      .resources-section .citation {
+        margin-bottom: 10px;
+        padding-left: 16px;
+        color: #765d6d;
+        font-size: 0.86rem;
+        line-height: 1.45;
+        border-left: 2px solid rgba(185, 93, 120, 0.3);
+      }
+
+      .resources-section .citation a {
+        color: #9b3f5f;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(185, 93, 120, 0.26);
+      }
+
+      .resources-section .citation a:hover,
+      .resources-section .citation a:focus-visible {
+        color: var(--plum);
+        border-bottom-color: var(--plum);
+      }
+
+      .reader-signup-form {
+        display: grid;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .reader-signup-form label {
+        color: rgba(75, 33, 72, 0.78);
+        font-size: 0.78rem;
+        font-weight: 850;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .reader-signup-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px;
+      }
+
+      .reader-signup-row input,
+      .share-url-fallback {
+        width: 100%;
+        min-width: 0;
+        padding: 12px 13px;
+        color: var(--plum);
+        background: rgba(255, 253, 251, 0.94);
+        border: 1px solid rgba(75, 33, 72, 0.2);
+        border-radius: 0;
+        font: 800 0.92rem/1.2 "Jost", sans-serif;
+      }
+
+      .reader-signup-row input::placeholder {
+        color: rgba(75, 33, 72, 0.3);
+        opacity: 1;
+      }
+
+      .reader-signup-row button,
+      .reader-action,
+      .reader-link-button,
+      .ritual-bag-pill,
+      .ritual-full-details summary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 11px 16px;
+        color: #fffdfb;
+        background: var(--plum);
+        border: 1px solid var(--plum);
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        line-height: 1.1;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .reader-link-button,
+      .reader-action.secondary {
+        color: var(--plum);
+        background: transparent;
+      }
+
+      .reader-link-button.primary {
+        color: #fffdfb;
+        background: var(--plum);
+      }
+
+      .reader-action-grid {
+        display: grid;
+        gap: 9px;
+        margin-top: 16px;
+      }
+
+      .share-status,
+      .reader-form-note {
+        min-height: 1.3em;
+        margin: 8px 0 0;
+        color: rgba(75, 33, 72, 0.72);
+        font-size: 0.82rem;
+        line-height: 1.35;
+      }
+
+      .reader-form-note a {
+        color: #9b3f5f;
+        font-weight: 850;
+      }
+
+      .share-url-fallback[hidden],
+      .reader-subscribe-frame {
+        display: none;
+      }
+
+      .side-rail {
+        top: 94px;
+        padding-top: clamp(30px, 4vw, 52px);
+      }
+
+      .ritual-side-card h3 {
+        font-size: clamp(1.2rem, 1.75vw, 1.45rem);
+      }
+
+      .ritual-side-primary {
+        width: 100%;
+        margin: 14px 0 12px;
+      }
+
+      .ritual-side-links {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .activity-section {
+        width: min(var(--episode-endcap-width), 100%);
+        margin: 0 auto 42px;
+      }
+
+      .activity-section-header h2 {
+        font-size: clamp(2rem, 4vw, 3.6rem);
+      }
+
+      .ritual-preview-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .ritual-bridge-actions {
+        display: grid;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .ritual-extra-grid {
+        margin-top: 14px;
+      }
+
+      .ritual-full-details summary {
+        width: 100%;
+        justify-content: space-between;
+        gap: 12px;
+        padding-inline: 18px 12px;
+        color: var(--wine);
+        background: rgba(255, 253, 251, 0.78);
+        border: 1px solid rgba(111, 38, 63, 0.18);
+        list-style: none;
+        text-align: left;
+      }
+
+      .ritual-full-details summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .ritual-expand-icon {
+        flex: 0 0 auto;
+        display: inline-grid;
+        place-items: center;
+        width: 32px;
+        height: 32px;
+        color: var(--wine);
+        background: rgba(252, 228, 242, 0.86);
+        border: 1px solid rgba(111, 38, 63, 0.16);
+        border-radius: 999px;
+        font-size: 1.12rem;
+        line-height: 1;
+      }
+
+      .ritual-expand-icon::before {
+        content: "+";
+      }
+
+      .ritual-full-details[open] .ritual-expand-text {
+        font-size: 0;
+      }
+
+      .ritual-full-details[open] .ritual-expand-text::before {
+        content: "Hide full ritual";
+        font-size: 0.78rem;
+      }
+
+      .ritual-full-details[open] .ritual-expand-icon::before {
+        content: "-";
+      }
+
+      .issue-site-nav.issue-episode-nav a:focus-visible,
+      details.episode-intro-card summary:focus-visible,
+      .section-nav-details summary:focus-visible,
+      .article-card details.glossary-term summary:focus-visible,
+      .reader-signup-row input:focus-visible,
+      .reader-signup-row button:focus-visible,
+      .reader-action:focus-visible,
+      .reader-link-button:focus-visible,
+      .ritual-side-primary:focus-visible,
+      .ritual-side-links a:focus-visible,
+      .activity-card:focus-visible {
+        outline: 3px solid rgba(95, 159, 141, 0.62);
+        outline-offset: 4px;
+      }
+
+      @media (max-width: 920px) {
+        .reader-kit,
+        .article-layout,
+        .activity-grid,
+        .reader-next {
+          grid-template-columns: 1fr;
+        }
+
+        .reader-next-card.after-hours {
+          grid-template-columns: 1fr;
+        }
+
+        .side-rail {
+          display: none;
+        }
+
+        .section-nav {
+          display: none;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .issue-site-nav.issue-episode-nav.laidies-nav-enhanced {
+          grid-template-columns: 1fr !important;
+          gap: 6px !important;
+          min-height: 0 !important;
+          padding: 8px 12px 9px !important;
+        }
+
+        .issue-site-nav.issue-episode-nav {
+          grid-template-columns: 1fr;
+          gap: 6px;
+          min-height: 0;
+          padding: 8px 12px 9px;
+        }
+
+        .issue-episode-kicker {
+          display: none;
+        }
+
+        .issue-episode-title {
+          font-size: 0.8rem;
+          white-space: normal;
+        }
+
+        .issue-episode-title time {
+          margin-left: 0.28em;
+        }
+
+        .issue-episode-actions {
+          flex-wrap: nowrap;
+          justify-content: flex-start;
+          gap: 6px;
+          max-width: 100%;
+        }
+
+        .issue-site-nav.issue-episode-nav a {
+          flex: 0 0 auto;
+          min-height: 30px;
+          padding: 6px 7px;
+          font-size: 0.66rem;
+          white-space: nowrap;
+        }
+
+        .issue-site-nav.issue-episode-nav .issue-return-link {
+          font-size: 0;
+        }
+
+        .issue-site-nav.issue-episode-nav .issue-return-link::after {
+          content: "Season";
+          font-size: 0.66rem;
+        }
+
+        .episode-03-reader-hero {
+          padding: 18px 14px 28px;
+        }
+
+        .episode-03-reader-hero .hero-inner {
+          max-width: 100%;
+        }
+
+        .episode-03-masthead-banner {
+          min-height: 78vh;
+          padding: 28px 18px 36px;
+          align-items: end;
+        }
+
+        .episode-03-masthead-banner::after {
+          background:
+            linear-gradient(0deg, rgba(255, 253, 251, 0.84) 0%, rgba(255, 249, 252, 0.56) 52%, rgba(255, 249, 252, 0.26) 100%),
+            linear-gradient(90deg, rgba(255, 249, 252, 0.42), rgba(255, 248, 251, 0.16));
+        }
+
+        .episode-03-masthead-image {
+          object-position: 54% center;
+          transform: scale(1.08);
+        }
+
+        .episode-03-masthead-copy,
+        .episode-masthead-copy-line {
+          width: 100%;
+        }
+
+        .episode-masthead-copy-line {
+          grid-template-columns: 1fr;
+        }
+
+        .episode-03-masthead-copy .episode-masthead-brand-bar {
+          margin-bottom: 20px;
+          padding: 16px 18px 18px;
+        }
+
+        .episode-03-masthead-copy .episode-masthead-brand-bar img {
+          width: min(72vw, 300px);
+        }
+
+        .episode-masthead-note {
+          max-width: 19rem;
+          font-size: clamp(2.5rem, 12vw, 3.42rem);
+          line-height: 0.94;
+        }
+
+        .episode-masthead-premise,
+        .episode-masthead-date {
+          grid-column: 1;
+          justify-self: start;
+        }
+
+        .episode-masthead-premise {
+          font-size: 1.02rem;
+          line-height: 1.2;
+        }
+
+        .episode-masthead-date {
+          margin-bottom: 0;
+        }
+
+        .preview-shell {
+          width: min(100% - 28px, 1120px);
+        }
+
+        .reader-kit {
+          margin-top: 18px;
+        }
+
+        .article-layout .article-container {
+          padding-top: 24px;
+        }
+
+        .article-card h2,
+        .concept-definitions .article-subheading,
+        .article-receipts-panel h3,
+        .next-week h3 {
+          padding: 0.82rem 0.9rem;
+          font-size: clamp(1.64rem, 8vw, 2.08rem);
+          line-height: 1.08;
+        }
+
+        .article-card h2::before,
+        .concept-definitions .article-subheading::before,
+        .article-receipts-panel h3::before,
+        .next-week h3::before {
+          width: 72px;
+          height: 8px;
+          margin-bottom: 0.85rem;
+        }
+
+        .episode-intro-card {
+          padding: 18px !important;
+        }
+
+        .episode-intro-label {
+          font-size: clamp(1.7rem, 8vw, 2.04rem);
+        }
+
+        .episode-intro-summary-copy {
+          font-size: 0.95rem;
+        }
+
+        .reader-signup-row {
+          grid-template-columns: 1fr;
+        }
+
+        .activity-card {
+          min-height: 148px;
+        }
+      }
+    
+/* Canonical LAiDIES wordmark (Ai accent) — promoted from homepage inline */
+.brand-word-inline{display:inline!important;margin:0!important;white-space:nowrap;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;color:inherit!important;text-transform:none!important}
+.brand-word-inline>span{display:inline!important;margin:0!important;color:inherit!important;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;text-transform:inherit!important}
+.brand-word-inline [data-brand-ai]{display:inline!important;margin:0!important;color:var(--rose,#9b3f5f)!important;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;text-transform:inherit!important}
+
+      
+/* Dark-surface accent: lighter rose so the "Ai" stays visible on dark buttons/cards */
+.brand-word-inline--on-dark [data-brand-ai],
+.room-card .brand-word-inline [data-brand-ai],
+.anthem-charm-reveal .brand-word-inline [data-brand-ai]{color:#f6a5c0!important}
+
+      </style>
+    <!-- Canonical town header (rewrites the .site-header below into the standard nav) -->
+    <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+    <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+    <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+    <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+  </head>
+  <body data-issue-number="3">
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="LAiDIES home">
+        <img src="../assets/brand/laidies-logo-header-approved-v6.png" alt="LAiDIES" />
+      </a>
+    </header>
+
+    <!-- Episode-reader meta moved out of the header into the body. "Return to The Season"
+         is dropped here because the injected context pill already provides it (one back control). -->
+    <div class="issue-episode-meta issue-episode-meta--body">
+      <span class="issue-episode-kicker">Episode Reader</span>
+      <span class="issue-episode-title">Episode 03: The Burn Book Problem <time datetime="2026-06-17">June 17, 2026</time></span>
+      <nav class="issue-episode-jump" aria-label="On this page">
+        <a href="#top">Top</a>
+        <a href="#article">Article</a>
+        <a href="#study-pack">Study Pack</a>
+        <a href="#issue-kit">Weekly Ritual</a>
+      </nav>
+    </div>
+
+    <header class="reader-hero episode-03-reader-hero" id="top">
+      <div class="hero-inner">
+        <div class="episode-03-masthead-banner">
+          <img src="../assets/episodes/issue-03/section-dont-pull-a-cher-v1.png" alt="Episode 03 pink gavel objection desk with Burn Book, receipts checklist, plaid clue, and LAiDIES evidence objects" class="episode-03-masthead-image" />
+          <div class="episode-03-masthead-copy">
+            <span class="episode-masthead-brand-bar" aria-hidden="true">
+              <img src="../assets/brand/laidies-logo-masthead-approved-v3.png" alt="" />
+            </span>
+            <div class="episode-masthead-copy-line">
+              <span class="episode-masthead-phone"><span>Episode</span><strong> #03</strong></span>
+              <h1 class="episode-masthead-note">The Burn Book Problem</h1>
+              <p class="episode-masthead-premise">AI judgment, hallucinations, and why polished output still needs receipts.</p>
+              <time class="episode-masthead-date" datetime="2026-06-17">June 17, 2026</time>
+            </div>
+          </div>
+        </div>
+        <h2 class="visually-hidden-title">Episode 03: The Burn Book Problem</h2>
+      </div>
+    </header>
+
+    <main class="preview-shell">
+      <section class="reader-kit" aria-label="Episode summary">
+        <article class="kit-card">
+          <span class="label">The Lesson</span>
+          <p data-field="lesson">How to check, challenge, source, and contain AI output when it sounds confident but may be wrong, missing context, or not relevant to the real work.</p>
+        </article>
+        <article class="kit-card">
+          <span class="label">Try-On</span>
+          <p data-field="tryOn">Open your own AI tool, paste Prompt Like Elle, add a low-risk task or source notes, then verify at least three claims before using it.</p>
+        </article>
+        <article class="kit-card">
+          <span class="label">This Week's Rule</span>
+          <p data-field="mainCharacterEnergy">Use the draft. Check the alibi.</p>
+        </article>
+      </section>
+
+      <section class="article-layout" id="article">
+        <article class="article-card article-container" data-article>
+          <div class="loading">Loading Episode 03...</div>
+        </article>
+
+        <aside class="side-rail" aria-label="Reader tools">
+          <div class="ritual-side-card" aria-label="Weekly Bag shortcut">
+            <span class="label">After The Read</span>
+            <h3>Open the Weekly Bag</h3>
+            <p>Ready for the next object? Use this shortcut, or finish with the full ritual at the bottom.</p>
+            <a class="ritual-side-primary" href="../this-week.html?issue=3&amp;bag=open">Go to the Weekly Bag</a>
+            <div class="ritual-side-links">
+              <a href="../learn/quiz.html?from=this-week&amp;issue=3&amp;bag=open#quiz-start">Take the Quiz</a>
+              <a href="../printable.html?issue=3&amp;from=this-week&amp;bag=open&amp;group=practice">Cheat Sheet</a>
+              <a href="../try-on.html?from=this-week&amp;issue=3&amp;bag=open&amp;group=practice">Try-On</a>
+              <a href="../games/trading-cards.html?from=this-week&amp;issue=3&amp;bag=open&amp;group=practice">Practice Cards</a>
+              <a href="../games/dj-booth.html?from=this-week&amp;issue=3&amp;bag=open#djApp">DJ Booth</a>
+              <a href="../games/fun-pack.html?from=this-week&amp;issue=3&amp;bag=open&amp;group=fun">Extra Credit</a>
+              <a href="../community.html?from=this-week&amp;issue=3&amp;bag=open&amp;group=connect">Community</a>
+            </div>
+            <p class="ritual-side-note">Shortcut only. The full ritual handoff lives below the article.</p>
+          </div>
+          <details class="section-nav-details">
+            <summary>Jump to a section</summary>
+            <nav class="section-nav" data-section-nav aria-label="Article sections"></nav>
+          </details>
+        </aside>
+      </section>
+
+      <section class="reader-next" id="after-read-actions" aria-label="Share, subscribe, and follow LAiDIES">
+        <div class="reader-next-card featured">
+          <p class="label">New Episodes Every Wednesday</p>
+          <h3>Get the next one in your inbox.</h3>
+          <p>One useful Episode a week, plus the occasional excellent detour. No spam. No homework spiral.</p>
+          <form class="reader-signup-form" action="https://buttondown.com/api/emails/embed-subscribe/laidies" method="post" target="episodeSubscribeFrame">
+            <label for="episodeSignupEmail">Email address</label>
+            <div class="reader-signup-row">
+              <input id="episodeSignupEmail" name="email" type="email" placeholder="itsbritneybitch@icon.com" required />
+              <button type="submit">Subscribe</button>
+            </div>
+            <p class="reader-form-note">Powered by Buttondown. <a href="https://buttondown.com/laidies" target="_blank" rel="noopener">Open Buttondown directly</a>.</p>
+          </form>
+          <iframe class="reader-subscribe-frame" name="episodeSubscribeFrame" title="LAiDIES subscription response" aria-hidden="true"></iframe>
+        </div>
+
+        <div class="reader-next-card">
+          <p class="label">Send It Energy</p>
+          <h3>Bring a friend.</h3>
+          <p>Share this Episode with the woman in your group chat who has been meaning to start.</p>
+          <div class="reader-action-grid" aria-label="Share Episode 3">
+            <button class="reader-action" id="shareEpisodeButton" type="button">Share Article</button>
+            <button class="reader-action secondary" id="copyEpisodeLinkButton" type="button">Copy Link</button>
+            <span class="share-status" id="shareEpisodeStatus" role="status" aria-live="polite"></span>
+            <input class="share-url-fallback" id="shareEpisodeUrl" type="text" readonly hidden aria-label="Episode 3 share link" />
+          </div>
+        </div>
+
+        <div class="reader-next-card after-hours">
+          <div>
+            <p class="label"><span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> After Hours</p>
+            <h3>Come sit with us.</h3>
+            <p>Follow @laidies.ai for extra posts, behind-the-scenes notes, reminders, and the bits that keep going after the Episode.</p>
+          </div>
+          <div class="reader-action-grid" aria-label="Follow LAiDIES on social media">
+            <a class="reader-link-button primary" href="https://www.instagram.com/laidies.ai/" target="_blank" rel="noreferrer">Open Instagram</a>
+            <a class="reader-link-button" href="https://www.linkedin.com/company/wearelaidies/?viewAsMember=true" target="_blank" rel="noreferrer">Open LinkedIn</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="activity-section" id="issue-kit" aria-label="Episode 03 weekly ritual">
+        <div class="activity-section-header">
+          <span class="label">What's In The Bag</span>
+          <h2>Complete the Weekly Ritual</h2>
+          <p>Step 1 is this article. After that, the Wednesday Bag keeps receipt-checking small, practical, and connected to the rest of the <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> world.</p>
+        </div>
+        <div class="activity-grid ritual-preview-grid">
+          <article class="activity-card">
+            <span class="label">01 / Read</span>
+            <strong>Read Episode 03</strong>
+            <p><em>The Burn Book Problem</em> explains why polished AI output still needs receipts before it borrows your name.</p>
+            <em>You are here</em>
+          </article>
+        </div>
+        <div class="ritual-bridge-actions" aria-label="Continue the Episode 03 weekly ritual">
+          <a class="ritual-bag-pill" href="../this-week.html?issue=3&amp;bag=open">Go to the Weekly Bag</a>
+          <details class="ritual-full-details">
+            <summary>
+              <span class="ritual-expand-text">See full ritual</span>
+              <span class="ritual-expand-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="activity-grid ritual-extra-grid">
+              <a class="activity-card activity-card--primary" href="../this-week.html?issue=3&amp;bag=open&amp;group=practice">
+                <span class="label">02 / Practice</span>
+                <strong>Weekly Study Pack</strong>
+                <p>Try-On, Cheat Sheet, and Practice Cards live together inside the Bag.</p>
+                <em>Ready</em>
+              </a>
+              <a class="activity-card" href="../learn/quiz.html?from=this-week&amp;issue=3#quiz-start">
+                <span class="label">03 / Quiz</span>
+                <strong>Take the Quiz</strong>
+                <p>Check whether hallucinations, grounding, and retrieval actually stuck.</p>
+                <em>Ready</em>
+              </a>
+              <a class="activity-card" href="../games/fun-pack.html?from=this-week&amp;issue=3&amp;bag=open">
+                <span class="label">04 / Extra Credit</span>
+                <strong>Extra Credit</strong>
+                <p>Bonus activities, playful tools, and optional detours live here when you want more than the core practice.</p>
+                <em>Ready</em>
+              </a>
+              <a class="activity-card" href="../this-week.html?issue=3&amp;bag=open&amp;group=connect">
+                <span class="label">05 / Connect</span>
+                <strong>Meet &amp; Celebrate</strong>
+                <p>Bring it back to the Room and connect with <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> after the work object is done.</p>
+                <em>Ready</em>
+              </a>
+              <a class="activity-card" href="../games/dj-booth.html?from=this-week&amp;issue=3&amp;bag=open#djApp">
+                <span class="label">06 / Listen</span>
+                <strong>DJ Booth</strong>
+                <p>Play the weekly anthem, then come back to the Bag for the rest of the ritual.</p>
+                <em>Ready</em>
+              </a>
+              <a class="activity-card" href="../this-week.html?issue=3&amp;bag=open&amp;group=realworld">
+                <span class="label">07 / Real World</span>
+                <strong>The Book of Receipts</strong>
+                <p>Use the real-world shelf for Hot Goss, terms, references, canon, and who's who.</p>
+                <em>Ready</em>
+              </a>
+              <a class="activity-card" href="../this-week.html?issue=3&amp;bag=open">
+                <span class="label">Hidden / Charm</span>
+                <strong>Hidden Charm</strong>
+                <p>Open the Episode 03 Bag scene and find the hidden weekly charm.</p>
+                <em>In the Bag</em>
+              </a>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="resources-section" aria-label="Further reading and receipts">
+        <div class="resources-inner">
+          <h3>Gimme, Gimme More</h3>
+          <p class="resource-note">If you want to keep going after this.</p>
+
+          <div class="go-deeper">
+            <a href="https://www.oneusefulthing.org/p/centaurs-and-cyborgs-on-the-jagged" class="resource-card" target="_blank" rel="noreferrer">
+              <div class="resource-name">The Jagged Frontier</div>
+              <div class="resource-desc">A plain-English way to understand why AI can be brilliant at one task and confidently wrong at the next.</div>
+            </a>
+            <a href="https://cor.stanford.edu/" class="resource-card" target="_blank" rel="noreferrer">
+              <div class="resource-name">Source-Checking Questions</div>
+              <div class="resource-desc">Stanford's practical habit for asking who is behind a claim, what the evidence is, and what other sources say.</div>
+            </a>
+            <a href="https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations" class="resource-card" target="_blank" rel="noreferrer">
+              <div class="resource-name">Grounded Answers</div>
+              <div class="resource-desc">A useful guide to making AI show its support, admit uncertainty, and answer from provided material.</div>
+            </a>
+          </div>
+
+          <h3>The Receipts</h3>
+          <p class="resource-note">We did the reading so you don't have to.</p>
+
+          <div class="citation"><a href="https://www.hbs.edu/faculty/Pages/item.aspx?num=64700" target="_blank" rel="noreferrer">Harvard/BCG jagged frontier study: where AI helps, where it hurts, and why confident wrong answers are dangerous.</a></div>
+          <div class="citation"><a href="https://www.oneusefulthing.org/p/centaurs-and-cyborgs-on-the-jagged" target="_blank" rel="noreferrer">One Useful Thing on the jagged frontier: an accessible explanation of the study and what it means in practice.</a></div>
+          <div class="citation"><a href="https://www.nature.com/articles/s41586-026-10549-w" target="_blank" rel="noreferrer">Nature on hallucinations and model evaluation: why systems can be rewarded for guessing instead of admitting uncertainty.</a></div>
+          <div class="citation"><a href="https://hai.stanford.edu/ai-index/2026-ai-index-report/responsible-ai" target="_blank" rel="noreferrer">Stanford AI Index 2026 Responsible AI chapter: current hallucination and reliability context.</a></div>
+          <div class="citation"><a href="https://dho.stanford.edu/wp-content/uploads/Legal_RAG_Hallucinations.pdf" target="_blank" rel="noreferrer">Stanford study on legal AI research tools: source-connected systems still need human checking.</a></div>
+          <div class="citation"><a href="https://techcrunch.com/2026/06/13/kpmg-pulls-report-on-ai-usage-due-to-apparent-hallucinations/" target="_blank" rel="noreferrer">TechCrunch on KPMG pulling an AI report after disputed claims: a real-world polished-output cautionary tale.</a></div>
+          <div class="citation"><a href="https://cdn.openai.com/pdf/d04913be-3f6f-4d2b-b283-ff432ef4aaa5/why-language-models-hallucinate.pdf" target="_blank" rel="noreferrer">OpenAI paper on why language models hallucinate: why models may guess when uncertainty should be allowed.</a></div>
+          <div class="citation"><a href="https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations" target="_blank" rel="noreferrer">Anthropic guidance on reducing hallucinations: grounding, uncertainty, and evidence visibility.</a></div>
+          <div class="citation"><a href="https://ai.google.dev/gemini-api/docs/google-search" target="_blank" rel="noreferrer">Google Gemini grounding with Search: source-connected grounding for current, verifiable answers.</a></div>
+          <div class="citation"><a href="https://cor.stanford.edu/" target="_blank" rel="noreferrer">Stanford Civic Online Reasoning: practical source-checking questions for online claims.</a></div>
+        </div>
+      </section>
+
+    </main>
+
+    <script>
+      const articleMount = document.querySelector("[data-article]");
+      const navMount = document.querySelector("[data-section-nav]");
+      const allowedHiddenSections = new Set([
+        "Episode Banner Direction",
+        "Website Modules",
+        "Editorial Receipts Needed Before Publish"
+      ]);
+      const sectionImages = {
+        "the-burn-book-problem": {
+          src: "../assets/episodes/issue-03/section-burn-book-problem-v3.png",
+          alt: "Episode 3 Burn Book desk with one data point, big claim, not a receipt, case closed, and need context cards.",
+          caption: "Burn Book confidence is not evidence"
+        },
+        "she-doesnt-even-go-here": {
+          src: "../assets/episodes/issue-03/section-wrong-room-v1.png",
+          alt: "Episode 3 wrong room folder labeled she doesn't even go here with last year, wrong room, and out of context notes.",
+          caption: "Plausible is not the same as relevant"
+        },
+        "elle-woods-would-like-to-see-the-file": {
+          src: "../assets/episodes/issue-03/section-read-the-file-v2.png",
+          alt: "Episode 3 Read The File board with source, date, and apply here checks beside a Burn Book-style receipts desk.",
+          caption: "Timeline beats polish"
+        },
+        "chers-closet-can-pick-the-outfit-you-check-the-dress-code": {
+          src: "../assets/episodes/issue-03/section-trust-layers-v4.png",
+          alt: "Episode 3 Cher's closet-inspired computer showing a yellow plaid outfit with a dress-code checklist and receipt shelf.",
+          caption: "Trust the right layer"
+        },
+        "chutney-can-say-it-thrice-elle-still-checks-the-timeline": {
+          src: "../assets/episodes/issue-03/section-chutney-thrice-v2.png",
+          alt: "Episode 3 alibi cards and timeline receipts arranged on a pink evidence desk.",
+          caption: "Check the timeline"
+        },
+        "chutney-can-say-it-thrice": {
+          src: "../assets/episodes/issue-03/section-chutney-thrice-v2.png",
+          alt: "Episode 3 alibi cards and timeline receipts arranged on a pink evidence desk.",
+          caption: "Check the timeline"
+        },
+        "david-meet-elle": {
+          src: "../assets/episodes/issue-03/section-show-your-work-v2.png",
+          alt: "Episode 3 confidence is not evidence desk with show your work board and source-check trays.",
+          caption: "Confidence is not evidence"
+        },
+        "the-receipts-pass-study-montage": {
+          src: "../assets/episodes/issue-03/section-try-on-receipts-pass-v2.png",
+          alt: "Episode 3 Receipts Pass desk with one draft, three receipts, check three claims, and no shame notes.",
+          caption: "Three checks before it borrows your name"
+        }
+      };
+      const escapeHtml = (value) => String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+
+      const slugify = (value) => String(value || "")
+        .toLowerCase()
+        .replace(/['"’]/g, "")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+
+      const brandNamePattern = /\b(?:Madame CLAi-O|Mme CLAi-O|FAiRY GODMOTHER|LAiDIES|LAIDIES|lAIdies|Laidies|LAiDY)\b/g;
+
+      function getBrandWordmarkParts(value = "LAiDIES") {
+        switch (value) {
+          case "LAIDIES":
+          case "lAIdies":
+          case "Laidies":
+          case "LAiDIES":
+            return { label: "LAiDIES", parts: ["L", "Ai", "DIES"] };
+          case "LAiDY":
+            return { label: "LAiDY", parts: ["L", "Ai", "DY"] };
+          case "Mme CLAi-O":
+            return { label: "Mme CLAi-O", parts: ["Mme CL", "Ai", "-O"] };
+          case "Madame CLAi-O":
+            return { label: "Madame CLAi-O", parts: ["Madame CL", "Ai", "-O"] };
+          case "FAiRY GODMOTHER":
+            return { label: "FAiRY GODMOTHER", parts: ["F", "Ai", "RY GODMOTHER"] };
+          default:
+            return { label: "LAiDIES", parts: ["L", "Ai", "DIES"] };
+        }
+      }
+
+      function renderBrandWordmark(value = "LAiDIES") {
+        const brand = getBrandWordmarkParts(value);
+        return `<span class="brand-word-inline" aria-label="${brand.label}"><span aria-hidden="true">${brand.parts[0]}<span data-brand-ai>${brand.parts[1]}</span>${brand.parts[2]}</span></span>`;
+      }
+
+      function stripInternalMarkdown(markdown) {
+        const lines = markdown.split(/\r?\n/);
+        const kept = [];
+        let hidden = false;
+        const hiddenContentSections = new Set([...allowedHiddenSections, "Receipts Drawer"]);
+
+        for (const raw of lines) {
+          const line = raw.trimEnd();
+          const heading = line.match(/^(#{2,3})\s+(.+)$/);
+
+          if (/^#\s+/.test(line)) continue;
+          if (/^(Source metadata|Draft page gate|Public page|Release target|Status):/i.test(line)) continue;
+
+          if (heading) {
+            hidden = hiddenContentSections.has(heading[2].trim());
+            if (hidden) continue;
+          }
+
+          if (!hidden) kept.push(raw);
+        }
+
+        return kept.join("\n").trim();
+      }
+
+      function renderInline(value) {
+        return escapeHtml(value)
+          .replace(/`([^`]+)`/g, "<code>$1</code>")
+          .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+          .replace(/\*([^*]+)\*/g, "<em>$1</em>")
+          .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+          .replace(brandNamePattern, (match) => renderBrandWordmark(match));
+      }
+
+      function renderSectionImage(image) {
+        return `<figure class="section-image"><img src="${image.src}" alt="${escapeHtml(image.alt)}" loading="lazy" /></figure>`;
+      }
+
+      function renderSignoff(value) {
+        const text = String(value || "").trim();
+        const match = text.match(/^Remember,\s*(?:LAiDIES|LAIDIES|lAIdies|Laidies):\s*(.+)$/i);
+        const line = match ? match[1] : text;
+        return `
+          <section class="signoff-showpiece" id="sign-off">
+            <div class="signoff-banner">
+              <span class="signoff-remember">Remember, ${renderBrandWordmark()}:</span>
+              <span class="signoff-line">${renderInline(line)}</span>
+              <span class="signoff-sips">Burn Book confidence. Elle Woods standards.</span>
+            </div>
+            <div class="signoff-bottom">
+              <div class="challenge-box">
+                <div class="challenge-title">The ${renderBrandWordmark()} Challenge</div>
+                <p>Got a confident-wrong AI answer worth learning from? Bring the lesson, not confidential tea, to the Room. We feature good ideas with credit, because stealing without receipts is very Burn Book.</p>
+              </div>
+            </div>
+          </section>
+        `;
+      }
+
+      function createIntroCard(heading, label) {
+        const nodes = [];
+        let node = heading.nextElementSibling;
+        while (node && !/^H2$/i.test(node.tagName)) {
+          const next = node.nextElementSibling;
+          nodes.push(node);
+          node = next;
+        }
+        const preview = nodes
+          .filter((item) => item.matches("p"))
+          .map((item) => item.textContent.trim())
+          .filter(Boolean)
+          .join(" ")
+          .replace(/\s+/g, " ");
+        const details = document.createElement("details");
+        details.className = "episode-intro-card";
+        const summary = document.createElement("summary");
+        summary.innerHTML = `<span class="episode-intro-label">${renderInline(label)}</span><span class="episode-intro-summary-copy">${escapeHtml(preview)}</span>`;
+        const body = document.createElement("div");
+        body.className = "episode-intro-body";
+        for (const item of nodes) {
+          item.classList.add("episode-intro-copy");
+          body.appendChild(item);
+        }
+        details.append(summary, body);
+        heading.replaceWith(details);
+      }
+
+      function renderDefinitions() {
+        return `
+          <figure class="section-image study-pack-bridge-image">
+            <img src="../assets/episodes/issue-03/section-dont-pull-a-cher-v1.png" alt="Episode 3 pink gavel objection desk with Burn Book, plaid clue, and legal receipts objects" loading="lazy" />
+          </figure>
+          <section class="concept-definitions" id="study-pack" aria-label="Three core concept definitions">
+            <h3 class="article-subheading">So You Don't Pull a Cher</h3>
+            <p class="section-subhed">Quick definitions so you can use the Burn Book lesson without accidentally putting Chutney on company letterhead.</p>
+            <details class="glossary-term">
+              <summary>
+                <span class="term-name">Hallucination</span>
+                <span class="term-preview">When AI gives you an answer that sounds polished and confident but includes something unsupported, misread, outdated, or made up.</span>
+                <span class="term-toggle"><span class="when-closed">Read full definition</span><span class="when-open">Show less</span></span>
+              </summary>
+              <div class="term-def">When AI gives you an answer that sounds polished and confident but includes something unsupported, misread, outdated, or made up. It is not lying, because lying requires intent. It is more like a Burn Book entry written with Regina George confidence before Elle Woods checks the file. The answer can still be useful, but any name, date, number, quote, source, or conclusion needs a receipt before it borrows your name.</div>
+            </details>
+            <details class="glossary-term">
+              <summary>
+                <span class="term-name">Grounding</span>
+                <span class="term-preview">Giving AI something specific to answer from, like a document, transcript, policy, search result, or pasted source material.</span>
+                <span class="term-toggle"><span class="when-closed">Read full definition</span><span class="when-open">Show less</span></span>
+              </summary>
+              <div class="term-def">Giving AI something specific to answer from, like a document, transcript, policy, search result, or pasted source material. Instead of asking it to perform from memory, you are handing it the folder and saying, "Use this." Grounding can make an answer more useful and easier to check, but it does not make it automatically true. You still have to ask whether the source is real, current, relevant, and actually supports the claim.</div>
+            </details>
+            <details class="glossary-term">
+              <summary>
+                <span class="term-name">Retrieval</span>
+                <span class="term-preview">When an AI system goes looking for outside material and brings it into the answer before it writes.</span>
+                <span class="term-toggle"><span class="when-closed">Read full definition</span><span class="when-open">Show less</span></span>
+              </summary>
+              <div class="term-def">When an AI system goes looking for outside material and brings it into the answer before it writes. That material might be search results, files, database records, or snippets from a knowledge base. Retrieval is the part that fetches the possible receipts. It is helpful, but it can still pull the wrong file, stale context, or something that does not actually prove the point. Think of it as sending someone to the closet. You still check the outfit before it walks into the meeting.</div>
+            </details>
+          </section>
+        `;
+      }
+
+      function renderNextTimeCard() {
+        return `
+          <div class="next-week">
+            <h3>Next Time On ${renderBrandWordmark("LAiDIES")}...</h3>
+            <p>She turns the receipt habit into a repeatable workflow, because judgment gets easier when the process is not living entirely in your head.</p>
+          </div>
+        `;
+      }
+
+      function styleWeeklyRule() {
+        const ruleLabel = Array.from(articleMount.querySelectorAll("p")).find((paragraph) => {
+          const normalized = paragraph.textContent.trim().replace(/[’']/g, "'");
+          return normalized === "This Week's Rule:";
+        });
+        if (!ruleLabel) return;
+
+        let ruleBlock = ruleLabel.nextElementSibling;
+        while (ruleBlock && ruleBlock.tagName !== "PRE" && !/^H[23]$/.test(ruleBlock.tagName)) {
+          ruleBlock = ruleBlock.nextElementSibling;
+        }
+        if (!ruleBlock || ruleBlock.tagName !== "PRE") return;
+
+        const ruleText = ruleBlock.textContent.trim();
+        const card = document.createElement("section");
+        card.className = "weekly-rule-card";
+        card.setAttribute("aria-label", "This week's rule");
+        card.innerHTML = `
+          <p class="weekly-rule-label">This Week's Rule</p>
+          <h3>${escapeHtml(ruleText)}</h3>
+        `;
+        ruleLabel.replaceWith(card);
+        ruleBlock.remove();
+      }
+
+      function markdownToHtml(markdown) {
+        const lines = stripInternalMarkdown(markdown).split(/\r?\n/);
+        const html = [];
+        let paragraph = [];
+        let list = [];
+        let ordered = [];
+        let code = [];
+        let inCode = false;
+        let pendingSectionImage = null;
+        let pendingSignoff = false;
+        let quoteIndex = 0;
+        const headings = [];
+        const pullQuoteClasses = [
+          "pullquote-feature",
+          "pullquote-side pullquote-right",
+          "pullquote-compact",
+          "pullquote-compact",
+          "pullquote-sticker",
+          "pullquote-side pullquote-right",
+          "pullquote-feature",
+          "pullquote-compact"
+        ];
+
+        function flushParagraph() {
+          if (!paragraph.length) return;
+          if (pendingSignoff) {
+            html.push(renderSignoff(paragraph.join(" ")));
+            paragraph = [];
+            pendingSignoff = false;
+            return;
+          }
+          html.push(`<p>${renderInline(paragraph.join(" "))}</p>`);
+          paragraph = [];
+          if (pendingSectionImage) {
+            html.push(renderSectionImage(pendingSectionImage));
+            pendingSectionImage = null;
+          }
+        }
+
+        function flushList() {
+          if (list.length) {
+            html.push("<ul>");
+            for (const item of list) html.push(`<li>${renderInline(item)}</li>`);
+            html.push("</ul>");
+            list = [];
+          }
+          if (ordered.length) {
+            html.push("<ol>");
+            for (const item of ordered) html.push(`<li>${renderInline(item)}</li>`);
+            html.push("</ol>");
+            ordered = [];
+          }
+        }
+
+        function flushCode() {
+          if (!code.length) return;
+          html.push(`<pre><code>${escapeHtml(code.join("\n"))}</code></pre>`);
+          code = [];
+        }
+
+        for (const raw of lines) {
+          const line = raw.trimEnd();
+
+          if (/^```/.test(line)) {
+            if (inCode) {
+              flushCode();
+              inCode = false;
+            } else {
+              flushParagraph();
+              flushList();
+              inCode = true;
+            }
+            continue;
+          }
+
+          if (inCode) {
+            code.push(raw);
+            continue;
+          }
+
+          if (!line.trim()) {
+            flushParagraph();
+            flushList();
+            continue;
+          }
+
+          const heading = line.match(/^(#{2,3})\s+(.+)$/);
+          if (heading) {
+            flushParagraph();
+            flushList();
+            const level = heading[1].length;
+            const text = heading[2].trim();
+            const id = slugify(text);
+            if (level === 2) headings.push({ id, text });
+            if (level === 2 && id === "sign-off") {
+              pendingSignoff = true;
+              continue;
+            }
+            html.push(`<h${level} id="${id}">${renderInline(text)}</h${level}>`);
+            if (level === 2 && sectionImages[id]) {
+              pendingSectionImage = sectionImages[id];
+            }
+            continue;
+          }
+
+          const bullet = line.match(/^-\s+(.+)$/);
+          if (bullet) {
+            flushParagraph();
+            ordered = [];
+            list.push(bullet[1]);
+            continue;
+          }
+
+          const numbered = line.match(/^\d+\.\s+(.+)$/);
+          if (numbered) {
+            flushParagraph();
+            list = [];
+            ordered.push(numbered[1]);
+            continue;
+          }
+
+          const quote = line.match(/^>\s+(.+)$/);
+          if (quote) {
+            flushParagraph();
+            flushList();
+            const quoteClass = pullQuoteClasses[quoteIndex % pullQuoteClasses.length];
+            quoteIndex += 1;
+            html.push(`<blockquote class="${quoteClass}">${renderInline(quote[1])}</blockquote>`);
+            continue;
+          }
+
+          paragraph.push(line.trim());
+        }
+
+        flushParagraph();
+        flushList();
+        flushCode();
+        return { html: html.join("\n"), headings };
+      }
+
+      function populateEpisodeFields(episode) {
+        for (const el of document.querySelectorAll("[data-field]")) {
+          const key = el.dataset.field;
+          if (episode && episode[key]) el.textContent = episode[key];
+        }
+      }
+
+      function renderSectionNav(headings) {
+        navMount.innerHTML = headings
+          .filter((heading) => !["last-week-on-laidies", "on-this-episode"].includes(heading.id))
+          .map((heading) => `<a href="#${heading.id}">${escapeHtml(heading.text)}</a>`)
+          .join("");
+      }
+
+      function decorateArticleBlocks() {
+        const lastWeekHeading = articleMount.querySelector("#last-week-on-laidies");
+        if (lastWeekHeading) createIntroCard(lastWeekHeading, "Previously On LAiDIES...");
+
+        const onThisHeading = articleMount.querySelector("#on-this-episode");
+        if (onThisHeading) createIntroCard(onThisHeading, "On This Episode...");
+
+        for (const paragraph of articleMount.querySelectorAll("p")) {
+          if (paragraph.textContent.trim().toLowerCase() !== "here were the notes:") continue;
+          let node = paragraph.nextElementSibling;
+          while (node && node.tagName !== "PRE" && node.tagName !== "H2" && node.tagName !== "H3") {
+            node = node.nextElementSibling;
+          }
+          if (node && node.tagName === "PRE") node.classList.add("handwritten-notes");
+        }
+
+        const signoff = articleMount.querySelector("#sign-off");
+        if (signoff && !articleMount.querySelector(".concept-definitions")) {
+          signoff.insertAdjacentHTML("beforebegin", renderDefinitions() + renderNextTimeCard());
+        }
+
+        styleWeeklyRule();
+      }
+
+      function setupContextReturn() {
+        const returnLink = document.querySelector("[data-context-return]");
+        if (!returnLink) return;
+        const params = new URLSearchParams(window.location.search);
+        if (params.get("bag") === "open" || params.get("from") === "this-week") {
+          returnLink.href = "../this-week.html?issue=3&bag=open";
+          returnLink.textContent = "Return to The Bag";
+        }
+      }
+
+      function setupShareActions() {
+        const shareEpisodeButton = document.getElementById("shareEpisodeButton");
+        const copyEpisodeLinkButton = document.getElementById("copyEpisodeLinkButton");
+        const shareEpisodeStatus = document.getElementById("shareEpisodeStatus");
+        const shareEpisodeUrl = document.getElementById("shareEpisodeUrl");
+        const episodeShareLink = "https://laidies.ai/issues/issue-03.html";
+
+        function setShareStatus(message) {
+          if (shareEpisodeStatus) shareEpisodeStatus.textContent = message;
+        }
+
+        function showShareFallback() {
+          if (!shareEpisodeUrl) return;
+          shareEpisodeUrl.value = episodeShareLink;
+          shareEpisodeUrl.hidden = false;
+          shareEpisodeUrl.focus({ preventScroll: true });
+          shareEpisodeUrl.select();
+        }
+
+        async function copyEpisodeLink() {
+          try {
+            if (navigator.clipboard && window.isSecureContext) {
+              await navigator.clipboard.writeText(episodeShareLink);
+              setShareStatus("Link copied.");
+              return;
+            }
+          } catch (error) {
+            // Fall through to the visible copy field.
+          }
+
+          showShareFallback();
+          setShareStatus("Copy this link.");
+        }
+
+        async function shareEpisode() {
+          if (navigator.share) {
+            try {
+              await navigator.share({
+                title: "LAiDIES Episode 03: The Burn Book Problem",
+                text: "Read LAiDIES Episode 03: The Burn Book Problem.",
+                url: episodeShareLink
+              });
+              setShareStatus("Article shared.");
+              return;
+            } catch (error) {
+              if (error && error.name === "AbortError") return;
+            }
+          }
+
+          await copyEpisodeLink();
+        }
+
+        if (shareEpisodeButton) shareEpisodeButton.addEventListener("click", shareEpisode);
+        if (copyEpisodeLinkButton) copyEpisodeLinkButton.addEventListener("click", copyEpisodeLink);
+      }
+
+      function restoreHashScroll() {
+        const id = decodeURIComponent(location.hash.replace(/^#/, ""));
+        if (!id) return;
+        const target = document.getElementById(id);
+        if (target) {
+          requestAnimationFrame(() => {
+            const offset = document.querySelector(".issue-site-nav")?.offsetHeight || 0;
+            const top = target.getBoundingClientRect().top + window.scrollY - offset - 24;
+            window.scrollTo({ top, behavior: "auto" });
+          });
+        }
+      }
+
+      async function init() {
+        try {
+          const previewVersion = new URLSearchParams(location.search).get("v") || "episode-03-review";
+          const [episodeResponse, markdownResponse] = await Promise.all([
+            fetch(`../content/episodes/issue-03.json?v=${encodeURIComponent(previewVersion)}`),
+            fetch(`../content/issues/issue-03.md?v=${encodeURIComponent(previewVersion)}`)
+          ]);
+
+          if (!episodeResponse.ok || !markdownResponse.ok) {
+            throw new Error("Episode source files unavailable");
+          }
+
+          const episode = await episodeResponse.json();
+          const markdown = await markdownResponse.text();
+          const rendered = markdownToHtml(markdown);
+          populateEpisodeFields(episode);
+          articleMount.innerHTML = rendered.html;
+          decorateArticleBlocks();
+          renderSectionNav(rendered.headings);
+          restoreHashScroll();
+        } catch (error) {
+          articleMount.innerHTML = '<div class="error"><strong>Episode could not load.</strong><p>Refresh the page or return to the Season.</p></div>';
+        }
+      }
+
+      setupContextReturn();
+      setupShareActions();
+      init();
+    </script>
+    <script src="../content/site/brand-polish.js?v=wm2" defer></script>
+  <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+  </body>
+</html>
