@@ -1430,7 +1430,7 @@
         </div>
         <ul class="clip-jar-ledger" id="clipJarLedger"></ul>
       </div>
-      <p class="vessel-note">Pop Quiz scores from SUNNYVAiLE High, paid out in butterfly clips — your best score per episode goes in the jar. Extra credit pays twelve. Bombing pays one, and it's broken. <a href="/sunnyvaile-high.html#report-card">Your graded Report Card →</a> · <a href="/sunnyvaile-high.html">Take this week's quiz →</a></p>
+      <p class="vessel-note">Pop Quiz scores from SUNNYVAiLE High, paid out in butterfly clips — your best score per episode goes in the jar. Extra credit pays twelve. Bombing pays one, and it's broken. <a href="/sunnyvaile-high.html#report-card">Your graded Report Card →</a> · <a href="/sunnyvaile-high.html">Take this week's quiz →</a> · <a href="/bookfair.html">Spend them at the Book Fair →</a></p>
     </div>
 
     <!-- Trading Card Binder -->
@@ -2546,12 +2546,19 @@
       rows.push({ label: label, clips: 1, isBroken: false, kind: 'express' });
       total += 1;
     });
+    // Subtract Book Fair spending so the jar shows what's AVAILABLE to spend.
+    var redeemed = stored('laidies_bookfair_redeemed');
+    var spent = 0;
+    Object.keys(redeemed).forEach(function(k){ spent += Number(redeemed[k] && redeemed[k].cost) || 0; });
+    var available = Math.max(0, total - spent);
     var countEl = document.getElementById('clipJarCount');
     var totalEl = document.getElementById('clipJarTotal');
     var ledger = document.getElementById('clipJarLedger');
     if (!countEl || !totalEl || !ledger) return;
-    totalEl.textContent = String(total);
-    countEl.textContent = total === 0 ? 'Empty jar' : total + ' clip' + (total === 1 ? '' : 's');
+    totalEl.textContent = String(available);
+    countEl.textContent = total === 0 ? 'Empty jar'
+      : (available === 0 ? 'All spent' : available + ' clip' + (available === 1 ? '' : 's'))
+        + (spent ? ' · ' + spent + ' spent at the fair' : '');
     ledger.innerHTML = '';
     if (!rows.length) {
       var empty = document.createElement('li');

@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Book Fair · SUNNYVAiLE High · LAiDIES</title>
+  <meta name="description" content="The SUNNYVAiLE Book Fair — cash in your butterfly clips for fair-exclusive drops: bookmarks, the pull-down poster, holographic cards, puffy stickers, the mini-zine. Things you can only get here.">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,700;0,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/clip-bank.js?v=20260716-1"></script>
+  <style>
+    .bf-hero { background: radial-gradient(circle at 50% 30%, var(--blush) 0%, var(--pearl) 100%); padding: 44px 24px 34px; text-align: center; border-radius: 14px; margin: 24px 0 22px; }
+    .bf-hero-eyebrow { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--rose); margin-bottom: 12px; }
+    .bf-hero h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(30px, 4vw, 46px); color: var(--plum); margin: 0 0 14px; line-height: 1.1; }
+    .bf-hero-tag { font-size: 17px; color: var(--plum); max-width: 600px; margin: 0 auto; line-height: 1.55; }
+
+    /* Clip balance banner */
+    .bf-balance { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; background: linear-gradient(135deg, rgba(75,33,72,0.10), rgba(155,63,95,0.16)); border: 1.5px solid rgba(155,63,95,0.28); border-radius: 14px; padding: 16px 22px; margin: 0 0 12px; }
+    .bf-balance__n { font-family: 'Jost', sans-serif; font-weight: 800; font-size: 26px; color: var(--plum); }
+    .bf-balance__lbl { font-size: 14px; color: var(--plum); }
+    .bf-balance a { color: var(--rose); font-weight: 700; text-decoration: none; }
+    .bf-balance a:hover { text-decoration: underline; }
+    .bf-toast { text-align: center; min-height: 22px; margin: 0 0 22px; font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 700; color: var(--rose); }
+
+    .bf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 22px; margin: 6px 0 40px; }
+    .drop { display: flex; flex-direction: column; background: var(--pearl, #fffdfb); border: 1px solid rgba(75,33,72,0.10); border-radius: 16px; overflow: hidden; box-shadow: 0 6px 20px rgba(75,33,72,0.08); }
+    .drop.is-owned { border-color: rgba(46,125,60,0.5); box-shadow: 0 6px 20px rgba(46,125,60,0.12); }
+    .drop__art { position: relative; aspect-ratio: 1/1; overflow: hidden; background: linear-gradient(160deg, #4b2148 0%, #9b3f5f 100%); display: flex; align-items: center; justify-content: center; text-align: center; padding: 18px; }
+    .drop__art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .drop__art span { position: relative; font-family: 'Playfair Display', Georgia, serif; font-style: italic; color: #f4cf85; font-size: 19px; line-height: 1.3; }
+    .drop__cost { position: absolute; top: 10px; right: 10px; background: rgba(255,253,251,0.95); color: var(--plum); font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 800; padding: 5px 10px; border-radius: 999px; }
+    .drop__excl { position: absolute; top: 10px; left: 10px; background: var(--rose); color: #fffdfb; font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 8px; border-radius: 999px; }
+    .drop__body { padding: 14px 15px 16px; display: flex; flex-direction: column; gap: 5px; flex: 1; }
+    .drop__name { font-family: 'Jost', sans-serif; font-weight: 700; font-size: 15px; color: var(--plum); line-height: 1.25; }
+    .drop__blurb { font-size: 12.5px; color: var(--plum-soft, #6f4a63); line-height: 1.5; flex: 1; }
+    .drop__lands { font-size: 11px; color: var(--rose); font-weight: 600; }
+    .drop__act { margin-top: 8px; display: flex; flex-direction: column; gap: 7px; }
+    .drop__redeem { padding: 9px 14px; border-radius: 999px; background: var(--rose); color: #fffdfb; font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border: none; cursor: pointer; transition: background .18s ease, opacity .18s; }
+    .drop__redeem:hover { background: var(--plum); }
+    .drop__redeem[disabled] { opacity: 0.5; cursor: not-allowed; }
+    .drop.is-owned .drop__redeem { background: #2e7d3c; }
+    .drop__doors { display: flex; gap: 12px; flex-wrap: wrap; }
+    .drop__door { font-family: 'Jost', sans-serif; font-size: 11.5px; font-weight: 600; color: var(--rose); text-decoration: none; }
+    .drop__door:hover { text-decoration: underline; }
+    .drop.shake { animation: bfshake .4s; }
+    @keyframes bfshake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+
+    .bf-note { font-size: 13px; color: var(--plum-soft, #6f4a63); line-height: 1.6; margin: 0 0 30px; padding: 16px 20px; background: rgba(201,162,39,0.08); border-radius: 12px; }
+  </style>
+</head>
+<body>
+
+  <header class="sv-header"></header>
+
+  <main>
+
+    <div class="bf-hero">
+      <div class="bf-hero-eyebrow">★ SUNNYV<span class="ai">Ai</span>LE High · Gym · Every 4 weeks</div>
+      <h1>The Book Fair</h1>
+      <p class="bf-hero-tag">Wheel the cart into the gym. Cash in your <strong>butterfly clips</strong> for fair-exclusive drops — the pull-down poster, the holographic card, the bookmark with the tassel. Things you can <em>only</em> get here.</p>
+    </div>
+
+    <div class="bf-balance">
+      <span class="bf-balance__n" id="bfClipN">0</span>
+      <span class="bf-balance__lbl">butterfly clips to spend · <a href="/sunnyvaile-high.html">Earn more at the Pop Quiz →</a></span>
+    </div>
+    <div class="bf-toast" id="bfToast" aria-live="polite"></div>
+
+    <div class="bf-grid" id="bfGrid"><!-- drops injected --></div>
+
+    <p class="bf-note">
+      <strong>★ How the fair works.</strong> Butterfly clips come from your <a href="/sunnyvaile-high.html">Pop Quiz</a> scores (best score per episode) and keeping up with the Express tour. Spend them here on drops that are <strong>fair-exclusive</strong> — you can't find them on the charm hunt or buy them anywhere else. Redeemed drops land in your <a href="/laidies-card.html">Closet</a>. Some can also be <strong>downloaded to print</strong> or ordered as real merch at <a href="/shop.html">The Gift Shop</a>.
+    </p>
+
+    <div class="sv-ctas">
+      <a class="sv-cta sv-cta--primary" href="/sunnyvaile-high.html"><span><span class="sv-cta-label">Low on clips?</span><span class="sv-cta-title">Take this week's Pop Quiz →</span></span><span class="sv-cta-arrow">→</span></a>
+      <a class="sv-cta" href="/laidies-card.html"><span><span class="sv-cta-label">Your haul</span><span class="sv-cta-title">Open your Closet</span></span><span class="sv-cta-arrow">→</span></a>
+    </div>
+
+  </main>
+
+  <footer>© L<span class="ai">Ai</span>DIES · The Book Fair · Filed from SUNNYV<span class="ai">Ai</span>LE High</footer>
+
+  <script>
+    /* ============================================================
+       THE BOOK FAIR — exclusive drop catalog.
+       Art auto-upgrades: each drop shows a styled placeholder until
+       its render lands at `img`; then it swaps in with no code change.
+       Codex prompts for every drop are in IMAGE-PROMPTS.md (§Book Fair).
+       `download`/`buy` links are placeholders (#) until the printable
+       asset / Gift-Shop product exists.
+       ============================================================ */
+    var DROPS = [
+      { id: 'bf-wallpaper', name: 'Phone Wallpaper', cost: 5, tag: 'Digital',
+        blurb: 'A fair-exclusive lock-screen — a saint window or the town at dusk, sized for your phone.',
+        lands: 'Download', img: '/assets/bookfair/bf-wallpaper.png', download: '#' },
+      { id: 'bf-badge', name: 'Book Fair ’99 Badge', cost: 6, tag: 'Collectible',
+        blurb: 'An enamel merit badge — proof you worked the fair. Pins to your sash.',
+        lands: 'Merit Sash', img: '/assets/bookfair/bf-badge.png' },
+      { id: 'bf-bookmark', name: 'The Tassel Bookmark', cost: 8, tag: 'Exclusive',
+        blurb: 'The laminated, holo, tasseled bookmark you HAD to have. Set it as your reading marker across episodes + the 101s.',
+        lands: 'Bookmark rack', img: '/assets/bookfair/bf-bookmark.png', download: '#', buy: '/shop.html' },
+      { id: 'bf-stickers', name: '“Scented” Puffy Sticker Sheet', cost: 10, tag: 'Exclusive',
+        blurb: 'Glossy puffy stickers, scratch-n-sniff energy. Decorate your Puffy Board or use them as section bookmarks.',
+        lands: 'Puffy Board', img: '/assets/bookfair/bf-stickers.png', download: '#', buy: '/shop.html' },
+      { id: 'bf-postcard', name: 'Office Postcard Print', cost: 12, tag: 'Exclusive',
+        blurb: 'A postcard-size print for your desk — a motto or a saint. Frame it, pin it, prop it by the monitor.',
+        lands: 'Download', img: '/assets/bookfair/bf-postcard.png', download: '#', buy: '/shop.html' },
+      { id: 'bf-zine', name: 'The Mini-Zine (“the book”)', cost: 15, tag: 'Exclusive',
+        blurb: 'The coveted little book — an 8-page foldable zine: a saint story, episode lore, a comic. Download, print, fold.',
+        lands: 'Download', img: '/assets/bookfair/bf-zine.png', download: '#' },
+      { id: 'bf-holocard', name: 'Holographic Trading Card', cost: 20, tag: 'Foil · Rare',
+        blurb: 'A rainbow-foil variant stamped BOOK FAIR ’99. Others literally can’t get it. Goes in your binder, tradable.',
+        lands: 'Trading Card Binder', img: '/assets/bookfair/bf-holocard.png', buy: '/shop.html' },
+      { id: 'bf-poster', name: 'The Pull-Down Poster', cost: 25, tag: 'Premium',
+        blurb: 'Hangs rolled on your Closet wall — tap the ring and it snaps down to reveal exclusive art. Set it as your background.',
+        lands: 'Closet wall', img: '/assets/bookfair/bf-poster.png', download: '#', buy: '/shop.html' }
+    ];
+
+    function initBookFair() {
+      var Bank = window.LaidiesClips;
+      var grid = document.getElementById('bfGrid');
+      var nEl = document.getElementById('bfClipN');
+      var toast = document.getElementById('bfToast');
+      if (!grid || !Bank) return;
+      function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]; }); }
+      function say(msg){ toast.textContent = msg || ''; }
+      function refreshBalance(){ nEl.textContent = String(Bank.available()); }
+
+      function cardHtml(d) {
+        var owned = Bank.owns(d.id);
+        var art = '<div class="drop__art">' +
+          '<img src="' + esc(d.img) + '" alt="" loading="lazy" onerror="this.style.display=\'none\'">' +
+          '<span>' + esc(d.name) + '</span>' +
+          '<span class="drop__excl">' + esc(d.tag) + '</span>' +
+          '<span class="drop__cost">' + d.cost + ' 🦋</span></div>';
+        var doors = '';
+        if (owned) {
+          if (d.download) doors += '<a class="drop__door" href="' + esc(d.download) + '" data-soon="1">⬇ Download to print</a>';
+          if (d.buy) doors += '<a class="drop__door" href="' + esc(d.buy) + '">✦ Order a real one</a>';
+        }
+        var btn = owned
+          ? '<button class="drop__redeem" type="button" disabled>✓ In your Closet</button>'
+          : '<button class="drop__redeem" type="button" data-redeem="' + esc(d.id) + '">Redeem · ' + d.cost + ' 🦋</button>';
+        return '<article class="drop' + (owned ? ' is-owned' : '') + '" data-id="' + esc(d.id) + '">' + art +
+          '<div class="drop__body">' +
+            '<div class="drop__name">' + esc(d.name) + '</div>' +
+            '<p class="drop__blurb">' + esc(d.blurb) + '</p>' +
+            '<div class="drop__lands">→ ' + esc(d.lands) + '</div>' +
+            '<div class="drop__act">' + btn + (doors ? '<div class="drop__doors">' + doors + '</div>' : '') + '</div>' +
+          '</div></article>';
+      }
+
+      function render() {
+        grid.innerHTML = DROPS.map(cardHtml).join('');
+        refreshBalance();
+      }
+
+      grid.addEventListener('click', function (e) {
+        var soon = e.target.closest('[data-soon]');
+        if (soon) { e.preventDefault(); var t0 = soon.textContent; soon.textContent = 'Coming soon ✦'; setTimeout(function(){ soon.textContent = t0; }, 1300); return; }
+        var btn = e.target.closest('[data-redeem]');
+        if (!btn) return;
+        var id = btn.getAttribute('data-redeem');
+        var d = DROPS.filter(function (x) { return x.id === id; })[0];
+        if (!d) return;
+        var res = Bank.redeem(d.id, d.cost, { name: d.name, lands: d.lands });
+        if (res.ok) {
+          say('✓ Redeemed “' + d.name + '” — it’s in your Closet.');
+          render();
+        } else if (res.reason === 'insufficient') {
+          var need = d.cost - Bank.available();
+          var card = btn.closest('.drop');
+          if (card) { card.classList.add('shake'); setTimeout(function(){ card.classList.remove('shake'); }, 420); }
+          say('You need ' + need + ' more clip' + (need === 1 ? '' : 's') + ' — take a Pop Quiz to fill the jar.');
+        } else if (res.reason === 'owned') {
+          say('You already have that one.');
+          render();
+        }
+      });
+
+      render();
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initBookFair);
+    else initBookFair();
+  </script>
+
+  <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+  <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+  <script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
+  <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
+</body>
+</html>

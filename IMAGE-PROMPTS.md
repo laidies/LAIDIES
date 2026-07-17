@@ -115,4 +115,21 @@ Each is a **single Y2K object** rendered in the same pixel style, centered, tran
 
 ---
 
+---
+
+## 6. Book Fair exclusive drops (8) — the clip-exchange rewards · PRIORITY
+
+**Why:** `bookfair.html` (the clip-spend exchange) is built and live with styled PLACEHOLDERS. Each drop auto-upgrades the moment its render lands at the exact path below — no code change. These are **fair-exclusive** (can't be found on the hunt or bought elsewhere), so they must feel special. NOT pixel art ([[people-go-pixel]] reversed — pixel is episodes only); use the brand's own languages (Y2K enamel/charm, puffy-sticker gloss, stained-glass, plum+gold). Save all to `assets/bookfair/`.
+
+| Output path | Drop | Prompt |
+|---|---|---|
+| `assets/bookfair/bf-wallpaper.png` (1080×2340, phone) | Phone Wallpaper | A **phone lock-screen wallpaper**, vertical 9:19.5. A single LUMINAiRY **stained-glass saint window** (or the SUNNYVAiLE skyline at golden dusk) centered with room at top/bottom for the clock, rich plum/rose/gold, luminous, gallery-grade. No text. |
+| `assets/bookfair/bf-badge.png` (512×512, transparent) | Book Fair '99 Badge | A **Y2K enamel-and-gold merit badge** matching `assets/charms/` style: a circular cloisonné badge reading "BOOK FAiR '99" around a little open book + heart, glossy enamel in plum/rose/gold with rhinestones, transparent bg. |
+| `assets/bookfair/bf-bookmark.png` (600×1600, transparent) | Tassel Bookmark | A **laminated Y2K bookmark**, tall & narrow, holographic/glitter finish with a **gold tassel** at the top hole, fronted with a saint portrait or the motto "On Wednesdays we do AI," die-cut look, drop shadow, transparent bg. |
+| `assets/bookfair/bf-stickers.png` (1200×1200) | Puffy Sticker Sheet | A **sheet of glossy puffy stickers** (scratch-n-sniff Book-Fair energy): butterfly clip, holo star, ice-cream, cherry, rainbow, sun — bubblegum-pink + lilac + holo glitter on a cream sheet with rounded corners. |
+| `assets/bookfair/bf-postcard.png` (1500×1050, 7:5) | Office Postcard Print | A **desk-size art postcard** — a bold plum/rose typographic print of a LAiDIES motto (e.g. "girl power meets machine power") with Y2K florals, framed border, print-ready. |
+| `assets/bookfair/bf-zine.png` (1200×1200) | Mini-Zine cover | The **cover of a folded mini-zine** ("the book") — a coquette Y2K half-page booklet, hand-lettered title, staple + fold lines hinted, plum/rose/gold, on a cream desk. |
+| `assets/bookfair/bf-holocard.png` (1000×1400, 5:7) | Holographic Trading Card | A **rainbow-foil trading card** matching [[concept-card-deck-redesign]] (plum + gold frame): holographic prismatic sheen across the art, a "BOOK FAiR '99 · FOiL" stamp, ornate border, collectible sheen. |
+| `assets/bookfair/bf-poster.png` (1400×1000, 7:5) | Pull-Down Poster | A **classroom pull-down poster** — the art on a roller screen with a ring/pull at the bottom, wall-mount bracket at top, featuring an episode hero scene or the SUNNYVAiLE town map, vintage-classroom feel, plum/teal/gold. |
+
 _(more prompts appended below as I find art gaps)_
