@@ -2605,7 +2605,7 @@ function getLocalRewardEvents(userId) {
     });
   });
 
-  // Full Wednesday Ritual — one merit badge per episode whose complete 9-stop
+  // Full Wednesday Ritual — one merit badge per episode whose complete 8-stop
   // tour the reader has finished. sv-tour-checkin.js stamps `laidies_ritual_done`
   // (keyed by episode number) the week that episode's tour is completed.
   const ritualDone = getStoredJson("laidies_ritual_done", {});
@@ -2622,6 +2622,27 @@ function getLocalRewardEvents(userId) {
         source: "The Wednesday Ritual",
         earned_at: entry.completedAt || new Date().toISOString(),
         metadata: { episode: Number(entry.episode), weekKey: entry.weekKey || "", sticker: `EP${epNum}` },
+      });
+    });
+  }
+
+  // Express tour — one "Caught Up" sticker per episode kept up with via the 4
+  // learning stops. sv-tour-checkin.js stamps `laidies_express_done` (keyed by
+  // episode number). Full-tour finishers earn this too (express is a subset).
+  const expressDone = getStoredJson("laidies_express_done", {});
+  if (expressDone && typeof expressDone === "object") {
+    Object.values(expressDone).forEach((entry) => {
+      if (!entry || !entry.episode) return;
+      const epNum = String(entry.episode).padStart(2, "0");
+      events.push({
+        user_id: userId,
+        dedupe_key: `sticker-express:ep-${epNum}`,
+        reward_type: "sticker_express",
+        issue_key: `issue${epNum}`,
+        title: `Caught Up · EP ${epNum}`,
+        source: "The Express Tour",
+        earned_at: entry.completedAt || new Date().toISOString(),
+        metadata: { episode: Number(entry.episode), weekKey: entry.weekKey || "", sticker: "CAUGHT UP" },
       });
     });
   }

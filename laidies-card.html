@@ -2148,7 +2148,7 @@
   }
 
   var COLLECTION_MAP = {
-    'sticker_book':   { types: ['quiz_sticker', 'sticker_girl_talk'], countEl: 'stickerCount', gridEl: 'stickerGrid', slotClass: 'sticker sticker--empty', filledClass: 'sticker' },
+    'sticker_book':   { types: ['quiz_sticker', 'sticker_girl_talk', 'sticker_express'], countEl: 'stickerCount', gridEl: 'stickerGrid', slotClass: 'sticker sticker--empty', filledClass: 'sticker' },
     'merit_sash':     { types: ['merit_badge'],                        countEl: 'meritCount',   gridEl: 'meritGrid',   slotClass: 'merit-badge merit-badge--empty', filledClass: 'merit-badge' },
     'charm_bracelet': { types: ['hidden_charm'],                       countEl: 'charmCount',   gridEl: 'charmBracelet', slotClass: 'charm charm--empty', filledClass: 'charm' },
     'card_binder':    { types: ['trading_card'],                       countEl: 'tradingCount', gridEl: 'tradingGrid', slotClass: 'trading-card trading-card--empty', filledClass: 'trading-card' },
@@ -2456,7 +2456,7 @@
   init();
 })();
 </script>
-  <script src="/content/site/sv-tour-checkin.js?v=20260716-8stop"></script>
+  <script src="/content/site/sv-tour-checkin.js?v=20260716-express"></script>
   <script src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
   <script>
   (function renderWallet() {
@@ -2531,8 +2531,18 @@
       var clips = Math.max(best, 1);
       var m = String(key).match(/(\d+)/);
       var label = m ? 'EP ' + ('0' + Number(m[1])).slice(-2) : String(key).toUpperCase();
-      rows.push({ label: label, clips: clips, isBroken: isBroken });
+      rows.push({ label: label, clips: clips, isBroken: isBroken, kind: 'quiz' });
       total += clips;
+    });
+    // Express tour clips — 1 butterfly clip per episode kept up with via the
+    // 4 learning stops (laidies_express_done, stamped by sv-tour-checkin.js).
+    var expressDone = stored('laidies_express_done');
+    Object.keys(expressDone).sort().forEach(function(key) {
+      var e = expressDone[key] || {};
+      var epn = Number(e.episode || key);
+      var label = epn ? 'EP ' + ('0' + epn).slice(-2) : String(key).toUpperCase();
+      rows.push({ label: label, clips: 1, isBroken: false, kind: 'express' });
+      total += 1;
     });
     var countEl = document.getElementById('clipJarCount');
     var totalEl = document.getElementById('clipJarTotal');
@@ -2552,7 +2562,7 @@
       var li = document.createElement('li');
       var ep = document.createElement('span');
       ep.className = 'clip-ep';
-      ep.textContent = row.label + ' Pop Quiz';
+      ep.textContent = row.label + (row.kind === 'express' ? ' Express tour' : ' Pop Quiz');
       var amount = document.createElement('span');
       amount.className = 'clip-amount' + (row.isBroken ? ' is-broken' : '');
       amount.textContent = row.isBroken
@@ -2561,6 +2571,51 @@
       li.append(ep, amount);
       ledger.appendChild(li);
     });
+  })();
+  (function renderLocalStickerBook() {
+    'use strict';
+    // Signed-in users get the Sticker Book from Supabase (renderCollections).
+    // Signed-out/local users don't, so fill it from local stores here — the
+    // Express "Caught Up" stickers plus any local Pop Quiz + Girl Talk stickers.
+    // Guarded to signed-out so it never clobbers the Supabase pass.
+    var signedIn = false;
+    try { signedIn = Object.keys(localStorage).some(function(k){ return /^sb-.*-auth-token$/.test(k); }); } catch (e) {}
+    if (signedIn) return;
+    function stored(key, def) { try { return JSON.parse(localStorage.getItem(key)) || def; } catch (e) { return def; } }
+    function letterOf(s) { var m = String(s || '').trim().match(/[A-Za-z0-9]/); return m ? m[0].toUpperCase() : '★'; }
+
+    var stickers = [];
+    // Express — one "Caught Up" per episode kept up with via the 4 learning stops
+    var exp = stored('laidies_express_done', {});
+    Object.keys(exp).sort().forEach(function(k) {
+      var e = exp[k] || {}; var epn = Number(e.episode || k);
+      stickers.push({ title: 'Caught Up · EP ' + (epn ? ('0' + epn).slice(-2) : k), letter: '✓' });
+    });
+    // Pop Quiz stickers (stickerTitle on each quiz record)
+    var qp = stored('laidiesQuizProgress', {});
+    Object.keys(qp).forEach(function(k) { var r = qp[k]; if (r && r.stickerTitle) stickers.push({ title: r.stickerTitle }); });
+    // Girl Talk stickers
+    var gt = stored('laidies_gt_stickers_earned', []); var names = stored('laidies_gt_names', {});
+    if (Array.isArray(gt)) { var seen = {}; gt.forEach(function(id) { if (!id || seen[id]) return; seen[id] = true; stickers.push({ title: names[id] || id }); }); }
+
+    var countEl = document.getElementById('stickerCount');
+    var gridEl = document.getElementById('stickerGrid');
+    if (countEl) countEl.textContent = stickers.length + ' collected';
+    if (gridEl && stickers.length > 0) {
+      var slots = Math.max(gridEl.children.length, Math.min(stickers.length, 12));
+      gridEl.innerHTML = '';
+      for (var s = 0; s < slots; s++) {
+        var tile = document.createElement('div');
+        if (s < stickers.length) {
+          tile.className = 'sticker';
+          tile.title = stickers[s].title;
+          tile.textContent = stickers[s].letter || letterOf(stickers[s].title);
+        } else {
+          tile.className = 'sticker sticker--empty';
+        }
+        gridEl.appendChild(tile);
+      }
+    }
   })();
   (function() {
     'use strict';

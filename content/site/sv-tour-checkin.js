@@ -37,10 +37,18 @@
   var STOP_BY_PATH = {};
   STOPS.forEach(function(s) { STOP_BY_KEY[s.key] = s; STOP_BY_PATH[s.path] = s; });
 
+  // The Express tour — the 4 *learning* stops (a subset of the 8 above):
+  // episode, Study Pack, song, quiz. Completing all four earns a lighter
+  // reward than the full lap: a "Caught Up" sticker + 1 butterfly clip
+  // (stamped once per episode in laidies_express_done), vs the full tour's
+  // +1 FAiRY wish + Full Ritual badge.
+  var EXPRESS_KEYS = ['chick-flicks', 'blend-snap', 'ksvl', 'sunnyvaile-high'];
+
   var LS_PREFIX = 'laidies_tour_';
   var LS_FAIRY = 'laidies_fairy_plays';
   var LS_LAST_REWARDED_WEEK = 'laidies_tour_last_rewarded_week';
   var LS_RITUAL_DONE = 'laidies_ritual_done';
+  var LS_EXPRESS_DONE = 'laidies_express_done';
 
   function isoWeekKey(d) {
     var t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
@@ -103,12 +111,26 @@
       .pop() || null;
   }
 
+  // Resolve the latest published episode (from in-memory site data, else the
+  // episode index) and hand it to cb. Shared by the ritual + express stamps.
+  function withLatestEpisode(cb) {
+    var inline = (window.LAIDIES_SITE_DATA && window.LAIDIES_SITE_DATA.episodes) || null;
+    var ep = latestPublishedEpisode(inline);
+    if (ep) { cb(ep); return; }
+    try {
+      fetch('/content/episode-index.json')
+        .then(function (r) { return r.json(); })
+        .then(function (data) { cb(latestPublishedEpisode(data && data.episodes)); })
+        .catch(function () {});
+    } catch (_) {}
+  }
+
   // Stamp the episode whose Wednesday Ritual (all 8 stops) the reader just
   // completed. Keyed by episode number so re-completing the same episode in a
   // later week is a no-op, and each episode earns exactly one Full Ritual badge.
   // The Closet reads laidies_ritual_done and mints the merit badge from it.
   function recordRitualComplete(weekKey) {
-    function stamp(ep) {
+    withLatestEpisode(function (ep) {
       if (!ep) return;
       var done = readRitualDone();
       if (done[ep.number]) return; // already have this episode's ritual badge
@@ -124,18 +146,38 @@
           detail: { episode: ep.number, title: done[ep.number].title, weekKey: weekKey }
         }));
       } catch (_) {}
-    }
+    });
+  }
 
-    // Prefer site-data already in memory; otherwise fetch the episode index.
-    var inline = (window.LAIDIES_SITE_DATA && window.LAIDIES_SITE_DATA.episodes) || null;
-    var ep = latestPublishedEpisode(inline);
-    if (ep) { stamp(ep); return; }
+  function readExpressDone() {
     try {
-      fetch('/content/episode-index.json')
-        .then(function (r) { return r.json(); })
-        .then(function (data) { stamp(latestPublishedEpisode(data && data.episodes)); })
-        .catch(function () {});
-    } catch (_) {}
+      var raw = localStorage.getItem(LS_EXPRESS_DONE);
+      var obj = raw ? JSON.parse(raw) : {};
+      return obj && typeof obj === 'object' ? obj : {};
+    } catch (_) { return {}; }
+  }
+
+  // Stamp the episode whose Express tour (the 4 learning stops) the reader
+  // finished. Keyed by episode number → one "Caught Up" sticker + 1 butterfly
+  // clip per episode. The Closet derives both from laidies_express_done.
+  function recordExpressComplete(weekKey) {
+    withLatestEpisode(function (ep) {
+      if (!ep) return;
+      var done = readExpressDone();
+      if (done[ep.number]) return; // already caught up on this episode
+      done[ep.number] = {
+        episode: ep.number,
+        title: ep.title || ('Episode ' + ep.number),
+        weekKey: weekKey,
+        completedAt: new Date().toISOString()
+      };
+      try { localStorage.setItem(LS_EXPRESS_DONE, JSON.stringify(done)); } catch (_) {}
+      try {
+        document.dispatchEvent(new CustomEvent('sv:express-complete', {
+          detail: { episode: ep.number, title: done[ep.number].title, weekKey: weekKey }
+        }));
+      } catch (_) {}
+    });
   }
 
   function isCheckedIn(stopKey, weekKey) {
@@ -151,6 +193,14 @@
     }
     checked.push(stopKey);
     writeWeek(weekKey, checked);
+
+    // Express tour — the 4 learning stops done (a subset of the full 8).
+    // Stamps a per-episode "Caught Up" (sticker + 1 clip), no-op if already
+    // stamped. Doing the full tour completes the express subset too, so full
+    // finishers earn the core reward plus the bonus wish.
+    if (EXPRESS_KEYS.every(function (k) { return checked.indexOf(k) !== -1; })) {
+      recordExpressComplete(weekKey);
+    }
 
     // Reward when all stops land for this week, once per week
     var rewardIssued = false;
@@ -215,6 +265,8 @@
     isCheckedIn: isCheckedIn,
     currentStop: currentStop,
     stops: STOPS,
+    expressKeys: EXPRESS_KEYS.slice(),
+    expressDone: readExpressDone,
     fairyPlays: readFairyPlays,
     currentWeekKey: currentWeekKey
   };
