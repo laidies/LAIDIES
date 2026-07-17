@@ -34,8 +34,8 @@
     { week: 1, slug: 'w1-butterfly-clip',   emoji: '🌸',  name: 'Butterfly Clip',   building: 'MAiKEOVER',            page: 'maikeover',       x: 18, y: 72 },
     { week: 1, slug: 'w1-sealed-envelope',  emoji: '💌',  name: 'Sealed Envelope',  building: 'Post Office',          page: 'post-office',     x: 13, y: 71 },
     { week: 1, slug: 'w1-rhinestone-star',  emoji: '⭐',  name: 'Rhinestone Star',  building: 'BRONZE AiGE',          page: 'bronze-aige',     x: 23, y: 70 },
-    { week: 1, slug: 'w1-crescent-moon',    emoji: '🌙',  name: 'Crescent Moon',    building: "Mme CLAi-O's Shop",    page: 'mme-claios-shop', x: 68, y: 42 },
-    { week: 1, slug: 'w1-sorority-ribbon',  emoji: '🎀',  name: 'Sorority Ribbon',  building: 'Delta LAi Nu',         page: 'sorority-house',  x: 13, y: 74 },
+    { week: 1, slug: 'w1-crescent-moon',    emoji: '🌙',  name: 'Crescent Moon',    building: "Mme CLAi-O's Shop",    page: 'mme-claios-shop', x: 61, y: 88 },
+    { week: 1, slug: 'w1-sorority-ribbon',  emoji: '🎀',  name: 'Sorority Ribbon',  building: 'Delta LAi Nu',         page: 'sorority-house',  x: 22, y: 43 },
     { week: 1, slug: 'w1-skeleton-key',     emoji: '🗝️', name: 'Skeleton Key',     building: 'Town Hall',            page: 'town-hall',       x: 50, y: 63 },
     { week: 1, slug: 'w1-pink-gem',         emoji: '💎',  name: 'Pink Gem',         building: 'Chick Flicks',         page: 'chick-flicks',    x: 31, y: 55 },
 
@@ -43,8 +43,8 @@
     { week: 2, slug: 'w2-lip-gloss-wand',   emoji: '💄',  name: 'Lip Gloss Wand',   building: 'MAiKEOVER',            page: 'maikeover',       x: 80, y: 52 },
     { week: 2, slug: 'w2-postmark-stamp',   emoji: '✉️', name: 'Postmark Stamp',   building: 'Post Office',          page: 'post-office',     x: 72, y: 60 },
     { week: 2, slug: 'w2-cocktail-umbrella',emoji: '🍸',  name: 'Cocktail Umbrella',building: 'BRONZE AiGE',          page: 'bronze-aige',     x: 73, y: 65 },
-    { week: 2, slug: 'w2-crystal-ball',     emoji: '🔮',  name: 'Crystal Ball',     building: "Mme CLAi-O's Shop",    page: 'mme-claios-shop', x: 26, y: 58 },
-    { week: 2, slug: 'w2-yearbook-quote',   emoji: '📖',  name: 'Yearbook Quote',   building: 'Delta LAi Nu',         page: 'sorority-house',  x: 25, y: 64 },
+    { week: 2, slug: 'w2-crystal-ball',     emoji: '🔮',  name: 'Crystal Ball',     building: "Mme CLAi-O's Shop",    page: 'mme-claios-shop', x: 40, y: 92 },
+    { week: 2, slug: 'w2-yearbook-quote',   emoji: '📖',  name: 'Yearbook Quote',   building: 'Delta LAi Nu',         page: 'sorority-house',  x: 31, y: 64 },
     { week: 2, slug: 'w2-nope-stamp',       emoji: '🚫',  name: 'NOPE Stamp',       building: 'Town Hall',            page: 'town-hall',       x: 76, y: 66 },
     { week: 2, slug: 'w2-vhs-tape',         emoji: '📼',  name: 'VHS Tape',         building: 'Chick Flicks',         page: 'chick-flicks',    x: 66, y: 73 },
 
@@ -52,18 +52,18 @@
     { week: 3, slug: 'w3-nail-polish',      emoji: '💅',  name: 'Nail Polish',      building: 'MAiKEOVER',            page: 'maikeover',       x: 22, y: 52 },
     { week: 3, slug: 'w3-bouquet-ribbon',   emoji: '💐',  name: 'Bouquet Ribbon',   building: 'Post Office',          page: 'post-office',     x: 88, y: 78 },
     { week: 3, slug: 'w3-mic-charm',        emoji: '🎤',  name: 'Microphone Charm', building: 'BRONZE AiGE',          page: 'bronze-aige',     x: 54, y: 74 },
-    { week: 3, slug: 'w3-star-chart',       emoji: '🌟',  name: 'Star Chart',       building: "Mme CLAi-O's Shop",    page: 'mme-claios-shop', x: 78, y: 46 },
-    { week: 3, slug: 'w3-burn-bookmark',    emoji: '📔',  name: 'Burn Book Mark',   building: 'Delta LAi Nu',         page: 'sorority-house',  x: 93, y: 55 },
+    { week: 3, slug: 'w3-star-chart',       emoji: '🌟',  name: 'Star Chart',       building: "Mme CLAi-O's Shop",    page: 'mme-claios-shop', x: 34, y: 8 },
+    { week: 3, slug: 'w3-burn-bookmark',    emoji: '📔',  name: 'Burn Book Mark',   building: 'Delta LAi Nu',         page: 'sorority-house',  x: 59, y: 22 },
     { week: 3, slug: 'w3-ballot-stub',      emoji: '🗳️', name: 'Ballot Stub',      building: 'Town Hall',            page: 'town-hall',       x: 10, y: 72 },
     { week: 3, slug: 'w3-film-reel',        emoji: '🎞️', name: 'Film Reel',        building: 'Chick Flicks',         page: 'chick-flicks',    x: 23, y: 55 },
 
     // ── Week 4 · The Keepsake Set ────────────────────────────────────
-    // Coords are first-pass estimates — fine-tune per hero with ?charmDev=1.
+    // Coords are calibrated to the current compact storefront/building heroes.
     { week: 4, slug: 'w4-mood-ring',        emoji: '💍',  name: 'Mood Ring',        building: 'MAiKEOVER',            page: 'maikeover',       x: 60, y: 73 },
     { week: 4, slug: 'w4-gel-pen',          emoji: '🖊️', name: 'Gel Pen',          building: 'Post Office',          page: 'post-office',     x: 42, y: 52 },
     { week: 4, slug: 'w4-disco-ball',       emoji: '🪩',  name: 'Disco Ball',       building: 'BRONZE AiGE',          page: 'bronze-aige',     x: 42, y: 50 },
-    { week: 4, slug: 'w4-evil-eye',         emoji: '🧿',  name: 'Evil Eye',         building: "Mme CLAi-O's Shop",    page: 'mme-claios-shop', x: 46, y: 70 },
-    { week: 4, slug: 'w4-heart-locket',     emoji: '💜',  name: 'Heart Locket',     building: 'Delta LAi Nu',         page: 'sorority-house',  x: 85, y: 82 },
+    { week: 4, slug: 'w4-evil-eye',         emoji: '🧿',  name: 'Evil Eye',         building: "Mme CLAi-O's Shop",    page: 'mme-claios-shop', x: 68, y: 43 },
+    { week: 4, slug: 'w4-heart-locket',     emoji: '💜',  name: 'Heart Locket',     building: 'Delta LAi Nu',         page: 'sorority-house',  x: 67, y: 91 },
     { week: 4, slug: 'w4-award-rosette',    emoji: '🏵️', name: 'Award Rosette',    building: 'Town Hall',            page: 'town-hall',       x: 30, y: 48 },
     { week: 4, slug: 'w4-movie-ticket',     emoji: '🎟️', name: 'Movie Ticket',     building: 'Chick Flicks',         page: 'chick-flicks',    x: 78, y: 50 }
   ];
@@ -404,7 +404,8 @@
     // Label existing sparkles with their slug + coordinates
     var currentPageCharms = CHARMS.filter(function (c) {
       var path = (location.pathname || '').toLowerCase().replace(/^\//, '').replace('.html', '');
-      return c.page === path;
+      if (path.indexOf('madame-claio') !== -1 && c.page === 'mme-claios-shop') return true;
+      return c.page === path || path.endsWith('/' + c.page);
     });
     currentPageCharms.forEach(function (c) {
       var label = document.createElement('div');
