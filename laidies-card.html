@@ -1093,7 +1093,7 @@
       // Closet (only tiles backed by their synced reward events qualify).
       var TILES = [
         { icon: '🌸', label: 'Charms this week',  src: 'charmCount',     target: 'charmBracelet',    total: 7,    pub: true,  hint: 'Hiding in town images' },
-        { icon: '🗺️', label: 'Tour stops',        src: 'tourCount',      target: 'tourVessel',       total: 9,    pub: false, hint: 'Resets Wednesday' },
+        { icon: '🗺️', label: 'Tour stops',        src: 'tourCount',      target: 'tourVessel',       total: 8,    pub: false, hint: 'Resets Wednesday' },
         { icon: '🦋', label: 'Butterfly clips',   src: 'clipJarTotal',   target: 'butterflyJar',     total: null, pub: false, hint: 'Quiz scores, banked' },
         { icon: '📓', label: 'Stickers',          src: 'stickerCount',   target: 'stickerGrid',      total: null, pub: true,  hint: 'Quizzes + Girl Talk' },
         { icon: '🎗️', label: 'Merit badges',      src: 'meritCount',     target: 'meritGrid',        total: null, pub: true,  hint: 'Earned around town' },
@@ -1232,13 +1232,13 @@
   <section class="passport-section" id="tourSection">
     <p class="passport-section-eyebrow">★ Closet · This Week</p>
     <h2 class="passport-section-title">Your Wednesday Tour</h2>
-    <p class="passport-section-lede">The 9-stop ritual. Do the whole thing — <strong>+1 FAiRY wish.</strong> Resets Wednesday. <span id="tourWeekLabel" style="opacity: 0.6;"></span></p>
+    <p class="passport-section-lede">The 8-stop ritual — the week's episode, start to finish. Do the whole thing — <strong>+1 FAiRY wish.</strong> Resets Wednesday. <span id="tourWeekLabel" style="opacity: 0.6;"></span></p>
 
     <div class="vessel vessel--tour" id="tourVessel">
       <div class="vessel-header">
         <h3 class="vessel-title">Tour Progress</h3>
         <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
-          <span class="vessel-count" id="tourCount">0 of 9</span>
+          <span class="vessel-count" id="tourCount">0 of 8</span>
           <span id="tourRewardBadge" style="display: none; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); background: rgba(201,162,39,0.14); padding: 4px 10px; border-radius: 999px;">🧚 +1 wish earned</span>
         </div>
       </div>
@@ -1246,6 +1246,41 @@
         <!-- stop tiles injected by JS -->
       </div>
       <p class="vessel-note" id="tourNote">Visit each stop and tap "Check in" — some auto-check when you do the thing (like playing the BRONZE AiGE song).</p>
+
+      <!-- Optional stops — anytime, no weekly reset -->
+      <div class="opt-block">
+        <div class="opt-head">
+          <h3 class="opt-title">Optional stops · tools &amp; games</h3>
+          <span class="opt-tag">anytime · no weekly reset</span>
+        </div>
+        <p class="opt-note">These don't reset on Wednesday and aren't needed for your wish — drop in whenever. Update your card only when you want a new look.</p>
+        <div class="opt-grid">
+          <a class="opt-stop" href="/maikeover.html">
+            <span class="opt-stop__name">MAiKEOVER</span>
+            <span class="opt-stop__sub">Redo your Resident Card</span>
+          </a>
+          <a class="opt-stop" href="/games/dream-phone.html">
+            <span class="opt-stop__name">Dream Phone</span>
+            <span class="opt-stop__sub">The fact-check game</span>
+          </a>
+          <a class="opt-stop" href="/games/girl-talk.html">
+            <span class="opt-stop__name">Girl Talk</span>
+            <span class="opt-stop__sub">Truth or dare</span>
+          </a>
+          <a class="opt-stop" href="/games/dj-booth.html">
+            <span class="opt-stop__name">DJ Booth</span>
+            <span class="opt-stop__sub">Build a radio set</span>
+          </a>
+          <a class="opt-stop" href="/games/madame-claio.html">
+            <span class="opt-stop__name">Mme CL<span class="ai">Ai</span>-O</span>
+            <span class="opt-stop__sub">Get a fortune</span>
+          </a>
+          <a class="opt-stop" href="/games/fairy-godmother.html">
+            <span class="opt-stop__name">F<span class="ai">Ai</span>RY Godmother</span>
+            <span class="opt-stop__sub">Make a wish</span>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1290,6 +1325,25 @@
       .tour-stop { min-height: 78px; padding: 10px 8px; }
       .tour-stop__name { font-size: 13px; }
     }
+
+    /* Optional stops — anytime, no weekly reset (MAiKEOVER + tools & games) */
+    .opt-block { margin-top: 20px; padding-top: 20px; border-top: 1.5px dashed rgba(75,33,72,0.16); }
+    .opt-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin: 0 0 4px; }
+    .opt-title { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 700; color: var(--plum); margin: 0; }
+    .opt-tag { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold, #c9a227); }
+    .opt-note { font-size: 13px; color: var(--plum-soft); font-style: italic; margin: 0 0 14px; }
+    .opt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+    .opt-stop {
+      display: flex; flex-direction: column; gap: 3px;
+      padding: 12px 13px; border-radius: 11px; text-decoration: none;
+      background: rgba(255,253,251,0.55);
+      border: 1.5px dashed rgba(75,33,72,0.22);
+      color: var(--plum);
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+    .opt-stop:hover { transform: translateY(-2px); background: rgba(255,253,251,0.95); border-color: var(--rose); }
+    .opt-stop__name { font-family: 'Jost', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.01em; }
+    .opt-stop__sub { font-size: 12px; color: var(--plum-soft); }
   </style>
 
   <!-- ==============================================
@@ -2402,7 +2456,7 @@
   init();
 })();
 </script>
-  <script src="/content/site/sv-tour-checkin.js?v=20260712-ksvl"></script>
+  <script src="/content/site/sv-tour-checkin.js?v=20260716-8stop"></script>
   <script src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
   <script>
   (function renderWallet() {

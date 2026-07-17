@@ -2,12 +2,12 @@
  * SUNNYVAiLE Wednesday Tour — check-in module.
  *
  * Any building page can include this script to expose:
- *  - A "Check in for the Wednesday tour" pill that auto-injects on the 9 tour stops.
+ *  - A "Check in for the Wednesday tour" pill that auto-injects on the 8 tour stops.
  *  - window.svTourCheckIn(stopKey) — call to mark a stop complete programmatically
  *    (e.g. after a specific interaction like clicking play on the episode song).
  *
  * State lives in localStorage under `laidies_tour_<isoWeekKey>` = array of stop keys.
- * When all 9 stops are checked, awards +1 FAiRY wish (localStorage `laidies_fairy_plays`)
+ * When all 8 stops are checked, awards +1 FAiRY wish (localStorage `laidies_fairy_plays`)
  * AND stamps that week's episode into `laidies_ritual_done` so the Closet mints a
  * per-episode "Full Ritual" merit badge (see getLocalRewardEvents in script.js).
  * Weekly reset is implicit: a new ISO week = a new empty checklist.
@@ -20,6 +20,9 @@
 (function() {
   'use strict';
 
+  // The weekly ritual — episode-driven stops that reset every Wednesday.
+  // MAiKEOVER is intentionally NOT here: you don't remake your card weekly, so
+  // it lives with the Closet's "Optional stops · tools & games" (anytime, no reset).
   var STOPS = [
     { key: 'newsstand',       num: 1, path: '/newsstand.html',        label: 'NewsStand',       teaser: 'The week\'s headlines' },
     { key: 'chick-flicks',    num: 2, path: '/chick-flicks.html',     label: 'Chick Flicks',    teaser: 'This week\'s episode' },
@@ -27,9 +30,8 @@
     { key: 'ksvl',            num: 4, path: '/radio.html',            label: 'KSVL 99.9',       teaser: 'The episode song' },
     { key: 'sunnyvaile-high', num: 5, path: '/sunnyvaile-high.html',  label: 'SUNNYVAiLE High', teaser: 'Pop quiz' },
     { key: 'mall',            num: 6, path: '/mall.html',             label: 'Free Time',       teaser: 'Wander the Mall' },
-    { key: 'maikeover',       num: 7, path: '/maikeover.html',        label: 'MAiKEOVER',       teaser: 'See your card' },
-    { key: 'bronze-aige',     num: 8, path: '/bronze-aige.html',      label: 'BRONZE AiGE',     teaser: 'Happy hour + live show' },
-    { key: 'sorority-house',  num: 9, path: '/sorority-house.html',   label: 'Delta LAi Nu',    teaser: 'Girl Talk' }
+    { key: 'bronze-aige',     num: 7, path: '/bronze-aige.html',      label: 'BRONZE AiGE',     teaser: 'Happy hour + live show' },
+    { key: 'sorority-house',  num: 8, path: '/sorority-house.html',   label: 'Delta LAi Nu',    teaser: 'Girl Talk' }
   ];
   var STOP_BY_KEY = {};
   var STOP_BY_PATH = {};
@@ -101,7 +103,7 @@
       .pop() || null;
   }
 
-  // Stamp the episode whose Wednesday Ritual (all 9 stops) the reader just
+  // Stamp the episode whose Wednesday Ritual (all 8 stops) the reader just
   // completed. Keyed by episode number so re-completing the same episode in a
   // later week is a no-op, and each episode earns exactly one Full Ritual badge.
   // The Closet reads laidies_ritual_done and mints the merit badge from it.
