@@ -55,8 +55,9 @@ Each saint = **her character + her one AI truth, fused.** See
 # ============================================================
 
 ## Bette Midler — PATRON SAiNT of Range ("The Triple Threat")
-**Band:** THE LAiDIES *(provisional — big brassy showstopper; no current band is
-Broadway/cabaret, confirm)*
+**Band:** The Ensembles *(NEW band, locked 2026-07-16 — ML "ensemble methods"
+(many models combined) + the Broadway "ensemble"/big-cast showstopper; album
+**"Wisdom of the Crowd."** Can carry future cabaret/showstopper saints.)*
 **Status:** SHIPPED — `saint-bette-midler.mp3`, wired into `ksvl-player.js` (saints
 mix). ⚠️ DJ radio intro still owed (`dj-sunnyv-intro-saint-bette-midler.mp3`).
 **AI truth (Range/Multimodal):** it's not just a text box — show it pictures, talk to
