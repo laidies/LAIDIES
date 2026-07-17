@@ -291,6 +291,11 @@
       font-family: 'Playfair Display', Georgia, serif;
       font-size: 22px; font-weight: 700; color: var(--plum); margin: 0;
     }
+    .vessel-icon {
+      width: 34px; height: 34px; object-fit: contain; image-rendering: pixelated;
+      vertical-align: -8px; margin-right: 11px;
+      filter: drop-shadow(0 2px 4px rgba(75,33,72,0.28));
+    }
     .vessel-count {
       font-family: 'JetBrains Mono', monospace; font-size: 13px;
       color: var(--rose); font-weight: 600;
@@ -905,6 +910,13 @@
 <header class="sv-header"></header>
 
 <main>
+
+  <!-- Closet interior hero — pixel; self-hides until the art lands at the path below -->
+  <div id="closetHero" style="margin:0 0 10px;border-radius:16px;overflow:hidden;box-shadow:0 14px 34px rgba(75,33,72,0.22);">
+    <img src="/assets/closet/closet-interior-hero-pixel.png?v=20260716" alt="Inside your Closet — the dressing room at Delta LAi Nu" loading="eager"
+         style="display:block;width:100%;height:clamp(150px,28vh,280px);object-fit:cover;object-position:center 40%;image-rendering:pixelated;"
+         onerror="this.parentNode.remove();">
+  </div>
 
   <!-- Public mode banner -->
   <div class="public-mode-banner" id="publicModeBanner" hidden>
@@ -2539,5 +2551,35 @@
     <script defer src="/content/site/charm-hunt.js?v=20260705-dusk" onload="if(typeof renderCharmBracelet==='function')renderCharmBracelet();"></script>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
 <script defer src="/content/site/puffy-bookmarks.js?v=20260712-1"></script>
+<script>
+  /* Pixel vessel icons — inject a self-hiding icon into each collection vessel.
+     Each <img> removes itself if the art isn't at the path yet, so the page
+     looks identical until Codex delivers assets/closet/vessels/*.png */
+  (function () {
+    var MAP = {
+      'vessel--puffy-board': 'puffy-board',
+      'vessel--sticker-book': 'sticker-book',
+      'vessel--sash': 'merit-sash',
+      'vessel--charm-bracelet': 'charm-bracelet',
+      'vessel--clip-jar': 'butterfly-clip',
+      'vessel--card-binder': 'trading-card-binder',
+      'vessel--detention': 'detention-slip',
+      'vessel--diary': 'locked-diary'
+    };
+    Object.keys(MAP).forEach(function (cls) {
+      var v = document.querySelector('.' + cls);
+      if (!v) return;
+      var title = v.querySelector('.vessel-title');
+      if (!title || title.querySelector('.vessel-icon')) return;
+      var img = document.createElement('img');
+      img.className = 'vessel-icon';
+      img.src = '/assets/closet/vessels/' + MAP[cls] + '-pixel.png?v=20260716';
+      img.alt = '';
+      img.setAttribute('aria-hidden', 'true');
+      img.onerror = function () { this.remove(); };
+      title.insertBefore(img, title.firstChild);
+    });
+  })();
+</script>
 </body>
 </html>
