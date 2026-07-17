@@ -153,7 +153,7 @@ Each is a **single Y2K object** rendered in the same pixel style, centered, tran
 - ★ **"I survived Y2K. I'll survive this too."** — broadest appeal, no AI-insider knowledge needed; the whole emotional thesis in one line. Likely bestseller.
 - **"Yippie-Ki-A.I."** — Deb / Die Hard. ALREADY CANON as her 1999 poster (`deb-1999-campaign-poster-yippee-ki-ai`), so the poster + a tee are one joke. Riffs the catchphrase (transformative) — fine to print.
 - **"Deb-flection™ · 1997"** — pairs with the NOPE Pad.
-- **"I'm missing Days of Our Lives for this?"** — CANON lyric from Deb's *Loop Me Out* song; keep verbatim in the song + quotables + site (do NOT "fix" it). Merch caveat ONLY: on a SOLD tee, "Days of Our Lives" is a registered show title (low-but-nonzero trademark call) — print as-is (reads as commentary) or swap to "my stories" on the tee. Ali's call; the song is untouched either way.
+- **"I'm missing Days of Our Lives for this?"** — CANON lyric from Deb's *Loop Me Out* song. **DECIDED (Ali 2026-07-16): use verbatim EVERYWHERE incl. sold merch** — she's fine with it; don't re-raise the trademark question.
 - **"Elle does the Bend and Snap. We do the Blend and Snap."** — lyric pull from the *Down at the Blend & Snap* song + Legally Blonde wink (transformative pun, fine to print). PRODUCT: a **Blend & Snap café MUG** (coffee wordplay → coffee cup) — gives that building its own merch. Tee optional.
 
 _(more prompts appended below as I find art gaps)_
