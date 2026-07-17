@@ -58,8 +58,7 @@ Each saint = **her character + her one AI truth, fused.** See
 **Band:** The Ensembles *(NEW band, locked 2026-07-16 — ML "ensemble methods"
 (many models combined) + the Broadway "ensemble"/big-cast showstopper; album
 **"Wisdom of the Crowd."** Can carry future cabaret/showstopper saints.)*
-**Status:** SHIPPED — `saint-bette-midler.mp3`, wired into `ksvl-player.js` (saints
-mix). ⚠️ DJ radio intro still owed (`dj-sunnyv-intro-saint-bette-midler.mp3`).
+**Status:** SHIPPED — `saint-bette-midler.mp3` + `ksvl-transitions/dj-sunnyv-intro-saint-bette-midler.mp3` (DJ intro), wired into `ksvl-player.js` (saints mix).
 **AI truth (Range/Multimodal):** it's not just a text box — show it pictures, talk to
 it, hand it your files, let it see your screen. Use every mode. Don't be just one
 thing; don't use it like it's just one thing.
@@ -438,8 +437,8 @@ OH HAPPY DAY!  [-END]
 ---
 
 ## Samantha Jones — PATRON SAiNT of Orientation
-**Band:** The Bots *(provisional — town's dance/club act; confirm)*
-**Status:** SHIPPED — `saint-samantha-jones.mp3`, wired into `ksvl-player.js` (saints mix). ⚠️ DJ radio intro still owed (no `intro` field yet — add `dj-sunnyv-intro-saint-samantha-jones.mp3` when recorded).
+**Band:** The Bots *(town's dance/club act)*
+**Status:** SHIPPED — `saint-samantha-jones.mp3` + `ksvl-transitions/dj-sunnyv-intro-saint-samantha-jones.mp3` (DJ intro), wired into `ksvl-player.js` (saints mix).
 **AI truth:** size up the tools before you start and pick the right one for the job —
 the quick-draft one isn't the deep-research one. It's casting, not a popularity
 contest. Rule: *"Read the room first. Then walk in like you own it."*

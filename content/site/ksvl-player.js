@@ -28,7 +28,7 @@
     { id: 'wednesdays-in-sv',      title: 'Wednesdays in SUNNYVAiLE',              artist: 'THE LAiDIES',   src: MUSIC + 'the-laidies-wednesday-in-sunnyvaile.mp3',           mixes: ['anthems'] },
 
     // PATRON SAiNTS
-    { id: 'saint-bette',           title: 'Bette Midler · PATRON SAiNT of Range',             artist: 'The Ensembles',   src: MUSIC + 'saint-bette-midler.mp3',       /* DJ intro TODO */                                                mixes: ['saints'] },
+    { id: 'saint-bette',           title: 'Bette Midler · PATRON SAiNT of Range',             artist: 'The Ensembles',   src: MUSIC + 'saint-bette-midler.mp3',       intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-bette-midler.mp3',     mixes: ['saints'] },
     { id: 'saint-buffy',           title: 'Buffy · PATRON SAiNT of SLAiYING',                 artist: 'The Overfits',    src: MUSIC + 'saint-buffy-summers.mp3',      intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-buffy-summers.mp3',    mixes: ['saints'] },
     { id: 'saint-cher',            title: 'Cher · PATRON SAiNT of Early Adoption',            artist: 'The Overfits',    src: MUSIC + 'saint-cher-horowitz.mp3',      intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-cher-horowitz.mp3',    mixes: ['saints'] },
     { id: 'saint-david',           title: 'David Rose · PATRON SAiNT of Specificity',         artist: 'Chain of Thought', src: MUSIC + 'saint-david-rose.mp3',         intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-david-rose.mp3',       mixes: ['saints'] },
@@ -37,7 +37,7 @@
     { id: 'saint-elle',            title: 'Elle Woods · PATRON SAiNT of Receipts',            artist: 'The Regressions', src: MUSIC + 'saint-elle-woods.mp3',         intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-elle-woods.mp3',       mixes: ['saints'] },
     { id: 'saint-miranda',         title: 'Miranda · PATRON SAiNT of Standards',              artist: 'Latent Space',    src: MUSIC + 'saint-miranda-priestly.mp3',   intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-miranda-priestly.mp3', mixes: ['saints'] },
     { id: 'saint-regina',          title: 'Regina · PATRON SAiNT of Dangerous Confidence',    artist: 'The Embeddings',  src: MUSIC + 'saint-regina-george.mp3',      intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-regina-george.mp3',    mixes: ['saints'] },
-    { id: 'saint-samantha',        title: 'Samantha · PATRON SAiNT of Orientation',           artist: 'The Bots',        src: MUSIC + 'saint-samantha-jones.mp3',     /* DJ intro TODO */                                                mixes: ['saints'] },
+    { id: 'saint-samantha',        title: 'Samantha · PATRON SAiNT of Orientation',           artist: 'The Bots',        src: MUSIC + 'saint-samantha-jones.mp3',     intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-samantha-jones.mp3',  mixes: ['saints'] },
     { id: 'saint-sister-mary-clarence', title: 'Sister Mary Clarence · PATRON SAiNT of Teaching', artist: 'The Embeddings', src: MUSIC + 'saint-sister-mary-clarence.mp3', intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-sister-mary-clarence.mp3', mixes: ['saints'] },
 
     // Activities
