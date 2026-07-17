@@ -547,8 +547,7 @@ Samantha.
 generation, which works by *denoising*) + disco shimmer/mirror-ball; 7" single
 **"Denoise the Dance Floor."** The town's only disco act so far — one track is fine
 (cf. Chain of Thought = David only).)*
-**Status:** SHIPPED — `saint-golden-girls.mp3`, wired into `ksvl-player.js` (saints
-mix). ⚠️ DJ radio intro owed (`dj-sunnyv-intro-saint-golden-girls.mp3`); group portrait owed.
+**Status:** SHIPPED — `saint-golden-girls.mp3` + `ksvl-transitions/dj-sunnyv-intro-saint-golden-girls.mp3` (DJ intro), wired into `ksvl-player.js` (saints mix). ⚠️ group portrait still owed.
 **Saint note:** the roster's FIRST **collective/group saint** — the four Golden Girls
 as ONE patron saint (intentional exception, like Regina's anti-saint). Replaced the
 earlier "Betty White solo" idea (Betty is Rose, one of the four). See [[saint-roster-rethink-2026-07]].
