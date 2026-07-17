@@ -542,6 +542,100 @@ Samantha.
 
 ---
 
+## The Golden Girls — PATRON SAiNT of Never Too Late
+**Band:** The Diffusions *(PROVISIONAL — new disco band proposed: "diffusion models"
+(AI generation) + disco shimmer/mirror-ball. CONFIRM or pick another.)*
+**Status:** SHIPPED — `saint-golden-girls.mp3`, wired into `ksvl-player.js` (saints
+mix). ⚠️ DJ radio intro owed (`dj-sunnyv-intro-saint-golden-girls.mp3`); group portrait owed.
+**Saint note:** the roster's FIRST **collective/group saint** — the four Golden Girls
+as ONE patron saint (intentional exception, like Regina's anti-saint). Replaced the
+earlier "Betty White solo" idea (Betty is Rose, one of the four). See [[saint-roster-rethink-2026-07]].
+**AI truth:** it's never too late — at ANY age the whole new world (AI included) is
+yours; don't count yourself out, dive all the way in, and you can be GREAT at it.
+(Encompassing — NOT just "try it once.")
+**Comedic engine:** all four personas — Sophia savage/morbid, Blanche vamp, Dorothy
+deadpan, Rose (Betty) sweet-dim. Hook = "be a golden girl" (theme phrase, not "like [Name]").
+
+**Style (Suno):**
+```
+1970s feel-good disco, four-on-the-floor kick, funky bassline, lush strings, wah guitar, bright horns, warm sassy female lead with spoken savage asides, group singalong backing vocals, euphoric and catchy, ~118 bpm, glamorous and fun — NOT country, NO acoustic guitar or twang, NOT doo-wop, clean studio recording, no crowd cheering, no applause
+```
+
+**Lyrics (FINAL — Ali 2026-07-16):** every line rhymes; "88" as digits + "lie-ve"
+phonetic are Suno-safe spellings — don't "fix" them.
+```
+[Intro]
+(disco strings swell, four-on-the-floor kicks in)
+(spoken, Sophia-savage, over the groove)
+Picture it:
+YOU....
+TONIGHT.  — too scared to even START.
+oh, sit down, sweetheart... let's have ourselves a little heart-to-HEART.
+
+[Verse 1]
+(disco groove, sassy)
+There's a lanai in Miami where the lights stay on all night,
+four "old" broads the world wrote off — still fabulous, still bright —
+Dorothy with the zingers, Blanche with a brand-new man,
+Rose lost in St. Olaf... and Sophia — with a PLAN —
+
+[Pre-Chorus]
+they said "ladies, you're finished — go and REST!" — (oh, please!)
+so they poured a little wine... and they got DRESSED — (lookin' their BEST!)
+
+[Chorus]
+Be a GOLDEN girl! (golden girl!)
+past your prime? oh please — give it a WHIRL! (a whirl!)
+the ones who never quit are the ones still havin' a BALL —
+this whole new world is yours, doll — so go HAVE it all!
+(be a golden girl!)
+
+[Verse 2]
+So the whole world went and changed, and you're sayin' "not for me" —
+well those four would slap that silly right outta your mouth with their TEA —
+they didn't sit on the sidelines, sugar — no, they were GREAT —
+they owned every minute they got... and proved it's never too LATE —
+
+[Pre-Chorus]
+they said "ladies, you're finished — go and REST!" — (oh, please!)
+so they poured a little wine... and they got DRESSED — (lookin' their BEST!)
+
+[Chorus]
+Be a GOLDEN girl! (golden girl!)
+past your prime? oh please — give it a WHIRL! (a whirl!)
+the ones who never quit are the ones still havin' a BALL —
+this whole new world is yours, doll — so go HAVE it all!
+(be a golden girl!)
+
+[Bridge]
+(spoken, Sophia over the vamp — sweet then morbid)
+You're too old? Ha! Picture THIS: I'm older than the hills,
+still sharp, still savage, still runnin' up the bills —
+that thing you keep avoidin'? — quit stallin', take the DIVE,
+I'm long gone now, darlin'... but YOU are still alive —
+Now — get UP!
+(disco SLAMS back in)
+
+[Final Chorus]
+(biggest, strings soaring, everybody)
+Be a GOLDEN girl! (golden girl!)
+past your prime? oh please — give it a WHIRL! (a whirl!)
+the ones who never quit are the ones still havin' a BALL —
+this whole new world is yours, doll — so go HAVE it all!
+(never too late to be great...)
+be a golden girl!
+
+[Outro]
+(disco fades, warm, spoken)
+four girls the world called "finished" — well, look at 'em GO,
+the best in the room at 88, hostin' a lie-ve SHOW —
+so pull up a chair, sugar — there's cheesecake on the PLATE,
+and bein' a golden girl, honey? — means it's never too LATE to be GREAT.
+(be a golden girl!)
+```
+
+---
+
 ## Deb — PATRON SAiNT of "Loop Me Out"
 **Band:** Latent Space · **Status:** SHIPPED, LOCKED (`saint-deb.mp3`)
 Full locked lyrics + production notes live in memory `deb-loop-me-out-song-locked`.
@@ -646,6 +740,5 @@ so nothing is a lost drive away from gone:
 
 ## Owed saint songs (not yet written)
 - **Oprah** (Staying Current) — run the engine
-- **Betty White** (new saint #12, "It's never too late / any age") — LOCKED cast; run the engine
 - **Jessica Fletcher** (proposed — "the follow-up question / interrogate the answer") — TBD
-- Bette ✅ SHIPPED · Samantha ✅ SHIPPED · Deloris ✅ SHIPPED
+- SHIPPED ✅: Deloris · Samantha · Bette · The Golden Girls (Betty White idea → collective Golden Girls saint)
