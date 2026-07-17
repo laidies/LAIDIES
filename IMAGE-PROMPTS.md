@@ -149,4 +149,10 @@ Each is a **single Y2K object** rendered in the same pixel style, centered, tran
 
 **Copy pool for future tees** (all Ali's own IP, free to print): motto + original quips (unlimited) + lyric hooks — "Garbage in, a garbage gown" (David), "It was women all along" (anthem), "Why be one thing when you could be the whole show?" (Bette), "It's not about the hype — it's about the fit" (Samantha), "Never too late to be great" (Golden Girls), "That's all" (Miranda). Grows as mp3-only songs (Cher/Elle/Regina/Dolly/Buffy/anthems/game songs) get transcribed.
 
+**Ali-picked tee lines (2026-07-16):**
+- ★ **"I survived Y2K. I'll survive this too."** — broadest appeal, no AI-insider knowledge needed; the whole emotional thesis in one line. Likely bestseller.
+- **"Yippie-Ki-A.I."** — Deb / Die Hard. ALREADY CANON as her 1999 poster (`deb-1999-campaign-poster-yippee-ki-ai`), so the poster + a tee are one joke. Riffs the catchphrase (transformative) — fine to print.
+- **"Deb-flection™ · 1997"** — pairs with the NOPE Pad.
+- **"I'm missing my stories for this?"** — soap-opera nostalgia. NOTE: use **"my stories"** (the classic euphemism — funnier), NOT a trademarked show title verbatim on sold merch.
+
 _(more prompts appended below as I find art gaps)_
