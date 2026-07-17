@@ -172,6 +172,12 @@
       }).join('');
       // Placeholder buttons (no checkout URL yet) show a gentle note.
       grid.addEventListener('click', function (e) {
+        var act = e.target.closest('.prod__buy, .prod__gift');
+        if (act && window.plausible) {
+          var card = act.closest('.prod');
+          var nm = card ? ((card.querySelector('.prod__name') || {}).textContent || '') : '';
+          try { window.plausible('Gift Shop click', { props: { product: nm, kind: act.classList.contains('prod__gift') ? 'gift' : 'buy' } }); } catch (e2) {}
+        }
         var b = e.target.closest('[data-soon]');
         if (!b) return;
         b.textContent = 'Opening soon ✦';

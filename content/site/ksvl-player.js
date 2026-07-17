@@ -612,6 +612,7 @@
   function playIndex(i) {
     state.index = ((i % state.queue.length) + state.queue.length) % state.queue.length;
     state.currentPart = 0;
+    if (window.plausible) { try { window.plausible('KSVL play', { props: { track: (state.queue[state.index] || {}).title || '' } }); } catch (e) {} }
     playCurrentPart();
   }
 

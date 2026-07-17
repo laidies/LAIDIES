@@ -217,6 +217,7 @@
         detail: { stopKey: stopKey, weekKey: weekKey, count: checked.length, total: STOPS.length, rewardIssued: rewardIssued }
       }));
     } catch (_) {}
+    if (window.plausible) { try { window.plausible('Tour check-in', { props: { stop: stopKey } }); if (rewardIssued) window.plausible('Full ritual'); } catch (_) {} }
 
     return { ok: true, count: checked.length, total: STOPS.length, rewardIssued: rewardIssued };
   }

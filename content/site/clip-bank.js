@@ -90,6 +90,7 @@
         detail: { id: id, cost: cost, available: available() }
       }));
     } catch (e) {}
+    if (window.plausible) { try { window.plausible('Book Fair redeem', { props: { drop: id, cost: cost } }); } catch (e) {} }
     return { ok: true, available: available() };
   }
 

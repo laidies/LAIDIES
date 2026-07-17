@@ -326,6 +326,7 @@
         cur.push(charm.slug);
         writeCollection(cur);
         document.dispatchEvent(new CustomEvent('charmhunt:found', { detail: { slug: charm.slug, totalFound: cur.length } }));
+        if (window.plausible) { try { window.plausible('Charm found', { props: { charm: charm.slug } }); } catch (_) {} }
       }
       burstConfetti(sparkle);
       showToast(charm, cur.length, unlockedTotalCount());
