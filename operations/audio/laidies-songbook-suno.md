@@ -543,8 +543,10 @@ Samantha.
 ---
 
 ## The Golden Girls — PATRON SAiNT of Never Too Late
-**Band:** The Diffusions *(PROVISIONAL — new disco band proposed: "diffusion models"
-(AI generation) + disco shimmer/mirror-ball. CONFIRM or pick another.)*
+**Band:** The Diffusions *(NEW band, LOCKED 2026-07-16 — "diffusion models" (AI image
+generation, which works by *denoising*) + disco shimmer/mirror-ball; 7" single
+**"Denoise the Dance Floor."** The town's only disco act so far — one track is fine
+(cf. Chain of Thought = David only).)*
 **Status:** SHIPPED — `saint-golden-girls.mp3`, wired into `ksvl-player.js` (saints
 mix). ⚠️ DJ radio intro owed (`dj-sunnyv-intro-saint-golden-girls.mp3`); group portrait owed.
 **Saint note:** the roster's FIRST **collective/group saint** — the four Golden Girls
