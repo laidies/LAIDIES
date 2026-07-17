@@ -403,6 +403,7 @@
         // one deck at a time — the Screening Room silences everything else
         document.querySelectorAll('audio').forEach(function (a) { if (a !== tape && !a.paused) a.pause(); });
         tape.play().catch(function () {});
+        if (window.plausible) { try { window.plausible('Episode watch', { props: { page: document.title } }); } catch (e) {} }
       } else { tape.pause(); }
     }
 

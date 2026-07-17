@@ -5291,6 +5291,7 @@ function gradeQuiz() {
     stickerTier: reward.tier,
   };
   saveQuizProgressRecords(progress);
+  if (window.plausible) { try { window.plausible('Quiz completed', { props: { quiz: activeQuizKey, score: score } }); } catch (e) {} }
   markWednesdayRitualActionCompleteFromQuiz(activeQuizKey);
 
   renderQuizProgress();

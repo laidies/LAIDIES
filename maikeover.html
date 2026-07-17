@@ -851,6 +851,7 @@
       claimBtn.textContent = 'Saving…';
       // Always cache locally so the card shows @handle immediately.
       try { localStorage.setItem('laidies_card_username', value); } catch (_) {}
+      if (window.plausible) { try { window.plausible('Resident Card made', { props: { signedIn: !!session } }); } catch (_) {} }
 
       if (!session) {
         // Not signed in — keep it on this device; prompt to sign in to lock it.
