@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dream Phone · LAiDIES</title>
+<meta name="description" content="The AI called with a wild 90s fact. Call around town to check it — and decide: For Real, or As If?" />
+<meta name="theme-color" content="#fffdfb" />
+<link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --pearl:#fffdfb; --paper:#fbf6f5; --mist:#efe0e2; --blush:#e8c5c8;
+    --plum:#4b2148; --muted:#766171; --rose:#9b3f5f; --ice:#c8dce0; --gold:#b49764;
+    --card:rgba(255,253,251,0.94); --card-edge:rgba(232,197,200,0.55);
+    --line:rgba(75,33,72,0.12); --shadow:rgba(75,33,72,0.12); --shadow-strong:rgba(75,33,72,0.18);
+    --rose-soft:rgba(155,63,95,0.16); --gold-soft:rgba(180,151,100,0.32); --ice-soft:rgba(200,220,224,0.5);
+  }
+  html{font-size:18px;scroll-behavior:smooth} @media(max-width:600px){html{font-size:16px}}
+  body{font-family:'Jost',system-ui,sans-serif;color:var(--plum);line-height:1.55;-webkit-font-smoothing:antialiased;
+    background:radial-gradient(1200px 520px at 50% -8%, var(--rose-soft), transparent 60%),linear-gradient(180deg,var(--pearl),var(--paper))}
+  body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:
+    radial-gradient(1px 1px at 22% 26%,rgba(180,151,100,.5),transparent),radial-gradient(1.5px 1.5px at 68% 15%,rgba(155,63,95,.4),transparent),
+    radial-gradient(1px 1px at 42% 72%,rgba(150,180,200,.4),transparent),radial-gradient(1.5px 1.5px at 82% 60%,rgba(180,151,100,.4),transparent)}
+
+  .sv-header{display:flex;align-items:center;justify-content:space-between;max-width:1040px;margin:0 auto;padding:18px 24px}
+  .brand{font-family:'Jost';font-weight:800;font-size:1.4rem;color:var(--plum);text-decoration:none}
+  .brand .ai{color:var(--rose)}
+  .backlink{font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rose);text-decoration:none;border:1.5px solid var(--rose);padding:6px 13px;border-radius:999px}
+  .backlink:hover{background:var(--rose);color:#fff}
+
+  .wrap{max-width:660px;margin:0 auto;padding:12px 22px 70px}
+  .eyebrow{display:flex;align-items:center;gap:9px;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);margin:0 0 10px}
+  .eyebrow::before{content:'☎'}
+  h1{font-family:'Jost';font-weight:700;font-size:clamp(2rem,5.5vw,2.9rem);line-height:1.03;letter-spacing:-.01em;text-wrap:balance;margin:0 0 8px;
+    background:linear-gradient(120deg,var(--plum),var(--rose));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lede{color:var(--muted);font-size:.95rem;max-width:56ch;margin:0 0 8px}
+  .scorebar{display:flex;align-items:center;gap:14px;font-size:.74rem;color:var(--muted);margin:6px 2px 20px;font-weight:600;letter-spacing:.04em}
+  .scorebar .dots{display:flex;gap:5px}
+  .scorebar .dot{width:8px;height:8px;border-radius:50%;background:var(--line)} .scorebar .dot.ok{background:var(--ice)} .scorebar .dot.no{background:var(--rose)}
+
+  .card{background:var(--card);border:1px solid var(--card-edge);border-radius:18px;box-shadow:0 22px 50px -24px var(--shadow-strong);backdrop-filter:blur(4px)}
+  .claim-card{padding:18px 20px 20px;border-radius:20px 20px 20px 6px}
+  .claim-tag{display:inline-flex;align-items:center;gap:9px;font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);margin:0 0 11px}
+  .claim-tag .av{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--rose),var(--plum));display:grid;place-items:center;color:#fff;font-size:.72rem;font-weight:700;font-style:italic}
+  .claim-txt{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:1.24rem;line-height:1.42;color:var(--plum)}
+  .claim-txt .assert{background:var(--gold-soft);border-radius:4px;padding:0 3px;box-shadow:inset 0 -2px 0 rgba(180,151,100,.6)}
+
+  .section-h{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);margin:22px 2px 11px}
+  .directory{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:540px){.directory{grid-template-columns:1fr}}
+  .contact{display:flex;align-items:center;gap:11px;cursor:pointer;text-align:left;background:var(--card);border:1px solid var(--card-edge);border-radius:14px;padding:10px 13px;transition:.15s;font-family:'Jost'}
+  .contact:hover:not(:disabled){transform:translateY(-2px);border-color:var(--rose);box-shadow:0 12px 24px -14px var(--rose-soft)}
+  .contact:disabled{cursor:default}
+  .contact.called{border-color:var(--rose);background:linear-gradient(180deg,var(--pearl),var(--mist))}
+  .contact .av{flex:none;width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--blush),var(--rose));display:grid;place-items:center;font-size:1.05rem;border:2px solid var(--pearl);box-shadow:0 3px 8px var(--shadow)}
+  .contact>span:last-child{display:flex;flex-direction:column;gap:1px;min-width:0}
+  .contact .nm{font-weight:600;font-size:.9rem;color:var(--plum);line-height:1.15}
+  .contact .tl{font-size:.7rem;color:var(--muted);margin-top:1px}
+  .contact.called .av{filter:saturate(.55) brightness(1.05)}
+
+  .notes{margin:16px 0 0;display:flex;flex-direction:column;gap:11px}
+  .notes-empty{font-size:.86rem;color:var(--muted);padding:6px 2px}
+  .note{background:var(--card);border:1px solid var(--card-edge);border-left:4px solid var(--rose);border-radius:6px 14px 14px 6px;padding:11px 15px;box-shadow:0 8px 20px -16px var(--shadow);animation:rise .3s ease}
+  @keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .note .who{display:flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--rose);margin:0 0 6px}
+  .note .said{font-size:.95rem;line-height:1.55;color:var(--plum);font-style:italic;display:block;margin-bottom:5px}
+  .note .said:last-child{margin-bottom:0}
+  .ring{font-size:.82rem;color:var(--muted);letter-spacing:.1em;padding:6px 2px}
+
+  .verdict{display:flex;gap:12px;margin:22px 0 0}
+  .btn{flex:1;border:0;cursor:pointer;font-family:'Jost';font-weight:700;font-size:1.05rem;padding:17px 12px;border-radius:14px;transition:.15s;line-height:1.1}
+  .btn small{display:block;font-weight:500;font-size:.7rem;opacity:.82;margin-top:4px}
+  .btn-real{background:linear-gradient(180deg,#4f8f86,#2f6f66);color:#fff}
+  .btn-asif{background:linear-gradient(180deg,#b95d78,var(--rose));color:#fff}
+  .btn:hover:not(:disabled){transform:translateY(-2px);filter:brightness(1.05)} .btn:disabled{opacity:.4;cursor:default;transform:none;filter:none}
+
+  .reveal{margin:20px 0 0;padding:20px 22px;border-radius:16px;display:none;box-shadow:0 22px 50px -24px var(--shadow-strong)}
+  .reveal.show{display:block;animation:rise .35s ease}
+  .reveal.win{background:linear-gradient(180deg,var(--ice-soft),rgba(200,220,224,.3));border:1.5px solid #4f8f86}
+  .reveal.lose{background:linear-gradient(180deg,var(--rose-soft),rgba(155,63,95,.07));border:1.5px solid var(--blush)}
+  .reveal .rv{font-family:'Playfair Display',serif;font-weight:800;font-size:1.5rem;margin:0 0 4px;color:var(--plum)}
+  .reveal .rv small{display:block;font-family:'Jost';font-weight:600;font-size:.8rem;color:var(--muted);letter-spacing:.03em;margin-top:2px}
+  .reveal .brk{margin:14px 0 0;display:flex;flex-direction:column;gap:10px}
+  .reveal .brk .row{display:flex;gap:10px;align-items:flex-start;font-size:.92rem;line-height:1.5}
+  .reveal .brk .tag{flex:none;font-size:.64rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:20px;margin-top:2px}
+  .tag.t-true{background:var(--ice-soft);color:#2f6f66} .tag.t-inflated{background:var(--gold-soft);color:#6f5216} .tag.t-madeup{background:var(--rose-soft);color:var(--rose)}
+  .reveal .brk b{color:var(--rose)}
+  .reveal .lesson{margin:14px 0 0;font-size:.9rem;color:var(--plum);font-weight:600}
+  .reveal .src{margin:10px 0 0;font-size:.72rem;color:var(--muted)} .reveal .src a{color:var(--rose);font-weight:600}
+  .next{margin:16px 0 0;width:100%;padding:15px;border-radius:13px;border:0;cursor:pointer;font-family:'Jost';font-weight:700;font-size:.98rem;background:linear-gradient(180deg,#a8546f,var(--rose));color:#fff}
+
+  .final{display:none} .final.show{display:block;animation:rise .4s ease}
+  .final .card{padding:30px 26px;text-align:center;border-radius:22px}
+  .final .grade{font-family:'Playfair Display',serif;font-weight:800;font-size:2.5rem;background:linear-gradient(120deg,var(--plum),var(--rose));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .final .gl{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:2px 0 14px}
+  .final p{font-size:.95rem;line-height:1.6;max-width:46ch;margin:0 auto}
+  .again{margin-top:18px;background:none;border:1.5px solid var(--card-edge);color:var(--plum);padding:12px 22px;border-radius:12px;font-weight:600;cursor:pointer;font-family:'Jost'}
+
+  .foot{margin:26px 2px 0;font-size:.74rem;color:var(--muted);line-height:1.6;border-top:1px solid var(--line);padding-top:14px} .foot b{color:var(--rose)}
+  .beta{display:inline-block;font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--gold);padding:2px 8px;border-radius:20px;vertical-align:middle;margin-left:8px}
+</style>
+</head>
+<body>
+  <header class="sv-header">
+    <a class="brand" href="/">L<span class="ai">Ai</span>DIES</a>
+    <a class="backlink" href="/games/dream-phone.html">← Dream Phone</a>
+  </header>
+
+  <div class="wrap">
+    <p class="eyebrow">Is that even true?<span class="beta">Beta</span></p>
+    <h1>Dream Phone</h1>
+    <p class="lede">The AI called with a wild 90s fact. <b>Call around town to check it</b> — nobody just hands you the answer, so work a few lines, weigh who's talking, and make the call: <b>For Real</b>, or <b>As If</b>?</p>
+    <div class="scorebar"><span id="roundLabel"></span><span class="dots" id="scoreDots"></span></div>
+
+    <div class="card claim-card">
+      <span class="claim-tag"><span class="av">Ai</span> The AI swears —</span>
+      <p class="claim-txt" id="claimTxt"></p>
+    </div>
+
+    <div id="game">
+      <p class="section-h">☎️ Who to call — dial a few</p>
+      <div class="directory" id="directory"></div>
+      <div class="notes" id="notes"><p class="notes-empty">No calls yet — dial someone and hear what they've got.</p></div>
+      <div class="verdict">
+        <button class="btn btn-real" data-v="for-real">✓ For Real<small>trust it as stated</small></button>
+        <button class="btn btn-asif" data-v="as-if">✗ As If<small>don't buy it</small></button>
+      </div>
+      <div class="reveal" id="reveal"></div>
+    </div>
+
+    <div class="final" id="final"></div>
+
+    <p class="foot">Every fact here is <b>real and sourced</b>; the fakes are period-accurate myths. Nobody in the phonebook just <em>tells you the answer</em> — you catch a lie by the <b>scatter</b> (nobody agrees on the specifics) or the <b>missing number</b> (everyone shouts the scary figure, nobody says "out of how many"). <b>Beta</b> — tell us what feels off.</p>
+  </div>
+
+<script>
+const ALL_ROUNDS = [
+  { id:"sky-dancers", verdict:"as-if",
+    claim:`Sky Dancers — those fairy dolls you'd snap onto a launcher and send spinning with a pull-string — injured <span class="assert">thousands of kids</span> and even got <span class="assert">their own primetime TV exposé</span> before they were pulled off shelves.`,
+    contacts:[
+      {av:"📚",nm:"Miss Jeeves",tl:"the librarian",leads:["I've got the recall write-up — about 150 reported injuries.","We don't keep TV transcripts, dear. Can't help you on the telly bit."]},
+      {av:"🧸",nm:"Toy-Shop Keeper",tl:"the mall toy counter",leads:["Sky Dancers?? Those flew off the shelves — we reordered every single week. Must've sold millions."]},
+      {av:"☕",nm:"The Barista",tl:"overhears everything",leads:["My cousin's kid caught one in the eye — real ER trip.","The TV thing? Pretty sure that was… Dateline?"]},
+      {av:"📧",nm:"Deb",tl:"forwards the chain email",leads:["Chain email: “THOUSANDS BLINDED — it was on 20/20!!”","Kathy on ICQ swears it was 60 Minutes."]},
+      {av:"🗣️",nm:"Office Gossip",tl:"workplace rumor",leads:["Everyone I know got hurt — it was thousands.","No no, I saw the exposé on Oprah."]},
+      {av:"📻",nm:"DJ SunnyV",tl:"caller buzz",leads:["A caller swore she caught it on some news show — couldn't say which."]},
+      {av:"🔮",nm:"Mme CLAi-O",tl:"the cards",leads:["The cards sense… studio lights… cameras… $40, please."]}],
+    reveal:{rows:[
+      {tag:"inflated",label:"“thousands of kids”",text:`Real injuries — but <b>~150</b>, out of about <b>9 million</b> sold. Nobody gives you that denominator until you ask the toy-shop.`},
+      {tag:"madeup",label:"“primetime TV exposé”",text:`Four people “saw” it — 20/20, Dateline, 60 Minutes, Oprah. Nobody who <em>watched</em> a thing fumbles the channel. <b>It never aired.</b>`}],
+      lesson:`One juiced, one invented. The recall was real; the drama wasn't. As if. 💅`,
+      src:`CPSC recall notice`, url:`https://www.cpsc.gov/Recalls/2000/cpsc-galoob-toys-inc-announce-recall-of-sky-dancers-flying-dolls`}},
+
+  { id:"furby-nsa", verdict:"for-real",
+    claim:`The NSA actually <span class="assert">banned Furbies from its headquarters</span> — staff were <span class="assert">scared the toys were recording classified conversations</span> and would repeat them.`,
+    contacts:[
+      {av:"📚",nm:"Miss Jeeves",tl:"the librarian",leads:["Washington Post write-up: banned from Fort Meade, early '99.","There was an internal “Furby Alert” memo. It's documented."]},
+      {av:"☕",nm:"The Barista",tl:"overhears everything",leads:["My cousin's dad was on a base — said there really was a memo about the toys.","Weird, but everyone who'd know tells it the same way."]},
+      {av:"🗣️",nm:"Office Gossip",tl:"workplace rumor",leads:["Sounds fake… but a bunch of real outlets reported it. It checks out.","Even the boring version matches — Fort Meade, '99."]},
+      {av:"📧",nm:"Deb",tl:"forwards the chain email",leads:["Chain email: “FURBIES ARE SPIES, unplug yours!!” (dramatic, but same direction)"]},
+      {av:"🔮",nm:"Mme CLAi-O",tl:"the cards",leads:["The cards sense… surveillance… a small furry oracle… $40."]}],
+    reveal:{rows:[
+      {tag:"true",label:"“NSA banned them”",text:`Real. Fort Meade, early 1999, the “Furby Alert.” Every credible source lands on the same specifics.`},
+      {tag:"true",label:"“feared recording”",text:`Real — that was the stated fear. <em>(They were wrong: Hasbro proved Furbies just ran ~200 words on a timer. But the ban absolutely happened.)</em>`}],
+      lesson:`For Real. It sounds insane — and it's completely documented. Don't call the absurd fake on reflex. Verify first.`,
+      src:`Snopes`, url:`https://www.snopes.com/fact-check/nasa-furby-ban/`}},
+
+  { id:"good-times", verdict:"as-if",
+    claim:`Back in '94 there was a computer virus called <span class="assert">Good Times</span> that would <span class="assert">wipe your whole hard drive if you so much as opened the email</span>.`,
+    contacts:[
+      {av:"📧",nm:"Deb",tl:"forwards the chain email",leads:["Chain email: “GOOD TIMES DELETES YOUR HARD DRIVE — forward to EVERYONE!!”"]},
+      {av:"☕",nm:"The Barista",tl:"overhears everything",leads:["I heard it fried your processor — some infinite loop thing?"]},
+      {av:"🗣️",nm:"Office Gossip",tl:"workplace rumor",leads:["No, it emailed itself to your whole address book automatically."]},
+      {av:"📻",nm:"DJ SunnyV",tl:"caller buzz",leads:["A caller said it just quietly erased all your files."]},
+      {av:"📚",nm:"Miss Jeeves",tl:"the librarian",leads:["The Dept. of Energy put out an official notice in Dec '94: there is no such virus.","The only thing that ever spread was the warning."]}],
+    reveal:{rows:[
+      {tag:"madeup",label:"“a virus called Good Times”",text:`It never existed. It was a chain-email <b>hoax</b> — a warning about a virus that wasn't real. The government debunked it in '94.`},
+      {tag:"madeup",label:"“wipes your hard drive”",text:`Notice nobody agrees what it “did”? Deletes your drive / fries your CPU / emails everyone. A real virus has real symptoms; a fake one has as many as there are people forwarding the panic.`}],
+      lesson:`As If. The chain-email panic <em>was</em> the whole “virus.” This is, quite literally, the thing this game is about.`,
+      src:`Wikipedia — Goodtimes virus`, url:`https://en.wikipedia.org/wiki/Goodtimes_virus`}},
+
+  { id:"pokemon", verdict:"as-if",
+    claim:`That Pokémon episode with the strobing lights <span class="assert">gave hundreds of kids seizures</span> — and <span class="assert">it aired in America too and sent US kids to the ER</span> before they pulled it.`,
+    contacts:[
+      {av:"📚",nm:"Miss Jeeves",tl:"the librarian",leads:["News coverage: 685 kids hospitalized in Japan, December '97.","US broadcast logs? That episode never aired outside Japan. Not once."]},
+      {av:"📧",nm:"Deb",tl:"forwards the chain email",leads:["My cousin taped it — it was on Toonami!"]},
+      {av:"☕",nm:"The Barista",tl:"overhears everything",leads:["Pretty sure I caught it on 4Kids?","The Japan thing's real though — everyone knows that one."]},
+      {av:"🗣️",nm:"Office Gossip",tl:"workplace rumor",leads:["No, it was a bootleg VHS that went around school."]},
+      {av:"📻",nm:"DJ SunnyV",tl:"caller buzz",leads:["A caller swore she saw it, couldn't say when."]}],
+    reveal:{rows:[
+      {tag:"true",label:"“hundreds of seizures”",text:`Real — <b>685</b> kids hospitalized, in Japan, Dec 16 1997.`},
+      {tag:"madeup",label:"“aired in America too”",text:`One says Toonami, one 4Kids, one a bootleg — nobody who watched it fumbles the channel. <b>It never aired outside Japan.</b>`}],
+      lesson:`As If. The seizures were real; the US airing is a pile of confident guesses that don't line up.`,
+      src:`Wikipedia — Dennō Senshi Porygon`, url:`https://en.wikipedia.org/wiki/Denn%C5%8D_Senshi_Porygon`}},
+
+  { id:"beanie-divorce", verdict:"as-if",
+    claim:`A divorcing couple in Vegas had to <span class="assert">get on the courtroom floor and split their Beanie Baby collection one by one</span> — the thing was worth <span class="assert">like a hundred grand</span>.`,
+    contacts:[
+      {av:"📚",nm:"Miss Jeeves",tl:"the librarian",leads:["The Reuters photo + court write-up — courtroom floor, Judge Hardcastle, Maple the Bear went first.","Doesn't say what it was worth, though."]},
+      {av:"📧",nm:"Deb",tl:"forwards the chain email",leads:["They split a HUNDRED-THOUSAND-dollar fortune!!"]},
+      {av:"🗣️",nm:"Office Gossip",tl:"workplace rumor",leads:["I heard it was worth a mint — six figures easy."]},
+      {av:"⚖️",nm:"Court Clerk",tl:"the official record",leads:["The decree valued the whole lot at twenty-five hundred to five grand."]}],
+    reveal:{rows:[
+      {tag:"true",label:"“split on the courtroom floor”",text:`Real — the Mountains, Las Vegas, Nov 1999, Judge Hardcastle refereeing.`},
+      {tag:"inflated",label:"“worth a hundred grand”",text:`Appraised at <b>$2,500–$5,000</b>. Nobody gives you that number until you ask for it.`}],
+      lesson:`As If. “It's not about the toys,” the judge said. “It's about control.” Five grand of plush and a lot of spite.`,
+      src:`Snopes`, url:`https://www.snopes.com/fact-check/couple-divorce-beanie-babies/`}},
+
+  { id:"tamagotchi-cemetery", verdict:"for-real",
+    claim:`When your Tamagotchi "died," you could <span class="assert">mail it to a real pet cemetery in England and have it actually buried</span> — <span class="assert">people shipped their dead ones in from all over the world</span>.`,
+    contacts:[
+      {av:"📚",nm:"Miss Jeeves",tl:"the librarian",leads:["Reuters footage + a Vice write-up — a Cornwall pet cemetery, owner Terry Squires, two girls burying theirs in Jan '97.","Documented, all of it."]},
+      {av:"☕",nm:"The Barista",tl:"overhears everything",leads:["My cousin actually mailed hers to England, I swear."]},
+      {av:"📧",nm:"Deb",tl:"forwards the chain email",leads:["Chain email about the “Tamagotchi graveyard” — but this one's… real?"]},
+      {av:"🔮",nm:"Mme CLAi-O",tl:"the cards",leads:["The cards sense… tiny gravestones… $40."]}],
+    reveal:{rows:[
+      {tag:"true",label:"“real English cemetery buried them”",text:`Real — Cornwall, owner Terry Squires, Reuters filmed the funerals.`},
+      {tag:"true",label:"“shipped from around the world”",text:`Real — burials came in from Switzerland, Germany, France, Canada, the US.`}],
+      lesson:`For Real. Completely unhinged, completely documented. “Too ridiculous to be true” is not a verification method.`,
+      src:`Vice — The Tamagotchi Cemetery`, url:`https://www.vice.com/en/article/the-tamagotchi-cemetery/`}},
+
+  { id:"y2k-bill", verdict:"for-real",
+    claim:`Okay, Y2K itself was a total dud — but one real casualty: <span class="assert">a video store's computer billed a customer $91,250</span>, dead sure <span class="assert">they'd kept a rented tape for a full 100 years</span>.`,
+    contacts:[
+      {av:"📚",nm:"Miss Jeeves",tl:"the librarian",leads:["It's in the documented-glitch write-ups — a NY video store, the tape was The General's Daughter.","The system read the return as 100 years late."]},
+      {av:"☕",nm:"The Barista",tl:"overhears everything",leads:["My uncle worked at a rental place — said one of these actually happened."]},
+      {av:"🗣️",nm:"Office Gossip",tl:"workplace rumor",leads:["$91k for a video sounds fake… but it's on every 'real Y2K glitches' list. Ugh, fine."]}],
+    reveal:{rows:[
+      {tag:"true",label:"“billed $91,250”",text:`Real — a documented Y2K glitch, a New York video store.`},
+      {tag:"true",label:"“100 years late”",text:`Real — the “00” rolled back to 1900, so the late fee counted a full century.`}],
+      lesson:`For Real. The apocalypse was a no-show; the dumb little glitches were the real story.`,
+      src:`Mental Floss — problems Y2K actually caused`, url:`https://www.mentalfloss.com/article/610706/problems-caused-by-y2k`}},
+
+  { id:"aol-cds", verdict:"for-real",
+    claim:`At the peak of AOL, <span class="assert">half of every CD made in the entire world</span> was one of those <span class="assert">free-trial discs they mailed to everybody</span>.`,
+    contacts:[
+      {av:"📚",nm:"Miss Jeeves",tl:"the librarian",leads:["The documented figure: about 50% of all CDs produced globally, at peak.","The Smithsonian even collects them."]},
+      {av:"🗣️",nm:"Office Gossip",tl:"workplace rumor",leads:["“Half of ALL CDs?” Sounds insane — but the numbers all say the same thing."]},
+      {av:"📧",nm:"Deb",tl:"forwards the chain email",leads:["I had like 40 of them in a drawer, can confirm the mailing part lol"]}],
+    reveal:{rows:[
+      {tag:"true",label:"“half of all CDs were AOL”",text:`Real — about 50% of the world's CDs, at peak.`},
+      {tag:"true",label:"“mailed to everybody”",text:`Real — over a billion sent; grew AOL from 200k to 22 million users.`}],
+      lesson:`For Real. The most successful annoying campaign in history — and it's in the Smithsonian.`,
+      src:`Mental Floss — history of AOL CDs`, url:`https://www.mentalfloss.com/article/87291/youve-got-mail-history-aols-free-trial-cds`}},
+
+  { id:"mortal-kombat", verdict:"for-real",
+    claim:`A video game got so much heat that <span class="assert">the US Senate held hearings on it in 1993</span> — and <span class="assert">that's literally why the video-game rating system exists</span>.`,
+    contacts:[
+      {av:"📚",nm:"Miss Jeeves",tl:"the librarian",leads:["The Senate hearing record — December 1993, over Mortal Kombat and Night Trap, Senators Lieberman and Kohl.","And the ESRB was founded in '94, directly in response."]},
+      {av:"☕",nm:"The Barista",tl:"overhears everything",leads:["My brother said his games got 'M' ratings right after some Senate thing. Checks out."]},
+      {av:"🗣️",nm:"Office Gossip",tl:"workplace rumor",leads:["Sounds dramatic, but every source tells it the same way."]}],
+    reveal:{rows:[
+      {tag:"true",label:"“Senate hearings in 1993”",text:`Real — over Mortal Kombat's blood and the game Night Trap.`},
+      {tag:"true",label:"“why the rating system exists”",text:`Real — the industry created the ESRB in 1994 to dodge regulation.`}],
+      lesson:`For Real. That “M for Mature” on every game traces straight back to a fatality.`,
+      src:`Wikipedia — 1993–94 Senate hearings on video games`, url:`https://en.wikipedia.org/wiki/1993%E2%80%9394_United_States_Senate_hearings_on_video_games`}},
+
+  { id:"tickle-me-elmo", verdict:"as-if",
+    claim:`The Tickle Me Elmo craze got so insane people were <span class="assert">routinely dropping twenty grand</span> on a <span class="assert">twenty-nine-dollar toy</span>.`,
+    contacts:[
+      {av:"📧",nm:"Deb",tl:"forwards the chain email",leads:["Someone paid TWENTY THOUSAND for one!!"]},
+      {av:"🗣️",nm:"Office Gossip",tl:"workplace rumor",leads:["They were going for like ten grand each, I heard."]},
+      {av:"🧸",nm:"Toy-Shop Keeper",tl:"the mall toy counter",leads:["The going scalper rate was about $1,500. There was ONE charity radio auction that hit $18,500 — one. That wasn't normal."]},
+      {av:"📚",nm:"Miss Jeeves",tl:"the librarian",leads:["Retail was $28.99. That part's easy."]}],
+    reveal:{rows:[
+      {tag:"true",label:"“a $29 toy”",text:`Real — MSRP $28.99.`},
+      {tag:"inflated",label:"“routinely twenty grand”",text:`Typical scalper price was ~$1,500. The huge number was <b>one</b> charity auction ($18,500) — a stunt, not the going rate.`}],
+      lesson:`As If. The viral extreme is never the average — go find the typical.`,
+      src:`Wikipedia — Tickle Me Elmo`, url:`https://en.wikipedia.org/wiki/Tickle_Me_Elmo`}},
+
+  { id:"bonsai-kitten", verdict:"as-if",
+    claim:`There was a website around 2000 that <span class="assert">actually grew kittens inside glass jars to mold their bones into the jar shape</span> — <span class="assert">it got the FBI involved</span>.`,
+    contacts:[
+      {av:"📧",nm:"Deb",tl:"forwards the chain email",leads:["Chain email: “SICK site GROWING KITTENS IN JARS — sign + forward!!”"]},
+      {av:"🗣️",nm:"Office Gossip",tl:"workplace rumor",leads:["I heard they were selling them for hundreds."]},
+      {av:"☕",nm:"The Barista",tl:"overhears everything",leads:["…someone said the photos were staged, though?"]},
+      {av:"📚",nm:"Miss Jeeves",tl:"the librarian",leads:["The FBI subpoenaed MIT and found nothing — no kittens, no sales, no abuse.","It was a satire site. The photos were staged."]}],
+    reveal:{rows:[
+      {tag:"madeup",label:"“grew kittens in jars”",text:`A <b>hoax</b> — a satire site with staged photos. Zero real kittens, ever.`},
+      {tag:"true",label:"“got the FBI involved”",text:`True — the FBI actually investigated in 2001… and found nothing, because it was fake.`}],
+      lesson:`As If. The outrage was 100% real; the kittens were 0% real. A shocking photo + a wave of outrage isn't evidence.`,
+      src:`Wikipedia — Bonsai Kitten`, url:`https://en.wikipedia.org/wiki/Bonsai_Kitten`}},
+
+  { id:"pentium", verdict:"as-if",
+    claim:`That Pentium chip bug was so bad <span class="assert">every Pentium computer was getting basic math wrong</span>, and <span class="assert">Intel had to recall them all</span>.`,
+    contacts:[
+      {av:"📧",nm:"Deb",tl:"forwards the chain email",leads:["My computer was LYING, nothing added up!!"]},
+      {av:"🗣️",nm:"Office Gossip",tl:"workplace rumor",leads:["Everyone's Pentium couldn't do math."]},
+      {av:"📚",nm:"Miss Jeeves",tl:"the librarian",leads:["The flaw only showed in specific high-precision divisions — odds on a random calc were about 1 in 9 billion.","A math professor doing prime-number research is the one who caught it."]}],
+    reveal:{rows:[
+      {tag:"true",label:"“Intel recalled the chips”",text:`Real — a $475M recall, Dec 1994, the first full recall of a computer chip.`},
+      {tag:"inflated",label:"“every PC getting basic math wrong”",text:`Only rare high-precision divisions — about <b>1 in 9 billion</b>. Normal users never hit it.`}],
+      lesson:`As If. “There was a recall” doesn't mean “everything was broken” — check how <em>often</em> it actually happened.`,
+      src:`Wikipedia — Pentium FDIV bug`, url:`https://en.wikipedia.org/wiki/Pentium_FDIV_bug`}},
+
+  { id:"blair-witch", verdict:"for-real",
+    claim:`The Blair Witch Project was marketed so convincingly that <span class="assert">the actors were officially listed as missing, presumed dead</span> and <span class="assert">tons of people walked in thinking it was real footage</span>.`,
+    contacts:[
+      {av:"📚",nm:"Miss Jeeves",tl:"the librarian",leads:["The IMDb “missing, presumed dead” listing — the first year. Plus missing-person flyers handed out at Sundance.","All documented."]},
+      {av:"☕",nm:"The Barista",tl:"overhears everything",leads:["My older sister genuinely thought it was real when she saw it in '99."]},
+      {av:"🗣️",nm:"Office Gossip",tl:"workplace rumor",leads:["“Nobody really believed that” — except a lot of people did. There was no way to look it up back then."]}],
+    reveal:{rows:[
+      {tag:"true",label:"“actors listed missing, presumed dead”",text:`Real — on IMDb, plus the Sundance missing-person flyers.`},
+      {tag:"true",label:"“people believed it was real”",text:`Real — and it worked <em>because</em> you couldn't fact-check in 1999.`}],
+      lesson:`For Real. The reason the con worked is the exact muscle this game builds.`,
+      src:`No Film School`, url:`https://nofilmschool.com/blair-witch-project`}}
+];
+
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+const SHIFT_LEN = 8;
+let ROUNDS = shuffle(ALL_ROUNDS.slice()).slice(0, SHIFT_LEN);
+let round=0, score=0, results=[], ringing=false;
+const $=id=>document.getElementById(id);
+
+function drawScore(){
+  $("roundLabel").textContent=`Call ${Math.min(round+1,ROUNDS.length)} of ${ROUNDS.length}`;
+  let d="";for(let i=0;i<ROUNDS.length;i++){const c=i<results.length?(results[i]?"ok":"no"):"";d+=`<span class="dot ${c}"></span>`;}
+  $("scoreDots").innerHTML=d;
+}
+function loadRound(){
+  ringing=false;
+  const r=ROUNDS[round];
+  $("claimTxt").innerHTML=r.claim;
+  const dir=$("directory");dir.innerHTML="";
+  shuffle(r.contacts.slice()).forEach(c=>{
+    const b=document.createElement("button");b.className="contact";
+    b.innerHTML=`<span class="av">${c.av}</span><span><span class="nm">${c.nm}</span><span class="tl">${c.tl}</span></span>`;
+    b.addEventListener("click",()=>placeCall(c,b));
+    dir.appendChild(b);
+  });
+  $("notes").innerHTML=`<p class="notes-empty">No calls yet — dial someone and hear what they've got.</p>`;
+  $("reveal").className="reveal";$("reveal").innerHTML="";
+  document.querySelectorAll(".btn-real,.btn-asif").forEach(b=>b.disabled=false);
+  drawScore();
+}
+function placeCall(c,btn){
+  if(ringing||btn.classList.contains("called"))return;ringing=true;
+  const notes=$("notes");
+  if(!notes.querySelector(".note"))notes.innerHTML="";
+  const ring=document.createElement("p");ring.className="ring";ring.textContent=`☎ Ringing ${c.nm}…`;notes.appendChild(ring);
+  setTimeout(()=>{
+    ring.remove();btn.classList.add("called");
+    const el=document.createElement("div");el.className="note";
+    el.innerHTML=`<p class="who">${c.av} ${c.nm}</p>`+c.leads.map(l=>`<span class="said">“${l}”</span>`).join("");
+    notes.appendChild(el);ringing=false;
+  },560);
+}
+document.querySelectorAll(".btn-real,.btn-asif").forEach(b=>{
+  b.addEventListener("click",()=>{
+    const pick=b.dataset.v, r=ROUNDS[round];
+    document.querySelectorAll(".btn-real,.btn-asif").forEach(x=>x.disabled=true);
+    const right=pick===r.verdict; if(right)score++; results.push(right);
+    const rev=$("reveal"); rev.className="reveal show "+(right?"win":"lose");
+    const head = right ? (r.verdict==="for-real"?"For Real. ✓":"As If. ✓") : (r.verdict==="for-real"?"Actually — For Real.":"Actually — As If.");
+    const rows=r.reveal.rows.map(row=>`<div class="row"><span class="tag t-${row.tag}">${row.tag==="madeup"?"made up":row.tag}</span><span><b>${row.label}</b> — ${row.text}</span></div>`).join("");
+    rev.innerHTML=`<p class="rv">${head}<small>${right?"nice read":"the crew was trying to fool you"}</small></p>`+
+      `<div class="brk">${rows}</div><p class="lesson">${r.reveal.lesson}</p>`+
+      `<p class="src">🧾 The receipt: <a href="${r.reveal.url}" target="_blank" rel="noopener">${r.reveal.src}</a></p>`+
+      `<button class="next" id="next">${round<ROUNDS.length-1?"Next call →":"See how you did"}</button>`;
+    drawScore();
+    $("next").addEventListener("click",()=>{round++;round<ROUNDS.length?(loadRound(),$("game").scrollIntoView({behavior:"smooth",block:"start"})):showFinal();});
+  });
+});
+function showFinal(){
+  $("game").style.display="none";document.querySelector(".claim-card").style.display="none";document.querySelector(".scorebar").style.display="none";
+  const f=$("final");f.className="final show";
+  const line = score===ROUNDS.length ? "Perfect read. You caught the juiced numbers, the scattered fakes, and didn't flinch at the wild-but-true ones. That's the whole skill." : `You called ${score} of ${ROUNDS.length}. The crew always sounds sure of themselves — you don't beat that by counting who agrees, but by finding the missing number and spotting when the story can't keep its story straight.`;
+  f.innerHTML=`<div class="card"><div class="grade">${score}/${ROUNDS.length}</div><div class="gl">called correctly</div><p>${line}</p><button class="again" onclick="location.reload()">New shift ↺</button></div>`;
+  f.scrollIntoView({behavior:"smooth",block:"center"});
+}
+loadRound();
+</script>
+</body>
+</html>
