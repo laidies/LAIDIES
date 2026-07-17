@@ -132,4 +132,21 @@ Each is a **single Y2K object** rendered in the same pixel style, centered, tran
 | `assets/bookfair/bf-holocard.png` (1000×1400, 5:7) | Holographic Trading Card | A **rainbow-foil trading card** matching [[concept-card-deck-redesign]] (plum + gold frame): holographic prismatic sheen across the art, a "BOOK FAiR '99 · FOiL" stamp, ornate border, collectible sheen. |
 | `assets/bookfair/bf-poster.png` (1400×1000, 7:5) | Pull-Down Poster | A **classroom pull-down poster** — the art on a roller screen with a ring/pull at the bottom, wall-mount bracket at top, featuring an episode hero scene or the SUNNYVAiLE town map, vintage-classroom feel, plum/teal/gold. |
 
+---
+
+## 7. Merch FLAGSHIP SET — the quality benchmark (Ali-locked 2026-07-16)
+
+**Rule:** nail these four to an amazing finish FIRST; everything else follows the bar they set. **Tees are TYPOGRAPHY, not AI renders** — Codex (or a designer) makes a clean **print-ready graphic** (transparent PNG, ~4500px, CMYK-safe plum `#4b2148` / rose `#9b3f5f` on transparent); **Printful** applies it to real shirt mockups. **Order a physical sample before listing.** Fonts = brand lock (Jost 800 + Playfair Display); "Ai" gets the rose accent.
+
+| Item | Line | Design spec | Colorway |
+|---|---|---|---|
+| **Tee — Signature** | "On Wednesdays we do AI." | Centered chest: "On Wednesdays we do" in Playfair italic, **AI** larger with rose-accent i; small "★ SUNNYVAiLE · est. 1999" beneath; nape tag "Resident · SUNNYVAiLE." | Cream shirt / plum ink (lead) + plum/cream |
+| **Tee — "Don't ship the beige"** (Miranda) | "Don't ship the beige." | Set as an **actual beige paint-chip / Pantone swatch** — the beige block with the line as its "color name," tiny code like "SUNNYVAiLE 1999" beneath. Deadpan, designy, Miranda-coded. | Cream shirt (so the beige reads) |
+| **Tee — "Loop me out"** (Deb) | "LOOP ME OUT." | Styled like a **reply-all email header** you never wanted (To: everyone / Cc: …) resolving to big "LOOP ME OUT."; tiny footer "Deb-flection™." | Plum shirt / cream ink |
+| **The NOPE Pad** (Deb) | (physical memo pad) | See §... prompt below — real Y2K tear-off pad, "FROM THE DESK OF DEB," giant "NOPE.", tick-box excuses, "Deb-flection™ · trademarked since '97." | Plum/cream/gold |
+
+**NOPE Pad — Codex product prompt:** *A Y2K office memo/note-pad, product mockup on a clean cream desk — a stack of gummed sheets with cardboard backing, slight curl on the top sheet. Each sheet: small retro-office header "FROM THE DESK OF DEB · MAYOR OF SUNNYVAiLE", the word "NOPE." huge and bold in deep plum dominating the sheet, a small tick-box list beneath (Not my problem / Told the intern / Not in my job description / Loop me out), tiny footer "Deb-flection™ · trademarked since '97". Plum + cream + gold, glossy catalog product shot, no hands, all text legible and correctly spelled.* → `assets/gift-shop/nope-pad.png`
+
+**Copy pool for future tees** (all Ali's own IP, free to print): motto + original quips (unlimited) + lyric hooks — "Garbage in, a garbage gown" (David), "It was women all along" (anthem), "Why be one thing when you could be the whole show?" (Bette), "It's not about the hype — it's about the fit" (Samantha), "Never too late to be great" (Golden Girls), "That's all" (Miranda). Grows as mp3-only songs (Cher/Elle/Regina/Dolly/Buffy/anthems/game songs) get transcribed.
+
 _(more prompts appended below as I find art gaps)_
