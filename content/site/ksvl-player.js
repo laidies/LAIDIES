@@ -49,6 +49,7 @@
     { id: 'mme-claio',             title: "Mme CLAi-O's Shop",                     artist: 'The Predicts',    src: MUSIC + 'game-mme-claio.mp3',                                 mixes: ['activities'] },
     { id: 'blend-and-snap',        title: 'Down at the Blend & Snap',              artist: 'The Recalls',     src: MUSIC + 'the-laidies-down-at-the-blend-and-snap.mp3',         mixes: ['activities'] },
     { id: 'the-library',           title: 'Welcome to the LIBRAiRY',               artist: 'The Bots',        src: MUSIC + 'dj-jaidy-week-04-the-library.mp3',                     mixes: ['activities'] },
+    { id: 'the-newsstand',         title: 'The Newsstand',                         artist: 'The Embeddings',  src: MUSIC + 'sunnyvaile-newsstand.mp3',                           mixes: ['activities'] },
 
     // Episodes
     { id: 'ep-01',                 title: 'Ep 01 · On Wednesdays We Do AI',                       artist: 'The Regressions', src: MUSIC + 'dj-jaidy-week-01-on-wednesday-we-do-ai.mp3',           intro: SAINT_INTROS + 'dj-sunnyv-intro-episode-01.mp3', mixes: ['episodes'] },
