@@ -731,10 +731,125 @@ down at the Blend & Snap... and it clicks!
 
 ---
 
+## SUNNYVAiLE Town Anthem  (THE LAiDIES)
+**Status:** SHIPPED (`content/music/sunnyvaile-town-anthem.mp3`) — Ali LOVES this one.
+**What it is:** the town's identity anthem — "you're not behind, you're home." Soft piano build → big anthemic key-change; Clueless "now get in, loser… we're learning AI" bridge. Keep the phonetic "Sunny-Vale."
+**Lyrics:**
+```
+[Intro] (soft piano, building) ooh... Sunny-Vale...
+[Verse 1] you nod in the meeting like you read the thing, / but you're winging it hard every time the words "AI" ring — / they buried it in buzzwords, made it sound so tall — / honey, you've broken ceilings... what's another wall?
+[Pre-Chorus] but you were never slow, girl — you were never the last, / you just needed a room that moves as smart and as fast — / so come on...
+[Chorus] welcome to Sunny-Vale — you're not behind, you're home! / a hundred clever women, and you're never on your own! / the 90s shaped us — and AI's shaping now, / you don't chase the future here, we'll show you how! / oh, Sunny-Vale... your people are here... / ohhh-oh-oh, Sunny-Vale...
+[Verse 2] you don't need a hoodie or a start-up name, / full calendar, high standard — you were built for this game, / Clay-oh's in the window, the Bronze Age plays, / pull up a chair, babe — we've been saving your place...
+[Pre-Chorus] 'cause you were never slow, girl — you were never the last, / on Wednesdays we do AI and we're having a blast — / so come on...
+[Chorus] (repeat)
+[Bridge] (stripped, vocal + piano, build) no more figuring it out at eleven at night, alone... / no more pretending you've got it — these are your own... / (drums swell) now get in, loser... we're learning... AI...!
+[Final Chorus] (KEY CHANGE, biggest) (repeat chorus)
+[Outro] (big, fading) you're not behind... you're home... ohhh-oh-oh, Sunny-Vale...
+```
+
+## Wednesday Anthem  (THE LAiDIES)
+**Status:** SHIPPED (mp3). The ONE fixed weekly-ritual song ([[wednesday-anthem-canon]]) — distinct from the episode song. A walk-through of the whole town's Wednesday. Fast cascading piano; super-catchy "it's Wednesday in Sunny-Vale and we run everything" hook.
+**Lyrics (canonical — Ali's version 2026-07-17; keep phonetic spellings "reed", "WHENS-day", "Sunny-Vale", "Clay-oh", "Delta Lai Nuu"):**
+```
+[Intro]
+(cold open — fast cascading piano riff alone, no vocal)
+
+[Verse 1]
+(strong drum beat)
+you've got mail — it's Wednesday, the Drop is on its way,
+swing by the NewsStand, reed the stories of the day,
+then it's straight to the Chick Flicks, grab the latest episode,
+the sun is shining bright, the town's awake, and the day is gonna roll...
+
+[Pre-Chorus]
+here it comes, here it comes —
+the best day of the week —
+(lift up...)
+
+[Chorus]
+oh-oh — it's WHENS-day! — in Sunny-Vale!
+where the smart girls meet, it's a hump day treat!
+clock the middle of the week and let the whole town sing —
+it's Wednesday in Sunny-Vale and we run everything!
+
+[Verse 2]
+grab a coffee at the Blend & Snap and study for a while,
+then it's the high school for the quiz — yeah,  you did it with a smile,
+flip the radio on, there's a brand-new song to hear,
+KSVL's got it spinning and the chorus is so clear...
+
+[Bridge of errands]
+run around the town now — see Clay-oh read your cards,
+call the Dream Phone on the corner when the question's getting hard,
+ask the FAiRY Godmother, get a glow-up for your day,
+get a Makeover on Main and walk out all the way!
+
+[Chorus]
+oh-oh — it's WEDNES-day! — in Sunny-Vale!
+where the smart girls meet, and it's a hump day treat!
+clock the middle of the week and let the whole town sing —
+it's Wednesday in Sunny-Vale and we run everything!
+
+[Verse 3]
+four o'clock at Bronze Age and the Businesswomen's pour,
+meet the girls for happy hour, then the band comes on for more,
+stay for the live show, dance until it's late,
+then it's back to Delta Lai Nuu to celebrate...
+
+[Bridge — night, big build]
+chatting with the LAiDIES, playing Girl Talk 'til we're done,
+truth or dare under the neon light, Wednesday's number one —
+(drums + harmonies swell)
+the whole town glowing from the morning to the night —
+it's Wednesday in Sunny-Vale and everything's alright!
+
+[Final Chorus — biggest]
+oh-oh — it's WEDNES-day! — in Sunny-Vale!
+where the smart girls meet, and it's a hump day treat!
+clock the middle of the week and let the whole town sing —
+it's Wednesday in Sunny-Vale and we run everything!
+(piano riff returns, soaring)
+
+[Outro]
+(piano winding down)
+neon's off now... town's asleep...
+see you next Wednesday... for another midweek treat...
+```
+
+---
+
+## Episode Intro Theme  (THE LAiDIES) — top of every episode
+**Status:** SHIPPED — `content/music/sunnyvaile-episode-intro.mp3` (~29s, Ali approved 2026-07-17).
+A blend of the Town + Wednesday anthem choruses on the anthem tune. Style = short cold-open-to-hook
+Y2K empowerment pop.
+**Lyrics (FINAL — Ali 2026-07-17):**
+```
+[Intro — anthem tune (Cover), ~25s]
+welcome to Sunny-Vale — you're not behind, you're home!
+so many clever women, and you're never on your own!
+the 90s shaped us — and AI's shaping now,
+you don't chase the future here, we'll show you how!
+(oh-oh —) it's Wednesday! — in Sunny-Vale!
+ohhh-ohhhh-ohhhh sunny-vale.
+```
+
+## Episode Outro Theme  (THE LAiDIES) — closing credits
+**Status:** SHIPPED — `content/music/sunnyvaile-episode-outro.mp3` (~25s). Warm wind-down; lands on
+the locked sign-off ([[episode-audio-format]]).
+**Lyrics (FINAL — Ali 2026-07-17):**
+```
+[Outro — warm wind-down, piano + soft synth]
+that's a wrap on Wednesday, the lights go low,
+you got your one good thing, now away you go —
+the neon's all off now... the town's asleep...
+see you next Wednesday... for another midweek treat...
+yeahhhhhh  in sunny-vale.
+```
+
 ## Still to transcribe into this songbook
 These shipped but their lyrics are still **mp3-only** — capture them here when handy
 so nothing is a lost drive away from gone:
-- SUNNYVAiLE Town Anthem · Wednesday Anthem (THE LAiDIES)
 - Saint songs: Cher, Buffy, Dolly, Elle, Regina
 - Game/town songs: Businesswomen's Special, Dream Phone, Girl Talk, Mme CLAi-O,
   Ask LAiDY, Debs Tomorrow Problem, episode Wednesday Anthems (weeks 01–04)

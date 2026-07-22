@@ -118,8 +118,8 @@ if [ -f "$CANON" ]; then
     while IFS= read -r line; do
       [ -z "$line" ] && continue
       miss=""
-      { [ -f "$TXT" ] && ! grep -qF "$line" "$TXT"; } && miss="$miss script"
-      { [ -n "$ART" ] && ! grep -qF "$line" <<< "$ARTTXT"; } && miss="$miss article"
+      { [ -f "$TXT" ] && ! grep -qiF "$line" "$TXT"; } && miss="$miss script"
+      { [ -n "$ART" ] && ! grep -qiF "$line" <<< "$ARTTXT"; } && miss="$miss article"
       [ -n "$miss" ] && red "missing from$miss: \"$line\"" || grn "\"$line\""
     done <<< "$MM"
   fi

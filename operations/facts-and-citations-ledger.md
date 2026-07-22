@@ -250,3 +250,12 @@ Columns: **Claim** · **What it measures (scope/caveat)** · **Source** · **Ver
   ⚠️ **NOT verified, not publicly disclosed:** whether e.g. Opus 4.8 was trained fresh or continued from
   4.7's base. Assert neither. Listener-safe statement: *it's a different model, and it's the same line's
   next face.*
+
+## Ep4 time-jump card captions — PLACE, YEAR (verified 2026-07-20)
+| Person | Caption | What it marks | Source |
+|---|---|---|---|
+| Grace Hopper | PHILADELPHIA, 1952 | A-0 compiler at Remington Rand/Eckert-Mauchly, Philadelphia (1951–52) | en.wikipedia.org/wiki/A-0_System ; ethw.org Milestones A-0 Compiler 1951-1952 |
+| Joy Buolamwini | MIT, 2018 | "Gender Shades" (MIT Media Lab, 2018) | media.mit.edu/publications/gender-shades... ; proceedings.mlr.press/v81/buolamwini18a |
+| Timnit Gebru | GOOGLE, 2020 | Forced out of Google, Dec 2 2020 | technologyreview.com/2020/12/04/1013294 ; washingtonpost.com/technology/2020/12/03 |
+| Emily Bender | UNIVERSITY OF WASHINGTON, 2021 | "On the Dangers of Stochastic Parrots," ACM FAccT, Mar 2021 (UW computational linguist) | spectrum.ieee.org/stochastic-parrot ; faculty.washington.edu/ebender |
+| Kate Crawford | USC ANNENBERG, 2021 (Ali-locked) | "Atlas of AI" (Yale UP, 2021); Research Prof USC Annenberg (also Sr Principal Researcher MSR NY) | blogs.microsoft.com/newengland/2021/10/25 ; microsoft.com/research/people/kate |

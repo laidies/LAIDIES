@@ -201,8 +201,13 @@ L.append("## HARD REQUIREMENTS — a frame failing any of these is rejected")
 L.append("")
 L.append("**1 · Exactly 1920 × 1080.** Wrong dimensions are auto-rejected before review.")
 L.append("")
-L.append("**2 · Style `comic-v1-locked`** — bold black ink, HARD ANGULAR shadow PLANES, flat "
-         "saturated colour. ⛔ No halftone. ⛔ Not painterly, watercolour, airbrushed or blotchy.")
+L.append("**2 · Style `comic-v1-locked` — COMIC, not illustration.** Bold black ink outlines "
+         "on every form. Shadows are HARD ANGULAR PLANES with a defined edge — never a gradient "
+         "or a soft blend. Colour is FLAT and pushed/saturated within those shapes. "
+         "⛔ No halftone. ⛔ NOT painterly, watercolour, airbrushed, blotchy or softly rendered. "
+         "⛔ NOT a detailed storybook illustration or a 'full cartoon' look — if it could pass "
+         "for an animated-film background, it is wrong. Compare against the named continuity "
+         "anchors below: the new frame must sit in the SAME drawing register as those.")
 L.append("")
 L.append("**3 · CONTINUITY IS NOT OPTIONAL.** Each frame below names the shot before it and/or "
          "after it *in the same scene*. The new frame must read as the same room, the same "
@@ -232,6 +237,17 @@ L.append("")
 L.append('**7 · "AI" is ALWAYS both letters capital** — never "Ai". The accented i belongs to '
          "brand words only (LAiDIES, SUNNYVAiLE, MAiVENS, LUMINAiRY).")
 L.append("")
+L.append("**6a · ALL TECHNOLOGY IN SUNNYVAiLE IS 1999.** The town is perpetually 1999 and its "
+         "hardware is too. ⛔ NO modern laptops, flat widescreen displays, smartphones, "
+         "earbuds, or slim tablets. If the Heroine carries a laptop it is an **iBook G3 "
+         "clamshell** — chunky, coloured, curved, with a handle. Desktops are beige or "
+         "translucent-coloured CRTs. Phones are cordless handsets or flip phones. Screens are "
+         "4:3, never 16:9. This is the ONE anachronism that breaks the town instantly.")
+L.append("")
+L.append("**6a2 · PROPS MUST SUIT THE SCENE.** Do not hand her an object she would not be "
+         "carrying. She does not bring a laptop into the LUMINAiRY to look at stained glass. "
+         "If the beat does not call for a prop, she has empty hands.")
+L.append("")
 L.append("**6c · PERIOD ACCURACY.** Nothing in frame may postdate the year of the scene — no "
          "flat screens in 1952, no mobile phones in 1946, no modern typography on period signage. "
          "The LOCATION must be the real place the event happened. The NUMBER of people must be "
@@ -240,6 +256,13 @@ L.append("")
 L.append("**6d · AGE.** Each woman is the age she was AT THIS MOMENT, not her famous later "
          "portrait. Grace Hopper in 1952 is 45 and a civilian — not the white-haired Rear "
          "Admiral of decades later.")
+L.append("")
+L.append("**6d2 · NAMED LOCATIONS HAVE CANONICAL CONTENTS.** The **LUMINAiRY MAiVENS wing** "
+         "shows the ACTUAL MAiVENS in its windows — Ada Lovelace, Hedy Lamarr, Grace Hopper, "
+         "Karen Spärck Jones, Fei-Fei Li, Joy Buolamwini, Timnit Gebru, Emily Bender, Kate "
+         "Crawford, Hannah Fry, Rachel Thomas, Meredith Whittaker. Their stained-glass "
+         "portraits already exist at `assets/mavens/y2k-stained-glass-v3-finished/` — MATCH "
+         "THEM. ⛔ Never fill a canonical room with anonymous invented figures.")
 L.append("")
 L.append("**6e · BACKGROUND FIGURES.** Faces in the background must be coherent — no melted, "
          "smeared or half-formed features. If a face cannot be drawn cleanly at that size, turn "
@@ -301,8 +324,12 @@ for i, (t, b, sc, prev, nxt, person) in enumerate(ok, 1):
         L.append("")
     cand = existing_candidates(b)
     if cand:
-        L.append("**⚠ CHECK THESE FIRST — existing UNUSED art that may already cover this "
-                 "beat. If one fits, USE IT and do not generate:**")
+        L.append("**⚠ CHECK THESE FIRST — existing UNUSED art that may already cover this beat.**")
+        L.append("If one fits: **do NOT generate this frame at all.** Report back which file "
+                 "covers it and move on — it gets wired into the cut under its own name. "
+                 "⛔ NEVER copy an existing file to this frame's filename. That produces two "
+                 "files with identical pixels and no way to tell which is canonical; it "
+                 "happened on 2026-07-22 to four frames.")
         for n, f, hits in cand:
             L.append(f"  - `{f}`  _(matches: {', '.join(hits[:4])})_")
         L.append("")

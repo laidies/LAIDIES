@@ -29,8 +29,6 @@ After Ali approves the new set: update the locked visual benchmark entry in
 treatment, and bump any cache-busted references to these files.
 
 ## Addition (2026-07-12 late) — landscape homepage tile
-Fourth asset: `assets/games/girl-talk/girl-talk-tile.png`, LANDSCAPE 4:3, for the homepage
-activity card (current portrait card-back letterboxed on a colour field reads inconsistent
-next to the other full-bleed photo tiles). Same restyled treatment as the new card back —
-the card (or a small fanned stack) laid on a styled scene/flat lay that fills the frame
-edge-to-edge, field in the cream/blush/lavender family. No letterboxing needed once done.
+STRUCK 2026-07-12 (later that night): not needed. The homepage activity tile now shows the
+restyled Truth + Dare faces side by side (two 2:3 portraits fill the 4:3 slot) — Ali approved.
+BRIEF FULLY SATISFIED: all three restyled cards delivered and live on the homepage.

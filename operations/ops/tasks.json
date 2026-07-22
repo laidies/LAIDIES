@@ -1,0 +1,11 @@
+{
+  "tasks": [
+    {"id":"header","title":"All headers match the homepage","owner":"Claude","verify":"check:header","status":"auto","notes":"21 real pages still missing it — verified by check_site.py, not by anyone's claim."},
+    {"id":"zombies","title":"Delete the dead Grimoire pages","owner":"Claude","verify":"check:zombies","status":"auto","notes":"Grimoire is dismantled (→ LIBRAiRY). 13 zombie pages still on disk. Redirect/confirm-migrated before deleting."},
+    {"id":"broken_layout","title":"Fix broken-layout pages (incl. the 1 Mall template = 9 pages)","owner":"Claude","verify":"check:broken_layout","status":"auto","notes":"17 pages on the old broken CSS."},
+    {"id":"library","title":"Lock the LIBRAiRY keystone image (drives episode art + animations)","owner":"Ali+Codex","verify":"manual","status":"doing","notes":"Load-bearing. Ali's eye + Codex. Spec locked with style/palette corrections. Not-done: needs a version Ali approves."},
+    {"id":"palette","title":"Apply the tuned electric accents (text/buttons vibrant, backgrounds soft)","owner":"Claude","verify":"manual","status":"blocked","notes":"Values chosen. Blocked on Ali's a/b call (text-only vs also button backgrounds)."},
+    {"id":"ep4","title":"Execute the Ep4 v10 fixes","owner":"Ali+Codex","verify":"manual","status":"todo","notes":"Fix-plan written (operations/frame-curation/ep04-fix-plan.md). Execution pending — Codex was dead (v11 failed)."},
+    {"id":"launch","title":"Announce the new site (direct people to it)","owner":"Ali","verify":"manual","status":"blocked","notes":"Site is mostly live; Ali won't announce until it's stable/done (no visible changes every few hours). Blocked on the above landing."}
+  ]
+}

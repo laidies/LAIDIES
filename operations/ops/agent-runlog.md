@@ -1,0 +1,168 @@
+# Agent run-log — every subagent spawn, auto-tracked by a hook
+
+_(entries append below as agents are launched)_
+- **2026-07-17 15:44** · `claude-code-guide` · confirm hook schema
+  - prompt: 
+  - returned: ok
+- **2026-07-18 06:59** · `general-purpose` · Research comic storytelling grammar
+  - prompt: Research and write a practical, well-sourced reference document on COMIC-BOOK / GRAPHIC-NOVEL VISUAL STORYTELLING and "camera" language, tailored for a small team that produces a w
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a7e6e565d00160e92", "description": "Research comic storytelling grammar", "resolvedModel": "claude-opus-4-8", "prompt": "Research and write a practical, well-sour
+- **2026-07-19 00:45** · `general-purpose` · Build Ep1 comic image batch
+  - prompt: You are building the COMIC-STYLE image production batch for LAiDIES **Episode 1**. LAiDIES is a weekly illustrated web series (fictional 1999 town SUNNYVAiLE) teaching AI to women.
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ad45e207470f15de4", "description": "Build Ep1 comic image batch", "resolvedModel": "claude-opus-4-8", "prompt": "You are building the COMIC-STYLE image production
+- **2026-07-19 00:45** · `general-purpose` · Build Ep2 comic image batch
+  - prompt: You are building the COMIC-STYLE image production batch for LAiDIES **Episode 2**. LAiDIES is a weekly illustrated web series (fictional 1999 town SUNNYVAiLE) teaching AI to women.
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "acf8fd134be3d6df3", "description": "Build Ep2 comic image batch", "resolvedModel": "claude-opus-4-8", "prompt": "You are building the COMIC-STYLE image production
+- **2026-07-19 00:45** · `general-purpose` · Build Ep3 comic image batch
+  - prompt: You are building the COMIC-STYLE image production batch for LAiDIES **Episode 3**. LAiDIES is a weekly illustrated web series (fictional 1999 town SUNNYVAiLE) teaching AI to women.
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ac1ded0eb03eae4a4", "description": "Build Ep3 comic image batch", "resolvedModel": "claude-opus-4-8", "prompt": "You are building the COMIC-STYLE image production
+- **2026-07-19 00:56** · `general-purpose` · Build comic trailer storyboard + batch
+  - prompt: You are building the COMIC-STYLE storyboard + image prompt batch for the LAiDIES **TRAILER** ("Welcome to SUNNYVAiLE"). LAiDIES is a weekly illustrated web series (fictional 1999 t
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "aac7bacef40f90e3f", "description": "Build comic trailer storyboard + batch", "resolvedModel": "claude-opus-4-8", "prompt": "You are building the COMIC-STYLE story
+- **2026-07-19 07:00** · `general-purpose` · Rebuild Ep1 comic image batch
+  - prompt: Build the COMIC-STYLE, TIMED, per-beat image production batch for LAiDIES **Episode 1**. Base path: `/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a8b31b513762c0227", "description": "Rebuild Ep1 comic image batch", "resolvedModel": "claude-opus-4-8", "prompt": "Build the COMIC-STYLE, TIMED, per-beat image pr
+- **2026-07-19 07:00** · `general-purpose` · Rebuild Ep2 comic image batch
+  - prompt: Build the COMIC-STYLE, TIMED, per-beat image production batch for LAiDIES **Episode 2**. Base path: `/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "aee122c8cb358250d", "description": "Rebuild Ep2 comic image batch", "resolvedModel": "claude-opus-4-8", "prompt": "Build the COMIC-STYLE, TIMED, per-beat image pr
+- **2026-07-19 07:00** · `general-purpose` · Rebuild Ep3 comic image batch
+  - prompt: Build the COMIC-STYLE, TIMED, per-beat image production batch for LAiDIES **Episode 3** ("The Burn Book Problem" — verification / fact-checking AI). Base path: `/Users/alisoneakin/
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a8f8842bfcff47085", "description": "Rebuild Ep3 comic image batch", "resolvedModel": "claude-opus-4-8", "prompt": "Build the COMIC-STYLE, TIMED, per-beat image pr
+- **2026-07-19 07:01** · `general-purpose` · Rebuild comic trailer batch
+  - prompt: Build the COMIC-STYLE, TIMED storyboard + per-beat image batch for the LAiDIES **TRAILER** ("Welcome to SUNNYVAiLE"). Base path: `/Users/alisoneakin/Library/Mobile Documents/com~ap
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ad36e7c36dcf2eeb2", "description": "Rebuild comic trailer batch", "resolvedModel": "claude-opus-4-8", "prompt": "Build the COMIC-STYLE, TIMED storyboard + per-bea
+- **2026-07-19 08:40** · `general-purpose` · background · Research AI agent drift prevention
+  - prompt: You are researching how to stop a specific, recurring failure in an AI-assisted content-production workflow, and translating what you find into concrete setup changes. Produce a wr
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a190d570ca83ad0a1", "description": "Research AI agent drift prevention", "resolvedModel": "claude-opus-4-8", "prompt": "You are researching how to stop a specific
+- **2026-07-19 09:27** · `general-purpose` · background · Research AI agent drift prevention
+  - prompt: Research how to stop a recurring failure in an AI-assisted content-production workflow, and translate findings into concrete, mechanical setup changes. Produce a written report — d
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ac5d8f77495be2cef", "description": "Research AI agent drift prevention", "resolvedModel": "claude-opus-4-8", "prompt": "Research how to stop a recurring failure i
+- **2026-07-19 11:18** · `general-purpose` · background · Build Ep1 comic prompt batch
+  - prompt: Build a complete, Codex-ready comic image-prompt batch for EPISODE 1, straight from its canon. Images only — you write the PROMPT DOC, you do NOT generate images.  ## HARD RULES (t
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a752fd6fa434f60b2", "description": "Build Ep1 comic prompt batch", "resolvedModel": "claude-opus-4-8", "prompt": "Build a complete, Codex-ready comic image-prompt
+- **2026-07-19 11:19** · `general-purpose` · background · Build Ep2 comic prompt batch
+  - prompt: Build a complete, Codex-ready comic image-prompt batch for EPISODE 2, straight from its canon. Images only — you write the PROMPT DOC, you do NOT generate images.  ## HARD RULES (t
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a5a3cf688bd4eb3be", "description": "Build Ep2 comic prompt batch", "resolvedModel": "claude-opus-4-8", "prompt": "Build a complete, Codex-ready comic image-prompt
+- **2026-07-19 11:19** · `general-purpose` · background · Build Ep3 comic prompt batch
+  - prompt: Build a complete, Codex-ready comic image-prompt batch for EPISODE 3, straight from its canon. Images only — you write the PROMPT DOC, you do NOT generate images.  ## HARD RULES (t
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a55396571a7edc72c", "description": "Build Ep3 comic prompt batch", "resolvedModel": "claude-opus-4-8", "prompt": "Build a complete, Codex-ready comic image-prompt
+- **2026-07-19 11:19** · `general-purpose` · background · Update trailer comic prompt batch
+  - prompt: Update the TRAILER comic image-prompt storyboard so it's Codex-ready with the locked style refs. Images only — you edit the PROMPT DOC, you do NOT generate images.  ## Context An e
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "afff67edab7e759a3", "description": "Update trailer comic prompt batch", "resolvedModel": "claude-opus-4-8", "prompt": "Update the TRAILER comic image-prompt story
+- **2026-07-20 12:24** · `general-purpose` · Fix LIBRAiRY + Grimoire family pages
+  - prompt: You are correcting subpar PAGES on the LAiDIES / SUNNYVAiLE static site, running in parallel with other work. Working dir: `/Users/alisoneakin/Library/Mobile Documents/com~apple~Cl
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a7586043d46eedeff", "description": "Fix LIBRAiRY + Grimoire family pages", "resolvedModel": "claude-opus-4-8", "prompt": "You are correcting subpar PAGES on the L
+- **2026-07-21 13:21** · `general-purpose` · background · Deep research agent best practices
+  - prompt: You are doing DEEP RESEARCH for a real production problem. Write your findings to a file; your final message should be a short summary only.  # THE CONTEXT (why this research matte
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a399c4e704761a8db", "description": "Deep research agent best practices", "resolvedModel": "claude-opus-4-8", "prompt": "You are doing DEEP RESEARCH for a real pro
+- **2026-07-21 13:23** · `general-purpose` · background · Research agent ops best practices
+  - prompt: You are doing DEEP RESEARCH for a real production problem. Write findings to files; your final chat message should be a short summary only.  # CONTEXT — the operation this must ser
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a9483dd37d8f030fb", "description": "Research agent ops best practices", "resolvedModel": "claude-opus-4-8", "prompt": "You are doing DEEP RESEARCH for a real prod
+- **2026-07-21 13:23** · `general-purpose` · Research Anthropic agent engineering
+  - prompt: You are doing web research for a production engineering report. Use WebSearch and WebFetch. Today is 2026-07-21. Prioritise PRIMARY sources: docs.anthropic.com / platform.claude.co
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a590c219c8724b7b5", "description": "Research Anthropic agent engineering", "resolvedModel": "claude-sonnet-5", "prompt": "You are doing web research for a product
+- **2026-07-21 13:24** · `general-purpose` · Research static site maintenance w/ agents
+  - prompt: You are doing web research for a production engineering report. Use WebSearch and WebFetch. Today is 2026-07-21. Prioritise PRIMARY/official sources and named practitioners (W3C/WH
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "acb4e87dbb46e34eb", "description": "Research static site maintenance w/ agents", "resolvedModel": "claude-sonnet-5", "prompt": "You are doing web research for a p
+- **2026-07-21 13:24** · `general-purpose` · Research generative media pipeline QC
+  - prompt: You are doing web research for a production engineering report. Use WebSearch and WebFetch. Today is 2026-07-21. Prioritise PRIMARY/official sources (OpenAI, Google DeepMind, Black
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a46fd129e744becc5", "description": "Research generative media pipeline QC", "resolvedModel": "claude-sonnet-5", "prompt": "You are doing web research for a produc
+- **2026-07-22 08:46** · `general-purpose` · Extract stranded library content
+  - prompt: TASK: Extract stranded written content into clean, reusable content files. This is EXTRACTION ONLY — do not modify any live page, do not delete anything, do not run git commands.  
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ac2e0ca4f09e01d2a", "description": "Extract stranded library content", "resolvedModel": "claude-opus-4-8", "prompt": "TASK: Extract stranded written content into 
+- **2026-07-22 09:02** · `general-purpose` · Deep research the 101 textbooks
+  - prompt: DEEP RESEARCH for the LAiDIES "101" textbooks. Output is a research + drafting brief, NOT live pages. Write nothing outside your output file.  ## Read these FIRST — they are bindin
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "aa09add3850f666ae", "description": "Deep research the 101 textbooks", "resolvedModel": "claude-opus-4-8", "prompt": "DEEP RESEARCH for the LAiDIES \"101\" textboo
+- **2026-07-22 09:03** · `general-purpose` · Deep research the Tools shelf
+  - prompt: DEEP RESEARCH for the LAiDIES "The Tools" bookcase. Output is a research + drafting brief, NOT live pages. Write nothing outside your output file.  ## Read these FIRST — they are b
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "adb2a2eaf4522b696", "description": "Deep research the Tools shelf", "resolvedModel": "claude-opus-4-8", "prompt": "DEEP RESEARCH for the LAiDIES \"The Tools\" boo
+- **2026-07-22 09:03** · `general-purpose` · Deep research the Reference shelf
+  - prompt: DEEP RESEARCH for the LAiDIES "Reference" bookcase. Output is a research + drafting brief, NOT live pages. Write nothing outside your output file.  ## Read these FIRST — they are b
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a993799dcdf9c3325", "description": "Deep research the Reference shelf", "resolvedModel": "claude-opus-4-8", "prompt": "DEEP RESEARCH for the LAiDIES \"Reference\"
+- **2026-07-22 09:03** · `general-purpose` · Research AI account/privacy defaults
+  - prompt: You are doing verification research for a reference book called "Accounts 101" — what's safe to paste into AI tools and what never is. Audience: smart, busy non-technical professio
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ab6a99f30c86801ff", "description": "Research AI account/privacy defaults", "resolvedModel": "claude-opus-4-8", "prompt": "You are doing verification research for 
+- **2026-07-22 09:04** · `general-purpose` · Research AI setup/personalization
+  - prompt: You are doing verification research for a reference book called "Setup 101" — how to set an AI tool up ONCE so it knows how you work, instead of re-explaining yourself in every new
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a77935782063c9f85", "description": "Research AI setup/personalization", "resolvedModel": "claude-opus-4-8", "prompt": "You are doing verification research for a r
+- **2026-07-22 09:04** · `general-purpose` · background · Research Gemini tool facts
+  - prompt: You are doing WEB RESEARCH ONLY. Today's date is 2026-07-22. Your knowledge cutoff is stale — you MUST verify everything with WebSearch/WebFetch against OFFICIAL sources (google.co
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ab69b3e9eb1a11499", "description": "Research Gemini tool facts", "resolvedModel": "claude-opus-4-8", "prompt": "You are doing WEB RESEARCH ONLY. Today's date is 2
+- **2026-07-22 09:04** · `general-purpose` · Research AI data incidents
+  - prompt: You are doing VERIFICATION RESEARCH for a reference book about what's safe to paste into AI tools. Today is 2026-07-22. Use WebSearch and WebFetch heavily. Prefer vendor/official d
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "aee2ab79f49d73a25", "description": "Research AI data incidents", "resolvedModel": "claude-opus-4-8", "prompt": "You are doing VERIFICATION RESEARCH for a referenc
+- **2026-07-22 09:04** · `general-purpose` · Research What Not to Paste
+  - prompt: Today is 2026-07-22. Do WEB RESEARCH ONLY (WebSearch + WebFetch — load them via ToolSearch with query "select:WebSearch,WebFetch"). Write NO files. Return your findings as your fin
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a00a0ea31f7392de0", "description": "Research What Not to Paste", "resolvedModel": "claude-opus-4-8", "prompt": "Today is 2026-07-22. Do WEB RESEARCH ONLY (WebSear
+- **2026-07-22 09:04** · `general-purpose` · background · Research Copilot tool facts
+  - prompt: You are doing WEB RESEARCH ONLY. Today's date is 2026-07-22. Your knowledge cutoff is stale — you MUST verify everything with WebSearch/WebFetch against OFFICIAL sources (microsoft
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a1a91f0b73df7ba71", "description": "Research Copilot tool facts", "resolvedModel": "claude-opus-4-8", "prompt": "You are doing WEB RESEARCH ONLY. Today's date is 
+- **2026-07-22 09:04** · `general-purpose` · background · Research Google Gemini setup features
+  - prompt: You are doing verification research for a reference book called "Setup 101" — how to set an AI tool up ONCE so it knows how you work. Audience: smart, busy, NON-TECHNICAL professio
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a1adede9b6b7d13bc", "description": "Research Google Gemini setup features", "resolvedModel": "claude-opus-4-8", "prompt": "You are doing verification research for
+- **2026-07-22 09:04** · `general-purpose` · Research prompting/briefing guidance
+  - prompt: You are doing verification research for a reference book called "Briefing 101" — how to ask an AI tool for something so it comes back useful. Audience: smart, busy non-technical pr
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a51b9b4ed14450093", "description": "Research prompting/briefing guidance", "resolvedModel": "claude-opus-4-8", "prompt": "You are doing verification research for 
+- **2026-07-22 09:04** · `general-purpose` · Research practical AI privacy tips
+  - prompt: You are doing VERIFICATION RESEARCH for a reference book called "Accounts 101" about what's safe to paste into AI tools. Audience: smart, busy, non-technical professional women. To
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a776e50161cdf4005", "description": "Research practical AI privacy tips", "resolvedModel": "claude-opus-4-8", "prompt": "You are doing VERIFICATION RESEARCH for a 
+- **2026-07-22 09:04** · `general-purpose` · background · Research Microsoft Copilot setup features
+  - prompt: You are doing verification research for a reference book called "Setup 101" — how to set an AI tool up ONCE so it knows how you work. Audience: smart, busy, NON-TECHNICAL professio
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a175b4736c004c82a", "description": "Research Microsoft Copilot setup features", "resolvedModel": "claude-opus-4-8", "prompt": "You are doing verification research
+- **2026-07-22 09:04** · `general-purpose` · Research Prompt Cookbook
+  - prompt: Today is 2026-07-22. Do WEB RESEARCH ONLY (WebSearch + WebFetch — load them via ToolSearch with query "select:WebSearch,WebFetch"). Write NO files. Return findings as your final as
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a42f85b92cc04e9a4", "description": "Research Prompt Cookbook", "resolvedModel": "claude-opus-4-8", "prompt": "Today is 2026-07-22. Do WEB RESEARCH ONLY (WebSearch
+- **2026-07-22 09:04** · `general-purpose` · background · Research Perplexity tool facts
+  - prompt: You are doing WEB RESEARCH ONLY. Today's date is 2026-07-22. Your knowledge cutoff is stale — verify everything with WebSearch/WebFetch against OFFICIAL sources (perplexity.ai, doc
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ad529af4d334473e1", "description": "Research Perplexity tool facts", "resolvedModel": "claude-opus-4-8", "prompt": "You are doing WEB RESEARCH ONLY. Today's date 
+- **2026-07-22 09:05** · `general-purpose` · background · Research custom instruction best practices
+  - prompt: You are doing verification research for a reference book called "Setup 101" — how to set an AI tool up ONCE so it knows how you work, instead of re-explaining yourself in every new
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "aaff2c5adba9fabfd", "description": "Research custom instruction best practices", "resolvedModel": "claude-opus-4-8", "prompt": "You are doing verification researc
+- **2026-07-22 09:05** · `general-purpose` · Research AI concepts + vocabulary
+  - prompt: You are doing verification research for two reference books: "Concepts 101" (how AI works, minus the maths) and "Vocab 101" (every AI word in plain English). Audience: smart, busy 
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a32d36d1203663fb9", "description": "Research AI concepts + vocabulary", "resolvedModel": "claude-opus-4-8", "prompt": "You are doing verification research for two
+- **2026-07-22 09:05** · `general-purpose` · background · Research AI company landscape
+  - prompt: You are doing WEB RESEARCH ONLY. Today's date is 2026-07-22. Your knowledge cutoff is stale — verify everything with WebSearch/WebFetch. Prefer official company pages, SEC/press re
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "aeb9353b27ad8ceeb", "description": "Research AI company landscape", "resolvedModel": "claude-opus-4-8", "prompt": "You are doing WEB RESEARCH ONLY. Today's date i
+- **2026-07-22 09:05** · `general-purpose` · background · Verify AI concepts items 1-5
+  - prompt: Today is 2026-07-22. You are doing fact-verification research for a plain-English AI reference book for non-technical readers. Use WebSearch and WebFetch heavily (load them via Too
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ada056abc9545dea6", "description": "Verify AI concepts items 1-5", "resolvedModel": "claude-opus-4-8", "prompt": "Today is 2026-07-22. You are doing fact-verifica
+- **2026-07-22 09:05** · `general-purpose` · background · Verify AI concepts items 6-10
+  - prompt: Today is 2026-07-22. You are doing fact-verification research for a plain-English AI reference book for non-technical readers. Use WebSearch and WebFetch heavily (load them via Too
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a6a548f665268bcd7", "description": "Verify AI concepts items 6-10", "resolvedModel": "claude-opus-4-8", "prompt": "Today is 2026-07-22. You are doing fact-verific
+- **2026-07-22 09:05** · `general-purpose` · background · Research sycophancy and outcome recipes
+  - prompt: WEB RESEARCH ONLY. Use WebSearch and WebFetch (load them first via ToolSearch with query "select:WebSearch,WebFetch"). Write NO files. Today is 2026-07-22. Return findings as your 
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a9e49c4c82a8ea937", "description": "Research sycophancy and outcome recipes", "resolvedModel": "claude-opus-4-8", "prompt": "WEB RESEARCH ONLY. Use WebSearch and 
+- **2026-07-22 09:06** · `general-purpose` · background · Research CI/memory failure modes
+  - prompt: You are doing SOURCED verification research for a reference book. Today is 2026-07-22. Use WebSearch and WebFetch HEAVILY. NOTE: help.openai.com and openai.com/index/* return HTTP 
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a55c1bebcce652f31", "description": "Research CI/memory failure modes", "resolvedModel": "claude-opus-4-8", "prompt": "You are doing SOURCED verification research 
+- **2026-07-22 09:06** · `general-purpose` · background · Verify AI concepts items 11-15
+  - prompt: Today is 2026-07-22. You are doing fact-verification research for a plain-English AI reference book for non-technical readers. Use WebSearch and WebFetch heavily (load them via Too
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ae7b366f3f5996fd8", "description": "Verify AI concepts items 11-15", "resolvedModel": "claude-opus-4-8", "prompt": "Today is 2026-07-22. You are doing fact-verifi
+- **2026-07-22 09:06** · `general-purpose` · background · Research mode and tool selection
+  - prompt: WEB RESEARCH ONLY. Use WebSearch and WebFetch (load them first via ToolSearch with query "select:WebSearch,WebFetch"). Write NO files. Today is 2026-07-22. Return findings as your 
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a69079f1b50ef501c", "description": "Research mode and tool selection", "resolvedModel": "claude-opus-4-8", "prompt": "WEB RESEARCH ONLY. Use WebSearch and WebFetc
+- **2026-07-22 09:06** · `general-purpose` · background · Research portable context doc practice
+  - prompt: You are doing SOURCED verification research for a reference book aimed at non-technical professional women. Today is 2026-07-22. Use WebSearch and WebFetch HEAVILY.  TOPIC: The POR
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ad233d5ba81cbff0a", "description": "Research portable context doc practice", "resolvedModel": "claude-opus-4-8", "prompt": "You are doing SOURCED verification res
+- **2026-07-22 09:06** · `general-purpose` · background · Research reasoning-model prompting conflicts
+  - prompt: You are doing SOURCED verification research for a reference book. Today is 2026-07-22. Use WebSearch and WebFetch HEAVILY. NOTE: help.openai.com and openai.com/index/* return HTTP 
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a8cc2d7826c1a2d67", "description": "Research reasoning-model prompting conflicts", "resolvedModel": "claude-opus-4-8", "prompt": "You are doing SOURCED verificati
+- **2026-07-22 09:06** · `general-purpose` · background · Verify AI data-paste discipline cases
+  - prompt: You are doing VERIFICATION RESEARCH for a reference book. Today is 2026-07-22. Use WebSearch and WebFetch heavily. Prefer vendor/official/regulator docs and reputable news outlets;
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ac4d302ab6f375414", "description": "Verify AI data-paste discipline cases", "resolvedModel": "claude-opus-4-8", "prompt": "You are doing VERIFICATION RESEARCH for
+- **2026-07-22 11:29** · `general-purpose` · Research ChatGPT machinery
+  - prompt: Read this brief in full and follow it exactly — it is binding: /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/research/tool-mac
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "af969bd58fdb515c3", "description": "Research ChatGPT machinery", "resolvedModel": "claude-sonnet-5", "prompt": "Read this brief in full and follow it exactly \u20
+- **2026-07-22 11:29** · `general-purpose` · Research Claude machinery
+  - prompt: Read this brief in full and follow it exactly — it is binding: /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/research/tool-mac
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ab7bce5c754d5ab5f", "description": "Research Claude machinery", "resolvedModel": "claude-sonnet-5", "prompt": "Read this brief in full and follow it exactly \u201
+- **2026-07-22 11:29** · `general-purpose` · Research Gemini machinery
+  - prompt: Read this brief in full and follow it exactly — it is binding: /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/research/tool-mac
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ac66b6ed2be2713da", "description": "Research Gemini machinery", "resolvedModel": "claude-sonnet-5", "prompt": "Read this brief in full and follow it exactly \u201
+- **2026-07-22 11:30** · `general-purpose` · Research Copilot machinery
+  - prompt: Read this brief in full and follow it exactly — it is binding: /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/research/tool-mac
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a74963a1640ff0c4b", "description": "Research Copilot machinery", "resolvedModel": "claude-sonnet-5", "prompt": "Read this brief in full and follow it exactly \u20
+- **2026-07-22 11:30** · `general-purpose` · Research Perplexity machinery
+  - prompt: Read this brief in full and follow it exactly — it is binding: /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/research/tool-mac
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ad9cdc3791c4a7a57", "description": "Research Perplexity machinery", "resolvedModel": "claude-sonnet-5", "prompt": "Read this brief in full and follow it exactly \

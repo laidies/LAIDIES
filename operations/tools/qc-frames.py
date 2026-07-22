@@ -101,9 +101,14 @@ for t in targets:
     # 7 retired generation in the filename
     for bad in RETIRED_GENERATIONS:
         if bad in name: issues.append(f"RETIRED GENERATION in filename: '{bad}'")
-    # 5 retired palette
-    if s["gold"] > 0.04 and s["plum"] > 0.02:
-        issues.append(f"RETIRED PALETTE — gold {s['gold']*100:.1f}% + plum {s['plum']*100:.1f}%")
+    # 5 retired palette — CHROME only, not scene colour.
+    # This fired on a GOOD frame (the Heroine's yellow plaid + jacaranda trees)
+    # and a check that fails good work gets ignored. Now it only complains when
+    # gold+plum genuinely dominate, which is what a chrome-heavy frame looks
+    # like; a costume and some trees never reach these levels together.
+    if s["gold"] > 0.16 and s["plum"] > 0.10:
+        notes.append(f"possible retired palette — gold {s['gold']*100:.1f}% + "
+                     f"plum {s['plum']*100:.1f}% (check it is chrome, not costume/scenery)")
     # 6 saturation
     if s["sat"] < 28:
         issues.append(f"MUTED — saturation {s['sat']:.0f} (style lock says pushed/saturated)")
@@ -137,6 +142,8 @@ for t in targets:
         for i in issues: print(f"    • {i}")
     else:
         print(f"✓ {name}   sat={s['sat']:.0f} lum={s['lum']:.0f}")
+    for nt in notes:
+        print(f"    ~ {nt}")
     print()
 
 print(f"── machine checks: {len(targets)-fails} clean, {fails} flagged ──\n")

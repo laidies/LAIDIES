@@ -175,3 +175,27 @@ paths remapped to canonical) + comp body + live script stack. 688 lines (was 180
 - autowrap follow-ups shipped: .ai-run single-run wrapper (flex/gap word-splitting fix) +
   .ai,.ai-run{display:inline!important} (block-span line-break fix) — ?v=20260712-inline on
   83 pages. "eight-stop" → "nine-stop" corrected (live + comp).
+
+## SHIPPED — 2026-07-12 (end of session)
+Redesigned homepage is LIVE on laidies.ai and verified by fetch. Sequence: Ali committed
+(65eb3c9) → push rejected (Hot Goss bot on main) → fetch/merge/push (merge commit 8d86b4c,
+message accidentally starts "t push origin…", harmless) → GitHub Pages build #283 (7m39s)
+→ SECOND Cloudflare purge (first purge raced the build — purge must come AFTER Pages build
+finishes; remember this for every future ship).
+Canon confirmed with Ali: Ep 04 = The Founding Mothers ("Every SLAiYER Needs a Watcher" was
+the REPLACED old episode; the stale "Episode 04" label existed only on the old homepage, now
+gone. Title remains valid as: KSVL B-side song, DJ-booth bonus track, SLAiYER Handbook Ch.1,
+SUNNYVAiLE High concepts block).
+Task #27 CLOSED.
+
+## NEXT SESSION QUEUE (agreed order)
+1. Background ramp system: deep/mid/pale ramp per accent; ALL section backgrounds become
+   2-colour gradients from ramps + cream; swatch review per section, then one sweep + add
+   ramp table to the palette lock in operations/homepage-design-brief-2026-07-11.md.
+2. Quick-rail retirement on the remaining 50 pages (homepage already done; full site map =
+   global header Menu panel). Ali leaned yes; confirm and execute.
+3. #33 resume wiring (member_issue_progress via script.js memberAuthClient → svShowResume).
+4. Carried: #14 site-index, #17 save-a-book, #18 background picker, #20 merit_badge,
+   #22 Supabase schema (needs approval), #25 canon backfill, #28 trading cards, #29 textbook
+   illustrations, #30 image audit (incl. frame-1-closed reshoot), #31 restyle all pages,
+   #32 page-by-page QA (Closet + Residence Card signup priority), #34 weekly rotation.

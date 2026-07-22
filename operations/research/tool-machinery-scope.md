@@ -1,5 +1,10 @@
 # The machinery of the tools — a research + content gap
 
+> **OWNERSHIP — 2026-07-22.** This scope has been **taken by the SUNNYVAiLE High classes
+> window**. It was originally handed to the website window; Ali moved it. **Do not research
+> this a second time.** The High window owns the research; where the findings land (per-tool
+> books vs classes) is decided after the research, not before.
+
 **Ali's idea, 2026-07-22:** *"we need to properly explain all the elements of the tools — like
 skills, hooks, connectors, plug-ins, memory, how they work, how to set them up, how to get the
 most out of the tools."*
