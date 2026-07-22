@@ -25,8 +25,10 @@
     /* ---- the stage -------------------------------------------------- */
     .theatre { position: relative; border-radius: 14px; overflow: hidden; background: #000;
       aspect-ratio: 16 / 9; border: 2px solid rgba(201,162,39,0.5); box-shadow: 0 30px 80px rgba(0,0,0,0.6); }
-    .scene { position: absolute; inset: 0; opacity: 0; transition: opacity 0.5s ease; }
-    .scene.is-live { opacity: 1; }
+    .scene { position: absolute; inset: 0; opacity: 0; transform: scale(1.012); filter: saturate(.9) brightness(.92);
+      transition: opacity .65s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1),
+        filter .65s ease; }
+    .scene.is-live { opacity: 1; transform: scale(1); filter: saturate(1) brightness(1); }
     .scene-img { position: absolute; inset: -6%; width: 112%; height: 112%; object-fit: cover; }
     .pan-ltr .scene-img { animation: panLtr var(--dur, 30s) linear forwards; }
     .pan-rtl .scene-img { animation: panRtl var(--dur, 30s) linear forwards; }
@@ -34,7 +36,36 @@
     @keyframes panLtr { from { transform: translateX(-2.5%) scale(1.02); } to { transform: translateX(2.5%) scale(1.08); } }
     @keyframes panRtl { from { transform: translateX(2.5%) scale(1.02); } to { transform: translateX(-2.5%) scale(1.08); } }
     @keyframes panZoom { from { transform: scale(1.0); } to { transform: scale(1.12); } }
-    @media (prefers-reduced-motion: reduce) { .scene-img { animation: none !important; } }
+    @media (prefers-reduced-motion: reduce) {
+      .scene { transform: none; filter: none; transition: opacity .2s linear; }
+      .scene-img { animation: none !important; }
+    }
+
+    /* Read-along captions sit BELOW the picture, never on top of it — the
+       artwork is the episode. Native ::cue can only paint inside the video
+       box, so the track runs in `hidden` mode (still fires cuechange) and we
+       render it ourselves here. */
+    .cap-bar {
+      margin: 10px 0 0; padding: 15px 20px 16px; border-radius: 12px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.09);
+      min-height: 84px;                    /* reserved so the page never jumps */
+      display: flex; flex-direction: column; gap: 6px; justify-content: center;
+    }
+    .cap-who {
+      font: 700 10px/1 'Jost', system-ui, sans-serif; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold, #c9a227); opacity: 0.85;
+    }
+    .cap-txt {
+      font: 400 clamp(15px, 1.5vw, 19px)/1.5 'Jost', system-ui, sans-serif;
+      color: #f4eef2; margin: 0; max-width: 62ch;
+    }
+    /* a MAiVEN speaking in her own voice reads as quoted testimony */
+    .cap-bar.is-maven .cap-txt { font-style: italic; color: #f7e9c9; }
+    .cap-bar[hidden] { display: none; }
+    @media (prefers-reduced-motion: no-preference) {
+      .cap-txt { transition: opacity 0.12s linear; }
+    }
 
     .scene-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 70px 34px 26px;
       background: linear-gradient(transparent, rgba(10,2,12,0.88)); }
@@ -223,6 +254,80 @@
     var knob = document.getElementById('knob');
     var bigPlay = document.getElementById('bigPlay');
 
+    // ── FULL EPISODE CUTS (CapCut MP4s). When an episode has a finished cut it
+    //    plays here directly; the cue-synced stills below stay as the fallback for
+    //    episodes that haven't been cut yet.
+    var EPISODE_FILMS = {
+      '04': '/assets/video/episode-04-full-v1.mp4'
+    };
+    // Read-along captions. Timed against the narration audio, which runs the same
+    // length as the film (20:22.40), so the VTT drops on with no offset.
+    var EPISODE_CAPTIONS = {
+      '04': '/assets/captions/episode-04.vtt'
+    };
+    function filmFor(ep) { return EPISODE_FILMS[String(ep).padStart(2, '0')] || null; }
+    function captionsFor(ep) { return EPISODE_CAPTIONS[String(ep).padStart(2, '0')] || null; }
+    // The MAiVENS speak in their own voices; the Heroine and the Announcer narrate.
+    // Testimony is set apart typographically, the way a pull-quote would be.
+    var MAVEN_VOICES = ['Ada Lovelace', 'Hedy Lamarr', 'Grace Hopper', 'Karen Spärck Jones'];
+
+    function mountCaptionBar(v, theatre) {
+      var bar = document.createElement('div');
+      bar.className = 'cap-bar';
+      bar.setAttribute('aria-live', 'polite');
+      var who = document.createElement('p'); who.className = 'cap-who';
+      var txt = document.createElement('p'); txt.className = 'cap-txt';
+      bar.appendChild(who); bar.appendChild(txt);
+      theatre.parentNode.insertBefore(bar, theatre.nextSibling);
+
+      function paint() {
+        var track = v.textTracks[0];
+        if (!track) return;
+        var c = track.activeCues && track.activeCues[0];
+        if (!c) { txt.textContent = ''; who.textContent = ''; return; }
+        // WebVTT voice tag: <v Ada Lovelace>line
+        var m = /^<v\s+([^>]+)>/.exec(c.text);
+        var speaker = m ? m[1] : '';
+        who.textContent = speaker;
+        txt.textContent = c.text.replace(/^<v[^>]*>/, '').replace(/\n/g, ' ');
+        bar.classList.toggle('is-maven', MAVEN_VOICES.indexOf(speaker) !== -1);
+      }
+      function arm() {
+        var track = v.textTracks[0];
+        if (!track) return;
+        track.mode = 'hidden';          // parses cues, paints nothing over the picture
+        track.addEventListener('cuechange', paint);
+        paint();
+      }
+      if (v.textTracks.length) arm();
+      v.textTracks.addEventListener('addtrack', arm);
+      return bar;
+    }
+
+    function mountFilm(src, ep) {
+      var theatre = document.getElementById('theatre');
+      if (!theatre) return false;
+      // strip the stills-player chrome — the film carries its own controls
+      var bp = document.getElementById('bigPlay'); if (bp) bp.remove();
+      var od = document.getElementById('osd'); if (od) od.remove();
+      var deck = document.querySelector('.deck'); if (deck) deck.style.display = 'none';
+      var v = document.createElement('video');
+      v.className = 'film-player';
+      v.src = src; v.controls = true; v.playsInline = true; v.preload = 'metadata';
+      v.setAttribute('controlsList', 'nodownload');
+      v.style.cssText = 'width:100%;height:100%;display:block;object-fit:contain;background:#000;';
+      var vtt = captionsFor(ep);
+      if (vtt) {
+        var tr = document.createElement('track');
+        tr.kind = 'captions'; tr.label = 'English'; tr.srclang = 'en';
+        tr.src = vtt; tr.default = true;
+        v.appendChild(tr);
+      }
+      theatre.appendChild(v);
+      if (vtt) mountCaptionBar(v, theatre);
+      theatre.classList.add('is-film');
+      return true;
+    }
     var cues = [], duration = 0, demoMode = false;
     var demoClock = 0, demoPlaying = false, lastTick = null;
     var currentIdx = -1;
@@ -261,9 +366,15 @@
             + (line ? '<p class="scene-line">' + brand(line) + '</p>' : '') + '</div>'
           : '';
       };
-      if (c.type === 'full' || c.type === 'cta') {
+      var fullFrameImage = c.src && (
+        c.type === 'full' || c.type === 'cta' || c.type === 'strip'
+        || c.type === 'emph' || c.type === 'timejump'
+        || (c.type === 'title' && !c.title && !c.sub)
+      );
+      if (fullFrameImage) {
         el.classList.add('pan-' + (c.pan || 'zoom'));
         if (c.type === 'cta') el.classList.add('scene--cta');
+        if (c.type !== 'full' && c.type !== 'cta') el.classList.add('scene--' + c.type);
         el.innerHTML = '<img class="scene-img" src="' + esc(c.src) + '" alt="">'
           + '<div class="scene-caption">'
           + (c.kicker || c.label ? '<p class="scene-kicker">' + brand(c.kicker || c.label) + '</p>' : '')
@@ -271,7 +382,9 @@
           + (c.type === 'cta' ? '<a class="cta-btn" href="' + esc(c.href) + '">' + brand(c.btn || 'Go') + ' →</a>' : '')
           + '</div>';
       } else if (c.type === 'video') {
-        el.innerHTML = '<video class="scene-img" src="' + esc(c.src) + '" muted autoplay playsinline></video>';
+        el.innerHTML = '<video class="scene-img" src="' + esc(c.src) + '" muted autoplay loop playsinline></video>';
+        setTimeout(function(){ var vv = el.querySelector('video');
+          if (vv) { vv.playbackRate = (c.rate !== undefined ? c.rate : 0.5); } }, 0);
       } else if (c.type === 'card') {
         el.classList.add('scene--card');
         el.innerHTML = '<img class="scene-portrait" src="' + esc(c.src) + '" alt="">'
@@ -327,7 +440,7 @@
       if (i === currentIdx || i < 0) return;
       currentIdx = i;
       var old = theatre.querySelector('.scene.is-live');
-      if (old) { old.classList.remove('is-live'); setTimeout(function () { old.remove(); }, 600); }
+      if (old) { old.classList.remove('is-live'); setTimeout(function () { old.remove(); }, 760); }
       var el = buildScene(cues[i], i);
       theatre.insertBefore(el, theatre.querySelector('.vhs-scan'));
       theatre.classList.add('is-switching');
@@ -491,6 +604,11 @@
         tape.addEventListener('play', tick);
         tape.addEventListener('pause', tick);
         tape.addEventListener('ended', function () { advanceSegment(); });
+
+        var __ep = (typeof epNum !== 'undefined' ? epNum : (new URLSearchParams(location.search).get('ep') || '01'));
+        var __film = filmFor(__ep);
+
+        if (__film && mountFilm(__film, __ep)) { return; }
 
         loadSegment(0);
 

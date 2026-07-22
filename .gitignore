@@ -1,12 +1,30 @@
-# Temporary minimal .gitignore for full project transfer
-# RESTORE THE ORIGINAL AFTER CLONING ON MAC
+# ── dependencies / build ────────────────────────────────────────────────
 node_modules/
-tmp/
-.DS_Store
-.ds-sync/
-ds-bundle/
+**/node_modules/
+.venv*/
+**/.venv*/
+.design-sync/node_modules
 .design-sync/.cache/
 .design-sync/learnings/
-.design-sync/node_modules
 design-system/node_modules/
 design-system/dist/
+
+# ── secrets ─────────────────────────────────────────────────────────────
+.env
+.env.local
+
+# ── OS / scratch ────────────────────────────────────────────────────────
+.DS_Store
+tmp/
+.ds-sync/
+ds-bundle/
+
+# ── heavy video renders ─────────────────────────────────────────────────
+# ~33 GB of working intermediates. The FINAL episode exports are kept via the
+# negation below; QA contact sheets, rerolls and raw generations are not.
+*.mp4
+*.mov
+!assets/video/episode-*-full-v*.mp4
+**/.qa-*/
+**/_raw-generated/
+**/bad-*-archive-*/

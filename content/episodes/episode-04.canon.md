@@ -151,6 +151,39 @@ No try-on task this week — a field trip. Go up to the LUMINAiRY, walk into the
 - Kate Crawford — *Atlas of AI* (Yale UP 2021).
 - Alan Turing (in memoriam) — en.wikipedia.org/wiki/Alan_Turing.
 
+## cast[]
+Every real woman who appears in this episode's artwork, and the folder holding her
+photo references. **A name with no reference folder is BLOCKED from generation** —
+that is what produced the generic ENIAC women and the unverifiable Joy frame.
+Add photos to `operations/reference/real-people/<ref>/`, then re-run the batch builder.
+
+| Scene key | Who | ref folder |
+|---|---|---|
+| ada | Ada Lovelace | ada-lovelace |
+| hedy | Hedy Lamarr | hedy-lamarr |
+| eniac | Jean Jennings Bartik · Betty Snyder Holberton · Kay McNulty · Marlyn Wescoff · Ruth Lichterman · Frances Bilas | eniac-six |
+| grace | Grace Hopper | grace-hopper |
+| karen | Karen Spärck Jones | karen-sparck-jones |
+| fei-fei | Fei-Fei Li | fei-fei-li |
+| joy | Joy Buolamwini | joy-buolamwini |
+| timnit | Timnit Gebru | timnit-gebru |
+| emily | Emily Bender | emily-bender |
+| kate | Kate Crawford | kate-crawford |
+
+## heroine_outfit
+**ONE outfit for the whole episode.** She wears a different one each week, but the SAME one
+in every frame of this episode, with 90s-styled hair.
+
+> **EP4: yellow tartan/plaid shirt-jacket worn open over a white tee, butterfly hair clips,
+> loose 90s waves, small gold hoops, shoulder bag.**
+
+Established by the approved frames — `ep04-around-town-comic-v1-1920.png` (all four panels)
+and `ep04-sign-off-fieldtrip-comic-v1-1920.png`. Any frame with her in it must match these.
+
+⛔ **NEVER corporate.** No navy pantsuit, no blazer-and-blouse, no office tailoring. She lives
+in SUNNYVAiLE; she does not commute in from a law firm. In the 2026-07-22 batch she appeared
+in four different outfits, four of them corporate — all of those frames need redoing.
+
 ## artwork[]
 *(→ article · episode player. Pixel-art keyframes + directed inline clips, one per beat.)*
 - **hero / cold-open keyframe:** `assets/episodes/ep-04/pixel/ep04-scene-01-cold-open-v2.png`

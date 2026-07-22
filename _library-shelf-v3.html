@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Town LIBRAiRY — three bookcases</title>
+<style>
+/* ─────────────────────────────────────────────────────────────
+   LIBRAiRY v3 — THREE bookcases, not one.
+   Uses the METAL shelf units + signs delivered 2026-07-21
+   (assets/building-interiors/library-shelf/), which were sitting
+   unused. Palette = the homepage: candy accents, ink, cream.
+   ───────────────────────────────────────────────────────────── */
+:root{
+  --ink:#3a1838; --cream:#fffdfb; --paper:#f3eadf;
+  --pink:#e982ab; --teal:#57b6c0; --coral:#ec7a78; --peri:#b3abe7;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{color:var(--cream); font-family:'Jost',system-ui,-apple-system,sans-serif;
+     background:#1a1418}
+
+/* the aisle you're standing in */
+.aisle{position:fixed; inset:0; z-index:0;
+  background:url('/assets/building-interiors/library-shelf/library-aisle-backdrop-v1.png') center/cover no-repeat;
+  filter:brightness(.55) saturate(1.15)}
+.aisle::after{content:''; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(26,20,24,.35), rgba(26,20,24,.86))}
+.wrap{position:relative; z-index:1; padding:24px clamp(16px,2.5vw,40px) 54px}
+
+.hd{display:flex; align-items:flex-end; justify-content:space-between; gap:22px;
+    flex-wrap:wrap; margin:0 0 18px}
+.eyebrow{font:700 10.5px/1 'Jost',sans-serif; letter-spacing:.28em; text-transform:uppercase;
+         color:var(--teal); margin:0 0 8px}
+.hd h1{font:800 clamp(26px,3.6vw,46px)/1 'Jost',sans-serif; margin:0; letter-spacing:-.02em}
+.hd h1 em{font-style:normal; color:var(--pink)}
+.hd p{margin:0; max-width:40ch; font:400 14.5px/1.5 'Jost',sans-serif; color:rgba(255,253,251,.7)}
+
+/* ── three bays across, like walking the aisle ── */
+.bays{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(10px,1.4vw,22px)}
+@media (max-width:900px){ .bays{grid-template-columns:1fr} }
+
+.bay{position:relative; width:100%; aspect-ratio:960/1080;
+     background:url('/assets/building-interiors/library-shelf/delivery-20260721-size-variants-v4/library-shelf-unit-4-shelf-upright-v1.png') center/contain no-repeat}
+/* the sign sits on the header rail the unit was built with */
+.sign{position:absolute; top:2.4%; left:5%; right:5%; height:7.4%;
+      background-size:contain; background-position:center; background-repeat:no-repeat}
+.sign--101s{background-image:url('/assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-101s-v1.png')}
+.sign--tools{background-image:url('/assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-tools-v1.png')}
+.sign--ref{background-image:url('/assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-reference-v1.png')}
+
+/* books stand ON each shelf — bottoms align to the shelf surfaces */
+.shelf{position:absolute; left:6%; right:6%; margin:0; padding:0; list-style:none;
+       display:flex; align-items:flex-end; justify-content:center; gap:2%}
+.shelf-1{bottom:67.5%; height:17%}
+.shelf-2{bottom:47.3%; height:17%}
+.shelf-3{bottom:27.0%; height:17%}
+.shelf-4{bottom:6.4%;  height:17%}
+.shelf li{height:100%; flex:0 0 auto}
+.bk{display:block; height:100%; background:none; border:0; padding:0; cursor:pointer;
+    transform-origin:bottom center; transition:transform .16s ease}
+.bk img{height:100%; width:auto; display:block; filter:drop-shadow(0 5px 7px rgba(0,0,0,.55))}
+.bk:hover, .bk:focus-visible{transform:translateY(-13px) rotate(-1.4deg); outline:none}
+.bk[aria-pressed="true"]{transform:translateY(-18px) rotate(-2.2deg)}
+.bk.soon img{opacity:.42; filter:drop-shadow(0 4px 6px rgba(0,0,0,.45)) grayscale(.6)}
+.bk.soon:hover img{opacity:.7}
+@media (prefers-reduced-motion:reduce){ .bk{transition:none} }
+
+/* ── the book opens BELOW, full width. no page change ── */
+.open{margin:22px 0 0; background:var(--paper); color:var(--ink);
+      border-radius:14px; padding:24px clamp(20px,2.6vw,34px) 26px;
+      box-shadow:0 18px 50px rgba(0,0,0,.45); border-top:5px solid var(--pink);
+      display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr); gap:26px}
+@media (max-width:820px){ .open{grid-template-columns:1fr} }
+.open .k{font:700 10.5px/1 'Jost',sans-serif; letter-spacing:.24em; text-transform:uppercase;
+         color:var(--coral); margin:0 0 9px}
+.open h2{font:800 clamp(21px,2.3vw,31px)/1.08 'Jost',sans-serif; margin:0 0 11px}
+.open p{font:400 15.5px/1.6 'Jost',sans-serif; color:rgba(58,24,56,.8); margin:0 0 16px}
+.go{display:inline-block; font:700 13px/1 'Jost',sans-serif; text-decoration:none;
+    color:var(--ink); background:var(--pink); padding:12px 19px; border-radius:9px}
+.go.none{background:#e6dbcd; color:rgba(58,24,56,.55)}
+.words{font:600 12px/1 'Jost',sans-serif; color:rgba(58,24,56,.5); margin-left:10px}
+.sec{display:flex; align-items:center; gap:10px; padding:9px 0;
+     border-bottom:1px solid rgba(58,24,56,.09)}
+.sec-t{font:600 14px/1.35 'Jost',sans-serif}
+.hint{font:500 12.5px/1.5 'Jost',sans-serif; color:rgba(255,253,251,.5);
+      margin:12px 0 0; text-align:center}
+</style>
+<script defer src="/content/site/puffy-bookmarks.js"></script>
+</head>
+<body>
+<div class="aisle"></div>
+<div class="wrap">
+
+  <div class="hd">
+    <div>
+      <p class="eyebrow">Civic Square · SUNNYVAiLE · The LIBRAiRY</p>
+      <h1>The Town <em>LIBRAiRY</em></h1>
+    </div>
+    <p>Three bookcases. One job: look it up. Pull a book off the shelf — it opens right here.</p>
+  </div>
+
+  <div class="bays">
+    <div class="bay" data-case="101s"><div class="sign sign--101s"></div>
+      <ul class="shelf shelf-1"></ul><ul class="shelf shelf-2"></ul>
+      <ul class="shelf shelf-3"></ul><ul class="shelf shelf-4"></ul></div>
+    <div class="bay" data-case="tools"><div class="sign sign--tools"></div>
+      <ul class="shelf shelf-1"></ul><ul class="shelf shelf-2"></ul>
+      <ul class="shelf shelf-3"></ul><ul class="shelf shelf-4"></ul></div>
+    <div class="bay" data-case="ref"><div class="sign sign--ref"></div>
+      <ul class="shelf shelf-1"></ul><ul class="shelf shelf-2"></ul>
+      <ul class="shelf shelf-3"></ul><ul class="shelf shelf-4"></ul></div>
+  </div>
+  <p class="hint">Hover to pull a book forward · click to open it</p>
+
+  <div class="open" id="open">
+    <div>
+      <p class="k" id="oK">The reference desk</p>
+      <h2 id="oT">Pull a book off the shelf.</h2>
+      <p id="oD">Every book opens here — no new page, no scrolling away. The shelves are the menu.</p>
+      <span id="oGo"></span>
+    </div>
+    <div id="oSections" hidden>
+      <p class="k">Inside this book</p>
+      <div id="oSecList"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* Books mapped to the THREE real bookcases, with the word counts recovered
+   from _superseded/ on 2026-07-22. `src` = the extracted content file. */
+var BOOKS = [
+ // ── 101s ──
+ {c:'101s', s:1, img:'textbook-vocab-101.png',    t:'Vocab 101',    w:1459, src:'vocab-101.md',
+  d:'Every AI word in plain English — prompt, token, hallucination, model, context, agent.',
+  sections:['The words you keep hearing','What a token actually is','Hallucination, plainly']},
+ {c:'101s', s:1, img:'textbook-concepts-101.png', t:'Concepts 101', w:0, src:'',
+  d:'How it works, minus the maths. Must be cut from Handbook chapter 1 (6,071 words).'},
+ {c:'101s', s:2, img:'textbook-briefing-101.png', t:'Briefing 101', w:847, src:'handbook-ch2.md',
+  d:'How to ask so it comes back useful. From The Briefing Rules.',
+  sections:['The seven rules','Why context beats cleverness']},
+ {c:'101s', s:2, img:'textbook-setup-101.png',    t:'Setup 101',    w:848, src:'handbook-ch3.md',
+  d:'Set up once so every tool knows how you work. From The Skeleton Key.',
+  sections:['The skeleton key','Set it once']},
+ {c:'101s', s:3, img:'textbook-accounts-101.png', t:'Accounts 101', w:913, src:'handbook-ch5.md',
+  d:"What's safe to paste and what never is. From The Account Rule.",
+  sections:['Personal vs company','What never goes in']},
+ // ── The Tools ──
+ {c:'tools', s:1, img:'book-whos-who.png',   t:"Who's Who in AI", w:185, src:'whos-who.md',
+  d:'Who makes what, and which tool you would open for which job. ⚠ only 185 words — thin for a book.'},
+ {c:'tools', s:1, img:'book-the-lineup.png', t:'The Lineup',      w:586, src:'handbook-ch4.md',
+  d:'The tools side by side. From The Field Guide — tool taxonomy, which is what this shelf is for.'},
+ {c:'tools', s:2, img:'book-chatgpt.png',    t:'ChatGPT',    w:1689, src:'tool-chatgpt.md',
+  d:'One book per app — what it is best at and where it lets you down.',
+  sections:['What it is good at','Where it lets you down']},
+ {c:'tools', s:2, img:'book-claude.png',     t:'Claude',     w:0, src:'', d:'Not written yet.'},
+ {c:'tools', s:3, img:'book-gemini.png',     t:'Gemini',     w:0, src:'', d:'Not written yet.'},
+ {c:'tools', s:3, img:'book-copilot.png',    t:'Copilot',    w:0, src:'', d:'Not written yet.'},
+ {c:'tools', s:4, img:'book-perplexity.png', t:'Perplexity', w:0, src:'', d:'Not written yet.'},
+ // ── Reference ──
+ {c:'ref', s:1, img:'book-straight-answers-about-ai.png', t:'Straight Answers About AI', w:5463, src:'straight-answers.md',
+  d:'Sourced answers to the questions everyone actually asks. 15 receipts, every claim with a source.',
+  sections:['Is it coming for my job?','Is my data safe?','What about the environment?']},
+ {c:'ref', s:1, img:'book-how-to-check-ai-work.png', t:"How to Check AI's Work", w:1864, src:'(already live)',
+  d:'How to check an AI answer without doing the work yourself.',
+  sections:['Prompt Like Elle','When to trust a citation','When to just ask a human']},
+ {c:'ref', s:2, img:'book-what-not-to-paste.png',   t:'What Not to Paste',   w:0, src:'', d:'Not written yet.'},
+ {c:'ref', s:2, img:'book-the-prompt-cookbook.png', t:'The Prompt Cookbook', w:0, src:'', d:'Not written yet.'}
+];
+
+BOOKS.forEach(function(b,i){
+  var bay = document.querySelector('.bay[data-case="'+b.c+'"]');
+  var shelf = bay.querySelector('.shelf-'+b.s);
+  var li = document.createElement('li');
+  li.innerHTML = '<button class="bk'+(b.w?'':' soon')+'" aria-pressed="false" data-i="'+i+'">'
+               + '<img loading="lazy" src="/assets/library-101/'+b.img+'" alt="'+b.t+'"></button>';
+  shelf.appendChild(li);
+});
+
+var oK=document.getElementById('oK'), oT=document.getElementById('oT'),
+    oD=document.getElementById('oD'), oGo=document.getElementById('oGo');
+document.querySelector('.bays').addEventListener('click', function(e){
+  var btn = e.target.closest('.bk'); if(!btn) return;
+  document.querySelectorAll('.bk').forEach(function(x){ x.setAttribute('aria-pressed','false'); });
+  btn.setAttribute('aria-pressed','true');
+  var b = BOOKS[+btn.dataset.i];
+  oK.textContent = ({'101s':'The 101 shelf','tools':'The Tools','ref':'Reference'})[b.c];
+  oT.textContent = b.t;
+  oD.textContent = b.d;
+  oGo.innerHTML = b.w
+    ? '<span class="go">Read it &rarr;</span><span class="words">'+b.w.toLocaleString()+' words · '+b.src+'</span>'
+    : '<span class="go none">Not written yet</span>';
+
+  var open = document.getElementById('open');
+  open.setAttribute('data-puffy-title', b.t);
+  open.setAttribute('data-puffy-summary', b.d.slice(0,120));
+  var secs=document.getElementById('oSections'), list=document.getElementById('oSecList');
+  if (b.sections && b.sections.length){
+    list.innerHTML = b.sections.map(function(s,si){
+      var id='sec-'+b.t.toLowerCase().replace(/[^a-z0-9]+/g,'-')+'-'+si;
+      return '<div class="sec" id="'+id+'" data-puffy-title="'+b.t+' — '+s+'"><span class="sec-t">'+s+'</span></div>';
+    }).join('');
+    secs.hidden=false;
+  } else { secs.hidden=true; list.innerHTML=''; }
+  if (window.svPuffyScan) window.svPuffyScan();
+});
+</script>
+</body>
+</html>

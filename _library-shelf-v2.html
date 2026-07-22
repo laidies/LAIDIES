@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Town LIBRAiRY — shelf prototype</title>
+<style>
+/* ─────────────────────────────────────────────────────────────
+   LIBRAiRY shelf prototype
+   The shelf IS the interface. No parallel column of text cards.
+   Palette taken from the homepage: candy accents, ink, cream.
+   ───────────────────────────────────────────────────────────── */
+:root{
+  --ink:#3a1838; --cream:#fffdfb; --paper:#f3eadf;
+  --pink:#e982ab; --teal:#57b6c0; --coral:#ec7a78; --peri:#b3abe7;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--cream); color:var(--ink);
+     font-family:'Jost',system-ui,-apple-system,sans-serif}
+
+.hd{padding:26px clamp(18px,3vw,44px) 0; display:flex; align-items:flex-end;
+    justify-content:space-between; gap:20px; flex-wrap:wrap}
+.eyebrow{font:700 11px/1 'Jost',sans-serif; letter-spacing:.28em; text-transform:uppercase;
+         color:var(--teal); margin:0 0 8px}
+.hd h1{font:800 clamp(28px,4vw,50px)/1 'Jost',sans-serif; margin:0; letter-spacing:-.02em}
+.hd h1 em{font-style:normal; color:var(--pink)}
+.hd p{margin:0; max-width:46ch; font:400 15px/1.55 'Jost',sans-serif; color:rgba(58,24,56,.72)}
+
+/* ── the room: shelf left, open book right. no centre strip ── */
+.room{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+      gap:clamp(16px,2.4vw,36px); align-items:start;
+      padding:22px clamp(18px,3vw,44px) 60px}
+@media (max-width:980px){ .room{grid-template-columns:1fr} }
+
+/* ── the bookcase ── */
+.case{position:relative; width:100%; aspect-ratio:2400/1600; border-radius:12px;
+      background:url('/assets/library-101/101-shelf-kit.png') center/cover no-repeat;
+      box-shadow:0 18px 50px rgba(58,24,56,.22)}
+.row{position:absolute; left:7%; right:7%; margin:0; padding:0; list-style:none;
+     display:flex; align-items:flex-end; justify-content:space-evenly; gap:1.2%}
+.row-1{top:12.5%; height:24.5%}
+.row-2{top:40%;   height:22%}
+.row-3{top:64.5%; height:22.5%}
+.row li{height:100%; flex:0 0 auto}
+.bk{display:block; height:100%; background:none; border:0; padding:0; cursor:pointer;
+    transform-origin:bottom center; transition:transform .16s ease}
+.bk img{height:100%; width:auto; display:block;
+        filter:drop-shadow(0 6px 8px rgba(20,8,14,.42))}
+.bk:hover, .bk:focus-visible{transform:translateY(-14px) rotate(-1.2deg); outline:none}
+/* unwritten books stay ON the shelf, dimmed — the shelf tells the truth
+   about what exists and what is coming, rather than hiding the gaps */
+.bk.soon img{opacity:.5; filter:drop-shadow(0 5px 6px rgba(20,8,14,.3)) grayscale(.5)}
+.bk.soon:hover img{opacity:.72}
+.bk[aria-pressed="true"]{transform:translateY(-20px) rotate(-2deg)}
+.bk[aria-pressed="true"] img{filter:drop-shadow(0 12px 16px rgba(20,8,14,.5))}
+@media (prefers-reduced-motion:reduce){ .bk{transition:none} }
+
+/* ── the opened book: the reveal, in place. no page change ── */
+.open{position:sticky; top:22px; background:var(--paper);
+      border-radius:14px; padding:26px 28px 24px; min-height:340px;
+      box-shadow:0 14px 40px rgba(58,24,56,.16);
+      border-top:5px solid var(--pink)}
+.open .k{font:700 10.5px/1 'Jost',sans-serif; letter-spacing:.24em;
+         text-transform:uppercase; color:var(--coral); margin:0 0 10px}
+.open h2{font:800 clamp(22px,2.4vw,32px)/1.08 'Jost',sans-serif; margin:0 0 12px}
+.open p{font:400 16px/1.6 'Jost',sans-serif; color:rgba(58,24,56,.8); margin:0 0 18px}
+.open .go{display:inline-block; font:700 13px/1 'Jost',sans-serif; letter-spacing:.06em;
+          text-decoration:none; color:var(--ink); background:var(--pink);
+          padding:13px 20px; border-radius:9px}
+.open .go:hover{background:var(--coral)}
+.open .empty{color:rgba(58,24,56,.5); font-style:italic}
+.hint{font:500 13px/1.5 'Jost',sans-serif; color:rgba(58,24,56,.55);
+      margin:14px 0 0; text-align:center}
+
+/* ── savable sections: a puffy goes on the book, or on a section inside it ── */
+.sections{border-top:1px solid rgba(58,24,56,.14); margin-top:6px}
+.sec{display:flex; align-items:center; gap:10px; padding:9px 0;
+     border-bottom:1px solid rgba(58,24,56,.08)}
+.sec-t{font:600 14px/1.35 'Jost',sans-serif; color:var(--ink)}
+.sec .puffy-btn, .open > .puffy-btn{margin-left:auto}
+/* the button puffy-bookmarks.js injects */
+.puffy-btn{background:none; border:0; cursor:pointer; font-size:19px; line-height:1;
+           padding:2px 4px; border-radius:7px; opacity:.45; transition:opacity .13s}
+.puffy-btn:hover, .puffy-btn[aria-pressed="true"]{opacity:1}
+.puffy-btn[aria-pressed="true"]{background:rgba(233,130,171,.18)}
+</style>
+  <script defer src="/content/site/puffy-bookmarks.js"></script>
+</head>
+<body>
+
+<div class="hd">
+  <div>
+    <p class="eyebrow">Civic Square · SUNNYVAiLE · The LIBRAiRY</p>
+    <h1>The Town <em>LIBRAiRY</em></h1>
+  </div>
+  <p>Three shelves. One job: look it up. Pull a book down — it opens right here.</p>
+</div>
+
+<div class="room">
+  <div>
+    <div class="case" id="case">
+      <ul class="row row-1" id="r1"></ul>
+      <ul class="row row-2" id="r2"></ul>
+      <ul class="row row-3" id="r3"></ul>
+    </div>
+    <p class="hint">Hover to pull a book forward · click to open it</p>
+  </div>
+
+  <div class="open" id="open">
+    <p class="k" id="oK">The reference desk</p>
+    <h2 id="oT">Pull a book down.</h2>
+    <p id="oD">Every book on this shelf opens here — no new page, no scrolling away. The shelf is the menu.</p>
+    <span id="oGo"></span>
+
+    <!-- Savable sections. Each gets a puffy button from puffy-bookmarks.js;
+         placing one deep-links that section to the Puffy Board in the Closet.
+         Two levels: save the whole BOOK, or save a SECTION inside it. -->
+    <div id="oSections" class="sections" hidden>
+      <p class="k" style="margin-top:22px">Inside this book</p>
+      <div id="oSecList"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* Real books with LIVE destinations. The 101 textbooks (Vocab, Concepts,
+   Briefing, Setup, Accounts) are deliberately absent — those pages do not
+   exist yet, so painting them on the shelf would be a dead end. */
+var BOOKS = [
+ { img:'book-whos-who.png', t:"Who's Who in AI",
+   d:"Who makes what — OpenAI, Anthropic, Google and the rest — and which tool you'd open for which job. So you know the name when it wanders into a meeting.",
+   url:'/grimoire/power-map.html', row:1,
+   sections:['Who makes what','Which tool for which job','The names you\'ll hear in a meeting'] },
+ { img:'book-straight-answers-about-ai.png', t:'Straight Answers About AI',
+   d:"Sourced answers to the questions everyone actually asks — is it coming for my job, is my data safe, what about the environment. Real data, every claim with a source you can check.",
+   url:'/grimoire/chamber-of-receipts.html', row:1,
+   sections:['Is it coming for my job?','Is my data safe?','What about the environment?'] },
+ { img:'book-how-to-check-ai-work.png', t:"How to Check AI's Work",
+   d:"How to check an AI answer without doing the work yourself — the Prompt Like Elle method, plus when to trust a citation, when to Google it, and when to just ask a human.",
+   url:'/grimoire/verification-rulebook.html', row:1,
+   sections:['Prompt Like Elle','When to trust a citation','When to just ask a human'] },
+ { img:'book-the-prompt-cookbook.png', t:'The Prompt Cookbook',
+   d:"Recipes for asking — the phrasings that reliably come back useful, sorted by what you are trying to get out.",
+   url:'', row:2 },
+ { img:'book-what-not-to-paste.png', t:'What Not to Paste',
+   d:"What is safe to hand a chatbot and what never is. Short, blunt, worth reading before you paste the spreadsheet.",
+   url:'', row:2 },
+ { img:'book-the-lineup.png', t:'The Lineup',
+   d:"The tools side by side — who makes each one, what it is genuinely good at, and which house it belongs to.",
+   url:'', row:2 },
+ { img:'textbook-vocab-101.png',    t:'Vocab 101',    d:"Every AI word in plain English — prompt, token, hallucination, model, context, agent. The one you'll actually reach for when someone throws jargon across the table.", url:'', row:2 },
+ { img:'textbook-concepts-101.png', t:'Concepts 101', d:"How it works, minus the maths.", url:'', row:2 },
+ { img:'book-chatgpt.png',    t:'ChatGPT',    d:"One book per app — what it is best at and where it lets you down.", url:'', row:3 },
+ { img:'book-claude.png',     t:'Claude',     d:"One book per app — what it is best at and where it lets you down.", url:'', row:3 },
+ { img:'book-gemini.png',     t:'Gemini',     d:"One book per app — what it is best at and where it lets you down.", url:'', row:3 },
+ { img:'book-copilot.png',    t:'Copilot',    d:"One book per app — what it is best at and where it lets you down.", url:'', row:3 },
+ { img:'book-perplexity.png', t:'Perplexity', d:"One book per app — what it is best at and where it lets you down.", url:'', row:3 },
+ { img:'textbook-briefing-101.png', t:'Briefing 101', d:"How to ask so it comes back useful.", url:'', row:3 },
+ { img:'textbook-setup-101.png',    t:'Setup 101',    d:"Set up once so every tool knows how you work.", url:'', row:3 },
+ { img:'textbook-accounts-101.png', t:'Accounts 101', d:"What's safe to paste and what never is.", url:'', row:3 }
+];
+
+var rows = { 1:document.getElementById('r1'), 2:document.getElementById('r2'), 3:document.getElementById('r3') };
+BOOKS.forEach(function(b,i){
+  var li = document.createElement('li');
+  li.innerHTML = '<button class="bk'+(b.url?'':' soon')+'" aria-pressed="false" data-i="'+i+'">'
+               + '<img loading="lazy" src="/assets/library-101/'+b.img+'" alt="'+b.t+'"></button>';
+  rows[b.row].appendChild(li);
+});
+
+var oK=document.getElementById('oK'), oT=document.getElementById('oT'),
+    oD=document.getElementById('oD'), oGo=document.getElementById('oGo');
+document.getElementById('case').addEventListener('click', function(e){
+  var btn = e.target.closest('.bk'); if(!btn) return;
+  document.querySelectorAll('.bk').forEach(function(x){ x.setAttribute('aria-pressed','false'); });
+  btn.setAttribute('aria-pressed','true');
+  var b = BOOKS[+btn.dataset.i];
+  oK.textContent = 'On the shelf';
+  oT.textContent = b.t;
+  oD.textContent = b.d;
+  oD.className = b.url ? '' : 'empty';
+  oGo.innerHTML = b.url
+    ? '<a class="go" href="'+b.url+'">Open the shelf &rarr;</a>'
+    : '<span class="go" style="background:#e6dbcd;color:rgba(58,24,56,.55)">Not written yet</span>';
+
+  /* ── make the book and its sections savable to the Closet ──
+     The open panel itself carries an id, so a puffy saves the whole book.
+     Each section row carries its own id, so a puffy saves just that part. */
+  var open = document.getElementById('open');
+  open.id = 'open';
+  open.setAttribute('data-puffy-title', b.t);
+  open.setAttribute('data-puffy-summary', b.d.slice(0,120));
+
+  var secs = document.getElementById('oSections'), list = document.getElementById('oSecList');
+  if (b.sections && b.sections.length) {
+    list.innerHTML = b.sections.map(function(s, si){
+      var id = 'sec-' + b.t.toLowerCase().replace(/[^a-z0-9]+/g,'-') + '-' + si;
+      return '<div class="sec" id="'+id+'" data-puffy-title="'+b.t+' — '+s+'">'
+           +   '<span class="sec-t">'+s+'</span></div>';
+    }).join('');
+    secs.hidden = false;
+  } else { secs.hidden = true; list.innerHTML = ''; }
+
+  /* re-scan so the newly added rows get their puffy buttons */
+  if (window.svPuffyScan) window.svPuffyScan();
+});
+</script>
+</body>
+</html>

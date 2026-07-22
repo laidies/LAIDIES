@@ -51,17 +51,32 @@
     return btn;
   }
 
+  var cssDone = false;
   function initReader() {
     var targets = document.querySelectorAll('[data-puffy-title]');
     if (!targets.length) return;
+    if (cssDone) {                       // rescan: styles already in, just wire new targets
+      targets.forEach(function (el) {
+        if (el.querySelector(':scope > .puffy-btn')) return;   // already has one
+        var b = makeBtn(el);
+        if (b) el.appendChild(b);
+      });
+      return;
+    }
+    cssDone = true;
     var css = document.createElement('style');
     css.textContent =
-      '.puffy-btn{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;margin-left:10px;vertical-align:middle;' +
-      'border:1.5px dashed rgba(155,63,95,0.45);border-radius:50%;background:transparent;cursor:pointer;padding:0;' +
-      'background-image:url(/assets/butterfly-clip-rating-token.png);background-size:70% 70%;background-position:center;background-repeat:no-repeat;' +
-      'filter:grayscale(1);opacity:0.5;transition:opacity .15s,filter .15s,transform .15s;}' +
+      // The sticker IS a puffy — assets/puffies/. The previous icon was a
+      // butterfly CLIP: clips are the currency, not a bookmark, and Ali
+      // marked that token "redo — I don't know what this is".
+      '.puffy-btn{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;margin-left:10px;vertical-align:middle;' +
+      'border:1.5px dashed rgba(155,63,95,0.4);border-radius:50%;background:transparent;cursor:pointer;padding:0;' +
+      'background-image:url(/assets/puffies/puffy-star-teal.png);background-size:74% 74%;background-position:center;background-repeat:no-repeat;' +
+      'filter:grayscale(1);opacity:0.45;transition:opacity .15s,filter .15s,transform .15s;}' +
       '.puffy-btn:hover{opacity:0.9;transform:scale(1.12);}' +
-      '.puffy-btn.is-placed{border-style:solid;border-color:var(--rose,#9b3f5f);filter:none;opacity:1;box-shadow:0 3px 8px rgba(155,63,95,0.3);}';
+      '.puffy-btn.is-placed{border:0;background-image:url(/assets/puffies/puffy-star-pink.png);background-size:100% 100%;' +
+      'filter:none;opacity:1;transform:rotate(-8deg);}' +
+      '.puffy-btn.is-placed:hover{transform:rotate(-8deg) scale(1.1);}';
     document.head.appendChild(css);
     targets.forEach(function (el) {
       var btn = makeBtn(el);
@@ -77,7 +92,7 @@
       var list = load();
       board.innerHTML = '';
       if (!list.length) {
-        board.innerHTML = '<p class="puffy-empty">No puffies placed yet. Mark any section in the <a href="/handbook.html">Handbook</a> with a butterfly clip and it lands here.</p>';
+        board.innerHTML = '<p class="puffy-empty">No puffies placed yet. Put a puffy on any book or section at the <a href="/library.html">LIBR<span class="ai">Ai</span>RY</a> and it lands here.</p>';
         return;
       }
       list.sort(function (a, b) { return (b.placedAt || '').localeCompare(a.placedAt || ''); });
@@ -89,7 +104,7 @@
           '<span class="puffy-item-body"><b></b><small></small></span>' +
           '<button type="button" class="puffy-peel" aria-label="Peel this puffy off the board">&times;</button>';
         a.querySelector('b').textContent = p.title;
-        a.querySelector('small').textContent = p.summary || 'Saved from the Handbook';
+        a.querySelector('small').textContent = p.summary || 'Saved from the LIBRAiRY';
         a.querySelector('.puffy-peel').addEventListener('click', function (ev) {
           ev.preventDefault(); ev.stopPropagation();
           save(load().filter(function (q) { return q.id !== p.id; }));
@@ -103,6 +118,9 @@
   }
 
   function init() { initReader(); initBoard(); }
+  // Public rescan — for pages that reveal savable sections after load
+  // (the LIBRAiRY opens books in place, so their sections arrive late).
+  window.svPuffyScan = function () { initReader(); initBoard(); };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();

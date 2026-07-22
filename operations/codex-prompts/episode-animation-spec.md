@@ -1,5 +1,9 @@
 # Episode Animation — canon-derived stills video (spec)
 
+> **Pixel-art episodes:** use the locked production standard in
+> `episode-pixel-motion-style-locked.md`. Its approved reference is the Episode 04 Grace v10
+> master. The painterly SUNNYVAiLE guidance below applies only to the older town-style format.
+
 The episode "video" is a series of stills set in SUNNYVAiLE, synced to the narration in the
 Chick Flicks Screening Room player (`watch.html`, already cue-synced). Every image derives from a
 **canon beat** — no invented scenes. Source of truth: `content/episodes/episode-NN.canon.md`.
@@ -7,10 +11,26 @@ Chick Flicks Screening Room player (`watch.html`, already cue-synced). Every ima
 ## Format & cadence
 - **16:9**, high-res, **y2k-v3 painterly town style** (match `assets/building-interiors/*`).
 - **Populated shots = varied Y2K women** (ages / body types / skin tones); storefront/vista shots stay unpeopled.
-- **Cadence:** a new visual roughly **every 15s** — but that's *display* cadence, not unique renders.
-  Each episode ≈ **~20 distinct images**, each carried across its beat with a slow **pan/zoom (Ken Burns)** and held; long beats get 2 subdivisions. That fills the ~60 fifteen-second slots of a ~15-min episode.
-- **~half reused** from the town library, **~8–10 new** per episode.
+- **There is no fixed image-count cap.** Use every approved still the story needs; do not collapse a full
+  episode into a 20-image selector or imply that the user must choose the whole episode from a small render batch.
+- **Animation budget means 1–2 fully animated shots per scene, not 1–2 images per scene.** The other shots
+  remain stills or receive only slight, stable motion: a restrained single-direction camera drift, existing
+  machine lights blinking, a cursor pulse, rain, or another source-native ambient loop.
+- **Do not turn every still into a five-second animation.** Let important stills hold long enough to read,
+  and use purposeful shot changes at narration beats. Reuse approved episode and town art wherever it is the
+  right story image; generate only genuine coverage gaps.
 - **Timing locks to the recorded audio cue sheet** (built after Ali records — the player reads a cue JSON).
+
+## Transition standard
+- Transitions carry the visual rhythm when most shots are still. Use polished editorial crossfades (normally
+  0.4–0.7s), motivated straight cuts on punchlines or action changes, and occasional dip-to-black only for a
+  real time/place jump.
+- Favor visual match cuts: face-to-face, document-to-document, screen-to-screen, or a shared dominant shape.
+  Preserve eyelines and screen direction across adjacent stills.
+- Never morph one face into another. Avoid novelty wipes, spinning cards, zoom tunnels, blur drops, and any
+  transition that competes with the narration.
+- Start the next subtle camera move only after the crossfade settles. Do not run opposing Ken Burns moves
+  through a dissolve; that reads as a lurch rather than a transition.
 
 ## Standard OPENING credits — reusable every week (no new render)
 - **Reuse** the neon-sign reveal `assets/video/sunnyvaile-logo-reveal.mp4` under the town anthem
