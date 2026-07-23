@@ -63,7 +63,7 @@ only one surface, it's flagged.)*
    actually said: *"July could work, if procurement clears by Friday."* *"The machine took a maybe...
    and gave it a lanyard."*
 2. **I couldn't help but wonder…** if a paragraph can sound that sure of itself — *"hair done, makeup
-   done, 'per our discussion' and everything"* — how do you catch the one line that's quietly, completely
+   done, 'per our discussion' and everything"* — how do you catch which line is quietly, completely
    wrong? *Chutney-before-the-perm-timeline energy: confident, composed, one tiny detail from collapse.*
 3. **To town** *(script-primary — the article reworks this framing).* She takes it to Main Street — the
    **NewsStand on Main**, whose job is separating what happened from what just sounds like it did. The
@@ -364,7 +364,8 @@ These exact strings must appear in BOTH the narration script AND the current art
 ⚠️ They are **absent from the stale served `issues/issue-03.html`** — enforcement must target the reskin/updated article.
 - Do not be Chutney on the stand. Be Elle with the timeline.
 - A draft is an outfit. A claim is an alibi. Dress accordingly.
-- *she doesn't even go here* — ⚠️ **match case-insensitively:** the narration **shouts it in caps**
+- she doesn't even go here
+  ⚠️ **Match case-insensitively:** the narration **shouts it in caps**
   (`"SHE DOESN'T EVEN GO HERE!"`, [man voice impersonation]) while the article renders it lowercase.
   Intentional style difference, not drift — a strict case-sensitive grep will (correctly) differ.
 

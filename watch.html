@@ -258,11 +258,17 @@
     //    plays here directly; the cue-synced stills below stay as the fallback for
     //    episodes that haven't been cut yet.
     var EPISODE_FILMS = {
-      '04': '/assets/video/episode-04-full-v1.mp4'
+      '01': '/assets/video/episode-01-narration-motion-v19-comic-sync-review.mp4',
+      '02': '/assets/video/episode-02-narration-motion-v15-comic-sync-review.mp4',
+      '04': '/assets/video/episode-04-full-v7.mp4'
     };
     // Read-along captions. Timed against the narration audio, which runs the same
-    // length as the film (20:22.40), so the VTT drops on with no offset.
+    // length as the film (20:22.40 for Ep4), so the VTT drops on with no offset.
+    // Ep1/Ep2 captions are forced-aligned to those episodes' own narration audio
+    // (operations/tools/align.py) — same audio the comic-sync renders carry.
     var EPISODE_CAPTIONS = {
+      '01': '/assets/captions/episode-01.vtt',
+      '02': '/assets/captions/episode-02.vtt',
       '04': '/assets/captions/episode-04.vtt'
     };
     function filmFor(ep) { return EPISODE_FILMS[String(ep).padStart(2, '0')] || null; }
@@ -320,8 +326,12 @@
       if (vtt) {
         var tr = document.createElement('track');
         tr.kind = 'captions'; tr.label = 'English'; tr.srclang = 'en';
-        tr.src = vtt; tr.default = true;
+        tr.src = vtt;
+        // ⛔ Do NOT set tr.default = true — that makes the browser render its OWN
+        // subtitles OVER the picture, which doubled up with our caption bar below.
+        // Force the track hidden so it only feeds the custom bar (mountCaptionBar).
         v.appendChild(tr);
+        if (tr.track) tr.track.mode = 'hidden';
       }
       theatre.appendChild(v);
       if (vtt) mountCaptionBar(v, theatre);

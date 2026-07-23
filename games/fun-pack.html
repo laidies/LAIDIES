@@ -450,30 +450,31 @@
         <!-- Title -->
         <section class="page-title-section">
           <p class="eyebrow">Games / THE EXTRA CREDIT</p>
-          <span class="status-pill">Bonus shelf in the works</span>
+          <span class="status-pill">Four episode shelves open</span>
           <h1>THE EXTRA CREDIT</h1>
-          <p class="subtitle">The bonus shelf is being organized around the weekly Bag. Available items are labeled; parked activities stay visible without pretending they are ready.</p>
+          <p class="subtitle">Pick an episode, then choose something playful to make the lesson stick.</p>
         </section>
 
         <aside class="fun-pack-purpose" aria-label="How THE EXTRA CREDIT fits the weekly ritual">
           <div>
             <span>Ritual connection</span>
-            <p>The Wednesday Bag holds the essentials. THE EXTRA CREDIT is the extra layer once the core path is clear, so anything still getting polished is labeled before you open it.</p>
+            <p>Start with the episode or Study Pack, then use THE EXTRA CREDIT for a reading, a useful nudge, a call, or a round of Girl Talk.</p>
           </div>
-          <a href="../this-week.html?bag=open">Open the Bag first</a>
+          <a href="../chick-flicks.html">Choose an episode first</a>
         </aside>
 
         <!-- Episode Selector -->
         <div class="episode-selector" role="group" aria-label="Select episode fun pack">
           <button class="ep-btn" data-ep="issue01" type="button">Episode 01</button>
-          <button class="ep-btn is-active" data-ep="issue02" type="button">Episode 02</button>
+          <button class="ep-btn" data-ep="issue02" type="button">Episode 02</button>
           <button class="ep-btn" data-ep="issue03" type="button">Episode 03</button>
+          <button class="ep-btn is-active" data-ep="issue04" type="button">Episode 04</button>
         </div>
 
         <!-- Episode Context -->
         <div class="episode-info" id="episodeInfo">
-          <h2 id="epTitle">Episode 02: Tell Me What You Want</h2>
-          <p id="epDesc">The one where she learns to write specific, context-rich prompts that produce usable work output.</p>
+          <h2 id="epTitle">Episode 04: The Founding Mothers</h2>
+          <p id="epDesc">The one where she learns that the history of AI was built by women long before it landed on her desk.</p>
         </div>
 
         <!-- Activity Grid -->
@@ -507,32 +508,32 @@
           </a>
 
           <!-- Dream Phone -->
-          <article class="activity-card activity-card--parked" data-activity="dream" data-parked="true">
+          <a href="dream-phone.html" class="activity-card" data-activity="dream">
             <div class="activity-card-image">
               <img src="../assets/dream-phone-cordless-crop.png" alt="Pink cordless Dream Phone on a Y2K desk" loading="lazy" />
-              <span class="activity-card-time">Parked</span>
+              <span class="activity-card-time">~3 min</span>
             </div>
             <div class="activity-card-body">
-              <span class="activity-card-status">Glow-up in the works</span>
+              <span class="activity-card-status">Available now</span>
               <h3>Dream Phone</h3>
-              <p>The hotline is parked while the product model and phone asset get rebuilt. Start with the latest Episode for now.</p>
-              <a class="card-cta" href="../issues/issue-03.html?from=season&amp;issue=3">Read latest Episode &rarr;</a>
+              <p>Use Just Call mode for a quick second opinion in the voice you need: Receipts, Bestie, or Boundary.</p>
+              <span class="card-cta">Call Dream Phone &rarr;</span>
             </div>
-          </article>
+          </a>
 
           <!-- Girl Talk -->
-          <article class="activity-card activity-card--parked" data-activity="girltalk" data-parked="true">
+          <a href="girl-talk.html" class="activity-card" data-activity="girltalk">
             <div class="activity-card-image">
               <img src="../assets/girl-talk-board.webp" alt="Retro Girl Talk board game styled for LAiDIES prompts" loading="lazy" />
-              <span class="activity-card-time">Beta</span>
+              <span class="activity-card-time">~5 min</span>
             </div>
             <div class="activity-card-body">
-              <span class="activity-card-status">Getting polished</span>
+              <span class="activity-card-status">Available now</span>
               <h3>Girl Talk</h3>
-              <p>The prompt deck is being tuned before it becomes a main town activity. Try the DJ Booth while the deck gets cleaned up.</p>
-              <a class="card-cta" href="dj-booth.html">Open DJ Booth &rarr;</a>
+              <p>Pick Truth or Dare and draw an episode-linked prompt from the deck.</p>
+              <span class="card-cta">Play Girl Talk &rarr;</span>
             </div>
-          </article>
+          </a>
 
         </div>
 
@@ -594,6 +595,18 @@
           fairyImg: '../assets/town-characters/scenes/fairy-godmother-scene.jpg?v=20260708b',
           dreamImg: '../assets/dream-phone-cordless-crop.png',
           girltalkImg: '../assets/girl-talk-board.webp',
+        },
+        issue04: {
+          title: 'Episode 04: The Founding Mothers',
+          desc: 'The one where she learns that the history of AI was built by women long before it landed on her desk.',
+          madame: 'madame-claio.html',
+          fairy: 'fairy-godmother.html',
+          dream: 'dream-phone.html',
+          girltalk: 'girl-talk.html',
+          madameImg: '../assets/madame-claio-character-v1.png',
+          fairyImg: '../assets/town-characters/scenes/fairy-godmother-scene.jpg?v=20260708b',
+          dreamImg: '../assets/dream-phone-cordless-crop.png',
+          girltalkImg: '../assets/girl-talk-board.webp',
         }
       };
 
@@ -602,7 +615,7 @@
       const epDesc = document.getElementById('epDesc');
       const params = new URLSearchParams(window.location.search || '');
       const fromBag = params.get('from') === 'this-week';
-      let currentEpisodeKey = 'issue02';
+      let currentEpisodeKey = 'issue04';
 
       function episodeNumberFromKey(ep) {
         const match = String(ep || '').match(/\d+/);

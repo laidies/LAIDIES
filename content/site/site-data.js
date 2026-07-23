@@ -228,17 +228,17 @@ window.LAIDIES_SITE_DATA = {
     },
     {
       "number": 5,
-      "slug": "welcome-to-sunnyvaile",
+      "slug": "the-super-models",
       "title": "The Super Models",
-      "subtitle": "The one in which the whole town opens its doors.",
+      "subtitle": "The one in which the work AI feels strangely familiar.",
       "status": "draft",
-      "releaseDate": "2026-07-01",
-      "issueUrl": "issues/issue-05.html",
-      "heroImage": "assets/sunnyvaile-town-map-locked.jpg",
-      "oneLineDescription": "The one in which the whole town opens its doors.",
-      "act": null,
-      "lesson": null,
-      "emotionalBeat": null,
+      "releaseDate": null,
+      "issueUrl": null,
+      "heroImage": "assets/sunnyvaile-interiors/episode-vhs-boxes/ep-05.webp",
+      "oneLineDescription": "The one in which the work AI feels strangely familiar.",
+      "act": "Act 1",
+      "lesson": "The company makes the model; the app is just where you shop it.",
+      "emotionalBeat": "The work one is not a mystery; it can be a familiar model in a different store.",
       "siteLinks": [],
       "websiteModules": {
         "quiz": null,
@@ -248,7 +248,7 @@ window.LAIDIES_SITE_DATA = {
         "weeklySong": null,
         "hotGossPlacement": null
       },
-      "issuePageStatus": "manual-page-kept"
+      "issuePageStatus": "not-built"
     }
   ],
   "quizzes": {
@@ -737,7 +737,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "Open the tab and try one small thing",
           "explain": "Episode 1 is about starting small. Ten minutes beats waiting for a mythical free weekend.",
-          "review": "Find it in the opening and the Episode 1 Extra Credit Try-On.",
+          "review": "Find it in the opening and the Episode 1 Fun Pack Try-On.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -812,7 +812,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "Try one manageable move instead of waiting to feel ready",
           "explain": "The series is meant to make AI practice small enough that people actually do it.",
-          "review": "Find it in the Episode 1 Extra Credit Try-On and Episode promise.",
+          "review": "Find it in the Episode 1 Fun Pack Try-On and Episode promise.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -827,7 +827,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "To see which tool feels most useful for the same low-risk task",
           "explain": "Same ask, different tools, better comparison. It is a try-on, not a final exam.",
-          "review": "Find it in the Episode 1 Extra Credit Try-On.",
+          "review": "Find it in the Episode 1 Fun Pack Try-On.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -857,7 +857,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "A low-risk work explanation or draft you can judge",
           "explain": "The first try should be useful, small, and safe enough that you can learn without handing it the car keys.",
-          "review": "Find it in the Episode 1 Extra Credit Try-On.",
+          "review": "Find it in the Episode 1 Fun Pack Try-On.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -965,18 +965,18 @@ window.LAIDIES_SITE_DATA = {
           "reviewUrl": "issues/issue-02.html"
         },
         {
-          "id": "drawing-game",
+          "id": "coffee-order",
           "points": 1,
-          "prompt": "What does the drawing-game analogy show?",
+          "prompt": "What does the coffee-order analogy show?",
           "options": [
-            "The person drawing can only use the details you give them",
-            "AI hates pencils",
-            "A vague description always wins",
-            "Prompting is mostly about being cute"
+            "AI is the brand-new café across town — it only makes what you actually order",
+            "AI already knows your usual from day one",
+            "A vague order still gets you exactly the right drink",
+            "Ordering coffee has nothing to do with prompting"
           ],
-          "answer": "The person drawing can only use the details you give them",
-          "explain": "The better the description, the more recognizable the result.",
-          "review": "Find it in 'Tell Me What You Want, What You Really Really Want.'",
+          "answer": "AI is the brand-new café across town — it only makes what you actually order",
+          "explain": "AI has never met you — it can't see your 'usual.' Spell out what you want every time, and the guessing stops.",
+          "review": "Find it in the coffee-order section of Episode 2.",
           "reviewUrl": "issues/issue-02.html"
         },
         {
@@ -1066,7 +1066,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "Give AI the same real task twice: once vague, once specific",
           "explain": "The point is to see the difference. Same task, better brief, much better odds.",
-          "review": "Find it in the Episode 2 Extra Credit Try-On.",
+          "review": "Find it in the Episode 2 Fun Pack Try-On.",
           "reviewUrl": "issues/issue-02.html"
         },
         {

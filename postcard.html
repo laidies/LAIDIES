@@ -259,11 +259,18 @@
     var picked = POSTCARDS[0].id;
 
     function renderCompose() {
+      // ?pc=<id> lets the Post Office postcard rack hand a card straight to the
+      // desk. Falls back to the first card if the id is missing or unknown.
+      // NOTE: set here, not at declaration — renderCompose() is called above,
+      // before a top-level `var picked = …` assignment would have run, so
+      // BOTH branches must be assigned here or nothing starts selected.
+      picked = byId[params.get('pc')] ? params.get('pc') : POSTCARDS[0].id;
+
       var grid = document.getElementById('pcGrid');
       POSTCARDS.forEach(function (p, i) {
         var b = document.createElement('button');
         b.type = 'button';
-        b.className = 'pc-thumb' + (i === 0 ? ' is-picked' : '');
+        b.className = 'pc-thumb' + (p.id === picked ? ' is-picked' : '');
         b.dataset.id = p.id;
         b.innerHTML = '<img src="' + PC_BASE + p.file + '" alt="' + esc(p.label) + ' postcard" loading="lazy">'
                     + '<span class="pc-caption">' + esc(p.label) + '</span>';
@@ -281,7 +288,7 @@
 
       // live two-sided preview
       var pvImg = document.getElementById('pcPrevImg');
-      if (pvImg) pvImg.src = PC_BASE + POSTCARDS[0].file;
+      if (pvImg) pvImg.src = PC_BASE + (byId[picked] || POSTCARDS[0]).file;
       document.getElementById('pcNote').addEventListener('input', function () {
         document.getElementById('pcPrevNote').textContent = note() || 'Come find me in Sunnyvale.';
       });

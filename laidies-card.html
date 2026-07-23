@@ -291,6 +291,19 @@
       font-family: 'Playfair Display', Georgia, serif;
       font-size: 22px; font-weight: 700; color: var(--plum); margin: 0;
     }
+    /* Best Friends necklaces */
+    .bestie-grid { display: flex; flex-wrap: wrap; gap: 12px; margin: 4px 0 0; }
+    .bestie-charm {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 15px 9px 12px; border-radius: 999px; text-decoration: none;
+      background: linear-gradient(135deg, #e982ab 0%, #ec7a78 100%);
+      color: #3a1838; font-weight: 800; font-size: 14px;
+      box-shadow: 0 3px 10px rgba(233,130,171,0.35);
+      transition: transform 160ms ease;
+    }
+    .bestie-charm:hover { transform: translateY(-2px); }
+    .bestie-heart { font-size: 15px; line-height: 1; }
+    .bestie-handle { letter-spacing: -0.01em; }
     .vessel-icon {
       width: 34px; height: 34px; object-fit: contain; image-rendering: pixelated;
       vertical-align: -8px; margin-right: 11px;
@@ -919,10 +932,10 @@
 
 <main>
 
-  <!-- Closet interior hero — pixel; self-hides until the art lands at the path below -->
+  <!-- Closet interior hero — vibrant 1990s fashion-tech; self-hides if the art is unavailable -->
   <div id="closetHero" style="margin:0 0 10px;border-radius:16px;overflow:hidden;box-shadow:0 14px 34px rgba(75,33,72,0.22);">
-    <img src="/assets/closet/closet-interior-hero-pixel.png?v=20260716" alt="Inside your Closet — the dressing room at Delta LAi Nu" loading="eager"
-         style="display:block;width:100%;height:clamp(150px,28vh,280px);object-fit:cover;object-position:center 40%;image-rendering:pixelated;"
+    <img src="/assets/closet/closet-interior-hero-v2-90s-vibrant.png?v=20260721" alt="Inside your Closet — a vibrant 1990s dressing room at Delta LAi Nu" loading="eager"
+         style="display:block;width:100%;height:clamp(150px,28vh,280px);object-fit:cover;object-position:center 48%;"
          onerror="this.parentNode.remove();">
   </div>
 
@@ -1415,6 +1428,16 @@
       <p class="vessel-note">Earned for milestones — full weeks, quiz streaks, seasonal accomplishments.</p>
     </div>
 
+    <!-- Best Friends — one necklace per friend you brought to town (postcard invite) -->
+    <div class="vessel vessel--besties" id="bestieVessel">
+      <div class="vessel-header">
+        <h3 class="vessel-title">Best Friends</h3>
+        <span class="vessel-count" id="bestieCount">0 necklaces</span>
+      </div>
+      <div class="bestie-grid" id="bestieGrid"></div>
+      <p class="vessel-note" id="bestieNote">Mail a friend a postcard from the Post Office. When she comes to town and makes her card, you both get a half of the BEST FRIENDS necklace.</p>
+    </div>
+
     <!-- Charm Bracelet — reads from charm-hunt.js (window.CHARM_HUNT) if present, else empty state -->
     <div class="vessel vessel--charm-bracelet" id="charmVessel">
       <div class="vessel-header">
@@ -1803,11 +1826,24 @@
   var shareBtn = document.getElementById('shareCardBtn');
   if (shareBtn) {
     shareBtn.addEventListener('click', function() {
+      // Share the PUBLIC card URL (?u=handle), never window.location.href — the
+      // bare Closet URL shows the recipient HER OWN empty Closet. Build it from
+      // the signed-in resident's handle. (Fixed 2026-07-22; was copying the raw URL.)
+      var handle = (currentProfile && currentProfile.card_username) || '';
+      if (!handle) { try { handle = localStorage.getItem('laidies_card_username') || ''; } catch (_) {} }
+      if (!handle) {
+        shareBtn.textContent = 'Claim a handle first';
+        setTimeout(function() { shareBtn.textContent = 'Share my card'; }, 2600);
+        return;
+      }
+      var url = window.location.origin + '/laidies-card.html?u=' + encodeURIComponent(handle);
       try {
-        navigator.clipboard.writeText(window.location.href);
-        shareBtn.textContent = 'Copied ✓';
-        setTimeout(function() { shareBtn.textContent = 'Share my card'; }, 2200);
-      } catch (_) {}
+        navigator.clipboard.writeText(url);
+        shareBtn.textContent = 'Link copied ✓';
+      } catch (_) {
+        window.prompt('Copy your card link:', url);
+      }
+      setTimeout(function() { shareBtn.textContent = 'Share my card'; }, 2200);
     });
   }
 
@@ -2121,11 +2157,16 @@
     } catch (e) {}
     if (!supabaseClient) return null;
     try {
+      // Reads the CARD VIEW, never the profile table. member_profiles also holds
+      // her age bracket, skill level, industry, goal, social graph and account
+      // timestamps — none of which she chose to put on a card, and RLS cannot
+      // hide a column. public_resident_cards exposes card fields only.
+      // ⛔ Do not point this back at member_profiles.
+      // See supabase/migrations/20260722210000_public_cards_show_only_card_fields.sql
       var result = await supabaseClient
-        .from('member_profiles')
+        .from('public_resident_cards')
         .select('*')
         .eq('card_username', username)
-        .eq('member_card_is_public', true)
         .maybeSingle();
       return result.data || null;
     } catch (e) { return null; }
@@ -2253,6 +2294,36 @@
         slipsEmpty.hidden = true;
       }
     }
+
+    // ---- Best Friends necklaces (one per friend brought to town) ---
+    var bestieItems = byType['best_friends_necklace'] || [];
+    var bestieGrid  = document.getElementById('bestieGrid');
+    var bestieCount = document.getElementById('bestieCount');
+    var bestieNote  = document.getElementById('bestieNote');
+    if (bestieGrid) {
+      // one necklace per distinct bestie handle
+      var seen = {}, besties = [];
+      bestieItems.forEach(function(ev) {
+        var h = (ev.metadata && ev.metadata.bestie_handle) || '';
+        if (h && !seen[h]) { seen[h] = 1; besties.push(h); }
+      });
+      if (bestieCount) bestieCount.textContent = besties.length +
+        (besties.length === 1 ? ' necklace' : ' necklaces');
+      if (besties.length) {
+        bestieGrid.innerHTML = '';
+        besties.forEach(function(h) {
+          var a = document.createElement('a');
+          a.className = 'bestie-charm';
+          a.href = '/laidies-card.html?u=' + encodeURIComponent(h);
+          a.title = 'BEST FRIENDS with @' + h;
+          a.innerHTML = '<span class="bestie-heart">♥</span><span class="bestie-handle">@' +
+            firstLetter(h) + h.slice(1) + '</span>';
+          bestieGrid.appendChild(a);
+        });
+        if (bestieNote) bestieNote.textContent =
+          'The heart is whole. Tap a friend to visit her card.';
+      }
+    }
   }
 
   function isoWeekKey(d) {
@@ -2281,7 +2352,9 @@
 
   async function saveOwnProfile(patch) {
     if (!supabaseClient || !currentSession) return { ok: false, error: 'not-signed-in' };
-    var payload = Object.assign({ id: currentSession.user.id, email: currentSession.user.email }, patch);
+    // ⛔ No `email` — it lives on auth.users, not here. See migration
+    // 20260722201500_stop_storing_email_on_profiles.sql.
+    var payload = Object.assign({ id: currentSession.user.id }, patch);
     try {
       var result = await supabaseClient
         .from('member_profiles')

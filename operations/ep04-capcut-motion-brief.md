@@ -1,7 +1,29 @@
-# EP4 — MOTION BRIEF (CapCut)
+# EP4 — MOTION (built, not briefed)
 
-**Done in CapCut, not Canva** — the cut is already there, so motion stays on one timeline with
-no re-import and no reframing drift.
+> ⛔ **Nothing in this file is an instruction for Ali.** She does not use CapCut or any editor.
+> Every item below is built in code and regenerated on each render. Read it as a record of
+> what the motion IS, not as a task list for a human.
+
+> ## STATUS 2026-07-22 — BUILT, not briefed
+> Everything below except the two one-shots is **built and wired into
+> `episode-04-full-v2.mp4`**, rendered locally with ffmpeg via
+> `assets/video/fx/build-ep04-motion-assets.py`. No CapCut pass is needed for these.
+>
+> | | state |
+> |---|---|
+> | LUMINAiRY lights-up (16:43 → 17:20) | ✅ 14s eased cross-dissolve |
+> | 5 opening loops (title · desk · directory · approach · hall) | ✅ built; amplitudes fixed |
+> | 5 scene loops (ada b-mid · eniac · grace · karen · kate) | ✅ built |
+> | Ada clip plays once then freezes | ✅ |
+> | Hedy signal hop (6:32) | ✅ built — a crest of light travels the arc once, then freezes |
+> | ENIAC caption reveal (8:20) | ⛔ **cannot be built as briefed — see below** |
+>
+> **Two re-runnable checks, both required:**
+> - `operations/tools/measure-motion.py render` — is it moving at all, measured against
+>   a known-STILL hold in the same encode
+> - `operations/tools/motion-heatmap.py` — **WHERE** it moves, painted red on the artwork.
+>   Run this and LOOK. It is the only thing that catches light landing on a face, and it
+>   caught exactly that on Grace, Karen and Ada in the first pass.
 
 **Everything below uses art ALREADY WIRED in the cut.** Nothing here needs new art.
 
@@ -34,9 +56,8 @@ Two frames of **the same hall**, one dim and one blazing:
 Right now it's a **cut** between them. It should be a **slow cross-dissolve** so the hall
 visibly comes up while she talks.
 
-**CapCut:** stack blazing on the track above dim. Keyframe the blazing clip's **opacity 0 → 100
-across ~14s**, starting around 17:06 and completing near 17:20. Ease in-out, not linear.
-Everything else holds.
+**Built:** a 14s eased cross-dissolve, 17:06 → 17:20, in `build-episode-04-full-v2-motion.py`
+(`LONG_DISSOLVES`). Smoothstep, not linear. Every later cue keeps its exact time.
 
 This is the single biggest improvement available and it costs no new art — it turns the
 episode's emotional peak from a static hold into the lights actually coming up. It also
@@ -64,7 +85,22 @@ All six are **true loops** — nothing travels, so the last frame equals the fir
 | In | Hold | Frame | Motion |
 |---|---|---|---|
 | 6:32.00 | 45.3s | `hedy-b-mid-comic-v1-locked` | **The signal hops.** Reveal the blue dotted arc left→right over ~6s (mask wipe), then **freeze**. It draws the idea as she explains it. ⛔ Do not loop — it travels. |
-| 8:20.00 | 40.5s | `eniac-c-end-comic-v1-locked` | Slow **opacity reveal of the MODELS→PROGRAMMERS caption** over 3s, then freeze. |
+| 8:20.00 | 40.5s | `eniac-c-end-comic-v1-locked` | 🔴 **THE BRIEF IS WRONG — there is no such caption in this frame.** See below. |
+
+### ⛔ The ENIAC caption reveal cannot be done as written
+This brief asked for an opacity reveal of a "MODELS→PROGRAMMERS caption". **That caption does
+not exist in the art.** `ep04-scene-04b-eniac-c-end-comic-v1-locked-1920.png` is a museum
+placard reading **J. PRESPER ECKERT · JOHN MAUCHLY**, with the six women working behind it —
+the men credited, the women uncredited in the background. A different point, well made.
+
+Adding the caption is banned (`codex-text-in-render` — text is rendered in-generation, never
+applied after). So there are three honest options, and picking is Ali's:
+1. **Leave it a still.** The frame already lands its beat without motion.
+2. **Fade up the placard text that IS there** — the men's names appearing while the women are
+   already at work. Existing pixels, no text added.
+3. **Re-render the frame** with the MODELS→PROGRAMMERS caption rendered in, if that caption is
+   what the narration actually calls for. Needs a Codex prompt.
+
 
 ---
 
@@ -74,7 +110,7 @@ All six are **true loops** — nothing travels, so the last frame equals the fir
 
 The notes travel toward camera — that is **directional motion**, so it is a **ONE-SHOT**.
 
-**Fix in CapCut:** play it through **ONCE**, then **freeze its own final frame** for the rest
+**Built:** plays through **ONCE**, then **freeze its own final frame** for the rest
 of the hold. ⛔ Not twice. ⛔ Not looped. ⛔ Do not cut to `ada-c-end` or any still — a clip's
 source still is NOT a frame of that clip, and the mismatch reads as a broken cut.
 

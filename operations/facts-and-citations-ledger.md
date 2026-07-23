@@ -259,3 +259,76 @@ Columns: **Claim** · **What it measures (scope/caveat)** · **Source** · **Ver
 | Timnit Gebru | GOOGLE, 2020 | Forced out of Google, Dec 2 2020 | technologyreview.com/2020/12/04/1013294 ; washingtonpost.com/technology/2020/12/03 |
 | Emily Bender | UNIVERSITY OF WASHINGTON, 2021 | "On the Dangers of Stochastic Parrots," ACM FAccT, Mar 2021 (UW computational linguist) | spectrum.ieee.org/stochastic-parrot ; faculty.washington.edu/ebender |
 | Kate Crawford | USC ANNENBERG, 2021 (Ali-locked) | "Atlas of AI" (Yale UP, 2021); Research Prof USC Annenberg (also Sr Principal Researcher MSR NY) | blogs.microsoft.com/newengland/2021/10/25 ; microsoft.com/research/people/kate |
+
+## ICQ — the real 1999 texture (verified 2026-07-22)
+
+Checked because Claude invented a period detail ("brb, on a call 💅") and Ali caught it — emoji
+did not exist in 1999, and the phrasing was guessed. Nothing below is from memory.
+
+- **The statuses were a NAMED MENU, not free text.** ✅ VERIFIED:
+  **Available · Free For Chat · Away · N/A (Not Available) · Occupied · Do Not Disturb ·
+  Invisible · Offline.** *Free For Chat* is the one contemporaries single out as distinctly ICQ —
+  a setting that actively invited interruption. **What it measures = ICQ's own status list.**
+  ⚠️ Free-text away messages are more an **AIM** signature; ICQ had a status-message field above
+  the contact list, but see the NOT-VERIFIED note below.
+  Sources: chipx86.blog/2024/05/29/remembering-icq-a-page-out-of-history/ · miranda.fandom.com/wiki/ICQ
+
+- **The flower.** ✅ VERIFIED: contact status showed as a small flower — **green = online,
+  yellow = free for chat, red = offline / do-not-disturb**, separate icon for invisible.
+  Sources: chipx86.blog (above) · rip.so/icq.html
+
+- **The sound was a male voice saying "Uh-oh!"** ✅ VERIFIED, on every incoming message.
+  ⚠️ **Origin NOT settled** — often attributed to *Lemmings* (1991) or *Worms* (1995); the likeliest
+  account is a shared commercial sample CD. Do not state an origin as fact.
+  Sources: heise.de/en/background/Uh-oh-Messenger-Pionier-ICQ-wird-Ende-Juni-abgeschaltet-9732162.html ·
+  chipx86.blog (above)
+
+- **Identity was a NUMBER — the UIN (Universal Internet Number).** ✅ VERIFIED. Not a username.
+  People memorised them and printed them on cards; one contemporary account gives his own as 298387.
+  **Direct LAiDIES fit: `member_profiles.resident_number` already is this** — unique, auto-assigned.
+  Source: chipx86.blog (above)
+
+- **The PAGER model.** ✅ VERIFIED as the design intent: the *uh-oh* plus a blinking icon, message
+  content hidden until you chose to look, "deal with it at your leisure" — deliberately not a
+  demand for attention. **What it measures = ICQ's interaction model, per a contemporary user
+  account.** This is the argument for a PO box over a live chat window.
+  Source: chipx86.blog (above)
+
+- ⛔ **NOT VERIFIED — do not ship:** any *stock/default wording* of an ICQ status message. A
+  free-text field existed; no reliable source for what it said by default. Invent nothing here.
+- ⛔ **NOT VERIFIED:** whether "brb" was common ICQ usage in 1999. Ali says no. Don't use it.
+
+### ⚠️ CORRECTION to the ICQ entry above (2026-07-22, same day)
+
+Ali: *"i am pretty sure it was like a chat window."* She was right; I was leaning on one
+blogger's nostalgia piece and had recorded his "pager model" framing as if it were THE ICQ
+interaction model. It was one account of the *notification* behaviour, not the whole product.
+
+- **ICQ Chat was a real-time SPLIT WINDOW.** ✅ VERIFIED: each participant got their own pane,
+  and their words were placed **keystroke by keystroke** as typed. **What it measures = ICQ's
+  chat mode, distinct from its send-a-message mode.**
+  Source: researchgate.net/figure/ICQ-Chat-gives-each-participant-a-window-in-which-their-words-are-placed-keystroke-by_fig2_3841486
+
+- **You watched the other person type — and backspace — live.** ✅ VERIFIED by contemporary
+  first-person account: the signature ICQ experience was seeing someone start something candid,
+  delete it, and type something milder. Predates modern typing indicators by years.
+  Sources: medium.com/@ikatz/my-favorite-thing-about-icq-back-in-the-day... · news.ycombinator.com/item?id=24724976
+
+- **It told you when they clicked away to another window**, and you could **honk a horn
+  ("AH-OOGAH")** to pull their attention back. ⚠️ Single first-person source (the Medium piece) —
+  treat the horn as *likely* rather than nailed down; verify again before it becomes a mechanic.
+
+**Consequence for the build:** the pager framing must NOT be used as the argument for a mailbox
+over live chat. Both existed. The distinctive, emotionally-loaded ICQ thing is **live typing**,
+and that genuinely does require two residents online at once.
+
+## ENIAC unveiling press photograph — who was actually named (verified 2026-07-22)
+**Claim checked:** the men individually named in the February 1946 ENIAC press photographs.
+**Verified:** the officer present was **General G. M. Barnes** (Gladeon Marcus Barnes), chief of
+the Ordnance Research and Development Service. The February 14 1946 unveiling photo names
+J. Presper Eckert Jr., Prof. J. G. Brainerd, Sam Feltman, Capt. H. H. Goldstine, Dr. J. W.
+Mauchly, Dean Harold Pender, Gen. G. M. Barnes and Col. Paul N. Gillon.
+**There is no "Maj. Gen. E. Reynolds."** That name appears on a plate in
+`ep04-comicpage-eniac-models-comic-v1-exact-text-1920.png` and is invented. Fix prompt:
+`codex-prompts/ep04-eniac-comicpage-name-fix.md`. ⛔ Do not wire v1.
+**Source:** Encyclopedia of Greater Philadelphia, ENIAC essay — https://philadelphiaencyclopedia.org/essays/eniac/

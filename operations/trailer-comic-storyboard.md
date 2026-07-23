@@ -419,7 +419,7 @@ listed per block. Prompts assume the global recipe (ink outlines, angular grey p
 ## SCENE: fairy-godmother
 - **File:** `trailer-b37-fairy-godmother-comic-v1-1920.png` · **Format:** full scene (character) · **Time:** 9:48–10:05
 - **Said:** *"Ask the Fairy Godmother anything — she's the town's actual AI assistant, a real one: bring the question, she brings the answer. And yes, that wish you banked? Spent with her."*
-- **Refs (face):** `assets/video/sunnyvaile-credits-v1-plates/opening-05-fairy-godmother-rerender-lit-v2.png` (⭐ THE approved FG — dark curls, plum star-robe, silver wand; ⛔ NOT the dead tarot `laidy-fairy-godmother-portrait-v3`, curation=unused) + wand motif `approved-assets/town-characters/fairy-wand.png`; FG house setting `assets/sunnyvaile-buildings/y2k-v3-rethink-20260715/web/11-fairy-godmother-house-v6.jpg` (the live/approved house). Render her FACE in the locked comic style.
+- **Refs (face):** `assets/video/sunnyvaile-credits-v1-plates/opening-05-fairy-godmother-rerender-lit-v2.png` (⭐ THE approved FG — dark curls, plum star-robe, silver wand; ⛔ NOT the dead tarot `laidy-fairy-godmother-portrait-v3`, curation=unused); FG house setting `assets/sunnyvaile-buildings/y2k-v3-rethink-20260715/web/11-fairy-godmother-house-v6.jpg` (the live/approved house). Render her FACE in the locked comic style.
 - **Prompt:** The FAiRY Godmother granting an answer/wish, wand raised, a sparkle sweep arcing out, warm knowing smile — "the town's real AI assistant." Caption/label ties her to answers. Her face from the v3 portrait ref, comic-styled. Saturated magical glow (gold + teal sparkle). NOTE: personify the character, but per [[ai-is-it-not-her]] the *AI itself* is "it" — she is a town character who fronts the assistant.
 - **TRANSITION →** pull-out to the I-spy town (B38).
 
@@ -433,14 +433,11 @@ listed per block. Prompts assume the global recipe (ink outlines, angular grey p
 ## SCENE: maikeover-glow-up
 - **File:** `trailer-b39-maikeover-glow-up-comic-v1-1920.png` (+ transformation frames below) · **Format:** full-page comic (TRANSFORMATION) · **Time:** 10:16–10:35
 - **Said:** **Stop 6 · MAiKEOVER on MAiN** — *"This is where you get your Sunnyvale glow up… your residence card."*
-- **Refs:** heroine `…v28…1920.png`; wand `approved-assets/town-characters/fairy-wand.png`; setting `approved-assets/building-interiors/maikeover-on-main-salon-interior.png`; card `approved-assets/residence-card-and-avatars/residence-card-background-v1.png`.
+- **Refs:** heroine `…v28…1920.png`; setting `approved-assets/building-interiors/maikeover-on-main-salon-interior.png`; card `approved-assets/residence-card-and-avatars/residence-card-background-v1.png`.
 - **Prompt (keyframe):** A makeover-chair before→after in the MAiKEOVER salon, a fresh shiny `RESIDENCE CARD` being minted (`@handle` slot). Caption `STOP 6 · MAiKEOVER ON MAiN`. Vibrant salon (pink/gold/mirror-lights).
-- **MOTION — reusable ✨ TRANSFORMATION (9–11 frames, per `comic-animation-frame-spec.md`):** full-body throughout.
-  `-a-corporate` heroine in plain corporate look → `-b-wand-raise` / `-c-wand-arc` / `-d-wand-contact` (FAiRY G. wand
-  in-betweens, ≥3 so it's smooth) → `-e-sparkle` / `-f-poof` (magic building) → `-g-mid-transform` (outfit actually
-  morphing mid-swap) → `-h-clearing` / `-i-clearing2` → `-j-reveal` heroine in the SUNNYVAiLE look. **Frames a–i are
-  SHARED/reused across episodes; only `-j-reveal` changes per episode.** ⚠ Reveal HAIR = locked kit (6 butterfly
-  clips, half-up waves), NOT a single vertical line. ~10 images.
+- **MOTION — reusable ✨ TRANSFORMATION (5 frames, per `heroine-appearance-canon` / `operations/codex-prompts/transformation-sequence-spec.md`):** ⛔ **NO WAND. NO in-town / salon-street reveal. The FAiRY Godmother is NEVER visible.** The old wand frames (`b0/b2/c2`), magic frames (`e1–e6`) and Main-Street `f` reveals are REJECTED — do not revive them.
+  Plays on the **reusable ABSTRACT 90s GEOMETRIC STAGE** (teal/cyan central spotlight, magenta/plum angled side panels), full-body throughout:
+  `p0-corporate` (navy suit, no clips, no backpack) → `p1-poof-builds` → `p2-poof-covers-body` → `p3-poof-clears` (outfit appears) → `p4-reveal` heroine in the SUNNYVAiLE look. **Frames p0–p3 are SHARED/reused across every episode; only `p4-reveal` changes per outfit.** ⚠ Reveal HAIR = locked kit (6 butterfly clips, half-up waves), NOT a single vertical line. 5 images.
 - **TRANSITION →** action-to-action to B40 (card held up).
 
 ## SCENE: tourist-to-resident

@@ -7,6 +7,7 @@
  *   3. No dead href="#" on live top-level pages.
  *   4. Every site-index.json entry must point at a file that exists.
  *   5. Reward events consumed by the Closet must be emitted somewhere in script.js.
+ *   6. Every quiz selector has data, and the embedded fallback matches quizzes.json.
  * Exit 1 on any failure — wire me into .githooks/pre-commit.
  */
 const fs = require('fs');
@@ -37,7 +38,13 @@ for (const ep of episodes) {
 }
 
 // ---------- 3: dead links on live top-level pages ----------
-const livePages = fs.readdirSync(ROOT).filter((f) => f.endsWith('.html') && !f.startsWith('preview') && !f.startsWith('design-comp') && !f.startsWith('quiz-issue'));
+const livePages = fs.readdirSync(ROOT).filter((f) =>
+  f.endsWith('.html') &&
+  !f.startsWith('_') &&
+  !f.startsWith('preview') &&
+  !f.startsWith('design-comp') &&
+  !f.startsWith('quiz-issue')
+);
 for (const page of livePages) {
   const n = (read(page).match(/href="#"/g) || []).length;
   if (n > 0) fail(`${page}: ${n} dead href="#" link(s)`);
@@ -61,6 +68,30 @@ for (const type of consumed) {
   if (!emitted) fail(`reward-sync: Closet consumes "${type}" but script.js never emits it`);
 }
 
+// ---------- 6: quiz selector/data parity ----------
+try {
+  const quizPage = read('learn/quiz.html');
+  const quizFile = JSON.parse(read('content/site/quizzes.json'));
+  const embeddedQuizzes = siteData.quizzes || {};
+  const selectorKeys = [...quizPage.matchAll(/data-quiz-open=["']([^"']+)["']/g)].map((match) => match[1]);
+  for (const key of selectorKeys) {
+    if (!quizFile[key]) fail(`quiz: selector "${key}" has no entry in content/site/quizzes.json`);
+    if (!embeddedQuizzes[key]) fail(`quiz: selector "${key}" has no embedded fallback in content/site/site-data.js`);
+  }
+  if (JSON.stringify(sortObject(quizFile)) !== JSON.stringify(sortObject(embeddedQuizzes))) {
+    fail('quiz: content/site/quizzes.json and the site-data.js fallback differ');
+  }
+} catch (err) { fail('quiz data unreadable: ' + err.message); }
+
+function sortObject(value) {
+  if (Array.isArray(value)) return value.map(sortObject);
+  if (!value || typeof value !== 'object') return value;
+  return Object.keys(value).sort().reduce((result, key) => {
+    result[key] = sortObject(value[key]);
+    return result;
+  }, {});
+}
+
 // ---------- report ----------
 if (failures.length) {
   console.error(`\n✗ CHECK-TOWN: ${failures.length} problem(s):\n`);
@@ -68,5 +99,5 @@ if (failures.length) {
   console.error('\nFix these (or consciously bypass with git commit --no-verify) before shipping.\n');
   process.exit(1);
 } else {
-  console.log('✓ CHECK-TOWN: canon, titles, links, index, and rewards all agree.');
+  console.log('✓ CHECK-TOWN: canon, titles, links, index, rewards, and quizzes all agree.');
 }

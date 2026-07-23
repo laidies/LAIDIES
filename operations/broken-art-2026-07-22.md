@@ -48,3 +48,22 @@ at 4, no doubling). Both save levels confirmed working — the whole BOOK and a 
 - Decide whether `puffy-bookmark-summer.png` gets drawn or the reference removed.
 - Regression check confirmed **no page was broken** by the shared-script change:
   `handbook.html` still renders 32 buttons with zero console errors.
+
+---
+
+## Street / town-canon pass, 2026-07-22 (Claude, from Ali's "the library is not beside blend and snap")
+
+Checked every WIRED Ep4 frame that shows a street or a town building. Canon source:
+memory `sunnyvaile-street-layout-canon`. Ali's verdict needed on each.
+
+| where | frame | finding |
+|---|---|---|
+| **cue 13** · 3:05 · 17s · **PLAYING** | `open-15f-transformation-main-street-clueless-v7` | 🔴 Sign reads **"MAKEOVER on MAIN"** — missing BOTH Ai accents; canon is **"MAiKEOVER on MAiN"**. Also **Mme CLAi-O's (No.5) is absent** from the row; the other nine are in correct order. |
+| **cue 54** · 18:48 · 28s · **PLAYING** | `around-town-comic-v1` | 🔴 Classroom banner reads **"GO SUNNYS!"** — mascot is locked as the **CENTAURS** ("GO CENTAURS!"). 🔴 Panel label reads **"SUNNYVAiLE HiGH"** — site uses "SUNNYVAiLE High" (182×) / "HIGH" (19×), never "HiGH". ⚠ KSVL screen says "SUNNYVAiLE'S WEEKLY ANTHEM" — the Wednesday Anthem is the ONE fixed track; the *episode* song is the weekly one. |
+| **cue 6** · 1:42 · 8s · **PLAYING** | `open-08-sunnyvaile-welcome-comic-v5` | ✅ Geography complete and correct — all ten of MAiN in order, Mme CLAi-O's present, "MAiKEOVER on MAiN" and "BRONZE AiGE" accented correctly. ⚠ Style register looks softer / less black-ink than the comic frames — possible generation mix, Ali's eye needed. ❔ Sign reads "KSVL COMMUNITY RAiDIO" — is "RAiDIO" intended brand styling? |
+| not wired | `around-town-b-comic-v1` | ⛔ **BANNED** — LIBRAiRY on MAiN beside Blend & Snap (it is on Civic Square, off MAiN); Chick Flicks/Blend & Snap reversed; painterly despite `comic-v1` in the name. |
+
+**Cause fix applied:** `art-requirements.md` now carries **rule 5b · SUNNYVAiLE GEOGRAPHY IS
+CANON**, with the full MAiN 1-10 order and the off-MAiN buildings listed inline, so every
+prompt built from that single source carries the layout. The LIBRAiRY-on-MAiN error had
+already happened twice before (`main-street-golden`, `main-street-dusk`, re-rolled 2026-07-06).

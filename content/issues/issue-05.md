@@ -1,157 +1,133 @@
-# Episode 05: Welcome to SUNNYVAiLE
+# Episode 05: The Super Models
 
-Source metadata: `content/episodes/issue-05.json`
-Public page: `issues/issue-05.html`
-Release target: Wednesday July 1, 2026
-Status: draft
+Source metadata: `content/episodes/issue-05.json`  
+Planned public page: `issues/issue-05.html`  
+Release target: TBD  
+Status: pre-publication draft · not recorded · public page not built
 
-## Last Week On LAiDIES...
+## Previously on LAiDIES
 
-She opened the SLAiYER Handbook. Learned the difference between the witch who conjures, the Watcher who thinks it through, and the Slayer who goes and does. Realized "just use AI" is walking into the Hellmouth with a tote bag. Wrote her first real brief. Stopped getting the businesswoman's special back.
+Our heroine went looking for where AI came from and found almost two hundred years of a real science,
+built leap after leap by women the textbook forgot to name. Now she knows AI is not one thing. This week,
+she needs the directory: which company makes what, which app she is actually opening, and why the AI at
+work feels suspiciously like the one she already knows at home.
 
-Episode 4 was: the words, the cast, the rules that work on every tool.
+## The familiar stranger
 
-Episode 5 is: **where all of this lives.**
+It is nine-fifteen on a Monday. Her company has switched on Copilot across the Office apps, complete with
+a town-hall announcement and a shiny new logo. She gives it the kind of task she usually gives ChatGPT.
+The answer comes back with a familiar rhythm: tidy bullets, slightly eager tone, even the same little
+phrasing habits.
 
-## On This Episode...
+She has never opened this app before. Why does it feel like it already knows the routine?
 
-The one in which the whole town opens its doors.
+The answer is not that every AI product is secretly identical. It is that the name on the app and the
+model doing the work are two different layers—and some work apps can offer models from more than one
+provider.
 
-We've been quietly building this for a while — a fictional Y2K town called **SUNNYVAiLE**, where the LAiDIES universe finally has an address for every idea. Today we're opening it. Take the tour.
+## Why “model” sounds like a 1990s word
 
-> The 90s had Sunnydale, Bayside, and Capeside. Silicon Valley has Sunnyvale. You have SUNNYVAiLE.
+In the 1990s, the supermodel could be more famous than the dress. Cindy. Naomi. Linda. Christy. Claudia.
+Kate. One name was enough. Her face was the campaign, the magazine spread, and the poster in the shop
+window. People tracked who booked her next and what she could do that the other women could not.
 
-This isn't a chapter. It's a map, a mall directory, and a "how to use this place" all at once. If you've been around a while, this is the walk-through of what's new. If you're brand new — welcome. Start at No. 1 MAiN and work your way down the block.
+Listen to the way people talk about AI models now: when is the new one coming out, what is it good at,
+and what can it do that the last one could not? Same obsession, different decade.
 
-## Why a town
+That gives us the useful half of the analogy:
 
-Because "learning AI" is a mall directory with sixty locations and no floor plan. We decided to draw the floor plan.
+- The AI company is the fashion house.
+- The model is the house's supermodel: a specific trained system with its own identity and generation.
+- The app is the boutique where you meet and use that model.
 
-Every idea in LAiDIES has to earn its address. The vocabulary lesson doesn't just sit in a "Concepts" tab — it lives at the Town LIBRAiRY on Civic Square, and it's shaped like a reference desk. The prompt game doesn't sit in a "Games" tab — it lives at the Blend & Snap on No. 4, with a Study Pack on the counter. The chat rooms don't sit in a "Community" tab — they live at the Sorority House on Wisteria Lane, and you need a Residence Card at the door.
+There is one important contrast. A 1990s fashion house booked a model. An AI house builds its own models.
+OpenAI's models do not become Anthropic's models just because the apps can perform similar jobs.
 
-Buildings that earn their function beat tabs that don't. A town gives every idea a body. Every mechanic gets a room, every reference gets a shelf, every song gets a station. You don't have to remember which nav menu the tool was under — you have to remember what street you walked down last time.
+## The face is not the storefront
 
-> Analogies that stick. In a fictional town from an era we know and love. That's how we're teaching it.
+**The company makes the model; the app is just where you shop it.**
 
-The other reason: a town has neighbors. Nothing about learning AI is easier alone. So the surfaces we're opening this week aren't just content — they're places you can bump into other members. Post a win. Ask for advice. Play truth or dare. Mail a friend a Hall Pass because you know she's having a week.
+ChatGPT is OpenAI's store. Claude is Anthropic's. The Gemini app is Google's. When someone says “ChatGPT
+versus Claude,” she is comparing two products and the model families available inside them—not two fixed,
+unchanging brains.
 
-Welcome to the neighborhood.
+The distinction also explains why an app can feel different over time without changing its name. The
+storefront stays put while the model lineup changes. Same address, a new face in the window.
 
----
+Inside each boutique there can be several model choices for different kinds of work. That is a useful skill,
+but it belongs to the next episode. Episode 5 is the directory of stores, not the rack inside each one.
 
-## The tour · Main Street
+## The work app is a department store
 
-Main Street is ten blocks. If you've got ten minutes today, walk it end to end. If you've got two — jump to the number that calls to you.
+Microsoft 365 Copilot is not best understood as a one-house boutique. Microsoft describes it as using a
+combination of models, including Microsoft-operated models and models from OpenAI and Anthropic. In Copilot
+Chat, people may be able to select a model; its default router can also match a request to an underlying
+model. Exact availability varies by Copilot experience, region, and administrator settings.
 
-**[No. 1 · The Welcome Wagon Visitor's Centre](/visitors-centre.html).** The front door of the town. If you're new, start here. Big map on the wall, a mini-directory of every building, the town's answers to "what is this and how do I use it." The person at the counter is nice. Nothing scary in SUNNYVAiLE — even if you take a wrong turn.
+That makes the “department store” analogy useful. Microsoft runs the store. Different model providers can
+have counters inside it. Depending on the product and settings, the customer may choose a counter—or the
+store may route the job.
 
-**[No. 2 · The NewsStand](/newsstand.html).** Hot gossip. What everyone in town is talking about this week — the biggest AI news, the loudest takes, the receipts to keep for later. You can grab a copy on the way to your next stop.
+This is why the work assistant can feel familiar. It may be using a model family you have already met,
+now available through the work product your organization installed: **same models, sold through a store you already had.**
+Familiar face, different runway.
 
-**[No. 3 · The Chick Flicks](/chick-flicks.html).** Video rental. This week's episode plays on the TV above the counter all day. Rent the tape, take it home, watch it Friday. Staff picks handwritten on index cards, taped to the shelf. Ali's picks are in the sticker section, three deep. Late fees are real. Be kind — rewind.
+The metaphor has limits, and this one matters: Microsoft also develops and operates models of its own.
+The department store is not merely an empty landlord.
 
-**[No. 4 · The Blend & Snap](/blend-snap.html).** Coffee shop. This is where the **Study Pack** drops every Wednesday — three concepts, five vocab words, one prompt to try before the pop quiz down the street. Same barista, same paper cup, she knows how you take it. Come sit for a while.
+## Four all-rounders, not one winner
 
-**[No. 5 · Mme CLAi-O's Shop](/games/madame-claio.html).** Fortune teller. Pick a card. Get read. She'll tell you what it says and give you your move. Twenty dollars. Walk-ins. Cash preferred. Her deck is a hundred cards deep — pull one a day, don't burn out the deck.
+The practical move is to stop hunting for a universal champion and notice which store fits the work in
+front of you.
 
-**[No. 6 · MAiKEOVER on MAiN](/maikeover.html).** Beauty parlor. This is where your **Residence Card** gets made — it's your ID for SUNNYVAiLE. Everything else in town is downstream of you having a card. Get your look on it, get your quote on it, get it in your wallet.
+- **ChatGPT** is a broad general-purpose starting point for drafting, exploration, and iterative work.
+- **Claude** is another general assistant, often chosen for careful writing, coding, and long documents.
+- **Gemini** is Google's assistant and is closely connected to the Google ecosystem.
+- **Microsoft 365 Copilot** is built into the work environment many organizations already use and can
+  provide access to multiple model options.
 
-**[No. 7 · The BRONZE AiGE](/bronze-aige.html).** Bar. Happy hour at four. THE LAiDIES on stage at eight. Main Character Spritz on the drinks menu — the pink one, yes, we know, that's the point. The Coven — Hannah Fry, Fei-Fei Li, the women actually running things in AI right now — has a standing reservation. The chair is warmer than it looks.
+Features and model lineups change quickly. These are lanes, not permanent rankings. Many experienced users
+keep more than one assistant available and choose by task, employer constraints, data access, and workflow.
 
-**[No. 8 · The Phone Booth (Dream Phone)](/games/dream-phone.html).** Glass booth outside The Mall. Call in with a question. Pick a voice — Receipts, Bestie, Boundary. Get the answer through the receiver. Late-90s tech, actual utility.
+## The back rack
 
-**[No. 9 · The Mall](/mall.html).** Ten Y2K shops under one roof — butterfly clips and Cucumber Melon at CLAiRE'S, Reference Cards at Blockbuster, a beauty section that's not-quite-Maybelline. The Mall is also your **avatar closet**: pick up an object from any shop and take it home to your Passport. Wear the mood ring. Wear the burrito. Wear whatever's your look this week.
+The four big assistants can handle much of an ordinary week, but they are not the whole market. There are
+specialist tools for research with visible sources, image generation, working across a document collection,
+meeting notes, audio, and other focused jobs.
 
-**[No. 10 · KSVL Community Radio, 99.9](/radio.html).** Ninety-nine point nine, filed from SUNNYVAiLE, DJ SunnyV at the mic. PATRON SAiNT mixes, town anthems, episode intros. **New today:** *Tune In Live* mode — the full station broadcast with jingles, ads, weather, and DJ transitions. Details at the bottom.
+That deserves its own trip. For now, get fluent with one all-rounder and learn what kind of store you are in.
+The specialist matters when the generalist can no longer do the job cleanly.
 
-> Every shop is a lesson with a better window display.
+## The cocktail-party version
 
----
+If someone at happy hour asks which AI is best, try this:
 
-## The tour · Off Main Street
+> The company makes the model; the app is just where you shop it. ChatGPT and Claude are different stores,
+> and the assistant at work may offer some of the same model families through a product your company already
+> uses. Stop looking for one permanent winner. Learn which store you are standing in.
 
-The rest of the town is off the map's spine. Every one of these has a specific job.
+## This week's try-on
 
-**[Wisteria Lane · The Sorority House · Delta LAi Nu](/sorority-house.html).** Members-only. This is where the chat rooms live — Wins, Dear LAiDIES, the Burn Book, Girl Talk. Come chat with the rest of us. Share a win. Ask for advice. Gossip in the Burn Book. Play truth or dare on the couch. *ICQ walked so our chat rooms could run.* Bring your Residence Card — the door won't open otherwise.
+Take ten minutes:
 
-**[Willow Lane · The FAiRY Godmother's House](/games/fairy-godmother.html).** Storybook cottage. Ask LAiDY lives here — she grants wishes. Bring her the question you're afraid to ask out loud. She'll answer it. She'll help you word it. She's kind, even when the question isn't. Three wishes per visit. Come back tomorrow for three more.
+1. Open the AI your company provides and one assistant you use on your own.
+2. Give both the same low-risk task. Do not paste confidential or personal information.
+3. Compare the structure, questions, omissions, and tone.
+4. Look for the model selector or product information in each app. Note the difference between the app's
+   name and any model name it shows.
 
-**[Civic Square · Town Hall](/town-hall.html).** Mayor Deb's office. Her NOPE poster archive is in the lobby — the 1999 Die Hard campaign, the 2000 NOPE original, the 2003 Deb-flection™ trilogy. Deb has requested we stop announcing her role at the end of the broadcast, so we won't. But the mayor's office is here, the founder's note is on the wall, and the printer is still jammed.
+The point is not to crown a winner. It is to see the model-versus-store distinction in your own hands.
 
-**[Civic Square · The SUNNYVAiLE Post Office](/post-office.html).** Right next to Town Hall. This is where the **Wednesday Drop** arrives — your Study Pack, this week's song from KSVL, a note from Ali if she wrote you one. Sometimes there's a coupon for the Blend & Snap. It's also where you send mail to friends: a trading card she's been trying to unwrap, a charm you doubled up on, a Hall Pass because you know she's having a week. One-way. She keeps it.
+## Next time
 
-> Somewhere in Sunnyvale, an inbox lights up. You've got mail.
+Our heroine walks back into the boutique and finally looks at the rack. Every house keeps more than one
+line, and she has been wearing couture to the grocery store all month. Come back for Episode Six:
+**Groundbreaking.**
 
-**[Civic Square · The Town LIBRAiRY](/library.html).** Reference desk. Can't remember what "context window" means? Ask the Book. Not sure which tool does what? Check the Power Map. Need proof of something? Pull it from the Chamber of Receipts. Quiet in here — but everything you'd want to look up is on a shelf you can reach.
+## Sources for the moving product details
 
-**[Schoolhouse Road · SUNNYVAiLE High](/sunnyvaile-high.html).** Season 1 is seven 101 classes — Vocab, Concepts, Briefing, Tools, Practice, Accounts, ChatGPT. Pop Quiz every Wednesday. Ten questions plus two bonus on this week's 101 class and the episode. Study Pack lives up the street at the Blend & Snap. Read it before you show up. Bring a pen. That is all.
+- [Microsoft 365 Copilot application card](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-application-card)
+- [Microsoft 365 Copilot Chat overview and model selection](https://learn.microsoft.com/en-us/copilot/overview)
+- [Microsoft 365 Copilot release notes](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes)
 
-**[Lantern Hill · The LUMINAiRY](/luminairy.html).** Two wings, same chapel. Left side, the **PATRON SAiNTS** — the women (and one Rose) who taught us how to walk into a room and stay in it. Cher. Elle. Dolly. Miranda. Buffy. Regina. David Rose. Deb. Each one has her own anthem, sung by DJ SunnyV, up on KSVL. Right side, the **MAiVENS** — Hannah Fry, Fei-Fei Li, Timnit Gebru — the ones building the room next. Light a candle for the woman you're trying to be by Wednesday.
-
----
-
-## How to use it · the mechanics
-
-Seven mechanics turn this from a tour into a way to live in the town.
-
-### 1. Your Residence Card
-
-Made at **MAiKEOVER**, No. 6 MAiN. This is your identity in SUNNYVAiLE. Every members-only surface — the Sorority House chat rooms, Girl Talk, gifting — requires it. Sign up at the Post Office window (magic-link, no password), design your card at MAiKEOVER, done. You're a resident.
-
-### 2. Your Passport
-
-The private side of your card. Your saint, your song, your reading of the day, your avatar objects, your stickers, your badges. It's where the tracks of everything you've done in town collect. Public profile face out, private inventory tucked in. Every customization is a **trip** — pick your saint at the Sanctuary, pick your song at KSVL, pick your avatar at the Mall. The Passport is the shelf. The town is the shopping.
-
-### 3. The Wednesday Drop
-
-One letter, Wednesdays only. It has your Study Pack, this week's song from KSVL, a note from Ali if she wrote you one. Sometimes a coupon for the Blend & Snap. Arrives at your Post Office box. That's it. No spam. No drip campaigns. A real letter, from us, once a week.
-
-### 4. The Charm Hunt
-
-Charms hide in the town images. When you spot one, click it — it's yours. Collect them. Duplicates can be **gifted** to friends via the Post Office. We don't tell you where they are. That's the game.
-
-### 5. Trading Cards
-
-Every episode drops a Trading Card pack. Some cards are common, some are hard to complete. If you have a duplicate — or if your friend is hunting one — mail it. Post Office knows the way.
-
-### 6. Girl Talk · Truth or Dare
-
-Lives at the **Sorority House**. Pick truth or pick dare. Truth stays in the room. Dare is real — post your report to the **Dare Reports** room by Sunday, or spend a **Hall Pass**. Everyone gets one Hall Pass a month. Skipping a dare without a pass earns a **Detention Slip** (harmless, but visible on your card). Community validates.
-
-### 7. Gifting
-
-Send a friend a note. A trading card she needs. A charm you doubled up on. A Hall Pass. All routed through the **Post Office** on Civic Square. One-way — she keeps it. Small, warm, wholesome. Somewhere in Sunnyvale, an inbox lights up.
-
----
-
-## New today · KSVL goes Live
-
-We've had the mix CDs up on KSVL for a few weeks — PATRON SAiNTS, Anthems, Activities, Episodes, B-side. As of today, you can also **Tune In Live**.
-
-Live mode is the full station broadcast: DJ SunnyV at the mic, patron saint songs on rotation, the town anthem twice an hour, jingles between segments, weather (partly cloudy, extremely mid-90s), traffic (there is none — it's Sunnyvale), and *actual radio commercials* from every building in town. The Blend & Snap wants you to bring the Study Pack. Delta LAi Nu wants you at Girl Talk. The FAiRY Godmother is granting wishes. Mayor Deb has a PSA — she was told she couldn't go home until she addressed you all.
-
-Turn it on at **[KSVL / the Radio Tower](/radio.html)**. Play it in the background while you work. It's free. It's a whole town.
-
----
-
-## Your first visit
-
-If you're brand new to SUNNYVAiLE, do this in order:
-
-1. **Pick up your Residence Card.** Sign up at the [Post Office](/post-office.html), design your card at [MAiKEOVER](/maikeover.html). Now you're a resident.
-2. **Grab this week's Study Pack.** [Blend & Snap](/blend-snap.html), Number 4 MAiN. Three concepts, five vocab words, one prompt.
-3. **Take the Pop Quiz.** [SUNNYVAiLE High](/sunnyvaile-high.html). Ten questions plus two bonus, ten minutes.
-4. **Visit the Sorority House.** [Delta LAi Nu](/sorority-house.html), Wisteria Lane. Post a win. Read the Burn Book. Play a round of Girl Talk if you're brave.
-5. **Ask the FAiRY Godmother a question.** [Willow Lane](/games/fairy-godmother.html). Bring her the one you're afraid to ask out loud.
-6. **Turn on KSVL Live.** [Radio Tower](/radio.html). Leave it on for the rest of the day.
-
-If you're not new — welcome back. Everything old is where you left it. Everything new is on the map above.
-
----
-
-## Next week
-
-We're back to a real chapter — the SLAiYER Handbook, chapter 2. The ChatGPT field guide: which version to use for what, when to switch to Claude, and how to keep your prompt library from becoming a mess.
-
-Until then — enjoy the town.
-
-*See you Wednesday.*
+Product and model availability must be rechecked at recording and publication time.

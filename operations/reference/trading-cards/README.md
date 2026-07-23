@@ -24,3 +24,15 @@ remember**. The comic-frame refs above are for the FRONT face. Matches [[concept
 Character card deck; match the [[brand-palette-and-type-lock]] accents. Note existing canon says the
 Concept card ART register = episode section-art (photographic Y2K), so confirm with Ali whether these
 comic refs are for Character cards specifically vs a new direction before applying.
+
+## ✅ CONFIRMED THE STYLE REFERENCE (Ali, 2026-07-22)
+Ali: "yes those are the examples." tradingref-01..04 ARE the locked look for the trading-card
+deck — pop-art comic: bold black outlines, Ben-Day halftone, flat vivid color, comic word-bursts
++ sticker motifs (hearts/lips/eyes/stars/lightning), name in a comic banner, white border, the
+burst frame (tradingref-04). Character-card prompt built to this: `operations/codex-prompts/_character-card-deck-batch.md`.
+⛔ NOT the ep01 painterly concept cards, NOT the retired plum/gold cards.
+
+## PALETTE DECIDED — CANDY (Ali, 2026-07-22)
+Ali rendered the JoJo test telling Codex to use the LAiDIES palette. So the deck is the TOWN
+CANDY palette (pink #e982ab · teal #57b6c0 · coral #ec7a78 · periwinkle #b3abe7) over black ink —
+NOT the reference's primary red/blue/yellow. Update prompts accordingly.

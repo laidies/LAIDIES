@@ -790,21 +790,20 @@
       try {
         // Race the lookup against a 1.5s timeout so a slow/blocked guest book
         // (e.g. signed-out RLS) falls through to the optimistic "grab it" path fast.
-        var query = supabase
-          .from('member_profiles')
-          .select('id', { head: false, count: 'exact' })
-          .eq('card_username', value)
-          .limit(1);
+        // Asks the database a yes/no question instead of reading profile rows.
+        // member_profiles is owner-only now (it holds her age bracket, skill
+        // level, industry and goal), so a row lookup could never see a taken
+        // handle. is_handle_taken() answers without exposing anything.
+        var query = supabase.rpc('is_handle_taken', { handle: value });
         var timeout = new Promise(function (_, rej) { setTimeout(function () { rej(new Error('timeout')); }, 1500); });
         var result = await Promise.race([query, timeout]);
         if (result.error) throw result.error;
-        // If there's a row and it's someone else, it's taken. If it's the current
-        // user, that means they already have this handle — treat as available
-        // (they can re-confirm, or nothing changes).
-        var rows = result.data || [];
-        if (rows.length === 0) return { ok: true };
-        if (session && rows[0].id === session.user.id) return { ok: true };
-        return { ok: false, msg: '@' + value + ' is already taken. Try another.', tone: 'bad' };
+        // Returns true only when SOMEONE ELSE holds it — the function already
+        // excludes the signed-in user, so re-confirming your own handle is fine.
+        if (result.data === true) {
+          return { ok: false, msg: '@' + value + ' is already taken. Try another.', tone: 'bad' };
+        }
+        return { ok: true };
       } catch (err) {
         console.warn('[MAiKEOVER] availability check failed:', err);
         return { ok: false, msg: 'Couldn\'t reach the guest book. Try again in a sec.', tone: 'bad', transient: true };
@@ -870,7 +869,8 @@
         var publicCheck = document.getElementById('mo-public-check');
         var payload = {
           id: session.user.id,
-          email: session.user.email,
+          // ⛔ No `email` here — it lives on auth.users. See migration
+          // 20260722201500_stop_storing_email_on_profiles.sql.
           card_username: value,
           member_card_is_public: publicCheck ? !!publicCheck.checked : true
         };
@@ -889,11 +889,24 @@
           return;
         }
         renderClaimed(value, false);
+        redeemBestieInvite();   // if she arrived via a postcard, complete the necklace
       } catch (err) {
         setStatus('Something went sideways. Try again?', 'bad');
         claimBtn.textContent = originalText;
         claimBtn.disabled = false;
       }
+    }
+
+    // BEST FRIENDS necklace — she got here from someone's postcard; now that she
+    // has a card + is signed in, redeem it (grants a necklace half to both).
+    async function redeemBestieInvite() {
+      var from = lsGet('laidies_invited_by');
+      if (!from || !supabase || !session) return;
+      try {
+        var r = await supabase.rpc('redeem_bestie_invite', { inviter_handle: from });
+        if (!r.error && r.data === 'granted') { lsSet('laidies_invited_by', ''); }
+        else if (!r.error && (r.data === 'self' || r.data === 'no-such-resident')) { lsSet('laidies_invited_by', ''); }
+      } catch (_) { /* keep the flag; a later visit can retry */ }
     }
 
     // Email magic-link sign-in / sign-up (returns to this page authenticated).

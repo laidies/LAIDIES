@@ -91,10 +91,11 @@ The trailer page (`issues/issue-trailer.html`) currently uses the photographic `
 
 **Style reference for all of these:** the existing Y2K pixel language — `assets/sunnyvaile-buildings/y2k-v3-defairytale/episode-pixel/06-mme-claios-shop-connected-focus-pixel-v5-1122w.png` + the episode pixel scenes. Detailed 16-bit look, dither shading, saturated **plum #4b2148 / rose #9b3f5f / teal / gold #d4a853** palette, warm golden light. Pass one of those as a style ref on every generation.
 
-### 6a. Closet-interior hero · PRIORITY
-- **Output path:** `assets/closet/closet-interior-hero-pixel.png`
+### 6a. Closet-interior hero · REVISED 2026-07-21
+- **Live output path:** `assets/closet/closet-interior-hero-v2-90s-vibrant.png`
+- **Superseded:** `assets/closet/closet-interior-hero-pixel.png` — rejected because the pixel treatment and brown grading do not match the vibrant 1990s direction.
 - **Size:** wide banner, ~1672×941 (16:9).
-- **Prompt:** *A Y2K pixel-art interior of a sorority-house dressing room / walk-in closet at Delta LAi Nu — the SUNNYVAiLE girls' clubhouse. A wall of open lockers and a vanity with a lit mirror, a velvet stool, a charm bracelet and a claw clip on the counter, a corkboard of photos and puffy stickers, a rack of Y2K clothes, a jewelry box, a stack of trading cards. Warm golden afternoon light through a window, cozy and lived-in, **empty of people**. Detailed 16-bit pixel render, dither shading, plum/rose/teal/gold palette, on-brand. No text.*
+- **Locked direction:** *A crisp, vibrant, unmistakably 1990s fashion-tech dressing room / walk-in closet at Delta LAi Nu. Bright daylight and vanity bulbs; hot pink, turquoise, sunny yellow, lavender, aqua, crisp white, polished gold and chrome. Open wardrobe storage, colorful blazers and slip dresses, platform shoes, mini backpacks, translucent organizers, a Caboodles-style case, Polaroids, puffy stickers, CDs, cassettes, butterfly clips, charm jewelry, and one chunky beige CRT closet computer. Polished cinematic 1990s teen-movie production-design photography, empty of people. Absolutely no pixel art, dithering, muddy brown grade, sepia, rustic mood, modern devices, text, logos, or watermark.*
 - Wired to a self-hiding banner at the top of the page (`.closet-hero`).
 
 ### 6b. Collection-vessel icons (8) — 512×512, transparent PNG

@@ -52,37 +52,116 @@
       Coffee shop. Third place. Where the Study Pack lives and the second draft of everything happens. Order something with milk in it, open the notes, run into someone. Then walk to school for the quiz.
     </p>
 
-    <h2 id="the-study-pack">The Study Pack</h2>
+    <!-- ══ THE MENU IS THE INTERFACE ═══════════════════════════════════════
+         Ali: "what happens when you enter a coffee shop — you order. So the
+         menu is the different Study Packs and the other things you do in the
+         Blend & Snap." A real cafe menu you order from — NOT hotspots on a
+         photo, NOT a corkboard. Each line is a thing you get. ═════════════ -->
+    <style>
+      .bs-menu {
+        margin: 8px 0 40px; padding: 34px clamp(20px, 4vw, 48px) 30px;
+        background:
+          repeating-linear-gradient(90deg, transparent 0 6px, rgba(58,24,56,0.015) 6px 7px),
+          var(--cream, #fffdfb);
+        border: 1px solid var(--line, rgba(58,24,56,0.14));
+        border-radius: 14px; box-shadow: 0 10px 30px rgba(58,24,56,0.10);
+      }
+      .bs-menu-top { text-align: center; margin: 0 0 8px; }
+      .bs-menu-kicker { margin: 0; font-size: 11px; font-weight: 800; letter-spacing: 0.28em;
+        text-transform: uppercase; color: var(--rose, #9b3f5f); }
+      .bs-menu-title { margin: 6px 0 4px; font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(28px, 4vw, 40px); font-weight: 700; color: var(--plum, #3a1838); }
+      .bs-menu-note { margin: 0; font-size: 14px; font-style: italic; color: var(--plum-soft, #6b3a66); }
+      .bs-menu-rule { height: 2px; margin: 18px 0 6px;
+        background: repeating-linear-gradient(90deg, var(--plum, #3a1838) 0 8px, transparent 8px 14px);
+        opacity: 0.35; }
 
-    <a id="bs-current-pack" href="/issues/issue-04.html"
-       style="display: block; margin: 16px 0 14px; padding: 30px 34px; background: linear-gradient(135deg, var(--blush) 0%, #f4ddb4 100%); border: 2px solid var(--gold); border-radius: 14px; text-decoration: none; box-shadow: 0 8px 26px rgba(75, 33, 72, 0.12); transition: transform 200ms ease, box-shadow 200ms ease;"
-       onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 14px 34px rgba(75, 33, 72, 0.2)';"
-       onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 26px rgba(75, 33, 72, 0.12)';">
-      <p style="margin: 0 0 8px; font-weight: 700; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);">★ This Week · Fresh Off the Corkboard</p>
-      <h3 style="margin: 0 0 10px; font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700; color: var(--plum);">Class Notes for Episode 04</h3>
-      <p style="margin: 0 0 20px; font-size: 16px; line-height: 1.6; color: var(--plum); max-width: 56ch;">The cheat sheet for the Pop Quiz. Vocab, key concepts, what to actually remember. Read it here over a latte, then head to SUNNYVAiLE High and take the test.</p>
-      <span style="display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; background: var(--plum-deep); color: var(--cream); border-radius: 999px; font-weight: 800; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase;">☕ Grab this week's pack →</span>
-    </a>
+      .bs-sec-label { margin: 22px 0 6px; font-size: 12px; font-weight: 800;
+        letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose, #9b3f5f); }
 
-    <a class="stop" href="/games/trading-cards.html" style="display: block; margin: 0 0 36px;">
-      <span class="stop-num">★ TRADING CARDS</span>
-      <h3 class="stop-name">This week's Concept Card Pack →</h3>
-      <p class="stop-desc">Every Study Pack ships with a Trading Card Pack. Rip it open, flip each card, learn a concept. Duplicates are the point — trade them. Character Cards live in a separate deck (open the page to see both).</p>
-    </a>
+      .bs-order { display: flex; align-items: baseline; gap: 12px; width: 100%;
+        padding: 14px 4px; text-decoration: none; border-bottom: 1px solid rgba(58,24,56,0.10);
+        transition: background 140ms ease; }
+      .bs-order:last-child { border-bottom: 0; }
+      .bs-order:hover { background: rgba(155,63,95,0.05); }
+      .bs-order-main { flex: 1 1 auto; min-width: 0; }
+      .bs-order-name { display: block; font-family: 'Playfair Display', Georgia, serif;
+        font-size: 20px; font-weight: 700; color: var(--plum, #3a1838); line-height: 1.2; }
+      .bs-order-desc { display: block; margin-top: 3px; font-size: 14.5px; line-height: 1.5;
+        color: var(--plum-soft, #6b3a66); }
+      .bs-leader { flex: 0 1 auto; align-self: flex-end; margin-bottom: 5px;
+        border-bottom: 2px dotted rgba(58,24,56,0.28); min-width: 18px; height: 0; }
+      .bs-get { flex: 0 0 auto; white-space: nowrap; font-family: 'Jost', sans-serif;
+        font-size: 12.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--rose, #9b3f5f); }
+      .bs-order:hover .bs-get { text-decoration: underline; }
 
-    <h2 id="back-shelf">The back shelf</h2>
+      .bs-order--special { align-items: flex-start; padding: 18px 16px; margin: 4px 0 2px;
+        background: linear-gradient(135deg, rgba(155,63,95,0.08), rgba(155,63,95,0.03));
+        border: 1.5px solid rgba(155,63,95,0.28); border-radius: 12px; }
+      .bs-order--special .bs-order-name { font-size: 24px; }
+      .bs-order--special .bs-get {
+        padding: 11px 22px; border-radius: 999px; color: var(--cream, #fffdfb);
+        background: var(--rose, #9b3f5f); align-self: center; }
+      .bs-tag { display: inline-block; margin: 0 0 6px; font-size: 10px; font-weight: 800;
+        letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose, #9b3f5f); }
+      @media (max-width: 560px) {
+        .bs-leader { display: none; }
+        .bs-order { flex-wrap: wrap; }
+        .bs-order--special .bs-get { align-self: flex-start; }
+      }
+    </style>
 
-    <p>
-      Every Study Pack that's ever shipped stays on the shelf behind the counter. Missed a week? Started mid-season? Pull an old pack down — the coffee's fresh either way.
-    </p>
+    <section class="bs-menu" id="the-study-pack" aria-label="The Blend &amp; Snap menu">
+      <div class="bs-menu-top">
+        <p class="bs-menu-kicker">★ The Blend &amp; Snap</p>
+        <h2 class="bs-menu-title">Today's Menu</h2>
+        <p class="bs-menu-note">Order at the counter — it's all on the house. The coffee too.</p>
+      </div>
+      <div class="bs-menu-rule" aria-hidden="true"></div>
 
-    <div id="bs-archive" style="display: grid; gap: 12px; margin: 20px 0 36px;">
-      <p style="font-style: italic; color: var(--plum-soft, #6b3a66); font-size: 14px;">Pulling the packs off the shelf…</p>
-    </div>
+      <p class="bs-sec-label">The Special · this Wednesday</p>
+      <a class="bs-order bs-order--special" id="bsSpecial" href="/issues/issue-04.html">
+        <span class="bs-order-main">
+          <span class="bs-tag">★ Fresh this week</span>
+          <span class="bs-order-name" id="bsSpecialName">This Week's Study Pack</span>
+          <span class="bs-order-desc" id="bsSpecialDesc">Class notes for the Pop Quiz — vocab, key concepts, the cheat sheet. Read it over a latte, then walk to SUNNYVAiLE High and take the test.</span>
+        </span>
+        <span class="bs-get">Order →</span>
+      </a>
+
+      <p class="bs-sec-label">On the Side</p>
+      <a class="bs-order" href="/games/trading-cards.html">
+        <span class="bs-order-main">
+          <span class="bs-order-name">Concept Card Pack</span>
+          <span class="bs-order-desc">Comes with every Study Pack. Rip it, flip each card, learn a concept — trade the doubles.</span>
+        </span>
+        <span class="bs-leader" aria-hidden="true"></span>
+        <span class="bs-get">Add →</span>
+      </a>
+      <a class="bs-order" href="/learn/quiz.html">
+        <span class="bs-order-main">
+          <span class="bs-order-name">The Pop Quiz</span>
+          <span class="bs-order-desc">Ten questions on this week's episode. Taken next door at SUNNYVAiLE High — this is where you study for it.</span>
+        </span>
+        <span class="bs-leader" aria-hidden="true"></span>
+        <span class="bs-get">Take it →</span>
+      </a>
+
+      <p class="bs-sec-label">The Regulars · every past pack</p>
+      <div id="bsRegulars">
+        <a class="bs-order" aria-disabled="true" href="#the-study-pack" style="pointer-events:none;">
+          <span class="bs-order-main"><span class="bs-order-desc" style="font-style:italic;">Pulling the past packs off the shelf…</span></span>
+        </a>
+      </div>
+
+      <p class="bs-menu-note" style="text-align:center; margin-top:22px;">Just here for the coffee? That's allowed too. Third places don't ask you to be productive.</p>
+    </section>
 
     <script>
       (function () {
         'use strict';
+        function esc(s){ return String(s==null?'':s).replace(/[<>&"]/g,function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c];}); }
         fetch('/content/episode-index.json')
           .then(function (r) { return r.json(); })
           .then(function (data) {
@@ -90,39 +169,35 @@
             if (!eps.length) return;
             eps.sort(function (a, b) { return b.number - a.number; });
 
-            // Newest published episode powers the THIS WEEK card
             var current = eps[0];
-            var cur = document.getElementById('bs-current-pack');
-            if (cur && current.issueUrl) {
-              cur.href = '/' + current.issueUrl.replace(/^\//, '');
-              var name = cur.querySelector('.stop-name');
-              if (name) name.textContent = 'Class Notes for Episode ' + String(current.number).padStart(2, '0');
+            var special = document.getElementById('bsSpecial');
+            if (special && current.issueUrl) {
+              special.href = '/' + current.issueUrl.replace(/^\//, '');
+              var nm = document.getElementById('bsSpecialName');
+              if (nm) nm.textContent = 'Study Pack · Episode ' + String(current.number).padStart(2, '0') + ' — ' + current.title;
             }
 
-            // Everything older goes on the back shelf
-            var host = document.getElementById('bs-archive');
+            var host = document.getElementById('bsRegulars');
             if (!host) return;
-            host.innerHTML = '';
             var past = eps.slice(1);
             if (!past.length) {
-              host.innerHTML = '<p style="font-style: italic; color: var(--plum-soft, #6b3a66); font-size: 14px;">Season one is young — past packs land here as the weeks stack up.</p>';
+              host.innerHTML = '<a class="bs-order" aria-disabled="true" href="#the-study-pack" style="pointer-events:none;"><span class="bs-order-main"><span class="bs-order-desc" style="font-style:italic;">Season one is young — past packs join the menu as the weeks stack up.</span></span></a>';
               return;
             }
-            past.forEach(function (ep) {
-              var a = document.createElement('a');
-              a.className = 'stop';
-              a.href = '/' + (ep.issueUrl || '').replace(/^\//, '');
-              a.style.display = 'block';
-              a.innerHTML =
-                '<span class="stop-num">EP ' + String(ep.number).padStart(2, '0') + '</span>' +
-                '<h3 class="stop-name">' + ep.title + '</h3>' +
-                '<p class="stop-desc">' + (ep.oneLineDescription || ep.lesson || '') + '</p>';
-              host.appendChild(a);
-            });
+            host.innerHTML = past.map(function (ep) {
+              return '<a class="bs-order" href="/' + esc((ep.issueUrl || '').replace(/^\//, '')) + '">' +
+                '<span class="bs-order-main">' +
+                  '<span class="bs-order-name">Ep ' + String(ep.number).padStart(2,'0') + ' · ' + esc(ep.title) + '</span>' +
+                  '<span class="bs-order-desc">' + esc(ep.oneLineDescription || ep.lesson || '') + '</span>' +
+                '</span>' +
+                '<span class="bs-leader" aria-hidden="true"></span>' +
+                '<span class="bs-get">Order →</span>' +
+              '</a>';
+            }).join('');
           })
           .catch(function () {
-            var host = document.getElementById('bs-archive');
-            if (host) host.innerHTML = '<p style="font-style: italic; color: var(--plum-soft, #6b3a66); font-size: 14px;">The shelf is being restocked — check back in a minute.</p>';
+            var host = document.getElementById('bsRegulars');
+            if (host) host.innerHTML = '<a class="bs-order" aria-disabled="true" href="#the-study-pack" style="pointer-events:none;"><span class="bs-order-main"><span class="bs-order-desc" style="font-style:italic;">The menu is being restocked — check back in a minute.</span></span></a>';
           });
       })();
     </script>

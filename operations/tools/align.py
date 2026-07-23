@@ -22,12 +22,45 @@ def brandify(t):
 
 script_p, words_p, outdir = sys.argv[1], sys.argv[2], sys.argv[3]
 
+# --- which episode? ------------------------------------------------------
+# Was hard-coded to "episode-04", so running this for any other episode
+# silently overwrote Ep4's timing map and captions. Derive it from the script
+# filename (episode-05-elevenlabs-v3-tagged.txt -> 05); allow an explicit
+# 4th argument to override. Refuse to guess — a wrong number destroys work.
+if len(sys.argv) > 4:
+    EP = f"{int(sys.argv[4]):02d}"
+else:
+    m = re.search(r"episode-(\d{1,2})", script_p)
+    if not m:
+        sys.exit(f"align.py: cannot tell which episode '{script_p}' is.\n"
+                 f"           Pass the number explicitly: align.py <script> <words> <outdir> <N>")
+    EP = f"{int(m.group(1)):02d}"
+STEM = f"episode-{EP}"
+print(f"episode {EP}  ->  {outdir}/{STEM}-timing-map.json, {STEM}.vtt, {STEM}.srt")
+
 # --- 1. parse the true script into (speaker, sentence) units -------------
-units=[]; cur="JESSICA"
+# Three script formats have to work here:
+#   Ep2 marks voices with `=== HOST VOICE ===` SECTION headers (sticky).
+#   Ep1 tags only the intro/outro with an inline `[tv announcer]` (per-line).
+#   Ep4 uses inline maven tags inside a host section.
+# So: a `=== header ===` sets the STICKY section default; an inline `[speaker]`
+# tag applies to ITS OWN line only, then we revert to the section default. If
+# inline tags were sticky (the old behaviour), Ep1's announcer intro bled
+# through the whole episode and every host line came out "The Announcer".
+units=[]; section="The Heroine"
 for line in open(script_p):
     line=line.strip()
     if not line or line.startswith("#"): continue
-    # leading speaker tag
+    # `=== VOICE ===` section headers — NOT spoken; switch the sticky default.
+    hm=re.match(r"^===\s*(.+?)\s*===$", line)
+    if hm:
+        h=hm.group(1).upper()
+        if "ANNOUNCER" in h: section="The Announcer"
+        elif "EXPERT" in h or "SEPARATE VOICE" in h: section="The Expert"
+        elif "HOST" in h or "JESSICA" in h: section="The Heroine"
+        continue
+    # inline leading speaker tag(s) — apply to THIS line only
+    cur=section
     m=re.match(r"^\[([^\]]+)\]\s*", line)
     while m and m.group(1).lower() in SPEAKERS:
         cur=SPEAKERS[m.group(1).lower()]; line=line[m.end():]; m=re.match(r"^\[([^\]]+)\]\s*", line)
@@ -73,7 +106,7 @@ for u in units:
     if u["end"]<=u["start"]: u["end"]=u["start"]+1.2
 
 print(f"units={len(units)}  timed={matched}  coverage={matched/len(units)*100:.1f}%")
-json.dump(units, open(f"{outdir}/episode-04-timing-map.json","w"), indent=1)
+json.dump(units, open(f"{outdir}/{STEM}-timing-map.json","w"), indent=1)
 
 # --- 3. emit VTT + SRT ----------------------------------------------------
 def ts(t,sep="."):
@@ -133,6 +166,6 @@ for n,(a,b,txt,sp) in enumerate(out,1):
     srt.append(f"{n}\n{ts(a,',')} --> {ts(b,',')}\n{body}\n")
     prev=sp
 n=len(out)
-open(f"{outdir}/episode-04.vtt","w").write("\n".join(vtt))
-open(f"{outdir}/episode-04.srt","w").write("\n".join(srt))
-print(f"wrote {n} cues -> episode-04.vtt / .srt / timing-map.json")
+open(f"{outdir}/{STEM}.vtt","w").write("\n".join(vtt))
+open(f"{outdir}/{STEM}.srt","w").write("\n".join(srt))
+print(f"wrote {n} cues -> {STEM}.vtt / {STEM}.srt / {STEM}-timing-map.json")

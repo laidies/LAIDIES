@@ -39,7 +39,7 @@
 
   /* Cinematic pixel-art hero — the tape's title card, in the world */
   .tv-hero{position:relative;overflow:hidden;padding:118px 24px 88px;text-align:center;color:var(--cream);
-    background:linear-gradient(180deg,rgba(14,9,24,.46) 0%,rgba(11,7,18,.72) 66%,rgba(11,7,18,.94) 100%), url('../assets/episodes/ep-04/pixel/ep04-scene-01-cold-open-v2.jpg') center 30%/cover}
+    background:linear-gradient(180deg,rgba(14,9,24,.46) 0%,rgba(11,7,18,.72) 66%,rgba(11,7,18,.94) 100%), url('../assets/episodes/ep-04/pixel/ep04-open-04-desk-comic-v1-face-lock-1920.png') center 30%/cover}
   .tv-hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0 2px,rgba(0,0,0,.16) 2px 4px);mix-blend-mode:multiply}
   .tv-hero>*{position:relative;z-index:2}
   .osd{position:absolute;top:14px;left:18px;right:18px;z-index:3;display:flex;justify-content:space-between;font-family:'VT323',monospace;font-size:1.05rem;color:#7be0d0;letter-spacing:.1em;text-shadow:0 0 8px rgba(87,182,192,.7)}
@@ -152,7 +152,8 @@
   /* Study pack — expandable "four words, defined" */
   .gloss{max-width:var(--measure);margin:20px auto 0}
   .gloss details{border:1px solid rgba(203,184,232,.28);border-radius:12px;margin-bottom:12px;background:rgba(179,171,231,.05)}
-  .gloss summary{list-style:none;cursor:pointer;padding:14px 18px;display:flex;align-items:center;gap:14px}
+  .gloss .concept-art{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:10px;margin:0 18px 12px;width:calc(100% - 36px)}
+    .gloss summary{list-style:none;cursor:pointer;padding:14px 18px;display:flex;align-items:center;gap:14px}
   .gloss summary::-webkit-details-marker{display:none}
   .gloss .term{font-weight:800;font-size:1.14rem;color:#fff;flex:none}
   .gloss .peek{font-size:.95rem;color:#c3b2d8;flex:1;line-height:1.35}
@@ -235,7 +236,7 @@
 
   <div class="mark"><div class="k">Cold open</div></div>
   <figure class="film" aria-label="Scene 01 — cold open, the desk">
-    <div class="frames" data-frames="ep04-scene-01-cold-open-v2.png|ep04-scene-01-cold-open-v2-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-01-cold-open-v2.jpg" alt="" loading="lazy"></div>
+    <div class="frames" data-frames="ep04-scene-01-cold-open-v2.png|ep04-scene-01-cold-open-v2-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-title-card-comic-v2.png" alt="" loading="lazy"></div>
     <span class="film-bug">S1·E04 · SC 01</span>
     <figcaption class="film-cap">A slow Wednesday — and it hits her mid-sentence.</figcaption>
   </figure>
@@ -247,7 +248,7 @@
   <div class="mark"><div class="k">This week, a flashback</div><h2>The quiet wing at the back of the LUMIN<span class="ai">Ai</span>RY</h2><div class="sub">Everyone knows the front room — the patron saints, the Chers and the Elles. Almost nobody walks to the back.</div></div>
 
   <figure class="film" aria-label="Scene 02 — into the LUMiNAiRY">
-    <div class="frames" data-frames="ep04-scene-02-luminairy-v2.png|ep04-scene-02-luminairy-v2-b-mid.png|ep04-scene-02-luminairy-v2-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-02-luminairy-v2.jpg" alt="" loading="lazy"></div>
+    <div class="frames" data-frames="ep04-scene-02-luminairy-v2.png|ep04-scene-02-luminairy-v2-b-mid.png|ep04-scene-02-luminairy-v2-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-open-17-maivens-hall-comic-v3-canonical-cathedral-interior-1920.png" alt="" loading="lazy"></div>
     <span class="film-bug">S1·E04 · SC 02</span>
     <figcaption class="film-cap">Up the hill, into the quiet wing behind the saints.</figcaption>
   </figure>
@@ -256,14 +257,15 @@
 
   <!-- ADA -->
   <div class="scene">
+    <div class="mark"><div class="k">1843 · The Idea</div><h2>The first algorithm, for a machine nobody had built</h2><div class="sub">She saw that numbers were only the beginning. For a hundred years the credit went to the man whose machine it was.</div></div>
     <figure class="film" aria-label="Scene 03 — Ada Lovelace, 1843">
-      <div class="frames" data-frames="ep04-scene-03-ada.png|ep04-scene-03-ada-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-03-ada.jpg" alt="" loading="lazy"></div>
+      <div class="frames" data-frames="ep04-scene-03-ada.png|ep04-scene-03-ada-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-03-ada-comic-v4-timnit-style-lock-black-gloves-1920.png" alt="" loading="lazy"></div>
       <span class="film-bug">S1·E04 · SC 03</span>
       <figcaption class="film-cap">1843 — she saw music where everyone else saw arithmetic.</figcaption>
     </figure>
     <div class="idcard">
       <img src="../assets/mavens/y2k-stained-glass-v2/ada-lovelace-y2k-stained-glass.jpg" alt="Ada Lovelace" onerror="this.remove()" loading="lazy">
-      <div class="idmeta"><span class="cue"><span class="play">▶</span> 1843 · The Idea</span><b>Ada Lovelace</b><span class="idrole">Keeper of the first algorithm</span></div>
+      <div class="idmeta"><b>Ada Lovelace</b><span class="idrole">Keeper of the first algorithm</span></div>
     </div>
   </div>
   <p>It starts in the <strong>eighteen-forties</strong> — before the lightbulb — with a young woman staring at a giant mechanical calculator that could do exactly one thing: crunch numbers. Everyone who looked at it saw arithmetic. <em>Ada Lovelace looked at it and saw something else entirely.</em></p>
@@ -272,8 +274,9 @@
 
   <!-- HEDY -->
   <div class="scene">
+    <div class="mark"><div class="k">1942 · The Signal</div><h2>Inventing between takes</h2><div class="sub">Billed as the most beautiful woman in the world — so nobody watched what she was actually doing.</div></div>
     <figure class="film" aria-label="Scene 04 — Hedy Lamarr, 1942">
-      <div class="frames" data-frames="ep04-scene-04-hedy.png|ep04-scene-04-hedy-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-04-hedy.jpg" alt="" loading="lazy"></div>
+      <div class="frames" data-frames="ep04-scene-04-hedy.png|ep04-scene-04-hedy-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-04-hedy-comic-v2-timnit-style-lock-1920.png" alt="" loading="lazy"></div>
       <span class="film-bug">S1·E04 · SC 04</span>
       <figcaption class="film-cap">1942 — the bombshell who was inventing between takes.</figcaption>
     </figure>
@@ -287,8 +290,13 @@
 
   <!-- ENIAC SIX -->
   <div class="scene">
+    
+    <figure class="film emph" aria-label="Nobody heard a single word she said.">
+      <div class="frames"><img src="../assets/episodes/ep-04/pixel/ep04-emph-nobody-heard-comic-v1-exact-text-1920.png" alt="Nobody heard a single word she said." loading="lazy"></div>
+    </figure>
+    <div class="mark"><div class="k">1945 · The First Program</div><h2>Six women, no manual, no language</h2><div class="sub">They programmed it by hand, cable by cable. The press decided they were models.</div></div>
     <figure class="film" aria-label="Scene 04B — the ENIAC Six, 1945">
-      <div class="frames" data-frames="ep04-scene-04b-eniac-a-start.png|ep04-scene-04b-eniac.png|ep04-scene-04b-eniac-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-04b-eniac.jpg" alt="" loading="lazy"></div>
+      <div class="frames" data-frames="ep04-scene-04b-eniac-a-start.png|ep04-scene-04b-eniac.png|ep04-scene-04b-eniac-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-04b-eniac-comic-v4-strong-face-shadows-six-women-1920.png" alt="" loading="lazy"></div>
       <span class="film-bug">S1·E04 · SC 04B</span>
       <figcaption class="film-cap">1945 — the first programmers. The press thought they were models.</figcaption>
     </figure>
@@ -302,8 +310,13 @@
 
   <!-- GRACE -->
   <div class="scene">
+    
+    <figure class="film emph" aria-label="They are, quite literally, the first programmers.">
+      <div class="frames"><img src="../assets/episodes/ep-04/pixel/ep04-emph-first-programmers-comic-v1-exact-text-1920.png" alt="They are, quite literally, the first programmers." loading="lazy"></div>
+    </figure>
+    <div class="mark"><div class="k">1952 · The Language</div><h2>She taught the machine to meet us halfway</h2><div class="sub">Why should a person have to think like a machine? So she built the thing that translates.</div></div>
     <figure class="film" aria-label="Scene 05 — Grace Hopper, 1952">
-      <div class="frames" data-frames="ep04-scene-05-grace.png|ep04-scene-05-grace-b-mid.png|ep04-scene-05-grace-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-05-grace.jpg" alt="" loading="lazy"></div>
+      <div class="frames" data-frames="ep04-scene-05-grace.png|ep04-scene-05-grace-b-mid.png|ep04-scene-05-grace-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-05-grace-b-mid-comic-v1-locked-1920.png" alt="" loading="lazy"></div>
       <span class="film-bug">S1·E04 · SC 05</span>
       <figcaption class="film-cap">1952 — why should a person have to think like a machine?</figcaption>
     </figure>
@@ -316,25 +329,35 @@
   <p>They kept telling <strong>Grace Hopper</strong> a computer could never understand words. She found that a failure of imagination. <em>Why should a person have to learn to think like a machine?</em> So she built a translator — a <strong>compiler</strong>. You write what you want in something close to plain English, and it does the converting into code for you. Every app you tap sits on top of that one idea. (When an actual moth once flew into the machine and jammed it, her team taped it into the logbook — "first actual case of a bug being found." That's where <em>debugging</em> comes from.)</p>
 
   <!-- THE NAMING -->
-  <div class="mark"><div class="k">1956 · The naming</div><h2>The men show up and give it a name</h2><div class="sub">A room at Dartmouth for the summer — and a promise that did not age well.</div></div>
+  
+    <figure class="film emph" aria-label="The first actual case of a bug being found.">
+      <div class="frames"><img src="../assets/episodes/ep-04/pixel/ep04-emph-bug-comic-v1-exact-text-1920.png" alt="The first actual case of a bug being found." loading="lazy"></div>
+    </figure>
+    <div class="mark"><div class="k">1956 · The naming</div><h2>The men show up and give it a name</h2><div class="sub">A room at Dartmouth for the summer — and a promise that did not age well.</div></div>
   <figure class="film" aria-label="Scene 06 — the naming, Dartmouth 1956">
-    <div class="frames" data-frames="ep04-scene-06-naming.png|ep04-scene-06-naming-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-06-naming.jpg" alt="" loading="lazy"></div>
+    <div class="frames" data-frames="ep04-scene-06-naming.png|ep04-scene-06-naming-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-06-naming-comic-v1-fresh-exact-board-1920.png" alt="" loading="lazy"></div>
     <span class="film-bug">S1·E04 · SC 06</span>
     <figcaption class="film-cap">1956 — they named it, and put their names on it.</figcaption>
   </figure>
   <p>It's right here — <strong>nineteen fifty-six</strong> — that a handful of men get a room at Dartmouth for the summer, write up a proposal, and christen the whole dream: "<strong>artificial intelligence.</strong>" Names on it as the founding fathers. And then they promise the world it'll be basically solved… by the end of the summer.</p>
   <blockquote class="pull"><p>It was <em>not</em> solved by the end of the summer.</p></blockquote>
   <p>It wasn't solved for decades. The funding dried up, the promises curdled, and "AI" became a slightly embarrassing thing to say out loud. They call those the <strong>AI winters</strong>. It got cold more than once. But even in the cold, the work didn't stop.</p>
-  <figure class="film" aria-label="Scene 07 — the AI winter">
-    <div class="frames" data-frames="ep04-scene-07-ai-winter.png|ep04-scene-07-ai-winter-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-07-ai-winter.jpg" alt="" loading="lazy"></div>
+  
+    <figure class="film emph" aria-label="It was not solved by the end of the summer.">
+      <div class="frames"><img src="../assets/episodes/ep-04/pixel/ep04-emph-not-solved-comic-v1-exact-text-1920.png" alt="It was not solved by the end of the summer." loading="lazy"></div>
+    </figure>
+    <div class="mark"><div class="k">After the promise · The AI winters</div><h2>AI became an embarrassing thing to say</h2><div class="sub">The funding dried up and the promises curdled. But even in the cold, the work didn't stop.</div></div>
+    <figure class="film" aria-label="Scene 07 — the AI winter">
+    <div class="frames" data-frames="ep04-scene-07-ai-winter.png|ep04-scene-07-ai-winter-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-07-ai-winter-comic-v1-fresh-1920.png" alt="" loading="lazy"></div>
     <span class="film-bug">S1·E04 · SC 07</span>
     <figcaption class="film-cap">It got cold more than once — but the work didn't stop.</figcaption>
   </figure>
 
   <!-- KAREN -->
   <div class="scene">
+    <div class="mark"><div class="k">1972 · The Finding</div><h2>How a machine finds the right thing</h2><div class="sub">It's the rare words that carry the meaning — the arithmetic under every search box you've ever used.</div></div>
     <figure class="film" aria-label="Scene 08 — Karen Spärck Jones, 1972">
-      <div class="frames" data-frames="ep04-scene-08-karen.png|ep04-scene-08-karen-b-mid.png|ep04-scene-08-karen-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-08-karen.jpg" alt="" loading="lazy"></div>
+      <div class="frames" data-frames="ep04-scene-08-karen.png|ep04-scene-08-karen-b-mid.png|ep04-scene-08-karen-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-08-karen-comic-v3-clean-nose-timnit-style-lock-1920.png" alt="" loading="lazy"></div>
       <span class="film-bug">S1·E04 · SC 08</span>
       <figcaption class="film-cap">1972 — it's the rare words that carry the meaning.</figcaption>
     </figure>
@@ -349,8 +372,13 @@
 
   <!-- FEI-FEI -->
   <div class="scene">
+    
+    <figure class="film emph" aria-label="Computing is too important to be left to men.">
+      <div class="frames"><img src="../assets/episodes/ep-04/pixel/ep04-emph-left-to-men-comic-v1-exact-text-1920.png" alt="Computing is too important to be left to men." loading="lazy"></div>
+    </figure>
+    <div class="mark"><div class="k">2012 · The Sight</div><h2>The brain was never the problem</h2><div class="sub">We'd never given it enough to look at. So she gave it millions upon millions of pictures.</div></div>
     <figure class="film" aria-label="Scene 09 — Fei-Fei Li, 2012">
-      <div class="frames" data-frames="ep04-scene-09-fei-fei-a-start.png|ep04-scene-09-fei-fei.png|ep04-scene-09-fei-fei-b-mid.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-09-fei-fei.jpg" alt="" loading="lazy"></div>
+      <div class="frames" data-frames="ep04-scene-09-fei-fei-a-start.png|ep04-scene-09-fei-fei.png|ep04-scene-09-fei-fei-b-mid.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-09-fei-fei-comic-v2-timnit-style-lock-1920.png" alt="" loading="lazy"></div>
       <span class="film-bug">S1·E04 · SC 09</span>
       <figcaption class="film-cap">2012 — she gave it enough to look at, and it finally saw.</figcaption>
     </figure>
@@ -363,9 +391,13 @@
   <p>In <strong>twenty-twelve</strong>, a program trained on her pictures suddenly <em>sees.</em> That is the spark. The "AI boom" people won't stop talking about starts right there, with her data. The world took to calling her the Godmother of AI. <em>Godmother. Not godfather.</em></p>
 
   <!-- FAST FORWARD -->
-  <div class="mark"><div class="k">And then it moves fast</div><h2>The day it landed on your desk</h2></div>
+  
+    <figure class="film emph" aria-label="Godmother. Not godfather.">
+      <div class="frames"><img src="../assets/episodes/ep-04/pixel/ep04-emph-godmother-comic-v1-exact-text-1920.png" alt="Godmother. Not godfather." loading="lazy"></div>
+    </figure>
+    <div class="mark"><div class="k">And then it moves fast</div><h2>The day it landed on your desk</h2></div>
   <figure class="film" aria-label="Scene 10 — it lands on your desk">
-    <div class="frames" data-frames="ep04-scene-10-desk-v2.png|ep04-scene-10-desk-v2-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-10-desk-v2.jpg" alt="" loading="lazy"></div>
+    <div class="frames" data-frames="ep04-scene-10-desk-v2.png|ep04-scene-10-desk-v2-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-emph-landed-on-your-desk-comic-v1-exact-text-1920.png" alt="" loading="lazy"></div>
     <span class="film-bug">S1·E04 · SC 10</span>
     <figcaption class="film-cap">The day it landed on your desk — the same desk as three weeks ago.</figcaption>
   </figure>
@@ -380,7 +412,7 @@
   <!-- THE CHECKERS -->
   <div class="mark"><div class="k">The part the highlight reel skips</div><h2>The women who check the whole machine</h2><div class="sub">As it got powerful, another set of women got loud — on purpose.</div></div>
   <figure class="film" aria-label="Scene 11 — the checkers">
-    <div class="frames" data-frames="ep04-scene-11-checkers.png|ep04-scene-11-checkers-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-11-checkers.jpg" alt="" loading="lazy"></div>
+    <div class="frames" data-frames="ep04-scene-11-checkers.png|ep04-scene-11-checkers-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-11a-joy-comic-v2-timnit-style-lock-1920.png" alt="" loading="lazy"></div>
     <span class="film-bug">S1·E04 · SC 11</span>
     <figcaption class="film-cap">The women who check the whole machine.</figcaption>
   </figure>
@@ -395,9 +427,13 @@
   <p>These are not the buzzkills at the party. They are the reason the thing you're about to trust is worth trusting. Last week you learned to check the machine. <strong>These are the women who check the whole machine.</strong></p>
 
   <!-- WRAP -->
-  <div class="mark"><div class="k">The lights come up</div><h2>Not magic. Not born last Tuesday.</h2></div>
+  
+    <figure class="film emph" aria-label="AI is neither artificial nor intelligent.">
+      <div class="frames"><img src="../assets/episodes/ep-04/pixel/ep04-emph-neither-comic-v2-exact-mixed-case-1920.png" alt="AI is neither artificial nor intelligent." loading="lazy"></div>
+    </figure>
+    <div class="mark"><div class="k">The lights come up</div><h2>Not magic. Not born last Tuesday.</h2></div>
   <figure class="film" aria-label="Scene 12 — the lights come up">
-    <div class="frames" data-frames="ep04-scene-12-lights-up-v2.png|ep04-scene-12-lights-up-v2-b-mid.png|ep04-scene-12-lights-up-v2-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-12-lights-up-v2.jpg" alt="" loading="lazy"></div>
+    <div class="frames" data-frames="ep04-scene-12-lights-up-v2.png|ep04-scene-12-lights-up-v2-b-mid.png|ep04-scene-12-lights-up-v2-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-splash-lights-up-comic-v1-end-blazing-1920.png" alt="" loading="lazy"></div>
     <span class="film-bug">S1·E04 · SC 12</span>
     <figcaption class="film-cap">Almost two hundred years, holding all of it.</figcaption>
   </figure>
@@ -440,19 +476,23 @@
   <div class="gloss">
     <details open>
       <summary><span class="term">Algorithm</span><span class="peek">A precise set of steps a machine follows — Ada wrote the first one.</span><span class="plus">+</span></summary>
-      <p class="def">A precise, repeatable set of steps for solving a problem — the recipe a machine follows, in order, every time. Ada Lovelace wrote the first one in 1843, for a machine that wouldn't be built for another century. Not magic, not thinking: just very careful instructions, followed exactly.</p>
+      <img class="concept-art" src="../assets/episodes/ep-04/pixel/ep04-concept-algorithm-comic-v1-exact-text-1920.png" alt="Algorithm" loading="lazy">
+        <p class="def">A precise, repeatable set of steps for solving a problem — the recipe a machine follows, in order, every time. Ada Lovelace wrote the first one in 1843, for a machine that wouldn't be built for another century. Not magic, not thinking: just very careful instructions, followed exactly.</p>
     </details>
     <details>
       <summary><span class="term">Compiler</span><span class="peek">A translator from human-ish words into machine code — Grace Hopper's idea.</span><span class="plus">+</span></summary>
-      <p class="def">A translator that turns instructions written in something close to plain language into the raw code a machine actually runs. Grace Hopper built one of the first, so people would stop having to think like the machine and could tell it what they wanted in words. Every app you tap sits on top of that one idea.</p>
+      <img class="concept-art" src="../assets/episodes/ep-04/pixel/ep04-concept-compiler-comic-v1-exact-text-1920.png" alt="Compiler" loading="lazy">
+        <p class="def">A translator that turns instructions written in something close to plain language into the raw code a machine actually runs. Grace Hopper built one of the first, so people would stop having to think like the machine and could tell it what they wanted in words. Every app you tap sits on top of that one idea.</p>
     </details>
     <details>
       <summary><span class="term">AI winter</span><span class="peek">A long stretch when the promises outran the results and the money froze.</span><span class="plus">+</span></summary>
-      <p class="def">One of the long stretches — there were roughly two — when AI's big promises outran what it could actually do, the funding froze, and "artificial intelligence" became a slightly embarrassing thing to say out loud. The work didn't stop; it just went quiet, until the thaw.</p>
+      <img class="concept-art" src="../assets/episodes/ep-04/pixel/ep04-concept-ai-winter-comic-v1-exact-text-1920.png" alt="AI winter" loading="lazy">
+        <p class="def">One of the long stretches — there were roughly two — when AI's big promises outran what it could actually do, the funding froze, and "artificial intelligence" became a slightly embarrassing thing to say out loud. The work didn't stop; it just went quiet, until the thaw.</p>
     </details>
     <details>
       <summary><span class="term">Training data</span><span class="peek">The mountain of examples a model learns from — Fei-Fei Li's millions of pictures.</span><span class="plus">+</span></summary>
-      <p class="def">The examples a model learns from — the more it sees, the more it can do. Fei-Fei Li's insight was that the bottleneck was never the machine's "brain"; it was that no one had shown it enough of the world. Her ImageNet — millions of labeled pictures — is why, in 2012, a machine finally learned to see.</p>
+      <img class="concept-art" src="../assets/episodes/ep-04/pixel/ep04-concept-training-data-comic-v1-exact-text-1920.png" alt="Training data" loading="lazy">
+        <p class="def">The examples a model learns from — the more it sees, the more it can do. Fei-Fei Li's insight was that the bottleneck was never the machine's "brain"; it was that no one had shown it enough of the world. Her ImageNet — millions of labeled pictures — is why, in 2012, a machine finally learned to see.</p>
     </details>
   </div>
 

@@ -2352,8 +2352,17 @@ function isMemberAuthConfigured() {
 }
 
 function getSupabaseSafeProfileValue(key, value) {
+  // These lists MUST stay in step with the CHECK constraints on member_profiles.
+  // They drifted once (2026-07-22): the form offered 14 industries, this list and
+  // the database allowed 7, so half the dropdown was silently saved as null.
+  // Widened in supabase/migrations/20260722193000_fix_constraint_drift.sql.
   const allowedValues = {
-    industry: ["tax", "finance", "legal-compliance", "ops-product", "people-hr", "marketing-comms", "founder-consultant"],
+    industry: [
+      "tax", "finance", "legal-compliance", "ops-product", "people-hr",
+      "marketing-comms", "founder-consultant", "tech-engineering", "data-analytics",
+      "sales-bizdev", "education-training", "health-life-sciences",
+      "government-public", "creative-media",
+    ],
     goal: ["learn-basics", "save-time", "write-better", "build-tools", "lead-team", "find-community"],
   };
   const list = allowedValues[key];
@@ -2572,6 +2581,32 @@ function getLocalRewardEvents(userId) {
       metadata: { count, image: card.image, issue: card.issue },
     });
   });
+
+  // Cards pulled at games/trading-cards.html. That page keeps its own store
+  // (`laidies_card_collection`) which nothing ever read — so packs opened there
+  // never reached the Closet binder and it stayed empty no matter how many you
+  // opened. Titles come from the cache the game page writes alongside it.
+  // Fixed 2026-07-22 (member audit §2).
+  const gameCards = getStoredJson("laidies_card_collection", {});
+  const gameCardMeta = getStoredJson("laidies_cards_meta", {}) || {};
+  if (gameCards && typeof gameCards === "object") {
+    Object.keys(gameCards).forEach((cardId) => {
+      const count = Number(gameCards[cardId] || 0);
+      if (!count) return;
+      const meta = gameCardMeta[cardId] || {};
+      const episode = Number(meta.episode || 0);
+      events.push({
+        user_id: userId,
+        dedupe_key: `trading-card:${cardId}`,
+        reward_type: "trading_card",
+        issue_key: episode ? `issue${String(episode).padStart(2, "0")}` : "all",
+        title: meta.title || cardId.replace(/-/g, " ").replace(/\b\w/g, (ch) => ch.toUpperCase()),
+        source: "Trading Card Pack",
+        earned_at: new Date().toISOString(),
+        metadata: { count, rarity: meta.rarity || "", episode: episode || null },
+      });
+    });
+  }
 
   Object.values(getCommunityRoomPosts()).forEach((roomPost) => {
     if (!roomPost?.roomId) return;
@@ -2866,7 +2901,11 @@ async function syncMemberRewards(statusCopy = "Member pass synced.") {
   const newsletterOptedInAt = pass.newsletterOptIn ? new Date().toISOString() : null;
   const profilePayload = {
     id: user.id,
-    email: user.email || pass.email,
+    // ⛔ Do NOT write `email` here. `Closet public read` exposes every column of a
+    // public profile to the anon key (RLS filters rows, not columns), so a copy
+    // of the address on this table becomes public the moment a card does. The
+    // real one lives on auth.users, which the anon key cannot reach, and nothing
+    // ever read this one. See supabase/migrations/20260722201500_*.sql.
     industry: getSupabaseSafeProfileValue("industry", pass.profile.industry),
     ai_comfort: pass.profile.aiComfort || null,
     generation: pass.profile.generation || null,
@@ -2881,10 +2920,40 @@ async function syncMemberRewards(statusCopy = "Member pass synced.") {
   const { error: profileError } = await memberAuthClient.from("member_profiles").upsert(profilePayload);
   if (profileError) throw profileError;
 
+  let syncWarning = "";
   const rewards = getLocalRewardEvents(user.id);
   if (rewards.length) {
-    const { error: rewardsError } = await memberAuthClient.from("member_reward_events").upsert(rewards, { onConflict: "user_id,dedupe_key" });
-    if (rewardsError) throw rewardsError;
+    // Postgres aborts a whole multi-row INSERT if any single row fails a CHECK.
+    // That is how one unknown reward_type used to reject a resident's ENTIRE
+    // collection — every sticker, charm, card and badge in the same batch — and
+    // then throw, skipping the issue-progress sync below. (2026-07-22 audit.)
+    // Now: try the fast path, and if it fails, save row by row so the good ones
+    // still land and only the genuinely bad rows are left behind.
+    const { error: rewardsError } = await memberAuthClient
+      .from("member_reward_events")
+      .upsert(rewards, { onConflict: "user_id,dedupe_key" });
+
+    if (rewardsError) {
+      const rejected = [];
+      for (const reward of rewards) {
+        const { error: rowError } = await memberAuthClient
+          .from("member_reward_events")
+          .upsert([reward], { onConflict: "user_id,dedupe_key" });
+        if (rowError) rejected.push({ reward, message: rowError.message });
+      }
+      if (rejected.length) {
+        // Never silent, in two places. The console names exactly what could not
+        // be saved so a future drift is diagnosable rather than looking like
+        // "sync is flaky" — and the resident is told plainly rather than being
+        // shown a success message over a partial save.
+        console.error(
+          `[member sync] ${rejected.length} of ${rewards.length} rewards rejected:`,
+          rejected.map((r) => `${r.reward.reward_type}/${r.reward.dedupe_key} — ${r.message}`),
+        );
+        const saved = rewards.length - rejected.length;
+        syncWarning = ` ${saved} of ${rewards.length} collectibles saved — ${rejected.length} couldn't be filed, and we've logged why.`;
+      }
+    }
   }
 
   const issueProgress = getLocalIssueProgress(user.id);
@@ -2895,7 +2964,7 @@ async function syncMemberRewards(statusCopy = "Member pass synced.") {
 
   if (pass.newsletterOptIn) submitNewsletterOptIn(pass.email || user.email || "");
   const newsletterCopy = pass.newsletterOptIn ? " Newsletter confirmation may arrive separately after your pass is open." : "";
-  renderMemberPass(`${statusCopy}${newsletterCopy}`);
+  renderMemberPass(`${statusCopy}${newsletterCopy}${syncWarning}`);
 }
 
 function scheduleMemberRewardSync() {

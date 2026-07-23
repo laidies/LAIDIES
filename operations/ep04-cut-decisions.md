@@ -25,13 +25,52 @@
 - empty wall (a-start) → millions upon millions (b-mid) → it sees / Godmother (v2).
 - Killed a 73.8s single hold. All three already existed in comic; nothing was generated.
 
-## Animation (Ali generates in Canva; Claude only says which + what motion)
+## Animation — CLAUDE BUILDS IT. Ali does not touch any tool.
+> ⛔ The old heading here said "Ali generates in Canva; Claude only says which + what motion."
+> **That is wrong and was corrected 2026-07-22.** Ali: *"I am not using capcut myself. i don't
+> know how to use it at all"* / *"this is why i have you and codex."* Never write a brief that
+> asks her to keyframe, mask or export. Built in code:
+> `assets/video/fx/build-ep04-motion-assets.py` + `build-episode-04-full-v2-motion.py`.
+
 - **BACKGROUND MOTION ONLY** — lights, rain, gears, screen glow, drifting dust.
 - ⛔ NO faces, bodies, hands, expressions. ⛔ NO camera move (no pan/zoom/drift/parallax).
 - ⛔ Nothing that starts and finishes — 5s seamless loop or it visibly restarts.
 - Ada already has a loop wired (`ep04-scene-03-ada-loop-v1.mp4`).
 - Claude **cannot** drive Canva image→video via the API (no ingestion path for local files,
   no animation operation). Ali runs it; Claude supplies the shortlist + motion brief.
+
+## Town geography is CANON in episode art too (2026-07-22)
+- `ep04-around-town-b-comic-v1-1920.png` is **BANNED**. Ali: *"the library is not beside
+  blend and snap."* It is not wired and must not be.
+- Three faults: (1) it puts the **LIBRAiRY on MAiN Street** — the LIBRAiRY is on **Civic
+  Square**, off MAiN, sitting on the RIGHT with the Post Office on the LEFT; (2) it reverses
+  MAiN's order, which runs **No.3 Chick Flicks → No.4 Blend & Snap**; (3) it is soft and
+  painterly despite the `comic-v1` in its filename — a mixed generation.
+- ⛔ **This exact error has happened before.** The `main-street-golden` and `main-street-dusk`
+  scenes "put LIBRARY on MAiN" and were re-rolled on 2026-07-06. Any prompt for a SUNNYVAiLE
+  street or storefront row must state the canonical order and which street it is.
+- Source of truth: memory `sunnyvaile-street-layout-canon` — MAiN 1-10 plus five cross streets.
+
+## 🔴 THE TRANSFORMATION — 15f Main-Street reveals are REJECTED (Ali 2026-07-19, re-stated 07-22)
+- Ali 2026-07-22: *"we don't use this transformation sequence i already told you that."*
+- `heroine-appearance-canon` has said since 2026-07-19: ⛔ *"Do NOT revive the 'lands in town'
+  reveal OR the wand… all Main-Street `15f` reveals are REJECTED."* I did not read it, wrote a
+  prompt to RE-RENDER `15f-v7`, and Codex delivered `15f-v8`. Withdrawn to
+  `operations/_rejected/transformation-reroll-20260722/`.
+- **The approved sequence is the 5-frame `15p0–p4`** on the abstract 90s geometric stage —
+  NO wand, NO town, NO storefronts. All five exist on disk. Source of truth:
+  `operations/codex-prompts/transformation-sequence-spec.md`.
+- 🔴 **cue 13 (3:05, 17s) still plays the REJECTED `15f-v7`.** That is a live defect.
+
+## Sign text — NEVER composited (2026-07-22)
+- Ali: *"you shouldn't be applying signs on top that is going to look like shit."*
+- The LUMINAiRY marquee renders `LUMiNAiRY`. I fixed it by pasting a capital I built from
+  the sign's own L. It read correctly and it looked applied-on. **Rejected.**
+- ⛔ No PIL compositing, no overlay pass, no blend-mode ink, on ANY sign or label.
+  This was already the rule (memory `codex-text-in-render`, plus a 2026-07-04 ruling);
+  I broke it. Rejected artefacts: `operations/_rejected/luminairy-sign-compositing-20260722/`.
+- The ONLY fix for wrong sign text is a re-render with the exact string in the prompt,
+  letter-exact including the lowercase-i brand spelling.
 
 ## Generations — never mix
 - The cut is **comic only**. Old pixel-generation art is never wired, no matter how good
@@ -158,6 +197,13 @@ Any Bash/Edit/Write touching `episode-04-cues.json` is BLOCKED if it contains on
 substrings. Add a line here and it is enforced immediately; delete a line to un-enforce.
 
 ```banned
+ep04-open-15f-transformation-main-street
+ep04-open-15b
+ep04-open-15c
+ep04-open-15d
+ep04-open-15e
+ep04-around-town-b-comic-v1
+ep04-open-16-luminairy-approach-comic-v5-capital-I
 grace-c-end-comic-v2-graphic-novel
 grace-navy-office-v3-application-handoff
 comic-barsetter
@@ -170,3 +216,40 @@ ep04-tj-kate-comic
 Reasons, in order: wrong age (elderly admiral) · old generation · superseded pass ·
 the last four are the per-woman time-jump cards Ali rejected FOR TIMING in favour of the
 single 2018–2021 card.
+
+## TRAILER — ALL COMIC (Ali, 2026-07-22, do not re-ask)
+- The "Welcome to SUNNYVAiLE" trailer (16:07, 32 beats, town-building tour) is redone **ALL COMIC**.
+- **All 17 buildings get redrawn in comic/pop-art** for the trailer — corporate painterly y2k renders are NOT used here.
+- ⛔ I asked twice whether she meant comic buildings vs keep-painterly. She said COMIC both times. Do not re-open. The buildings-stay-painterly note does NOT apply to the trailer.
+- Pipeline: generate 32 comic building frames (3 exist) → forced-align timing → animation brief → assembly → clean export → wire.
+
+## Transformation cue 13 — POINTED AT THE BANNED FRAME (root cause, fixed 2026-07-22)
+- The cue sheet's cue 13 `src` had stayed `...15f-transformation-main-street-clueless-v7...` (BANNED).
+  Every assembly built from the cue sheet grabbed the Main-Street reveal, not the abstract stage.
+  The 15f→15p swap had only ever been made in the ffmpeg build script, never in the cue sheet.
+- FIXED: cue 13 src → `ep04-open-15p4-transformation-reveal-clueless-stage-no-wand-v1-1920.png`.
+  Assembly uses the clip `ep04-open-15p-transformation-comic-event-v1.mp4` (corporate → cloud → reveal).
+- Lesson: fix the SOURCE OF TRUTH (cue sheet), not just a downstream script. Caught by WATCHING v5.
+
+## EP4 FINISHED — v6 is authoritative (2026-07-22 ~23:00)
+- `assets/video/episode-04-full-v6.mp4` (= Codex delivery `delivery-20260722-ep04-v5-brief-correction/`), wired in `watch.html`.
+- Full animation pass: 45 motion sources, opening animates, all hard-cut checks pass.
+- Transformation = abstract stage (corporate → magic cloud → reveal), NOT Main Street.
+- Title at 0:37, no burned captions, 20:22.40. Verified by watching, not just the QC report.
+- QC tools that now exist: `operations/tools/check-hard-cuts.py`, `measure-motion.py`, `motion-heatmap.py`.
+- Reusable weekly template: `operations/codex-prompts/ep04-animation-and-assembly.md` (per-beat Seedance + assembly).
+
+## Opening: THIS WEEK teaser was NEVER WIRED (fixed 2026-07-22)
+- The recap (open-01) held 0:00→title because open-02-thisweek-teaser was never in the cue sheet
+  (it jumped open-01 → open-03-title). So the "previously" image sat through the "on this episode"
+  narration. Ali caught it on the first frame of v6.
+- FIXED: inserted `ep04-open-02-thisweek-teaser-comic-v3-grace-fix-1920.png` at t=19.0 in the cue
+  sheet (now 58 cues). recap 0-19 · THIS WEEK 19-37 · title 37+. Assembly add-beat prompt:
+  `operations/codex-prompts/ep04-add-thisweek-beat.md`. ⚠ Grace in the teaser is the white-haired
+  admiral (older) — Ali to eyeball; she said "leave her in uniform."
+
+## EP4 v7 — FINISHED with the opening fix (2026-07-22 ~01:30)
+- v7 = v6 with the THIS WEEK teaser spliced into the 19-37s gap (ffmpeg overlay; audio stream-copied).
+- Opening now: recap 0-19 · THIS WEEK teaser 19-37 · title 37 · desk 41. Verified by watching.
+- All animations intact (transformation/moth/wall/splash confirmed post-re-encode). Wired in watch.html.
+- Cue sheet corrected: teaser at t=19, title at t=37.1 (the earlier "re-snap" had never persisted — fixed).

@@ -1159,6 +1159,20 @@
       }
       function saveCollection(coll) {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(coll));
+        // Cards pulled here used to go nowhere — the Closet's binder is built from
+        // reward events, and nothing ever turned this store into one. So you could
+        // open packs all day and your Closet stayed empty. script.js reads both this
+        // store and the title cache below to emit `trading_card` events on sync.
+        // (Same pattern Girl Talk uses with laidies_gt_names.) Fixed 2026-07-22.
+        try {
+          var meta = {};
+          allCards.forEach(function (c) {
+            if ((coll[c.id] || 0) > 0) {
+              meta[c.id] = { title: c.title, rarity: c.rarity, episode: c.episode };
+            }
+          });
+          localStorage.setItem('laidies_cards_meta', JSON.stringify(meta));
+        } catch (e) {}
       }
       function getLastPulls() {
         try { return JSON.parse(localStorage.getItem(LAST_PULLS_KEY)) || []; }

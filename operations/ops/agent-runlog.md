@@ -166,3 +166,165 @@ _(entries append below as agents are launched)_
 - **2026-07-22 11:30** · `general-purpose` · Research Perplexity machinery
   - prompt: Read this brief in full and follow it exactly — it is binding: /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/research/tool-mac
   - returned: {"isAsync": true, "status": "async_launched", "agentId": "ad9cdc3791c4a7a57", "description": "Research Perplexity machinery", "resolvedModel": "claude-sonnet-5", "prompt": "Read this brief in full and follow it exactly \
+- **2026-07-22 12:07** · `general-purpose` · Digest all memory rulings
+  - prompt: Read EVERY memory file in /Users/alisoneakin/.claude/projects/-Users-alisoneakin-Library-Mobile-Documents-com-apple-CloudDocs-LAIDIES/memory/ (there are ~200 .md files). Do not ski
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a1bca6ad135bfacbd", "description": "Digest all memory rulings", "resolvedModel": "claude-opus-4-8", "prompt": "Read EVERY memory file in /Users/alisoneakin/.claud
+- **2026-07-22 12:07** · `general-purpose` · Inventory the live site
+  - prompt: Working dir: /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/  Learn what this site ACTUALLY IS by reading it. This is LAiDIES — a website 
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a0d8bb9c3bda27dfe", "description": "Inventory the live site", "resolvedModel": "claude-opus-4-8", "prompt": "Working dir: /Users/alisoneakin/Library/Mobile Docume
+- **2026-07-22 12:10** · `general-purpose` · Research A: teaching-quality gate
+  - prompt: You are researching QUESTION A — the hardest and most valuable question in this project.  FIRST, read these in order: 1. /Users/alisoneakin/Library/Mobile Documents/com~apple~Cloud
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a11e1e9cd86837788", "description": "Research A: teaching-quality gate", "resolvedModel": "claude-opus-4-8", "prompt": "You are researching QUESTION A \u2014 the h
+- **2026-07-22 12:10** · `general-purpose` · Research B: weekly cycle automation
+  - prompt: You are researching QUESTION B — automating the weekly production cycle.  FIRST read, in order: 1. /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-h
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a88dfd02fc9e29aa3", "description": "Research B: weekly cycle automation", "resolvedModel": "claude-opus-4-8", "prompt": "You are researching QUESTION B \u2014 aut
+- **2026-07-22 12:11** · `general-purpose` · Research C: chat-native command centre
+  - prompt: You are researching QUESTION C — the command centre.  FIRST read, in order: 1. /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/r
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a7017215e0190d2dc", "description": "Research C: chat-native command centre", "resolvedModel": "claude-opus-4-8", "prompt": "You are researching QUESTION C \u2014 
+- **2026-07-22 12:11** · `general-purpose` · Research D: communication protocol
+  - prompt: You are researching QUESTION D — communication and shared state.  FIRST read, in order: 1. /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ad0918b5c2bb629e1", "description": "Research D: communication protocol", "resolvedModel": "claude-opus-4-8", "prompt": "You are researching QUESTION D \u2014 comm
+- **2026-07-22 12:11** · `general-purpose` · Research E: missing third-party tools
+  - prompt: You are researching QUESTION E — what third-party tools are missing from the stack.  FIRST read, in order: 1. /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIE
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ada677c57122bd4a3", "description": "Research E: missing third-party tools", "resolvedModel": "claude-opus-4-8", "prompt": "You are researching QUESTION E \u2014 w
+- **2026-07-22 12:12** · `general-purpose` · Research F: leading practice
+  - prompt: You are researching QUESTION F — how teams and solo operators actually run Claude for sustained production.  FIRST read, in order: 1. /Users/alisoneakin/Library/Mobile Documents/co
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a9bc1d8a399750906", "description": "Research F: leading practice", "resolvedModel": "claude-opus-4-8", "prompt": "You are researching QUESTION F \u2014 how teams 
+- **2026-07-22 12:12** · `general-purpose` · Read memory slice A
+  - prompt: Read the FULL BODY of each of these memory files in the directory /Users/alisoneakin/.claude/projects/-Users-alisoneakin-Library-Mobile-Documents-com-apple-CloudDocs-LAIDIES/memory
+  - returned: {"status": "completed", "prompt": "Read the FULL BODY of each of these memory files in the directory /Users/alisoneakin/.claude/projects/-Users-alisoneakin-Library-Mobile-Documents-com-apple-CloudDocs-LAIDIES/memory/ \u2
+- **2026-07-22 12:13** · `general-purpose` · Read memory slice D
+  - prompt: Read the FULL BODY of each of these memory files in the directory /Users/alisoneakin/.claude/projects/-Users-alisoneakin-Library-Mobile-Documents-com-apple-CloudDocs-LAIDIES/memory
+  - returned: {"status": "completed", "prompt": "Read the FULL BODY of each of these memory files in the directory /Users/alisoneakin/.claude/projects/-Users-alisoneakin-Library-Mobile-Documents-com-apple-CloudDocs-LAIDIES/memory/ \u2
+- **2026-07-22 12:14** · `general-purpose` · Read memory slice C
+  - prompt: Read the FULL BODY of each of these memory files in the directory /Users/alisoneakin/.claude/projects/-Users-alisoneakin-Library-Mobile-Documents-com-apple-CloudDocs-LAIDIES/memory
+  - returned: {"status": "completed", "prompt": "Read the FULL BODY of each of these memory files in the directory /Users/alisoneakin/.claude/projects/-Users-alisoneakin-Library-Mobile-Documents-com-apple-CloudDocs-LAIDIES/memory/ \u2
+- **2026-07-22 12:14** · `general-purpose` · Read memory slice E
+  - prompt: Read the FULL BODY of each of these memory files in the directory /Users/alisoneakin/.claude/projects/-Users-alisoneakin-Library-Mobile-Documents-com-apple-CloudDocs-LAIDIES/memory
+  - returned: {"status": "completed", "prompt": "Read the FULL BODY of each of these memory files in the directory /Users/alisoneakin/.claude/projects/-Users-alisoneakin-Library-Mobile-Documents-com-apple-CloudDocs-LAIDIES/memory/ \u2
+- **2026-07-22 12:15** · `general-purpose` · Read memory slice B
+  - prompt: Read the FULL BODY of each of these memory files in the directory /Users/alisoneakin/.claude/projects/-Users-alisoneakin-Library-Mobile-Documents-com-apple-CloudDocs-LAIDIES/memory
+  - returned: {"status": "completed", "prompt": "Read the FULL BODY of each of these memory files in the directory /Users/alisoneakin/.claude/projects/-Users-alisoneakin-Library-Mobile-Documents-com-apple-CloudDocs-LAIDIES/memory/ \u2
+- **2026-07-22 12:16** · `general-purpose` · Read memory slice F
+  - prompt: Read the FULL BODY of each of these memory files in the directory /Users/alisoneakin/.claude/projects/-Users-alisoneakin-Library-Mobile-Documents-com-apple-CloudDocs-LAIDIES/memory
+  - returned: {"status": "completed", "prompt": "Read the FULL BODY of each of these memory files in the directory /Users/alisoneakin/.claude/projects/-Users-alisoneakin-Library-Mobile-Documents-com-apple-CloudDocs-LAIDIES/memory/ \u2
+- **2026-07-22 12:27** · `general-purpose` · Gate fact-check on file A
+  - prompt: You are reviewing a LAiDIES episode. Read the file at: /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/audio/episode-05-elevenla
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a04fd83271bd4f563", "description": "Gate fact-check on file A", "resolvedModel": "claude-opus-4-8", "prompt": "You are reviewing a LAiDIES episode. Read the file 
+- **2026-07-22 12:27** · `general-purpose` · Gate substance on file A
+  - prompt: You are reviewing a LAiDIES episode. Read the file at: /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/audio/episode-05-elevenla
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ac08201efb4a54839", "description": "Gate substance on file A", "resolvedModel": "claude-opus-4-8", "prompt": "You are reviewing a LAiDIES episode. Read the file a
+- **2026-07-22 12:27** · `general-purpose` · Gate canon on file A
+  - prompt: You are reviewing a LAiDIES episode. Read the file at: /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/audio/episode-05-elevenla
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a819cd3ed20a6f6a0", "description": "Gate canon on file A", "resolvedModel": "claude-opus-4-8", "prompt": "You are reviewing a LAiDIES episode. Read the file at:\n
+- **2026-07-22 12:27** · `general-purpose` · Gate design-ux on file A
+  - prompt: You are reviewing a LAiDIES episode. Read the file at: /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/audio/episode-05-elevenla
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a0b94c290a6d4ec7c", "description": "Gate design-ux on file A", "resolvedModel": "claude-opus-4-8", "prompt": "You are reviewing a LAiDIES episode. Read the file a
+- **2026-07-22 12:27** · `general-purpose` · Gate cold-reader on file A
+  - prompt: You are reviewing a LAiDIES episode. Read the file at: /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/audio/episode-05-elevenla
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a34e02561ec7a92a9", "description": "Gate cold-reader on file A", "resolvedModel": "claude-opus-4-8", "prompt": "You are reviewing a LAiDIES episode. Read the file
+- **2026-07-22 12:27** · `general-purpose` · Gate fact-check on file B
+  - prompt: You are reviewing a LAiDIES episode. Read the file at: /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/content/episodes/episode-01.canon.md
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "aaf60e7d0e374cda8", "description": "Gate fact-check on file B", "resolvedModel": "claude-opus-4-8", "prompt": "You are reviewing a LAiDIES episode. Read the file 
+- **2026-07-22 12:27** · `general-purpose` · Gate substance on file B
+  - prompt: You are reviewing a LAiDIES episode. Read the file at: /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/content/episodes/episode-01.canon.md
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ae126c55bd5eab2a8", "description": "Gate substance on file B", "resolvedModel": "claude-opus-4-8", "prompt": "You are reviewing a LAiDIES episode. Read the file a
+- **2026-07-22 12:27** · `general-purpose` · Gate canon on file B
+  - prompt: You are reviewing a LAiDIES episode. Read the file at: /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/content/episodes/episode-01.canon.md
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ab2023b249c423fa0", "description": "Gate canon on file B", "resolvedModel": "claude-opus-4-8", "prompt": "You are reviewing a LAiDIES episode. Read the file at:\n
+- **2026-07-22 12:27** · `general-purpose` · Gate design-ux on file B
+  - prompt: You are reviewing a LAiDIES episode. Read the file at: /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/content/episodes/episode-01.canon.md
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a92eeb7f640ab06f2", "description": "Gate design-ux on file B", "resolvedModel": "claude-opus-4-8", "prompt": "You are reviewing a LAiDIES episode. Read the file a
+- **2026-07-22 12:27** · `general-purpose` · Gate cold-reader on file B
+  - prompt: You are reviewing a LAiDIES episode. Read the file at: /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/content/episodes/episode-01.canon.md
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a3ea6e8f573477dfc", "description": "Gate cold-reader on file B", "resolvedModel": "claude-opus-4-8", "prompt": "You are reviewing a LAiDIES episode. Read the file
+- **2026-07-22 12:29** · `general-purpose` · Gate substance on file C control
+  - prompt: You are reviewing a LAiDIES episode. Read the file at: /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/audio/episode-01-elevenla
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a4cb62254c4339774", "description": "Gate substance on file C control", "resolvedModel": "claude-opus-4-8", "prompt": "You are reviewing a LAiDIES episode. Read th
+- **2026-07-22 12:29** · `general-purpose` · Gate cold-reader file C control
+  - prompt: You are reviewing a LAiDIES episode. Read the file at: /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/audio/episode-01-elevenla
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a056b218a95b685e0", "description": "Gate cold-reader file C control", "resolvedModel": "claude-opus-4-8", "prompt": "You are reviewing a LAiDIES episode. Read the
+- **2026-07-22 12:29** · `general-purpose` · Gate canon on file C control
+  - prompt: You are reviewing a LAiDIES episode. Read the file at: /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/audio/episode-01-elevenla
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a440707d8e13ef2d9", "description": "Gate canon on file C control", "resolvedModel": "claude-opus-4-8", "prompt": "You are reviewing a LAiDIES episode. Read the fi
+- **2026-07-22 13:41** · `general-purpose` · Script Basics P1
+  - prompt: Write one SUNNYVAiLE High class script. Work only in the LAiDIES repo at /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/  READ FIRST, in t
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a2f2ebfe2111490aa", "description": "Script Basics P1", "resolvedModel": "claude-sonnet-5", "prompt": "Write one SUNNYVAiLE High class script. Work only in the LAi
+- **2026-07-22 13:41** · `general-purpose` · Script Basics P2
+  - prompt: Write one SUNNYVAiLE High class script. Work only in the LAiDIES repo at /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/  READ FIRST, in t
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "aa5aa98e62fa19e83", "description": "Script Basics P2", "resolvedModel": "claude-sonnet-5", "prompt": "Write one SUNNYVAiLE High class script. Work only in the LAi
+- **2026-07-22 13:41** · `general-purpose` · Script Basics P3
+  - prompt: Write one SUNNYVAiLE High class script. Work only in the LAiDIES repo at /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/  READ FIRST, in t
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a8f35c6912032edb2", "description": "Script Basics P3", "resolvedModel": "claude-sonnet-5", "prompt": "Write one SUNNYVAiLE High class script. Work only in the LAi
+- **2026-07-22 13:41** · `general-purpose` · Script Basics P5
+  - prompt: Write one SUNNYVAiLE High class script. Work only in the LAiDIES repo at /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/  READ FIRST, in t
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a53a860cfe3232e00", "description": "Script Basics P5", "resolvedModel": "claude-sonnet-5", "prompt": "Write one SUNNYVAiLE High class script. Work only in the LAi
+- **2026-07-22 13:42** · `general-purpose` · Script Basics P6
+  - prompt: Write one SUNNYVAiLE High class script. Work only in the LAiDIES repo at /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/  READ FIRST, in t
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ac06eb7280ced71eb", "description": "Script Basics P6", "resolvedModel": "claude-sonnet-5", "prompt": "Write one SUNNYVAiLE High class script. Work only in the LAi
+- **2026-07-22 13:42** · `general-purpose` · Script Basics P7
+  - prompt: Write one SUNNYVAiLE High class script. Work only in the LAiDIES repo at /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/  READ FIRST, in t
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ad2761c06516ba7dc", "description": "Script Basics P7", "resolvedModel": "claude-sonnet-5", "prompt": "Write one SUNNYVAiLE High class script. Work only in the LAi
+- **2026-07-22 13:42** · `general-purpose` · Script Basics P8
+  - prompt: Write one SUNNYVAiLE High class script. Work only in the LAiDIES repo at /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/  READ FIRST, in t
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a69b3b6d59afe2c0c", "description": "Script Basics P8", "resolvedModel": "claude-sonnet-5", "prompt": "Write one SUNNYVAiLE High class script. Work only in the LAi
+- **2026-07-22 13:42** · `general-purpose` · Script Basics P9
+  - prompt: Write one SUNNYVAiLE High class script. Work only in the LAiDIES repo at /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/  READ FIRST, in t
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a939e1c0b17f60f8f", "description": "Script Basics P9", "resolvedModel": "claude-sonnet-5", "prompt": "Write one SUNNYVAiLE High class script. Work only in the LAi
+- **2026-07-22 13:53** · `general-purpose` · Noun audit: P2 P3 P5
+  - prompt: A surgical editing pass on three existing class scripts in /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/classes/  READ FIRST:
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a8a8cd90adcc88aee", "description": "Noun audit: P2 P3 P5", "resolvedModel": "claude-sonnet-5", "prompt": "A surgical editing pass on three existing class scripts 
+- **2026-07-22 13:53** · `general-purpose` · Noun audit: P4 P6
+  - prompt: A surgical editing pass on two existing class scripts in /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/classes/  READ FIRST: `
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a456e913fe6ddbba2", "description": "Noun audit: P4 P6", "resolvedModel": "claude-sonnet-5", "prompt": "A surgical editing pass on two existing class scripts in\n/
+- **2026-07-22 13:53** · `general-purpose` · Noun audit: P7 P8 P9
+  - prompt: A surgical editing pass on three existing class scripts in /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/classes/  READ FIRST:
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a95e5194daf2f212c", "description": "Noun audit: P7 P8 P9", "resolvedModel": "claude-sonnet-5", "prompt": "A surgical editing pass on three existing class scripts 
+- **2026-07-22 14:07** · `general-purpose` · Extract the LAiDIES teaching pattern
+  - prompt: You are deriving the LAiDIES teaching pattern from Ali's OWN GOOD WORK. This is the load-bearing input to a production engine. Do not invent rules. Every rule you write must be evi
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "acb0b38ff9cd22bf9", "description": "Extract the LAiDIES teaching pattern", "resolvedModel": "claude-opus-4-8", "prompt": "You are deriving the LAiDIES teaching pa
+- **2026-07-22 14:08** · `general-purpose` · Build the Wednesday Engine
+  - prompt: BUILD (don't research, don't write reports) the Wednesday Engine for LAiDIES. Working root: /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a7213146eb1594479", "description": "Build the Wednesday Engine", "resolvedModel": "claude-opus-4-8", "prompt": "BUILD (don't research, don't write reports) the We
+- **2026-07-22 14:32** · `general-purpose` · Script Basics P1 + P5
+  - prompt: Write TWO SUNNYVAiLE High class scripts. Work only in /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/  READ FIRST, all binding: 1. `operat
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ac8275a705b0c1277", "description": "Script Basics P1 + P5", "resolvedModel": "claude-sonnet-5", "prompt": "Write TWO SUNNYVAiLE High class scripts. Work only in\n
+- **2026-07-22 14:32** · `general-purpose` · Script Basics P7 + P10
+  - prompt: Write TWO SUNNYVAiLE High class scripts. Work only in /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/  READ FIRST, all binding: 1. `operat
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a4f8d78672b5d70d3", "description": "Script Basics P7 + P10", "resolvedModel": "claude-sonnet-5", "prompt": "Write TWO SUNNYVAiLE High class scripts. Work only in\
+- **2026-07-22 14:43** · `general-purpose` · Tutorial research: ChatGPT
+  - prompt: Read this brief in full and follow it exactly — it is binding, and it exists because a previous research pass got this wrong: /Users/alisoneakin/Library/Mobile Documents/com~apple~
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a5eb59aa9043764c4", "description": "Tutorial research: ChatGPT", "resolvedModel": "claude-sonnet-5", "prompt": "Read this brief in full and follow it exactly \u20
+- **2026-07-22 14:43** · `general-purpose` · Tutorial research: Claude
+  - prompt: Read this brief in full and follow it exactly — it is binding, and it exists because a previous research pass got this wrong: /Users/alisoneakin/Library/Mobile Documents/com~apple~
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a2e48fe14b5d9b287", "description": "Tutorial research: Claude", "resolvedModel": "claude-sonnet-5", "prompt": "Read this brief in full and follow it exactly \u201
+- **2026-07-22 14:43** · `general-purpose` · Tutorial research: Gemini
+  - prompt: Read this brief in full and follow it exactly — it is binding, and it exists because a previous research pass got this wrong: /Users/alisoneakin/Library/Mobile Documents/com~apple~
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a0d934d3801c41c40", "description": "Tutorial research: Gemini", "resolvedModel": "claude-sonnet-5", "prompt": "Read this brief in full and follow it exactly \u201
+- **2026-07-22 14:44** · `general-purpose` · Research: what good tutorials do
+  - prompt: Read this brief for context (Part 2 is your job): /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/research/tutorials/_BRIEF.md  
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a690d8e901073de15", "description": "Research: what good tutorials do", "resolvedModel": "claude-sonnet-5", "prompt": "Read this brief for context (Part 2 is your 
+- **2026-07-22 14:45** · `general-purpose` · Research: courses and curricula
+  - prompt: Read for context (scope + rules): /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/research/tutorials/_BRIEF.md  Today is 2026-07
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "aa4e18eebf7fb3e58", "description": "Research: courses and curricula", "resolvedModel": "claude-sonnet-5", "prompt": "Read for context (scope + rules): /Users/alis
+- **2026-07-22 14:45** · `general-purpose` · Research: community + what confuses
+  - prompt: Read for context (scope + rules): /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/research/tutorials/_BRIEF.md  Today is 2026-07
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ab71b38a6ac3ea39e", "description": "Research: community + what confuses", "resolvedModel": "claude-sonnet-5", "prompt": "Read for context (scope + rules): /Users/
+- **2026-07-22 15:18** · `general-purpose` · Which surface do people use
+  - prompt: Today is 2026-07-22. One narrow, high-stakes question. Do NOT answer from memory or assumption — this exists because an assumption was already made and challenged.  **Which surface
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a528060794191d924", "description": "Which surface do people use", "resolvedModel": "claude-sonnet-5", "prompt": "Today is 2026-07-22. One narrow, high-stakes ques
+- **2026-07-22 18:20** · `general-purpose` · Write all card art prompts
+  - prompt: You are writing Codex art-prompt files for the LAiDIES trading-card decks. You WRITE PROMPT FILES ONLY — you do NOT generate images, draw anything, or run Codex. Output is markdown
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "ac3d2eb7b80a75c29", "description": "Write all card art prompts", "resolvedModel": "claude-opus-4-8", "prompt": "You are writing Codex art-prompt files for the LAi
+- **2026-07-22 18:41** · `general-purpose` · Triage library hero images
+  - prompt: Visually inspect these SUNNYVAiLE LIBRAiRY interior images and recommend the best one for a website hero banner. All paths are relative to `/Users/alisoneakin/Library/Mobile Docume
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "adbc990b6342e0722", "description": "Triage library hero images", "resolvedModel": "claude-opus-4-8", "prompt": "Visually inspect these SUNNYVAiLE LIBRAiRY interio
+- **2026-07-23 07:13** · `general-purpose` · background · Verify Closet-cluster ship claims
+  - prompt: You are verifying whether features CLAIMED as "shipped/built/wired" are ACTUALLY present in the live code. This matters: we just found the SUNNYVAiLE Post Office was marked "✅ REBU
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a828aa89823af4e9b", "description": "Verify Closet-cluster ship claims", "resolvedModel": "claude-opus-4-8", "prompt": "You are verifying whether features CLAIMED 
+- **2026-07-23 07:14** · `general-purpose` · background · Verify High/ChickFlicks/Bronze claims
+  - prompt: You are verifying whether features CLAIMED as "shipped/built" are ACTUALLY present in the live code. Context: we just found the SUNNYVAiLE Post Office was marked "✅ REBUILT" but th
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a1cf3434f292a9e61", "description": "Verify High/ChickFlicks/Bronze claims", "resolvedModel": "claude-opus-4-8", "prompt": "You are verifying whether features CLAI
+- **2026-07-23 07:14** · `general-purpose` · background · Verify KSVL/DB/episode ship claims
+  - prompt: You are verifying whether features CLAIMED as "shipped/built/wired" are ACTUALLY present in the live code. Context: we just found the SUNNYVAiLE Post Office was marked "✅ REBUILT" 
+  - returned: {"isAsync": true, "status": "async_launched", "agentId": "a906c32e42896805f", "description": "Verify KSVL/DB/episode ship claims", "resolvedModel": "claude-opus-4-8", "prompt": "You are verifying whether features CLAIMED

@@ -1,21 +1,21 @@
 # Session snapshot — written right before a compaction
 
-_2026-07-22 07:24_  · the conversation compacted here. Recent user intents (last 15):
+_2026-07-23 00:05_  · the conversation compacted here. Recent user intents (last 15):
 
-- i saw no annimation at all in the hedy scene
-- The Ada fix: the music-note clip plays once on "It could work with symbols. It could set them to music." — then freezes on ada-c-end, which is the same artwork the clip was made from, so the join is invisible. No loop, n
+- check the file it says its done now
+- watch it. just leave her in uniform at this point
 - [Request interrupted by user]
-- its not even the first frame either
-- how do we get ffmpeg on this machine so you can verify
-- anything else you are missing (including ant third party tools) that would allow you to do your job easier? i will get them for you
-- that is too bad about canva. you have the connector already anyway
-- install playwrite
-- ok a few things. yes to that, but also i want to finish the Ep4
-- [Request interrupted by user]
-- i didn't keep watching after Hedy because i think we are going to have the sae issue  so does your handover have instructions for codex to add additional images and work with canva to create the required annimatins?
-- [Request interrupted by user]
-- for the whole episode?
-- yes. write it all. after you are done that - now that you can see the site. i don't like the cold accents with the purple. can we pick another accent colour?
-- is there also the ability to add the captions to go along with the narration? so people can read with the narrartor is saying at the same tie they watch
+- what is the opening moves wuestions?
+- nevermind - just watch it
+- its done
+- Done. The corrected export is the authoritative version:  * [Episode 04 full V5 master](/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/assets/video/delivery-20260722-ep04-v5-brie
+- ok lets get them all going please.
+- alright well i dindt even make it past the first image  it holds onto that past when the annoucer is talking about on this week  you said you were going to put images from that episode there. you did not
+- there i smore than just 19 buildings for the trailer. you clearly didn't read the script  jesus fucking christ. what else did you say that you did but didn't do
+- i do not what to have to go back to codex again with episode 4 and i do not want anymore bad surprises  what the hell?! you have to read the script. break it down into timing and give codex the exact prompts needed to pr
+- i hate you so nuch today. you are getting worse and worse no matter what i do
+- no not rest. fisnish.
+- ok lets do the rest
+- i want it all done right
 
 **After a compaction, before claiming anything is undone/undefined: check operations/ , recent files, and git log — you may have done this work already this session.**
