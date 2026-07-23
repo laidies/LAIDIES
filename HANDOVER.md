@@ -2,6 +2,15 @@
 _Written 2026-07-24 for Ali, to hand the whole project to ChatGPT / Codex / any next hands._
 _Honest state of everything: what's done, what's broken, what's not pushed, what's outstanding._
 
+> **THIS IS THE SINGLE HANDOVER FOR ALL ~5 ACTIVE CHATS — you do not need one per chat.**
+> Every chat writes to the same two shared places: this **git repo** and the **248 memory notes**
+> (`memory/MEMORY.md`). Memory is NOT per-chat; it's the cross-chat record. So this one document,
+> drawn from the repo + memory, already spans every chat's *saved* work (Ep4 cut/motion, building
+> audits, site-mechanics audit, SUNNYVAiLE High video classes, teaching quality gate, the ep-04
+> folder rename, LAiDIES ideas, etc.). The only thing it can't see is work a chat did but never
+> committed or wrote to memory — if a chat has that, the fix is to commit/record it, not to write a
+> separate handover.
+
 ---
 
 ## 0. READ THIS FIRST — where the real knowledge lives
@@ -113,6 +122,40 @@ card: <TITLE> (bold comic lettering) + "Episode N"` + style line — let the tit
 
 **Welcome-back card** (`welcome-back-recurring-card`): ONE reusable series-branded "Welcome back to
 LAiDIES" image, comic-v1 style, dropped on that beat in EVERY episode. Not yet made. Gates Ep4.
+
+---
+
+## 4b. EVERYTHING BUILT ACROSS SESSIONS (not just episodes)
+The episode video was one workstream and the one that failed. Plenty else shipped — from the commit
+history on `homepage-redesign`. ⚠ **Work is spread across ~5 active chats**, so the working tree is a
+merge of all of them; the commits below + the current uncommitted pile capture that combined state.
+
+- **Analytics & measurement (DONE, pushed):** Plausible custom events unified across all 106 live
+  pages; deeper event layer (quiz, card-made, episode-watch); **Microsoft Clarity** (heatmaps +
+  session replay) site-wide + privacy note. → the raw material for the "make→measure→improve"
+  Wednesday Engine (`weekly-production-machine`, the big next build).
+- **Monetization / merch (DONE, pushed):** **The Gift Shop** — print-on-demand storefront scaffold;
+  flagship merch set locked (3 tees + NOPE Pad); merch copy pool (Blend & Snap "bend and snap" mug
+  line, "I survived Y2K" tee, "Days of Our Lives" as canon Deb lyric — verbatim on merch). **Book
+  Fair** clip-exchange (spend butterfly clips on exclusive drops). Monetization is a stated priority.
+- **Games (DONE, pushed — but in flux):** Dream Phone fact-check game added, wired ("Play the Game"
+  door), indexed in Ask Jeeves search. ⚠ `dream-phone-game-redesign`: the corroboration/receipts
+  version "didn't work" — new direction TBD; don't rebuild the old model.
+- **Characters / saints / bands (DONE, pushed):** Bette Midler replaced J.Lo; The Golden Girls +
+  Jessica Fletcher added to the saint court; **The Diffusions** locked as the Golden Girls' band;
+  Golden Girls DJ radio intro wired into KSVL. (Roster still being recast — `saint-roster-rethink`.)
+- **Performance (DONE, pushed — big wins):** PNG→JPEG conversions site-wide — grimoire portal art
+  23MB→5MB, episode pixel scenes 204MB→54MB, LUMINAiRY stained-glass portraits 142MB→20MB; Town
+  Hall posters web-sized (print-res kept as download). Much lighter served payloads.
+- **KSVL / Mall / NewsStand (DONE, pushed):** "The Embeddings" Newsstand theme in KSVL; Mall "As
+  Seen on TV (and film!)" synced to the full Era card set.
+- **Production system (DONE, pushed):** weekly-cycle mapping + the missing-gate call-out; motion
+  brief + research scopes; production tools brought into the repo; LIBRAiRY recovery; (art-prompt
+  guardrails — now disabled per offboarding).
+
+**Deep site audits to work from (in `operations/`):** `full-site-audit-2026-07-14`,
+`experience-audit-2026-07-14`, and **`overnight-audit-2026-07-23`** (37 verified gaps ranked by
+member impact, 3 refuted false-alarms, Codex card/image prompts staged) — read that before site work.
 
 ---
 
