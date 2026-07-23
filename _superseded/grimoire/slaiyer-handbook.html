@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The SLAiYER Handbook · The LAiDIES Grimoire</title>
+    <meta name="description" content="The practical how-to-use-AI handbook. Foundational chapters that teach the words, the tools, and the work — without the beige tech tone." />
+    <meta property="og:title" content="The SLAiYER Handbook — The LAiDIES Grimoire" />
+    <meta property="og:description" content="Chapter 1 is live. Tool cards and future chapters still brewing." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://laidies.ai/grimoire/slaiyer-handbook.html" />
+    <meta property="og:image" content="https://laidies.ai/assets/portal/laidies-grimoire-slaiyer-handbook-v1.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#1a0a12" />
+    <link rel="icon" type="image/png" href="/assets/brand/laidies-logo-square-pearl-512-v1.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/assets/brand/laidies-logo-square-pearl-512-v1.png" />
+    <link rel="stylesheet" href="/styles.css?v=sticky-fix-2" />
+    <link rel="stylesheet" href="/content/grimoire.css?v=grimoire-17" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400&family=Inter:wght@400;600;700;800;900&display=swap">
+    <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+    <link rel="stylesheet" href="/content/site/mini-player.css">
+
+    <style>
+      /* SLAiYER Handbook contents page.
+         Sits directly on the Mme CLAi-O dark backdrop (matches the rest
+         of the handbook). No cream tablet wrapper — the chapter and tool
+         rows are individual cream cards that float on the dark.        */
+      .hb-contents {
+        position: relative;
+        width: min(100%, 880px);
+        margin: clamp(14px, 3vw, 28px) auto;
+        padding: clamp(20px, 3vw, 36px) clamp(16px, 3vw, 32px);
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        font-family: var(--hb-body);
+        color: rgba(255, 240, 232, 0.92);
+      }
+      /* Override the shared gr-illuminated cream-tablet treatment on this
+         page only — landing is the only handbook entry without a cream
+         tablet wrapper. */
+      .grimoire-shell .hb-contents.gr-illuminated {
+        background: transparent !important;
+        box-shadow: none !important;
+      }
+
+      .hb-contents-header {
+        text-align: center;
+        margin: 0 auto clamp(22px, 3vw, 34px);
+        max-width: 60ch;
+      }
+      .hb-contents-eyebrow {
+        font-family: var(--hb-mono);
+        font-size: 0.74rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 240, 232, 0.74) !important;
+        margin: 0 0 12px;
+      }
+      .hb-contents-title {
+        font-family: var(--hb-serif) !important;
+        font-weight: 700;
+        font-size: clamp(2rem, 4.6vw, 3rem);
+        line-height: 1.05;
+        color: var(--hb-leaf);
+        margin: 0 auto 14px;
+        max-width: 16ch;
+      }
+      .hb-contents-dek {
+        font-family: var(--hb-serif);
+        font-style: italic;
+        font-size: clamp(1rem, 1.5vw, 1.16rem);
+        line-height: 1.55;
+        color: rgba(255, 240, 232, 0.92) !important;
+        margin: 0 auto;
+        max-width: 56ch;
+      }
+
+      /* Group: PART label + chapter rows underneath */
+      .hb-contents-group { margin: clamp(22px, 3vw, 32px) 0; }
+      .hb-contents-group + .hb-contents-group {
+        padding-top: clamp(22px, 3vw, 32px);
+        border-top: 1px dashed var(--hb-rule);
+      }
+      .hb-contents-grouplabel {
+        display: block;
+        font-family: var(--hb-mono);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--hb-leaf);
+        margin: 0 0 14px;
+      }
+
+      /* Chapter row — number + title + dek + status.
+         Cream card floating on the dark backdrop; opaque so text reads
+         cleanly without dark bleeding through. */
+      .hb-chap-row {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: clamp(14px, 2vw, 22px);
+        align-items: center;
+        padding: clamp(14px, 2vw, 20px) clamp(14px, 2vw, 22px);
+        border: 1px solid rgba(201, 162, 39, 0.55);
+        border-radius: 14px;
+        background:
+          linear-gradient(125deg, rgba(155, 63, 95, 0.08), rgba(36, 123, 131, 0.06)),
+          #fbf3ea;
+        text-decoration: none;
+        color: var(--ink);
+        margin: 0 0 12px;
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.32);
+        transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      }
+      .hb-chap-row[href]:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 36px rgba(0, 0, 0, 0.42);
+        border-color: var(--hb-leaf);
+      }
+      .hb-chap-row.is-brewing {
+        opacity: 0.78;
+        cursor: default;
+        background:
+          linear-gradient(125deg, rgba(155, 63, 95, 0.05), rgba(36, 123, 131, 0.04)),
+          rgba(245, 240, 235, 0.88);
+      }
+      .hb-chap-num {
+        font-family: var(--hb-serif);
+        font-weight: 700;
+        font-size: clamp(1.8rem, 4vw, 2.4rem);
+        color: var(--hb-leaf);
+        line-height: 1;
+        min-width: 1.6em;
+        text-align: center;
+      }
+      .hb-chap-body { min-width: 0; }
+      .hb-chap-title {
+        font-family: var(--hb-serif) !important;
+        font-weight: 700;
+        font-size: clamp(1.1rem, 2vw, 1.32rem);
+        color: var(--hb-ink);
+        margin: 0 0 4px;
+        line-height: 1.22;
+      }
+      .hb-chap-dek {
+        font-family: var(--hb-serif);
+        font-size: 0.96rem;
+        line-height: 1.45;
+        color: var(--muted);
+        margin: 0;
+      }
+      .hb-chap-status {
+        font-family: var(--hb-mono);
+        font-size: 0.62rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 5px 11px;
+        border-radius: 999px;
+        border: 1px solid var(--hb-rule);
+        color: var(--wine);
+        background: rgba(252, 228, 242, 0.5);
+        white-space: nowrap;
+        justify-self: end;
+      }
+      .hb-chap-row.is-brewing .hb-chap-status {
+        color: var(--muted);
+        border-color: var(--line);
+        background: transparent;
+      }
+
+      @media (max-width: 620px) {
+        .hb-contents { padding: 24px 16px; }
+        .hb-chap-row { grid-template-columns: auto 1fr; padding: 14px 14px; }
+        .hb-chap-status { grid-column: 1 / -1; justify-self: start; margin-top: 4px; }
+      }
+    </style>
+    <!-- Microsoft Clarity (heatmaps + session recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+</head>
+  <body class="grimoire-page" data-issue-number="4">
+    <div class="grimoire-shell" data-paginated>
+      <div class="gr-topbar">
+        <a class="gr-back" href="/grimoire.html?open=1">← Back to the Grimoire</a>
+        <span class="gr-where">The <span class="brand-word-inline brand-word-inline--on-dark" aria-label="SLAiYER"><span aria-hidden="true">SL<span data-brand-ai>Ai</span>YER</span></span> Handbook</span>
+      </div>
+
+      <main class="hb-contents gr-illuminated">
+        <header class="hb-contents-header">
+          <p class="hb-contents-eyebrow">The <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> Grimoire · Section I</p>
+          <h1 class="hb-contents-title">The <span class="brand-word-inline" aria-label="SLAiYER"><span aria-hidden="true">SL<span data-brand-ai>Ai</span>YER</span></span> Handbook</h1>
+          <p class="hb-contents-dek">The practical how-to-use-AI guide. Foundational chapters that teach the words, the tools, and the work — so you stop guessing and start using.</p>
+          <img src="/assets/portal/laidies-grimoire-slaiyer-handbook-v1.jpg" alt="LAiDIES Grimoire SLAiYER Handbook flat-lay with a field diary, stakes, mirror, vial, cross pendant, bell, and velvet pouch" class="gr-section-hero" />
+        </header>
+
+        <!-- CHAPTERS -->
+        <div class="hb-contents-group">
+          <span class="hb-contents-grouplabel">Chapters</span>
+
+          <a class="hb-chap-row" href="/grimoire/slaiyer-handbook-chapter-1.html">
+            <span class="hb-chap-num">1</span>
+            <div class="hb-chap-body">
+              <h2 class="hb-chap-title">Every <span class="brand-word-inline" aria-label="SLAiYER"><span aria-hidden="true">SL<span data-brand-ai>Ai</span>YER</span></span> Needs a Watcher</h2>
+              <p class="hb-chap-dek">Orientation: what you're walking into, what the words mean (Prompt, Model, Training data, Tokens, Hallucination), and the four AI types everybody argues about.</p>
+            </div>
+            <span class="hb-chap-status">Live</span>
+          </a>
+
+          <a class="hb-chap-row" href="/grimoire/slaiyer-handbook-chapter-2.html">
+            <span class="hb-chap-num">2</span>
+            <div class="hb-chap-body">
+              <h2 class="hb-chap-title">The Briefing Rules</h2>
+              <p class="hb-chap-dek">The 5 rules for talking to any AI tool — so you actually get back what you wanted, instead of beige.</p>
+            </div>
+            <span class="hb-chap-status">Live</span>
+          </a>
+
+          <a class="hb-chap-row" href="/grimoire/slaiyer-handbook-chapter-3.html">
+            <span class="hb-chap-num">3</span>
+            <div class="hb-chap-body">
+              <h2 class="hb-chap-title">The Skeleton Key</h2>
+              <p class="hb-chap-dek">The reusable profile — Custom Instructions, Memory, Projects — that travels with you across every tool. Set up once, use everywhere.</p>
+            </div>
+            <span class="hb-chap-status">Live</span>
+          </a>
+
+          <a class="hb-chap-row" href="/grimoire/slaiyer-handbook-chapter-4.html">
+            <span class="hb-chap-num">4</span>
+            <div class="hb-chap-body">
+              <h2 class="hb-chap-title">The Field Guide</h2>
+              <p class="hb-chap-dek">Five tool categories, with familiar names scattered across them. Match the type to the task; the right tool falls out.</p>
+            </div>
+            <span class="hb-chap-status">Live</span>
+          </a>
+
+          <a class="hb-chap-row" href="/grimoire/slaiyer-handbook-chapter-5.html">
+            <span class="hb-chap-num">5</span>
+            <div class="hb-chap-body">
+              <h2 class="hb-chap-title">The Account Rule</h2>
+              <p class="hb-chap-dek">Personal vs. company account — the data-safety rule. Closes the chapter with the Deb cautionary.</p>
+            </div>
+            <span class="hb-chap-status">Live</span>
+          </a>
+
+          <div class="hb-chap-row is-brewing" aria-disabled="true">
+            <span class="hb-chap-num">6</span>
+            <div class="hb-chap-body">
+              <h2 class="hb-chap-title">Chapter 6 onward</h2>
+              <p class="hb-chap-dek">More chapters in the Handbook will appear here as they're written.</p>
+            </div>
+            <span class="hb-chap-status">Still brewing</span>
+          </div>
+        </div>
+
+        <!-- TOOL CARDS -->
+        <div class="hb-contents-group">
+          <span class="hb-contents-grouplabel">Tool Cards</span>
+
+          <a class="hb-chap-row" href="/grimoire/slaiyer-handbook-chatgpt.html">
+            <span class="hb-chap-num">✦</span>
+            <div class="hb-chap-body">
+              <h2 class="hb-chap-title">ChatGPT</h2>
+              <p class="hb-chap-dek">OpenAI's general-purpose assistant. The one most people try first.</p>
+            </div>
+            <span class="hb-chap-status">Live</span>
+          </a>
+
+          <div class="hb-chap-row is-brewing" aria-disabled="true">
+            <span class="hb-chap-num">✦</span>
+            <div class="hb-chap-body">
+              <h2 class="hb-chap-title">Claude</h2>
+              <p class="hb-chap-dek">Anthropic's assistant. Strong with long documents and careful work.</p>
+            </div>
+            <span class="hb-chap-status">Still brewing</span>
+          </div>
+
+          <div class="hb-chap-row is-brewing" aria-disabled="true">
+            <span class="hb-chap-num">✦</span>
+            <div class="hb-chap-body">
+              <h2 class="hb-chap-title">Gemini</h2>
+              <p class="hb-chap-dek">Google's assistant. Lives where you already work — Docs, Gmail, Drive.</p>
+            </div>
+            <span class="hb-chap-status">Still brewing</span>
+          </div>
+
+          <div class="hb-chap-row is-brewing" aria-disabled="true">
+            <span class="hb-chap-num">✦</span>
+            <div class="hb-chap-body">
+              <h2 class="hb-chap-title">Copilot</h2>
+              <p class="hb-chap-dek">Microsoft's assistant. Lives where you already work — Word, Excel, Outlook, Teams.</p>
+            </div>
+            <span class="hb-chap-status">Still brewing</span>
+          </div>
+
+          <div class="hb-chap-row is-brewing" aria-disabled="true">
+            <span class="hb-chap-num">✦</span>
+            <div class="hb-chap-body">
+              <h2 class="hb-chap-title">Perplexity</h2>
+              <p class="hb-chap-dek">An AI search engine. Cites its sources by default.</p>
+            </div>
+            <span class="hb-chap-status">Still brewing</span>
+          </div>
+
+          <div class="hb-chap-row is-brewing" aria-disabled="true">
+            <span class="hb-chap-num">✦</span>
+            <div class="hb-chap-body">
+              <h2 class="hb-chap-title">NotebookLM</h2>
+              <p class="hb-chap-dek">Google's notebook assistant. You give it your sources; it answers from only those.</p>
+            </div>
+            <span class="hb-chap-status">Still brewing</span>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="/content/grimoire-book.js?v=grimoire-12"></script>
+    <script src="/content/site/site-data.js?v=quizzes-complete-20260712"></script>
+    <script src="/script.js?v=wm1"></script>
+    <script src="/content/site/mini-player.js?v=20260712ep-04-songs-1"></script>
+  <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+  </body>
+</html>

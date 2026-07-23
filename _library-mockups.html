@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LIBRAiRY — grounded + purple wall</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --upright:url('assets/building-interiors/library-shelf/delivery-20260722-transparent-v1/size-variants-v4/library-shelf-unit-4-shelf-upright-v1.png');
+    --plaster:url('assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png');
+    --floor:url('assets/building-interiors/library-shelf/room/floor-clean-v1.png');
+    --sign101:url('assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-101s-v1.png');
+    --signtools:url('assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-tools-v1.png');
+    --signref:url('assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-reference-v1.png');
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Jost',sans-serif;background:#1c0f1c;color:#f6eee9}
+  .wrap{max-width:1100px;margin:0 auto;padding:36px 20px 120px}
+  h1{font-size:24px;font-weight:800;margin:0 0 4px}
+  .sub{color:#c9a9c4;font-size:14px;margin:0 0 34px;max-width:70ch}
+  .card{margin:0 0 44px}
+  .tag{font-size:18px;font-weight:800;margin:0 0 2px}
+  .tag .hex{font-size:13px;font-weight:500;color:#c9a9c4;margin-left:10px}
+
+  /* grounded room: tall shelves standing floor-to-near-ceiling on one carpet */
+  .room{position:relative;aspect-ratio:3.05/1;border-radius:8px;overflow:hidden;
+    background-image:var(--plaster), var(--wallgrad);
+    background-size:100% auto, cover;
+    background-repeat:repeat-y, no-repeat;
+    background-blend-mode:multiply, normal}
+  .room::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14%;z-index:0;
+    background:var(--floor) center top/100% 100% no-repeat}
+  .row{position:absolute;left:3.5%;right:3.5%;top:3%;bottom:2.5%;z-index:1;
+    display:flex;justify-content:space-between;align-items:flex-end;gap:2.5%}
+  .up{position:relative;height:100%;aspect-ratio:960/1080;
+    background:var(--upright) center/contain no-repeat}
+  .up .sign{position:absolute;top:2.4%;left:50%;transform:translateX(-50%);width:64%;
+    aspect-ratio:1920/300;background:center/contain no-repeat;filter:drop-shadow(0 2px 4px rgba(0,0,0,.35))}
+  .s101{background-image:var(--sign101)}
+  .stools{background-image:var(--signtools)}
+  .sref{background-image:var(--signref)}
+
+  /* real gradients lifted from the live homepage */
+  .g1{--wallgrad:linear-gradient(160deg,#e4d9f1 0%,#f5dbe8 100%)}                        /* lilac → blush */
+  .g2{--wallgrad:linear-gradient(110deg,#e4d8f4 0%,#f6d6e2 48%,#c9e5df 100%)}            /* lilac → blush → mint (candy) */
+  .g3{--wallgrad:linear-gradient(165deg,#d3ebe7 0%,#e2ddf1 100%)}                        /* mint → lilac */
+  .g4{--wallgrad:linear-gradient(150deg,#5f5494 0%,#8d82c6 55%,#b3abe7 120%)}            /* deep purple → periwinkle */
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>LIBRAiRY · A — homepage gradient walls</h1>
+  <p class="sub">Same grounded room, but the wall is now an actual gradient lifted straight off the live homepage (plaster grain kept on top). These four are already live on the site. Pick one. Books fill the shelves on the real page; omitted here to judge the room.</p>
+
+  <div class="card">
+    <div class="tag">1 · Lilac → blush <span class="hex">homepage district card</span></div>
+    <div class="room g1">
+      <div class="row">
+        <div class="up"><div class="sign s101"></div></div>
+        <div class="up"><div class="sign stools"></div></div>
+        <div class="up"><div class="sign sref"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="tag">2 · Lilac → blush → mint <span class="hex">homepage candy panel</span></div>
+    <div class="room g2">
+      <div class="row">
+        <div class="up"><div class="sign s101"></div></div>
+        <div class="up"><div class="sign stools"></div></div>
+        <div class="up"><div class="sign sref"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="tag">3 · Mint → lilac <span class="hex">homepage section</span></div>
+    <div class="room g3">
+      <div class="row">
+        <div class="up"><div class="sign s101"></div></div>
+        <div class="up"><div class="sign stools"></div></div>
+        <div class="up"><div class="sign sref"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="tag">4 · Deep purple → periwinkle <span class="hex">homepage hero panel</span></div>
+    <div class="room g4">
+      <div class="row">
+        <div class="up"><div class="sign s101"></div></div>
+        <div class="up"><div class="sign stools"></div></div>
+        <div class="up"><div class="sign sref"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

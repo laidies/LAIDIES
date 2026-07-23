@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Episode 02 · Tell Me What You Want · LAiDIES · SUNNYVAiLE</title>
+<meta name="description" content="The one where she types something vague, gets back the world's most useless paragraph, channels David Rose about specificity, and watches AI produce something she'd actually send to a VP. Prompting + context.">
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&family=VT323&display=swap" rel="stylesheet">
+<script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+<script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+<script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+<style>
+  :root{
+    --cream:#fffdfb; --plum:#4b2148; --plum-deep:#3a1838; --ink:#3a1838;
+    --pink:#e982ab; --coral:#ec7a78; --tang:#f4a636; --teal:#57b6c0; --sky:#8bbde9; --peri:#b3abe7;
+    --gold:#c9a227; --lav:#cabbe8;
+    --measure:720px; --wide:840px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Jost',system-ui,sans-serif;color:#f2eaf3;background:#160f1d;line-height:1.75;font-size:18px;-webkit-font-smoothing:antialiased}
+  body::before{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0 2px,rgba(0,0,0,.15) 2px 3px);mix-blend-mode:multiply;opacity:.45}
+  .ai{color:inherit;text-transform:none}
+  h1,h2,h3{font-weight:800;line-height:1.06;letter-spacing:-.01em}
+  h1 .ai,h2 .ai,h3 .ai,.eyebrow .ai,.tv-tags .ai{color:var(--pink)}
+  main{max-width:var(--wide);margin:0 auto;padding:0 24px}
+  p{max-width:var(--measure);margin:0 auto 20px}
+  p strong{font-weight:700;color:#ffffff}
+  em{font-style:italic}
+  a{color:#8bbde9}
+  /* Keep the sky link color for the dark article body only — the light global header needs legible plum. */
+  .sv-header nav a, .sv-header .svgh-nav a, .sv-header .brand{color:#4b2148}
+  .sv-header .brand .lac{color:#57b6c0}
+  .eyebrow{font-size:.74rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+
+  /* Store shelf strip */
+  .shelf-strip{background:#111013;color:var(--cream);text-align:center;font-family:'VT323',monospace;font-size:1.05rem;letter-spacing:.08em;padding:7px 16px}
+  .shelf-strip b{color:var(--teal);font-weight:400}
+
+  /* Cinematic pixel-art hero — the tape's title card, in the world */
+  .tv-hero{position:relative;overflow:hidden;padding:118px 24px 88px;text-align:center;color:var(--cream);
+    background:linear-gradient(180deg,rgba(14,9,24,.46) 0%,rgba(11,7,18,.72) 66%,rgba(11,7,18,.94) 100%), url('../assets/episodes/ep-02/pixel/ep02-scene-01-staring-contest.jpg') center 30%/cover}
+  .tv-hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0 2px,rgba(0,0,0,.16) 2px 4px);mix-blend-mode:multiply}
+  .tv-hero>*{position:relative;z-index:2}
+  .osd{position:absolute;top:14px;left:18px;right:18px;z-index:3;display:flex;justify-content:space-between;font-family:'VT323',monospace;font-size:1.05rem;color:#7be0d0;letter-spacing:.1em;text-shadow:0 0 8px rgba(87,182,192,.7)}
+  .tv-meta{font-family:'VT323',monospace;color:#d9c6f0;font-size:1.12rem;letter-spacing:.13em;margin-bottom:16px;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+  .tv-title{font-size:clamp(2.6rem,7vw,4.6rem);color:var(--cream);text-shadow:0 2px 26px rgba(0,0,0,.6), 0 0 46px rgba(139,189,233,.28)}
+  .tv-title em{font-style:italic;color:var(--pink)}
+  .tv-logline{font-style:italic;font-size:1.16rem;color:rgba(255,253,251,.94);max-width:38ch;margin:20px auto 0;line-height:1.5;text-shadow:0 1px 10px rgba(0,0,0,.6)}
+  .tv-tags{display:flex;gap:0;justify-content:center;flex-wrap:wrap;margin-top:26px;font-family:'VT323',monospace;font-size:1.08rem;letter-spacing:.07em;color:#e7dcf5;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+  .tv-tags span{padding:0 15px;position:relative}
+  .tv-tags span+span::before{content:"·";position:absolute;left:-3px;color:rgba(231,220,245,.5)}
+  .tv-tags b{color:#fff;font-weight:700}
+  .hero-listen{display:inline-flex;align-items:center;gap:10px;margin-top:28px;font-family:'VT323',monospace;font-size:1.18rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:#0c1a16;background:#7be0d0;padding:12px 26px;border-radius:10px;box-shadow:0 0 30px -6px rgba(123,224,208,.7);transition:transform .12s}
+  .hero-listen:hover{transform:translateY(-1px)}
+
+  /* VHS spine label */
+  .spine{max-width:var(--wide);margin:-24px auto 0;position:relative;z-index:2;padding:0 24px}
+  .spine-inner{background:var(--cream);border:2px solid var(--plum-deep);border-radius:8px;display:flex;align-items:center;gap:14px;padding:11px 18px;font-family:'VT323',monospace;font-size:1.12rem;letter-spacing:.06em;color:var(--plum-deep);box-shadow:0 14px 30px -18px rgba(58,24,56,.5)}
+  .spine-inner .dot{color:var(--coral)}
+  .spine-inner .end{margin-left:auto;color:var(--teal)}
+
+  /* Previously on */
+  .prev{max-width:var(--measure);margin:40px auto 0;padding:16px 22px;background:rgba(179,171,231,.09);border:1px solid rgba(179,171,231,.38);border-radius:12px;color:#e7dcf5}
+  .prev .eyebrow{color:#b3abe7;margin-bottom:8px}
+  .prev p{margin:0;max-width:none;font-style:italic;font-size:1.04rem;line-height:1.5;color:#d7cbe9}
+
+  /* Section marker */
+  .mark{max-width:var(--measure);margin:64px auto 6px;padding-top:16px;border-top:1px solid rgba(203,184,232,.22)}
+  .mark .k{font-family:'VT323',monospace;font-size:1.2rem;letter-spacing:.12em;text-transform:uppercase;color:#7be0d0;margin-bottom:6px;text-shadow:0 0 10px rgba(87,182,192,.4)}
+  .mark .k::before{content:"\25B6  ";color:var(--pink)}
+  .mark h2{font-size:clamp(1.8rem,4.2vw,2.6rem);color:#fff}
+  .mark .sub{margin-top:8px;color:#c3b2d8;font-size:1rem}
+  .lead{font-size:1.22rem;color:#fff;font-weight:500}
+
+  /* Establishing broadcast still */
+  .still{position:relative;margin:26px auto;max-width:var(--wide);border-radius:12px;overflow:hidden;box-shadow:0 26px 54px -28px rgba(58,24,56,.55)}
+  .still img{width:100%;display:block}
+  .still::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0 3px,rgba(0,0,0,.10) 3px 6px)}
+  .still .bug{position:absolute;top:12px;right:14px;font-family:'VT323',monospace;font-size:1rem;color:var(--cream);letter-spacing:.1em;text-shadow:0 1px 4px rgba(0,0,0,.7)}
+  .still .cap{position:absolute;bottom:0;left:0;right:0;padding:16px 18px 13px;color:var(--cream);background:linear-gradient(0deg,rgba(14,7,16,.86),transparent);font-family:'VT323',monospace;font-size:1.05rem;letter-spacing:.05em}
+
+  /* Inline scene film — pixel-art keyframe that plays a short silent loop on scroll */
+  .film{position:relative;max-width:var(--wide);margin:30px auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:linear-gradient(150deg,#3a1838 0%,#6b2f57 52%,#f4a636 130%);box-shadow:0 30px 64px -30px rgba(58,24,56,.62)}
+  /* scene still — a paused broadcast frame (the real video clip swaps in here later) */
+  .film .frames{position:absolute;inset:0;z-index:1}
+  .film .frames img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .film .frames img~img{display:none}   /* only the first (poster) frame shows until video exists */
+  .film::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0 3px,rgba(0,0,0,.12) 3px 6px);mix-blend-mode:multiply}
+  .film-bug{position:absolute;top:13px;right:15px;z-index:3;font-family:'VT323',monospace;font-size:1rem;color:var(--cream);letter-spacing:.1em;text-shadow:0 1px 5px rgba(0,0,0,.8)}
+  .film-cap{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:32px 20px 14px;color:var(--cream);font-family:'VT323',monospace;font-size:1.08rem;letter-spacing:.04em;background:linear-gradient(0deg,rgba(12,6,14,.9),transparent)}
+
+  /* Pull quote */
+  .pull{max-width:var(--measure);margin:52px auto;padding:24px 22px;text-align:center}
+  .pull p{font-style:italic;font-size:clamp(1.5rem,3.4vw,2rem);line-height:1.3;color:#fff;margin:0;max-width:none;font-weight:600;text-shadow:0 0 34px rgba(233,130,171,.28)}
+  .pull .who{margin-top:12px;font-family:'VT323',monospace;font-size:1.05rem;letter-spacing:.08em;color:#7be0d0}
+
+  /* Receipts / stat */
+  .receipt{max-width:var(--measure);margin:44px auto;background:#0c1a1e;color:#d6eff1;border:1.5px solid #57b6c0;border-radius:12px;padding:22px 24px;box-shadow:0 0 40px -14px rgba(87,182,192,.5) inset}
+  .receipt .h{font-family:'VT323',monospace;font-size:1.05rem;letter-spacing:.1em;text-transform:uppercase;color:#7be0d0;margin-bottom:10px}
+  .receipt .row{display:flex;gap:20px;align-items:center}
+  .receipt .row+.row{margin-top:14px}
+  .receipt .num{font-size:2.8rem;font-weight:800;color:#f4a636;line-height:1;flex:none;font-family:'VT323',monospace}
+  .receipt .txt{font-size:1rem;line-height:1.5;color:#d6eff1}
+  .receipt .src{display:block;margin-top:12px;font-size:.86rem;color:#8fb3b8;line-height:1.45}
+
+  /* Cocktail */
+  .cocktail{max-width:var(--measure);margin:52px auto;padding:26px;background:rgba(233,130,171,.09);border:1.5px solid rgba(233,130,171,.55);border-radius:16px;box-shadow:0 0 44px -12px rgba(233,130,171,.35) inset}
+  .cocktail .eyebrow{color:#e982ab;margin-bottom:10px}
+  .cocktail h3{font-size:1.4rem;color:#fff;margin-bottom:10px}
+  .cocktail p{font-style:italic;font-size:1.12rem;color:#f3d9e6;margin:0}
+
+  /* Sign-off + next */
+  .signoff{max-width:var(--measure);margin:56px auto 0;text-align:center}
+  .signoff .eyebrow{color:#7be0d0;margin-bottom:8px}
+  .signoff h2{font-size:clamp(1.7rem,4vw,2.3rem);color:#fff}
+  .rooms{font-size:.94rem;color:#b9a8cf;text-align:center;margin-top:16px}
+  .next{max-width:var(--measure);margin:40px auto 0;padding:20px 22px;background:rgba(139,189,233,.09);border:1px solid rgba(139,189,233,.4);border-radius:12px;color:#dfecfa}
+  .next .eyebrow{color:#8bbde9;margin-bottom:6px}
+  .next h3{font-size:1.3rem;margin-bottom:8px;color:#fff}
+  .next p{margin:0;max-width:none;font-size:.98rem;color:#cfe0f3}
+
+  /* Field trip */
+  .tryon{max-width:var(--measure);margin:48px auto 0;padding:24px 26px;background:rgba(244,166,54,.09);border:1.5px solid rgba(244,166,54,.48);border-radius:16px;color:#f4e6cf}
+  .tryon .eyebrow{color:#f4a636;margin-bottom:8px}
+  .tryon h3{font-size:1.3rem;color:#fff;margin-bottom:10px}
+  .btn{display:inline-block;margin-top:14px;padding:11px 20px;border-radius:10px;background:var(--pink);color:#2a1226;text-decoration:none;font-weight:700;font-size:.95rem}
+
+  /* Study pack — expandable "words, defined" */
+  .gloss{max-width:var(--measure);margin:20px auto 0}
+  .gloss details{border:1px solid rgba(203,184,232,.28);border-radius:12px;margin-bottom:12px;background:rgba(179,171,231,.05)}
+  .gloss summary{list-style:none;cursor:pointer;padding:14px 18px;display:flex;align-items:center;gap:14px}
+  .gloss summary::-webkit-details-marker{display:none}
+  .gloss .term{font-weight:800;font-size:1.14rem;color:#fff;flex:none}
+  .gloss .peek{font-size:.95rem;color:#c3b2d8;flex:1;line-height:1.35}
+  .gloss .plus{font-family:'VT323',monospace;font-size:1.5rem;color:#7be0d0;flex:none;transition:transform .15s}
+  .gloss details[open] .plus{transform:rotate(45deg)}
+  .gloss .def{padding:0 18px 16px;margin:0;max-width:none;color:#e3d9ef;font-size:1rem;line-height:1.6}
+  @media(max-width:560px){ .gloss summary{flex-wrap:wrap} .gloss .peek{flex-basis:100%;order:3} }
+
+  /* Watch/Listen CTA */
+  .listen-wrap{text-align:center;margin:48px auto}
+  .listen{display:inline-flex;align-items:center;gap:12px;font-family:'VT323',monospace;font-size:1.28rem;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;color:var(--plum-deep);background:var(--tang);padding:15px 30px;border-radius:12px;box-shadow:0 14px 30px -14px rgba(244,166,54,.7)}
+
+  /* Cast strip */
+  .cast{background:linear-gradient(160deg,#4a3585 0%,#3a1838 72%);color:var(--cream);margin-top:70px;padding:52px 24px}
+  .cast-in{max-width:var(--wide);margin:0 auto}
+  .cast .eyebrow{color:var(--lav);text-align:center;display:block;margin-bottom:8px}
+  .cast h2{text-align:center;color:var(--cream);font-size:clamp(1.6rem,3.6vw,2.2rem);margin-bottom:26px}
+  .cast-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .cast-card{text-align:center;text-decoration:none;color:var(--cream)}
+  .cast-card img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:10px;border:1px solid rgba(201,162,39,.4);box-shadow:0 14px 28px -14px rgba(0,0,0,.6)}
+  .cast-card b{display:block;margin-top:9px;font-size:.92rem}
+  .cast-card span{font-family:'VT323',monospace;font-size:.95rem;color:var(--sky);letter-spacing:.03em}
+
+  /* Episode rail */
+  .rail{max-width:var(--wide);margin:0 auto;padding:44px 24px 72px}
+  .rail .eyebrow{color:#e982ab;text-align:center;display:block;margin-bottom:16px}
+  .rail-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .rail-btn{text-decoration:none;text-align:center;padding:16px 12px;border-radius:12px;font-weight:700;font-size:.98rem;color:var(--plum-deep)}
+  .rail-btn small{display:block;font-weight:500;font-size:.76rem;opacity:.72;margin-top:3px}
+  .rb1{background:var(--teal)} .rb2{background:var(--pink)} .rb3{background:var(--peri)} .rb4{background:var(--tang)} .rb5{background:var(--sky)} .rb6{background:var(--coral)}
+
+  @media(max-width:640px){ body{font-size:16.5px} .tv-title{font-size:2.5rem} .cast-grid{grid-template-columns:repeat(2,1fr)} }
+</style>
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+  <!-- Microsoft Clarity (heatmaps + session recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+</head>
+<body>
+
+<!-- Canonical town header (sv-global-header.js rewrites this in place) -->
+<header class="sv-header"></header>
+
+<!-- CINEMATIC PIXEL HERO — the tape, paused on its opening frame -->
+<header class="tv-hero">
+  <div class="osd"><span>❚❚ SP</span><span>S1 · E02</span></div>
+  <p class="tv-meta">SEASON 1 · EPISODE 02 · ACT 1: THE AWAKENING</p>
+  <h1 class="tv-title">Tell Me What You <em>Want</em></h1>
+  <p class="tv-logline">The one where she types something vague, gets back the world's most useless paragraph, channels David Rose about specificity, and watches AI produce something she'd actually send to a VP.</p>
+  <div class="tv-tags"><span>LESSON · <b>Prompting is delegation</b></span><span>STARS · <b>David Rose</b></span><span><b>~10 MIN READ</b></span></div>
+  <a class="hero-listen" href="/watch.html?ep=02">▶ Listen to this episode</a>
+</header>
+
+<div class="spine"><div class="spine-inner">SUNNYVAiLE VIDEO <span class="dot">·</span> S1 E02 <span class="dot">·</span> SP <span class="dot">·</span> ❚❚ <span class="end">BE KIND, REWIND ⟲</span></div></div>
+
+<main>
+
+  <!-- Ep02 dark-VHS port: content COMPLETE (prose from issue-02.html, facts
+       verified in episode-02.canon.md). Scene images reference
+       ../assets/episodes/ep-02/pixel/ep02-scene-*.png — drop Codex's final
+       stills there and the page lights up; until then the .film blocks show
+       the gradient placeholder. Not yet linked from the site. -->
+
+  <div class="prev">
+    <p class="eyebrow">◀◀ Previously, on L<span class="ai">Ai</span>DIES</p>
+    <p>Our heroine stopped feeling behind and finally stopped putting it off — one avoided email, nine seconds flat, and the realization that AI is just the most talented new hire she'll ever manage. She held auditions: one task, all three tools, and picked her favourite.</p>
+  </div>
+
+  <div class="mark"><div class="k">Cold open</div></div>
+  <figure class="film" aria-label="Scene 01 — the staring contest">
+    <div class="frames" data-frames="ep02-scene-01-staring-contest.png"><img src="../assets/episodes/ep-02/pixel/ep02-scene-01-staring-contest.jpg" alt="" loading="lazy"></div>
+    <span class="film-bug">S1·E02 · SC 01</span>
+    <figcaption class="film-cap">9:15 on a Tuesday. Same desk, same you, wildly different results.</figcaption>
+  </figure>
+  <p class="lead">It's nine-fifteen on a Tuesday, and I am losing a staring contest with a paragraph.</p>
+  <p>I'd asked one of the AI tools to draft talking points for a meeting, and what it gave back is… technically words: <em>"leverage synergies," "drive alignment," "circle back to maximize stakeholder buy-in."</em> It reads like a motivational poster that went to business school and came back worse.</p>
+  <p>And the maddening part? <em>Yesterday, the same tool wrote me a project update for my director that I barely had to touch.</em> Same app. Same me. Same tragic office lighting. One day it reads my mind, and the next it hands me a throw pillow.</p>
+  <blockquote class="pull"><p>Why does AI read my mind some days, and completely <em>ignore</em> me on others?</p></blockquote>
+
+  <div class="mark"><div class="k">To town</div><h2>The variable wasn't the tool</h2><div class="sub">Corner table at the Blend &amp; Snap, both drafts side by side.</div></div>
+  <figure class="film" aria-label="Scene 02 — two outputs, side by side">
+    <div class="frames" data-frames="ep02-scene-02-side-by-side.png"><img src="../assets/episodes/ep-02/pixel/ep02-scene-02-side-by-side.jpg" alt="" loading="lazy"></div>
+    <span class="film-bug">S1·E02 · SC 02</span>
+    <figcaption class="film-cap">Same tool, two results. The thing that changed was the ask.</figcaption>
+  </figure>
+  <p>So I did what I do with any problem I can't out-stubborn at my desk: I took it to town. Corner table at the Blend &amp; Snap, oat latte, KSVL on low. I pulled both drafts back up — the word-salad from that morning, the director update I'd barely touched — and set them side by side. It wasn't the tool that changed between the two. <strong>It was me: what I'd typed to get each one.</strong></p>
+  <p>AI can't read your mind. What's in your head stays in your head until you type it out — and the tool works with your words, and nothing else.</p>
+
+  <div class="mark"><div class="k">The coffee order</div><h2>The brand-new café across town</h2><div class="sub">This week's concept: Context.</div></div>
+  <figure class="film" aria-label="Scene 03 — the new café across town">
+    <div class="frames" data-frames="ep02-scene-03-new-cafe.png"><img src="../assets/episodes/ep-02/pixel/ep02-scene-03-new-cafe.jpg" alt="" loading="lazy"></div>
+    <span class="film-bug">S1·E02 · SC 03</span>
+    <figcaption class="film-cap">Say "the usual" to a café that's never met you, and you get a blank look.</figcaption>
+  </figure>
+  <p>Think about your coffee order. At your regular spot, you barely have to say it — they know your usual, because you built that over a hundred Tuesdays. But AI is not your regular spot. It's the brand-new café across town, and if you breeze in and say "the usual," you get a blank look — or a plain drip going cold on the counter, which you can't even be mad about, because you never told the barista what you actually wanted to drink.</p>
+  <p>The AI isn't holding out on you — it genuinely can't see what you didn't say. It has your words, and nothing else. Not your job, not who's reading this, not the meeting on your calendar. Every detail you leave in your head is one it's forced to guess at. So you spell it out — every time — and the guessing stops. <strong>That's context.</strong></p>
+
+  <div class="mark"><div class="k">The lesson</div><h2>Tell me what you want, what you really, really want</h2><div class="sub">This week's concept: the Prompt.</div></div>
+  <figure class="film" aria-label="Scene 04 — the Spice Girls">
+    <div class="frames" data-frames="ep02-scene-04-spice-girls.png"><img src="../assets/episodes/ep-02/pixel/ep02-scene-04-spice-girls.jpg" alt="" loading="lazy"></div>
+    <span class="film-bug">S1·E02 · SC 04</span>
+    <figcaption class="film-cap">They weren't gesturing at a vibe. They wanted specifics.</figcaption>
+  </figure>
+  <p>The Spice Girls had this figured out decades ago. <em>(Wait… decades? Oof. That's a jagged little pill to swallow, but here we are.)</em> <em>"Tell me what you want, what you really, really want."</em> They weren't gesturing at a vibe. They wanted specifics. AI is exactly the same: it'll zig-a-zig-ah all day, but it only does useful work when you tell it precisely what you need. <strong>That ask is the prompt.</strong></p>
+
+  <div class="mark"><div class="k">Class is in session</div><h2>The David Rose School of Prompting</h2><div class="sub">How to actually fold in the cheese.</div></div>
+  <figure class="film" aria-label="Scene 05 — fold in the cheese">
+    <div class="frames" data-frames="ep02-scene-05-fold-in-cheese.png"><img src="../assets/episodes/ep-02/comic/ep02-scene-20-fold-in-the-cheese-comic.png" alt="" loading="lazy"></div>
+    <span class="film-bug">S1·E02 · SC 05</span>
+    <figcaption class="film-cap">"WHAT DOES THAT MEAN?!" — the AI's face, every vague ask.</figcaption>
+  </figure>
+  <p>Our patron saint this week is David Rose — and yes, we know, he's not exactly '90s or 2000s. But he's so fabulous we made one exception. <em>(In the immortal words of Shakespeare: a Rose by any other name…)</em> If you've seen <em>Schitt's Creek</em>, you know David is pathologically specific — the wine, the sweater, the exact drape of the sweater.</p>
+  <p>You remember Moira telling David to "fold in the cheese," and David standing in that kitchen screaming, <strong>"WHAT DOES THAT MEAN?!"</strong> That is your AI, every single time you type <em>"write me an email about the project."</em> It's trying. But you handed it "fold in the cheese" — when what it needed was <em>"scrape the spatula along the bottom of the bowl, lift, turn it over, turn the bowl, and repeat."</em></p>
+
+  <div class="mark"><div class="k">The fix</div><h2>Brief it like a new hire</h2><div class="sub">Prompting isn't technical. It's delegation.</div></div>
+  <figure class="film" aria-label="Scene 06 — brief it like a new hire">
+    <div class="frames" data-frames="ep02-scene-06-new-hire.png"><img src="../assets/episodes/ep-02/pixel/ep02-scene-06-new-hire.jpg" alt="" loading="lazy"></div>
+    <span class="film-bug">S1·E02 · SC 06</span>
+    <figcaption class="film-cap">Every question you'd ask handing work to a smart new hire.</figcaption>
+  </figure>
+  <p>The fix turned out to be something I already knew how to do. I stopped typing <em>at</em> AI like a Google search — three vague words, fingers crossed — and started briefing it like a smart new hire in her first week. Every one of these is a question you already ask when you hand work to a person:</p>
+  <ul style="max-width:var(--measure);margin:0 auto 20px;padding-left:1.4em;line-height:1.6;">
+    <li><strong>Who's it for?</strong> The audience changes everything.</li>
+    <li><strong>What do they care about?</strong> Give it the stakes.</li>
+    <li><strong>What's the tone?</strong> Warm, blunt, formal, funny.</li>
+    <li><strong>How long?</strong> A line, a paragraph, a page.</li>
+    <li><strong>What to leave out?</strong> Boundaries before the draft wanders off.</li>
+    <li><strong>Any example to copy?</strong> The strongest move of all.</li>
+  </ul>
+  <p>If you only ever steal one, steal the last: <strong>show it an example.</strong> Paste in one you already love — an email that landed, a summary that worked — and say "match this." Nothing gets you a better answer faster.</p>
+
+  <div class="mark"><div class="k">It's Britney, bitch</div><h2>Same task, two asks</h2><div class="sub">The difference is almost rude.</div></div>
+  <figure class="film" aria-label="Scene 07 — vague vs specific">
+    <div class="frames" data-frames="ep02-scene-07-vague-vs-specific.png"><img src="../assets/episodes/ep-02/comic/ep02-comicpage-vague-vs-specific.png" alt="" loading="lazy"></div>
+    <span class="film-bug">S1·E02 · SC 07</span>
+    <figcaption class="film-cap">One twelve-page policy change. Two asks. Watch what comes back.</figcaption>
+  </figure>
+  <p>You've got a twelve-page policy change to get in front of six stakeholders before a 2&nbsp;p.m. meeting — and it's <em>dense</em>: regulatory language, cross-references, defined terms nested three deep. Reading it properly is an hour you do not have. So you paste the whole thing into the chat. <strong>This is exactly the kind of job you hand to AI</strong> — not because you can't write a summary, but because you don't have time to <em>read all twelve pages and find what actually matters</em>. The catch: it only works if you ask well.</p>
+  <p>The vague ask — <em>"summarize this policy change for my stakeholders"</em> — comes back accurate, thorough, and useless in the two minutes you have. On twelve dense pages it summarizes <em>everything</em>: background, rationale, audit findings, every section, the appendices. It prioritizes nothing and buries the action items, because it doesn't know what matters to <em>you</em>. You still have to do the reading.</p>
+  <p>The specific brief — <em>six senior managers, two minutes before a meeting; what's changing, when it takes effect, what teams do differently, any budget impact; cut the backstory; bullets, ~150 words; match last quarter's summary that landed</em> — comes back as a clean exec summary you could forward without touching a word. Ninety seconds to write, forty-five to check.</p>
+  <p><strong>And one line in that summary — <em>full-time teams only, contractors exempt until Q1</em> — is the whole reason you opened AI.</strong> You could have written the summary yourself. What you couldn't do in the twenty minutes before the meeting was read twelve pages of compliance language and catch the contractor carve-out buried inside it. That's not a writing task; it's a <em>reading</em> task — and it's the part AI just did for you, in an output tailored to your instructions.</p>
+
+  <div class="mark"><div class="k">Don't change the station</div><h2>Iterate like you would with a new hire</h2></div>
+  <figure class="film" aria-label="Scene 08 — call into the radio">
+    <div class="frames" data-frames="ep02-scene-08-radio.png"><img src="../assets/episodes/ep-02/pixel/ep02-scene-08-radio.jpg" alt="" loading="lazy"></div>
+    <span class="film-bug">S1·E02 · SC 08</span>
+    <figcaption class="film-cap">Ask for the exact song. Don't keep flipping the dial.</figcaption>
+  </figure>
+  <p>And if the first answer isn't quite right? You don't start from scratch — you tell it what's off, exactly like you would with a real new hire. <em>It's calling into the radio and asking for exactly what you want to hear (or finally shelling out twenty bucks at HMV for the CD) — not constantly changing the station, hoping it lands on one playing a track you like.</em></p>
+
+  <div class="mark"><div class="k">The evidence</div><h2>Turns out "soft" was the hard part</h2><div class="sub">So I went looking at the LIBR<span class="ai">Ai</span>RY — the town's reference desk — and there it was.</div></div>
+  <figure class="film" aria-label="Scene 09 — the LIBRAiRY">
+    <div class="frames" data-frames="ep02-scene-09-libraiy.png"><img src="../assets/episodes/ep-02/pixel/ep02-scene-09-libraiy.jpg" alt="" loading="lazy"></div>
+    <span class="film-bug">S1·E02 · SC 09</span>
+    <figcaption class="film-cap">The skills filed under "soft" for a generation are the ones that now win.</figcaption>
+  </figure>
+  <p>By now a voice in the back of your head might be muttering that briefing, giving context, knowing what to cut — it all sounds a little <em>soft</em> to count as a real skill. Hold that thought.</p>
+  <div class="receipt">
+    <div class="h">Harvard × BCG · 758 consultants · 2023</div>
+    <div class="row"><span class="num">~25%</span><span class="txt"><strong>faster</strong> — on the tasks that suited AI in the first place ("inside the jagged frontier").</span></div>
+    <div class="row"><span class="num">~40%</span><span class="txt"><strong>higher-quality</strong> rated output — with the biggest lift going to lower performers.</span></div>
+    <div class="row"><span class="num">01</span><span class="txt">thing separated the winners — and it <strong>wasn't technical</strong>. It was knowing how to brief, hand over context, and when to push back.</span></div>
+    <span class="src">Dell'Acqua, McFowland, Mollick et&nbsp;al., "Navigating the Jagged Technological Frontier" (2023). Verified 2026-07-07. Scope: gains apply to AI-suitable tasks — not a blanket "AI makes everyone better at everything."</span>
+  </div>
+  <p>The best line about it comes from someone who co-authored that very study — <strong>Ethan Mollick, a Wharton professor and one of the most-read, most-trusted voices on actually using AI:</strong></p>
+  <blockquote class="pull"><p>"The skills that are so often dismissed as <em>'soft'</em> turned out to be the hard ones."</p><div class="who">— Ethan Mollick</div></blockquote>
+  <p>Which means the woman who writes a thorough brief — who thinks about her reader, spells out what she needs, knows what to cut — is already ahead of the guy who types three words and expects the machine to read his mind. Communicating clearly. Thinking critically. Reading what a person actually needs. Those got filed under "soft skills" for a generation — the consolation prize. But study after study now lands in the same place: in the age of AI, those are the skills that separate the people who win. <strong>And not instead of the hard skills — on top of them.</strong> A sharp communicator with real judgment who <em>also</em> knows her stuff was never the soft skill set. That's the one that wins.</p>
+
+  <!-- WRAP -->
+  <div class="mark"><div class="k">The takeaway</div><h2>Stop typing at it. Start briefing it.</h2></div>
+  <p>A prompt was never code, and you were never behind. You've briefed people your whole career — the smart new hire, the one who needed clearer instructions. This one is just faster, never sleeps, and will absolutely fold the cheese wrong if you don't tell her how. Give it context, give it the brief, and it gives you back something you'd actually use.</p>
+
+  <!-- COCKTAIL -->
+  <div class="cocktail">
+    <p class="eyebrow">Say it at happy hour</p>
+    <h3>"So… what's a prompt, really?"</h3>
+    <p>A prompt isn't code. It's a delegation. You're not programming a machine — you're briefing an assistant. And you already know how to brief. This one is just faster, never sleeps, and will absolutely fold the cheese wrong if you don't tell her how.</p>
+  </div>
+
+  <!-- SIGN-OFF -->
+  <section class="signoff">
+    <p class="eyebrow">So remember, ladies…</p>
+    <h2>AI can't read your mind — so tell it what you want. Be specific. Be bold. Be David Rose about it.</h2>
+  </section>
+  <p class="rooms">Got a sharper "remember, ladies" than that one? Post it in the rooms — our residents-only chats at the sorority house. Your Resident Card gets you in the door, and favourites get featured, with credit.</p>
+
+  <!-- LISTEN -->
+  <div class="listen-wrap"><a class="listen" href="/watch.html?ep=02">▶ Listen to this episode</a></div>
+
+  <!-- NEXT -->
+  <div class="next">
+    <p class="eyebrow">Next week on L<span class="ai">Ai</span>DIES</p>
+    <h3>Episode 03 · The Burn Book Problem</h3>
+    <p>The machine hands our heroine a beautiful, confident answer — with one small detail that could blow up the whole meeting. See you next Wednesday, in SUNNYVAiLE.</p>
+  </div>
+
+  <!-- FIELD TRIP -->
+  <div class="tryon">
+    <p class="eyebrow">Your scene · the try-on</p>
+    <h3>Same task, twice</h3>
+    <p>Hand one real task to an AI tool <strong>twice</strong>. First the lazy way — three vague words, the way you'd Google it. Then the David Rose way: who it's for, what they care about, the tone, the length, and what to leave out. Put the two answers side by side. The difference isn't the tool getting smarter between tries — <em>it's you getting specific.</em></p>
+    <a class="btn" href="../games/fairy-godmother.html">Get your prompt glow-up →</a>
+  </div>
+
+  <!-- THE VOCAB — key terms + definitions -->
+  <div class="mark" id="vocab"><div class="k">The three words</div><h2>The Vocab</h2><div class="sub">Key terms and their definitions.</div></div>
+  <div class="gloss">
+    <details open>
+      <summary><span class="term">Prompt</span><span class="peek">What you type in — Elle Woods didn't just say "let me in."</span><span class="plus">+</span></summary>
+      <p class="def">What you type into the chat box. Remember Elle Woods' Harvard application video? She didn't just say "let me in" — she was specific, personal, tailored to her audience, impossible to ignore. That's a good prompt. Not code, not a spell — you being clear about who it's for, what you need, and what "good" looks like.</p>
+    </details>
+    <details>
+      <summary><span class="term">Context</span><span class="peek">The background that makes it understand <em>your</em> situation — Miranda's cerulean speech.</span><span class="plus">+</span></summary>
+      <p class="def">The background information that makes AI understand your situation, not the generic version. Remember Miranda Priestly's cerulean speech? Andy thinks it's just a blue sweater; Miranda traces the exact shade through eight designers and a clearance bin. When you say "this is for senior managers who have two minutes and don't care about the backstory," you've just given AI the cerulean speech. Without context, you get generic blue. With it, cerulean.</p>
+    </details>
+    <details>
+      <summary><span class="term">Token</span><span class="peek">A chunk of text the model reads. More context has a cost.</span><span class="plus">+</span></summary>
+      <p class="def">A chunk of text the model processes. You don't need to obsess over tokens yet — just know that more context has a cost and tools have limits. If a chat starts acting forgetful or vague, it may be holding more material than it comfortably can at once.</p>
+    </details>
+  </div>
+
+</main>
+
+<!-- CAST -->
+<section class="cast"><div class="cast-in">
+  <span class="eyebrow">The cast of this episode</span>
+  <h2>The Patron SA<span class="ai">i</span>NTS in "Tell Me What You Want"</h2>
+  <div class="cast-grid">
+    <a class="cast-card" href="/luminairy.html"><img src="../assets/saints/y2k-stained-glass-v2/david-rose-y2k-stained-glass.jpg" alt="David Rose" onerror="this.remove()" loading="lazy"><b>David Rose</b><span>Patron of specificity · the prompt</span></a>
+    <a class="cast-card" href="/luminairy.html"><img src="../assets/saints/y2k-stained-glass-v2/miranda-priestly-y2k-stained-glass.jpg" alt="Miranda Priestly" onerror="this.remove()" loading="lazy"><b>Miranda Priestly</b><span>The cerulean speech · context</span></a>
+    <a class="cast-card" href="/luminairy.html"><img src="../assets/saints/y2k-stained-glass-v2/elle-woods-y2k-stained-glass.jpg" alt="Elle Woods" onerror="this.remove()" loading="lazy"><b>Elle Woods</b><span>The application video · a good prompt</span></a>
+  </div>
+</div></section>
+
+<!-- RAIL -->
+<div class="rail">
+  <span class="eyebrow">Everything in this episode</span>
+  <div class="rail-row">
+    <a class="rail-btn rb1" href="/watch.html?ep=02">Listen<small>Narration</small></a>
+    <a class="rail-btn rb2" href="/blend-snap.html#the-study-pack">Study Pack<small>Try-On · Cheat Sheet · Cards</small></a>
+    <a class="rail-btn rb4" href="/radio.html">The Song<small>This week's track</small></a>
+    <a class="rail-btn rb6" href="/bronze-aige.html#answers">Cocktail<small>What's a prompt, really?</small></a>
+    <a class="rail-btn rb3" href="/community.html">Rooms<small>Talk it over at Delta LAi Nu</small></a>
+    <a class="rail-btn rb5" href="/learn/quiz.html">Quiz<small>Collect your sticker</small></a>
+  </div>
+</div>
+
+<script>
+/* Point each Saint portrait at that Saint's bio on the LUMiNAiRY (deep-link ?meet=<slug>) */
+(function(){
+  function slug(img){ var m=(img&&img.getAttribute('src')||'').match(/\/([a-z-]+)-y2k-stained-glass\.png/i); return m?m[1]:''; }
+  function link(s){ return '/luminairy.html?meet='+s+'#mavens'; }
+  document.querySelectorAll('.cast-card').forEach(function(a){
+    var s=slug(a.querySelector('img')); if(s) a.setAttribute('href', link(s));
+  });
+})();
+</script>
+</body>
+</html>

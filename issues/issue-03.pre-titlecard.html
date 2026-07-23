@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Episode 03 · The Burn Book Problem · LAiDIES · SUNNYVAiLE</title>
+<meta name="description" content="The one where she gets a Regina George–confident answer, catches the one detail that doesn't fit, and checks the timeline before it borrows her name. AI hallucination + verification.">
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&family=VT323&display=swap" rel="stylesheet">
+<script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+<script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+<script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+<style>
+  :root{
+    --cream:#fffdfb; --plum:#4b2148; --plum-deep:#3a1838; --ink:#3a1838;
+    --pink:#e982ab; --coral:#ec7a78; --tang:#f4a636; --teal:#57b6c0; --sky:#8bbde9; --peri:#b3abe7;
+    --gold:#c9a227; --lav:#cabbe8;
+    --measure:720px; --wide:840px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Jost',system-ui,sans-serif;color:#f2eaf3;background:#160f1d;line-height:1.75;font-size:18px;-webkit-font-smoothing:antialiased}
+  body::before{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0 2px,rgba(0,0,0,.15) 2px 3px);mix-blend-mode:multiply;opacity:.45}
+  .ai{color:inherit;text-transform:none}
+  h1,h2,h3{font-weight:800;line-height:1.06;letter-spacing:-.01em}
+  h1 .ai,h2 .ai,h3 .ai,.eyebrow .ai,.tv-tags .ai{color:var(--pink)}
+  main{max-width:var(--wide);margin:0 auto;padding:0 24px}
+  p{max-width:var(--measure);margin:0 auto 20px}
+  p strong{font-weight:700;color:#ffffff}
+  em{font-style:italic}
+  a{color:#8bbde9}
+  /* Keep the sky link color for the dark article body only — the light global header needs legible plum. */
+  .sv-header nav a, .sv-header .svgh-nav a, .sv-header .brand{color:#4b2148}
+  .sv-header .brand .lac{color:#57b6c0}
+  .eyebrow{font-size:.74rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+
+  /* Store shelf strip */
+  .shelf-strip{background:#111013;color:var(--cream);text-align:center;font-family:'VT323',monospace;font-size:1.05rem;letter-spacing:.08em;padding:7px 16px}
+  .shelf-strip b{color:var(--teal);font-weight:400}
+
+  /* Cinematic pixel-art hero — the tape's title card, in the world */
+  .tv-hero{position:relative;overflow:hidden;padding:118px 24px 88px;text-align:center;color:var(--cream);
+    background:linear-gradient(180deg,rgba(14,9,24,.46) 0%,rgba(11,7,18,.72) 66%,rgba(11,7,18,.94) 100%), url('../assets/episodes/ep-03/pixel/ep03-scene-01-cold-open.jpg') center 30%/cover}
+  .tv-hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0 2px,rgba(0,0,0,.16) 2px 4px);mix-blend-mode:multiply}
+  .tv-hero>*{position:relative;z-index:2}
+  .osd{position:absolute;top:14px;left:18px;right:18px;z-index:3;display:flex;justify-content:space-between;font-family:'VT323',monospace;font-size:1.05rem;color:#7be0d0;letter-spacing:.1em;text-shadow:0 0 8px rgba(87,182,192,.7)}
+  .tv-meta{font-family:'VT323',monospace;color:#d9c6f0;font-size:1.12rem;letter-spacing:.13em;margin-bottom:16px;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+  .tv-title{font-size:clamp(2.6rem,7vw,4.6rem);color:var(--cream);text-shadow:0 2px 26px rgba(0,0,0,.6), 0 0 46px rgba(139,189,233,.28)}
+  .tv-title em{font-style:italic;color:var(--pink)}
+  .tv-logline{font-style:italic;font-size:1.16rem;color:rgba(255,253,251,.94);max-width:38ch;margin:20px auto 0;line-height:1.5;text-shadow:0 1px 10px rgba(0,0,0,.6)}
+  .tv-tags{display:flex;gap:0;justify-content:center;flex-wrap:wrap;margin-top:26px;font-family:'VT323',monospace;font-size:1.08rem;letter-spacing:.07em;color:#e7dcf5;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+  .tv-tags span{padding:0 15px;position:relative}
+  .tv-tags span+span::before{content:"·";position:absolute;left:-3px;color:rgba(231,220,245,.5)}
+  .tv-tags b{color:#fff;font-weight:700}
+  .hero-listen{display:inline-flex;align-items:center;gap:10px;margin-top:28px;font-family:'VT323',monospace;font-size:1.18rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:#0c1a16;background:#7be0d0;padding:12px 26px;border-radius:10px;box-shadow:0 0 30px -6px rgba(123,224,208,.7);transition:transform .12s}
+  .hero-listen:hover{transform:translateY(-1px)}
+
+  /* VHS spine label */
+  .spine{max-width:var(--wide);margin:-24px auto 0;position:relative;z-index:2;padding:0 24px}
+  .spine-inner{background:var(--cream);border:2px solid var(--plum-deep);border-radius:8px;display:flex;align-items:center;gap:14px;padding:11px 18px;font-family:'VT323',monospace;font-size:1.12rem;letter-spacing:.06em;color:var(--plum-deep);box-shadow:0 14px 30px -18px rgba(58,24,56,.5)}
+  .spine-inner .dot{color:var(--coral)}
+  .spine-inner .end{margin-left:auto;color:var(--teal)}
+
+  /* Previously on */
+  .prev{max-width:var(--measure);margin:40px auto 0;padding:16px 22px;background:rgba(179,171,231,.09);border:1px solid rgba(179,171,231,.38);border-radius:12px;color:#e7dcf5}
+  .prev .eyebrow{color:#b3abe7;margin-bottom:8px}
+  .prev p{margin:0;max-width:none;font-style:italic;font-size:1.04rem;line-height:1.5;color:#d7cbe9}
+
+  /* Section marker */
+  .mark{max-width:var(--measure);margin:64px auto 6px;padding-top:16px;border-top:1px solid rgba(203,184,232,.22)}
+  .mark .k{font-family:'VT323',monospace;font-size:1.2rem;letter-spacing:.12em;text-transform:uppercase;color:#7be0d0;margin-bottom:6px;text-shadow:0 0 10px rgba(87,182,192,.4)}
+  .mark .k::before{content:"\25B6  ";color:var(--pink)}
+  .mark h2{font-size:clamp(1.8rem,4.2vw,2.6rem);color:#fff}
+  .mark .sub{margin-top:8px;color:#c3b2d8;font-size:1rem}
+  .lead{font-size:1.22rem;color:#fff;font-weight:500}
+
+  /* Establishing broadcast still */
+  .still{position:relative;margin:26px auto;max-width:var(--wide);border-radius:12px;overflow:hidden;box-shadow:0 26px 54px -28px rgba(58,24,56,.55)}
+  .still img{width:100%;display:block}
+  .still::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0 3px,rgba(0,0,0,.10) 3px 6px)}
+  .still .bug{position:absolute;top:12px;right:14px;font-family:'VT323',monospace;font-size:1rem;color:var(--cream);letter-spacing:.1em;text-shadow:0 1px 4px rgba(0,0,0,.7)}
+  .still .cap{position:absolute;bottom:0;left:0;right:0;padding:16px 18px 13px;color:var(--cream);background:linear-gradient(0deg,rgba(14,7,16,.86),transparent);font-family:'VT323',monospace;font-size:1.05rem;letter-spacing:.05em}
+
+  /* Inline scene film — pixel-art keyframe that plays a short silent loop on scroll */
+  .film{position:relative;max-width:var(--wide);margin:30px auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:linear-gradient(150deg,#3a1838 0%,#6b2f57 52%,#f4a636 130%);box-shadow:0 30px 64px -30px rgba(58,24,56,.62)}
+  /* scene still — a paused broadcast frame (the real video clip swaps in here later) */
+  .film .frames{position:absolute;inset:0;z-index:1}
+  .film .frames img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .film .frames img~img{display:none}   /* only the first (poster) frame shows until video exists */
+  .film::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0 3px,rgba(0,0,0,.12) 3px 6px);mix-blend-mode:multiply}
+  .film-bug{position:absolute;top:13px;right:15px;z-index:3;font-family:'VT323',monospace;font-size:1rem;color:var(--cream);letter-spacing:.1em;text-shadow:0 1px 5px rgba(0,0,0,.8)}
+  .film-cap{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:32px 20px 14px;color:var(--cream);font-family:'VT323',monospace;font-size:1.08rem;letter-spacing:.04em;background:linear-gradient(0deg,rgba(12,6,14,.9),transparent)}
+
+  /* Maven identity card (small credit beneath the scene film) */
+  .idcard{max-width:var(--measure);margin:16px auto 0;display:flex;align-items:center;gap:16px}
+  .idcard>img{width:66px;height:99px;object-fit:cover;border-radius:8px;border:1px solid rgba(201,162,39,.5);flex:none;box-shadow:0 12px 26px -14px rgba(58,24,56,.6)}
+  .idmeta{display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+  .idmeta b{font-weight:800;font-size:1.18rem;color:#fff;letter-spacing:-.01em;line-height:1.05}
+  .idmeta .idrole{font-family:'VT323',monospace;font-size:1.02rem;color:#c3b2d8;letter-spacing:.03em}
+
+  /* Maven scene: film (full width) + inset identity card */
+  .scene{max-width:var(--wide);margin:48px auto 0}
+  /* Maven era/role kicker — a quiet LABEL, not a button (no pill, no play arrow) */
+  .cue{display:inline-block;font-family:'VT323',monospace;font-size:1.08rem;letter-spacing:.11em;text-transform:uppercase;color:#7be0d0;background:none;padding:0}
+  .cue.c-pink{color:var(--pink)} .cue.c-tang{color:var(--tang)} .cue.c-sky{color:var(--sky)} .cue.c-coral{color:var(--coral)} .cue.c-peri{color:var(--peri)}
+  .cue .play{display:none}
+  .portrait{max-width:340px;margin:20px auto 6px}
+  .portrait img{width:100%;display:block;border-radius:10px;border:1px solid rgba(201,162,39,.45);box-shadow:0 22px 46px -22px rgba(58,24,56,.6)}
+  .portrait figcaption{margin-top:10px;text-align:center;font-family:'VT323',monospace;font-size:1.05rem;letter-spacing:.04em;color:var(--plum-soft,#6b3a66)}
+  .portrait figcaption b{display:block;font-family:'Jost',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:-.01em;color:var(--plum-deep)}
+
+  /* Pull quote */
+  .pull{max-width:var(--measure);margin:52px auto;padding:24px 22px;text-align:center}
+  .pull p{font-style:italic;font-size:clamp(1.5rem,3.4vw,2rem);line-height:1.3;color:#fff;margin:0;max-width:none;font-weight:600;text-shadow:0 0 34px rgba(233,130,171,.28)}
+  .pull .who{margin-top:12px;font-family:'VT323',monospace;font-size:1.05rem;letter-spacing:.08em;color:#7be0d0}
+
+  /* Receipts / stat */
+  .receipt{max-width:var(--measure);margin:44px auto;background:#0c1a1e;color:#d6eff1;border:1.5px solid #57b6c0;border-radius:12px;padding:22px 24px;box-shadow:0 0 40px -14px rgba(87,182,192,.5) inset}
+  .receipt .h{font-family:'VT323',monospace;font-size:1.05rem;letter-spacing:.1em;text-transform:uppercase;color:#7be0d0;margin-bottom:10px}
+  .receipt .row{display:flex;gap:20px;align-items:center}
+  .receipt .num{font-size:2.8rem;font-weight:800;color:#f4a636;line-height:1;flex:none;font-family:'VT323',monospace}
+  .receipt .txt{font-size:1rem;line-height:1.5;color:#d6eff1}
+  .receipt .src{display:block;margin-top:12px;font-size:.86rem;color:#8fb3b8;line-height:1.45}
+
+  /* Trio */
+  .trio{max-width:var(--wide);margin:26px auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .trio figure{margin:0}
+  .trio img{width:100%;border-radius:10px;border:1px solid rgba(201,162,39,.45);box-shadow:0 16px 34px -18px rgba(58,24,56,.6)}
+  .trio figcaption{margin-top:9px;text-align:center;font-family:'VT323',monospace;font-size:.98rem;color:#c3b2d8}
+
+  /* Cocktail */
+  .cocktail{max-width:var(--measure);margin:52px auto;padding:26px;background:rgba(233,130,171,.09);border:1.5px solid rgba(233,130,171,.55);border-radius:16px;box-shadow:0 0 44px -12px rgba(233,130,171,.35) inset}
+  .cocktail .eyebrow{color:#e982ab;margin-bottom:10px}
+  .cocktail h3{font-size:1.4rem;color:#fff;margin-bottom:10px}
+  .cocktail p{font-style:italic;font-size:1.12rem;color:#f3d9e6;margin:0}
+
+  /* Sign-off + next */
+  .signoff{max-width:var(--measure);margin:56px auto 0;text-align:center}
+  .signoff .eyebrow{color:#7be0d0;margin-bottom:8px}
+  .signoff h2{font-size:clamp(1.7rem,4vw,2.3rem);color:#fff}
+  .rooms{font-size:.94rem;color:#b9a8cf;text-align:center;margin-top:16px}
+  .next{max-width:var(--measure);margin:40px auto 0;padding:20px 22px;background:rgba(139,189,233,.09);border:1px solid rgba(139,189,233,.4);border-radius:12px;color:#dfecfa}
+  .next .eyebrow{color:#8bbde9;margin-bottom:6px}
+  .next h3{font-size:1.3rem;margin-bottom:8px;color:#fff}
+  .next p{margin:0;max-width:none;font-size:.98rem;color:#cfe0f3}
+
+  /* Field trip */
+  .tryon{max-width:var(--measure);margin:48px auto 0;padding:24px 26px;background:rgba(244,166,54,.09);border:1.5px solid rgba(244,166,54,.48);border-radius:16px;color:#f4e6cf}
+  .tryon .eyebrow{color:#f4a636;margin-bottom:8px}
+  .tryon h3{font-size:1.3rem;color:#fff;margin-bottom:10px}
+  .btn{display:inline-block;margin-top:14px;padding:11px 20px;border-radius:10px;background:var(--pink);color:#2a1226;text-decoration:none;font-weight:700;font-size:.95rem}
+
+  /* Study pack — expandable "four words, defined" */
+  .gloss{max-width:var(--measure);margin:20px auto 0}
+  .gloss details{border:1px solid rgba(203,184,232,.28);border-radius:12px;margin-bottom:12px;background:rgba(179,171,231,.05)}
+  .gloss summary{list-style:none;cursor:pointer;padding:14px 18px;display:flex;align-items:center;gap:14px}
+  .gloss summary::-webkit-details-marker{display:none}
+  .gloss .term{font-weight:800;font-size:1.14rem;color:#fff;flex:none}
+  .gloss .peek{font-size:.95rem;color:#c3b2d8;flex:1;line-height:1.35}
+  .gloss .plus{font-family:'VT323',monospace;font-size:1.5rem;color:#7be0d0;flex:none;transition:transform .15s}
+  .gloss details[open] .plus{transform:rotate(45deg)}
+  .gloss .def{padding:0 18px 16px;margin:0;max-width:none;color:#e3d9ef;font-size:1rem;line-height:1.6}
+  @media(max-width:560px){ .gloss summary{flex-wrap:wrap} .gloss .peek{flex-basis:100%;order:3} }
+
+  /* In memoriam aside (Alan Turing) — mirrors the LUMiNAiRY */
+  .memoriam{max-width:var(--measure);margin:56px auto 8px;padding:30px 28px 26px;text-align:center;border-top:1px solid rgba(201,162,39,.45);border-bottom:1px solid rgba(201,162,39,.45)}
+  .memoriam .mem-k{font-family:'VT323',monospace;font-size:1.05rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+  .memoriam img{width:92px;height:92px;object-fit:cover;border-radius:12px;border:1.5px solid var(--gold);margin:0 auto 14px;display:block}
+  .memoriam h3{font-weight:800;font-size:1.5rem;color:#fff;margin:0 0 14px;line-height:1.15}
+  .memoriam h3 span{display:block;font-size:.82rem;font-weight:400;opacity:.65;margin-top:5px;font-family:'VT323',monospace;letter-spacing:.08em}
+  .memoriam p{max-width:none;margin:0 auto;font-size:1rem;line-height:1.7;color:#e3d9ef;opacity:.92}
+
+  /* Watch/Listen CTA */
+  .listen-wrap{text-align:center;margin:48px auto}
+  .listen{display:inline-flex;align-items:center;gap:12px;font-family:'VT323',monospace;font-size:1.28rem;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;color:var(--plum-deep);background:var(--tang);padding:15px 30px;border-radius:12px;box-shadow:0 14px 30px -14px rgba(244,166,54,.7)}
+
+  /* Cast strip */
+  .cast{background:linear-gradient(160deg,#4a3585 0%,#3a1838 72%);color:var(--cream);margin-top:70px;padding:52px 24px}
+  .cast-in{max-width:var(--wide);margin:0 auto}
+  .cast .eyebrow{color:var(--lav);text-align:center;display:block;margin-bottom:8px}
+  .cast h2{text-align:center;color:var(--cream);font-size:clamp(1.6rem,3.6vw,2.2rem);margin-bottom:26px}
+  .cast-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .cast-card{text-align:center;text-decoration:none;color:var(--cream)}
+  .cast-card img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:10px;border:1px solid rgba(201,162,39,.4);box-shadow:0 14px 28px -14px rgba(0,0,0,.6)}
+  .cast-card b{display:block;margin-top:9px;font-size:.92rem}
+  .cast-card span{font-family:'VT323',monospace;font-size:.95rem;color:var(--sky);letter-spacing:.03em}
+
+  /* Episode rail */
+  .rail{max-width:var(--wide);margin:0 auto;padding:44px 24px 72px}
+  .rail .eyebrow{color:#e982ab;text-align:center;display:block;margin-bottom:16px}
+  .rail-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .rail-btn{text-decoration:none;text-align:center;padding:16px 12px;border-radius:12px;font-weight:700;font-size:.98rem;color:var(--plum-deep)}
+  .rail-btn small{display:block;font-weight:500;font-size:.76rem;opacity:.72;margin-top:3px}
+  .rb1{background:var(--teal)} .rb2{background:var(--pink)} .rb3{background:var(--peri)} .rb4{background:var(--tang)} .rb5{background:var(--sky)} .rb6{background:var(--coral)}
+
+  @media(max-width:640px){ body{font-size:16.5px} .tv-title{font-size:2.5rem} .trio{grid-template-columns:1fr} .cast-grid{grid-template-columns:repeat(2,1fr)} }
+</style>
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+  <!-- Microsoft Clarity (heatmaps + session recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+</head>
+<body>
+
+<!-- Canonical town header (sv-global-header.js rewrites this in place) -->
+<header class="sv-header"></header>
+
+<!-- CINEMATIC PIXEL HERO — the tape, paused on its opening frame -->
+<header class="tv-hero">
+  <div class="osd"><span>❚❚ SP</span><span>S1 · E03</span></div>
+  <p class="tv-meta">SEASON 1 · EPISODE 03 · ACT 1: THE AWAKENING</p>
+  <h1 class="tv-title">The <em>Burn Book</em> Problem</h1>
+  <p class="tv-logline">The one where she gets a Regina George–confident answer, catches the one Chutney detail that doesn't fit, and checks the timeline before it borrows her name.</p>
+  <div class="tv-tags"><span>LESSON · <b>Confidence is not evidence</b></span><span>STARS · <b>The Patron SA<span class="ai">i</span>NTS</b></span><span><b>~11 MIN READ</b></span></div>
+  <a class="hero-listen" href="/watch.html?ep=03">▶ Listen to this episode</a>
+</header>
+
+<div class="spine"><div class="spine-inner">SUNNYVAiLE VIDEO <span class="dot">·</span> S1 E03 <span class="dot">·</span> SP <span class="dot">·</span> ❚❚ <span class="end">BE KIND, REWIND ⟲</span></div></div>
+
+<main>
+
+  <!-- Ep03 dark-VHS port: content COMPLETE (prose from issue-03-reskin.html,
+       facts verified during the article). Scene images reference
+       ../assets/episodes/ep-03/pixel/ep03-scene-*.png — drop Codex's final
+       stills there (or copy from the assets/video/ pipeline) and the page
+       lights up; until then the .film blocks show the gradient placeholder.
+       Not yet linked from the site — promote to issue-03.html (like Ep04's
+       4476e48) once the art is placed. -->
+
+  <div class="prev">
+    <p class="eyebrow">◀◀ Previously, on L<span class="ai">Ai</span>DIES</p>
+    <p>She learned that prompting is delegation — that AI wasn't being mysterious, it was David Rose hearing "fold in the cheese." Once she got specific about audience, context, tone and what "good" looked like, the output changed. Same tool, better brief.</p>
+  </div>
+
+  <div class="mark"><div class="k">I couldn't help but wonder…</div></div>
+  <figure class="film" aria-label="Scene 01 — cold open, the office">
+    <div class="frames" data-frames="ep03-scene-01-cold-open.png"><img src="../assets/episodes/ep-03/comic/ep03-open-03-title-comic.png" alt="" loading="lazy"></div>
+    <span class="film-bug">S1·E03 · SC 01</span>
+    <figcaption class="film-cap">Nine seconds, a clean draft — and one line quietly, completely wrong.</figcaption>
+  </figure>
+  <p class="lead">…if a paragraph can sound that sure of itself — hair done, makeup done, "per our discussion" and everything — how am I supposed to catch the one line in it that's quietly, completely wrong?</p>
+  <p>The first useful AI answer is a tiny office miracle. You paste in four days of messy meeting notes, and nine seconds later it's structured, calm, "per our discussion," two clicks from sending. You get comfortable fast. Embarrassingly fast.</p>
+  <p>Then one sentence walks out looking ready to leave your laptop. The draft says the client <em>approved</em> a July rollout — but you were <em>in</em> that meeting, and nobody approved anything. What was actually said: "July could work, if procurement clears by Friday." <em>The machine took a maybe and gave it a lanyard.</em></p>
+  <p>It has Chutney-before-the-perm-timeline energy: confident, composed, and one tiny detail away from the alibi collapsing in court. Your job isn't to become scared of AI. Your job is to become harder to embarrass.</p>
+
+  <div class="mark"><div class="k">On this episode</div><h2>Confidence is not evidence</h2><div class="sub">The first-betrayal episode — not "the robots are coming," but "it helped me yesterday, so I trusted the tone."</div></div>
+
+  <p class="lead">The one where she gets an answer with full Regina George confidence, almost uses it, then notices one tiny detail tugging at the corner of the story.</p>
+  <p>Betrayal as in: it helped her yesterday, so today she trusted the tone — and now one link, number, quote, date, or source is looking at her like Chutney Windham under cross-examination.</p>
+  <p>AI can sound right. <strong>Sounding right is not the same thing as being right.</strong> And before your name goes on it, you need to know which kind of answer you're holding.</p>
+
+  <div class="mark"><div class="k">The core problem</div><h2>The Burn Book Problem</h2></div>
+  <figure class="film" aria-label="Scene — the Burn Book problem">
+    <div class="frames" data-frames="ep03-scene-04-burn-book.png"><img src="../assets/episodes/ep-03/pixel/ep03-scene-04-burn-book.jpg" alt="" loading="lazy"></div>
+    <span class="film-bug">S1·E03 · SC 02</span>
+    <figcaption class="film-cap">A court record and a Burn Book — the exact same handwriting.</figcaption>
+  </figure>
+  <p>The Burn Book didn't work because it was true — none of it was, and nobody checked. It worked because it had <strong>social authority.</strong> Same book, same marker, same devastating certainty. A rumor, a grudge, a wild guess, and something fully unhinged could all sit on the page with equal confidence.</p>
+  <p>That's why the Bethany Byrd moment is such a perfect tiny sourcing disaster. Somebody writes that Bethany must be lying about being a virgin — <em>because she buys super-jumbo tampons.</em> One box, and boom: a character verdict. Then the real explanation walks in, less scandalous and more specific: she's just got a heavy flow. That's not evidence. That's a clue in a Claire's headband, sprinting straight to a conclusion. <em>One data point. No context. Enormous conclusion.</em></p>
+  <p>AI can do the same thing with better punctuation. It'll take a real source, an old source, a similar-but-not-<em>this</em> source, and an assumption it made because the pattern looked familiar — then hand you one smooth paragraph like everyone in it belongs together. <strong>That is the Burn Book Problem: unsupported information can look just as finished as supported information.</strong></p>
+  <p>So the question isn't "can I use AI?" Yes. Use it. We are not here to churn butter by candlelight. The question is: which parts is it just <em>drafting</em> for you — and which parts are <strong>claims that need receipts</strong> before they borrow your name?</p>
+
+  <div class="mark"><div class="k">Wrong room</div><h2>She Doesn't Even Go Here</h2></div>
+  <figure class="film" aria-label="Scene — she doesn't even go here">
+    <div class="frames" data-frames="ep03-scene-07-doesnt-go-here.png"><img src="../assets/episodes/ep-03/comic/ep03-scene-07-doesnt-go-here-comic-rebalance-v1.png" alt="" loading="lazy"></div>
+    <span class="film-bug">S1·E03 · SC 03</span>
+    <figcaption class="film-cap">Plausible is not the same as relevant.</figcaption>
+  </figure>
+  <p>A few wrong answers are easy — the product that doesn't exist, the answer that argues with itself. But the fake citation is dressed to pass: it looks like a real source, cited with the energy of "my boyfriend goes to another school," right up until you click it and it goes nowhere.</p>
+  <p>The sneakier answer isn't fully fake. It's <em>misplaced</em> — it brought the wrong ID but somehow made it past the door. A U.S. HR answer in a Canadian workplace. Last year's pricing page wearing this year's lip gloss. A meeting recap that turns "we talked about it" into "we decided." A policy answer that's technically true, except the exception is the part that matters.</p>
+  <p>That's when you stand up in the back in your blue hoodie and oversized sunglasses and yell: <strong>she doesn't even go here.</strong> It's not just a classic line — it's a quality-control standard. Before you use it, ask:</p>
+  <ul style="max-width:var(--measure);margin:0 auto 20px;padding-left:1.4em;line-height:1.6;">
+    <li>Is this about our <em>actual</em> company, customer, tool, policy, market, date, and decision?</li>
+    <li>Did AI say what I gave it, or quietly add what it inferred?</li>
+    <li>What claim would make me look unprepared if it were wrong?</li>
+    <li>What detail would make the story fall apart — and where's the receipt?</li>
+  </ul>
+  <p>If you can't answer those, the output can stay in the prep pile. It's not ready to speak in the meeting.</p>
+
+  <div class="mark"><div class="k">The patron saint</div><h2>Elle Woods Would Like To See The File</h2></div>
+  <figure class="film" aria-label="Scene — Elle would like to see the file">
+    <div class="frames" data-frames="ep03-scene-08-elle-file.png"><img src="../assets/episodes/ep-03/comic/ep03-scene-12-prompt-like-elle-comic.png" alt="" loading="lazy"></div>
+    <span class="film-bug">S1·E03 · SC 04</span>
+    <figcaption class="film-cap">She isn't checking if you can repeat yourself. She's waiting for the detail that doesn't fit.</figcaption>
+  </figure>
+  <p>This is where Elle Woods becomes the patron saint of AI verification — not because she makes "being thorough" sound corporate, but because she spots the one detail everyone else treated like lip gloss and realizes it's holding up the whole alibi.</p>
+  <p>She asks. Chutney answers. Elle asks again, almost the same way; Chutney gives the same story; the room rolls its eyes. But Elle isn't checking whether Chutney can <em>repeat</em> herself. She's waiting for the detail that doesn't fit. Chutney says she was in the shower right after getting a perm. A perm has a timeline. Chutney's story does not.</p>
+  <p><strong>Claim:</strong> she was in the shower. <strong>Timeline:</strong> right after a perm. <strong>Domain knowledge:</strong> you don't wash a fresh perm. <strong>Contradiction:</strong> the story collapses. <strong>Receipts:</strong> Elle has the file, the timing, and the tiny beauty-world rule nobody took seriously until it mattered.</p>
+  <p>With AI, the question isn't "does this sound smart?" Chutney sounded like she had an answer. She kept giving the answer. It still had a detail that couldn't survive contact with the timeline. If it says a policy changed — what date proves it? If it says a number increased — from what, over what timeframe, according to whom? <em>Do not be Chutney on the stand. Be Elle with the timeline.</em></p>
+
+  <div class="mark"><div class="k">Draft vs. claim</div><h2>Cher's Closet Can Pick The Outfit. You Check The Dress Code.</h2></div>
+  <figure class="film" aria-label="Scene — Cher's closet, three piles">
+    <div class="frames" data-frames="ep03-scene-09-chers-closet.png"><img src="../assets/episodes/ep-03/comic/_superseded/ep03-scene-09-chers-closet-comic.png" alt="" loading="lazy"></div>
+    <span class="film-bug">S1·E03 · SC 05</span>
+    <figcaption class="film-cap">A draft is an outfit. A claim is an alibi. Dress accordingly.</figcaption>
+  </figure>
+  <p>Cher's closet computer was assembling looks in 1995, and somehow modern apps still make you hunt for the button you need. The closet knows the pieces. It does not know the situation you're walking into — that the meeting moved rooms, your boss is already annoyed, the client hates surprises.</p>
+  <p>AI is like that. It's excellent for <em>shape</em>. Let it draft the outline, turn notes into a first pass, make a checklist, give you questions to ask. But don't confuse a good outfit with the right place to wear it. Before the answer leaves your laptop, sort it into three piles:</p>
+  <ul style="max-width:var(--measure);margin:0 auto 20px;padding-left:1.4em;line-height:1.6;">
+    <li><strong>Draft:</strong> useful wording, structure, brainstorm, summary, checklist. <em>(Can be fast.)</em></li>
+    <li><strong>Claim:</strong> names, dates, numbers, quotes, sources, legal / HR / privacy / security / finance details, customer commitments, policy interpretation. <em>(Needs checking.)</em></li>
+    <li><strong>Receipt:</strong> the thing you can open, name, date, quote, or point to if someone asks.</li>
+  </ul>
+  <p>Drafts can be fast. Claims need checking. Receipts are what keep you off the stand.</p>
+
+  <div class="mark"><div class="k">Saying it twice isn't checking</div><h2>Chutney Can Say It Thrice</h2></div>
+  <figure class="film" aria-label="Scene — Chutney's three claims">
+    <div class="frames" data-frames="ep03-scene-05-bethany.png"><img src="../assets/episodes/ep-03/pixel/ep03-scene-05-bethany.jpg" alt="" loading="lazy"></div>
+    <span class="film-bug">S1·E03 · SC 06</span>
+    <figcaption class="film-cap">The same wrong answer, twice, in two popped-collar polos.</figcaption>
+  </figure>
+  <p>Asking AI "are you sure?" is like asking Regina George whether the Burn Book is peer reviewed. Bold choice, limited value. Sometimes the model catches the issue and corrects itself and we all briefly believe in growth. But sometimes it just gives you the same wrong answer in two popped-collar polos, only with the colors reversed. That's not verification — that's Chutney repeating the alibi.</p>
+  <p>Now, before someone adjusts her butterfly clip and says "but the tools are getting better": yes. They are. Newer tools can search, browse, cite, use documents you upload, and sometimes mark uncertainty more clearly. Source-connected systems beat a naked chatbot wandering the internet in platform sandals. That's real, and good.</p>
+  <blockquote class="pull"><p>"Sources attached" sounds very Elle with the file — until the file is still in Chutney's handwriting.</p></blockquote>
+  <p>But better isn't solved. A 2026 <em>Nature</em> paper named why: the way we grade these models rewards a confident guess over an honest "I don't know," so they guess. Stanford's 2026 AI Index found something scarier — tell a top model something false that you seem to believe, and it will often just agree with you. And source-connected tools don't magically become source-<em>perfect</em>: Stanford researchers found legal AI tools with retrieval were less prone to hallucination than GPT-4, but still produced misleading or false information.</p>
+  <div class="receipt">
+    <div class="h">Receipts on the receipts</div>
+    <div class="row"><span class="num">40 of 45</span><span class="txt">citations in a pulled KPMG agentic-AI report turned out to be fabricated. The report was pulled after organizations disputed the claims made about them; GPTZero told the <em>Financial Times</em> the errors were hallucinations.</span></div>
+    <span class="src">Reported by TechCrunch, June 13, 2026 — "KPMG pulls report on AI usage due to apparent hallucinations." Big Four, tiny receipt drawer. The embarrassment isn't that someone used AI; it's letting Chutney take the stand on company letterhead.</span>
+  </div>
+
+  <div class="mark"><div class="k">The method</div><h2>David, Meet Elle.</h2></div>
+  <figure class="film" aria-label="Scene — the method, show your work">
+    <div class="frames" data-frames="ep03-scene-06-show-your-work.png"><img src="../assets/episodes/ep-03/pixel/ep03-scene-06-show-your-work.jpg" alt="" loading="lazy"></div>
+    <span class="film-bug">S1·E03 · SC 07</span>
+    <figcaption class="film-cap">Last week David taught you to say what you want. This week Elle teaches you what to check.</figcaption>
+  </figure>
+  <p>The serious guidance is surprisingly consistent — OpenAI's hallucination paper, Anthropic's guardrail guidance, Google's grounding guidance, and Stanford's source-checking work all point the same way: give the model boundaries, make uncertainty acceptable, separate claims from language, and verify the important parts outside the same chat. In normal-human terms, three moves — plus one rule over all of them.</p>
+  <p><strong>Move one — give her the source.</strong> Don't ask AI what it <em>remembers</em>; hand it the material. Paste the policy, upload the file, link the official page, turn on search when freshness matters. Then set the boundary: "Answer only from the document I provided. If it isn't there, say so." Elle doesn't argue from memory — she walks in with the file. (And don't just tell it "don't hallucinate." That's asking the Ouija board to be detail-oriented.)</p>
+  <p><strong>Move two — let her say "I don't know."</strong> Add the sentence most people never think to add: "If you aren't sure, say so. Don't guess to be helpful. Mark anything you inferred." That one line turns a confident guess back into an honest blank.</p>
+  <p><strong>Move three — make her show the line.</strong> "Quote the exact sentence you relied on." If it can't point to the line, treat that claim like it showed up at Spring Fling with no student ID.</p>
+  <blockquote class="pull"><p>The rule over all three: no invented receipts. "If the receipt is missing, mark it [needs receipt]."</p></blockquote>
+  <p>Then still check. The prompt lowers the odds of nonsense; it doesn't make the paragraph immune from cross-examination. We're calling it <strong>Prompt Like Elle</strong> — and the whole method lives on the <a href="/grimoire/verification-rulebook.html">Verification Rulebook</a> shelf in the library, to pull down whenever an answer looks a little too sure of itself.</p>
+
+  <div class="mark"><div class="k">The handoff</div><h2>The Receipts Pass</h2></div>
+  <figure class="film" aria-label="Scene — the receipts pass">
+    <div class="frames" data-frames="ep03-scene-03-newsstand.png"><img src="../assets/episodes/ep-03/comic/ep03-scene-03-newsstand-comic.png" alt="" loading="lazy"></div>
+    <span class="film-bug">S1·E03 · SC 08</span>
+    <figcaption class="film-cap">Three checks before it borrows your name.</figcaption>
+  </figure>
+  <p>The Episode gives you the rule: keep the useful draft, cross-examine the claims. The Bag is where you actually do it. Pick something low-risk enough to practice on — a meeting-prep note, a summary of a public page, a plain-language explanation, a draft reply — and <strong>verify three claims before it borrows your name.</strong></p>
+  <p>Mini example. You ask AI to turn messy meeting notes into a client update. The notes said: <em>"July could work if procurement clears by Friday. Training might move to phase two. Final approval: account owner to confirm."</em> What AI spit out: <em>"The client approved a July rollout and asked us to remove the training module from scope."</em> Tempting. Tidy. Wearing a lanyard.</p>
+  <p>The receipt check catches it: the recap <em>structure</em> is a useful draft — but "approved," "July rollout," and "remove training" are <strong>claims</strong>, and not one of them has a receipt in those notes. The point isn't to turn every answer into a courtroom drama. It's to learn which parts can stay in draft mode and which parts need receipts.</p>
+
+  <!-- WRAP -->
+  <div class="mark"><div class="k">The takeaway</div><h2>Become harder to embarrass</h2></div>
+  <figure class="film" aria-label="Scene — closing, the receipts pass">
+    <div class="frames" data-frames="ep03-scene-10-lights-up.png"><img src="../assets/episodes/ep-03/pixel/ep03-scene-10-lights-up.jpg" alt="" loading="lazy"></div>
+    <span class="film-bug">S1·E03 · SC 10</span>
+    <figcaption class="film-cap">Keep the useful draft. Cross-examine the claims.</figcaption>
+  </figure>
+  <p>Your job was never to become scared of AI. It's to keep the useful draft, cross-examine the claims, and never let an answer survive just because it sounded calm twice. Confidence is not evidence. Get it on the stand, then check the timeline — and your name stays yours.</p>
+
+  <!-- COCKTAIL -->
+  <div class="cocktail">
+    <p class="eyebrow">Say it at happy hour</p>
+    <h3>"Wait — why does it just make things up?"</h3>
+    <p>Out of the box it only checks whether an answer is <em>plausible</em>, not whether it's <em>true</em> — so it'll set an unsupported sentence right next to a supported one, in the same confident handwriting. It's not lying; it just has no built-in "do we have receipts for this?" The fix isn't to fear it. It's to keep the draft, and check the claims before your name goes on them.</p>
+  </div>
+
+  <!-- SIGN-OFF -->
+  <section class="signoff">
+    <p class="eyebrow">So remember, ladies…</p>
+    <h2>Do not be Chutney on the stand. Be Elle with the timeline.</h2>
+  </section>
+  <p class="rooms">Got a sharper "remember, ladies" than that one? Post it in the rooms — our residents-only chats at the sorority house. Your Resident Card gets you in the door, and favourites get featured, with credit.</p>
+
+  <!-- LISTEN -->
+  <div class="listen-wrap"><a class="listen" href="/watch.html?ep=03">▶ Listen to this episode</a></div>
+
+  <!-- NEXT -->
+  <div class="next">
+    <p class="eyebrow">Next week on L<span class="ai">Ai</span>DIES</p>
+    <h3>Episode 04 · The Founding Mothers</h3>
+    <p>She's talked to this thing every day for three weeks — and has no idea where it came from. So she goes looking for the origin story, and finds out it was women all along. See you next Wednesday, in SUNNYVAiLE.</p>
+  </div>
+
+  <!-- FIELD TRIP -->
+  <div class="tryon">
+    <p class="eyebrow">Your scene · the try-on</p>
+    <h3>The Receipts Pass</h3>
+    <p>Pick something low-risk enough to practice on — a meeting-prep note, a summary of a public page, a plain-language explanation, a draft reply. Hand it to your AI tool with the three moves (give it the source, let it say "I don't know," make it quote the line), then <strong>verify three claims before it borrows your name.</strong> The copy-paste "Prompt Like Elle" move lives in the Study Pack.</p>
+    <a class="btn" href="/grimoire/verification-rulebook.html">Open the Verification Rulebook →</a>
+  </div>
+
+  <!-- THE VOCAB — key terms + definitions (written-only; each term will link to its full entry in the LIBRAiRY Reference shelf once the glossary is built) -->
+  <div class="mark" id="vocab"><div class="k">The three words</div><h2>The Vocab</h2><div class="sub">Key terms and their definitions.</div></div>
+  <div class="gloss">
+    <details open>
+      <summary><span class="term">Hallucination</span><span class="peek">Confident, polished, and wrong — the Burn Book in a smooth paragraph.</span><span class="plus">+</span></summary>
+      <p class="def">When AI produces something confident and finished-looking but factually wrong or made up. It's not lying — lying takes intent; it just has no built-in "do we have receipts for this?" check, so an unsupported sentence can sit right next to a supported one in the exact same handwriting. The Burn Book from Mean Girls: some entries accurate, some fabricated, all equally sure of themselves.</p>
+    </details>
+    <details>
+      <summary><span class="term">Assumption</span><span class="peek">Real information in the wrong room — plausible, but it doesn't even go here.</span><span class="plus">+</span></summary>
+      <p class="def">The sneaky wrong answer that isn't fake — it's <em>misplaced</em>. A US HR answer in a Canadian workplace; last year's pricing wearing this year's lip gloss; "we talked about it" promoted to "we decided." Plausible is not the same as relevant. The quality-control check: is this about our <em>actual</em> company, customer, policy, date, and decision?</p>
+    </details>
+    <details>
+      <summary><span class="term">Verification</span><span class="peek">Putting a claim on the stand: source, timeline, contradiction, receipt.</span><span class="plus">+</span></summary>
+      <p class="def">Checking the important parts of an answer outside the same chat before your name goes on them. Give the model the source, let it say "I don't know," make it quote the exact line it relied on — then confirm the claim against the real thing. Don't be Chutney repeating the alibi; be Elle with the file and the timeline.</p>
+    </details>
+  </div>
+
+</main>
+
+<!-- CAST -->
+<section class="cast"><div class="cast-in">
+  <span class="eyebrow">The cast of this episode</span>
+  <h2>The Patron SA<span class="ai">i</span>NTS in "The Burn Book Problem"</h2>
+  <div class="cast-grid">
+    <a class="cast-card" href="/luminairy.html"><img src="../assets/saints/y2k-stained-glass-v2/elle-woods-y2k-stained-glass.jpg" alt="Elle Woods" onerror="this.remove()" loading="lazy"><b>Elle Woods</b><span>Patron of the file · verification</span></a>
+    <a class="cast-card" href="/luminairy.html"><img src="../assets/saints/y2k-stained-glass-v2/cher-horowitz-y2k-stained-glass.jpg" alt="Cher Horowitz" onerror="this.remove()" loading="lazy"><b>Cher Horowitz</b><span>Draft vs. claim</span></a>
+    <a class="cast-card" href="/luminairy.html"><img src="../assets/saints/y2k-stained-glass-v2/regina-george-cautionary-red-y2k-stained-glass.jpg" alt="Regina George" onerror="this.remove()" loading="lazy"><b>Regina George</b><span>Cautionary red · confidence ≠ evidence</span></a>
+  </div>
+</div></section>
+
+<!-- RAIL -->
+<div class="rail">
+  <span class="eyebrow">Everything in this episode</span>
+  <div class="rail-row">
+    <a class="rail-btn rb1" href="/watch.html?ep=03">Listen<small>Narration</small></a>
+    <a class="rail-btn rb2" href="/blend-snap.html#the-study-pack">Study Pack<small>Try-On · Cheat Sheet · Cards</small></a>
+    <a class="rail-btn rb4" href="/radio.html">The Song<small>This week's track</small></a>
+    <a class="rail-btn rb6" href="/bronze-aige.html#answers">Cocktail<small>Why does it make things up?</small></a>
+    <a class="rail-btn rb3" href="/community.html">Rooms<small>Talk it over at Delta LAi Nu</small></a>
+    <a class="rail-btn rb5" href="/learn/quiz.html">Quiz<small>Collect your sticker</small></a>
+  </div>
+</div>
+
+<script>
+/* Point each Maven portrait at that Maven's bio on the LUMiNAiRY (deep-link ?meet=<slug>) */
+(function(){
+  function slug(img){ var m=(img&&img.getAttribute('src')||'').match(/\/([a-z-]+)-y2k-stained-glass\.png/i); return m?m[1]:''; }
+  function link(s){ return '/luminairy.html?meet='+s+'#mavens'; }
+  document.querySelectorAll('.cast-card').forEach(function(a){
+    var s=slug(a.querySelector('img')); if(s) a.setAttribute('href', link(s));
+  });
+  document.querySelectorAll('.idcard > img').forEach(function(img){
+    var s=slug(img); if(!s) return;
+    img.style.cursor='pointer';
+    img.setAttribute('title','Meet her at the LUMiNAiRY');
+    img.addEventListener('click', function(){ window.location.href=link(s); });
+  });
+})();
+</script>
+</body>
+</html>

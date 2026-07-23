@@ -1,3 +1,9 @@
+> 🔴 STYLE DECIDED 2026-07-23 (Ali): these cards are **POP-ART COMIC** like the town keepers
+> (tradingref look, candy palette, halftone, name banner, full-holo foil — gold standard
+> `assets/cards/characters/jojo-card-front-v1.png` + `-foil-v2.png`). The stained-glass
+> framing below is SUPERSEDED — use each figure's existing stained-glass portrait as the
+> LIKENESS reference only; render the CARD pop-art. Match `_character-cards-remaining-12.md`.
+
 # TRAiLBLAZER trading cards — batch (6 women × 3 faces = 18 images)
 
 The **TRAiLBLAZERS** pantheon as trading cards: 6 real, living women who *ship* frontier AI

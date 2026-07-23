@@ -1,0 +1,187 @@
+<meta charset="utf-8"><title>LIBRAiRY — the aisle</title>
+<style>
+:root{
+  --plum:#4b2148; --plum-d:#2c1230; --rose:#9b3f5f; --pink:#e982ab;
+  --teal:#2a6b73; --teal-d:#143f47; --teal-l:#4fc3d0; --gold:#c9a227; --cream:#f6ece2; --coral:#f0885f;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Jost',system-ui,sans-serif;color:var(--cream);background:#140a18;}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
+
+/* ── you walk in ── */
+.entry{position:relative;height:56vh;min-height:340px;overflow:hidden}
+.entry img{width:100%;height:100%;object-fit:cover;object-position:52% 42%;display:block}
+.entry::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,10,24,.15) 0%,rgba(20,10,24,.1) 45%,#140a18 100%)}
+.entry .plate{position:absolute;left:0;right:0;bottom:26px;text-align:center;z-index:2}
+.entry h1{font-size:clamp(38px,7vw,84px);color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.75);letter-spacing:.01em}
+.entry .ai{color:var(--pink)}
+.entry .eyebrow{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:#ffd9e6;margin-bottom:8px}
+
+/* ── THE AISLE: the room continues, floor in perspective ── */
+.aisle{position:relative;padding:0 0 90px;
+  background:
+   /* warm pooled ceiling light */
+   radial-gradient(120% 60% at 50% -8%, rgba(217,178,74,.20), transparent 60%),
+   /* glass-block glow far wall */
+   radial-gradient(80% 40% at 50% 22%, rgba(79,195,208,.26), transparent 70%),
+   linear-gradient(180deg,#140a18 0%,#1b0f22 40%,#241432 100%);}
+/* floor: geometric carpet receding */
+.floor{position:absolute;left:0;right:0;bottom:0;height:340px;overflow:hidden;pointer-events:none}
+.floor i{position:absolute;left:-40%;right:-40%;bottom:-120px;height:520px;transform:perspective(420px) rotateX(62deg);transform-origin:bottom center;
+  background:
+   repeating-linear-gradient(60deg, rgba(232,139,168,.55) 0 2px, transparent 2px 34px),
+   repeating-linear-gradient(-60deg, rgba(61,143,158,.5) 0 2px, transparent 2px 34px),
+   repeating-linear-gradient(60deg, rgba(107,74,138,.5) 0 17px, transparent 17px 34px),
+   #241d3a;
+  opacity:.7;
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 55%);mask-image:linear-gradient(180deg,transparent,#000 55%);}
+.wrap{position:relative;max-width:1180px;margin:0 auto;padding:0 22px;z-index:2}
+
+.placard{max-width:640px;margin:-30px auto 54px;text-align:center;position:relative;z-index:3}
+.placard p{font-family:'Playfair Display',Georgia,serif;font-size:19px;line-height:1.6;color:#f0dbe6;margin:0}
+.placard .sub{margin-top:10px;font-family:'Jost';font-size:13.5px;color:#c9a9be}
+
+/* ── a SECTION = one bay of the aisle ── */
+.bay{position:relative;margin:0 0 74px}
+/* hanging aisle sign */
+.sign{position:relative;width:max-content;margin:0 auto -44px;z-index:8;text-align:center;top:6px}
+.sign .chains{display:none}
+.sign .chains span{width:3px;background:linear-gradient(180deg,#c9a227,#6b4f16);box-shadow:0 0 6px rgba(201,162,39,.45)}
+.sign .board{background:#f2ead9;border:2px solid #0e2f36;border-radius:2px;
+  padding:6px 26px;box-shadow:0 3px 0 rgba(0,0,0,.35)}
+.sign .board b{display:block;font-family:'Jost';font-weight:800;letter-spacing:.2em;font-size:14px;color:#143f47}
+.sign .board i{display:block;font-style:normal;font-size:10px;letter-spacing:.14em;color:#5c7c82;margin-top:1px}
+
+/* the shelving unit */
+.unit{position:relative;border-radius:3px;padding:62px 22px 26px;
+  background:linear-gradient(180deg,#2a6b73 0%,#143f47 62%,#0e2f36 100%);
+  box-shadow:0 30px 70px rgba(0,0,0,.6), inset 0 0 0 2px #0e2f36;}
+/* flat fascia panel (90s civic laminate) — the range sign mounts ON it */
+.unit::after{content:"";position:absolute;left:0;right:0;top:0;height:44px;border-radius:3px 3px 0 0;
+  background:linear-gradient(180deg,#37838c 0%,#2a6b73 70%,#1e565e 100%);
+  border-bottom:3px solid #0e2f36;z-index:6}
+/* uprights dividing the bay */
+.unit .post{position:absolute;top:48px;bottom:14px;width:8px;border-radius:2px;
+  background:linear-gradient(90deg,#123a41,#4a949c 45%,#123a41);box-shadow:0 0 10px rgba(0,0,0,.45);z-index:1;opacity:.65}
+/* glass-block back wall glowing between shelves */
+.unit::before{content:"";position:absolute;inset:50px 14px 14px;border-radius:6px;
+  background:repeating-linear-gradient(0deg,rgba(79,195,208,.26) 0 24px,rgba(79,195,208,.08) 24px 27px),
+             repeating-linear-gradient(90deg,rgba(79,195,208,.20) 0 24px,rgba(79,195,208,.06) 24px 27px);
+  box-shadow:inset 0 0 70px rgba(79,195,208,.42);pointer-events:none}
+
+.shelf{position:relative;display:flex;align-items:flex-end;justify-content:space-around;gap:10px;min-height:0;padding:0 14px 0;z-index:3}
+.shelf + .shelf{margin-top:16px}
+/* the board the books stand on */
+.shelf::after{content:"";position:absolute;left:0;right:0;bottom:-13px;height:14px;border-radius:2px;
+  background:linear-gradient(180deg,#5aa2ab 0 3px,#2a6b73 3px 7px,#0e2f36 7px 14px);
+  box-shadow:0 8px 16px rgba(0,0,0,.6)}
+.shelf.last{margin-bottom:26px}
+
+/* a book, standing, ready to pull */
+.bk{position:relative;height:140px;cursor:pointer;transition:transform .18s cubic-bezier(.2,.8,.3,1),filter .18s;
+  filter:drop-shadow(0 8px 10px rgba(0,0,0,.55));transform-origin:bottom center}
+.bk img{height:100%;display:block;border-radius:2px}
+.bk:hover{transform:translateY(-20px) rotate(-3deg) scale(1.03);filter:drop-shadow(0 20px 18px rgba(0,0,0,.6))}
+.bk .out{position:absolute;left:50%;top:-26px;transform:translateX(-50%) translateY(6px);opacity:0;transition:.18s;
+  background:var(--pink);color:#2c1230;font-size:9.5px;font-weight:800;letter-spacing:.12em;padding:3px 9px;border-radius:20px;white-space:nowrap}
+.bk:hover .out{opacity:1;transform:translateX(-50%) translateY(0)}
+.bk.soon{opacity:.42;filter:grayscale(.5) drop-shadow(0 8px 10px rgba(0,0,0,.5))}
+.bk.soon:hover{transform:none}
+.bk.soon .out{background:#6b4b7a;color:#f0dbe6}
+
+.note{max-width:820px;margin:16px auto 0;text-align:center;font-size:13px;color:#c9a9be;font-style:italic}
+
+/* ── checkout desk ── */
+.desk{position:relative;margin:0 auto;max-width:980px;display:grid;grid-template-columns:230px 1fr;gap:0;
+  border-radius:14px 14px 6px 6px;overflow:hidden;
+  background:linear-gradient(180deg,#2a6b73,#0e2f36);box-shadow:0 26px 60px rgba(0,0,0,.55),inset 0 0 0 3px var(--plum)}
+.desk .pic{background:url('assets/building-interiors/library-interior-from-credits-dechromed-v3-lighter-carpet.png') 74% 40%/cover}
+.desk .body{padding:24px 26px}
+.desk .eyebrow{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.desk h3{font-size:26px;color:#fff;margin:5px 0 8px}
+.desk p{font-size:14px;line-height:1.55;color:#cfe9ec;margin:0 0 12px}
+.desk .card{display:flex;gap:8px}
+.desk input{flex:1;padding:11px 13px;border-radius:6px;border:2px solid rgba(217,178,74,.6);background:#f6ece2;color:#2c1230;font-family:inherit}
+.desk button{background:var(--pink);color:#2c1230;border:0;border-radius:6px;padding:11px 20px;font-weight:800;cursor:pointer}
+.nameplate{margin-top:14px;display:inline-block;background:#12333a;border:2px solid var(--gold);border-radius:3px;padding:4px 14px;
+  font-family:'Playfair Display',serif;letter-spacing:.14em;font-size:12px;color:var(--gold)}
+</style>
+
+<div class="entry">
+  <img src="assets/building-interiors/library-interior-from-credits-dechromed-v3-lighter-carpet.png" alt="">
+  <div class="plate">
+    <div class="eyebrow">Civic Square · SUNNYVAiLE</div>
+    <h1>The Town LIBR<span class="ai">Ai</span>RY</h1>
+  </div>
+</div>
+
+<div class="aisle">
+  <div class="floor"><i></i></div>
+  <div class="wrap">
+
+    <div class="placard">
+      <p>You don't read a library front to back. You find the aisle, pull what you need, and check it out.</p>
+      <div class="sub">Three sections. Hover a book to pull it off the shelf.</div>
+    </div>
+
+    <!-- 101s -->
+    <div class="bay">
+      <div class="sign"><div class="chains"><span></span><span></span></div>
+        <div class="board"><b>THE 101s</b><i>learn the basics · one textbook each</i></div></div>
+      <div class="unit"><span class="post" style="left:33%"></span><span class="post" style="left:66%"></span>
+        <div class="shelf">
+          <a class="bk"><img src="assets/library-101/textbook-vocab-101.png"><span class="out">CHECK OUT</span></a>
+          <a class="bk"><img src="assets/library-101/textbook-concepts-101.png"><span class="out">CHECK OUT</span></a>
+          <a class="bk"><img src="assets/library-101/textbook-briefing-101.png"><span class="out">CHECK OUT</span></a>
+          <a class="bk"><img src="assets/library-101/textbook-setup-101.png"><span class="out">CHECK OUT</span></a>
+          <a class="bk"><img src="assets/library-101/textbook-accounts-101.png"><span class="out">CHECK OUT</span></a>
+        </div>
+      </div>
+      <p class="note">Vocab · Concepts · Briefing · Setup · Accounts — more land as episodes cover them.</p>
+    </div>
+
+    <!-- TOOLS -->
+    <div class="bay">
+      <div class="sign"><div class="chains"><span></span><span></span></div>
+        <div class="board"><b>THE TOOLS</b><i>one book per app · each house, its designs</i></div></div>
+      <div class="unit"><span class="post" style="left:33%"></span><span class="post" style="left:66%"></span>
+        <div class="shelf">
+          <a class="bk"><img src="assets/library-101/book-whos-who.png"><span class="out">CHECK OUT</span></a>
+          <a class="bk soon"><img src="assets/library-101/book-chatgpt.png"><span class="out">EP 5</span></a>
+          <a class="bk soon"><img src="assets/library-101/book-claude.png"><span class="out">EP 5</span></a>
+          <a class="bk soon"><img src="assets/library-101/book-gemini.png"><span class="out">EP 5</span></a>
+          <a class="bk soon"><img src="assets/library-101/book-copilot.png"><span class="out">EP 5</span></a>
+          <a class="bk soon"><img src="assets/library-101/book-perplexity.png"><span class="out">EP 5</span></a>
+        </div>
+      </div>
+      <p class="note">Who's Who is on the shelf now. The per-tool guides arrive with Episode 5.</p>
+    </div>
+
+    <!-- REFERENCE -->
+    <div class="bay">
+      <div class="sign"><div class="chains"><span></span><span></span></div>
+        <div class="board"><b>REFERENCE</b><i>look it up · pull it down · put it back</i></div></div>
+      <div class="unit"><span class="post" style="left:33%"></span><span class="post" style="left:66%"></span>
+        <div class="shelf">
+          <a class="bk"><img src="assets/library-101/book-straight-answers-about-ai.png"><span class="out">CHECK OUT</span></a>
+          <a class="bk"><img src="assets/library-101/book-how-to-check-ai-work.png"><span class="out">CHECK OUT</span></a>
+          <a class="bk soon"><img src="assets/library-101/book-what-not-to-paste.png"><span class="out">EP 7</span></a>
+          <a class="bk soon"><img src="assets/library-101/book-the-prompt-cookbook.png"><span class="out">SOON</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHECKOUT -->
+    <div class="desk">
+      <div class="pic"></div>
+      <div class="body">
+        <div class="eyebrow">The reference desk</div>
+        <h3>Ask Miss Jeeves</h3>
+        <p>Don't know what to even call the thing you're stuck on? Ask in plain words — she'll tell you which aisle.</p>
+        <div class="card"><input placeholder="e.g. is AI going to take my job?"><button>Ask</button></div>
+        <div class="nameplate">MISS JEEVES · LIBRAiRIAN</div>
+      </div>
+    </div>
+
+  </div>
+</div>

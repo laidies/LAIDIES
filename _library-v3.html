@@ -1,0 +1,367 @@
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Town LIBRAiRY</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--plum:#3a1838;--rose:#9b3f5f;--pink:#e982ab;--teal:#2a6b73;--ink:#3a1838;--cream:#f6ece2}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Jost',system-ui,sans-serif;color:var(--ink);
+ background:linear-gradient(160deg,#f3dee8 0%,#fbeae4 48%,#efe1e8 100%);background-attachment:fixed}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
+
+.entry{position:relative;height:52vh;min-height:340px;overflow:hidden}
+.entry img{width:100%;height:100%;object-fit:cover;object-position:50% 44%;display:block}
+.entry::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:34%;z-index:1;
+  background:linear-gradient(180deg,rgba(243,222,232,0) 0%,rgba(243,222,232,.6) 62%,#f3dee8 100%)}
+
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px 80px}
+.titleblock{text-align:center;margin:26px auto 4px}
+.titleblock .eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--rose);margin-bottom:8px}
+.titleblock h1{font-size:clamp(38px,6vw,66px);color:var(--ink);line-height:1}
+.titleblock .ai{color:var(--pink)}
+.lede{max-width:660px;margin:14px auto 26px;text-align:center;font-family:'Playfair Display',Georgia,serif;
+ font-size:19px;line-height:1.55;color:var(--ink)}
+.lede small{display:block;margin-top:8px;font-family:'Jost';font-size:13px;color:#6b3a66}
+
+/* ── Ask Miss Jeeves — the reference desk ── */
+.jv{max-width:760px;margin:0 auto 52px;background:#faf6fc;border-radius:16px;
+  padding:22px 24px 24px;box-shadow:0 14px 34px rgba(120,80,120,.14);border:1px solid #ecdcf0}
+.jv-head{display:flex;align-items:center;gap:11px;margin-bottom:15px}
+.jv-ico{flex:0 0 auto;color:var(--rose);display:flex;margin-top:2px}
+.jv-head .h{font-family:'Playfair Display',serif;font-size:22px;color:var(--ink);line-height:1.05}
+.jv-head .h small{display:block;font-family:'Jost';font-size:12px;font-weight:500;color:#8a6a80;letter-spacing:.02em;margin-top:2px}
+.jv-form{display:flex;gap:9px}
+.jv-form input{flex:1;min-width:0;padding:13px 16px;border:1.5px solid #dcc4d1;border-radius:10px;
+  font:inherit;font-size:15px;background:#fff;color:var(--ink)}
+.jv-form input:focus{outline:none;border-color:var(--pink);box-shadow:0 0 0 3px rgba(233,130,171,.22)}
+.jv-form button{padding:0 22px;border:0;border-radius:10px;background:var(--pink);color:#3a1230;
+  font:inherit;font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.jv-form button:hover{filter:brightness(1.05)}
+.jv-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.jv-chips b{font-size:11px;letter-spacing:.06em;color:#9a7a90;align-self:center;margin-right:2px;font-weight:600}
+.jv-chip{border:1px solid #e2cdd9;background:#fff;color:#6b3a66;border-radius:20px;padding:5px 12px;font:inherit;font-size:12px;cursor:pointer}
+.jv-chip:hover{background:#fbeef3;border-color:var(--pink)}
+.jv-results{margin-top:16px;display:grid;gap:9px}
+.jv-card{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;gap:1px 12px;
+  text-decoration:none;background:#fff;border:1px solid #ecdccb;border-radius:11px;padding:12px 15px;
+  transition:transform .12s,box-shadow .12s,border-color .12s}
+.jv-card:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(75,33,72,.14);border-color:var(--pink)}
+.jv-type{grid-row:1/3;align-self:center;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  color:#fff;background:var(--teal);border-radius:6px;padding:5px 8px;white-space:nowrap;text-align:center}
+.jv-episode{background:#c96652}.jv-101,.jv-concept{background:#5f7a97}.jv-tool{background:#8a6cae}
+.jv-reference{background:#2f8f8b}.jv-activity{background:var(--rose)}.jv-building{background:#b0764a}
+.jv-t{font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);align-self:end}
+.jv-s{font-size:13px;color:#6b4b60;line-height:1.4}
+.jv-none{font-size:14px;color:#8a6a80;font-style:italic;padding:6px 2px}
+
+/* ── One continuous three-bay wall case — all three sections at once, each bay
+   labelled and filled with its own books. Matches the room's side shelving. ── */
+.libroom{position:relative;width:100vw;margin-left:calc(50% - 50vw);aspect-ratio:1672/940;overflow:hidden;
+  background:url('assets/building-interiors/delivery-20260722-library-interior-no-desk-v1/library-interior-no-desk-v1.png') center/cover no-repeat}
+/* Compensate for the PNG's transparent padding: the visible metal reaches the ceiling curve
+   at the top-right wall junction while the feet remain fixed on the carpet line. */
+.unit{position:absolute;left:15.5%;right:16.6%;top:13.8%;bottom:24.4%;z-index:1;
+  background:url('assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png') center/100% 100% no-repeat;
+  filter:drop-shadow(0 10px 14px rgba(60,30,55,.28))}
+.bay{position:absolute;top:0;bottom:0;width:33.333%}
+.bay--1{left:0}.bay--2{left:33.333%}.bay--3{left:66.666%}
+.ledge{position:absolute;left:8%;right:8%;top:2.5%;height:8%;display:flex;align-items:center;justify-content:center;z-index:6}
+.ledge img{max-width:100%;max-height:100%;width:auto;display:block;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4))}
+.brow{position:absolute;left:8%;right:8%;display:flex;align-items:flex-end;justify-content:center;gap:6%;z-index:2}
+.brow--1{bottom:64.1%;height:25.5%}.brow--2{bottom:37.4%;height:25.5%}.brow--3{bottom:10.1%;height:25.5%}
+.bk{position:relative;height:100%;display:flex;align-items:flex-end;justify-content:center;min-width:0;cursor:pointer;
+  border:0;background:none;padding:0;transform-origin:bottom center;
+  transition:transform .16s cubic-bezier(.2,.8,.3,1),filter .16s;filter:drop-shadow(0 5px 6px rgba(0,0,0,.42))}
+.bk img{max-height:100%;max-width:100%;width:auto;height:auto;display:block;transform:translateY(3%)}
+.bk:hover,.bk:focus-visible{transform:translateY(-13%) rotate(-2deg);filter:drop-shadow(0 12px 13px rgba(0,0,0,.5));outline:none;z-index:20}
+.bk .tip{position:absolute;left:50%;bottom:108%;transform:translateX(-50%) translateY(5px);opacity:0;pointer-events:none;
+  z-index:30;transition:opacity .16s,transform .16s;background:#fff;color:var(--ink);border:1px solid #eccadd;
+  width:max-content;max-width:210px;white-space:normal;text-align:center;line-height:1.32;
+  font-size:11.5px;font-weight:500;padding:8px 12px;border-radius:11px;box-shadow:0 9px 22px rgba(60,30,55,.30)}
+.bk .tip b{display:block;font-family:'Playfair Display',serif;font-weight:700;font-size:13.5px;color:var(--ink);margin-bottom:3px}
+.bk .tip em{font-style:normal;color:#a5306a;font-weight:800}
+.bk:hover .tip,.bk:focus-visible .tip{opacity:1;transform:translateX(-50%) translateY(0)}
+/* on hover, JS lifts the book's bay + shelf-row so the popup renders in front of everything */
+.bay.lift{z-index:60}.brow.lift{z-index:40}
+.bk.soon{cursor:default}
+.bk.soon img{opacity:.82;filter:grayscale(.2)}
+.bk.soon:hover{transform:none}.bk.soon .tip{border-color:#d9c8df}
+.caps{display:flex;gap:1.5%;padding:16px 2% 0;margin-left:calc(50% - 50vw);width:100vw}
+.caps .cap{flex:1;text-align:center;max-width:33%;margin:0 auto}
+.caps .cap b{display:block;font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);margin-bottom:3px}
+.caps .cap span{font-size:12px;line-height:1.4;color:#7a5570;font-style:italic}
+
+/* ── the open book — a designed 90s magazine / textbook spread, themed per book ── */
+#reader{--accent:#7c2f4f;position:fixed;inset:0;z-index:50;display:none;background:rgba(28,14,26,.52);backdrop-filter:blur(3px) saturate(.85)}
+#reader.on{display:flex;align-items:center;justify-content:center;padding:26px}
+.book{--accent-ink:color-mix(in srgb,var(--accent) 58%,#1c0d18);width:min(960px,100%);max-height:90vh;display:flex;flex-direction:column;border-radius:14px;overflow:hidden;
+ background:#fbf4e9;color:#3a2338;box-shadow:0 44px 100px rgba(20,8,20,.6);border:1px solid rgba(255,255,255,.35)}
+/* masthead */
+.book .band{position:relative;padding:26px 30px 22px;color:#fff;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;
+ background:linear-gradient(122deg,var(--accent) 0%,color-mix(in srgb,var(--accent) 60%,#160a14) 100%)}
+.book .band::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;
+ background:repeating-linear-gradient(90deg,#e982ab 0 22px,#f4c95b 22px 44px,#63c6c9 44px 66px)}
+.book .band::after{content:"THE TOWN LIBRAiRY";position:absolute;right:30px;top:14px;font-size:8px;letter-spacing:.34em;opacity:.5}
+.book .band .t{font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:clamp(24px,3.4vw,36px);line-height:1.04;text-shadow:0 1px 0 rgba(0,0,0,.14)}
+.book .band .m{font-size:10px;letter-spacing:.26em;text-transform:uppercase;opacity:.9;margin-bottom:7px;font-weight:600}
+.book .band button{background:rgba(0,0,0,.22);color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:20px;
+ padding:8px 15px;font:inherit;font-size:12px;cursor:pointer;white-space:nowrap;transition:background .15s}
+.book .band button:hover{background:rgba(0,0,0,.4)}
+/* contents page */
+.book .body{display:grid;grid-template-columns:224px 1fr;min-height:0}
+.book .toc{border-right:1px solid #e7d7c4;padding:22px 15px;overflow:auto;background:#f2e6d4;counter-reset:toc}
+.book .toc::before{content:"In this book";display:block;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#a58a6e;margin:0 9px 12px}
+.book .toc a{counter-increment:toc;display:flex;gap:9px;align-items:baseline;padding:8px 9px;border-radius:7px;color:#5c3350;text-decoration:none;font-size:13px;line-height:1.32}
+.book .toc a::before{content:counter(toc,decimal-leading-zero);font-size:10.5px;font-weight:700;color:var(--accent);opacity:.75;min-width:17px}
+.book .toc a:hover{background:#e7d4bf;color:var(--accent-ink)}
+.book .toc::after{content:"";display:block;height:170px;margin:24px 6px 0;opacity:.92;
+ background:url('assets/building-interiors/library-shelf/doodles/contents-doodles.svg') no-repeat center top/150px auto}
+/* reading column */
+.book .txt{padding:34px 66px 46px 46px;overflow:auto;line-height:1.72;font-size:16px;color:#3a2338;counter-reset:sec;
+ background:url('assets/building-interiors/library-shelf/doodles/cool-s-tile.svg') right 4px top 26px / 64px auto repeat-y local}
+.book .txt>*:first-child{margin-top:0}
+.book .txt h2{position:relative;font-family:'Playfair Display',serif;font-weight:800;font-size:26px;line-height:1.12;margin:42px 0 14px;color:var(--accent-ink);padding-top:22px}
+.book .txt h2::before{counter-increment:sec;content:counter(sec,decimal-leading-zero);position:absolute;top:16px;left:0;font-size:12.5px;font-weight:800;letter-spacing:.12em;color:var(--accent);opacity:.62}
+.book .txt h2::after{content:"";display:block;width:56px;height:4px;border-radius:3px;background:var(--accent);margin-top:12px}
+.book .txt h3{font-family:'Playfair Display',serif;font-weight:700;font-size:19px;margin:26px 0 6px;color:var(--accent)}
+.book .txt h4{font-family:'Playfair Display',serif;font-size:17px;margin:20px 0 5px;color:var(--accent-ink)}
+.book .txt p{margin:0 0 14px}
+.book .txt ul,.book .txt ol{margin:0 0 16px;padding-left:20px}
+.book .txt li{margin:6px 0;padding-left:4px}
+.book .txt ul li::marker{color:var(--accent)}
+.book .txt strong,.book .txt b{color:var(--accent-ink);font-weight:700}
+.book .txt em{font-style:italic}
+.book .txt a{color:var(--accent);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1.5px}
+/* opening lede + drop cap */
+.book .txt .lede{font-size:18.5px;line-height:1.6;color:#4a2c46;margin-bottom:26px}
+.book .txt .lede::first-letter{font-family:'Playfair Display',serif;font-weight:800;font-size:3.4em;line-height:.72;float:left;margin:8px 12px -2px 0;color:var(--accent)}
+/* candy-dot divider */
+.book .txt hr{border:0;height:9px;width:118px;margin:32px auto;opacity:.55;
+ background:radial-gradient(circle,var(--accent) 0 2.5px,transparent 3px);background-size:16px 9px;background-repeat:repeat-x;background-position:center}
+/* glossary term cards */
+.book .txt .term{background:#fff;border:1px solid #ecdcc6;border-left:5px solid var(--accent);border-radius:10px;
+ padding:14px 18px;margin:0 0 14px;box-shadow:0 2px 6px rgba(90,50,70,.06)}
+.book .txt .term h3{margin:0 0 6px;color:var(--accent-ink);font-size:18px}
+.book .txt .term p{margin:4px 0;font-size:14.5px;line-height:1.55}
+.book .txt .term p strong{color:var(--accent)}
+/* inline term reference (a word tagged mid-sentence) — NOT a card */
+.book .txt span.term{display:inline;background:none;border:0;box-shadow:none;padding:0;margin:0;border-radius:0;color:var(--accent);font-weight:700}
+/* callout box */
+.book .txt .callout{background:linear-gradient(180deg,#fff7ec,#fdefdd);border:1.5px solid #f0d9b8;border-radius:12px;padding:20px 20px 16px;margin:22px 0;box-shadow:0 3px 10px rgba(120,80,40,.08)}
+.book .txt .callout>b:first-child{display:inline-block;font-family:'Jost',sans-serif;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--accent);padding:4px 11px;border-radius:20px;margin-bottom:10px}
+/* before / after cards */
+.book .txt .example{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0}
+.book .txt .ex-bad,.book .txt .ex-good{border-radius:12px;padding:15px 16px;font-size:14.5px;line-height:1.5}
+.book .txt .ex-bad{background:#fdeef1;border:1.5px solid #f2ccd5}
+.book .txt .ex-good{background:#edf7ee;border:1.5px solid #c9e7cf}
+.book .txt .ex-bad>b:first-child,.book .txt .ex-good>b:first-child{display:inline-block;text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:800;padding:3px 10px;border-radius:20px;margin-bottom:9px;color:#fff}
+.book .txt .ex-bad>b:first-child{background:#c0506c}
+.book .txt .ex-good>b:first-child{background:#4d8a58}
+/* receipts / sources — filed card */
+.book .txt .receipts{background:#f6ecdb;border:1px dashed #d9c4a4;border-radius:10px;padding:14px 16px;margin:18px 0;font-size:13px}
+.book .txt .receipts h3{margin:0 0 8px;padding:0;font-family:'Jost',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:#a2855e}
+.book .txt .receipts h3::before,.book .txt .receipts h3::after{content:none}
+.book .txt .receipts ul{list-style:none;padding-left:0;margin:0}
+.book .txt .receipts li{margin:6px 0;padding-left:14px;position:relative;color:#7c6547}
+.book .txt .receipts li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+/* confidence badges */
+.book .txt .badge{display:inline-block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:4px 11px;border-radius:20px;font-weight:800;vertical-align:middle}
+.book .txt .badge-solid{background:#d8f0da;color:#2c6b39}
+.book .txt .badge-contested{background:#fbe1cf;color:#ad5a26}
+.book .txt .badge-unknown{background:#e8e4ea;color:#665a70}
+/* verified stamp line */
+.book .txt .meta{display:inline-block;font-size:11px;color:#8a7359;background:#f2e7d5;border:1px solid #e2d0b4;border-radius:6px;padding:3px 9px;margin:2px 0 16px;letter-spacing:.01em}
+/* tables */
+.book .txt table{width:100%;border-collapse:separate;border-spacing:0;margin:18px 0;font-size:14px;border:1px solid #e6d5bd;border-radius:10px;overflow:hidden}
+.book .txt th,.book .txt td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid #ecddc6}
+.book .txt th{background:var(--accent);color:#fff;font-family:'Jost',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.04em;text-transform:uppercase}
+.book .txt tbody tr:nth-child(even){background:#f8efe0}
+.book .txt tbody tr:last-child td{border-bottom:0}
+/* pull quote */
+.book .txt blockquote{margin:22px 0;padding:6px 0 6px 24px;border-left:4px solid var(--accent);font-family:'Playfair Display',serif;font-size:19px;font-style:italic;line-height:1.4;color:var(--accent-ink)}
+/* end-of-book doodle sign-off, in the margin whitespace after the last line */
+.book .txt::after{content:"";display:block;height:56px;margin:28px auto 2px;
+ background:url('assets/building-interiors/library-shelf/doodles/end-doodles.svg') no-repeat center/auto 46px}
+@media(max-width:760px){.book .body{grid-template-columns:1fr}.book .toc{display:none}
+  .book .txt{padding:24px 22px 34px;font-size:15.5px;background:none}.book .txt h2{font-size:22px}.book .txt .lede{font-size:17px}
+  .jv-form{flex-wrap:wrap}.jv-form input{flex:1 1 100%}.jv-form button{flex:1 1 100%;padding:13px}
+  .entry{height:40vh;min-height:230px}
+  /* ── phone: ONE tall bookcase — the three sections stacked as full-width upright units,
+     each the 3-shelf case with its sign and books; tap a cover to open it. ── */
+  .libroom{aspect-ratio:auto;height:auto;overflow:visible;padding:6px 0 2px;
+    background:linear-gradient(160deg,#e6dcf0 0%,#f1dcea 100%)}
+  .unit{position:static;inset:auto;background:none;filter:none;display:flex;flex-direction:column;align-items:center;gap:0}
+  .bay{position:relative;left:auto!important;inset:auto;width:96%;max-width:430px;aspect-ratio:960/1080;
+    background:url('assets/building-interiors/library-shelf/delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png') center/contain no-repeat;
+    filter:drop-shadow(0 7px 11px rgba(60,30,55,.24))}
+  .ledge{left:11%;right:11%;top:2.6%;height:7%}
+  .brow{left:13%;right:13%}
+  .brow--1{bottom:61.2%;height:24%}.brow--2{bottom:35%;height:24%}.brow--3{bottom:8.7%;height:24%}
+  .caps{display:none}
+  .book .txt .example{grid-template-columns:1fr}}
+</style>
+
+<div class="entry">
+  <img src="assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v3-lighter-carpet.png" alt="Inside the SUNNYVAiLE LIBRAiRY — packed metal bookcases and Miss Jeeves at the reference desk">
+</div>
+
+<div class="wrap">
+  <div class="titleblock">
+    <div class="eyebrow">Civic Square · SUNNYVAiLE</div>
+    <h1>The Town LIBR<span class="ai">Ai</span>RY</h1>
+  </div>
+  <p class="lede">A reference library isn't something you read cover to cover — you come in with a question and leave with the one answer.
+    <small>Ask Miss Jeeves at the desk, or pull a book off the shelf.</small></p>
+
+  <!-- Ask Miss Jeeves -->
+  <section class="jv">
+    <div class="jv-head">
+      <span class="jv-ico"><svg viewBox="0 0 24 24" width="27" height="27" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.7"/><line x1="15.4" y1="15.4" x2="21" y2="21"/></svg></span>
+      <div class="h">Ask Miss Jeeves<small>The reference desk — a plain-words question, every place we cover it.</small></div>
+    </div>
+    <form class="jv-form" onsubmit="return jvGo(event)">
+      <input id="jv-q" type="text" autocomplete="off" placeholder="e.g. how do I know if it's telling the truth?" aria-label="Ask Miss Jeeves a question">
+      <button type="submit">Ask</button>
+    </form>
+    <div class="jv-chips">
+      <b>Try:</b>
+      <button class="jv-chip" type="button">which AI do I use?</button>
+      <button class="jv-chip" type="button">how do I write a better prompt?</button>
+      <button class="jv-chip" type="button">will AI take my job?</button>
+      <button class="jv-chip" type="button">what's a hallucination?</button>
+    </div>
+    <div class="jv-results" id="jv-results"></div>
+  </section>
+
+  <section class="libroom"><div class="unit" id="wallcase"></div></section>
+  <div class="caps" id="caps"></div>
+</div>
+
+<div id="reader" role="dialog" aria-modal="true">
+  <div class="book">
+    <div class="band" id="rb"><div><div class="m" id="rm"></div><div class="t" id="rt"></div></div>
+      <button onclick="closeBook()">← back to the shelf</button></div>
+    <div class="body"><nav class="toc" id="rtoc"></nav><div class="txt" id="rtxt"></div></div>
+  </div>
+</div>
+
+<script>
+const B='assets/library-101/';
+const SECTIONS=[
+ {name:'THE 101s',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-101s-v1.png',cap:'The plain-English basics — start here if the words themselves are the problem.',
+  books:[
+   {id:'vocab-101',t:'Vocab 101',s:'Every AI word in plain English — prompt, token, hallucination, the lot.',img:B+'textbook-vocab-101.png',c:'#8e3b62',src:'/content/library-books/rendered/vocab-101.html',
+    toc:['What a prompt is','Tokens','Hallucination','Context','Model vs tool'],
+    body:'<h4>What a prompt is</h4><p>A prompt is just what you say to it. That is the entire mystery.</p><h4>Tokens</h4><p>Machines read in pieces, not words. Useful only when someone bills you by it.</p><h4>Hallucination</h4><p>When it states something false with total confidence. Not lying — it has no idea it is wrong.</p>'},
+   {id:'concepts-101',t:'Concepts 101',s:'How it actually works, minus the math — prediction, training, why it sounds so sure.',img:B+'textbook-concepts-101.png',c:'#2f6f7c',src:'/content/library-books/rendered/concepts-101.html',
+    toc:['Prediction','Training','Why it sounds sure'],
+    body:'<h4>Prediction</h4><p>It predicts the next likely piece of text. That is the engine. Everything else is packaging.</p><h4>Training</h4><p>It read an enormous amount, once. It is not reading now.</p>'},
+   {id:'briefing-101',t:'Briefing 101',s:'How to ask so it comes back useful — brief it like a sharp new hire.',img:B+'textbook-briefing-101.png',c:'#b0522c',src:'/content/library-books/rendered/briefing-101.html',
+    toc:['Brief it like a new hire','Context','Show an example'],
+    body:'<h4>Brief it like a new hire</h4><p>Talented, fast, no idea who your client is. Tell it what you would tell a competent stranger.</p>'},
+   {id:'setup-101',t:'Setup 101',s:'Set it up once so every tool already knows how you work.',img:B+'textbook-setup-101.png',c:'#3d6b3f',src:'/content/library-books/rendered/setup-101.html',
+    toc:['Saved instructions','Your defaults'],
+    body:'<h4>Saved instructions</h4><p>Tell it once how you like things, and stop re-typing it every Wednesday.</p>'},
+   {id:'accounts-101',t:'Accounts 101',s:"What's safe to paste and what never is — the privacy basics.",img:B+'textbook-accounts-101.png',c:'#5b3b7a',src:'/content/library-books/rendered/accounts-101.html',
+    toc:['Never paste','Work vs personal'],
+    body:'<h4>Never paste</h4><p>Client names, anything under NDA, anything you would not read aloud in a lift.</p>'}
+  ]},
+ {name:'THE TOOLS',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-tools-v1.png',cap:"Which one to open for which job. Who's Who is here now; the per-tool guides land with Episode 5.",
+  books:[
+   {id:'whos-who',t:"Who's Who in AI",s:'Who makes what, and which tool to open for which job.',img:B+'book-whos-who.png',c:'#2f4f7c',src:'/content/library-books/rendered/whos-who.html',
+    toc:['The houses','Which one for which job'],
+    body:'<h4>The houses</h4><p>Each company is a fashion house. A model is one of its designs. The tool is the boutique where you shop it.</p>'},
+   {id:'chatgpt',t:'ChatGPT',s:'The all-rounder — most people’s first stop for most things.',soon:'EP 5',img:B+'book-chatgpt.png'},
+   {id:'claude',t:'Claude',s:'The careful one — a strong writer and thinker.',soon:'EP 5',img:B+'book-claude.png'},
+   {id:'gemini',t:'Gemini',s:'Google’s one, wired into the Google apps you already use.',soon:'EP 5',img:B+'book-gemini.png'},
+   {id:'copilot',t:'Copilot',s:'AI sitting inside Word, Excel and the rest of Office.',soon:'EP 5',img:B+'book-copilot.png'},
+   {id:'perplexity',t:'Perplexity',s:'Answers that come with their sources attached.',soon:'EP 5',img:B+'book-perplexity.png'}
+  ]},
+ {name:'REFERENCE',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-reference-v1.png',cap:'The look-it-up answers — sourced, and how to check the machine yourself.',
+  books:[
+   {id:'straight-answers',t:'Straight Answers About AI',s:'Sourced answers to the big questions — jobs, data, the environment.',img:B+'book-straight-answers-about-ai.png',c:'#7c2f4f',src:'/content/library-books/rendered/straight-answers.html',
+    toc:['Is it coming for my job?','Is my data safe?','The environment'],
+    body:'<h4>Is it coming for my job?</h4><p>Every claim here carries a source you can check. No vibes.</p>'},
+   {id:'how-to-check',t:"How to Check AI's Work",s:'The Prompt-Like-Elle method — make it show its receipts.',img:B+'book-how-to-check-ai-work.png',c:'#8a6a1f',
+    toc:['Ask for receipts','When to Google it'],
+    body:'<h4>Ask for receipts</h4><p>Elle did not argue. She brought receipts. Make it show its sources before your name goes on anything.</p>'},
+   {id:'what-not-to-paste',t:'What Not to Paste',s:'The hard rules on what should never go into a chat box.',soon:'EP 7',img:B+'book-what-not-to-paste.png'},
+   {id:'prompt-cookbook',t:'The Prompt Cookbook',s:'Copy-paste recipes for the jobs that come up every week.',soon:'SOON',img:B+'book-the-prompt-cookbook.png'}
+  ]}
+];
+const ALL={};
+SECTIONS.forEach(s=>s.books.forEach(b=>ALL[b.id]=b));
+
+/* spread a section's books down its column's 3 shelves, front-loaded, so no shelf sits empty */
+function shelfSplit(books){const out=[[],[],[]];let idx=0,rem=books.length;
+  for(let s=0;s<3;s++){const take=Math.max(1,Math.ceil(rem/(3-s)));out[s]=books.slice(idx,idx+take);idx+=take;rem-=take;}return out;}
+const mkBook=b=> b.soon
+  ? `<span class="bk soon"><img src="${b.img}" alt="${b.t}"><span class="tip"><b>${b.t}</b>${b.s||''} <em>· Lands ${b.soon}</em></span></span>`
+  : `<button class="bk" onclick="openBook('${b.id}')"><img src="${b.img}" alt="${b.t}"><span class="tip"><b>${b.t}</b>${b.s||''}</span></button>`;
+document.getElementById('wallcase').innerHTML = SECTIONS.map((s,sectionIndex)=>{
+  const rows=shelfSplit(s.books).map((r,i)=>`<div class="brow brow--${i+1}">${r.map(mkBook).join('')}</div>`).join('');
+  return `<div class="bay bay--${sectionIndex+1}"><div class="ledge"><img src="${s.sign}" alt="${s.name}"></div>${rows}</div>`;
+}).join('');
+document.getElementById('caps').innerHTML =
+  SECTIONS.map(s=>`<p class="cap"><b>${s.name}</b><span>${s.cap}</span></p>`).join('');
+/* on hover/focus, lift the book's bay + shelf-row above their siblings so the popup
+   renders in front of the shelving, the sign and any other books */
+document.querySelectorAll('.bk').forEach(bk=>{
+  const bay=bk.closest('.bay'), brow=bk.closest('.brow');
+  const on=()=>{bay&&bay.classList.add('lift');brow&&brow.classList.add('lift');};
+  const off=()=>{bay&&bay.classList.remove('lift');brow&&brow.classList.remove('lift');};
+  bk.addEventListener('mouseenter',on);bk.addEventListener('mouseleave',off);
+  bk.addEventListener('focus',on);bk.addEventListener('blur',off);
+});
+
+/* ── Ask Miss Jeeves ── */
+let IDX=[];
+fetch('/content/site/site-index.json').then(r=>r.json()).then(d=>{IDX=d.entries||[]}).catch(()=>{});
+function jvSearch(q){
+  q=(q||'').trim().toLowerCase();
+  const box=document.getElementById('jv-results');
+  if(!q){box.innerHTML='';return;}
+  const toks=q.split(/\s+/).filter(t=>t.length>1);
+  const scored=IDX.map(e=>{
+    const title=(e.title||'').toLowerCase();
+    const aliases=(e.aliases||[]).map(a=>a.toLowerCase());
+    const hay=[title,(e.summary||''),(e.topics||[]).join(' '),aliases.join(' ')].join(' ').toLowerCase();
+    let sc=0;
+    aliases.forEach(a=>{if(a===q)sc+=10; else if(a.includes(q)||q.includes(a))sc+=6;});
+    if(title.includes(q))sc+=5;
+    toks.forEach(t=>{ if(hay.includes(t)) sc+=(title.includes(t)?3:1); });
+    if(e.status==='coming')sc-=0.5;
+    return {e,sc};
+  }).filter(x=>x.sc>0).sort((a,b)=>b.sc-a.sc).slice(0,6);
+  if(!scored.length){box.innerHTML=`<p class="jv-none">Miss Jeeves checks the catalogue… nothing filed under that yet. Try “which AI do I use?” or “how do I check it's true?”</p>`;return;}
+  box.innerHTML=scored.map(({e})=>`<a class="jv-card" href="${e.url}">
+     <span class="jv-type jv-${e.type}">${e.type}</span>
+     <span class="jv-t">${e.title}${e.status==='coming'?' · <em style="font-style:normal;color:#b06">soon</em>':''}</span>
+     <span class="jv-s">${e.summary||''}</span></a>`).join('');
+}
+function jvGo(ev){ev.preventDefault();jvSearch(document.getElementById('jv-q').value);return false;}
+document.getElementById('jv-q').addEventListener('input',e=>jvSearch(e.target.value));
+document.querySelectorAll('.jv-chip').forEach(c=>c.addEventListener('click',()=>{
+  document.getElementById('jv-q').value=c.textContent;jvSearch(c.textContent);document.getElementById('jv-q').focus();
+}));
+
+function openBook(id){const b=ALL[id];if(!b)return;
+  document.getElementById('reader').style.setProperty('--accent',b.c||'#7c2f4f');
+  document.getElementById('rm').textContent=b.s||'';
+  document.getElementById('rt').textContent=b.t;
+  const txt=document.getElementById('rtxt'), toc=document.getElementById('rtoc');
+  if(b.src){ txt.innerHTML='<p style="opacity:.6">Pulling it off the shelf…</p>'; toc.innerHTML='';
+    fetch(b.src).then(r=>{if(!r.ok)throw new Error('not found');return r.text()}).then(h=>{
+      const doc=new DOMParser().parseFromString(h,'text/html');
+      doc.querySelectorAll('.gr-topbar,.gr-emblem,.gr-chapter-next,script,style,nav,header,footer').forEach(n=>n.remove());
+      const pages=[...doc.querySelectorAll('.gr-page')];
+      txt.innerHTML = pages.length ? pages.map(p=>p.innerHTML).join('') : (doc.body.innerHTML||'');
+      txt.querySelectorAll('h1,h2,h3').forEach((h,i)=>{h.id='sec'+i});
+      toc.innerHTML=[...txt.querySelectorAll('h2,h3')].filter(h=>!h.closest('.receipts')).map(h=>`<a href="#${h.id}" onclick="event.preventDefault();document.getElementById('${h.id}').scrollIntoView({behavior:'smooth'})">${h.textContent.trim()}</a>`).join('');
+    }).catch(()=>{toc.innerHTML=(b.toc||[]).map(x=>`<a href="#">${x}</a>`).join('');txt.innerHTML=b.body||'<p>Could not open this one.</p>';});
+  } else { toc.innerHTML=(b.toc||[]).map(x=>`<a href="#">${x}</a>`).join('');
+    txt.innerHTML=b.body||'<p>This book is still being written.</p>'; }
+  document.getElementById('reader').classList.add('on');history.replaceState(null,'','#'+id);}
+function closeBook(){document.getElementById('reader').classList.remove('on');history.replaceState(null,'',location.pathname);}
+document.getElementById('reader').addEventListener('click',e=>{if(e.target.id==='reader')closeBook()});
+addEventListener('keydown',e=>{if(e.key==='Escape')closeBook()});
+if(location.hash&&ALL[location.hash.slice(1)])openBook(location.hash.slice(1));
+</script>

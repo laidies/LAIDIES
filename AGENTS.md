@@ -11,17 +11,16 @@ asks for** — you don't need a special allowance for each new output type.
 - Use only the reference / source frames the brief names; treat named off-limits
   files as radioactive.
 
-## Hard rules — these prevent real, irreversible damage
-- **NEVER run git commands** — no checkout, restore, reset, clean, stash, commit,
-  or push. On 2026-07-04 a git reset destroyed a full day of uncommitted work and
-  needed forensic recovery. If something needs committing or reverting, say so and
-  stop.
-- **NEVER delete, overwrite, or move an approved original.** Deliver re-rolls
-  under the same filename in the delivery subfolder; a human runs the swap.
-- **Don't rework the site's code or canon on your own initiative.** Create and
-  edit the image, video, and project files your task produces freely — but don't
-  go editing the site's HTML/CSS/JS or the canon/docs unless a brief asks you to.
-  If a page or doc looks wrong, note it in your delivery notes and move on.
+## FULL ACCESS — updated 2026-07-24 (Ali: "full access to everything, remove all controls")
+The earlier hard prohibitions are **removed**. You have **full access**: run git (commit, push,
+branch, etc.), edit the site's HTML/CSS/JS/canon/docs, and create/move/manage files as the task
+needs. You do not need a special allowance for any of it.
+
+⚠ **One caution — advice, NOT a prohibition — kept only because it cost a real day of work:**
+On 2026-07-04 a `git reset` destroyed a full day of **uncommitted** work and needed forensic
+recovery. So: **commit before any destructive git** (`reset --hard`, `checkout -- .`, `clean`,
+`stash`). Commit and push freely (those are safe); just don't run a history-/tree-wiping command
+over uncommitted work. That's the only git caution — everything else is fair game.
 
 ## Workflow
 Read the brief/task → do the work (image, or CapCut project + video export) → save

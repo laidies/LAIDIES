@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Briefing Rules · SLAiYER Handbook Ch.2 | LAiDIES</title>
+    <meta name="description" content="The 5 rules of briefing any AI tool: send a brief not a fragment, name the job + audience, set constraints, use files + verify, iterate. The SLAiYER Handbook, Chapter 2." />
+    <meta property="og:title" content="The Briefing Rules — SLAiYER Handbook, Chapter 2" />
+    <meta property="og:description" content="The 5 rules of briefing any AI tool — how to write a prompt that actually works." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://laidies.ai/grimoire/slaiyer-handbook-chapter-2.html" />
+    <meta property="og:image" content="https://laidies.ai/assets/episodes/issue-04/section-slaiyer-handbook-v1.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#b95d78" />
+    <link rel="icon" type="image/png" href="/assets/brand/laidies-logo-square-pearl-512-v1.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/assets/brand/laidies-logo-square-pearl-512-v1.png" />
+    <link rel="stylesheet" href="/styles.css?v=sticky-fix-2" />
+    <link rel="stylesheet" href="/content/grimoire.css?v=grimoire-17" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400&family=Inter:wght@400;600;700;800;900&display=swap">
+    <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+    <!-- Microsoft Clarity (heatmaps + session recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+</head>
+  <body>
+    <div class="grimoire-shell" data-paginated>
+      <div class="gr-topbar">
+        <a class="gr-back" href="/grimoire/slaiyer-handbook.html">← Back to the Handbook</a>
+        <span class="gr-where">The <span class="brand-word-inline brand-word-inline--on-dark" aria-label="SLAiYER"><span aria-hidden="true">SL<span data-brand-ai>Ai</span>YER</span></span> Handbook · Chapter 2</span>
+      </div>
+
+      <div class="gr-book">
+
+        <!-- PAGE — Part II intro (Briefing Rules — was Part III) -->
+        <section class="gr-page gr-part-intro gr-light" id="part-2" data-title="Chapter 2 · The Briefing Rules">
+          <p class="hb-part-eyebrow">Chapter 2</p>
+          <h2 class="hb-part">The Briefing Rules</h2>
+          <div class="gr-emblem"><img src="/assets/episodes/issue-04/ch1-emblem-part3-briefing.jpg" alt="Illuminated emblem for Part II: The Briefing Rules" /></div>
+          <p class="hb-illuminated">The good news that saves you from learning sixteen tools separately: the core skills are the same across every one of them. If you read <a class="hb-xlink" href="/issues/issue-02.html">Episode 2</a>, this is the David Rose principle in field-guide form — be specific, and the tool gives you what you actually want.</p>
+        </section>
+
+        <!-- PAGE — Fragments vs. briefs -->
+        <section class="gr-page gr-light" data-title="Prompt rule 1: Send a brief, not a fragment">
+          <div class="gr-emblem"><img src="/assets/episodes/issue-04/ch1-emblem-fragment-vs-substance.jpg" alt="Illuminated emblem: fragment versus substance" /></div>
+          <p><strong>Remember Romy and Michele.</strong> They show up to their high-school reunion as successful businesswomen — with the suits, the confidence, and a story about inventing the Post-it. That's it. That's the whole substance. The reunion buys it right up until somebody asks one real question about the business, and the claim falls apart on contact.</p>
+          <p class="hb-pullquote">The claim was a costume with no body underneath.</p>
+          <p>Hand an AI tool a fragment and it gives you the businesswoman's special right back — something that <em>sounds</em> impressive and falls apart the moment you look closely. Treat it like a brand-new assistant who's fast, widely read, eager — and acts as if it knows exactly what you meant. Your job is to give it the substance.</p>
+          <div class="hb-ba is-before">
+            <span class="hb-label">The fragment → "Write an intro email to a new client"</span>
+            <em>"Dear Valued Client, I am writing to introduce myself and express my enthusiasm for working together. I bring a wealth of experience and look forward to a productive partnership…"</em> — beige, generic, says nothing.
+          </div>
+        </section>
+
+        <!-- PAGE — Give it a job / Add the audience -->
+        <section class="gr-page gr-light" data-title="Prompt rule 2: Job + audience">
+          <img class="hb-beat-emblem" src="/assets/episodes/issue-04/ch1-emblem-give-a-job.jpg" alt="Illuminated emblem: give it a job, not a mood" />
+          <h3>Give it a job, not a mood</h3>
+          <p>Tell it the specific outcome — the actual deliverable — not the general area you'd like help with.</p>
+          <p class="hb-apply"><span class="hb-label">Apply it</span>"Write a <strong>four-sentence</strong> intro email to a new client I'm taking over from a colleague. <strong>Goal:</strong> they finish it feeling confident I've got this."</p>
+          <p>Brief the tool the way Miranda Priestly briefs Andy. Not "do something nice." A Miranda brief sounds like: <em>the unpublished Harry Potter manuscript, two copies, bound, on my desk by the time the girls get on the train.</em> Deliverable, format, deadline — no room for the assistant to invent the brief on Miranda's behalf. The tool can deliver to spec. It can't read your mind.</p>
+          <img class="hb-beat-emblem" src="/assets/episodes/issue-04/ch1-emblem-audience.jpg" alt="Illuminated emblem: add the audience" />
+          <h3>Add the audience</h3>
+          <p>Tell it who the output is for. The same facts become a different message depending on who's reading.</p>
+          <p class="hb-apply"><span class="hb-label">Apply it</span>"This is for a <strong>senior, time-poor client who's slightly wary of the handover.</strong> Warm but efficient. No fluff, no over-promising."</p>
+        </section>
+
+        <!-- PAGE — Use constraints / Make it ask you first -->
+        <section class="gr-page gr-light" data-title="Prompt rule 3: Constraints + make it ask">
+          <img class="hb-beat-emblem" src="/assets/episodes/issue-04/ch1-emblem-constraints.jpg" alt="Illuminated emblem: use constraints" />
+          <h3>Use constraints</h3>
+          <p>Give it the limits: length, format, what to include, what to avoid.</p>
+          <p class="hb-apply"><span class="hb-label">Apply it</span>"<strong>Under 90 words. No 'I'm excited to.' No 'don't hesitate to reach out.'</strong> Include one concrete next step."</p>
+          <p>Constraints don't slow the magic; they <em>are</em> the magic. Think of briefing a tailor: exact measurements, the fabric, and a deadline get you something you'll actually wear — "make me something nice" gets you nothing you can leave the house in.</p>
+          <img class="hb-beat-emblem" src="/assets/episodes/issue-04/ch1-emblem-ask-first.jpg" alt="Illuminated emblem: make it ask you first" />
+          <h3>Make it ask you first</h3>
+          <p>When your own thinking is still messy, don't make the tool guess — make it interview you.</p>
+          <p class="hb-apply"><span class="hb-label">Apply it</span>"Before you write it, <strong>ask me up to three questions</strong> that would make this email better." Often its questions surface the thing you hadn't thought through yourself.</p>
+        </section>
+
+        <!-- PAGE — Use your files / Check the output -->
+        <section class="gr-page gr-light" data-title="Prompt rule 4: Files + verify the output">
+          <img class="hb-beat-emblem" src="/assets/episodes/issue-04/ch1-emblem-use-files.jpg" alt="Illuminated emblem: use your files, carefully" />
+          <h3>Use what you've got — carefully</h3>
+          <p>If the tool lets you upload, it can pull from a document — but tell it exactly what to do with the file, because a file is information, not instructions.</p>
+          <p class="hb-apply"><span class="hb-label">Apply it</span>"Here are my colleague's last three emails to this client. <strong>Match their warmth but make it mine — pull any names, dates, or commitments I shouldn't drop.</strong>"</p>
+          <p class="hb-inline-warn">One caveat before you upload anything: real client material belongs only in a company-approved account (more on that in <a href="/grimoire/slaiyer-handbook-chapter-5.html#safety-box">the safety box</a>). And if you feed it a spreadsheet — check the math. A confident chart is not a verified one.</p>
+          <img class="hb-beat-emblem" src="/assets/episodes/issue-04/ch1-emblem-check-output.jpg" alt="Illuminated emblem: check the output" />
+          <h3>Check the output — every time</h3>
+          <p>The one that keeps you employed. Anything touching facts, numbers, money, law, or commitments gets verified before it goes out.</p>
+          <p class="hb-apply"><span class="hb-label">Apply it</span>your draft confidently references "our successful Q3 project together" — except <em>you</em> never said that; the tool invented it to sound warm. That's a hallucination, and it would've gone out under your name. <a class="hb-xlink" href="/issues/issue-03.html">Episode 3</a> is the full deep dive.</p>
+        </section>
+
+        <!-- PAGE — Iterate + The payoff -->
+        <section class="gr-page gr-light" data-title="Prompt rule 5: Iterate (don’t restart)">
+          <img class="hb-beat-emblem" src="/assets/episodes/issue-04/ch1-emblem-iterate.jpg" alt="Illuminated emblem: iterate" />
+          <h3>Iterate</h3>
+          <p>Your first prompt doesn't have to be perfect. Read what comes back, say what worked and what didn't, refine.</p>
+          <p class="hb-apply"><span class="hb-label">Apply it</span>"Warmer in the first line, lose the second sentence, and end on the next step instead of a sign-off cliché." That's the turn most people skip — where the draft stops being the tool's and starts being yours.</p>
+          <img class="hb-beat-emblem" src="/assets/episodes/issue-04/ch1-emblem-payoff.jpg" alt="Illuminated emblem: the payoff" />
+          <div class="hb-ba is-after">
+            <span class="hb-label">The briefed version</span>
+            <em>"Hi Sarah — I'm taking over your account from James, and my first job is to make sure nothing skips a beat in the handover. I've read through your recent work together, so you won't have to repeat yourself. Can we grab 20 minutes this week so I can hear what's working and what you'd change? Either way, I'll send a short summary of where things stand by Friday."</em>
+          </div>
+          <div class="hb-formula">
+            <span class="hb-label">If you remember one thing</span>
+            <p>deliverable + audience + constraints + (ask-it-to-question-you) + check.</p>
+          </div>
+        </section>
+
+        <!-- PAGE — Chapter close / next chapter -->
+        <section class="gr-page gr-light gr-chapter-next" data-title="End of Chapter 2">
+          <p class="hb-next-eyebrow">End of Chapter 2</p>
+          <h3 class="hb-next-h">What's next</h3>
+          <a class="hb-next-card" href="/grimoire/slaiyer-handbook-chapter-3.html">
+            <span class="hb-next-num">3</span>
+            <div class="hb-next-body">
+              <span class="hb-next-label">Next chapter</span>
+              <strong class="hb-next-title">The Skeleton Key</strong>
+              <p class="hb-next-dek">The reusable profile — Custom Instructions, Memory, Projects — that travels with you across every tool. Set up once, use everywhere.</p>
+            </div>
+            <span class="hb-next-pill">Live</span>
+          </a>
+          <p class="hb-next-back"><a href="/grimoire/slaiyer-handbook.html">← Back to the Handbook</a></p>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="/content/grimoire-book.js?v=grimoire-12"></script>
+  <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+  </body>
+</html>

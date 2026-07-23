@@ -1,0 +1,155 @@
+<meta charset="utf-8"><title>LIBRAiRY redesign — mock</title>
+<style>
+  :root{
+    --plum:#4b2148; --plum-deep:#361634; --rose:#9b3f5f; --pink:#e982ab;
+    --teal:#2f8791; --teal-deep:#1d5c66; --gold:#d9b24a; --cream:#fbf4ef; --coral:#f0885f; --sky:#7fb9d6;
+    --ink:#2a1626;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:#efe6ec;color:var(--ink);font-family:'Jost',system-ui,sans-serif;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px 80px;}
+  .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);}
+  h1,h2,h3{font-family:'Playfair Display',Georgia,serif;color:var(--plum);line-height:1.1;}
+  .mockbar{background:var(--plum);color:#fff;padding:10px 20px;font-size:12.5px;letter-spacing:.04em;position:sticky;top:0;z-index:10;}
+  .mockbar b{color:var(--pink);}
+  /* hero */
+  .hero{position:relative;height:340px;overflow:hidden;border-radius:0 0 18px 18px;}
+  .hero img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;}
+  .hero .cap{position:absolute;left:26px;bottom:20px;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.6);}
+  .hero h1{color:#fff;font-size:44px;margin:6px 0 0;}
+  .hero .ai{color:var(--pink);}
+  .lede{font-family:'Playfair Display',Georgia,serif;font-size:20px;line-height:1.5;color:var(--plum);max-width:680px;margin:26px 0 8px;}
+  /* jeeves */
+  .jeeves{display:grid;grid-template-columns:220px 1fr;gap:0;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 12px 30px rgba(75,33,72,.12);margin:26px 0;}
+  .jeeves .pic{background:center/cover;background-image:url('assets/building-interiors/library-interior-from-credits-dechromed-v3-lighter-carpet.png');background-position:72% 40%;}
+  .jeeves .body{padding:22px 24px;}
+  .jeeves input{width:100%;padding:11px 13px;border:1px solid #d9c4cf;border-radius:9px;font-family:inherit;margin-top:8px;}
+  /* SUNNYVAiLE bookcase built in CSS to match the hero */
+  .stacks-intro{margin:38px 0 10px;}
+  .case{
+    --frame:var(--teal);
+    position:relative;border-radius:12px;padding:16px 20px 8px;margin:16px 0 8px;
+    background:
+      linear-gradient(180deg,rgba(255,255,255,.06),rgba(0,0,0,.10)),
+      repeating-linear-gradient(90deg,var(--teal-deep) 0 3px,transparent 3px 46px),
+      linear-gradient(135deg,var(--teal) 0%,var(--teal-deep) 100%);
+    border:3px solid var(--plum);
+    box-shadow:inset 0 0 0 2px var(--gold), 0 16px 34px rgba(29,92,102,.30);
+  }
+  .case--tools{--teal:#7a5aa0;--teal-deep:#4b2f6e;}
+  .case--ref{--teal:#c76b86;--teal-deep:#8a3f5a;}
+  .case .plate{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--plum-deep);font-weight:800;letter-spacing:.18em;font-size:12px;padding:4px 18px;border-radius:5px;border:2px solid var(--plum);text-transform:uppercase;}
+  .shelf{display:flex;align-items:flex-end;gap:10px;min-height:126px;padding:0 8px 12px;border-bottom:10px solid rgba(0,0,0,.28);border-radius:0 0 4px 4px;position:relative;}
+  .shelf::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:10px;background:linear-gradient(var(--gold),rgba(0,0,0,.3));}
+  .shelf + .shelf{margin-top:14px;}
+  .book{height:118px;cursor:pointer;transition:transform .16s ease, filter .16s ease;filter:drop-shadow(0 6px 8px rgba(0,0,0,.35));}
+  .book:hover{transform:translateY(-14px) rotate(-1.5deg);filter:drop-shadow(0 16px 14px rgba(0,0,0,.4));}
+  .book.soon{opacity:.5;filter:grayscale(.4) drop-shadow(0 6px 8px rgba(0,0,0,.3));}
+  .glass{position:absolute;inset:auto 14px 60px auto;width:54px;height:150px;border-radius:6px;background:repeating-linear-gradient(0deg,rgba(127,185,214,.5) 0 16px,rgba(127,185,214,.2) 16px 18px);box-shadow:0 0 24px rgba(127,185,214,.5);opacity:.35;pointer-events:none;}
+  .note{font-size:13px;color:var(--plum);font-style:italic;margin:4px 2px 22px;}
+  /* compare + needs */
+  .panel{background:#fff;border-radius:14px;padding:22px 24px;margin:30px 0;box-shadow:0 10px 26px rgba(75,33,72,.10);}
+  .cmp{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center;}
+  .cmp img{width:100%;border-radius:8px;border:1px solid #e3d3db;}
+  .cmp .lbl{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;}
+  .bad{color:#b23b3b;} .good{color:var(--teal-deep);}
+  ul.needs{margin:8px 0 0;padding-left:0;list-style:none;}
+  ul.needs li{padding:10px 0;border-top:1px solid #eee;font-size:14.5px;line-height:1.5;}
+  ul.needs b{color:var(--plum);}
+  .pill{display:inline-block;font-size:11px;font-weight:800;border-radius:20px;padding:2px 10px;margin-left:6px;}
+  .pill.css{background:#e7f3ec;color:#2e7d52;} .pill.gen{background:#fdeede;color:#b5701f;} .pill.crop{background:#e9eef7;color:#3a5a9a;}
+  .cut{background:#fbecec;color:#a23;border-radius:8px;padding:3px 9px;font-size:12px;font-weight:700;}
+</style>
+
+<div class="mockbar">MOCK · proposed <b>LIBRAiRY</b> redesign — one metaphor: walk in → ask Jeeves → browse the shelves → pull a book. Bookcases rebuilt in the SUNNYVAiLE palette to match the hero. <i>(CSS shelves shown; spine art is the real current set.)</i></div>
+
+<div class="hero">
+  <img src="assets/building-interiors/library-interior-from-credits-dechromed-v3-lighter-carpet.png" alt="">
+  <div class="cap"><span class="tag" style="color:#ffd9e6">Civic Square · SUNNYVAiLE</span><h1>The Town <span class="ai">LIBRAiRY</span>.</h1></div>
+</div>
+
+<div class="wrap">
+  <p class="lede">The reference stacks for the SUNNYVAiLE world — the maps, the receipts, the "wait, what does that actually mean?" You don't read it front to back. You find the shelf, pull the book you need, and go.</p>
+  <p style="color:#7a5c6c;font-size:13px;">↑ intro rewritten — <span class="cut">cut "The Grimoire lives here"</span> and the retired-page links.</p>
+
+  <div class="jeeves">
+    <div class="pic"></div>
+    <div class="body">
+      <span class="tag">The reference desk</span>
+      <h3 style="margin:4px 0 8px;font-size:24px;">Ask Miss Jeeves</h3>
+      <p style="margin:0;font-size:14px;line-height:1.5;color:#5a3f4e;">Don't know what to even call the thing you're stuck on? Ask in plain words — she points you to the right shelf.</p>
+      <input placeholder="e.g. is AI going to take my job?">
+    </div>
+  </div>
+  <p style="color:#7a5c6c;font-size:13px;">↑ Jeeves photo now = a crop of the <b>new hero</b> (same character, one look) — replaces the old mismatched painterly Jeeves.</p>
+
+  <div class="stacks-intro">
+    <span class="tag">The stacks</span>
+    <h2 style="font-size:30px;margin:4px 0 2px;">Three shelves. Pull one down.</h2>
+    <p style="color:#5a3f4e;max-width:640px;">The <b>101s</b> (learn the basics), <b>The Tools</b> (one book per app), and <b>Reference</b> (look it up). Hover a book to pull it.</p>
+  </div>
+
+  <div class="case">
+    <span class="plate">The 101s</span>
+    <div class="glass"></div>
+    <div class="shelf">
+      <img class="book" src="assets/library-101/textbook-vocab-101.png">
+      <img class="book" src="assets/library-101/textbook-concepts-101.png">
+      <img class="book" src="assets/library-101/textbook-briefing-101.png">
+      <img class="book" src="assets/library-101/textbook-setup-101.png">
+      <img class="book" src="assets/library-101/textbook-accounts-101.png">
+    </div>
+  </div>
+  <p class="note">Vocab · Concepts · Briefing · Setup · Accounts — the basics, one textbook each. More land as episodes cover them.</p>
+
+  <div class="case case--tools">
+    <span class="plate">The Tools</span>
+    <div class="shelf">
+      <img class="book" src="assets/library-101/book-whos-who.png">
+      <img class="book soon" src="assets/library-101/book-chatgpt.png">
+      <img class="book soon" src="assets/library-101/book-claude.png">
+      <img class="book soon" src="assets/library-101/book-gemini.png">
+      <img class="book soon" src="assets/library-101/book-copilot.png">
+      <img class="book soon" src="assets/library-101/book-perplexity.png">
+    </div>
+  </div>
+  <p class="note">Who's Who is open now. Per-tool guides + The Lineup land with Ep 5. <b>Fashion-house framing:</b> each company is a house, each model one of its designs.</p>
+
+  <div class="case case--ref">
+    <span class="plate">Reference</span>
+    <div class="shelf">
+      <img class="book" src="assets/library-101/book-straight-answers-about-ai.png">
+      <img class="book" src="assets/library-101/book-how-to-check-ai-work.png">
+      <img class="book soon" src="assets/library-101/book-what-not-to-paste.png">
+      <img class="book soon" src="assets/library-101/book-the-prompt-cookbook.png">
+    </div>
+  </div>
+  <p class="note">Straight Answers + How to Check are open now. <span class="cut">The old top card-grid + "reading table" cards are cut</span> — every item they held already lives here as a book.</p>
+
+  <div class="panel">
+    <div class="cmp">
+      <div>
+        <div class="lbl bad">✕ Current shelf art — clashes</div>
+        <img src="assets/library-101/101-shelf-kit.png">
+        <p style="font-size:12.5px;color:#8a4;color:#a23;">Photoreal honey-oak, green/maroon trim, warm golden stock-photo light. A different world from the hero.</p>
+      </div>
+      <div>
+        <div class="lbl good">✓ Proposed — CSS shelf in SUNNYVAiLE palette</div>
+        <div class="case" style="margin:0;min-height:150px;"><span class="plate">101</span>
+          <div class="shelf" style="min-height:90px;"><img class="book" style="height:84px" src="assets/library-101/textbook-vocab-101.png"><img class="book" style="height:84px" src="assets/library-101/textbook-concepts-101.png"></div>
+        </div>
+        <p style="font-size:12.5px;color:var(--teal-deep);">Teal/plum/gold + glass-block glow — matches the hero <b>by construction</b>, responsive, and the hover-pull is free.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <span class="tag">Images this needs</span>
+    <ul class="needs">
+      <li><b>Bookcase furniture</b> <span class="pill css">build in CSS</span> — no generation; the shelf is styled in the town palette so it always matches the hero. Kills the mismatched wood kit.</li>
+      <li><b>Ask Jeeves portrait</b> <span class="pill crop">crop the hero</span> — reuse the new hero's Jeeves; no new render. Retires the old painterly Jeeves.</li>
+      <li><b>Book spines</b> <span class="pill gen">maybe restyle</span> — the current spines (Vocab 101, etc.) read a touch generic vs the hero's illustration. Optional Codex pass to redraw them in the hero's SUNNYVAiLE register. <i>Your call — keep or restyle.</i></li>
+      <li><b>Nothing else generated.</b> The hero exists; the structure + shelves are code.</li>
+    </ul>
+  </div>
+</div>

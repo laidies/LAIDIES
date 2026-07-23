@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Screening Room v2 — prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
+/* ─────────────────────────────────────────────────────────────
+   SCREENING ROOM v2 — prototype
+   Target = the HOMEPAGE: full-bleed art, candy accents, no
+   centre text column, not editorial. No gold, no plum panels.
+   ───────────────────────────────────────────────────────────── */
+:root{
+  --ink:#3a1838;
+  --cream:#fffdfb;
+  --pink:#e982ab;
+  --teal:#57b6c0;
+  --coral:#ec7a78;
+  --peri:#b3abe7;
+  --night:#1c0f1c;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--night);
+  color:var(--cream);
+  font-family:'Jost',system-ui,-apple-system,sans-serif;
+  min-height:100vh;
+}
+/* the episode's own art becomes the room, not a flat panel */
+.room{
+  position:fixed; inset:0; z-index:0;
+  background:url('/assets/episodes/ep-04/pixel/ep04-scene-03-ada-a-start-comic-v1-locked-1920.png') center/cover no-repeat;
+  filter:blur(46px) saturate(1.5) brightness(.42);
+  transform:scale(1.15);
+}
+.room::after{
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(120% 90% at 50% 0%, rgba(28,15,28,.15), rgba(28,15,28,.93) 72%);
+}
+.wrap{position:relative; z-index:1; padding:26px clamp(18px,3vw,44px) 60px}
+
+/* ── masthead: full width, no centre strip ── */
+.mast{display:flex; align-items:flex-end; justify-content:space-between;
+      gap:24px; flex-wrap:wrap; margin:0 0 20px}
+.eyebrow{font:700 11px/1 'Jost',sans-serif; letter-spacing:.28em; text-transform:uppercase;
+         color:var(--teal); margin:0 0 10px}
+.mast h1{font:800 clamp(30px,4.4vw,58px)/.98 'Jost',sans-serif; margin:0; letter-spacing:-.02em}
+.mast h1 em{font-style:italic; color:var(--pink)}
+.mast .meta{font:500 13px/1.5 'Jost',sans-serif; color:rgba(255,253,251,.62); text-align:right}
+
+/* ── the split: picture takes the room, rail uses the side ── */
+.stage{display:grid; grid-template-columns:minmax(0,1fr) 372px; gap:22px; align-items:start}
+@media (max-width:1080px){ .stage{grid-template-columns:1fr} }
+
+.screen{position:relative; border-radius:16px; overflow:hidden;
+        background:#000; box-shadow:0 30px 90px rgba(0,0,0,.6)}
+.screen video{width:100%; height:auto; display:block}
+
+/* ── captions live in the rail, never over the picture ── */
+.rail{display:flex; flex-direction:column; gap:16px}
+.card{background:rgba(255,253,251,.055); border:1px solid rgba(255,253,251,.12);
+      border-radius:14px; padding:16px 18px}
+.card h2{font:700 10.5px/1 'Jost',sans-serif; letter-spacing:.24em; text-transform:uppercase;
+         margin:0 0 12px; color:rgba(255,253,251,.5)}
+.cap{min-height:150px; display:flex; flex-direction:column; gap:8px}
+.cap-who{font:700 10.5px/1 'Jost',sans-serif; letter-spacing:.2em; text-transform:uppercase; color:var(--teal)}
+.cap-txt{font:400 16px/1.55 'Jost',sans-serif; color:var(--cream); margin:0}
+.cap.is-maven .cap-who{color:var(--coral)}
+.cap.is-maven .cap-txt{font-style:italic; color:#ffe9e4}
+
+/* ── chapters: candy, full width of the rail, not gold pills ── */
+.chaps{display:flex; flex-direction:column; gap:6px; max-height:330px; overflow:auto}
+.chap{display:flex; align-items:center; gap:11px; width:100%; text-align:left;
+      background:transparent; border:0; cursor:pointer; padding:8px 10px; border-radius:9px;
+      color:rgba(255,253,251,.8); font:600 13px/1.25 'Jost',sans-serif;
+      transition:background .13s linear, color .13s linear}
+.chap:hover{background:rgba(255,253,251,.09); color:var(--cream)}
+.chap .dot{width:9px; height:9px; border-radius:50%; flex:0 0 auto}
+.chap .t{margin-left:auto; font:500 11.5px/1 'Jost',sans-serif;
+         color:rgba(255,253,251,.4); font-variant-numeric:tabular-nums}
+.chap.on{background:rgba(255,253,251,.13); color:var(--cream)}
+@media (prefers-reduced-motion:reduce){ .chap{transition:none} }
+</style>
+</head>
+<body>
+<div class="room" id="room"></div>
+<div class="wrap">
+
+  <div class="mast">
+    <div>
+      <p class="eyebrow">The Chick Flicks · The Screening Room</p>
+      <h1>Episode 04 · The Founding <em>Mothers</em></h1>
+    </div>
+    <p class="meta">S1 · E04 &nbsp;·&nbsp; 20:22<br>Narrated, scored and synced</p>
+  </div>
+
+  <div class="stage">
+    <div class="screen">
+      <video id="film" controls playsinline preload="metadata"
+             src="/assets/video/episode-04-full-v1.mp4">
+        <track kind="captions" src="/assets/captions/episode-04.vtt" srclang="en" label="English" default>
+      </video>
+    </div>
+
+    <div class="rail">
+      <div class="card">
+        <h2>Read along</h2>
+        <div class="cap" id="cap">
+          <span class="cap-who" id="capWho"></span>
+          <p class="cap-txt" id="capTxt">Press play — the words appear here, not over the picture.</p>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Chapters</h2>
+        <div class="chaps" id="chaps"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+var MAVENS = ['Ada Lovelace','Hedy Lamarr','Grace Hopper','Karen Spärck Jones'];
+var CANDY  = ['#e982ab','#57b6c0','#ec7a78','#b3abe7'];
+var film = document.getElementById('film');
+var cap = document.getElementById('cap'), capWho = document.getElementById('capWho'), capTxt = document.getElementById('capTxt');
+
+/* captions → the rail */
+function paint(){
+  var tr = film.textTracks[0]; if(!tr) return;
+  var c = tr.activeCues && tr.activeCues[0];
+  if(!c){ return; }
+  var m = /^<v\s+([^>]+)>/.exec(c.text);
+  var who = m ? m[1] : '';
+  capWho.textContent = who;
+  capTxt.textContent = c.text.replace(/^<v[^>]*>/,'').replace(/\n/g,' ');
+  cap.classList.toggle('is-maven', MAVENS.indexOf(who) !== -1);
+}
+function armCaptions(){
+  var tr = film.textTracks[0]; if(!tr) return;
+  tr.mode = 'hidden';                      /* parses cues, paints nothing over the art */
+  tr.addEventListener('cuechange', paint);
+}
+film.textTracks.addEventListener && film.textTracks.addEventListener('addtrack', armCaptions);
+if (film.textTracks.length) armCaptions();
+
+/* chapters from the era-card cues */
+function mmss(t){ var m=Math.floor(t/60), s=Math.round(t%60); return m+':'+String(s).padStart(2,'0'); }
+fetch('/content/episodes/episode-04-cues.json').then(function(r){return r.json();}).then(function(j){
+  var cues = j.cues || j;
+  var chaps = cues.filter(function(c){ return c.label && c.label.indexOf('→') === 0; })
+                  .map(function(c){ return { t:+c.t, label:c.label.replace('→','').trim() }; });
+  chaps.unshift({ t:0, label:'Cold open' });
+  var host = document.getElementById('chaps');
+  host.innerHTML = chaps.map(function(c,i){
+    return '<button class="chap" data-t="'+c.t+'">'
+         +   '<span class="dot" style="background:'+CANDY[i%4]+'"></span>'
+         +   '<span>'+c.label+'</span><span class="t">'+mmss(c.t)+'</span></button>';
+  }).join('');
+  host.addEventListener('click', function(e){
+    var b = e.target.closest('.chap'); if(!b) return;
+    film.currentTime = +b.dataset.t; film.play().catch(function(){});
+  });
+  film.addEventListener('timeupdate', function(){
+    var t = film.currentTime, on = 0;
+    chaps.forEach(function(c,i){ if(t >= c.t) on = i; });
+    [].forEach.call(host.children, function(el,i){ el.classList.toggle('on', i===on); });
+  });
+});
+</script>
+</body>
+</html>
