@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 1 mock · SUNNYVAiLE High</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --plum:#4b2148; --plum-soft:#6b3a66; --cream:#fffdfb; --line:rgba(75,33,72,.14);
+  --pink:#e982ab; --teal:#57b6c0; --coral:#ec7a78; --peri:#b3abe7; --chalk:#f2ece0;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#f4eef1;font-family:Jost,sans-serif;color:var(--plum);padding:0 0 80px}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+
+.top{text-align:center;padding:40px 20px 26px}
+.top .eyebrow{font:600 12px/1 Jost;letter-spacing:.22em;text-transform:uppercase;color:#9b3f5f}
+.top h1{font:600 34px/1.1 "Playfair Display",serif;margin:12px 0 6px;color:var(--plum)}
+.top p{margin:0;color:var(--plum-soft);font-size:15px}
+.badge{display:inline-block;margin-top:14px;padding:6px 14px;border-radius:99px;background:rgba(87,182,192,.16);
+  border:1px solid rgba(87,182,192,.4);color:#15646c;font:600 11px/1 Jost;letter-spacing:.14em;text-transform:uppercase}
+
+/* ── the intro slide: 1999 overhead transparency ── */
+.slide-stage{margin:8px 0 40px;padding:34px;border-radius:18px;overflow:hidden;
+  background:radial-gradient(ellipse 70% 60% at 50% 40%,rgba(255,231,168,.5),transparent 70%),linear-gradient(160deg,#2b2119,#1a1410)}
+.slide{max-width:560px;margin:0 auto;padding:34px 40px;transform:rotate(-.5deg);border-radius:3px;color:#4a3410;
+  background:linear-gradient(150deg,rgba(255,246,214,.97),rgba(255,238,190,.94));
+  border:1px solid rgba(120,86,30,.4);
+  box-shadow:0 0 0 1px rgba(255,255,255,.25) inset,0 22px 50px rgba(0,0,0,.5),0 0 90px rgba(255,214,130,.35)}
+.slide .k{font:700 11px/1 Jost;letter-spacing:.24em;text-transform:uppercase;color:#8a6320;margin:0 0 12px}
+.slide h2{font:600 34px/1.1 Jost;margin:0;color:#3d2a08}
+.slide .rule{height:2px;margin:16px 0 20px;background:linear-gradient(90deg,rgba(122,86,20,.75),rgba(122,86,20,.1));border-radius:2px}
+.slide .lead{font:600 14px/1 Jost;letter-spacing:.1em;text-transform:uppercase;color:#7a5614;margin:0 0 12px}
+.slide ul{margin:0;padding:0;list-style:none}
+.slide li{position:relative;padding-left:30px;margin-bottom:11px;font-size:17px;color:#4a3410}
+.slide li::before{content:"";position:absolute;left:3px;top:.4em;width:14px;height:8px;border-left:2.5px solid #a8761c;
+  border-bottom:2.5px solid #a8761c;transform:rotate(-45deg)}
+.slide .foot{margin:20px 0 0;padding-top:13px;border-top:1px dashed rgba(122,86,20,.45);
+  font:500 12px/1.4 Jost;letter-spacing:.05em;color:#8a6320}
+
+.chapterhdr{display:flex;align-items:center;gap:12px;margin:44px 0 6px}
+.chapterhdr .n{flex:none;width:30px;height:30px;border-radius:99px;display:grid;place-items:center;
+  font:700 14px/1 Jost;color:#fff;background:var(--plum)}
+.chapterhdr h3{margin:0;font:600 20px/1 Jost;color:var(--plum)}
+.chapterhdr .t{margin-left:auto;font:500 12px/1 Jost;color:var(--plum-soft);opacity:.7}
+
+/* ── a storyboard frame: mock screen + narration caption ── */
+.frame{margin:18px 0;border-radius:16px;overflow:hidden;background:#000;box-shadow:0 12px 30px rgba(75,33,72,.18)}
+.screen{position:relative;background:#fff;aspect-ratio:16/10}
+.win{position:absolute;inset:0;display:flex;font-size:11px}
+.win .side{width:34%;background:#f7f7f8;border-right:1px solid #ececf0;padding:12px 10px;color:#2b2b2b}
+.win .side .logo{font-weight:700;font-size:13px;margin-bottom:12px}
+.win .side .item{display:flex;align-items:center;gap:7px;padding:5px 6px;border-radius:6px;margin-bottom:2px;color:#3a3a3a}
+.win .side .item.on{background:#ececf0;font-weight:600}
+.win .side .dot{width:13px;height:13px;border-radius:4px;background:#c9c9d2;flex:none}
+.win .side .sec{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:#9a9aa6;margin:12px 0 5px}
+.win .side .chat{padding:4px 6px;color:#6a6a76;font-size:10.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.win .side .acct{position:absolute;left:10px;bottom:10px;display:flex;align-items:center;gap:7px;font-weight:600}
+.win .side .acct .av{width:18px;height:18px;border-radius:99px;background:var(--teal)}
+.win .main{flex:1;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px}
+.win .top-tabs{position:absolute;top:10px;left:50%;transform:translateX(-50%);display:flex;background:#efeff2;border-radius:99px;padding:2px}
+.win .top-tabs span{padding:3px 14px;border-radius:99px;font-size:10px;color:#8a8a94}
+.win .top-tabs span.on{background:#fff;color:#222;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.win .greet{font-size:15px;color:#3a3a3a;margin-bottom:14px}
+.win .composer{width:82%;border:1px solid #dcdce2;border-radius:22px;padding:11px 14px;color:#9a9aa6;display:flex;align-items:center;gap:8px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.win .composer .send{margin-left:auto;width:20px;height:20px;border-radius:99px;background:var(--pink)}
+.bubble{max-width:80%;align-self:flex-start;background:#f2f2f5;border-radius:12px;padding:9px 12px;color:#333;font-size:11px;line-height:1.5;text-align:left}
+.bubble.you{align-self:flex-end;background:#e7dcef;color:#2b2b2b}
+
+/* callout ring drawn over the screen */
+.ring{position:absolute;border:2.5px solid var(--coral);border-radius:10px;box-shadow:0 0 0 4px rgba(236,122,120,.2)}
+.tag{position:absolute;background:var(--plum);color:#fff;font:600 9px/1 Jost;letter-spacing:.08em;text-transform:uppercase;
+  padding:4px 8px;border-radius:6px;white-space:nowrap}
+
+.cap{background:#1a1410;color:var(--chalk);padding:14px 18px;font-size:15px;line-height:1.5;font-style:italic}
+.cap b{font-style:normal;color:#fff;font-weight:600}
+.novo{background:#2b2119;color:#c9b98f;padding:12px 18px;font-size:12px;letter-spacing:.04em}
+
+.note{margin:34px 0 0;padding:16px 18px;border-radius:12px;background:rgba(179,171,231,.14);border:1px solid rgba(179,171,231,.4);
+  font-size:13.5px;line-height:1.6;color:var(--plum-soft)}
+.note b{color:var(--plum)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <p class="eyebrow">SUNNYVAiLE High · The Basics · Lesson 1</p>
+    <h1>What You're Looking At</h1>
+    <p>How the finished lesson plays — intro card, then the screen with narration beneath.</p>
+    <span class="badge">Mock · not filmed · ~8 min</span>
+  </div>
+
+  <!-- INTRO SLIDE -->
+  <div class="slide-stage">
+    <div class="slide">
+      <p class="k">The Basics · Lesson 1</p>
+      <h2>What You're Looking At</h2>
+      <div class="rule"></div>
+      <p class="lead">Today you will —</p>
+      <ul>
+        <li>Name the parts of the screen you were handed</li>
+        <li>Tell the tool you click from the model that writes</li>
+        <li>Type one real thing and get something back</li>
+      </ul>
+      <p class="foot">8 minutes · Where should we begin</p>
+    </div>
+  </div>
+
+  <!-- CHAPTER 1 -->
+  <div class="chapterhdr"><span class="n">1</span><h3>What am I looking at</h3><span class="t">0:00–3:00</span></div>
+
+  <div class="frame">
+    <div class="screen"><div class="win">
+      <div class="side"><div class="logo">ChatGPT</div>
+        <div class="item on"><span class="dot"></span> New chat</div>
+        <div class="item"><span class="dot"></span> Library</div>
+        <div class="item"><span class="dot"></span> Plugins</div>
+        <div class="sec">Chats</div>
+        <div class="acct"><span class="av"></span> your name</div>
+      </div>
+      <div class="main">
+        <div class="greet">What's on the agenda today?</div>
+        <div class="composer">Ask anything <span class="send"></span></div>
+      </div>
+    </div></div>
+    <div class="cap">So you signed up, and it opened, and it is a box. That is it. A box with a cursor in it and no instructions anywhere. If your first thought was <b>"and now what"</b> — that is not you missing something.</div>
+  </div>
+
+  <div class="frame">
+    <div class="screen"><div class="win">
+      <div class="side"><div class="logo">ChatGPT</div>
+        <div class="item on"><span class="dot"></span> New chat</div>
+        <div class="item"><span class="dot"></span> Library</div>
+        <div class="item"><span class="dot"></span> Plugins</div>
+        <div class="sec">Chats</div>
+        <div class="chat">Site review notes</div>
+        <div class="chat">Father's day letter</div>
+        <div class="acct"><span class="av"></span> your name</div>
+      </div>
+      <div class="main"><div class="greet">What's on the agenda today?</div><div class="composer">Ask anything <span class="send"></span></div></div>
+      <div class="ring" style="left:3%;top:16%;width:31%;height:11%"></div>
+      <div class="tag" style="left:3%;top:9%">New chat</div>
+      <div class="ring" style="left:3%;top:44%;width:31%;height:24%"></div>
+      <div class="tag" style="left:3%;top:37%">your history</div>
+      <div class="ring" style="left:3%;bottom:5%;width:31%;height:11%"></div>
+      <div class="tag" style="left:3%;bottom:17%">name → settings</div>
+    </div></div>
+    <div class="cap">Let us name the furniture. Up top, a button that says <b>New chat</b>. Under it, your past conversations stack up. And your own <b>name</b>, at the bottom, is the way into your settings — where nearly everything else in this term lives.</div>
+  </div>
+
+  <!-- CHAPTER 2 -->
+  <div class="chapterhdr"><span class="n">2</span><h3>What is actually happening</h3><span class="t">3:00–6:05</span></div>
+
+  <div class="frame">
+    <div class="screen"><div class="win">
+      <div class="side" style="background:linear-gradient(90deg,rgba(179,171,231,.25),rgba(179,171,231,.12));border-right:2px dashed var(--peri)">
+        <div class="logo">everything you click</div>
+        <div class="item"><span class="dot"></span> buttons</div>
+        <div class="item"><span class="dot"></span> settings</div>
+        <div class="item"><span class="dot"></span> your files</div>
+        <div class="tag" style="left:10px;bottom:12px;background:#5b4fa8">THE TOOL</div>
+      </div>
+      <div class="main" style="background:#fbfaff">
+        <div class="bubble" style="max-width:88%">the part that does nothing but produce words, one after another…</div>
+        <div class="tag" style="right:14px;bottom:14px;background:var(--coral)">THE MODEL</div>
+      </div>
+    </div></div>
+    <div class="cap">Two things here, and they are not the same. Everything you can click is <b>the tool</b>. The part that produces the words is <b>the model</b>. The tool is what you set up. The model is what writes.</div>
+  </div>
+
+  <div class="frame">
+    <div class="screen"><div class="win">
+      <div class="main" style="background:#fff">
+        <div class="bubble you">Write a note to my team about the delay.</div>
+        <div class="bubble">Dear Team, I wanted to take a moment to reach out regarding the recent delay. We appreciate your patience as we work to resolve the situation…</div>
+      </div>
+    </div></div>
+    <div class="cap">Ask a hundred people to describe a chair and you get four legs, wooden, nothing you'd remember. Give it almost nothing, and the most likely answer is the most average one. <b>It is not being lazy — that flat answer is what "most likely" looks like.</b></div>
+  </div>
+
+  <!-- CHAPTER 3 -->
+  <div class="chapterhdr"><span class="n">3</span><h3>So what do I type</h3><span class="t">6:05–8:45</span></div>
+
+  <div class="frame">
+    <div class="screen"><div class="win">
+      <div class="main" style="background:#fff">
+        <div class="bubble you" style="max-width:88%">Write a note to my five-person team: the supplier missed Friday, so the report lands Wednesday. I write short.</div>
+        <div class="bubble">Team — the supplier missed Friday, so the report lands Wednesday. Nothing else moves. Shout today if that breaks something your end.</div>
+      </div>
+    </div></div>
+    <div class="cap">Take one real thing off your plate today — small, something you'd not mind getting a bit wrong. <b>Same tool, same minute. The only difference is this one had something to work with.</b></div>
+  </div>
+
+  <div class="frame">
+    <div class="screen"><div class="win">
+      <div class="main" style="background:linear-gradient(160deg,#fff,#faf6fb)">
+        <div class="greet" style="font-weight:600;color:var(--plum)">The box · your history · New chat · Settings</div>
+        <div style="font-size:13px;color:var(--plum-soft);margin-top:6px">the tool is what you click · the model is what writes</div>
+      </div>
+    </div></div>
+    <div class="cap"><b>Recap.</b> The box, the history, New chat, Settings. The tool is what you click; the model is what writes. And it produces the most likely next words for whatever you put in front of it. <b>Give it one real thing today. Not a test.</b></div>
+  </div>
+
+  <div class="note">
+    <b>What this mock is showing you:</b> the shape and feel of Lesson 1 — the 1999 intro card, then the real ChatGPT screen with a plain-spoken caption under each moment. The screens here are stand-ins drawn in the browser; the finished lesson is a screen recording of the real thing. <b>Nothing is filmed yet</b> — this is so you can see whether the teaching and the pace feel right before we shoot it.
+  </div>
+
+</div>
+</body>
+</html>

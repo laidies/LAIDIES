@@ -1,0 +1,278 @@
+<div class="gr-page">
+<p class="lede">Everyone keeps saying "AI" like it's one thing you already know how to open. It isn't. Under that one name tag sits an engine, a pile of things it read once and then stopped reading, a working memory that fills up and starts dropping details, and a habit of sounding certain even when it's wrong. This book lifts the hood. No math — just the moving parts, what each one actually does, and where each one slips, so the next time someone says "just use AI" you know exactly what's down there.</p>
+
+<h2>Model / LLM</h2>
+
+<p>The <span class="term">model</span> is the engine inside the app. The <em>app</em> is what you open — claude.ai, chatgpt.com, gemini.google.com, the Copilot inside Teams. The <em>model</em> is what's actually generating the answers. One app usually offers several engines, and you usually have a choice between them.</p>
+
+<p>"LLM" — large language model — is the technical name for the engine behind most of the AI you're using right now. You don't need to know which one. You just need to know there's more than one, and they aren't all the same.</p>
+
+<p>Wharton professor Ethan Mollick makes this concrete with a three-tier framework that's worth borrowing:</p>
+
+<ul>
+<li><strong>Models</strong> — the underlying AI brains. Each big lab keeps a current flagship. The capability comes from here.</li>
+<li><strong>Apps</strong> — the interfaces you open. claude.ai, chatgpt.com, the Copilot embedded in Teams. The experience comes from here.</li>
+<li><strong>Harnesses</strong> — the systems that let AI <em>do things</em>, not just say things. Claude Code, ChatGPT Agent mode, Cursor. Same model, different harness — completely different capability.</li>
+</ul>
+
+<p>Same model + different harness = different capability. Same app + different model = different answer. Knowing which lever to pull is half the skill.</p>
+
+<h3>How models differ</h3>
+
+<p>Inside almost every modern AI app you'll find at least two kinds of model. They behave quite differently.</p>
+
+<ol>
+<li><strong>Base / chat models — the fluent ones.</strong> Fast, conversational, optimized for back-and-forth. Excellent for quick rewrites, brainstorms, surface explanations, drafting. They generate one answer fast. You get a paragraph in under three seconds.</li>
+<li><strong>Reasoning models — the slow, deliberate ones.</strong> These work the problem through internally before answering. They're better at math, logic, multi-step plans, anything that needs its work checked. They were a genuinely new development — OpenAI shipped the first one (o1) in September 2024. Anthropic and Google followed within the year (Claude's "extended thinking," Gemini "Thinking"). The cost: 20–60 seconds per response instead of two. The benefit: dramatically fewer confidently-wrong answers on the hard stuff.</li>
+</ol>
+
+<p>Mollick's bluntest line: most people leave the picker on "auto" and get the base model by default. For anything that matters, manually switch to the reasoning version. The minute you wait is the hour you don't spend cleaning up the answer.</p>
+
+<h3>Which one when</h3>
+
+<div class="example">
+<div class="ex-bad"><b>Fast model — quick, recoverable, conversational</b><p>The rewrite. The short list. The "what's the word for...?" If the answer's wrong, you'll know in five seconds.</p></div>
+<div class="ex-good"><b>Reasoning model — logic, math, multi-step, stakes</b><p>The five-step plan. The financial scenario. The contract you're reading. The decision you can't undo.</p></div>
+</div>
+
+<p>Mollick is blunt about the free-tier trap: free AI is <em>"optimized for chat, rather than accuracy."</em> For work that matters, paying for the frontier reasoning model is the difference between confident-and-wrong and slow-and-right.</p>
+
+<h3>Where it goes wrong</h3>
+
+<p>Two common mistakes.</p>
+
+<p><strong>Using the fast model for hard problems.</strong> It happens because the fast model is the default. You ask a strategic question and get back a fluent paragraph that <em>sounds</em> confident — but didn't actually work the problem through. The reasoning model would have caught the gap.</p>
+
+<p><strong>Using the reasoning model for everything.</strong> It's overkill for a quick rewrite, and you pay for thinking you didn't need (in time, sometimes in dollars). Save it for when the stakes justify the wait.</p>
+
+<p>The other trap: assuming all the AI tools are equivalent. They aren't. The current flagships from the three big labs — Anthropic's Claude, OpenAI's GPT, and Google's Gemini — sit roughly peer-level for general capability, but each has strengths. Claude is widely regarded as the strongest writer. GPT excels at structured reasoning. Gemini integrates deeply with Google's data and image tools. The right question isn't <em>"which is best?"</em> — it's <em>"which one is good at this kind of task?"</em></p>
+
+<div class="callout"><b>Match the engine to the moment</b><p>Quick and casual, go fast. Logic, math, or stakes, switch to reasoning by hand — the picker won't do it for you. Same app, different default, completely different answer.</p></div>
+
+<h3>Try this</h3>
+
+<p>Open your tool. Find the model picker — usually a small dropdown near the top of the chat. Note which models are available and which is set as default. Then take a real decision you're avoiding and ask the same question two ways: once with the default model, once with the reasoning version ("extended thinking," "Thinking," whatever your app calls it). Read both side by side. The difference is the muscle you'll want the next time the stakes are real.</p>
+
+<div class="receipts"><h3>Receipts</h3><ul>
+<li>Anthropic. <a href="https://platform.claude.com/docs/en/about-claude/models/overview">Models overview.</a> Current Claude models, pricing, knowledge cutoffs.</li>
+<li>Ethan Mollick. <a href="https://www.oneusefulthing.org/p/a-guide-to-which-ai-to-use-in-the">A Guide to Which AI to Use in the Agentic Era.</a> <em>One Useful Thing</em>, February 2026. The Models / Apps / Harnesses framework.</li>
+</ul></div>
+
+<hr>
+
+<h2>Training data</h2>
+
+<p><span class="term">Training data</span> is everything the AI was fed while it was learning. The composition depends entirely on what the model is built to do.</p>
+
+<ul>
+<li><strong>Text-generating models</strong> (Claude, ChatGPT, Gemini) — trained on books, websites, articles, forum posts, transcripts, code. Trillions of words.</li>
+<li><strong>Image generators</strong> (DALL·E, Midjourney, Stable Diffusion, Google's Nano Banana) — trained on billions of images paired with their captions.</li>
+<li><strong>Video generators</strong> (Sora, Veo, Runway) — trained on enormous quantities of video, often with text descriptions of what's in them.</li>
+<li><strong>Voice / audio models</strong> (ElevenLabs, Suno) — trained on hours of human speech or music.</li>
+<li><strong>Math &amp; code models</strong> — trained on mathematical equations, solved problems, GitHub repositories, technical papers.</li>
+<li><strong>Multimodal frontier models</strong> (today's flagship Claude, GPT, and Gemini) — trained on text <em>and</em> images <em>and</em> audio <em>and</em> code, all together, so a single model can read a screenshot, summarize a PDF, and write an email back.</li>
+</ul>
+
+<p>A model can only generate things it was <em>shown how to generate</em>. The provider compiles the training set, runs the training, and then the feeding stops. From that point on, the model has a <em>fixed view of the world</em>. And here is the part that trips everyone up: it is not reading right now. It is not "looking things up" when you ask. It answers from what it absorbed before the feeding stopped — a frozen library, not a live feed.</p>
+
+<h3>The cutoff, explained</h3>
+
+<p>At some point the training stops, and the model's view freezes. Every model has a <strong>knowledge cutoff</strong> — recent flagships land around late 2025 to early 2026, while lighter, faster models can be a little older. Each maker publishes the exact date for its own models. Anything after the cutoff is invisible to the model unless you hand it the new information directly.</p>
+
+<p>Imagine a friend who watched every episode of <em>Sex and the City</em> through the 2004 finale and stopped there. She remembers all of it — Carrie's column, the Aidan years, the Berger Post-It. Ask her about anything pre-2004 and she's flawless. Ask her about <em>And Just Like That</em> — about Big having a heart attack on the Peloton in the first episode of the spin-off — and she has nothing. That's not on her. That's where the watching stopped.</p>
+
+<p>The model is the same. Brilliant up to its cutoff, blind after. Three workarounds:</p>
+
+<ol>
+<li><strong>Hand it the new information.</strong> Paste the current policy. Attach the recent doc. Quote the email. If the relevant facts live in your conversation, the cutoff doesn't matter — the model now has them.</li>
+<li><strong>Use a tool with live web search.</strong> Perplexity, ChatGPT with browsing, Claude with web search, Gemini grounded with Google. The tool fetches the now and brings it into the conversation. The output should cite the sources it actually pulled.</li>
+<li><strong>Wait for the next model release.</strong> New training run = new cutoff. Anthropic, OpenAI, and Google all release new models every few months. Your knowledge horizon moves with theirs.</li>
+</ol>
+
+<p>What you can't do: trust the model on time-sensitive information without checking. Confidently-wrong is the model's default failure mode when the answer lives after the cutoff.</p>
+
+<h3>Where it goes wrong</h3>
+
+<p><strong>The cutoff trap.</strong> You ask the tool about something current — last month's policy, this quarter's launch, today's news. The tool answers confidently, in the present tense, as if the information were live. It isn't. The model is filling in from old patterns. The most dangerous version: the tool invents a recent thing that doesn't exist (a product, a person, a paper) because the <em>pattern</em> of "a recent thing about X" is in its training data even when the specific X isn't.</p>
+
+<p>How to spot it: anything time-sensitive. Anything with a version number or a date. Anything where <em>"as of when?"</em> is a fair question.</p>
+
+<div class="callout"><b>She graduated. She hasn't been to class since.</b><p>The model knows the world up to the day the reading stopped, and not one hour past it. Before you trust an answer about anything current, ask the tool its cutoff — and if it's more than six months old, get the fact from a live search, a pasted source, or a verified human instead.</p></div>
+
+<h3>Try this</h3>
+
+<p>Open your tool. Ask point-blank: <em>"What's your training cutoff date?"</em> If the answer is more than six months ago, anything time-sensitive in your work needs to come from somewhere else — a live web search, a pasted source document, or a verified human.</p>
+
+<div class="receipts"><h3>Receipts</h3><ul>
+<li>Anthropic. <a href="https://platform.claude.com/docs/en/about-claude/models/overview">Models overview.</a> Published training-data cutoff dates per model.</li>
+</ul></div>
+
+<hr>
+
+<h2>Token &amp; context window</h2>
+
+<p>Two related ideas, often used interchangeably even though they're not the same.</p>
+
+<p>A <span class="term">token</span> is a chunk of text — usually a word or part of one. AI doesn't process letters; it processes tokens. The rough rule for English: about 0.75 tokens per word, or four characters per token. When you hear "this model has a 200k token context window," that's roughly 150,000 words of working memory.</p>
+
+<p>The <span class="term">context window</span> is how much the tool can hold in mind at the same time — everything you've typed in this conversation, every file you've attached, every instruction the tool was given at the start. Anthropic calls it the model's <em>"working memory" — separate from the training data, which is the model's long-term knowledge.</em></p>
+
+<p>Current sizes, roughly: today's flagship models hold on the order of one to two million tokens — about 750,000 to 1.5 million words of working memory — while lighter, faster models hold a couple hundred thousand (still around 150,000 words). For the exact figure on the model you're using, check the maker's page.</p>
+
+<p>Sounds enormous. It is. But there's a crucial second fact: more isn't always better.</p>
+
+<h3>The context window degrades under load</h3>
+
+<p>Anthropic calls it <em>"context rot"</em>: as the conversation grows, the model's accuracy and recall <em>degrade — even within the official limit</em>. This isn't a bug. It's how attention works at scale.</p>
+
+<p>The defining research is a 2024 Stanford paper, <em>"Lost in the Middle: How Language Models Use Long Contexts"</em> (Liu et al., TACL). The team tested six AI models on long documents and found a consistent U-shaped curve: <strong>accuracy is highest when relevant information sits at the beginning or end of the input, and degrades more than 30% when it's stuck in the middle.</strong></p>
+
+<p>The finding replicated across GPT-3.5, GPT-4, Claude, LongChat, MPT-30B, and Cohere. It isn't a quirk of one tool. It's a fundamental property of how large language models read long inputs. Practically:</p>
+
+<ul>
+<li>The first thing you say and the last thing you say are the things the model remembers best.</li>
+<li>Stuff buried in the middle of a long document or long conversation is the most likely to be missed or paraphrased loosely.</li>
+<li>"Just paste in everything" is rarely as good as "paste in the relevant section, plus the one fact that matters."</li>
+</ul>
+
+<h3>Memory is not the context window</h3>
+
+<p>Quick clarification because the terms blur, and the difference matters.</p>
+
+<div class="example">
+<div class="ex-bad"><b>Context window — working memory of THIS conversation</b><p>Resets when you start a new chat. Everything earlier is gone. This is the desk.</p></div>
+<div class="ex-good"><b>Memory feature — facts saved ACROSS conversations</b><p>"My name is Sarah." "I prefer numbered lists." Stored as a profile the tool reads first in every new chat. This is the file cabinet behind the desk.</p></div>
+</div>
+
+<p>Memory comes onto the desk. The desk doesn't keep what was on it yesterday. If you turn on Memory expecting the tool to remember your project, note that Memory only stores what you (or the tool) explicitly told it to remember — usually facts about you, your role, your preferences. It does not store the actual content of last week's conversation. If you need that, you'll need to paste it back in.</p>
+
+<h3>How to use the window well</h3>
+
+<p>Three moves that compound.</p>
+
+<ol>
+<li><strong>Keep one conversation focused on one thing.</strong> When you switch topics, start a fresh chat. Don't make the tool drag a 60-turn architecture discussion behind your follow-up question about formatting an email. The fresher the context, the sharper the answer.</li>
+<li><strong>For long docs, put what matters at the top.</strong> Anthropic explicitly recommends placing long inputs near the top of the prompt, above your query. This is the inverse of how most people compose it ("here's my question, here's the doc"). Flip it: doc first, then question. The "Lost in the Middle" effect makes the top and bottom of context the strongest positions.</li>
+<li><strong>Watch for drift, and reset early.</strong> The signal: tone shifts. Your original constraints get dropped. The answer paraphrases your source instead of quoting it. That's the model losing the thread. Close the chat, open a new one, and re-paste only the parts that still matter.</li>
+</ol>
+
+<h3>Where it goes wrong</h3>
+
+<p><strong>The wall-of-text trap.</strong> You paste a 60-page document and ask three questions. By question three, the answer <em>sounds</em> right but is paraphrasing the gist rather than quoting the source. You won't catch the slip unless you check against the document.</p>
+
+<p><strong>The eternal-thread trap.</strong> You've been in the same chat for two weeks. The model knows everything that's ever happened in this conversation — which sounds great, except attention degrades as the window fills, and the early stuff (your original constraints, your style preferences) starts dropping out. Long marathon chats are precisely where details slip.</p>
+
+<div class="callout"><b>If she's losing the plot, turn the page.</b><p>Picture a chalkboard at a long study session. Six hours in, the formula from the top corner is long gone. When the tone drifts or your original constraints stop showing up, that's the board filling. Start a fresh chat with just the constraints and continue.</p></div>
+
+<h3>Try this</h3>
+
+<p>Two short experiments.</p>
+
+<p><strong>First, the "Lost in the Middle" effect.</strong> Paste a long document into a fresh chat (fifteen-plus pages). Ask one question about the FIRST page, one about the MIDDLE, one about the LAST page. Compare. The middle answer will be the weakest. You will have just felt the U-shaped curve in real time.</p>
+
+<p><strong>Second, the drift signal.</strong> In your next long planning conversation, after eight or ten exchanges, ask: <em>"What were the constraints I gave you at the start of this conversation?"</em> If the answer is vague or partial, the window is filling. Start a fresh chat with just the constraints, and continue.</p>
+
+<div class="receipts"><h3>Receipts</h3><ul>
+<li>Anthropic. <a href="https://platform.claude.com/docs/en/build-with-claude/context-windows">Context windows.</a> Definition, current sizes, "context rot" framing.</li>
+<li>Liu, Lin, Hewitt, Paranjape, Bevilacqua, Petroni, &amp; Liang. <a href="https://cs.stanford.edu/~nfliu/papers/lost-in-the-middle.tacl2023.pdf">Lost in the Middle: How Language Models Use Long Contexts.</a> Stanford, <em>Transactions of ACL</em>, 2024.</li>
+<li>Anthropic. <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Effective context engineering for AI agents.</a></li>
+</ul></div>
+
+<hr>
+
+<h2>Hallucination</h2>
+
+<p>A <span class="term">hallucination</span> is when AI says something false in the exact same confident voice it uses for true things. The system isn't lying — it doesn't know what lying is. It's predicting the next plausible word, and sometimes the next plausible word is just <em>wrong</em>. It doesn't sound wrong. That's the whole problem.</p>
+
+<p>A hallucination can be a fabricated source (a real-looking journal article that doesn't exist), an invented quote, a wrong date, a person who never worked at the company AI named them at, a legal precedent that was never filed, a price that doesn't match the live one. The category isn't "obvious errors." It's <em>"errors that look exactly like correct answers."</em></p>
+
+<p>It's also widespread. Stanford's <em>2026 AI Index Report</em> tested 26 top AI models on one new accuracy benchmark and found hallucination rates ranging from <strong>22% to 94%</strong>. Even on the best of them, roughly one answer in five contained fabricated information. The newest models are better than the old ones, but <em>"better"</em> still leaves enormous room for error in your work.</p>
+
+<h3>Why hallucinations happen</h3>
+
+<p>The most important insight in this book, and the one almost no one knows.</p>
+
+<p>In September 2025, OpenAI researchers published a paper titled <em>"Why Language Models Hallucinate"</em> (Kalai, Nachum, Vempala &amp; Zhang) with a finding that reframes the entire problem. Hallucinations don't happen because AI is broken. They happen because the training process actively <em>rewards confident guessing</em>.</p>
+
+<p>The mechanic: AI models are evaluated against accuracy benchmarks. A confidently-wrong answer scores zero. A confident "I don't know" also scores zero — but a confident <em>guess</em> might be right, so guessing is the statistically optimal strategy. Across millions of training examples, the model learns: when uncertain, guess confidently anyway.</p>
+
+<p>The paper's blunt conclusion: hallucinations are a <em>"natural statistical error"</em> baked into how AI is trained. They aren't a bug to be patched. They're a property of the incentive structure. A 2026 Nature paper reached the same conclusion: even retrieval, tool use, and self-verification can't fully eliminate hallucinations in current models. The rate is reducible. It is not yet removable.</p>
+
+<p>This is the crucial reframe: hallucinations aren't going away soon. The skill is detection and prevention — not waiting for AI to "fix itself."</p>
+
+<h3>How to reduce hallucinations</h3>
+
+<p>Anthropic's own guidance comes down to four moves. They lower the rate significantly. They do not eliminate it.</p>
+
+<ol>
+<li><strong>Allow the model to say "I don't know."</strong> The single most effective technique. Add this line: <em>"If you don't know or aren't sure, say so. Don't guess."</em> It works because — as the OpenAI paper proved — the model is trained to fill silences confidently. You have to give it permission to abstain.</li>
+<li><strong>Ground answers in provided material.</strong> For tasks involving documents, ask the model to extract direct quotes first, then build the answer from those quotes only: <em>"Find the exact sentences in this document that support your answer. Quote them. If you can't find one, say so."</em> Grounding in the source closes the gap where hallucinations live.</li>
+<li><strong>Require citations for every claim.</strong> Ask the model to attach a source to every factual statement and to remove any claim it can't source. Anthropic's example: <em>"For each claim in your draft, find a direct quote in the source that supports it. If you can't find one, delete the claim and mark where it was with empty brackets."</em></li>
+<li><strong>Show the reasoning.</strong> Ask the model to walk through its logic step-by-step before answering. Faulty assumptions become visible. (This is what reasoning models do automatically; you can force it on basic models with: <em>"Before you answer, walk through your reasoning step by step."</em>)</li>
+</ol>
+
+<h3>How to spot one</h3>
+
+<p>The deeper skill is detection <em>after</em> the AI has answered. The pattern that catches hallucinations is the Elle Woods move: look for the detail that doesn't survive contact with reality.</p>
+
+<p>Chutney Windham gave a calm, confident, repeated alibi — she was in the shower right after a fresh perm. Sounded true. Sounded true twice. Fell apart on one specific check: you don't wash a fresh perm without destroying it. The story collapsed on a single piece of domain knowledge.</p>
+
+<p>AI hallucinations work the same way. The answer is fluent, internally consistent, and confident. It collapses on the one specific check:</p>
+
+<ul>
+<li>Does this link actually open?</li>
+<li>Does the quote actually appear on that page?</li>
+<li>Was this person at the title the model gave them?</li>
+<li>Does this number match the source it cited?</li>
+<li>Was this legal case actually filed? In which court? When?</li>
+</ul>
+
+<p>The KPMG / GPTZero incident in 2026 is the canonical case study: KPMG (a Big Four firm) published an agentic AI report; organizations cited in it said the claims about their AI use were untrue. GPTZero confirmed the inaccuracies were caused by hallucinations. KPMG pulled the report. The lesson isn't that one firm got it wrong — it's that "we used AI" without verification is a real career risk, even at the most regulated companies. (Episode 3, The Burn Book Problem, is the full detection playbook.)</p>
+
+<h3>Where it goes wrong</h3>
+
+<p><strong>Trusting fluency.</strong> The output sounds right. It uses the right vocabulary. It's structured the way a real answer would be structured. <em>Plausibility isn't truth.</em> The most expensive mistakes in the corporate AI era so far have all had this shape: someone read a fluent AI answer, didn't verify, sent it to a client or a court or a board.</p>
+
+<p><strong>Asking the model "are you sure?"</strong> Asking AI to verify itself produces another fluent answer with no actual verification underneath. The model is generating "the kind of thing someone confident would say" — which is sometimes the same kind of thing it said the first time. That's Chutney repeating her alibi, not Elle finding the contradiction.</p>
+
+<p><strong>Confusing reasoning models with reliability.</strong> Reasoning models (Claude with extended thinking, GPT with Thinking, Gemini Thinking) make hallucinations less common, but not absent. The Stanford 2026 finding (22%–94%) includes the latest reasoning models. The reasoning model is more careful. It is not infallible.</p>
+
+<div class="callout"><b>Plausibility isn't truth.</b><p>The whole danger of a hallucination is that it wears the same confident voice as a correct answer. You can't hear the difference. You can only check it — one link, one quote, one number, against the real source.</p></div>
+
+<h3>Try this</h3>
+
+<p>The single most useful exercise in this book. Ask your tool, on any work task: <em>"Give me three recent stats with clickable sources to back this up."</em> Then actually click them. The first link to nowhere — or to a real-looking site that doesn't say what the answer says it says — is the only proof you need to start checking everything that touches a fact, name, or number.</p>
+
+<p>Bonus: take a recent AI answer you actually used at work and try to verify ONE claim in it against a primary source. If you can verify it in under thirty seconds, the claim was safe. If you can't, the claim was a draft pretending to be a final.</p>
+
+<div class="receipts"><h3>Receipts</h3><ul>
+<li>Kalai, Nachum, Vempala &amp; Zhang. <a href="https://cdn.openai.com/pdf/d04913be-3f6f-4d2b-b283-ff432ef4aaa5/why-language-models-hallucinate.pdf">Why Language Models Hallucinate.</a> OpenAI / Georgia Tech, September 2025. The training-rewards-guessing finding.</li>
+<li>Anthropic. <a href="https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations">Reduce hallucinations.</a> The four-move playbook.</li>
+<li>Stanford HAI. <a href="https://hai.stanford.edu/ai-index/2026-ai-index-report/responsible-ai">2026 AI Index Report, Responsible AI chapter.</a> Hallucination rates of 22%–94% across 26 top models.</li>
+</ul></div>
+
+<hr>
+
+<h2>The four types everyone argues about</h2>
+
+<p>Generative, reasoning, agentic, AGI. These four words get thrown around meetings — sometimes all in the same sentence — as if they were rival products you have to pick between. They're best understood <em>together</em>, because the whole point is how they differ. Picture the kind of show this brand was raised on: a group of friends fighting supernatural forces, each with a different role in the fight.</p>
+
+<h3>1. Generative AI — makes</h3>
+
+<p>The witch who conjures. You give her words; she makes a <em>thing</em> appear — a paragraph, an image, a slide, some code. This is what most people mean when they say "AI" right now.</p>
+
+<h3>2. Reasoning models — think first</h3>
+
+<p>The Watcher in the library. Works the whole problem through, then says what to do. Slower, and better at math, logic, multi-step plans — anything that needs its work checked.</p>
+
+<h3>3. Agentic AI — acts</h3>
+
+<p>The Slayer on patrol. You send her out and she goes and does it. The leap from talking to doing — and exactly where the stakes change, because something that can act is only as safe as the permissions you hand it.</p>
+
+<h3>4. AGI — hypothetical</h3>
+
+<p>The prophesied one. The foretold figure everyone waits for — a hypothetical system that could handle basically any task a person can. Hold onto this: <strong>no public product you can open today is generally considered AGI.</strong></p>
+
+<div class="callout"><b>These are moods, not personalities.</b><p>A single tool can be generative, switch on reasoning for a hard problem, <em>and</em> act agentically — shifting between them by task. They're not separate species you choose between; they're modes the same tool moves in and out of. (AGI is the exception — not a mood any tool today can switch into.)</p></div>
+
+</div>

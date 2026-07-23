@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SUNNYVAiLE NewsStand · LAiDIES</title>
+    <meta name="description" content="AI news translated for non-technical women who need to know what's actually going on. TODAY (the wire), WEDNESDAY Edition (the digest), and The Tribune (the argument). Filed from SUNNYVAiLE." />
+    <meta property="og:title" content="SUNNYVAiLE NewsStand · LAiDIES">
+    <meta property="og:description" content="AI news translated. TODAY, WEDNESDAY Edition, The Tribune." />
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="/assets/brand/laidies-logo-square-pearl-512-v1.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,700&family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
+    <link rel="stylesheet" href="/content/newsstand.css?v=newsstand-1">
+    <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+    <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+    <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+    <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+  <!-- Microsoft Clarity (heatmaps + session recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+</head>
+  <body>
+
+    <header class="sv-header"></header>
+
+    <div class="sv-hero"><img src="/assets/sunnyvaile-buildings/y2k-v3/02-sunnyvaile-newsstand.webp?v=20260704-perf" alt="The SUNNYVAiLE NewsStand at MAiN Street No. 2 — Y2K corner newsstand kiosk with SUNNYVAiLE Daily / Weekly / Tribune mastheads on display." loading="eager"></div>
+
+    <main class="ns-page">
+      <div class="ns-wrap">
+
+        <div class="ns-masthead">
+          <div>
+            <span class="ns-masthead__eyebrow">★ MAiN Street · No. 2 · SUNNYVAiLE</span>
+            <h1 class="ns-masthead__title">SUNNYV<span class="ns-ai">Ai</span>LE NewsStand</h1>
+          </div>
+          <div class="ns-masthead__dateline">
+            <strong>Filed from SUNNYVAiLE</strong>
+            <span id="ns-dateline">Loading edition…</span>
+          </div>
+        </div>
+
+        <p class="ns-lede">AI news, translated. <strong>The WEDNESDAY Edition</strong> is the digest — what mattered, and the line to say when it comes up. <strong>The Tribune</strong> is the argument — the questions we're tracking as they move.</p>
+
+        <div class="ns-theme" style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin:0 0 26px; padding:13px 18px; background:linear-gradient(135deg,#4b2148 0%,#9b3f5f 100%); border-radius:12px; color:#fffdfb;">
+          <style>.ns-theme .is-playing .play-icon{display:none} .ns-theme .is-playing .pause-icon{display:inline}</style>
+          <button type="button"
+                  aria-label="Play The Newsstand by The Embeddings"
+                  data-src="/content/music/sunnyvaile-newsstand.mp3"
+                  onclick="window.playLaidiesTheme(this);"
+                  style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; background:#c9a24b; color:#4b2148; border:0; border-radius:999px; font:inherit; font-weight:800; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; cursor:pointer; transition:transform 200ms ease;"
+                  onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+            <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor; display:none;" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+            <span>&#9834; Play The Newsstand</span>
+          </button>
+          <span style="font-size:13px; line-height:1.5; opacity:0.95;"><strong>&ldquo;The Newsstand&rdquo;</strong> — The Embeddings. The NewsStand's own tune, live on <a href="/radio.html" style="color:#c9a24b; text-decoration:underline;">KSVL</a>.</span>
+        </div>
+        <script>
+          (function(){ 'use strict';
+            if (window.playLaidiesTheme) return;
+            var activeBtn=null, activeAudio=null;
+            function stopActive(){ if(activeBtn)activeBtn.classList.remove('is-playing'); if(activeAudio){try{activeAudio.pause();}catch(e){}} activeBtn=null; activeAudio=null; }
+            window.playLaidiesTheme=function(btn){ if(!btn||btn.disabled)return; var src=btn.getAttribute('data-src'); if(!src)return; if(activeBtn===btn){stopActive();return;} stopActive(); var audio=new Audio(src); audio.preload='metadata'; audio.addEventListener('ended',function(){if(activeAudio===audio)stopActive();}); audio.addEventListener('error',function(){if(activeAudio===audio)stopActive();}); audio.play().catch(function(){if(activeAudio===audio)stopActive();}); btn.classList.add('is-playing'); activeBtn=btn; activeAudio=audio; };
+          })();
+        </script>
+
+        <div class="ns-filters" role="group" aria-label="Filter and search stories">
+          <span class="ns-filters__label">Filter</span>
+          <button type="button" class="ns-chip is-active" data-edition="all">All</button>
+          <button type="button" class="ns-chip" data-edition="wednesday">WEDNESDAY Edition</button>
+          <button type="button" class="ns-chip" data-edition="tribune">The Tribune</button>
+          <label class="visually-hidden" for="ns-search-input">Search stories</label>
+          <input type="search" id="ns-search-input" class="ns-search" placeholder="Search stories or tags…" autocomplete="off" />
+        </div>
+
+        <div id="ns-empty" class="ns-empty" hidden>No stories match that filter.</div>
+
+        <div id="ns-rack" aria-live="polite"></div>
+
+      </div>
+    </main>
+
+    <footer style="text-align:center;padding:32px 24px;font-size:12px;color:#6b3a66;border-top:1px solid rgba(75,33,72,0.14);">
+      © LAiDIES · Filed from SUNNYVAiLE · The NewsStand at MAiN Street No. 2
+    </footer>
+
+    <!-- Story library. Sets window.NEWSSTAND_STORIES. -->
+    <script src="/content/newsstand-stories.js?v=newsstand-1"></script>
+
+    <!-- Renderer + archive filter -->
+    <script>
+      (function () {
+        'use strict';
+
+        // ---- Publisher name lookup for TODAY passthrough ----------------
+        var PUBLISHER = {
+          'techcrunch.com':      'TechCrunch',
+          'arstechnica.com':     'Ars Technica',
+          'theverge.com':        'The Verge',
+          'simonwillison.net':   'Simon Willison',
+          'technologyreview.com':'MIT Tech Review',
+          'venturebeat.com':     'VentureBeat',
+          'fortune.com':         'Fortune',
+          'npr.org':             'NPR',
+          'techradar.com':       'TechRadar',
+          'therundown.ai':       'The AI Rundown',
+          'digitalapplied.com':  'digitalapplied',
+          'lawfaremedia.org':    'Lawfare',
+          'glean.com':           'Glean'
+        };
+
+        function publisherFor(url) {
+          try {
+            var host = new URL(url).hostname.replace(/^www\./, '');
+            if (PUBLISHER[host]) return PUBLISHER[host];
+            // Fallback: derive from domain root
+            var parts = host.split('.');
+            var root = parts.length >= 2 ? parts[parts.length - 2] : host;
+            return root.charAt(0).toUpperCase() + root.slice(1);
+          } catch (e) {
+            return 'Source';
+          }
+        }
+
+        var EDITION_LABEL = {
+          today:     'TODAY',
+          wednesday: 'WEDNESDAY Edition',
+          tribune:   'The Tribune'
+        };
+
+        var esc = (function () {
+          var el = document.createElement('div');
+          return function (s) {
+            el.textContent = String(s == null ? '' : s);
+            return el.innerHTML;
+          };
+        })();
+
+        function formatDate(iso) {
+          if (!iso) return '';
+          var d = new Date(iso + 'T00:00:00');
+          if (isNaN(d)) return iso;
+          return d.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
+        // ---- Render a WEDNESDAY / Tribune article ----------------------
+        function renderArticle(s) {
+          var isTribune = s.edition === 'tribune';
+          var storyLabel  = isTribune ? 'The Argument' : 'The Story';
+
+          var badge = s.badge
+            ? '<span class="ns-article__badge ns-article__badge--gold">' + esc(s.badge) + '</span>'
+            : '<span class="ns-article__badge">' + esc(EDITION_LABEL[s.edition] || s.edition) + '</span>';
+
+          var subhead = isTribune && s.thread_subtitle
+            ? '<p class="ns-article__subhead"><em>' + esc(s.thread_subtitle) +
+              (s.thread_entry ? ' — entry ' + esc(s.thread_entry) : '') + '</em></p>'
+            : '';
+
+          var section = function (label, body) {
+            if (!body) return '';
+            return '<div class="ns-article__section">' +
+              '<span class="ns-article__section-label">' + esc(label) + '</span>' +
+              '<p>' + body + '</p>' +
+              '</div>';
+          };
+
+          var cocktail = s.cocktail_party
+            ? '<div class="ns-cocktail">' +
+              '<span class="ns-article__section-label">The Cocktail Party Explanation</span>' +
+              '<p>' + s.cocktail_party + '</p>' +
+              '</div>'
+            : '';
+
+          var watch = '';
+          if (isTribune && s.watch_fors && s.watch_fors.length) {
+            watch = '<div class="ns-watch">' +
+              '<p class="ns-watch__title">What we’re watching</p>' +
+              '<ul>' + s.watch_fors.map(function (w) { return '<li>' + w + '</li>'; }).join('') + '</ul>' +
+              '</div>';
+          }
+
+          var closing = s.closing_note
+            ? '<p class="ns-closing">' + s.closing_note + '</p>'
+            : '';
+
+          var classNotes = s.class_notes
+            ? '<div class="ns-class-notes">' +
+              '<span class="ns-class-notes__label">→ Class Notes</span>' +
+              s.class_notes +
+              '</div>'
+            : '';
+
+          var sources = '';
+          if (s.sources && s.sources.length) {
+            var items = s.sources.map(function (src) {
+              var flag = src.flag === 'vendor-sponsored' ? ' ⚠️ <em>vendor-sponsored</em>' : '';
+              return '<a href="' + esc(src.url) + '" target="_blank" rel="noopener">' + esc(src.label) + '</a>' + flag;
+            }).join(' · ');
+            sources = '<p><strong>Source</strong> ' + items + '</p>';
+          }
+
+          var aidb = s.aidb_credit ? '<p><em>' + esc(s.aidb_credit) + '</em></p>' : '';
+
+          var tags = '';
+          if (s.tags && s.tags.length) {
+            tags = '<p><strong>Tags</strong> ' +
+              s.tags.map(function (t) { return '<span class="ns-tag">' + esc(t) + '</span>'; }).join('') +
+              (s.saint_lane ? ' <span class="ns-tag">Saint · ' + esc(s.saint_lane) + '</span>' : '') +
+              '</p>';
+          }
+
+          return '<article class="ns-article" data-edition="' + esc(s.edition) + '" data-slug="' + esc(s.slug) + '">' +
+            badge +
+            '<span class="ns-article__eyebrow">' + esc(formatDate(s.date)) + '</span>' +
+            '<h2 class="ns-article__headline">' + esc(s.headline) + '</h2>' +
+            subhead +
+            section(storyLabel,                    s.the_story) +
+            section('The LAiDIES Read',            s.laidies_read) +
+            section('What This Means For You',     s.what_this_means) +
+            cocktail +
+            watch +
+            closing +
+            classNotes +
+            '<div class="ns-article__foot">' + sources + aidb + tags + '</div>' +
+            '</article>';
+        }
+
+        // ---- Preview card (rack view) ---------------------------------
+        function firstSentence(html) {
+          var text = String(html || '').replace(/<[^>]*>/g, '').trim();
+          var m = text.match(/^(.+?[.!?])\s/);
+          return m ? m[1] : text;
+        }
+
+        function renderPreviewCard(s) {
+          var isTribune = s.edition === 'tribune';
+          var badgeClass = 'ns-card__badge' + (isTribune ? ' ns-card__badge--tribune' : '');
+          var badgeText = isTribune
+            ? (s.badge || 'THE TRIBUNE')
+            : (EDITION_LABEL[s.edition] || s.edition).toUpperCase();
+
+          var subhead = (isTribune && s.thread_subtitle)
+            ? '<p class="ns-card__subhead"><em>' + esc(s.thread_subtitle) + '</em></p>'
+            : '';
+
+          var teaser = esc(firstSentence(s.laidies_read));
+
+          var tags = (s.tags || []).slice(0, 3).map(function (t) {
+            return '<span class="ns-tag">' + esc(t) + '</span>';
+          }).join('');
+
+          return '<a class="ns-card" href="#' + esc(s.slug) + '" data-edition="' + esc(s.edition) + '">' +
+            '<span class="' + badgeClass + '">' + esc(badgeText) + '</span>' +
+            '<span class="ns-card__date">' + esc(formatDate(s.date)) + '</span>' +
+            '<h3 class="ns-card__headline">' + esc(s.headline) + '</h3>' +
+            subhead +
+            '<p class="ns-card__teaser">' + teaser + '</p>' +
+            '<div class="ns-card__foot">' +
+              '<div class="ns-card__tags">' + tags + '</div>' +
+              '<span class="ns-card__cta">Read →</span>' +
+            '</div>' +
+          '</a>';
+        }
+
+        // ---- Master render / filter -----------------------------------
+        var state = { edition: 'all', query: '' };
+
+        function stripHtml(s) { return String(s || '').replace(/<[^>]*>/g, ' '); }
+
+        function matchesQuery(story, q) {
+          if (!q) return true;
+          var hay = [
+            story.headline,
+            story.thread,
+            story.thread_subtitle,
+            (story.tags || []).join(' '),
+            story.saint_lane,
+            stripHtml(story.the_story),
+            stripHtml(story.laidies_read),
+            stripHtml(story.what_this_means)
+          ].join(' ').toLowerCase();
+          return hay.indexOf(q.toLowerCase()) !== -1;
+        }
+
+        function currentSlug() {
+          var h = (location.hash || '').replace(/^#/, '').trim();
+          return h || null;
+        }
+
+        function render() {
+          var rack = document.getElementById('ns-rack');
+          var empty = document.getElementById('ns-empty');
+          var stories = (window.NEWSSTAND_STORIES || []).slice().sort(function (a, b) {
+            return String(b.date).localeCompare(String(a.date));
+          });
+
+          // Newest date across all stories → the dateline
+          if (stories.length) {
+            document.getElementById('ns-dateline').textContent = formatDate(stories[0].date);
+          }
+
+          // ---- Detail view: hash matches a story slug -----------------
+          var slug = currentSlug();
+          if (slug) {
+            var story = stories.filter(function (s) { return s.slug === slug; })[0];
+            if (story) {
+              rack.innerHTML =
+                '<a class="ns-back" href="/newsstand.html">← Back to the NewsStand</a>' +
+                renderArticle(story);
+              empty.hidden = true;
+              window.scrollTo({ top: 0, behavior: 'auto' });
+              return;
+            }
+            // Unknown slug — fall through to rack view.
+          }
+
+          // ---- Rack view: cards ---------------------------------------
+          var q = state.query.trim();
+          var showWed   = (state.edition === 'all' || state.edition === 'wednesday');
+          var showTrib  = (state.edition === 'all' || state.edition === 'tribune');
+
+          var parts = [];
+
+          var wed = stories.filter(function (s) { return s.edition === 'wednesday' && matchesQuery(s, q); });
+          var trib = stories.filter(function (s) { return s.edition === 'tribune' && matchesQuery(s, q); });
+
+          if (showWed && wed.length) {
+            parts.push(
+              '<div class="ns-section">' +
+                '<h2 class="ns-section__title">WEDNESDAY Edition</h2>' +
+                '<span class="ns-section__meta">The weekly digest</span>' +
+              '</div>' +
+              '<div class="ns-card-grid">' + wed.map(renderPreviewCard).join('') + '</div>'
+            );
+          }
+
+          if (showTrib && trib.length) {
+            parts.push(
+              '<div class="ns-section">' +
+                '<h2 class="ns-section__title">The Tribune</h2>' +
+                '<span class="ns-section__meta">Tracks the big themes as they develop</span>' +
+              '</div>' +
+              '<div class="ns-card-grid">' + trib.map(renderPreviewCard).join('') + '</div>'
+            );
+          }
+
+          rack.innerHTML = parts.join('');
+          empty.hidden = parts.length > 0;
+        }
+
+        // ---- Wire up filter chips + search + hash routing -------------
+        function attachControls() {
+          Array.prototype.forEach.call(document.querySelectorAll('.ns-chip'), function (chip) {
+            chip.addEventListener('click', function () {
+              state.edition = chip.getAttribute('data-edition');
+              Array.prototype.forEach.call(document.querySelectorAll('.ns-chip'), function (c) {
+                c.classList.toggle('is-active', c === chip);
+              });
+              // Filter action drops any open detail view.
+              if (location.hash) {
+                history.replaceState(null, '', location.pathname + location.search);
+              }
+              render();
+            });
+          });
+          var input = document.getElementById('ns-search-input');
+          var t = null;
+          input.addEventListener('input', function () {
+            state.query = input.value;
+            clearTimeout(t);
+            t = setTimeout(render, 90);
+          });
+          // Detail view routing
+          window.addEventListener('hashchange', render);
+        }
+
+        // ---- Boot ------------------------------------------------------
+        attachControls();
+        render();
+      })();
+    </script>
+
+    <script src="/content/site/brand-polish.js?v=wm2" defer></script>
+    <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
+</body>
+</html>

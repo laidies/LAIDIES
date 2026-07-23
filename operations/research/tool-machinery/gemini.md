@@ -1,0 +1,134 @@
+tool: Gemini (consumer app, gemini.google.com + Google Workspace integration)
+vendor: Google
+tiers_as_of_2026-07-22:
+  - Free — no cost. Standard usage limits, Gemini 3 Pro at limited daily prompt count, Gemini Live, Canvas, basic Deep Research. Source: https://one.google.com/about/google-ai-plans/ (checked 2026-07-22); daily-prompt figure per press dating only: https://9to5google.com/2026/07/04/gemini-app-free-plus-pro-features/ (2026-07-04).
+  - Google AI Plus — $4.99/month USD (cut from $7.99 launch price), 400 GB storage. 2x usage limits, Gemini 3 Pro/3.5 Flash, Deep Research, Gemini Notebook, scheduled actions, Gemini in Gmail. Source (price cut, vendor-owned account): https://x.com/NewsFromGoogle/status/2064066310393209100 (2026-06-08); current plan page: https://one.google.com/about/google-ai-plans/ (checked 2026-07-22, showed 400GB and Deep Research for Plus).
+  - Google AI Pro — $19.99/month USD, 5 TB storage. 4x usage limits, expanded Deep Research, Gemini Notebook expanded access, YouTube Premium Lite included. Source: https://one.google.com/about/google-ai-plans/ (checked 2026-07-22).
+  - Google AI Ultra — two sub-tiers as of the May 19, 2026 restructure: $100/month (5x Pro's usage, aimed at technical/creator use) and $200/month (20x Pro's usage, was $250/month before the cut). 20 TB+ storage, Deep Think reasoning mode, Gemini Spark (US-only at launch). Source: https://blog.google/products-and-platforms/products/google-one/google-ai-subscriptions/ (published 2026-05-19, checked 2026-07-22).
+checked_utc: 2026-07-22T18:35:38Z
+
+---
+
+## 1. Memory / personalisation
+
+- **Vendor's name for it:** Several distinct, overlapping settings: "Gemini Apps Activity," "Memory" (past-chats reference), "Personal Intelligence" (connected-app insights).
+- **What it IS:** Gemini can look back at earlier conversations and, separately, at data from other Google apps you've connected, to shape its answers to you specifically.
+- **How to set it up:** On the web or mobile app, go to your profile picture/initial → Settings & help. "Keep Activity" (on/off) controls whether chats are stored at all. Under Personal Intelligence, an eligible user sees an opt-in card → "Get started" → choose which Google apps to connect (Photos, YouTube, Workspace, Search/Maps/Shopping, Contacts). Gemini Apps Activity itself is reviewed and deleted at myactivity.google.com/product/gemini. Documented at https://support.google.com/gemini/answer/13594961?hl=en (page last updated 2026-07-15, checked 2026-07-22) and https://support.google.com/gemini/answer/16598406?hl=en (checked 2026-07-22).
+- **What it's genuinely for:** Not repeating yourself — Gemini recalling a project you mentioned last week, or knowing your dietary restrictions without you retyping them every session.
+- **The ONE mistake people make:** Assuming "memory" is one on/off switch. It is at least three separate systems (chat history retention, past-chats memory, and Personal Intelligence app-connection insights), each with its own toggle and its own data source, and turning one off does not turn off the others.
+- **Tier:** Free — Gemini Apps Activity and Memory are available on any personal Google Account. Personal Intelligence requires a personal account (not work/school/supervised), being 18+, and is unavailable in the EEA, Nigeria, Switzerland, and the UK. Contacts-based personalization additionally requires an AI Ultra subscription and is US/English-only. Source: https://support.google.com/gemini/answer/16836988?hl=en (checked 2026-07-22).
+- **What it does NOT do:** Google states it does not train generative AI models directly on your Gmail inbox, Drive, Contacts, Calendar, or other Workspace app content — only on summaries/inferences from that content. Default chat retention is 18 months (adjustable to 3, 36 months, or indefinite); with Keep Activity off, chats still persist 72 hours to allow the response to complete. Human reviewers can see stored chats if Keep Activity is on. Source: https://support.google.com/gemini/answer/13594961?hl=en (checked 2026-07-22).
+- **Sources:** https://support.google.com/gemini/answer/13594961?hl=en (last updated 2026-07-15, checked 2026-07-22) · https://support.google.com/gemini/answer/16836988?hl=en (checked 2026-07-22) · https://support.google.com/gemini/answer/16598406?hl=en (checked 2026-07-22).
+- **Volatility:** HIGH — Personal Intelligence is an actively-expanding, recently-launched feature (new data sources and geographies are being added), and the underlying settings menu has been reorganized more than once in 2026.
+
+## 2. Custom instructions / profile
+
+- **Vendor's name for it:** "Instructions for Gemini" (also shown as "Saved info" in some locales — same feature, regional naming variance, per Google's own help thread language: https://support.google.com/gemini/answer/13594961?hl=en).
+- **What it IS:** A standing note you write once, telling Gemini how to behave or format its answers, that applies automatically to future chats without you repeating it.
+- **How to set it up:** Menu → profile picture/initial → Personal Intelligence → "Instructions for Gemini" → "Add +" → type the instruction → Submit. Editable/deletable/toggleable any time from the same menu. Source: https://support.google.com/gemini/answer/16598625?hl=en (checked 2026-07-22).
+- **What it's genuinely for:** Setting a standing preference (e.g., "always answer in bullet points," "assume I'm not a programmer") once instead of pasting it into every prompt.
+- **The ONE mistake people make:** Using it to tell Gemini to *avoid* a topic. Google's own page warns this "doesn't always work perfectly" — the fix is to delete the relevant chats from Gemini Apps Activity, not to rely on the instruction.
+- **Tier:** Free — but only on a personal Google Account. Not available when signed in with a work, school, or supervised account, and not available inside Gems. Source: https://support.google.com/gemini/answer/16598625?hl=en (checked 2026-07-22).
+- **What it does NOT do:** It does not apply inside Gems (which have their own separate instructions), and is currently limited to the Gemini mobile app, gemini.google.com, Gemini in Chrome, and Gemini on smartwatch — not every surface.
+- **Sources:** https://support.google.com/gemini/answer/16598625?hl=en (checked 2026-07-22).
+- **Volatility:** MEDIUM — the mechanism is stable; the exact menu path and which surfaces support it have moved as Google reorganizes the Personal Intelligence settings area.
+
+## 3. Projects / Spaces / Gems / GPTs
+
+- **Vendor's name for it:** "Gems."
+- **What it IS:** A saved, reusable version of Gemini with its own standing instructions and, optionally, its own reference files, so you don't have to re-explain the job every time.
+- **How to set it up:** gemini.google.com → "Explore Gems" → "New Gem" → name it → write instructions (Gemini can help expand/rewrite them for you) → under "Knowledge," optionally "Add files" (device or Drive) for the Gem to reference → preview with a test prompt on the right → Save. Good instructions cover four things: persona, task, context, and format. Sources: https://support.google.com/gemini/answer/15236321?hl=en (checked 2026-07-22) and https://support.google.com/gemini/answer/15235603?hl=en (checked 2026-07-22, ©2026 Google, no separate last-updated date shown).
+- **What it's genuinely for:** A repeatable task done the same specific way every time (e.g., "rewrite my drafts in my voice") without retyping the setup instructions each session.
+- **The ONE mistake people make:** Expecting Gems to work everywhere. Gems are not available inside Gemini Live, and some Gem features are not yet in the mobile app — Google's own page flags this explicitly.
+- **Tier:** Free to create and use basic Gems on a personal Google Account (minimum age 13, or local equivalent). NOT VERIFIED whether there is a cap on the number of Gems, or a paid-tier-only Gem feature — Google's own pages on Gems do not state a numeric limit or tier gate for the feature itself.
+- **What it does NOT do:** Doesn't work in Gemini Live; doesn't carry over the account-level "Instructions for Gemini" setting (a Gem's own instructions are separate); Knowledge files can be cited or citation display can be turned off, but there is no vendor-documented retention period distinct from ordinary Gemini Apps Activity — NOT VERIFIED beyond that.
+- **Sources:** https://support.google.com/gemini/answer/15236321?hl=en (checked 2026-07-22) · https://support.google.com/gemini/answer/15235603?hl=en (checked 2026-07-22).
+- **Volatility:** MEDIUM — the concept is stable; premade-Gem selection and file/Knowledge features have been expanded incrementally through 2026.
+
+## 4. File upload & knowledge
+
+- **Vendor's name for it:** "Add files" (in-chat) and "Knowledge" (inside a Gem).
+- **What it IS:** Attaching a document, spreadsheet, photo, video, or code folder to a chat (or a Gem) so Gemini can read and answer questions about that specific content.
+- **How to set it up:** In the chat box, click "Add files" → "Upload files" (from device), "Add from Drive," "Import Code" (folder or GitHub repo), or "Notebooks." Submit as normal. Source: https://support.google.com/gemini/answer/14903178?hl=en (checked 2026-07-22).
+- **What it's genuinely for:** Getting answers grounded in one specific document instead of Gemini's general knowledge — e.g., "what does clause 4 of this lease say," not a general legal question.
+- **The ONE mistake people make:** Assuming there's no limit. There are hard per-file, per-prompt, and per-plan caps (below), and going over them silently fails or truncates rather than warning clearly.
+- **Tier:** Free tier gets baseline limits (video up to 5 minutes total, audio up to 10 minutes total per prompt). Google AI Pro/Ultra extend this to 1 hour of video and 3 hours of audio. Source: https://support.google.com/gemini/answer/14903178?hl=en (checked 2026-07-22).
+- **What it does NOT do:** Per-file cap is 100 MB (2 GB for video); maximum 10 files per prompt; code import is capped at one folder or one GitHub repo per chat, up to 5,000 files and 100 MB total. Files persist in Gemini Apps' storage until you delete them via Settings → Activity — there is no separate, shorter retention window documented for uploaded files versus ordinary chat activity.
+- **Sources:** https://support.google.com/gemini/answer/14903178?hl=en (checked 2026-07-22).
+- **Volatility:** MEDIUM — the click path is stable; the numeric limits have been raised more than once in 2026 press coverage and could move again without a dated help-page update.
+
+## 5. Connectors / integrations
+
+- **Vendor's name for it:** "Connected Apps." (Previously "Extensions," briefly just "apps" in March 2025, settled on "Connected Apps" by around October 2025 — dating per press only: https://9to5google.com/2025/03/03/gemini-apps-extensions-rename/, checked 2026-07-22.)
+- **What it IS:** Giving Gemini permission to read from, or take actions in, a specific outside app — your Gmail, your Calendar, Spotify, WhatsApp, and dozens more — so it can act on your real data instead of just talking about it in the abstract.
+- **How to set it up:** Settings → Connected Apps → toggle individual apps on/off. In a chat, typing "@" and the app name references it directly. Google Workspace specifically also requires "Keep Activity" to be on and, for a work/school account, requires the Workspace admin to have enabled app connections first. Sources: https://support.google.com/gemini/answer/13695044?hl=en (checked 2026-07-22) and https://support.google.com/gemini/answer/15229592?hl=en (checked 2026-07-22).
+- **What it's genuinely for:** Letting Gemini actually check your calendar or draft in your inbox, rather than you copy-pasting context into the chat by hand every time.
+- **The ONE mistake people make:** Treating "connect" as a one-time, low-stakes click. Google is explicit that Workspace-connected data (Gmail, Docs, Drive) is used to generate personal insights and improve Google's AI models generally (via summaries/inferences, not raw-content training) — this is a standing data-sharing relationship, not a one-off read.
+- **Tier:** Free to connect most apps on a personal Google Account. Work/school accounts require admin enablement. Google Workspace connection additionally can't create/manage spreadsheets, organize Drive folders, or read images/videos inside documents — a real capability gap people don't expect.
+- **What it does NOT do:** Cannot read comments in documents or images embedded in emails/Drive files (Google Workspace connection specifically); cannot act at all if Keep Activity is off. Disconnecting is done per-app in Connected Apps settings, not one master switch.
+- **Sources:** https://support.google.com/gemini/answer/13695044?hl=en (checked 2026-07-22) · https://support.google.com/gemini/answer/15229592?hl=en (checked 2026-07-22) · https://support.google.com/gemini/answer/16836988?hl=en (checked 2026-07-22).
+- **Volatility:** HIGH — the name has already changed twice in under two years, and the roster of connectable apps is added to/pruned from regularly (e.g., Google Maps and YouTube were removed as connected apps in October 2025 per press: https://9to5google.com/2025/10/18/gemini-youtube-google-maps-apps/, checked 2026-07-22).
+
+## 6. Extensions / plug-ins / skills / MCP
+
+- **Vendor's name for it:** No separate consumer-facing "plug-in" or "skill store" distinct from Connected Apps exists in the Gemini app itself. Google's own Gemini Spark help page uses the term "skills" for custom automations the agent can create (see Topic 7), and separately documents Model Context Protocol (MCP) support for connecting third-party apps like Canva, OpenTable, and Instacart to Gemini Spark.
+- **What it IS:** MCP, in this context, is the plumbing that lets a third-party service (not built by Google) plug into Gemini's agent the same way a Google-native Connected App does.
+- **How to set it up:** NOT VERIFIED for the consumer Gemini app as a standalone, user-facing setup step outside of Gemini Spark's app connections — Google's consumer help pages describe MCP-connected apps (Canva, OpenTable, Instacart) as part of Gemini Spark's existing app-connection flow, not a separate menu. A dedicated "connect a custom MCP server" flow is documented for Gemini Enterprise (business product), not for the consumer app: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/custom-mcp-server/set-up-custom-mcp-server (checked 2026-07-22) — out of scope for this file since that is the enterprise product, not gemini.google.com.
+- **What it's genuinely for:** Reaching apps Google doesn't natively integrate (a specific restaurant-booking or design tool) through a common connection standard instead of Google building a bespoke integration for every app.
+- **The ONE mistake people make:** Confusing this with the "skills" Gemini Spark builds and saves for you (a personalized workflow, like "draft emails in my style") — those are Gemini-generated automations, not third-party plug-ins.
+- **Tier:** Gemini Spark's MCP-connected third-party apps (Canva, OpenTable, Instacart) are gated behind the same requirement as Spark itself — Google AI Pro or Ultra in the US, Ultra-only elsewhere. Source: https://gemini.google/overview/agent/spark/ (checked 2026-07-22).
+- **What it does NOT do:** There is no user-facing "browse and install a skill/extension" marketplace comparable to a plug-in store in the consumer Gemini app as of this check — NOT VERIFIED that one exists; none was found on support.google.com/gemini.
+- **Sources:** https://gemini.google/overview/agent/spark/ (checked 2026-07-22) · https://support.google.com/gemini/answer/16596215?hl=en (checked 2026-07-22).
+- **Volatility:** HIGH — this is the newest, least-settled area of the whole product; Gemini Spark itself only reached broader availability in mid-2026 and Google says its app roster is "rapidly expanding."
+
+## 7. Automations / scheduled tasks
+
+- **Vendor's name for it:** "Scheduled actions" and, for more complex multi-step work, "Gemini Spark" (formerly referred to in some documentation as "Gemini Agent" — the support page at support.google.com/gemini/answer/16596215 now titles itself "Use Gemini Spark to manage your tasks & workflows," checked 2026-07-22).
+- **What it IS:** Scheduled actions repeat one prompt on a schedule you set (daily/weekly/monthly). Gemini Spark goes further: it can carry out a multi-step task across several apps on its own, with your confirmation before risky steps.
+- **How to set it up (scheduled actions):** gemini.google.com → type a prompt describing what you want and how often ("every weekday morning, summarize my calendar and unread email") → Submit. Gemini confirms the schedule in its reply. Manage via Settings & help → Scheduled actions (pause/resume, or More → Edit/Delete on the specific chat). Source: https://support.google.com/gemini/answer/16316416?hl=en (checked 2026-07-22).
+- **What it's genuinely for:** A recurring, low-stakes digest (news, calendar, market prices) you want delivered without asking again each time. Gemini Spark is for a task with real steps and real side effects (drafting and sending, filling a form, booking something) done unattended.
+- **The ONE mistake people make:** Assuming a scheduled action or Spark task delivers live, real-time data at the moment of delivery. Google states content is prepared "within the hour leading up to" the delivery time, so fast-changing data (stock prices) will already be stale by the time you read it.
+- **Tier:** Scheduled actions require Keep Activity on and either a personal Google AI subscription or a qualifying Google Workspace edition (work/school account) — free-tier users can still use scheduled actions, capped at 10 active at a time. Gemini Spark requires Google AI Pro or Ultra in the US, or Ultra only outside the US, and is unavailable in the EEA, Nigeria, Switzerland, and UK. Sources: https://support.google.com/gemini/answer/16316416?hl=en (checked 2026-07-22) and https://support.google.com/gemini/answer/16596215?hl=en (checked 2026-07-22).
+- **What it does NOT do:** Scheduled actions max out at 10 active actions per account. Gemini Spark caps at 15 concurrent tasks and still asks for explicit confirmation before sending communications, changing your data, making a purchase, or submitting a web form — it is not fully unattended for anything consequential, and Google's own page cautions that it "can make mistakes and do unexpected things."
+- **Sources:** https://support.google.com/gemini/answer/16316416?hl=en (checked 2026-07-22) · https://support.google.com/gemini/answer/16596215?hl=en (checked 2026-07-22) · https://gemini.google/overview/agent/spark/ (checked 2026-07-22).
+- **Volatility:** HIGH — Gemini Spark is a mid-2026 launch with an explicitly "rapidly expanding" rollout; naming, pricing gate, and available connected apps are all likely to shift within six months.
+
+## 8. Modes people miss (voice, canvas, code execution, web search, agent modes)
+
+- **Vendor's name for it:** "Gemini Live" (voice), "Canvas" (collaborative doc/app/code workspace), "Deep Research" (multi-step web research), Google Search grounding (built into ordinary chat, no separate toggle name found).
+- **What it IS:**
+  - **Gemini Live:** a real-time spoken conversation with Gemini, where you can interrupt mid-answer and share your camera or screen.
+  - **Canvas:** a side-by-side editing panel where you and Gemini jointly build and revise a document, slide deck, app, or piece of code, with live preview.
+  - **Deep Research:** Gemini runs an extended, multi-step research pass across the open web (and, if connected, your Gmail/Drive/uploaded files/Gemini Notebook) and returns a cited report.
+- **How to set it up:**
+  - Gemini Live: mobile app → tap "Live" (bottom of screen) or say "Hey Google, let's talk Live." Not available on the web app or in Google Messages. Source: https://support.google.com/gemini/answer/15274899?hl=en (checked 2026-07-22).
+  - Canvas: gemini.google.com → "Add files" below the text box → "Canvas" → describe what to build → Submit. Export options include Google Docs, Google Slides/PDF, and Python-to-Colab. Source: https://support.google.com/gemini/answer/16047321?hl=en (checked 2026-07-22).
+  - Deep Research: "Add files" → "Deep Research" → optionally click "Sources" to add Gmail/Drive/uploaded files/Gemini Notebook → describe the question → Submit → "Start research." Report ready in roughly 5–10 minutes; export via "Export to Docs" or "Share & export." Source: https://support.google.com/gemini/answer/15719111?hl=en (checked 2026-07-22).
+- **What it's genuinely for:** Gemini Live is for thinking out loud hands-free (rehearsing, brainstorming, camera-based questions). Canvas is for anything you'll want to keep revising rather than re-asking from scratch. Deep Research is for a question that needs synthesis across many sources, not a quick lookup.
+- **The ONE mistake people make:** Assuming these modes carry your Gems and personalization with you. Google's own page states Gemini Live does not have access to Gems or Notebooks. Canvas and Deep Research generally do carry your connected sources, but Deep Research visuals/animations are Ultra-only and unavailable at all when Workspace sources are selected for that report.
+- **Tier:** Gemini Live is free at the base level (voice, camera, screen share); all tiers can use "Thinking" for Deep Research reports, but Pro/Ultra get materially higher-quality reports and higher daily caps. Canvas is available free but some Canvas outputs (public app sharing, Audio Overview generation, AI-generated code features) require the user to be 18+. Deep Think reasoning mode and Deep Research visuals are Ultra-only. Sources: https://support.google.com/gemini/answer/15274899?hl=en, https://support.google.com/gemini/answer/16047321?hl=en, https://support.google.com/gemini/answer/15719111?hl=en (all checked 2026-07-22).
+- **What it does NOT do:** Gemini Live: no Gems, no Notebooks access, not available on desktop web or Messages, not in Farsi. Deep Research: daily request caps apply even on paid tiers (exact numbers not stated on the vendor page — NOT VERIFIED). Canvas: does not itself grant higher usage limits — those come from your plan, not from opening Canvas.
+- **Sources:** https://support.google.com/gemini/answer/15274899?hl=en (checked 2026-07-22) · https://support.google.com/gemini/answer/16047321?hl=en (checked 2026-07-22) · https://support.google.com/gemini/answer/15719111?hl=en (checked 2026-07-22).
+- **Volatility:** MEDIUM for Canvas and Gemini Live (stable concepts, incremental feature adds); HIGH for Deep Research's exact caps and Ultra-only extras, which have shifted with each 2026 pricing revision.
+
+## NotebookLM's relationship to Gemini (cross-cutting note)
+
+NotebookLM was renamed to "Gemini Notebook" on 2026-07-16. Google states it "remains a standalone product focused on being your premier research tool" but is now more tightly cross-synced with the Gemini app (notebooks can be created and opened from inside gemini.google.com) and is being brought into AI Mode in Search. The rename added no migration step and removed no feature. The key functional distinction Google itself draws: Gemini Notebook only answers from documents you've added to it (grounded), while ordinary Gemini chat and Gems draw more broadly on general knowledge and the open web, with uploaded files as optional added context rather than a hard boundary. Source: https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/ (published 2026-07-16, checked 2026-07-22).
+
+## Screen-recordable moments
+
+1. The "Add files" menu opening under the chat box and the row of mode chips it reveals (Canvas / Deep Research / Notebooks / Import Code) — this is the single UI element that unlocks four of the eight topics above, and no paragraph substitutes for seeing where it lives.
+2. A Gem being built end-to-end: New Gem → instructions → "Add files" under Knowledge → Preview → Save — then using it in a fresh chat to show it remembering its setup.
+3. The Connected Apps settings screen with the toggle list (Gmail, Calendar, Spotify, WhatsApp, etc.) and the "@app-name" reference actually pulling live data into a chat.
+4. Gemini Spark asking for explicit confirmation before an irreversible step (sending an email, submitting a form) — the moment that shows it is not fully autonomous.
+5. Deep Research's "Start research" progress state and the final cited report opening in Canvas, plus the "Export to Docs" click.
+6. Setting a scheduled action by typing a plain-English recurring request into the ordinary chat box (no separate scheduling UI) and watching Gemini confirm it in its reply.
+
+## Traps and corrections
+
+- **Stale claim:** "Google AI Ultra is a single $249.99/month plan." **Correction:** At Google I/O 2026 (May 19), Google split Ultra into two tiers — $100/month and $200/month — and cut the top price from $250 to $200. Source: https://blog.google/products-and-platforms/products/google-one/google-ai-subscriptions/ (2026-05-19, checked 2026-07-22).
+- **Stale claim:** "Google AI Plus costs $7.99/month with 200 GB." **Correction:** Cut to $4.99/month with 400 GB on 2026-06-08. Source (Google's own account): https://x.com/NewsFromGoogle/status/2064066310393209100 (2026-06-08, checked 2026-07-22).
+- **Stale claim:** "NotebookLM" is Google's research tool, separate from Gemini. **Correction:** Renamed to "Gemini Notebook" on 2026-07-16 — same product, new name, tighter Gemini-app integration. Source: https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/ (2026-07-16, checked 2026-07-22).
+- **Stale claim:** "Gemini Extensions" is the current term for connectors. **Correction:** Renamed to "apps" (March 2025), then settled as "Connected Apps" (by ~October 2025) — the current vendor term as of this check. Dating per press only: https://9to5google.com/2025/03/03/gemini-apps-extensions-rename/ (checked 2026-07-22); current terminology confirmed on the vendor help page https://support.google.com/gemini/answer/13695044?hl=en (checked 2026-07-22).
+- **Stale claim:** "Gemini Agent" handles multi-step tasks. **Correction:** Google's own support page for this feature (support.google.com/gemini/answer/16596215) is now titled "Use Gemini Spark to manage your tasks & workflows" — checked 2026-07-22. "Gemini Agent" appears to be an earlier/internal name for what shipped broadly as Gemini Spark.
+- **Stale claim:** "Saved info" is a feature distinct from "custom instructions." **Correction:** These are the same setting, described with region-varying labels ("Saved info" in some locales, "Instructions for Gemini" in the current US help page) — not two separate systems.
