@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MAiKEOVER on MAiN · LAiDIES · SUNNYVAiLE</title>
   <meta name="description" content="MAiKEOVER on MAiN at MAiN Street No. 6 — the beauty parlor where LAiDIES are made and members come back. New here? Design your card. Coming back? See your card and what your week brought in.">
-  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
+  <link rel="stylesheet" href="content/maikeover-v2.css?v=20260724-1">
   <script src="/content/site/supabase-config.js?v=20260702-1"></script>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
@@ -31,28 +32,47 @@
 
   <header class="sv-header"></header>
 
-  <div class="sv-hero"><img src="assets/building-interiors/maikeover-salon.jpg?v=20260708" alt="Inside MAiKEOVER on MAiN — a pink beauty parlor with a checkerboard floor, vinyl styling chairs, bulb-framed vanity mirrors and hood dryers, a YOUR MAiKEOVER MONTAGE AWAITS marquee and a Resident Card Glow Up sign" loading="eager"></div>
+  <section class="sv-hero mo-room" aria-label="The MAiKEOVER vanity">
+    <img class="mo-room__backdrop" src="assets/building-interiors/delivery-20260724-maikeover-v1/maikeover-vanity-station-comic-candidate-v1.png" alt="A straight-on illustrated Y2K salon vanity with one large lit mirror, three smaller candidate mirrors, seven tool drawers and a pink styling chair" loading="eager">
+    <p class="mo-room__brand"><span class="ai">MAiKEOVER</span> <span>on <span class="ai">MAiN</span></span></p>
+    <div class="mo-candidate-mount" id="moCandidateMount" aria-live="polite"></div>
+    <div class="mo-mirror-mount" id="moMirrorMount" aria-label="Your live Resident Card mirror"></div>
+    <nav class="mo-tool-tray" aria-label="Vanity tool drawers">
+      <button type="button" data-mo-tool="look" aria-pressed="true">Look</button>
+      <button type="button" data-mo-tool="backdrop" aria-pressed="false">Backdrop</button>
+      <button type="button" data-mo-tool="soundtrack" aria-pressed="false">Soundtrack</button>
+      <button type="button" data-mo-tool="saint" aria-pressed="false">Saint</button>
+      <button type="button" data-mo-tool="era" aria-pressed="false">Era faves</button>
+      <button type="button" data-mo-tool="carrying" aria-pressed="false">Carrying</button>
+      <button type="button" data-mo-tool="finish" aria-pressed="false">Finish</button>
+    </nav>
+  </section>
 
-  <main>
+  <main class="mo-page">
 
+    <section class="mo-arrival" aria-labelledby="moArrivalTitle">
     <div class="sv-eyebrow">
       <span class="sv-eyebrow-label">★ MAiN Street · No. 6 · SUNNYVAiLE</span>
     </div>
 
-    <h1><span class="ai">MAiKEOVER</span> on MAiN.</h1>
+    <h1 id="moArrivalTitle">New here? Take the chair.</h1>
 
     <p class="sv-lede">
-      The beauty parlor at the end of MAiN. Where new LAiDIES are made — and where every LAiDY comes back. <strong>New here?</strong> Walk in. Pick your colors. Design your card. Leave a member. <strong>Coming back?</strong> See your card. Check what your week brought in.
+      Work the seven drawers, watch your Resident Card change in the mirror,
+      and leave MAiN Street as a member of the LAiDIES.
     </p>
 
     <p style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; color: var(--rose); font-size: 17px; text-align: center; padding: 14px 16px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 24px 0;">
       Wednesday tour · Stop No. 6 · After class, before the Bronze.
     </p>
+    </section>
 
     <!-- ===== THE CHAIR: Resident Card customizer ===== -->
     <section id="mo-chair" style="--gold:#f6c04a; margin:8px 0 40px;">
-      <h2 style="margin-bottom:6px;">In the chair — design your card.</h2>
-      <p class="sv-lede" style="margin-top:0;">Make your avatar, pick your background, your song, your patron saint. It saves to your Closet — and you'll see the finished card here and at the Sorority House.</p>
+      <p class="mo-section-kicker">The vanity drawers</p>
+      <h2 style="margin-bottom:6px;">Pick up one tool at a time.</h2>
+      <p class="sv-lede" style="margin-top:0;">Your choices update the mirror above. Style and save the card, then sign the guest book—all without leaving the chair.</p>
+      <p class="mo-tool-status" id="moToolStatus" aria-live="polite">Look drawer open · the portrait booth is getting a safety upgrade.</p>
 
       <div class="mo-chair-grid" style="display:grid; grid-template-columns: 320px 1fr; gap:28px; align-items:start; margin-top:22px;">
 
@@ -85,7 +105,7 @@
           <!-- Avatar -->
           <div>
             <label style="display:block; font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;">★ Your avatar</label>
-            <p style="margin:0 0 10px; font-size:14px; color:var(--plum-soft);">Upload a photo (we keep your face) — or skip it and build a LAiDY from scratch. Either way, pick your era/outfit/extras below and we make 3.</p>
+            <p style="margin:0 0 10px; font-size:14px; color:var(--plum-soft);"><strong>The AI portrait booth is temporarily closed for a safety upgrade.</strong> You can still style and save the rest of your Resident Card today. No photo leaves this page while the booth is closed.</p>
             <div style="display:flex; gap:8px; margin-bottom:10px;">
               <button type="button" class="mo-mode on" data-mode="photo" style="flex:1; background:var(--cream); color:var(--plum); border:1.5px solid var(--line); border-radius:999px; padding:9px; font-family:inherit; font-weight:700; font-size:13px; cursor:pointer;">Use my photo</button>
               <button type="button" class="mo-mode" data-mode="scratch" style="flex:1; background:var(--cream); color:var(--plum); border:1.5px solid var(--line); border-radius:999px; padding:9px; font-family:inherit; font-weight:700; font-size:13px; cursor:pointer;">No photo — build one</button>
@@ -107,8 +127,8 @@
             <div class="mo-sub">Backdrop behind you — pick one</div>
             <div class="mo-chips" id="moBackdrop"></div>
 
-            <button type="button" id="moMake" style="margin-top:14px; background:var(--rose); color:var(--cream); border:0; border-radius:999px; padding:12px 24px; font-family:inherit; font-weight:800; font-size:13px; letter-spacing:.06em; text-transform:uppercase; cursor:pointer;">Make 3 avatars ★</button>
-            <div id="moStatus" style="margin-top:10px; font-size:13px; color:var(--plum-soft); min-height:18px;"></div>
+            <button type="button" id="moMake" disabled aria-disabled="true" style="margin-top:14px; background:var(--rose); color:var(--cream); border:0; border-radius:999px; padding:12px 24px; font-family:inherit; font-weight:800; font-size:13px; letter-spacing:.06em; text-transform:uppercase; cursor:not-allowed; opacity:.55;">Portrait booth temporarily closed</button>
+            <div id="moStatus" style="margin-top:10px; font-size:13px; color:var(--plum-soft); min-height:18px;">The rest of the Resident Card maker remains open.</div>
             <div id="moCands" style="display:flex; gap:10px; margin-top:12px;"></div>
           </div>
 
@@ -335,9 +355,9 @@
 
     <div id="mo-new-here" hidden></div>
 
-    <h2>Claim your Closet URL.</h2>
+    <h2 class="mo-claim-intro">Claim your Closet URL.</h2>
 
-    <p>
+    <p class="mo-claim-intro">
       Your Closet gets a shareable address. Pick a handle — send it in a text, put it on a friendship necklace, whatever. Once you claim it, that's you. Only lowercase letters, numbers, and underscores. 3 to 24 characters.
     </p>
 
@@ -398,49 +418,13 @@
 
     </div>
 
-    <h2>The distinction (because it gets asked)</h2>
-
-    <p>
-      <strong>MAiKEOVER on MAiN holds the personal card.</strong> Sign-up moment for new members. Weekly dashboard for everyone else. This is where you see <em>your</em> progress.
-    </p>
-
-    <p>
-      <strong><a href="/sorority-house.html" style="color: var(--rose); text-decoration: underline;">The Sorority House on Wisteria Lane is the social use of the card.</a></strong> That's where you USE it with other members — chat rooms, Wins, Burn Book, Dear LAiDIES, Girl Talk. All gated.
-    </p>
-
-    <p>
-      Same card, two stops. The parlor holds your view of it. The house lets you in to be with everyone else.
-    </p>
-
-    <h2>Why a beauty parlor?</h2>
-
-    <p>
-      Because the Y2K beauty parlor is the canon place where you went to <em>become</em> something. New look, new role, new chapter. The Resident Card is the same idea — small ritual, real shift. You walk out the door looking like a member of the LAiDIES because you are.
-    </p>
-
-    <div class="sv-ctas">
-      <a class="sv-cta sv-cta--primary" href="/resident-card.html">
-        <span>
-          <span class="sv-cta-label">New here?</span>
-          <span class="sv-cta-title">Open the card builder →</span>
-        </span>
-        <span class="sv-cta-arrow">→</span>
-      </a>
-      <a class="sv-cta" href="/resident-card.html">
-        <span>
-          <span class="sv-cta-label">Coming back?</span>
-          <span class="sv-cta-title">See your card →</span>
-        </span>
-        <span class="sv-cta-arrow">→</span>
-      </a>
-      <a class="sv-cta" href="/sorority-house.html">
-        <span>
-          <span class="sv-cta-label">Take it social</span>
-          <span class="sv-cta-title">Head to The Sorority House →</span>
-        </span>
-        <span class="sv-cta-arrow">→</span>
-      </a>
-    </div>
+    <section class="mo-exit" aria-labelledby="moExitTitle">
+      <p class="mo-section-kicker">Your card has somewhere to go</p>
+      <h2 id="moExitTitle">The parlor makes it. The house lets it in.</h2>
+      <p>MAiKEOVER holds your personal Resident Card. The Sorority House is where
+        you use it with the other LAiDIES.</p>
+      <a href="/sorority-house.html">Walk to the Sorority House <span aria-hidden="true">→</span></a>
+    </section>
 
   </main>
 
@@ -1023,6 +1007,7 @@
   <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
     <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
     <script defer src="/content/site/charm-hunt.js?v=20260716-coords"></script>
+<script defer src="/content/site/maikeover-v2.js?v=20260724-1"></script>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
 <script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>

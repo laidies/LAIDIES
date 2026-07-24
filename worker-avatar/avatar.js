@@ -17,6 +17,9 @@ const PIXEL_MEDIUM =
   'makeup (no heavy eyeliner). Head and shoulders. NOT warm-toned, NOT airbrushed, NOT soft-painterly, ' +
   'NOT a flat cartoon, NOT blurry, NOT chunky Minecraft blocks, NOT photorealistic. No text, no watermark.';
 const STYLE = PIXEL_MEDIUM;
+// Safety circuit breaker. Keep paid generation closed until the public flow
+// has server-validated bot protection and durable budget controls.
+const GENERATION_ENABLED = false;
 
 // Concise style tag for InstantID (SDXL prefers short tag-style prompts).
 const INSTANT_STYLE =
@@ -79,12 +82,18 @@ async function openaiImage(env, { prompt, imageBytes }) {
   throw new Error(lastErr + ' (still blocked after 4 tries)');
 }
 
-function cors(origin) {
+function isAllowedOrigin(origin) {
   // Test the full origin string (scheme + host). Allow localhost (any port),
   // 127.0.0.1, and laidies.ai / wearelaidies.ai (+ subdomains).
-  const ok = origin && /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$|^https?:\/\/([a-z0-9-]+\.)*(laidies\.ai|wearelaidies\.ai)$/.test(origin);
+  return Boolean(
+    origin &&
+    /^(https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?|https:\/\/([a-z0-9-]+\.)*(laidies\.ai|wearelaidies\.ai))$/.test(origin)
+  );
+}
+
+function cors(origin) {
   return {
-    'Access-Control-Allow-Origin': ok ? origin : 'https://laidies.ai',
+    'Access-Control-Allow-Origin': isAllowedOrigin(origin) ? origin : 'https://laidies.ai',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Max-Age': '86400',
@@ -170,40 +179,21 @@ export default {
   async fetch(request, env) {
     const origin = request.headers.get('Origin') || '';
     const ch = cors(origin);
-    if (request.method === 'OPTIONS') return new Response(null, { headers: ch });
+    if ((request.method === 'OPTIONS' || request.method === 'POST') && !isAllowedOrigin(origin)) {
+      return json({ error: 'origin not allowed' }, 403);
+    }
+    if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: ch });
     if (request.method === 'GET') {
-      const u = new URL(request.url);
-      const dbg = u.searchParams.get('debug');
-      if (dbg && env.REPLICATE_API_TOKEN) {
-        const rauth = { Authorization: 'Bearer ' + env.REPLICATE_API_TOKEN };
-        if (dbg === 'account') {
-          const r = await fetch('https://api.replicate.com/v1/account', { headers: rauth });
-          return json({ http: r.status, body: await r.json() }, 200, ch);
-        }
-        if (dbg === 'predict') {
-          const r = await fetch('https://api.replicate.com/v1/predictions', {
-            method: 'POST',
-            headers: Object.assign({ 'Content-Type': 'application/json' }, rauth),
-            body: JSON.stringify({
-              version: '2e4785a4d80dadf580077b2244c8d7c05d8e3faac04a04c02d8e099dd2876789',
-              input: { image: 'https://replicate.delivery/pbxt/L8Msf9r6vy3nEsFjIVM9pFVE1F1Yyq9nvY0zvkO6bYT0YFVj/0.png', prompt: 'a person' },
-            }),
-          });
-          return json({ http: r.status, body: await r.json() }, 200, ch);
-        }
-        const r = await fetch('https://api.replicate.com/v1/models/' + dbg, {
-          headers: rauth,
-        });
-        const d = await r.json();
-        const input = d.latest_version && d.latest_version.openapi_schema
-          && d.latest_version.openapi_schema.components
-          && d.latest_version.openapi_schema.components.schemas
-          && d.latest_version.openapi_schema.components.schemas.Input;
-        return json({ http: r.status, name: d.name, owner: d.owner, version: d.latest_version && d.latest_version.id, input }, 200, ch);
-      }
-      return new Response(DEMO_HTML, { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
+      return json({ service: 'laidies-avatar', generation: 'paused' }, 200);
     }
     if (request.method !== 'POST') return json({ error: 'POST only' }, 405, ch);
+    if (!GENERATION_ENABLED) {
+      return json(
+        { error: 'The portrait booth is getting a safety upgrade. The rest of your Resident Card still works.' },
+        503,
+        Object.assign({ 'Retry-After': '86400' }, ch)
+      );
+    }
 
     let body;
     try { body = await request.json(); } catch (e) { return json({ error: 'bad json' }, 400, ch); }

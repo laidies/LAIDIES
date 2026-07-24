@@ -34,7 +34,10 @@ for (const ep of episodes) {
   if (!exists(canonPath)) fail(`Ep${n}: PUBLISHED but no canon file (${canonPath}) — the canon system is starved for this episode`);
   const sd = sdEpisodes.find((e) => String(e.number).padStart(2, '0') === n);
   if (sd && sd.title !== ep.title) fail(`Ep${n}: title split-brain — episode-index says "${ep.title}", site-data.js says "${sd.title}"`);
-  if (ep.title && !chick.includes(ep.title)) fail(`Ep${n}: chick-flicks.html never mentions canonical title "${ep.title}"`);
+  const chickLoadsCanonicalIndex = chick.includes('/content/episode-index.json');
+  if (ep.title && !chick.includes(ep.title) && !chickLoadsCanonicalIndex) {
+    fail(`Ep${n}: chick-flicks.html neither names canonical title "${ep.title}" nor loads content/episode-index.json`);
+  }
 }
 
 // ---------- 3: dead links on live top-level pages ----------

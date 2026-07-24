@@ -1,0 +1,375 @@
+:root {
+  --bf-ink: #08102f;
+  --bf-pink: #ff4fa3;
+  --bf-purple: #7657ff;
+  --bf-cyan: #14cfea;
+  --bf-coral: #ff765f;
+  --bf-mint: #3fe0b5;
+  --bf-paper: #fffdf8;
+}
+
+.bookfair-v2 {
+  color: var(--bf-ink);
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 79, 163, 0.13), transparent 28%),
+    radial-gradient(circle at 90% 36%, rgba(20, 207, 234, 0.13), transparent 26%),
+    linear-gradient(180deg, #fffdfb, #f6f0ff 55%, #eefbff);
+}
+
+.bookfair-v2 main {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.bookfair-v2 .sv-yah-chip {
+  display: none !important;
+}
+
+.bookfair-v2 .bf-room {
+  position: relative;
+  width: 100%;
+  height: min(62vw, 720px);
+  min-height: 520px;
+  overflow: hidden;
+  background: var(--bf-ink);
+  border-bottom: 5px solid var(--bf-pink);
+}
+
+.bookfair-v2 .bf-room > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 50%;
+  filter: saturate(1.08) contrast(1.03);
+}
+
+.bookfair-v2 .bf-room-copy {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(28px, 5vw, 76px);
+  background: linear-gradient(180deg, transparent 42%, rgba(8, 16, 47, 0.18) 58%, rgba(8, 16, 47, 0.94) 100%);
+}
+
+.bookfair-v2 .bf-hero {
+  max-width: 900px;
+  margin: 0;
+  padding: 0;
+  color: white;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  text-align: left;
+}
+
+.bookfair-v2 .bf-hero-eyebrow {
+  margin-bottom: 12px;
+  color: var(--bf-cyan);
+}
+
+.bookfair-v2 .bf-hero h1 {
+  margin: 0 0 14px;
+  color: white;
+  font: 400 clamp(60px, 8vw, 118px)/0.88 "Anton", Impact, sans-serif;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.bookfair-v2 .bf-hero-tag {
+  max-width: 70ch;
+  margin: 0;
+  color: white;
+  font-size: clamp(17px, 1.55vw, 23px);
+}
+
+.bookfair-v2 .bf-balance {
+  justify-content: flex-start;
+  max-width: 1180px;
+  margin: -1px auto 0;
+  padding: 24px 32px;
+  color: white;
+  background: var(--bf-ink);
+  border: 0;
+  border-radius: 0;
+}
+
+.bookfair-v2 .bf-balance::before {
+  content: "CLIP JAR";
+  color: var(--bf-pink);
+  font: 800 10px/1 "Jost", sans-serif;
+  letter-spacing: 0.2em;
+}
+
+.bookfair-v2 .bf-balance__n {
+  min-width: 50px;
+  color: var(--bf-cyan);
+  font: 400 44px/1 "Anton", Impact, sans-serif;
+}
+
+.bookfair-v2 .bf-balance__lbl {
+  color: white;
+}
+
+.bookfair-v2 .bf-balance a {
+  color: var(--bf-cyan);
+}
+
+.bookfair-v2 .bf-toast {
+  max-width: 1180px;
+  min-height: 38px;
+  margin: 0 auto;
+  padding: 10px 32px;
+  color: var(--bf-ink);
+  background: var(--bf-cyan);
+  text-align: left;
+}
+
+.bookfair-v2 .bf-toast:empty {
+  min-height: 0;
+  padding-block: 0;
+}
+
+.bookfair-v2 .bf-rack {
+  padding: clamp(64px, 8vw, 112px) 0 82px;
+}
+
+.bookfair-v2 .bf-rack-head {
+  max-width: 1180px;
+  margin: 0 auto 30px;
+  padding: 0 32px;
+}
+
+.bookfair-v2 .bf-rack-head > span {
+  color: var(--bf-pink);
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.bookfair-v2 .bf-rack-head h2 {
+  margin: 10px 0 12px;
+  color: var(--bf-ink);
+  font: 400 clamp(48px, 6vw, 82px)/1 "Anton", Impact, sans-serif;
+  text-transform: uppercase;
+}
+
+.bookfair-v2 .bf-rack-head p {
+  max-width: 68ch;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.bookfair-v2 .bf-grid {
+  display: flex;
+  gap: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0 max(32px, calc((100vw - 1180px) / 2)) 24px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  border-top: 3px solid var(--bf-ink);
+  border-bottom: 3px solid var(--bf-ink);
+}
+
+.bookfair-v2 .drop {
+  flex: 0 0 min(330px, 78vw);
+  min-width: 280px;
+  color: var(--bf-ink);
+  background: var(--bf-paper);
+  border: 0;
+  border-right: 2px solid var(--bf-ink);
+  border-radius: 0;
+  box-shadow: none;
+  scroll-snap-align: start;
+}
+
+.bookfair-v2 .drop:first-child {
+  border-left: 2px solid var(--bf-ink);
+}
+
+.bookfair-v2 .drop.is-owned {
+  border-color: var(--bf-ink);
+  box-shadow: inset 0 9px 0 var(--bf-mint);
+}
+
+.bookfair-v2 .drop__art {
+  aspect-ratio: 1.18 / 1;
+  padding: 36px;
+  background:
+    linear-gradient(145deg, rgba(118, 87, 255, 0.85), rgba(255, 79, 163, 0.9));
+  border-bottom: 2px solid var(--bf-ink);
+}
+
+.bookfair-v2 .drop:nth-child(2n) .drop__art {
+  background: linear-gradient(145deg, rgba(36, 104, 255, 0.9), rgba(20, 207, 234, 0.82));
+}
+
+.bookfair-v2 .drop:nth-child(3n) .drop__art {
+  background: linear-gradient(145deg, rgba(255, 79, 163, 0.9), rgba(255, 118, 95, 0.84));
+}
+
+.bookfair-v2 .drop__art span:not(.drop__excl):not(.drop__cost) {
+  color: white;
+  font: 400 34px/1.02 "Anton", Impact, sans-serif;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.bookfair-v2 .drop__art img:not([style*="display: none"]) + span {
+  display: none;
+}
+
+.bookfair-v2 .drop__cost,
+.bookfair-v2 .drop__excl {
+  top: 14px;
+  border-radius: 0;
+}
+
+.bookfair-v2 .drop__cost {
+  right: 14px;
+  color: var(--bf-ink);
+  background: white;
+}
+
+.bookfair-v2 .drop__excl {
+  left: 14px;
+  background: var(--bf-ink);
+}
+
+.bookfair-v2 .drop__body {
+  min-height: 300px;
+  padding: 22px;
+  gap: 8px;
+}
+
+.bookfair-v2 .drop__name {
+  color: var(--bf-ink);
+  font-size: 18px;
+}
+
+.bookfair-v2 .drop__blurb {
+  color: rgba(8, 16, 47, 0.72);
+  font-size: 13.5px;
+}
+
+.bookfair-v2 .drop__lands {
+  color: var(--bf-cobalt, #2468ff);
+}
+
+.bookfair-v2 .drop__redeem {
+  padding: 12px 14px;
+  color: white;
+  background: var(--bf-pink);
+  border-radius: 0;
+}
+
+.bookfair-v2 .drop__redeem:hover {
+  background: var(--bf-ink);
+}
+
+.bookfair-v2 .drop.is-owned .drop__redeem {
+  color: var(--bf-ink);
+  background: var(--bf-mint);
+}
+
+.bookfair-v2 .drop__door {
+  color: var(--bf-cobalt, #2468ff);
+}
+
+.bookfair-v2 .bf-note {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 30px 32px;
+  color: var(--bf-ink);
+  background: transparent;
+  border-bottom: 2px solid var(--bf-ink);
+  border-radius: 0;
+  font-size: 14px;
+}
+
+.bookfair-v2 .bf-note a {
+  color: #2468ff;
+}
+
+.bookfair-v2 .sv-ctas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 56px 32px 84px;
+}
+
+.bookfair-v2 .sv-cta {
+  margin: 0;
+  padding: 24px;
+  background: transparent;
+  border: 2px solid var(--bf-ink);
+  border-radius: 0;
+}
+
+.bookfair-v2 .sv-cta--primary {
+  color: white;
+  background: var(--bf-ink);
+}
+
+.bookfair-v2 footer {
+  color: white;
+  background: var(--bf-ink);
+  border: 0;
+}
+
+@media (max-width: 620px) {
+  .bookfair-v2 .bf-room {
+    height: 118vw;
+    min-height: 520px;
+  }
+
+  .bookfair-v2 .bf-room > img {
+    object-position: center;
+  }
+
+  .bookfair-v2 .bf-room-copy {
+    padding: 28px 22px 42px;
+  }
+
+  .bookfair-v2 .bf-hero h1 {
+    font-size: clamp(58px, 20vw, 82px);
+  }
+
+  .bookfair-v2 .bf-balance {
+    gap: 9px;
+    padding: 20px 22px;
+  }
+
+  .bookfair-v2 .bf-balance__lbl {
+    flex: 1 1 100%;
+  }
+
+  .bookfair-v2 .bf-toast {
+    padding-inline: 22px;
+  }
+
+  .bookfair-v2 .bf-rack-head {
+    padding: 0 22px;
+  }
+
+  .bookfair-v2 .bf-grid {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .bookfair-v2 .bf-note {
+    margin-inline: 22px;
+    padding-inline: 0;
+  }
+
+  .bookfair-v2 .sv-ctas {
+    grid-template-columns: 1fr;
+    padding: 48px 22px 70px;
+  }
+}

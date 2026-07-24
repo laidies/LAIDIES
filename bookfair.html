@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Book Fair · SUNNYVAiLE High · LAiDIES</title>
   <meta name="description" content="The SUNNYVAiLE Book Fair — cash in your butterfly clips for fair-exclusive drops: bookmarks, the pull-down poster, holographic cards, puffy stickers, the mini-zine. Things you can only get here.">
-  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,700;0,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,700;0,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
@@ -50,6 +50,7 @@
 
     .bf-note { font-size: 13px; color: var(--plum-soft, #6f4a63); line-height: 1.6; margin: 0 0 30px; padding: 16px 20px; background: rgba(201,162,39,0.08); border-radius: 12px; }
   </style>
+  <link rel="stylesheet" href="/content/site/bookfair-v2.css?v=20260724-1">
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
   <script>
@@ -65,25 +66,37 @@
     })(window, document, "clarity", "script", "xnqcp37urd");
   </script>
 </head>
-<body>
+<body class="bookfair-v2">
 
   <header class="sv-header"></header>
 
   <main>
 
-    <div class="bf-hero">
-      <div class="bf-hero-eyebrow">★ SUNNYV<span class="ai">Ai</span>LE High · Gym · Every 4 weeks</div>
-      <h1>The Book Fair</h1>
-      <p class="bf-hero-tag">Wheel the cart into the gym. Cash in your <strong>butterfly clips</strong> for fair-exclusive drops — the pull-down poster, the holographic card, the bookmark with the tassel. Things you can <em>only</em> get here.</p>
-    </div>
+    <section class="bf-room">
+      <img src="/assets/building-interiors/sunnyvaile-high-book-fair.jpg?v=20260707" alt="The SUNNYVAiLE High gym set up as a Scholastic Book Fair, with display tables, a school banner and heart balloons" loading="eager">
+      <div class="bf-room-copy">
+        <div class="bf-hero">
+          <div class="bf-hero-eyebrow">★ SUNNYV<span class="ai">Ai</span>LE High · Gym · Every 4 weeks</div>
+          <h1>The Book Fair</h1>
+          <p class="bf-hero-tag">Wheel the cart into the gym. Cash in your <strong>butterfly clips</strong> for fair-exclusive drops — the pull-down poster, the holographic card, the bookmark with the tassel. Things you can <em>only</em> get here.</p>
+        </div>
+      </div>
+    </section>
 
-    <div class="bf-balance">
+    <div class="bf-balance" aria-label="Butterfly clip balance">
       <span class="bf-balance__n" id="bfClipN">0</span>
       <span class="bf-balance__lbl">butterfly clips to spend · <a href="/sunnyvaile-high.html">Earn more at the Pop Quiz →</a></span>
     </div>
     <div class="bf-toast" id="bfToast" aria-live="polite"></div>
 
-    <div class="bf-grid" id="bfGrid"><!-- drops injected --></div>
+    <section class="bf-rack">
+      <div class="bf-rack-head">
+        <span>One week only · eight fair exclusives</span>
+        <h2>Roll the rack</h2>
+        <p>The labels are honest: product art appears only when the real proof exists. Swipe the rack, choose a drop, and redeem it with your live clip balance.</p>
+      </div>
+      <div class="bf-grid" id="bfGrid"><!-- drops injected --></div>
+    </section>
 
     <p class="bf-note">
       <strong>★ How the fair works.</strong> Butterfly clips come from your <a href="/sunnyvaile-high.html">Pop Quiz</a> scores (best score per episode) and keeping up with the Express tour. Spend them here on drops that are <strong>fair-exclusive</strong> — you can't find them on the charm hunt or buy them anywhere else. Redeemed drops land in your <a href="/laidies-card.html">Closet</a>. Some can also be <strong>downloaded to print</strong> or ordered as real merch at <a href="/shop.html">The Gift Shop</a>.
@@ -101,37 +114,34 @@
   <script>
     /* ============================================================
        THE BOOK FAIR — exclusive drop catalog.
-       Art auto-upgrades: each drop shows a styled placeholder until
-       its render lands at `img`; then it swaps in with no code change.
-       Codex prompts for every drop are in IMAGE-PROMPTS.md (§Book Fair).
-       `download`/`buy` links are placeholders (#) until the printable
-       asset / Gift-Shop product exists.
+       The catalogue may preview future stock, but no Butterfly Clips can be
+       spent until the reward file and destination both exist.
        ============================================================ */
     var DROPS = [
       { id: 'bf-wallpaper', name: 'Phone Wallpaper', cost: 5, tag: 'Digital',
         blurb: 'A fair-exclusive lock-screen — a saint window or the town at dusk, sized for your phone.',
-        lands: 'Download', img: '/assets/bookfair/bf-wallpaper.png', download: '#' },
+        lands: 'Download', available: false },
       { id: 'bf-badge', name: 'Book Fair ’99 Badge', cost: 6, tag: 'Collectible',
         blurb: 'An enamel merit badge — proof you worked the fair. Pins to your sash.',
-        lands: 'Merit Sash', img: '/assets/bookfair/bf-badge.png' },
+        lands: 'Merit Sash', available: false },
       { id: 'bf-bookmark', name: 'The Tassel Bookmark', cost: 8, tag: 'Exclusive',
         blurb: 'The laminated, holo, tasseled bookmark you HAD to have. Set it as your reading marker across episodes + the 101s.',
-        lands: 'Bookmark rack', img: '/assets/bookfair/bf-bookmark.png', download: '#', buy: '/shop.html' },
+        lands: 'Bookmark rack', available: false },
       { id: 'bf-stickers', name: '“Scented” Puffy Sticker Sheet', cost: 10, tag: 'Exclusive',
         blurb: 'Glossy puffy stickers, scratch-n-sniff energy. Decorate your Puffy Board or use them as section bookmarks.',
-        lands: 'Puffy Board', img: '/assets/bookfair/bf-stickers.png', download: '#', buy: '/shop.html' },
+        lands: 'Puffy Board', available: false },
       { id: 'bf-postcard', name: 'Office Postcard Print', cost: 12, tag: 'Exclusive',
         blurb: 'A postcard-size print for your desk — a motto or a saint. Frame it, pin it, prop it by the monitor.',
-        lands: 'Download', img: '/assets/bookfair/bf-postcard.png', download: '#', buy: '/shop.html' },
+        lands: 'Download', available: false },
       { id: 'bf-zine', name: 'The Mini-Zine (“the book”)', cost: 15, tag: 'Exclusive',
         blurb: 'The coveted little book — an 8-page foldable zine: a saint story, episode lore, a comic. Download, print, fold.',
-        lands: 'Download', img: '/assets/bookfair/bf-zine.png', download: '#' },
+        lands: 'Download', available: false },
       { id: 'bf-holocard', name: 'Holographic Trading Card', cost: 20, tag: 'Foil · Rare',
         blurb: 'A rainbow-foil variant stamped BOOK FAIR ’99. Others literally can’t get it. Goes in your binder, tradable.',
-        lands: 'Trading Card Binder', img: '/assets/bookfair/bf-holocard.png', buy: '/shop.html' },
+        lands: 'Trading Card Binder', available: false },
       { id: 'bf-poster', name: 'The Pull-Down Poster', cost: 25, tag: 'Premium',
         blurb: 'Hangs rolled on your Closet wall — tap the ring and it snaps down to reveal exclusive art. Set it as your background.',
-        lands: 'Closet wall', img: '/assets/bookfair/bf-poster.png', download: '#', buy: '/shop.html' }
+        lands: 'Closet wall', available: false }
     ];
 
     function initBookFair() {
@@ -146,8 +156,11 @@
 
       function cardHtml(d) {
         var owned = Bank.owns(d.id);
+        var proof = d.artReady
+          ? '<img src="' + esc(d.img) + '" alt="" loading="lazy">'
+          : '';
         var art = '<div class="drop__art">' +
-          '<img src="' + esc(d.img) + '" alt="" loading="lazy" onerror="this.style.display=\'none\'">' +
+          proof +
           '<span>' + esc(d.name) + '</span>' +
           '<span class="drop__excl">' + esc(d.tag) + '</span>' +
           '<span class="drop__cost">' + d.cost + ' 🦋</span></div>';
@@ -156,7 +169,9 @@
           if (d.download) doors += '<a class="drop__door" href="' + esc(d.download) + '" data-soon="1">⬇ Download to print</a>';
           if (d.buy) doors += '<a class="drop__door" href="' + esc(d.buy) + '">✦ Order a real one</a>';
         }
-        var btn = owned
+        var btn = !d.available
+          ? '<button class="drop__redeem" type="button" disabled>Stocking soon</button>'
+          : owned
           ? '<button class="drop__redeem" type="button" disabled>✓ In your Closet</button>'
           : '<button class="drop__redeem" type="button" data-redeem="' + esc(d.id) + '">Redeem · ' + d.cost + ' 🦋</button>';
         return '<article class="drop' + (owned ? ' is-owned' : '') + '" data-id="' + esc(d.id) + '">' + art +

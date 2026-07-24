@@ -1,0 +1,489 @@
+:root {
+  --screen-ink: #050817;
+  --screen-midnight: #08122f;
+  --screen-blue: #17266f;
+  --screen-cobalt: #2848e8;
+  --screen-purple: #7b3cff;
+  --screen-pink: #ff4fa3;
+  --screen-cyan: #25d8f2;
+  --screen-coral: #ff7a68;
+  --screen-paper: #fff8ff;
+  --screen-lilac: #e9ddff;
+}
+
+body.screening-room-page {
+  margin: 0;
+  color: var(--screen-paper);
+  background:
+    radial-gradient(circle at 72% 4%, rgba(123, 60, 255, 0.19), transparent 28rem),
+    linear-gradient(180deg, #07102b 0%, var(--screen-ink) 38%, #03050e 100%);
+  overflow-x: hidden;
+}
+
+.screening-room-page .ai {
+  color: var(--screen-pink);
+}
+
+.screening-room-page .screening-room-main {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 0 5rem;
+}
+
+.screening-arrival {
+  width: min(100% - 3rem, 82rem);
+  margin: 0 auto;
+  padding: clamp(3.75rem, 8vw, 7rem) 0 clamp(2.1rem, 4vw, 3.8rem);
+}
+
+.screening-house-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid rgba(37, 216, 242, 0.5);
+}
+
+.screening-room-page .scr-eyebrow,
+.screening-house-status {
+  margin: 0;
+  font: 800 0.72rem/1.2 "Jost", sans-serif;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.screening-room-page .scr-eyebrow {
+  color: var(--screen-cyan);
+}
+
+.screening-house-status {
+  color: var(--screen-lilac);
+  text-align: right;
+}
+
+.screening-room-page .scr-title {
+  max-width: 17ch;
+  margin: clamp(1.25rem, 2.4vw, 2.1rem) 0 0;
+  color: var(--screen-paper);
+  font: 400 clamp(3rem, 7.7vw, 7.25rem)/0.94 "Anton", sans-serif;
+  letter-spacing: -0.018em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+.screening-room-page .scr-title .ai {
+  color: var(--screen-pink) !important;
+  text-shadow: 0.045em 0.045em 0 var(--screen-cobalt);
+}
+
+.screening-room-page .scr-sub {
+  max-width: 47rem;
+  margin: 1.2rem 0 0;
+  color: rgba(255, 248, 255, 0.75);
+  font: 500 clamp(1rem, 1.45vw, 1.2rem)/1.55 "Jost", sans-serif;
+}
+
+.screening-program {
+  display: grid;
+  grid-template-columns: 9rem repeat(5, minmax(0, 1fr));
+  margin-top: clamp(2.4rem, 5vw, 4.4rem);
+  border-top: 2px solid rgba(255, 248, 255, 0.82);
+  border-bottom: 2px solid rgba(255, 248, 255, 0.82);
+}
+
+.screening-program-label,
+.screening-program a {
+  min-height: 6.9rem;
+  padding: 1rem 0.95rem;
+  border-right: 1px solid rgba(255, 248, 255, 0.22);
+}
+
+.screening-program-label {
+  display: flex;
+  align-items: center;
+  color: var(--screen-coral);
+  font: 800 0.72rem/1.2 "Jost", sans-serif;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.screening-program a {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.8rem;
+  color: var(--screen-paper);
+  text-decoration: none;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+
+.screening-program a:last-child {
+  border-right: 0;
+}
+
+.screening-program a b {
+  color: var(--screen-pink);
+  font: 400 1.8rem/1 "Anton", sans-serif;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.screening-program a span {
+  font: 700 0.78rem/1.25 "Jost", sans-serif;
+}
+
+.screening-program a:hover,
+.screening-program a:focus-visible {
+  color: var(--screen-ink);
+  background: var(--screen-cyan);
+  outline: 0;
+}
+
+.screening-program a:hover b,
+.screening-program a:focus-visible b {
+  color: var(--screen-blue);
+}
+
+.screening-program a[aria-current="page"] {
+  color: var(--screen-ink);
+  background: var(--screen-pink);
+}
+
+.screening-program a[aria-current="page"] b {
+  color: var(--screen-ink);
+}
+
+.screening-auditorium {
+  position: relative;
+  width: 100%;
+  padding: clamp(2rem, 5vw, 5.4rem) max(1.5rem, calc((100vw - 76rem) / 2));
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    radial-gradient(ellipse at 50% 46%, rgba(40, 72, 232, 0.25), transparent 47rem),
+    linear-gradient(180deg, #050817 0%, #090416 55%, #04050f 100%);
+  box-sizing: border-box;
+}
+
+.screening-stage {
+  width: min(100%, 76rem);
+  margin: 0 auto;
+}
+
+.screening-marquee {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding: 0 0 0.85rem;
+  border-bottom: 2px solid var(--screen-purple);
+  color: var(--screen-paper);
+  font: 800 0.75rem/1.25 "Jost", sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.screening-marquee span:first-child {
+  color: var(--screen-pink);
+  font-size: 0.84rem;
+}
+
+.screening-marquee span:last-child {
+  color: rgba(255, 248, 255, 0.62);
+  letter-spacing: 0.1em;
+  text-align: right;
+}
+
+.screening-room-page .theatre {
+  width: 100%;
+  margin: clamp(1.25rem, 2.5vw, 2rem) auto 0;
+  border: 1px solid rgba(255, 248, 255, 0.35);
+  border-radius: 0;
+  background: #000;
+  box-shadow:
+    0 0 0 0.45rem rgba(123, 60, 255, 0.1),
+    0 2.3rem 5.2rem rgba(0, 0, 0, 0.68);
+}
+
+.screening-room-page .theatre.is-film {
+  cursor: default;
+}
+
+.screening-room-page .film-player {
+  position: relative;
+  z-index: 4;
+}
+
+.screening-room-page .theatre.is-film .vhs-scan {
+  opacity: 0.16;
+}
+
+.screening-room-page .theatre.is-film .vhs-vignette {
+  box-shadow: inset 0 0 6rem rgba(0, 0, 0, 0.25);
+}
+
+.screening-room-page .cap-bar {
+  display: grid;
+  grid-template-columns: minmax(7.5rem, 0.25fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem 2rem;
+  min-height: 5.5rem;
+  margin: 1.6rem 0 0;
+  padding: 1.1rem 0 0.2rem;
+  border: 0;
+  border-top: 1px solid rgba(255, 248, 255, 0.26);
+  border-radius: 0;
+  background: transparent;
+}
+
+.screening-room-page .cap-who {
+  margin: 0;
+  color: var(--screen-cyan);
+  font: 800 0.7rem/1.4 "Jost", sans-serif;
+  letter-spacing: 0.16em;
+}
+
+.screening-room-page .cap-txt {
+  max-width: 62rem;
+  margin: 0;
+  color: var(--screen-paper);
+  font: 500 clamp(1rem, 1.55vw, 1.25rem)/1.5 "Jost", sans-serif;
+}
+
+.screening-room-page .cap-bar.is-maven .cap-txt {
+  color: var(--screen-lilac);
+}
+
+.screening-room-page .deck {
+  margin-top: 1.5rem;
+}
+
+.screening-room-page .deck-play {
+  border-color: var(--screen-cyan);
+  background: var(--screen-midnight);
+  color: var(--screen-cyan);
+}
+
+.screening-room-page .deck-play:hover,
+.screening-room-page .deck-play:focus-visible {
+  background: var(--screen-cyan);
+  color: var(--screen-ink);
+}
+
+.screening-room-page .deck-fill,
+.screening-room-page .deck-knob {
+  background: var(--screen-pink);
+}
+
+.screening-room-page .chapters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 0;
+  margin-top: 1.25rem;
+  border-top: 1px solid rgba(255, 248, 255, 0.18);
+  border-bottom: 1px solid rgba(255, 248, 255, 0.18);
+}
+
+.screening-room-page .chap {
+  min-height: 3.5rem;
+  padding: 0.8rem;
+  border: 0;
+  border-right: 1px solid rgba(255, 248, 255, 0.18);
+  border-radius: 0;
+  color: rgba(255, 248, 255, 0.76);
+}
+
+.screening-room-page .chap:last-child {
+  border-right: 0;
+}
+
+.screening-room-page .chap:hover,
+.screening-room-page .chap:focus-visible,
+.screening-room-page .chap.is-now {
+  color: var(--screen-ink);
+  background: var(--screen-cyan);
+}
+
+.screening-departures {
+  display: grid;
+  grid-template-columns: 9rem repeat(3, minmax(0, 1fr));
+  width: min(100% - 3rem, 82rem);
+  margin: clamp(3.3rem, 7vw, 6rem) auto 0;
+  border-top: 2px solid var(--screen-pink);
+  border-bottom: 2px solid var(--screen-pink);
+}
+
+.screening-departures-label,
+.screening-departures a {
+  min-height: 7.2rem;
+  padding: 1.1rem 1rem;
+  border-right: 1px solid rgba(255, 248, 255, 0.2);
+}
+
+.screening-departures-label {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  color: var(--screen-cyan);
+  font: 800 0.7rem/1.35 "Jost", sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.screening-departures a {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--screen-paper);
+  text-decoration: none;
+}
+
+.screening-departures a:nth-of-type(3) {
+  border-right: 0;
+}
+
+.screening-departures a span {
+  color: var(--screen-pink);
+  font: 800 0.68rem/1.2 "Jost", sans-serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.screening-departures a b {
+  font: 700 1rem/1.3 "Jost", sans-serif;
+}
+
+.screening-departures a:hover,
+.screening-departures a:focus-visible {
+  color: var(--screen-ink);
+  background: var(--screen-lilac);
+  outline: 0;
+}
+
+.screening-departures a:hover span,
+.screening-departures a:focus-visible span {
+  color: var(--screen-blue);
+}
+
+.screening-room-page .scr-note {
+  grid-column: 1 / -1;
+  max-width: none;
+  margin: 0;
+  padding: 1rem 0;
+  color: rgba(255, 248, 255, 0.55);
+  font: 500 0.8rem/1.5 "Jost", sans-serif;
+  border-top: 1px solid rgba(255, 248, 255, 0.16);
+}
+
+.screening-room-page footer {
+  width: min(100% - 3rem, 82rem);
+  margin: 2.5rem auto 0;
+  padding: 1.3rem 0 2rem;
+  border-top: 0;
+  color: rgba(255, 248, 255, 0.42);
+}
+
+@media (max-width: 980px) {
+  .screening-program {
+    grid-template-columns: 7rem repeat(5, 12rem);
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+  }
+
+  .screening-program-label {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background: var(--screen-midnight);
+  }
+
+  .screening-departures {
+    grid-template-columns: 7rem repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .screening-arrival,
+  .screening-departures,
+  .screening-room-page footer {
+    width: min(100% - 2rem, 82rem);
+  }
+
+  .screening-arrival {
+    padding-top: 2.8rem;
+  }
+
+  .screening-house-line {
+    align-items: flex-start;
+  }
+
+  .screening-house-status {
+    max-width: 9rem;
+  }
+
+  .screening-room-page .scr-title {
+    font-size: clamp(2.75rem, 14vw, 5.1rem);
+  }
+
+  .screening-program {
+    margin-top: 2.5rem;
+    grid-template-columns: 6.6rem repeat(5, 10.8rem);
+  }
+
+  .screening-program-label,
+  .screening-program a {
+    min-height: 6.25rem;
+    padding: 0.8rem;
+  }
+
+  .screening-auditorium {
+    padding: 2.4rem 1rem 3rem;
+  }
+
+  .screening-marquee {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .screening-marquee span:last-child {
+    text-align: left;
+  }
+
+  .screening-room-page .theatre {
+    width: calc(100% + 2rem);
+    margin-left: -1rem;
+    border-right: 0;
+    border-left: 0;
+  }
+
+  .screening-room-page .cap-bar {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+  }
+
+  .screening-departures {
+    grid-template-columns: 1fr;
+  }
+
+  .screening-departures-label,
+  .screening-departures a {
+    min-height: auto;
+    padding: 1rem 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 248, 255, 0.2);
+  }
+
+  .screening-departures a {
+    gap: 0.7rem;
+  }
+
+  .screening-departures a:nth-of-type(3) {
+    border-bottom: 0;
+  }
+
+  .screening-room-page .scr-note {
+    padding-top: 1rem;
+  }
+}

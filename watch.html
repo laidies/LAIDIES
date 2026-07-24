@@ -7,7 +7,7 @@
   <meta name="description" content="Watch the episode — narrated, scored, and synced. Rented from the Chick Flicks, played right here.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Jost:wght@400;500;700;800&family=VT323&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Jost:wght@400;500;700;800&family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
@@ -182,6 +182,7 @@
     .chap:hover, .chap.is-now { opacity: 1; }
     main.seg-bumper .chapters, main.seg-bumper .deck-mark { display: none; }
   </style>
+  <link rel="stylesheet" href="/content/watch-v2.css?v=20260724-1">
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
   <script>
@@ -197,37 +198,63 @@
     })(window, document, "clarity", "script", "xnqcp37urd");
   </script>
 </head>
-<body>
+<body class="screening-room-page">
 
   <!-- canonical header injected by sv-global-header.js -->
 
-  <main>
-    <p class="scr-eyebrow">The Chick Flicks · The Screening Room</p>
-    <h1 class="scr-title" id="scrTitle">Episode 01 · On Wednesdays We Do AI</h1>
-    <p class="scr-sub">Narrated, scored, and synced. Press play — the pictures follow the story.</p>
-
-    <div class="theatre" id="theatre">
-      <button class="big-play" id="bigPlay" type="button" aria-label="Play episode">▶</button>
-      <div class="vhs-osd" id="osd">⏸ STOP · SP 0:00:00</div>
-      <div class="vhs-scan"></div>
-      <div class="vhs-vignette"></div>
-    </div>
-
-    <div class="deck">
-      <button type="button" class="deck-play" id="btnPlay" aria-label="Play or pause">▶</button>
-      <div class="deck-track" id="track">
-        <div class="deck-rail"></div>
-        <div class="deck-fill" id="fill"></div>
-        <div class="deck-knob" id="knob"></div>
+  <main class="screening-room-main">
+    <section class="screening-arrival" aria-labelledby="scrTitle">
+      <div class="screening-house-line">
+        <p class="scr-eyebrow">The Chick Flicks · Screening Room One</p>
+        <p class="screening-house-status">Current review screenings</p>
       </div>
-      <div class="deck-time" id="time">0:00 / 0:00</div>
-    </div>
-    <div class="chapters" id="chapters"></div>
+      <h1 class="scr-title" id="scrTitle">Episode 01 · On Wednesdays We Do A<span class="ai">i</span></h1>
+      <p class="scr-sub" id="screeningIntro">Choose a tape, take your seat, and press play. Read-along captions are available.</p>
 
-    <p class="scr-note" id="scrNote">
-      Rented from <a href="/chick-flicks.html">the Chick Flicks</a>. The study pack, quiz, anthem, and extra
-      credit from this episode are all one click away when they come up on screen — or any time from the ☰ menu.
-    </p>
+      <nav class="screening-program" aria-label="Screening programme">
+        <span class="screening-program-label">On the shelf</span>
+        <a href="/watch.html?ep=trailer" data-ep="trailer"><b>Trailer</b><span>Welcome to SUNNYVA<span class="ai">i</span>LE</span></a>
+        <a href="/watch.html?ep=01" data-ep="01"><b>01</b><span>On Wednesdays We Do A<span class="ai">i</span></span></a>
+        <a href="/watch.html?ep=02" data-ep="02"><b>02</b><span>Tell Me What You Want</span></a>
+        <a href="/watch.html?ep=03" data-ep="03"><b>03</b><span>The Burn Book Problem</span></a>
+        <a href="/watch.html?ep=04" data-ep="04"><b>04</b><span>The Founding Mothers</span></a>
+      </nav>
+    </section>
+
+    <section class="screening-auditorium" aria-label="Current screening">
+      <div class="screening-stage">
+        <div class="screening-marquee">
+          <span>Now screening</span>
+          <span id="screeningMeta">Illustrated listen-along · captions available</span>
+        </div>
+
+        <div class="theatre" id="theatre">
+          <button class="big-play" id="bigPlay" type="button" aria-label="Play episode">▶</button>
+          <div class="vhs-osd" id="osd">⏸ STOP · SP 0:00:00</div>
+          <div class="vhs-scan"></div>
+          <div class="vhs-vignette"></div>
+        </div>
+
+        <div class="deck">
+          <button type="button" class="deck-play" id="btnPlay" aria-label="Play or pause">▶</button>
+          <div class="deck-track" id="track">
+            <div class="deck-rail"></div>
+            <div class="deck-fill" id="fill"></div>
+            <div class="deck-knob" id="knob"></div>
+          </div>
+          <div class="deck-time" id="time">0:00 / 0:00</div>
+        </div>
+        <div class="chapters" id="chapters"></div>
+      </div>
+    </section>
+
+    <section class="screening-departures" aria-label="After the screening">
+      <p class="screening-departures-label">After the credits</p>
+      <a href="/chick-flicks.html"><span>Return the tape</span><b>The Chick Flicks</b></a>
+      <a href="/issues/issue-01.html" id="screeningArticleLink"><span>Read the issue</span><b>Open the full story</b></a>
+      <a href="/handbook.html"><span>Take it with you</span><b>The LA<span class="ai">i</span>DIES Handbook</b></a>
+      <p class="scr-note" id="scrNote">Press play for the illustrated listen-along. The final motion films are completing their continuity check before they enter the public Screening Room.</p>
+    </section>
   </main>
 
   <footer>© LAiDIES · Filed from SUNNYVAiLE · No. 3 MAiN Street</footer>
@@ -254,25 +281,54 @@
     var knob = document.getElementById('knob');
     var bigPlay = document.getElementById('bigPlay');
 
-    // ── FULL EPISODE CUTS (CapCut MP4s). When an episode has a finished cut it
-    //    plays here directly; the cue-synced stills below stay as the fallback for
-    //    episodes that haven't been cut yet.
-    var EPISODE_FILMS = {
-      '01': '/assets/video/episode-01-narration-motion-v19-comic-sync-review.mp4',
-      '02': '/assets/video/episode-02-narration-motion-v15-comic-sync-review.mp4',
-      '04': '/assets/video/episode-04-full-v7.mp4'
-    };
+    // Public playback stays on the cue-synced illustrated listen-along until
+    // the large motion masters pass owner continuity review and move to a
+    // dependable streaming host. Review files on the studio drive are not
+    // public release URLs.
+    var EPISODE_FILMS = {};
     // Read-along captions. Timed against the narration audio, which runs the same
     // length as the film (20:22.40 for Ep4), so the VTT drops on with no offset.
     // Ep1/Ep2 captions are forced-aligned to those episodes' own narration audio
     // (operations/tools/align.py) — same audio the comic-sync renders carry.
     var EPISODE_CAPTIONS = {
+      'trailer': '/assets/captions/episode-trailer.vtt',
       '01': '/assets/captions/episode-01.vtt',
       '02': '/assets/captions/episode-02.vtt',
+      '03': '/assets/captions/episode-03.vtt',
       '04': '/assets/captions/episode-04.vtt'
     };
-    function filmFor(ep) { return EPISODE_FILMS[String(ep).padStart(2, '0')] || null; }
-    function captionsFor(ep) { return EPISODE_CAPTIONS[String(ep).padStart(2, '0')] || null; }
+    function episodeKey(ep) { return ep === 'trailer' ? 'trailer' : String(ep).padStart(2, '0'); }
+    function filmFor(ep) { return EPISODE_FILMS[episodeKey(ep)] || null; }
+    function captionsFor(ep) { return EPISODE_CAPTIONS[episodeKey(ep)] || null; }
+
+    document.querySelectorAll('.screening-program a[data-ep]').forEach(function (link) {
+      var isCurrent = link.getAttribute('data-ep') === episodeKey(ep);
+      if (isCurrent) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+    });
+    var screeningArticleLink = document.getElementById('screeningArticleLink');
+    if (screeningArticleLink) {
+      screeningArticleLink.href = ep === 'trailer'
+        ? '/issues/issue-trailer.html'
+        : '/issues/issue-' + episodeKey(ep) + '.html';
+    }
+    var screeningMeta = document.getElementById('screeningMeta');
+    var narratedOnly = episodeKey(ep) === '03' || episodeKey(ep) === '04';
+    if (screeningMeta) {
+      screeningMeta.textContent = narratedOnly
+        ? 'Narrated edition · read-along captions available'
+        : captionsFor(ep)
+          ? 'Illustrated listen-along · read-along captions available'
+        : 'Illustrated listen-along · caption master in production';
+    }
+    var screeningIntro = document.getElementById('screeningIntro');
+    if (screeningIntro && narratedOnly) {
+      screeningIntro.textContent = 'The complete narrated lesson, with read-along captions and timed lesson cards.';
+    }
+    var scrNote = document.getElementById('scrNote');
+    if (scrNote && narratedOnly) {
+      scrNote.textContent = 'This narrated edition is ready now. The full illustrated motion film is completing owner continuity review before it enters the public Screening Room.';
+    }
     // The MAiVENS speak in their own voices; the Heroine and the Announcer narrate.
     // Testimony is set apart typographically, the way a pull-quote would be.
     var MAVEN_VOICES = ['Ada Lovelace', 'Hedy Lamarr', 'Grace Hopper', 'Karen Spärck Jones'];
@@ -358,7 +414,7 @@
         return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c];
       });
     }
-    function brand(x) { return esc(x).replace(/Ai/g, '<span class="ai">Ai</span>'); }
+    function brand(x) { return esc(x).replace(/A[Ii]/g, '<span class="ai">Ai</span>'); }
     function gold(key, uid, px) { return window.svGoldIcon ? window.svGoldIcon(key, uid, px || 30) : ''; }
 
     function now() { return demoMode ? demoClock : tape.currentTime; }

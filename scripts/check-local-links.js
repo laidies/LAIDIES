@@ -72,7 +72,7 @@ function resolveTarget(page, value) {
 }
 
 function checkReference(page, attribute, value) {
-  if (/\$\{|\$\d|\+/.test(value)) return;
+  if (/\$\{|\$\d|\+|,\s*[A-Z_]+|escapeHTML?\(|\b(?:config|question|quiz)\./.test(value)) return;
   if (/[\/-]$/.test(stripUrl(value))) return;
   const target = resolveTarget(page, value);
   if (!target) return;
