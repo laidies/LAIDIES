@@ -23,11 +23,29 @@ production origin but not the preview origin.
 
 | Deliverable | Mechanical evidence | Readiness |
 |---|---|---|
-| All-comic trailer v2 repaired review | 58 clips; 5 named replacements; 967.15 seconds; current file SHA-256 matches QC manifest; full decode recorded as passed | **REVIEW READY** — not mapped to site; Ali full-watch decision remains |
-| Episode 01 v21 controlled-motion review | 71 placements; 1172.24 seconds; current file SHA-256 matches QC manifest | **OWNER REVIEW** — mixed-style continuity remains an editorial gate |
-| Episode 02 v17 controlled-motion review | Current file SHA-256 matches QC manifest | **REVIEW READY** — owner watch remains |
+| All-comic trailer v2 repaired review | 58 clips; 5 named replacements; 967.15 seconds; current file SHA-256 matches QC manifest; independent end-to-end decode passed; assembled replacement-beat and boundary sheets visually checked | **REVIEW READY** — not mapped to site; Ali full-watch decision remains |
+| Episode 01 v21 controlled-motion review | 71 placements; 1172.24 seconds; current file SHA-256 matches QC manifest; independent end-to-end decode passed | **OWNER REVIEW** — mixed-style continuity remains an editorial gate |
+| Episode 02 v17 controlled-motion review | 61 placements; 987.48 seconds; current file SHA-256 matches QC manifest; independent end-to-end decode passed | **REVIEW READY** — owner watch remains |
 
 No active `ffmpeg` render process was found at the close of this QA pass.
+
+The live file hashes independently rechecked in the final pass were:
+
+- trailer v2 repaired review:
+  `04dff196e77d08da48a0797013a801634372c401220b062c2c8e06fd88abf4c7`
+- Episode 01 v21:
+  `4a06aef0cb8bb500f30ae67e8e08f40af0e85fedee768256c31ea0a5673e871e`
+- Episode 02 v17:
+  `97b26ce9455f3a46d2f17130c57d96182dd55aedf77420c0cdc590e6481074b6`
+
+The five repaired trailer beats were checked in the assembled master at their
+midpoints and adjoining boundaries:
+
+- `b19` — approved Episode 01 `WE DO Ai` title
+- `b42` — empty Delta LAi Nu hall, without the rejected host/sign
+- `b55` — approved LAiDIES wordmark
+- `b57` — `ON WEDNESDAYS WE DO Ai` next-week card
+- `b58` — `DIAL UP TO SUNNYVAiLE` end card without the obsolete wordmark
 
 Files:
 
@@ -45,8 +63,12 @@ Checked at **390 × 844** and **1440 × 900**:
 - No horizontal overflow.
 - No broken image elements.
 - Library search/results and the Visitor Centre directory are present.
+- Library query `what is a hallucination?` returned the glossary concept,
+  Episodes 01/02/04 and Dream Phone learning paths.
 - Mobile Visitor Centre correctly uses the directory selector instead of the
   tiny scene hotspots.
+- Selecting `The Town LIBRAiRY` in the Visitor Centre directory resolves to the
+  Library card and `/library.html` actions.
 - Desktop hotspots are visually small (about 15 × 11 px in the inspected
   layout), but the named directory provides the reliable alternative.
 
@@ -66,7 +88,10 @@ Open review items:
 - **KSVL interface:** the 99.9 tuner and Tune In control are operable and the
   persistent player opens responsively.
 - **Screening Room:** Episode 01/02 public narration loads; the newly wired VTT
-  caption bar is visible on the public audio path at mobile width.
+  caption bar is visible on the public audio path at mobile width. The local
+  commit-derived artifact reported `readyState: 4`, the expected narration
+  durations (1172.31s and 987.54s), the correct Episode titles/article links,
+  no broken images and no 390px horizontal overflow.
 - **NewsStand:** WEDNESDAY and Tribune current editions render; the retired
   TODAY paper is absent; current story/source panels open.
 
@@ -117,5 +142,6 @@ Open review items:
   `https://0a515dbb.laidies-sunnyvaile.pages.dev`
 
 The preview is suitable for Ali’s Library/Visitor Centre and repaired-trailer
-review. It is **not** yet suitable as evidence for the public claim that the
-radio experience works end to end.
+review. KSVL now works end to end on the exact edge candidate; it still needs
+the same smoke test on the production origin after an authorized domain
+switch.

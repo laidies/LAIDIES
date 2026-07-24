@@ -1409,3 +1409,51 @@ _Original source ID: repository #36_
   the bed.”
 - **Privacy/IP/reputation:** Never publish real private directory names or
   unreleased asset paths in the public explanation.
+
+## BTB-057 · The route filter mistook the sitemap for a JavaScript property
+
+`category: deployment · metadata · recovery paths` — ② Make them speak yours
+`source: grand-reopening Cloudflare production-slot QA, 2026-07-24`
+`publication status: VERIFIED — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** The curated release builder uses one path normalizer for links
+  discovered in page code and for known public root files.
+- **Issue:** A defensive rule rejected strings shaped like `object.property`
+  so JavaScript expressions would not become false missing-file reports.
+  Root filenames such as `robots.txt`, `sitemap.xml`, `about.html` and
+  `grimoire.html` have the same shape.
+- **What happens:** The build reports no missing dependencies while silently
+  omitting public entry pages and search/recovery metadata. Without a top-level
+  404, Cloudflare Pages treats the deployment as a single-page application, so
+  a broken or retired URL can return the homepage with HTTP 200.
+- **Evidence observed:** The first exact artifact had 1,052 files but no
+  `robots.txt`, `sitemap.xml` or `404.html`; `/grimoire.html` and an invented
+  URL both displayed the homepage. Rebuilding the same commit reproduced the
+  omission. The normalizer's dotted-identifier condition rejected each root
+  filename before the queue could test whether the real file existed.
+- **Diagnosis:** **Verified.** A heuristic written for references discovered
+  inside code was incorrectly reused as the authority for explicit release
+  entries.
+- **Prevent / Fix:** Treat visitor entry pages and host control files as
+  explicit release inputs. Apply the dotted-identifier guard only while
+  parsing references inside another file; allow reviewed extensionless host
+  files deliberately. Require the built artifact to contain canonical
+  robots/sitemap output, a real 404 and named migration redirects, and verify
+  their HTTP behaviour on the immutable edge.
+- **Why the fix works:** Known release files can no longer disappear because
+  they happen to resemble source-code syntax, while the reference scanner
+  still ignores genuine property expressions.
+- **New output:** A 1,083-file clean-commit payload with current sitemap URLs,
+  Cloudflare `_redirects`, a branded recovery page and a dedicated metadata
+  validator. The immutable production deployment returns text/plain robots,
+  301 for retired Grimoire routes and HTTP 404 for unknown routes.
+- **Transferable lesson:** Do not ask the coat-check scanner to decide who was
+  invited to the party. Discovery heuristics and explicit release manifests
+  solve different problems.
+- **Internal rule/check updated:** `scripts/build-public-site.mjs`,
+  `scripts/validate-public-metadata.mjs`, `_redirects`, `404.html`,
+  `sitemap.xml`, D-2026-07-24-024 and the launch cutover playbook.
+- **Public angle:** “Our sitemap looked too much like JavaScript, so the
+  website left it at home.”
+- **Privacy/IP/reputation:** Public examples should use fabricated project
+  names and routes; do not expose unpublished infrastructure identifiers.

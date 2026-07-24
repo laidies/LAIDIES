@@ -1,10 +1,33 @@
 # SUNNYVAiLE public reveal readiness
 
-**Status:** launch-QA preview deployed; production reveal gate not signed off
+**Status:** Cloudflare production slot deployed; public-domain reveal gate not
+signed off
 **Purpose:** one-time public reintroduction of LAiDIES and the new website,
 followed by a stable weekly operating rhythm
 
 ## 2026-07-24 launch-QA checkpoint
+
+- **CURRENT RELEASE COMMIT PUSHED:** metadata/recovery commit
+  `ead5a27d2b92e5abd49db8ef3c180bdd39ae82f7` is on
+  `origin/homepage-redesign`.
+- **CLOUDFLARE PRODUCTION SLOT DEPLOYED:** the exact clean-commit artifact is
+  the Pages production deployment at
+  `https://71795762.laidies-sunnyvaile.pages.dev` (deployment
+  `71795762-a820-4428-bb56-87511fbfc7b1`; project alias
+  `https://laidies-sunnyvaile.pages.dev`). This is a deployed release
+  candidate, not the `laidies.ai` public-domain cutover.
+- **PUBLIC-METADATA DEFECT REPAIRED:** the builder had treated dotted root
+  filenames as JavaScript-like identifiers, silently omitting public HTML
+  entries, `robots.txt` and `sitemap.xml`. The clean artifact now contains
+  1,083 payload files / 1001.30 MiB plus its generated build report, with no
+  missing or oversized files. `scripts/validate-public-metadata.mjs` proves
+  canonical robots/sitemap output, a real `404.html` and explicit retired-route
+  redirects.
+- **RECOVERY PATH EDGE-VERIFIED:** on the immutable production deployment,
+  `/grimoire.html` returns a 301 to `/library.html`, a nonexistent route
+  returns the branded 404 with HTTP 404, and `/robots.txt` is served as
+  `text/plain`. The Pages production alias also serves the new robots and 404
+  after propagation.
 
 - **EXACT COMMIT PUSHED:** release commit
   `24b4a220809601927135db4ce1a6ece4f293f6af` is on
@@ -33,8 +56,8 @@ followed by a stable weekly operating rhythm
 - **COST SAFETY DEPLOYED:** MAiKEOVER metered portrait generation is paused at
   the Worker; Book Fair rewards without fulfilment are disabled as “Stocking
   soon.”
-- **NOT PRODUCTION:** the preview has not replaced `laidies.ai`, is not Ali
-  design approval and is not an announcement.
+- **NOT THE PUBLIC DOMAIN:** the Pages production slot has not replaced
+  `laidies.ai`, is not Ali design approval and is not an announcement.
 - **NEWS CONTRACT REPAIRED:** the public rack contains only the current,
   source-checked WEDNESDAY Edition and Tribune. TODAY is retired; the former
   daily feed is manual-only candidate intake.
@@ -88,9 +111,10 @@ play, search, collect, join or return, that action works on the public site.
       community and “computing is too important to be left to men.”
 - [ ] Current terms, locations and feature names agree across navigation,
       homepage, episodes, search, email and social profiles.
-- [ ] Grimoire-era public routes either redirect to the correct current
+- [x] Grimoire-era release-candidate routes redirect to the correct current
       destination or present an intentional archive; none imply the retired
-      information architecture is current.
+      information architecture is current. Public-domain verification remains
+      part of the cutover smoke test.
 - [ ] No current page, metadata card or share preview resurrects the former
       Episode 4 premise accidentally.
 
@@ -246,7 +270,8 @@ and evidence on mobile and desktop.
 - [ ] The daily/weekly public contract is explicit. No retired or empty TODAY
       edition is visible, and no automated raw feed is described as the
       source-checked LAiDIES explanation layer.
-- [ ] Rollback/recovery steps and an issue owner are recorded.
+- [x] Rollback/recovery steps and an issue owner are recorded in
+      `operations/launch/sunnyvaile-production-cutover-playbook.md`.
 
 ## Gate E — no broken promises
 
