@@ -78,7 +78,7 @@ function normalizeRelative(candidate, fromFile = '') {
     value.startsWith("'") ||
     value.startsWith('"') ||
     /^(?:blob|url|path|src|href|photo|ref|f)$/.test(value) ||
-    /^[A-Za-z_$][\w$]*(?:\.[\w$]+)+$/.test(value)
+    (fromFile && /^[A-Za-z_$][\w$]*(?:\.[\w$]+)+$/.test(value))
   ) return null;
   if (!path.extname(value)) return null;
   try {
@@ -99,8 +99,10 @@ function isDenied(relative) {
   return relative.split('/').some((segment) => deniedSegments.has(segment));
 }
 
-function enqueue(relative, requiredBy = 'release entry') {
-  const normalized = normalizeRelative(relative);
+function enqueue(relative, requiredBy = 'release entry', { allowExtensionless = false } = {}) {
+  const normalized = allowExtensionless && relative === path.basename(relative)
+    ? relative
+    : normalizeRelative(relative);
   if (!normalized || isDenied(normalized) || queued.has(normalized)) return;
   const absolute = path.join(root, normalized);
   if (!fs.existsSync(absolute)) {
@@ -258,7 +260,7 @@ fs.mkdirSync(output, { recursive: true });
 for (const entry of visitorHtmlEntries()) enqueue(entry);
 for (const entry of [
   '404.html',
-  'CNAME',
+  '_redirects',
   'favicon.ico',
   'manifest.webmanifest',
   'robots.txt',
@@ -266,7 +268,9 @@ for (const entry of [
   'script.js',
   'style.css',
 ]) {
-  if (fs.existsSync(path.join(root, entry))) enqueue(entry);
+  if (fs.existsSync(path.join(root, entry))) {
+    enqueue(entry, 'public root file', { allowExtensionless: entry === '_redirects' });
+  }
 }
 
 // These assets are selected at runtime from data or constructed paths, so a
