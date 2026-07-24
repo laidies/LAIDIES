@@ -90,8 +90,10 @@ Open review items:
    - Tune In requested and played the station opener, DJ introduction and first
      song without an audio error.
 
-   Remaining before announcement: rebuild from the committed state, deploy the
-   exact artifact and repeat the interaction at the edge/production URL.
+   The exact artifact was subsequently rebuilt from pushed commit `24b4a22`,
+   deployed to the launch-QA edge and retested successfully. The only remaining
+   KSVL step is the same production-domain smoke test after the authorized
+   switch.
 
 2. **FAiRY Godmother production-smoke gate**
 
@@ -111,8 +113,8 @@ Open review items:
 
 - Branch preview:
   `https://launch-qa-20260724.laidies-sunnyvaile.pages.dev`
-- Immutable version inspected:
-  `https://862d5b6b.laidies-sunnyvaile.pages.dev`
+- Current immutable version:
+  `https://0a515dbb.laidies-sunnyvaile.pages.dev`
 
 The preview is suitable for Ali’s Library/Visitor Centre and repaired-trailer
 review. It is **not** yet suitable as evidence for the public claim that the

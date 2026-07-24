@@ -6,13 +6,18 @@ followed by a stable weekly operating rhythm
 
 ## 2026-07-24 launch-QA checkpoint
 
-- **PREVIEW DEPLOYED:** the earlier curated public artifact is available at
-  `https://launch-qa-20260724.laidies-sunnyvaile.pages.dev`.
-- **REPAIRED CANDIDATE VERIFIED LOCALLY:** the current 1,052-file,
+- **EXACT COMMIT PUSHED:** release commit
+  `24b4a220809601927135db4ce1a6ece4f293f6af` is on
+  `origin/homepage-redesign`.
+- **EXACT COMMIT PREVIEW DEPLOYED:** the 1,052-file artifact rebuilt from that
+  commit is available at
+  `https://launch-qa-20260724.laidies-sunnyvaile.pages.dev`; immutable version:
+  `https://0a515dbb.laidies-sunnyvaile.pages.dev`.
+- **REPAIRED CANDIDATE VERIFIED:** the current 1,052-file,
   992.81-MiB artifact includes all 83 computed KSVL audio dependencies with
   source-matching hashes. Tune In played the station opener, DJ intro and first
-  song in the exact artifact. This repaired candidate still needs an
-  exact-commit edge deployment before it replaces the earlier preview.
+  song in the exact artifact and passed again at the branch preview with no
+  KSVL console warning/error.
 - **PUBLIC EDGE VERIFIED:** homepage, Visitor Centre, LIBRAiRY, NewsStand,
   MAiKEOVER, Book Fair and all four episode players loaded at 390 × 844 with no
   horizontal overflow or loaded broken images. Runtime image paths across all
@@ -34,9 +39,9 @@ followed by a stable weekly operating rhythm
   source-checked WEDNESDAY Edition and Tribune. TODAY is retired; the former
   daily feed is manual-only candidate intake.
 - **OPEN GATES:** Ali's ruling on the current Library/Visitor Centre
-  candidates; commit-derived edge preview; announcement channel/assets;
-  production-domain switch and post-switch smoke test, including one
-  production-origin FAiRY Godmother request.
+  candidates; announcement channel/assets; production-domain switch and
+  post-switch smoke test, including one production-origin FAiRY Godmother
+  request.
 
 ## This is a reintroduction, not a routine episode post
 

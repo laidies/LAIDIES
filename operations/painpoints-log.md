@@ -1368,3 +1368,44 @@ _Original source ID: repository #36_
   studio.”
 - **Privacy/IP/reputation:** Public examples should use fabricated filenames
   and counts if the unreleased station catalogue is still private.
+
+## BTB-056 · The dirty studio passed a test the clean release could not
+
+`category: git · release engineering · verification` — ② Make them speak yours
+`source: grand-reopening commit-derived build, 2026-07-24`
+`publication status: VERIFIED — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** The LAiDIES workspace contains tracked public source beside many
+  untracked renders, review frames and studio-only media. Local validators had
+  passed before the release commit was assembled.
+- **Issue:** Those validators were reading the whole working directory, not the
+  exact Git tree that would be pushed.
+- **What happens:** Untracked files silently satisfy links and cue references.
+  The local workspace looks complete while a clean checkout can be missing the
+  same dependencies—or can incorrectly treat an internal review page as part
+  of the public release.
+- **Evidence observed:** A build from `git write-tree` failed where the dirty
+  workspace passed. It exposed an `issue-03.pre-titlecard.html` review page in
+  the live-page set and Episode 3/4 cue checks pointed at intentionally
+  unshipped studio frames instead of the transformed narrated public editions.
+- **Diagnosis:** **Verified.** “Tests pass locally” was too broad a claim
+  because the test input was not the release input.
+- **Prevent / Fix:** Before a push/deploy, archive the staged or committed tree
+  into a clean temporary directory, run the source gates there, build the
+  public artifact there, then run media/cue validators against that artifact.
+  Compare its file hashes with the working candidate and deploy only the
+  commit-derived artifact.
+- **Why the fix works:** Every pass/fail result now describes the bytes Git and
+  the host will actually receive.
+- **New output:** `.pre-*` review pages are excluded consistently; the cue
+  validator accepts an explicit artifact root; the pushed commit rebuilt 1,052
+  public files identical to the browser-tested candidate.
+- **Transferable lesson:** A clean dressing room is the only way to know what
+  is actually in the suitcase.
+- **Internal rule/check updated:** `scripts/build-public-site.mjs`,
+  `scripts/check-local-links.js`, `scripts/check-episode-cues.js` and this
+  ledger.
+- **Public angle:** “The test passed because the missing file was hiding under
+  the bed.”
+- **Privacy/IP/reputation:** Never publish real private directory names or
+  unreleased asset paths in the public explanation.
