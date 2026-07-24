@@ -1569,3 +1569,49 @@ _Original source ID: repository #36_
   published.”
 - **Privacy/IP/reputation:** Never inspect saved passwords, cookies or private
   browser stores; use authenticated connectors or visible signed-in sessions.
+
+## BTB-061 · The reference desk returned destinations instead of an answer
+
+`category: search · UX · information architecture` — ② Make them speak yours
+`source: LIBRAiRY Miss Jeeves owner review, 2026-07-24`
+`publication status: VERIFIED — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** Miss Jeeves invites visitors to ask plain-language questions and
+  describes the LIBRAiRY promise as “come in with a question and leave with the
+  one answer.”
+- **Issue:** Even when a suggested question had one exact catalogue match, the
+  remaining ranking rewarded high-frequency words such as “AI” across the
+  entire town index.
+- **What happens:** “Will AI take my job?” returned one relevant reference book
+  followed by generic buildings, activities and episodes. The interface looked
+  busy and plausible but never answered the question it had invited.
+- **Evidence observed:** Owner review showed FAiRY Godmother, SUNNYVAiLE High
+  and MAiKEOVER among the six results. The repaired journey gives a direct,
+  plain-language answer first and only two job-specific sourced follow-ups.
+- **Diagnosis:** **Verified.** A site-search catalogue was being presented as a
+  question-answering reference desk. Exact-match ranking alone could not fulfil
+  that product promise, and generic domain words amplified irrelevant results.
+- **Prevent / Fix:** Treat every suggested question as a curated intent with a
+  direct answer and a very small ruled set of relevant sources. Keep catalogue
+  search as the fallback for open-ended lookup, remove domain-wide stopwords
+  from fallback scoring, and test the usefulness—not merely the presence—of
+  the returned items. For every curated answer, click every downstream route
+  and verify the destination ID, section heading and editorial label; the
+  integration review caught one nonexistent book ID and one mislabeled episode
+  link after the answer cards themselves had passed. A fresh primary-source
+  check also found that the linked Stanford evidence had moved from the book's
+  older 13% figure to 16% and described employment, not hiring; the direct
+  answer and both book sources were reconciled before release.
+- **Why the fix works:** The direct intent layer fulfils the promise immediately;
+  the catalogue remains available without being mistaken for an answer engine.
+- **New output:** Four suggested questions now return direct answers, open the
+  relevant in-room book section where applicable, and announce their changed
+  result through a polite live region.
+- **Transferable lesson:** A list of places that might contain an answer is not
+  the answer.
+- **Internal rule/check updated:** `library.html`, the LIBRAiRY interaction QA
+  checklist and this ledger.
+- **Public angle:** “Our librarian knew where every book was—and still did not
+  answer the question.”
+- **Privacy/IP/reputation:** The curated examples use no visitor query history;
+  future analytics must not capture raw personal questions by default.

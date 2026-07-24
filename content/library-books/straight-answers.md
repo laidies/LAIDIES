@@ -18,7 +18,7 @@ Real questions about AI. Real data. No vibes-only answers. Every claim has a sou
 
 Not wholesale — and "replacing" is the wrong word for what's happening. It's churn, not subtraction: hiring is contracting in some exposed roles while new work opens up in others, and nobody yet knows which way the balance tips. Most of the panic comes from looking at only one half of that.
 
-**What's solid** — The contraction is real. Stanford's "Canaries in the Coal Mine" study found a 13% drop in entry-level hiring (workers aged 22–25) in the most AI-exposed jobs since late 2022 — while experienced workers in those same roles held steady or grew. It shows up as fewer people hired, not lower pay, and it held even after the researchers stripped out tech firms, remote-friendly roles, and company-wide shocks. But the creation side is just as real: the World Economic Forum projects 170 million new roles by 2030 against 92 million displaced — a net gain of 78 million, with roughly one in seven jobs being something that doesn't exist yet. And where AI augments people instead of automating their tasks, employment actually grew across every age group.
+**What's solid** — The contraction is real. Stanford's "Canaries in the Coal Mine" study found a 16% relative decline in employment for early-career workers (ages 22–25) in the most AI-exposed occupations since late 2022 — while experienced workers in those same roles held steady or grew. It shows up in employment rather than lower pay, and it held even after the researchers stripped out tech firms, remote-friendly roles, and company-wide shocks. But the creation side is just as real: the World Economic Forum projects 170 million new roles by 2030 against 92 million displaced — a net gain of 78 million, with roughly one in seven jobs being something that doesn't exist yet. And where AI augments people instead of automating their tasks, employment actually grew across every age group.
 
 **Where it's contested** — The losses are already measured while the gains are still projected — so whether creation outpaces contraction, and how fast, is genuinely unknown. There's also real debate about whether the entry-level dip is even an AI effect, or partly a post-2022 over-hiring correction and higher interest rates working through the system.
 
@@ -34,7 +34,7 @@ Not wholesale — and "replacing" is the wrong word for what's happening. It's c
 - [WEF — Future of Jobs Report 2025](https://www.weforum.org/publications/the-future-of-jobs-report-2025/)
 - [McKinsey — Generative AI and the future of work in America (2023)](https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america)
 
-*Verified June 2026. Recheck when the next Stanford "Canaries" update and the next WEF Future of Jobs land.*
+*Verified July 2026. Recheck when the next Stanford "Canaries" update and the next WEF Future of Jobs land.*
 
 ### "Which jobs are most affected?"
 
