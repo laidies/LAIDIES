@@ -64,8 +64,8 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 .jv-card:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(75,33,72,.14);border-color:var(--pink)}
 .jv-type{grid-row:1/3;align-self:center;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
   color:#fff;background:var(--teal);border-radius:6px;padding:5px 8px;white-space:nowrap;text-align:center}
-.jv-episode{background:#c96652}.jv-101,.jv-concept{background:#5f7a97}.jv-tool{background:#8a6cae}
-.jv-reference{background:#2f8f8b}.jv-activity{background:var(--rose)}.jv-building{background:#b0764a}
+.jv-episode{background:#d92f7f}.jv-101{background:#2467c8}.jv-concept{background:#008b9e}.jv-tool{background:#6d1eb5}
+.jv-reference{background:#007ea8}.jv-activity{background:#a32fbd}.jv-building{background:#5650c7}
 .jv-t{font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);align-self:end}
 .jv-s{font-size:13px;color:#6b4b60;line-height:1.4}
 .jv-none{font-size:14px;color:#8a6a80;font-style:italic;padding:6px 2px}
@@ -198,8 +198,59 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 /* end-of-book doodle sign-off, in the margin whitespace after the last line */
 .book .txt::after{content:"";display:block;height:56px;margin:28px auto 2px;
  background:url('assets/building-interiors/library-shelf/doodles/end-doodles.svg') no-repeat center/auto 46px}
+
+/* Reader refresh — the same midnight / white-paper / vivid-accent grammar as
+   the Miss Jeeves answer panel. This deliberately supersedes the older
+   burgundy, beige, candy-stripe magazine treatment above. */
+#reader{--accent:#d62886;background:rgba(7,20,47,.76);backdrop-filter:blur(4px) saturate(.88)}
+.book{--accent-ink:color-mix(in srgb,var(--accent) 62%,#07142f);width:min(1080px,100%);
+  border:2px solid rgba(24,198,216,.75);border-radius:18px;background:#fff;color:#30263d;
+  box-shadow:0 44px 100px rgba(2,8,28,.62)}
+.book .band{padding:24px 30px 22px;background:var(--midnight);border-bottom:4px solid #12c8df}
+.book .band::before{content:none}
+.book .band::after{content:"MISS JEEVES · REFERENCE DESK";color:#bceef4;opacity:.72;letter-spacing:.3em}
+.book .band .m{color:#8cebf4;font-size:9px;font-weight:800;letter-spacing:.22em;opacity:1}
+.book .band button{background:#e84a95;color:var(--midnight);border:0;border-radius:10px;
+  padding:10px 17px;font-weight:800;transition:background .15s,transform .15s}
+.book .band button:hover{background:#f166aa;transform:translateY(-1px)}
+.book .band button:focus-visible{outline:3px solid #58d9e8;outline-offset:3px}
+.book .body{grid-template-columns:250px 1fr;background:#fff}
+.book .toc{padding:24px 17px;background:#eef3ff;border-right:1px solid #cfdcf8}
+.book .toc::before{color:#6477a5}
+.book .toc a{padding:9px 10px;color:#283554}
+.book .toc a::before{color:#6d42d8;font-weight:800;opacity:1}
+.book .toc a:hover,.book .toc a:focus-visible{background:#dce8ff;color:#07142f;outline:2px solid #58d9e8;outline-offset:-2px}
+.book .toc::after{content:none}
+.book .txt{padding:34px 58px 48px 46px;color:#30263d;background:#fff}
+.book .txt .lede{color:#30263d}
+.book .txt .term{border-color:#dbe4ff}
+.book .txt .callout{background:#f5f1ff;border-color:#d9ccff;box-shadow:0 3px 10px rgba(49,35,90,.08)}
+.book .txt .ex-bad{background:#fff0f6;border-color:#f3c6dc}
+.book .txt .ex-good{background:#ecfbff;border-color:#bdebf2}
+.book .txt .receipts{background:#eef6ff;border-color:#afc5ea}
+.book .txt .receipts li{color:#425477}
+.book .txt .badge-solid{background:#d8f5ed;color:#176154}
+.book .txt .badge-contested{background:#efe5ff;color:#6737aa}
+.book .txt .badge-unknown{background:#e4f5ff;color:#235f91}
+.book .txt .meta{color:#53688f;background:#f0f4ff;border-color:#d6e0f7}
+.book .txt table{border-color:#dbe4ff}
+.book .txt th,.book .txt td{border-bottom-color:#dbe4ff}
+.book .txt tbody tr:nth-child(even){background:#f6f8ff}
+.book .txt::after{content:none}
+.book.focused{width:min(900px,100%)}
+.book.focused .body{grid-template-columns:1fr}
+.book.focused .toc{display:none}
+.book.focused .txt{padding:38px 58px 50px}
+.book.focused .txt h3:first-child{margin-top:0}
+.book.focused .txt [hidden]{display:none!important}
+
 @media(max-width:560px){.book .body{grid-template-columns:1fr}.book .toc{display:none}
   .book .txt{padding:24px 22px 34px;font-size:15.5px;background:none}.book .txt h2{font-size:22px}.book .txt .lede{font-size:17px}
+  #reader.on{padding:12px}.book{max-height:calc(100vh - 24px)}
+  .book .band{padding:22px 20px 18px;align-items:flex-start;flex-direction:column}
+  .book .band::after{content:none}.book .band .m{max-width:100%;font-size:8px;line-height:1.45}
+  .book .band .t{font-size:27px}.book .band button{align-self:flex-start}
+  .book.focused .txt{padding:26px 22px 34px}
   .jv-form{flex-wrap:wrap}.jv-form input{flex:1 1 100%}.jv-form button{flex:1 1 100%;padding:13px}
   .entry{height:40vh;min-height:230px}
   .titleblock{margin-top:22px}.titleblock h1{font-size:40px}.lede{font-size:17px;margin-bottom:22px}
@@ -443,10 +494,32 @@ function scrollBookTo(headingNeedle){
     .find(h=>h.textContent.trim().toLowerCase().includes(needle));
   if(heading)heading.scrollIntoView({block:'start'});
 }
+function focusBookSection(txt,headingNeedle){
+  if(!headingNeedle)return;
+  const needle=headingNeedle.toLowerCase();
+  const heading=[...txt.querySelectorAll('h1,h2,h3,h4')]
+    .find(h=>h.textContent.trim().toLowerCase().includes(needle));
+  if(!heading)return;
+  const level=Number(heading.tagName.slice(1));
+  const keep=new Set();
+  let node=heading;
+  while(node){
+    if(node!==heading&&/^H[1-6]$/.test(node.tagName)&&Number(node.tagName.slice(1))<=level)break;
+    keep.add(node);
+    node=node.nextElementSibling;
+  }
+  [...txt.children].forEach(el=>{el.hidden=!keep.has(el);});
+}
+const READER_ACCENTS={
+  'vocab-101':'#008b9e','concepts-101':'#6d42d8','briefing-101':'#d62886',
+  'setup-101':'#2467c8','accounts-101':'#7b35c6','whos-who':'#007ea8',
+  'straight-answers':'#d62886','how-to-check':'#6d42d8'
+};
 let readerReturnFocus=null;
 function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
   readerReturnFocus=document.activeElement;
-  document.getElementById('reader').style.setProperty('--accent',b.c||'#7c2f4f');
+  document.querySelector('.book').classList.toggle('focused',Boolean(headingNeedle));
+  document.getElementById('reader').style.setProperty('--accent',READER_ACCENTS[id]||'#d62886');
   document.getElementById('rm').textContent=b.s||'';
   document.getElementById('rt').textContent=b.t;
   const txt=document.getElementById('rtxt'), toc=document.getElementById('rtoc');
@@ -458,9 +531,10 @@ function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
       txt.innerHTML = pages.length ? pages.map(p=>p.innerHTML).join('') : (doc.body.innerHTML||'');
       txt.querySelectorAll('h1,h2,h3').forEach((h,i)=>{h.id='sec'+i});
       toc.innerHTML=[...txt.querySelectorAll('h2,h3')].filter(h=>!h.closest('.receipts')).map(h=>`<a href="#${h.id}" onclick="event.preventDefault();document.getElementById('${h.id}').scrollIntoView({behavior:'smooth'})">${h.textContent.trim()}</a>`).join('');
+      focusBookSection(txt,headingNeedle);
       requestAnimationFrame(()=>scrollBookTo(headingNeedle));
     }).catch(()=>{renderShelfCopy(b,txt,toc,b.body||'<p>Could not open this one.</p>');});
-  } else { renderShelfCopy(b,txt,toc);requestAnimationFrame(()=>scrollBookTo(headingNeedle)); }
+  } else { renderShelfCopy(b,txt,toc);focusBookSection(txt,headingNeedle);requestAnimationFrame(()=>scrollBookTo(headingNeedle)); }
   document.getElementById('reader').classList.add('on');
   document.getElementById('reader').setAttribute('aria-hidden','false');
   document.getElementById('reader-close').focus();

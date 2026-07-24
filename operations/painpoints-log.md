@@ -1615,3 +1615,40 @@ _Original source ID: repository #36_
   answer the question.”
 - **Privacy/IP/reputation:** The curated examples use no visitor query history;
   future analytics must not capture raw personal questions by default.
+
+## BTB-062 · The answer opened in a different website
+
+`category: design systems · interaction states · visual QA` — ② Make them speak yours
+`source: LIBRAiRY sourced-answer owner review, 2026-07-24`
+`publication status: VERIFIED — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** Miss Jeeves had been repaired to return one relevant,
+  well-designed answer, with a link into the supporting source book.
+- **Issue:** The supporting reader retained a legacy burgundy, beige and
+  candy-stripe system, plus a long contents rail that buried the selected
+  answer.
+- **What happens:** A coherent, trustworthy interaction abruptly appears to
+  leave the product. The visual discontinuity makes the source feel less
+  credible and turns “go deeper” into more work.
+- **Evidence observed:** Owner review compared the Miss Jeeves answer panel
+  with the opened book and rejected the latter as “absolutely hideous.” The
+  repaired direct-answer path now opens only the requested sourced section in
+  the same midnight, white, cyan and vivid-accent grammar; shelf-selected books
+  still preserve the complete reference-book path.
+- **Diagnosis:** **Verified.** The modal had been treated as a self-contained
+  decorative object instead of a state of the Library experience.
+- **Prevent / Fix:** Every overlay, reader and detail state must inherit the
+  tokens and hierarchy of the surface that launches it. QA the trigger and
+  destination together at the same viewport. When the trigger promises one
+  answer, do not open an unfiltered corpus.
+- **Why the fix works:** The handoff preserves context, reduces irrelevant
+  choice and lets the evidence—not a competing visual theme—carry the weight.
+- **New output:** Focused sourced-reader mode, refreshed full-book mode, vivid
+  result-type palette and paired source/build QA evidence.
+- **Transferable lesson:** A component is not coherent because it is polished;
+  it is coherent when it still belongs to the journey around it.
+- **Internal rule/check updated:** `library.html`, `design-qa.md` and this
+  ledger.
+- **Public angle:** “The answer was right; the doorway made it feel wrong.”
+- **Privacy/IP/reputation:** No personal visitor query data was added or
+  retained.
