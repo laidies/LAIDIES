@@ -2,6 +2,15 @@
 
 **Purpose:** one place where every chat leaves a self-contained handover doc so Codex (or any agent) can pick that thread's work up seamlessly. If you did substantial work in a chat, drop a handover here before you finish.
 
+## Programme source of truth
+
+Handovers explain individual workstreams. The cross-project commitment list is:
+
+`operations/MASTER-PROGRAM-TRACKER.md`
+
+Update that tracker whenever a handover changes the truth of a programme item.
+Do not let a handover silently close, replace, or drop work from the tracker.
+
 ## Naming
 `HANDOVER-<topic>-<YYYY-MM-DD>.md` — e.g. `HANDOVER-basics-intro-2026-07-23.md`. One file per topic/chat. Don't overwrite someone else's; add your own.
 
