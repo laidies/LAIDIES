@@ -2,7 +2,7 @@
 
 **Status:** SPECIFIED; owner approval and public-domain cutover still open
 **Cutover owner:** Ali approves timing/design; Codex executes and verifies
-**Release candidate:** `ead5a27d2b92e5abd49db8ef3c180bdd39ae82f7`
+**Release candidate:** `59758f5be9539bed95f056855ad9d214f851876e`
 
 ## Current truthful state
 
@@ -17,9 +17,9 @@
 - The exact clean-commit artifact is deployed to the Cloudflare Pages
   production slot:
   - project alias: `https://laidies-sunnyvaile.pages.dev`
-  - immutable deployment: `https://71795762.laidies-sunnyvaile.pages.dev`
-  - deployment ID: `71795762-a820-4428-bb56-87511fbfc7b1`
-  - branch/source: `homepage-redesign` / `ead5a27`
+  - immutable deployment: `https://1cf53be9.laidies-sunnyvaile.pages.dev`
+  - deployment ID: `1cf53be9-9946-4da8-8136-3cd0136f4272`
+  - branch/source: `homepage-redesign` / `59758f5`
 - The payload contains 1,083 public files / 1001.30 MiB, no missing or
   over-25-MiB file, plus its generated build report.
 - The Cloudflare slot is DEPLOYED and edge-verified. It is not Ali's design
@@ -45,19 +45,21 @@ Do not attach the custom domain until Ali has:
 ## Pre-cutover checks
 
 1. Confirm `origin/homepage-redesign` contains the named release commit.
-2. Rebuild from `git archive <commit>`, never from the dirty studio tree.
-3. Pass:
+2. Resolve the full source ID with `git rev-parse <commit>`; never type or
+   hand-extend an abbreviated SHA.
+3. Rebuild from `git archive <full-sha>`, never from the dirty studio tree.
+4. Pass:
    - local-link, inline-JS and town-canon checks;
    - NewsStand source/data validation;
    - public-artifact KSVL and episode-cue validation;
    - `validate-public-metadata.mjs`;
    - compact and desktop browser journeys in the reveal-readiness ledger.
-4. Confirm the immutable Pages deployment returns:
+5. Confirm the immutable Pages deployment returns:
    - `/robots.txt` as plain text;
    - `/sitemap.xml` with only current canonical routes;
    - retired Grimoire routes as intentional 301s; and
    - an unknown URL as the branded page with HTTP 404.
-5. Record the current GitHub Pages DNS values immediately before switching.
+6. Record the current GitHub Pages DNS values immediately before switching.
 
 ## Cutover
 

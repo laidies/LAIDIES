@@ -7,6 +7,28 @@ followed by a stable weekly operating rhythm
 
 ## 2026-07-24 launch-QA checkpoint
 
+- **CURRENT ACCESSIBILITY RELEASE DEPLOYED:** commit
+  `59758f5be9539bed95f056855ad9d214f851876e` is pushed and deployed to the
+  Cloudflare Pages production slot. Immutable deployment:
+  `https://1cf53be9.laidies-sunnyvaile.pages.dev`; deployment ID:
+  `1cf53be9-9946-4da8-8136-3cd0136f4272`.
+- **LIBRAiRY/COMMUNITY SEMANTICS REPAIRED:** the LIBRAiRY is now a complete
+  English HTML document with description, canonical URL, one main landmark,
+  one H1 and an explicitly labelled book dialog. Opening a book moves focus to
+  its close control; closing returns focus to the shelf. Community now has one
+  H1 and uses H2 for the resident-file section.
+- **LIBRAiRY SUGGESTION REPAIRED:** the visible “what's a hallucination?”
+  suggestion now normalizes the contraction and returns the Hallucination
+  glossary plus relevant episodes and activities instead of unrelated matches.
+- **FALLBACK PERFORMANCE/A11Y PASS:** twelve core mobile routes had no loaded
+  broken images, duplicate IDs or horizontal overflow in the browser pass.
+  Observed document TTFB was 70–124 ms and the 260,804-byte homepage hero was
+  the primary above-fold image on the test connection. These are useful
+  diagnostics, not field Core Web Vitals. A full LCP/CLS/INP trace remains open
+  because the Chrome DevTools performance service is not configured in this
+  Codex environment. See
+  `operations/review-packets/grand-reopening-performance-accessibility-2026-07-24.md`.
+
 - **CURRENT RELEASE COMMIT PUSHED:** metadata/recovery commit
   `ead5a27d2b92e5abd49db8ef3c180bdd39ae82f7` is on
   `origin/homepage-redesign`.

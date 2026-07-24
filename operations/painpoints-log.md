@@ -1457,3 +1457,74 @@ _Original source ID: repository #36_
   website left it at home.”
 - **Privacy/IP/reputation:** Public examples should use fabricated project
   names and routes; do not expose unpublished infrastructure identifiers.
+
+## BTB-058 · The suggested question failed its own search
+
+`category: search · UX · testing` — ② Make them speak yours
+`source: LIBRAiRY production-candidate accessibility pass, 2026-07-24`
+`publication status: VERIFIED — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** The LIBRAiRY places suggested plain-language questions directly
+  above Miss Jeeves' search results.
+- **Issue:** The visible button said “what's a hallucination?” but the search
+  index was tuned to “what is a hallucination?”
+- **What happens:** The interface's own recommended action returns plausible
+  but unrelated results, even though typing the expanded wording returns the
+  correct glossary entry, episodes and activity.
+- **Evidence observed:** Clicking the contraction returned *The Founding
+  Mothers*, Model, Context, Agent and Visitor Centre. Entering “what is a
+  hallucination?” returned Hallucination, Episode 2, Dream Phone and related
+  learning paths.
+- **Diagnosis:** **Verified.** Token matching treated `what's` and `what is` as
+  different input; the suggested control had never been tested through the
+  actual result state.
+- **Prevent / Fix:** Normalize common contractions before tokenization and
+  click every suggested search/question control as part of the release
+  journey—not only a hand-typed ideal query.
+- **Why the fix works:** The reader can phrase the question naturally while
+  the index receives the stable wording its aliases expect.
+- **New output:** The unchanged visible suggestion now returns Hallucination
+  first, followed by relevant episodes and Dream Phone.
+- **Transferable lesson:** Example prompts and suggested questions are product
+  promises. Test the exact words on the button.
+- **Internal rule/check updated:** `library.html`, the production-candidate
+  browser checklist and this ledger.
+- **Public angle:** “Our search understood hallucinations, but not apostrophes.”
+- **Privacy/IP/reputation:** No user search history or private query data is
+  needed for the public example.
+
+## BTB-059 · Seven correct-looking characters hid the wrong commit ID
+
+`category: deployment · provenance · verification` — ② Make them speak yours
+`source: Cloudflare Pages accessibility release, 2026-07-24`
+`publication status: VERIFIED — INTERNAL CONTROL`
+
+- **Context:** Wrangler accepts an optional full commit hash when uploading a
+  direct Pages artifact, while the deployment list displays only its first
+  seven characters.
+- **Issue:** The command used the correct short prefix followed by a
+  hand-written, unverified suffix.
+- **What happens:** The host UI looks correct because the visible prefix
+  matches, but the hidden deployment provenance is inaccurate.
+- **Evidence observed:** Git returned
+  `59758f5be9539bed95f056855ad9d214f851876e`; the first upload had been given a
+  different long value beginning with `59758f5`. The exact same 1,083-file
+  artifact was immediately redeployed using the SHA returned by
+  `git rev-parse`, with zero asset bytes re-uploaded.
+- **Diagnosis:** **Verified.** An abbreviated identifier was treated as if its
+  unseen characters could be safely reconstructed.
+- **Prevent / Fix:** Resolve the full SHA inside the deployment command with
+  `git rev-parse <commit>` and pass that value directly. Never type or
+  hand-extend it.
+- **Why the fix works:** Git, rather than human memory, supplies the provenance
+  identifier attached to the immutable release.
+- **New output:** Corrected production deployment
+  `1cf53be9-9946-4da8-8136-3cd0136f4272`, tied to the exact full source commit.
+- **Transferable lesson:** A shortened identifier is a label, not the missing
+  half of a fact.
+- **Internal rule/check updated:** D-2026-07-24-025 and
+  `operations/launch/sunnyvaile-production-cutover-playbook.md`.
+- **Public angle:** Keep internal unless generalized as “never autocomplete an
+  ID by hand.”
+- **Privacy/IP/reputation:** Do not publish account IDs or private repository
+  details.
