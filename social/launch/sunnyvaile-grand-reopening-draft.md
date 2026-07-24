@@ -59,6 +59,9 @@ important to be left to men.”
 
 Welcome to SUNNYVAiLE: **https://laidies.ai**
 
+Attribution check: University of Cambridge,
+`https://www.cam.ac.uk/news/karen-sparck-jones-26-august-1935-4-april-2007`
+
 ## Story / carousel sequence
 
 1. **LAiDIES has moved.**
@@ -100,3 +103,56 @@ Only retain a row after the production-domain test passes.
 Do not promise the portrait generator, Book Fair redemption, current daily
 news, full motion films, durable invitation rewards or a completed town
 economy in the grand re-opening campaign.
+
+## Recommended minimum launch package
+
+Use one strong, truthful package for the initial opening rather than delaying
+the launch for a six-card campaign that has not been designed or reviewed.
+
+### Instagram feed + Story
+
+- **Feed asset:**
+  `assets/postcards/from-sunnyvaile/greetings-from-sunnyvaile-post-card.png`
+- **Feed copy:** use **Primary reintroduction** above.
+- **Tracked link:**
+  `https://laidies.ai/?utm_source=instagram&utm_medium=social&utm_campaign=sunnyvaile_grand_reopening`
+- **Alt text:** “Illustrated sunset postcard from SUNNYVAiLE: women gather in
+  a flower-filled town square with a gazebo, bicycles, roller skates, a boom
+  box and KSVL 99.9. Large lettering says Greetings from SUNNYVAiLE—Wish you
+  were here. For real.”
+- **Story:** reuse the postcard with one link sticker labelled
+  **Enter SUNNYVAiLE**. Do not cover the SUNNYVAiLE wordmark or bottom line.
+
+### LinkedIn
+
+- **Asset:** `assets/sunnyvaile-town-overview.jpg`
+- **Copy:** use **LinkedIn version** above.
+- **Tracked link:**
+  `https://laidies.ai/?utm_source=linkedin&utm_medium=social&utm_campaign=sunnyvaile_grand_reopening`
+- **Alt text:** “SUNNYVAiLE at sunset: a welcoming fictional town with the
+  Visitor's Centre, NewsStand, Chick Flicks, Blend & Snap, Mme CLAi-O,
+  MAiKEOVER, Bronze AiGE, the Mall, KSVL, SUNNYVAiLE High and the LUMINAiRY.”
+
+Both recommended images are tracked release assets and already ship in the
+verified public artifact. This package does not depend on an unapproved
+Library/Visitor screenshot or the repaired full trailer.
+
+### Deliberately not in the first post
+
+- The 16-minute repaired trailer remains **REVIEW READY**, not owner-approved,
+  and is too long to substitute for a social reveal.
+- A six-card carousel remains a useful follow-up after its crops, safe areas,
+  wording and source frames have been reviewed.
+- Do not improvise a new image after the domain goes live merely to make the
+  announcement feel bigger.
+
+## Publish order
+
+1. Complete the authorized `laidies.ai` cutover.
+2. Pass the production-origin promise ledger.
+3. Publish Instagram feed.
+4. Publish Instagram Story with the tested public link.
+5. Publish LinkedIn.
+6. Open every published link from the live post/profile and verify the UTM
+   query survives the route.
+7. Record timestamps, URLs and any audience-facing correction required.
