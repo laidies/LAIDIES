@@ -1,12 +1,14 @@
 # SUNNYVAiLE production cutover playbook
 
-**Status:** SPECIFIED; owner approval and public-domain cutover still open
+**Status:** CUTOVER COMPLETE; public-origin smoke passed; social publication
+still open
 **Cutover owner:** Ali approves timing/design; Codex executes and verifies
 **Release candidate:** `59758f5be9539bed95f056855ad9d214f851876e`
 
-## Current truthful state
+## Current truthful state — after the 2026-07-24 cutover
 
-- `laidies.ai` and `www.laidies.ai` still serve the previous GitHub Pages site.
+- `laidies.ai` and `www.laidies.ai` now serve the named Cloudflare Pages
+  release with SSL enabled.
 - Cloudflare is already authoritative DNS for the zone.
 - Verified pre-cutover DNS recovery values:
   - apex A: `185.199.108.153`
@@ -20,10 +22,16 @@
   - immutable deployment: `https://1cf53be9.laidies-sunnyvaile.pages.dev`
   - deployment ID: `1cf53be9-9946-4da8-8136-3cd0136f4272`
   - branch/source: `homepage-redesign` / `59758f5`
+- The apex public response is byte-identical to the release commit's
+  `index.html`; both SHA-256 values are
+  `72bf54e5e6d0db80dc9be892f5b11911d5503f4508ea3501e81136a2e30adaf1`.
 - The payload contains 1,083 public files / 1001.30 MiB, no missing or
   over-25-MiB file, plus its generated build report.
-- The Cloudflare slot is DEPLOYED and edge-verified. It is not Ali's design
-  approval, the public-domain launch or an announcement.
+- The Cloudflare slot and public domain are DEPLOYED and publicly verified.
+  This is not proof that the social announcement has published.
+
+Full public-origin evidence:
+`operations/review-packets/grand-reopening-production-cutover-2026-07-24.md`.
 
 ## Why GitHub Pages is not the cutover path
 
@@ -32,9 +40,10 @@ a 1-GB published-site limit. Merging the studio tree to `main` does not create
 a safe deployable site and risks repeating the prior out-of-space failure.
 The curated artifact is the release product; the repository is the studio.
 
-## Owner gate before any public switch
+## Owner gate before any public switch — satisfied 2026-07-24
 
-Do not attach the custom domain until Ali has:
+The domain was attached only after Ali unblocked the launch and the named
+candidate had passed exact-artifact QA. The gate required:
 
 1. reviewed the actual current LIBRAiRY and Visitor's Centre candidates;
 2. approved the public-domain cutover;
@@ -89,8 +98,9 @@ Run these against `https://laidies.ai`, not the pages.dev alias:
 - mobile and desktop overflow/broken-image/console checks;
 - analytics/error monitoring reception without recording private content.
 
-Only after those checks pass may the release be called **VERIFIED PUBLICLY**
-and the reveal campaign publish.
+These checks passed on 2026-07-24. The release is **VERIFIED PUBLICLY**. The
+reveal campaign may publish from an authenticated channel; the current Codex
+environment does not have Instagram/LinkedIn publishing access.
 
 ## Rollback
 

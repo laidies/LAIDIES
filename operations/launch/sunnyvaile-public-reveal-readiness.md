@@ -1,11 +1,26 @@
 # SUNNYVAiLE public reveal readiness
 
-**Status:** Cloudflare production slot deployed; public-domain reveal gate not
-signed off
+**Status:** Public domain verified; launch package ready; social posts not yet
+published
 **Purpose:** one-time public reintroduction of LAiDIES and the new website,
 followed by a stable weekly operating rhythm
 
 ## 2026-07-24 launch-QA checkpoint
+
+- **PUBLIC DOMAIN VERIFIED:** `laidies.ai` and `www.laidies.ai` are active on
+  Cloudflare Pages with SSL enabled. The apex homepage is byte-identical to
+  commit `59758f5`; robots, sitemap, branded 404 and retired-route redirect
+  passed on the public origin.
+- **PROMISED JOURNEYS PASSED ON THE PUBLIC ORIGIN:** homepage, Visitor
+  directory, Library suggested search, sourced NewsStand story, KSVL
+  opener/DJ/song sequence, Chick Flicks, Episodes 1–4 audio/captions/edition
+  labels, Dream Phone call/remix, Resident/Post Office/Community entry and one
+  non-sensitive FAiRY Godmother request passed. See
+  `operations/review-packets/grand-reopening-production-cutover-2026-07-24.md`.
+- **ANNOUNCEMENT READY BUT NOT PUBLISHED:** the ruled Instagram feed/Story and
+  LinkedIn package is ready. No direct publisher is installed, the in-app
+  browser is not signed into Instagram and the ChatGPT Chrome Extension is
+  absent from the active Chrome profile. No channel post or URL is claimed.
 
 - **CURRENT ACCESSIBILITY RELEASE DEPLOYED:** commit
   `59758f5be9539bed95f056855ad9d214f851876e` is pushed and deployed to the
@@ -370,12 +385,20 @@ mental model.
 
 ## Reveal sign-off
 
-- **Canonical positioning approved:**
-- **All promised journeys passed:**
+- **Canonical positioning approved:** Yes — current Rewind Era/SUNNYVAiLE
+  package.
+- **All promised journeys passed:** Yes — bounded campaign promises only.
 - **Public smoke-test evidence:**
-- **Known limitations disclosed or hidden:**
-- **Social promise ledger complete:**
-- **Analytics/error monitoring live:**
-- **Rollback owner/path:**
-- **Ali approval:**
-- **Reveal status:** `blocked` / `ready_to_schedule` / `publicly_verified`
+  `operations/review-packets/grand-reopening-production-cutover-2026-07-24.md`.
+- **Known limitations disclosed or hidden:** Yes — full motion films,
+  portrait generation, unfinished reward fulfilment and incomplete economy are
+  not promised.
+- **Social promise ledger complete:** Yes — no row exceeds the public test.
+- **Analytics/error monitoring live:** Plausible is loaded on the public
+  homepage and core surfaces; the production browser pass had no warnings or
+  errors. No field Core Web Vitals claim is made.
+- **Rollback owner/path:** Codex; prior GitHub Pages DNS values are preserved
+  in the cutover playbook.
+- **Ali approval:** Launch unblocked 2026-07-24.
+- **Reveal status:** `publicly_verified` for the website;
+  `ready_to_publish` for social channels.

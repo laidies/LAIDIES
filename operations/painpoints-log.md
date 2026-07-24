@@ -1528,3 +1528,44 @@ _Original source ID: repository #36_
   ID by hand.”
 - **Privacy/IP/reputation:** Do not publish account IDs or private repository
   details.
+
+## BTB-060 · A finished launch package still needed a key to the front desk
+
+`category: launch operations · integrations · social publishing` — ② Make them speak yours
+`source: SUNNYVAiLE grand re-opening publication pass, 2026-07-24`
+`publication status: VERIFIED — INTERNAL CONTROL`
+
+- **Context:** The website cutover, production-origin smoke test, final copy,
+  ruled assets, UTM links and publish order were all complete.
+- **Issue:** Channel publication was left until the end without first proving
+  that the execution environment could access an authenticated Instagram or
+  LinkedIn publisher.
+- **What happens:** The launch is publicly ready and the campaign is truthful,
+  but the final external action cannot be completed automatically. A vague
+  “announcement ready” status can be misread as “announcement published.”
+- **Evidence observed:** No Instagram/LinkedIn connector was available; the
+  in-app browser reached Instagram's login screen; Chrome was running but the
+  ChatGPT Chrome Extension was not installed in the active profile. No social
+  post was created.
+- **Diagnosis:** **Verified.** Content readiness and channel readiness are
+  separate dependencies. Authentication cannot be safely improvised or
+  inferred from an open browser.
+- **Prevent / Fix:** Add a reversible channel-access check near the start of a
+  launch window: publisher/connector available, correct account visible, media
+  upload supported and final publish permission explicit. Keep copy/assets
+  ready independently, and record `ready_to_publish` separately from
+  `published` with the resulting post URL and timestamp.
+- **Why the fix works:** An access problem is discovered while other launch
+  work can still proceed, and nobody mistakes a prepared campaign for an
+  audience-facing result.
+- **New output:** Production cutover evidence now names the exact social-access
+  blocker; the campaign packet says READY TO PUBLISH and leaves channel URLs
+  blank until a real post succeeds.
+- **Transferable lesson:** Pack the invitation, test the venue, and make sure
+  someone actually has the key before opening night.
+- **Internal rule/check updated:** grand-reopening launch packet, production
+  cutover evidence and this ledger.
+- **Public angle:** Potential Behind the Build note: “Ready to publish is not
+  published.”
+- **Privacy/IP/reputation:** Never inspect saved passwords, cookies or private
+  browser stores; use authenticated connectors or visible signed-in sessions.

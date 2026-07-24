@@ -1,10 +1,12 @@
 # SUNNYVAiLE grand re-opening — launch copy packet
 
-**Status:** DRAFT — DO NOT PUBLISH
-**Release trigger:** Ali approves the current Library/Visitor Centre candidates;
-the exact committed candidate passes edge and production smoke tests; the
-production-origin FAiRY Godmother check passes; and Ali chooses the
-announcement channel/assets.
+**Status:** READY TO PUBLISH — production gate passed; no channel post has
+published yet
+**Release evidence:** Ali unblocked the launch; the exact committed candidate
+is live on `laidies.ai`; the full production-origin promise ledger and FAiRY
+Godmother check passed on 2026-07-24. Evidence:
+`operations/review-packets/grand-reopening-production-cutover-2026-07-24.md`.
+The recommended channels/assets below are the ruled minimum package.
 
 ## Primary reintroduction
 
@@ -148,11 +150,11 @@ Library/Visitor screenshot or the repaired full trailer.
 
 ## Publish order
 
-1. Complete the authorized `laidies.ai` cutover.
-2. Pass the production-origin promise ledger.
-3. Publish Instagram feed.
-4. Publish Instagram Story with the tested public link.
-5. Publish LinkedIn.
+1. ~~Complete the authorized `laidies.ai` cutover.~~ **Passed 2026-07-24.**
+2. ~~Pass the production-origin promise ledger.~~ **Passed 2026-07-24.**
+3. Publish Instagram feed. **Not yet published — channel access required.**
+4. Publish Instagram Story with the tested public link. **Not yet published.**
+5. Publish LinkedIn. **Not yet published — channel access required.**
 6. Open every published link from the live post/profile and verify the UTM
    query survives the route.
 7. Record timestamps, URLs and any audience-facing correction required.
