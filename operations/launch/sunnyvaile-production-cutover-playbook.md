@@ -3,7 +3,7 @@
 **Status:** CUTOVER COMPLETE; public-origin smoke passed; social publication
 still open
 **Cutover owner:** Ali approves timing/design; Codex executes and verifies
-**Release candidate:** `59758f5be9539bed95f056855ad9d214f851876e`
+**Current release:** `9dc9153dbd509262ad3b323b0afb3fbc381e7689`
 
 ## Current truthful state — after the 2026-07-24 cutover
 
@@ -19,13 +19,13 @@ still open
 - The exact clean-commit artifact is deployed to the Cloudflare Pages
   production slot:
   - project alias: `https://laidies-sunnyvaile.pages.dev`
-  - immutable deployment: `https://1cf53be9.laidies-sunnyvaile.pages.dev`
-  - deployment ID: `1cf53be9-9946-4da8-8136-3cd0136f4272`
-  - branch/source: `homepage-redesign` / `59758f5`
+  - immutable deployment: `https://edac8d4f.laidies-sunnyvaile.pages.dev`
+  - deployment ID: `edac8d4f-e304-4cef-8deb-b1de9cc32855`
+  - branch/source: `homepage-redesign` / `9dc9153`
 - The apex public response is byte-identical to the release commit's
   `index.html`; both SHA-256 values are
   `72bf54e5e6d0db80dc9be892f5b11911d5503f4508ea3501e81136a2e30adaf1`.
-- The payload contains 1,083 public files / 1001.30 MiB, no missing or
+- The payload contains 1,083 public files / 1001.31 MiB, no missing or
   over-25-MiB file, plus its generated build report.
 - The Cloudflare slot and public domain are DEPLOYED and publicly verified.
   This is not proof that the social announcement has published.

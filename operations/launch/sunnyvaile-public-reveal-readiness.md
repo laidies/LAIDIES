@@ -9,7 +9,7 @@ followed by a stable weekly operating rhythm
 
 - **PUBLIC DOMAIN VERIFIED:** `laidies.ai` and `www.laidies.ai` are active on
   Cloudflare Pages with SSL enabled. The apex homepage is byte-identical to
-  commit `59758f5`; robots, sitemap, branded 404 and retired-route redirect
+  the release; robots, sitemap, branded 404 and retired-route redirect
   passed on the public origin.
 - **PROMISED JOURNEYS PASSED ON THE PUBLIC ORIGIN:** homepage, Visitor
   directory, Library suggested search, sourced NewsStand story, KSVL
@@ -22,11 +22,11 @@ followed by a stable weekly operating rhythm
   browser is not signed into Instagram and the ChatGPT Chrome Extension is
   absent from the active Chrome profile. No channel post or URL is claimed.
 
-- **CURRENT ACCESSIBILITY RELEASE DEPLOYED:** commit
-  `59758f5be9539bed95f056855ad9d214f851876e` is pushed and deployed to the
+- **CURRENT LIBRARY REPAIR DEPLOYED:** commit
+  `9dc9153dbd509262ad3b323b0afb3fbc381e7689` is pushed and deployed to the
   Cloudflare Pages production slot. Immutable deployment:
-  `https://1cf53be9.laidies-sunnyvaile.pages.dev`; deployment ID:
-  `1cf53be9-9946-4da8-8136-3cd0136f4272`.
+  `https://edac8d4f.laidies-sunnyvaile.pages.dev`; deployment ID:
+  `edac8d4f-e304-4cef-8deb-b1de9cc32855`.
 - **LIBRAiRY/COMMUNITY SEMANTICS REPAIRED:** the LIBRAiRY is now a complete
   English HTML document with description, canonical URL, one main landmark,
   one H1 and an explicitly labelled book dialog. Opening a book moves focus to
@@ -35,6 +35,12 @@ followed by a stable weekly operating rhythm
 - **LIBRAiRY SUGGESTION REPAIRED:** the visible “what's a hallucination?”
   suggestion now normalizes the contraction and returns the Hallucination
   glossary plus relevant episodes and activities instead of unrelated matches.
+- **MISS JEEVES NOW ANSWERS:** all four shipped example questions give a
+  direct answer followed by only 2–3 relevant learning paths. The job answer
+  no longer returns generic town destinations, its source link opens the exact
+  Jobs & Work section, and the source now carries Stanford's current 16%
+  relative-employment figure. The refreshed focused reader and the full
+  shelf-book reader both passed on the public domain.
 - **FALLBACK PERFORMANCE/A11Y PASS:** twelve core mobile routes had no loaded
   broken images, duplicate IDs or horizontal overflow in the browser pass.
   Observed document TTFB was 70–124 ms and the 260,804-byte homepage hero was
@@ -98,10 +104,9 @@ followed by a stable weekly operating rhythm
 - **NEWS CONTRACT REPAIRED:** the public rack contains only the current,
   source-checked WEDNESDAY Edition and Tribune. TODAY is retired; the former
   daily feed is manual-only candidate intake.
-- **OPEN GATES:** Ali's ruling on the current Library/Visitor Centre
-  candidates; announcement channel/assets; production-domain switch and
-  post-switch smoke test, including one production-origin FAiRY Godmother
-  request.
+- **OPEN GATE:** authenticated Instagram/LinkedIn publication access. The
+  production domain, public promise ledger and current Library owner feedback
+  are verified.
 
 ## This is a reintroduction, not a routine episode post
 

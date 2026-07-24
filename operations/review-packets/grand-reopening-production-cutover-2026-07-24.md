@@ -3,8 +3,9 @@
 **Date:** 2026-07-24
 **Cutover window:** 14:08–14:24 PDT
 **Public origin:** `https://laidies.ai`
-**Release source:** `59758f5be9539bed95f056855ad9d214f851876e`
-**Cloudflare Pages deployment:** `1cf53be9-9946-4da8-8136-3cd0136f4272`
+**Current release source:** `9dc9153dbd509262ad3b323b0afb3fbc381e7689`
+**Current Cloudflare Pages deployment:** `edac8d4f-e304-4cef-8deb-b1de9cc32855`
+**Current immutable URL:** `https://edac8d4f.laidies-sunnyvaile.pages.dev`
 
 ## Result
 
@@ -48,6 +49,20 @@ path.
 
 - Clicking the visible Library suggestion **“what's a hallucination?”**
   returned Hallucination first, then relevant Episodes 2/1/4 and Dream Phone.
+- Post-cutover owner review found that **“will AI take my job?”** still behaved
+  like generic directory search. The repaired production journey now gives a
+  direct answer first, offers only two relevant sourced paths, and contains no
+  FAiRY Godmother, SUNNYVAiLE High or MAiKEOVER result.
+- The direct Jobs & Work route opens only the selected sourced section in the
+  refreshed midnight/white/cyan reader. A shelf-selected book still opens the
+  complete reader with its 250px contents rail.
+- A primary-source recheck reconciled the Stanford result from the book's old
+  13%/“hiring” wording to the current 16% relative decline in employment.
+- The public `library.html` SHA-256 is
+  `d8285364402e0c6bbf36f876bf423b5325646cb86bcf58be22dde5db0702f88a`,
+  byte-identical to the exact `9dc9153` artifact. All four shipped suggestion
+  chips, the generic `privacy` fallback, focused/full-book reader states,
+  broken-image/overflow checks and production browser logs passed.
 - The WEDNESDAY Edition opened its July 24, 2026 health-permission story.
 - The story displayed the named OpenAI source, labelled
   `vendor-sponsored`, plus the related Library and Episode 3 paths.
