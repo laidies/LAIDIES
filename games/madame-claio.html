@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Georgia&family=Dancing+Script:wght@400;700&family=JetBrains+Mono:wght@400&family=Inter:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700&family=VT323&display=swap">
     <link rel="stylesheet" href="../styles.css?v=sticky-fix-2" />
     <style>
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
@@ -527,6 +527,7 @@
     </script>
       <link rel="stylesheet" href="../content/site/mini-player.css">
     <link rel="stylesheet" href="../content/site/laidies-bg.css?v=laidies-bg-1" />
+    <link rel="stylesheet" href="../content/madame-claio-v2.css?v=20260724-1" />
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
@@ -560,99 +561,98 @@
       <img src="../assets/sunnyvaile-buildings/y2k-v3-defairytale/episode-pixel/webjpg/06-mme-claios-shop-LANDSCAPE-v1.jpg?v=20260716" alt="Mme CLAi-O's psychic-readings storefront at golden dusk, with teal tile, a purple awning, glowing crystal balls and pink flowers" style="width:100%; height:clamp(160px,32vh,300px); object-fit:cover; object-position:center 35%; display:block;" loading="eager" />
     </div>
 
-    <!-- Call Counter -->
-    <div class="call-counter" id="callCounter">📞 Call #0</div>
+    <!-- Kept for the existing state engine; the visible count is now in the room state. -->
+    <div class="call-counter" id="callCounter" aria-hidden="true">Call 0</div>
 
-    <main>
+    <main class="claio-page">
       <div class="game-page-wrap">
-        <div class="game-page-header">
+        <div class="game-page-header claio-return">
           <a href="/" data-weekly-return-link>&larr; Back to SUNNYVAiLE</a>
         </div>
 
-        <div class="game-page-title">
-          <p class="eyebrow">✨ Psychic Hotline ✨</p>
-          <h1>Madame CLAi-O</h1>
-<div style="margin: 12px 0 20px;">
-  <button type="button"
-          aria-label="Play the Madame CLAi-O song on KSVL"
-          data-src="/content/music/game-mme-claio.mp3"
-          onclick="window.playLaidiesTheme(this);"
-          style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px 8px 14px; background: transparent; border: 1.5px solid #9b3f5f; border-radius: 999px; color: #4b2148; font: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 200ms ease, color 200ms ease;"
-          onmouseover="this.style.background='#9b3f5f'; this.style.color='#fffdfb';"
-          onmouseout="this.style.background='transparent'; this.style.color='#4b2148';">
-    <svg viewBox="0 0 24 24" style="width:10px; height:10px; fill: currentColor;" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-    <svg viewBox="0 0 24 24" style="width:10px; height:10px; fill: currentColor; display:none;" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
-    <span>&#9834; Play the Madame CLAi-O song</span>
-  </button>
-</div>
-          <p class="subtitle">Practical advice, late-night-commercial drama.</p>
-        </div>
-
-        <!-- Psychic Stage -->
-        <div class="psychic-stage">
-          <div class="crystal-ball-container">
-            <span class="sparkle-1">✦</span>
-            <span class="sparkle-2">✧</span>
-            <span class="sparkle-3">⋆</span>
-            <span class="sparkle-4">✦</span>
-            <img src="../assets/pixel-restyle/characters/mme-claio-portrait-pixel-v1.png" alt="Madame CLAi-O" />
-          </div>
+        <section class="game-page-title">
           <div>
-            <button class="call-button" type="button" id="fortuneButton">🔮 STEP IN FOR YOUR READING</button>
+            <p class="eyebrow">MA<span class="ai-highlight">i</span>N STREET · No. 5 · PSYCHIC READINGS</p>
+            <h1>Mme CLA<span class="ai-highlight">i</span>-O</h1>
+            <p class="subtitle">Practical advice. Late-night-commercial drama.</p>
           </div>
-        </div>
+          <button class="claio-song-button" type="button"
+                  aria-label="Play the Madame CLAi-O song on KSVL"
+                  data-src="/content/music/game-mme-claio.mp3"
+                  onclick="window.playLaidiesTheme(this);">
+            <span class="play-icon" aria-hidden="true">Play</span>
+            <span class="pause-icon" aria-hidden="true">Pause</span>
+            <span>Mme CLA<span class="ai-highlight">i</span>-O on KSVL</span>
+          </button>
+        </section>
 
-        <!-- Calling Transition -->
-        <div class="calling-state" id="callingState">
-          <p class="calling-text">Connecting to the psychic hotline<span class="calling-dots"></span></p>
-          <p class="calling-stars">✨ 🔮 ✨</p>
-        </div>
-
-        <!-- Fortune Card -->
-        <div class="fortune-card" id="fortuneCard">
-          <p class="fortune-card-flourish" id="fortuneFlourish">★ Your Reading</p>
-          <img class="fortune-card-art" id="fortuneArt" alt="" style="display:none;" />
-          <p class="fortune-card-name" id="fortuneCardName"></p>
-          <p class="fortune-card-section-label">The Sign</p>
-          <p class="fortune-card-read" id="fortuneRead"></p>
-          <p class="fortune-card-section-label">The Message</p>
-          <p class="fortune-card-message" id="fortuneMessage"></p>
-          <div class="fortune-card-move">
-            <strong>🃏 Madame says do this:</strong>
-            <p id="fortuneMove"></p>
+        <!-- THE SÉANCE TABLE IS THE INTERFACE -->
+        <section class="claio-room" id="claioRoom" aria-labelledby="claioArrivalStatus">
+          <div class="claio-room-visual">
+            <img class="claio-room-image" src="../assets/building-interiors/mme-claio-reading-room.jpg" alt="Mme CLAi-O's reading room with a crystal ball, fanned cards, and a stacked deck on a velvet séance table" />
+            <button class="claio-deck-hotspot" id="claioDeckHotspot" type="button" aria-label="Cut the deck on the séance table">
+              <span>Cut the deck</span>
+            </button>
           </div>
-        </div>
-        <style>
-          .fortune-card-section-label { margin: 22px 0 6px; font-family: 'Jost', sans-serif; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.28em; text-transform: uppercase; color: var(--hotline-gold, #d4a833); opacity: 0.85; }
-          .fortune-card-art { display: block; width: min(260px, 70%); margin: 14px auto 4px; border-radius: 14px; box-shadow: 0 10px 28px rgba(75, 33, 72, 0.35); }
-        </style>
 
-        <!-- Progress toward badge -->
+          <div class="claio-arrival">
+            <p>Her line is open</p>
+            <h2 id="claioArrivalStatus">Madame is in. Your first reading is free.</h2>
+            <span id="claioArrivalNote">Cut the deck when you are ready.</span>
+            <button class="call-button" type="button" id="fortuneButton">Cut the deck</button>
+          </div>
+
+          <div class="calling-state" id="callingState">
+            <p class="calling-text">The cards are turning<span class="calling-dots"></span></p>
+          </div>
+
+          <div class="fortune-card" id="fortuneCard">
+            <div class="claio-drawn-card">
+              <p class="fortune-card-flourish" id="fortuneFlourish">Your reading</p>
+              <img class="fortune-card-art" id="fortuneArt" alt="" style="display:none;" />
+              <p class="fortune-card-name" id="fortuneCardName"></p>
+            </div>
+            <div class="claio-reading-copy">
+              <p class="fortune-card-section-label">The Sign</p>
+              <p class="fortune-card-read" id="fortuneRead"></p>
+              <p class="fortune-card-section-label">The Message</p>
+              <p class="fortune-card-message" id="fortuneMessage"></p>
+              <div class="fortune-card-move">
+                <strong>Madame says do this</strong>
+                <p id="fortuneMove"></p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Existing progress state remains live but is expressed in the arrival line. -->
         <div class="reading-progress" id="readingProgress">
-          <span id="progressText">0 / 5 calls to unlock Hotline Regular 🔮</span>
+          <span id="progressText">0 / 5 calls to unlock Hotline Regular</span>
           <div class="progress-bar">
             <div class="progress-bar-fill" id="progressFill"></div>
           </div>
         </div>
 
-        <p class="microcopy">Madame CLAi-O has 100 cards in her deck. Keep calling for new readings.</p>
+        <section class="claio-keepsakes">
+          <div class="call-history" id="callHistory" style="display: none;">
+            <p class="call-history-title">Recent readings</p>
+          </div>
 
-        <!-- Call History -->
-        <div class="call-history" id="callHistory" style="display: none;">
-          <p class="call-history-title">📜 Recent Readings</p>
-        </div>
+          <div class="claio-resident-note">
+            <p>Your Resident Card</p>
+            <h3>Your reading of the week comes from this room.</h3>
+            <span>The card you pull here rides home with you. Every customization is a trip somewhere in town.</span>
+            <a href="../resident-card.html">Open your Resident Card</a>
+          </div>
 
-        <!-- Badge Reveal -->
-        <div class="badge-reveal" id="badgeReveal">
-          <strong>🔮 Hotline Regular merit badge unlocked!</strong>
-          <p>You have called more times than Cher changed outfits before her driver's test. Madame CLAi-O recognizes your number.</p>
-        </div>
-      </div>
+          <div class="badge-reveal" id="badgeReveal">
+            <strong>Hotline Regular merit badge unlocked.</strong>
+            <p>You have called more times than Cher changed outfits before her driver&rsquo;s test. Madame CLAi-O recognizes your number.</p>
+          </div>
+        </section>
 
-      <div style="max-width: 720px; margin: 36px auto 8px; padding: 22px 26px; background: rgba(75, 33, 72, 0.06); border: 1.5px dashed rgba(155, 63, 95, 0.35); border-radius: 14px;">
-        <p style="margin: 0 0 6px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--hot-pink, #9b3f5f);">★ Your Resident Card</p>
-        <h3 style="margin: 0 0 10px; font-family: Georgia, serif; font-size: 19px; color: #4b2148;">Your reading of the week — this is where you get it.</h3>
-        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #5f4558;">The reading on your Resident Card comes from this shop. Walk in, pull a card, and Mme CL<span class="ai">Ai</span>-O's latest read rides home with you. <strong style="color: #4b2148;">Every customization is a trip somewhere in town.</strong></p>
+        <p class="claio-chyron">CALL NOW · 1-900-CLAi-O · first reading free (they all are) · 100 cards in the deck · For entertainment purposes only.</p>
+        <p class="microcopy">Madame CLAi-O has 100 cards in her deck.</p>
       </div>
 
     </main>
@@ -783,11 +783,10 @@
 
       // Initialize display
       updateCounter();
-      renderHistory();
       updateProgress();
 
       function updateCounter() {
-        counterEl.textContent = `📞 Call #${readingCount}`;
+        counterEl.textContent = `Call ${readingCount}`;
       }
 
       function updateProgress() {
@@ -797,7 +796,7 @@
         } else {
           const pct = Math.min((readingCount / BADGE_THRESHOLD) * 100, 100);
           progressFill.style.width = pct + '%';
-          progressText.textContent = `${readingCount} / ${BADGE_THRESHOLD} calls to unlock Hotline Regular 🔮`;
+          progressText.textContent = `${readingCount} / ${BADGE_THRESHOLD} calls to unlock Hotline Regular`;
         }
       }
 
@@ -815,7 +814,26 @@
         recent.forEach(item => {
           const div = document.createElement('div');
           div.className = 'history-card';
-          div.innerHTML = `<p class="history-card-name">${item.card}</p><p class="history-card-text">${item.read}</p>`;
+          const image = document.createElement('img');
+          image.className = 'history-card-art';
+          image.alt = '';
+          image.loading = 'lazy';
+          image.src = '/assets/mme-claio/reading-cards/' + cardSlug(item.card) + '.webp';
+          image.addEventListener('error', () => {
+            if (!image.dataset.pngFallback) {
+              image.dataset.pngFallback = '1';
+              image.src = '/assets/mme-claio/reading-cards/' + cardSlug(item.card) + '.png';
+              return;
+            }
+            image.style.display = 'none';
+          });
+          const name = document.createElement('p');
+          name.className = 'history-card-name';
+          name.textContent = item.card;
+          const text = document.createElement('p');
+          text.className = 'history-card-text';
+          text.textContent = item.read;
+          div.append(image, name, text);
           historyEl.appendChild(div);
         });
       }
@@ -848,19 +866,21 @@
         artEl.src = ART_DIR + cardSlug(name) + '.webp';
       }
 
+      renderHistory();
+
       button?.addEventListener("click", () => {
         // Hide previous card
         cardEl.classList.remove("is-visible");
         // Show calling state
         callingState.classList.add("is-visible");
         button.disabled = true;
-        button.textContent = "☎️ CALLING...";
+        button.textContent = "THE CARDS ARE TURNING...";
 
         // After 1.5s transition, show the reading
         setTimeout(() => {
           callingState.classList.remove("is-visible");
           button.disabled = false;
-          button.textContent = "📞 CALL AGAIN";
+          button.textContent = "PULL ANOTHER";
 
           lastIndex = nextIndex(fortuneCards.length, lastIndex);
           const fortune = fortuneCards[lastIndex];
@@ -965,6 +985,7 @@
         });
       })();
     </script>
+      <script src="../content/site/madame-claio-v2.js?v=20260724-1"></script>
       <script src="../content/site/mini-player.js?v=20260712ep-04-songs-1"></script>
     <script src="../content/site/brand-polish.js?v=wm2" defer></script>
     <script src="../content/site/laidies-bg.js?v=laidies-bg-1" defer></script>
@@ -996,7 +1017,6 @@
     <script defer src="/content/site/charm-hunt.js?v=20260716-coords"></script>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
-<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
 <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
 </body>
 </html>

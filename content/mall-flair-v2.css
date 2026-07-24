@@ -1,0 +1,179 @@
+.mall-flair-v2__bench {
+  width: min(1180px, calc(100% - 2rem));
+  display: grid;
+  grid-template-columns: minmax(17rem, 0.42fr) minmax(0, 0.58fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+  margin: clamp(3.5rem, 8vw, 7rem) auto 0;
+}
+
+.mall-flair-v2__object {
+  position: relative;
+  margin: 0;
+  background: var(--mall-paper);
+  border-bottom: 8px solid var(--mall-cyan);
+  box-shadow: 0 22px 55px rgba(7, 15, 44, 0.14);
+}
+
+.mall-flair-v2__object::before {
+  content: "ON THE GLASS COUNTER";
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  color: var(--mall-purple);
+  font-size: 0.65rem;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+}
+
+.mall-flair-v2__object img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.mall-flair-v2__selection {
+  padding-left: clamp(1.2rem, 3vw, 3rem);
+  border-left: 9px solid var(--mall-pink);
+}
+
+.mall-flair-v2__selection h3 {
+  max-width: 11ch;
+  margin: 0.25rem 0 1rem;
+  color: var(--mall-night);
+  font-family: "Anton", "Arial Narrow", sans-serif;
+  font-size: clamp(3rem, 6vw, 6.3rem);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 0.93;
+  text-transform: uppercase;
+}
+
+.mall-flair-v2__selection p {
+  max-width: 38rem;
+  line-height: 1.6;
+}
+
+.mall-flair-v2__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.4rem;
+}
+
+.mall-flair-v2__reel {
+  width: min(1180px, calc(100% - 2rem));
+  margin: clamp(3rem, 7vw, 6rem) auto 0;
+  padding-top: 1.4rem;
+  border-top: 6px solid var(--mall-night);
+}
+
+.mall-flair-v2__reel-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.mall-flair-v2__reel-head h2 {
+  margin: 0;
+  color: var(--mall-night);
+  font-family: "Anton", "Arial Narrow", sans-serif;
+  font-size: clamp(2.4rem, 5vw, 4.6rem);
+  font-weight: 400;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.mall-flair-v2__reel-list {
+  display: flex;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0 0 1rem;
+  overflow-x: auto;
+  list-style: none;
+  scrollbar-color: var(--mall-pink) rgba(17, 26, 58, 0.08);
+}
+
+.mall-flair-v2__reel-button {
+  width: 10.5rem;
+  flex: 0 0 10.5rem;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  border: 0;
+  border-bottom: 4px solid transparent;
+  padding: 0;
+  color: var(--mall-night);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.mall-flair-v2__reel-button img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 1;
+  object-fit: cover;
+  filter: saturate(0.88);
+}
+
+.mall-flair-v2__reel-button span {
+  padding: 0.65rem 0.2rem 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 750;
+  line-height: 1.25;
+}
+
+.mall-flair-v2__reel-button:hover,
+.mall-flair-v2__reel-button:focus-visible,
+.mall-flair-v2__reel-button[aria-current="true"] {
+  border-color: var(--mall-pink);
+  outline: 0;
+}
+
+.mall-flair-v2__reel-button[aria-current="true"] img {
+  filter: saturate(1.2);
+  box-shadow: inset 0 0 0 5px var(--mall-cyan);
+}
+
+.mall-flair-v2__carry-status {
+  width: min(1180px, calc(100% - 2rem));
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  margin: 2rem auto 0;
+  padding: 1.2rem 1.4rem;
+  color: var(--mall-cream);
+  background: var(--mall-night);
+}
+
+.mall-flair-v2__carry-status p {
+  margin: 0;
+  font-weight: 700;
+}
+
+.mall-flair-v2__carry-status a {
+  color: var(--mall-cyan);
+  font-weight: 850;
+  text-underline-offset: 0.25rem;
+}
+
+@media (max-width: 760px) {
+  .mall-flair-v2__bench {
+    grid-template-columns: 1fr;
+  }
+
+  .mall-flair-v2__object {
+    width: min(100%, 28rem);
+    margin-inline: auto;
+  }
+
+  .mall-flair-v2__carry-status {
+    grid-template-columns: 1fr;
+  }
+}

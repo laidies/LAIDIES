@@ -1,0 +1,552 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap");
+
+:root {
+  --to-night: #050d27;
+  --to-ink: #111a3a;
+  --to-cobalt: #1769e8;
+  --to-cyan: #10cde3;
+  --to-pink: #f43f9d;
+  --to-purple: #7c3fe4;
+  --to-mint: #75e3c5;
+  --to-coral: #ff785e;
+  --to-cream: #fff9ef;
+  --to-paper: #fffdf8;
+  --to-line: rgba(17, 26, 58, 0.16);
+}
+
+body:has(.tryon-hero) {
+  color: var(--to-ink) !important;
+  background:
+    radial-gradient(circle at 8% 22%, rgba(16, 205, 227, 0.13), transparent 27rem),
+    radial-gradient(circle at 92% 38%, rgba(244, 63, 157, 0.11), transparent 32rem),
+    linear-gradient(180deg, #fffdf8 0%, #f8f4ff 52%, #effbff 100%) !important;
+  font-family: "Jost", sans-serif !important;
+}
+
+body:has(.tryon-hero) .sv-yah-chip {
+  display: none !important;
+}
+
+body:has(.tryon-hero) .wednesday-return {
+  display: none !important;
+}
+
+body:has(.tryon-hero) main {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 0 5rem !important;
+}
+
+.tryon-hero {
+  position: relative;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: min(78vh, 760px);
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.66fr) minmax(17rem, 0.34fr) !important;
+  align-items: center !important;
+  gap: clamp(2rem, 6vw, 7rem) !important;
+  margin: 0 !important;
+  padding: clamp(4rem, 8vw, 7rem) max(1.25rem, calc((100vw - 1180px) / 2)) !important;
+  overflow: hidden;
+  border: 0 !important;
+  border-bottom: 9px solid var(--to-cyan) !important;
+  border-radius: 0 !important;
+  color: var(--to-cream);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 13, 39, 0.98) 0%,
+      rgba(5, 13, 39, 0.91) 35%,
+      rgba(5, 13, 39, 0.42) 65%,
+      rgba(5, 13, 39, 0.2) 100%
+    ),
+    url("/assets/building-interiors/delivery-20260724-maikeover-v1/maikeover-vanity-station-comic-candidate-v1.png")
+      center / cover no-repeat !important;
+  box-shadow: none !important;
+  isolation: isolate;
+}
+
+.tryon-hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 8% auto 8% -6%;
+  width: min(51rem, 63vw);
+  background:
+    radial-gradient(circle at 72% 20%, rgba(244, 63, 157, 0.38), transparent 27%),
+    radial-gradient(circle at 20% 82%, rgba(16, 205, 227, 0.2), transparent 34%);
+  transform: rotate(-2deg);
+}
+
+.tryon-hero > div {
+  max-width: 42rem;
+}
+
+.tryon-hero .eyebrow,
+.tryon-hero .step-kicker,
+.tryon-shell .step-kicker,
+.tryon-prompt-block .form-label {
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: var(--to-pink) !important;
+  background: transparent !important;
+  font-size: 0.72rem !important;
+  font-weight: 850 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+}
+
+.tryon-hero h1 {
+  max-width: 9ch;
+  margin: 0.8rem 0 0 !important;
+  color: var(--to-cream) !important;
+  font-family: "Anton", "Arial Narrow", sans-serif !important;
+  font-size: clamp(4rem, 8vw, 8.5rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 0.88 !important;
+  text-transform: uppercase !important;
+  text-wrap: balance;
+  text-shadow:
+    3px 3px 0 var(--to-purple),
+    7px 7px 0 rgba(16, 205, 227, 0.82);
+}
+
+.tryon-hero .lede {
+  max-width: 39rem;
+  margin-top: 2rem !important;
+  color: #ffffff !important;
+  font-size: clamp(1.05rem, 1.7vw, 1.3rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.5 !important;
+}
+
+.tryon-hero .desk-note {
+  width: min(100%, 21rem);
+  justify-self: end;
+  margin: 0 !important;
+  padding: 1.7rem 1.6rem 1.5rem !important;
+  border: 0 !important;
+  border-top: 8px solid var(--to-pink) !important;
+  border-bottom: 4px solid var(--to-cyan) !important;
+  border-radius: 0 !important;
+  color: var(--to-ink) !important;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0,
+      transparent 2rem,
+      rgba(23, 105, 232, 0.11) 2rem,
+      rgba(23, 105, 232, 0.11) calc(2rem + 1px)
+    ),
+    rgba(255, 253, 248, 0.96) !important;
+  box-shadow: 12px 16px 0 rgba(5, 13, 39, 0.34) !important;
+  transform: rotate(1.4deg) !important;
+}
+
+.tryon-hero .desk-note strong {
+  color: var(--to-night) !important;
+  font-size: 0.78rem !important;
+  font-weight: 850 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+}
+
+.tryon-hero .desk-note p {
+  margin: 0.8rem 0 0 !important;
+  color: var(--to-ink) !important;
+  font-weight: 650;
+}
+
+.tryon-portal-note {
+  width: 100% !important;
+  max-width: none !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: 2rem !important;
+  margin: 0 !important;
+  padding: 1.35rem max(1.25rem, calc((100vw - 1180px) / 2)) !important;
+  border: 0 !important;
+  border-bottom: 2px solid rgba(17, 26, 58, 0.14) !important;
+  border-radius: 0 !important;
+  background: var(--to-paper) !important;
+  box-shadow: none !important;
+}
+
+.tryon-portal-note > div {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+}
+
+.tryon-portal-note span {
+  flex: 0 0 auto;
+  color: var(--to-pink) !important;
+  font-size: 0.72rem !important;
+  font-weight: 850 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+}
+
+.tryon-portal-note p {
+  margin: 0 !important;
+  color: var(--to-ink) !important;
+  line-height: 1.5 !important;
+}
+
+.tryon-portal-note .button {
+  border: 0 !important;
+  border-bottom: 4px solid var(--to-cyan) !important;
+  border-radius: 0 !important;
+  padding: 0.6rem 0.1rem 0.45rem !important;
+  color: var(--to-night) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-size: 0.72rem !important;
+  font-weight: 850 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+}
+
+.tryon-shell {
+  width: 100% !important;
+  max-width: none !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.tryon-shell .exercise-card {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto !important;
+  padding: clamp(4rem, 8vw, 7rem) 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tryon-shell .exercise-card > h2 {
+  max-width: 16ch;
+  margin: 0.8rem 0 1rem !important;
+  color: var(--to-night) !important;
+  font-family: "Anton", "Arial Narrow", sans-serif !important;
+  font-size: clamp(3rem, 6.7vw, 6.6rem) !important;
+  font-weight: 400 !important;
+  line-height: 0.92 !important;
+  text-transform: uppercase !important;
+}
+
+.tryon-shell .exercise-card > p {
+  max-width: 48rem;
+  color: #3b415b !important;
+  font-size: clamp(1rem, 1.7vw, 1.23rem) !important;
+  line-height: 1.62 !important;
+}
+
+.tryon-steps {
+  counter-reset: try-on-step;
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: clamp(1rem, 3vw, 2rem) !important;
+  margin: clamp(2.5rem, 5vw, 4rem) 0 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.tryon-steps li {
+  counter-increment: try-on-step;
+  position: relative;
+  display: block !important;
+  grid-template-columns: none !important;
+  min-height: 10rem;
+  margin: 0 !important;
+  padding: 4.6rem 0 1rem !important;
+  border: 0 !important;
+  border-top: 6px solid var(--to-cyan) !important;
+  border-radius: 0 !important;
+  color: var(--to-ink) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  line-height: 1.5 !important;
+}
+
+.tryon-steps li::before {
+  content: counter(try-on-step, decimal-leading-zero) !important;
+  position: absolute !important;
+  inset: 0.6rem auto auto 0 !important;
+  width: auto !important;
+  height: auto !important;
+  display: block !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: var(--to-pink) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-family: "Anton", "Arial Narrow", sans-serif !important;
+  font-size: 2.8rem !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+}
+
+.tryon-prompt-block {
+  margin: clamp(3rem, 6vw, 5rem) 0 0 !important;
+  padding: clamp(2rem, 5vw, 4rem) !important;
+  border: 0 !important;
+  border-top: 10px solid var(--to-purple) !important;
+  border-bottom: 5px solid var(--to-cyan) !important;
+  border-radius: 0 !important;
+  color: var(--to-cream);
+  background:
+    linear-gradient(145deg, rgba(124, 63, 228, 0.3), transparent 45%),
+    var(--to-night) !important;
+  box-shadow: 0 24px 64px rgba(5, 13, 39, 0.18) !important;
+}
+
+.tryon-prompt-block h3,
+.tryon-prompt-block p,
+.tryon-prompt-block li,
+.tryon-prompt-block label,
+.tryon-prompt-block summary,
+.tryon-prompt-block strong,
+.tryon-prompt-block span {
+  color: var(--to-cream) !important;
+}
+
+.tryon-prompt-block > h3 {
+  margin: 0.8rem 0 1rem !important;
+  color: var(--to-cream) !important;
+  font-family: "Anton", "Arial Narrow", sans-serif !important;
+  font-size: clamp(2.6rem, 5.6vw, 5rem) !important;
+  font-weight: 400 !important;
+  line-height: 0.94 !important;
+  text-transform: uppercase !important;
+}
+
+.tryon-prompt-block .mini-example-grid,
+.tryon-prompt-block .prompt-workbench,
+.tryon-prompt-block .receipt-mini-guide {
+  gap: 0 !important;
+}
+
+.tryon-prompt-block .mini-example {
+  margin: 2.5rem 0 0 !important;
+  padding: 2rem 0 0 !important;
+  border: 0 !important;
+  border-top: 5px solid var(--to-cyan) !important;
+  border-radius: 0 !important;
+  color: var(--to-cream) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tryon-prompt-block .mini-example h3,
+.tryon-prompt-block .prompt-workbench h3 {
+  color: var(--to-cream) !important;
+  font-family: "Anton", "Arial Narrow", sans-serif !important;
+  font-size: clamp(2.2rem, 5vw, 4.4rem) !important;
+  font-weight: 400 !important;
+  line-height: 0.96 !important;
+  text-transform: uppercase !important;
+}
+
+.tryon-prompt-block .mini-example-card,
+.tryon-prompt-block .prompt-step-card,
+.tryon-prompt-block .prompt-details,
+.tryon-prompt-block .receipt-mini-guide > div {
+  margin: 0 !important;
+  padding: 1.4rem !important;
+  border: 0 !important;
+  border-top: 2px solid rgba(117, 227, 197, 0.5) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tryon-prompt-block textarea,
+.tryon-prompt-block pre {
+  border: 0 !important;
+  border-bottom: 3px solid var(--to-cyan) !important;
+  border-radius: 0 !important;
+  color: var(--to-ink) !important;
+  background: var(--to-paper) !important;
+}
+
+.tryon-prompt-block .button {
+  border-radius: 0 !important;
+}
+
+.tryon-shell .save-card {
+  width: 100vw !important;
+  max-width: none !important;
+  margin: 0 0 0 calc(50% - 50vw) !important;
+  padding: clamp(4rem, 8vw, 7rem) max(1.25rem, calc((100vw - 1180px) / 2)) !important;
+  border: 0 !important;
+  border-top: 10px solid var(--to-pink) !important;
+  border-bottom: 8px solid var(--to-cyan) !important;
+  border-radius: 0 !important;
+  color: var(--to-cream) !important;
+  background:
+    linear-gradient(125deg, rgba(23, 105, 232, 0.34), transparent 38%),
+    linear-gradient(235deg, rgba(244, 63, 157, 0.24), transparent 42%),
+    var(--to-night) !important;
+  box-shadow: none !important;
+}
+
+.tryon-shell .save-card > .step-kicker {
+  color: var(--to-mint) !important;
+}
+
+.tryon-shell .save-card > h2 {
+  max-width: 15ch;
+  margin: 0.8rem 0 2.5rem !important;
+  color: var(--to-cream) !important;
+  font-family: "Anton", "Arial Narrow", sans-serif !important;
+  font-size: clamp(3rem, 6.7vw, 6.6rem) !important;
+  font-weight: 400 !important;
+  line-height: 0.92 !important;
+  text-transform: uppercase !important;
+}
+
+.tryon-form {
+  width: min(100%, 74rem);
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.58fr) minmax(18rem, 0.42fr) !important;
+  gap: 2rem clamp(2rem, 6vw, 6rem) !important;
+}
+
+.tryon-form > div:first-child,
+.tryon-form > #receiptSaveFields,
+.tryon-form > .button-row,
+.tryon-form > .save-note,
+.tryon-form > .save-status {
+  grid-column: 1;
+}
+
+.tryon-form > div:has(#tryonRating) {
+  grid-column: 2;
+  grid-row: 1 / span 4;
+}
+
+.tryon-form label {
+  color: var(--to-cream) !important;
+  font-size: 0.76rem !important;
+  font-weight: 850 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+}
+
+.tryon-form textarea,
+.tryon-form input {
+  border: 0 !important;
+  border-bottom: 3px solid var(--to-cyan) !important;
+  border-radius: 0 !important;
+  color: var(--to-ink) !important;
+  background: var(--to-paper) !important;
+}
+
+.tryon-form .rating-score,
+.tryon-form .rating-description,
+.tryon-form .save-note,
+.tryon-form .save-status {
+  color: #efeffb !important;
+}
+
+.tryon-form .button {
+  border: 2px solid var(--to-cream) !important;
+  border-radius: 0 !important;
+  color: var(--to-night) !important;
+  background: var(--to-cream) !important;
+  box-shadow: 6px 6px 0 var(--to-cyan) !important;
+}
+
+.tryon-form .button.secondary {
+  color: var(--to-cream) !important;
+  background: transparent !important;
+}
+
+@media (max-width: 900px) {
+  .tryon-hero {
+    grid-template-columns: 1fr !important;
+    min-height: 48rem;
+    background:
+      linear-gradient(180deg, rgba(5, 13, 39, 0.94), rgba(5, 13, 39, 0.72)),
+      url("/assets/building-interiors/delivery-20260724-maikeover-v1/maikeover-vanity-station-comic-candidate-v1.png")
+        center / cover no-repeat !important;
+  }
+
+  .tryon-hero .desk-note {
+    justify-self: start;
+  }
+
+  .tryon-portal-note {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .tryon-portal-note > div {
+    display: block;
+  }
+
+  .tryon-portal-note p {
+    margin-top: 0.45rem !important;
+  }
+
+  .tryon-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .tryon-form {
+    grid-template-columns: 1fr !important;
+  }
+
+  .tryon-form > div,
+  .tryon-form > #receiptSaveFields,
+  .tryon-form > .button-row,
+  .tryon-form > .save-note,
+  .tryon-form > .save-status,
+  .tryon-form > div:has(#tryonRating) {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+}
+
+@media (max-width: 540px) {
+  .tryon-hero {
+    min-height: 44rem;
+    padding-inline: 1.15rem !important;
+  }
+
+  .tryon-hero h1 {
+    font-size: clamp(3.5rem, 17vw, 5.4rem) !important;
+    text-shadow:
+      2px 2px 0 var(--to-purple),
+      5px 5px 0 rgba(16, 205, 227, 0.82);
+  }
+
+  .tryon-hero .desk-note {
+    display: none !important;
+  }
+
+  .tryon-steps {
+    grid-template-columns: 1fr !important;
+  }
+
+  .tryon-steps li {
+    min-height: 0;
+  }
+
+  .tryon-shell .exercise-card {
+    width: calc(100% - 2rem);
+  }
+
+  .tryon-shell .save-card {
+    padding-inline: 1.15rem !important;
+  }
+}

@@ -23,7 +23,7 @@
   <link rel="apple-touch-icon" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Dancing+Script:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
   <script>
@@ -764,6 +764,7 @@
       </style>
   <link rel="stylesheet" href="/content/site/mini-player.css">
   <link rel="stylesheet" href="content/site/laidies-bg.css?v=laidies-bg-1" />
+  <link rel="stylesheet" href="/content/community-index-v2.css?v=20260724-1" />
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
@@ -777,67 +778,24 @@
     })(window, document, "clarity", "script", "xnqcp37urd");
   </script>
 </head>
-<body>
+<body class="community-index-page">
   <div class="laidies-bg laidies-bg--light" aria-hidden="true"></div>
   <!-- HEADER -->
   <header class="sv-header"></header>
 
-  <main>
+  <main class="community-index-main">
+    <div class="community-arrival">
+      <img src="/assets/rerolls-20260714/willow-and-sorority-continuity/building-interiors/delta-lai-nu-sorority-house-interior.png" alt="The SUNNYVAiLE sorority house common room, with a staircase, lounge, bulletin board, and doors to the community rooms.">
+    </div>
+
     <section class="community-ritual-entry" aria-labelledby="communityEntryTitle">
       <div class="entry-card">
         <p class="eyebrow">Community rooms</p>
         <h1 id="communityEntryTitle">Bring one useful thing back to the room.</h1>
         <p>The Wednesday Ritual does not need networking homework. Share the Try-On, ask the room, or drop the thing that worked so another busy woman can borrow the move.</p>
-        <div class="room-preview-row" aria-label="Featured community rooms">
-          <a class="room-preview" href="community/try-on-debrief.html">
-            <span>This week</span>
-            <strong>The Try-On Debrief</strong>
-            <em>Share your Try-On &rarr;</em>
-          </a>
-          <a class="room-preview" href="community/ask-the-room.html">
-            <span>Question</span>
-            <strong>Ask the Room</strong>
-            <em>Ask the Room &rarr;</em>
-          </a>
-          <a class="room-preview" href="community/send-it-energy.html">
-            <span>Win</span>
-            <strong>Send It Energy</strong>
-            <em>Share a Win &rarr;</em>
-          </a>
-          <a class="room-preview" href="community/wins.html">
-            <span>Celebrate</span>
-            <strong>Wins of the Week</strong>
-            <em>Celebrate a Win &rarr;</em>
-          </a>
-          <a class="room-preview" href="community/dear-laidies.html">
-            <span>Advice</span>
-            <strong>Dear <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span></strong>
-            <em>Ask Dear <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> &rarr;</em>
-          </a>
-          <a class="room-preview" href="community/burn-book.html">
-            <span>Reference</span>
-            <strong>Burn Book</strong>
-            <em>Nominate a Reference &rarr;</em>
-          </a>
-          <a class="room-preview" href="community/mix-cd-exchange.html">
-            <span>Playlist</span>
-            <strong>Mix CD Exchange</strong>
-            <em>Share a Track &rarr;</em>
-          </a>
-          <a class="room-preview" href="community/comment-card.html">
-            <span>Feedback</span>
-            <strong>Comment Card</strong>
-            <em>Leave a Comment &rarr;</em>
-          </a>
-          <a class="room-preview" href="community/chat-room-digest.html">
-            <span>Receipts</span>
-            <strong>Receipts Desk</strong>
-            <em>Check the Receipts &rarr;</em>
-          </a>
-        </div>
         <div class="community-entry-actions">
-          <a href="#chat-rooms">Jump to all rooms &rarr;</a>
-          <a href="#laidies-cards">Browse <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> cards &rarr;</a>
+          <a href="#chat-rooms">Choose a room &rarr;</a>
+          <a href="#laidies-cards">See who is here &rarr;</a>
         </div>
       </div>
     </section>
@@ -845,8 +803,8 @@
     <!-- ============ SECTION 1: LAiDIES CARDS ============ -->
     <section class="cards-section" id="laidies-cards">
       <p class="eyebrow"><span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> Cards</p>
-      <h1>The card shelf.</h1>
-      <p class="subtitle">Featured/founding cards live here while the full <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> Card glow-up gets polished. The rooms above are the fast way to participate today.</p>
+      <h1>Open the resident file.</h1>
+      <p class="subtitle">Meet the founding residents and town regulars already in the room. Filter the file, then open one record in place.</p>
 
       <div class="filter-bar" role="toolbar" aria-label="Filter cards">
         <button class="active" data-filter="all">All cards</button>
@@ -938,7 +896,8 @@
     <!-- ============ SECTION 2: CHAT ROOMS ============ -->
     <section class="rooms-section" id="chat-rooms">
       <p class="eyebrow">Community Prompts</p>
-      <h2>Start with the weekly prompt. Browse the rest when it fits.</h2>
+      <h2>Nine rooms. One reason to walk in.</h2>
+      <p class="rooms-intro">Start with what you brought back this week. The room pages hold the live conversation, not another directory card.</p>
 
       <div class="rooms-grid">
         <div class="room-card">
@@ -990,19 +949,19 @@
     </section>
   
     <!-- === CLUBHOUSE PASS CTA === -->
-    <section style="max-width: 560px; margin: 32px auto 0; padding: 0 24px 48px;">
-      <div style="background: var(--dark-bg); border: 1.5px solid var(--card-border); border-radius: 14px; padding: 20px 24px; text-align: center;">
-        <p style="font-size: 0.84rem; color: rgba(255,248,252,0.6); line-height: 1.5; margin-bottom: 10px;">Want saved progress across devices while the <span class="brand-word-inline brand-word-inline--on-dark" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> Card gets polished? Sign in with a Resident Card &mdash; one email, no password, ever.</p>
-        <a href="resident-card.html" style="color: var(--hot-pink); font-size: 0.82rem; font-weight: 600; text-decoration: none;">Sign in to save progress &rarr;</a>
-      </div>
+    <section class="community-pass">
+      <p class="eyebrow">Resident access</p>
+      <h2>Save your place in the room.</h2>
+      <p>Sign in with a Resident Card for progress across devices. One email, no password, ever.</p>
+      <a href="resident-card.html">Open Resident Card intake &rarr;</a>
     </section>
 
   </main>
 
   <!-- ============ OVERLAY MODAL ============ -->
-  <div class="card-overlay" id="cardOverlay" role="dialog" aria-modal="true" aria-label="Member card detail">
+  <div class="card-overlay" id="cardOverlay" role="dialog" aria-modal="true" aria-label="Member card detail" aria-hidden="true">
     <div class="overlay-card" id="overlayCard">
-      <button class="overlay-close" id="overlayClose" aria-label="Close">&times;</button>
+      <button class="overlay-close" id="overlayClose" aria-label="Close">Close</button>
       <div class="overlay-photo-area" id="overlayPhotoArea"></div>
       <div class="overlay-body" id="overlayBody"></div>
     </div>
@@ -1092,15 +1051,15 @@
       card.dataset.card = 'my-card';
       
       const bgClass = 'card-bg-' + (data.bgStyle || 'laser');
-      const photoHtml = data.photo 
+      const photoHtml = data.photo
         ? '<img class="thumb-photo" src="' + data.photo + '" alt="' + data.name + '" />'
-        : '<div style="width:100px;height:100px;border-radius:12px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:2rem;color:rgba(255,255,255,0.5);">👤</div>';
+        : '';
       
       let metaText = data.role || '';
       if (data.journey) metaText += (metaText ? ' · ' : '') + data.journey;
       
       card.innerHTML = `
-        <div class="thumb-bg ${bgClass}">
+        <div class="thumb-bg ${bgClass}${data.photo ? '' : ' is-empty'}">
           ${photoHtml}
         </div>
         <div class="thumb-info">
@@ -1108,6 +1067,8 @@
           <span class="thumb-tag">${metaText}</span>
         </div>
       `;
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
       
       // Add card data for overlay
       cardData['my-card'] = {
@@ -1124,6 +1085,12 @@
       
       // Click handler
       card.addEventListener('click', () => openOverlay('my-card'));
+      card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openOverlay('my-card');
+        }
+      });
       
       // Insert before the stock cards
       const grid = document.getElementById('cardGrid');
@@ -1161,10 +1128,12 @@
   const overlayPhotoArea = document.getElementById('overlayPhotoArea');
   const overlayBody = document.getElementById('overlayBody');
   const overlayClose = document.getElementById('overlayClose');
+  let overlayOpener = null;
 
   function openOverlay(cardId) {
     const data = cardData[cardId];
     if (!data) return;
+    overlayOpener = document.activeElement;
 
     // Build layered photo area with bg
     const bgClass = data.bgClass || 'card-bg-laser';
@@ -1174,7 +1143,8 @@
     if (photoSrc) {
       overlayPhotoArea.innerHTML = `<img src="${photoSrc}" alt="${data.name}" />`;
     } else {
-      overlayPhotoArea.innerHTML = '<div style="width:120px;height:120px;border-radius:14px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:3rem;color:rgba(255,255,255,0.4);">👤</div>';
+      overlayPhotoArea.innerHTML = '';
+      overlayPhotoArea.classList.add('is-empty');
     }
 
     const tagsHtml = data.tags.map(t => `<span>${t}</span>`).join('');
@@ -1189,23 +1159,37 @@
     overlay.style.display = 'flex';
     void overlay.offsetHeight;
     overlay.classList.add('visible');
+    overlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    overlayClose.focus();
   }
 
   function closeOverlay() {
     overlay.classList.remove('visible');
+    overlay.setAttribute('aria-hidden', 'true');
     setTimeout(() => {
       overlay.style.display = 'none';
       overlayPhotoArea.innerHTML = '';
       overlayBody.innerHTML = '';
     }, 250);
     document.body.style.overflow = '';
+    if (overlayOpener && typeof overlayOpener.focus === 'function') {
+      overlayOpener.focus();
+    }
   }
 
   // Click cards to open
   document.querySelectorAll('.thumb-card').forEach(card => {
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
     card.addEventListener('click', () => {
       openOverlay(card.dataset.card);
+    });
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openOverlay(card.dataset.card);
+      }
     });
   });
 
@@ -1233,7 +1217,7 @@
     link.className = 'wednesday-return';
     link.href = '/';
     link.textContent = '\u2190 Back to SUNNYVAiLE';
-    document.querySelector('main')?.prepend(link);
+    document.querySelector('.community-entry-actions')?.append(link);
 
     if (!issueValue) return;
     document.querySelectorAll('a[href^="community/"]').forEach((roomLink) => {

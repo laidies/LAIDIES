@@ -1291,3 +1291,80 @@ _Original source ID: repository #36_
 - **Privacy/IP/reputation:** Keep studio paths, unreleased masters and rejected
   assets out of public examples; use fabricated filenames in teaching
   screenshots.
+
+## BTB-054 · The caption file existed, but the public path never mounted it
+
+`category: accessibility · release QA · branching UI` — ② Make them speak yours
+`source: Episode 01/02 Screening Room QA, 2026-07-24`
+`publication status: VERIFIED — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** The Screening Room can play a large review film or fall back to
+  a public illustrated audio edition. Both paths displayed “read-along
+  captions available.”
+- **Issue:** The VTT files and caption-bar code were valid, but the caption bar
+  was mounted only inside the unpublished full-film branch.
+- **What happens:** File inventory and link checks pass while the visitor sees
+  no captions on the actual public playback path.
+- **Evidence observed:** Episode 01 and 02 narration loaded and played locally,
+  their VTT files resolved, and the page advertised captions; DOM inspection
+  showed zero caption bars until the audio branch received its own VTT parser
+  and time-synchronised caption renderer.
+- **Diagnosis:** **Verified.** Asset existence is not feature wiring, and
+  testing one rendering branch does not validate its fallback.
+- **Prevent / Fix:** For every public promise, test the exact visitor path and
+  each active fallback. Assert the visible feature state in the browser—not
+  merely that its source file exists.
+- **Why the fix works:** The same caption source now feeds both the film and
+  audio editions, while each branch mounts the renderer appropriate to its
+  media element.
+- **New output:** Episode 01 and 02 illustrated listen-alongs now display their
+  existing read-along captions, including speaker labels, at 390px mobile.
+- **Transferable lesson:** Owning the subtitles is not the same as putting them
+  on the television.
+- **Internal rule/check updated:** `watch.html` and this ledger.
+- **Public angle:** “The captions were ready. The audience still couldn’t see
+  them.”
+- **Privacy/IP/reputation:** Use fabricated dialogue in any public demo rather
+  than unreleased narration text.
+
+## BTB-055 · The radio opened, but its first record never made it into the box
+
+`category: deployment · runtime assets · release QA` — ③ Make it stick
+`source: KSVL launch-preview interaction QA, 2026-07-24`
+`publication status: VERIFIED — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** The curated public builder follows visitor pages and copies
+  referenced files into a hosting-safe artifact. KSVL assembles its broadcast
+  queue in JavaScript from directory constants plus filenames.
+- **Issue:** The dependency scanner recognized literal media URLs but could not
+  resolve expressions such as `JINGLES_DIR + "station-id.mp3"`.
+- **What happens:** The radio page and player controls load, so ordinary page
+  and link checks pass. “Tune in” then requests a missing opener, receives the
+  site's HTML fallback with a misleading 200 status and fails as unsupported
+  audio before the first song.
+- **Evidence observed:** Mobile interaction opened the KSVL player, then logged
+  an audio error and `NotSupportedError`. The station-ID request returned
+  `text/html` rather than `audio/mpeg`. All 83 computed audio dependencies
+  existed in source, while 47 were absent from the curated artifact.
+- **Diagnosis:** **Verified.** A successful HTTP status is not proof of the
+  right asset, and source-code concatenation creates dependencies a literal
+  URL scanner cannot discover.
+- **Prevent / Fix:** Give runtime media collections an explicit release
+  manifest or teach the builder to resolve the reviewed path constants. Add a
+  validator that compares every KSVL queue URL against the built artifact,
+  checks the expected audio content type and byte signature, then performs one
+  real Tune In interaction before release.
+- **Why the fix works:** The release contract tests the same computed queue the
+  browser will play instead of hoping static extraction found it.
+- **New output:** A complete 83-item source-versus-artifact inventory, simple
+  computed-path resolution in the public builder and a validator requiring
+  source-identical KSVL audio in the artifact. The repaired build played the
+  station opener, DJ introduction and first song in browser QA.
+- **Transferable lesson:** Shipping the jukebox is not shipping the records.
+- **Internal rule/check updated:** `scripts/build-public-site.mjs`,
+  `scripts/validate-ksvl-artifact.mjs`, the launch promise ledger and this
+  ledger.
+- **Public angle:** “The radio was live. The first record was still at the
+  studio.”
+- **Privacy/IP/reputation:** Public examples should use fabricated filenames
+  and counts if the unreleased station catalogue is still private.

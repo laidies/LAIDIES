@@ -2,8 +2,9 @@
 
 **Status:** DRAFT — DO NOT PUBLISH
 **Release trigger:** Ali approves the current Library/Visitor Centre candidates;
-the production URL passes the same edge smoke test as the launch-QA preview;
-the NewsStand is either current or omitted from every launch promise.
+the exact committed candidate passes edge and production smoke tests; the
+production-origin FAiRY Godmother check passes; and Ali chooses the
+announcement channel/assets.
 
 ## Primary reintroduction
 
@@ -25,7 +26,7 @@ hiding behind decorations.
 
 So get in, loser. We’re learning AI.
 
-Be kind, rewind: **[PRODUCTION_URL]**
+Be kind, rewind: **https://laidies.ai**
 
 ## Short launch post
 
@@ -36,7 +37,7 @@ Welcome to SUNNYVAiLE: practical AI learning in the Rewind Era (1990–2010),
 from dial-up to downloads.
 
 Get in, loser. We’re learning AI.
-**[PRODUCTION_URL]**
+**https://laidies.ai**
 
 ## LinkedIn version
 
@@ -56,7 +57,7 @@ community. Leave knowing what to do next.
 In the words of computer scientist Karen Spärck Jones, “Computing is too
 important to be left to men.”
 
-Welcome to SUNNYVAiLE: **[PRODUCTION_URL]**
+Welcome to SUNNYVAiLE: **https://laidies.ai**
 
 ## Story / carousel sequence
 
@@ -71,7 +72,7 @@ Welcome to SUNNYVAiLE: **[PRODUCTION_URL]**
 5. **Be kind, rewind.**
    Get in, loser. We’re learning AI.
 6. **Enter SUNNYVAiLE**
-   **[PRODUCTION_URL]**
+   **https://laidies.ai**
 
 ## Teaser hooks
 
@@ -91,6 +92,10 @@ Only retain a row after the production-domain test passes.
 | Read the lessons | `/chick-flicks.html` → `/issues/issue-01.html` | Episodes 1–4 open with no missing art |
 | Hear the episodes | `/watch.html?ep=01` through `ep=04` | Audio loads; captions exist; edition type is labelled honestly |
 | Use the Library | `/library.html` | Book reader and Miss Jeeves search return useful results |
+| Play a game | `/games/dream-phone.html` | A keypad call returns an answer and a remix changes it |
+| Hear the town | `/radio.html` | Tune In plays the KSVL station sequence and exposes working controls |
+| Meet the women behind computing | `/issues/issue-04.html` | The Founding Mothers article opens with current art and title |
+| Find the community spaces | `/community.html` | Room choices open without implying live synchronous discussion |
 
 Do not promise the portrait generator, Book Fair redemption, current daily
 news, full motion films, durable invitation rewards or a completed town

@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The BRONZE AiGE · LAiDIES · SUNNYVAiLE</title>
   <meta name="description" content="The BRONZE AiGE — SUNNYVAiLE's bar. Call a happy hour with your own crew: copy the invite, play the fortune teller together, talk AI off the conversation menu, and stamp a coaster every week you go.">
-  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
+  <link rel="stylesheet" href="content/bronze-aige-v2.css?v=20260724-1">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
@@ -30,9 +31,29 @@
 
   <header class="sv-header"></header>
 
-  <div class="sv-hero"><img src="assets/building-interiors/bronze-aige-interior.jpg?v=20260708c" alt="Inside the BRONZE AiGE — a plum-velvet-and-gold music lounge: a red-curtained stage under the gold-bulb BRONZE AiGE marquee with a drum kit and guitars set up, a jukebox and gold-trimmed bar with velvet stools, THE LAiDIES house-band poster, heart neon, candlelit café tables, and a Businesswomen's Special fortune-teller on the bar" loading="eager"></div>
+  <div class="sv-hero bronze-room" aria-labelledby="bronzeRoomTitle">
+    <img src="assets/building-interiors/bronze-aige-interior.jpg?v=20260708c" alt="Inside the BRONZE AiGE — a plum-velvet music lounge with a red-curtained stage, jukebox, bar, café tables, and the Businesswomen's Special fortune teller waiting on the bar" loading="eager">
+    <div class="bronze-room__copy">
+      <p class="bronze-room__kicker">MAiN Street · No. 7 · SUNNYVAiLE</p>
+      <h1 id="bronzeRoomTitle"><span class="bronze-title-bar">The BRONZE</span> <span class="ai">Ai</span>GE.</h1>
+      <p class="bronze-room__motto">Happy hour from 4. Live music after 8.</p>
+      <p class="bronze-room__state" id="bronzeRoomState" aria-live="polite">Cosmo is reading the room.</p>
+      <p class="bronze-room__subline">Choose something in the bar. It opens here; you never leave the room.</p>
+    </div>
+    <nav class="bronze-room__controls" aria-label="Operate the BRONZE AiGE bar">
+      <button type="button" class="bronze-object bronze-object--fortune" data-bronze-panel="bronze-fortune" aria-controls="bronze-fortune" aria-expanded="false">
+        <img src="/assets/bws-fortune-teller/frame-1-closed.webp" alt="">
+        <span>The Fortune Teller</span>
+      </button>
+      <button type="button" class="bronze-object bronze-object--menu" data-bronze-panel="bronze-menu" aria-controls="bronze-menu" aria-expanded="false"><span>Tonight's Specials</span></button>
+      <button type="button" class="bronze-object bronze-object--invite" data-bronze-panel="bronze-invite" aria-controls="bronze-invite" aria-expanded="false"><span>Call a Happy Hour</span></button>
+      <button type="button" class="bronze-object bronze-object--coaster" data-bronze-panel="bronze-coaster" aria-controls="bronze-coaster" aria-expanded="false"><span>Stamp Your Coaster</span></button>
+      <button type="button" class="bronze-object bronze-object--answers" data-bronze-panel="bronze-answers" aria-controls="bronze-answers" aria-expanded="false"><span>Framed Answers</span></button>
+      <button type="button" class="bronze-object bronze-object--stage" data-bronze-panel="bronze-stage" aria-controls="bronze-stage" aria-expanded="false"><span>Tonight's Stage</span></button>
+    </nav>
+  </div>
 
-  <main>
+  <main class="bronze-v2-page">
 
     <div class="sv-eyebrow">
       <span class="sv-eyebrow-label">★ MAiN Street · No. 7 · SUNNYVAiLE</span>
@@ -174,7 +195,7 @@ Dress code: main character.</div>
         <span style="font-size: 11px; color: var(--rose);">★</span>
         <span style="font-weight: 800; font-size: 11px; letter-spacing: 0.16em; color: var(--plum-deep);">THE BRONZE AiGE</span>
         <span id="bzCoasterWeek" style="font-size: 10px; font-weight: 700; letter-spacing: 0.12em; color: var(--plum-soft);"></span>
-        <span style="font-size: 9px; letter-spacing: 0.14em; color: var(--plum-soft);">MAiN ST · No. 5</span>
+        <span style="font-size: 9px; letter-spacing: 0.14em; color: var(--plum-soft);">MAiN ST · No. 7</span>
       </div>
       <div style="flex: 1 1 260px; min-width: 240px;">
         <p style="margin: 0 0 8px; font-weight: 700; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);">★ Went? Say so.</p>
@@ -495,5 +516,7 @@ Dress code: main character.</div>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
 <script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
+<script defer src="/content/site/bws-data.js?v=20260724-1"></script>
+<script defer src="/content/site/bronze-aige-v2.js?v=20260724-1"></script>
 </body>
 </html>

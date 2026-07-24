@@ -13,13 +13,13 @@
 (function() {
   'use strict';
 
-  var SV_MAP_ASSET = '/assets/sunnyvaile-town-map-locked.jpg?v=20260708';
-  var SV_MAP_ASPECT = 1858 / 846; // ≈ 2.2:1 streetscape (locked map)
+  var SV_MAP_ASSET = '/assets/final_map/sunnyvaile-town-map-final-v5.webp?v=20260723';
+  var SV_MAP_ASPECT = 1400 / 659;
 
   // Building data — canon 2026-07-04: MAiN Street 1-10, then cross streets 11-17
   // (Civic Square · Schoolhouse Rd · Willow Ln · Wisteria Ln · Lantern Hill)
   // x/y are % coordinates for number placement over the map (0-100)
-  // Coordinates are matched to sunnyvaile-town-map-locked.jpg (Ali-approved 2026-07-08). Post Office=11, Library=13 (left-to-right).
+  // Coordinates are matched to assets/final_map/sunnyvaile-town-map-final-v5.webp.
   var SV_BUILDINGS = [
     { num:  1, id: 'visitors-centre',  name: "The Welcome Wagon Visitor's Centre", address: 'No. 1 MAiN',                  href: '/visitors-centre.html',        oneLiner: 'The front door. Start here.',                                mechanics: ['Town map + directory', 'Meet the buildings', 'New here? First stop.'],                     x: 7.0, y: 66.0 },
     { num:  2, id: 'newsstand',        name: 'The NewsStand',                      address: 'No. 2 MAiN',                  href: '/newsstand.html',               oneLiner: 'Hot gossip · what everyone is talking about.',              mechanics: ['This week\'s headlines', 'What the town is saying', 'Trending SUNNYVAiLE'],                x: 17.0, y: 68.0 },

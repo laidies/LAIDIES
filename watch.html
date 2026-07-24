@@ -333,7 +333,7 @@
     // Testimony is set apart typographically, the way a pull-quote would be.
     var MAVEN_VOICES = ['Ada Lovelace', 'Hedy Lamarr', 'Grace Hopper', 'Karen Spärck Jones'];
 
-    function mountCaptionBar(v, theatre) {
+    function makeCaptionBar(theatre) {
       var bar = document.createElement('div');
       bar.className = 'cap-bar';
       bar.setAttribute('aria-live', 'polite');
@@ -341,18 +341,26 @@
       var txt = document.createElement('p'); txt.className = 'cap-txt';
       bar.appendChild(who); bar.appendChild(txt);
       theatre.parentNode.insertBefore(bar, theatre.nextSibling);
+      return { bar: bar, who: who, txt: txt };
+    }
+
+    function paintCaption(parts, cueText) {
+      var text = cueText || '';
+      var m = /^<v\s+([^>]+)>/.exec(text);
+      var speaker = m ? m[1] : '';
+      parts.who.textContent = speaker;
+      parts.txt.textContent = text.replace(/^<v[^>]*>/, '').replace(/<[^>]+>/g, '').replace(/\n/g, ' ');
+      parts.bar.classList.toggle('is-maven', MAVEN_VOICES.indexOf(speaker) !== -1);
+    }
+
+    function mountCaptionBar(v, theatre) {
+      var parts = makeCaptionBar(theatre);
 
       function paint() {
         var track = v.textTracks[0];
         if (!track) return;
         var c = track.activeCues && track.activeCues[0];
-        if (!c) { txt.textContent = ''; who.textContent = ''; return; }
-        // WebVTT voice tag: <v Ada Lovelace>line
-        var m = /^<v\s+([^>]+)>/.exec(c.text);
-        var speaker = m ? m[1] : '';
-        who.textContent = speaker;
-        txt.textContent = c.text.replace(/^<v[^>]*>/, '').replace(/\n/g, ' ');
-        bar.classList.toggle('is-maven', MAVEN_VOICES.indexOf(speaker) !== -1);
+        paintCaption(parts, c ? c.text : '');
       }
       function arm() {
         var track = v.textTracks[0];
@@ -363,7 +371,58 @@
       }
       if (v.textTracks.length) arm();
       v.textTracks.addEventListener('addtrack', arm);
-      return bar;
+      return parts.bar;
+    }
+
+    function mountAudioCaptionBar(audio, theatre, src) {
+      var parts = makeCaptionBar(theatre);
+      var captionCues = [];
+      var activeCaption = -1;
+
+      function seconds(stamp) {
+        var bits = stamp.trim().split(':').map(Number);
+        if (bits.length === 3) return bits[0] * 3600 + bits[1] * 60 + bits[2];
+        return bits[0] * 60 + bits[1];
+      }
+      function parseVtt(raw) {
+        return raw.replace(/^\uFEFF/, '').split(/\r?\n\r?\n+/).reduce(function (out, block) {
+          var lines = block.split(/\r?\n/);
+          var timing = lines.findIndex(function (line) { return line.indexOf('-->') !== -1; });
+          if (timing < 0) return out;
+          var range = lines[timing].split('-->');
+          var start = seconds(range[0]);
+          var end = seconds(range[1].trim().split(/\s+/)[0]);
+          if (!isFinite(start) || !isFinite(end) || end <= start) return out;
+          out.push({ start: start, end: end, text: lines.slice(timing + 1).join('\n') });
+          return out;
+        }, []);
+      }
+      function paint() {
+        if (segKind !== 'main') {
+          if (activeCaption !== -1) { activeCaption = -1; paintCaption(parts, ''); }
+          return;
+        }
+        var t = audio.currentTime || 0;
+        var next = -1;
+        for (var i = 0; i < captionCues.length; i++) {
+          if (captionCues[i].start <= t && t < captionCues[i].end) { next = i; break; }
+          if (captionCues[i].start > t) break;
+        }
+        if (next === activeCaption) return;
+        activeCaption = next;
+        paintCaption(parts, next >= 0 ? captionCues[next].text : '');
+      }
+
+      fetch(src, { cache: 'no-store' })
+        .then(function (r) { if (!r.ok) throw new Error('Caption request failed'); return r.text(); })
+        .then(function (raw) { captionCues = parseVtt(raw); paint(); })
+        .catch(function () {
+          parts.txt.textContent = 'Read-along captions are temporarily unavailable.';
+        });
+      audio.addEventListener('timeupdate', paint);
+      audio.addEventListener('seeked', paint);
+      audio.addEventListener('loadedmetadata', paint);
+      return parts.bar;
     }
 
     function mountFilm(src, ep) {
@@ -677,6 +736,8 @@
         if (__film && mountFilm(__film, __ep)) { return; }
 
         loadSegment(0);
+        var __captions = captionsFor(__ep);
+        if (__captions) mountAudioCaptionBar(tape, theatre, __captions);
 
         // ---- tune mode: play the real audio, tap N at each transition ----
         if (TUNE) {

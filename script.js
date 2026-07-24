@@ -5237,6 +5237,7 @@ function openQuizIssue(issueKey) {
   if (!issueQuizzes[issueKey]) return;
   activeQuizKey = issueKey;
   quizIsOpen = true;
+  document.body?.classList.add("focused-quiz-mode");
   ritualQuizIndex = 0;
   ritualQuizReviewMode = false;
   quizForm?.reset();

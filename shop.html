@@ -4,44 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Gift Shop · SUNNYVAiLE · LAiDIES</title>
-  <meta name="description" content="Take home a piece of SUNNYVAiLE — Deb's campaign posters, patron-saint stained-glass prints, episode art, puffy stickers, and town merch. Send one as a gift, delivered to her door.">
-  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,700;0,800&display=swap" rel="stylesheet">
+  <meta name="description" content="Browse the SUNNYVAiLE Gift Shop floor, put future merchandise on hold, and see what is waiting for the till to open.">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
+  <link rel="stylesheet" href="/content/shop-v2.css?v=20260724-1">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
-  <style>
-    .shop-hero { background: radial-gradient(circle at 50% 40%, var(--blush) 0%, var(--pearl) 100%); padding: 48px 24px 40px; text-align: center; border-radius: 14px; margin: 24px 0 28px; }
-    .shop-hero-eyebrow { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--rose); margin-bottom: 12px; }
-    .shop-hero h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(30px, 4vw, 46px); color: var(--plum); margin: 0 0 14px; line-height: 1.1; }
-    .shop-hero-tag { font-size: 17px; color: var(--plum); max-width: 600px; margin: 0 auto; line-height: 1.55; }
-
-    /* Gift note strip */
-    .gift-strip { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; background: rgba(155,63,95,0.07); border: 1.5px solid rgba(155,63,95,0.22); border-radius: 14px; padding: 18px 22px; margin: 0 0 32px; }
-    .gift-strip__badge { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose); }
-    .gift-strip p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--plum); flex: 1; min-width: 240px; }
-
-    /* Product grid */
-    .shop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 22px; margin: 8px 0 44px; }
-    .prod { display: flex; flex-direction: column; background: var(--pearl, #fffdfb); border: 1px solid rgba(75,33,72,0.10); border-radius: 16px; overflow: hidden; box-shadow: 0 6px 20px rgba(75,33,72,0.08); transition: transform .18s ease, box-shadow .18s ease; }
-    .prod:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(75,33,72,0.16); }
-    .prod__art { position: relative; aspect-ratio: 4/5; overflow: hidden; background: linear-gradient(160deg, #4b2148 0%, #9b3f5f 100%); }
-    .prod__art img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .prod__art--placeholder { display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px; }
-    .prod__art--placeholder span { font-family: 'Playfair Display', Georgia, serif; font-style: italic; color: #f4cf85; font-size: 20px; line-height: 1.3; }
-    .prod__tag { position: absolute; top: 12px; left: 12px; background: rgba(255,253,251,0.94); color: var(--rose); font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; }
-    .prod__body { padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
-    .prod__name { font-family: 'Jost', sans-serif; font-weight: 700; font-size: 16px; color: var(--plum); line-height: 1.25; }
-    .prod__blurb { font-size: 13px; color: var(--plum-soft, #6f4a63); line-height: 1.5; flex: 1; }
-    .prod__foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 8px; }
-    .prod__price { font-family: 'Jost', sans-serif; font-weight: 800; font-size: 18px; color: var(--plum); }
-    .prod__buy { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border-radius: 999px; background: var(--rose); color: #fffdfb; font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: background .18s ease; }
-    .prod__buy:hover { background: var(--plum); }
-    .prod__gift { align-self: flex-start; margin-top: 4px; background: none; border: none; padding: 0; font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 600; color: var(--rose); cursor: pointer; text-decoration: underline; }
-
-    .shop-note { font-size: 13px; color: var(--plum-soft, #6f4a63); line-height: 1.6; margin: 0 0 32px; padding: 16px 20px; background: rgba(201,162,39,0.08); border-radius: 12px; }
-  </style>
+  <script defer src="/content/site/puffy-bookmarks.js?v=20260724-shop"></script>
+  <script defer src="/content/site/shop-v2.js?v=20260724-1"></script>
+  <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+  <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+  <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
   <script>
@@ -51,152 +26,114 @@
   <!-- Microsoft Clarity (heatmaps + session recordings) -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)},
+        t=l.createElement(r),t.async=1,t.src="https://www.clarity.ms/tag/"+i,
+        y=l.getElementsByTagName(r)[0],y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "xnqcp37urd");
   </script>
 </head>
 <body>
-
   <header class="sv-header"></header>
 
-  <main>
+  <main class="shop-page">
+    <section class="shop-arrival" aria-labelledby="shop-title">
+      <p class="shop-kicker">SUNNYV<span class="ai">Ai</span>LE · MERCHANDISE COUNTER</p>
+      <h1 id="shop-title">THE GIFT SHOP</h1>
+      <p class="shop-lede">Walk the floor, pull a print from the bin, and put your favourites on hold. The stock is being made; the till opens when checkout is real.</p>
+    </section>
 
-    <div class="shop-hero">
-      <div class="shop-hero-eyebrow">★ M<span class="ai">Ai</span>N Street · SUNNYV<span class="ai">Ai</span>LE</div>
-      <h1>The Gift Shop</h1>
-      <p class="shop-hero-tag">Take a piece of SUNNYV<span class="ai">Ai</span>LE home. Deb's campaign posters, the patron-saint windows, episode art, puffy stickers — printed to order and mailed to your door. Or hers.</p>
-    </div>
+    <aside class="shop-state" aria-label="Shop status">
+      <span class="shop-state__lamp" aria-hidden="true"></span>
+      <p><strong id="shopStateTitle">THE TILL IS NOT CONNECTED.</strong> <span id="shopStateCopy">Nothing here pretends to take payment. You can still browse the actual collection and hold things in your Closet.</span></p>
+      <a href="#shop-counter">See the stock list</a>
+    </aside>
 
-    <div class="gift-strip">
-      <span class="gift-strip__badge">✿ Send it as a gift</span>
-      <p>Every item can ship straight to a friend with a note from you — the SUNNYV<span class="ai">Ai</span>LE way to say <em>I saw this and thought of you.</em> Pick <strong>"Send as a gift"</strong> at checkout and enter her address.</p>
-    </div>
+    <section class="shop-floor" aria-labelledby="shop-floor-title">
+      <header class="shop-floor__intro">
+        <div>
+          <p class="shop-kicker">STEP INSIDE</p>
+          <h2 id="shop-floor-title">THE ROOM IS THE DIRECTORY.</h2>
+        </div>
+        <p>Tap what you would reach for in a real shop. On a phone, slide across the room.</p>
+      </header>
 
-    <div class="shop-grid" id="shopGrid"><!-- product cards injected --></div>
+      <div class="shop-room-viewport" tabindex="0" aria-label="Scrollable Gift Shop interior">
+        <figure class="shop-room">
+          <img class="shop-room__base" src="/assets/building-interiors/delivery-20260724-gift-shop-v1/gift-shop-empty-fixtures-comic-candidate-v1.png" alt="A bright 1999 gift shop with a print bin, an apparel wall, a spinning small-goods rack, and a checkout counter.">
 
-    <p class="shop-note">
-      <strong>★ Made to order.</strong> Prints, stickers, and apparel are printed on demand and shipped by our print partner — nothing sits in a warehouse, and every order is made fresh. Digital items (the KSVL mix) download instantly. Allow 5–9 days for printed goods.
-    </p>
+          <button class="shop-print shop-print--loop" type="button" data-product="0" aria-label="Pull Deb's Loop Me Out poster set from the print bin">
+            <img src="/assets/printables/deb-nope-poster-loop-me-out-web.jpg?v=20260716" alt="">
+          </button>
+          <button class="shop-print shop-print--deflection" type="button" data-product="0" aria-label="Pull Deb's Deb-flection poster set from the print bin">
+            <img src="/assets/printables/deb-nope-poster-deb-flection-trademark-web.jpg?v=20260716" alt="">
+          </button>
+          <button class="shop-print shop-print--mayor" type="button" data-product="0" aria-label="Pull Deb's Mayor since 1999 poster set from the print bin">
+            <img src="/assets/printables/deb-nope-poster-mayor-sunnyvaile-since-1999-web.jpg?v=20260716" alt="">
+          </button>
+          <button class="shop-print shop-print--campaign" type="button" data-product="1" aria-label="Pull Deb's 1999 campaign poster from the print bin">
+            <img src="/assets/printables/deb-1999-campaign-poster-yippee-ki-ai-hr-redacted-web.jpg?v=20260716" alt="">
+          </button>
 
-    <div class="sv-ctas">
-      <a class="sv-cta sv-cta--primary" href="/mall.html">
-        <span><span class="sv-cta-label">More SUNNYVAiLE</span><span class="sv-cta-title">Browse The Mall →</span></span>
-        <span class="sv-cta-arrow">→</span>
-      </a>
-      <a class="sv-cta" href="/laidies-card.html">
-        <span><span class="sv-cta-label">Your stuff</span><span class="sv-cta-title">Open your Closet</span></span>
-        <span class="sv-cta-arrow">→</span>
-      </a>
-    </div>
+          <button class="shop-hotspot shop-hotspot--prints" type="button" data-department="prints">
+            <span>01</span> PRINT BIN
+          </button>
+          <button class="shop-hotspot shop-hotspot--apparel" type="button" data-department="apparel">
+            <span>02</span> TEE WALL
+          </button>
+          <button class="shop-hotspot shop-hotspot--small" type="button" data-department="small-goods">
+            <span>03</span> SPINNER
+          </button>
+          <button class="shop-hotspot shop-hotspot--till" type="button" data-department="all">
+            <span>04</span> TILL
+          </button>
+        </figure>
+      </div>
+      <p class="shop-room-help">The empty fixtures tell the truth: approved art is on the floor now; unfinished merchandise stays unpictured until its real mockup exists.</p>
+    </section>
 
+    <section class="shop-counter" id="shop-counter" aria-labelledby="counter-title">
+      <header class="shop-counter__head">
+        <div>
+          <p class="shop-kicker">AT THE COUNTER</p>
+          <h2 id="counter-title">WHAT DID YOU PICK UP?</h2>
+        </div>
+        <p class="shop-counter__count"><strong id="shopHeldCount">0</strong> held in your Closet</p>
+      </header>
+
+      <nav class="shop-departments" aria-label="Gift Shop departments">
+        <button class="is-current" type="button" data-department="all">Everything</button>
+        <button type="button" data-department="prints">Print bin</button>
+        <button type="button" data-department="apparel">Tee wall</button>
+        <button type="button" data-department="small-goods">Small goods</button>
+        <button type="button" data-department="digital">KSVL counter</button>
+      </nav>
+
+      <div class="shop-register">
+        <ol class="shop-stocklist" id="shopStockList" aria-label="Products"></ol>
+        <article class="shop-product" id="shopProduct" aria-live="polite"></article>
+      </div>
+    </section>
+
+    <section class="shop-gifting" aria-labelledby="gifting-title">
+      <p class="shop-gifting__side">STRAIGHT TO HER DOOR</p>
+      <div>
+        <p class="shop-kicker">SEND IT AS A GIFT</p>
+        <h2 id="gifting-title">THE NOTE GOES WITH IT.</h2>
+        <p>Every giftable item keeps its gift option. When the hosted checkout opens, it will collect her address and your note there—never in a pretend form on this site.</p>
+      </div>
+    </section>
+
+    <section class="shop-terms" aria-label="Made to order information">
+      <strong>MADE TO ORDER.</strong>
+      <p>Prints, stickers, and apparel will be produced by the print partner only after purchase. Prices are working labels until the real Printful or Gumroad checkout URLs are connected.</p>
+    </section>
+
+    <nav class="shop-exits" aria-label="Leave the Gift Shop">
+      <a href="/mall.html"><span>KEEP SHOPPING</span><strong>Browse The Mall</strong><b aria-hidden="true">→</b></a>
+      <a href="/laidies-card.html"><span>YOUR HOLDS</span><strong>Open your Closet</strong><b aria-hidden="true">→</b></a>
+    </nav>
   </main>
 
   <footer>© L<span class="ai">Ai</span>DIES · The Gift Shop · Filed from SUNNYV<span class="ai">Ai</span>LE</footer>
-
-  <script>
-    /* ============================================================
-       THE GIFT SHOP — product catalog (print-on-demand)
-       ------------------------------------------------------------
-       HOW TO GO LIVE (Ali — this is the ONLY part I can't do for you):
-       1. Create the products in Printful (posters/prints/stickers/
-          apparel) and/or Gumroad (the digital mix CD).
-       2. Each product there gives you a hosted CHECKOUT URL.
-       3. Paste that URL into `buyUrl` below. That's it — the card's
-          "Buy" button will link straight to the hosted checkout, which
-          handles payment + shipping (incl. gift address + gift note).
-       No payment code lives on this site, so there's nothing to secure
-       here. Prices below are placeholders — set the real price in
-       Printful/Gumroad; keep this label in sync for display.
-       ============================================================ */
-    var PRODUCTS = [
-      { name: "Deb's “NOPE” Poster Set", price: "$28", tag: "Bestseller", giftable: true,
-        img: "/assets/printables/deb-nope-poster-loop-me-out-web.jpg?v=20260716",
-        blurb: "The full NOPE trilogy — “Loop Me Out,” “Deb-flection™,” “Mayor since 1999.” Deb's whole philosophy on your wall.",
-        buyUrl: "#" },
-      { name: "Deb's 1999 Campaign Poster", price: "$20", tag: "The original", giftable: true,
-        img: "/assets/printables/deb-1999-campaign-poster-yippee-ki-ai-hr-redacted-web.jpg?v=20260716",
-        blurb: "The one that started it all — the Die Hard poster she never asked for, HR-redacted in Sharpie.",
-        buyUrl: "#" },
-      { name: "Patron Saint Window — your pick", price: "$24", tag: "Choose your saint", giftable: true,
-        img: "/assets/saints/y2k-stained-glass-v2/elle-woods-y2k-stained-glass.jpg",
-        blurb: "A gallery-grade print of any LUMINAiRY saint — Elle, Cher, Bette, the Golden Girls, all 14. Pick yours at checkout.",
-        buyUrl: "#" },
-      { name: "The Full Pantheon — mini-print set", price: "$42", tag: "Collector", giftable: true,
-        img: "/assets/saints/y2k-stained-glass-v2/golden-girls-y2k-stained-glass.jpg",
-        blurb: "All fourteen patron-saint windows as a boxed set of mini art prints. The whole coven, on your desk.",
-        buyUrl: "#" },
-      { name: "Episode Scene Art Print", price: "$22", tag: "Pixel", giftable: true,
-        img: "/assets/episodes/ep-04/pixel/ep04-scene-03-ada.jpg",
-        blurb: "The gold-standard episode scenes as fine pixel-art prints — Ada at the engine, Grace in the lab, and more.",
-        buyUrl: "#" },
-      { name: "Puffy Sticker Sheet", price: "$8", tag: "Restock", giftable: true,
-        img: "/assets/charms/w1-butterfly-clip.png",
-        blurb: "The charm collection as glossy puffy stickers — butterfly clip, mood ring, disco ball, the whole bracelet.",
-        buyUrl: "#" },
-      { name: "Tee · “On Wednesdays we do AI”", price: "$34", tag: "Signature", giftable: true, img: null,
-        blurb: "The house motto in the house font — the Mean Girls nod, the AI punchline. Soft vintage-wash, cream or plum.",
-        buyUrl: "#" },
-      { name: "Tee · “I survived Y2K. I'll survive this too.”", price: "$34", tag: "Bestseller", giftable: true, img: null,
-        blurb: "You dialed up, you hoarded canned goods, the clock rolled over and you were fine. AI is just the next Tuesday. Worn like a badge.",
-        buyUrl: "#" },
-      { name: "Tee · “Don't ship the beige”", price: "$34", tag: "Lyric · Miranda", giftable: true, img: null,
-        blurb: "Miranda's whole standard in three words, set on an actual beige paint-chip. For anyone who refuses to ship mediocre.",
-        buyUrl: "#" },
-      { name: "Tee · “Loop me out”", price: "$34", tag: "Lyric · Deb", giftable: true, img: null,
-        blurb: "Deb's cry for freedom, styled like a reply-all you never wanted. Deb-flection™, wearable.",
-        buyUrl: "#" },
-      { name: "The NOPE Pad", price: "$12", tag: "Bestseller", giftable: true, img: null,
-        blurb: "From the desk of Deb — a real tear-off memo pad. Slap a NOPE on the email, the task, the meeting invite. Deb-flection™ since '97.",
-        buyUrl: "#" },
-      { name: "SUNNYVAiLE Tote", price: "$24", tag: "Made to order", giftable: true, img: null,
-        blurb: "Carry the whole town. Roomy canvas tote with the SUNNYVAiLE wordmark — for the Mall, the Book Fair, wherever.",
-        buyUrl: "#" },
-      { name: "KSVL Mix — “Saints on 99.9”", price: "$6", tag: "Digital", giftable: true, img: null,
-        blurb: "Burn the CD (digitally). The saint anthems + episode songs, mixed by DJ SunnyV. Instant download.",
-        buyUrl: "#" }
-    ];
-
-    (function () {
-      var grid = document.getElementById('shopGrid');
-      if (!grid) return;
-      function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]; }); }
-      grid.innerHTML = PRODUCTS.map(function (p) {
-        var art = p.img
-          ? '<div class="prod__art"><img src="' + esc(p.img) + '" alt="' + esc(p.name) + '" loading="lazy">' + (p.tag ? '<span class="prod__tag">' + esc(p.tag) + '</span>' : '') + '</div>'
-          : '<div class="prod__art prod__art--placeholder"><span>' + esc(p.name) + '</span>' + (p.tag ? '<span class="prod__tag">' + esc(p.tag) + '</span>' : '') + '</div>';
-        var buy = (p.buyUrl && p.buyUrl !== '#')
-          ? '<a class="prod__buy" href="' + esc(p.buyUrl) + '" target="_blank" rel="noopener">Buy →</a>'
-          : '<button class="prod__buy" type="button" data-soon="1">Coming soon</button>';
-        var gift = p.giftable ? '<button class="prod__gift" type="button" data-soon="1">✿ Send as a gift</button>' : '';
-        return '<article class="prod">' + art +
-          '<div class="prod__body">' +
-            '<div class="prod__name">' + esc(p.name) + '</div>' +
-            '<p class="prod__blurb">' + esc(p.blurb) + '</p>' +
-            '<div class="prod__foot"><span class="prod__price">' + esc(p.price) + '</span>' + buy + '</div>' +
-            gift +
-          '</div></article>';
-      }).join('');
-      // Placeholder buttons (no checkout URL yet) show a gentle note.
-      grid.addEventListener('click', function (e) {
-        var act = e.target.closest('.prod__buy, .prod__gift');
-        if (act && window.plausible) {
-          var card = act.closest('.prod');
-          var nm = card ? ((card.querySelector('.prod__name') || {}).textContent || '') : '';
-          try { window.plausible('Gift Shop click', { props: { product: nm, kind: act.classList.contains('prod__gift') ? 'gift' : 'buy' } }); } catch (e2) {}
-        }
-        var b = e.target.closest('[data-soon]');
-        if (!b) return;
-        b.textContent = 'Opening soon ✦';
-        setTimeout(function(){ b.textContent = b.classList.contains('prod__gift') ? '✿ Send as a gift' : 'Coming soon'; }, 1400);
-      });
-    })();
-  </script>
-
-  <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
-  <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
-  <script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
-  <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
 </body>
 </html>

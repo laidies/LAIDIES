@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Mall · LAiDIES · SUNNYVAiLE</title>
   <meta name="description" content="The Mall at MAiN Street No. 9 in SUNNYVAiLE — ten stops, all references. Searchable directory for every pop-culture moment LAiDIES reaches for.">
-  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
+  <link rel="stylesheet" href="content/mall-v2.css?v=20260724-1">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
-  <style>
+  <style media="not all">
     /* ── Mall directory board ─────────────────────────────── */
     .mall-board {
       background: linear-gradient(175deg, #1e5a61, #16454b);
@@ -152,48 +153,77 @@
 
   <header class="sv-header"></header>
 
-  <div class="sv-hero"><img src="assets/building-interiors/the-mall-atrium.jpg?v=20260708" alt="The Mall atrium — a domed glass rotunda with a central fountain, storefronts (PIECES OF FLAiR, MAiYBE, Books and Records, Gizmos and Gadgets, Hanger Management, I Know What You Did Last Summer) ringing the court" loading="eager"></div>
-
-  <main>
-
-    <div class="sv-eyebrow">
-      <span class="sv-eyebrow-label">★ MAiN Street · No. 9 · SUNNYVAiLE</span>
+  <div class="sv-hero mall-arrival">
+    <img src="assets/building-interiors/the-mall-atrium.jpg?v=20260708" alt="The Mall atrium — a domed glass rotunda with a central fountain and storefronts ringing the court" loading="eager">
+    <div class="mall-arrival-copy">
+      <p class="mall-arrival-kicker">MAiN Street · No. 9 · SUNNYVAiLE</p>
+      <h1>The <span class="ai">Mall</span></h1>
+      <p>You’re standing in Centre Court. The fountain is running, the directory is lit, and every storefront below is somewhere you can actually enter.</p>
     </div>
+    <button class="mall-wish" id="mallWish" type="button">
+      <strong>Make a wish</strong>
+      <span>At the Centre Court fountain</span>
+    </button>
+  </div>
 
-    <h1>The <span class="ai">Mall</span>.</h1>
+  <main class="mall-page">
 
-    <p class="sv-lede">
-      Ten stops. All references. Every pop-culture moment LAiDIES reaches for has a store — and a Directory at the door so you can find it.
-    </p>
+    <section class="mall-directory-band" aria-labelledby="mallDirectoryTitle">
+      <div class="mall-directory-intro">
+        <div>
+          <p class="mall-kicker">You are here · Centre Court</p>
+          <h2 class="mall-directory-title" id="mallDirectoryTitle">Find your store.</h2>
+          <p>Ten reference departments, one open Gift Shop, and a vacant unit waiting for the thing you remember next.</p>
+        </div>
+        <ul class="mall-directory-state">
+          <li><strong>New this season</strong><a href="/shop.html">The Gift Shop is open →</a></li>
+          <li><strong>Now leasing</strong><a href="/community/burn-book.html">Unit 11 · nominate what belongs here →</a></li>
+          <li><strong>Where you are</strong>Centre Court · Level 1</li>
+        </ul>
+      </div>
 
-    <a href="/shop.html" style="display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin:0 0 28px; padding:18px 22px; border-radius:14px; text-decoration:none; background:linear-gradient(135deg, rgba(75,33,72,0.10) 0%, rgba(155,63,95,0.16) 100%); border:1.5px solid rgba(155,63,95,0.30);">
-      <span style="font-family:'Jost',sans-serif; font-size:11px; font-weight:800; letter-spacing:0.2em; text-transform:uppercase; color:var(--rose);">✿ Now Open · The Gift Shop</span>
-      <span style="flex:1; min-width:220px; font-size:15px; line-height:1.5; color:var(--plum);">Take a piece of SUNNYV<span class="ai">Ai</span>LE home — Deb's posters, saint prints, stickers &amp; town merch. Printed to order, mailed to you. Or sent to a friend.</span>
-      <span style="font-family:'Jost',sans-serif; font-weight:700; font-size:13px; color:var(--rose);">Shop the Gift Shop →</span>
-    </a>
-
-    <div class="mall-board">
+      <div class="mall-board">
       <div class="mall-board-head">MALL DIRECTORY</div>
-      <p class="mall-board-sub">CENTRE COURT · LEVEL 1</p>
+      <p class="mall-board-sub">Find a store—or the reference you came in looking for.</p>
+      <div class="mall-search">
+        <label for="mallSearch">Search the directory</label>
+        <input id="mallSearch" type="search" placeholder="Try “Dunkaroos”, “Cher”, “Tamagotchi”…" autocomplete="off">
+        <button id="mallSearchButton" type="button">Find it</button>
+      </div>
       <ol>
-        <li><a href="/mall/pieces-of-flair.html"><span class="unit">01</span> PIECES OF FLAiR <span class="dots"></span></a></li>
-        <li><a href="/mall/gizmos-and-gadgets.html"><span class="unit">06</span> Gizmos and Gadgets <span class="dots"></span></a></li>
-        <li><a href="/mall/maiybe.html"><span class="unit">02</span> MAiYBE SHE'S BORN WITH IT <span class="dots"></span></a></li>
-        <li><a href="/mall/hanger-management.html"><span class="unit">07</span> Hanger Management <span class="dots"></span></a></li>
-        <li><a href="/mall/as-seen-on-tv.html"><span class="unit">03</span> As Seen on TV (and film!) <span class="dots"></span></a></li>
-        <li><a href="/mall/food-court.html"><span class="unit">08</span> The Food Court <span class="dots"></span></a></li>
-        <li><a href="/mall/rollin-with-my-homies.html"><span class="unit">04</span> Rollin' with my Homies <span class="dots"></span></a></li>
-        <li><a href="/mall/last-summer.html"><span class="unit">09</span> I Know What You Did Last Summer <span class="dots"></span></a></li>
-        <li><a href="/mall/books-and-records.html"><span class="unit">05</span> Books and Records <span class="dots"></span></a></li>
-        <li><a href="/mall/mall-kiosk.html"><span class="unit">10</span> The Mall Kiosk <span class="dots"></span></a></li>
+        <li data-search="pieces of flair accessories jewelry hair clips claires butterfly clips"><a href="/mall/pieces-of-flair.html"><span class="unit">01</span> PIECES OF FLAiR <span class="dots"></span></a></li>
+        <li data-search="gizmos and gadgets walkman tamagotchi msn trapper keeper tech electronics"><a href="/mall/gizmos-and-gadgets.html"><span class="unit">06</span> Gizmos and Gadgets <span class="dots"></span></a></li>
+        <li data-search="maiybe shes born with it makeup hair gloss mascara palettes rollers beauty"><a href="/mall/maiybe.html"><span class="unit">02</span> MAiYBE SHE'S BORN WITH IT <span class="dots"></span></a></li>
+        <li data-search="hanger management clothes outfits fashion wardrobe"><a href="/mall/hanger-management.html"><span class="unit">07</span> Hanger Management <span class="dots"></span></a></li>
+        <li data-search="as seen on tv television film movie movies cher clueless"><a href="/mall/as-seen-on-tv.html"><span class="unit">03</span> As Seen on TV (and film!) <span class="dots"></span></a></li>
+        <li data-search="food court dunkaroos crystal pepsi capri sun pizza burgers pretzels food drink"><a href="/mall/food-court.html"><span class="unit">08</span> The Food Court <span class="dots"></span></a></li>
+        <li data-search="rollin with my homies people characters cher clueless celebrities"><a href="/mall/rollin-with-my-homies.html"><span class="unit">04</span> Rollin' with my Homies <span class="dots"></span></a></li>
+        <li data-search="i know what you did last summer experiences sleepovers mall walking blockbuster runs"><a href="/mall/last-summer.html"><span class="unit">09</span> I Know What You Did Last Summer <span class="dots"></span></a></li>
+        <li data-search="books and records quotes songs soundtracks music books vinyl"><a href="/mall/books-and-records.html"><span class="unit">05</span> Books and Records <span class="dots"></span></a></li>
+        <li data-search="mall kiosk magic 8 ball lite brite beanie babies catch all"><a href="/mall/mall-kiosk.html"><span class="unit">10</span> The Mall Kiosk <span class="dots"></span></a></li>
       </ol>
       <div class="mall-board-here"><span class="star">★</span> YOU ARE HERE</div>
-      <p class="mall-board-note">Search every reference across all ten stores — still brewing.</p>
+      <p class="mall-board-note">Centre Court. Choose a result here or walk the full storefront corridor below.</p>
+      <div class="mall-no-results" id="mallNoResults" hidden>
+        <strong>We don’t have “<span id="mallNoResultsQuery">that</span>” yet.</strong>
+        <a id="mallBurnLink" href="/community/burn-book.html">Put it in the Burn Book—the mall expands →</a>
+      </div>
+    </div>
+    </section>
+
+    <section class="mall-walk-head" aria-labelledby="mallWalkTitle">
+      <div>
+        <p class="mall-kicker">The concourse</p>
+        <h2 class="mall-walk-title" id="mallWalkTitle">Walk the storefronts.</h2>
+      </div>
+      <p class="mall-walk-instructions">Every window is a real entrance. Drag, scroll, or use the arrows; on mobile, keep walking down the corridor.</p>
+    </section>
+    <div class="mall-walk-controls" aria-label="Move through the storefronts">
+      <button type="button" data-mall-walk="previous" aria-label="Previous storefront">←</button>
+      <button type="button" data-mall-walk="next" aria-label="Next storefront">→</button>
     </div>
 
-    <h2>The ten stops</h2>
-
-    <div class="mall-corridor">
+    <div class="mall-corridor" id="mallCorridor" tabindex="0" aria-label="Mall storefront corridor">
 
       <a class="shop" href="/mall/pieces-of-flair.html" style="--acc: var(--rose, #9b3f5f);">
         <span class="shop-photo"><img src="assets/mall-storefronts/pieces-of-flair.jpg?v=20260707" alt="PIECES OF FLAiR storefront — pink butterfly-clip and jewelry shop, ear-piercing-while-you-wait" loading="lazy" width="1000" height="667"></span>
@@ -285,23 +315,6 @@
 
     </div>
 
-    <div class="sv-ctas">
-      <a class="sv-cta sv-cta--primary" href="/community/burn-book.html">
-        <span>
-          <span class="sv-cta-label">Don't see what you remember?</span>
-          <span class="sv-cta-title">Put it in the Burn Book →</span>
-        </span>
-        <span class="sv-cta-arrow">→</span>
-      </a>
-      <a class="sv-cta" href="/visitors-centre.html">
-        <span>
-          <span class="sv-cta-label">New in town?</span>
-          <span class="sv-cta-title">Stop by the Welcome Wagon first</span>
-        </span>
-        <span class="sv-cta-arrow">→</span>
-      </a>
-    </div>
-
   </main>
 
   <footer>© LAiDIES · Filed from SUNNYVAiLE · The Mall</footer>
@@ -310,6 +323,6 @@
     <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
-<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
+<script defer src="/content/site/mall-v2.js?v=20260724-1"></script>
 </body>
 </html>

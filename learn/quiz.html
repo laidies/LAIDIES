@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Magazine Quiz | LAiDIES</title>
+  <title>Pop Quiz · SUNNYVAiLE High · LAiDIES</title>
   <meta name="description" content="Test your AI fluency with the LAiDIES magazine quiz. Pick an Episode, answer the questions, collect your sticker." />
-  <meta property="og:title" content="Magazine Quiz | LAiDIES" />
+  <meta property="og:title" content="Pop Quiz · SUNNYVAiLE High · LAiDIES" />
   <meta property="og:description" content="Did the analogy stick, or do we need to call the group chat?" />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#9b3f5f" />
@@ -14,6 +14,7 @@
   <link rel="apple-touch-icon" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:wght@400;500;600;700;800;900&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&family=JetBrains+Mono:wght@400&family=Inter:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="../content/site/mini-player.css">
   <!-- Privacy-friendly analytics by Plausible -->
@@ -940,6 +941,7 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="/content/site/quiz-v2.css?v=20260724-5">
   <!-- Microsoft Clarity (heatmaps + session recordings) -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -949,7 +951,7 @@
     })(window, document, "clarity", "script", "xnqcp37urd");
   </script>
 </head>
-<body>
+<body class="quiz-v2">
 
   <!-- Sticky Back Bar -->
   <header class="sv-header">
@@ -971,6 +973,12 @@
 
     <!-- Quiz Container -->
     <div class="quiz-container" id="quiz-start">
+
+      <div class="quiz-register-head">
+        <span>Wednesday register · five papers ready</span>
+        <h2>Choose your paper</h2>
+        <p>Start with the Foundation or make up any released Episode. Your best result is the one that reaches the Report Card.</p>
+      </div>
 
       <!-- Issue Selector Buttons -->
       <div class="quiz-issue-shelf" aria-label="Available Episode quizzes">
@@ -1006,6 +1014,7 @@
         <div class="quiz-console-header">
           <p class="eyebrow" id="quizIssueLabel">Selected quiz: Episode 01</p>
           <h3 id="quizIssueTitle">Opening the tab without making it a whole personality crisis.</h3>
+          <a class="quiz-change-paper" href="/learn/quiz.html?v=20260724-3#quiz-start">Change paper</a>
         </div>
 
         <div class="quiz-start-panel" id="quizStartPanel">
@@ -1069,7 +1078,7 @@
 
   <script src="../content/site/supabase-config.js"></script>
   <script src="../content/site/site-data.js?v=quizzes-complete-20260712"></script>
-  <script src="../script.js?v=wednesday-ritual-quiz-8"></script>
+  <script src="../script.js?v=wednesday-ritual-quiz-9"></script>
   <script src="../content/site/brand-polish.js?v=wm2" defer></script>
   <script src="../content/site/mini-player.js?v=20260712ep-04-songs-1"></script>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>

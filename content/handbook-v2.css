@@ -1,0 +1,471 @@
+:root {
+  --hb-ink: #070a1c;
+  --hb-midnight: #0a1436;
+  --hb-blue: #2848e8;
+  --hb-purple: #7b3cff;
+  --hb-pink: #ff4fa3;
+  --hb-cyan: #1ecfe8;
+  --hb-coral: #ff7567;
+  --hb-paper: #fffaff;
+  --hb-lilac: #eee5ff;
+  --hb-rule: rgba(10, 20, 54, 0.2);
+}
+
+body.handbook-page {
+  margin: 0;
+  color: var(--hb-ink);
+  background:
+    radial-gradient(circle at 88% 10%, rgba(30, 207, 232, 0.13), transparent 28rem),
+    radial-gradient(circle at 8% 24%, rgba(255, 79, 163, 0.11), transparent 30rem),
+    linear-gradient(180deg, #fffaff 0%, #f7f2ff 48%, #fffaff 100%);
+  overflow-x: hidden;
+}
+
+.handbook-page .handbook-main {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 0 5rem;
+}
+
+.handbook-page .ai {
+  color: var(--hb-pink);
+}
+
+.hb-arrival {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(24rem, 0.65fr);
+  width: min(100% - 3rem, 82rem);
+  min-height: 34rem;
+  margin: clamp(2rem, 4.5vw, 4.5rem) auto 0;
+  border-top: 4px solid var(--hb-midnight);
+  border-bottom: 4px solid var(--hb-midnight);
+  background: var(--hb-midnight);
+}
+
+.hb-arrival-art {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  background: var(--hb-midnight);
+}
+
+.hb-arrival-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 34rem;
+  object-fit: cover;
+  object-position: 48% center;
+}
+
+.hb-arrival-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(2rem, 4vw, 4.3rem);
+  color: var(--hb-paper);
+  background:
+    linear-gradient(145deg, rgba(40, 72, 232, 0.28), transparent 48%),
+    var(--hb-midnight);
+}
+
+.handbook-page .hb-arrival .sv-eyebrow {
+  margin: 0 0 1.2rem;
+}
+
+.handbook-page .hb-arrival .sv-eyebrow-label {
+  color: var(--hb-cyan);
+  font: 800 0.68rem/1.4 "Jost", sans-serif;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.handbook-page .hb-arrival h1 {
+  margin: 0;
+  color: var(--hb-paper);
+  font: 400 clamp(4rem, 7vw, 7rem)/0.92 "Anton", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.handbook-page .hb-arrival .sv-lede {
+  max-width: 34rem;
+  margin: 1.45rem 0 0;
+  color: rgba(255, 250, 255, 0.78);
+  font: 500 clamp(1rem, 1.4vw, 1.18rem)/1.55 "Jost", sans-serif;
+}
+
+.handbook-page .hb-toc {
+  display: grid;
+  grid-template-columns: 9rem repeat(4, minmax(0, 1fr));
+  columns: auto;
+  column-gap: 0;
+  width: min(100% - 3rem, 82rem);
+  margin: 2.6rem auto clamp(4.5rem, 8vw, 7rem);
+  padding: 0;
+  border: 0;
+  border-top: 2px solid var(--hb-midnight);
+  border-bottom: 2px solid var(--hb-midnight);
+  border-radius: 0;
+  background: transparent;
+}
+
+.handbook-page .hb-toc .hb-toc-sec,
+.handbook-page .hb-toc a {
+  display: flex;
+  align-items: center;
+  min-height: 4.7rem;
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border-right: 1px solid var(--hb-rule);
+  border-bottom: 1px solid var(--hb-rule);
+  box-sizing: border-box;
+}
+
+.handbook-page .hb-toc .hb-toc-sec {
+  grid-row: span 2;
+  color: var(--hb-coral);
+  font: 800 0.7rem/1.35 "Jost", sans-serif;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.handbook-page .hb-toc a {
+  color: var(--hb-midnight);
+  font: 700 0.86rem/1.3 "Jost", sans-serif;
+  text-decoration: none;
+}
+
+.handbook-page .hb-toc a:nth-of-type(n + 5) {
+  border-bottom: 0;
+}
+
+.handbook-page .hb-toc a:nth-of-type(4),
+.handbook-page .hb-toc a:nth-of-type(8) {
+  border-right: 0;
+}
+
+.handbook-page .hb-toc a:hover,
+.handbook-page .hb-toc a:focus-visible,
+.handbook-page .hb-toc a[aria-current="location"] {
+  color: var(--hb-paper);
+  background: var(--hb-purple);
+  outline: 0;
+}
+
+.hb-chapter {
+  display: grid;
+  grid-template-columns: minmax(11rem, 15rem) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5.5rem);
+  width: min(100% - 3rem, 82rem);
+  margin: 0 auto clamp(5rem, 9vw, 8rem);
+  padding-top: 1.2rem;
+  border-top: 4px solid var(--hb-midnight);
+}
+
+.hb-chapter > h2 {
+  position: sticky;
+  top: 6rem;
+  align-self: start;
+  margin: 0;
+  padding-top: 3.6rem;
+  color: var(--hb-midnight);
+  font: 400 clamp(2.4rem, 4.2vw, 4.4rem)/0.98 "Anton", sans-serif;
+  letter-spacing: -0.015em;
+}
+
+.hb-chapter > h2::before {
+  content: attr(id);
+  display: block;
+  margin-bottom: 0.8rem;
+  color: var(--hb-pink);
+  font: 800 0.68rem/1.2 "Jost", sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hb-chapter-content {
+  min-width: 0;
+  padding-top: 3.5rem;
+}
+
+.hb-chapter-content > p,
+.hb-chapter-content > ol {
+  max-width: 47rem;
+  color: #20233a;
+  font: 500 1rem/1.7 "Jost", sans-serif;
+}
+
+.hb-chapter-content a {
+  color: #3d2bb3;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 0.08em;
+}
+
+.hb-chapter-content code {
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--hb-blue);
+  font: 700 0.92em/1.4 "Jost", sans-serif;
+  border-bottom: 2px solid var(--hb-cyan);
+}
+
+.handbook-page .hb-entry {
+  display: grid;
+  grid-template-columns: minmax(10rem, 14rem) minmax(0, 1fr);
+  gap: 0.35rem clamp(1.5rem, 4vw, 4rem);
+  margin: 0;
+  padding: 1.65rem 0 1.9rem;
+  border: 0;
+  border-top: 1px solid var(--hb-rule);
+  border-radius: 0;
+  background: transparent;
+}
+
+.handbook-page .hb-entry:last-of-type {
+  border-bottom: 1px solid var(--hb-rule);
+}
+
+.handbook-page .hb-entry h3 {
+  grid-column: 1;
+  margin: 0;
+  color: var(--hb-midnight);
+  font: 400 clamp(1.5rem, 2.1vw, 2rem)/1.05 "Anton", sans-serif;
+}
+
+.handbook-page .hb-entry .hb-addr {
+  grid-column: 1;
+  margin: 0.45rem 0 0;
+  color: var(--hb-pink);
+  font: 800 0.67rem/1.4 "Jost", sans-serif;
+  letter-spacing: 0.15em;
+}
+
+.handbook-page .hb-entry dl {
+  grid-column: 2;
+  grid-row: 1 / span 5;
+  display: grid;
+  grid-template-columns: minmax(4.5rem, 6rem) minmax(0, 1fr);
+  gap: 0;
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.handbook-page .hb-entry dt,
+.handbook-page .hb-entry dd {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(10, 20, 54, 0.11);
+}
+
+.handbook-page .hb-entry dt {
+  color: var(--hb-blue);
+  font: 800 0.68rem/1.45 "Jost", sans-serif;
+  letter-spacing: 0.11em;
+}
+
+.handbook-page .hb-entry dd {
+  color: #292c42;
+  font: 500 0.94rem/1.58 "Jost", sans-serif;
+}
+
+.handbook-page .hb-entry:not(:has(h3)) dl {
+  grid-column: 1 / -1;
+}
+
+.handbook-page .hb-entry .hb-visit {
+  grid-column: 1;
+  align-self: end;
+  justify-self: start;
+  margin: 1rem 0 0;
+  padding-bottom: 0.12rem;
+  color: var(--hb-purple);
+  font: 800 0.72rem/1.2 "Jost", sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 2px solid currentColor;
+}
+
+.handbook-page .hb-entry .hb-visit:hover,
+.handbook-page .hb-entry .hb-visit:focus-visible {
+  color: var(--hb-pink);
+}
+
+.handbook-page .hb-back-top {
+  display: inline-block;
+  margin: 2rem 0 0;
+  color: var(--hb-blue);
+  font: 800 0.69rem/1.2 "Jost", sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 2px solid currentColor;
+}
+
+.handbook-page .sv-ctas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 2.5rem;
+  border-top: 2px solid var(--hb-midnight);
+  border-bottom: 2px solid var(--hb-midnight);
+}
+
+.handbook-page .sv-cta {
+  min-height: 7rem;
+  padding: 1.25rem;
+  border: 0;
+  border-right: 1px solid var(--hb-rule);
+  border-radius: 0;
+  background: transparent;
+  color: var(--hb-midnight);
+}
+
+.handbook-page .sv-cta:last-child {
+  border-right: 0;
+}
+
+.handbook-page .sv-cta--primary {
+  color: var(--hb-paper);
+  background: var(--hb-purple);
+}
+
+.handbook-page .sv-cta-arrow {
+  display: none;
+}
+
+.handbook-page footer {
+  width: min(100% - 3rem, 82rem);
+  margin: 0 auto;
+  padding: 2rem 0;
+  color: rgba(10, 20, 54, 0.52);
+  border-top: 1px solid var(--hb-rule);
+}
+
+@media (max-width: 900px) {
+  .hb-arrival {
+    grid-template-columns: 1fr;
+  }
+
+  .hb-arrival-art img {
+    min-height: 25rem;
+    max-height: 62vh;
+  }
+
+  .hb-arrival-copy {
+    padding: 2.5rem 2rem 3rem;
+  }
+
+  .handbook-page .hb-toc {
+    grid-template-columns: 7rem repeat(8, 12rem);
+    overflow-x: auto;
+  }
+
+  .handbook-page .hb-toc .hb-toc-sec {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    grid-row: auto;
+    background: #f9f4ff;
+  }
+
+  .handbook-page .hb-toc .hb-toc-sec,
+  .handbook-page .hb-toc a {
+    min-height: 5.2rem;
+    border-bottom: 0;
+  }
+
+  .handbook-page .hb-toc a:nth-of-type(4) {
+    border-right: 1px solid var(--hb-rule);
+  }
+
+  .hb-chapter {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .hb-chapter > h2 {
+    position: static;
+    padding-top: 2.5rem;
+  }
+
+  .hb-chapter-content {
+    padding-top: 2.2rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .hb-arrival,
+  .handbook-page .hb-toc,
+  .hb-chapter,
+  .handbook-page footer {
+    width: min(100% - 2rem, 82rem);
+  }
+
+  .hb-arrival {
+    margin-top: 1.6rem;
+  }
+
+  .hb-arrival-art img {
+    min-height: 19rem;
+    object-position: 42% center;
+  }
+
+  .hb-arrival-copy {
+    padding: 2rem 1.3rem 2.5rem;
+  }
+
+  .handbook-page .hb-arrival h1 {
+    font-size: clamp(3.5rem, 19vw, 5rem);
+  }
+
+  .handbook-page .hb-toc {
+    margin-top: 1.7rem;
+    margin-bottom: 4.5rem;
+    grid-template-columns: 6.5rem repeat(8, 10.5rem);
+  }
+
+  .hb-chapter {
+    margin-bottom: 5.2rem;
+  }
+
+  .hb-chapter > h2 {
+    font-size: clamp(2.7rem, 14vw, 4rem);
+  }
+
+  .handbook-page .hb-entry {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .handbook-page .hb-entry h3,
+  .handbook-page .hb-entry .hb-addr,
+  .handbook-page .hb-entry dl,
+  .handbook-page .hb-entry .hb-visit {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .handbook-page .hb-entry dl {
+    margin-top: 1rem;
+  }
+
+  .handbook-page .hb-entry .hb-visit {
+    margin-top: 1.2rem;
+  }
+
+  .handbook-page .sv-ctas {
+    grid-template-columns: 1fr;
+  }
+
+  .handbook-page .sv-cta {
+    border-right: 0;
+    border-bottom: 1px solid var(--hb-rule);
+  }
+
+  .handbook-page .sv-cta:last-child {
+    border-bottom: 0;
+  }
+}

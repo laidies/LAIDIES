@@ -1,0 +1,657 @@
+/**
+ * The Chick Flicks — room-first rental wall
+ *
+ * The wall and its separate VHS objects are the interface. Aisles repopulate
+ * the same wall instead of creating stacked strips down the page.
+ */
+
+.cf-page {
+  --cf-ink: #10183b;
+  --cf-paper: #fffaf4;
+  --cf-pink: #ff4f9a;
+  --cf-purple: #7949de;
+  --cf-periwinkle: #a991ff;
+  --cf-cyan: #12c9e8;
+  --cf-blue: #246bea;
+  --cf-teal: #16a7a4;
+  --cf-mint: #7be0bd;
+  --cf-coral: #ff746e;
+  --cf-orange: #ff9838;
+  --cf-body: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --cf-display: "Anton", Impact, sans-serif;
+  overflow: clip;
+  background:
+    radial-gradient(circle at 8% 16%, rgba(169, 145, 255, 0.20), transparent 28rem),
+    radial-gradient(circle at 92% 36%, rgba(18, 201, 232, 0.17), transparent 30rem),
+    linear-gradient(180deg, #fff7fb 0%, #f0fbff 46%, #fff7ef 100%);
+  color: var(--cf-ink);
+  font-family: var(--cf-body);
+}
+
+main.cf-page {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cf-page *,
+.cf-page *::before,
+.cf-page *::after {
+  box-sizing: border-box;
+}
+
+.cf-wall {
+  width: 100%;
+  background: var(--cf-ink);
+}
+
+.cf-wall__scene {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.cf-wall__room {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cf-wall__bay {
+  position: absolute;
+  left: 9.25%;
+  top: 36.2%;
+  width: 52.1%;
+  height: 33.8%;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: end;
+  gap: 0;
+  padding: 1.8% 1.2% 0.6%;
+}
+
+.cf-tape {
+  position: relative;
+  display: grid;
+  place-items: end center;
+  min-width: 0;
+  height: 100%;
+  padding: 0 2px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  filter: drop-shadow(0 8px 7px rgba(3, 7, 28, 0.48));
+  transition: transform 180ms ease, filter 180ms ease, opacity 180ms ease;
+}
+
+.cf-tape img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 93%;
+  object-fit: contain;
+}
+
+.cf-tape:hover,
+.cf-tape:focus-visible {
+  z-index: 4;
+  transform: translateY(-9%) scale(1.05);
+  filter: drop-shadow(0 17px 11px rgba(3, 7, 28, 0.56));
+}
+
+.cf-tape:focus-visible {
+  outline: 4px solid var(--cf-cyan);
+  outline-offset: 2px;
+}
+
+.cf-tape.is-coming {
+  cursor: help;
+  opacity: 0.52;
+  filter: grayscale(0.35) drop-shadow(0 7px 6px rgba(3, 7, 28, 0.34));
+}
+
+.cf-tape__label {
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  padding: 3px 7px;
+  color: var(--cf-ink);
+  background: var(--cf-paper);
+  border: 1px solid rgba(16, 24, 59, 0.45);
+  font-size: clamp(6px, 0.65vw, 10px);
+  font-weight: 800;
+  letter-spacing: 0.10em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.cf-tape__new {
+  position: absolute;
+  z-index: 3;
+  right: -6%;
+  top: 4%;
+  padding: 5px 8px;
+  color: var(--cf-ink);
+  background: var(--cf-mint);
+  border: 2px solid var(--cf-ink);
+  font-size: clamp(7px, 0.75vw, 11px);
+  font-weight: 800;
+  letter-spacing: 0.10em;
+  line-height: 1;
+  text-transform: uppercase;
+  transform: rotate(8deg);
+}
+
+.cf-wall__empty {
+  position: absolute;
+  left: 15%;
+  top: 48%;
+  max-width: 42%;
+  margin: 0;
+  color: var(--cf-paper);
+  font-family: var(--cf-display);
+  font-size: clamp(28px, 3.4vw, 54px);
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.cf-mobile-shelf {
+  display: none;
+}
+
+.cf-state {
+  background:
+    linear-gradient(104deg, rgba(255, 79, 154, 0.13), transparent 31%),
+    #0a1231;
+  color: var(--cf-paper);
+  border-top: 5px solid var(--cf-cyan);
+  border-bottom: 5px solid var(--cf-pink);
+}
+
+.cf-state__inner {
+  width: min(100% - 48px, 1320px);
+  margin: 0 auto;
+  padding: clamp(38px, 5vw, 76px) 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px clamp(34px, 6vw, 92px);
+  align-items: end;
+}
+
+.cf-address {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--cf-mint);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.cf-state h1 {
+  margin: 0;
+  color: var(--cf-paper);
+  font-family: var(--cf-display);
+  font-size: clamp(50px, 7.5vw, 106px);
+  font-weight: 400;
+  line-height: 0.98;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.cf-state__inner > div > p {
+  max-width: 760px;
+  margin: 20px 0 0;
+  color: rgba(255, 250, 244, 0.78);
+  font-size: clamp(17px, 1.7vw, 22px);
+}
+
+.cf-state__actions {
+  display: grid;
+  gap: 12px;
+  min-width: min(100%, 270px);
+}
+
+.cf-state__actions button,
+.cf-rental__actions a,
+.cf-rental__actions button {
+  min-height: 50px;
+  padding: 12px 18px;
+  border: 2px solid var(--cf-ink);
+  border-radius: 9px;
+  color: var(--cf-ink);
+  background: var(--cf-pink);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 5px 5px 0 var(--cf-cyan);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.cf-state__actions .cf-spot {
+  background: var(--cf-mint);
+  box-shadow: 5px 5px 0 var(--cf-purple);
+}
+
+.cf-state__actions .cf-spot.is-playing {
+  background: var(--cf-cyan);
+}
+
+.cf-state__actions button:hover,
+.cf-state__actions button:focus-visible,
+.cf-rental__actions a:hover,
+.cf-rental__actions a:focus-visible,
+.cf-rental__actions button:hover,
+.cf-rental__actions button:focus-visible {
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0 var(--cf-ink);
+}
+
+.cf-aisles {
+  width: 100%;
+  padding: 28px max(24px, calc((100vw - 1320px) / 2)) 30px;
+  background: var(--cf-paper);
+  border-bottom: 2px solid rgba(16, 24, 59, 0.18);
+}
+
+.cf-aisles > p:first-child {
+  margin: 0 0 14px;
+  color: var(--cf-purple);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.cf-aisles__track {
+  display: flex;
+  align-items: center;
+  gap: 4px clamp(16px, 2.4vw, 34px);
+  overflow-x: auto;
+  padding: 0 0 12px;
+  border-bottom: 3px solid var(--cf-ink);
+  scrollbar-width: thin;
+}
+
+.cf-aisles__track button {
+  flex: 0 0 auto;
+  padding: 7px 0;
+  border: 0;
+  border-bottom: 5px solid transparent;
+  color: rgba(16, 24, 59, 0.58);
+  background: transparent;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.cf-aisles__track button:hover,
+.cf-aisles__track button:focus-visible,
+.cf-aisles__track button.is-active {
+  color: var(--cf-ink);
+  border-bottom-color: var(--cf-pink);
+  outline: 0;
+}
+
+.cf-aisles__status {
+  margin: 12px 0 0;
+  color: rgba(16, 24, 59, 0.68);
+  font-size: 13px;
+}
+
+.cf-rental {
+  scroll-margin-top: 60px;
+  width: min(100% - 48px, 1260px);
+  margin: clamp(52px, 8vw, 112px) auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+  gap: clamp(32px, 7vw, 100px);
+  align-items: center;
+}
+
+.cf-rental__object {
+  position: relative;
+}
+
+.cf-rental__object img {
+  display: block;
+  width: 100%;
+  height: auto;
+  mix-blend-mode: multiply;
+}
+
+.cf-rental__episode {
+  margin: 12px 0 0;
+  color: var(--cf-ink);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.10em;
+  line-height: 1.25;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.cf-kicker {
+  margin: 0;
+  color: var(--cf-purple);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.cf-rental__copy h2,
+.cf-counter h2,
+.cf-trailer h2 {
+  margin: 10px 0 18px;
+  color: var(--cf-ink);
+  font-family: var(--cf-display);
+  font-size: clamp(48px, 6vw, 86px);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.cf-rental__copy > p:not(.cf-kicker) {
+  margin: 0;
+  color: rgba(16, 24, 59, 0.72);
+  font-size: 17px;
+  line-height: 1.62;
+}
+
+.cf-rental__due {
+  margin-top: 20px !important;
+  padding: 12px 0;
+  border-top: 2px solid var(--cf-purple);
+  border-bottom: 2px solid var(--cf-purple);
+  color: var(--cf-purple) !important;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.cf-rental__actions {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.cf-rental__actions a {
+  display: grid;
+  place-items: center;
+}
+
+.cf-rental__actions button {
+  background: var(--cf-mint);
+  box-shadow: 5px 5px 0 var(--cf-purple);
+}
+
+.cf-rental__actions button.is-saved {
+  background: var(--cf-cyan);
+}
+
+.cf-rental__member {
+  margin-top: 18px !important;
+  font-size: 13px !important;
+  font-style: italic;
+}
+
+.cf-counter {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0;
+  border-top: 7px solid var(--cf-orange);
+  border-bottom: 7px solid var(--cf-cyan);
+}
+
+.cf-counter > div {
+  padding: clamp(52px, 7vw, 100px) max(24px, calc((100vw - 1320px) / 2));
+}
+
+.cf-counter__rules {
+  color: var(--cf-paper);
+  background: var(--cf-ink);
+}
+
+.cf-counter__rules .cf-kicker {
+  color: var(--cf-mint);
+}
+
+.cf-counter__rules h2 {
+  color: var(--cf-paper);
+}
+
+.cf-counter__rules ol {
+  margin: 26px 0 0;
+  padding-left: 22px;
+  color: rgba(255, 250, 244, 0.78);
+  font-size: 16px;
+}
+
+.cf-counter__rules li + li {
+  margin-top: 14px;
+}
+
+.cf-counter__route {
+  background:
+    repeating-linear-gradient(0deg, rgba(16, 24, 59, 0.025) 0 1px, transparent 1px 4px),
+    var(--cf-paper);
+}
+
+.cf-counter__route > a {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px 22px;
+  padding: 20px 0;
+  border-bottom: 2px solid var(--cf-ink);
+  color: var(--cf-ink);
+  text-decoration: none;
+  transition: padding 160ms ease, background 160ms ease;
+}
+
+.cf-counter__route > a:hover,
+.cf-counter__route > a:focus-visible {
+  padding-left: 12px;
+  padding-right: 12px;
+  background: rgba(18, 201, 232, 0.10);
+  outline: 0;
+}
+
+.cf-counter__route strong {
+  font-size: 18px;
+}
+
+.cf-counter__route span {
+  color: var(--cf-purple);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.cf-trailer {
+  width: min(100% - 48px, 1260px);
+  margin: clamp(60px, 8vw, 116px) auto;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(34px, 7vw, 96px);
+  align-items: start;
+}
+
+.cf-trailer__copy p:not(.cf-kicker) {
+  margin: 0;
+  color: rgba(16, 24, 59, 0.72);
+  font-size: 17px;
+}
+
+.cf-trailer__copy > a {
+  display: inline-block;
+  margin-top: 22px;
+  color: var(--cf-purple);
+  font-weight: 800;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.cf-trailer__player {
+  min-width: 0;
+}
+
+.cf-footer {
+  padding: 34px 24px;
+  color: rgba(255, 250, 244, 0.64);
+  background: #070d25;
+  font-family: "Jost", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .cf-rental,
+  .cf-trailer {
+    grid-template-columns: 1fr;
+  }
+
+  .cf-rental__copy,
+  .cf-trailer__copy {
+    max-width: 700px;
+  }
+
+  .cf-counter {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .cf-wall__room {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .cf-wall__bay {
+    display: none;
+  }
+
+  .cf-wall__empty {
+    display: none;
+  }
+
+  .cf-mobile-shelf {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-items: end;
+    gap: 0;
+    padding: 18px 7px 11px;
+    background:
+      linear-gradient(180deg, #0a1231 0 12%, #0e7c83 12% 100%);
+  }
+
+  .cf-mobile-shelf.is-empty {
+    grid-template-columns: 1fr;
+    min-height: 176px;
+    place-items: center;
+    padding: 28px 22px;
+  }
+
+  .cf-mobile-empty {
+    max-width: 260px;
+    margin: 0;
+    color: var(--cf-paper);
+    font-family: var(--cf-display);
+    font-size: 30px;
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .cf-mobile-shelf .cf-tape {
+    height: 176px;
+  }
+
+  .cf-mobile-shelf .cf-tape img {
+    width: 100%;
+    height: auto;
+    max-height: 158px;
+  }
+
+  .cf-mobile-shelf .cf-tape__label {
+    bottom: -4px;
+    font-size: 6px;
+  }
+
+  .cf-mobile-shelf .cf-tape__new {
+    right: -10%;
+    font-size: 6px;
+  }
+
+  .cf-state__inner {
+    width: min(100% - 34px, 1320px);
+    grid-template-columns: 1fr;
+    padding: 34px 0 40px;
+  }
+
+  .cf-state h1 {
+    font-size: clamp(44px, 14vw, 66px);
+  }
+
+  .cf-state__actions {
+    width: 100%;
+  }
+
+  .cf-aisles {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .cf-rental,
+  .cf-trailer {
+    width: min(100% - 30px, 1260px);
+  }
+
+  .cf-rental {
+    margin-top: 58px;
+  }
+
+  .cf-rental__copy h2,
+  .cf-counter h2,
+  .cf-trailer h2 {
+    font-size: clamp(42px, 13vw, 64px);
+  }
+
+  .cf-counter > div {
+    padding: 58px 22px;
+  }
+
+  .cf-counter__route > a {
+    grid-template-columns: 1fr;
+  }
+
+  .cf-counter__route span {
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cf-tape,
+  .cf-state__actions button,
+  .cf-rental__actions a,
+  .cf-rental__actions button,
+  .cf-counter__route > a {
+    transition: none;
+  }
+}

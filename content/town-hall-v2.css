@@ -1,0 +1,670 @@
+/* Town Hall v2 — the civic lobby is the interface. Page-scoped. */
+
+:root {
+  --th2-midnight: #080b22;
+  --th2-ink: #11142d;
+  --th2-paper: #fffaf3;
+  --th2-ice: #eefaff;
+  --th2-pink: #f74f9d;
+  --th2-purple: #8557f4;
+  --th2-cyan: #45cdef;
+  --th2-teal: #2dc8b4;
+  --th2-coral: #ff7869;
+  --th2-orange: #ff9b54;
+}
+
+body:has(.town-hall-room) {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(69, 205, 239, 0.18), transparent 30rem),
+    radial-gradient(circle at 88% 20%, rgba(247, 79, 157, 0.15), transparent 32rem),
+    linear-gradient(180deg, #fffaf4 0%, #f8f2ff 56%, #eefcff 100%);
+  color: var(--th2-ink);
+}
+
+body:has(.town-hall-room) .sv-yah-chip,
+.town-hall-room .charm-hunt-hint {
+  display: none !important;
+}
+
+.sv-hero.town-hall-room {
+  position: relative;
+  width: min(100%, 1500px);
+  height: min(720px, calc(100vw * 0.5627));
+  min-height: 580px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 0;
+  background: var(--th2-midnight);
+  isolation: isolate;
+}
+
+.town-hall-room > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.08) contrast(1.03) brightness(0.88);
+}
+
+.town-hall-room::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(8, 11, 34, 0.56) 0%, rgba(8, 11, 34, 0.04) 38%, rgba(8, 11, 34, 0.5) 100%),
+    linear-gradient(90deg, rgba(8, 11, 34, 0.35), transparent 38%, transparent 68%, rgba(8, 11, 34, 0.18));
+}
+
+.town-hall-room__copy {
+  position: absolute;
+  z-index: 3;
+  top: 5.5%;
+  left: 50%;
+  width: min(980px, 90%);
+  transform: translateX(-50%);
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 3px 20px rgba(8, 11, 34, 0.62);
+}
+
+.town-hall-room__copy p {
+  margin: 0;
+}
+
+.town-hall-room__kicker {
+  color: #9ff3e8;
+  font: 800 11px/1.2 "Jost", sans-serif;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.town-hall-room__copy h1 {
+  margin: 10px 0 7px;
+  color: #fff;
+  font: 400 clamp(58px, 8vw, 108px)/0.95 "Anton", sans-serif;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.town-hall-room__copy > p:last-child {
+  color: #fff;
+  font: 800 clamp(17px, 2vw, 24px)/1.25 "Jost", sans-serif;
+}
+
+.town-hall-room__stations {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+}
+
+.town-hall-room .th-hubs {
+  position: absolute;
+  inset: 0;
+  display: block;
+  margin: 0;
+}
+
+.town-hall-room .th-hub {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.town-hall-room .th-hub:nth-child(1) {
+  left: 31%;
+  top: 36%;
+  width: 31%;
+  height: 28%;
+}
+
+.town-hall-room .th-hub:nth-child(2) {
+  left: 1.5%;
+  top: 24%;
+  width: 17%;
+  height: 35%;
+}
+
+.town-hall-room .th-hub:nth-child(3) {
+  right: 2.4%;
+  top: 35%;
+  width: 27%;
+  height: 28%;
+}
+
+.town-hall-room .th-hub__icon,
+.town-hall-room .th-hub__cta {
+  display: none !important;
+}
+
+.town-hall-room .th-hub__name,
+.town-hall-room .th-hub__count {
+  position: relative;
+  z-index: 2;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  color: #fff;
+  text-shadow: none;
+}
+
+.town-hall-room .th-hub__name {
+  padding: 8px 12px 5px;
+  border-left: 5px solid var(--th2-cyan);
+  background: rgba(8, 11, 34, 0.92);
+  box-shadow: 6px 5px 0 rgba(247, 79, 157, 0.68);
+  font: 400 clamp(18px, 2vw, 26px)/1 "Anton", sans-serif;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.town-hall-room .th-hub:nth-child(2) .th-hub__name {
+  border-left-color: var(--th2-purple);
+  box-shadow: 6px 5px 0 rgba(69, 205, 239, 0.68);
+}
+
+.town-hall-room .th-hub:nth-child(3) .th-hub__name {
+  border-left-color: var(--th2-orange);
+  box-shadow: 6px 5px 0 rgba(133, 87, 244, 0.68);
+}
+
+.town-hall-room .th-hub__count {
+  margin-top: 8px;
+  padding: 5px 9px;
+  background: rgba(8, 11, 34, 0.84);
+  color: rgba(255, 255, 255, 0.86);
+  font: 700 11px/1.35 "Jost", sans-serif;
+}
+
+.town-hall-room .th-hub::before {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0);
+  transition: border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.town-hall-room .th-hub:hover,
+.town-hall-room .th-hub:focus-visible,
+.town-hall-room .th-hub.is-open {
+  transform: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.town-hall-room .th-hub:hover::before,
+.town-hall-room .th-hub:focus-visible::before,
+.town-hall-room .th-hub.is-open::before {
+  border-color: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 34px rgba(69, 205, 239, 0.28);
+}
+
+.town-hall-room .th-hub:focus-visible .th-hub__name,
+.town-hall-room .th-hub.is-open .th-hub__name {
+  background: var(--th2-pink);
+  color: #fff;
+}
+
+.town-hall-v2-page {
+  width: 100%;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 24px 86px !important;
+}
+
+.town-hall-v2-page > .sv-eyebrow,
+.town-hall-v2-page > h1,
+.town-hall-v2-page > .sv-lede,
+.town-hall-v2-page > .sv-lede + p,
+.town-hall-v2-page > style + .th-hubs {
+  display: none !important;
+}
+
+.town-hall-v2-page .th-hub-panel {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto !important;
+  padding: clamp(42px, 6vw, 76px) clamp(26px, 6vw, 76px) !important;
+  border: 0 !important;
+  border-top: 8px solid var(--th2-cyan) !important;
+  border-radius: 0 !important;
+  background: rgba(255, 250, 243, 0.98) !important;
+  box-shadow: 0 28px 80px rgba(8, 11, 34, 0.15) !important;
+  scroll-margin-top: 74px;
+  animation: none;
+}
+
+.town-hall-v2-page .th-hub-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 8px;
+  background: linear-gradient(90deg, var(--th2-cyan) 0 22%, var(--th2-pink) 22% 47%, var(--th2-purple) 47% 70%, var(--th2-orange) 70% 84%, var(--th2-teal) 84%);
+}
+
+.town-hall-v2-page .th-hub-panel[hidden] {
+  display: none !important;
+}
+
+.town-hall-v2-page .th-hub-panel h2 {
+  color: var(--th2-ink) !important;
+  font: 400 clamp(40px, 5.6vw, 74px)/1 "Anton", sans-serif !important;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.town-hall-v2-page .th-hub-panel h3 {
+  color: var(--th2-ink);
+}
+
+.town-hall-v2-page .th-hub-panel p {
+  color: #30334c;
+}
+
+.town-hall-v2-page .th-hub-panel a {
+  color: #6840da;
+  text-underline-offset: 3px;
+}
+
+/* Mayor's archive: a civic file, not a gold card stack. */
+#hub-deb > figure {
+  margin: 24px 0 34px !important;
+  border-radius: 0 !important;
+  overflow: hidden;
+  box-shadow: 12px 12px 0 var(--th2-cyan);
+}
+
+#hub-deb > figure img {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+#hub-deb > div[style*="linear-gradient"] {
+  padding: 28px !important;
+  border-radius: 0 !important;
+  background: var(--th2-midnight) !important;
+}
+
+#hub-deb > div[style*="linear-gradient"] p,
+#hub-deb > div[style*="linear-gradient"] h3 {
+  color: #fff !important;
+}
+
+#hub-deb > div[style*="linear-gradient"] > p:first-child {
+  color: var(--th2-cyan) !important;
+}
+
+#hub-deb > div[style*="linear-gradient"] button {
+  border: 2px solid #fff !important;
+  border-radius: 3px !important;
+  background: var(--th2-pink) !important;
+  color: #fff !important;
+  box-shadow: 5px 5px 0 var(--th2-cyan);
+}
+
+#hub-deb .deb-poster-gallery {
+  margin: 38px 0 0;
+  padding: clamp(28px, 4vw, 50px);
+  border: 0;
+  border-radius: 0;
+  background: var(--th2-ice);
+}
+
+#hub-deb .deb-poster-gallery__eyebrow,
+#hub-deb .deb-poster-gallery__subeyebrow {
+  color: #6840da;
+}
+
+#hub-deb .deb-poster__frame {
+  border: 0;
+  border-radius: 0;
+  box-shadow: 7px 8px 0 rgba(133, 87, 244, 0.28);
+}
+
+/* The noticeboard is the single collection surface. */
+#hub-characters {
+  background: #dff4fa !important;
+}
+
+#hub-characters .th-regulars {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+#hub-characters .th-regulars-eyebrow {
+  color: #6840da;
+}
+
+#hub-characters .th-regulars-title {
+  color: var(--th2-ink);
+  font: 400 clamp(40px, 5.6vw, 74px)/1 "Anton", sans-serif;
+  text-transform: uppercase;
+}
+
+#hub-characters .th-regulars-lede {
+  max-width: 78ch;
+  color: #30334c;
+}
+
+#hub-characters .th-regulars-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+#hub-characters .th-regular {
+  border: 0;
+  border-radius: 0;
+  background: #fffaf3;
+  color: var(--th2-ink);
+  box-shadow: 7px 8px 0 rgba(247, 79, 157, 0.3);
+}
+
+#hub-characters .th-regular:nth-child(2n) {
+  box-shadow: 7px 8px 0 rgba(69, 205, 239, 0.36);
+}
+
+#hub-characters .th-regular:hover {
+  transform: translateY(-3px) rotate(-0.3deg);
+  border-color: transparent;
+  box-shadow: 10px 12px 0 rgba(133, 87, 244, 0.34);
+}
+
+#hub-characters .th-regular-portrait {
+  border-bottom: 6px solid var(--th2-cyan);
+  border-radius: 0;
+  background: var(--th2-midnight);
+}
+
+#hub-characters .th-regular:nth-child(2n) .th-regular-portrait {
+  border-bottom-color: var(--th2-pink);
+}
+
+#hub-characters .th-regular-role,
+#hub-characters .th-regular-cta {
+  color: #6840da;
+}
+
+#hub-characters .th-regular-name,
+#hub-characters .th-regular-body {
+  color: var(--th2-ink);
+}
+
+#hub-characters #townRegularTie {
+  margin: 42px 0 0;
+  padding: 34px;
+  border-radius: 0;
+  background: var(--th2-midnight);
+  border-top: 7px solid var(--th2-purple);
+  box-shadow: 10px 10px 0 rgba(69, 205, 239, 0.42);
+}
+
+#hub-characters #townRegularTie,
+#hub-characters #townRegularTie * {
+  color: #fff !important;
+}
+
+#hub-characters #townRegularTie .tr-pick {
+  border: 2px solid #fff;
+  border-radius: 3px;
+  background: transparent;
+  color: #fff;
+}
+
+#hub-characters #townRegularTie .tr-pick.is-picked {
+  background: var(--th2-pink);
+  border-color: #fff;
+  color: #fff;
+  box-shadow: 4px 4px 0 var(--th2-cyan);
+}
+
+#hub-characters .th-regular.is-town-regular {
+  outline: 4px solid var(--th2-purple);
+  outline-offset: 5px;
+}
+
+/* One civic filing sheet. */
+#hub-feedback {
+  background: #f2fbff !important;
+}
+
+#hub-feedback #town-hall-feedback {
+  max-width: 900px;
+  margin: 0 auto !important;
+  padding: clamp(30px, 5vw, 56px) !important;
+  border: 0 !important;
+  border-left: 8px solid var(--th2-pink) !important;
+  border-radius: 0 !important;
+  background: #fffaf3 !important;
+  box-shadow: 12px 14px 0 rgba(133, 87, 244, 0.22);
+}
+
+#hub-feedback #town-hall-feedback > h2 {
+  color: var(--th2-ink) !important;
+  font: 400 clamp(38px, 5vw, 64px)/1 "Anton", sans-serif !important;
+}
+
+#hub-feedback #town-hall-form {
+  max-width: none !important;
+}
+
+#hub-feedback input,
+#hub-feedback textarea {
+  border: 2px solid var(--th2-ink) !important;
+  border-radius: 3px !important;
+  background: #fff !important;
+  color: var(--th2-ink) !important;
+}
+
+#hub-feedback [data-th-type-chip] {
+  border: 2px solid var(--th2-ink) !important;
+  border-radius: 3px !important;
+  background: transparent !important;
+  color: var(--th2-ink) !important;
+}
+
+#hub-feedback input[type="radio"]:checked + [data-th-type-chip] {
+  background: var(--th2-purple) !important;
+  color: #fff !important;
+}
+
+#hub-feedback #th-submit {
+  border: 2px solid var(--th2-ink) !important;
+  border-radius: 3px !important;
+  background: var(--th2-pink) !important;
+  color: #fff !important;
+  box-shadow: 5px 5px 0 var(--th2-ink);
+}
+
+.town-hall-v2-page > .sv-ctas {
+  max-width: 1200px;
+  margin: 36px auto 0;
+}
+
+.town-hall-v2-page > .sv-ctas .sv-cta {
+  padding: 22px 0;
+  border: 0;
+  border-bottom: 6px solid var(--th2-cyan);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.town-hall-v2-page > .sv-ctas .sv-cta-label,
+.town-hall-v2-page > .sv-ctas .sv-cta-title,
+.town-hall-v2-page > .sv-ctas .sv-cta-arrow {
+  color: var(--th2-ink);
+}
+
+@media (max-width: 900px) {
+  #hub-characters .th-regulars-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .sv-hero.town-hall-room {
+    height: 720px;
+    min-height: 720px;
+  }
+
+  .town-hall-room > img {
+    height: 405px;
+    object-position: center;
+  }
+
+  .town-hall-room::after {
+    background:
+      linear-gradient(180deg, rgba(8, 11, 34, 0.82) 0, rgba(8, 11, 34, 0.24) 38%, var(--th2-midnight) 57%, var(--th2-midnight) 100%);
+  }
+
+  .town-hall-room__copy {
+    top: 22px;
+    width: calc(100% - 30px);
+  }
+
+  .town-hall-room__kicker {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+  }
+
+  .town-hall-room__copy h1 {
+    font-size: 58px;
+  }
+
+  .town-hall-room__copy > p:last-child {
+    font-size: 15px;
+  }
+
+  .town-hall-room__stations {
+    top: 420px;
+    right: 16px;
+    bottom: 18px;
+    left: 16px;
+  }
+
+  .town-hall-room .th-hubs {
+    position: static;
+    display: grid;
+    gap: 0;
+  }
+
+  .town-hall-room .th-hub,
+  .town-hall-room .th-hub:nth-child(n) {
+    position: relative;
+    inset: auto;
+    width: auto;
+    height: auto;
+    min-height: 84px;
+    padding: 13px 12px 11px 16px;
+    border-left: 5px solid var(--th2-cyan);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    background: #12172f;
+  }
+
+  .town-hall-room .th-hub:nth-child(2) {
+    border-left-color: var(--th2-purple);
+  }
+
+  .town-hall-room .th-hub:nth-child(3) {
+    border-left-color: var(--th2-orange);
+  }
+
+  .town-hall-room .th-hub::before {
+    display: none;
+  }
+
+  .town-hall-room .th-hub__name,
+  .town-hall-room .th-hub__count {
+    width: auto;
+    max-width: none;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none !important;
+  }
+
+  .town-hall-room .th-hub__name {
+    font-size: 20px;
+  }
+
+  .town-hall-room .th-hub__count {
+    margin-top: 5px;
+    font-size: 11px;
+  }
+
+  .town-hall-v2-page {
+    padding: 0 9px 60px !important;
+  }
+
+  .town-hall-v2-page .th-hub-panel {
+    padding: 34px 18px 44px !important;
+  }
+
+  .town-hall-v2-page .th-hub-panel h2,
+  #hub-characters .th-regulars-title {
+    font-size: clamp(40px, 12vw, 56px) !important;
+  }
+
+  #hub-deb > figure {
+    margin-right: -18px !important;
+    margin-left: -18px !important;
+    box-shadow: 0 8px 0 var(--th2-cyan);
+  }
+
+  #hub-deb .deb-poster-gallery {
+    padding: 28px 18px;
+  }
+
+  #hub-characters .th-regulars-grid {
+    display: flex;
+    gap: 18px;
+    margin-right: -18px;
+    padding: 4px 18px 22px 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+
+  #hub-characters .th-regular {
+    flex: 0 0 min(82vw, 300px);
+    scroll-snap-align: start;
+  }
+
+  #hub-characters #townRegularTie {
+    padding: 28px 20px;
+  }
+
+  #hub-feedback #town-hall-feedback {
+    padding: 30px 18px !important;
+    box-shadow: 7px 9px 0 rgba(133, 87, 244, 0.22);
+  }
+
+  .town-hall-v2-page > .sv-ctas {
+    margin-right: 9px;
+    margin-left: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .town-hall-room .th-hub,
+  .town-hall-room .th-hub::before {
+    transition: none !important;
+  }
+}

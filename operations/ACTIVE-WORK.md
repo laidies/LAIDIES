@@ -150,11 +150,11 @@ AW-001 is complete only when:
 | Metered public tools | SAFETY PAUSE DEPLOYED AND SOURCE-VERIFIED | MAiKEOVER paid generation is disabled at the Worker, public debug routes are removed, unapproved origins are rejected and the page labels the portrait booth temporarily closed. One immediate POST verification hit a propagating old edge and generated one paid image; future safety deploys must verify allocation/source before any mutation probe. See BTB-047 and BTB-052 |
 | Quotables/Overheard | SPECIFIED; SHOWCASE NOT BUILT | Product document exists; public discovery system does not |
 | Behind the Build learning system | SPECIFIED; CANONICAL LEDGER + CAPTURE RULE + EDITORIAL QUEUE INSTALLED | All 40 recovered records are consolidated as BTB-001–BTB-040 with source snapshots/checksums; new records continue sequentially; one candidate has a PUBLISHABLE DRAFT but is not Ali-approved/published; historic RAW verification and the public index remain open |
-| News system | PARTIAL; DAILY PRODUCER ORPHANED; WEEKLY STAGE 1 MANUAL; LATEST DEPLOY FAILED | Daily RSS job pushes raw fallback JSON to `main`, but no live page consumes it. Public WEDNESDAY/Tribune library has three 2026-06-28 stories; Stage 2 is not built. Pages run 398 failed after the 2026-07-24 commit. See `operations/diagnostics/news-system-live-status-2026-07-24.md` |
+| News system | PUBLIC CONTRACT REPAIRED LOCALLY; STAGE 2 REMAINS MANUAL | The public NewsStand now exposes only the source-checked WEDNESDAY Edition and Tribune, with current 2026-07-24 stories and named sources. TODAY is retired from the rack. The former daily RSS workflow is manual-only candidate intake and cannot write public copy. Automated research/drafting/review remains future work. |
 | Episode 5 | GATE 1 REJECTED; CONCEPT RECONSTRUCTION REQUIRED | Public title **The Super Models** remains locked. The receipt may survive as an end exercise, but it cannot replace the full fashion-house-to-season teaching system. No downstream generation is authorized |
 | Episode 6 | TITLE AND CAPABILITY LOCKED; SUBSTANCE NOT YET BUILT | **Strike a Mode**: choose the model/mode for the occasion, including the 200-files example. Full Episode 6 substance follows Episode 5 Gate 1/canon |
 | Codex model/credit routing | CONFIGURED FOR NEW TASKS; CURRENT CHAT STILL COMPOSER-CONTROLLED | Project defaults are Sol/Medium foreground, High planning, Terra/Medium subagents and Fast off. Extra High/Max/Ultra require a stated exception; active-chat picker choices can override the project files |
-| Public SUNNYVAiLE reveal | LAUNCH-QA PREVIEW DEPLOYED; PRODUCTION REVEAL STILL BLOCKED | Curated Cloudflare preview is edge-verified for homepage, Library, Visitor Centre, NewsStand, MAiKEOVER, Book Fair and all four episode players. `laidies.ai` has not moved; Ali's Library/Visitor design ruling, current NewsStand contract, final promise ledger and announcement channel/assets remain open |
+| Public SUNNYVAiLE reveal | REPAIRED RELEASE ARTIFACT VERIFIED LOCALLY; PRODUCTION REVEAL STILL BLOCKED | A 1,052-file curated artifact passes source/link/cue/news validation and mobile/desktop browser checks. All 83 KSVL audio dependencies are now packaged and Tune In plays locally. `laidies.ai` has not moved; Ali's Library/Visitor design ruling, exact-commit preview/edge verification, final production smoke test and announcement channel/assets remain open. |
 
 ## Work completed during the current strategy conversation
 
@@ -204,10 +204,11 @@ AW-001 is complete only when:
 - Recorded the private ~$700/month founder-funded estimate, created the
   subscription/vendor audit, and separated cost stewardship now from
   evidence-led audience monetization later.
-- Reconciled the news producer, public consumer, current GitHub Action and
-  GitHub Pages deployment. Confirmed that the daily job runs but writes an
-  orphaned raw feed, the better weekly system is manual Stage 1, Stage 2 was
-  never built and the latest public deploy failed.
+- Reconciled and repaired the NewsStand producer/public contract. The public
+  rack now contains the source-checked WEDNESDAY Edition and Tribune only;
+  TODAY is retired, current 2026-07-24 stories are validated, and the former
+  daily RSS workflow is manual-only private candidate intake. Stage 2 remains
+  unbuilt and no raw feed is described as publication.
 - Produced a technically cautious Episode 5 replacement around a
   seven-question receipt, then rejected it at Ali Gate 1 because the review
   tested the replacement against its own narrowed brief rather than the

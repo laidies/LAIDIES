@@ -25,6 +25,16 @@ const failures = [];
 let pageCount = 0;
 let referenceCount = 0;
 
+function isLiveHtmlName(name) {
+  return (
+    name.endsWith('.html') &&
+    !name.startsWith('_') &&
+    !name.startsWith('preview') &&
+    !name.startsWith('design-comp') &&
+    !name.includes('.pre-')
+  );
+}
+
 function walk(dir, relative = '') {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
   const files = [];
@@ -37,10 +47,7 @@ function walk(dir, relative = '') {
       files.push(...walk(abs, rel));
     } else if (
       entry.isFile() &&
-      entry.name.endsWith('.html') &&
-      !entry.name.startsWith('_') &&
-      !entry.name.startsWith('preview') &&
-      !entry.name.startsWith('design-comp')
+      isLiveHtmlName(entry.name)
     ) {
       files.push(rel);
     }

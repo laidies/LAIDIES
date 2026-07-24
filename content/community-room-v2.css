@@ -1,0 +1,518 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap");
+
+:root {
+  --room-night: #070f2c;
+  --room-ink: #111a3a;
+  --room-cobalt: #1769e8;
+  --room-cyan: #10cde3;
+  --room-pink: #f43f9d;
+  --room-purple: #7c3fe4;
+  --room-mint: #75e3c5;
+  --room-coral: #ff785e;
+  --room-paper: #fffdf8;
+  --room-cream: #fff9ef;
+  --room-line: rgba(17, 26, 58, 0.17);
+}
+
+body:has(.community-thread) {
+  color: var(--room-ink) !important;
+  background:
+    radial-gradient(circle at 8% 16%, rgba(16, 205, 227, 0.12), transparent 24rem),
+    radial-gradient(circle at 94% 26%, rgba(244, 63, 157, 0.1), transparent 30rem),
+    linear-gradient(180deg, #fffdf8 0%, #f5f3ff 54%, #f2fbff 100%) !important;
+  font-family: "Jost", sans-serif !important;
+}
+
+body:has(.community-thread) .sv-yah-chip {
+  display: none !important;
+}
+
+.community-thread {
+  width: 100%;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 0 5rem !important;
+}
+
+.community-thread .thread-hero {
+  position: relative;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: min(78vh, 760px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 !important;
+  padding: clamp(4rem, 9vw, 8rem) max(1.25rem, calc((100vw - 1180px) / 2)) !important;
+  overflow: hidden;
+  border: 0 !important;
+  border-bottom: 9px solid var(--room-cyan) !important;
+  border-radius: 0 !important;
+  color: var(--room-cream);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 15, 44, 0.98) 0%,
+      rgba(7, 15, 44, 0.94) 36%,
+      rgba(7, 15, 44, 0.56) 63%,
+      rgba(7, 15, 44, 0.26) 100%
+    ),
+    url("/assets/rerolls-20260714/willow-and-sorority-continuity/building-interiors/delta-lai-nu-sorority-house-interior.png")
+      center 48% / cover no-repeat;
+  box-shadow: none !important;
+  isolation: isolate;
+}
+
+.community-thread .thread-hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 10% auto 8% -6%;
+  width: min(52rem, 66vw);
+  background:
+    radial-gradient(circle at 72% 20%, rgba(244, 63, 157, 0.36), transparent 28%),
+    radial-gradient(circle at 22% 82%, rgba(16, 205, 227, 0.2), transparent 34%);
+  transform: rotate(-2deg);
+}
+
+.community-thread .thread-hero > * {
+  width: min(100%, 42rem);
+  max-width: 42rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.community-thread .thread-hero .eyebrow,
+.community-thread .digest-board .eyebrow,
+.community-thread .feedback-sidecar .eyebrow,
+.community-thread .thread-prompt-card .eyebrow {
+  margin-bottom: 0.85rem;
+  color: var(--room-pink) !important;
+  background: transparent;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.community-thread .thread-hero h1 {
+  margin: 0;
+  color: var(--room-cream) !important;
+  font-family: "Anton", "Arial Narrow", sans-serif !important;
+  font-size: clamp(4rem, 7.4vw, 7.8rem);
+  font-weight: 400;
+  letter-spacing: -0.025em !important;
+  line-height: 0.88;
+  text-transform: uppercase;
+  text-wrap: balance;
+  text-shadow:
+    3px 3px 0 var(--room-purple),
+    7px 7px 0 rgba(16, 205, 227, 0.82);
+}
+
+/* These two prompts are sentences, not masthead-sized room names. Keep the
+   arrival legible without letting the title swallow the room itself. */
+.community-thread:has(#feedbackForm) .thread-hero h1,
+.community-thread:has(.mix-exchange-desk) .thread-hero h1 {
+  max-width: 13ch;
+  font-size: clamp(3.6rem, 5.7vw, 6.25rem);
+  line-height: 0.92;
+}
+
+.community-thread .thread-hero .thread-subhead {
+  margin-top: 2rem;
+  color: #ffffff !important;
+  font-size: clamp(1.08rem, 1.8vw, 1.35rem);
+  font-style: normal;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+.community-thread .thread-hero > p:not(.eyebrow, .thread-subhead) {
+  margin-top: 0.75rem;
+  color: #e8e7f8 !important;
+  font-size: 1rem;
+  line-height: 1.62;
+}
+
+.community-thread .thread-hero .button {
+  width: auto;
+  display: inline-flex;
+  align-self: flex-start;
+  margin-top: 1.35rem;
+  border: 0 !important;
+  border-bottom: 4px solid var(--room-cyan) !important;
+  border-radius: 0 !important;
+  padding: 0.7rem 0.15rem 0.55rem !important;
+  color: var(--room-cream) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.community-thread .thread-hero .button:hover,
+.community-thread .thread-hero .button:focus-visible {
+  color: var(--room-cyan) !important;
+  outline: 0;
+}
+
+.community-thread .thread-comments {
+  position: relative;
+  width: min(1180px, calc(100% - 2rem));
+  min-height: 34rem;
+  margin: clamp(4rem, 8vw, 7rem) auto 0 !important;
+  padding: clamp(4rem, 7vw, 6.5rem) clamp(1rem, 5vw, 4.5rem) 3rem !important;
+  border: 0 !important;
+  border-top: 10px solid var(--room-purple) !important;
+  border-bottom: 5px solid var(--room-cyan) !important;
+  border-radius: 0 !important;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0,
+      transparent 2.45rem,
+      rgba(23, 105, 232, 0.1) 2.45rem,
+      rgba(23, 105, 232, 0.1) calc(2.45rem + 1px)
+    ),
+    var(--room-paper) !important;
+  box-shadow: 0 24px 64px rgba(7, 15, 44, 0.14) !important;
+}
+
+.community-thread .thread-comments::before {
+  content: "THE CONVERSATION TABLE · ADD YOURS";
+  position: absolute;
+  top: 1.3rem;
+  left: clamp(1rem, 5vw, 4.5rem);
+  color: var(--room-pink);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.community-thread .thread-comments > script + hyvor-talk-comments,
+.community-thread hyvor-talk-comments {
+  display: block;
+  width: 100%;
+  min-height: 24rem;
+}
+
+.community-thread > div[style*="text-align"] {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 2rem auto 0;
+  padding: 1.4rem 0 0 !important;
+  border-top: 5px solid var(--room-night);
+  text-align: left !important;
+}
+
+.community-thread > div[style*="text-align"] .button {
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  color: var(--room-night) !important;
+  background: transparent !important;
+  font-weight: 850;
+  text-decoration: underline;
+  text-decoration-color: var(--room-pink);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.3rem;
+}
+
+/* Mix CD: one open liner-note spread rather than two floating cards. */
+.community-thread .mix-exchange-desk {
+  position: relative;
+  width: min(1180px, calc(100% - 2rem));
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin: clamp(4rem, 8vw, 7rem) auto 0;
+  border-top: 10px solid var(--room-purple);
+  border-bottom: 5px solid var(--room-cyan);
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0,
+      transparent 2.45rem,
+      rgba(23, 105, 232, 0.09) 2.45rem,
+      rgba(23, 105, 232, 0.09) calc(2.45rem + 1px)
+    ),
+    var(--room-paper);
+  box-shadow: 0 24px 64px rgba(7, 15, 44, 0.14);
+}
+
+.community-thread .thread-prompt-card {
+  width: 100%;
+  margin: 0 !important;
+  padding: clamp(2rem, 5vw, 4rem) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: var(--room-ink);
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.community-thread .thread-prompt-card + .thread-prompt-card {
+  border-left: 2px solid var(--room-line) !important;
+}
+
+.community-thread .thread-prompt-card p {
+  color: var(--room-ink) !important;
+}
+
+.community-thread .thread-prompt-card a {
+  color: var(--room-purple);
+}
+
+/* Comment Card: one writing desk and one dark editorial margin. */
+.community-thread .feedback-workbench {
+  width: min(1180px, calc(100% - 2rem));
+  display: grid;
+  grid-template-columns: minmax(0, 0.68fr) minmax(18rem, 0.32fr);
+  gap: 0 !important;
+  margin: clamp(4rem, 8vw, 7rem) auto 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+  border: 0 !important;
+  border-top: 10px solid var(--room-purple) !important;
+  border-radius: 0 !important;
+  background: var(--room-paper);
+  box-shadow: 0 24px 64px rgba(7, 15, 44, 0.14);
+}
+
+.community-thread .feedback-form {
+  margin: 0 !important;
+  padding: clamp(2rem, 5vw, 4rem) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0,
+      transparent 2.45rem,
+      rgba(23, 105, 232, 0.09) 2.45rem,
+      rgba(23, 105, 232, 0.09) calc(2.45rem + 1px)
+    ),
+    var(--room-paper) !important;
+  box-shadow: none !important;
+}
+
+.community-thread .feedback-form h2,
+.community-thread .feedback-sidecar h2,
+.community-thread .digest-board h2 {
+  margin: 0 0 1.2rem;
+  color: var(--room-night) !important;
+  font-family: "Anton", "Arial Narrow", sans-serif !important;
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  font-weight: 400;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.community-thread .feedback-form label,
+.community-thread .feedback-form legend {
+  color: var(--room-ink) !important;
+  font-weight: 750;
+}
+
+.community-thread .feedback-form select,
+.community-thread .feedback-form textarea,
+.community-thread .feedback-form input[type="text"] {
+  border: 0;
+  border-bottom: 3px solid var(--room-night);
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.66);
+}
+
+.community-thread .feedback-form select:focus,
+.community-thread .feedback-form textarea:focus,
+.community-thread .feedback-form input[type="text"]:focus {
+  border-color: var(--room-pink);
+  outline: 2px solid rgba(244, 63, 157, 0.2);
+}
+
+.community-thread .feedback-fieldset {
+  border: 0 !important;
+  border-left: 5px solid var(--room-cyan) !important;
+  border-radius: 0 !important;
+  padding: 0.8rem 0 0.8rem 1.2rem !important;
+  background: transparent !important;
+}
+
+.community-thread .feedback-sidecar {
+  margin: 0 !important;
+  padding: clamp(2rem, 4vw, 3.5rem) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: var(--room-cream);
+  background:
+    linear-gradient(145deg, rgba(124, 63, 228, 0.28), transparent 46%),
+    var(--room-night) !important;
+  box-shadow: none !important;
+}
+
+.community-thread .feedback-sidecar h2,
+.community-thread .feedback-sidecar p,
+.community-thread .feedback-sidecar li {
+  color: var(--room-cream) !important;
+}
+
+.community-thread .board-form-actions .button {
+  border-radius: 0 !important;
+}
+
+.community-thread .board-form-actions .button.primary {
+  border: 2px solid var(--room-night) !important;
+  color: var(--room-cream) !important;
+  background: var(--room-night) !important;
+  box-shadow: 5px 5px 0 var(--room-cyan);
+}
+
+.community-thread .board-form-actions .button.secondary {
+  border: 2px solid var(--room-night) !important;
+  color: var(--room-night) !important;
+  background: transparent !important;
+}
+
+/* Digest: one receipts desk with an open process line and a ruled digest list. */
+.community-thread .digest-board {
+  width: min(1180px, calc(100% - 2rem));
+  margin: clamp(4rem, 8vw, 7rem) auto 0 !important;
+  padding: clamp(2rem, 5vw, 4.5rem) !important;
+  border: 0 !important;
+  border-top: 10px solid var(--room-purple) !important;
+  border-radius: 0 !important;
+  background: var(--room-paper) !important;
+  box-shadow: 0 24px 64px rgba(7, 15, 44, 0.13) !important;
+}
+
+.community-thread .digest-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
+  margin-top: 2.5rem;
+}
+
+.community-thread .digest-flow article {
+  padding: 1rem 0 0 !important;
+  border: 0 !important;
+  border-top: 5px solid var(--room-cyan) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.community-thread .digest-flow article span {
+  color: var(--room-pink);
+  font-family: "Anton", "Arial Narrow", sans-serif;
+  font-size: 2.6rem;
+}
+
+.community-thread .board-grid.digest-preview-grid {
+  display: block !important;
+  margin-top: 2rem;
+  border-top: 2px solid var(--room-line);
+}
+
+.community-thread .digest-preview-grid .board-card,
+.community-thread .digest-live-board > * {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.25fr) minmax(0, 0.35fr) minmax(0, 0.4fr);
+  gap: 1rem;
+  align-items: start;
+  margin: 0 !important;
+  padding: 1.2rem 0 !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--room-line) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.community-thread .digest-preview-grid .board-card .eyebrow {
+  margin: 0;
+}
+
+.community-thread .digest-preview-grid .board-card h3,
+.community-thread .digest-preview-grid .board-card p {
+  margin: 0;
+}
+
+.community-thread .digest-preview-grid .board-card a {
+  color: var(--room-purple);
+  font-weight: 800;
+  text-underline-offset: 0.25rem;
+}
+
+@media (max-width: 820px) {
+  .community-thread .thread-hero {
+    min-height: 44rem;
+    background:
+      linear-gradient(180deg, rgba(7, 15, 44, 0.94), rgba(7, 15, 44, 0.78)),
+      url("/assets/rerolls-20260714/willow-and-sorority-continuity/building-interiors/delta-lai-nu-sorority-house-interior.png")
+        center / cover no-repeat;
+  }
+
+  .community-thread .thread-hero h1 {
+    font-size: clamp(3.8rem, 15vw, 7rem);
+  }
+
+  .community-thread:has(#feedbackForm) .thread-hero h1,
+  .community-thread:has(.mix-exchange-desk) .thread-hero h1 {
+    font-size: clamp(3.25rem, 11vw, 5rem);
+  }
+
+  .community-thread .mix-exchange-desk {
+    grid-template-columns: 1fr;
+  }
+
+  .community-thread .thread-prompt-card + .thread-prompt-card {
+    border-top: 2px solid var(--room-line) !important;
+    border-left: 0 !important;
+  }
+
+  .community-thread .feedback-workbench {
+    grid-template-columns: 1fr;
+  }
+
+  .community-thread .digest-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .community-thread .digest-preview-grid .board-card,
+  .community-thread .digest-live-board > * {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .community-thread .thread-hero {
+    min-height: 40rem;
+    padding-inline: 1.15rem !important;
+  }
+
+  .community-thread .thread-hero h1 {
+    font-size: clamp(3.4rem, 17vw, 5.4rem);
+    text-shadow:
+      2px 2px 0 var(--room-purple),
+      5px 5px 0 rgba(16, 205, 227, 0.82);
+  }
+
+  .community-thread:has(#feedbackForm) .thread-hero h1,
+  .community-thread:has(.mix-exchange-desk) .thread-hero h1 {
+    font-size: clamp(2.85rem, 12.6vw, 4rem);
+  }
+
+  .community-thread .thread-comments,
+  .community-thread .feedback-workbench,
+  .community-thread .digest-board {
+    width: calc(100% - 1rem);
+  }
+
+  .community-thread .digest-flow {
+    grid-template-columns: 1fr;
+  }
+}

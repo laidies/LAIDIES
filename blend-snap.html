@@ -4,277 +4,748 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Blend & Snap · LAiDIES · SUNNYVAiLE</title>
-  <meta name="description" content="The Blend & Snap at MAiN Street No. 8 — coffee shop, third place. Where the Study Pack lives. Read here, take the test at SUNNYVAiLE High.">
-  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
-  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <meta name="description" content="The Blend & Snap at MAiN Street No. 4 — coffee shop, third place, and the counter where you order this week's Study Pack.">
+  <meta property="og:title" content="The Blend & Snap · LAiDIES">
+  <meta property="og:description" content="Order your usual, pick up this week's Study Pack, and follow the Wednesday corkboard around town.">
+  <meta property="og:image" content="/assets/building-interiors/delivery-20260723-blend-snap-comic-v1/blend-snap-jojo-counter-comic-candidate-v1.png">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/sunnyvaile-building-v2.css?v=20260723-1">
+  <style>
+    :root {
+      --bs-ink: #11183b;
+      --bs-midnight: #070f2b;
+      --bs-paper: #fffdfb;
+      --bs-pink: #f254a9;
+      --bs-purple: #7137d6;
+      --bs-cyan: #15bce0;
+      --bs-cobalt: #2457e6;
+      --bs-mint: #7de2c2;
+      --bs-coral: #ff7366;
+      --bs-orange: #ff9b3d;
+      --bs-lime: #b7e42b;
+      --bs-peri: #bcb8ff;
+      --bs-line: rgba(17,24,59,.17);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--bs-ink);
+      background: linear-gradient(155deg, #f3e0ec 0%, #f9e9e1 48%, #e9e6ff 100%);
+      background-attachment: fixed;
+      font-family: "Jost", sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    button, input, textarea { font: inherit; }
+    a { color: inherit; }
+    .bs-main { width: 100%; overflow: hidden; }
+
+    .bs-hero {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1672 / 941;
+      min-height: 520px;
+      overflow: hidden;
+      background: var(--bs-midnight);
+      border-bottom: 8px solid var(--bs-pink);
+    }
+    .bs-hero > img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .bs-special-on-board {
+      position: absolute;
+      left: 72.1%;
+      top: 10.4%;
+      width: 10.7%;
+      min-height: 11%;
+      padding: 5px;
+      border: 0;
+      background: transparent;
+      color: var(--bs-midnight);
+      text-align: center;
+      cursor: pointer;
+    }
+    .bs-special-on-board strong {
+      display: block;
+      font-size: clamp(9px, 1.05vw, 17px);
+      font-weight: 800;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+    .bs-special-on-board span {
+      display: block;
+      margin-top: 4px;
+      font-size: clamp(7px, .72vw, 12px);
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .bs-special-on-board:hover,
+    .bs-special-on-board:focus-visible {
+      outline: 4px solid var(--bs-pink);
+      outline-offset: 4px;
+    }
+
+    .bs-state {
+      width: 100%;
+      color: var(--bs-paper);
+      background:
+        radial-gradient(circle at 12% 20%, rgba(113,55,214,.48), transparent 33%),
+        radial-gradient(circle at 89% 70%, rgba(21,188,224,.22), transparent 30%),
+        var(--bs-midnight);
+    }
+    .bs-state__inner {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: clamp(56px, 7vw, 92px) 0;
+    }
+    .bs-address,
+    .bs-kicker {
+      margin: 0 0 12px;
+      color: var(--bs-mint);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+    .bs-state h1 {
+      max-width: 990px;
+      margin: 0;
+      font-family: "Anton", Impact, sans-serif;
+      font-size: clamp(52px, 8vw, 106px);
+      font-weight: 400;
+      line-height: .91;
+      letter-spacing: .015em;
+      text-transform: uppercase;
+      text-shadow: 5px 5px 0 var(--bs-purple);
+    }
+    .bs-state__copy {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: rgba(255,253,251,.78);
+      font-size: clamp(18px, 2vw, 23px);
+    }
+    .bs-state__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 28px;
+    }
+    .bs-theme {
+      min-height: 48px;
+      padding: 12px 18px;
+      border: 2px solid var(--bs-paper);
+      border-radius: 8px;
+      background: transparent;
+      color: var(--bs-paper);
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .bs-theme.is-playing { background: var(--bs-purple); }
+
+    .bs-usual {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 42px 0;
+      border-bottom: 3px solid var(--bs-midnight);
+    }
+    .bs-usual__head {
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+      gap: 34px;
+      align-items: end;
+    }
+    .bs-usual h2,
+    .bs-counter h2,
+    .bs-noticeboard-head h2 {
+      margin: 0;
+      font-size: clamp(38px, 5vw, 66px);
+      line-height: .98;
+      letter-spacing: -.04em;
+    }
+    .bs-usual p { margin: 0; color: rgba(17,24,59,.73); font-size: 17px; }
+    .bs-drinks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      margin-top: 26px;
+      border-top: 2px solid var(--bs-midnight);
+      border-bottom: 2px solid var(--bs-midnight);
+    }
+    .bs-drink {
+      flex: 1 1 210px;
+      min-height: 70px;
+      padding: 14px 20px;
+      border: 0;
+      border-right: 1px solid var(--bs-line);
+      background: transparent;
+      color: var(--bs-ink);
+      text-align: left;
+      cursor: pointer;
+    }
+    .bs-drink strong { display: block; font-size: 18px; }
+    .bs-drink span { display: block; margin-top: 2px; color: rgba(17,24,59,.62); font-size: 12px; }
+    .bs-drink:hover,
+    .bs-drink:focus-visible,
+    .bs-drink.is-selected {
+      background: linear-gradient(90deg, rgba(242,84,169,.18), rgba(125,226,194,.14));
+      outline: none;
+    }
+    .bs-drink.is-selected strong::after { content: " · the usual"; color: var(--bs-purple); }
+    .bs-memory-note {
+      margin: 14px 0 0 !important;
+      font-size: 13px !important;
+    }
+
+    .bs-counter {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: clamp(58px, 7vw, 92px) 0;
+    }
+    .bs-counter-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, .8fr);
+      gap: 34px;
+      align-items: end;
+    }
+    .bs-counter-head p {
+      margin: 0;
+      color: rgba(17,24,59,.72);
+      font-size: 17px;
+    }
+    .bs-mobile-order { display: none; }
+    .bs-menu-ledger {
+      margin-top: 32px;
+      border-top: 3px solid var(--bs-midnight);
+      border-bottom: 3px solid var(--bs-midnight);
+    }
+    .bs-menu-line {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 22px;
+      align-items: center;
+      min-height: 96px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--bs-line);
+    }
+    .bs-menu-line:last-child { border-bottom: 0; }
+    .bs-menu-line h3 { margin: 0; font-size: 22px; line-height: 1.1; }
+    .bs-menu-line p { margin: 5px 0 0; color: rgba(17,24,59,.67); font-size: 14px; }
+    .bs-menu-link {
+      font-weight: 800;
+      text-underline-offset: 4px;
+    }
+
+    .bs-receipt {
+      display: none;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, .55fr);
+      gap: 34px;
+      align-items: center;
+      margin-top: 28px;
+      padding: clamp(26px, 4vw, 48px);
+      border: 3px solid var(--bs-midnight);
+      border-radius: 8px;
+      background:
+        repeating-linear-gradient(0deg, rgba(17,24,59,.025) 0 2px, transparent 2px 7px),
+        var(--bs-paper);
+      box-shadow: 10px 10px 0 var(--bs-cyan);
+      scroll-margin-top: 90px;
+    }
+    .bs-receipt.is-open { display: grid; }
+    .bs-receipt__stamp {
+      margin: 0 0 8px;
+      color: var(--bs-purple);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+    .bs-receipt h3 { margin: 0; font-size: clamp(30px, 4vw, 48px); line-height: 1; }
+    .bs-receipt p { margin: 14px 0 0; color: rgba(17,24,59,.7); }
+    .bs-receipt__actions { display: grid; gap: 11px; }
+    .bs-receipt__actions .svb-action { width: 100%; }
+
+    .bs-regulars {
+      margin-top: 24px;
+      border-top: 2px solid var(--bs-line);
+      border-bottom: 2px solid var(--bs-line);
+    }
+    .bs-regulars summary {
+      padding: 18px 0;
+      font-weight: 800;
+      cursor: pointer;
+      list-style: none;
+    }
+    .bs-regulars summary::-webkit-details-marker { display: none; }
+    .bs-regulars summary::after { content: "Open the back menu"; float: right; color: var(--bs-purple); font-size: 12px; text-transform: uppercase; letter-spacing: .1em; }
+    .bs-regulars[open] summary::after { content: "Close the back menu"; }
+    .bs-regulars__list { padding: 0 0 20px; }
+    .bs-regular {
+      display: grid;
+      grid-template-columns: 88px minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+      padding: 14px 0;
+      border-top: 1px solid var(--bs-line);
+      text-decoration: none;
+    }
+    .bs-regular__number {
+      color: var(--bs-pink);
+      font-family: "Anton", Impact, sans-serif;
+      font-size: 28px;
+      letter-spacing: .04em;
+    }
+    .bs-regular strong { display: block; }
+    .bs-regular span { color: rgba(17,24,59,.65); font-size: 13px; }
+    .bs-regular__go { color: var(--bs-purple) !important; font-weight: 800; }
+
+    .bs-noticeboard {
+      width: 100%;
+      padding: clamp(58px, 7vw, 92px) 0;
+      color: var(--bs-paper);
+      background:
+        radial-gradient(circle at 14% 20%, rgba(242,84,169,.25), transparent 30%),
+        var(--bs-midnight);
+    }
+    .bs-noticeboard-head,
+    .bs-board-wrap,
+    .bs-quiet {
+      width: min(1180px, calc(100% - 48px));
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .bs-noticeboard-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, .8fr);
+      gap: 34px;
+      align-items: end;
+    }
+    .bs-noticeboard-head .bs-kicker { color: var(--bs-mint); }
+    .bs-noticeboard-head p { margin: 0; color: rgba(255,253,251,.72); font-size: 17px; }
+    .bs-board-wrap {
+      position: relative;
+      margin-top: 34px;
+    }
+    .bs-board-wrap > img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 4px solid var(--bs-cyan);
+      box-shadow: 10px 10px 0 var(--bs-purple);
+    }
+    .bs-notice {
+      position: absolute;
+      width: 20.5%;
+      height: 36%;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+    .bs-notice:hover,
+    .bs-notice:focus-visible {
+      outline: 5px solid var(--bs-lime);
+      outline-offset: 3px;
+    }
+    .bs-notice:nth-of-type(1) { left: 6.6%; top: 10%; }
+    .bs-notice:nth-of-type(2) { left: 29.5%; top: 10%; }
+    .bs-notice:nth-of-type(3) { left: 51.7%; top: 10%; }
+    .bs-notice:nth-of-type(4) { left: 73.6%; top: 10%; }
+    .bs-notice:nth-of-type(5) { left: 6.4%; top: 53.5%; }
+    .bs-notice:nth-of-type(6) { left: 29%; top: 53.5%; }
+    .bs-notice:nth-of-type(7) { left: 51.4%; top: 53.5%; }
+    .bs-notice:nth-of-type(8) { left: 73.8%; top: 53.5%; }
+    .bs-quiet {
+      margin-top: 32px;
+      padding: 22px 0;
+      border-top: 2px solid rgba(255,253,251,.26);
+      border-bottom: 2px solid rgba(255,253,251,.26);
+      color: rgba(255,253,251,.72);
+      font-size: 15px;
+    }
+    .bs-quiet strong { color: var(--bs-mint); }
+
+    footer {
+      padding: 34px 24px 110px;
+      color: rgba(17,24,59,.65);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    @media (max-width: 760px) {
+      body { background-attachment: scroll; }
+      .bs-hero {
+        min-height: 0;
+        aspect-ratio: 1 / 1.02;
+      }
+      .bs-hero > img {
+        object-position: 51% center;
+      }
+      .bs-special-on-board { display: none; }
+      .bs-state__inner,
+      .bs-usual,
+      .bs-counter,
+      .bs-noticeboard-head,
+      .bs-board-wrap,
+      .bs-quiet {
+        width: min(100% - 32px, 1180px);
+      }
+      .bs-state h1 { font-size: clamp(52px, 18vw, 82px); }
+      .bs-state__actions { display: grid; grid-template-columns: 1fr; }
+      .bs-state__actions > * { width: 100%; }
+      .bs-usual__head,
+      .bs-counter-head,
+      .bs-receipt,
+      .bs-noticeboard-head {
+        grid-template-columns: 1fr;
+      }
+      .bs-drinks { display: grid; grid-template-columns: 1fr; }
+      .bs-drink { width: 100%; border-right: 0; border-bottom: 1px solid var(--bs-line); }
+      .bs-mobile-order {
+        display: block;
+        width: 100%;
+        margin: 26px 0 0;
+      }
+      .bs-menu-line { grid-template-columns: 1fr; gap: 8px; }
+      .bs-receipt { box-shadow: 7px 7px 0 var(--bs-cyan); }
+      .bs-regular { grid-template-columns: 68px minmax(0, 1fr); }
+      .bs-regular__go { grid-column: 2; }
+      .bs-noticeboard-head { align-items: start; }
+      .bs-board-wrap > img { box-shadow: 7px 7px 0 var(--bs-purple); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
   <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
-  <!-- Privacy-friendly analytics by Plausible -->
+  <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
+  <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
+  <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
   <script>
-    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-    plausible.init()
-  </script>
-  <!-- Microsoft Clarity (heatmaps + session recordings) -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "xnqcp37urd");
+    window.plausible = window.plausible || function() {
+      (plausible.q = plausible.q || []).push(arguments);
+    };
+    plausible.init = plausible.init || function(i) { plausible.o = i || {}; };
+    plausible.init();
   </script>
 </head>
-<body>
-
+<body class="svb-page">
   <header class="sv-header"></header>
 
-  <div class="sv-hero"><img src="assets/building-interiors/blend-snap-cafe.jpg?v=20260707" alt="Inside the Blend &amp; Snap café — espresso machine, pastry case, bistro tables, and a corkboard reading POP QUIZ WEDNESDAY and STUDY BUDDY WANTED, with the SUNNYVAiLE street through the window" loading="eager"></div>
-
-  <main>
-
-    <div class="sv-eyebrow">
-      <span class="sv-eyebrow-label">★ MAiN Street · No. 4 · SUNNYVAiLE</span>
-      <button class="sv-theme" type="button"
-              aria-label="Play Down at the Blend & Snap by THE LAiDIES"
-              data-src="/content/music/the-laidies-down-at-the-blend-and-snap.mp3"
-              onclick="window.playLaidiesTheme(this);">
-        <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-        <svg viewBox="0 0 24 24" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
-        <span>♪ Down at the Blend &amp; Snap</span>
+  <main class="bs-main">
+    <section class="bs-hero" aria-label="JoJo at the Blend & Snap counter">
+      <img src="/assets/building-interiors/delivery-20260723-blend-snap-comic-v1/blend-snap-jojo-counter-comic-candidate-v1.png" alt="JoJo slides a heart latte across the Blend & Snap counter in bright SUNNYVAiLE">
+      <button class="bs-special-on-board" id="bsOrderHero" type="button">
+        <strong id="bsHeroSpecial">This week's Study Pack</strong>
+        <span>Order at the counter</span>
       </button>
-    </div>
-
-    <h1>The Blend <span class="ai">&amp; Snap</span>.</h1>
-
-    <p class="sv-lede">
-      Coffee shop. Third place. Where the Study Pack lives and the second draft of everything happens. Order something with milk in it, open the notes, run into someone. Then walk to school for the quiz.
-    </p>
-
-    <!-- ══ THE MENU IS THE INTERFACE ═══════════════════════════════════════
-         Ali: "what happens when you enter a coffee shop — you order. So the
-         menu is the different Study Packs and the other things you do in the
-         Blend & Snap." A real cafe menu you order from — NOT hotspots on a
-         photo, NOT a corkboard. Each line is a thing you get. ═════════════ -->
-    <style>
-      .bs-menu {
-        margin: 8px 0 40px; padding: 34px clamp(20px, 4vw, 48px) 30px;
-        background:
-          repeating-linear-gradient(90deg, transparent 0 6px, rgba(58,24,56,0.015) 6px 7px),
-          var(--cream, #fffdfb);
-        border: 1px solid var(--line, rgba(58,24,56,0.14));
-        border-radius: 14px; box-shadow: 0 10px 30px rgba(58,24,56,0.10);
-      }
-      .bs-menu-top { text-align: center; margin: 0 0 8px; }
-      .bs-menu-kicker { margin: 0; font-size: 11px; font-weight: 800; letter-spacing: 0.28em;
-        text-transform: uppercase; color: var(--rose, #9b3f5f); }
-      .bs-menu-title { margin: 6px 0 4px; font-family: 'Playfair Display', Georgia, serif;
-        font-size: clamp(28px, 4vw, 40px); font-weight: 700; color: var(--plum, #3a1838); }
-      .bs-menu-note { margin: 0; font-size: 14px; font-style: italic; color: var(--plum-soft, #6b3a66); }
-      .bs-menu-rule { height: 2px; margin: 18px 0 6px;
-        background: repeating-linear-gradient(90deg, var(--plum, #3a1838) 0 8px, transparent 8px 14px);
-        opacity: 0.35; }
-
-      .bs-sec-label { margin: 22px 0 6px; font-size: 12px; font-weight: 800;
-        letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose, #9b3f5f); }
-
-      .bs-order { display: flex; align-items: baseline; gap: 12px; width: 100%;
-        padding: 14px 4px; text-decoration: none; border-bottom: 1px solid rgba(58,24,56,0.10);
-        transition: background 140ms ease; }
-      .bs-order:last-child { border-bottom: 0; }
-      .bs-order:hover { background: rgba(155,63,95,0.05); }
-      .bs-order-main { flex: 1 1 auto; min-width: 0; }
-      .bs-order-name { display: block; font-family: 'Playfair Display', Georgia, serif;
-        font-size: 20px; font-weight: 700; color: var(--plum, #3a1838); line-height: 1.2; }
-      .bs-order-desc { display: block; margin-top: 3px; font-size: 14.5px; line-height: 1.5;
-        color: var(--plum-soft, #6b3a66); }
-      .bs-leader { flex: 0 1 auto; align-self: flex-end; margin-bottom: 5px;
-        border-bottom: 2px dotted rgba(58,24,56,0.28); min-width: 18px; height: 0; }
-      .bs-get { flex: 0 0 auto; white-space: nowrap; font-family: 'Jost', sans-serif;
-        font-size: 12.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
-        color: var(--rose, #9b3f5f); }
-      .bs-order:hover .bs-get { text-decoration: underline; }
-
-      .bs-order--special { align-items: flex-start; padding: 18px 16px; margin: 4px 0 2px;
-        background: linear-gradient(135deg, rgba(155,63,95,0.08), rgba(155,63,95,0.03));
-        border: 1.5px solid rgba(155,63,95,0.28); border-radius: 12px; }
-      .bs-order--special .bs-order-name { font-size: 24px; }
-      .bs-order--special .bs-get {
-        padding: 11px 22px; border-radius: 999px; color: var(--cream, #fffdfb);
-        background: var(--rose, #9b3f5f); align-self: center; }
-      .bs-tag { display: inline-block; margin: 0 0 6px; font-size: 10px; font-weight: 800;
-        letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose, #9b3f5f); }
-      @media (max-width: 560px) {
-        .bs-leader { display: none; }
-        .bs-order { flex-wrap: wrap; }
-        .bs-order--special .bs-get { align-self: flex-start; }
-      }
-    </style>
-
-    <section class="bs-menu" id="the-study-pack" aria-label="The Blend &amp; Snap menu">
-      <div class="bs-menu-top">
-        <p class="bs-menu-kicker">★ The Blend &amp; Snap</p>
-        <h2 class="bs-menu-title">Today's Menu</h2>
-        <p class="bs-menu-note">Order at the counter — it's all on the house. The coffee too.</p>
-      </div>
-      <div class="bs-menu-rule" aria-hidden="true"></div>
-
-      <p class="bs-sec-label">The Special · this Wednesday</p>
-      <a class="bs-order bs-order--special" id="bsSpecial" href="/issues/issue-04.html">
-        <span class="bs-order-main">
-          <span class="bs-tag">★ Fresh this week</span>
-          <span class="bs-order-name" id="bsSpecialName">This Week's Study Pack</span>
-          <span class="bs-order-desc" id="bsSpecialDesc">Class notes for the Pop Quiz — vocab, key concepts, the cheat sheet. Read it over a latte, then walk to SUNNYVAiLE High and take the test.</span>
-        </span>
-        <span class="bs-get">Order →</span>
-      </a>
-
-      <p class="bs-sec-label">On the Side</p>
-      <a class="bs-order" href="/games/trading-cards.html">
-        <span class="bs-order-main">
-          <span class="bs-order-name">Concept Card Pack</span>
-          <span class="bs-order-desc">Comes with every Study Pack. Rip it, flip each card, learn a concept — trade the doubles.</span>
-        </span>
-        <span class="bs-leader" aria-hidden="true"></span>
-        <span class="bs-get">Add →</span>
-      </a>
-      <a class="bs-order" href="/learn/quiz.html">
-        <span class="bs-order-main">
-          <span class="bs-order-name">The Pop Quiz</span>
-          <span class="bs-order-desc">Ten questions on this week's episode. Taken next door at SUNNYVAiLE High — this is where you study for it.</span>
-        </span>
-        <span class="bs-leader" aria-hidden="true"></span>
-        <span class="bs-get">Take it →</span>
-      </a>
-
-      <p class="bs-sec-label">The Regulars · every past pack</p>
-      <div id="bsRegulars">
-        <a class="bs-order" aria-disabled="true" href="#the-study-pack" style="pointer-events:none;">
-          <span class="bs-order-main"><span class="bs-order-desc" style="font-style:italic;">Pulling the past packs off the shelf…</span></span>
-        </a>
-      </div>
-
-      <p class="bs-menu-note" style="text-align:center; margin-top:22px;">Just here for the coffee? That's allowed too. Third places don't ask you to be productive.</p>
     </section>
 
-    <script>
-      (function () {
-        'use strict';
-        function esc(s){ return String(s==null?'':s).replace(/[<>&"]/g,function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c];}); }
-        fetch('/content/episode-index.json')
-          .then(function (r) { return r.json(); })
-          .then(function (data) {
-            var eps = (data.episodes || []).filter(function (e) { return e.status === 'published'; });
-            if (!eps.length) return;
-            eps.sort(function (a, b) { return b.number - a.number; });
+    <section class="bs-state" aria-labelledby="bs-title">
+      <div class="bs-state__inner">
+        <p class="bs-address">The Blend & Snap · No. 4 MAiN · Keeper: JoJo</p>
+        <h1 id="bs-title">The usual?</h1>
+        <p class="bs-state__copy" id="bsStateCopy">
+          First time in? Choose your coffee, then order this week's Study Pack. It is all on the house.
+        </p>
+        <div class="bs-state__actions">
+          <button class="svb-action" id="bsOrderState" type="button">Order this week's pack</button>
+          <button class="bs-theme" type="button" data-src="/content/music/the-laidies-down-at-the-blend-and-snap.mp3">Play “Down at the Blend & Snap”</button>
+        </div>
+      </div>
+    </section>
 
-            var current = eps[0];
-            var special = document.getElementById('bsSpecial');
-            if (special && current.issueUrl) {
-              special.href = '/' + current.issueUrl.replace(/^\//, '');
-              var nm = document.getElementById('bsSpecialName');
-              if (nm) nm.textContent = 'Study Pack · Episode ' + String(current.number).padStart(2, '0') + ' — ' + current.title;
-            }
+    <section class="bs-usual" aria-labelledby="bs-usual-title">
+      <div class="bs-usual__head">
+        <div>
+          <p class="bs-kicker">JoJo remembers</p>
+          <h2 id="bs-usual-title">What are you having?</h2>
+        </div>
+        <p>
+          The first time, you spell out the order. Next time, the place knows it
+          because you built the context. That is the whole AI-memory lesson in one coffee.
+        </p>
+      </div>
+      <div class="bs-drinks" id="bsDrinks" aria-label="Choose your usual drink">
+        <button class="bs-drink" type="button" data-drink="Cortado"><strong>Cortado</strong><span>Short, direct, gets to the point.</span></button>
+        <button class="bs-drink" type="button" data-drink="Hazelnut mocha"><strong>Hazelnut mocha</strong><span>Detailed, warm, a little extra.</span></button>
+        <button class="bs-drink" type="button" data-drink="Chai latte"><strong>Chai latte</strong><span>Structured, spiced, impossible to rush.</span></button>
+      </div>
+      <p class="bs-memory-note" id="bsMemoryNote">Choose once. JoJo will remember on this device.</p>
+    </section>
 
-            var host = document.getElementById('bsRegulars');
-            if (!host) return;
-            var past = eps.slice(1);
-            if (!past.length) {
-              host.innerHTML = '<a class="bs-order" aria-disabled="true" href="#the-study-pack" style="pointer-events:none;"><span class="bs-order-main"><span class="bs-order-desc" style="font-style:italic;">Season one is young — past packs join the menu as the weeks stack up.</span></span></a>';
-              return;
-            }
-            host.innerHTML = past.map(function (ep) {
-              return '<a class="bs-order" href="/' + esc((ep.issueUrl || '').replace(/^\//, '')) + '">' +
-                '<span class="bs-order-main">' +
-                  '<span class="bs-order-name">Ep ' + String(ep.number).padStart(2,'0') + ' · ' + esc(ep.title) + '</span>' +
-                  '<span class="bs-order-desc">' + esc(ep.oneLineDescription || ep.lesson || '') + '</span>' +
-                '</span>' +
-                '<span class="bs-leader" aria-hidden="true"></span>' +
-                '<span class="bs-get">Order →</span>' +
-              '</a>';
-            }).join('');
-          })
-          .catch(function () {
-            var host = document.getElementById('bsRegulars');
-            if (host) host.innerHTML = '<a class="bs-order" aria-disabled="true" href="#the-study-pack" style="pointer-events:none;"><span class="bs-order-main"><span class="bs-order-desc" style="font-style:italic;">The menu is being restocked — check back in a minute.</span></span></a>';
-          });
-      })();
-    </script>
+    <section class="bs-counter" id="the-study-pack" aria-labelledby="bs-counter-title">
+      <div class="bs-counter-head">
+        <div>
+          <p class="bs-kicker">Today's menu · all on the house</p>
+          <h2 id="bs-counter-title">Order at the counter.</h2>
+        </div>
+        <p>
+          The Special is the current Study Pack. The sides are the tools that go
+          with it. Nothing here pretends to be a checkout.
+        </p>
+      </div>
 
-    <h2>How the Wednesday lap works from here</h2>
+      <button class="svb-action bs-mobile-order" id="bsOrderMobile" type="button">Order the Special</button>
 
-    <ol style="font-size: 17px; line-height: 1.7; padding-left: 22px; color: var(--plum);">
-      <li><strong>Read the episode</strong> at <a href="/chick-flicks.html" style="color: var(--rose); text-decoration: underline;">The Chick Flicks</a></li>
-      <li><strong>Grab coffee + the Study Pack</strong> right here</li>
-      <li><strong>Walk over to <a href="/sunnyvaile-high.html" style="color: var(--rose); text-decoration: underline;">SUNNYVAiLE High</a></strong> and take the Pop Quiz</li>
-      <li><strong>Optional:</strong> free time at <a href="/visitors-centre.html">any game in town</a> · happy hour at <a href="/bronze-aige.html">The BRONZE AiGE</a> at 4 · debrief at <a href="/sorority-house.html">Delta LAi Nu</a></li>
-    </ol>
+      <div class="bs-menu-ledger">
+        <div class="bs-menu-line">
+          <div>
+            <h3 id="bsSpecialName">This week's Study Pack</h3>
+            <p id="bsSpecialDesc">Class notes, key concepts, and the cheat sheet for the next Pop Quiz.</p>
+          </div>
+          <button class="svb-action" id="bsOrderMenu" type="button">Order the Special</button>
+        </div>
+        <div class="bs-menu-line">
+          <div>
+            <h3>Concept Card Pack</h3>
+            <p>Rip it, flip each card, learn one concept, and keep the references.</p>
+          </div>
+          <a class="bs-menu-link" href="/games/trading-cards.html">Open the pack →</a>
+        </div>
+        <div class="bs-menu-line">
+          <div>
+            <h3>The Pop Quiz</h3>
+            <p>Taken next door at SUNNYVAiLE High. This is where you study for it.</p>
+          </div>
+          <a class="bs-menu-link" href="/learn/quiz.html">Walk to the quiz →</a>
+        </div>
+      </div>
 
-    <h2>It's also just a coffee shop</h2>
+      <article class="bs-receipt" id="bsReceipt" aria-live="polite">
+        <div>
+          <p class="bs-receipt__stamp">Order up · Study Pack</p>
+          <h3 id="bsReceiptTitle">This week's pack</h3>
+          <p id="bsReceiptCopy">JoJo has put the notes beside your coffee.</p>
+        </div>
+        <div class="bs-receipt__actions">
+          <a class="svb-action" id="bsTakePack" href="/issues/issue-01.html">Take it to a table</a>
+          <button class="svb-action svb-action--paper" id="bsCloseReceipt" type="button">Leave it at the counter</button>
+        </div>
+      </article>
 
-    <p>
-      You don't have to be doing anything productive to be here. Sometimes you just want a Wednesday afternoon with a cortado and someone else's overheard meeting. That's allowed. That's most of why a third place matters.
-    </p>
+      <details class="bs-regulars">
+        <summary>The Regulars · every past Study Pack</summary>
+        <div class="bs-regulars__list" id="bsRegulars">
+          <p>The back menu is being restocked.</p>
+        </div>
+      </details>
+    </section>
 
-    <div class="sv-trip-tie">
-      <div class="sv-trip-tie__eyebrow">★ Your Resident Card</div>
-      <h3 class="sv-trip-tie__title">Study Pack — this is where you grab it.</h3>
-      <p class="sv-trip-tie__body">Your weekly trading cards drop into the Study Pack shelf of your Closet. The Blend & Snap is where they show up — order your usual, grab this week's stack, add them to your binder. <strong>Every customization is a trip somewhere in town.</strong></p>
-      <p class="sv-trip-tie__note">Full picker coming with the member card. For now, this is where it lives.</p>
-    </div>
+    <section class="bs-noticeboard" aria-labelledby="bs-noticeboard-title">
+      <div class="bs-noticeboard-head">
+        <div>
+          <p class="bs-kicker">The Wednesday corkboard</p>
+          <h2 id="bs-noticeboard-title">Where everyone is going after coffee.</h2>
+        </div>
+        <p>
+          The flyers are the links. Pick the note that matches what you need and
+          follow it across town—no separate list of mystery buttons.
+        </p>
+      </div>
 
-    <div class="sv-ctas">
-      <a class="sv-cta sv-cta--primary" href="#the-study-pack">
-        <span>
-          <span class="sv-cta-label">Open the Study Pack</span>
-          <span class="sv-cta-title">This week's class notes →</span>
-        </span>
-        <span class="sv-cta-arrow">→</span>
-      </a>
-      <a class="sv-cta" href="/sunnyvaile-high.html">
-        <span>
-          <span class="sv-cta-label">Ready for the test?</span>
-          <span class="sv-cta-title">Walk to SUNNYVAiLE High</span>
-        </span>
-        <span class="sv-cta-arrow">→</span>
-      </a>
-    </div>
+      <div class="bs-board-wrap">
+        <img src="/assets/building-interiors/delivery-20260723-blend-snap-comic-v1/blend-snap-corkboard-comic-candidate-v1.png" alt="Blend & Snap community corkboard with eight notices for the Wednesday route">
+        <a class="bs-notice" href="#the-study-pack" aria-label="Study Pack pickup — new every Wednesday"></a>
+        <a class="bs-notice" href="/sunnyvaile-high.html" aria-label="Pop Quiz help at SUNNYVAiLE High"></a>
+        <a class="bs-notice" href="/chick-flicks.html" aria-label="Chick Flicks episode rewind club"></a>
+        <a class="bs-notice" href="/bronze-aige.html" aria-label="BRONZE AiGE post-quiz debrief"></a>
+        <a class="bs-notice" href="/radio.html" aria-label="KSVL earworm study session"></a>
+        <a class="bs-notice" href="/luminairy.html" aria-label="LUMINAiRY field trip — meet a MAiVEN"></a>
+        <a class="bs-notice" href="/sorority-house.html" aria-label="Delta LAi Nu Girl Talk — Resident Card required"></a>
+        <a class="bs-notice" href="/library.html" aria-label="LIBRAiRY citation rescue"></a>
+      </div>
 
+      <p class="bs-quiet">
+        <strong>Just here for the coffee?</strong> That is allowed too. Third places
+        do not ask you to be productive. Your weekly trading cards will eventually
+        drop into the Study Pack shelf in your Closet; the full member picker is
+        not open yet.
+      </p>
+    </section>
   </main>
 
-  <footer>© LAiDIES · Filed from SUNNYVAiLE · The Blend &amp; Snap</footer>
+  <footer>© LAiDIES · Filed from SUNNYVAiLE · The Blend & Snap</footer>
 
   <script>
     (function() {
-      'use strict';
-      var activeBtn = null, activeAudio = null;
-      function stopActive() {
-        if (activeBtn) activeBtn.classList.remove('is-playing');
-        if (activeAudio) { try { activeAudio.pause(); } catch(e){} }
-        activeBtn = null; activeAudio = null;
+      "use strict";
+
+      var currentEpisode = null;
+      var currentKey = "";
+      var receipt = document.getElementById("bsReceipt");
+      var orderButtons = ["bsOrderHero", "bsOrderState", "bsOrderMobile", "bsOrderMenu"];
+      var activeThemeButton = null;
+      var activeAudio = null;
+
+      function getLocal(key) {
+        try { return localStorage.getItem(key) || ""; } catch (error) { return ""; }
       }
-      window.playLaidiesTheme = function(btn) {
-        if (!btn || btn.disabled) return;
-        var src = btn.getAttribute('data-src');
-        if (!src) return;
-        if (activeBtn === btn) { stopActive(); return; }
-        stopActive();
-        var audio = new Audio(src);
-        audio.preload = 'metadata';
-        audio.addEventListener('ended', function() { if (activeAudio === audio) stopActive(); });
-        audio.addEventListener('error', function() { if (activeAudio === audio) stopActive(); });
-        audio.play().catch(function() { if (activeAudio === audio) stopActive(); });
-        btn.classList.add('is-playing');
-        activeBtn = btn; activeAudio = audio;
-      };
+
+      function setLocal(key, value) {
+        try { localStorage.setItem(key, value); } catch (error) {}
+      }
+
+      function stateCopy() {
+        var usual = getLocal("laidies_bs_usual");
+        var pickedUp = getLocal("laidies_bs_last_pack");
+        var title = document.getElementById("bs-title");
+        var copy = document.getElementById("bsStateCopy");
+
+        if (!usual) {
+          title.textContent = "First time in?";
+          copy.textContent = "Choose your coffee, then order this week's Study Pack. It is all on the house.";
+          return;
+        }
+
+        title.textContent = "The usual?";
+        if (currentKey && pickedUp === currentKey) {
+          copy.textContent = usual + " is waiting. You are all caught up — the next Study Pack lands Wednesday.";
+        } else {
+          copy.textContent = usual + " is waiting. This week's Study Pack is fresh and JoJo has kept you a copy.";
+        }
+      }
+
+      function openReceipt() {
+        receipt.classList.add("is-open");
+        receipt.scrollIntoView({
+          behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+          block: "center"
+        });
+      }
+
+      function selectDrink(button) {
+        var drink = button.getAttribute("data-drink");
+        setLocal("laidies_bs_usual", drink);
+        document.querySelectorAll(".bs-drink").forEach(function(item) {
+          item.classList.toggle("is-selected", item === button);
+        });
+        document.getElementById("bsMemoryNote").textContent =
+          drink + " is now your usual on this device.";
+        stateCopy();
+      }
+
+      function escapeHTML(value) {
+        return String(value == null ? "" : value).replace(/[<>&"]/g, function(character) {
+          return {"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[character];
+        });
+      }
+
+      function applyEpisodeData(episodes) {
+        if (!episodes.length) return;
+        episodes.sort(function(a, b) { return Number(b.number) - Number(a.number); });
+        currentEpisode = episodes[0];
+        currentKey = String(currentEpisode.slug || currentEpisode.number);
+
+        var episodeNumber = String(currentEpisode.number).padStart(2, "0");
+        var label = "Study Pack · Episode " + episodeNumber + " — " + currentEpisode.title;
+        var issueURL = "/" + String(currentEpisode.issueUrl || "").replace(/^\//, "");
+
+        document.getElementById("bsHeroSpecial").textContent = "Episode " + episodeNumber;
+        document.getElementById("bsSpecialName").textContent = label;
+        document.getElementById("bsSpecialDesc").textContent =
+          currentEpisode.oneLineDescription || currentEpisode.lesson || "This week's class notes.";
+        document.getElementById("bsReceiptTitle").textContent = label;
+        document.getElementById("bsReceiptCopy").textContent =
+          currentEpisode.lesson || "JoJo has put the notes beside your coffee.";
+        document.getElementById("bsTakePack").href = issueURL;
+
+        var past = episodes.slice(1);
+        var regulars = document.getElementById("bsRegulars");
+        if (!past.length) {
+          regulars.innerHTML = "<p>Season one is young. Past packs join the back menu as Wednesdays stack up.</p>";
+        } else {
+          regulars.innerHTML = past.map(function(episode) {
+            var url = "/" + String(episode.issueUrl || "").replace(/^\//, "");
+            return '<a class="bs-regular" href="' + escapeHTML(url) + '">' +
+              '<span class="bs-regular__number">EP ' + String(episode.number).padStart(2, "0") + "</span>" +
+              "<span><strong>" + escapeHTML(episode.title) + "</strong>" +
+              escapeHTML(episode.oneLineDescription || episode.lesson || "") + "</span>" +
+              '<span class="bs-regular__go">Order →</span>' +
+            "</a>";
+          }).join("");
+        }
+        stateCopy();
+      }
+
+      orderButtons.forEach(function(id) {
+        var button = document.getElementById(id);
+        if (button) button.addEventListener("click", openReceipt);
+      });
+
+      document.getElementById("bsCloseReceipt").addEventListener("click", function() {
+        receipt.classList.remove("is-open");
+      });
+
+      document.getElementById("bsTakePack").addEventListener("click", function() {
+        if (currentKey) setLocal("laidies_bs_last_pack", currentKey);
+      });
+
+      document.querySelectorAll(".bs-drink").forEach(function(button) {
+        button.addEventListener("click", function() { selectDrink(button); });
+      });
+
+      var savedDrink = getLocal("laidies_bs_usual");
+      if (savedDrink) {
+        document.querySelectorAll(".bs-drink").forEach(function(button) {
+          button.classList.toggle("is-selected", button.getAttribute("data-drink") === savedDrink);
+        });
+        document.getElementById("bsMemoryNote").textContent =
+          savedDrink + " is your usual on this device.";
+      }
+
+      document.querySelectorAll(".bs-theme").forEach(function(button) {
+        button.addEventListener("click", function() {
+          if (activeThemeButton === button) {
+            activeAudio.pause();
+            button.classList.remove("is-playing");
+            button.textContent = "Play “Down at the Blend & Snap”";
+            activeThemeButton = null;
+            activeAudio = null;
+            return;
+          }
+          if (activeAudio) activeAudio.pause();
+          var audio = new Audio(button.getAttribute("data-src"));
+          audio.addEventListener("ended", function() {
+            button.classList.remove("is-playing");
+            button.textContent = "Play “Down at the Blend & Snap”";
+            activeThemeButton = null;
+            activeAudio = null;
+          });
+          audio.play().catch(function() {});
+          button.classList.add("is-playing");
+          button.textContent = "Pause “Down at the Blend & Snap”";
+          activeThemeButton = button;
+          activeAudio = audio;
+        });
+      });
+
+      fetch("/content/episode-index.json")
+        .then(function(response) {
+          if (!response.ok) throw new Error("menu unavailable");
+          return response.json();
+        })
+        .then(function(data) {
+          applyEpisodeData((data.episodes || []).filter(function(episode) {
+            return episode.status === "published";
+          }));
+        })
+        .catch(function() {
+          document.getElementById("bsSpecialName").textContent = "The menu is being restocked";
+          document.getElementById("bsSpecialDesc").textContent = "Try the current episode from the homepage while JoJo fixes the board.";
+          stateCopy();
+        });
+
+      stateCopy();
     })();
   </script>
-
-  <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
-    <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
-<script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
-<script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
-<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
 </body>
 </html>

@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SUNNYVAiLE Community RAiDIO · KSVL · LAiDIES</title>
   <meta name="description" content="SUNNYVAiLE Community RAiDIO (KSVL) — don't just learn from books, learn from hooks. Music broadcast all day. DJ SunnyV's tracks, patron saint themes, the town anthem on the hour. Tape it off the RAiDIO.">
-  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
+  <link rel="stylesheet" href="content/radio-v2.css?v=20260724-1">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
@@ -56,15 +57,36 @@
     @keyframes ksvl-onair { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
     @media (prefers-reduced-motion: reduce) { .ksvl-hero-tunein__dot { animation: none; } }
   </style>
-  <div class="sv-hero">
+  <div class="sv-hero ksvl-studio" aria-labelledby="ksvlStudioTitle">
     <img src="assets/building-interiors/ksvl-booth.jpg?v=20260707" alt="Inside the KSVL 99.9 booth — a mixing console with heart-topped mics, ON AIR sign, walls of records, and the SUNNYVAiLE street glowing through the window at dusk" loading="eager">
-    <button type="button" class="ksvl-hero-tunein" onclick="if(window.KSVL_startLive) window.KSVL_startLive();" aria-label="Tune in to KSVL Live radio, 99.9 FM">
-      <span class="ksvl-hero-tunein__dot" aria-hidden="true"></span>
-      <span>▶ Tune In Live · 99.9 FM</span>
-    </button>
+    <div class="ksvl-studio__copy">
+      <p class="ksvl-studio__kicker">MAiN Street · 99.9 FM · SUNNYVAiLE</p>
+      <h1 id="ksvlStudioTitle">KSVL R<span class="ai">Ai</span>DIO.</h1>
+      <p class="ksvl-studio__motto">Don't just learn from books. Learn from hooks.</p>
+      <p class="ksvl-studio__state" id="ksvlStudioState" aria-live="polite">SUNNYVAiLE is broadcasting. You're not tuned in.</p>
+      <p class="ksvl-studio__subline">DJ SunnyV · songs, jingles, weather, traffic, and commercials from every building in town.</p>
+    </div>
+
+    <div class="ksvl-studio__controls" id="ksvlStudioControls" aria-label="Operate the KSVL studio"></div>
+
+    <div class="ksvl-tuner" aria-label="KSVL FM tuner">
+      <div class="ksvl-tuner__readout">
+        <span>FM</span>
+        <strong id="ksvlDialReadout">99.9</strong>
+      </div>
+      <div class="ksvl-tuner__scale">
+        <div class="ksvl-tuner__marks" aria-hidden="true"><span>88</span><span>92</span><span>96</span><span>99.9</span><span>104</span><span>108</span></div>
+        <input id="ksvlDial" type="range" min="88" max="108" step="0.1" value="99.9" aria-label="FM dial. KSVL broadcasts at 99.9 FM.">
+        <p id="ksvlDialMessage">SUNNYVAiLE only gets one station.</p>
+      </div>
+      <button type="button" class="ksvl-hero-tunein" id="ksvlTuneButton" onclick="if(window.KSVL_startLive) window.KSVL_startLive();" aria-label="Tune in to KSVL Live radio, 99.9 FM">
+        <span class="ksvl-hero-tunein__dot" aria-hidden="true"></span>
+        <span>▶ Tune in</span>
+      </button>
+    </div>
   </div>
 
-  <main>
+  <main class="radio-v2-page">
 
     <div class="sv-eyebrow">
       <span class="sv-eyebrow-label">★ MAiN Street · No. 10 · KSVL · SUNNYVAiLE</span>
@@ -822,7 +844,7 @@
             try {
               localStorage.setItem('ksvl_pending_request', JSON.stringify({ style: style, topic: topic, lyrics: lyrics, saved_at: new Date().toISOString() }));
             } catch (_) {}
-            statusEl.innerHTML = 'Sign in at <a href="/resident-card.html" style="color: var(--gold); text-decoration: underline; font-weight: 700;">MAiKEOVER</a> to send this to DJ SunnyV. Your request is held on this device.';
+            statusEl.innerHTML = 'Sign in with your <a href="/resident-card.html" style="color: var(--gold); text-decoration: underline; font-weight: 700;">Resident Card</a> to send this to DJ SunnyV. Your request is held on this device.';
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
             return;
@@ -897,5 +919,6 @@
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
 <script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
   <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
+  <script defer src="/content/site/radio-v2.js?v=20260724-1"></script>
 </body>
 </html>

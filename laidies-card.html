@@ -6,7 +6,7 @@
   <title>Your Closet · LAiDIES · SUNNYVAiLE</title>
   <meta name="description" content="Your SUNNYVAiLE Closet — Resident Card, sticker book, sash, charm bracelet, and the collectible journey. Yours across every device.">
   <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
@@ -917,6 +917,7 @@
     .public-mode-banner[hidden] { display: none; }
     .public-mode-banner strong { color: var(--rose); }
   </style>
+  <link rel="stylesheet" href="/content/closet-v2.css?v=20260724-1" />
   <!-- Microsoft Clarity (heatmaps + session recordings) -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -926,17 +927,22 @@
     })(window, document, "clarity", "script", "xnqcp37urd");
   </script>
 </head>
-<body>
+<body class="closet-page">
 
 <header class="sv-header"></header>
 
-<main>
+<main class="closet-main">
 
   <!-- Closet interior hero — vibrant 1990s fashion-tech; self-hides if the art is unavailable -->
   <div id="closetHero" style="margin:0 0 10px;border-radius:16px;overflow:hidden;box-shadow:0 14px 34px rgba(75,33,72,0.22);">
     <img src="/assets/closet/closet-interior-hero-v2-90s-vibrant.png?v=20260721" alt="Inside your Closet — a vibrant 1990s dressing room at Delta LAi Nu" loading="eager"
          style="display:block;width:100%;height:clamp(150px,28vh,280px);object-fit:cover;object-position:center 48%;"
          onerror="this.parentNode.remove();">
+    <div class="closet-arrival-copy">
+      <p>Delta L<span class="ai">Ai</span> Nu · Resident storage</p>
+      <h1>The Closet</h1>
+      <span>Your Resident Card, Wednesday route, and every object you have collected in SUNNYVA<span class="ai">i</span>LE.</span>
+    </div>
   </div>
 
   <!-- Public mode banner -->
@@ -953,7 +959,7 @@
        ============================================== -->
   <section class="passport-section" id="sectionCard">
     <p class="passport-section-eyebrow">★ <a href="/sorority-house.html" style="color: inherit; text-decoration: none;">Delta L<span class="ai">Ai</span> Nu</a> · Your Closet · Your Card</p>
-    <h1 class="passport-section-title" id="cardSectionTitle">Your Resident Card</h1>
+    <h2 class="passport-section-title" id="cardSectionTitle">Your Resident Card</h2>
 
     <!-- The Town Wallet — the Resident Card rides in the front pocket;
          every building's membership card fills the slots below -->
@@ -971,7 +977,7 @@
             <span class="resident-no" id="residentNo">No. 0000</span>
           </div>
           <div class="card-front-body">
-            <div class="card-avatar" id="cardAvatar">✨</div>
+            <div class="card-avatar" id="cardAvatar"></div>
             <div class="card-info">
               <p class="card-name" id="cardName">Your Name</p>
               <p class="card-archetype" id="cardArchetype">Your Archetype</p>
@@ -1033,7 +1039,7 @@
 
       <!-- Wallet slots: one membership card per building, 90s-style -->
       <div class="wallet-slots" id="walletSlots">
-        <p class="wallet-slots-title">🪪 Membership cards</p>
+        <p class="wallet-slots-title">Membership cards</p>
         <p class="wallet-slots-note">One per building, like it's 1999 — visits stamp automatically at the door. Hit Visit to head over.</p>
         <div class="wallet-grid" id="walletGrid"></div>
       </div>
@@ -1044,19 +1050,19 @@
       <p class="trip-guide-title">★ Change a line by going where it lives</p>
       <div class="trip-guide-grid">
         <a class="trip-guide-row" href="/mall/pieces-of-flair.html">
-          <span class="trip-guide-field">✨ Avatar</span>
+          <span class="trip-guide-field">Avatar</span>
           <span class="trip-guide-dest">PIECES OF FL<span class="ai">Ai</span>R at the Mall →</span>
         </a>
         <a class="trip-guide-row" href="/radio.html">
-          <span class="trip-guide-field">♪ Song</span>
+          <span class="trip-guide-field">Song</span>
           <span class="trip-guide-dest">KSVL Community R<span class="ai">Ai</span>DIO →</span>
         </a>
         <a class="trip-guide-row" href="/chick-flicks.html">
-          <span class="trip-guide-field">📼 Episode</span>
+          <span class="trip-guide-field">Episode</span>
           <span class="trip-guide-dest">The Chick Flicks →</span>
         </a>
         <a class="trip-guide-row" href="/bronze-aige.html">
-          <span class="trip-guide-field">🍸 Cocktail</span>
+          <span class="trip-guide-field">Cocktail</span>
           <span class="trip-guide-dest">The BRONZE <span class="ai">Ai</span>GE →</span>
         </a>
       </div>
@@ -1370,7 +1376,7 @@
   <!-- ==============================================
        SECTION 2: PASSPORT VESSELS
        ============================================== -->
-  <section class="passport-section">
+  <section class="passport-section" id="collectionSection">
     <p class="passport-section-eyebrow">★ Closet · Your Shelves</p>
     <h2 class="passport-section-title">Your Collections</h2>
 
@@ -1542,7 +1548,7 @@
   <!-- ==============================================
        SECTION 4: LEADERBOARDS
        ============================================== -->
-  <section class="passport-section">
+  <section class="passport-section" id="leaderboardSection">
     <p class="passport-section-eyebrow">★ Closet · Where You Rank</p>
     <h2 class="passport-section-title">Town Leaderboards</h2>
     <p class="passport-section-lede">Where you rank among the residents of SUNNYVAiLE.</p>
@@ -1561,8 +1567,9 @@
   <!-- ==============================================
        SECTION 5: EDIT MY CARD (collapsed by default)
        ============================================== -->
-  <div class="edit-panel" id="editPanel" hidden>
-    <h3>Edit your Resident Card</h3>
+  <div class="edit-panel" id="editPanel" role="dialog" aria-modal="true" aria-labelledby="editPanelTitle" hidden>
+    <button type="button" class="edit-drawer-close" id="closeEditDrawer">Close</button>
+    <h3 id="editPanelTitle">Edit your Resident Card</h3>
 
     <div class="edit-field">
       <label class="edit-field-label">Pick your archetype (this is your card face)</label>
@@ -1814,14 +1821,24 @@
 
   var editBtn = document.getElementById('editCardBtn');
   var editPanel = document.getElementById('editPanel');
+  var closeEditDrawer = document.getElementById('closeEditDrawer');
+  function closeEditPanel() {
+    if (!editPanel) return;
+    editPanel.hidden = true;
+    if (editBtn) editBtn.focus();
+  }
   if (editBtn && editPanel) {
     editBtn.addEventListener('click', function() {
       editPanel.hidden = !editPanel.hidden;
-      if (!editPanel.hidden) editPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (!editPanel.hidden && closeEditDrawer) closeEditDrawer.focus();
     });
   }
   var cancelBtn = document.getElementById('cancelEditBtn');
-  if (cancelBtn) cancelBtn.addEventListener('click', function() { editPanel.hidden = true; });
+  if (cancelBtn) cancelBtn.addEventListener('click', closeEditPanel);
+  if (closeEditDrawer) closeEditDrawer.addEventListener('click', closeEditPanel);
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && editPanel && !editPanel.hidden) closeEditPanel();
+  });
 
   var shareBtn = document.getElementById('shareCardBtn');
   if (shareBtn) {

@@ -1,0 +1,382 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap");
+
+:root {
+  --rc2-night: #050d27;
+  --rc2-ink: #111a3a;
+  --rc2-cobalt: #1769e8;
+  --rc2-cyan: #10cde3;
+  --rc2-pink: #f43f9d;
+  --rc2-purple: #7c3fe4;
+  --rc2-mint: #75e3c5;
+  --rc2-coral: #ff785e;
+  --rc2-cream: #fff9ef;
+  --rc2-paper: #fffdf8;
+  --rc2-line: rgba(17, 26, 58, 0.16);
+}
+
+body:has(.rc-page) {
+  color: var(--rc2-ink) !important;
+  background:
+    radial-gradient(circle at 8% 20%, rgba(16, 205, 227, 0.13), transparent 27rem),
+    radial-gradient(circle at 92% 40%, rgba(244, 63, 157, 0.11), transparent 32rem),
+    linear-gradient(180deg, #fffdf8 0%, #f8f4ff 54%, #effbff 100%) !important;
+  font-family: "Jost", sans-serif !important;
+}
+
+body:has(.rc-page) .sv-yah-chip {
+  display: none !important;
+}
+
+.rc-page {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 0 5rem !important;
+}
+
+.rc-arrival {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: min(78vh, 760px);
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: clamp(3rem, 5vw, 5rem) max(1.25rem, calc((100vw - 1180px) / 2));
+  overflow: hidden;
+  border-bottom: 9px solid var(--rc2-cyan);
+  color: var(--rc2-cream);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 13, 39, 0.98) 0%,
+      rgba(5, 13, 39, 0.92) 36%,
+      rgba(5, 13, 39, 0.45) 66%,
+      rgba(5, 13, 39, 0.18) 100%
+    ),
+    url("/assets/building-interiors/delivery-20260724-maikeover-v1/maikeover-vanity-station-comic-candidate-v1.png")
+      center / cover no-repeat;
+  isolation: isolate;
+}
+
+.rc-arrival::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 8% auto 8% -6%;
+  width: min(51rem, 63vw);
+  background:
+    radial-gradient(circle at 72% 20%, rgba(244, 63, 157, 0.38), transparent 27%),
+    radial-gradient(circle at 20% 82%, rgba(16, 205, 227, 0.2), transparent 34%);
+  transform: rotate(-2deg);
+}
+
+.rc-arrival-copy {
+  width: min(100%, 43rem);
+}
+
+.rc-arrival .sv-eyebrow {
+  margin: 0 0 0.85rem !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+.rc-arrival .sv-eyebrow-label {
+  color: var(--rc2-pink) !important;
+  font-size: 0.72rem !important;
+  font-weight: 850 !important;
+  letter-spacing: 0.17em !important;
+  text-transform: uppercase !important;
+}
+
+.rc-arrival h1 {
+  max-width: 10ch;
+  margin: 0 !important;
+  color: var(--rc2-cream) !important;
+  font-family: "Anton", "Arial Narrow", sans-serif !important;
+  font-size: clamp(4rem, 7vw, 7.5rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 0.88 !important;
+  text-transform: uppercase !important;
+  text-wrap: balance;
+  text-shadow:
+    3px 3px 0 var(--rc2-purple),
+    7px 7px 0 rgba(16, 205, 227, 0.82);
+}
+
+.rc-arrival h1 .ai,
+.rc-arrival h1 [data-brand-ai] {
+  color: inherit !important;
+}
+
+.rc-arrival .sv-lede {
+  max-width: 39rem;
+  margin: 2rem 0 0 !important;
+  color: #ffffff !important;
+  font-size: clamp(1.05rem, 1.7vw, 1.3rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.5 !important;
+}
+
+.rc-arrival-copy > p:not(.sv-lede, .rc-tour-crumb) {
+  max-width: 38rem;
+  margin: 0.85rem 0 0 !important;
+  color: #e8e7f8 !important;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+}
+
+.rc-arrival .rc-tour-crumb {
+  width: fit-content;
+  margin: 1.5rem 0 0 !important;
+  padding: 0.65rem 0 0.45rem !important;
+  border: 0 !important;
+  border-bottom: 4px solid var(--rc2-cyan) !important;
+  color: var(--rc2-cream) !important;
+  font-family: "Jost", sans-serif !important;
+  font-size: 0.72rem !important;
+  font-style: normal !important;
+  font-weight: 850 !important;
+  letter-spacing: 0.1em !important;
+  text-align: left !important;
+  text-transform: uppercase !important;
+}
+
+.rc-form-card {
+  position: relative;
+  width: min(1180px, calc(100% - 2rem)) !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.7fr) minmax(14rem, 0.3fr) !important;
+  gap: 1rem 2rem !important;
+  align-items: end !important;
+  margin: clamp(4rem, 8vw, 7rem) auto 0 !important;
+  padding: clamp(3rem, 6vw, 5rem) !important;
+  border: 0 !important;
+  border-top: 10px solid var(--rc2-purple) !important;
+  border-bottom: 5px solid var(--rc2-cyan) !important;
+  border-radius: 0 !important;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0,
+      transparent 2.45rem,
+      rgba(23, 105, 232, 0.1) 2.45rem,
+      rgba(23, 105, 232, 0.1) calc(2.45rem + 1px)
+    ),
+    var(--rc2-paper) !important;
+  box-shadow: 0 24px 64px rgba(5, 13, 39, 0.14) !important;
+}
+
+.rc-form-card::before {
+  content: "POST OFFICE INTAKE · ONE ADDRESS, ONE CARD";
+  position: absolute;
+  top: 1.15rem;
+  left: clamp(3rem, 6vw, 5rem);
+  color: var(--rc2-pink);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.rc-form-card .member-pass-form-fields {
+  min-width: 0;
+}
+
+.rc-form-card label {
+  color: var(--rc2-night) !important;
+  font-size: 0.76rem !important;
+  font-weight: 850 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+.rc-form-card input[type="email"] {
+  margin-top: 0.8rem !important;
+  border: 0 !important;
+  border-bottom: 3px solid var(--rc2-night) !important;
+  border-radius: 0 !important;
+  color: var(--rc2-ink) !important;
+  background: rgba(255, 255, 255, 0.66) !important;
+}
+
+.rc-form-card .newsletter-opt {
+  align-items: flex-start !important;
+  margin-top: 1rem !important;
+}
+
+.rc-form-card .submit-btn {
+  min-height: 3.8rem;
+  border: 2px solid var(--rc2-night) !important;
+  border-radius: 0 !important;
+  color: var(--rc2-cream) !important;
+  background: var(--rc2-night) !important;
+  box-shadow: 6px 6px 0 var(--rc2-cyan) !important;
+}
+
+.rc-form-card .pass-status,
+.rc-form-card .member-pass-detail,
+.rc-form-card .member-pass-note,
+.rc-form-card .member-pass-confirmation,
+.rc-form-card .member-pass-email-help,
+.rc-form-card .rc-privacy {
+  grid-column: 1 / -1;
+}
+
+.rc-form-card .member-pass-confirmation,
+.rc-form-card .member-pass-email-help {
+  border: 0 !important;
+  border-left: 5px solid var(--rc2-cyan) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+.rc-profile {
+  width: min(1180px, calc(100% - 2rem)) !important;
+  margin: clamp(4rem, 8vw, 7rem) auto 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+.rc-profile h2 {
+  max-width: 12ch;
+  margin: 0 !important;
+  color: var(--rc2-night) !important;
+  font-family: "Anton", "Arial Narrow", sans-serif !important;
+  font-size: clamp(3rem, 6.5vw, 6.5rem) !important;
+  font-weight: 400 !important;
+  line-height: 0.92 !important;
+  text-transform: uppercase !important;
+}
+
+.rc-profile .rc-profile-intro {
+  max-width: 46rem;
+  margin: 1rem 0 2.5rem !important;
+  color: #3b415b !important;
+  font-size: 1.1rem !important;
+  line-height: 1.6 !important;
+}
+
+.rc-profile details {
+  margin: 0 !important;
+  padding: 1.2rem 0 !important;
+  border: 0 !important;
+  border-top: 2px solid var(--rc2-line) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+.rc-profile details:last-of-type {
+  border-bottom: 2px solid var(--rc2-line) !important;
+}
+
+.rc-profile summary {
+  padding: 0 !important;
+  border-radius: 0 !important;
+  color: var(--rc2-night) !important;
+  font-size: 0.78rem !important;
+  font-weight: 850 !important;
+  letter-spacing: 0.11em !important;
+  text-transform: uppercase !important;
+}
+
+.rc-profile details[open] summary {
+  margin-bottom: 1rem !important;
+  color: var(--rc2-pink) !important;
+}
+
+.rc-profile button {
+  margin: 0.25rem 0.25rem 0.25rem 0 !important;
+  padding: 0.55rem 0.8rem !important;
+  border: 0 !important;
+  border-bottom: 3px solid var(--rc2-cyan) !important;
+  border-radius: 0 !important;
+  color: var(--rc2-night) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.rc-profile button:hover,
+.rc-profile button.is-selected {
+  border-color: var(--rc2-pink) !important;
+  color: var(--rc2-purple) !important;
+  background: rgba(244, 63, 157, 0.08) !important;
+}
+
+.rc-actions,
+.sv-ctas {
+  width: min(1180px, calc(100% - 2rem)) !important;
+  margin: 2rem auto 0 !important;
+  padding: 1.5rem 0 0 !important;
+  border-top: 2px solid var(--rc2-line) !important;
+}
+
+.rc-actions button {
+  border: 0 !important;
+  border-bottom: 3px solid var(--rc2-pink) !important;
+  border-radius: 0 !important;
+}
+
+.sv-ctas {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 0 !important;
+  border-top: 8px solid var(--rc2-night) !important;
+}
+
+.sv-ctas .sv-cta {
+  margin: 0 !important;
+  padding: 1.4rem 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.sv-ctas .sv-cta + .sv-cta {
+  border-left: 2px solid var(--rc2-line) !important;
+  padding-left: 2rem !important;
+}
+
+@media (max-width: 760px) {
+  .rc-arrival {
+    min-height: 44rem;
+    padding-inline: 1.15rem;
+    background:
+      linear-gradient(180deg, rgba(5, 13, 39, 0.94), rgba(5, 13, 39, 0.72)),
+      url("/assets/building-interiors/delivery-20260724-maikeover-v1/maikeover-vanity-station-comic-candidate-v1.png")
+        center / cover no-repeat;
+  }
+
+  .rc-arrival h1 {
+    font-size: clamp(3.5rem, 17vw, 5.4rem) !important;
+    text-shadow:
+      2px 2px 0 var(--rc2-purple),
+      5px 5px 0 rgba(16, 205, 227, 0.82);
+  }
+
+  .rc-form-card {
+    grid-template-columns: 1fr !important;
+    padding: 4rem 1.25rem 2.5rem !important;
+  }
+
+  .rc-form-card::before {
+    left: 1.25rem;
+  }
+
+  .rc-profile {
+    width: calc(100% - 2rem) !important;
+  }
+
+  .sv-ctas {
+    grid-template-columns: 1fr !important;
+  }
+
+  .sv-ctas .sv-cta + .sv-cta {
+    border-top: 2px solid var(--rc2-line) !important;
+    border-left: 0 !important;
+    padding-left: 0 !important;
+  }
+}

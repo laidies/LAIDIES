@@ -1,44 +1,43 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Town LIBRAiRY</title>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <style>
-:root{--plum:#3a1838;--rose:#9b3f5f;--pink:#e982ab;--teal:#2a6b73;--ink:#3a1838;--cream:#f6ece2}
+:root{--midnight:#07142f;--plum:#3a1838;--rose:#9b3f5f;--pink:#f056a6;--cyan:#18c6d8;--periwinkle:#8c7cf2;--coral:#f47f7b;--teal:#2a6b73;--ink:#182341;--cream:#f6ece2}
 *{box-sizing:border-box}
 body{margin:0;font-family:'Jost',system-ui,sans-serif;color:var(--ink);
- background:linear-gradient(160deg,#f3dee8 0%,#fbeae4 48%,#efe1e8 100%);background-attachment:fixed}
+ background:linear-gradient(145deg,#f3ecff 0%,#eefaff 48%,#fff0fa 100%);background-attachment:fixed}
 h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 
-.entry{position:relative;height:52vh;min-height:340px;overflow:hidden}
+.wrap{max-width:none;margin:0;padding:0 0 72px}
+.entry{position:relative;height:52vh;min-height:340px;overflow:hidden;background:var(--midnight)}
 .entry img{width:100%;height:100%;object-fit:cover;object-position:50% 44%;display:block}
-.entry::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:34%;z-index:1;
-  background:linear-gradient(180deg,rgba(243,222,232,0) 0%,rgba(243,222,232,.6) 62%,#f3dee8 100%)}
-
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px 80px}
-.titleblock{text-align:center;margin:26px auto 4px}
-.titleblock .eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--rose);margin-bottom:8px}
-.titleblock h1{font-size:clamp(38px,6vw,66px);color:var(--ink);line-height:1}
-.titleblock .ai{color:var(--pink)}
-.lede{max-width:660px;margin:14px auto 26px;text-align:center;font-family:'Playfair Display',Georgia,serif;
- font-size:19px;line-height:1.55;color:var(--ink)}
-.lede small{display:block;margin-top:8px;font-family:'Jost';font-size:13px;color:#6b3a66}
+.titleblock{text-align:center;margin:30px auto 4px;padding:0 22px}
+.titleblock .eyebrow{font-size:11px;font-weight:800;letter-spacing:.32em;text-transform:uppercase;color:#4a4274;margin-bottom:8px}
+.titleblock h1{font-size:clamp(38px,6vw,66px);color:var(--midnight);line-height:1}
+.titleblock .ai{color:#d53f93}
+.lede{max-width:680px;margin:14px auto 28px;padding:0 22px;text-align:center;font-family:'Playfair Display',Georgia,serif;
+  font-size:19px;line-height:1.55;color:var(--ink)}
+.lede small{display:block;margin-top:8px;font-family:'Jost';font-size:13px;color:#5f6d8b}
 
 /* ── Ask Miss Jeeves — the reference desk ── */
-.jv{max-width:760px;margin:0 auto 52px;background:#faf6fc;border-radius:16px;
-  padding:22px 24px 24px;box-shadow:0 14px 34px rgba(120,80,120,.14);border:1px solid #ecdcf0}
+.jv{margin:0;background:var(--midnight);color:#fff;padding:24px max(24px,calc((100vw - 1120px)/2));
+  border-top:4px solid var(--cyan)}
 .jv-head{display:flex;align-items:center;gap:11px;margin-bottom:15px}
-.jv-ico{flex:0 0 auto;color:var(--rose);display:flex;margin-top:2px}
-.jv-head .h{font-family:'Playfair Display',serif;font-size:22px;color:var(--ink);line-height:1.05}
-.jv-head .h small{display:block;font-family:'Jost';font-size:12px;font-weight:500;color:#8a6a80;letter-spacing:.02em;margin-top:2px}
+.jv-kicker{flex:0 0 auto;display:inline-flex;align-items:center;border:1px solid rgba(24,198,216,.75);border-radius:999px;
+  color:#82eaf4;padding:6px 10px;font-size:9px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.jv-head .h{font-family:'Playfair Display',serif;font-size:22px;color:#fff;line-height:1.05}
+.jv-head .h small{display:block;font-family:'Jost';font-size:12px;font-weight:500;color:#c7d9ff;letter-spacing:.02em;margin-top:2px}
 .jv-form{display:flex;gap:9px}
-.jv-form input{flex:1;min-width:0;padding:13px 16px;border:1.5px solid #dcc4d1;border-radius:10px;
-  font:inherit;font-size:15px;background:#fff;color:var(--ink)}
-.jv-form input:focus{outline:none;border-color:var(--pink);box-shadow:0 0 0 3px rgba(233,130,171,.22)}
-.jv-form button{padding:0 22px;border:0;border-radius:10px;background:var(--pink);color:#3a1230;
+.jv-form input{flex:1;min-width:0;padding:13px 16px;border:1.5px solid #7792c8;border-radius:10px;
+  font:inherit;font-size:15px;background:#fff;color:var(--midnight)}
+.jv-form input:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(24,198,216,.24)}
+.jv-form button{padding:0 22px;border:0;border-radius:10px;background:var(--pink);color:#260d2b;
   font:inherit;font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
 .jv-form button:hover{filter:brightness(1.05)}
 .jv-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
-.jv-chips b{font-size:11px;letter-spacing:.06em;color:#9a7a90;align-self:center;margin-right:2px;font-weight:600}
-.jv-chip{border:1px solid #e2cdd9;background:#fff;color:#6b3a66;border-radius:20px;padding:5px 12px;font:inherit;font-size:12px;cursor:pointer}
-.jv-chip:hover{background:#fbeef3;border-color:var(--pink)}
+.jv-chips b{font-size:11px;letter-spacing:.06em;color:#a9bce6;align-self:center;margin-right:2px;font-weight:600}
+.jv-chip{border:1px solid #536c9e;background:#17264a;color:#fff;border-radius:20px;padding:5px 12px;font:inherit;font-size:12px;cursor:pointer}
+.jv-chip:nth-of-type(2){border-color:#8c7cf2}.jv-chip:nth-of-type(3){border-color:#f47f7b}.jv-chip:nth-of-type(4){border-color:#18c6d8}
+.jv-chip:hover{background:#243967;border-color:var(--pink)}
 .jv-results{margin-top:16px;display:grid;gap:9px}
 .jv-card{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;gap:1px 12px;
   text-decoration:none;background:#fff;border:1px solid #ecdccb;border-radius:11px;padding:12px 15px;
@@ -180,22 +179,23 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 /* end-of-book doodle sign-off, in the margin whitespace after the last line */
 .book .txt::after{content:"";display:block;height:56px;margin:28px auto 2px;
  background:url('assets/building-interiors/library-shelf/doodles/end-doodles.svg') no-repeat center/auto 46px}
-@media(max-width:760px){.book .body{grid-template-columns:1fr}.book .toc{display:none}
+@media(max-width:560px){.book .body{grid-template-columns:1fr}.book .toc{display:none}
   .book .txt{padding:24px 22px 34px;font-size:15.5px;background:none}.book .txt h2{font-size:22px}.book .txt .lede{font-size:17px}
   .jv-form{flex-wrap:wrap}.jv-form input{flex:1 1 100%}.jv-form button{flex:1 1 100%;padding:13px}
   .entry{height:40vh;min-height:230px}
-  /* ── phone: ONE tall bookcase — the three sections stacked as full-width upright units,
-     each the 3-shelf case with its sign and books; tap a cover to open it. ── */
-  .libroom{aspect-ratio:auto;height:auto;overflow:visible;padding:6px 0 2px;
-    background:linear-gradient(160deg,#e6dcf0 0%,#f1dcea 100%)}
-  .unit{position:static;inset:auto;background:none;filter:none;display:flex;flex-direction:column;align-items:center;gap:0}
-  .bay{position:relative;left:auto!important;inset:auto;width:96%;max-width:430px;aspect-ratio:960/1080;
+  .titleblock{margin-top:22px}.titleblock h1{font-size:40px}.lede{font-size:17px;margin-bottom:22px}
+  /* Phone: three real shelf units in a short horizontal reel, rather than a long stacked page. */
+  .libroom{aspect-ratio:auto;height:auto;overflow:hidden;padding:0 0 12px;background:linear-gradient(160deg,#eefaff 0%,#f3ecff 100%)}
+  .unit{position:relative;inset:auto;background:none;filter:none;display:flex;align-items:stretch;gap:10px;
+    overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;padding:0 16px 12px}
+  .bay{position:relative;left:auto!important;inset:auto;flex:0 0 88vw;width:88vw;max-width:430px;aspect-ratio:960/1080;
     background:url('assets/building-interiors/library-shelf/delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png') center/contain no-repeat;
-    filter:drop-shadow(0 7px 11px rgba(60,30,55,.24))}
+    filter:drop-shadow(0 7px 11px rgba(60,30,55,.24));scroll-snap-align:center}
   .ledge{left:11%;right:11%;top:2.6%;height:7%}
   .brow{left:13%;right:13%}
   .brow--1{bottom:61.2%;height:24%}.brow--2{bottom:35%;height:24%}.brow--3{bottom:8.7%;height:24%}
   .caps{display:none}
+  .jv{padding:22px 18px 26px}.jv-head{align-items:flex-start;flex-direction:column}
   .book .txt .example{grid-template-columns:1fr}}
 </style>
 
@@ -209,12 +209,13 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
     <h1>The Town LIBR<span class="ai">Ai</span>RY</h1>
   </div>
   <p class="lede">A reference library isn't something you read cover to cover — you come in with a question and leave with the one answer.
-    <small>Ask Miss Jeeves at the desk, or pull a book off the shelf.</small></p>
+    <small>Ask Miss Jeeves at the desk, or pull a book off the shelf.</small>
+  </p>
 
   <!-- Ask Miss Jeeves -->
   <section class="jv">
     <div class="jv-head">
-      <span class="jv-ico"><svg viewBox="0 0 24 24" width="27" height="27" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.7"/><line x1="15.4" y1="15.4" x2="21" y2="21"/></svg></span>
+      <span class="jv-kicker">Reference desk</span>
       <div class="h">Ask Miss Jeeves<small>The reference desk — a plain-words question, every place we cover it.</small></div>
     </div>
     <form class="jv-form" onsubmit="return jvGo(event)">
@@ -231,7 +232,9 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
     <div class="jv-results" id="jv-results"></div>
   </section>
 
-  <section class="libroom"><div class="unit" id="wallcase"></div></section>
+  <section class="libroom" aria-label="The SUNNYVAiLE LIBRAiRY shelves">
+    <div class="unit" id="wallcase"></div>
+  </section>
   <div class="caps" id="caps"></div>
 </div>
 
@@ -343,6 +346,17 @@ document.querySelectorAll('.jv-chip').forEach(c=>c.addEventListener('click',()=>
   document.getElementById('jv-q').value=c.textContent;jvSearch(c.textContent);document.getElementById('jv-q').focus();
 }));
 
+function renderShelfCopy(b,txt,toc,fallback){
+  txt.innerHTML=fallback||b.body||'<p>This book is still being written.</p>';
+  const headings=[...txt.querySelectorAll('h1,h2,h3')];
+  headings.forEach((h,i)=>{h.id='sec'+i});
+  const entries=headings.filter(h=>!h.closest('.receipts'));
+  if(entries.length){
+    toc.innerHTML=entries.map(h=>`<a href="#${h.id}" onclick="event.preventDefault();document.getElementById('${h.id}').scrollIntoView({behavior:'smooth'})">${h.textContent.trim()}</a>`).join('');
+  }else{
+    toc.innerHTML=(b.toc||[]).map(x=>`<span>${x}</span>`).join('');
+  }
+}
 function openBook(id){const b=ALL[id];if(!b)return;
   document.getElementById('reader').style.setProperty('--accent',b.c||'#7c2f4f');
   document.getElementById('rm').textContent=b.s||'';
@@ -356,9 +370,8 @@ function openBook(id){const b=ALL[id];if(!b)return;
       txt.innerHTML = pages.length ? pages.map(p=>p.innerHTML).join('') : (doc.body.innerHTML||'');
       txt.querySelectorAll('h1,h2,h3').forEach((h,i)=>{h.id='sec'+i});
       toc.innerHTML=[...txt.querySelectorAll('h2,h3')].filter(h=>!h.closest('.receipts')).map(h=>`<a href="#${h.id}" onclick="event.preventDefault();document.getElementById('${h.id}').scrollIntoView({behavior:'smooth'})">${h.textContent.trim()}</a>`).join('');
-    }).catch(()=>{toc.innerHTML=(b.toc||[]).map(x=>`<a href="#">${x}</a>`).join('');txt.innerHTML=b.body||'<p>Could not open this one.</p>';});
-  } else { toc.innerHTML=(b.toc||[]).map(x=>`<a href="#">${x}</a>`).join('');
-    txt.innerHTML=b.body||'<p>This book is still being written.</p>'; }
+    }).catch(()=>{renderShelfCopy(b,txt,toc,b.body||'<p>Could not open this one.</p>');});
+  } else { renderShelfCopy(b,txt,toc); }
   document.getElementById('reader').classList.add('on');history.replaceState(null,'','#'+id);}
 function closeBook(){document.getElementById('reader').classList.remove('on');history.replaceState(null,'',location.pathname);}
 document.getElementById('reader').addEventListener('click',e=>{if(e.target.id==='reader')closeBook()});

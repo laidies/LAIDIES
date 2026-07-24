@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The LUMINAiRY · LAiDIES · SUNNYVAiLE</title>
   <meta name="description" content="The LUMINAiRY on Lantern Hill — home to the PATRON SAiNTS (pop-culture pantheon), The MAiVENS (women leading in AI) and the TRAiLBLAZERS (the pioneers who got here first). Three wings, one chapel.">
-  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
+  <link rel="stylesheet" href="content/luminairy-v2.css?v=20260724-1">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
@@ -31,27 +32,40 @@
   <!-- Canonical town header (sv-global-header.js fills this in place; left empty to avoid a flash of old nav) -->
   <header class="sv-header"></header>
 
-  <div class="sv-hero"><img src="assets/building-interiors/luminairy-nave.jpg?v=20260707" alt="Inside the LUMINAiRY — a jewel-toned nave with a great rose window, gilt columns, stained glass, and a marble compass-star floor" loading="eager"></div>
-
-  <main>
-
-    <div class="sv-eyebrow">
-      <span class="sv-eyebrow-label">★ Lantern Hill · SUNNYVAiLE · Pay homage to your SAiNTS, MAiVENS and TRAiLBLAZERS.</span>
+  <section class="sv-hero lum-nave" aria-labelledby="lumTitle">
+    <img src="assets/building-interiors/luminairy-nave.jpg?v=20260707" alt="Inside the LUMINAiRY — a jewel-toned nave with a great rose window, stained glass, and a marble compass-star floor" loading="eager">
+    <div class="lum-nave__copy">
+      <p>Lantern Hill · SUNNYVAiLE</p>
+      <h1 id="lumTitle">The <span class="ai">LUMINAiRY</span>.</h1>
+      <blockquote>"We pledge Allegiance to the united SAiNTS of SUNNYVAiLE."</blockquote>
+      <p>Cross the nave. Push one door. Meet the women and characters who lit the way.</p>
     </div>
+  </section>
 
-    <h1>The <span class="ai">LUMINAiRY</span>.</h1>
+  <main class="lum-page">
 
-    <p style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(20px, 2.4vw, 26px); color: var(--rose); text-align: center; margin: 0 0 32px; padding: 0 16px; line-height: 1.35;">
-      "We pledge Allegiance to the united SAiNTS of SUNNYVAiLE."
-    </p>
-
-    <p class="sv-lede">
-      Three wings, one chapel. Pay homage to your SAiNTS, MAiVENS and TRAiLBLAZERS. <strong>PATRON SAiNTS</strong> — the pop-culture pantheon, with halos. <strong>The MAiVENS</strong> — the real women leading in AI right now. <strong>TRAiLBLAZERS</strong> — the pioneers who got here first and lit the way. Same reverent register, different shelves.
-    </p>
-
-    <p>
-      The LUMINAiRY isn't a church. It's where you come to pay homage to the women and roses that light the way. The SAiNTS guide us, the MAiVENS guide the field, and the TRAiLBLAZERS blazed the trail the rest of us walk.
-    </p>
+    <section class="lum-state" aria-labelledby="lumStateTitle">
+      <div>
+        <p class="lum-state__kicker">Your votive register</p>
+        <h2 id="lumStateTitle">No Luminaries lit yet.</h2>
+        <p id="lumStateSummary">Pick one SAiNT, one MAiVEN and one TRAiLBLAZER below. Your choices live on your Resident Card.</p>
+        <p class="lum-state__progress" id="lumMavenProgress">MAiVENS met · 0 / 8</p>
+      </div>
+      <div class="lum-votives" aria-label="Your three chosen Luminaries">
+        <div class="lum-votive" data-lum-votive="saint">
+          <span>SAiNT</span>
+          <strong id="lumSaintPick">No candle lit</strong>
+        </div>
+        <div class="lum-votive" data-lum-votive="maven">
+          <span>MAiVEN</span>
+          <strong id="lumMavenPick">No candle lit</strong>
+        </div>
+        <div class="lum-votive" data-lum-votive="builder">
+          <span>TRAiLBLAZER</span>
+          <strong id="lumBuilderPick">No candle lit</strong>
+        </div>
+      </div>
+    </section>
 
     <style>
       /* ── The Wings — hub-and-reveal doors (one wing opens at a time) ── */
@@ -587,6 +601,28 @@
       <div class="maven-progress-bar"><div class="maven-progress-fill" id="mavensProgressFill"></div></div>
     </div>
 
+    <nav class="lum-archive-index" aria-label="MAiVENS wing index">
+      <p class="lum-archive-index__label">Choose an alcove</p>
+      <div class="lum-archive-index__rail" role="tablist" aria-label="MAiVENS collections">
+        <button class="lum-archive-index__stop is-active" type="button" role="tab" aria-selected="true" aria-controls="maven-chamber-keepers" data-maven-chamber-button="keepers">
+          <span class="lum-archive-index__number">01</span>
+          <span><strong>Living Keepers</strong><small>Meet the eight</small></span>
+        </button>
+        <button class="lum-archive-index__stop" type="button" role="tab" aria-selected="false" aria-controls="maven-chamber-foundresses" data-maven-chamber-button="foundresses">
+          <span class="lum-archive-index__number">02</span>
+          <span><strong>The First Four</strong><small>Holo Foundress case</small></span>
+        </button>
+        <button class="lum-archive-index__stop" type="button" role="tab" aria-selected="false" aria-controls="maven-chamber-lineage" data-maven-chamber-button="lineage">
+          <span class="lum-archive-index__number">03</span>
+          <span><strong>Wider Lineage</strong><small>Eleven more lights</small></span>
+        </button>
+        <button class="lum-archive-index__stop" type="button" role="tab" aria-selected="false" aria-controls="maven-chamber-memorial" data-maven-chamber-button="memorial">
+          <span class="lum-archive-index__number">04</span>
+          <span><strong>Memorial Light</strong><small>Alan Turing</small></span>
+        </button>
+      </div>
+    </nav>
+
     <style>
       .maven-foundress {
         display: grid;
@@ -951,6 +987,7 @@
       .stop--builder > .stop-desc { padding: 6px 18px 18px; }
     </style>
 
+    <div class="lum-maven-chamber" id="maven-chamber-foundresses" role="tabpanel" data-maven-chamber="foundresses" hidden>
     <section class="foundress-case is-unlocked" id="foundressCase" aria-label="Holo Foundress case">
       <header class="foundress-case-head">
         <p class="foundress-case-eyebrow">◆ HOLO FOUNDRESSES · Chase tier</p>
@@ -1004,7 +1041,9 @@
     <div class="maven-honesty">
       <p style="margin: 0;"><strong>Recorded history has an honesty problem.</strong> The historical AI foundation was built while women of color were systematically kept out of the field. The lineage above (Ada → Grace, Hedy, Karen) is real, and it's also incomplete for reasons that had nothing to do with the women who were missing. The Keepers building it now — <strong>Gebru, Buolamwini, Li</strong> in the 8 below — are correcting the record in real time.</p>
     </div>
+    </div>
 
+    <div class="lum-maven-chamber is-active" id="maven-chamber-keepers" role="tabpanel" data-maven-chamber="keepers">
     <p class="maven-wing-subhead">The 8 Keepers building it now</p>
 
     <div class="stop-grid">
@@ -1065,7 +1104,9 @@
         <button class="maven-meet" type="button" aria-label="Meet Emily Bender">✦ Meet her</button>
       </div>
     </div>
+    </div>
 
+    <div class="lum-maven-chamber" id="maven-chamber-lineage" role="tabpanel" data-maven-chamber="lineage" hidden>
     <p class="maven-wing-subhead">The wider wing — more of the lineage</p>
     <p style="max-width:64ch;margin:0 auto 18px;text-align:center;opacity:0.72;font-size:0.95rem;line-height:1.6;">The women our heroine didn't have time to name — tap <em>✦ Meet her</em> to read their stories. Their stained-glass portraits are lit now, too.</p>
 
@@ -1148,12 +1189,15 @@
         <button class="maven-meet" type="button" aria-label="Meet Lynn Conway">✦ Meet her</button>
       </div>
     </div>
+    </div>
 
+    <div class="lum-maven-chamber" id="maven-chamber-memorial" role="tabpanel" data-maven-chamber="memorial" hidden>
     <div class="turing-memoriam" style="max-width:60ch;margin:56px auto 8px;padding:30px 30px 26px;text-align:center;border-top:1px solid rgba(201,162,39,0.45);border-bottom:1px solid rgba(201,162,39,0.45);">
       <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">✦&nbsp;&nbsp;In memoriam&nbsp;&nbsp;✦</div>
       <img src="assets/mavens/y2k-stained-glass-v2/alan-turing-y2k-stained-glass.jpg" alt="Alan Turing — Y2K stained-glass portrait" loading="lazy" style="width:96px;height:96px;object-fit:cover;border-radius:12px;border:1.5px solid var(--gold);margin:0 auto 14px;display:block;">
       <h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.5rem;color:var(--plum-deep,#37142f);margin:0 0 14px;line-height:1.15;">Alan Turing<br><span style="font-size:0.85rem;font-weight:400;opacity:0.7;">1912–1954</span></h3>
       <p style="max-width:none;margin:0;font-size:0.98rem;line-height:1.72;opacity:0.86;">This wing is the women's. But it rests on a foundation, and one of its architects was Alan Turing — who imagined the machine itself, and the test we still use to ask whether it thinks. In 1952, the country he had helped save prosecuted him for being gay and chemically castrated him — the price of staying out of prison. He was dead within two years; it took Britain half a century to apologize. He is not a MAiVEN — he is the reason so many of them had a machine to build on, and a reminder that brilliance has been erased here for <em>who you love</em> as much as <em>what you are</em>. We keep his name lit, too.</p>
+    </div>
     </div>
 
     <!-- Maven bio modal — opened by "✦ Meet her" and by the Foundress cards (once unlocked) -->
@@ -1336,6 +1380,7 @@
   <footer>© LAiDIES · Filed from SUNNYVAiLE · The LUMINAiRY at Lantern Hill</footer>
 
     <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
+    <script defer src="/content/site/luminairy-v2.js?v=20260724-1"></script>
 
     <!-- MAiVEN click-to-collect + Foundress unlock gate + Coven pickers (SAiNT/MAiVEN/TRAiLBLAZER) -->
     <script>

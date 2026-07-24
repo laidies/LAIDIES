@@ -48,6 +48,16 @@ const narratedEditionCovers = {
   'content/episodes/episode-04-cues.json': '/assets/sunnyvaile-interiors/episode-vhs-boxes/ep-04.webp',
 };
 
+function isVisitorHtmlName(name) {
+  return (
+    name.endsWith('.html')
+    && !name.startsWith('_')
+    && !name.startsWith('preview')
+    && !name.startsWith('design-comp')
+    && !name.includes('.pre-')
+  );
+}
+
 function normalizeRelative(candidate, fromFile = '') {
   if (!candidate) return null;
   let value = String(candidate).trim();
@@ -120,16 +130,12 @@ function visitorHtmlEntries() {
   for (const dirent of fs.readdirSync(root, { withFileTypes: true })) {
     if (
       dirent.isFile() &&
-      dirent.name.endsWith('.html') &&
-      !dirent.name.startsWith('_') &&
-      !dirent.name.startsWith('preview') &&
-      !dirent.name.startsWith('design-comp') &&
-      !dirent.name.endsWith('.pre-mp4.html')
+      isVisitorHtmlName(dirent.name)
     ) entries.push(dirent.name);
     if (dirent.isDirectory() && allowedEntryDirectories.has(dirent.name)) {
       const base = path.join(root, dirent.name);
       for (const child of fs.readdirSync(base, { withFileTypes: true })) {
-        if (child.isFile() && child.name.endsWith('.html') && !child.name.startsWith('_')) {
+        if (child.isFile() && isVisitorHtmlName(child.name)) {
           entries.push(`${dirent.name}/${child.name}`);
         }
       }
@@ -162,6 +168,24 @@ function extractLocalReferences(source, relative) {
   for (const match of source.matchAll(/(["'`])(\/?(?:assets|content|community|games|learn|mall)\/[^"'`?#\s]+\.(?:avif|css|gif|html|ico|jpeg|jpg|js|json|m4a|mp3|mp4|pdf|png|svg|vtt|webm|webmanifest|webp|woff2?))\1/gi)) {
     add(match[2]);
   }
+
+  // Resolve the simple path construction used by visitor-facing runtime
+  // catalogues, for example:
+  //   var JINGLES_DIR = '/content/music/ksvl-jingles/';
+  //   { src: JINGLES_DIR + 'jingle-ksvl-station-id.mp3' }
+  //
+  // This deliberately handles only reviewed string constants plus a literal
+  // suffix. Arbitrary JavaScript evaluation would make the release boundary
+  // unpredictable and unsafe.
+  const stringConstants = new Map();
+  for (const match of source.matchAll(/\b(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=\s*(["'`])([^"'`]*?)\2\s*;/g)) {
+    if (!match[3].includes('${')) stringConstants.set(match[1], match[3]);
+  }
+  for (const match of source.matchAll(/\b([A-Za-z_$][\w$]*)\s*\+\s*(["'`])([^"'`]+?)\2/g)) {
+    const prefix = stringConstants.get(match[1]);
+    if (prefix !== undefined) add(`${prefix}${match[3]}`);
+  }
+
   return references;
 }
 

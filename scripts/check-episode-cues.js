@@ -8,7 +8,10 @@ const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 
-const ROOT = path.join(__dirname, '..');
+// Pass a public-artifact directory to validate the exact deployable cue/media
+// contract after public transforms have run. With no argument, audit the
+// working studio tree as before.
+const ROOT = path.resolve(process.argv[2] || path.join(__dirname, '..'));
 const EPISODE_DIR = path.join(ROOT, 'content', 'episodes');
 const cueFiles = fs
   .readdirSync(EPISODE_DIR)

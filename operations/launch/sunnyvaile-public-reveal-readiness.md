@@ -6,12 +6,22 @@ followed by a stable weekly operating rhythm
 
 ## 2026-07-24 launch-QA checkpoint
 
-- **PREVIEW DEPLOYED:** a curated 1,006-file public artifact is available at
+- **PREVIEW DEPLOYED:** the earlier curated public artifact is available at
   `https://launch-qa-20260724.laidies-sunnyvaile.pages.dev`.
+- **REPAIRED CANDIDATE VERIFIED LOCALLY:** the current 1,052-file,
+  992.81-MiB artifact includes all 83 computed KSVL audio dependencies with
+  source-matching hashes. Tune In played the station opener, DJ intro and first
+  song in the exact artifact. This repaired candidate still needs an
+  exact-commit edge deployment before it replaces the earlier preview.
 - **PUBLIC EDGE VERIFIED:** homepage, Visitor Centre, LIBRAiRY, NewsStand,
   MAiKEOVER, Book Fair and all four episode players loaded at 390 × 844 with no
   horizontal overflow or loaded broken images. Runtime image paths across all
   85 visitor HTML routes were also present in the built artifact.
+- **CURRENT LOCAL JOURNEYS VERIFIED:** homepage, Visitor Centre directory,
+  Miss Jeeves search, both NewsStand papers, Dream Phone call/remix, KSVL,
+  Chick Flicks, Episodes 1–4 reading pages and all four narrated players passed
+  at 390 × 844. Homepage, Visitor Centre, LIBRAiRY, NewsStand and KSVL also
+  passed at 1440 × 900.
 - **HONEST SCREENING STATES:** Episodes 1–2 are illustrated listen-alongs;
   Episodes 3–4 are narrated editions with captions and timed lesson cards.
   Full motion films remain explicitly under owner continuity review.
@@ -20,10 +30,13 @@ followed by a stable weekly operating rhythm
   soon.”
 - **NOT PRODUCTION:** the preview has not replaced `laidies.ai`, is not Ali
   design approval and is not an announcement.
+- **NEWS CONTRACT REPAIRED:** the public rack contains only the current,
+  source-checked WEDNESDAY Edition and Tribune. TODAY is retired; the former
+  daily feed is manual-only candidate intake.
 - **OPEN GATES:** Ali's ruling on the current Library/Visitor Centre
-  candidates; NewsStand producer-to-reader repair/current dated stories; final
-  campaign promise ledger; announcement channel/assets; production-domain
-  switch and post-switch smoke test.
+  candidates; commit-derived edge preview; announcement channel/assets;
+  production-domain switch and post-switch smoke test, including one
+  production-origin FAiRY Godmother request.
 
 ## This is a reintroduction, not a routine episode post
 
@@ -237,7 +250,15 @@ she can do something.
 
 | Public promise | Entry point | Exact destination | Success state | Honest failure/empty state | Public proof | Owner |
 |---|---|---|---|---|---|---|
-|  |  |  |  |  |  |  |
+| Enter SUNNYVAiLE | Campaign front-door link | `/` | Rewind Era and practical-AI promise are visible; Visitor Centre is the clear orientation route | Core offer remains readable without scripts | Mobile + desktop artifact browser pass | Codex |
+| Start the story | Homepage/Visitor Centre | `/visitors-centre.html` | Town orientation, Episode 1, trailer/tour and named directory are usable | Named directory remains if map interaction is unavailable | Mobile directory-selection pass; desktop layout pass | Codex |
+| Read the lessons | The Chick Flicks | `/chick-flicks.html` → `/issues/issue-01.html`…`04.html` | All four current issue pages open with their current titles and art | Screening/read routes remain independently available | Mobile artifact pass across all five routes | Codex |
+| Hear the episodes | Screening Room | `/watch.html?ep=01`…`04` | Correct narration reaches ready state; visible read-along captions and honest edition label render | Narrated edition remains available while full motion films are under review | Mobile artifact media/caption pass for all four | Codex |
+| Search for an answer | The Town LIBRAiRY | `/library.html` | Miss Jeeves returns useful linked results and books remain available | Suggested questions and shelves remain usable without a typed query | “What is a hallucination?” returned glossary, episode and activity results | Codex / Ali design ruling |
+| Play | The Phone Booth | `/games/dream-phone.html` | Keypad call returns a caller-specific answer; remix changes that answer | Directory cards remain available if the keypad is unfamiliar | Mobile 101 → Mentor + Share a Secret pass | Codex |
+| Listen to the town | KSVL RAiDIO | `/radio.html` | Tune In opens the persistent player and plays the station sequence | Player controls expose pause/stop; no false “playing” state on audio error | Exact-artifact station opener, DJ intro and first-song requests passed | Codex |
+| Meet the women behind computing | Episode 4 | `/issues/issue-04.html` | The Founding Mothers reading route opens with current art and title | Screening Room narration provides a second format | Mobile artifact route pass | Codex |
+| Find the community spaces | Community | `/community.html` | Community room directory opens with clear room choices | No claim of live synchronous discussion | Mobile artifact route pass | Codex |
 
 Rules:
 

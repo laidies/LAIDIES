@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """
-Fetch AI news from RSS feeds, rewrite in LAIDIES voice via Anthropic,
-and update content/hot-goss-feed.json.
+LEGACY, MANUAL-ONLY NEWS CANDIDATE BUILDER.
+
+Fetch RSS snippets and create a private review artifact at
+content/hot-goss-feed.json. This file is not consumed by the public NewsStand
+and must never be committed or presented as source-checked LAiDIES reporting.
+The approved public dataset is content/newsstand-stories.js.
 """
 
 import json
@@ -146,7 +150,7 @@ def format_without_ai(stories):
 
 
 def main():
-    print("🗞️ Hot Goss Daily Update")
+    print("🗞️ Hot Goss private review candidate")
     print("  Fetching stories from RSS feeds...")
     stories = fetch_stories()
     print(f"  Found {len(stories)} AI stories")
@@ -170,9 +174,10 @@ def main():
     with open(feed_path, "w", encoding="utf-8") as f:
         json.dump(feed, f, indent=2, ensure_ascii=False)
 
-    print(f"  ✓ Updated {feed_path}")
+    print(f"  ✓ Wrote unapproved review artifact: {feed_path}")
     print(f"    Weekly stories: {len(feed['weeklyStories'])}")
     print(f"    Daily headlines: {len(feed['dailyHeadlines'])}")
+    print("    NOT PUBLIC: requires full-source research and human editorial approval")
 
 
 if __name__ == "__main__":
