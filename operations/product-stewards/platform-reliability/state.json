@@ -1,0 +1,29 @@
+{
+  "product": "Platform Reliability",
+  "status": "SPECIFIED",
+  "asOf": "2026-07-25",
+  "relationshipToActiveWork": "MERGE with AW-003",
+  "scope": ["release provenance", "build/artifact integrity", "routes/redirects/media", "external service verification", "analytics health", "performance/accessibility baseline", "rollback/observability", "evidence standards"],
+  "evidence": {
+    "inlineJavaScriptParse": "VERIFIED LOCALLY — 353 scripts across 132 live pages",
+    "localLinkResolution": "VERIFIED LOCALLY — 1,942 references across 110 pages",
+    "metadataArtifactGate": "VERIFIED LOCALLY on named artifact",
+    "ksvlArtifactGate": "VERIFIED LOCALLY — 83 audio dependencies hash-matched",
+    "publicRouteReachability": "PARTIAL — current sitemap HTTP reachability recorded; not a journey test",
+    "selectedPublicOriginJourneys": "PARTIAL — selected routes/services observed, not whole-site proof",
+    "fullServiceMutationSuite": "NOT YET EXECUTED",
+    "fieldPerformanceMetrics": "NOT YET EXECUTED",
+    "completeAccessibilitySuite": "NOT YET EXECUTED",
+    "continuousObservability": "NOT YET WIRED"
+  },
+  "knownSharedRisks": [
+    "Release artifact exceeded the 750 MiB warning budget in the EOD audit and was near its 1,100 MiB hard limit.",
+    "Promoted High class data returned 404 in live/candidate audit.",
+    "Stateful third-party/service flows were not mutated/tested in the read-only audit.",
+    "Analytics scripts are present but event dictionary, configuration verification and learning loop are incomplete.",
+    "Fallback browser checks do not measure field LCP, CLS or INP."
+  ],
+  "dependencies": ["Cloudflare Pages", "Cloudflare Workers", "Supabase", "Hyvor", "Buttondown", "Plausible", "Microsoft Clarity", "native sharing/media/browser APIs", "build and validation scripts"],
+  "nextAction": "Create one release evidence manifest tying source commit, artifact, deployment, public-origin smoke, service verdicts and rollback reference to the bounded product promise set.",
+  "authority": "records only in this directory; no code, service mutation, deployment, publication, git or rollback action"
+}
