@@ -1,0 +1,36 @@
+{
+  "product": "Chick Flicks Building",
+  "status": "SPECIFIED",
+  "asOf": "2026-07-25",
+  "relationshipToActiveWork": "MERGE with AW-003",
+  "route": "/chick-flicks",
+  "primaryFile": "chick-flicks.html",
+  "scope": ["storefront room", "new releases", "aisle catalogue", "episode discovery", "current-week display", "rental handoff", "coming-soon honesty", "favourite-tape storefront state"],
+  "dependencies": [
+    "content/episode-index.json",
+    "episode box assets",
+    "issueUrl destination pages",
+    "Weekly Episode Experience",
+    "Screening Room",
+    "Episode Media Quality",
+    "Resident Card local/account state",
+    "shared navigation/tour and Platform analytics"
+  ],
+  "evidence": {
+    "publicMobileRouteLoad": "VERIFIED PUBLICLY",
+    "publishedEpisodeAudioCaptionJourneys": "VERIFIED PUBLICLY by external episode/player evidence",
+    "catalogueMechanics": "BUILT LOCALLY",
+    "cleanStateStorefrontComprehension": "NOT YET EXECUTED",
+    "fullAccessibilityRecovery": "NOT YET EXECUTED",
+    "analyticsLearningLoop": "NOT YET WIRED",
+    "mediaCraftVerdict": "SPECIFIED under Episode Media Quality, not yet running"
+  },
+  "knownFacts": [
+    "The catalogue renders published tapes as rentable and other entries as coming soon from the episode index.",
+    "The current static storefront identifies Episode 04 as the new release while runtime logic chooses the latest published episode.",
+    "Favourite tape uses laidies_favorite_episode in localStorage.",
+    "Episodes redirect to Chick Flicks, establishing it as the canonical discovery storefront."
+  ],
+  "nextAction": "Run exact-artifact catalogue/current-week consistency and clean-state discovery tests before accepting any store expansion or release promotion.",
+  "authority": "records only in this directory; no product-code, deployment, publication, git, media, or shared-system edits"
+}

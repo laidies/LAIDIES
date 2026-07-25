@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "updated": "2026-07-25",
+  "product_id": "blend-snap",
+  "product": "The Blend & Snap",
+  "status": "REPORT_READY",
+  "steward_mode": "MANUAL_PILOT",
+  "launch_verdict": "REVISE_INTERNALLY_AND_LABEL_UNWIRED_STUDY_PACK_OR_COLLECTION_CLAIMS",
+  "sub_champions": {
+    "study_pack": "QUEUED",
+    "try_on": "QUEUED",
+    "trading_cards": "QUEUED"
+  },
+  "current_evidence": {
+    "source_inspection": "COMPLETE",
+    "prior_try_on_local_qa": "VERIFIED_LOCALLY_FROM_2026_07_24_EVIDENCE",
+    "fresh_rendered_flow_evidence": "BLOCKED_BROWSER_UNAVAILABLE",
+    "public_origin_verification_this_run": "NOT_TESTED"
+  },
+  "journey_status": {
+    "cafe_arrival_and_order": "PARTIAL",
+    "device_local_usual_and_pack_state": "PARTIAL",
+    "study_sheet": "NOT_BUILT",
+    "try_on": "VERIFIED_LOCALLY_FROM_PRIOR_QA",
+    "trading_cards": "PARTIAL",
+    "quiz_handoff": "PARTIAL",
+    "account_or_cross_device_collection": "NOT_WIRED",
+    "analytics_learning_loop": "NOT_WIRED"
+  },
+  "known_blockers": [
+    "No fresh browser evidence was possible in this run.",
+    "The Study Sheet is a planning standard, not a complete public product.",
+    "Trading Cards remain a local collection with incomplete pack/duplicate/mobile/terminology and sync proof.",
+    "Ordering a pack stamps navigation, not studying or completing it.",
+    "No product-specific event contract, aggregate analytics packet or experiment record exists."
+  ],
+  "next_trigger": "DISPATCH_STUDY_PACK_TRY_ON_AND_TRADING_CARD_SUBCHAMPIONS_AND_RECONCILE_ONE_TRUTHFUL_WEEKLY_PACK_MANIFEST",
+  "automation": {
+    "persistent_runner": "NOT_WIRED",
+    "scheduler": "NOT_WIRED",
+    "plausible_pull": "NOT_WIRED",
+    "clarity_pull": "NOT_WIRED",
+    "notifications": "NOT_WIRED"
+  }
+}
