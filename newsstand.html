@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SUNNYVAiLE NewsStand · LAiDIES</title>
-    <meta name="description" content="AI news translated at the SUNNYVAiLE NewsStand: source-checked stories in the WEDNESDAY Edition and a sourced argument in The Tribune.">
+    <meta name="description" content="AI news translated at the SUNNYVAiLE NewsStand through The Breaking, The Daily, The Weekly and The Tribune.">
     <meta property="og:title" content="SUNNYVAiLE NewsStand · LAiDIES">
-    <meta property="og:description" content="AI news translated. Pull the source-checked WEDNESDAY Edition or The Tribune.">
+    <meta property="og:description" content="AI news translated through four distinct papers, with no filler when there is no qualified issue.">
     <meta property="og:type" content="website">
     <link rel="icon" type="image/png" href="/assets/brand/laidies-logo-square-pearl-512-v1.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
     <link rel="stylesheet" href="/assets/sunnyvaile-building-v2.css?v=20260723-1">
     <link rel="stylesheet" href="/content/site/sv-topbar.css?v=20260725-1">
-    <link rel="stylesheet" href="/content/newsstand.css?v=20260724-room-v2">
+    <link rel="stylesheet" href="/content/newsstand.css?v=20260725-four-publications-v1">
     <script defer src="/content/site/sv-topbar.js?v=20260725-1"></script>
     <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
     <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
@@ -68,22 +68,42 @@
             height="948"
           >
 
-          <div class="ns-paper-rack" aria-label="Choose the WEDNESDAY Edition or The Tribune from the rack">
-            <button class="ns-paper ns-paper--wednesday" type="button" data-edition="wednesday" aria-label="Pull the WEDNESDAY Edition, the weekly digest">
+          <div class="ns-paper-rack" aria-label="Current issues on the rack: The Weekly and The Tribune">
+            <button class="ns-paper ns-paper--weekly" type="button" data-edition="weekly" aria-label="Pull The Weekly">
               <img
                 src="/assets/building-interiors/delivery-20260724-newsstand-comic-v1/newsstand-paper-wednesday-comic-candidate-v1.png"
-                alt="The WEDNESDAY Edition weekly digest"
+                alt=""
               >
-              <span class="ns-paper__fresh" data-fresh-for="wednesday" hidden>Hot off the press</span>
+              <span class="ns-paper__masthead" aria-hidden="true">The Weekly</span>
+              <span class="ns-paper__fresh" data-fresh-for="weekly" hidden>Hot off the press</span>
             </button>
             <button class="ns-paper ns-paper--tribune" type="button" data-edition="tribune" aria-label="Pull The Tribune, the argument paper">
               <img
                 src="/assets/building-interiors/delivery-20260724-newsstand-comic-v1/newsstand-paper-tribune-comic-candidate-v1.png"
-                alt="The Tribune argument paper"
+                alt=""
               >
+              <span class="ns-paper__masthead" aria-hidden="true">The Tribune</span>
               <span class="ns-paper__fresh" data-fresh-for="tribune" hidden>Hot off the press</span>
             </button>
           </div>
+        </div>
+        <div class="ns-publications" aria-label="The four NewsStand publications">
+          <button class="ns-publication" type="button" data-edition="breaking">
+            <strong>The Breaking</strong>
+            <span>No qualified story is live</span>
+          </button>
+          <button class="ns-publication" type="button" data-edition="daily">
+            <strong>The Daily</strong>
+            <span>No current issue is filed</span>
+          </button>
+          <button class="ns-publication" type="button" data-edition="weekly">
+            <strong>The Weekly</strong>
+            <span>Current issue available</span>
+          </button>
+          <button class="ns-publication" type="button" data-edition="tribune">
+            <strong>The Tribune</strong>
+            <span>Current argument available</span>
+          </button>
         </div>
       </section>
 
@@ -91,11 +111,11 @@
         <div class="ns-state__inner">
           <p class="ns-address">The SUNNYVAiLE NewsStand · No. 2 MAiN · Keeper: Paige</p>
           <div class="ns-state__copy">
-            <h1 id="ns-title">The WEDNESDAY Edition is in.</h1>
+            <h1 id="ns-title">The Weekly is in.</h1>
             <p id="ns-state-detail">Pull a paper from the rack. Paige has already checked the sources.</p>
           </div>
           <div class="ns-state__actions">
-            <button class="ns-state__primary" type="button" data-pull="wednesday">Pull this week’s edition</button>
+            <button class="ns-state__primary" type="button" data-pull="weekly">Pull The Weekly</button>
             <button class="ns-radio" type="button" data-src="/content/music/sunnyvaile-newsstand.mp3">
               Play “The Newsstand”
             </button>
@@ -108,10 +128,10 @@
           <p class="ns-kicker">Pulled from the rack</p>
           <button class="ns-return" id="ns-return" type="button">Put the paper back</button>
         </div>
-        <article class="ns-unfolded-paper" id="ns-paper-view" data-paper="wednesday">
+        <article class="ns-unfolded-paper" id="ns-paper-view" data-paper="weekly">
           <header class="ns-unfolded-paper__masthead">
             <div>
-              <p class="ns-unfolded-paper__edition" id="ns-reader-edition">The WEDNESDAY Edition</p>
+              <p class="ns-unfolded-paper__edition" id="ns-reader-edition">The Weekly</p>
               <h2 id="ns-reader-title">This week’s front page.</h2>
             </div>
             <p class="ns-unfolded-paper__date" id="ns-reader-date"></p>
@@ -127,7 +147,7 @@
         <div class="ns-archive__label">
           <p class="ns-kicker">The crate under the counter</p>
           <h2 id="ns-archive-title">Find a back issue.</h2>
-          <p>Search the full index across both papers. Results open in the same reading space above.</p>
+          <p>Search every filed issue across all four publications. Results open in the same reading space above.</p>
         </div>
         <div class="ns-archive__search">
           <label for="ns-search-input">What are you trying to find?</label>
@@ -144,16 +164,26 @@
       © LAiDIES · Filed from SUNNYVAiLE · The NewsStand at MAiN Street No. 2
     </footer>
 
-    <script src="/content/newsstand-stories.js?v=newsstand-1"></script>
+    <script src="/content/newsstand-stories.js?v=20260725-four-publications-v1"></script>
     <script>
       (function () {
         "use strict";
 
         var EDITION = {
-          wednesday: {
-            label: "The WEDNESDAY Edition",
+          breaking: {
+            label: "The Breaking",
+            title: "The qualified interrupt.",
+            empty: "No qualified Breaking story is live right now. A clear day is a valid result."
+          },
+          daily: {
+            label: "The Daily",
+            title: "The consequential briefing.",
+            empty: "No Daily issue has been filed in this reader yet. Paige will not fill one with low-consequence headlines."
+          },
+          weekly: {
+            label: "The Weekly",
             title: "This week’s front page.",
-            empty: "The next WEDNESDAY Edition is still at the printer."
+            empty: "No Weekly issue is currently filed."
           },
           tribune: {
             label: "The Tribune",
@@ -258,6 +288,10 @@
           }, "");
         }
 
+        function canonicalEdition(story) {
+          return story && story.edition === "wednesday" ? "weekly" : story.edition;
+        }
+
         function storySearchText(story) {
           return [
             story.headline,
@@ -273,7 +307,8 @@
         }
 
         function renderFrontStory(story) {
-          var label = story.edition === "tribune" ? "The Tribune" : "WEDNESDAY Edition";
+          var edition = canonicalEdition(story);
+          var label = EDITION[edition] ? EDITION[edition].label : "NewsStand";
           var teaser = firstSentence(story.laidies_read || story.the_story);
           return [
             '<a class="ns-front-story" href="#', escapeHTML(story.slug), '">',
@@ -297,7 +332,8 @@
         }
 
         function renderArticle(story) {
-          var isTribune = story.edition === "tribune";
+          var edition = canonicalEdition(story);
+          var isTribune = edition === "tribune";
           var watch = "";
           if (isTribune && story.watch_fors && story.watch_fors.length) {
             watch = [
@@ -322,7 +358,7 @@
           return [
             '<article class="ns-article">',
               '<header class="ns-article__head">',
-                '<p class="ns-article__edition">', escapeHTML(EDITION[story.edition].label), "</p>",
+                '<p class="ns-article__edition">', escapeHTML(EDITION[edition].label), "</p>",
                 '<p class="ns-article__date">', escapeHTML(formatDate(story.date)), "</p>",
                 "<h2>", escapeHTML(story.headline), "</h2>",
                 story.thread_subtitle ? "<p><em>" + escapeHTML(story.thread_subtitle) + "</em></p>" : "",
@@ -359,7 +395,7 @@
           setReaderHeader(options.mode, options.list || []);
           empty.textContent = options.empty || EDITION[options.mode].empty;
           empty.hidden = Boolean(options.html);
-          Array.prototype.forEach.call(document.querySelectorAll(".ns-paper"), function (button) {
+          Array.prototype.forEach.call(document.querySelectorAll("[data-edition]"), function (button) {
             button.classList.toggle("is-selected", button.getAttribute("data-edition") === options.mode);
           });
           if (options.scroll !== false) {
@@ -372,7 +408,7 @@
           if (location.hash) {
             history.replaceState(null, "", location.pathname + location.search);
           }
-          var list = stories.filter(function (story) { return story.edition === edition; });
+          var list = stories.filter(function (story) { return canonicalEdition(story) === edition; });
           var html = "";
           html = list.map(renderFrontStory).join("");
           showReader({
@@ -411,9 +447,9 @@
           if (!slug) return false;
           var story = stories.filter(function (item) { return item.slug === slug; })[0];
           if (!story) return false;
-          selectedEdition = story.edition;
+          selectedEdition = canonicalEdition(story);
           showReader({
-            mode: story.edition,
+            mode: canonicalEdition(story),
             list: [story],
             html: renderArticle(story),
             scroll: scroll !== false
@@ -430,25 +466,25 @@
           });
           var freshByEdition = {};
           newStories.forEach(function (story) {
-            freshByEdition[story.edition] = true;
+            freshByEdition[canonicalEdition(story)] = true;
           });
           Array.prototype.forEach.call(document.querySelectorAll("[data-fresh-for]"), function (stamp) {
             stamp.hidden = !freshByEdition[stamp.getAttribute("data-fresh-for")];
           });
 
-          var weekly = stories.filter(function (story) { return story.edition === "wednesday"; });
+          var weekly = stories.filter(function (story) { return canonicalEdition(story) === "weekly"; });
           var latestWeekly = newestDate(weekly);
           var title = document.getElementById("ns-title");
           var detail = document.getElementById("ns-state-detail");
           if (!lastVisit) {
-            title.textContent = "The WEDNESDAY Edition is in.";
+            title.textContent = "The Weekly is in.";
             detail.textContent = stories.length + " papers are filed for your first stop. Pull one from the rack.";
           } else if (newStories.length) {
             title.textContent = newStories.length + (newStories.length === 1 ? " new story is in." : " new stories are in.");
-            detail.textContent = "Paige marked the fresh papers. The newest WEDNESDAY Edition was filed " + formatDate(latestWeekly) + ".";
+            detail.textContent = "Paige marked the fresh papers. The newest Weekly was filed " + formatDate(latestWeekly) + ".";
           } else {
             title.textContent = "You are caught up.";
-            detail.textContent = "The newest WEDNESDAY Edition was filed " + formatDate(latestWeekly) + ". The rack is still open.";
+            detail.textContent = "The newest Weekly was filed " + formatDate(latestWeekly) + ". The rack is still open.";
           }
           setLocal("laidies_newsstand_last_visit", new Date().toISOString());
         }
@@ -497,7 +533,7 @@
           }
           selectedEdition = null;
           reader.hidden = true;
-          Array.prototype.forEach.call(document.querySelectorAll(".ns-paper"), function (button) {
+          Array.prototype.forEach.call(document.querySelectorAll("[data-edition]"), function (button) {
             button.classList.remove("is-selected");
           });
           document.querySelector(".ns-paper-rack").scrollIntoView({ behavior: "smooth", block: "center" });

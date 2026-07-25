@@ -1,6 +1,6 @@
 {
   "product": "SUNNYVAiLE NewsStand Building",
-  "status": "SPECIFIED",
+  "status": "BUILT LOCALLY",
   "asOf": "2026-07-25",
   "relationshipToActiveWork": "MERGE with AW-003",
   "route": "/newsstand",
@@ -9,15 +9,16 @@
   "publicationSubChampions": ["The Breaking", "The Daily", "The Weekly", "The Tribune"],
   "lockedPublicMastheads": ["The Breaking", "The Daily", "The Weekly", "The Tribune"],
   "currentImplementation": {
-    "readerEditions": ["wednesday", "tribune"],
+    "readerEditions": ["breaking", "daily", "weekly", "tribune"],
+    "storedStoryEditions": ["wednesday", "tribune"],
     "storiesFile": "content/newsstand-stories.js",
-    "currentMismatch": "Current page/data retains WEDNESDAY Edition and Tribune while locked D-042 mastheads require four public products."
+    "currentMismatch": "The local reader now exposes all four D-042 mastheads and maps the validated legacy wednesday story to The Weekly. Producer/schema/validator migration and independent release review remain open."
   },
   "evidence": {
     "publicRouteAndSourcedStory": "VERIFIED PUBLICLY",
     "mobileRouteLoad": "VERIFIED PUBLICLY",
-    "readerSearchMechanics": "BUILT LOCALLY",
-    "fourPublicationContract": "NOT YET IMPLEMENTED",
+    "readerSearchMechanics": "VERIFIED LOCALLY",
+    "fourPublicationContract": "BUILT LOCALLY; MAKER MECHANICS VERIFIED; INDEPENDENT REVIEW PENDING",
     "producerToReaderPublicationRun": "NOT YET EXECUTED",
     "automationAutonomy": "SPECIFIED; NOT YET WIRED",
     "analyticsLearningLoop": "NOT YET WIRED"
@@ -32,6 +33,7 @@
     "editorial approval/correction process",
     "Platform deployment, analytics and rollback"
   ],
-  "nextAction": "Reconcile the locked four-publication contract against reader code/data before any new publication or promotion; then run a full producer-to-reader evidence path.",
-  "authority": "records only in this directory; no publication, code, deploy, git, sourcing, or shared-system changes"
+  "lastRun": "2026-07-25 publication-contract reconciliation; evidence in publication-contract-reconciliation-evidence-2026-07-25.md",
+  "nextAction": "Run independent product/editorial, accessibility, visual and technical review of the exact local candidate; separately scope producer/schema/validator weekly-key migration before any release.",
+  "authority": "local code/content and product records only for this cycle; no deploy, external publication, git, new stories, sourcing, or shared-system changes"
 }

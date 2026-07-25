@@ -876,7 +876,10 @@
         var grid = document.getElementById('av-class-grid');
         if (!grid) return;
         fetch('/content/site/high-classes.json?v=20260722-2')
-          .then(function (r) { return r.json(); })
+          .then(function (r) {
+            if (!r.ok) throw new Error('Class register request failed: ' + r.status);
+            return r.json();
+          })
           .then(function (json) {
             var list = (json.classes || []), subjects = (json.subjects || []);
             if (!list.length || !subjects.length) return;
@@ -911,7 +914,9 @@
           })
           .catch(function () {
             grid.innerHTML = '<p class="placeholder-note">The class register could not be ' +
-              'loaded just now. Try the <a href="/learn/class.html">classroom</a> directly.</p>';
+              'loaded just now. The class list is unavailable; you can still use the ' +
+              '<a href="/library.html#the-101-shelf">101 shelf</a> or take a ' +
+              '<a href="/learn/quiz.html">Pop Quiz</a>.</p>';
           });
       })();
     </script>

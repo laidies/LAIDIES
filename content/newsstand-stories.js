@@ -2,7 +2,9 @@
  * SUNNYVAiLE NewsStand — approved public story library
  *
  * Reader contract:
- *   - The WEDNESDAY Edition: source-checked practical news.
+ *   - The Breaking: a rare, qualified interruption.
+ *   - The Daily: an edited consequential briefing.
+ *   - The Weekly: source-checked durable synthesis (legacy storage key: wednesday).
  *   - The Tribune: a sourced argument when there is one worth making.
  *
  * Daily intake is a private radar. It does not publish directly to this file.
@@ -35,7 +37,7 @@ window.NEWSSTAND_STORIES = [
     aidb_credit: null,
     tags: ["privacy", "health", "ChatGPT", "verification", "permissions"],
     saint_lane: "Elle Woods · Read the fine print",
-    badge: "★ NEW · WEDNESDAY EDITION"
+    badge: "★ NEW · THE WEEKLY"
   },
   {
     id: "label-is-not-a-truth-detector",

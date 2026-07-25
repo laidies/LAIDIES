@@ -576,7 +576,10 @@
 
   var ALL = [];   // every class, used to find each subject's first period
 
-  fetch(DATA).then(function (r) { return r.json(); }).then(function (json) {
+  fetch(DATA).then(function (r) {
+    if (!r.ok) throw new Error('Class register request failed: ' + r.status);
+    return r.json();
+  }).then(function (json) {
     var list = json.classes || [];
     if (!list.length) return;
     ALL = list;
@@ -596,7 +599,7 @@
     render(cls, subject, siblings, subjects);
   }).catch(function () {
     $('hd-name').textContent = 'The class list could not be loaded.';
-    $('hd-sub').textContent  = 'The register is missing. Try again, or head back to SUNNYVAiLE High.';
+    $('hd-sub').textContent  = 'The register is unavailable right now. Return to SUNNYVAiLE High for the 101 shelf or Pop Quiz.';
   });
 
   function render(cls, subject, siblings, subjects) {

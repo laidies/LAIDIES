@@ -1,6 +1,6 @@
 {
   "product": "Platform Reliability",
-  "status": "SPECIFIED",
+  "status": "BUILDING",
   "asOf": "2026-07-25",
   "relationshipToActiveWork": "MERGE with AW-003",
   "scope": ["release provenance", "build/artifact integrity", "routes/redirects/media", "external service verification", "analytics health", "performance/accessibility baseline", "rollback/observability", "evidence standards"],
@@ -24,6 +24,19 @@
     "Fallback browser checks do not measure field LCP, CLS or INP."
   ],
   "dependencies": ["Cloudflare Pages", "Cloudflare Workers", "Supabase", "Hyvor", "Buttondown", "Plausible", "Microsoft Clarity", "native sharing/media/browser APIs", "build and validation scripts"],
-  "nextAction": "Create one release evidence manifest tying source commit, artifact, deployment, public-origin smoke, service verdicts and rollback reference to the bounded product promise set.",
-  "authority": "records only in this directory; no code, service mutation, deployment, publication, git or rollback action"
+  "nextAction": "Use public-promise-registry-2026-07-25.md to obtain product-owned clean-public and controlled-service verdicts, then create one release evidence manifest tying source commit, artifact, deployment, public-origin smoke, service verdicts and rollback reference to the bounded product promise set.",
+  "authority": "records only in this directory; no code, service mutation, deployment, publication, git or rollback action",
+  "currentCycle": {
+    "name": "P0 public-promise reconciliation",
+    "status": "BUILDING_RECORDS_COMPLETE",
+    "buildPacket": "build-packet-promise-reconciliation-2026-07-25.md",
+    "registry": "public-promise-registry-2026-07-25.md",
+    "scope": "19 promoted top-level visitor products plus shared platform",
+    "releaseBinding": {
+      "sourceCommit": "0c6db9d2d45f865abfac7b1f5fe2ee7655827565",
+      "artifactIdentitySha256": "6276ae94c0c04074769be127f7b21f1f0f4032a4cfb066909cd4f0d14f02d7d5",
+      "deploymentId": "7c8410e1-7a10-4bd7-8ccc-41d00af71bf7",
+      "rollbackDeploymentId": "edac8d4f-e304-4cef-8deb-b1de9cc32855"
+    }
+  }
 }
