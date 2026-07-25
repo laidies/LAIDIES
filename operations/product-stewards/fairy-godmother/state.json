@@ -1,6 +1,6 @@
 {
   "product": "FAiRY Godmother's House",
-  "status": "SPECIFIED",
+  "status": "BUILDING",
   "asOf": "2026-07-25",
   "launchStatus": "FIX BEFORE PROMOTION",
   "relationshipToActiveWork": "MERGE with AW-003",
@@ -18,7 +18,7 @@
   },
   "verifiedBaseline": {
     "recoveryIntegrity": "VERIFIED LOCALLY",
-    "characterizationTests": "7 PASS",
+    "characterizationTests": "10 PASS — phase-1 deterministic worker contract tests",
     "evaluationFixtureIntegrity": "45 PASS — initial recovered suite plus three product-owner learning-standard cases",
     "wranglerDryRun": "PASS",
     "stagingIsolation": "VERIFIED LOCALLY — safe staging name and no production bindings"
@@ -26,21 +26,43 @@
   "p0Defects": [
     "one universal prompt with no domain, task or safety router",
     "no retrieval/current-source verification",
-    "arbitrary Markdown response string instead of a typed contract",
-    "upstream failures returned as success-shaped HTTP 200",
-    "allowance counted before validated success",
-    "client-asserted subscriber email used as identity",
-    "10/day service cap conflicts with public 5/day and older 3/visit copy",
-    "raw normalized email logged",
     "no authoritative case or FAiRY Plays ledger",
-    "no maximum input length or upstream abort timeout"
+    "typed frontend rendering and public copy have not yet adopted the phase-1 contract",
+    "no isolated staging API/page evidence or independent product, safety, brand, accessibility and release judgments"
   ],
   "nextBuildPacket": "build-packet-p0-worker-reconstruction-2026-07-25.md",
-  "nextAction": "Refactor only worker-fairy-godmother/src/index.js through the ordered P0 gates, then test all 45 versioned cases at API and rendered-page levels against isolated staging.",
+  "nextAction": "Implement P0 gates 5–10 only after independent review of phase 1; first retain the phase-1 local evidence, then add safety/domain/task routing, retrieval, presentation, learning handoffs, ledger, typed frontend and isolated staging evaluation in order.",
   "productionAuthority": "NONE for this packet; no production deploy, binding, secret or data mutation",
+  "phase1": {
+    "status": "BUILT LOCALLY",
+    "gatesCompleted": [
+      "FG-01 typed response helpers and honest HTTP semantics",
+      "FG-02 allowance commit only after validated success",
+      "FG-03 reject client-asserted subscriber email; use only optional server-provided opaque identity adapter; no raw-email logs",
+      "FG-04 8,000-character request/previous-draft bound, 1,000-character fitting bound, and 20-second upstream abort"
+    ],
+    "verification": [
+      "frozen recovery checksum and byte count pass",
+      "10 deterministic worker contract tests pass",
+      "45-case evaluation fixture integrity passes"
+    ],
+    "remainingOrderedGates": [
+      "FG-05 boundary/safety/domain/task router",
+      "FG-06 current-information retrieval and citation discipline",
+      "FG-07 constrained personality presentation",
+      "FG-08 authoritative case and FAiRY Plays ledger",
+      "FG-09 typed frontend rendering and truthful product copy",
+      "FG-10 isolated staging API/page, accessibility, failure and independent quality gates"
+    ],
+    "limitations": [
+      "The opaque identity adapter is an integration seam, not a deployed signed-session implementation.",
+      "Allowance storage remains a temporary phase-1 counter and is not the authoritative Play ledger or a race-safe reservation system.",
+      "No routing, retrieval, model-output schema beyond non-empty completion, personality, frontend, staging, production, account or resource work occurred."
+    ]
+  },
   "lastRun": {
     "date": "2026-07-25",
     "type": "recovered-source handoff reconciliation",
-    "result": "AUTHORITATIVE BASELINE ACCEPTED; P0 READY TO BUILD"
+    "result": "P0 PHASE 1 BUILT LOCALLY — typed semantics, post-validation allowance commit, no client-email identity/logging, and bounded input/upstream timeout; router/retrieval/personality/ledger/frontend/staging remain unbuilt"
   }
 }

@@ -34,9 +34,10 @@ test.afterEach(() => {
   globalThis.fetch = originalFetch;
 });
 
-test("rejects non-POST requests", async () => {
+test("returns a typed non-POST failure", async () => {
   const response = await worker.fetch(request(null, { method: "GET" }), {}, context());
   assert.equal(response.status, 405);
+  assert.equal((await response.json()).type, "input_invalid");
 });
 
 test("returns a typed HTTP 429 when the IP rate limiter rejects", async () => {
@@ -54,22 +55,23 @@ test("returns a typed HTTP 429 when the IP rate limiter rejects", async () => {
   );
   const data = await response.json();
   assert.equal(response.status, 429);
-  assert.match(data.response, /breather/i);
+  assert.equal(data.type, "rate_limited");
+  assert.equal(data.play.amount, 0);
 });
 
-test("characterizes the current short-input success-shaped response", async () => {
+test("returns typed input-invalid rather than a success-shaped short-input response", async () => {
   const response = await worker.fetch(
     request({ prompt: "x" }),
     {},
     context()
   );
   const data = await response.json();
-  assert.equal(response.status, 200);
-  assert.match(data.response, /needs something to work with/i);
-  assert.equal(data.kind, undefined);
+  assert.equal(response.status, 400);
+  assert.equal(data.type, "input_invalid");
+  assert.equal(data.play.outcome, "not_spent");
 });
 
-test("characterizes upstream failure being returned as HTTP 200", async () => {
+test("returns a typed non-2xx service error for upstream failure", async () => {
   globalThis.fetch = async () =>
     new Response("upstream unavailable", { status: 503 });
 
@@ -79,12 +81,12 @@ test("characterizes upstream failure being returned as HTTP 200", async () => {
     context()
   );
   const data = await response.json();
-  assert.equal(response.status, 200);
-  assert.match(data.response, /wand is taking a moment/i);
-  assert.equal(data.kind, undefined);
+  assert.equal(response.status, 502);
+  assert.equal(data.type, "service_error");
+  assert.equal(data.play.amount, 0);
 });
 
-test("characterizes subscriber usage being incremented before answer success", async () => {
+test("does not accept client-asserted email or touch allowance storage", async () => {
   let storedValue = null;
   globalThis.fetch = async () =>
     new Response("upstream unavailable", { status: 503 });
@@ -109,36 +111,92 @@ test("characterizes subscriber usage being incremented before answer success", a
     ctx
   );
   await Promise.all(ctx.pending);
-  assert.equal(response.status, 200);
-  assert.equal(storedValue, "1");
+  assert.equal(response.status, 400);
+  assert.equal((await response.json()).type, "input_invalid");
+  assert.equal(storedValue, null);
 });
 
-test("enforces the recovered subscriber cap at ten", async () => {
+test("uses only a verified opaque identity and commits allowance after validated success", async () => {
+  let storedValue = null;
+  globalThis.fetch = async () => new Response(JSON.stringify({
+    choices: [{ message: { content: "A usable answer." } }]
+  }), { status: 200, headers: { "Content-Type": "application/json" } });
   const env = {
+    OPENAI_API_KEY: "test-only",
+    VERIFIED_IDENTITY: {
+      async get() { return { id: "resident-opaque-123", kind: "resident" }; }
+    },
     SUBSCRIBER_USAGE: {
       async get() {
-        return "10";
+        return "0";
       },
-      async put() {
-        throw new Error("put must not run at the limit");
+      async put(_key, value) {
+        storedValue = value;
       }
     }
   };
   const response = await worker.fetch(
     request({
-      prompt: "Help me prepare for a performance review.",
-      subscriberEmail: "reader@example.com"
+      requestId: "request-verified-1",
+      prompt: "Help me prepare for a performance review."
     }),
     env,
     context()
   );
   const data = await response.json();
-  assert.equal(response.status, 429);
-  assert.equal(data.kind, "daily_limit");
-  assert.match(data.response, /Daily cap: 10/i);
+  assert.equal(response.status, 200);
+  assert.equal(data.type, "case_success");
+  assert.equal(storedValue, "1");
 });
 
-test("returns revision output with the recovered revision kind", async () => {
+test("does not commit a verified allowance for a malformed upstream completion", async () => {
+  let writes = 0;
+  globalThis.fetch = async () => new Response(JSON.stringify({ choices: [] }), {
+    status: 200,
+    headers: { "Content-Type": "application/json" }
+  });
+  const env = {
+    OPENAI_API_KEY: "test-only",
+    VERIFIED_IDENTITY: { async get() { return { id: "resident-opaque-123" }; } },
+    SUBSCRIBER_USAGE: {
+      async get() { return "0"; },
+      async put() { writes += 1; }
+    }
+  };
+  const response = await worker.fetch(request({ prompt: "Help me write a clear email." }), env, context());
+  assert.equal(response.status, 502);
+  assert.equal((await response.json()).type, "service_error");
+  assert.equal(writes, 0);
+});
+
+test("rejects an oversized request without calling upstream", async () => {
+  let calls = 0;
+  globalThis.fetch = async () => { calls += 1; throw new Error("must not call upstream"); };
+  const response = await worker.fetch(request({ prompt: "x".repeat(8001) }), {}, context());
+  const data = await response.json();
+  assert.equal(response.status, 413);
+  assert.equal(data.type, "input_too_large");
+  assert.equal(calls, 0);
+});
+
+test("returns a typed timeout without allowance commit", async () => {
+  let writes = 0;
+  globalThis.fetch = async (_url, options) => new Promise((_resolve, reject) => {
+    options.signal.addEventListener("abort", () => reject(Object.assign(new Error("aborted"), { name: "AbortError" })));
+    options.signal.dispatchEvent(new Event("abort"));
+  });
+  const env = {
+    OPENAI_API_KEY: "test-only",
+    VERIFIED_IDENTITY: { async get() { return { id: "resident-opaque-123" }; } },
+    SUBSCRIBER_USAGE: { async get() { return "0"; }, async put() { writes += 1; } }
+  };
+  const response = await worker.fetch(request({ prompt: "Help me write a clear email." }), env, context());
+  assert.equal(response.status, 504);
+  assert.equal((await response.json()).type, "service_error");
+  assert.equal(writes, 0);
+});
+
+test("returns typed revision success and enforces fitting input limits", async () => {
   globalThis.fetch = async () =>
     new Response(
       JSON.stringify({
@@ -168,6 +226,12 @@ test("returns revision output with the recovered revision kind", async () => {
   );
   const data = await response.json();
   assert.equal(response.status, 200);
-  assert.equal(data.kind, "revision");
-  assert.equal(data.response, "The deadline needs to move to Tuesday.");
+  assert.equal(data.type, "revision_success");
+  assert.equal(data.answer.deliverable, "The deadline needs to move to Tuesday.");
+
+  const oversized = await worker.fetch(request({
+    revision: { previousDraft: "ok", directive: "x".repeat(1001) }
+  }), { OPENAI_API_KEY: "test-only" }, context());
+  assert.equal(oversized.status, 413);
+  assert.equal((await oversized.json()).type, "input_too_large");
 });

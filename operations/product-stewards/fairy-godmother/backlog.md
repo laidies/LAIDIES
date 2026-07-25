@@ -2,10 +2,10 @@
 
 | ID | Status | Launch class | Work | Done when |
 |---|---|---|---|---|
-| FG-01 | READY TO BUILD | FIX BEFORE LAUNCH | Typed request/response helpers and honest HTTP error semantics in recovered working source. | Every outcome has a validated type/status; failures cannot render or count as success. |
-| FG-02 | READY TO BUILD | FIX BEFORE LAUNCH | Move allowance commit after validated usable success. | Malformed, boundary, needs-information, timeout, upstream and rate-limit outcomes consume nothing. |
-| FG-03 | READY TO BUILD | FIX BEFORE LAUNCH | Remove browser-asserted subscriber identity and raw-email logging. | Entitlement requires an approved verified server identity; ordinary logs contain no raw email. |
-| FG-04 | READY TO BUILD | FIX BEFORE LAUNCH | Add 8,000-character input limit, fitting limit and upstream abort timeout. | Oversize and timeout return typed no-charge recovery states. |
+| FG-01 | BUILT LOCALLY — phase 1 | FIX BEFORE LAUNCH | Typed request/response helpers and honest HTTP error semantics in recovered working source. | Local deterministic tests cover typed non-POST, rate limit, invalid input, malformed completion and upstream failure; independent/release review remains open. |
+| FG-02 | BUILT LOCALLY — phase 1 | FIX BEFORE LAUNCH | Move allowance commit after validated usable success. | Local verified-opaque-identity fixture commits only after non-empty validated completion; malformed/upstream/timeout paths make zero writes. Atomic ledger/race handling remains FG-08. |
+| FG-03 | BUILT LOCALLY — phase 1 | FIX BEFORE LAUNCH | Remove browser-asserted subscriber identity and raw-email logging. | `subscriberEmail` is rejected; the worker accepts only an optional server-provided opaque identity adapter and has no raw-email logs. A real signed identity integration remains unbuilt. |
+| FG-04 | BUILT LOCALLY — phase 1 | FIX BEFORE LAUNCH | Add 8,000-character input limit, fitting limit and upstream abort timeout. | Request/previous-draft and fitting instruction limits return typed no-charge 413s; upstream abort returns typed 504. Exact runtime/load testing remains staging work. |
 | FG-05 | READY TO BUILD | FIX BEFORE LAUNCH | Add boundary/safety, domain and task routing before generation. | All applicable evaluation cases route correctly before character generation. |
 | FG-06 | READY TO BUILD | FIX BEFORE LAUNCH | Add current-information/retrieval gate and citation discipline. | Current claims use required sources or return `needs_verified_information`; zero fabricated citations/facts. |
 | FG-07 | READY TO BUILD | FIX BEFORE LAUNCH | Constrain FAiRY personality to the presentation layer. | Tone varies without changing facts, safety, uncertainty, recommendation or spend. |

@@ -1,8 +1,7 @@
-var __defProp = Object.defineProperty;
-var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-
-// src/index.js
-var ALLOWED_ORIGINS = /* @__PURE__ */ new Set([
+// P0 phase 1 working mirror. The frozen v18 recovery artifact remains under
+// recovery/production-v18 and is intentionally not imported or modified here.
+const __name = (target) => target;
+const ALLOWED_ORIGINS = new Set([
   "https://laidies.ai",
   "https://www.laidies.ai",
   "https://wearelaidies.ai",
@@ -11,15 +10,123 @@ var ALLOWED_ORIGINS = /* @__PURE__ */ new Set([
   "https://wearelaidies.com",
   "https://www.wearelaidies.com"
 ]);
-var LOCALHOST_RE = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i;
+const LOCALHOST_RE = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i;
+const MAX_REQUEST_TEXT = 8_000;
+const MAX_FITTING_INSTRUCTION = 1_000;
+const UPSTREAM_TIMEOUT_MS = 20_000;
+const DAILY_LIMIT = 10;
+
 function allowedOrigin(request) {
   const origin = request.headers.get("Origin") || "";
   if (ALLOWED_ORIGINS.has(origin)) return origin;
   if (LOCALHOST_RE.test(origin)) return origin;
   return "";
 }
-__name(allowedOrigin, "allowedOrigin");
-var index_default = {
+
+function responseHeaders(acao, extra = {}) {
+  return {
+    "Content-Type": "application/json; charset=utf-8",
+    "Access-Control-Allow-Origin": acao,
+    "Vary": "Origin",
+    ...extra
+  };
+}
+
+function typedResponse(acao, status, payload, extraHeaders = {}) {
+  return new Response(JSON.stringify(payload), {
+    status,
+    headers: responseHeaders(acao, extraHeaders)
+  });
+}
+
+function noPlay(outcome = "not_spent") {
+  return { outcome, amount: 0 };
+}
+
+function requestIdFrom(body) {
+  return typeof body?.requestId === "string" && body.requestId.trim()
+    ? body.requestId.trim().slice(0, 128)
+    : crypto.randomUUID();
+}
+
+function inputInvalid(acao, requestId, message) {
+  return typedResponse(acao, 400, {
+    ok: false,
+    type: "input_invalid",
+    requestId,
+    message,
+    play: noPlay()
+  });
+}
+
+function inputTooLarge(acao, requestId, field, maximum) {
+  return typedResponse(acao, 413, {
+    ok: false,
+    type: "input_too_large",
+    requestId,
+    field,
+    maximum,
+    message: `That ${field} is longer than this fitting room can safely hold. Please split it into parts or summarize it first.`,
+    play: noPlay()
+  });
+}
+
+function serviceError(acao, requestId, message, status = 502) {
+  return typedResponse(acao, status, {
+    ok: false,
+    type: "service_error",
+    requestId,
+    retryable: true,
+    message,
+    play: noPlay("released")
+  });
+}
+
+function hasVerifiedIdentity(env) {
+  return typeof env?.VERIFIED_IDENTITY?.get === "function";
+}
+
+async function getVerifiedIdentity(request, env) {
+  if (!hasVerifiedIdentity(env)) return null;
+  const identity = await env.VERIFIED_IDENTITY.get(request);
+  if (!identity || typeof identity.id !== "string" || !identity.id.trim()) return null;
+  return { id: identity.id.trim().slice(0, 256), kind: identity.kind || "subscriber" };
+}
+
+async function getAllowance(identity, env) {
+  if (!identity || !env.SUBSCRIBER_USAGE) return { allowed: true, usageKey: null, current: 0 };
+  const todayUTC = new Date().toISOString().slice(0, 10);
+  const usageKey = `daily:${identity.id}:${todayUTC}`;
+  const current = parseInt(await env.SUBSCRIBER_USAGE.get(usageKey) || "0", 10) || 0;
+  return { allowed: current < DAILY_LIMIT, usageKey, current };
+}
+
+async function commitAllowanceAfterValidatedSuccess(allowance, env) {
+  if (!allowance.usageKey || !env.SUBSCRIBER_USAGE) return;
+  await env.SUBSCRIBER_USAGE.put(
+    allowance.usageKey,
+    String(allowance.current + 1),
+    { expirationTtl: 60 * 60 * 32 }
+  );
+}
+
+async function fetchWithTimeout(url, options, timeoutMs = UPSTREAM_TIMEOUT_MS) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    return await fetch(url, { ...options, signal: controller.signal });
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+function extractCompletion(data) {
+  const content = data?.choices?.[0]?.message?.content;
+  if (typeof content !== "string" || !content.trim()) return null;
+  return content.trim();
+}
+
+const index_default = {
   async fetch(request, env, ctx) {
     const acao = allowedOrigin(request);
     if (request.method === "OPTIONS") {
@@ -34,69 +141,49 @@ var index_default = {
       });
     }
     if (request.method !== "POST") {
-      return new Response("Method not allowed", { status: 405 });
+      return typedResponse(acao, 405, {
+        ok: false,
+        type: "input_invalid",
+        requestId: null,
+        message: "Method not allowed. Use POST.",
+        play: noPlay()
+      });
     }
     if (env.RATE_LIMITER) {
       const ip = request.headers.get("CF-Connecting-IP") || "anonymous";
       const { success } = await env.RATE_LIMITER.limit({ key: ip });
       if (!success) {
-        return new Response(
-          JSON.stringify({
-            response: "LAiDY needs a breather \u2014 that's a lot of wand-waving in a short stretch. Try again in a minute or two and she'll be ready."
-          }),
-          {
-            status: 429,
-            headers: {
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": acao,
-              "Vary": "Origin",
-              "Retry-After": "60"
-            }
-          }
-        );
+        return typedResponse(acao, 429, {
+          ok: false,
+          type: "rate_limited",
+          requestId: null,
+          retryable: true,
+          message: "LAiDY needs a breather. Try again in a minute or two; your Play was not used.",
+          play: noPlay("released")
+        }, { "Retry-After": "60" });
       }
     }
     let body;
     try {
       body = await request.json();
     } catch {
-      return new Response("Invalid JSON", { status: 400 });
+      return inputInvalid(acao, null, "Invalid JSON.");
     }
-    const { prompt, energy, revision, subscriberEmail } = body;
-    const DAILY_LIMIT = 10;
-    if (subscriberEmail && env.SUBSCRIBER_USAGE) {
-      const normalizedEmail = String(subscriberEmail).trim().toLowerCase().slice(0, 254);
-      const todayUTC = (/* @__PURE__ */ new Date()).toISOString().slice(0, 10);
-      const usageKey = `daily:${normalizedEmail}:${todayUTC}`;
-      const current = parseInt(await env.SUBSCRIBER_USAGE.get(usageKey) || "0", 10) || 0;
-      if (current >= DAILY_LIMIT) {
-        return new Response(
-          JSON.stringify({
-            response: "You've maxed out today's wishes, honey \u2014 LAiDY's wand needs a rest. Come back tomorrow and she'll be ready. (Daily cap: " + DAILY_LIMIT + " wishes per LAiDIES.)\n\nP.S. LAiDY's wand still runs on Ali's personal credit card, so unlimited wishes aren't in the budget \u2014 yet. Higher daily caps unlock with the membership card\u2026 (coming soon!)",
-            kind: "daily_limit"
-          }),
-          {
-            status: 429,
-            headers: {
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": acao,
-              "Vary": "Origin",
-              "Retry-After": "3600"
-            }
-          }
-        );
-      }
-      ctx.waitUntil(
-        env.SUBSCRIBER_USAGE.put(usageKey, String(current + 1), { expirationTtl: 60 * 60 * 32 })
-      );
-      console.log("subscriber wish:", normalizedEmail, "count:", current + 1, "/", DAILY_LIMIT);
-    } else if (subscriberEmail) {
-      console.log("subscriber:", String(subscriberEmail).slice(0, 60), "(no KV bound)");
+    const requestId = requestIdFrom(body);
+    const { prompt, energy, revision } = body || {};
+    if (Object.hasOwn(body || {}, "subscriberEmail")) {
+      return inputInvalid(acao, requestId, "Subscriber email is not accepted as identity. Sign in through a verified server session.");
     }
     if (revision && revision.previousDraft && revision.directive) {
+      if (String(revision.previousDraft).length > MAX_REQUEST_TEXT) {
+        return inputTooLarge(acao, requestId, "previous draft", MAX_REQUEST_TEXT);
+      }
+      if (String(revision.directive).length > MAX_FITTING_INSTRUCTION) {
+        return inputTooLarge(acao, requestId, "fitting instruction", MAX_FITTING_INSTRUCTION);
+      }
       const systemPrompt2 = buildRevisionSystemPrompt(revision.directive);
       try {
-        const response = await fetch("https://api.openai.com/v1/chat/completions", {
+        const response = await fetchWithTimeout("https://api.openai.com/v1/chat/completions", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -114,46 +201,29 @@ var index_default = {
             presence_penalty: 0.1
           })
         });
-        if (!response.ok) throw new Error("OpenAI " + response.status);
+        if (!response.ok) return serviceError(acao, requestId, "LAiDY could not complete that fitting. Try again in a moment.");
         const data = await response.json();
-        const revised = data.choices[0].message.content;
-        return new Response(JSON.stringify({ response: revised, kind: "revision" }), {
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": acao,
-            "Vary": "Origin"
-          }
+        const revised = extractCompletion(data);
+        if (!revised) return serviceError(acao, requestId, "LAiDY received an incomplete fitting. Your Play was not used.");
+        return typedResponse(acao, 200, {
+          ok: true,
+          type: "revision_success",
+          requestId,
+          answer: { deliverable: revised },
+          play: noPlay()
         });
-      } catch (err) {
-        console.error("Revision error:", err);
-        return new Response(
-          JSON.stringify({
-            response: "LAiDY's wand is taking a moment. Try again in a bit \u2014 she hasn't forgotten you.",
-            kind: "revision"
-          }),
-          {
-            headers: {
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": acao,
-              "Vary": "Origin"
-            }
-          }
-        );
+      } catch (error) {
+        const message = error?.name === "AbortError"
+          ? "LAiDY's wand timed out before the fitting was ready. Your Play was not used."
+          : "LAiDY's wand lost the thread before that fitting was ready. Your Play was not used.";
+        return serviceError(acao, requestId, message, error?.name === "AbortError" ? 504 : 502);
       }
     }
-    if (!prompt || prompt.trim().length < 3) {
-      return new Response(
-        JSON.stringify({
-          response: "LAiDY needs something to work with. Drop your rough prompt or question in the box and she'll take it from there."
-        }),
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": acao,
-            "Vary": "Origin"
-          }
-        }
-      );
+    if (typeof prompt !== "string" || prompt.trim().length < 3) {
+      return inputInvalid(acao, requestId, "LAiDY needs one meaningful sentence to work with.");
+    }
+    if (prompt.length > MAX_REQUEST_TEXT) {
+      return inputTooLarge(acao, requestId, "request", MAX_REQUEST_TEXT);
     }
     const dateString = (/* @__PURE__ */ new Date()).toLocaleDateString("en-US", {
       weekday: "long",
@@ -164,7 +234,19 @@ var index_default = {
     });
     const systemPrompt = buildStablePrefix(dateString) + "\n\n---\n\n" + buildEnergyDirective(energy);
     try {
-      const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      const identity = await getVerifiedIdentity(request, env);
+      const allowance = await getAllowance(identity, env);
+      if (!allowance.allowed) {
+        return typedResponse(acao, 429, {
+          ok: false,
+          type: "rate_limited",
+          requestId,
+          retryable: true,
+          message: "Today's verified allowance is used. Come back tomorrow; no additional Play was used.",
+          play: noPlay("released")
+        }, { "Retry-After": "3600" });
+      }
+      const response = await fetchWithTimeout("https://api.openai.com/v1/chat/completions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -183,44 +265,35 @@ var index_default = {
         })
       });
       if (!response.ok) {
-        const err = await response.text();
-        console.error("OpenAI error:", err);
-        return new Response(
-          JSON.stringify({
-            response: "LAiDY's wand is taking a moment. Try again in a bit \u2014 she hasn't forgotten you."
-          }),
-          {
-            headers: {
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": acao,
-              "Vary": "Origin"
-            }
-          }
-        );
+        return serviceError(acao, requestId, "LAiDY's wand lost the thread before your answer was ready. Your Play was not used.");
       }
       const data = await response.json();
-      const ladyResponse = data.choices[0].message.content;
-      return new Response(JSON.stringify({ response: ladyResponse }), {
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": acao,
-          "Vary": "Origin"
-        }
+      const deliverable = extractCompletion(data);
+      if (!deliverable) {
+        return serviceError(acao, requestId, "LAiDY received an incomplete answer. Your Play was not used.");
+      }
+      await commitAllowanceAfterValidatedSuccess(allowance, env);
+      return typedResponse(acao, 200, {
+        ok: true,
+        type: "case_success",
+        requestId,
+        case: {
+          id: null,
+          version: null,
+          domain: "unrouted",
+          task: "unrouted",
+          energy: { requested: energy || "auto", used: energy || "auto", reason: "Routing is deferred to P0 gate 5." },
+          status: "ephemeral"
+        },
+        answer: { deliverable },
+        play: noPlay(),
+        allowance: identity ? { status: "committed_after_validated_success" } : { status: "guest_preview_no_verified_allowance" }
       });
-    } catch (err) {
-      console.error("Worker error:", err);
-      return new Response(
-        JSON.stringify({
-          response: "LAiDY's wand is taking a moment. Try again in a bit \u2014 she hasn't forgotten you."
-        }),
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": acao,
-            "Vary": "Origin"
-          }
-        }
-      );
+    } catch (error) {
+      const message = error?.name === "AbortError"
+        ? "LAiDY's wand timed out before your answer was ready. Your Play was not used."
+        : "LAiDY's wand lost the thread before your answer was ready. Your Play was not used.";
+      return serviceError(acao, requestId, message, error?.name === "AbortError" ? 504 : 502);
     }
   }
 };
