@@ -36,6 +36,9 @@
     .pc-btn.gold { background: var(--gold); color: var(--plum-deep); border-color: var(--gold); }
     .pc-btn[disabled] { opacity: 0.4; cursor: not-allowed; }
     .pc-status { min-height: 1.2em; margin: 4px 0 0; font-size: 13px; color: var(--rose); font-weight: 600; }
+    .pc-copy-fallback { margin-top: 12px; }
+    .pc-copy-fallback label { display: block; margin-bottom: 6px; font: 700 12px/1.2 'Jost', sans-serif; letter-spacing: 0.05em; text-transform: uppercase; color: var(--plum-deep); }
+    .pc-copy-fallback input { width: min(100%, 560px); padding: 9px 11px; border: 1.5px solid rgba(75,33,72,0.3); border-radius: 8px; color: var(--plum-deep); background: var(--cream); font: 500 14px/1.2 'Jost', sans-serif; }
 
     /* reward strip */
     .pc-reward { display: flex; gap: 14px; align-items: center; margin: 22px 0; padding: 18px 20px; border: 1.5px solid rgba(201,162,39,0.5); border-radius: 14px; background: linear-gradient(135deg, var(--blush) 0%, #f6e2c4 100%); }
@@ -73,6 +76,19 @@
     .pc-hidden { display: none !important; }
   </style>
   <link rel="stylesheet" href="/content/postcard-v2.css?v=20260724-1">
+  <script>
+    // Older postcard links included the writer's handle and message in the URL.
+    // Retire those values before analytics libraries initialise: a link may carry
+    // only the public card choice. The original request can still exist in a
+    // browser/CDN history, so do not generate or promise support for such URLs.
+    (function () {
+      var params = new URLSearchParams(location.search);
+      if (!params.has('from') && !params.has('note')) return;
+      var pc = params.get('pc');
+      var safeQuery = pc ? '?pc=' + encodeURIComponent(pc) : '';
+      history.replaceState(null, '', location.pathname + safeQuery + location.hash);
+    })();
+  </script>
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
   <script>
@@ -171,63 +187,22 @@
             <p>Share through your phone, open a ready-to-go text or email, or copy the invitation link.</p>
           </div>
           <div class="pc-send-row">
-            <button class="pc-btn gold" id="pcShare" type="button">Send the postcard →</button>
+            <button class="pc-btn gold" id="pcShare" type="button">Share the postcard →</button>
             <a class="pc-btn ghost" id="pcText" href="sms:">Text it</a>
             <a class="pc-btn ghost" id="pcEmail" href="mailto:">Email it</a>
             <button class="pc-btn ghost" id="pcCopy" type="button">Copy link</button>
           </div>
           <p class="pc-status" id="pcStatus" role="status"></p>
+          <div class="pc-copy-fallback" id="pcCopyFallback" hidden>
+            <label for="pcCopyValue">Copy this public postcard link</label>
+            <input id="pcCopyValue" type="text" readonly>
+          </div>
 
           <div class="pc-reward">
             <p class="pc-reward-label">What this link can prove</p>
-            <p><strong>It opens your chosen postcard and note.</strong> It does not confirm that a message was sent, opened or joined, and it does not issue a reward.</p>
+            <p><strong>It opens your chosen postcard.</strong> Your note stays in the text, email or share message — not in the link. This page does not confirm that a message was sent, opened or joined, and it does not issue a reward.</p>
           </div>
         </section>
-      </section>
-
-      <!-- ============ RECEIVE MODE (?from=...) ============ -->
-      <section id="pc-receive" class="pc-hidden">
-        <div class="pc-receive-band">
-          <div class="pc-receive-copy">
-            <p class="pc-eyebrow">You’ve got mail · Penny held it for you</p>
-            <h1 id="pcRecTitle">You've been invited to SUNNYV<span class="ai">Ai</span>LE.</h1>
-            <p class="sv-lede" id="pcRecLede">A friend shared a postcard from a little internet town where smart, busy women learn AI — one Wednesday at a time.</p>
-          </div>
-
-          <div class="pc-receive-counter">
-            <div class="pc-card" id="pcCard">
-              <div class="pc-card-inner">
-                <div class="pc-face pc-face--front">
-                  <img id="pcRecImg" src="/assets/postcards/from-sunnyvaile/pc-welcome.png" alt="The front of your postcard from SUNNYVAiLE">
-                </div>
-                <div class="pc-face pc-face--back">
-                  <div class="pc-back-msg">
-                    <p class="pc-back-post">Postcard from SUNNYV<span class="ai">Ai</span>LE</p>
-                    <p class="pc-back-note" id="pcRecNote"></p>
-                    <p class="pc-back-blurb">A little internet town where smart, busy women learn AI — one Wednesday at a time.</p>
-                  </div>
-                  <div class="pc-back-addr">
-                    <div class="pc-stamp" aria-hidden="true">SV</div>
-                    <div class="pc-postmark" aria-hidden="true"><span>SUNNYV<span class="ai">Ai</span>LE · &rsquo;99</span></div>
-                    <p class="pc-addr-to">To: <span>a future resident</span></p>
-                    <p class="pc-addr-why" id="pcRecWhy"></p>
-                    <p class="pc-addr-do">Come visit the town and make a local Resident Card if you want one.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="pc-flip-row"><button class="pc-flip" id="pcFlip" type="button">Read the other side</button></div>
-          </div>
-        </div>
-
-        <div class="pc-receive-action">
-          <p class="pc-step">Next stop · The MAiKEOVER</p>
-          <h2>Claim your name in town.</h2>
-          <p>Make a Resident Card if you would like a town name and a device-local place for supported progress. It takes about two minutes and is free.</p>
-          <div class="pc-send-row">
-            <a class="pc-btn gold" id="pcJoin" href="/maikeover.html"><span>Come to SUNNYV<span class="ai">Ai</span>LE — make your card →</span></a>
-          </div>
-        </div>
       </section>
 
     </div>
@@ -258,7 +233,6 @@
     var byId = {}; POSTCARDS.forEach(function (p) { byId[p.id] = p; });
 
     function ls(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
-    function lsSet(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
     function esc(s){ return String(s||'').replace(/[<>&"]/g, function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c];}); }
     function bindFlip(cardId, btnId) {
       var card = document.getElementById(cardId); if (!card) return;
@@ -268,29 +242,11 @@
     }
 
     var params = new URLSearchParams(location.search);
-    var from = (params.get('from') || '').replace(/^@/, '').trim();
 
-    if (from) { renderReceive(); } else { renderCompose(); }
-
-    // ---------------- RECEIVE ----------------
-    function renderReceive() {
-      document.getElementById('pc-compose').classList.add('pc-hidden');
-      document.getElementById('pc-receive').classList.remove('pc-hidden');
-      var pc = byId[params.get('pc')] || POSTCARDS[0];
-      document.getElementById('pcRecImg').src = PC_BASE + pc.file;
-      var note = params.get('note');
-      var noteEl = document.getElementById('pcRecNote');
-      if (note) { try { noteEl.textContent = decodeURIComponent(note); } catch(e){ noteEl.textContent = note; } }
-      else { noteEl.textContent = 'Come find me in SUNNYVAiLE.'; }
-
-      document.getElementById('pcRecTitle').innerHTML =
-        '@' + esc(from) + ' invited you to SUNNYV<span class="ai">Ai</span>LE.';
-      document.getElementById('pcRecWhy').innerHTML =
-        '@' + esc(from) + ' sent you this &mdash; she thinks you&rsquo;d love it here.';
-      var join = document.getElementById('pcJoin');
-      join.href = '/maikeover.html';
-      bindFlip('pcCard', 'pcFlip');
-    }
+    // Public links now contain only a postcard choice. Notes and writer handles
+    // belong in the user-controlled share message, never a URL or analytics
+    // surface, so every supported link opens the composition desk.
+    renderCompose();
 
     // ---------------- COMPOSE ----------------
     var picked = POSTCARDS[0].id;
@@ -309,12 +265,18 @@
         b.type = 'button';
         b.className = 'pc-thumb' + (p.id === picked ? ' is-picked' : '');
         b.dataset.id = p.id;
+        b.setAttribute('aria-pressed', p.id === picked ? 'true' : 'false');
         b.innerHTML = '<img src="' + PC_BASE + p.file + '" alt="' + esc(p.label) + ' postcard" loading="lazy">'
                     + '<span class="pc-caption">' + esc(p.label) + '</span>';
         b.addEventListener('click', function () {
           picked = p.id;
-          Array.prototype.forEach.call(grid.children, function (c) { c.classList.toggle('is-picked', c.dataset.id === picked); });
+          Array.prototype.forEach.call(grid.children, function (c) {
+            var isPicked = c.dataset.id === picked;
+            c.classList.toggle('is-picked', isPicked);
+            c.setAttribute('aria-pressed', isPicked ? 'true' : 'false');
+          });
           var pv = document.getElementById('pcPrevImg'); if (pv) pv.src = PC_BASE + p.file;
+          status(p.label + ' selected.');
         });
         grid.appendChild(b);
       });
@@ -332,44 +294,68 @@
       bindFlip('pcPrev', 'pcPrevFlip');
 
       document.getElementById('pcShare').addEventListener('click', doShare);
-      document.getElementById('pcCopy').addEventListener('click', doCopy);
-      document.getElementById('pcText').addEventListener('click', function (e) { e.preventDefault(); location.href = smsHref(); });
-      document.getElementById('pcEmail').addEventListener('click', function (e) { e.preventDefault(); location.href = mailHref(); });
+      document.getElementById('pcCopy').addEventListener('click', function () { doCopy(); });
+      document.getElementById('pcText').addEventListener('click', function (e) {
+        e.preventDefault();
+        status('Opening your text app. This page cannot confirm a send.');
+        location.href = smsHref();
+      });
+      document.getElementById('pcEmail').addEventListener('click', function (e) {
+        e.preventDefault();
+        status('Opening your email app. This page cannot confirm a send.');
+        location.href = mailHref();
+      });
     }
 
     function handle() { return (document.getElementById('pcHandle').value || '').replace(/^@/, '').trim(); }
     function note()   { return (document.getElementById('pcNote').value || '').trim(); }
 
-    function inviteURL() {
-      var u = location.origin + '/postcard.html?from=' + encodeURIComponent(handle() || 'a-friend') + '&pc=' + encodeURIComponent(picked);
-      if (note()) u += '&note=' + encodeURIComponent(note());
-      return u;
+    function postcardURL() {
+      return location.origin + '/postcard.html?pc=' + encodeURIComponent(picked);
     }
     function messageText() {
       var n = note();
       return (n ? n + '\n\n' : '') +
-        'Come to SUNNYVAiLE — a little internet town where we learn AI one Wednesday at a time. Make your card here: ' + inviteURL();
+        'Come to SUNNYVAiLE — a little internet town where we learn AI one Wednesday at a time. Make your card here: ' + postcardURL();
     }
     function smsHref()  { return 'sms:?&body=' + encodeURIComponent(messageText()); }
     function mailHref() { return 'mailto:?subject=' + encodeURIComponent('A postcard from SUNNYVAiLE') + '&body=' + encodeURIComponent(messageText()); }
 
     function status(msg) { document.getElementById('pcStatus').textContent = msg || ''; }
+    function showCopyFallback(url, message) {
+      var fallback = document.getElementById('pcCopyFallback');
+      var value = document.getElementById('pcCopyValue');
+      value.value = url;
+      fallback.hidden = false;
+      status(message);
+    }
+    function hideCopyFallback() { document.getElementById('pcCopyFallback').hidden = true; }
 
     function doShare() {
       var data = { title: 'A postcard from SUNNYVAiLE', text: messageText() };
       if (navigator.share) {
         navigator.share(data).then(function(){ status('Share sheet closed. This page cannot confirm delivery.'); })
-          .catch(function(){ /* user cancelled */ });
+          .catch(function(error){
+            if (error && error.name === 'AbortError') {
+              status('Share sheet closed without sending. Your postcard is still here; try Copy link, Text it or Email it.');
+            } else {
+              doCopy('We could not open the share sheet. Copy the link or use Text it or Email it instead.');
+            }
+          });
       } else {
-        doCopy();
-        status('Link copied — paste it into a text or email.');
+        doCopy('This browser does not offer a share sheet. Copy the link or use Text it or Email it instead.');
       }
     }
-    function doCopy() {
-      var url = inviteURL();
+    function doCopy(context) {
+      var url = postcardURL();
+      hideCopyFallback();
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(url).then(function(){ status('Link copied.'); }, function(){ prompt('Copy your invite link:', url); });
-      } else { prompt('Copy your invite link:', url); }
+        navigator.clipboard.writeText(url).then(function(){ status('Link copied.'); }, function(){
+          showCopyFallback(url, (context ? context + ' ' : '') + 'Automatic copying was not allowed. Copy the link below.');
+        });
+      } else {
+        showCopyFallback(url, (context ? context + ' ' : '') + 'Automatic copying is not available here. Copy the link below.');
+      }
     }
   })();
   </script>

@@ -399,14 +399,18 @@
         <p class="svb-kicker">Counter one · rent a box</p>
         <h2 id="po-rent-title">One delivery. Every Wednesday.</h2>
         <p>A short hello and the new episode. No daily funnel, no five-email sequence, no “are you still interested?” note.</p>
-        <form action="https://buttondown.com/api/emails/embed-subscribe/laidies" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/laidies', 'popupwindow')">
+        <form id="po-newsletter-form" action="https://buttondown.com/api/emails/embed-subscribe/laidies" method="post" target="popupwindow">
           <div class="po-form__fields">
             <label class="sr-only" for="po-email">Email address</label>
-            <input id="po-email" type="email" name="email" placeholder="you@yourcompany.com" autocomplete="email" required>
+            <input id="po-email" type="email" name="email" placeholder="you@yourcompany.com" autocomplete="email" aria-describedby="po-newsletter-notice" required>
             <button class="svb-action" type="submit">Rent my box</button>
           </div>
         </form>
-        <p class="po-form__small">Already a resident? <a href="/resident-card.html">Open your Resident Card</a>.</p>
+        <p class="po-form__small" id="po-newsletter-notice">Your email goes to Buttondown to request the Wednesday Postcard. Buttondown will show the next step; a popup or form opening is not a subscription receipt. You can unsubscribe through its emails. <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a>.</p>
+        <p class="po-form__small" id="po-newsletter-status" role="status" aria-live="polite" hidden></p>
+        <p class="po-form__small" id="po-newsletter-fallback" hidden><a href="https://buttondown.com/laidies" target="_blank" rel="noreferrer">Open the Buttondown signup page</a>.</p>
+        <p class="po-form__small">Want to sign in or manage a card? <a href="/resident-card.html">Open your Resident Card</a>.</p>
+        <p class="po-form__small">The Resident Card handles its own email sign-in; opening it does not create an account.</p>
       </div>
     </section>
 
@@ -449,6 +453,26 @@
   <footer>© LAiDIES · Filed from SUNNYVAiLE · The Post Office at Civic Square</footer>
 
   <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
+  <script>
+    (function () {
+      var form = document.getElementById('po-newsletter-form');
+      var status = document.getElementById('po-newsletter-status');
+      var fallback = document.getElementById('po-newsletter-fallback');
+      if (!form || !status || !fallback) return;
+      form.addEventListener('submit', function (event) {
+        var popup = window.open('https://buttondown.com/laidies', 'popupwindow');
+        status.hidden = false;
+        if (!popup) {
+          event.preventDefault();
+          fallback.hidden = false;
+          status.textContent = 'Your browser blocked the Buttondown window, so no signup request was sent here. Use the Buttondown link to continue.';
+          return;
+        }
+        fallback.hidden = true;
+        status.textContent = 'Buttondown opened to receive your request. This page cannot confirm a subscription, confirmation email or delivery.';
+      });
+    })();
+  </script>
   <script defer src="/content/site/charm-hunt.js?v=20260716-coords"></script>
   <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
   <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>

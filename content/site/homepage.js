@@ -146,19 +146,33 @@
     var track = document.querySelector('.season-track');
     var heading = document.querySelector('.fc-default h3');
     if (!track || !heading) return;
-    fetch('/content/episode-index.json').then(function (r) { return r.json(); }).then(function (data) {
+    function showEvergreenFallback() {
+      heading.textContent = 'Episode 04 · The Founding Mothers';
+      track.querySelectorAll('.st-current em').forEach(function (label) {
+        label.textContent = 'Previously published';
+      });
+      var readBtn = document.querySelector('.fc-default .fc-btn-teal');
+      var listenBtn = document.querySelector('.fc-default .fc-btn-coral');
+      if (readBtn) { readBtn.href = '/issues/issue-04.html'; readBtn.textContent = 'Read Episode 04 →'; }
+      if (listenBtn) { listenBtn.href = '/watch.html?ep=04'; listenBtn.textContent = 'Listen to Episode 04 →'; }
+    }
+
+    fetch('/content/episode-index.json').then(function (r) {
+      if (!r.ok) throw new Error('Episode index unavailable (' + r.status + ')');
+      return r.json();
+    }).then(function (data) {
       var pub = (data.episodes || []).filter(function (e) { return e.status === 'published'; })
         .sort(function (a, b) { return a.number - b.number; });
-      if (!pub.length) return;
+      if (!pub.length) {
+        showEvergreenFallback();
+        return;
+      }
       var current = pub[pub.length - 1];
       var pad = function (n) { return (n < 10 ? '0' : '') + n; };
 
       /* hide the anthem chip if it has fallen behind the current episode */
       var mini = document.querySelector('.pc-mini');
       if (mini && WEEKLY_SONG.ep !== current.number) mini.hidden = true;
-
-      /* markup ships correct for Ep 04 — only re-render when the week moves on */
-      if (current.number === 4) return;
 
       heading.textContent = 'Ep ' + pad(current.number) + ' · ' + current.title;
       var priors = pub.slice(0, -1);
@@ -183,7 +197,7 @@
       var listenBtn = document.querySelector('.fc-default .fc-btn-coral');
       if (readBtn) { readBtn.href = '/' + current.issueUrl; readBtn.textContent = 'Read this week →'; }
       if (listenBtn) { listenBtn.href = '/watch.html?ep=' + pad(current.number); listenBtn.textContent = 'Listen this week →'; }
-    }).catch(function () { /* static markup remains the fallback */ });
+    }).catch(function () { showEvergreenFallback(); });
   })();
 
   /* ---------- signed-in resume hook (wired to member_issue_progress later) ---------- */

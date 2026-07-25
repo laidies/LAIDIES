@@ -1,0 +1,20 @@
+# Newsletter Delivery — subproduct contract
+
+**Status:** SPECIFIED — Buttondown path is wired; subscription, confirmation, delivery, unsubscribe and failure receipts are NOT TESTED.
+
+**Job:** let a visitor ask for one useful Wednesday Postcard without pressure or a false subscription claim. Buttondown is the authoritative subscription/unsubscribe provider. `post-office.html` currently posts directly to its embed endpoint; `script.js` also posts a hidden form from the Resident Card when its checkbox is selected and saves a browser-local `newsletterSubmitted` marker. Neither is a subscription receipt.
+
+| State | Required visible wording / receipt | Must not say |
+|---|---|---|
+| ready | cadence, content, provider, privacy and unsubscribe path | “your box” implies an account or delivery guarantee |
+| invalid | “Enter a valid email.” | provider rejected/accepted anything |
+| request started | “We’re sending your signup request to Buttondown.” | subscribed, confirmed, mail is on its way |
+| opaque/popup blocked | “We can’t confirm this here. Finish or check status with Buttondown.” | success inferred from popup/open form |
+| provider accepted | “Buttondown accepted the request; check your inbox if confirmation is required.” | recurring delivery before confirmation/send evidence |
+| duplicate/unsubscribed | provider-specific, non-disclosing recovery | account existence beyond the provided address |
+| provider/network error | safe retry and direct provider route | attempt was saved or queued |
+| unsubscribe | provider confirmation is authoritative | immediately unsubscribed without provider receipt |
+
+**Privacy/idempotency:** email exists only in the browser request and Buttondown; no analytics/local durable record beyond a deliberately non-authoritative attempt category. Do not auto-resubmit based on the local marker. A retry uses the same address only after user action; dedupe/confirmation belongs to Buttondown. No charge, incentive or reward attaches to signup.
+
+**Authoritative completion:** configured-provider proof that the address is subscribed/confirmed; a later Wednesday send/delivery needs provider delivery evidence and is a different outcome. **Analytics:** attempt and categorical provider result only; never address, message, raw response or subscriber status. **Release gate:** the controlled packet must prove valid, invalid, duplicate, confirmation-required, unsubscribe, popup/network/provider failure and accessible retry with an approved disposable test identity.

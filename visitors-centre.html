@@ -953,6 +953,10 @@
             <option value="">Select a SUNNYVAiLE building</option>
           </select>
         </label>
+        <p id="vc-directory-fallback" hidden>
+          The town directory is unavailable right now. You can still start from the
+          <a href="/">LAiDIES homepage</a>.
+        </p>
       </div>
 
       <div class="vc-orientation">
@@ -979,8 +983,8 @@
           <ol class="vc-first-route">
             <li><a href="/watch.html?ep=01">Watch Episode 01</a><span>Meet the show before trying to understand every street.</span></li>
             <li><a href="/handbook.html">Take the Handbook</a><span>The plain-language guide to the town, your card, and what lives where.</span></li>
-            <li><a href="/maikeover.html">Make your Resident Card</a><span>Claim your handle, choose your look, and unlock the member route.</span></li>
-            <li><a href="/post-office.html">Rent your PO box</a><span>Get the Wednesday release delivered and keep the next drop from getting lost.</span></li>
+            <li><a href="/maikeover.html">Make your Resident Card</a><span>Choose a handle and look on this device, then continue on the Resident Card route.</span></li>
+            <li><a href="/post-office.html">Visit the Post Office</a><span>Request the Wednesday release there; any confirmation happens in your inbox.</span></li>
           </ol>
         </section>
       </div>
@@ -989,11 +993,10 @@
     <section class="vc-postcards" id="send-a-postcard" aria-labelledby="vc-postcards-title">
       <div class="vc-postcards__inner">
         <p class="vc-kicker">The tourist postcard desk</p>
-        <h2 id="vc-postcards-title">Send someone the view.</h2>
+        <h2 id="vc-postcards-title">Prepare a postcard to share.</h2>
         <p class="vc-postcards__intro">
-          You found the town. Send a friend the part she would love. Choose a card,
-          write the back, and send it by share, text, email, or copied link without
-          leaving the Visitor's Centre.
+          You found the town. Choose a card and write the back, then open your
+          device's share, text, email, or copy-link handoff from the Visitor's Centre.
         </p>
 
         <div class="vc-postcard-workspace">
@@ -1012,13 +1015,13 @@
               </label>
             </div>
             <div class="vc-postcard-send">
-              <button class="vc-action vc-action--primary" id="vcPostcardShare" type="button">Share</button>
-              <a class="vc-action vc-action--teal" id="vcPostcardText" href="/postcard.html">Text</a>
-              <a class="vc-action" id="vcPostcardEmail" href="/postcard.html">Email</a>
+              <button class="vc-action vc-action--primary" id="vcPostcardShare" type="button">Open share sheet</button>
+              <a class="vc-action vc-action--teal" id="vcPostcardText" href="/postcard.html">Open text</a>
+              <a class="vc-action" id="vcPostcardEmail" href="/postcard.html">Open email</a>
               <button class="vc-action" id="vcPostcardCopy" type="button">Copy link</button>
             </div>
             <p class="vc-postcard-status" id="vcPostcardStatus" aria-live="polite"></p>
-            <p class="vc-postcard-fine">The full town rack and your Wednesday delivery live at the <a href="/post-office.html">Post Office</a>.</p>
+            <p class="vc-postcard-fine">More postcard options and a newsletter request handoff are at the <a href="/post-office.html">Post Office</a>.</p>
           </form>
         </div>
       </div>
@@ -1136,7 +1139,7 @@
       };
 
       document.addEventListener("DOMContentLoaded", function() {
-        var buildings = window.SV_BUILDINGS || [];
+        var buildings = Array.isArray(window.SV_BUILDINGS) ? window.SV_BUILDINGS : [];
         var map = document.getElementById("vc-map-stage");
         var directory = document.getElementById("vc-directory");
         var card = document.getElementById("vc-building-card");
@@ -1146,7 +1149,9 @@
         var list = document.getElementById("vc-card-list");
         var enter = document.getElementById("vc-card-enter");
         var close = document.getElementById("vc-card-close");
+        var fallback = document.getElementById("vc-directory-fallback");
         var currentId = "";
+        var initiatingControl = null;
 
         function allFor(id) {
           return document.querySelectorAll('[data-vc-building="' + id + '"]');
@@ -1158,7 +1163,7 @@
           });
         }
 
-        function closeCard(updateHash) {
+        function closeCard(updateHash, restoreFocus) {
           currentId = "";
           clearActive();
           card.classList.remove("is-open");
@@ -1170,13 +1175,17 @@
           if (updateHash !== false) {
             history.replaceState(null, "", location.pathname + location.search);
           }
+          if (restoreFocus && initiatingControl && document.contains(initiatingControl)) {
+            initiatingControl.focus();
+          }
         }
 
-        function openCard(building, shouldScroll) {
+        function openCard(building, trigger) {
           if (currentId === building.id && card.classList.contains("is-open")) {
-            closeCard();
+            closeCard(true, true);
             return;
           }
+          initiatingControl = trigger || directory;
           currentId = building.id;
           clearActive();
           directory.value = building.id;
@@ -1209,7 +1218,7 @@
           label.className = "vc-map-spot-label";
           label.textContent = building.name;
           spot.appendChild(label);
-          spot.addEventListener("click", function() { openCard(building, false); });
+          spot.addEventListener("click", function() { openCard(building, spot); });
           map.appendChild(spot);
 
           var option = document.createElement("option");
@@ -1218,20 +1227,33 @@
           directory.appendChild(option);
         });
 
-        close.addEventListener("click", function() { closeCard(); });
+        if (!buildings.length) {
+          directory.disabled = true;
+          fallback.hidden = false;
+          return;
+        }
+
+        close.addEventListener("click", function() { closeCard(true, true); });
         directory.addEventListener("change", function() {
           var selected = buildings.find(function(building) {
             return building.id === directory.value;
           });
-          if (selected) openCard(selected, false);
-          else closeCard();
+          if (selected) openCard(selected, directory);
+          else closeCard(true, false);
+        });
+
+        document.addEventListener("keydown", function(event) {
+          if (event.key === "Escape" && card.classList.contains("is-open")) {
+            event.preventDefault();
+            closeCard(true, true);
+          }
         });
 
         if (location.hash) {
           var initial = buildings.find(function(building) {
             return building.id === location.hash.slice(1);
           });
-          if (initial) openCard(initial, false);
+          if (initial) openCard(initial, directory);
         }
       });
     })();
@@ -1330,8 +1352,10 @@
               title: "A postcard from SUNNYVAiLE",
               text: messageText()
             }).then(function() {
-              status("Sent from the Visitor's Centre.");
-            }).catch(function() {});
+              status("Share handoff returned to this page. Delivery is not confirmed here.");
+            }).catch(function() {
+              status("Share handoff was not completed. You can copy the link instead.");
+            });
           } else {
             document.getElementById("vcPostcardCopy").click();
           }

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "episode-media-pilot/v1",
+  "pilotId": "deliberately-invalid-fixture",
+  "artifactRoot": "../../..",
+  "candidate": { "assetId": "candidate", "durationSeconds": 10 },
+  "assets": [],
+  "narration": { "assetId": "narration", "durationSeconds": 10 },
+  "captions": { "presentation": "burned-in", "derivesFromAudioChecksum": "not-the-final-audio" },
+  "rejectedAssetCheck": { "status": "FAIL" },
+  "automatedResults": {},
+  "participants": [{ "id": "maker-judge", "roles": ["maker", "judge"] }],
+  "cues": [{ "id": "bad-cue", "startSeconds": 1, "endSeconds": 2, "visualJob": "wrong", "sourceAssetId": "rejected-source", "motion": { "mode": "semantic-event" }, "verdicts": {} }],
+  "aliVisualRuling": { "status": "FAIL", "reviewerId": "maker-judge" }
+}

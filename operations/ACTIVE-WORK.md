@@ -11,12 +11,15 @@ Ali explicitly switches or they invalidate the approach.
 
 ### Prove the whole public experience before the SUNNYVAiLE grand reopening
 
-**Status:** BUILDING — EOD 2026-07-25 WHOLE-SITE RELEASE SPRINT ACTIVE.
+**Status:** BUILDING — PRODUCT-OWNED READINESS PROGRAM ACTIVE; GRAND REOPENING
+AND SOCIAL ANNOUNCEMENT ON HOLD.
 Targeted route smoke tests and several local construction checks exist, but
 they do not prove that every promoted activity, account, community, postcard,
 reward and persistence journey works or makes sense to a first-time visitor.
-The announcement remains on hold until the exact EOD release artifact and
-deployed origin pass the bounded promise.
+The announcement remains on hold until each promoted product has a reconciled
+operating specification, product-owner verdict, independent quality evidence,
+exact release binding and bounded public proof. The removed 2026-07-25
+LinkedIn post is not live and is not launch evidence.
 
 **Why this is active:** Ali asked whether the site plumbing, activities and
 reward loops were actually complete. Re-entry against the source and prior QA
@@ -29,12 +32,21 @@ account/reward paths exist in code without end-to-end production proof.
 
 ### Current step
 
-Execute the EOD whole-site release sprint in parallel, then reconcile into one
-artifact: complete public-route and promoted-promise inventory; repair or
-honestly hide/label failed activities and integrations; produce the strongest
-safe episode-media state; run static, content, responsive, accessibility and
-integration gates; build the curated release artifact; deploy it; and rerun the
-bounded public-origin journeys.
+Run the persistent product-champion system in risk-ranked cycles. Require an
+`OPERATING-SPEC.md` before a champion builds, then complete the
+research → specification → build packet → specialist implementation →
+independent judgment → exact verification loop. The current three bounded
+lanes are FAiRY's meaning-aware safety/currentness classifier, the
+Library/High/episode/NewsStand learning-ecosystem inventory, and Episode 04's
+identity/history/transition admission packet. Town Entry, Visitor's Centre and
+the Post Office have completed bounded local repair cycles; their remaining
+public/provider/owner gates stay explicit.
+
+Do not create or deploy a grand-reopening release artifact until the product
+registry and public-promise reconciliation show that every promoted product
+has passed its own bounded acceptance contract. Existing public routes may be
+observed as evidence, but their existence does not establish whole-site
+readiness.
 
 The EOD cutline is not permission to lower the quality bar. Anything that
 cannot clear product/content quality, accuracy/safety/trust and positive
@@ -86,22 +98,28 @@ AW-003 is complete only when:
 
 ### Still open
 
-- Populate the complete route/state inventory and execute it against the exact
-  candidate.
+- Backfill and reconcile operating specifications for the remaining product
+  registry in risk/dependency order; ownership exists for all 65 products, but
+  most do not yet have the normalized operating contract.
+- Execute the current three champion lanes and independently review their exact
+  outputs.
+- Populate the complete route/state inventory and execute it against a later
+  exact candidate.
 - Repair, hide or relabel every failed promoted promise.
 - Complete owner visual rulings without confusing them with plumbing or
   comprehension approval.
-- Deploy and re-run the bounded production-origin suite.
+- Build/deploy and re-run the bounded production-origin suite only after the
+  product-owned release candidate exists.
 
 ### Next action
 
-Resume the activities/community/identity/rewards slice with the first known
-broken promise: Girl Talk/community dare completion and posting rewards.
-Determine whether the site can observe a real post; otherwise relabel the
-journey as honour-system and remove verified-completion claims. Then test
-Dream Phone, Resident Card, postcards/referrals and butterfly-clip rewards
-before continuing through first-visit navigation, learning/media/search,
-forms/integrations and non-functional quality.
+Complete and reconcile the three active champion lanes. Then select the next
+three triggers from the registry using public harm, hero-product value,
+dependency leverage and reversibility: authoritative identity/reward services,
+core learning products, and promoted integrations outrank decorative work.
+Continue without requesting routine sequencing approval; surface only a
+bounded decision involving Ali's taste, mission, public identity, meaningful
+spend/data authority or an irreducible product trade-off.
 
 ## Paused objective — AW-002
 
@@ -253,7 +271,7 @@ AW-001 is complete only when:
 | Episode 5 | GATE 1 REJECTED; CONCEPT RECONSTRUCTION REQUIRED | Public title **The Super Models** remains locked. The receipt may survive as an end exercise, but it cannot replace the full fashion-house-to-season teaching system. No downstream generation is authorized |
 | Episode 6 | TITLE AND CAPABILITY LOCKED; SUBSTANCE NOT YET BUILT | **Strike a Mode**: choose the model/mode for the occasion, including the 200-files example. Full Episode 6 substance follows Episode 5 Gate 1/canon |
 | Codex model/credit routing | CONFIGURED FOR NEW TASKS; CURRENT CHAT STILL COMPOSER-CONTROLLED | Project defaults are Sol/Medium foreground, High planning, Terra/Medium subagents and Fast off. Extra High/Max/Ultra require a stated exception; active-chat picker choices can override the project files |
-| Public SUNNYVAiLE reveal | WEBSITE PUBLICLY VERIFIED; SOCIAL PACKAGE READY BUT NOT PUBLISHED | Commit `9dc9153` is pushed and its exact 1,083-file public payload is live at `laidies.ai` through Cloudflare Pages deployment `edac8d4f…`. Apex/`www` SSL, release-byte identity, robots/sitemap, legacy redirect, real 404, direct Miss Jeeves answers plus focused/full-book readers, Visitor directory, sourced NewsStand story, all 83 KSVL dependencies and live sequence, all four captioned episode players, Dream Phone, member/community entry and a production-origin FAiRY request pass. Instagram feed/Story and LinkedIn copy/assets are ruled and ready; no post is claimed because this environment lacks authenticated publishing access. |
+| Public SUNNYVAiLE reveal | CURRENT SITE DEPLOYED; GRAND REOPENING HOLD | A prior scoped payload is live at `laidies.ai`, but route availability and selected smoke tests do not establish whole-site product readiness. Motion trailer/Episodes 1–4 remain unapproved; only illustrated, captioned listen-alongs may be described. The 2026-07-25 LinkedIn post was removed by Ali and is **NOT LIVE**. Its unapproved visual and copy are not reusable approval. No social package or reopening announcement is approved until the final website, copy and visual each receive explicit current approval and the promoted product matrix passes. |
 
 ## Work completed during the current strategy conversation
 

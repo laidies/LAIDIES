@@ -16,10 +16,12 @@
 
 3. **PO-003 — Preserve the postcard truth boundary in every entry point.**
    - Owner: Postcards/Referral + Release QA.
-   - Pass: the current release states only compose/share/copy or share-sheet closure; no mailed/opened/joined/rewarded or mutual-necklace claim survives without authoritative evidence.
+   - Local evidence: `evidence-local-service-boundaries-2026-07-25.md` passed source binding, legacy query sanitisation, desktop/mobile picker and forced native-share/clipboard recovery. The generated link now carries only `?pc=<id>`; note/handle remain in user-controlled message text.
+   - Pass: the exact public candidate states only compose/share/copy or share-sheet closure; no mailed/opened/joined/rewarded or mutual-necklace claim survives without authoritative evidence.
 
 4. **PO-004 — Verify public privacy surfaces.**
    - Owner: Safety/Privacy + Postcards/Referral.
+   - Local evidence: no current generator puts note/handle in a URL or custom Plausible call; legacy query fields are scrubbed before analytics scripts initialise. Provider-side analytics masking/CDN retention and public-origin behaviour remain unverified.
    - Pass: notes, sender identity and invite tokens are not needlessly exposed in query strings, analytics or error messages; invalid/private recipient routes disclose nothing sensitive.
 
 ## HIDE/LABEL FOR LAUNCH
@@ -48,4 +50,4 @@
 
 ## Next trigger
 
-With explicit test authority, run the controlled Newsletter/Magic-link/Postcard external-state suite against the exact public release, then reconcile only verified outcomes into AW-003.
+The local service-boundary suite is complete (`evidence-local-service-boundaries-2026-07-25.md`). With an approved disposable test identity and the authority named in `build-packet-controlled-service-suite-2026-07-25.md`, run the controlled Newsletter/Magic-link/Postcard suite against an exact candidate/public release, then reconcile only verified outcomes into AW-003. Without that authority, retain the current **FIX BEFORE LAUNCH** and **HIDE/LABEL** boundaries; no idle rerun is warranted.

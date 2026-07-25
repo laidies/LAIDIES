@@ -6,27 +6,38 @@
   "persistentRunner": "NOT WIRED",
   "analyticsPull": "NOT WIRED",
   "subChampions": {
-    "newsletterDelivery": "PARTIAL — Buttondown path exists; external submission/confirmation/error/retry evidence is not available",
-    "magicLinkSignIn": "NOT TESTED — Supabase flow is coordinated through Resident Card; no real email/auth journey was run",
-    "postcardsReferral": "PARTIAL — compose/share mechanics have local evidence; authoritative delivery, join and reward lifecycle is deliberately unavailable"
+    "newsletterDelivery": "PARTIAL — Buttondown path and locally tested popup-blocked truth state exist; external submission/confirmation/error/retry evidence is not available",
+    "magicLinkSignIn": "NOT TESTED — Supabase flow is coordinated through Resident Card; handoff copy is locally truthful but no real email/auth journey was run",
+    "postcardsReferral": "VERIFIED LOCALLY — selection, compose, legacy-URL sanitisation and forced failure states passed; authoritative delivery, join and reward lifecycle is deliberately unavailable"
   },
   "currentTruth": {
     "newsletter": "An opaque iframe/form post may report only a signup attempt, not a created subscription",
     "postcard": "Native share/copy/email/SMS can prepare a share; it cannot prove delivery, opening, join or reward",
     "referralRewards": "HIDDEN/REMOVED until durable lifecycle and reward evidence exist",
-    "privacy": "Do not treat query parameters or client storage as a durable private invite record"
+    "privacy": "Generated postcard links now contain only a public card id; note/handle stay in user-controlled share text. Do not treat query parameters or client storage as a durable private invite record"
   },
   "latestDeepDive": "launch-deep-dive-2026-07-25.md",
+  "operatingSpec": "OPERATING-SPEC.md",
+  "latestEvidence": "evidence-local-service-boundaries-2026-07-25.md",
+  "localVerification": {
+    "date": "2026-07-25",
+    "result": "VERIFIED LOCALLY — bounded source, desktop/mobile, keyboard-state and forced failure suite; all external requests aborted",
+    "sourceBinding": "a5b3c513cfe13f1484095db23ce746d9b1b67a31 plus hashes in evidence-local-service-boundaries-2026-07-25.md",
+    "limits": "No provider, email, auth, native share, clipboard, analytics, public-origin or assistive-technology test occurred"
+  },
   "nextTrigger": {
-    "type": "controlled-third-party-delivery-and-failure-suite",
+    "type": "approved-test-identity-controlled-third-party-delivery-and-failure-suite",
     "status": "PENDING",
-    "reason": "A test identity and explicit approval are required to test external mutation, confirmation, unsubscribe, native sharing and auth flows."
+    "reason": "The operating specification now distinguishes provider/session receipts from local actions. A disposable approved test identity and explicit authority are required for Buttondown/Supabase mutation, confirmation, unsubscribe, callback/session and cleanup; native-share/copy availability can be checked locally without a recipient."
   },
   "openBlockers": [
     "No real Buttondown subscribe/confirmation/unsubscribe/error evidence.",
     "No magic-link request/click/expiry/retry/session evidence.",
     "No authoritative invite mailed/opened/joined/rewarded lifecycle; current public copy must not claim one.",
-    "No privacy-safe aggregate delivery/funnel evidence packet."
+    "No privacy-safe aggregate delivery/funnel evidence packet.",
+    "Current Buttondown UI and Resident Card hidden-form path have no observable provider receipt; local submitted/pending flags must not drive subscription or account claims.",
+    "Current postcard/referral surface has no authorised opaque invite/reward lifecycle; it remains unavailable.",
+    "Provider-side Clarity masking configuration, CDN legacy-query retention and actual analytics payloads were not inspected; the static scan is only PARTIAL."
   ],
-  "lastRun": {"date": "2026-07-25", "type": "one-time launch deep dive", "result": "REPORT READY"}
+  "lastRun": {"date": "2026-07-25", "type": "local-service-boundary-and-failure-suite", "result": "VERIFIED LOCALLY; EXTERNAL RESULTS UNVERIFIED"}
 }

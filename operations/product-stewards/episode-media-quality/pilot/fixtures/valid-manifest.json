@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "episode-media-pilot/v1",
+  "pilotId": "synthetic-contract-fixture",
+  "artifactRoot": "../../..",
+  "candidate": { "assetId": "candidate", "checksum": "068d4695197ff02fdcce1c0470dc51659723c87b14dc28c01527e2226aa2fbc7", "durationSeconds": 10 },
+  "assets": [
+    { "id": "candidate", "path": "episode-media-quality/pilot/fixtures/assets/candidate.mp4", "checksum": "068d4695197ff02fdcce1c0470dc51659723c87b14dc28c01527e2226aa2fbc7", "status": "approved" },
+    { "id": "narration", "path": "episode-media-quality/pilot/fixtures/assets/narration.wav", "checksum": "1f38d0482b9652bd1f7a368b370506ad45387646cce41451677bb724be8642a5", "status": "approved" },
+    { "id": "captions", "path": "episode-media-quality/pilot/fixtures/assets/captions.vtt", "checksum": "0a4df37d2cbc5434ed6d264e1a4320ac5bada2cb96a64d42a29d942ae94561d5", "status": "approved" },
+    { "id": "transcript", "path": "episode-media-quality/pilot/fixtures/assets/as-recorded.txt", "checksum": "59c4bda52e430ca03a5ac9488184d85dc429ec92bbce80aee66c726383b1cf58", "status": "approved" },
+    { "id": "source-a", "path": "episode-media-quality/pilot/fixtures/assets/source-a.png", "checksum": "f59dda682fdc8bd51cccdd72a42517c51d22326205e0737f1e3e3c4abb1fca10", "status": "approved" },
+    { "id": "source-b", "path": "episode-media-quality/pilot/fixtures/assets/source-b.png", "checksum": "812b0250449ee51fd4b88b9179fb5527d392c6f0780706927e0570b21b0c2a97", "status": "approved" },
+    { "id": "identity", "path": "episode-media-quality/pilot/fixtures/assets/identity.png", "checksum": "c808af6b778306954b3af4447837951863bba58d616edd7ab9c75a20b56f50bd", "status": "approved" },
+    { "id": "style", "path": "episode-media-quality/pilot/fixtures/assets/style.png", "checksum": "b489145269eaba39a24384ebe573a291aab2eae2700f4daea48a10c0e8040fc9", "status": "approved" },
+    { "id": "location", "path": "episode-media-quality/pilot/fixtures/assets/location.png", "checksum": "0d7b183fd3b14b378e3168ddc043206a331d4d14ca775f5ca574a861ae752056", "status": "approved" }
+  ],
+  "narration": { "assetId": "narration", "checksum": "1f38d0482b9652bd1f7a368b370506ad45387646cce41451677bb724be8642a5", "durationSeconds": 10, "asRecordedTranscriptAssetId": "transcript" },
+  "captions": { "assetId": "captions", "checksum": "0a4df37d2cbc5434ed6d264e1a4320ac5bada2cb96a64d42a29d942ae94561d5", "derivesFromAudioChecksum": "1f38d0482b9652bd1f7a368b370506ad45387646cce41451677bb724be8642a5", "asRecordedTranscriptChecksum": "59c4bda52e430ca03a5ac9488184d85dc429ec92bbce80aee66c726383b1cf58", "presentation": "player-below-picture" },
+  "rejectedAssetCheck": { "status": "PASS", "candidateChecksum": "068d4695197ff02fdcce1c0470dc51659723c87b14dc28c01527e2226aa2fbc7", "evidenceId": "synthetic-rejection-scan" },
+  "automatedResults": {
+    "sourceAndReferenceHashes": { "status": "PASS", "candidateChecksum": "068d4695197ff02fdcce1c0470dc51659723c87b14dc28c01527e2226aa2fbc7" },
+    "cueTiming": { "status": "PASS", "candidateChecksum": "068d4695197ff02fdcce1c0470dc51659723c87b14dc28c01527e2226aa2fbc7" },
+    "mediaTechnical": { "status": "PASS", "candidateChecksum": "068d4695197ff02fdcce1c0470dc51659723c87b14dc28c01527e2226aa2fbc7" },
+    "fullDecode": { "status": "PASS", "candidateChecksum": "068d4695197ff02fdcce1c0470dc51659723c87b14dc28c01527e2226aa2fbc7" },
+    "captions": { "status": "PASS", "candidateChecksum": "068d4695197ff02fdcce1c0470dc51659723c87b14dc28c01527e2226aa2fbc7" },
+    "motionStillControl": { "status": "PASS", "candidateChecksum": "068d4695197ff02fdcce1c0470dc51659723c87b14dc28c01527e2226aa2fbc7" }
+  },
+  "participants": [
+    { "id": "image-maker", "roles": ["maker"] },
+    { "id": "image-judge", "roles": ["judge"] },
+    { "id": "motion-judge", "roles": ["judge"] },
+    { "id": "release-judge", "roles": ["judge"] },
+    { "id": "ali", "roles": ["approver"] }
+  ],
+  "cues": [
+    {
+      "id": "cue-01", "startSeconds": 0, "endSeconds": 5,
+      "transcriptExcerpt": "Fixture narration cue.", "visualJob": "explain", "sourceAssetId": "source-a",
+      "referenceAssetIds": { "identity": "identity", "style": "style", "location": "location" },
+      "referenceHashes": { "identity": "c808af6b778306954b3af4447837951863bba58d616edd7ab9c75a20b56f50bd", "style": "b489145269eaba39a24384ebe573a291aab2eae2700f4daea48a10c0e8040fc9", "location": "0d7b183fd3b14b378e3168ddc043206a331d4d14ca775f5ca574a861ae752056" },
+      "motion": { "mode": "semantic-event", "semanticEvent": "A fixture pointer moves to the comparison label." },
+      "verdicts": { "imageQuality": { "status": "PASS", "reviewerId": "image-judge" }, "narrationVisualAlignment": { "status": "PASS", "reviewerId": "release-judge" }, "motion": { "status": "PASS", "reviewerId": "motion-judge" }, "timing": { "status": "PASS", "reviewerId": "release-judge" }, "audioCaption": { "status": "PASS", "reviewerId": "release-judge" }, "continuity": { "status": "PASS", "reviewerId": "image-judge" } }
+    },
+    {
+      "id": "cue-02", "startSeconds": 5, "endSeconds": 10,
+      "transcriptExcerpt": "Fixture transition cue.", "visualJob": "breathing-room", "sourceAssetId": "source-b",
+      "referenceAssetIds": { "identity": "identity", "style": "style", "location": "location" },
+      "referenceHashes": { "identity": "c808af6b778306954b3af4447837951863bba58d616edd7ab9c75a20b56f50bd", "style": "b489145269eaba39a24384ebe573a291aab2eae2700f4daea48a10c0e8040fc9", "location": "0d7b183fd3b14b378e3168ddc043206a331d4d14ca775f5ca574a861ae752056" },
+      "motion": { "mode": "intentional-still", "intentionalStillReason": "A deliberate hold preserves reading time for the transition." },
+      "verdicts": { "imageQuality": { "status": "PASS", "reviewerId": "image-judge" }, "narrationVisualAlignment": { "status": "PASS", "reviewerId": "release-judge" }, "motion": { "status": "PASS", "reviewerId": "motion-judge" }, "timing": { "status": "PASS", "reviewerId": "release-judge" }, "audioCaption": { "status": "PASS", "reviewerId": "release-judge" }, "continuity": { "status": "PASS", "reviewerId": "image-judge" } }
+    }
+  ],
+  "aliVisualRuling": { "status": "PASS", "reviewerId": "ali", "candidateChecksum": "068d4695197ff02fdcce1c0470dc51659723c87b14dc28c01527e2226aa2fbc7", "rulingId": "synthetic-only" }
+}

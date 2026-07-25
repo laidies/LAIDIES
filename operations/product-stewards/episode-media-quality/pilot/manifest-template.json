@@ -1,0 +1,28 @@
+{
+  "$schema": "episode-media-pilot/v1",
+  "schemaVersion": "episode-media-pilot/v1",
+  "pilotId": "REPLACE_WITH_PILOT_ID",
+  "artifactRoot": "../../../../",
+  "candidate": { "assetId": "candidate-id", "checksum": "SHA256_OF_EXACT_CANDIDATE", "durationSeconds": 0 },
+  "assets": [{ "id": "candidate-id", "path": "relative/path", "checksum": "SHA256", "status": "approved" }],
+  "narration": { "assetId": "narration-id", "checksum": "SHA256", "durationSeconds": 0, "asRecordedTranscriptAssetId": "as-recorded-transcript-id" },
+  "captions": { "assetId": "captions-id", "checksum": "SHA256", "derivesFromAudioChecksum": "SHA256_OF_NARRATION", "asRecordedTranscriptChecksum": "SHA256_OF_AS_RECORDED_TRANSCRIPT", "presentation": "player-below-picture" },
+  "rejectedAssetCheck": { "status": "PASS", "candidateChecksum": "SHA256_OF_EXACT_CANDIDATE", "evidenceId": "rejection-scan-id" },
+  "automatedResults": {
+    "sourceAndReferenceHashes": { "status": "PASS", "candidateChecksum": "SHA256_OF_EXACT_CANDIDATE" },
+    "cueTiming": { "status": "PASS", "candidateChecksum": "SHA256_OF_EXACT_CANDIDATE" },
+    "mediaTechnical": { "status": "PASS", "candidateChecksum": "SHA256_OF_EXACT_CANDIDATE" },
+    "fullDecode": { "status": "PASS", "candidateChecksum": "SHA256_OF_EXACT_CANDIDATE" },
+    "captions": { "status": "PASS", "candidateChecksum": "SHA256_OF_EXACT_CANDIDATE" },
+    "motionStillControl": { "status": "PASS", "candidateChecksum": "SHA256_OF_EXACT_CANDIDATE" }
+  },
+  "participants": [{ "id": "independent-judge-id", "roles": ["judge"] }, { "id": "ali", "roles": ["approver"] }],
+  "cues": [{
+    "id": "cue-id", "startSeconds": 0, "endSeconds": 0, "transcriptExcerpt": "Exact as-recorded excerpt", "visualJob": "explain", "sourceAssetId": "approved-source-id",
+    "referenceAssetIds": { "identity": "approved-identity-id", "style": "approved-style-id", "location": "approved-location-id" },
+    "referenceHashes": { "identity": "SHA256", "style": "SHA256", "location": "SHA256" },
+    "motion": { "mode": "semantic-event", "semanticEvent": "Named character/object/graphic event" },
+    "verdicts": { "imageQuality": { "status": "PASS", "reviewerId": "independent-judge-id" }, "narrationVisualAlignment": { "status": "PASS", "reviewerId": "independent-judge-id" }, "motion": { "status": "PASS", "reviewerId": "independent-judge-id" }, "timing": { "status": "PASS", "reviewerId": "independent-judge-id" }, "audioCaption": { "status": "PASS", "reviewerId": "independent-judge-id" }, "continuity": { "status": "PASS", "reviewerId": "independent-judge-id" } }
+  }],
+  "aliVisualRuling": { "status": "PASS", "reviewerId": "ali", "candidateChecksum": "SHA256_OF_EXACT_CANDIDATE", "rulingId": "ali-ruling-id" }
+}
