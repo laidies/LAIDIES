@@ -1,0 +1,28 @@
+{
+  "product": "ksvl-community-raidio",
+  "status": "BUILDING",
+  "asOf": "2026-07-25",
+  "operatingMode": "manual-invocation",
+  "persistentRunner": "NOT WIRED",
+  "playbackMonitor": "NOT WIRED",
+  "analyticsPull": "NOT WIRED",
+  "subChampions": {
+    "djBooth": "PARTIAL — browser audio controls and single-audio coordination exist; full device/error/accessibility journey is unverified",
+    "catalogueWeeklyRotation": "PARTIAL — 83 audio dependencies were hash-matched in the EOD artifact; public listening, metadata/source links and freshness remain incomplete"
+  },
+  "currentTruth": {
+    "assetIntegrity": "EOD recorded 83 KSVL audio dependencies with source/artifact hashes matching",
+    "playback": "PARTIAL — representative public playback previously passed, but all controls/media failures/persistent-player conflicts/mobile remain open",
+    "listeningState": "device/browser-local only unless independently proven",
+    "requests": "signed-out request may be held locally; no promise that a request is received, selected or produced"
+  },
+  "latestDeepDive": "launch-deep-dive-2026-07-25.md",
+  "nextTrigger": {"type": "real-device-playback-metadata-and-failure-suite", "status": "PENDING"},
+  "openBlockers": [
+    "No complete desktop/mobile/browser playback, autoplay, error/retry, seek, queue and persistent-player conflict evidence.",
+    "No complete rights/provenance/lyric-source registry for every public track and outbound playlist.",
+    "No privacy-safe listening evidence packet or product-appropriate return baseline.",
+    "No controlled song-request insert/error/moderation evidence."
+  ],
+  "lastRun": {"date": "2026-07-25", "type": "one-time launch deep dive", "result": "REPORT READY"}
+}
