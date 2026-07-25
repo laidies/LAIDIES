@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>FAiRY GODMOTHER | LAiDIES · SUNNYVAiLE</title>
-    <meta name="description" content="The FAiRY Godmother gives advice like a wise, glamorous fairy who actually helps with real work problems. Wave the wand." />
+    <meta name="description" content="An experimental AI work-drafting preview. Bring non-confidential details and leave with a prompt or draft to check yourself." />
     <meta property="og:title" content="FAiRY GODMOTHER | LAiDIES" />
-    <meta property="og:description" content="The sad dress walks in. The dress walks out. Real advice, a better prompt, a draft you can send." />
+    <meta property="og:description" content="Experimental work-drafting preview: improve a non-sensitive prompt or draft, then check the result yourself." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://laidies.ai/assets/sunnyvaile-buildings/y2k-v3-rethink-20260715/web/11-fairy-godmother-house-v6.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -928,7 +928,7 @@
           <div class="fg-hero-copy">
             <p class="eyebrow brand-preserve-case">The FA<span class="ai-highlight">i</span>RY Godmother</p>
             <h1>Bring the prompt<br><span>that won&rsquo;t behave.</span></h1>
-            <p class="subtitle">Walk in with the sentence, email, brief, or situation you cannot unstick. Walk out with a sharper prompt and something you can actually send.</p>
+            <p class="subtitle">Experimental preview: best for drafting or improving a work message using details you provide. Check every result before using it.</p>
             <button class="fg-song-button" type="button"
                     aria-label="Play the FAiRY Godmother song on KSVL"
                     data-src="/content/music/game-ask-laidy.mp3"
@@ -940,8 +940,8 @@
           </div>
           <div class="fg-arrival" id="fgArrival" aria-live="polite">
             <span>Your visit</span>
-            <strong id="fgArrivalStatus">Checking the appointment book&hellip;</strong>
-            <p id="fgArrivalNote">One useful answer, without pretending the wand is unlimited.</p>
+            <strong id="fgArrivalStatus">Work-drafting preview</strong>
+            <p id="fgArrivalNote">Not for current research, medical, crisis, emergency, legal, financial, or regulated-professional advice.</p>
           </div>
         </section>
 
@@ -957,12 +957,12 @@
             <div class="fg-console-heading">
               <p>Step one</p>
               <h2>Pick your PATRON SA<span class="ai-highlight">i</span>NT&rsquo;s energy.</h2>
-              <span>Choose one, or let the Godmother read the room.</span>
+              <span>Choose a preferred tone. It changes presentation, not the facts or safety boundary.</span>
             </div>
 
             <label class="fg-visually-hidden" for="fairyMode">Pick the energy</label>
             <select id="fairyMode">
-              <option value="auto" selected>The FAiRY Godmother picks the right energy</option>
+              <option value="auto" selected>FAiRY Godmother tone (default)</option>
               <option value="dolly">Dolly Energy &mdash; warm &amp; direct</option>
               <option value="miranda">Miranda Polish &mdash; executive clean</option>
               <option value="elle">Elle Evidence &mdash; facts in heels</option>
@@ -977,7 +977,7 @@
               <p>Step two</p>
               <label for="fairyQuestion">What do you need help with?</label>
               <textarea id="fairyQuestion" rows="4" placeholder="Example: I need to ask my VP for more time without sounding chaotic."></textarea>
-              <p class="fairy-disclosure">The FAiRY Godmother is AI-powered. Do not paste confidential details; anonymize anything sensitive first.</p>
+              <p class="fairy-disclosure">AI-powered preview. Do not paste confidential details; anonymize sensitive information first. Maximum 8,000 characters. For current facts, use primary sources rather than this preview.</p>
             </div>
 
             <div class="fairy-buttons">
@@ -1022,16 +1022,16 @@
 
           <aside class="fg-history-column">
             <div class="fg-history-heading">
-              <p>The correspondence file</p>
-              <h3>Past wisdom stays within reach.</h3>
+              <p>This visit only</p>
+              <h3>Recent previews disappear when you leave.</h3>
             </div>
             <div class="advice-history" id="adviceHistory" style="display: none;">
               <h4>Past Wisdom</h4>
               <div id="historyList"></div>
             </div>
             <div class="badge-reveal" id="badgeReveal">
-              <strong>FAiRY Godmother&rsquo;s favourite merit badge unlocked.</strong>
-              <p>You have asked more questions than Dorothy, Cinderella, and Elle Woods combined. The FAiRY Godmother recognizes your main-character energy.</p>
+              <strong>Local preview note.</strong>
+              <p>This page does not grant a member badge or FAiRY Play.</p>
             </div>
           </aside>
         </section>
@@ -1068,7 +1068,7 @@
     };
 
     const ENERGY_LABEL = {
-      fairy: "The FAiRY Godmother picked the energy",
+      fairy: "FAiRY Godmother tone",
       dolly: "Dolly Energy",
       miranda: "Miranda Polish",
       elle: "Elle Evidence",
@@ -1095,7 +1095,8 @@
     let adviceHistory = [];
     let lastPostGlowUpText = "";
     let lastPromptGlowUpText = "";
-    const BADGE_THRESHOLD = 10;
+    const MAX_PROMPT_CHARS = 8000;
+    const ADVICE_TIMEOUT_MS = 15000;
 
     // ===== NEWSLETTER GATE STATE =====
     const SUBSCRIBE_URL = "https://laidies-subscribe.wednesday-laidies.workers.dev";
@@ -1128,7 +1129,7 @@
       catch {}
     }
     function shouldShowGate() {
-      return !getSubscriber() && getFreeWishesUsed() >= FREE_WISHES_LIMIT;
+      return getFreeWishesUsed() >= FREE_WISHES_LIMIT;
     }
 
     // ===== DOM =====
@@ -1282,7 +1283,7 @@
 
     // Show the newsletter signup gate in place of a response.
     function showGate(pendingPromptText, pendingEnergy) {
-      scrollHeader.textContent = "One more wish?";
+      scrollHeader.textContent = "Preview complete";
       scrollMode.textContent = "";
       scrollFooter.textContent = "";
       if (coachActions) coachActions.classList.remove("is-visible");
@@ -1291,14 +1292,14 @@
       const gate = document.createElement("div");
       gate.className = "laidy-gate";
       gate.innerHTML = `
-        <h3>The FAiRY Godmother&rsquo;s full closet is open to LAiDIES.</h3>
-        <p>Drop your email and join the newsletter. The FAiRY Godmother keeps going, and the Wednesday issue lands in your inbox.</p>
+        <h3>This local preview is complete.</h3>
+        <p>Email signup does not create a verified allowance on this page. The full FAiRY service remains unavailable until its account, safety, and response controls are live.</p>
         <form class="laidy-gate-form" autocomplete="email">
           <input type="email" required placeholder="you@yourdomain.com" aria-label="Email address" />
-          <button type="submit">Sign me up</button>
+          <button type="submit">Join the newsletter</button>
         </form>
-        <p class="laidy-gate-already">Already a LAiDIES subscriber? <a data-already>You&rsquo;re in &mdash; click here, honey.</a></p>
-        <p class="laidy-gate-ps"><em>P.S. Ali pays for the FAiRY Godmother&rsquo;s wand out of pocket right now, so unlimited wishes aren&rsquo;t in the budget &mdash; yet. Subscribers get 5 wishes a day. Do the Full Wednesday Ritual and bank bonus wishes to your FAiRY Plays. Higher caps unlock with LAiDIES membership&hellip; (in the works!)</em></p>
+        <p class="laidy-gate-already">Already a LAiDIES subscriber? That is lovely, but this page does not verify it.</p>
+        <p class="laidy-gate-ps"><em>Newsletter signup is separate from FAiRY access. No FAiRY Play, member allowance, or reward is granted here.</em></p>
         <p class="laidy-gate-status" aria-live="polite"></p>
       `;
 
@@ -1557,10 +1558,8 @@
           "This is the silhouette &mdash; <strong>change the accessories to match your look.</strong> Fill in the [brackets], tweak the tone, swap anything that isn&rsquo;t quite you yet."
         );
         const action = makeInlineAction("Copy draft", () => lastPostGlowUpText);
-        const revisionRow = makeRevisionRow();
         draftHeader.parentNode.insertBefore(caption, draftHeader.nextSibling);
         draftHeader.parentNode.insertBefore(action, caption.nextSibling);
-        draftHeader.parentNode.insertBefore(revisionRow, action.nextSibling);
       }
 
       const output = scrollBody.querySelector(".laidy-output");
@@ -1602,16 +1601,6 @@
       if (adviceHistory.length > 3) adviceHistory.pop();
       renderHistory();
 
-      if (wisdomCount >= BADGE_THRESHOLD) {
-        badgeEl.classList.add("is-visible");
-        try {
-          const badges = JSON.parse(localStorage.getItem("laidiesSecretBadges") || "{}");
-          if (!badges["fairy-favorite"]) {
-            badges["fairy-favorite"] = { id: "fairy-favorite", title: "FAiRY GODMOTHER’s Favorite", sticker: "FAiRY", unlockedAt: new Date().toISOString(), source: "FAiRY GODMOTHER" };
-            localStorage.setItem("laidiesSecretBadges", JSON.stringify(badges));
-          }
-        } catch (e) {}
-      }
     }
 
     function renderHistory() {
@@ -1622,14 +1611,30 @@
       ).join("");
     }
 
-    async function callWorker(prompt, energyKey, subscriberEmail) {
+    function isOutOfScopePrompt(prompt) {
+      return /\b(chest pain|shortness of breath|suicid(?:e|al)|self[- ]?harm|emergency|medical|diagnos(?:e|is)|treatment|lawyer|legal advice|investment advice|tax advice)\b/i.test(prompt);
+    }
+
+    function needsVerifiedInformation(prompt) {
+      return /\b(current|latest|today|research|study|studies|statistics?|citation|source|price|law|policy|regulation)\b/i.test(prompt);
+    }
+
+    function hasExpectedGlowUp(markdown) {
+      return /#{2,3}\s+.*prompt[\s-]*glow[\s-]*up/i.test(markdown)
+        && /#{2,3}\s+.*post[\s-]*glow[\s-]*up/i.test(markdown);
+    }
+
+    async function callWorker(prompt, energyKey) {
       const payload = { prompt: prompt, energy: energyKey };
-      if (subscriberEmail) payload.subscriberEmail = subscriberEmail;
-      const response = await fetch(WORKER_URL, {
+      const controller = new AbortController();
+      const timer = window.setTimeout(() => controller.abort(), ADVICE_TIMEOUT_MS);
+      let response;
+      try { response = await fetch(WORKER_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      });
+        body: JSON.stringify(payload),
+        signal: controller.signal
+      }); } finally { window.clearTimeout(timer); }
       // Try to parse the body even on non-OK so we can surface friendly
       // the FAiRY Godmother-voice messages from 429 responses (per-IP rate limit, daily cap).
       const data = await response.json().catch(() => null);
@@ -1642,7 +1647,13 @@
         }
         throw new Error("HTTP " + response.status);
       }
-      return data && data.response ? String(data.response) : "";
+      const markdown = data && data.response ? String(data.response) : "";
+      if (!hasExpectedGlowUp(markdown)) {
+        const err = new Error("Unexpected response shape");
+        err.userFacingMessage = "The preview did not return a complete prompt-and-draft response, so nothing was counted. Try again later.";
+        throw err;
+      }
+      return markdown;
     }
 
     async function runWand() {
@@ -1655,26 +1666,35 @@
         showError("That’s a little brief for the FAiRY Godmother. Add a sentence about what you’re trying to do and who it’s for.");
         return;
       }
+      if (q.length > MAX_PROMPT_CHARS) {
+        showError("That is longer than this preview can safely handle. Please reduce it to 8,000 characters or fewer and remove confidential details.");
+        return;
+      }
+      if (isOutOfScopePrompt(q)) {
+        showError("This preview cannot help with medical, crisis, emergency, legal, tax, investment, or other regulated-professional advice. Please use an appropriate qualified service instead.");
+        return;
+      }
+      if (needsVerifiedInformation(q)) {
+        showError("This preview cannot verify current research, sources, statistics, laws, prices, or product facts. Use primary sources; you can return with the source material for help drafting a question or summary.");
+        return;
+      }
       const selectedValue = modeEl.value || "auto";
       const energyKey = ENERGY_KEY_MAP[selectedValue] || "fairy";
 
-      // Newsletter gate: anonymous users get 1 free wish, then the signup gate.
       if (shouldShowGate()) {
-        showGate(q, selectedValue);
+        showError("This is a one-response local preview. More requests, subscriptions, FAiRY Plays, and member allowances are not verified on this page yet.");
         return;
       }
 
-      const subscriber = getSubscriber();
-
       setLoading(true);
       try {
-        const markdown = await callWorker(q, energyKey, subscriber ? subscriber.email : null);
+        const markdown = await callWorker(q, energyKey);
         if (!markdown.trim()) {
           showError("The FAiRY Godmother came back empty-handed. Try waving the wand again.");
           return;
         }
         showResponse(markdown, energyKey, q);
-        if (!subscriber) incrementFreeWishesUsed();
+        incrementFreeWishesUsed();
       } catch (err) {
         console.error("FAiRY GODMOTHER worker error:", err);
         if (err && err.userFacingMessage) {

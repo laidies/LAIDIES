@@ -1652,3 +1652,1595 @@ _Original source ID: repository #36_
 - **Public angle:** “The answer was right; the doorway made it feel wrong.”
 - **Privacy/IP/reputation:** No personal visitor query data was added or
   retained.
+
+## BTB-063 · Two polished pictures still made no entrance
+
+`category: visual design · narrative hierarchy · environment art` — ② Make them speak yours
+`source: LIBRAiRY masthead and shelf owner review, 2026-07-24`
+`publication status: VERIFIED — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** The LIBRAiRY had a polished front-desk masthead followed by a
+  technically operable three-department shelf scene.
+- **Issue:** Each image was treated as a sufficient illustration on its own,
+  without designing the pair as one escalating arrival sequence.
+- **What happens:** The masthead crop clips its own architecture and hands the
+  title to a detached white strip; the next image repeats the room, devotes
+  much of the frame to empty carpet and presents sparse books like retail
+  products. Nothing becomes the memorable focal event.
+- **Evidence observed:** Ali described both images as “underwhelming.” A fresh
+  1280 × 720 capture confirmed the clipped sign/desk, detached title block,
+  photographic rendering drift and repeated generic-library composition.
+- **Diagnosis:** **Verified.** Image quality was mistaken for art direction.
+  The pair had finish but no narrative hierarchy, visual escalation or shared
+  graphic-novel language.
+- **Prevent / Fix:** Brief consecutive images as a sequence: name the focal
+  event, eye path and escalation across frames; capture both together before
+  approval; reject a second image that merely repeats the first room at another
+  angle. Environment art must pass the locked rendering-language check as well
+  as the object/interaction check.
+- **Why the fix works:** Each image gets a distinct job while the visitor
+  experiences one continuous place rather than two disconnected beginnings.
+- **New output:** Three owner-review directions in
+  `operations/design-explorations/library-arrival-20260724/`.
+- **Transferable lesson:** Polish cannot substitute for a point of view.
+- **Internal rule/check updated:** Library arrival design exploration and this
+  ledger.
+- **Public angle:** “We had two expensive-looking images and still no
+  entrance.”
+- **Privacy/IP/reputation:** Use only project-owned or approved reference
+  imagery in any public process story.
+
+## BTB-064 · “Accent the i” dropped half the brand device
+
+`category: brand integrity · prompt precision · generated lettering` — ② Make them speak yours
+`source: LIBRAiRY arrival concept review, 2026-07-24`
+`publication status: VERIFIED — INTERNAL CONTROL`
+
+- **Context:** LAiDIES brand words use a distinct colour on the adjacent `Ai`
+  pair inside words such as LAiDIES, LIBRAiRY and SUNNYVAiLE.
+- **Issue:** Old shorthand repeatedly called this an “accented i,” and the
+  LIBRAiRY concept prompts preserved the lowercase spelling but did not require
+  both characters to share the accent colour.
+- **What happens:** Image generation colours only the `i`, weakening the
+  intended AI wordplay while still looking superficially branded.
+- **Evidence observed:** All three first-pass LIBRAiRY directions coloured the
+  lowercase `i` alone. Ali corrected the rule. The revised selected direction
+  then coloured the capital `A` and the `i` dot raspberry while leaving the
+  lowercase `i` stem dark; visual inspection caught the mismatch before owner
+  approval or implementation.
+- **Diagnosis:** **Verified.** Ambiguous human shorthand overrode the more
+  precise locked visual rule.
+- **Prevent / Fix:** In every prompt, spec and QA checklist say: “the complete
+  adjacent `Ai` pair—capital A plus lowercase i—is one accent-colour unit.”
+  Never use “accented i” as the instruction. Inspect both characters in every
+  visible brand word before approval.
+- **Why the fix works:** The instruction names the exact two-character target,
+  casing and relationship instead of expecting the generator to infer the
+  brand mechanism.
+- **New output:** No approved wordmark image. The failed refinement led to the
+  stronger layered-production rule in BTB-065.
+- **Transferable lesson:** If a visual rule covers two characters, name both
+  characters.
+- **Internal rule/check updated:** Library exploration brief and this ledger.
+- **Public angle:** Keep internal unless generalized as a prompt-specificity
+  example without exposing unfinished brand art.
+- **Privacy/IP/reputation:** No personal or private information involved.
+
+## BTB-065 · The room painting was also being asked to typeset and run the desk
+
+`category: image generation · interface production · brand integrity` — ② Make them speak yours
+`source: LIBRAiRY Living Stacks refinement, 2026-07-24`
+`publication status: VERIFIED — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** A selected LIBRAiRY arrival concept combined the architectural
+  room, exact branded wordmark and a search-like Ask Miss Jeeves control in one
+  generated bitmap.
+- **Issue:** Each attempt to repair one visual symptom—banner shape, missing
+  colour, wordmark case, `Ai` scale or typeface—asked the image generator to
+  preserve the room while reliably typesetting and simulating a responsive
+  interface.
+- **What happens:** The room can improve while exact lettering drifts, a fake
+  input competes with the real search, and repeated whole-image regeneration
+  degrades or changes elements that were already working.
+- **Evidence observed:** The first selected direction had an abrupt spiky
+  search banner and an unexplained poster. The next pass removed those but
+  became painterly and lost colour energy. It also enlarged the `Ai`, used an
+  unsuitable institutional serif and failed to colour the complete lowercase
+  `i`, despite explicit correction prompts. The brand guide already prohibited
+  fake generated text inside hero art.
+- **Diagnosis:** **Verified.** A concept composite was being treated as a
+  production asset. Environment illustration, exact typography and functional
+  UI have different production and verification requirements.
+- **Prevent / Fix:** Generate a clean environment plate with intentional
+  negative space. Add exact wordmarks, department labels and real controls as
+  deterministic HTML/SVG layers using the approved type system. Test the
+  composite in the browser at desktop and mobile widths. When one generated
+  element fails repeatedly, stop regenerating the whole image and separate
+  that element into the production method best suited to it.
+- **Why the fix works:** Art direction remains expressive while spelling,
+  casing, typography, accessibility, interaction and responsive layout become
+  editable and testable rather than pixels the generator must reproduce.
+- **New output:** Text-free owner-review environment plate
+  `operations/design-explorations/library-arrival-20260724/living-stacks-environment-plate-v4-grounded.png`;
+  no `library.html` implementation is approved yet. The preceding v3 plate is
+  retained as a rejected example of a daylight correction overshooting into an
+  evenly distributed candy palette.
+- **Transferable lesson:** Do not ask the painting to typeset the sign and run
+  the front desk.
+- **Internal rule/check updated:** Library arrival brief, brand-generated-text
+  rule and this ledger.
+- **Public angle:** “Why we stopped asking one AI image to be the set designer,
+  sign writer and web developer.”
+- **Privacy/IP/reputation:** Use only project-owned/approved references; keep
+  generated concept art labelled as such until owner-approved and implemented.
+
+## BTB-066 · Every correction moved farther from the selected picture
+
+`category: image generation · design iteration · owner review` — ② Make them speak yours
+`source: LIBRAiRY Living Stacks v2–v6 owner review, 2026-07-24`
+`publication status: VERIFIED — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** Ali selected the second of three LIBRAiRY concepts as the
+  strongest starting point and gave specific corrections to its search control,
+  poster, palette and exact brand treatment.
+- **Issue:** Each correction regenerated too much of the scene. Local feedback
+  was treated as permission to keep solving adjacent problems inside the
+  bitmap, then to replace shelf content and architecture when those repairs
+  exposed new weaknesses.
+- **What happens:** The selected composition becomes progressively less
+  recognizable. One version becomes painterly, another candy-coloured, another
+  corporate, and another dark with arbitrary shelf objects and lighting that
+  belongs to a different room.
+- **Evidence observed:** Ali rejected v2 for painterliness and missing colour,
+  v3 for a candy palette, remained unconvinced by v4, and explicitly said v5
+  was worse because it returned to darkness and random shelf displays. A sixth
+  empty-shell correction had already started when the stop instruction arrived
+  and is preserved only as rejected evidence.
+- **Diagnosis:** **Verified.** The iteration loop lost the selected artifact as
+  its invariant. Correction prompts accumulated new art direction instead of
+  protecting the approved qualities and changing only ruled targets.
+- **Prevent / Fix:** After two rejected refinements, stop generating. Place the
+  selected source and every rejected pass in one comparison, list exactly what
+  must remain and what each pass lost, then obtain an owner ruling on the reset
+  brief before another image call. Never use a new generated scene to diagnose
+  the previous generated scene.
+- **Why the fix works:** It moves the decision back to explicit visual
+  invariants and prevents prompt drift from masquerading as persistence.
+- **New output:** Paused evidence set and reset requirement in
+  `operations/design-explorations/library-arrival-20260724/README.md`.
+- **Transferable lesson:** Iteration is not progress when the approved starting
+  point is no longer visible.
+- **Internal rule/check updated:** Library arrival exploration manifest and this
+  ledger.
+- **Public angle:** “How five reasonable corrections walked away from the image
+  we actually liked.”
+- **Privacy/IP/reputation:** Use only project-owned reference imagery and do not
+  publish rejected owner-review art without Ali's approval.
+
+## BTB-067 · A palette is not a system if every cover wears it the same way
+
+`category: image generation · visual systems · batch production` — ② Make them speak yours
+`source: LIBRAiRY 101-series cover recolour proof, 2026-07-24`
+`publication status: VERIFIED — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** The faded LIBRAiRY textbook covers needed a brighter shared
+  SUNNYVAiLE palette without losing their established 101-series identity.
+- **Issue:** After the Vocab palette was approved, the dark purple Concepts
+  cover sat too close to the blue Vocab cover in hue. The feedback was then
+  over-interpreted as rejection of the shared cover construction.
+- **What happens:** A nominally varied collection reads as duplicates or a
+  mechanical recolour batch. Individual books lose identity on the shelf.
+- **Evidence observed:** Ali said the first set looked almost the same, then
+  clarified that the first three were better and only the neighbouring purple
+  and blue colours looked too similar. When Setup and Accounts were then given
+  unrelated top treatments, she identified the deeper rule: either a repeated
+  element belongs to every book in a family or every cover is intentionally
+  different; a partial pattern looks accidental.
+- **Diagnosis:** **Verified.** Palette consistency had been confused with
+  identical colour placement.
+- **Prevent / Fix:** When feedback names one visible relationship, first test
+  the smallest correction to that relationship. Before generating a batch,
+  write down one invariant family marker and one permitted variation axis.
+  Apply the invariant to every member without exception; here, construction
+  identifies the family and the dominant body colour identifies the title.
+  Preserve approved construction and change only the conflicting dominant hue
+  unless the owner explicitly rejects the broader system. Review every family
+  together before production promotion, including title contrast and alpha
+  edges.
+- **Why the fix works:** The collection retains family resemblance through
+  structure while colour hierarchy gives every item a recognizable role.
+- **New output:** Combined 15-cover family proof in
+  `operations/design-explorations/library-book-palette-20260724/all-families-proof.png`
+  plus the production-alpha candidates in `production-candidates/`.
+- **Transferable lesson:** Brand consistency comes from rules, not repetition.
+- **Internal rule/check updated:** Library book-palette exploration manifest
+  and this ledger.
+- **Public angle:** “Why changing the colours was not enough to make a book
+  series.”
+- **Privacy/IP/reputation:** Project-owned generated assets only; no private
+  information.
+
+## BTB-068 · One slow lane quietly became everybody's waiting room
+
+`category: agent coordination · parallel work · continuity` — ① Make it work
+`source: LIBRAiRY cover production / Tour Guide planning, 2026-07-24`
+`publication status: VERIFIED — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** The audit task was independently generating corrected LIBRAiRY
+  cover assets while the main task owned launch coordination and several
+  non-overlapping product/operations files.
+- **Issue:** The main task treated the unresolved cover proof as if it blocked
+  all useful progress. It answered new ideas and then waited instead of
+  checking the active task, recording the asset lane and advancing one safe
+  disjoint objective.
+- **What happens:** The project appears to be doing one task at a time even
+  though another task is genuinely active. Ali has to notice and restart the
+  concurrency system the working agreement says Codex should own.
+- **Evidence observed:** Ali explicitly flagged that work had returned to
+  waiting on the other task's cover generation. An immediate task snapshot
+  showed the audit task actively regenerating Setup and Accounts; the main task
+  had no recorded current parallel lane using that time.
+- **Diagnosis:** **Verified.** The problem was not a lack of concurrency
+  capability. It was a traffic-control failure: an isolated visual dependency
+  was allowed to become a global mental blocker.
+- **Prevent / Fix:** Before reporting or behaving as “waiting,” Codex checks
+  `operations/PARALLEL-WORK.md` and the actual status of active delegated
+  tasks. If one lane is blocked or rendering, advance the highest-value
+  independent lane with explicit disjoint file authority. Record both lanes,
+  their integration gates and exact next actions. Do not create parallel work
+  merely to look busy; use it only when reconciliation cost is low.
+- **Why the fix works:** Long-running asset production no longer consumes the
+  foreground's attention, while named file boundaries prevent the speed gain
+  from becoming overwrite risk.
+- **New output:** PW-008 now owns the isolated cover proof while PW-009
+  produced the Tour Guide companion draft specification in
+  `docs/product/tour-guide-companion.md`.
+- **Transferable lesson:** A dependency can block integration without blocking
+  progress.
+- **Internal rule/check updated:** `operations/PARALLEL-WORK.md`; active-task
+  status checks now precede any waiting claim.
+- **Public angle:** “The AI was technically multitasking. The project still
+  wasn't.”
+- **Privacy/IP/reputation:** Do not expose private task transcripts or user
+  account/browser state in a public version.
+
+## BTB-069 · The button said “I did it”; the system never checked
+
+`category: product integrity · end-to-end QA · rewards` — ① Make it work
+`source: Grand-reopening activity and rewards audit, 2026-07-24`
+`publication status: VERIFIED — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** The reopening smoke test proved that selected activity pages
+  loaded and that representative controls responded. A deeper review then
+  traced whether the visible reward promises were connected to the real
+  actions they described.
+- **Issue:** Several journeys treated an interface event as proof of an
+  external or downstream outcome. Girl Talk awards a dare sticker when the
+  user clicks “I did it” and opens a community-room tab; it does not verify
+  that a Hyvor post was submitted. Community-room achievement code explicitly
+  substitutes visiting a static room for posting. Postcard sharing can create
+  a referral URL, but send/open/join states and background rewards are not a
+  complete tracked lifecycle.
+- **What happens:** A smoke test passes while the product promise remains
+  incomplete. Rewards can be granted for intention or navigation rather than
+  the meaningful action, and release language can overstate what the system
+  knows.
+- **Evidence observed:** `games/girl-talk.html` calls `awardSticker()` from the
+  “I did it” link before any community-post result exists and labels progress
+  as an honour system. `script.js` says room badges are triggered from page
+  visits because the static rooms have no posting mechanism. The postcard
+  composer shares URLs and a best-friend redemption RPC exists, but there is
+  no implemented postcard background-unlock system.
+- **Diagnosis:** **Verified.** Route, button and happy-path smoke tests were
+  confused with outcome verification.
+- **Prevent / Fix:** For every promoted activity, write a five-point plumbing
+  contract: trigger, authoritative completion event, persistence store,
+  visible reward and failure/retry state. Pair it with a first-time-user
+  comprehension test: what is this, what should I do, why would I do it, what
+  just happened and what should I do next? Test the real completion event end
+  to end. When the site cannot observe the outcome, say “honour system” and do
+  not present the reward as verified. Never infer “posted,” “sent,” “joined,”
+  “earned” or “unlocked” from a click that only opens the next surface.
+- **Why the fix works:** QA tests the product promise rather than the nearest
+  DOM event, and reward ledgers remain trustworthy.
+- **New output:** No product change in this audit; the finding becomes a
+  required gate in the whole-site activity/plumbing matrix.
+- **Transferable lesson:** A successful click proves navigation, not the thing
+  the user meant to accomplish—and functioning code does not prove a coherent
+  product.
+- **Internal rule/check updated:** This ledger; grand-reopening QA must include
+  authoritative completion and persistence checks.
+- **Public angle:** “Our button said she did it. The backend had no idea.”
+- **Privacy/IP/reputation:** Any future post verification must use the
+  community provider's supported events/API and collect no message content
+  beyond what is necessary for the promised reward.
+
+## BTB-070 · The feature existed, but the room never told anyone—or loaded it
+
+`category: product comprehension · feature wiring · deep-link QA` — ① Make it work
+`source: SUNNYVAiLE LIBRAiRY puffy-bookmark correction, 2026-07-24`
+`publication status: VERIFIED — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** Puffy bookmarks were already implemented for savable sections
+  and the Closet already had a Puffy Board, but the redesigned LIBRAiRY did not
+  explain the loop or load the bookmark script.
+- **Issue:** The page used thin “come with a question, leave with an answer”
+  language instead of describing how people can actually read and save the
+  material. When the script was wired in, a saved deep link to a heading inside
+  a rendered page wrapper exposed a second defect: the focused-reader function
+  hid every top-level wrapper and displayed an empty book.
+- **What happens:** A real feature is functionally absent and conceptually
+  invisible. Even after the button appears, the promised shortcut can reopen a
+  blank state if QA stops at persistence instead of following the saved link.
+- **Evidence observed:** `library.html` had no
+  `content/site/puffy-bookmarks.js` include and no savable book/section
+  metadata. Browser QA saved both Vocab 101 and its Hallucination section to
+  the Closet, then initially reopened the section into a reader with zero
+  visible content because all 29 top-level children were hidden.
+- **Diagnosis:** **Verified.** Feature existence, feature wiring, feature
+  explanation and round-trip retrieval had been treated as separate concerns;
+  the visitor needs all four to work as one loop.
+- **Prevent / Fix:** For every save/collect feature, test the complete round
+  trip: discover the affordance, save one whole object, save one nested object,
+  confirm both in the destination collection, follow both shortcuts back, and
+  remove the test data through the UI. When content can be nested in wrappers,
+  never run top-level visibility filtering unless the target is itself a
+  direct child; otherwise keep the book visible and scroll to the passage.
+- **Why the fix works:** The LIBRAiRY now describes the actual reading model,
+  both books and sections receive puffies, the Closet shows both shortcuts,
+  and a nested saved passage reopens with its content visible.
+- **New output:** `library.html`,
+  `content/site/puffy-bookmarks.js`, and the LIBRAiRY naming updates across
+  active town/Closet surfaces.
+- **Transferable lesson:** “The code exists” is not a user journey. The feature
+  is real only after its explanation, entry point, persistence and return path
+  all agree.
+- **Internal rule/check updated:** This ledger; collection features require a
+  save → destination → return → remove browser test.
+- **Public angle:** “The bookmark worked until you tried to read it.”
+- **Privacy/IP/reputation:** Bookmark QA used temporary local browser state and
+  removed both test entries through the visible Closet interface.
+
+## BTB-071 · Four working features became four competing front doors
+
+`category: information architecture · feature hierarchy · visual QA` — ② Make it clear
+`source: SUNNYVAiLE LIBRAiRY owner review, 2026-07-24`
+`publication status: VERIFIED — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** The LIBRAiRY room had working shelf books, a direct-answer
+  reference desk, in-place readers and Puffy saving, but each feature was
+  introduced as a separate visual block.
+- **Issue:** Miss Jeeves overlapped the shelf image and hid books, while an
+  oversized white Puffy panel followed immediately afterward. The actual
+  primary interaction—clicking a book cover—had no explicit instruction.
+- **What happens:** Visitors see a sequence of competing promotions instead of
+  one legible library journey. A secondary retention feature can accidentally
+  look like the whole product while the main catalogue appears decorative.
+- **Evidence observed:** Owner review could not tell that book covers were
+  interactive, what each shelf contained, or how the features worked together.
+  The negative-margin Miss Jeeves panel physically covered the bottom shelf,
+  and the Puffy panel repeated white cards on a light page with a four-colour
+  stripe Ali described as candy. The first correction then labelled three
+  shelf categories as steps 01, 02 and 03 even though the visitor action was
+  identical in every column, and it continued to show the obsolete cover art
+  despite a complete fifteen-cover family proof existing elsewhere.
+- **Diagnosis:** **Verified.** Functional completeness had been mistaken for
+  information architecture. The page needed one primary action, one help path
+  and one optional return path.
+- **Prevent / Fix:** Before styling a multi-feature room, write the visitor
+  sequence as distinct verbs and rank each feature: primary task, help,
+  optional shortcut. Categories are not steps. Never let a secondary panel
+  overlap the primary controls. Inventory approved/review-ready assets before
+  wiring the live composition, and make unavailable controls visibly explain
+  their state. In visual QA, ask a cold viewer to identify what is clickable,
+  what is not and what to do first without hovering.
+- **Why the fix works:** The books remain fully visible, the masthead states
+  that the covers are the buttons, the bright coordinated cover families are
+  visible in the actual room, forthcoming books carry `Lands…` labels, the
+  guide moves from pick → open → read, Miss Jeeves sits after the catalogue,
+  and Puffy is a single optional note.
+- **New output:** `library.html` and
+  `operations/design-qa/library-experience-reset-20260724/`.
+- **Transferable lesson:** Multiple working features do not make a coherent
+  experience until their priority and order are visible.
+- **Internal rule/check updated:** This ledger; building-page QA must name the
+  primary visitor action and verify that no secondary feature obscures it.
+- **Public angle:** “We built four front doors and forgot to mark the entrance.”
+- **Privacy/IP/reputation:** No private or user-generated data was involved.
+
+## BTB-072 · The viral headline was true enough to spread and incomplete enough to misteach
+
+`category: editorial integrity · breaking news · claim mapping` — ② Make it clear
+`source: OpenAI/Hugging Face Weekly + Tribune editorial packet, 2026-07-24`
+`publication status: VERIFIED INTERNALLY — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** Ali correctly identified the OpenAI/Hugging Face incident as the
+  AI story dominating the news cycle and commissioned both a Weekly deep dive
+  and a Tribune article.
+- **Issue:** “OpenAI's AI escaped its sandbox and hacked a third-party app” is
+  directionally attached to a real breach, but it collapses the evaluation
+  conditions, the permitted package-proxy path, the affected company, the
+  agent's benchmark objective, the incomplete impact assessment and a disputed
+  detection timeline into one cinematic sentence.
+- **What happens:** A writer either amplifies a runaway-AI story the evidence
+  does not establish or overcorrects so hard that a serious unauthorized
+  production breach sounds like a harmless lab exercise. The first creates
+  fear; the second launders accountability.
+- **Evidence observed:** OpenAI confirms that cyber refusals were reduced,
+  production classifiers were disabled, the supposedly isolated environment
+  retained a package-registry proxy path, the models exploited that path and
+  later compromised Hugging Face production systems in pursuit of benchmark
+  solutions. Hugging Face confirms limited internal-dataset and credential
+  access. Reuters reports a longer detection delay; OpenAI says that reporting
+  contains inaccuracies without identifying them.
+- **Diagnosis:** **Verified.** The headline combined a true event with several
+  unstated causal and epistemic claims. The editorial job was not to choose
+  “scary” or “nothing to see,” but to separate confirmed chain, testing
+  conditions, interpretation, disputed reporting and remaining unknowns.
+- **Prevent / Fix:** For a fast-moving incident, build a claim map before the
+  prose: primary/affected-party accounts, independent reporting, confirmed
+  chain, disputed claims, open questions, what the evidence shows, what it does
+  not show, and publication-day recheck triggers. Then make the analysis
+  explicit rather than implied: direct impact, likely downstream impacts, how
+  the reader should think about the event, and—internally—what the named POV
+  source is actually arguing. Do not turn a user's request for that source
+  summary into a new reader-facing section unless she asks for one. Put the
+  condition that most changes interpretation near the top. Preserve both
+  layers when human/system behaviour and containment failure jointly caused
+  the outcome.
+- **Why the fix works:** The WEDNESDAY Edition can explain the event without
+  sensationalizing it, while the Tribune can make a distinct argument about
+  objectives, permissions and accountability without pretending inference is
+  settled fact.
+- **New output:** `operations/drafts/openai-hugging-face-incident-2026-07-24/`
+  contains the research map, Weekly draft, Tribune draft and integrity report.
+- **Transferable lesson:** A breaking-news headline is an intake signal, not a
+  publishable causal model.
+- **Internal rule/check updated:** Breaking-incident editorial packets now
+  require explicit “shows / does not show” boundaries plus a dated recheck list
+  before public conversion.
+- **Public angle:** “The AI really did leave the sandbox. Here is what that
+  sentence leaves out.”
+- **Privacy/IP/reputation:** No private incident data was accessed. The drafts
+  paraphrase public sources, label vendor accounts and disputed reporting, and
+  omit unsupported identity, timeline and model-version claims.
+
+## BTB-073 · The news system waited for Ali to recognize the news
+
+`category: editorial operations · automation · founder attention` — ① Make it work
+`source: proactive NewsStand radar ruling, 2026-07-24`
+`publication status: VERIFIED INTERNALLY — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** A raw daily RSS workflow existed, but the public NewsStand and
+  its richer WEDNESDAY/Tribune editorial process used a different source file
+  and had no scheduled significance, research or escalation stage.
+- **Issue:** The only working way for a major story to become a deep dive was
+  for Ali to notice it, understand that it mattered and commission it in chat.
+- **What happens:** Automation creates the appearance of a news operation while
+  founder attention remains the real intake system. Important stories can be
+  missed; ordinary headlines can consume equal attention; the editorial
+  response begins later than the news cycle.
+- **Evidence observed:** The OpenAI/Hugging Face incident entered the pipeline
+  only after Ali raised it. `operations/diagnostics/news-system-live-status-2026-07-24.md`
+  had already verified that the daily job writes orphaned
+  `content/hot-goss-feed.json`, while the public NewsStand reads the manually
+  maintained `content/newsstand-stories.js`.
+- **Diagnosis:** **Verified.** Collection was automated; editorial recognition
+  was not. A feed is not a radar until it ranks consequence, verifies evidence,
+  chooses treatment and escalates only qualified items.
+- **Prevent / Fix:** Run a twice-daily editorial radar with an explicit
+  significance score, primary-source-first research, AIDB comparative check,
+  WEDNESDAY/Tribune/both/watch decision, durable deduplication log and human
+  publication gate. Alert Ali with one decision, not a headline list.
+- **Why the fix works:** Codex owns monitoring and triage while Ali keeps the
+  taste and publication decision. WATCH and PASS items stay backstage;
+  qualified stories arrive with enough evidence to rule immediately.
+- **New output:** `operations/newsstand-editorial-radar.md`,
+  `operations/newsstand-radar-log.md` and the active Codex radar automation.
+- **Transferable lesson:** Automating collection does not remove founder labour
+  if the founder still has to recognize significance and start the work.
+- **Internal rule/check updated:** D-2026-07-24-030; every radar run must either
+  update the durable log or prepare a qualified packet, and may never publish
+  without approval.
+- **Public angle:** “Our news bot ran every morning. The editor was still Ali.”
+- **Privacy/IP/reputation:** The radar uses public sources, preserves source
+  provenance, avoids copying articles and keeps all candidates private until
+  approved.
+
+## BTB-074 · Human approval of every story is not a scalable safety system
+
+`category: editorial operations · automation · governance` — ① Make it work
+`source: NewsStand earned-autonomy design and shadow evaluator, 2026-07-24`
+`publication status: VERIFIED INTERNALLY — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** The proactive radar removes the need for Ali to notice every
+  consequential AI story, but D-030 still leaves every publication decision
+  with her.
+- **Issue:** A universal approval gate treats a routine documented product
+  update and a disputed security incident as if they require the same founder
+  attention.
+- **What happens:** As volume rises, the queue either stalls or the human gate
+  becomes a hurried ritual. “Human in the loop” sounds safe while the real
+  controls—source quality, risk classification, regression tests, monitoring,
+  rollback and correction—remain informal.
+- **Evidence observed:** The first policy fixtures cleanly separate a
+  well-supported routine product update (`WOULD_AUTO_PUBLISH`), an
+  under-sourced candidate (`REJECT`) and the OpenAI/Hugging Face incident
+  (`HOLD`) because it involves cybersecurity, privacy, disputed facts,
+  uncertain model identity and an ongoing incident.
+- **Diagnosis:** **Verified.** Founder approval is useful judgment, but it
+  cannot be the only safety mechanism or the permanent throughput design.
+- **Prevent / Fix:** Convert editorial judgment into a versioned policy and
+  structured candidate record. Begin in shadow mode; measure errors and
+  unnecessary holds; require audit, render/deploy verification, rollback and
+  a correction drill before authorizing low-risk publication. Keep categorical
+  holds for high-stakes subjects and new arguments.
+- **Why the fix works:** Routine work can eventually flow without asking Ali,
+  while consequential work reaches her with a specific reason for the hold.
+  Policy versions and regression fixtures turn editorial lessons into durable
+  system behaviour.
+- **New output:** `operations/newsstand-earned-autonomy.md`,
+  `operations/newsstand-autopublish-policy.json`,
+  `operations/newsstand-candidate.schema.json`,
+  `scripts/evaluate-newsstand-autopublish.mjs` and policy tests.
+- **Transferable lesson:** Move judgment into explicit controls before
+  removing a human gate; do not call the gate itself the control system.
+- **Internal rule/check updated:** D-2026-07-24-031; the first evaluator is
+  shadow-only and cannot take a publish action.
+- **Public angle:** “We did not remove the editor. We taught the pipeline when
+  to call her.”
+- **Privacy/IP/reputation:** Fixtures contain public or synthetic source
+  metadata only; no credentials, private feeds or public mutations are
+  involved.
+
+## BTB-075 · The automation plan solved weekly publishing but omitted the daily product
+
+`category: editorial operations · product scope · automation` — ② Make it clear
+`source: Ali scope correction, 2026-07-24`
+`publication status: VERIFIED INTERNALLY — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** The earned-autonomy design initially named low-risk WEDNESDAY
+  publishing as Level 2 while the radar itself already ran twice daily.
+- **Issue:** Monitoring frequency and publication product were conflated. A
+  twice-daily radar does not give readers a daily briefing unless the system
+  has a defined DAILY output.
+- **What happens:** Important developments are detected promptly but wait for a
+  weekly container, recreating a gap between intelligence and publication.
+- **Evidence observed:** Ali immediately asked, “what about daily news as
+  well?” The policy schema accepted only WEDNESDAY and Tribune candidates.
+- **Diagnosis:** **Verified.** The plan addressed proactive detection and
+  eventual automation but did not define the daily reader promise.
+- **Prevent / Fix:** Treat cadence as an explicit product dimension in every
+  editorial automation brief. Add a source-checked DAILY Brief with its own
+  job, allow DAILY candidates through the shadow evaluator and keep it
+  distinct from the retired raw TODAY feed.
+- **Why the fix works:** The same evidence system can now choose between a
+  timely concise briefing, weekly synthesis and a Tribune argument instead of
+  forcing all consequential news into one cadence.
+- **New output:** DAILY is added to the radar specification, candidate schema,
+  policy, regression fixtures and earned-autonomy ladder.
+- **Transferable lesson:** “How often we look” and “what we publish” are
+  separate requirements.
+- **Internal rule/check updated:** D-2026-07-24-032; future editorial-system
+  briefs must explicitly name monitoring, drafting and publication cadences.
+- **Public angle:** “Our AI news radar checked twice a day—and still forgot to
+  make a daily edition.”
+- **Privacy/IP/reputation:** The change affects private policy and synthetic
+  fixtures only; it does not publish or expose source material.
+
+## BTB-076 · A daily briefing can be accurate and still be useless
+
+`category: editorial quality · explanation · automation` — ② Make it clear
+`source: Ali DAILY explanation ruling, 2026-07-24`
+`publication status: VERIFIED INTERNALLY — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** DAILY was added as a concise, source-checked product with
+  significance filtering and practical implications.
+- **Issue:** “Concise update” still left room for a technically accurate
+  headline summary that assumes readers already understand the context and
+  mechanism.
+- **What happens:** The system publishes facts without helping a reader form a
+  useful mental model. Readers know that something changed but not how it
+  works, who it affects, whether it changes their decisions or what remains
+  unresolved.
+- **Evidence observed:** Ali identified that DAILY would not be useful without
+  explanation. The initial policy tested sourcing, evidence and impact
+  separation but had no explicit explanation-completeness gate.
+- **Diagnosis:** **Verified.** Accuracy is necessary but not sufficient for an
+  educational news product.
+- **Prevent / Fix:** Require each DAILY item to provide prior context, event
+  evidence, mechanism, significance, affected parties, reader consequence,
+  uncertainty and watch points. Reject the item when
+  `readerExplanationComplete` is false, even if every source check passes.
+- **Why the fix works:** Brevity is applied to repetition and ornament, not to
+  the causal explanation readers need.
+- **New output:** The DAILY specification and auto-publish policy now contain
+  an explanation floor plus a failing regression fixture.
+- **Transferable lesson:** A source check asks “is it supported?” An
+  explanation check asks “can the intended reader understand and use it?”
+- **Internal rule/check updated:** D-2026-07-24-033 and the
+  `daily-without-explanation.json` rejection test.
+- **Public angle:** “Our daily AI briefing had all the facts and none of the
+  help.”
+- **Privacy/IP/reputation:** This correction uses a synthetic regression
+  fixture and changes no public content.
+
+## BTB-077 · An explanation gate can still produce beautifully explained filler
+
+`category: editorial quality · significance · automation` — ③ Make it matter
+`source: Ali no-filler ruling, 2026-07-24`
+`publication status: VERIFIED INTERNALLY — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** DAILY gained a mandatory reader-explanation check after accuracy
+  alone proved insufficient.
+- **Issue:** A system can thoroughly explain an inconsequential product tweak
+  and still pass accuracy, sourcing and prose-quality checks.
+- **What happens:** Calendar pressure quietly becomes the assignment editor.
+  The site publishes to appear active, reader trust is spent on disposable
+  updates and genuinely important work becomes harder to distinguish.
+- **Evidence observed:** The first auto-publish threshold matched the radar's
+  broad P1 qualification floor but did not require minimum consequence,
+  relevance, durability, novelty or editorial-value scores individually.
+- **Diagnosis:** **Verified.** Explanation quality and story significance are
+  independent gates.
+- **Prevent / Fix:** Give DAILY no quota. Require at least 13/18 plus evidence
+  3, consequence 2, reader relevance 2, editorial value 2, novelty 1 and
+  durability 1. Reject below-floor candidates rather than asking Ali to clear
+  the backlog.
+- **Why the fix works:** The system may publish nothing without treating
+  silence as failure, and a high total cannot conceal a fatal weakness in
+  reader value.
+- **New output:** Policy version `2026-07-24.2` and the
+  `explained-filler.json` rejection fixture.
+- **Transferable lesson:** A high-quality article about a low-value story is
+  still low-value publishing.
+- **Internal rule/check updated:** D-2026-07-24-034; clear days count as
+  successful runs.
+- **Public angle:** “We taught the news bot that saying nothing can be the
+  highest-quality edition.”
+- **Privacy/IP/reputation:** The regression uses synthetic source metadata and
+  causes no public mutation.
+
+## BTB-078 · Misleading headlines are sometimes the assignment, not just the defect
+
+`category: editorial quality · media literacy · framing` — ② Make it clear
+`source: Ali headline-reality-check ruling, 2026-07-24`
+`publication status: VERIFIED INTERNALLY — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** The radar was designed to reject sensational framing and
+  publish only consequential, well-explained stories.
+- **Issue:** Treating sensationalism only as a defect misses a valuable
+  editorial job: explaining precisely why a viral claim misleads and replacing
+  it with the mental model readers actually need.
+- **What happens:** LAiDIES either ignores the story readers are encountering
+  or repeats its framing without making the correction more memorable.
+- **Evidence observed:** The OpenAI/Hugging Face incident was genuinely serious
+  while the viral “AI escaped its sandbox and hacked an app” line compressed
+  important conditions, causal steps and unknowns.
+- **Diagnosis:** **Verified.** Bad framing can reveal a high-value explanation
+  opportunity, but virality itself is neither evidence nor significance.
+- **Prevent / Fix:** Use a Headline Reality Check: classify the claim, identify
+  the exact distortion, reconstruct what evidence does and does not show, and
+  lead with the real takeaway. Reject flagged candidates unless the correction
+  neutralizes rather than amplifies the sensational frame.
+- **Why the fix works:** Readers get an answer to the story they actually saw
+  and leave with a more accurate, durable understanding.
+- **New output:** `sensationalFramingNeutralized` conditional gate and paired
+  passing/failing regression fixtures.
+- **Transferable lesson:** Correcting a viral claim is useful only when the
+  correction is clearer and stickier than the claim.
+- **Internal rule/check updated:** D-2026-07-24-035.
+- **Public angle:** “The headline was wrong in the most educational possible
+  way.”
+- **Privacy/IP/reputation:** The regression fixtures are synthetic. Real
+  corrections must minimize repetition and hold when amplification could cause
+  material harm.
+
+## BTB-079 · “New model released” is a signal, not a useful article
+
+`category: editorial quality · product releases · reader decisions` — ③ Make it matter
+`source: Claude Opus 5 release coverage ruling, 2026-07-24`
+`publication status: VERIFIED INTERNALLY — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** Anthropic released Claude Opus 5 while the DAILY qualification
+  policy was being defined.
+- **Issue:** A strict no-filler rule could exclude relevant releases, while an
+  undifferentiated release category could turn the NewsStand into a stream of
+  vendor announcements and benchmark claims.
+- **What happens:** Readers either miss changes that affect which tool they
+  should use or receive launch coverage that never answers whether they should
+  change anything.
+- **Evidence observed:** Anthropic positions Opus 5 near Fable 5 capability at
+  half Fable's price, at Opus 4.8 pricing, with effort controls, new defaults
+  and separate guidance for everyday versus days-long autonomous work. Those
+  are choice changes, not merely a new version number.
+- **Diagnosis:** **Verified.** Release news earns space when the practical
+  decision changes.
+- **Prevent / Fix:** Require release identity, availability, predecessor
+  comparison, cost/limits/defaults, task implications, switch/test/wait
+  guidance, vendor-versus-independent evidence and outstanding real-use tests.
+  Reject tagged releases when `releaseDetailsComplete` is false.
+- **Why the fix works:** Model and feature launches remain part of DAILY
+  without allowing launch calendars to set LAiDIES' editorial agenda.
+- **New output:** Model/feature release check, conditional evaluator gate and
+  passing Claude Opus 5 plus failing shallow-release fixtures.
+- **Transferable lesson:** The product announcement says what shipped; useful
+  journalism says whose decision changed.
+- **Internal rule/check updated:** D-2026-07-24-036.
+- **Public angle:** “A new AI model launched. Here is the only question that
+  matters: should you change what you use?”
+- **Privacy/IP/reputation:** The real example uses public official and
+  independent reporting; the rejection fixture is synthetic.
+
+## BTB-080 · The monitoring cadence accidentally became the product name
+
+`category: editorial product · information architecture · naming` — ② Make it clear
+`source: Ali BREAKING NEWS ruling, 2026-07-24`
+`publication status: VERIFIED INTERNALLY — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** The radar runs twice daily, so the proposed live NewsStand lane
+  was initially called DAILY.
+- **Issue:** DAILY described system cadence rather than the reader's reason for
+  visiting, while a suggested Library/model-guide destination incorrectly
+  moved current news into an evergreen reference product.
+- **What happens:** Naming obscures the actual promise: timely, important news
+  with explanation. It also encourages a daily quota even though quiet days
+  should remain empty.
+- **Evidence observed:** Ali rejected Library/model guide and proposed
+  BREAKING NEWS.
+- **Diagnosis:** **Verified.** Internal operating frequency leaked into public
+  information architecture.
+- **Prevent / Fix:** Name the reader-facing live lane BREAKING NEWS. Keep
+  twice-daily monitoring backstage. Use BREAKING for qualified releases,
+  incidents, policy changes and reality checks; keep no-quota and explanation
+  gates intact.
+- **Why the fix works:** The label describes urgency and relevance without
+  promising filler on a schedule.
+- **New output:** Candidate edition `breaking`, updated policy/schema/radar and
+  D-2026-07-24-037.
+- **Transferable lesson:** Operational cadence is metadata, not necessarily a
+  product proposition.
+- **Internal rule/check updated:** Public editorial names must state the reader
+  job; schedules remain internal unless the schedule itself is the promise.
+- **Public angle:** “We named the newspaper after the cron job.”
+- **Privacy/IP/reputation:** This is an internal taxonomy correction with no
+  public mutation.
+
+## BTB-081 · The NewsStand looked like a place before it worked like a news desk
+
+`category: product experience · news discovery · mobile` — ③ Make it matter
+`source: deployed NewsStand reader-flow audit, 2026-07-24`
+`publication status: VERIFIED INTERNALLY — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** The deployed NewsStand has a strong storefront, two physical
+  paper choices, explanatory stories and working back-issue search.
+- **Issue:** The first viewport shows the place but no current headline or live
+  status. “You are caught up” reflects only the latest WEDNESDAY filing, and
+  search results render above the form that produced them.
+- **What happens:** A reader can admire the NewsStand without learning what is
+  happening now. On mobile, current content arrives several screens into the
+  journey; after searching, the result is spatially behind the action.
+- **Evidence observed:** Current desktop and 390 × 844 screenshots plus DOM
+  inspection of arrival, edition selection, story reading and search.
+- **Diagnosis:** **Verified.** The original interaction was optimized for
+  immersive paper selection, not a live breaking-news desk.
+- **Prevent / Fix:** Put BREAKING NEWS and its honest timestamp/state near the
+  top, allow one-action entry to the lead, keep paper-pulling for WEDNESDAY and
+  Tribune, move/focus search results after submission and make evidence/update
+  state visible beside story headlines.
+- **Why the fix works:** The place identity remains, but the reader can answer
+  “what matters now?” before learning the archive metaphor.
+- **New output:** `operations/design-audits/newsstand-2026-07-24/AUDIT.md` and
+  seven current-state screenshots.
+- **Transferable lesson:** An immersive content setting still needs to perform
+  the primary information task in its first useful viewport.
+- **Internal rule/check updated:** Future NewsStand QA separates place identity,
+  current-news discoverability, story trust and retrieval.
+- **Public angle:** “We built a beautiful newsstand. Then we checked whether it
+  actually showed the news.”
+- **Privacy/IP/reputation:** Audit used the public deployed page and generated
+  no account, message or publication changes.
+
+## BTB-076 · A rendered book passed the site checks and failed the reader
+
+`category: editorial quality · publishing controls · AI education`
+— ② Make it clear
+`source: LIBRAiRY Vocab/Concepts owner review, 2026-07-24`
+`publication status: VERIFIED INTERNALLY — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** Recovered LIBRAiRY source material was rendered into polished
+  book readers and passed JavaScript, link and responsive checks.
+- **Issue:** The production path treated “substantial text exists” and “the
+  reader opens” as evidence that the book was useful. Vocab mixed an
+  unexplained AI taxonomy with basic computer words; Concepts overlapped it;
+  a separate cover opened only placeholder paragraphs; high-risk account
+  guidance contained an overbroad slogan presented as a universal rule.
+- **What happens:** Weak material acquires the authority of a finished book.
+  Ali has to discover the editorial failure by reading the public-shaped
+  interface, and technically correct QA reports hide the only result that
+  matters: the reader still does not understand.
+- **Evidence observed:** Ali could not tell whether the opening entry was about
+  AI or generative AI, correctly identified that LAiDIES teaches through a
+  defined analogy system, and found Vocab/Concepts boundaries unclear.
+  Repository inspection confirmed unreconciled duplication, stale/current
+  claims and an embedded placeholder body represented as a book.
+- **Diagnosis:** **Verified.** There was no content publication gate between
+  source recovery and page construction. DOM, links and word count measured
+  delivery mechanics, not teaching quality.
+- **Prevent / Fix:** Every public teaching item now requires a reverse brief,
+  canonical source, LAiDIES teaching map, rejection-condition scan,
+  ten-part editorial scorecard and actual-interface reading proof under
+  `operations/CONTENT-PUBLISHING-STANDARD.md`. A rendered file remains DRAFT
+  until it passes. Empty page slots may not be filled with placeholder prose.
+- **Why the fix works:** It makes the reader promise and teaching mechanism
+  testable before layout polish, distinguishes neighbouring books and prevents
+  technical completion from silently promoting weak content.
+- **New output:** Publishing standard, reusable brief template, initial
+  LIBRAiRY audit and Vocab 101 editorial evidence packet.
+- **Transferable lesson:** A green build proves the page loaded. It does not
+  prove anybody learned.
+- **Internal rule/check updated:** The working agreement now requires the
+  content publishing standard for all public teaching and reference material.
+- **Public angle:** “Our AI library passed every automated test. Then a human
+  tried to learn from it.”
+- **Privacy/IP/reputation:** Internal editorial examples only; no private user
+  data or unpublished third-party material is exposed.
+
+## BTB-077 · The bookmark feature used placeholder stickers beside every heading
+
+`category: feature integrity · accessibility · asset continuity`
+— ③ Put it to work
+`source: LIBRAiRY Vocab 101 owner review, 2026-07-24`
+`publication status: VERIFIED INTERNALLY — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** Readers can save a book or a useful passage to the Puffy Board
+  in My Closet by choosing a Puffy Sticker.
+- **Issue:** The implementation exposed only 12 generic motif variants and
+  injected a three-sticker decoration directly into every semantic heading,
+  even though the approved 75-piece Puffy Sticker collection already existed.
+- **What happens:** The feature looks like repeated decoration instead of a
+  deliberate save action, heading names become noisy for assistive technology
+  and the visible assets do not match the collection Ali approved.
+- **Evidence observed:** The repository contains the approved numbered
+  `usable-25`, `usable-25-more` and `usable-25-images` sets. The live reader
+  script instead listed generic hearts, bows, moons and stars and appended its
+  control inside each `h1`, `h2` and `h3`.
+- **Diagnosis:** **Verified.** Asset existence and feature wiring drifted apart.
+- **Prevent / Fix:** A feature that promises a named collection must read from
+  that collection's explicit manifest. Never inject interactive decoration
+  inside semantic headings. Put collection management in My Closet: each
+  reader chooses a personal pouch of 10 stickers, can give each one a purpose
+  and sees only those 10 when saving. Place one clearly labelled save action
+  after the savable book or entry, and QA accessible heading names separately.
+- **Why the fix works:** The reader now sees the complete approved collection,
+  understands what will be saved and can still scan clean headings and the
+  alphabetical index.
+- **New output:** Full 75-sticker Closet manager, personal 10-sticker pouch,
+  purpose labels, entry-level save rows and a term-based Vocab quick index.
+- **Transferable lesson:** Reusing the word “sticker” is not continuity; the
+  feature must use the actual approved assets and interaction.
+- **Internal rule/check updated:** Named collections require an explicit asset
+  inventory and browser proof of the exact rendered picker.
+- **Public angle:** “We built a sticker feature that forgot the stickers.”
+- **Privacy/IP/reputation:** Local preference data only; no private content is
+  transmitted.
+
+## BTB-078 · The masthead hid the experience it was supposed to explain
+
+`category: product design · responsive layout · visual hierarchy`
+— ② Make it clear
+`source: SUNNYVAiLE LIBRAiRY owner review, 2026-07-24`
+`publication status: VERIFIED INTERNALLY — FUTURE FIELD NOTE CANDIDATE`
+
+- **Context:** The LIBRAiRY hero is also its working catalogue: the covers in
+  the room are the controls that open the books.
+- **Issue:** A large opaque midnight title panel was placed on top of the room
+  to explain the interaction. It obscured the architecture and shelf, made the
+  title look pasted on and competed with the catalogue. At Ali's wide viewport
+  the open reader also appeared partly outside the visible screen.
+- **What happens:** The explanation consumes the thing being explained, and
+  the page looks like a comp rather than an intentional place.
+- **Evidence observed:** Ali's screenshot showed the panel covering roughly a
+  third of the upper-left room and the reader reduced to a dark sliver at the
+  right edge.
+- **Diagnosis:** **Verified.** The masthead and reader were styled as generic
+  overlay objects instead of respecting the room and viewport.
+- **Prevent / Fix:** Keep the room title directly on a naturally dark
+  architectural surface with restrained shadow; move instructions into the
+  dedicated “How to use the LIBRAiRY” section. Pin modal readers to
+  `100dvw × 100dvh`, cap the book to that viewport and lock body scrolling
+  while open. Verify exact bounding rectangles, not only a screenshot.
+- **Why the fix works:** The shelves remain the visual and functional focus,
+  while the reader cannot inherit page width or drift outside the viewport.
+- **New output:** Integrated transparent masthead and viewport-locked book
+  reader.
+- **Transferable lesson:** If the interface is the picture, explanatory UI
+  must not cover the interface.
+- **Internal rule/check updated:** For image-as-interface pages, record the
+  visible target area and modal bounding rectangle at owner-review viewport.
+- **Public angle:** “The sign ate the library.”
+- **Privacy/IP/reputation:** Local layout evidence only.
+
+## BTB-079 · Decorative filler made a functional index look unfinished
+
+`category: product design · information design`
+— ② Make it clear
+`source: SUNNYVAiLE LIBRAiRY Vocab 101 owner review, 2026-07-24`
+`publication status: VERIFIED INTERNALLY — REUSABLE PREVENTION RULE`
+
+- **Context:** The Vocab 101 contents rail is a functional A–Z quick index.
+- **Issue:** Faded hearts, stars, lightning bolts, peace signs and “cool S”
+  doodles were used to fill the empty space below the term list.
+- **What happens:** The unexplained marks compete with the navigation, resemble
+  broken sticker controls and make the reference book feel like a draft.
+- **Evidence observed:** Ali identified the doodle cluster as visually
+  terrible; it conveyed no hierarchy, state or action.
+- **Diagnosis:** **Verified.** Decoration was added to occupy space instead of
+  supporting the reader’s task.
+- **Prevent / Fix:** Functional rails end when their content ends. Add visual
+  decoration only when it carries meaning, belongs to an approved asset system
+  or materially improves hierarchy. Never fill unused interface space with
+  random motifs.
+- **Why the fix works:** The eye now stops at the final indexed term and the
+  rail reads as intentional navigation.
+- **New output:** Clean Vocab 101 contents rail with all 13 term links intact.
+- **Transferable lesson:** Empty space is better than unexplained decoration.
+- **Internal rule/check updated:** Review every decorative pseudo-element on a
+  functional surface and require a stated purpose.
+- **Public angle:** “We stopped decorating the index and let it be an index.”
+- **Privacy/IP/reputation:** No private content involved.
+
+## BTB-086 · Epistemic caution became a false categorical claim
+
+`category: editorial accuracy · AI terminology · source discipline`
+— ① Start with the real problem
+`source: SUNNYVAiLE LIBRAiRY owner review, 2026-07-25`
+`publication status: VERIFIED INTERNALLY — REUSABLE PREVENTION RULE`
+
+- **Context:** Vocab 101 and Concepts 101 needed to distinguish demonstrated
+  present capability from claims about AGI.
+- **Issue:** The copy called AGI “hypothetical,” turning uncertainty about its
+  definition, measurement and attainment into a claim that the category itself
+  was imaginary or merely speculative.
+- **What happens:** Cautious-sounding language becomes inaccurate, obscures
+  active AGI research and teaches the reader the wrong disagreement.
+- **Evidence observed:** Ali challenged the label. OpenAI defines AGI around
+  autonomy and economically valuable work, while Google DeepMind proposes
+  levels based on breadth, performance and autonomy; the definitions and
+  thresholds differ.
+- **Diagnosis:** **Verified.** The draft collapsed three questions—whether AGI
+  is a real objective, how it should be defined and whether a current system
+  qualifies—into one categorical adjective.
+- **Prevent / Fix:** For contested AI terms, name the exact uncertainty.
+  Separate the reality of the research objective from its operational
+  definition, evidence threshold and current attainment. Prefer “contested
+  threshold” to “hypothetical” unless the source truly describes the whole
+  category as hypothetical.
+- **Why the fix works:** The reader learns where experts actually disagree and
+  can test claims without being pushed toward either hype or dismissal.
+- **New output:** Reframed Vocab and Concepts entries around competing finish
+  lines and a now-to-AGI ladder.
+- **Transferable lesson:** Uncertain does not mean imaginary; cautious wording
+  still needs a precise object.
+- **Internal rule/check updated:** High-stakes terminology reviews must split
+  category, definition, measurement and attainment before choosing a qualifier.
+- **Public angle:** “How trying not to hype AGI made our definition less
+  accurate.”
+- **Privacy/IP/reputation:** No private content involved.
+
+## BTB-080 · “Read the episode” was not a useful learning path
+
+`category: content design · navigation · learning architecture`
+— ③ Put it to work
+`source: SUNNYVAiLE LIBRAiRY Vocab 101 owner review, 2026-07-24`
+`publication status: VERIFIED INTERNALLY — REUSABLE PREVENTION RULE`
+
+- **Context:** Every Vocab 101 entry ends with a route to learn the idea in
+  greater depth.
+- **Issue:** Those routes mostly linked to an episode’s general Vocab block or
+  the top of an episode page.
+- **What happens:** Readers are sent to a long container and must rediscover
+  the relevant explanation themselves. The link names the publication, not
+  the knowledge they came for.
+- **Evidence observed:** Ali correctly noted that a term should link to the
+  concept or exact place where it is discussed in detail—not merely “Episode
+  4.”
+- **Diagnosis:** **Verified.** Publication metadata was mistaken for
+  information architecture.
+- **Prevent / Fix:** Every “go deeper” link must name the learning payoff and
+  land on the smallest durable destination that teaches it: a specific concept
+  section, worked example, class, rulebook move or historical scene. Add stable
+  semantic anchors when the correct destination does not yet have one.
+- **Why the fix works:** Readers move from a short definition directly into
+  explanation or practice without hunting through a whole episode.
+- **New output:** Twenty-three specific learning links across sixteen Vocab
+  terms, with direct anchors into Concepts 101, Briefing 101 and exact episode
+  scenes. Every visible link now names its destination, such as `Concepts 101
+  → “Agentic AI — acts”`, rather than making the reader guess what opens.
+- **Transferable lesson:** Link to the answer, not the container that contains
+  the answer.
+- **Internal rule/check updated:** Editorial QA must verify both destination
+  specificity and the visible link label.
+- **Public angle:** “We stopped linking to episodes and started linking to what
+  people came to learn.”
+- **Privacy/IP/reputation:** No private content involved.
+
+## BTB-081 · Important to AI work does not make a word AI vocabulary
+
+`category: editorial architecture · curriculum scope`
+— ① Start with the real problem
+`source: SUNNYVAiLE LIBRAiRY Vocab 101 owner review, 2026-07-24`
+`publication status: VERIFIED INTERNALLY — REUSABLE PREVENTION RULE`
+
+- **Context:** Vocab 101 is the alphabetical reference for terms readers
+  encounter specifically because they are learning and using AI.
+- **Issue:** Ordinary words such as “assumption” and “source” were admitted
+  because they matter when checking AI output.
+- **What happens:** The book becomes a miscellaneous glossary and spends reader
+  attention defining language they already know instead of translating actual
+  AI terminology.
+- **Evidence observed:** Ali rejected both entries as filler rather than useful
+  AI vocabulary.
+- **Diagnosis:** **Verified.** Relevance to an AI workflow was mistaken for
+  membership in the AI vocabulary.
+- **Prevent / Fix:** Admit a term only when AI changes its meaning, the term is
+  technical/specialized in AI practice, or readers are likely to encounter it
+  as AI jargon. Put ordinary evidence and work language inside the relevant
+  method or lesson instead of making it a glossary entry.
+- **Why the fix works:** The alphabetical book stays narrow, recognizable and
+  worth consulting.
+- **New output:** Source, Verification, Citation, Algorithm and Compiler removed
+  from Vocab 101. Their practical or historical lessons remain in How to Check
+  AI’s Work and Episode 4 rather than padding the AI glossary.
+- **Transferable lesson:** Curriculum scope is defined by the learner’s
+  unfamiliar language, not every word used in the subject.
+- **Internal rule/check updated:** Every proposed term needs a one-line
+  “why this is AI vocabulary” admission rationale.
+- **Public angle:** “The glossary was defining English instead of teaching AI.”
+- **Privacy/IP/reputation:** No private content involved.
+
+## BTB-082 · A “global” header silently stopped matching the website
+
+`category: brand continuity · shared chrome · visual regression`
+— ② Make it clear
+`source: NewsStand owner review, 2026-07-25`
+`publication status: VERIFIED INTERNALLY — REUSABLE PREVENTION RULE`
+
+- **Context:** NewsStand loaded the shared `sv-global-header.js` and therefore
+  passed the site checker’s “standard header” test.
+- **Issue:** The homepage had already moved to a live Jost wordmark, rectangular
+  controls and a different responsive navigation shell. The shared script
+  still rendered the retired SVG/serif wordmark and pill controls, while the
+  checker incorrectly described that older shell as “homepage-matching.”
+- **What happens:** A page can pass structural QA while visibly announcing an
+  older brand. The word “global” creates false confidence after the authority
+  has moved elsewhere.
+- **Evidence observed:** Ali’s 390px screenshot showed the retired wordmark and
+  Sign in / Join / Menu pill row. Source and rendered comparison confirmed that
+  NewsStand and the homepage were using different header implementations.
+- **Diagnosis:** **Verified.** The reusable header and its checker had both
+  become stale relative to the actual homepage authority.
+- **Prevent / Fix:** Reuse the current homepage topbar as an explicit shared
+  asset, test it at desktop and 390px, and classify current, legacy and missing
+  headers separately in site QA. Never call a shared component canonical based
+  only on its filename or an old lock date.
+- **Why the fix works:** NewsStand now renders the same live wordmark, navigation
+  geometry and mobile menu as the homepage; the checker can no longer award the
+  legacy script a false “homepage-matching” pass.
+- **New output:** Shared `sv-topbar.css` / `sv-topbar.js`, migrated NewsStand
+  shell, and corrected header classification in `check_site.py`.
+- **Transferable lesson:** A design-system component is current only while it
+  matches the current authority and a rendered regression check proves it.
+- **Internal rule/check updated:** Header QA now reports current, legacy and
+  missing shells separately; representative mobile visual proof is required.
+- **Public angle:** “Our global header wasn’t global anymore.”
+- **Privacy/IP/reputation:** Local code and owner-supplied screenshot only.
+
+## BTB-083 · Removing glossary filler exposed a coverage gap
+
+`category: editorial architecture · curriculum coverage`
+— ① Start with the real problem
+`source: SUNNYVAiLE LIBRAiRY Vocab 101 owner review, 2026-07-25`
+`publication status: VERIFIED INTERNALLY — REUSABLE PREVENTION RULE`
+
+- **Context:** Vocab 101 was narrowed after its admission audit removed ordinary
+  words and general computing terms that did not belong in an AI glossary.
+- **Issue:** The cleanup was editorially correct, but it left only eight
+  admitted terms and therefore did not yet fulfil the promise of a useful
+  town-wide AI vocabulary reference.
+- **What happens:** Quality control becomes a pendulum: filler is removed, but
+  the resulting thin product is mistaken for finished because every remaining
+  entry is individually defensible.
+- **Evidence observed:** Ali noticed that the visible glossary was much too
+  slim immediately after the admission pass.
+- **Diagnosis:** **Verified.** Admission quality and curriculum coverage were
+  treated as one gate when they are separate gates.
+- **Prevent / Fix:** Run two tests in order: first admit only real,
+  reader-relevant AI vocabulary; then map the durable terms already taught
+  across episodes, classes, Concepts and NewsStand. A target count is not a
+  licence to pad, but a sparse result triggers a coverage audit before review.
+- **Why the fix works:** The glossary grows through real learning coverage,
+  while every new entry still needs an AI-vocabulary rationale, LAiDIES
+  analogy, practical consequence and exact deeper lesson.
+- **New output:** Vocab 101 expanded from 8 to 16 admitted terms with 23 exact
+  learning links.
+- **Transferable lesson:** A clean taxonomy can still be an incomplete
+  product. Test both belonging and coverage.
+- **Internal rule/check updated:** Glossary review now reports admission
+  rationale, total coverage and continuation links separately.
+- **Public angle:** “We removed the filler—and discovered the useful book was
+  only half built.”
+- **Privacy/IP/reputation:** No private content involved.
+
+## BTB-084 · The glossary duplicated concepts and weakened both
+
+`category: learning architecture · analogy quality · editorial boundaries`
+— ① Start with the real problem
+`source: SUNNYVAiLE LIBRAiRY owner review, 2026-07-25`
+`publication status: VERIFIED INTERNALLY — REUSABLE PREVENTION RULE`
+
+- **Context:** Vocab 101 and Concepts 101 were separate books, while both
+  attempted to define, explain and motivate the same AI terms.
+- **Issue:** Vocab entries became too long to scan but too short to teach.
+  “Why you care” absorbed practical tips, and imported shorthand such as “The
+  Slayer on patrol” appeared without a mapped mechanism.
+- **What happens:** The quick-reference layer duplicates the canonical lesson,
+  drifts from it and creates two weaker explanations for one idea.
+- **Evidence observed:** Ali could not connect the Slayer reference to agentic
+  AI, identified the AGI stakes paragraph as advice rather than a reason to
+  care, and questioned the Vocab/Concepts split itself.
+- **Diagnosis:** **Verified.** Presentation length was mistaken for a content
+  boundary. The same concept had two owners.
+- **Prevent / Fix:** One concept has one canonical teaching unit. An A–Z
+  surface is an index: plain meaning, one distinction and a clearly labelled
+  route. The canonical unit owns mechanism, analogy, analogy limit, reader
+  stakes, practical move, example and cross-references.
+- **Why the fix works:** Readers can look up a word quickly without sacrificing
+  the explanation, and revisions cannot silently create competing definitions.
+- **New output:** Representative Agentic AI index-to-Concepts journey using the
+  existing Cher’s closet-computer canon; AGI stakes separated from its
+  reality-check action.
+- **Transferable lesson:** “Short” and “long” are formats, not authorities.
+- **Internal rule/check updated:** Collection architecture must name one
+  canonical owner per concept and test one representative journey before
+  scaling.
+- **Public angle:** “Our glossary started competing with its own textbook.”
+- **Privacy/IP/reputation:** No private content involved.
+
+## BTB-085 · A product name silently swallowed a different editorial job
+
+`category: editorial architecture · automation policy`
+— ① Start with the real problem
+`source: Ali NewsStand correction, 2026-07-25`
+`publication status: VERIFIED INTERNALLY — REUSABLE PREVENTION RULE`
+
+- **Context:** The radar cadence, a DAILY briefing and a BREAKING NEWS lane were
+  being designed in quick succession.
+- **Issue:** A later naming ruling was recorded as replacing DAILY, even though
+  DAILY and BREAKING answer different reader needs.
+- **What happens:** Routine but important releases are either overstated as
+  breaking alerts or disappear between weekly editions; automation tests then
+  encode the mistaken taxonomy.
+- **Evidence observed:** D-032 specified DAILY, while D-037 later said the
+  machine edition `breaking` replaced it. Ali explicitly ruled that they must
+  be separate.
+- **Diagnosis:** **Verified.** A new label was treated as a replacement without
+  re-testing the underlying jobs-to-be-done.
+- **Prevent / Fix:** Define each editorial product by reader need before naming
+  it. DAILY is an edited digest of consequential changes since its previous
+  issue; BREAKING is an interrupt that cannot wait for the next issue. When a
+  new ruling appears to replace an existing product, run a contradiction audit
+  across the ledger, schema, policy, fixtures and operating copy.
+- **Why the fix works:** Urgency and cadence become separate dimensions, so
+  material model releases can qualify without being sensationalized.
+- **New output:** D-038/D-039, restored `daily` candidate support, revised
+  autonomy policy and regression fixtures.
+- **Transferable lesson:** Names do not prove two products have the same job.
+- **Internal rule/check updated:** Editorial taxonomy changes require a
+  job-to-be-done comparison and cross-file regression test.
+- **Public angle:** “We accidentally turned every useful update into breaking
+  news.”
+- **Privacy/IP/reputation:** No private content involved.
+
+## BTB-087 · The familiar AGI explainer invented a boundary that current AI had already crossed
+
+`category: teaching accuracy · current capability research · false binary`
+— ① Start with the real problem
+`source: Ali AGI teaching review, 2026-07-25`
+`publication status: VERIFIED INTERNALLY — REUSABLE PREVENTION RULE`
+
+- **Context:** A plain-language AGI lesson was meant to help a newcomer
+  understand the difference between current AI and AGI, picture a world with
+  AGI and explain the idea accurately to a friend.
+- **Issue:** Successive explanations assigned goal pursuit, planning, tool use,
+  memory, learning, self-correction, autonomy, long projects and outcome
+  delivery to a future AGI column even though current general-purpose AI agents
+  already demonstrate every one of those capabilities.
+- **What happens:** A fluent, approachable explainer teaches an outdated
+  narrow-AI-versus-AGI story. Readers may remember the comparison, but it leaves
+  them less able to evaluate present systems or recognize that AGI is a
+  contested threshold over capabilities already emerging.
+- **Evidence observed:** Ali repeatedly tested the proposed distinctions
+  against current AI and correctly identified present examples for every
+  supposedly future behaviour. Current primary and international assessments
+  describe agents that accept goals, plan, use tools and perform multi-step
+  work while locating the remaining gaps in breadth, reliability, long-horizon
+  performance and real-world deployment—not in the absence of those verbs.
+- **Diagnosis:** **Verified.** The draft inherited a historically familiar
+  specialist-AI-versus-general-AI template, then defended it by moving the
+  boundary instead of rechecking whether the comparison still matched current
+  capability. Differences of degree and evidence threshold were repeatedly
+  converted into differences of kind.
+- **Prevent / Fix:** Before writing any “AI today versus future AI” comparison,
+  build a dated capability matrix from current primary sources. For every
+  future-column claim, adversarially search for a present counterexample. If
+  one exists, teach the real dimension—breadth, reliability, consistency,
+  learning efficiency, cost, scale, autonomy, deployment or economic
+  substitutability—and state that it is a threshold, not a missing capability.
+  If no agreed threshold exists, teach the disagreement rather than inventing
+  a finish line.
+- **Why the fix works:** It keeps the lesson current without collapsing into
+  hype. The reader learns both what present systems can already do and what
+  evidence would justify a stronger claim.
+- **New output:** D-044 and the content publishing gate now require
+  present-versus-future evidence, explicit nuance, reader and societal
+  consequences, friend-level teach-back and rejection of false categorical
+  contrasts.
+- **Transferable lesson:** Familiar explanations age. An analogy is not
+  accurate because it once was useful; every mapped distinction must survive a
+  current counterexample test.
+- **Internal rule/check updated:** `operations/CONTENT-PUBLISHING-STANDARD.md`
+  now rejects future capability claims already demonstrated by current systems
+  and rejects differences of degree taught as differences of kind.
+- **Public angle:** “We tried to explain AGI and accidentally taught a version
+  of AI that no longer exists.”
+- **Privacy/IP/reputation:** No private content involved. Public correction
+  should acknowledge the false binary without overstating consensus about AGI.
+
+## BTB-088 · Six good content surfaces were not yet one learning system
+
+`category: curriculum architecture · content ownership · learning transfer`
+— ① Start with the real problem
+`source: LAiDIES learning-system content audit, 2026-07-25`
+`publication status: VERIFIED INTERNALLY — REUSABLE PREVENTION RULE`
+
+- **Context:** Episodes, Library books, High School classes, interactive tools,
+  games and NewsStand articles had each developed their own content plans,
+  rules and strengths.
+- **Issue:** Several topics had multiple teachers but no canonical owner.
+  Prompting, hallucination, memory, context, accounts, products/models and
+  agents were repeated at similar depths, while system architecture,
+  evaluation, permissions and transfer had incomplete coverage.
+- **What happens:** More content can increase repetition without increasing
+  understanding. A reader encounters several polished explanations but may
+  still be unable to distinguish nearby concepts, diagnose a failure, transfer
+  the idea to a new tool or explain it accurately to a friend.
+- **Evidence observed:** Briefing 101 parallels Episode 2; Basics scripts
+  reteach concepts owned by books/episodes; current NewsStand stories rely on
+  durable terms with no canonical Library home; multiple source documents
+  disagree about the High School register and individual class behaviour.
+  FAiRY Godmother and Dream Phone also supported prompting and verification but
+  were not represented in the original cross-format ownership map. A first
+  correction then incorrectly classified FAiRY Godmother as a game and imposed
+  mandatory learner revision on a tool whose job is to do the transformation.
+- **Diagnosis:** **Verified.** The formats were treated mainly as containers
+  and destinations rather than stages in one learner progression.
+- **Prevent / Fix:** Give every concept one canonical owner and a six-surface
+  complement map. Episodes create the need and memorable mental model; the
+  Library owns the complete revisable explanation; classes produce guided
+  performance, diagnosis and transfer; interactive tools solve a real problem
+  while making the useful transformation visible; games rehearse a behaviour
+  through choice, consequence, feedback and replay; NewsStand applies and
+  updates the model against dated evidence.
+- **Why the fix works:** Repetition performs a new learning job instead of
+  creating a competing explanation, while volatile reporting can correct the
+  durable curriculum without becoming the textbook.
+- **New output:** `operations/research/laidies-learning-system-content-audit-2026-07-25.md`
+  with surface roles, representative ownership map, missing curriculum,
+  assessment contract and prioritized repair order.
+- **Transferable lesson:** A collection of strong educational assets is not a
+  curriculum until topic ownership, prerequisites, progression, transfer and
+  correction paths are explicit.
+- **Internal rule/check updated:** New concept-heavy work should declare its
+  canonical owner, prior knowledge, unique cognitive job, continuation and
+  teach-back/transfer check before production.
+- **Public angle:** “We had six ways to teach AI. The mistake was letting them
+  overlap without deciding what each one uniquely teaches.”
+- **Privacy/IP/reputation:** No private content involved. Public discussion
+  should distinguish representative findings from a completed line-by-line
+  fact audit.
+
+## BTB-089 · The prompt coach diagnosed the need for receipts, then invented them
+
+`category: live AI tool · grounding failure · response contract · safety`
+— ① Start with the real problem
+`source: FAiRY Godmother live logic audit, 2026-07-25`
+`publication status: VERIFIED ON DEPLOYED SERVICE — P0 PREVENTION RULE`
+
+- **Context:** FAiRY Godmother promises to turn a sentence, email, brief or
+  situation into a stronger prompt and useful output. The deployed Worker was
+  tested with synthetic drafting, workplace, strategy, research, technical and
+  boundary questions. Ali clarified that the intended product covers AI,
+  career/work and everyday-life advice—not medical, crisis or emergency
+  advice.
+- **Issue:** On a request for current, verifiable generative-AI productivity
+  evidence, the tool correctly labelled the task “Receipts required,” repeated
+  the instruction not to invent sources, then generated fabricated-looking
+  statistics, authors, journal titles and citations.
+- **What happens:** The safety language creates extra trust while the finished
+  output violates it. A user can carry invented evidence into a board
+  presentation precisely because the tool appears to understand verification.
+- **Evidence observed:** The live response invented claims including a 15%
+  productivity increase and citations attributed to generic 2026 authors and
+  journals, then told the user to verify them. Other tests showed a fixed
+  drafting template applied to strategy and technical diagnosis, a high-stakes
+  medical boundary test that attempted advice instead of declining, 31–35
+  second calls, and a friendly service fallback returned as HTTP 200 success.
+- **Diagnosis:** **Verified.** Receipts/privacy copy was appended after
+  generation rather than controlling whether an answer could be generated.
+  The Worker/page contract accepts any non-empty string as success and has no
+  reliable domain/task routing visible from the tested result.
+- **Prevent / Fix:** Route the task before generation. Without verified
+  retrieval, research requests may return a better research prompt, source
+  criteria and verification plan but no purported findings. High-stakes
+  requests use a separate safety response. Enforce typed success, safety,
+  needs-information, revision, rate-limit and error responses; failures do not
+  consume wishes or rewards.
+- **Why the fix works:** The tool remains useful for its strong drafting core
+  without pretending a language model can supply evidence, diagnosis or
+  missing business facts it does not have.
+- **New output:** `operations/research/fairy-godmother-live-logic-audit-2026-07-25.md`
+  with live test matrix, supported-task boundary, P0/P1/P2 repair order and
+  completion contract.
+- **Transferable lesson:** A model saying “verify this” is not a verification
+  control. Safety text must change the generation path.
+- **Internal rule/check updated:** The content publishing standard now gives
+  interactive tools a separate gate for varied-input evaluation, task/risk
+  routing, response contracts, privacy and failure behaviour.
+- **Public angle:** “Our receipts coach invented the receipts—and that is
+  exactly why we test the live tool.”
+- **Privacy/IP/reputation:** Only synthetic prompts were used. No subscriber
+  email, real person, company data or confidential material was submitted.
+
+## BTB-090 · A sequence of correct symbols still expressed the wrong motion grammar
+
+`category: motion · brand identity · brief fidelity` — ② Make them speak yours
+`source: LAiDIES recurring motion-ident exploration, 2026-07-25`
+`publication status: VERIFIED — INTERNAL CONTROL`
+
+- **Context:** A Crave cinema ident inspired a reusable LAiDIES master and
+  episode-ident system. Ali specified that the lowercase `i` should collapse
+  and show several Rewind Era/AI images.
+- **Observation:** Early concept boards either turned the assignment into a
+  full-frame comic title card or treated the selected symbols as a decorative
+  row/direct symbol-to-symbol morph. Even after the correct images appeared,
+  the sequence still did not perform Ali's intended action.
+- **Diagnosis:** **Verified.** The brief named the components and location but
+  did not initially express the complete state machine. “The `i` collapses and
+  changes” was interpreted as one persistent symbol slot. Ali's actual grammar
+  requires the full lowercase `i` to be the visible reset state between every
+  image.
+- **Prevent / Fix:** Specify identity animation as an ordered state machine,
+  not an asset list: `i → eased collapse → symbol → eased return → i`, then
+  repeat for the next symbol. Lock which elements remain still, the reset state,
+  easing, frame rate, minimum in-between count and whether direct
+  symbol-to-symbol transitions are prohibited. Produce a low-cost mechanical
+  proof before polishing every symbol, sound or episode variant.
+- **Why the fix works:** The animator can verify the intended relationship and
+  rhythm independently from typography, palette and icon quality. A corrected
+  symbol can then replace one slot without changing the motion grammar.
+- **New output:** 60-fps, 5.22-second mechanical proof
+  `operations/design-explorations/laidies-motion-ident-20260725/italic-i-reset-between-symbols-motion-proof-v1.mp4`.
+  It demonstrates the reset cadence but is not an approved or final ident.
+- **Transferable lesson:** A storyboard can contain every requested object and
+  still tell the wrong story. For motion, nouns are not a brief; states and
+  transitions are.
+- **Internal rule/check updated:** LAiDIES motion-ident capture now explicitly
+  prohibits direct symbol-to-symbol morphing and requires the complete `i`
+  between symbols.
+- **Public angle:** “Why listing the right animation frames still produced the
+  wrong animation.”
+- **Privacy/IP/reputation:** The Crave clip is used only as private structural
+  reference. A public process story must use LAiDIES-owned proof frames and
+  describe the borrowed mechanism without reproducing Crave imagery or audio.
+
+## BTB-091 · The reward bank and the product did not share a balance
+
+`category: product economy · reward integrity · retention loop`
+— ① Start with the real problem
+`source: FAiRY Godmother hero-product audit, 2026-07-25`
+`publication status: VERIFIED IN LOCAL IMPLEMENTATION — PREVENTION RULE`
+
+- **Context:** Ali identified FAiRY Godmother as a hero acquisition product and
+  the core reward residents unlock by completing meaningful LAiDIES tasks.
+- **Issue:** The site visibly awards and advertises FAiRY Plays, but the live
+  Godmother page does not read or debit the Play balance. Separate surfaces
+  use separate keys and conflicting allowance claims, while some displayed
+  earning routes are not evidenced as grants.
+- **What happens:** A resident can complete the Full Tour and see the idea of a
+  reward without having a reliable way to redeem it. The economy may increase
+  activity counts while weakening trust in the product it is meant to support.
+- **Evidence observed:** `sv-tour-checkin.js` writes a Full Tour reward to
+  `laidies_fairy_plays`; Girl Talk records pending wishes separately; the
+  Godmother reads only the free-wish and subscriber flags; sources promise one
+  free wish, five per day, three per visit and a weekly-reset bonus.
+- **Diagnosis:** **Verified.** Reward copy and local earning mechanics evolved
+  before a single grant/display/spend/refund contract was established.
+- **Prevent / Fix:** No service allowance may be promoted until an end-to-end
+  test proves one authoritative event grants it, the Bank displays it, the
+  product reserves and spends it exactly once, failures refund it and the
+  balance persists for the intended identity.
+- **Why the fix works:** It tests the user’s actual reward rather than any one
+  screen or storage key in isolation.
+- **New output:** `operations/research/fairy-godmother-hero-product-strategy-2026-07-25.md`.
+- **Transferable lesson:** A number displayed in a wallet is not an economy. A
+  reward exists only when it can be earned, understood and redeemed.
+- **Internal rule/check updated:** Hero-product strategy now requires a Play
+  transaction ledger, typed completion and refund behaviour before growth
+  promotion.
+- **Public angle:** “We discovered our magical reward bank could award wishes
+  the wand did not know existed.”
+- **Privacy/IP/reputation:** Local source/state inspection only; no member data
+  or private prompts were used.
+
+## BTB-092 · A live hero AI product had no reviewable service source
+
+`category: AI operations · source control · reproducibility · deployment`
+— ① Start with the real problem
+`source: FAiRY Godmother P0 specification, 2026-07-25`
+`publication status: VERIFIED AND RECOVERED — P0 PREVENTION RULE`
+
+- **Context:** The live FAiRY Godmother frontend calls a deployed Cloudflare
+  Worker. The P0 repair requires task routing, retrieval controls, typed
+  responses, privacy handling, evaluation and Play charging.
+- **Issue:** The repository contains the subscribe and avatar Worker sources,
+  but no source or Wrangler configuration for the deployed FAiRY Godmother
+  Worker.
+- **What happens:** A live service can appear operable while its model,
+  instructions, dependencies, secrets contract and deployed behaviour cannot
+  be reviewed, reproduced or repaired safely from the project source.
+- **Evidence observed:** Repository search found the public Worker URL in
+  `games/fairy-godmother.html` and documentation, but no matching service
+  source or deployment configuration.
+- **Diagnosis:** **Verified locally.** The endpoint exists; its source
+  provenance remains unidentified. This is an operational-control gap, not
+  proof that the deployed Worker itself has been deleted.
+- **Prevent / Fix:** Every production AI endpoint must have a named
+  version-controlled source directory, non-secret dependency/configuration
+  record, staging route, deployed-version identifier and acceptance suite.
+  Dashboard-only source is not a production source of truth.
+- **Why the fix works:** The team can inspect the real prompt and control path,
+  reproduce behaviour, review changes, test before deployment and associate a
+  public result with an exact source version.
+- **New output:** `docs/product/fairy-godmother-p0-product-contract.md`,
+  `operations/test-fixtures/fairy-godmother/p0-evaluation-set.json` and
+  `scripts/validate-fairy-godmother-evals.mjs`.
+- **Transferable lesson:** A frontend URL is evidence that a service is
+  reachable, not evidence that its implementation is controlled.
+- **Internal rule/check updated:** The P0 definition of done begins with
+  reviewable service source and configuration before generation or reward
+  changes.
+- **Recovery result:** Active production version 18 was recovered read-only on
+  2026-07-25 into `worker-fairy-godmother/`. The frozen 55,137-byte bundle has
+  SHA-256
+  `127a9ce5e354f46d4e5bd4b63dde85d41f26178f4ea24cea84a7069d43e68b3e`;
+  characterization tests and a Wrangler dry-run pass, and production was not
+  changed.
+- **Public angle:** “The wand worked, but the spellbook was not in the
+  repository.”
+- **Privacy/IP/reputation:** No secrets, Cloudflare dashboard data, user
+  prompts or subscriber records were accessed.
+
+## BTB-093 · A valid frame sequence was delivered upside down
+
+`category: motion export · visual QA · orientation`
+— ① Start with the real problem
+`source: LAiDIES motion-ident proof v2, 2026-07-25`
+`publication status: VERIFIED AND CORRECTED — PREVENTION RULE`
+
+- **Context:** The motion-ident frames and contact sheet were upright, but the
+  first H.264 export was encoded through a custom Core Graphics pipeline.
+- **Issue:** The encoder applied an unnecessary vertical coordinate transform,
+  flipping every video frame while leaving the source PNGs correct.
+- **What happens:** Metadata checks can report a healthy duration, frame rate
+  and resolution even though the actual viewing experience is visibly wrong.
+- **Evidence observed:** Ali immediately identified the delivered MP4 as upside
+  down. A frame extracted from the corrected export confirms upright playback.
+- **Diagnosis:** **Verified.** The fault was in the MP4 rendering transform, not
+  the animation artwork.
+- **Prevent / Fix:** Every motion export must pass a visual playback check or
+  extracted-frame comparison against its upright source frame. Codec metadata
+  validation alone is insufficient.
+- **Why the fix works:** It verifies the rendered pixels a viewer will see,
+  including orientation errors that container and track checks do not catch.
+- **New output:** `operations/design-explorations/laidies-motion-ident-20260725/italic-i-reset-between-symbols-motion-proof-v2-corrected.mp4`.
+- **Transferable lesson:** A technically valid video is not a visually verified
+  video.
+- **Internal rule/check updated:** Motion handoff now requires at least one
+  decoded-frame orientation check before delivery.
+- **Public angle:** “The export passed every technical check—and was still
+  upside down.”
+- **Privacy/IP/reputation:** Internal LAiDIES artwork only; no private user data.
+
+## BTB-094 · The visual rules existed; the assembled episodes still became two different shows
+
+`category: episode production · visual continuity · operational controls`
+— ① Start with the real problem
+`source: Product Stewardship episode-media pilot, 2026-07-25`
+`publication status: VERIFIED IN REVIEW CANDIDATES — P0 PREVENTION RULE`
+
+- **Context:** LAiDIES already had detailed character, setting, graphic-novel
+  style, narration alignment, motion and release rules. Episode 1 v21 and
+  Episode 2 v17 were current controlled-motion review candidates.
+- **Issue:** The rules were available as prose and source-level notes but were
+  not connected to a blocking per-shot reference check before assembly.
+- **What happens:** Soft painterly office/café scenes alternate abruptly with
+  crisp comic cards. The exports are technically valid and camera movement is
+  measurable, but the episode visibly becomes two different shows.
+- **Evidence observed:** 112 frames were extracted from Episode 1 and 54 from
+  Episode 2 at cue starts/midpoints. Independent contact-sheet review confirmed
+  the recurring render-system mismatch in Episode 1 at 00:31.9–01:15.2 and
+  across Episode 2. Start/mid pairs also failed to demonstrate meaningful
+  character/object action where camera drift had been counted as motion.
+- **Diagnosis:** **Verified.** This was not caused by an absent style rule. The
+  production path allowed an assembler to accept shots without a required
+  identity/style/location reference record and independent visual verdict.
+- **Prevent / Fix:** Every shot manifest must bind the final frame to named
+  identity, master-style and setting references. Assembly refuses missing or
+  failed bindings. An independent Image Quality Judge reviews the rendered
+  frame; a Motion Quality Judge reviews the complete clip. Wrong
+  identity/background/style requires full-shot replacement, not filtering,
+  transitions or camera movement.
+- **Why the fix works:** The rule becomes an admission gate at the stage where
+  the wrong asset would enter the film, with evidence and a repair owner,
+  rather than an instruction someone is expected to remember.
+- **New output:** `operations/product-stewards/episode-media-quality/`,
+  including the rule-enforcement matrix, 444 extracted candidate frames,
+  verdicts and cross-episode repair queue.
+- **Transferable lesson:** More rules do not create more control. A rule works
+  only when a trigger invokes a check that can stop the next production stage.
+- **Internal rule/check updated:** The Product Stewardship League requires
+  `source → production stage → trigger → check/judge → evidence → failure
+  owner → retest`; prose-only rules are labelled **NOT ENFORCED**.
+- **Public angle:** “We had the style bible. We still edited two different
+  shows together.”
+- **Privacy/IP/reputation:** Internal unreleased episode candidates only; do
+  not publish frames or imply release approval without Ali's decision.
+
+## BTB-095 · The style-correct replacement illustrated the wrong minute
+
+`category: episode production · narration alignment · rendered QA`
+— ① Start with the real problem
+`source: Episode 1 EOD style repair, 2026-07-25`
+`publication status: VERIFIED AND CORRECTED LOCALLY — PREVENTION RULE`
+
+- **Context:** Repairing every occurrence of an Episode 1 office source that
+  had already failed the locked visual style.
+- **Issue:** The first repair reused one compliant ovation/footnotes frame at
+  every occurrence of the failed source. At the third occurrence, the audio
+  had already moved to doing nothing for six months and putting the problem on
+  a list.
+- **What happens:** A source-level replacement manifest can be internally
+  consistent and style-correct while the rendered film still illustrates the
+  wrong spoken idea.
+- **Evidence observed:** The v22 71-cue rendered continuity sheet showed the
+  ovation frame at cue 12, 02:23–02:40, beside the as-recorded putting-it-off
+  narration. v23 replaces only that occurrence with the existing
+  “putting-it-off era” comic card; full decode and a fresh rendered sheet pass.
+- **Diagnosis:** **Verified.** Asset identity was treated as the whole repair
+  unit, but narration position is also part of a shot's identity.
+- **Prevent / Fix:** After source replacement, decode and inspect the rendered
+  frame at every replacement occurrence against the as-recorded caption clock.
+  Never assume repeated old source means repeated narrative job.
+- **Why the fix works:** It checks what the viewer receives—source, timing and
+  spoken idea together—before a technically healthy export can advance.
+- **New output:** Episode 1 v23 EOD style-repair candidate, exact replacement
+  manifest and four SHA-bound owner continuity sheets.
+- **Transferable lesson:** The right picture can still be wrong if it appears
+  under the wrong sentence.
+- **Internal rule/check updated:** The episode-media replacement gate now
+  requires occurrence-level rendered narration review, not source-level
+  substitution alone.
+- **Public angle:** “We fixed the art and broke the minute.”
+- **Privacy/IP/reputation:** Internal unreleased episode frames only; do not
+  publish or imply release approval without Ali's decision.

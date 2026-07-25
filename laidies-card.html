@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Closet · LAiDIES · SUNNYVAiLE</title>
-  <meta name="description" content="Your SUNNYVAiLE Closet — Resident Card, sticker book, sash, charm bracelet, and the collectible journey. Yours across every device.">
+  <meta name="description" content="Your SUNNYVAiLE Closet — Resident Card and supported collections, with device-local progress clearly labelled while account sync completes release checks.">
   <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
@@ -1122,7 +1122,7 @@
         { icon: '🌸', label: 'Charms this week',  src: 'charmCount',     target: 'charmBracelet',    total: 7,    pub: true,  hint: 'Hiding in town images' },
         { icon: '🗺️', label: 'Tour stops',        src: 'tourCount',      target: 'tourVessel',       total: 8,    pub: false, hint: 'Resets Wednesday' },
         { icon: '🦋', label: 'Butterfly clips',   src: 'clipJarTotal',   target: 'butterflyJar',     total: null, pub: false, hint: 'Quiz scores, banked' },
-        { icon: '📓', label: 'Stickers',          src: 'stickerCount',   target: 'stickerGrid',      total: null, pub: true,  hint: 'Quizzes + Girl Talk' },
+        { icon: '📓', label: 'Stickers',          src: 'stickerCount',   target: 'stickerGrid',      total: null, pub: true,  hint: 'Quizzes + Express tours' },
         { icon: '🎗️', label: 'Merit badges',      src: 'meritCount',     target: 'meritGrid',        total: null, pub: true,  hint: 'Earned around town' },
         { icon: '🃏', label: 'Trading cards',     src: 'tradingCount',   target: 'tradingGrid',      total: null, pub: true,  hint: 'Packs at Blend & Snap' },
         { icon: '🔐', label: 'Diary secrets',     src: 'secretCount',    target: 'secretGrid',       total: 4,    pub: true,  hint: 'Try things around town' },
@@ -1383,7 +1383,14 @@
     <!-- Sticker Book -->
     <div class="vessel vessel--puffy-board">
       <h3 class="vessel-title">The Puffy Board</h3>
-      <p class="vessel-note">Sections you marked in the Handbook with a butterfly clip. Tap one to jump back; peel it off any time.</p>
+      <p class="vessel-note">Books and passages you saved in the LIBRAiRY. Tap one to jump back to the exact place; peel it off any time.</p>
+      <div id="puffyPouch" class="puffy-pouch" aria-label="Your 10 Puffy Stickers"></div>
+      <div class="puffy-pouch-actions">
+        <button id="puffyPouchEdit" type="button">Change my 10</button>
+        <span id="puffyPouchCount" class="puffy-pouch-count" aria-live="polite"></span>
+      </div>
+      <p class="vessel-note">Give each sticker a purpose if you want—“read later,” “important,” “try this,” or your own private shorthand. Those labels appear when you save something.</p>
+      <div id="puffyPouchEditor" class="puffy-pouch-editor" hidden></div>
       <div id="puffyBoard" class="puffy-board"></div>
       <style>
         .puffy-board { display: grid; gap: 10px; margin-top: 12px; }
@@ -1414,7 +1421,7 @@
         <div class="sticker sticker--empty"></div>
         <div class="sticker sticker--empty"></div>
       </div>
-      <p class="vessel-note">Collected from quizzes, rituals, and Girl Talk sessions.</p>
+      <p class="vessel-note">Collected from supported quizzes and Express tours. Girl Talk keeps its honour-system collection inside the game on this device.</p>
     </div>
 
     <!-- Merit Sash -->
@@ -1483,27 +1490,6 @@
         <div class="trading-card trading-card--empty">?</div>
       </div>
       <p class="vessel-note">Weekly pack drops Wednesday. Some rare, some common. Trade with other residents.</p>
-    </div>
-
-    <!-- Detention Slips (dare penalties) -->
-    <div class="vessel vessel--detention">
-      <div class="vessel-header">
-        <h3 class="vessel-title">Detention Slips</h3>
-        <div style="display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;">
-          <span style="font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); background: rgba(201,162,39,0.14); padding: 4px 10px; border-radius: 999px;">🎫 <span id="hallPassCount">1</span> Hall Pass</span>
-          <span class="vessel-count" id="penaltyCount">0 this week</span>
-        </div>
-      </div>
-      <div class="detention-board">
-        <div class="detention-empty" id="detentionEmpty">
-          <strong>Clean board.</strong><br>
-          Every dare has been faced. No Ls yet. 💫
-        </div>
-        <div class="detention-slips-grid" id="detentionSlips" hidden>
-          <!-- Slips get pinned here as dares are declined -->
-        </div>
-      </div>
-      <p class="vessel-note">When you decline a dare, it gets pinned here. No shame — every LAiDY has weeks like this.</p>
     </div>
 
     <!-- Locked Diary (secret badges) -->
@@ -1649,7 +1635,7 @@
         <option value="">— pick your storefront —</option>
         <option value="visitors-centre">The Welcome Wagon Visitor's Centre</option>
         <option value="newsstand">The NewsStand</option>
-        <option value="library">The Town LIBRAiRY</option>
+        <option value="library">SUNNYVAiLE LIBRAiRY</option>
         <option value="mall">The Mall</option>
         <option value="bronze-aige">The BRONZE AiGE</option>
         <option value="mme-claio">Mme CLAi-O's Shop</option>
@@ -1727,7 +1713,7 @@
   var SONG_LABEL = { 'wednesday-in-sunnyvaile':'Wednesday in SUNNYVAiLE','down-at-the-blend-and-snap':'Down at the Blend & Snap','the-library':'The LIBRAiRY','on-wednesday-we-do-ai':'On Wednesday We Do AI','tell-me-what-you-want':'Tell Me What You Want','dont-be-chutney':"Don't Be Chutney on the Stand" };
   var ACTIVITY_LABEL = { 'library':'Reading at the LIBRAiRY','blend-snap':'Coffee at the Blend & Snap','mall':'Shopping at the Mall','bronze-aige':'Dancing at the BRONZE AiGE','high':'Pop quiz at SUNNYVAiLE High','chick-flicks':'Movie night at the Chick Flicks','mme-claio':'Fortune reading with Mme CLAi-O','fairy-godmother':'Wishes with the FAiRY Godmother','sorority-house':'Girl Talk at Delta LAi Nu','sanctuary':'Picking my Luminaries at the LUMINAiRY','wednesday-tour':'The Wednesday tour' };
   var SAINT_LABEL = { 'cher-horowitz':'Cher Horowitz','dolly-parton':'Dolly Parton','elle-woods':'Elle Woods','miranda-priestly':'Miranda Priestly','buffy-summers':'Buffy Summers','regina-george':'Regina George','david-rose':'David Rose','deb':'Deb','samantha-jones':'Samantha Jones','oprah-winfrey':'Oprah Winfrey','bette-midler':'Bette Midler','golden-girls':'The Golden Girls','jessica-fletcher':'Jessica Fletcher','sister-mary-clarence':'Sister Mary Clarence' };
-  var STOREFRONT_LABEL = { 'visitors-centre':"The Welcome Wagon Visitor's Centre",'newsstand':'The NewsStand','library':'The Town LIBRAiRY','mall':'The Mall','bronze-aige':'The BRONZE AiGE','mme-claio':"Mme CLAi-O's Shop",'chick-flicks':'The Chick Flicks','blend-snap':'The Blend & Snap','maikeover':'MAiKEOVER on MAiN','sorority-house':'Delta LAi Nu','fairy-godmother':"The FAiRY Godmother's House",'town-hall':'Town Hall','post-office':'The SUNNYVAiLE Post Office','sunnyvaile-high':'SUNNYVAiLE High','sanctuary':'The LUMINAiRY','ksvl':'KSVL Community RAiDIO','dream-phone':'The Dream Phone booth' };
+  var STOREFRONT_LABEL = { 'visitors-centre':"The Welcome Wagon Visitor's Centre",'newsstand':'The NewsStand','library':'SUNNYVAiLE LIBRAiRY','mall':'The Mall','bronze-aige':'The BRONZE AiGE','mme-claio':"Mme CLAi-O's Shop",'chick-flicks':'The Chick Flicks','blend-snap':'The Blend & Snap','maikeover':'MAiKEOVER on MAiN','sorority-house':'Delta LAi Nu','fairy-godmother':"The FAiRY Godmother's House",'town-hall':'Town Hall','post-office':'The SUNNYVAiLE Post Office','sunnyvaile-high':'SUNNYVAiLE High','sanctuary':'The LUMINAiRY','ksvl':'KSVL Community RAiDIO','dream-phone':'The Dream Phone booth' };
   var CHARACTER_LABEL = { 'mayor-deb':'Mayor Deb','mme-claio':'Mme CLAi-O','fairy-godmother':'The FAiRY Godmother','dj-sunnyv':'DJ SunnyV' };
   var EPISODE_LABEL = {}; // filled async from episode-index.json
 
@@ -2216,11 +2202,10 @@
   }
 
   var COLLECTION_MAP = {
-    'sticker_book':   { types: ['quiz_sticker', 'sticker_girl_talk', 'sticker_express'], countEl: 'stickerCount', gridEl: 'stickerGrid', slotClass: 'sticker sticker--empty', filledClass: 'sticker' },
+    'sticker_book':   { types: ['quiz_sticker', 'sticker_express'], countEl: 'stickerCount', gridEl: 'stickerGrid', slotClass: 'sticker sticker--empty', filledClass: 'sticker' },
     'merit_sash':     { types: ['merit_badge'],                        countEl: 'meritCount',   gridEl: 'meritGrid',   slotClass: 'merit-badge merit-badge--empty', filledClass: 'merit-badge' },
     'charm_bracelet': { types: ['hidden_charm'],                       countEl: 'charmCount',   gridEl: 'charmBracelet', slotClass: 'charm charm--empty', filledClass: 'charm' },
     'card_binder':    { types: ['trading_card'],                       countEl: 'tradingCount', gridEl: 'tradingGrid', slotClass: 'trading-card trading-card--empty', filledClass: 'trading-card' },
-    'detention':      { types: ['dare_penalty'],                       countEl: 'penaltyCount', gridEl: 'detentionSlips', slotClass: null, filledClass: null },
     'diary':          { types: ['secret_badge'],                       countEl: 'secretCount',  gridEl: 'secretGrid',  slotClass: 'secret-badge', filledClass: 'secret-badge secret-badge--found' }
   };
 
@@ -2256,9 +2241,6 @@
       if (key === 'charm_bracelet') {
         var thisWeek = items.filter(function(e) { return (e.issue_key || '').indexOf(thisWeekKey) === 0 || matchesIsoWeek(e.created_at, thisWeekKey); });
         countText = thisWeek.length + ' of 7 found this week';
-      } else if (key === 'detention') {
-        var recent = items.filter(function(e) { return withinDays(e.created_at, 7); });
-        countText = recent.length + ' this week';
       } else if (key === 'merit_sash') {
         countText = items.length + ' earned';
       } else if (key === 'card_binder') {
@@ -2293,24 +2275,6 @@
         }
       }
     });
-
-    // ---- Detention slips (special: pinned list, not a slot grid) --
-    var slipItems = byType['dare_penalty'] || [];
-    var slipsGrid = document.getElementById('detentionSlips');
-    var slipsEmpty = document.getElementById('detentionEmpty');
-    if (slipsGrid && slipsEmpty) {
-      if (slipItems.length > 0) {
-        slipsGrid.innerHTML = '';
-        slipItems.slice(0, 8).forEach(function(ev) {
-          var slip = document.createElement('div');
-          slip.className = 'detention-slip';
-          slip.textContent = ev.title || 'Declined dare';
-          slipsGrid.appendChild(slip);
-        });
-        slipsGrid.hidden = false;
-        slipsEmpty.hidden = true;
-      }
-    }
 
     // ---- Best Friends necklaces (one per friend brought to town) ---
     var bestieItems = byType['best_friends_necklace'] || [];
@@ -2683,7 +2647,7 @@
     'use strict';
     // Signed-in users get the Sticker Book from Supabase (renderCollections).
     // Signed-out/local users don't, so fill it from local stores here — the
-    // Express "Caught Up" stickers plus any local Pop Quiz + Girl Talk stickers.
+    // Express "Caught Up" stickers plus local Pop Quiz stickers.
     // Guarded to signed-out so it never clobbers the Supabase pass.
     var signedIn = false;
     try { signedIn = Object.keys(localStorage).some(function(k){ return /^sb-.*-auth-token$/.test(k); }); } catch (e) {}
@@ -2701,10 +2665,6 @@
     // Pop Quiz stickers (stickerTitle on each quiz record)
     var qp = stored('laidiesQuizProgress', {});
     Object.keys(qp).forEach(function(k) { var r = qp[k]; if (r && r.stickerTitle) stickers.push({ title: r.stickerTitle }); });
-    // Girl Talk stickers
-    var gt = stored('laidies_gt_stickers_earned', []); var names = stored('laidies_gt_names', {});
-    if (Array.isArray(gt)) { var seen = {}; gt.forEach(function(id) { if (!id || seen[id]) return; seen[id] = true; stickers.push({ title: names[id] || id }); }); }
-
     var countEl = document.getElementById('stickerCount');
     var gridEl = document.getElementById('stickerGrid');
     if (countEl) countEl.textContent = stickers.length + ' collected';
@@ -2766,7 +2726,7 @@
     <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
     <script defer src="/content/site/charm-hunt.js?v=20260716-coords" onload="if(typeof renderCharmBracelet==='function')renderCharmBracelet();"></script>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
-<script defer src="/content/site/puffy-bookmarks.js?v=20260712-1"></script>
+<script defer src="/content/site/puffy-bookmarks.js?v=20260724-pouch10"></script>
 <script>
   /* Pixel vessel icons — inject a self-hiding icon into each collection vessel.
      Each <img> removes itself if the art isn't at the path yet, so the page

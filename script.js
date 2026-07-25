@@ -2710,48 +2710,9 @@ function getLocalRewardEvents(userId) {
     });
   }
 
-  // Girl Talk rewards — games/girl-talk.html stores earned sticker IDs and
-  // (chickened-out) penalty IDs as arrays, plus a `laidies_gt_names` cache
-  // that maps each ID to its display name so the Closet can show real titles.
-  const girlTalkNames = getStoredJson("laidies_gt_names", {}) || {};
-
-  const girlTalkStickers = getStoredJson("laidies_gt_stickers_earned", []);
-  if (Array.isArray(girlTalkStickers)) {
-    const seenStickers = {};
-    girlTalkStickers.forEach((stickerId) => {
-      if (!stickerId || seenStickers[stickerId]) return;
-      seenStickers[stickerId] = true;
-      events.push({
-        user_id: userId,
-        dedupe_key: `girl-talk-sticker:${stickerId}`,
-        reward_type: "sticker_girl_talk",
-        issue_key: "",
-        title: girlTalkNames[stickerId] || stickerId,
-        source: "Girl Talk",
-        earned_at: new Date().toISOString(),
-        metadata: { stickerId },
-      });
-    });
-  }
-
-  // Penalties allow intentional duplicates — each chicken-out is its own
-  // detention slip, so dedupe per array position rather than per penalty id.
-  const girlTalkPenalties = getStoredJson("laidies_gt_penalties_earned", []);
-  if (Array.isArray(girlTalkPenalties)) {
-    girlTalkPenalties.forEach((penaltyId, index) => {
-      if (!penaltyId) return;
-      events.push({
-        user_id: userId,
-        dedupe_key: `dare-penalty:${index}:${penaltyId}`,
-        reward_type: "dare_penalty",
-        issue_key: "",
-        title: girlTalkNames[penaltyId] || penaltyId,
-        source: "Girl Talk",
-        earned_at: new Date().toISOString(),
-        metadata: { penaltyId },
-      });
-    });
-  }
+  // Girl Talk is currently an explicitly device-local honour-system game.
+  // Do not import its local stickers or penalties into the member reward
+  // stream until a supported completion event and reward contract are live.
 
   return events;
 }
@@ -4083,28 +4044,11 @@ function storeCommunityRoomPosts(posts) {
 }
 
 function trackCommunityRoomPost(room) {
-  const roomId = normalizeCommunityRoomId(room);
-  if (!communityChatRooms[roomId]) return "";
-
-  const posts = getCommunityRoomPosts();
-  posts[roomId] = posts[roomId] || {
-    roomId,
-    roomName: communityChatRooms[roomId],
-    firstPostedAt: new Date().toISOString(),
-  };
-  storeCommunityRoomPosts(posts);
-
-  const messages = [];
-  const firstRoomMessage = unlockSecretBadge("room-first-post", communityChatRooms[roomId]);
-  if (firstRoomMessage) messages.push(firstRoomMessage);
-
-  const postedRoomCount = Object.keys(communityChatRooms).filter((id) => posts[id]).length;
-  if (postedRoomCount === Object.keys(communityChatRooms).length) {
-    const allRoomsMessage = unlockSecretBadge("room-tour", "All Chat Rooms");
-    if (allRoomsMessage) messages.push(allRoomsMessage);
-  }
-
-  return messages.join(" ");
+  // Release boundary: the preview board and third-party room embeds do not
+  // provide an authoritative "post accepted" event. Do not manufacture
+  // community progress or badges from a local submit or a room page visit.
+  void room;
+  return "";
 }
 
 function unlockDreamPhoneSecretBadge(dialedNumber) {
@@ -5950,6 +5894,10 @@ const SUBSCRIBE_COPY = {
     title: "That didn't go through 💔",
     body: "Too many tries in a row — give it a minute, then try again.",
   },
+  attempted: {
+    title: "Signup opened",
+    body: "We passed your request to Buttondown, but this page could not confirm it. Check your inbox, or retry from the Post Office.",
+  },
   sending: "Sending…",
 };
 
@@ -5965,6 +5913,7 @@ const SUBSCRIBE_KIND_TO_STATE = {
   already: "already",
   invalid: "error",
   rate_limited: "error",
+  attempted: "error",
 };
 
 function setSubscribeFormState(form, state) {
@@ -5985,8 +5934,10 @@ function renderSubscribeResult(form, kind) {
   const mark = document.createElement("span");
   mark.className = "subscribe-result__mark";
   mark.setAttribute("aria-hidden", "true");
-  // Heart-break for error variants, check for success/already.
-  mark.textContent = (kind === "invalid" || kind === "rate_limited") ? "✕" : "✓";
+  // Heart-break for errors, ellipsis where delivery is not confirmed.
+  mark.textContent = kind === "attempted"
+    ? "…"
+    : (kind === "invalid" || kind === "rate_limited") ? "✕" : "✓";
   block.appendChild(mark);
 
   const title = document.createElement("strong");
@@ -6032,17 +5983,16 @@ function setSubscribeButtonSending(form) {
 
 function fallbackSubscribeViaIframe(form) {
   // Backstop for any unclean Worker failure (network, CORS, 5xx, timeout):
-  // re-submit via the legacy hidden-iframe target so Buttondown still
-  // receives the request, then show the SAME strong success swap as the
-  // real-Worker created path. The iframe POST is reliable enough (it's
-  // today's actual production behaviour); over-optimistic-strong beats
-  // weak-text-that-reads-as-failure — which was the original complaint.
+  // re-submit via the legacy hidden-iframe target. A cross-origin iframe
+  // cannot prove that Buttondown accepted the request, so report an attempt,
+  // not a completed subscription.
   try {
     HTMLFormElement.prototype.submit.call(form);
   } catch {
     /* nothing more we can do */
   }
-  renderSubscribeResult(form, "created");
+  resetSubscribeButton(form);
+  renderSubscribeResult(form, "attempted");
 }
 
 async function callSubscribeProxy(email, signal) {
@@ -6466,6 +6416,5 @@ renderBoardPosts();
   const slug = match[1];
   // Only track slugs that are actual chat rooms
   if (!communityChatRooms[slug]) return;
-  // Reuse existing trackCommunityRoomPost which handles both badges
-  trackCommunityRoomPost(slug);
+  // Page visits are not posts and therefore must not create progress.
 })();

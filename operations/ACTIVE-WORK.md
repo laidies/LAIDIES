@@ -1,24 +1,123 @@
 # Active work
 
-**Last reconciled:** 2026-07-24
+**Last reconciled:** 2026-07-25
 **Owners:** Ali (vision/approval) · Codex (continuity/execution/verification)
 **Rule:** this file contains the one foreground execution/decision objective.
 Independent backstage work may move in bounded lanes recorded in
 `operations/PARALLEL-WORK.md`; new ideas do not replace the foreground unless
 Ali explicitly switches or they invalidate the approach.
 
-## Active objective — AW-002
+## Active objective — AW-003
+
+### Prove the whole public experience before the SUNNYVAiLE grand reopening
+
+**Status:** BUILDING — EOD 2026-07-25 WHOLE-SITE RELEASE SPRINT ACTIVE.
+Targeted route smoke tests and several local construction checks exist, but
+they do not prove that every promoted activity, account, community, postcard,
+reward and persistence journey works or makes sense to a first-time visitor.
+The announcement remains on hold until the exact EOD release artifact and
+deployed origin pass the bounded promise.
+
+**Why this is active:** Ali asked whether the site plumbing, activities and
+reward loops were actually complete. Re-entry against the source and prior QA
+found a material release-model defect: “the page loaded” and “the button
+responded” had been reported too broadly as “the website works.” Girl Talk
+awards completion before a real community post, community post badges use room
+visits as a substitute, postcard sharing is not a complete send/open/join
+lifecycle, Resident Card background unlocks were never built, and several
+account/reward paths exist in code without end-to-end production proof.
+
+### Current step
+
+Execute the EOD whole-site release sprint in parallel, then reconcile into one
+artifact: complete public-route and promoted-promise inventory; repair or
+honestly hide/label failed activities and integrations; produce the strongest
+safe episode-media state; run static, content, responsive, accessibility and
+integration gates; build the curated release artifact; deploy it; and rerun the
+bounded public-origin journeys.
+
+The EOD cutline is not permission to lower the quality bar. Anything that
+cannot clear product/content quality, accuracy/safety/trust and positive
+LAiDIES brand contribution today must be removed from promotion or visibly
+limited so the complete public site remains truthful and usable.
+
+The audit must issue separate technical and experience verdicts. Functioning
+code does not prove that a first-time visitor understands what the experience
+is, what to do, why it matters, what happened or what comes next.
+
+### Completion contract
+
+AW-003 is complete only when:
+
+1. Every public/promoted route and meaningful state is inventoried.
+2. Each journey has a named trigger, authoritative completion event,
+   persistence store, visible result/reward and failure/retry state.
+3. Each journey separately passes or fails technical operation, first-time
+   comprehension, useful purpose, promise honesty and LAiDIES experience.
+4. Anonymous, signed-in, returning, referral and representative failure paths
+   are tested where applicable.
+5. Promoted third-party paths—Supabase, Hyvor, Buttondown, Plausible,
+   Cloudflare Workers, native sharing and public media—are verified without
+   exposing private data or creating unsafe paid calls.
+6. Accessibility, mobile Safari/representative browser, responsive,
+   performance and privacy/security checks are either passed or explicitly
+   bounded in the reopening promise.
+7. Every defect is classified **FIX BEFORE LAUNCH**, **HIDE/LABEL FOR
+   LAUNCH**, or **DEFER**, with an owner and retest.
+8. The exact scoped commit and release artifact pass locally, then the deployed
+   public origin passes the same bounded promised journeys.
+9. Announcement copy promises only the journeys that passed, and real channel
+   URLs/timestamps—not prepared drafts—prove publication.
+
+### Evidence so far
+
+- Existing static/build/link/media checks and selected public journey smoke
+  tests remain useful baseline evidence.
+- The LIBRAiRY slice now has materially stronger local evidence: its Vocab
+  reader, personal Puffy pouch, exact-section continuations and responsive
+  reader mechanics are recorded separately from the still-open editorial and
+  owner-visual gates.
+- `operations/review-packets/activity-quality-audit.md` already identified
+  several activities as revise/park rather than release-ready.
+- BTB-069 records the verified difference between a successful interface
+  event and an authoritative product outcome.
+- Canonical audit:
+  `operations/launch/whole-site-reopening-qa-matrix.md`.
+
+### Still open
+
+- Populate the complete route/state inventory and execute it against the exact
+  candidate.
+- Repair, hide or relabel every failed promoted promise.
+- Complete owner visual rulings without confusing them with plumbing or
+  comprehension approval.
+- Deploy and re-run the bounded production-origin suite.
+
+### Next action
+
+Resume the activities/community/identity/rewards slice with the first known
+broken promise: Girl Talk/community dare completion and posting rewards.
+Determine whether the site can observe a real post; otherwise relabel the
+journey as honour-system and remove verified-completion claims. Then test
+Dream Phone, Resident Card, postcards/referrals and butterfly-clip rewards
+before continuing through first-visit navigation, learning/media/search,
+forms/integrations and non-functional quality.
+
+## Paused objective — AW-002
 
 ### Recover the real LIBRAiRY benchmark and rebuild the Visitor's Centre from it
 
-**Status:** REVIEW READY — the old `_library-v3.html` shell is now explicitly
+**Status:** PAUSED AT REVIEW READY — the old `_library-v3.html` shell is now explicitly
 superseded, the recovered whole-room Library candidate is working locally, and
 the Visitor's Centre has been rebuilt as a room-first candidate. Both pages
 passed a 390 × 844 browser pass and are present on a separate Cloudflare Pages
 launch-QA preview. Ali has not approved either candidate, the preview is not
-the `laidies.ai` production site, and no reveal has been announced.
+the `laidies.ai` production site, and no reveal has been announced. Exact
+resume point: Ali rules on the five-cover 101 family proof and the Visitor
+candidate; approved visual work is then integrated and retested through
+AW-003 rather than treated as independent launch proof.
 
-**Why this is active:** Ali rejected the box/card-heavy Visitor's Centre and
+**Why this was active:** Ali rejected the box/card-heavy Visitor's Centre and
 identified that the page being used as the Library benchmark was an old mixed
 version. That invalidated the current building-page construction premise and
 made source recovery the first task.
@@ -150,7 +249,7 @@ AW-001 is complete only when:
 | Metered public tools | SAFETY PAUSE DEPLOYED AND SOURCE-VERIFIED | MAiKEOVER paid generation is disabled at the Worker, public debug routes are removed, unapproved origins are rejected and the page labels the portrait booth temporarily closed. One immediate POST verification hit a propagating old edge and generated one paid image; future safety deploys must verify allocation/source before any mutation probe. See BTB-047 and BTB-052 |
 | Quotables/Overheard | SPECIFIED; SHOWCASE NOT BUILT | Product document exists; public discovery system does not |
 | Behind the Build learning system | SPECIFIED; CANONICAL LEDGER + CAPTURE RULE + EDITORIAL QUEUE INSTALLED | All 40 recovered records are consolidated as BTB-001–BTB-040 with source snapshots/checksums; new records continue sequentially; one candidate has a PUBLISHABLE DRAFT but is not Ali-approved/published; historic RAW verification and the public index remain open |
-| News system | PUBLIC CONTRACT REPAIRED LOCALLY; STAGE 2 REMAINS MANUAL | The public NewsStand now exposes only the source-checked WEDNESDAY Edition and Tribune, with current 2026-07-24 stories and named sources. TODAY is retired from the rack. The former daily RSS workflow is manual-only candidate intake and cannot write public copy. Automated research/drafting/review remains future work. |
+| News system | PUBLIC CONTRACT REPAIRED; DAILY/BREAKING/WEEKLY RADAR ACTIVE; AUTO-PUBLISH EVALUATOR IN SHADOW MODE | The NewsStand product lineup is **The Breaking, The Daily, The Weekly and The Tribune**. The currently deployed surface still uses the older WEDNESDAY Edition/Tribune labels and requires a separate implementation/public verification pass. The Breaking carries qualifying new model releases and other developments readers should not wait to learn about. A twice-daily radar prepares `daily`, `breaking`, `weekly` and `tribune` candidates. The evaluator classifies structured The Daily/The Weekly candidates as `WOULD_AUTO_PUBLISH`, `HOLD` or `REJECT`; The Breaking remains human-reviewed. The public The Daily/The Breaking surfaces and automatic write/deploy/monitor/rollback path remain unbuilt and unauthorized until the earned-autonomy calibration contract is met. |
 | Episode 5 | GATE 1 REJECTED; CONCEPT RECONSTRUCTION REQUIRED | Public title **The Super Models** remains locked. The receipt may survive as an end exercise, but it cannot replace the full fashion-house-to-season teaching system. No downstream generation is authorized |
 | Episode 6 | TITLE AND CAPABILITY LOCKED; SUBSTANCE NOT YET BUILT | **Strike a Mode**: choose the model/mode for the occasion, including the 200-files example. Full Episode 6 substance follows Episode 5 Gate 1/canon |
 | Codex model/credit routing | CONFIGURED FOR NEW TASKS; CURRENT CHAT STILL COMPOSER-CONTROLLED | Project defaults are Sol/Medium foreground, High planning, Terra/Medium subagents and Fast off. Extra High/Max/Ultra require a stated exception; active-chat picker choices can override the project files |

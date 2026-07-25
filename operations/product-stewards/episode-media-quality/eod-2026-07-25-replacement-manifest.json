@@ -1,0 +1,109 @@
+{
+  "created_at": "2026-07-25",
+  "authority": {
+    "visual_lock": "operations/episode-visual-system-lock.md",
+    "people_style_sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+    "observed_evidence": "operations/product-stewards/episode-media-quality/evidence-2026-07-25",
+    "rejections": "operations/ops/rejections.json"
+  },
+  "release_policy": {
+    "preserve_narration_clock": true,
+    "disable_all_camera_drift": true,
+    "replacement_motion": "still",
+    "maker_may_not_self_approve": true
+  },
+  "episodes": {
+    "01": {
+      "base_cues": "assets/video/episode-01-production-cues-v7-title-card.json",
+      "base_candidate": "assets/video/episode-01-full-v21-controlled-motion-review.mp4",
+      "replacements": [
+        {
+          "cue": 4,
+          "start": 27.5,
+          "stop": 42.2,
+          "observed_failure_window": "00:31.90-00:42.20",
+          "old_source": "/assets/video/episode-01-full-scene-replacements-v2/ep01-steve-visionary-meeting-v2-corporate.png",
+          "new_source": "/assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-steve-ovation-c-end-comic-textfix.png",
+          "status": "replace",
+          "reason": "Confirmed soft/painterly corporate shot; existing hard-ink comic frame shows Steve receiving the ovation and the heroine holding her more substantial draft."
+        },
+        {
+          "cue": 6,
+          "start": 56.9,
+          "stop": 74.4,
+          "observed_failure_window": "01:04.90-01:14.40",
+          "old_source": "/assets/video/episode-01-full-scene-replacements-v2/ep01-heroine-footnotes-drafts-v1-corporate.png",
+          "new_source": "/assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-steve-ovation-c-end-comic-textfix.png",
+          "status": "replace",
+          "reason": "Confirmed soft/painterly office shot; the replacement keeps the heroine, her tabbed draft, Steve and the room's applause in one narration-matched comic frame."
+        },
+        {
+          "cue": 12,
+          "start": 143.0,
+          "stop": 160.8,
+          "observed_failure_window": "source-level repeat of confirmed failed cue 6",
+          "old_source": "/assets/video/episode-01-full-scene-replacements-v2/ep01-heroine-footnotes-drafts-v1-corporate.png",
+          "new_source": "/assets/video/comic-interstitials-v1/ep01-cue-11.png",
+          "status": "replace",
+          "reason": "The exact failed source SHA recurs here, but the narration has moved to doing nothing for six months and putting the problem on a list. Rendered v22 review rejected reuse of the ovation frame here; the existing hard-comic putting-it-off-era card matches the actual clock."
+        }
+      ]
+    },
+    "02": {
+      "base_cues": "assets/video/episode-02-production-cues-v5-card-fixes.json",
+      "base_candidate": "assets/video/episode-02-full-v17-controlled-motion-review.mp4",
+      "replacements": [
+        {
+          "cue": 0,
+          "start": 0.0,
+          "stop": 10.0,
+          "observed_failure_window": "00:00.00-00:10.00",
+          "old_source": "/assets/video/episode-01-full-scene-replacements-v2/ep01-heroine-blend-snap-email-v1.png",
+          "new_source": "/assets/episodes/ep-02/comic/ep02-open-01-previously-strip-comic.png",
+          "status": "replace",
+          "reason": "Existing Episode 2 recap strip matches the as-recorded previously-on narration and removes the confirmed painterly source."
+        },
+        {
+          "cue": 4,
+          "start": 38.0,
+          "stop": 58.5,
+          "observed_failure_window": "00:46.00-00:58.50",
+          "old_source": "/assets/video/episode-02-full-scene-replacements-v3/ep02-lazy-ask-wall-of-text-blend-snap-v1.png",
+          "new_source": "/assets/episodes/ep-02/comic/ep02-open-04-cold-open-desk-comic.png",
+          "status": "replace",
+          "reason": "Existing hard-ink desk scene carries the staring-contest and corporate word-salad beat."
+        },
+        {
+          "cue": 5,
+          "start": 58.5,
+          "stop": 78.1,
+          "observed_failure_window": "00:58.50-01:18.10",
+          "old_source": "/assets/video/episode-02-full-scene-replacements-v3/ep02-useful-answer-blend-snap-v1.png",
+          "new_source": "/assets/episodes/ep-02/comic/ep02-open-05-throw-pillow-comic.png",
+          "status": "replace",
+          "reason": "Existing hard-comic contrast frame was authored for the same-app/same-me and throw-pillow narration."
+        },
+        {
+          "cue": 6,
+          "start": 78.1,
+          "stop": 86.8,
+          "observed_failure_window": "01:18.10-01:23.00",
+          "old_source": "/assets/episodes/issue-02/ep02-cold-open-desk.png",
+          "new_source": "/assets/episodes/ep-02/comic/ep02-open-06-thinking-closeup-comic.png",
+          "status": "replace",
+          "reason": "Existing hard-comic thinking close-up was authored for the exact read-my-mind/ignore-me question."
+        },
+        {
+          "cue": 13,
+          "start": 187.6,
+          "stop": 203.3,
+          "observed_failure_window": "03:15.00-03:23.30",
+          "old_source": "/assets/video/delivery-20260714-opening-v6/shots/opening-09-barista-approved-identity-v2.png",
+          "new_source": null,
+          "status": "blocked",
+          "reason": "Confirmed painterly café frame. The two semantically exact existing comic alternatives, ep02-scene-13-regular-cafe-comic.png and ep02-scene-14-new-cafe-comic.png, are globally rejected in operations/ops/rejections.json. No non-rejected single frame safely spans the narration's transition from the regular café to the brand-new café."
+        }
+      ]
+    }
+  }
+}

@@ -11,7 +11,7 @@
   var saints = [
     {
       value: "auto",
-      label: "Read the room",
+      label: "Default tone",
       className: "fg-saint-choice--type"
     },
     {
@@ -54,15 +54,7 @@
   function setArrivalState() {
     if (!arrivalStatus || !arrivalNote) return;
 
-    var subscriber = null;
     var freeWishesUsed = 0;
-
-    try {
-      var rawSubscriber = localStorage.getItem("laidies_subscriber");
-      subscriber = rawSubscriber ? JSON.parse(rawSubscriber) : null;
-    } catch (error) {
-      subscriber = null;
-    }
 
     try {
       freeWishesUsed = parseInt(localStorage.getItem("laidies_free_wishes_used") || "0", 10) || 0;
@@ -70,20 +62,14 @@
       freeWishesUsed = 0;
     }
 
-    if (subscriber && subscriber.email) {
-      arrivalStatus.textContent = "You are on the list.";
-      arrivalNote.textContent = "Your subscriber allowance is checked when you wave the wand.";
-      return;
-    }
-
     if (freeWishesUsed >= 1) {
-      arrivalStatus.textContent = "Your free wish has been used.";
-      arrivalNote.textContent = "The next answer opens through the LAiDIES newsletter gate.";
+      arrivalStatus.textContent = "Local preview complete.";
+      arrivalNote.textContent = "This page does not verify subscriptions, member allowances, or FAiRY Plays.";
       return;
     }
 
-    arrivalStatus.textContent = "One free wish is waiting.";
-    arrivalNote.textContent = "Try the full prompt repair before the newsletter gate appears.";
+    arrivalStatus.textContent = "Work-drafting preview.";
+    arrivalNote.textContent = "One local preview response; no account or reward is created.";
   }
 
   function syncSaintSelection() {

@@ -4,10 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Girl Talk · Delta LAi Nu · LAiDIES · SUNNYVAiLE</title>
-    <meta name="description" content="Truth or Dare for women who actually work for a living. Draw a card, do the thing, earn a sticker. Chicken out and take the penalty." />
+    <meta name="description" content="Truth or Dare for women who actually work for a living. Draw a card and keep an honour-system sticker collection on this device." />
     <meta name="theme-color" content="#fbf6f5" />
     <meta property="og:title" content="Girl Talk · Delta LAi Nu · LAiDIES · SUNNYVAiLE" />
-    <meta property="og:description" content="Truth or Dare for women who actually work for a living. Draw, do, earn." />
+    <meta property="og:description" content="A private, honour-system Truth or Dare game with a sticker collection saved on this device." />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -670,13 +670,13 @@
         <div class="game-page-title">
           <p class="eyebrow">Sorority House Game</p>
           <h1>Girl Talk</h1>
-          <p class="subtitle">Truth or Dare for women who actually work for a living. Draw a card. Do the thing. Earn a sticker. Chicken out and take the penalty.</p>
+          <p class="subtitle">Truth or Dare for women who actually work for a living. Draw a card, make a move, and keep an honour-system sticker collection on this device.</p>
         </div>
 
         <!-- How it works -->
         <aside class="gt-howto" aria-label="How Girl Talk works">
           <strong>How it works</strong>
-          Draw as many as you want, stop whenever &mdash; progress saves on this device for now, and your LAiDIES member card will pick it up when sign-in lands. Honest truths and completed dares each earn their own sticker. Chicken outs come with a penalty sticker (sorry &mdash; but they&rsquo;re collectible too). Every 5 dares earns a bonus FAiRY wish, ready when member accounts launch.
+          Draw as many as you want, stop whenever &mdash; this page keeps your choices on this device only. Mark a truth or dare yourself when you&rsquo;re ready; Girl Talk cannot verify a post or a completed task. Stickers are for this local collection, not a member reward or FAiRY allowance.
         </aside>
 
         <!-- Score Panel -->
@@ -686,12 +686,8 @@
             <span>🎯 <span id="gtDareCount">0</span> dares completed</span>
             <span>🩹 <span id="gtPenaltyCount">0</span> penalty stickers</span>
           </div>
-          <p class="gt-progress-label"><strong id="gtProgressLabel">0/5</strong> dares toward your next FAiRY wish</p>
+          <p class="gt-progress-label"><strong id="gtProgressLabel">0/5</strong> dares in this local set</p>
           <div class="gt-progress-bar"><div class="gt-progress-fill" id="gtProgressFill"></div></div>
-          <p class="gt-wishes-pending is-hidden" id="gtWishesPending">
-            🌟 <span id="gtWishCount">0</span> FAiRY wish<span id="gtWishPlural">es</span> waiting
-            <small>Your wish is waiting — we'll unlock it when we launch member accounts.</small>
-          </p>
         </section>
 
         <!-- Card Stage -->
@@ -719,9 +715,7 @@
 
         <!-- Microcopy -->
         <p class="gt-microcopy">
-          Honour system on stickers — you tell us if you did it.
-          Your progress saves to this device for now, and your LAiDIES member card will pick it up when sign-in lands.
-          Wishes will validate against your community room posts then (the post is the receipt).
+          Honour system on stickers — you tell this page if you did it. Opening a community-room link does not submit, verify, or reward a post. Your collection stays on this device and is not a member record.
         </p>
       </div>
     </main>
@@ -932,10 +926,9 @@
           STICKERS:   "laidies_gt_stickers_earned",   // JSON array of sticker IDs (T1, D5, ...)
           DARES:      "laidies_gt_dares_completed",   // JSON array of dare IDs
           PENALTIES:  "laidies_gt_penalties_earned",  // JSON array of penalty IDs (dupes allowed)
-          WISHES:     "laidies_gt_pending_wishes",    // number — earned-but-not-yet-granted bonus FAiRY wishes
           NAMES:      "laidies_gt_names"              // JSON map of reward id → display name (so the Closet syncs real titles)
         };
-        const WISH_THRESHOLD = 5;  // every 5 completed dares earns 1 pending wish
+        const WISH_THRESHOLD = 5;  // local progress milestone only
 
         function readArray(key) {
           try {
@@ -985,9 +978,6 @@
           penaltyCount:   document.getElementById("gtPenaltyCount"),
           progressLabel:  document.getElementById("gtProgressLabel"),
           progressFill:   document.getElementById("gtProgressFill"),
-          wishesPending:  document.getElementById("gtWishesPending"),
-          wishCount:      document.getElementById("gtWishCount"),
-          wishPlural:     document.getElementById("gtWishPlural")
         };
 
         let lastTruthIndex = -1;
@@ -1000,7 +990,6 @@
           const stickers = readArray(LS.STICKERS);
           const dares = readArray(LS.DARES);
           const penalties = readArray(LS.PENALTIES);
-          const wishes = readNumber(LS.WISHES);
 
           els.stickerCount.textContent = stickers.length;
           els.dareCount.textContent = dares.length;
@@ -1010,13 +999,6 @@
           els.progressLabel.textContent = `${towardNext}/${WISH_THRESHOLD}`;
           els.progressFill.style.width = `${(towardNext / WISH_THRESHOLD) * 100}%`;
 
-          if (wishes > 0) {
-            els.wishesPending.classList.remove("is-hidden");
-            els.wishCount.textContent = wishes;
-            els.wishPlural.textContent = wishes === 1 ? "" : "es";
-          } else {
-            els.wishesPending.classList.add("is-hidden");
-          }
         }
 
         // ===== CARD ANIMATION =====
@@ -1100,7 +1082,8 @@
             `);
           } else {
             setActions(`
-              <a class="gt-button gold" id="gtDidItLink" href="${currentCard.url}" target="_blank" rel="noopener">I did it &rarr;</a>
+              <a class="gt-button secondary" href="${currentCard.url}" target="_blank" rel="noopener">Open an optional post prompt &rarr;</a>
+              <button class="gt-button gold" type="button" data-action="complete-dare">Mark my local sticker</button>
               <button class="gt-button secondary" type="button" data-action="chicken">I chickened out</button>
             `);
           }
@@ -1122,11 +1105,7 @@
             const dares = readArray(LS.DARES);
             dares.push(currentCard.id);
             writeArray(LS.DARES, dares);
-            // Check wish unlock — every WISH_THRESHOLD dares
-            if (dares.length > 0 && dares.length % WISH_THRESHOLD === 0) {
-              writeNumber(LS.WISHES, readNumber(LS.WISHES) + 1);
-              newWish = true;
-            }
+            newWish = dares.length > 0 && dares.length % WISH_THRESHOLD === 0;
           }
 
           renderRewardCard(sticker, currentCard.kind, newWish);
@@ -1137,12 +1116,12 @@
         function renderRewardCard(sticker, kind, newWish) {
           const flavorByKind = {
             truth: "Honesty looks good on you.",
-            dare:  "Proof or it didn't happen — and you brought proof."
+            dare:  "Marked in your local honour-system collection."
           };
           const wishHtml = newWish ? `
             <div class="gt-wish-unlocked">
-              ⭐ <strong>FAiRY wish unlocked!</strong> Five dares in.
-              <small>Your wish is waiting — we'll unlock the actual wand when member accounts launch.</small>
+              ⭐ <strong>Five dares in.</strong>
+              <small>That is a local milestone, not a FAiRY Play or member reward.</small>
             </div>
           ` : "";
           // Truth follow-up tip — turns the moment of honest reflection into a
@@ -1220,20 +1199,11 @@
 
         // ===== EVENT HANDLERS =====
         els.actions.addEventListener("click", (event) => {
-          // "I did it" link for dares: count it BEFORE the link navigates,
-          // and prevent default so we can render the reward + room link opens
-          // in a new tab.
-          const didIt = event.target.closest("#gtDidItLink");
-          if (didIt) {
-            // The href has target="_blank" so the new tab opens; we still
-            // award the sticker on this page.
-            awardSticker();
-            return;
-          }
           const action = event.target.closest("[data-action]")?.dataset.action;
           if (!action) return;
           if (action === "draw") drawCard();
           if (action === "honest") awardSticker();
+          if (action === "complete-dare") awardSticker();
           if (action === "chicken") drawPenalty();
         });
 
@@ -1285,7 +1255,7 @@
         door.innerHTML =
           '<p style="font-family:Jost,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--rose,#9b3f5f);margin:0 0 10px;">Delta LAi Nu \u00b7 Wisteria Lane</p>' +
           '<h2 style="font-family:\'Playfair Display\',Georgia,serif;font-size:30px;font-weight:700;color:var(--plum,#4b2148);margin:0 0 10px;">Residents only.</h2>' +
-          '<p style="font-size:15px;line-height:1.55;color:var(--plum-soft,#6b3a66);margin:0 0 22px;">Girl Talk happens inside the Sorority House \u2014 you\u2019ll need a Resident Card to come in. It\u2019s free, and it keeps your stickers, dares, and FAiRY wishes.</p>' +
+          '<p style="font-size:15px;line-height:1.55;color:var(--plum-soft,#6b3a66);margin:0 0 22px;">Girl Talk happens inside the Sorority House \u2014 you\u2019ll need a Resident Card to come in. It\u2019s free. This game keeps its honour-system stickers and dares on this device only; it does not grant FAiRY wishes or member rewards.</p>' +
           '<a href="/maikeover.html" style="display:inline-block;background:var(--plum,#4b2148);color:#fffdfb;font-family:Jost,sans-serif;font-weight:600;font-size:15px;padding:13px 28px;border-radius:999px;text-decoration:none;">Design your Resident Card \u2192</a>' +
           '<p style="font-size:13px;margin:14px 0 0;color:var(--plum-soft,#6b3a66);">Already a resident? <a href="/resident-card.html" style="color:var(--rose,#9b3f5f);font-weight:600;">Sign in</a> and come back.</p>';
         Array.prototype.forEach.call(main.children, function (el) { el.style.display = 'none'; });

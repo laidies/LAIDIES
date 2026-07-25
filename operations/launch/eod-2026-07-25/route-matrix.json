@@ -1,0 +1,41 @@
+{
+  "audit": "EOD whole-site relaunch QA",
+  "auditedAt": "2026-07-25T20:02:13Z",
+  "localCandidate": {
+    "artifact": "local-public-artifact",
+    "files": 1097,
+    "mebibytes": 1039.41,
+    "releaseWarningThresholdMiB": 750,
+    "releaseFailThresholdMiB": 1100
+  },
+  "publicHttpChecked": "2026-07-25T20:02Z",
+  "routes": [
+    {"route":"/","publicHttp":200,"candidateMobile":200,"candidateDesktop":200,"status":"PARTIAL","note":"Reachable; missing-alt audit reported 4 images."},
+    {"route":"/visitors-centre","publicHttp":200,"candidateMobile":200,"status":"PARTIAL","note":"Reachable; missing-alt audit reported 4 images."},
+    {"route":"/library","publicHttp":200,"candidateMobile":200,"candidateDesktop":200,"status":"PARTIAL","note":"Reachable; missing-alt audit reported 31 images."},
+    {"route":"/handbook","publicHttp":200,"candidateMobile":200,"status":"PARTIAL","note":"Reachable; missing-alt audit reported 32 images."},
+    {"route":"/chick-flicks","publicHttp":200,"candidateMobile":200,"status":"PARTIAL","note":"Reachable; missing-alt audit reported 10 images."},
+    {"route":"/watch","publicHttp":200,"candidateMobile":200,"candidateDesktop":200,"status":"PARTIAL","note":"Route/render only; media and captions were not played in this audit."},
+    {"route":"/issues/issue-01","publicHttp":200,"candidateMobile":200,"status":"PARTIAL","note":"Reachable; missing-alt audit reported 12 images."},
+    {"route":"/issues/issue-02","publicHttp":200,"candidateMobile":200,"status":"PARTIAL","note":"Reachable; missing-alt audit reported 10 images."},
+    {"route":"/issues/issue-03","publicHttp":200,"candidateMobile":200,"status":"PARTIAL","note":"Reachable; missing-alt audit reported 9 images."},
+    {"route":"/issues/issue-04","publicHttp":200,"candidateMobile":200,"status":"PARTIAL","note":"Reachable; missing-alt audit reported 13 images."},
+    {"route":"/newsstand","publicHttp":200,"candidateMobile":200,"candidateDesktop":200,"status":"PARTIAL","note":"Static story validation passed; editorial journey not human-reviewed here."},
+    {"route":"/radio","publicHttp":200,"candidateMobile":200,"candidateDesktop":200,"status":"PARTIAL","note":"83 artifact audio files hash-match source; audio interaction not played here."},
+    {"route":"/sunnyvaile-high","publicHttp":200,"candidateMobile":200,"status":"FAIL","note":"Candidate and public runtime fetches 404: class data and two constructed puffy image paths."},
+    {"route":"/mall","publicHttp":200,"candidateMobile":200,"candidateDesktop":200,"status":"PARTIAL","note":"Reachable/rendered."},
+    {"route":"/luminairy","publicHttp":200,"candidateMobile":200,"status":"PARTIAL","note":"Reachable; missing-alt audit reported 1 image."},
+    {"route":"/community","publicHttp":200,"candidateMobile":200,"candidateDesktop":200,"status":"PARTIAL","note":"Route/render only; posting/moderation untested."},
+    {"route":"/post-office","publicHttp":200,"candidateMobile":200,"status":"PARTIAL","note":"Reachable; missing-alt audit reported 15 images."},
+    {"route":"/resident-card","publicHttp":200,"candidateMobile":200,"status":"PARTIAL","note":"Route/render only; 31 unnamed buttons observed in rendered DOM; auth untested."},
+    {"route":"/town-hall","publicHttp":200,"candidateMobile":200,"status":"PARTIAL","note":"Route/render only; form submission untested."},
+    {"route":"/maikeover","publicHttp":200,"candidateMobile":200,"status":"PARTIAL","note":"Route/render only; generation/auth journey untested."},
+    {"route":"/games/dream-phone","publicHttp":200,"candidateMobile":200,"candidateDesktop":200,"status":"PARTIAL","note":"Route/render only; caller/remix/persistence untested."},
+    {"route":"/games/fairy-godmother","publicHttp":200,"candidateMobile":200,"candidateDesktop":200,"status":"PARTIAL","note":"Route/render only; Worker response/allowance not exercised."},
+    {"route":"/games/girl-talk","publicHttp":200,"candidateMobile":200,"status":"FAIL","note":"Local sticker reward is issued before any authoritative community-post completion."},
+    {"route":"/games/madame-claio","publicHttp":200,"candidateMobile":200,"status":"PARTIAL","note":"Route/render only."},
+    {"route":"/games/dj-booth","publicHttp":200,"candidateMobile":200,"status":"PARTIAL","note":"Route/render only."},
+    {"route":"/games/fun-pack","publicHttp":200,"candidateMobile":200,"status":"PARTIAL","note":"Contains activities whose end-to-end completion is not verified."},
+    {"route":"/games/trading-cards","publicHttp":200,"candidateMobile":200,"status":"PARTIAL","note":"Reachable; missing-alt audit reported 31 images."}
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "audit": {
+    "date": "2026-07-25",
+    "status": "REPORT_READY",
+    "source": "current local working tree",
+    "builder": "scripts/build-public-site.mjs",
+    "artifact": {
+      "files": 1098,
+      "bytes": 1089938364,
+      "mebibytes": 1039.45,
+      "missingDependencies": 0,
+      "oversizedDependencies": 0
+    },
+    "canonical": {
+      "era": "Rewind Era",
+      "range": "1990–2010",
+      "tagline": "from dial-up to downloads",
+      "brand": "LAiDIES",
+      "town": "SUNNYVAiLE"
+    },
+    "method": "Built the curated public artifact from the current source, then reviewed text-bearing artifacts and mapped actionable output strings to their source lines. Asset-path identifiers and excluded studio files were not treated as visitor copy."
+  },
+  "summary": {
+    "fixTodayFiles": 10,
+    "fixTodaySourceStrings": 46,
+    "categories": {
+      "townSpelling": 5,
+      "wholeEraTerminology": 8,
+      "brandCasing": 33
+    },
+    "preserveRule": "Do not mechanically replace a specific decade, Y2K, artifact, song/style, historical event, story setting, or real proper noun."
+  },
+  "fixToday": [
+    {
+      "category": "townSpelling",
+      "file": "postcard.html",
+      "lines": [127, 150, 284, 330],
+      "find": "Sunnyvale",
+      "replaceWith": "SUNNYVAiLE",
+      "reason": "All four strings name the fictional town, not the California city."
+    },
+    {
+      "category": "townSpelling",
+      "file": "content/episodes/episode-02-cues.json",
+      "lines": [250],
+      "find": "Sunnyvale is even better with your people in it.",
+      "replaceWith": "SUNNYVAiLE is even better with your people in it.",
+      "reason": "Public Episode 2 cue copy names the fictional town."
+    },
+    {
+      "category": "wholeEraTerminology",
+      "file": "index.html",
+      "lines": [632],
+      "find": "Tarot, but the deck is ’90s/Y2K objects and experiences.",
+      "replaceWith": "Tarot, but the deck is Rewind Era objects and experiences.",
+      "reason": "This names the deck's broad period span, not one specific decade or object."
+    },
+    {
+      "category": "wholeEraTerminology",
+      "file": "index.html",
+      "lines": [669, 702],
+      "find": "The 90s/Y2K reference catalogue",
+      "replaceWith": "The Rewind Era reference catalogue",
+      "reason": "Both Mall navigation labels describe the entire catalogue."
+    },
+    {
+      "category": "wholeEraTerminology",
+      "file": "handbook.html",
+      "lines": [174],
+      "find": "Ten shops of 90s/Y2K reference + your avatar closet.",
+      "replaceWith": "Ten shops of Rewind Era reference + your avatar closet.",
+      "reason": "Handbook summary describes the whole Mall span."
+    },
+    {
+      "category": "wholeEraTerminology",
+      "file": "handbook.html",
+      "lines": [178],
+      "find": "Ten shops of pure 90s/Y2K reference",
+      "replaceWith": "Ten shops of pure Rewind Era reference",
+      "reason": "Handbook body describes the whole Mall span."
+    },
+    {
+      "category": "wholeEraTerminology",
+      "file": "content/site/sunnyvaile-directory.js",
+      "lines": [32],
+      "find": "10 shops of 90s and Y2K reference + your avatar closet.",
+      "replaceWith": "10 shops of Rewind Era reference + your avatar closet.",
+      "reason": "Runtime directory one-liner describes the whole Mall span."
+    },
+    {
+      "category": "wholeEraTerminology",
+      "file": "mall/pieces-of-flair.html",
+      "lines": [198],
+      "find": "10 shops · Y2K reference",
+      "replaceWith": "10 shops · Rewind Era reference",
+      "reason": "The CTA labels the entire Mall, not a single Y2K object/style."
+    },
+    {
+      "category": "wholeEraTerminology",
+      "file": "issues/issue-02.html",
+      "lines": [262],
+      "find": "he's not exactly '90s or 2000s.",
+      "replaceWith": "he's not exactly from the Rewind Era (1990–2010).",
+      "reason": "This defines the exception against the full product span; David Rose remains the intentional exception."
+    },
+    {
+      "category": "brandCasing",
+      "file": "content/site/quizzes.json",
+      "lines": [4, 7, 15, 24, 30, 54, 68, 84, 90, 105, 150, 195, 250, 266, 314, 323],
+      "find": ["LAIDIES", "lAIdies"],
+      "replaceWith": "LAiDIES",
+      "reason": "Raw public quiz copy must use the canonical brand casing; client-side brand polish should not be the only repair."
+    },
+    {
+      "category": "brandCasing",
+      "file": "content/site/site-data.js",
+      "lines": [257, 260, 268, 277, 283, 307, 321, 337, 343, 358, 403, 448, 503, 519, 761, 770, 1354],
+      "find": ["LAIDIES", "lAIdies"],
+      "replaceWith": "LAiDIES",
+      "reason": "This is the mirrored public quiz dataset and must remain byte-for-byte semantically aligned with quizzes.json."
+    }
+  ],
+  "intentionalSpecificEraWording": [
+    {
+      "file": "issues/issue-trailer.html",
+      "lines": [164, 182],
+      "decision": "PRESERVE",
+      "reason": "Names real 1990s television towns and the fictional town's around-1999 setting; the unstyled Sunnyvale is the real California city in a wordplay comparison."
+    },
+    {
+      "file": "maikeover.html",
+      "lines": [501, 502, 503, 504, 509, 519, 520, 523, 524, 525, 526, 527, 528, 529, 530],
+      "decision": "PRESERVE",
+      "reason": "Dated styling controls and named 1990s/Y2K visual references are deliberately specific."
+    },
+    {
+      "file": "radio.html",
+      "lines": [705, 706, 707, 708, 709, 710, 711],
+      "decision": "PRESERVE",
+      "reason": "Selectable music styles are specific genres/period treatments, including 2000s coffeehouse acoustic."
+    },
+    {
+      "file": "games/dream-phone-game.html",
+      "lines": [7, 240, 241, 245, 247, 250],
+      "decision": "PRESERVE",
+      "reason": "The 90s-fact activity and documented Y2K glitch are exact game/history references."
+    },
+    {
+      "file": "content/site/quizzes.json",
+      "lines": [215],
+      "decision": "PRESERVE",
+      "reason": "Deliberately wrong quiz distractor; it is not a brand-span claim."
+    },
+    {
+      "file": "content/site/site-data.js",
+      "lines": [468],
+      "decision": "PRESERVE",
+      "reason": "Mirrored deliberately wrong quiz distractor."
+    },
+    {
+      "file": "mall/gizmos-and-gadgets.html",
+      "lines": [7, 60],
+      "decision": "PRESERVE",
+      "reason": "A specific Y2K-tech shop concept and inventory treatment."
+    },
+    {
+      "file": "mall/as-seen-on-tv.html",
+      "lines": [7, 60],
+      "decision": "PRESERVE",
+      "reason": "Specific Y2K rom-com/teen-drama programming style."
+    },
+    {
+      "file": "mall/maiybe.html",
+      "lines": [7, 60],
+      "decision": "PRESERVE",
+      "reason": "Specific Y2K beauty-rack treatment."
+    },
+    {
+      "file": "content/site/site-index.json",
+      "lines": [63],
+      "decision": "PRESERVE",
+      "reason": "Search metadata accurately describes the 90s-fact game and its 90s-trivia query terms."
+    },
+    {
+      "file": "content/episodes/episode-trailer-cues.json",
+      "lines": [2, 18, 25, 32, 39, 46, 53, 60, 67, 74, 81, 89, 96, 103, 111, 119, 127, 135, 143, 150, 157, 165, 173, 181, 189, 196, 203, 210, 218, 226, 233, 240, 251],
+      "decision": "PRESERVE",
+      "reason": "`y2k-v3` appears in current public asset paths and an internal cue-sheet note, not as visitor-facing span copy; do not rename release dependencies in this pass."
+    }
+  ],
+  "intentionalBrandForms": [
+    {
+      "form": "ladies.ai / spoken 'ladies'",
+      "decision": "PRESERVE",
+      "reason": "Domain name and intentional narration, not a visual wordmark."
+    },
+    {
+      "form": "Sunnyvale",
+      "file": "issues/issue-trailer.html",
+      "lines": [164],
+      "decision": "PRESERVE",
+      "reason": "Real California city in the Silicon Valley wordplay; the fictional town on the same line is correctly stylized SUNNYVAiLE."
+    },
+    {
+      "form": "LAIDIES/lAIdies recognition regexes",
+      "files": ["script.js", "content/site/brand-polish.js"],
+      "decision": "PRESERVE",
+      "reason": "Backward-compatible normalizers may recognize legacy forms; only displayed source copy is in the FIX TODAY list."
+    }
+  ],
+  "verificationAfterFix": [
+    "Run node scripts/build-public-site.mjs <empty-output-directory>.",
+    "Confirm the 45 source strings have no old form in the output, except the intentional trailer real-city 'Sunnyvale', the quiz distractors, and compatibility regexes.",
+    "Confirm no public asset path, CSS token, or runtime import was mechanically renamed."
+  ]
+}

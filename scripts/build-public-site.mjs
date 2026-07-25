@@ -276,7 +276,11 @@ for (const entry of [
 // These assets are selected at runtime from data or constructed paths, so a
 // static reference crawl cannot discover them. Keep this list explicit and
 // visitor-facing: it is a release manifest, not permission to copy the studio.
-enqueueTree('assets/library-101');
+// The reader constructs filenames under the approved bright family at
+// runtime. Copy that production family only; the root library folder also
+// contains superseded/original cover systems that are studio evidence, not
+// public dependencies.
+enqueueTree('assets/library-101/bright-family-v2', (relative) => relative.endsWith('.png'));
 enqueueTree('assets/mme-claio/reading-cards', (relative) => relative.endsWith('.webp'));
 enqueueTree('assets/stickers/ksvl', (relative) => relative.endsWith('.png'));
 enqueueTree('assets/puffies', (relative) => relative.endsWith('.png'));
@@ -288,6 +292,7 @@ for (const entry of [
   'content/episodes/episode-02-cues.json',
   'content/episodes/episode-03-cues.json',
   'content/episodes/episode-04-cues.json',
+  'content/site/high-classes.json',
   'assets/sunnyvaile-interiors/episode-vhs-boxes/ep-01.webp',
   'assets/sunnyvaile-interiors/episode-vhs-boxes/ep-02.webp',
   'assets/sunnyvaile-interiors/episode-vhs-boxes/ep-03.webp',

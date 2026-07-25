@@ -1,0 +1,17 @@
+{
+  "allowedVerdicts": ["PASS", "FAIL", "PARTIAL", "NOT TESTED", "NOT APPLICABLE"],
+  "promises": [
+    {"promise":"Enter SUNNYVAiLE and understand the practical-AI offer","entry":"/","verdict":"PARTIAL","evidence":"Candidate loaded mobile/desktop without page errors; comprehension requires clean-user test."},
+    {"promise":"Find orientation and a current episode","entry":"/visitors-centre","verdict":"PARTIAL","evidence":"Candidate route loads; directory/tour interaction not performed."},
+    {"promise":"Read current lessons","entry":"/chick-flicks and /issues/issue-01..04","verdict":"PARTIAL","evidence":"All five candidate routes and public sitemap routes return 200; content/a11y review remains open."},
+    {"promise":"Hear episodes with captions","entry":"/watch?ep=01..04","verdict":"PARTIAL","evidence":"Watch route renders; audio/caption interaction was not played in this audit."},
+    {"promise":"Search for an answer in the LIBRAiRY","entry":"/library","verdict":"PARTIAL","evidence":"Route renders; typed-query/result relevance was not exercised."},
+    {"promise":"Listen to KSVL","entry":"/radio","verdict":"PARTIAL","evidence":"83 computed audio dependencies hash-match source in candidate; first-play/error/recovery was not exercised."},
+    {"promise":"Use SUNNYVAiLE High classes","entry":"/sunnyvaile-high","verdict":"FAIL","evidence":"Live and candidate requests 404 for /content/site/high-classes.json; candidate additionally 404s two constructed puffy paths."},
+    {"promise":"Community posting/reward","entry":"/community and /games/girl-talk","verdict":"FAIL","evidence":"Girl Talk issues local reward before the external room can establish a post; no authoritative completion event."},
+    {"promise":"Postcard invite earns a mutual BEST FRIENDS necklace","entry":"/postcard","verdict":"FAIL","evidence":"Public copy promises join-triggered mutual unlock; no observed durable sent/opened/joined/reward lifecycle proof."},
+    {"promise":"FAiRY Godmother allowances and bonus plays","entry":"/games/fairy-godmother","verdict":"PARTIAL","evidence":"UI claims subscriber daily wishes/ritual bonus/higher caps while local error path says subscriptions, FAiRY Plays and member allowances are not verified."},
+    {"promise":"Create/sign in to a Resident Card and retain progress","entry":"/resident-card and /maikeover","verdict":"NOT TESTED","evidence":"No test identity or email/auth flow was exercised; 31 unnamed rendered buttons observed on Resident Card."},
+    {"promise":"Newsletter/form submissions","entry":"homepage, FAiRY, Town Hall, Post Office","verdict":"NOT TESTED","evidence":"No external mutation submitted; success/error/retry and privacy states remain an explicit launch gate."}
+  ]
+}

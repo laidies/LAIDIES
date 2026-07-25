@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:wght@400;500;600;700;800&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
   <style>
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
 
@@ -305,6 +305,7 @@
 .anthem-charm-reveal .brand-word-inline [data-brand-ai]{color:#f6a5c0!important}
 
       </style>
+  <link rel="stylesheet" href="/content/printable-v2.css?v=20260724-1">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
@@ -324,14 +325,12 @@
     })(window, document, "clarity", "script", "xnqcp37urd");
   </script>
 </head>
-<body>
+<body class="printable-page">
   <header class="sv-header"></header>
 
-  <a class="wednesday-return" data-wednesday-return href="/">← Back to the Bag</a>
-
-  <main>
+  <main class="pr-main">
     <section class="preview-hero" aria-labelledby="printableTitle">
-      <div>
+      <div class="pr-hero-copy">
         <span class="eyebrow" id="printableEyebrow">Episode printable</span>
         <h1 id="printableTitle">Printable Preview</h1>
         <p class="lede" id="printableDescription">Preview the weekly printable first. Download it only when you are ready.</p>
@@ -342,9 +341,30 @@
       </div>
     </section>
 
-    <section class="printable-shell" aria-label="Printable preview pages">
-      <div class="page-grid" id="pageGrid"></div>
-      <p class="unavailable" id="unavailableMessage" hidden>This printable is not public yet. Try the current week's Bag instead.</p>
+    <section class="pr-worktable" aria-labelledby="prWorktableTitle">
+      <header class="pr-worktable-head">
+        <div>
+          <p class="pr-kicker">The reference-room worktable</p>
+          <h2 id="prWorktableTitle">Four sheets. One useful move.</h2>
+        </div>
+        <p>Read them here, slide along the desk, or take the complete PDF with you.</p>
+      </header>
+
+      <div class="printable-shell" aria-label="Printable preview pages">
+        <div class="page-grid" id="pageGrid"></div>
+        <p class="unavailable" id="unavailableMessage" hidden>This printable is not public yet. Try the current week's Bag instead.</p>
+      </div>
+    </section>
+
+    <section class="pr-dispatch" aria-labelledby="prDispatchTitle">
+      <p class="pr-kicker">Reference-room checkout</p>
+      <h2 id="prDispatchTitle">Keep the pages. Try the move.</h2>
+      <p>The PDF is the desk reference. Extra Credit is where you put the lesson through its paces.</p>
+      <div class="pr-dispatch-actions">
+        <a class="button" id="downloadPdfBottom" href="/printable.html" download>Take the complete PDF →</a>
+        <a class="button secondary" id="funPackLinkBottom" href="games/fun-pack.html">Continue to Extra Credit</a>
+        <a class="wednesday-return" data-wednesday-return href="/">← Back to the Bag</a>
+      </div>
     </section>
   </main>
 
@@ -421,7 +441,9 @@
     var pageGrid = document.getElementById("pageGrid");
     var unavailableMessage = document.getElementById("unavailableMessage");
     var downloadPdf = document.getElementById("downloadPdf");
+    var downloadPdfBottom = document.getElementById("downloadPdfBottom");
     var funPackLink = document.getElementById("funPackLink");
+    var funPackLinkBottom = document.getElementById("funPackLinkBottom");
     var title = document.getElementById("printableTitle");
     var eyebrow = document.getElementById("printableEyebrow");
     var description = document.getElementById("printableDescription");
@@ -440,6 +462,9 @@
     if (funPackLink) {
       funPackLink.href = addReturnParams("games/fun-pack.html");
     }
+    if (funPackLinkBottom) {
+      funPackLinkBottom.href = addReturnParams("games/fun-pack.html");
+    }
 
     if (!printable) {
       if (pageGrid) pageGrid.hidden = true;
@@ -447,6 +472,10 @@
       if (downloadPdf) {
         downloadPdf.removeAttribute("href");
         downloadPdf.setAttribute("aria-disabled", "true");
+      }
+      if (downloadPdfBottom) {
+        downloadPdfBottom.removeAttribute("href");
+        downloadPdfBottom.setAttribute("aria-disabled", "true");
       }
       if (title) title.textContent = "Printable in the works";
       if (eyebrow) eyebrow.textContent = "Not public yet";
@@ -462,6 +491,10 @@
       downloadPdf.href = printable.pdf;
       downloadPdf.setAttribute("download", printable.filename);
     }
+    if (downloadPdfBottom) {
+      downloadPdfBottom.href = printable.pdf;
+      downloadPdfBottom.setAttribute("download", printable.filename);
+    }
 
     if (pageGrid) {
       printable.pages.forEach(function(src, index) {
@@ -472,6 +505,9 @@
         image.alt = printable.title + " preview page " + (index + 1);
         image.loading = index > 1 ? "lazy" : "eager";
         figure.appendChild(image);
+        var caption = document.createElement("figcaption");
+        caption.textContent = "Sheet " + String(index + 1).padStart(2, "0");
+        figure.appendChild(caption);
         pageGrid.appendChild(figure);
       });
     }

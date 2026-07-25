@@ -307,12 +307,9 @@
 
   /* ---- bridge to script.js badge system (graceful if absent) ------------- */
   function safeUnlock(badgeId, source) {
-    try {
-      if (typeof hiddenMeritBadges === "object" && hiddenMeritBadges && typeof unlockSecretBadge === "function") {
-        ensureBadgeCatalog();
-        return unlockSecretBadge(badgeId, source) || "";
-      }
-    } catch (e) { /* no-op */ }
+    // Discoveries are playful and session-local until an authoritative reward
+    // ledger proves grant, sync, restore, and refund behaviour end to end.
+    // Do not call the shared local-first badge writer from this experimental game.
     return "";
   }
 

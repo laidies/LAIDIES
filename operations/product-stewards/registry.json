@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "updated": "2026-07-25",
+  "status": "BUILDING",
+  "canonical_design": "../research/product-stewardship-agent-operating-system-2026-07-25.md",
+  "portfolio_queue": "portfolio-launch-reconciliation-2026-07-25.md",
+  "quality_floor": {
+    "product_content_quality": {
+      "weight": 20,
+      "minimum_to_win": 17
+    },
+    "accuracy_safety_trust": {
+      "weight": 20,
+      "minimum_to_win": 17
+    },
+    "positive_laidies_brand_contribution": {
+      "weight": 20,
+      "minimum_to_win": 17
+    }
+  },
+  "required_run_chain": [
+    "trigger",
+    "inputs",
+    "run",
+    "structured_output",
+    "evaluation",
+    "decision",
+    "named_implementation",
+    "verification",
+    "public_result",
+    "measurement",
+    "notification"
+  ],
+  "automation": {
+    "persistent_runner": "NOT_WIRED",
+    "scheduler": "NOT_WIRED",
+    "plausible_pull": "NOT_WIRED",
+    "clarity_pull": "NOT_WIRED",
+    "notifications": "NOT_WIRED"
+  },
+  "pilots": [
+    {
+      "id": "fairy-godmother",
+      "product": "FAiRY Godmother",
+      "status": "REPORT_READY",
+      "launch_verdict": "FIX_BEFORE_LAUNCH",
+      "dossier": "fairy-godmother/deep-dive-2026-07-25.md",
+      "next_trigger": "P0_REPAIR_AUTHORIZED",
+      "automatic_triggers": [
+        "safety_incident",
+        "factual_correction",
+        "service_contract_change",
+        "reward_ledger_change",
+        "public_promise_change"
+      ]
+    },
+    {
+      "id": "girl-talk",
+      "product": "Girl Talk & Community Completion Loop",
+      "status": "REPORT_READY",
+      "launch_verdict": "FIX_BEFORE_LAUNCH_AS_PROMOTED_COMMUNITY_REWARD_JOURNEY",
+      "dossier": "girl-talk/deep-dive-2026-07-25.md",
+      "next_trigger": "PRIMARY_JOB_AND_REWARD_TRUTH_DECISION",
+      "automatic_triggers": [
+        "community_provider_change",
+        "moderation_incident",
+        "completion_event_change",
+        "reward_ledger_change",
+        "public_promise_change"
+      ]
+    },
+    {
+      "id": "dream-phone",
+      "product": "Dream Phone",
+      "status": "REPORT_READY",
+      "launch_verdict": "HIDE_OR_LABEL",
+      "dossier": "dream-phone/deep-dive-2026-07-25.md",
+      "next_trigger": "PARKED_VERSUS_LIVE_STATUS_DECISION",
+      "automatic_triggers": [
+        "canonical_public_status_drift",
+        "game_model_change",
+        "source_correction",
+        "reward_persistence_change",
+        "public_promise_change"
+      ]
+    },
+    {
+      "id": "episode-media-quality",
+      "product": "Trailer and Episodes 1-4 Media Quality",
+      "status": "REPORT_READY",
+      "launch_verdict": "HOLD_MOTION_FILMS",
+      "dossier": "episode-media-quality/CHARTER.md",
+      "next_trigger": "COMPLETE_SHA_BOUND_NARRATION_VISUAL_REVIEW",
+      "automatic_triggers": [
+        "new_source_frame",
+        "new_motion_clip",
+        "new_assembled_cut",
+        "audio_or_caption_change",
+        "public_player_mapping_change"
+      ]
+    }
+  ]
+}

@@ -254,10 +254,10 @@ window.LAIDIES_SITE_DATA = {
   "quizzes": {
     "foundation": {
       "label": "Foundation Quiz",
-      "optionLabel": "Foundation: Why LAIDIES Exists",
+      "optionLabel": "Foundation: Why LAiDIES Exists",
       "title": "The AI gap is not a side plot. It is the reason this room exists.",
       "rereadUrl": "index.html#about",
-      "rereadLabel": "Reread the lAIdies why",
+      "rereadLabel": "Reread the LAiDIES why",
       "intro": "Answer fifteen foundation questions, then try the two bonus questions. The score is out of 15, but the extra credit girls can still get 17/15.",
       "maxScore": 15,
       "bonusScore": 2,
@@ -265,7 +265,7 @@ window.LAIDIES_SITE_DATA = {
         {
           "id": "gap-is-power-gap",
           "points": 1,
-          "prompt": "Why does the AI gap between men and women matter for lAIdies?",
+          "prompt": "Why does the AI gap between men and women matter for LAiDIES?",
           "options": [
             "Because AI is a personality test",
             "Because confidence and access gaps can become power, pay, and influence gaps",
@@ -274,13 +274,13 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "Because confidence and access gaps can become power, pay, and influence gaps",
           "explain": "The point is not novelty. If one group gets fluent sooner, that group gets more say in how the work changes.",
-          "review": "Find it in the lAIdies positioning and About section.",
+          "review": "Find it in the LAiDIES positioning and About section.",
           "reviewUrl": "index.html#about"
         },
         {
           "id": "not-remedial",
           "points": 1,
-          "prompt": "What is the lAIdies stance on women learning AI?",
+          "prompt": "What is the LAiDIES stance on women learning AI?",
           "options": [
             "The references are the whole lesson",
             "Smart professionals deserve accurate, practical AI learning that is also enjoyable and memorable",
@@ -304,7 +304,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "Someone else builds the habits, vocabulary, and confidence first",
           "explain": "Waiting feels reasonable in a full calendar, but early comfort compounds into workplace advantage.",
-          "review": "Find it in the lAIdies purpose and Episode 1 starting point.",
+          "review": "Find it in the LAiDIES purpose and Episode 1 starting point.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -318,7 +318,7 @@ window.LAIDIES_SITE_DATA = {
             "Because the tools explain office politics perfectly"
           ],
           "answer": "Because everyone is expected to magically know what to use, when to use it, and how to judge the output",
-          "explain": "lAIdies exists because AI fluency is becoming another quiet expectation, and quiet expectations rarely land evenly.",
+          "explain": "LAiDIES exists because AI fluency is becoming another quiet expectation, and quiet expectations rarely land evenly.",
           "review": "Find it in the Episode 1 working summary.",
           "reviewUrl": "issues/issue-01.html"
         },
@@ -334,13 +334,13 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "They can shape workflows, ask sharper questions, challenge weak outputs, and influence how AI gets used",
           "explain": "The larger goal is agency. Fluency helps women participate in decisions about the work, not just speed through tasks.",
-          "review": "Find it in the lAIdies purpose and community framing.",
+          "review": "Find it in the LAiDIES purpose and community framing.",
           "reviewUrl": "index.html#community-board"
         },
         {
           "id": "not-becoming-technical",
           "points": 1,
-          "prompt": "What does lAIdies reject as the price of AI fluency?",
+          "prompt": "What does LAiDIES reject as the price of AI fluency?",
           "options": [
             "Learning useful vocabulary",
             "Trying low-risk tools",
@@ -355,7 +355,7 @@ window.LAIDIES_SITE_DATA = {
         {
           "id": "confidence-loop",
           "points": 1,
-          "prompt": "Why does lAIdies make the first AI moves small?",
+          "prompt": "Why does LAiDIES make the first AI moves small?",
           "options": [
             "Small moves make confidence real enough to repeat",
             "Small moves mean the topic is not serious",
@@ -400,7 +400,7 @@ window.LAIDIES_SITE_DATA = {
         {
           "id": "foundational-reason",
           "points": 1,
-          "prompt": "What is one foundational reason lAIdies was created?",
+          "prompt": "What is one foundational reason LAiDIES was created?",
           "options": [
             "To make AI fluency practical, credible, and culturally alive for women before the gap gets wider",
             "To make AI feel unserious",
@@ -445,7 +445,7 @@ window.LAIDIES_SITE_DATA = {
         {
           "id": "why-a-town",
           "points": 1,
-          "prompt": "Why does lAIdies teach AI through a town — SUNNYVAiLE — instead of a plain how-to guide?",
+          "prompt": "Why does LAiDIES teach AI through a town — SUNNYVAiLE — instead of a plain how-to guide?",
           "options": [
             "Because a how-to guide would be more accurate",
             "Because a story you can walk around in makes the lessons stick, and gives you a reason to come back every week",
@@ -500,7 +500,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "The people who use, question, and shape the tools influence what gets automated, trusted, funded, and normalized",
           "explain": "AI adoption is not just personal productivity. It affects whose standards and assumptions get built into future workflows.",
-          "review": "Find it in the lAIdies purpose and community framing.",
+          "review": "Find it in the LAiDIES purpose and community framing.",
           "reviewUrl": "index.html#about"
         },
         {
@@ -516,7 +516,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "They become harder to sideline in conversations about the future of work",
           "explain": "Shared fluency changes posture: more questions, better standards, stronger participation, and less waiting for permission.",
-          "review": "Find it in the lAIdies mission and community framing.",
+          "review": "Find it in the LAiDIES mission and community framing.",
           "reviewUrl": "index.html#community-board"
         }
       ]
@@ -758,7 +758,7 @@ window.LAIDIES_SITE_DATA = {
         {
           "id": "not-technical",
           "points": 1,
-          "prompt": "lAIdies is not asking you to become:",
+          "prompt": "LAiDIES is not asking you to become:",
           "options": [
             "More confident with useful tools",
             "Curious in public",
@@ -767,7 +767,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "The IT department in better shoes",
           "explain": "You can learn enough technical context to stop feeling locked out without turning into the help desk.",
-          "review": "Find it in the section about what lAIdies is and is not.",
+          "review": "Find it in the section about what LAiDIES is and is not.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -1351,7 +1351,7 @@ window.LAIDIES_SITE_DATA = {
         "issueLabel": "Episode 01",
         "title": "Room Key Card",
         "image": "assets/laidies-logo.png",
-        "alt": "The lAIdies neon logo",
+        "alt": "The LAiDIES neon logo",
         "portrait": true,
         "unlockTitle": "Bring one question to the room.",
         "prompt": "Share where you are starting, what you are trying, or what feels confusing.",

@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Town LIBRAiRY</title>
-<meta name="description" content="Ask Miss Jeeves a practical AI question or open a plain-English reference book in the SUNNYVAiLE Town LIBRAiRY.">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SUNNYVAiLE LIBRAiRY</title>
+<meta name="description" content="Read the plain-English AI books, ask Miss Jeeves a practical question, and save useful books or sections to your Closet at the SUNNYVAiLE LIBRAiRY.">
 <link rel="canonical" href="https://laidies.ai/library">
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <style>
@@ -13,8 +13,41 @@ body{margin:0;font-family:'Jost',system-ui,sans-serif;color:var(--ink);
 h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 
 .wrap{max-width:none;margin:0;padding:0 0 72px}
-.entry{position:relative;height:52vh;min-height:340px;overflow:hidden;background:var(--midnight)}
-.entry img{width:100%;height:100%;object-fit:cover;object-position:50% 44%;display:block}
+.arrival-visual{position:relative;width:100%;aspect-ratio:1491/1055;overflow:hidden;background:var(--midnight)}
+.arrival-visual>img{width:100%;height:100%;object-fit:cover;display:block}
+.arrival-brand{position:absolute;z-index:5;left:5.6%;top:5.4%;width:min(470px,36%);padding:0;
+  color:#fff;background:transparent;border:0;box-shadow:none;
+  filter:drop-shadow(0 3px 7px rgba(7,20,47,.88))}
+.arrival-brand .eyebrow{font-size:clamp(8px,.7vw,10px);font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:#9ceaf2}
+.arrival-brand h1{font-family:'Jost',system-ui,sans-serif;font-weight:800;letter-spacing:.035em;line-height:.92;margin:7px 0 0;
+  text-shadow:0 2px 0 rgba(7,20,47,.75),0 5px 13px rgba(7,20,47,.75)}
+.arrival-brand h1 .place{display:block;font-size:clamp(14px,1.35vw,22px);letter-spacing:.19em;margin-bottom:7px}
+.arrival-brand h1 .room{display:block;font-size:clamp(31px,3.8vw,58px)}
+.arrival-brand .ai{color:#58d9e8}
+.arrival-brand p{display:none}
+.arrival-brand p strong{color:#fff}
+.arrival-brand .mobile-instruction{display:none}
+.stage-departments{position:absolute;inset:0;z-index:5;pointer-events:none}
+.stage-department{position:absolute;top:25.5%;color:#fff;text-align:center;font-size:clamp(9px,1.05vw,16px);font-weight:800;letter-spacing:.16em;text-shadow:0 2px 7px rgba(7,20,47,.9)}
+.stage-department:nth-child(1){left:3.8%;width:21%}.stage-department:nth-child(2){left:26%;width:20.4%}.stage-department:nth-child(3){left:48.1%;width:20.4%}
+.stage-books{position:absolute;inset:0;z-index:6}
+.stage-book{position:absolute;border:2px solid transparent;border-radius:6px;background:transparent;padding:0;cursor:pointer}
+.stage-book.soon{cursor:default}
+.stage-book:focus-visible,.stage-book:not(.soon):hover{outline:none;border-color:var(--cyan);box-shadow:0 0 0 4px rgba(24,198,216,.3),0 10px 22px rgba(7,20,47,.3)}
+.stage-cover{position:absolute;inset:-3%;width:106%;height:106%;display:block;object-fit:contain;
+  filter:drop-shadow(0 5px 5px rgba(7,20,47,.38));transition:transform .15s,filter .15s}
+.stage-book:not(.soon):hover .stage-cover,.stage-book:not(.soon):focus-visible .stage-cover{
+  transform:translateY(-4%) rotate(-1.5deg);filter:drop-shadow(0 10px 8px rgba(7,20,47,.48))}
+.stage-book.soon .stage-cover{filter:saturate(.72) brightness(.82) drop-shadow(0 4px 4px rgba(7,20,47,.34))}
+.stage-availability{position:absolute;z-index:7;left:50%;bottom:2%;transform:translateX(-50%);width:max-content;max-width:118%;
+  padding:3px 6px;background:var(--midnight);color:#fff;border:1px solid #f0c84f;border-radius:4px;
+  font-size:clamp(6px,.53vw,9px);font-weight:800;letter-spacing:.08em;line-height:1.1;text-transform:uppercase;
+  box-shadow:0 3px 7px rgba(7,20,47,.36)}
+.stage-book .tip{position:absolute;left:50%;bottom:103%;width:max-content;max-width:210px;transform:translate(-50%,6px);opacity:0;pointer-events:none;
+ z-index:8;background:#fff;color:var(--ink);border:1px solid #eccadd;border-radius:10px;padding:8px 11px;text-align:center;
+ font-size:11px;line-height:1.3;box-shadow:0 9px 22px rgba(60,30,55,.3);transition:opacity .14s,transform .14s}
+.stage-book .tip b{display:block;font-size:13px;margin-bottom:2px}.stage-book .tip em{font-style:normal;color:#a5306a;font-weight:800}
+.stage-book:focus-visible .tip,.stage-book:not(.soon):hover .tip{opacity:1;transform:translate(-50%,0)}
 .titleblock{text-align:center;margin:30px auto 4px;padding:0 22px}
 .titleblock .eyebrow{font-size:11px;font-weight:800;letter-spacing:.32em;text-transform:uppercase;color:#4a4274;margin-bottom:8px}
 .titleblock h1{font-size:clamp(38px,6vw,66px);color:var(--midnight);line-height:1}
@@ -23,9 +56,36 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
   font-size:19px;line-height:1.55;color:var(--ink)}
 .lede small{display:block;margin-top:8px;font-family:'Jost';font-size:13px;color:#5f6d8b}
 
+/* ── The visitor route: the shelves are primary, help and saving are secondary ── */
+.library-route{width:100%;padding:28px clamp(22px,5vw,74px) 26px;
+  background:linear-gradient(135deg,#e9f8ff 0%,#eee8ff 58%,#fbe8f2 100%);
+  color:var(--midnight);border-top:5px solid #58d9e8}
+.library-route-head{display:grid;grid-template-columns:minmax(250px,.8fr) minmax(460px,1.5fr);gap:38px;align-items:end;max-width:1320px;margin:0 auto}
+.library-route .eyebrow{margin-bottom:7px;color:#24677c;font-size:10px;font-weight:800;letter-spacing:.23em;text-transform:uppercase}
+.library-route h2{font-family:'Jost',system-ui,sans-serif;font-size:clamp(25px,3vw,43px);font-weight:800;line-height:1.04;color:var(--midnight);
+  text-shadow:3px 3px 0 rgba(240,86,166,.2)}
+.library-route-intro{margin:0;color:#4d5876;font-size:15px;line-height:1.55}
+.library-steps{display:grid;grid-template-columns:repeat(4,1fr);max-width:1320px;margin:24px auto 0;border-top:1px solid #adbae0}
+.library-step{position:relative;min-width:0;padding:18px 22px 4px 0;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.library-step+.library-step{padding-left:22px;border-left:1px solid #bdc9e7}
+.step-number{font-family:'Jost',system-ui,sans-serif;font-size:clamp(40px,4.3vw,64px);font-weight:800;line-height:.82;
+  color:#225dc5;text-shadow:3px 3px 0 #75e0e9}
+.library-step:nth-child(2) .step-number{color:#783dcb;text-shadow:3px 3px 0 #f3a7d0}
+.library-step:nth-child(3) .step-number{color:#d83c88;text-shadow:3px 3px 0 #f1c753}
+.library-step:nth-child(4) .step-number{color:#167c8f;text-shadow:3px 3px 0 #bca7ff}
+.library-step b{display:block;margin-bottom:6px;color:var(--midnight);font-size:15px;letter-spacing:.02em}
+.library-step b span{display:block;margin-bottom:4px;color:#296f82;font-size:9px;letter-spacing:.17em;text-transform:uppercase}
+.library-step p{margin:0;color:#56617d;font-size:12px;line-height:1.45}
+.library-step a{color:#7138b7;text-underline-offset:3px}
+.puffy-shortcut{display:flex;align-items:center;gap:14px;max-width:1320px;margin:21px auto 0;padding-top:18px;border-top:1px solid #bdc9e7}
+.puffy-shortcut img{flex:0 0 auto;width:42px;height:42px;object-fit:contain;filter:drop-shadow(0 4px 6px rgba(0,0,0,.25))}
+.puffy-shortcut p{margin:0;color:#56617d;font-size:12px;line-height:1.45}
+.puffy-shortcut strong{color:var(--midnight)}.puffy-shortcut a{color:#7138b7;font-weight:700;text-underline-offset:3px}
+
 /* ── Ask Miss Jeeves — the reference desk ── */
-.jv{margin:0;background:var(--midnight);color:#fff;padding:24px max(24px,calc((100vw - 1120px)/2));
-  border-top:4px solid var(--cyan)}
+.jv{position:relative;z-index:10;width:100%;margin:0;background:rgba(7,20,47,.985);color:#fff;
+  padding:28px clamp(22px,6vw,88px) 30px;border:0;border-top:1px solid rgba(156,234,242,.28);
+  border-radius:0;box-shadow:none}
 .jv-head{display:flex;align-items:center;gap:11px;margin-bottom:15px}
 .jv-kicker{flex:0 0 auto;display:inline-flex;align-items:center;border:1px solid rgba(24,198,216,.75);border-radius:999px;
   color:#82eaf4;padding:6px 10px;font-size:9px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
@@ -69,6 +129,7 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 .jv-t{font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);align-self:end}
 .jv-s{font-size:13px;color:#6b4b60;line-height:1.4}
 .jv-none{font-size:14px;color:#8a6a80;font-style:italic;padding:6px 2px}
+.mobile-catalogue{display:none}
 
 /* ── One continuous three-bay wall case — all three sections at once, each bay
    labelled and filled with its own books. Matches the room's side shelving. ── */
@@ -108,8 +169,11 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 .caps .cap span{font-size:12px;line-height:1.4;color:#7a5570;font-style:italic}
 
 /* ── the open book — a designed 90s magazine / textbook spread, themed per book ── */
-#reader{--accent:#7c2f4f;position:fixed;inset:0;z-index:50;display:none;background:rgba(28,14,26,.52);backdrop-filter:blur(3px) saturate(.85)}
-#reader.on{display:flex;align-items:center;justify-content:center;padding:26px}
+#reader{--accent:#7c2f4f;position:fixed!important;inset:0!important;width:100dvw;height:100dvh;max-width:none!important;
+  margin:0!important;transform:none!important;z-index:5000;display:none;overflow:hidden;
+  background:rgba(28,14,26,.52);backdrop-filter:blur(3px) saturate(.85)}
+#reader.on{display:grid;place-items:center;padding:26px}
+.reader-open{overflow:hidden}
 .book{--accent-ink:color-mix(in srgb,var(--accent) 58%,#1c0d18);width:min(960px,100%);max-height:90vh;display:flex;flex-direction:column;border-radius:14px;overflow:hidden;
  background:#fbf4e9;color:#3a2338;box-shadow:0 44px 100px rgba(20,8,20,.6);border:1px solid rgba(255,255,255,.35)}
 /* masthead */
@@ -117,12 +181,12 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
  background:linear-gradient(122deg,var(--accent) 0%,color-mix(in srgb,var(--accent) 60%,#160a14) 100%)}
 .book .band::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;
  background:repeating-linear-gradient(90deg,#e982ab 0 22px,#f4c95b 22px 44px,#63c6c9 44px 66px)}
-.book .band::after{content:"THE TOWN LIBRAiRY";position:absolute;right:30px;top:14px;font-size:8px;letter-spacing:.34em;opacity:.5}
+.book .band::after{content:"SUNNYVAiLE LIBRAiRY";position:absolute;right:30px;top:14px;font-size:8px;letter-spacing:.28em;opacity:.58}
 .book .band .t{font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:clamp(24px,3.4vw,36px);line-height:1.04;text-shadow:0 1px 0 rgba(0,0,0,.14)}
 .book .band .m{font-size:10px;letter-spacing:.26em;text-transform:uppercase;opacity:.9;margin-bottom:7px;font-weight:600}
-.book .band button{background:rgba(0,0,0,.22);color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:20px;
+.book .band button:not(.puffy-btn){background:rgba(0,0,0,.22);color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:20px;
  padding:8px 15px;font:inherit;font-size:12px;cursor:pointer;white-space:nowrap;transition:background .15s}
-.book .band button:hover{background:rgba(0,0,0,.4)}
+.book .band button:not(.puffy-btn):hover{background:rgba(0,0,0,.4)}
 /* contents page */
 .book .body{display:grid;grid-template-columns:224px 1fr;min-height:0}
 .book .toc{border-right:1px solid #e7d7c4;padding:22px 15px;overflow:auto;background:#f2e6d4;counter-reset:toc}
@@ -130,11 +194,9 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 .book .toc a{counter-increment:toc;display:flex;gap:9px;align-items:baseline;padding:8px 9px;border-radius:7px;color:#5c3350;text-decoration:none;font-size:13px;line-height:1.32}
 .book .toc a::before{content:counter(toc,decimal-leading-zero);font-size:10.5px;font-weight:700;color:var(--accent);opacity:.75;min-width:17px}
 .book .toc a:hover{background:#e7d4bf;color:var(--accent-ink)}
-.book .toc::after{content:"";display:block;height:170px;margin:24px 6px 0;opacity:.92;
- background:url('assets/building-interiors/library-shelf/doodles/contents-doodles.svg') no-repeat center top/150px auto}
+.book .toc::after{content:none;display:none}
 /* reading column */
-.book .txt{padding:34px 66px 46px 46px;overflow:auto;line-height:1.72;font-size:16px;color:#3a2338;counter-reset:sec;
- background:url('assets/building-interiors/library-shelf/doodles/cool-s-tile.svg') right 4px top 26px / 64px auto repeat-y local}
+.book .txt{padding:34px 66px 46px 46px;overflow:auto;line-height:1.72;font-size:16px;color:#3a2338;counter-reset:sec}
 .book .txt>*:first-child{margin-top:0}
 .book .txt h2{position:relative;font-family:'Playfair Display',serif;font-weight:800;font-size:26px;line-height:1.12;margin:42px 0 14px;color:var(--accent-ink);padding-top:22px}
 .book .txt h2::before{counter-increment:sec;content:counter(sec,decimal-leading-zero);position:absolute;top:16px;left:0;font-size:12.5px;font-weight:800;letter-spacing:.12em;color:var(--accent);opacity:.62}
@@ -195,48 +257,76 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 .book .txt tbody tr:last-child td{border-bottom:0}
 /* pull quote */
 .book .txt blockquote{margin:22px 0;padding:6px 0 6px 24px;border-left:4px solid var(--accent);font-family:'Playfair Display',serif;font-size:19px;font-style:italic;line-height:1.4;color:var(--accent-ink)}
-/* end-of-book doodle sign-off, in the margin whitespace after the last line */
-.book .txt::after{content:"";display:block;height:56px;margin:28px auto 2px;
- background:url('assets/building-interiors/library-shelf/doodles/end-doodles.svg') no-repeat center/auto 46px}
-
-/* Reader refresh — the same midnight / white-paper / vivid-accent grammar as
-   the Miss Jeeves answer panel. This deliberately supersedes the older
-   burgundy, beige, candy-stripe magazine treatment above. */
-#reader{--accent:#d62886;background:rgba(7,20,47,.76);backdrop-filter:blur(4px) saturate(.88)}
-.book{--accent-ink:color-mix(in srgb,var(--accent) 62%,#07142f);width:min(1080px,100%);
-  border:2px solid rgba(24,198,216,.75);border-radius:18px;background:#fff;color:#30263d;
-  box-shadow:0 44px 100px rgba(2,8,28,.62)}
-.book .band{padding:24px 30px 22px;background:var(--midnight);border-bottom:4px solid #12c8df}
-.book .band::before{content:none}
-.book .band::after{content:"MISS JEEVES · REFERENCE DESK";color:#bceef4;opacity:.72;letter-spacing:.3em}
-.book .band .m{color:#8cebf4;font-size:9px;font-weight:800;letter-spacing:.22em;opacity:1}
-.book .band button{background:#e84a95;color:var(--midnight);border:0;border-radius:10px;
-  padding:10px 17px;font-weight:800;transition:background .15s,transform .15s}
-.book .band button:hover{background:#f166aa;transform:translateY(-1px)}
-.book .band button:focus-visible{outline:3px solid #58d9e8;outline-offset:3px}
-.book .body{grid-template-columns:250px 1fr;background:#fff}
-.book .toc{padding:24px 17px;background:#eef3ff;border-right:1px solid #cfdcf8}
-.book .toc::before{color:#6477a5}
-.book .toc a{padding:9px 10px;color:#283554}
-.book .toc a::before{color:#6d42d8;font-weight:800;opacity:1}
-.book .toc a:hover,.book .toc a:focus-visible{background:#dce8ff;color:#07142f;outline:2px solid #58d9e8;outline-offset:-2px}
-.book .toc::after{content:none}
-.book .txt{padding:34px 58px 48px 46px;color:#30263d;background:#fff}
-.book .txt .lede{color:#30263d}
-.book .txt .term{border-color:#dbe4ff}
-.book .txt .callout{background:#f5f1ff;border-color:#d9ccff;box-shadow:0 3px 10px rgba(49,35,90,.08)}
-.book .txt .ex-bad{background:#fff0f6;border-color:#f3c6dc}
-.book .txt .ex-good{background:#ecfbff;border-color:#bdebf2}
-.book .txt .receipts{background:#eef6ff;border-color:#afc5ea}
+/* Open book — a useful SUNNYVAiLE reference edition, not a web page in a
+   rounded modal. The paper, index and entries behave like one editorial
+   object; colour belongs to the book rather than to a generic card system. */
+#reader{--accent:#245ed1;background:rgba(6,15,37,.72);backdrop-filter:blur(5px) saturate(.88)}
+.book{--accent-ink:color-mix(in srgb,var(--accent) 72%,#07142f);width:min(1160px,calc(100dvw - 52px));max-height:calc(100dvh - 52px);
+  border:1px solid rgba(255,255,255,.62);border-radius:7px;background:#f4f6ff;color:#25283b;
+  box-shadow:0 42px 110px rgba(2,8,28,.66)}
+.book .band{min-height:112px;padding:31px 28px 18px;background:
+  linear-gradient(118deg,color-mix(in srgb,var(--accent) 86%,#07142f) 0 62%,#07142f 62% 100%);
+  border-bottom:6px solid #18c6d8;align-items:flex-end}
+.book .band::before{content:"";height:7px;background:var(--accent)}
+.book .band::after{content:"SUNNYVAiLE LIBRAiRY · REFERENCE COPY";right:27px;top:15px;color:#d8f8ff;opacity:.78;letter-spacing:.22em}
+.book .band .t{font-size:clamp(28px,3.5vw,42px);letter-spacing:-.02em}
+.book .band .m{max-width:700px;color:#fff;font-size:10px;line-height:1.42;font-weight:800;letter-spacing:.18em;opacity:.9}
+.book .band .t>.puffy-btn{color:#fff}
+.book .band button:not(.puffy-btn){align-self:center;background:#f7f1ff;color:#07142f;border:2px solid #07142f;border-radius:4px;
+  padding:8px 13px;font-weight:800;font-size:11px;box-shadow:4px 4px 0 #18c6d8;transition:transform .15s,box-shadow .15s}
+.book .band button:not(.puffy-btn):hover{background:#fff;transform:translate(-1px,-1px);box-shadow:6px 6px 0 #18c6d8}
+.book .band button:not(.puffy-btn):focus-visible{outline:3px solid #fff;outline-offset:3px}
+.book .body{grid-template-columns:214px 1fr;background:#f4f6ff}
+.book .toc{padding:26px 14px 34px;background:
+  linear-gradient(180deg,color-mix(in srgb,var(--accent) 10%,#eef2ff),#e9effc);
+  border-right:2px solid color-mix(in srgb,var(--accent) 32%,#c8d5ee)}
+.book .toc::before{content:"CONTENTS · QUICK INDEX";color:#34476d;font-size:9px;font-weight:800;margin-bottom:16px}
+.book .toc a{padding:7px 8px;border-radius:3px;color:#263654;font-size:11.5px;line-height:1.25}
+.book .toc a::before{color:var(--accent);font-weight:900;opacity:1}
+.book .toc a:hover,.book .toc a:focus-visible{background:#fff;color:#07142f;outline:2px solid var(--accent);outline-offset:-2px}
+.book .toc::after{content:none;display:none}
+.book .txt{padding:38px 54px 58px;color:#2c2738;background:
+  linear-gradient(90deg,rgba(255,255,255,.86),rgba(249,248,255,.96)),
+  radial-gradient(circle at 10% 10%,color-mix(in srgb,var(--accent) 8%,transparent),transparent 45%);
+  line-height:1.62;font-size:15px}
+.book .txt .lede{position:relative;margin:0 0 35px;padding:22px 24px 22px 28px;color:#17213b;
+  background:color-mix(in srgb,var(--accent) 9%,#f7f4ff);border-left:8px solid var(--accent);
+  font-family:'Playfair Display',Georgia,serif;font-size:19px;line-height:1.48}
+.book .txt .lede::before{content:"WHY THESE WORDS";display:block;margin-bottom:9px;color:var(--accent);
+  font-family:'Jost',sans-serif;font-size:9px;font-weight:900;letter-spacing:.2em}
+.book .txt .lede::first-letter{float:none;margin:0;font:inherit;color:inherit}
+.book .txt h2{margin:46px -18px 8px;padding:14px 18px 13px;color:#fff;background:var(--accent);
+  font-family:'Jost',sans-serif;font-size:20px;line-height:1.1;text-transform:uppercase;letter-spacing:.055em}
+.book .txt h2::before{position:static;display:inline;margin-right:12px;color:#fff;font-size:10px;opacity:.78}
+.book .txt h2::after{content:none}
+.book .txt .term{display:grid;grid-template-columns:minmax(175px,210px) 1fr;column-gap:28px;row-gap:0;
+  margin:0;padding:22px 4px 23px;background:transparent;border:0;border-top:2px solid color-mix(in srgb,var(--accent) 25%,#d5dced);
+  border-radius:0;box-shadow:none}
+.book .txt .term h3{grid-column:1;grid-row:1 / span 8;align-self:start;margin:1px 0 0;padding:0 12px 0 0;
+  color:var(--accent-ink);font-size:20px;line-height:1.15}
+.book .txt .term h3>.puffy-btn{display:flex;margin:12px 0 0;color:#354461}
+.book .txt .term p{grid-column:2;margin:0 0 9px;font-size:14px;line-height:1.56}
+.book .txt .term p:last-child{margin-bottom:0}
+.book .txt .term p strong{color:var(--accent-ink)}
+.book .txt .term-feature{margin:12px -14px;padding:24px 18px;background:color-mix(in srgb,var(--accent) 8%,#f8f6ff);
+  border-top:3px solid var(--accent);border-bottom:1px solid color-mix(in srgb,var(--accent) 25%,#d5dced)}
+.book .txt .go-deeper{margin-top:5px;padding-top:9px;border-top:1px solid color-mix(in srgb,var(--accent) 22%,#d5dced)}
+.book .txt .callout{margin:32px 0 20px;padding:20px 22px;background:#101d40;color:#f7f5ff;border:0;border-left:8px solid #e84a95;
+  border-radius:3px;box-shadow:none}
+.book .txt .callout>b:first-child{background:#18c6d8;color:#07142f;border-radius:2px}
+.book .txt .callout p{margin:8px 0 0}
+.book .txt .receipts{margin:22px 0 0;padding:18px 20px;background:#eaf0ff;border:1px solid #b8c9ee;border-radius:3px;font-size:12px}
+.book .txt .receipts h3{color:#34476d}
 .book .txt .receipts li{color:#425477}
 .book .txt .badge-solid{background:#d8f5ed;color:#176154}
 .book .txt .badge-contested{background:#efe5ff;color:#6737aa}
 .book .txt .badge-unknown{background:#e4f5ff;color:#235f91}
 .book .txt .meta{color:#53688f;background:#f0f4ff;border-color:#d6e0f7}
-.book .txt table{border-color:#dbe4ff}
+.book .txt table{border-color:#c9d6f1;border-radius:3px}
 .book .txt th,.book .txt td{border-bottom-color:#dbe4ff}
-.book .txt tbody tr:nth-child(even){background:#f6f8ff}
-.book .txt::after{content:none}
+.book .txt tbody tr:nth-child(even){background:#f0f4ff}
+.book .txt::after{content:"SUNNYVAiLE LIBRAiRY · RETURN TO THE SHELF WHEN YOU ARE DONE";height:auto;margin:42px 0 0;padding-top:13px;
+  color:#68789a;border-top:1px solid #cbd6ec;background:none;font-size:8px;font-weight:800;letter-spacing:.18em;text-align:center}
 .book.focused{width:min(900px,100%)}
 .book.focused .body{grid-template-columns:1fr}
 .book.focused .toc{display:none}
@@ -244,13 +334,27 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 .book.focused .txt h3:first-child{margin-top:0}
 .book.focused .txt [hidden]{display:none!important}
 
+@media(max-width:900px){
+  .book .txt{padding:30px 30px 46px}
+  .book .txt .lede{font-size:17px;text-align:left}
+  .book .txt .term,.book .txt .term-feature{display:block;margin:0;padding:20px 3px 21px}
+  .book .txt .term-feature{margin:10px -8px;padding:21px 11px}
+  .book .txt .term h3{margin:0 0 10px;padding:0}
+  .book .txt .term h3>.puffy-btn{display:inline-flex;margin:0 0 0 7px}
+}
+
 @media(max-width:560px){.book .body{grid-template-columns:1fr}.book .toc{display:none}
-  .book .txt{padding:24px 22px 34px;font-size:15.5px;background:none}.book .txt h2{font-size:22px}.book .txt .lede{font-size:17px}
+  .book .txt{padding:24px 18px 34px;font-size:15.5px}.book .txt h2{margin:38px -8px 7px;padding:12px 10px;font-size:17px}.book .txt .lede{padding:18px;font-size:16px}
   #reader.on{padding:12px}.book{max-height:calc(100vh - 24px)}
-  .book .band{padding:22px 20px 18px;align-items:flex-start;flex-direction:column}
+  .book .band{min-height:0;flex:0 0 auto;padding:20px 18px 17px;align-items:flex-start;flex-direction:column}
   .book .band::after{content:none}.book .band .m{max-width:100%;font-size:8px;line-height:1.45}
-  .book .band .t{font-size:27px}.book .band button{align-self:flex-start}
+  .book .band .t{font-size:27px}.book .band button:not(.puffy-btn){align-self:flex-start;margin-top:11px}
   .book.focused .txt{padding:26px 22px 34px}
+  .book .txt .term,.book .txt .term-feature{display:block;margin:0;padding:18px 2px 19px}
+  .book .txt .term-feature{margin:10px -6px;padding:19px 10px}
+  .book .txt .term h3{margin:0 0 10px;padding:0;font-size:19px}
+  .book .txt .term h3>.puffy-btn{display:inline-flex;margin:0 0 0 6px}
+  .book .txt .term p{font-size:14px}
   .jv-form{flex-wrap:wrap}.jv-form input{flex:1 1 100%}.jv-form button{flex:1 1 100%;padding:13px}
   .entry{height:40vh;min-height:230px}
   .titleblock{margin-top:22px}.titleblock h1{font-size:40px}.lede{font-size:17px;margin-bottom:22px}
@@ -265,31 +369,92 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
   .brow{left:13%;right:13%}
   .brow--1{bottom:61.2%;height:24%}.brow--2{bottom:35%;height:24%}.brow--3{bottom:8.7%;height:24%}
   .caps{display:none}
-  .jv{padding:22px 18px 26px}.jv-head{align-items:flex-start;flex-direction:column}
-  .book .txt .example{grid-template-columns:1fr}}
+  .jv{padding:24px 18px 27px}.jv-head{align-items:flex-start;flex-direction:column}
+  .book .txt .example{grid-template-columns:1fr}
+  .arrival-visual{aspect-ratio:1491/1055}
+  .arrival-brand{left:5%;top:5%;width:54%;padding:0;box-shadow:none}
+  .arrival-brand .eyebrow{font-size:7px;letter-spacing:.18em}
+  .arrival-brand h1{margin:4px 0 6px}.arrival-brand h1 .place{font-size:10px;margin-bottom:5px}
+  .arrival-brand h1 .room{font-size:clamp(27px,9vw,38px)}
+  .arrival-brand p{display:none}
+  .arrival-brand .desktop-instruction{display:none}.arrival-brand .mobile-instruction{display:inline}
+  .stage-departments{display:none}
+  .stage-books{display:block;pointer-events:none}
+  .stage-book .tip,.stage-availability{display:none}
+  .library-route{padding:24px 18px 22px}
+  .library-route-head{grid-template-columns:1fr;gap:11px}
+  .library-route h2{font-size:27px}.library-route-intro{font-size:13px}
+  .library-steps{grid-template-columns:1fr;margin-top:18px}
+  .library-step{padding:15px 0;grid-template-columns:54px 1fr;gap:12px}
+  .library-step+.library-step{padding-left:0;border-left:0;border-top:1px solid #c6d0e8}
+  .step-number{font-size:43px}
+  .puffy-shortcut{align-items:flex-start;margin-top:12px;padding-top:15px}
+  .mobile-catalogue{display:grid;gap:18px;padding:26px 0 22px;background:linear-gradient(160deg,#eefaff 0%,#f3ecff 100%)}
+  .mobile-department{min-width:0}
+  .mobile-department-head{padding:0 18px 9px}
+  .mobile-department-head h2{font-family:'Jost',system-ui,sans-serif;color:var(--midnight);font-size:20px;letter-spacing:.08em}
+  .mobile-department-head p{margin:4px 0 0;color:#665674;font-size:12px;line-height:1.4}
+  .mobile-shelf{display:flex;gap:10px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;padding:4px 18px 16px}
+  .mobile-book{flex:0 0 126px;min-height:214px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+    scroll-snap-align:start;border:1px solid #c8d9ef;border-radius:12px;background:#fff;padding:10px;color:var(--midnight);
+    text-align:center;box-shadow:0 7px 18px rgba(49,34,78,.14)}
+  .mobile-book img{max-width:100%;height:150px;object-fit:contain;display:block;margin:auto}
+  .mobile-book b{font-size:12px;line-height:1.2}.mobile-book small{margin-top:4px;color:#8d2d68;font-size:10px;font-weight:700}
+  .mobile-book:not(.soon):focus-visible{outline:3px solid var(--cyan);outline-offset:2px}
+  .mobile-book.soon{opacity:.78}
+}
+@media(min-width:561px) and (max-width:900px){
+  .arrival-brand{left:5%;top:5%;width:34%;padding:0;box-shadow:none}
+  .arrival-brand .eyebrow{font-size:7px;letter-spacing:.18em}
+  .arrival-brand h1{margin:4px 0 5px}
+  .arrival-brand h1 .place{font-size:10px;margin-bottom:4px;letter-spacing:.14em}
+  .arrival-brand h1 .room{font-size:clamp(27px,4.6vw,37px)}
+  .arrival-brand p{display:none}
+}
 </style>
 </head>
 <body>
 <main>
 
-<div class="entry">
-  <img src="assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v3-lighter-carpet.png" alt="Inside the SUNNYVAiLE LIBRAiRY — packed metal bookcases and Miss Jeeves at the reference desk">
-</div>
-
 <div class="wrap">
-  <div class="titleblock">
-    <div class="eyebrow">Civic Square · SUNNYVAiLE</div>
-    <h1>The Town LIBR<span class="ai">Ai</span>RY</h1>
-  </div>
-  <p class="lede">A reference library isn't something you read cover to cover — you come in with a question and leave with the one answer.
-    <small>Ask Miss Jeeves at the desk, or pull a book off the shelf.</small>
-  </p>
+  <section class="arrival-visual" aria-labelledby="library-title">
+    <img src="assets/building-interiors/library-living-stacks-reset-v7.png" alt="Inside the SUNNYVAiLE LIBRAiRY — three curved book departments and Miss Jeeves at the reference desk">
+    <div class="arrival-brand">
+      <div class="eyebrow">Civic Square</div>
+      <h1 id="library-title"><span class="place">SUNNYV<span class="ai">Ai</span>LE</span><span class="room">LIBR<span class="ai">Ai</span>RY</span></h1>
+      <p><span class="desktop-instruction"><strong>The book covers are the buttons.</strong> Choose a shelf, then click a cover to open it here.</span><span class="mobile-instruction"><strong>Browse the shelves below.</strong> Tap any featured cover to open it here.</span></p>
+    </div>
+    <div class="stage-departments" id="caps" aria-hidden="true"></div>
+    <div class="stage-books" id="wallcase" aria-label="Pull a book from the LIBRAiRY shelves"></div>
+  </section>
+
+  <section class="library-route" aria-labelledby="library-route-title">
+    <div class="library-route-head">
+      <div>
+        <div class="eyebrow">How to use the LIBRAiRY</div>
+        <h2 id="library-route-title">Start with a book. Leave with something useful.</h2>
+      </div>
+      <p class="library-route-intro">The shelves are the catalogue. Open a featured cover, use the contents to jump around, or read the whole book. Miss Jeeves can take a question straight to the most useful answer.</p>
+    </div>
+    <div class="library-steps">
+      <div class="library-step"><span class="step-number" aria-hidden="true">01</span><div><b><span>Browse by what you need</span>Pick a shelf</b><p><strong>The 101s</strong> explain the basics. <strong>Tools</strong> help you choose. <strong>Reference</strong> answers the bigger questions.</p></div></div>
+      <div class="library-step"><span class="step-number" aria-hidden="true">02</span><div><b><span>The covers are controls</span>Open a book</b><p>Click any available cover. A cover marked <strong>“Lands EP…”</strong> is a preview and unlocks with that episode.</p></div></div>
+      <div class="library-step"><span class="step-number" aria-hidden="true">03</span><div><b><span>Whole book or one answer</span>Read your way</b><p>Use the contents to jump to one section, or settle in and read from cover to cover.</p></div></div>
+      <div class="library-step"><span class="step-number" aria-hidden="true">?</span><div><b><span>Not sure where to start?</span><a href="#miss-jeeves">Ask Miss Jeeves</a></b><p>Use your own words. She answers directly and points to the exact book or section.</p></div></div>
+    </div>
+    <div class="puffy-shortcut">
+      <img src="/assets/puffies/usable-25/01-heart-sunglasses.png" alt="">
+      <p><strong>Save your place.</strong> When a book or passage is worth keeping, choose one of your 10 Puffy Stickers. It becomes a shortcut on the Puffy Board in <a href="/laidies-card.html#puffyPouch">My Closet</a>.</p>
+    </div>
+  </section>
+
+  <section class="mobile-catalogue" id="mobile-catalogue" aria-label="Browse the LIBRAiRY books"></section>
 
   <!-- Ask Miss Jeeves -->
-  <section class="jv">
+  <section class="jv" id="miss-jeeves" aria-labelledby="miss-jeeves-title">
     <div class="jv-head">
       <span class="jv-kicker">Reference desk</span>
-      <div class="h">Ask Miss Jeeves<small>The reference desk — a plain-words question, every place we cover it.</small></div>
+      <div class="h" id="miss-jeeves-title">Ask Miss Jeeves<small>Ask in plain words. Get a direct answer, then open the source.</small></div>
     </div>
     <form class="jv-form" onsubmit="return jvGo(event)">
       <input id="jv-q" type="text" autocomplete="off" placeholder="e.g. how do I know if it's telling the truth?" aria-label="Ask Miss Jeeves a question">
@@ -304,11 +469,6 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
     </div>
     <div class="jv-results" id="jv-results" aria-live="polite" aria-atomic="true"></div>
   </section>
-
-  <section class="libroom" aria-label="The SUNNYVAiLE LIBRAiRY shelves">
-    <div class="unit" id="wallcase"></div>
-  </section>
-  <div class="caps" id="caps"></div>
 </div>
 </main>
 
@@ -321,23 +481,23 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 </div>
 
 <script>
-const B='assets/library-101/';
+const B='assets/library-101/bright-family-v2/';
 const SECTIONS=[
  {name:'THE 101s',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-101s-v1.png',cap:'The plain-English basics — start here if the words themselves are the problem.',
   books:[
-   {id:'vocab-101',t:'Vocab 101',s:'Every AI word in plain English — prompt, token, hallucination, the lot.',img:B+'textbook-vocab-101.png',c:'#8e3b62',src:'/content/library-books/rendered/vocab-101.html',
-    toc:['What a prompt is','Tokens','Hallucination','Context','Model vs tool'],
+   {id:'vocab-101',t:'Vocab 101',s:'The useful AI words from across SUNNYVAiLE — translated and arranged A–Z.',img:B+'textbook-vocab-101.png',c:'#245ed1',src:'/content/library-books/rendered/vocab-101.html?v=20260725-agi-threshold-v8',
+    toc:['Agentic AI','AGI','AI winter','Context','Context window','Generative AI','Grounding','Hallucination','Knowledge cutoff','Model / large language model (LLM)','Multimodal','Prompt','Reasoning model','Retrieval','Token','Training data'],
     body:'<h4>What a prompt is</h4><p>A prompt is just what you say to it. That is the entire mystery.</p><h4>Tokens</h4><p>Machines read in pieces, not words. Useful only when someone bills you by it.</p><h4>Hallucination</h4><p>When it states something false with total confidence. Not lying — it has no idea it is wrong.</p>'},
-   {id:'concepts-101',t:'Concepts 101',s:'How it actually works, minus the math — prediction, training, why it sounds so sure.',img:B+'textbook-concepts-101.png',c:'#2f6f7c',src:'/content/library-books/rendered/concepts-101.html',
+   {id:'concepts-101',t:'Concepts 101',s:'How it actually works, minus the math — prediction, training, why it sounds so sure.',img:B+'textbook-concepts-101.png',c:'#7038c9',src:'/content/library-books/rendered/concepts-101.html?v=20260725-agi-threshold-v2',
     toc:['Prediction','Training','Why it sounds sure'],
     body:'<h4>Prediction</h4><p>It predicts the next likely piece of text. That is the engine. Everything else is packaging.</p><h4>Training</h4><p>It read an enormous amount, once. It is not reading now.</p>'},
-   {id:'briefing-101',t:'Briefing 101',s:'How to ask so it comes back useful — brief it like a sharp new hire.',img:B+'textbook-briefing-101.png',c:'#b0522c',src:'/content/library-books/rendered/briefing-101.html',
+   {id:'briefing-101',t:'Briefing 101',s:'How to ask so it comes back useful — brief it like a sharp new hire.',img:B+'textbook-briefing-101.png',c:'#d83f86',src:'/content/library-books/rendered/briefing-101.html',
     toc:['Brief it like a new hire','Context','Show an example'],
     body:'<h4>Brief it like a new hire</h4><p>Talented, fast, no idea who your client is. Tell it what you would tell a competent stranger.</p>'},
-   {id:'setup-101',t:'Setup 101',s:'Set it up once so every tool already knows how you work.',img:B+'textbook-setup-101.png',c:'#3d6b3f',src:'/content/library-books/rendered/setup-101.html',
+   {id:'setup-101',t:'Setup 101',s:'Set it up once so every tool already knows how you work.',img:B+'textbook-setup-101.png',c:'#1597a7',src:'/content/library-books/rendered/setup-101.html',
     toc:['Saved instructions','Your defaults'],
     body:'<h4>Saved instructions</h4><p>Tell it once how you like things, and stop re-typing it every Wednesday.</p>'},
-   {id:'accounts-101',t:'Accounts 101',s:"What's safe to paste and what never is — the privacy basics.",img:B+'textbook-accounts-101.png',c:'#5b3b7a',src:'/content/library-books/rendered/accounts-101.html',
+   {id:'accounts-101',t:'Accounts 101',s:"What's safe to paste and what never is — the privacy basics.",img:B+'textbook-accounts-101.png',c:'#e45e55',src:'/content/library-books/rendered/accounts-101.html',
     toc:['Never paste','Work vs personal'],
     body:'<h4>Never paste</h4><p>Client names, anything under NDA, anything you would not read aloud in a lift.</p>'}
   ]},
@@ -367,27 +527,40 @@ const SECTIONS=[
 const ALL={};
 SECTIONS.forEach(s=>s.books.forEach(b=>ALL[b.id]=b));
 
-/* spread a section's books down its column's 3 shelves, front-loaded, so no shelf sits empty */
-function shelfSplit(books){const out=[[],[],[]];let idx=0,rem=books.length;
-  for(let s=0;s<3;s++){const take=Math.max(1,Math.ceil(rem/(3-s)));out[s]=books.slice(idx,idx+take);idx+=take;rem-=take;}return out;}
-const mkBook=b=> b.soon
-  ? `<span class="bk soon"><img src="${b.img}" alt="${b.t}"><span class="tip"><b>${b.t}</b>${b.s||''} <em>· Lands ${b.soon}</em></span></span>`
-  : `<button class="bk" onclick="openBook('${b.id}')"><img src="${b.img}" alt="${b.t}"><span class="tip"><b>${b.t}</b>${b.s||''}</span></button>`;
-document.getElementById('wallcase').innerHTML = SECTIONS.map((s,sectionIndex)=>{
-  const rows=shelfSplit(s.books).map((r,i)=>`<div class="brow brow--${i+1}">${r.map(mkBook).join('')}</div>`).join('');
-  return `<div class="bay bay--${sectionIndex+1}"><div class="ledge"><img src="${s.sign}" alt="${s.name}"></div>${rows}</div>`;
-}).join('');
-document.getElementById('caps').innerHTML =
-  SECTIONS.map(s=>`<p class="cap"><b>${s.name}</b><span>${s.cap}</span></p>`).join('');
-/* on hover/focus, lift the book's bay + shelf-row above their siblings so the popup
-   renders in front of the shelving, the sign and any other books */
-document.querySelectorAll('.bk').forEach(bk=>{
-  const bay=bk.closest('.bay'), brow=bk.closest('.brow');
-  const on=()=>{bay&&bay.classList.add('lift');brow&&brow.classList.add('lift');};
-  const off=()=>{bay&&bay.classList.remove('lift');brow&&brow.classList.remove('lift');};
-  bk.addEventListener('mouseenter',on);bk.addEventListener('mouseleave',off);
-  bk.addEventListener('focus',on);bk.addEventListener('blur',off);
-});
+/* V7 was generated from the actual catalogue: each visible feature cover maps
+   to the real book object below. Coordinates are percentages of the 1491×1055
+   environment plate, so the shelf remains the interface at every desktop size. */
+const STAGE_SLOTS={
+ 'vocab-101':[7.1,28.4,7.2,17.2],'concepts-101':[15.4,31.3,6.4,15.1],
+ 'briefing-101':[6.8,46.3,7.1,14.3],'setup-101':[14.8,47.1,6.5,14.3],
+ 'accounts-101':[10.1,62.8,8.0,15.5],
+ 'whos-who':[28.8,34.0,6.2,13.0],'chatgpt':[35.7,35.2,5.9,12.7],
+ 'claude':[28.7,48.7,6.1,13.2],'gemini':[36.0,49.1,6.0,13.1],
+ 'copilot':[28.5,63.1,6.4,15.1],'perplexity':[36.0,62.6,6.3,14.7],
+ 'straight-answers':[48.8,37.3,5.7,11.7],'how-to-check':[53.8,39.2,5.3,11.6],
+ 'what-not-to-paste':[49.7,50.6,5.4,11.8],'prompt-cookbook':[50.6,64.1,5.9,14.0]
+};
+const stageMarkup=b=>{
+ const p=STAGE_SLOTS[b.id],style=`left:${p[0]}%;top:${p[1]}%;width:${p[2]}%;height:${p[3]}%`;
+ const tip=`<span class="tip"><b>${b.t}</b>${b.s||''}${b.soon?` <em>· Lands ${b.soon}</em>`:''}</span>`;
+ const cover=`<img class="stage-cover" src="${b.img}" alt="" aria-hidden="true">`;
+ const availability=b.soon?`<span class="stage-availability" aria-hidden="true">Lands ${b.soon}</span>`:'';
+ return b.soon
+  ? `<span class="stage-book soon" style="${style}" tabindex="0" aria-label="${b.t}. ${b.s||''}. Preview only. Lands ${b.soon}.">${cover}${availability}${tip}</span>`
+  : `<button class="stage-book" type="button" style="${style}" aria-label="Open ${b.t}" onclick="openBook('${b.id}')">${cover}${tip}</button>`;
+};
+document.getElementById('wallcase').innerHTML=SECTIONS.flatMap(s=>s.books).map(stageMarkup).join('');
+document.getElementById('caps').innerHTML=SECTIONS.map(s=>`<span class="stage-department">${s.name}</span>`).join('');
+document.getElementById('mobile-catalogue').innerHTML=SECTIONS.map(s=>`
+ <section class="mobile-department">
+  <div class="mobile-department-head"><h2>${s.name}</h2><p>${s.cap}</p></div>
+  <div class="mobile-shelf">
+   ${s.books.map(b=>b.soon
+    ? `<span class="mobile-book soon" tabindex="0" aria-label="${b.t}. ${b.s||''}. Lands ${b.soon}."><img src="${b.img}" alt=""><b>${b.t}</b><small>Lands ${b.soon}</small></span>`
+    : `<button class="mobile-book" type="button" onclick="openBook('${b.id}')"><img src="${b.img}" alt=""><b>${b.t}</b><small>Open book</small></button>`
+   ).join('')}
+  </div>
+ </section>`).join('');
 
 /* ── Ask Miss Jeeves ── */
 let IDX=[];
@@ -487,6 +660,18 @@ function renderShelfCopy(b,txt,toc,fallback){
     toc.innerHTML=(b.toc||[]).map(x=>`<span>${x}</span>`).join('');
   }
 }
+function decoratePuffySections(b,id,txt){
+  const targets=id==='vocab-101'?[...txt.querySelectorAll('.term')]:[...txt.querySelectorAll('h1,h2,h3')];
+  targets.forEach((target,i)=>{
+    const heading=target.matches('h1,h2,h3')?target:target.querySelector('h3');
+    const sectionTitle=heading?heading.textContent.trim():b.t;
+    target.setAttribute('data-puffy-id','library-'+id+'-section-'+i);
+    target.setAttribute('data-puffy-title',sectionTitle);
+    target.setAttribute('data-puffy-kind',id==='vocab-101'?'entry':'section');
+    target.setAttribute('data-puffy-summary',b.t+' · SUNNYVAiLE LIBRAiRY');
+    target.setAttribute('data-puffy-url','/library.html#'+id+'::'+encodeURIComponent(sectionTitle));
+  });
+}
 function scrollBookTo(headingNeedle){
   if(!headingNeedle)return;
   const needle=headingNeedle.toLowerCase();
@@ -495,11 +680,16 @@ function scrollBookTo(headingNeedle){
   if(heading)heading.scrollIntoView({block:'start'});
 }
 function focusBookSection(txt,headingNeedle){
+  [...txt.children].forEach(el=>{el.hidden=false;});
   if(!headingNeedle)return;
   const needle=headingNeedle.toLowerCase();
   const heading=[...txt.querySelectorAll('h1,h2,h3,h4')]
     .find(h=>h.textContent.trim().toLowerCase().includes(needle));
   if(!heading)return;
+  /* Some rendered books group sections inside page wrappers. In that case,
+     keep the complete book visible and scroll to the saved passage instead of
+     hiding every top-level wrapper and producing an empty reader. */
+  if(heading.parentElement!==txt)return;
   const level=Number(heading.tagName.slice(1));
   const keep=new Set();
   let node=heading;
@@ -511,9 +701,9 @@ function focusBookSection(txt,headingNeedle){
   [...txt.children].forEach(el=>{el.hidden=!keep.has(el);});
 }
 const READER_ACCENTS={
-  'vocab-101':'#008b9e','concepts-101':'#6d42d8','briefing-101':'#d62886',
-  'setup-101':'#2467c8','accounts-101':'#7b35c6','whos-who':'#007ea8',
-  'straight-answers':'#d62886','how-to-check':'#6d42d8'
+  'vocab-101':'#245ed1','concepts-101':'#7038c9','briefing-101':'#d83f86',
+  'setup-101':'#1597a7','accounts-101':'#e45e55','whos-who':'#245ed1',
+  'straight-answers':'#6539a8','how-to-check':'#245ed1'
 };
 let readerReturnFocus=null;
 function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
@@ -521,7 +711,16 @@ function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
   document.querySelector('.book').classList.toggle('focused',Boolean(headingNeedle));
   document.getElementById('reader').style.setProperty('--accent',READER_ACCENTS[id]||'#d62886');
   document.getElementById('rm').textContent=b.s||'';
-  document.getElementById('rt').textContent=b.t;
+  const readerTitle=document.getElementById('rt');
+  readerTitle.textContent=b.t;
+  const oldPuffyRow=readerTitle.nextElementSibling;
+  if(oldPuffyRow&&oldPuffyRow.classList.contains('puffy-save-row'))oldPuffyRow.remove();
+  readerTitle.removeAttribute('data-puffy-wired');
+  readerTitle.setAttribute('data-puffy-id','library-book-'+id);
+  readerTitle.setAttribute('data-puffy-title',b.t);
+  readerTitle.setAttribute('data-puffy-kind','book');
+  readerTitle.setAttribute('data-puffy-summary','Saved book · SUNNYVAiLE LIBRAiRY');
+  readerTitle.setAttribute('data-puffy-url','/library.html#'+id);
   const txt=document.getElementById('rtxt'), toc=document.getElementById('rtoc');
   if(b.src){ txt.innerHTML='<p style="opacity:.6">Pulling it off the shelf…</p>'; toc.innerHTML='';
     fetch(b.src).then(r=>{if(!r.ok)throw new Error('not found');return r.text()}).then(h=>{
@@ -530,24 +729,31 @@ function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
       const pages=[...doc.querySelectorAll('.gr-page')];
       txt.innerHTML = pages.length ? pages.map(p=>p.innerHTML).join('') : (doc.body.innerHTML||'');
       txt.querySelectorAll('h1,h2,h3').forEach((h,i)=>{h.id='sec'+i});
-      toc.innerHTML=[...txt.querySelectorAll('h2,h3')].filter(h=>!h.closest('.receipts')).map(h=>`<a href="#${h.id}" onclick="event.preventDefault();document.getElementById('${h.id}').scrollIntoView({behavior:'smooth'})">${h.textContent.trim()}</a>`).join('');
+      decoratePuffySections(b,id,txt);
+      const tocSelector=id==='vocab-101'?'.term h3':'h2,h3';
+      toc.innerHTML=[...txt.querySelectorAll(tocSelector)].filter(h=>!h.closest('.receipts')).map(h=>`<a href="#${h.id}" onclick="event.preventDefault();document.getElementById('${h.id}').scrollIntoView({behavior:'smooth'})">${h.textContent.trim()}</a>`).join('');
       focusBookSection(txt,headingNeedle);
+      if(window.svPuffyScan)window.svPuffyScan();
       requestAnimationFrame(()=>scrollBookTo(headingNeedle));
-    }).catch(()=>{renderShelfCopy(b,txt,toc,b.body||'<p>Could not open this one.</p>');});
-  } else { renderShelfCopy(b,txt,toc);focusBookSection(txt,headingNeedle);requestAnimationFrame(()=>scrollBookTo(headingNeedle)); }
+    }).catch(()=>{renderShelfCopy(b,txt,toc,b.body||'<p>Could not open this one.</p>');decoratePuffySections(b,id,txt);if(window.svPuffyScan)window.svPuffyScan();});
+  } else { renderShelfCopy(b,txt,toc);decoratePuffySections(b,id,txt);focusBookSection(txt,headingNeedle);if(window.svPuffyScan)window.svPuffyScan();requestAnimationFrame(()=>scrollBookTo(headingNeedle)); }
   document.getElementById('reader').classList.add('on');
   document.getElementById('reader').setAttribute('aria-hidden','false');
+  document.body.classList.add('reader-open');
   document.getElementById('reader-close').focus();
-  history.replaceState(null,'','#'+id);}
+  history.replaceState(null,'','#'+id+(headingNeedle?'::'+encodeURIComponent(headingNeedle):''));}
 function closeBook(){
   document.getElementById('reader').classList.remove('on');
   document.getElementById('reader').setAttribute('aria-hidden','true');
+  document.body.classList.remove('reader-open');
   history.replaceState(null,'',location.pathname);
   if(readerReturnFocus&&typeof readerReturnFocus.focus==='function')readerReturnFocus.focus();
 }
 document.getElementById('reader').addEventListener('click',e=>{if(e.target.id==='reader')closeBook()});
 addEventListener('keydown',e=>{if(e.key==='Escape')closeBook()});
-if(location.hash&&ALL[location.hash.slice(1)])openBook(location.hash.slice(1));
+const libraryHash=location.hash.slice(1).split('::');
+if(libraryHash[0]&&ALL[libraryHash[0]])openBook(libraryHash[0],libraryHash[1]?decodeURIComponent(libraryHash[1]):'');
 </script>
+<script defer src="/content/site/puffy-bookmarks.js?v=20260724-pouch10"></script>
 </body>
 </html>

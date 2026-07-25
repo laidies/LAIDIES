@@ -65,7 +65,8 @@ try {
 // ---------- 5: reward event emit/consume parity ----------
 const scriptJs = read('script.js');
 const cardJs = read('laidies-card.html');
-const consumed = [...new Set([...cardJs.matchAll(/["'](quiz_score|quiz_sticker|trading_card|secret_badge|community_room_post|merit_badge|dare_penalty|sticker_girl_talk|hidden_charm)["']/g)].map((m) => m[1]))];
+const collectionMapSource = cardJs.match(/var COLLECTION_MAP = \{([\s\S]*?)\n  \};/)?.[1] || '';
+const consumed = [...new Set([...collectionMapSource.matchAll(/["'](quiz_score|quiz_sticker|trading_card|secret_badge|community_room_post|merit_badge|dare_penalty|sticker_girl_talk|hidden_charm)["']/g)].map((m) => m[1]))];
 for (const type of consumed) {
   const emitted = scriptJs.includes(`"${type}"`) || scriptJs.includes(`'${type}'`);
   if (!emitted) fail(`reward-sync: Closet consumes "${type}" but script.js never emits it`);

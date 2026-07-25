@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Dream Phone · LAiDIES</title>
-<meta name="description" content="The AI called with a wild 90s fact. Call around town to check it — and decide: For Real, or As If?" />
+<meta name="description" content="An experimental scripted claim game for practising questions about specifics, sources and missing denominators." />
 <meta name="theme-color" content="#fffdfb" />
 <link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -127,7 +127,7 @@
   <div class="wrap">
     <p class="eyebrow">Is that even true?<span class="beta">Beta</span></p>
     <h1>Dream Phone</h1>
-    <p class="lede">The AI called with a wild 90s fact. <b>Call around town to check it</b> — nobody just hands you the answer, so work a few lines, weigh who's talking, and make the call: <b>For Real</b>, or <b>As If</b>?</p>
+    <p class="lede">Experimental scripted claim game. <b>Call around town to practise noticing specifics, disagreement, and missing denominators</b> — then compare your read with the deck&rsquo;s explanation. It is not an authoritative fact-checking service.</p>
     <div class="scorebar"><span id="roundLabel"></span><span class="dots" id="scoreDots"></span></div>
 
     <div class="card claim-card">
@@ -140,15 +140,15 @@
       <div class="directory" id="directory"></div>
       <div class="notes" id="notes"><p class="notes-empty">No calls yet — dial someone and hear what they've got.</p></div>
       <div class="verdict">
-        <button class="btn btn-real" data-v="for-real">✓ For Real<small>trust it as stated</small></button>
-        <button class="btn btn-asif" data-v="as-if">✗ As If<small>don't buy it</small></button>
+        <button class="btn btn-real" data-v="for-real">✓ For Real<small>closest read in this deck</small></button>
+        <button class="btn btn-asif" data-v="as-if">✗ As If<small>closest read in this deck</small></button>
       </div>
       <div class="reveal" id="reveal"></div>
     </div>
 
     <div class="final" id="final"></div>
 
-    <p class="foot">Every fact here is <b>real and sourced</b>; the fakes are period-accurate myths. Nobody in the phonebook just <em>tells you the answer</em> — you catch a lie by the <b>scatter</b> (nobody agrees on the specifics) or the <b>missing number</b> (everyone shouts the scary figure, nobody says "out of how many"). <b>Beta</b> — tell us what feels off.</p>
+    <p class="foot"><b>Experimental deck:</b> claims and lines are scripted for practice, and source links are starting points for your own checking. Agreement alone is not proof; look for primary sources, dates, scope, and denominators before repeating a claim. <b>Beta</b> — tell us what needs correction.</p>
   </div>
 
 <script>
@@ -373,7 +373,7 @@ document.querySelectorAll(".btn-real,.btn-asif").forEach(b=>{
     const rows=r.reveal.rows.map(row=>`<div class="row"><span class="tag t-${row.tag}">${row.tag==="madeup"?"made up":row.tag}</span><span><b>${row.label}</b> — ${row.text}</span></div>`).join("");
     rev.innerHTML=`<p class="rv">${head}<small>${right?"nice read":"the crew was trying to fool you"}</small></p>`+
       `<div class="brk">${rows}</div><p class="lesson">${r.reveal.lesson}</p>`+
-      `<p class="src">🧾 The receipt: <a href="${r.reveal.url}" target="_blank" rel="noopener">${r.reveal.src}</a></p>`+
+      `<p class="src">🧾 Background link (check it yourself): <a href="${r.reveal.url}" target="_blank" rel="noopener">${r.reveal.src}</a></p>`+
       `<button class="next" id="next">${round<ROUNDS.length-1?"Next call →":"See how you did"}</button>`;
     drawScore();
     $("next").addEventListener("click",()=>{round++;round<ROUNDS.length?(loadRound(),$("game").scrollIntoView({behavior:"smooth",block:"start"})):showFinal();});

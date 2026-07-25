@@ -656,8 +656,8 @@
 
     <a href="/bookfair.html" style="display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin:8px 0 28px; padding:18px 22px; border-radius:14px; text-decoration:none; background:linear-gradient(135deg, rgba(75,33,72,0.10) 0%, rgba(155,63,95,0.16) 100%); border:1.5px solid rgba(155,63,95,0.30);">
       <span style="font-family:'Jost',sans-serif; font-size:11px; font-weight:800; letter-spacing:0.2em; text-transform:uppercase; color:var(--rose);">🦋 The Clip Exchange</span>
-      <span style="flex:1; min-width:220px; font-size:15px; line-height:1.5; color:var(--plum);">The free puffies are yours just for visiting. Got <strong>butterfly clips</strong> saved up? Cash them in for the fair-exclusive drops — the pull-down poster, the holographic card, the tassel bookmark.</span>
-      <span style="font-family:'Jost',sans-serif; font-weight:700; font-size:13px; color:var(--rose);">Spend your clips →</span>
+      <span style="flex:1; min-width:220px; font-size:15px; line-height:1.5; color:var(--plum);">The free Fair puffies are saved on this device. The Clip Exchange is still stocking its shelves, so no butterfly clips are charged here yet.</span>
+      <span style="font-family:'Jost',sans-serif; font-weight:700; font-size:13px; color:var(--rose);">See what is stocking →</span>
     </a>
 
     <script>
@@ -671,8 +671,8 @@
         // Rotating fair themes (13/yr). First = Summer.
         var THEMES = [
           { name: 'The Summer Fair', pack: [
-            { slug: 'bookmark-summer', name: 'Foil Bookmark', emoji: '🔖', kind: 'entry' },
-            { slug: 'icecream-pink',   name: 'Ice Cream Puffy', emoji: '🍦', kind: 'daily' },
+            { slug: 'butterfly-holo',  name: 'Holographic Butterfly Puffy', emoji: '🦋', kind: 'entry' },
+            { slug: 'ice-cream-cone-pink', name: 'Ice Cream Puffy', emoji: '🍦', kind: 'daily' },
             { slug: 'sun-holo',        name: 'Holo Sun Puffy', emoji: '☀️', kind: 'daily' },
             { slug: 'cherry-teal',     name: 'Teal Cherry Puffy', emoji: '🍒', kind: 'daily' },
             { slug: 'rainbow-holo',    name: 'Holo Rainbow Puffy', emoji: '🌈', kind: 'daily' },
@@ -753,7 +753,7 @@
           if (entry && !earned[entry.slug]) {
             earned[entry.slug] = { at: now.toISOString(), fair: w.cycle };
             writeJSON(EARN_KEY, earned);
-            status.textContent = '🔖 The ' + entry.name + ' is yours — free for walking in. Come back tomorrow for the next shelf.';
+            status.textContent = '🦋 The ' + entry.name + ' is saved on this device — free for walking in. Come back tomorrow for the next shelf.';
             render();
             return;
           }
@@ -817,7 +817,7 @@
       <a class="sv-cta" href="/library.html">
         <span>
           <span class="sv-cta-label">Need a reference instead?</span>
-          <span class="sv-cta-title">The Town LIBRAiRY</span>
+          <span class="sv-cta-title">SUNNYVAiLE LIBRAiRY</span>
         </span>
         <span class="sv-cta-arrow">→</span>
       </a>
