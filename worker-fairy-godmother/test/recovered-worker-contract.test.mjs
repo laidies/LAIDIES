@@ -171,4 +171,3 @@ test("returns revision output with the recovered revision kind", async () => {
   assert.equal(data.kind, "revision");
   assert.equal(data.response, "The deadline needs to move to Tuesday.");
 });
-

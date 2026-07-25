@@ -77,4 +77,3 @@ console.log(`PASS recovery checksum ${actualHash}`);
 console.log(`PASS recovered bytes ${recoveredBundle.byteLength}`);
 console.log(`Working mirror: ${mirrorStatus}`);
 console.log("Production mutation recorded: false");
-

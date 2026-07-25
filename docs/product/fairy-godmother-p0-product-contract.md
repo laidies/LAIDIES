@@ -1,10 +1,10 @@
 # FAiRY Godmother — P0 product and response contract
 
-**Date:** 2026-07-25  
-**Status:** SPECIFIED — implementation contract, not deployed behaviour  
-**Product owner:** Ali  
-**Implementation owner:** Codex  
-**Companion strategy:** `operations/research/fairy-godmother-hero-product-strategy-2026-07-25.md`  
+**Date:** 2026-07-25
+**Status:** SPECIFIED — implementation contract, not deployed behaviour
+**Product owner:** Ali
+**Implementation owner:** Codex
+**Companion strategy:** `operations/research/fairy-godmother-hero-product-strategy-2026-07-25.md`
 **Evaluation set:** `operations/test-fixtures/fairy-godmother/p0-evaluation-set.json`
 
 ## 1. Objective

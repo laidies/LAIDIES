@@ -1,7 +1,7 @@
 # FAiRY Godmother Worker recovery
 
-**Date:** 2026-07-25  
-**Status:** RECOVERED AND VERIFIED LOCALLY — production unchanged  
+**Date:** 2026-07-25
+**Status:** RECOVERED AND VERIFIED LOCALLY — production unchanged
 **Worker:** `laidies-fairy-godmother`
 
 ## Outcome
