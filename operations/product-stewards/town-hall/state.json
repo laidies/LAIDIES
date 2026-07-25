@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "updated": "2026-07-25",
+  "product_id": "town-hall",
+  "product": "Town Hall",
+  "status": "REPORT_READY",
+  "steward_mode": "MANUAL_PILOT",
+  "subchampion": "town-feedback-subchampion",
+  "scope": [
+    "civic-room arrival and three-station interaction",
+    "Mayor Deb archive, Regulars and Town Regular handoff",
+    "Town Hall feedback intake and civic-records lifecycle",
+    "privacy, abuse, failure and accountability boundaries"
+  ],
+  "launch_verdict": "PARTIAL_SUBMISSION_UNVERIFIED_FIX_ACCOUNTABILITY_AND_ABUSE_GATES_BEFORE_PROMOTING_FEEDBACK_AS_READ_OR_CIVIC_RECORDS",
+  "current_evidence": {
+    "source_inspection": "COMPLETE",
+    "schema_and_rls_inspection": "COMPLETE",
+    "existing_visual_qa_captures": "PRESENT_NOT_RECERTIFIED",
+    "fresh_rendered_flow_evidence": "BLOCKED_BROWSER_UNAVAILABLE",
+    "live_supabase_submission_this_run": "NOT_TESTED",
+    "public_origin_verification_this_run": "NOT_TESTED"
+  },
+  "journey_status": {
+    "arrival_three_station_comprehension": "PARTIAL",
+    "mayor_archive_and_regulars": "PARTIAL",
+    "town_regular_to_closet": "DEVICE_LOCAL",
+    "anonymous_feedback_submission": "SUBMISSION_UNVERIFIED",
+    "signed_in_feedback_submission": "SUBMISSION_UNVERIFIED",
+    "offline_or_insert_failure_message": "SOURCE_IMPLEMENTED_UNVERIFIED",
+    "feedback_triage_and_resolution": "NOT_BUILT_OR_NOT_EVIDENCED",
+    "public_civic_records_or_correction_loop": "NOT_BUILT_OR_NOT_EVIDENCED",
+    "analytics_learning_loop": "NOT_WIRED"
+  },
+  "known_blockers": [
+    "No current browser, mobile, keyboard or live-service run was possible in this deep dive.",
+    "The browser success copy and filed flag can confirm only an accepted insert, not staff review, reading, resolution or durable return state.",
+    "No operational evidence was found for rate limiting, CAPTCHA, spam/abuse review, incident ownership, retention, staff notification or response SLA.",
+    "The schema contains disposition fields, but no inspected client or operating record proved who can triage them or how a writer receives an accountable outcome.",
+    "Plausible and Clarity are installed, but no Town Hall privacy-safe event contract, aggregate pull, baseline or review cadence is wired.",
+    "The requested crisp straight-on operable-lobby art direction has not been owner-approved as achieved in this report."
+  ],
+  "next_trigger": "AUTHORISE_CONTROLLED_LIVE_FEEDBACK_AND_STAFF_TRIAGE_TEST_THEN_SET_CIVIC_ACCOUNTABILITY_AND_ABUSE_POLICY",
+  "automation": {
+    "persistent_runner": "NOT_WIRED",
+    "scheduler": "NOT_WIRED",
+    "plausible_pull": "NOT_WIRED",
+    "clarity_pull": "NOT_WIRED",
+    "notifications": "NOT_WIRED"
+  }
+}
