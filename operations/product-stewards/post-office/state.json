@@ -1,0 +1,32 @@
+{
+  "product": "sunnyvaile-post-office",
+  "status": "BUILDING",
+  "asOf": "2026-07-25",
+  "operatingMode": "manual-invocation",
+  "persistentRunner": "NOT WIRED",
+  "analyticsPull": "NOT WIRED",
+  "subChampions": {
+    "newsletterDelivery": "PARTIAL — Buttondown path exists; external submission/confirmation/error/retry evidence is not available",
+    "magicLinkSignIn": "NOT TESTED — Supabase flow is coordinated through Resident Card; no real email/auth journey was run",
+    "postcardsReferral": "PARTIAL — compose/share mechanics have local evidence; authoritative delivery, join and reward lifecycle is deliberately unavailable"
+  },
+  "currentTruth": {
+    "newsletter": "An opaque iframe/form post may report only a signup attempt, not a created subscription",
+    "postcard": "Native share/copy/email/SMS can prepare a share; it cannot prove delivery, opening, join or reward",
+    "referralRewards": "HIDDEN/REMOVED until durable lifecycle and reward evidence exist",
+    "privacy": "Do not treat query parameters or client storage as a durable private invite record"
+  },
+  "latestDeepDive": "launch-deep-dive-2026-07-25.md",
+  "nextTrigger": {
+    "type": "controlled-third-party-delivery-and-failure-suite",
+    "status": "PENDING",
+    "reason": "A test identity and explicit approval are required to test external mutation, confirmation, unsubscribe, native sharing and auth flows."
+  },
+  "openBlockers": [
+    "No real Buttondown subscribe/confirmation/unsubscribe/error evidence.",
+    "No magic-link request/click/expiry/retry/session evidence.",
+    "No authoritative invite mailed/opened/joined/rewarded lifecycle; current public copy must not claim one.",
+    "No privacy-safe aggregate delivery/funnel evidence packet."
+  ],
+  "lastRun": {"date": "2026-07-25", "type": "one-time launch deep dive", "result": "REPORT READY"}
+}

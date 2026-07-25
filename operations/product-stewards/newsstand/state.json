@@ -1,0 +1,37 @@
+{
+  "product": "SUNNYVAiLE NewsStand Building",
+  "status": "SPECIFIED",
+  "asOf": "2026-07-25",
+  "relationshipToActiveWork": "MERGE with AW-003",
+  "route": "/newsstand",
+  "primaryFile": "newsstand.html",
+  "ownedScope": ["building room", "paper rack", "reader", "archive search", "publication discovery", "freshness/empty/correction states", "reader-facing editorial contract"],
+  "publicationSubChampions": ["The Breaking", "The Daily", "The Weekly", "The Tribune"],
+  "lockedPublicMastheads": ["The Breaking", "The Daily", "The Weekly", "The Tribune"],
+  "currentImplementation": {
+    "readerEditions": ["wednesday", "tribune"],
+    "storiesFile": "content/newsstand-stories.js",
+    "currentMismatch": "Current page/data retains WEDNESDAY Edition and Tribune while locked D-042 mastheads require four public products."
+  },
+  "evidence": {
+    "publicRouteAndSourcedStory": "VERIFIED PUBLICLY",
+    "mobileRouteLoad": "VERIFIED PUBLICLY",
+    "readerSearchMechanics": "BUILT LOCALLY",
+    "fourPublicationContract": "NOT YET IMPLEMENTED",
+    "producerToReaderPublicationRun": "NOT YET EXECUTED",
+    "automationAutonomy": "SPECIFIED; NOT YET WIRED",
+    "analyticsLearningLoop": "NOT YET WIRED"
+  },
+  "dependencies": [
+    "operations/newsstand-editorial-radar.md",
+    "operations/newsstand-autopublish-policy.json",
+    "operations/newsstand-earned-autonomy.md",
+    "operations/newsstand-candidate.schema.json",
+    "content/newsstand-stories.js or successor canonical publication data",
+    "primary sources and independent reporting",
+    "editorial approval/correction process",
+    "Platform deployment, analytics and rollback"
+  ],
+  "nextAction": "Reconcile the locked four-publication contract against reader code/data before any new publication or promotion; then run a full producer-to-reader evidence path.",
+  "authority": "records only in this directory; no publication, code, deploy, git, sourcing, or shared-system changes"
+}
