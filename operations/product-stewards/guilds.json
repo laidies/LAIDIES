@@ -1,8 +1,13 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "updated": "2026-07-25",
   "rule": "Guild specialists support product and building champions. They do not own a second roadmap or replace the champion.",
   "roles": [
+    {"id":"competitive-research-benchmarking","owns":"best-in-class product research, comparable journeys, public user signals, standards and transferable patterns without imitation","trigger":"initial deep dive, major redesign, weak evidence or benchmark expiry","may_block":false},
+    {"id":"tools-plugins-vendor-scout","owns":"external tool, plugin, service, model, dataset and vendor evaluation including build-versus-buy, cost, privacy, lock-in and exit","trigger":"capability gap, repeated manual burden, quality ceiling or material operating cost","may_block":false},
+    {"id":"product-delivery-integrator","owns":"accepted build packet, specialist work breakdown, dependency sequencing, candidate assembly and acceptance-evidence completeness","trigger":"a recommendation is approved for implementation","may_block":true},
+    {"id":"quality-automation-engineer","owns":"deterministic regression checks, fixtures, journey automation, coverage and evidence artifact generation","trigger":"a repeated rule, regression risk or testable acceptance criterion exists","may_block":true},
+    {"id":"rights-legal-commercial-review","owns":"copyright, licensing, music/image/data rights, disclosures, commercial terms and claim-risk escalation","trigger":"external media/data, partnership, affiliate, sponsor, commerce or material public claim","may_block":true},
     {"id":"brand-creative-director","owns":"LAiDIES voice, visual language, Rewind Era intelligence, town cohesion and reputation","trigger":"major copy, visual, campaign or product-direction change","may_block":true},
     {"id":"visual-asset-curator","owns":"approved asset allow-lists, provenance, rejected/superseded quarantine, style/palette/canon eligibility and exact-use approvals","trigger":"any visual candidate enters a product or social workflow","may_block":true},
     {"id":"image-production-director","owns":"cue/placement brief, approved references, prompt/build method, dimensions and delivered image candidates","trigger":"new or repaired image required","may_block":false},
@@ -35,6 +40,8 @@
     "A product champion cannot be the neutral evaluator in its own championship.",
     "A social creative producer cannot supply missing owner approval or authorize publication.",
     "An implementer cannot be the sole release verifier.",
+    "A tool or vendor scout cannot approve spending, installation, data disclosure or a commercial agreement.",
+    "Research evidence cannot be represented as user validation unless it came from actual users through an approved method.",
     "Revenue cannot override product quality, accuracy/safety/trust or positive LAiDIES brand contribution."
   ],
   "competition_roles": [

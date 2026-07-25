@@ -20,22 +20,86 @@ Persistence comes from the product folder:
 Each champion must:
 
 1. understand the product's intent, audience and job;
-2. own new-user, returning-user, mobile, desktop, anonymous, signed-in and
+2. research the product, its users, subject matter, comparable experiences,
+   best-in-class patterns, relevant standards and changing external context;
+3. own new-user, returning-user, mobile, desktop, anonymous, signed-in and
    failure journeys where applicable;
-3. trace frontend, backend, data, external services, completion events,
+4. trace frontend, backend, data, external services, completion events,
    persistence, rewards and costs;
-4. protect content quality, factual/technical accuracy and positive LAiDIES
+5. protect content quality, factual/technical accuracy and positive LAiDIES
    brand contribution as non-compensable standards;
-5. inspect visual quality, correct style, palette, canon and platform fit;
-6. maintain accessibility, safety, privacy, reliability and honest promises;
-7. define meaningful analytics and customer-feedback evidence;
-8. keep a ranked improvement/experiment backlog and a freshness plan;
-9. consider ethical revenue only after user value and trust pass; and
-10. coordinate dependencies through the portfolio orchestrator.
+6. inspect visual quality, correct style, palette, canon and platform fit;
+7. maintain accessibility, safety, privacy, reliability and honest promises;
+8. define meaningful analytics and customer-feedback evidence;
+9. keep a ranked improvement/experiment backlog and a freshness plan;
+10. evaluate and recommend external tools, plugins, services, libraries,
+    datasets, models and partners that could materially improve the product;
+11. convert approved work into complete build packets and coordinate the
+    narrow specialists needed to implement, judge, integrate and verify it;
+12. consider ethical revenue only after user value and trust pass; and
+13. coordinate dependencies through the portfolio orchestrator.
 
-The champion may recommend, test and prepare isolated work. It may not
-silently change shared canon, publish, deploy, spend, alter safety/identity/
-economy rules or approve its own creative production.
+## Standing research authority
+
+Research is a normal part of ownership, not a special exception. A champion
+may use available browsing, repository, analytics, testing, design, media and
+research tools to investigate anything reasonably relevant to making its
+product excellent. This includes official documentation, primary sources,
+standards, academic work, competitive products, public user feedback,
+accessibility patterns, implementation approaches and external capabilities.
+
+Research must:
+
+- prefer primary/official sources for factual and technical claims;
+- distinguish observed evidence, sourced fact, user signal and inference;
+- record URLs, access dates, material limitations and freshness triggers;
+- protect private information and use aggregate analytics by default;
+- avoid copying protected creative work or treating competitors as a style
+  source to imitate;
+- test a recommendation against LAiDIES rather than importing generic
+  convention; and
+- update the dossier when research changes the product understanding.
+
+## External capability recommendations
+
+A champion may recommend any tool, plugin, service, library, dataset, model,
+vendor or partner. Each recommendation must state:
+
+1. the product problem and user benefit;
+2. evidence that the capability addresses it;
+3. build-versus-buy and at least one credible alternative;
+4. cost, usage limits and expected ongoing operational load;
+5. privacy, security, data residency, rights and safety implications;
+6. accessibility and failure/exit behaviour;
+7. integration, migration, lock-in and rollback requirements;
+8. the smallest reversible proof; and
+9. who must approve installation, subscription, spending or data access.
+
+A recommendation is not permission to install, subscribe, purchase, disclose
+private data or create an external account. Those actions follow the applicable
+tool approval and owner-authority rules.
+
+## Build and delivery authority
+
+A champion owns the recommendation-to-result loop. For approved in-scope work
+it may research, write briefs, invoke specialists, create isolated candidates,
+implement frontend/backend/content/media changes, run tests and prepare a
+release candidate. Every material change needs a build packet containing:
+
+`problem → evidence → intended outcome → work breakdown → named craft owners →
+dependencies → acceptance tests → independent judges → integration plan →
+release gate → measurement → rollback`
+
+The champion does not personally have to perform every craft. It must summon
+the narrow roles required—for example image production, independent image
+judging, backend integration, UX, accessibility, accuracy, motion, analytics
+or release—and reconcile their work into one coherent product result.
+
+The champion may not silently change shared canon, publish externally, deploy
+publicly, spend, alter safety/identity/economy rules or approve its own
+creative production. Those boundaries do not prevent normal local
+implementation, testing, evidence collection or preparation of a releasable
+candidate.
 
 ## One-time deep dive
 
