@@ -1,6 +1,6 @@
 # LAiDIES release state
 
-**Updated:** 2026-07-25 13:20 PDT
+**Updated:** 2026-07-25 13:32 PDT
 **Release owner:** current EOD whole-site release task
 **Rule:** `LOCAL`, `COMMITTED`, `PUSHED`, `DEPLOYED`, and `PUBLICLY VERIFIED`
 are different states. A change may use only the highest state for which evidence
@@ -10,11 +10,11 @@ is recorded here.
 
 | Layer | State | Evidence |
 |---|---|---|
-| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `edac8d4f-e304-4cef-8deb-b1de9cc32855`, commit `9dc9153dbd509262ad3b323b0afb3fbc381e7689`, immutable URL `https://edac8d4f.laidies-sunnyvaile.pages.dev`; `https://laidies.ai/` returned HTTP 200 and its homepage SHA-256 matched that commit on 2026-07-25 |
-| Current branch | `PUSHED` | `homepage-redesign` at `79d3b165b76eb144fd9676ce05dfbdfbf16975b5`; `origin/homepage-redesign` is identical (ahead 0, behind 0) |
-| Difference from production | `COMMITTED / PUSHED / NOT DEPLOYED` | Current branch is one commit ahead of the production commit. The additional commit is operational documentation; the tracked homepage bytes are identical between `9dc9153` and `79d3b16`. |
+| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `7c8410e1-7a10-4bd7-8ccc-41d00af71bf7`, release-source commit `0c6db9d2d45f865abfac7b1f5fe2ee7655827565`, immutable URL `https://7c8410e1.laidies-sunnyvaile.pages.dev`; the immutable URL and `https://laidies.ai/` returned the tested homepage bytes and passed critical-route verification on 2026-07-25 |
+| Current branch | `PUSHED` | `homepage-redesign` at metadata commit `02acc8774d3bf5bb4dcae6478fe6209b76f7f7fb`; `origin/homepage-redesign` is identical |
+| Difference from production | `DOCUMENTATION ONLY` | Production is attached to the exact public-source commit `0c6db9d`; `02acc87` changes only this release-state documentation. |
 | Current working tree | `LOCAL / NOT COMMITTED / NOT PUSHED / NOT DEPLOYED` | 97 tracked files modified, 0 staged entries, 6,477 untracked files, approximately 770 MiB of untracked content at the reconciliation point |
-| EOD release candidate | `COMMITTED / TESTED / NOT YET PUSHED OR DEPLOYED` | Release-source commit `0c6db9d2d45f865abfac7b1f5fe2ee7655827565`; curated artifact `/tmp/laidies-eod-final.NeFVs6`; 1,069 files; 1,005,029,435 bytes; identity SHA-256 `6276ae94c0c04074769be127f7b21f1f0f4032a4cfb066909cd4f0d14f02d7d5`. |
+| EOD release candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Release-source commit `0c6db9d2d45f865abfac7b1f5fe2ee7655827565`; curated artifact `/tmp/laidies-eod-final.NeFVs6`; 1,069 files; 1,005,029,435 bytes; identity SHA-256 `6276ae94c0c04074769be127f7b21f1f0f4032a4cfb066909cd4f0d14f02d7d5`. |
 | Trailer and Episodes 1–4 motion films | `HOLD` | Media steward verdict: Trailer HOLD; E01 HOLD; E02 HOLD; E03 HOLD; E04 HOLD. Public CTAs and Screening Room remain illustrated listen-alongs. |
 
 ## What this means
@@ -41,9 +41,9 @@ Fill every field before declaring the relaunch ready:
 | Artifact manifest digest | SHA-256 of sorted per-file SHA-256 manifest | `6276ae94c0c04074769be127f7b21f1f0f4032a4cfb066909cd4f0d14f02d7d5` |
 | Automated checks | command + result | links, inline JS, town/rewards, cues, product claims, accessibility, metadata, KSVL, runtime dependencies and exact-artifact browser smoke PASS; trailer long-hold warnings remain for media review |
 | Media gate | RELEASE/HOLD per trailer/E01/E02/E03/E04 | Trailer HOLD · E01 HOLD · E02 HOLD · E03 HOLD · E04 HOLD; listen-along only |
-| Cloudflare deployment ID | exact deployment UUID | pending |
-| Immutable deployment URL | `*.pages.dev` URL | pending |
-| Custom-domain verification | HTTP/content/journey evidence | pending |
+| Cloudflare deployment ID | exact deployment UUID | `7c8410e1-7a10-4bd7-8ccc-41d00af71bf7` |
+| Immutable deployment URL | `*.pages.dev` URL | `https://7c8410e1.laidies-sunnyvaile.pages.dev` |
+| Custom-domain verification | HTTP/content/journey evidence | `https://laidies.ai`: homepage SHA matches artifact; 12 critical HTTP routes/dependencies returned 200; nine critical browser routes showed no broken images, horizontal overflow, unnamed buttons or console errors |
 | Rollback target | prior deployment ID | `edac8d4f-e304-4cef-8deb-b1de9cc32855` |
 
 ## Going-forward release protocol
