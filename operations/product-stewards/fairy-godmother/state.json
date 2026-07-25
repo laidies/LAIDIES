@@ -1,0 +1,46 @@
+{
+  "product": "FAiRY Godmother's House",
+  "status": "SPECIFIED",
+  "asOf": "2026-07-25",
+  "launchStatus": "FIX BEFORE PROMOTION",
+  "relationshipToActiveWork": "MERGE with AW-003",
+  "route": "/games/fairy-godmother.html",
+  "workerProject": "worker-fairy-godmother/",
+  "editableSource": "worker-fairy-godmother/src/index.js",
+  "frozenProductionBaseline": {
+    "path": "worker-fairy-godmother/recovery/production-v18/index.deployed.js",
+    "version": 18,
+    "versionId": "eff23927-7e4d-4677-b729-2b14ff678ac9",
+    "deploymentId": "49472a73-1e0d-4d9c-b4ef-4c661e0a81eb",
+    "bytes": 55137,
+    "sha256": "127a9ce5e354f46d4e5bd4b63dde85d41f26178f4ea24cea84a7069d43e68b3e",
+    "productionMutationPerformed": false
+  },
+  "verifiedBaseline": {
+    "recoveryIntegrity": "VERIFIED LOCALLY",
+    "characterizationTests": "7 PASS",
+    "evaluationFixtureIntegrity": "45 PASS — initial recovered suite plus three product-owner learning-standard cases",
+    "wranglerDryRun": "PASS",
+    "stagingIsolation": "VERIFIED LOCALLY — safe staging name and no production bindings"
+  },
+  "p0Defects": [
+    "one universal prompt with no domain, task or safety router",
+    "no retrieval/current-source verification",
+    "arbitrary Markdown response string instead of a typed contract",
+    "upstream failures returned as success-shaped HTTP 200",
+    "allowance counted before validated success",
+    "client-asserted subscriber email used as identity",
+    "10/day service cap conflicts with public 5/day and older 3/visit copy",
+    "raw normalized email logged",
+    "no authoritative case or FAiRY Plays ledger",
+    "no maximum input length or upstream abort timeout"
+  ],
+  "nextBuildPacket": "build-packet-p0-worker-reconstruction-2026-07-25.md",
+  "nextAction": "Refactor only worker-fairy-godmother/src/index.js through the ordered P0 gates, then test all 45 versioned cases at API and rendered-page levels against isolated staging.",
+  "productionAuthority": "NONE for this packet; no production deploy, binding, secret or data mutation",
+  "lastRun": {
+    "date": "2026-07-25",
+    "type": "recovered-source handoff reconciliation",
+    "result": "AUTHORITATIVE BASELINE ACCEPTED; P0 READY TO BUILD"
+  }
+}

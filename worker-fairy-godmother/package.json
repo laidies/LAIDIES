@@ -1,0 +1,16 @@
+{
+  "name": "laidies-fairy-godmother-worker",
+  "version": "0.0.0-recovered.18",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check:recovery": "node scripts/verify-recovery.mjs",
+    "test:recovered": "node --test test/recovered-worker-contract.test.mjs",
+    "test:fixtures": "node ../scripts/validate-fairy-godmother-evals.mjs",
+    "test": "npm run check:recovery && npm run test:recovered && npm run test:fixtures",
+    "dry-run": "wrangler deploy --dry-run"
+  },
+  "devDependencies": {
+    "wrangler": "^4.105.0"
+  }
+}

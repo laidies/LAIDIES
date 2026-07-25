@@ -39,6 +39,11 @@ Each champion must:
 12. consider ethical revenue only after user value and trust pass; and
 13. coordinate dependencies through the portfolio orchestrator.
 
+Every substantial learning product also follows
+`operations/product-stewards/LEARNING-CONTENT-STANDARD.md`. Its champion must
+coordinate the concept map and format job with the Library, High/classes,
+episodes, NewsStand and relevant tools/games rather than teaching in isolation.
+
 ## Standing research authority
 
 Research is a normal part of ownership, not a special exception. A champion

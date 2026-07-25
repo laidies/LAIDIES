@@ -1,0 +1,57 @@
+{
+  "recoveredAt": "2026-07-25",
+  "recoveryMethod": "Cloudflare authenticated Quick Edit read-only copy",
+  "accountId": "8597916c7f6ae726febf653c337a47d6",
+  "workerName": "laidies-fairy-godmother",
+  "workerUrl": "https://laidies-fairy-godmother.wednesday-laidies.workers.dev",
+  "activeDeployment": {
+    "deploymentId": "49472a73-1e0d-4d9c-b4ef-4c661e0a81eb",
+    "createdOn": "2026-07-02T23:29:19.178604Z",
+    "source": "wrangler",
+    "percentage": 100
+  },
+  "activeVersion": {
+    "id": "eff23927-7e4d-4677-b729-2b14ff678ac9",
+    "number": 18,
+    "createdOn": "2026-07-02T23:29:18.767917Z",
+    "source": "wrangler",
+    "scriptEtag": "4291c35e0917fe1876c471b0c1cd884b5d3cf53e50f873981596dd8612d25db8",
+    "handlers": [
+      "fetch"
+    ]
+  },
+  "runtime": {
+    "compatibilityDate": "2026-06-28",
+    "compatibilityFlags": [
+      "nodejs_compat"
+    ],
+    "usageModel": "standard"
+  },
+  "bindings": [
+    {
+      "name": "OPENAI_API_KEY",
+      "type": "secret_text",
+      "valueRecovered": false
+    },
+    {
+      "name": "RATE_LIMITER",
+      "type": "ratelimit",
+      "namespaceId": "1001",
+      "limit": 3,
+      "periodSeconds": 60
+    },
+    {
+      "name": "SUBSCRIBER_USAGE",
+      "type": "kv_namespace",
+      "namespaceId": "763852d3e96d4d1a8692755f5da6e39a"
+    }
+  ],
+  "artifact": {
+    "path": "index.deployed.js",
+    "bytes": 55137,
+    "sha256": "127a9ce5e354f46d4e5bd4b63dde85d41f26178f4ea24cea84a7069d43e68b3e",
+    "sourceMapReferenced": "index.js.map",
+    "sourceMapRecovered": false
+  },
+  "productionMutationPerformed": false
+}
