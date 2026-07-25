@@ -14,7 +14,7 @@ is recorded here.
 | Current branch | `PUSHED` | `homepage-redesign` at `79d3b165b76eb144fd9676ce05dfbdfbf16975b5`; `origin/homepage-redesign` is identical (ahead 0, behind 0) |
 | Difference from production | `COMMITTED / PUSHED / NOT DEPLOYED` | Current branch is one commit ahead of the production commit. The additional commit is operational documentation; the tracked homepage bytes are identical between `9dc9153` and `79d3b16`. |
 | Current working tree | `LOCAL / NOT COMMITTED / NOT PUSHED / NOT DEPLOYED` | 97 tracked files modified, 0 staged entries, 6,477 untracked files, approximately 770 MiB of untracked content at the reconciliation point |
-| EOD release candidate | `LOCAL / TESTED / NOT DEPLOYED` | Curated artifact `/tmp/laidies-eod-final.NeFVs6`; 1,069 files; 1,005,029,435 bytes; identity SHA-256 `6276ae94c0c04074769be127f7b21f1f0f4032a4cfb066909cd4f0d14f02d7d5`. |
+| EOD release candidate | `COMMITTED / TESTED / NOT YET PUSHED OR DEPLOYED` | Release-source commit `0c6db9d2d45f865abfac7b1f5fe2ee7655827565`; curated artifact `/tmp/laidies-eod-final.NeFVs6`; 1,069 files; 1,005,029,435 bytes; identity SHA-256 `6276ae94c0c04074769be127f7b21f1f0f4032a4cfb066909cd4f0d14f02d7d5`. |
 | Trailer and Episodes 1–4 motion films | `HOLD` | Media steward verdict: Trailer HOLD; E01 HOLD; E02 HOLD; E03 HOLD; E04 HOLD. Public CTAs and Screening Room remain illustrated listen-alongs. |
 
 ## What this means
@@ -34,8 +34,8 @@ Fill every field before declaring the relaunch ready:
 | Field | Required evidence | Current value |
 |---|---|---|
 | Source branch | exact branch | `homepage-redesign` |
-| Source commit | full SHA | `79d3b165b76eb144fd9676ce05dfbdfbf16975b5` plus disclosed local changes |
-| Working-tree disclosure | clean, or explicit dirty-state manifest | dirty; exact deploy identity is the artifact manifest, not the source commit alone |
+| Source commit | full SHA | `0c6db9d2d45f865abfac7b1f5fe2ee7655827565` |
+| Working-tree disclosure | clean, or explicit dirty-state manifest | the release source is committed; unrelated studio work remains intentionally unstaged and is excluded from the artifact |
 | Curated artifact path | exact local path | `/tmp/laidies-eod-final.NeFVs6` |
 | Artifact file count and bytes | builder report | 1,069 files; 1,005,029,435 bytes |
 | Artifact manifest digest | SHA-256 of sorted per-file SHA-256 manifest | `6276ae94c0c04074769be127f7b21f1f0f4032a4cfb066909cd4f0d14f02d7d5` |
