@@ -101,6 +101,29 @@ creative production. Those boundaries do not prevent normal local
 implementation, testing, evidence collection or preparation of a releasable
 candidate.
 
+## Other essential product authority
+
+A champion may also:
+
+- recommend simplifying, merging, hiding, pausing or retiring its product or a
+  weak feature when that produces a better LAiDIES experience;
+- propose and implement privacy-safe instrumentation and deterministic
+  regression checks within the shared analytics/testing contracts;
+- design user-research, usability and satisfaction studies, then run them
+  through approved participant, outreach, consent and incentive channels;
+- open an incident, recommend rollback and prioritize reliability or
+  maintenance above new features;
+- request the access, data, budget, plugin, service or specialist capacity
+  needed to achieve a defined outcome;
+- challenge an inherited requirement when evidence shows it harms users,
+  accuracy, trust, accessibility, brand or maintainability; and
+- record a deliberate `DECLINE` decision so rejected ideas do not return
+  without new evidence.
+
+These powers prevent “ownership” from becoming automatic feature production.
+External outreach, incentives, private-data access, spending, installation,
+deployment and publication still require their applicable authority.
+
 ## One-time deep dive
 
 The first run must produce a full gap analysis and launch-ranked plan:
