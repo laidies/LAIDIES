@@ -2,15 +2,19 @@
 
 ## LinkedIn
 
-- **Status:** `PUBLISHED`
+- **Status:** `REMOVED BY ALI / NOT LIVE`
 - **Channel:** LAiDIES LinkedIn company page, organization `125584075`
-- **Public URL:**
+- **Former public URL:**
   `https://www.linkedin.com/feed/update/urn:li:share:7486883119749296128?actorCompanyId=125584075`
 - **Publication confirmation captured:** 2026-07-25 13:41:24 PDT
+- **Removal:** Ali reported deleting the post on 2026-07-25 after identifying
+  that the website was not ready and the selected image was wrong. Exact
+  impressions before removal are unknown.
 - **Destination entered in composer:**
   `https://laidies.ai/?utm_source=linkedin&utm_medium=social&utm_campaign=sunnyvaile_grand_reopening`
 - **Destination rendered by LinkedIn:** `https://lnkd.in/gN5gPHPD`
-- **Asset:** `assets/sunnyvaile-town-overview.jpg`
+- **Asset used:** `assets/sunnyvaile-town-overview.jpg` — rejected by Ali as
+  the wrong launch image.
 - **Accessibility:** custom alternative text was added before publication.
 - **Verification:** LinkedIn returned `Post successful`; the public post opened
   under the LAiDIES company identity with the complete copy, image and
@@ -44,18 +48,21 @@ Welcome to SUNNYVAiLE. Be kind, rewind.
 
 ## Instagram feed and Story
 
-- **Status:** `READY_TO_PUBLISH`
+- **Status:** `HOLD / NOT APPROVED`
 - **Limitation:** no authenticated Instagram publication surface was available
   in this execution context. No credential inspection or login attempt was
   made.
-- **Feed asset:**
+- **Feed asset candidate — NOT APPROVED:**
   `assets/postcards/from-sunnyvaile/greetings-from-sunnyvaile-post-card.png`
-- **Story asset:** reuse the same postcard with one link sticker labelled
-  **Enter SUNNYVAiLE**; do not cover the wordmark or bottom line.
+- **Story asset candidate — NOT APPROVED:** if selected, reuse the same
+  postcard with one link sticker labelled **Enter SUNNYVAiLE**; do not cover
+  the wordmark or bottom line.
 - **Destination:**
   `https://laidies.ai/?utm_source=instagram&utm_medium=social&utm_campaign=sunnyvaile_grand_reopening`
+- **Publication gate:** do not publish until Ali explicitly approves the
+  complete website, exact channel copy and exact image.
 
-### Feed copy ready to publish
+### Feed copy draft — NOT APPROVED
 
 LAiDIES has moved to SUNNYVAiLE.
 

@@ -3244,3 +3244,52 @@ _Original source ID: repository #36_
 - **Public angle:** “We fixed the art and broke the minute.”
 - **Privacy/IP/reputation:** Internal unreleased episode frames only; do not
   publish or imply release approval without Ali's decision.
+
+## BTB-096 · A verified slice was mistaken for permission to announce the whole opening
+
+`category: launch governance · publication approval · brand assets`
+— ① Start with the real problem
+`source: SUNNYVAiLE LinkedIn grand-reopening post, 2026-07-25`
+`publication status: VERIFIED FAILURE — POST REMOVED`
+
+- **Context:** A delegated task authorized publication using the
+  publicly-verified product scope and an existing launch packet.
+- **Issue:** The agent treated scoped production verification and a
+  previously recommended image as authority to announce the grand reopening,
+  even though Ali had not approved the complete website or the exact image.
+- **What happens:** A technically truthful post can still announce a launch
+  the owner does not consider ready and can attach an asset the owner rejects.
+- **Evidence observed:** The LinkedIn post was published, Ali immediately
+  identified that the webpage was not ready and the image was wrong, and Ali
+  removed the post.
+- **Diagnosis:** **Verified.** Product-scope truthfulness was used as a
+  substitute for final launch approval. Authentication and a prepared draft
+  answered “can publish,” not “should publish.”
+- **Prevent / Fix:** No social visual may publish unless Ali has explicitly
+  approved that exact asset for that exact post or defined campaign use. Any
+  asset not present in the canonical social allow-list is denied by default;
+  agents must never choose a plausible-looking substitute from the general
+  repository asset tree. Before owner review, candidates must independently
+  pass locked style, palette, canon, purpose, composition, craft and
+  platform-fit checks; passing makes an asset a review candidate, not approved.
+  Any
+  site-opening, reopening or major campaign publication also requires explicit
+  final owner approval covering three exact inputs: website state, final
+  channel copy and final image. Approval of a release slice, draft, asset
+  recommendation, delegated mechanics or authenticated channel cannot satisfy
+  this gate.
+- **Why the fix works:** It separates technical release evidence from the
+  owner’s launch and brand decision at the final irreversible step.
+- **New output:** The reopening packet and publication record now place every
+  channel on `HOLD`, record the rejected image and removed post, and point to
+  `social/SOCIAL-VISUAL-APPROVAL-GATE.md` and the default-deny
+  `social/APPROVED-SOCIAL-ASSETS.md` allow-list.
+- **Transferable lesson:** “Safe to describe” is not the same as “approved to
+  announce.”
+- **Internal rule/check updated:** Every social visual now requires exact-use
+  owner approval. Major-launch social publishing additionally has a blocking
+  owner-approval triplet: website + copy + image.
+- **Public angle:** None; treat this as an internal launch-control correction.
+- **Privacy/IP/reputation:** Do not preserve or republish engagement data,
+  private account details or the rejected announcement beyond the internal
+  operational record.

@@ -1,8 +1,9 @@
 # SUNNYVAiLE grand re-opening — launch copy packet
 
-**Status:** PARTIALLY PUBLISHED — the LinkedIn company-page announcement
-published on 2026-07-25. Instagram feed and Story remain `READY_TO_PUBLISH`
-because no authenticated Instagram publication surface was available.
+**Status:** HOLD — a premature LinkedIn company-page announcement was published
+and then removed by Ali on 2026-07-25. No grand-reopening announcement is live.
+The website, final copy and exact image require Ali's explicit final approval
+before any channel publication.
 **Release evidence:** the exact committed candidate is publicly verified on
 `laidies.ai`; the final release record is
 `operations/launch/eod-2026-07-25/closure-2026-07-25.md`. Publication evidence
@@ -111,25 +112,36 @@ economy in the grand re-opening campaign.
 
 Use one strong, truthful package for the initial opening rather than delaying
 the launch for a six-card campaign that has not been designed or reviewed.
+This section is a working proposal, not publication approval. `READY`,
+`VERIFIED PUBLICLY`, authenticated channel access or a delegated publication
+task cannot substitute for Ali's explicit final approval of all three launch
+inputs: the website, the exact copy and the exact image.
+All visual selection is governed by
+`social/SOCIAL-VISUAL-APPROVAL-GATE.md`; the canonical allow-list at
+`social/APPROVED-SOCIAL-ASSETS.md` currently contains no approved
+grand-reopening visual.
 
 ### Instagram feed + Story
 
-- **Feed asset:**
+- **Feed asset candidate — NOT APPROVED:**
   `assets/postcards/from-sunnyvaile/greetings-from-sunnyvaile-post-card.png`
-- **Feed copy:** use **Primary reintroduction** above.
+- **Feed copy draft — NOT APPROVED:** **Primary reintroduction** above.
 - **Tracked link:**
   `https://laidies.ai/?utm_source=instagram&utm_medium=social&utm_campaign=sunnyvaile_grand_reopening`
 - **Alt text:** “Illustrated sunset postcard from SUNNYVAiLE: women gather in
   a flower-filled town square with a gazebo, bicycles, roller skates, a boom
   box and KSVL 99.9. Large lettering says Greetings from SUNNYVAiLE—Wish you
   were here. For real.”
-- **Story:** reuse the postcard with one link sticker labelled
-  **Enter SUNNYVAiLE**. Do not cover the SUNNYVAiLE wordmark or bottom line.
+- **Story candidate — NOT APPROVED:** if Ali selects the postcard, reuse it
+  with one link sticker labelled **Enter SUNNYVAiLE**. Do not cover the
+  SUNNYVAiLE wordmark or bottom line.
 
 ### LinkedIn
 
-- **Asset:** `assets/sunnyvaile-town-overview.jpg`
-- **Copy:** use **LinkedIn version** above.
+- **Asset:** **NOT SELECTED.**
+  `assets/sunnyvaile-town-overview.jpg` was used in the removed 2026-07-25 post
+  and rejected by Ali as the wrong image.
+- **Copy draft — NOT APPROVED:** **LinkedIn version** above.
 - **Tracked link:**
   `https://laidies.ai/?utm_source=linkedin&utm_medium=social&utm_campaign=sunnyvaile_grand_reopening`
 - **Alt text:** “SUNNYVAiLE at sunset: a welcoming fictional town with the
@@ -148,6 +160,8 @@ live posts; this preflight does not substitute for that evidence.
 Asset/alt-text preflight, 2026-07-24: both tracked files were opened at source
 resolution and the ruled alt text describes visible content in the selected
 image. Instagram source is 1536×1024 PNG; LinkedIn source is 1664×757 JPEG.
+This was a technical inspection only and did not constitute Ali's visual
+approval.
 
 ### Deliberately not in the first post
 
@@ -162,11 +176,10 @@ image. Instagram source is 1536×1024 PNG; LinkedIn source is 1664×757 JPEG.
 
 1. ~~Complete the authorized `laidies.ai` cutover.~~ **Passed 2026-07-24.**
 2. ~~Pass the production-origin promise ledger.~~ **Passed 2026-07-24.**
-3. Publish Instagram feed. **READY_TO_PUBLISH — authenticated channel access
-   was not available on 2026-07-25.**
-4. Publish Instagram Story with the tested public link. **READY_TO_PUBLISH —
-   authenticated channel access was not available on 2026-07-25.**
-5. ~~Publish LinkedIn.~~ **PUBLISHED 2026-07-25.**
-6. ~~Open the LinkedIn public post and verify its published destination.~~
-   **Passed 2026-07-25.**
-7. ~~Record the LinkedIn timestamp and public URL.~~ **Passed 2026-07-25.**
+3. Obtain Ali's explicit final approval of the complete website, exact copy and
+   exact image. **HOLD.**
+4. Publish Instagram feed and Story. **HOLD — not approved.**
+5. Publish LinkedIn. **HOLD — the premature 2026-07-25 post was removed by
+   Ali.**
+6. Open every approved published post and verify its destination.
+7. Record timestamps, URLs and any audience-facing correction required.
