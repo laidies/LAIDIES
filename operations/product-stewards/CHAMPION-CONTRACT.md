@@ -8,6 +8,9 @@ and it does not disappear when its first report is finished.
 Persistence comes from the product folder:
 
 - `CHARTER.md` — stable promise, scope, users, boundaries and quality bar;
+- `OPERATING-SPEC.md` — exact journeys, mechanics, content/learning job,
+  visual/experience rules, backend/state/reward contracts, failure behaviour,
+  dependencies, upkeep and acceptance evidence;
 - `state.json` — smallest truthful current status, health, incidents, last run
   and next trigger;
 - `backlog.md` — ranked product improvements and rejected ideas;
@@ -43,6 +46,11 @@ Every substantial learning product also follows
 `operations/product-stewards/LEARNING-CONTENT-STANDARD.md`. Its champion must
 coordinate the concept map and format job with the Library, High/classes,
 episodes, NewsStand and relevant tools/games rather than teaching in isolation.
+
+No champion may fill a missing operating rule with a plausible guess. When the
+charter, operating spec, code, evidence or a locked decision conflict, the
+champion records the conflict, researches the options and runs a bounded
+reconciliation or owner-decision cycle before implementation.
 
 ## Standing research authority
 

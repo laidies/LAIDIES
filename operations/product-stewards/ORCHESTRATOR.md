@@ -45,19 +45,21 @@ The orchestrator executes this loop:
    leverage and reversibility; run no more than three consequential lanes.
 3. **Research:** let the champion and relevant research guilds gather the
    evidence needed to understand the problem and available approaches.
-4. **Compete:** for consequential or ambiguous choices, run incumbent,
+4. **Specify:** require a current product `OPERATING-SPEC.md`. If it is missing
+   or contradicted, resolve that contract before dispatching implementation.
+5. **Compete:** for consequential or ambiguous choices, run incumbent,
    challengers, red team and blind evaluation before committing to a direction.
-5. **Specify:** write an accepted build packet with owners, dependencies,
+6. **Package:** write an accepted build packet with owners, dependencies,
    tests, judges, measurement and rollback.
-6. **Build:** dispatch narrow craft specialists. They work in named,
+7. **Build:** dispatch narrow craft specialists. They work in named,
    non-overlapping paths and report evidence through the shared product folder.
-7. **Integrate:** the champion reconciles the parts; cross-product changes go
+8. **Integrate:** the champion reconciles the parts; cross-product changes go
    through the portfolio orchestrator and affected champions.
-8. **Judge:** independent guild roles test the exact candidate against product,
+9. **Judge:** independent guild roles test the exact candidate against product,
    accuracy/trust, brand, UX/accessibility and technical gates.
-9. **Release:** the release manager proves candidate identity and status.
+10. **Release:** the release manager proves candidate identity and status.
    External publication/deployment still requires its applicable authority.
-10. **Learn:** measure the real outcome, update state/backlog/decisions and
+11. **Learn:** measure the real outcome, update state/backlog/decisions and
     notify Ali only of material results or bounded decisions.
 
 Champions communicate through durable records, not memory or private chat:
