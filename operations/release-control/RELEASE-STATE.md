@@ -11,8 +11,8 @@ is recorded here.
 | Layer | State | Evidence |
 |---|---|---|
 | Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `7c8410e1-7a10-4bd7-8ccc-41d00af71bf7`, release-source commit `0c6db9d2d45f865abfac7b1f5fe2ee7655827565`, immutable URL `https://7c8410e1.laidies-sunnyvaile.pages.dev`; the immutable URL and `https://laidies.ai/` returned the tested homepage bytes and passed critical-route verification on 2026-07-25 |
-| Current branch | `PUSHED` | `homepage-redesign` at metadata commit `02acc8774d3bf5bb4dcae6478fe6209b76f7f7fb`; `origin/homepage-redesign` is identical |
-| Difference from production | `DOCUMENTATION ONLY` | Production is attached to the exact public-source commit `0c6db9d`; `02acc87` changes only this release-state documentation. |
+| Current branch | `PUSHED` | `homepage-redesign` contains the release-source commit and subsequent release-state records; `origin/homepage-redesign` is synchronized |
+| Difference from production | `DOCUMENTATION ONLY` | Production is attached to the exact public-source commit `0c6db9d`; subsequent commits change release-state documentation, not the deployed public artifact. |
 | Current working tree | `LOCAL / NOT COMMITTED / NOT PUSHED / NOT DEPLOYED` | 97 tracked files modified, 0 staged entries, 6,477 untracked files, approximately 770 MiB of untracked content at the reconciliation point |
 | EOD release candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Release-source commit `0c6db9d2d45f865abfac7b1f5fe2ee7655827565`; curated artifact `/tmp/laidies-eod-final.NeFVs6`; 1,069 files; 1,005,029,435 bytes; identity SHA-256 `6276ae94c0c04074769be127f7b21f1f0f4032a4cfb066909cd4f0d14f02d7d5`. |
 | Trailer and Episodes 1–4 motion films | `HOLD` | Media steward verdict: Trailer HOLD; E01 HOLD; E02 HOLD; E03 HOLD; E04 HOLD. Public CTAs and Screening Room remain illustrated listen-alongs. |
