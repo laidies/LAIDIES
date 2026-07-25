@@ -1,12 +1,13 @@
 # SUNNYVAiLE grand re-opening — launch copy packet
 
-**Status:** READY TO PUBLISH — production gate passed; no channel post has
-published yet
-**Release evidence:** Ali unblocked the launch; the exact committed candidate
-is live on `laidies.ai`; the full production-origin promise ledger and FAiRY
-Godmother check passed on 2026-07-24. Evidence:
-`operations/review-packets/grand-reopening-production-cutover-2026-07-24.md`.
-The recommended channels/assets below are the ruled minimum package.
+**Status:** PARTIALLY PUBLISHED — the LinkedIn company-page announcement
+published on 2026-07-25. Instagram feed and Story remain `READY_TO_PUBLISH`
+because no authenticated Instagram publication surface was available.
+**Release evidence:** the exact committed candidate is publicly verified on
+`laidies.ai`; the final release record is
+`operations/launch/eod-2026-07-25/closure-2026-07-25.md`. Publication evidence
+and the exact channel copy are recorded in
+`social/launch/sunnyvaile-grand-reopening-publish-record-2026-07-25.md`.
 
 ## Primary reintroduction
 
@@ -139,6 +140,15 @@ Both recommended images are tracked release assets and already ship in the
 verified public artifact. This package does not depend on an unapproved
 Library/Visitor screenshot or the repaired full trailer.
 
+Pre-publication link check, 2026-07-24: both exact Instagram and LinkedIn UTM
+URLs returned HTTP 200 from `laidies.ai` and preserved their complete query
+strings. The post-publication step must still open the links from the actual
+live posts; this preflight does not substitute for that evidence.
+
+Asset/alt-text preflight, 2026-07-24: both tracked files were opened at source
+resolution and the ruled alt text describes visible content in the selected
+image. Instagram source is 1536×1024 PNG; LinkedIn source is 1664×757 JPEG.
+
 ### Deliberately not in the first post
 
 - The 16-minute repaired trailer remains **REVIEW READY**, not owner-approved,
@@ -152,9 +162,11 @@ Library/Visitor screenshot or the repaired full trailer.
 
 1. ~~Complete the authorized `laidies.ai` cutover.~~ **Passed 2026-07-24.**
 2. ~~Pass the production-origin promise ledger.~~ **Passed 2026-07-24.**
-3. Publish Instagram feed. **Not yet published — channel access required.**
-4. Publish Instagram Story with the tested public link. **Not yet published.**
-5. Publish LinkedIn. **Not yet published — channel access required.**
-6. Open every published link from the live post/profile and verify the UTM
-   query survives the route.
-7. Record timestamps, URLs and any audience-facing correction required.
+3. Publish Instagram feed. **READY_TO_PUBLISH — authenticated channel access
+   was not available on 2026-07-25.**
+4. Publish Instagram Story with the tested public link. **READY_TO_PUBLISH —
+   authenticated channel access was not available on 2026-07-25.**
+5. ~~Publish LinkedIn.~~ **PUBLISHED 2026-07-25.**
+6. ~~Open the LinkedIn public post and verify its published destination.~~
+   **Passed 2026-07-25.**
+7. ~~Record the LinkedIn timestamp and public URL.~~ **Passed 2026-07-25.**
