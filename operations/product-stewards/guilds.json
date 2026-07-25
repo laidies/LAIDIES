@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "updated": "2026-07-25",
+  "rule": "Guild specialists support product and building champions. They do not own a second roadmap or replace the champion.",
+  "roles": [
+    {"id":"brand-creative-director","owns":"LAiDIES voice, visual language, Rewind Era intelligence, town cohesion and reputation","trigger":"major copy, visual, campaign or product-direction change","may_block":true},
+    {"id":"visual-asset-curator","owns":"approved asset allow-lists, provenance, rejected/superseded quarantine, style/palette/canon eligibility and exact-use approvals","trigger":"any visual candidate enters a product or social workflow","may_block":true},
+    {"id":"image-production-director","owns":"cue/placement brief, approved references, prompt/build method, dimensions and delivered image candidates","trigger":"new or repaired image required","may_block":false},
+    {"id":"image-quality-judge","owns":"independent full-resolution composition, anatomy, identity, style, palette, canon, text and defect review","trigger":"image candidate delivered","may_block":true},
+    {"id":"narration-visual-continuity-editor","owns":"meaning alignment between narration/copy and the visual shown at each exact placement","trigger":"episode, trailer, carousel or timed visual sequence changes","may_block":true},
+    {"id":"motion-director","owns":"shot event, subject/camera motion, timing, first/last frame, loop and motion brief","trigger":"approved still becomes a motion shot","may_block":false},
+    {"id":"clip-producer","owns":"one named clip built from approved frames and motion brief","trigger":"motion brief approved","may_block":false},
+    {"id":"motion-quality-judge","owns":"independent full-speed drift, warp, identity, timing, crop, action and end-state review","trigger":"clip candidate delivered","may_block":true},
+    {"id":"audio-caption-owner","owns":"audio masters, pronunciation, loudness, as-recorded transcript, captions, synchronization and player mapping","trigger":"audio, script, caption, edit or player changes","may_block":true},
+    {"id":"editorial-learning-director","owns":"concept sequence, practical value, assessment validity, transfer, curriculum relationships and non-remedial teaching","trigger":"episode, book, class, quiz, game or learning claim changes","may_block":true},
+    {"id":"ai-research-accuracy-lead","owns":"primary-source research, changing AI facts, technical claims, dates, uncertainty and corrections","trigger":"factual, model, tool, law, research or historical claim changes","may_block":true},
+    {"id":"ux-service-designer","owns":"new/returning journeys, comprehension, hierarchy, states, recovery and next useful action","trigger":"journey, navigation, interaction or promise changes","may_block":true},
+    {"id":"accessibility-responsive-qa","owns":"keyboard, screen reader, contrast, tap targets, reduced motion, mobile/desktop fit and overflow","trigger":"UI, visual, interaction or layout changes","may_block":true},
+    {"id":"frontend-engineer","owns":"browser implementation, assets, state, links, performance, maintainability and console integrity","trigger":"frontend change or defect","may_block":true},
+    {"id":"backend-integration-engineer","owns":"APIs, Workers, external services, authoritative outcomes, retries, idempotency, observability and failure truth","trigger":"service, form, account, provider or completion-contract change","may_block":true},
+    {"id":"identity-rewards-data-owner","owns":"Resident identity, privacy boundaries, local/cloud persistence, rewards, dedupe, economy and cross-device integrity","trigger":"identity, account, reward, referral or persistence change","may_block":true},
+    {"id":"analytics-voice-of-customer","owns":"event dictionary, Plausible aggregates, privacy-safe Clarity observations, feedback themes, baselines and experiments","trigger":"post-release review, threshold, repeated friction or product decision","may_block":false},
+    {"id":"safety-privacy-security","owns":"data minimization, high-stakes boundaries, abuse, prompt injection, moderation, incident response and correction paths","trigger":"AI, account, form, community, data or external-service change","may_block":true},
+    {"id":"community-experience-moderation","owns":"participation value, prompts, empty states, safety norms, provider behaviour and moderation operations","trigger":"community room, Girl Talk handoff or user-generated content change","may_block":true},
+    {"id":"release-manager","owns":"candidate identity, release state, exact artifact, rollback, public verification and launch-state truth","trigger":"release candidate, deploy, announcement or rollback","may_block":true},
+    {"id":"social-creative-producer","owns":"platform-native concept, copy, crop, alt text, CTA and campaign assembly from approved sources","trigger":"approved social brief","may_block":false},
+    {"id":"social-publication-controller","owns":"final website/copy/visual approval evidence, authenticated account check, publication record and removal/correction path","trigger":"social post ready for external publication","may_block":true},
+    {"id":"revenue-sustainability","owns":"ethical value exchange, cost-to-serve, maintenance load, pricing/sponsor/affiliate hypotheses and fulfilment truth","trigger":"product passes quality, trust and brand floors","may_block":true},
+    {"id":"content-freshness-operations","owns":"expiry dates, vendor/model/reference rechecks, weekly update duties, stale-state alerts and retirement","trigger":"freshness date, weekly episode or dependency change","may_block":true},
+    {"id":"customer-satisfaction-owner","owns":"complaints, delight, unmet needs, direct research, resolution evidence and whether improvements solved the user problem","trigger":"feedback, support signal, incident or post-change follow-up","may_block":false}
+  ],
+  "conflict_rules": [
+    "An image producer cannot judge or approve the same candidate.",
+    "A clip producer or motion director cannot be the motion-quality judge for the same clip.",
+    "A product champion cannot be the neutral evaluator in its own championship.",
+    "A social creative producer cannot supply missing owner approval or authorize publication.",
+    "An implementer cannot be the sole release verifier.",
+    "Revenue cannot override product quality, accuracy/safety/trust or positive LAiDIES brand contribution."
+  ],
+  "competition_roles": [
+    {"id":"incumbent-champion","purpose":"strongest evidence-based improvement to the current product"},
+    {"id":"challenger-a","purpose":"materially different alternative"},
+    {"id":"challenger-b","purpose":"second distinct route, not a paraphrase"},
+    {"id":"red-team","purpose":"disprove logic, evidence, safety, UX, plumbing, brand and maintainability claims"},
+    {"id":"blind-evaluator","purpose":"score anonymized candidates against the shared non-compensable quality floor"}
+  ]
+}

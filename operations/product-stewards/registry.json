@@ -1,103 +1,121 @@
 {
-  "schema_version": 1,
+  "schema_version": 3,
   "updated": "2026-07-25",
-  "status": "BUILDING",
-  "canonical_design": "../research/product-stewardship-agent-operating-system-2026-07-25.md",
-  "portfolio_queue": "portfolio-launch-reconciliation-2026-07-25.md",
-  "quality_floor": {
-    "product_content_quality": {
-      "weight": 20,
-      "minimum_to_win": 17
-    },
-    "accuracy_safety_trust": {
-      "weight": 20,
-      "minimum_to_win": 17
-    },
-    "positive_laidies_brand_contribution": {
-      "weight": 20,
-      "minimum_to_win": 17
-    }
+  "status": "BUILDING_MANUAL_OPERATION",
+  "truth": "Every canonical SUNNYVAiLE building has its own persistent champion. Distinct tools, games, publications and activities have sub-champions. Models run only when the orchestrator dispatches a trigger; durable ownership lives in the product folders.",
+  "orchestrator": {
+    "id": "laidies-portfolio-orchestrator",
+    "town_orchestrator": "sunnyvaile-town-orchestrator",
+    "owner": "Codex",
+    "human_decision_owner": "Ali",
+    "contract": "ORCHESTRATOR.md",
+    "active_concurrency_limit": 3
   },
-  "required_run_chain": [
-    "trigger",
-    "inputs",
-    "run",
-    "structured_output",
-    "evaluation",
-    "decision",
-    "named_implementation",
-    "verification",
-    "public_result",
-    "measurement",
-    "notification"
-  ],
+  "canonical_building_source": "../../content/site/sunnyvaile-directory.js",
+  "canonical_design": "../research/product-stewardship-agent-operating-system-2026-07-25.md",
+  "champion_contract": "CHAMPION-CONTRACT.md",
+  "shared_roles": "guilds.json",
+  "run_queue": "run-queue.json",
+  "event_dictionary": "event-dictionary.json",
+  "quality_floor": {
+    "product_content_quality": {"weight": 20, "minimum_to_win": 17},
+    "accuracy_safety_trust": {"weight": 20, "minimum_to_win": 17},
+    "positive_laidies_brand_contribution": {"weight": 20, "minimum_to_win": 17},
+    "ux_accessibility": {"weight": 15},
+    "technical_data_integrity": {"weight": 15},
+    "evidence_learning": {"weight": 5},
+    "sustainability_maintenance": {"weight": 5}
+  },
   "automation": {
+    "champion_dispatch": "MANUAL_CODEX_ORCHESTRATION",
     "persistent_runner": "NOT_WIRED",
     "scheduler": "NOT_WIRED",
     "plausible_pull": "NOT_WIRED",
     "clarity_pull": "NOT_WIRED",
-    "notifications": "NOT_WIRED"
+    "notifications": "CHAT_HANDOFF_ONLY"
   },
-  "pilots": [
-    {
-      "id": "fairy-godmother",
-      "product": "FAiRY Godmother",
-      "status": "REPORT_READY",
-      "launch_verdict": "FIX_BEFORE_LAUNCH",
-      "dossier": "fairy-godmother/deep-dive-2026-07-25.md",
-      "next_trigger": "P0_REPAIR_AUTHORIZED",
-      "automatic_triggers": [
-        "safety_incident",
-        "factual_correction",
-        "service_contract_change",
-        "reward_ledger_change",
-        "public_promise_change"
-      ]
-    },
-    {
-      "id": "girl-talk",
-      "product": "Girl Talk & Community Completion Loop",
-      "status": "REPORT_READY",
-      "launch_verdict": "FIX_BEFORE_LAUNCH_AS_PROMOTED_COMMUNITY_REWARD_JOURNEY",
-      "dossier": "girl-talk/deep-dive-2026-07-25.md",
-      "next_trigger": "PRIMARY_JOB_AND_REWARD_TRUTH_DECISION",
-      "automatic_triggers": [
-        "community_provider_change",
-        "moderation_incident",
-        "completion_event_change",
-        "reward_ledger_change",
-        "public_promise_change"
-      ]
-    },
-    {
-      "id": "dream-phone",
-      "product": "Dream Phone",
-      "status": "REPORT_READY",
-      "launch_verdict": "HIDE_OR_LABEL",
-      "dossier": "dream-phone/deep-dive-2026-07-25.md",
-      "next_trigger": "PARKED_VERSUS_LIVE_STATUS_DECISION",
-      "automatic_triggers": [
-        "canonical_public_status_drift",
-        "game_model_change",
-        "source_correction",
-        "reward_persistence_change",
-        "public_promise_change"
-      ]
-    },
-    {
-      "id": "episode-media-quality",
-      "product": "Trailer and Episodes 1-4 Media Quality",
-      "status": "REPORT_READY",
-      "launch_verdict": "HOLD_MOTION_FILMS",
-      "dossier": "episode-media-quality/CHARTER.md",
-      "next_trigger": "COMPLETE_SHA_BOUND_NARRATION_VISUAL_REVIEW",
-      "automatic_triggers": [
-        "new_source_frame",
-        "new_motion_clip",
-        "new_assembled_cut",
-        "audio_or_caption_change",
-        "public_player_mapping_change"
-      ]
-    }
+  "products": [
+    {"id":"town-entry-homepage","kind":"entry_surface","name":"LAiDIES Homepage & Town Entry","parent_id":null,"routes":["/","/start-here.html"],"champion":"town-entry-homepage-champion","dossier":"town-entry-homepage/CHARTER.md","state":"town-entry-homepage/state.json","initial_deep_dive":"QUEUED","launch_status":"OWNER_REVIEW_REQUIRED","next_trigger":"CHAMPION_CAPACITY_AVAILABLE"},
+
+    {"id":"visitors-centre","kind":"building","building_number":1,"name":"Welcome Wagon Visitor's Centre","parent_id":null,"routes":["/visitors-centre.html"],"champion":"visitors-centre-champion","dossier":"visitors-centre/CHARTER.md","state":"visitors-centre/state.json","initial_deep_dive":"REPORT_READY","launch_status":"OWNER_REVIEW_REQUIRED","next_trigger":"CLEAN_STATE_COMPREHENSION_AND_OWNER_VISUAL_RULING"},
+    {"id":"newsstand","kind":"building","building_number":2,"name":"NewsStand","parent_id":null,"routes":["/newsstand.html"],"champion":"newsstand-champion","dossier":"newsstand/CHARTER.md","state":"newsstand/state.json","initial_deep_dive":"QUEUED","launch_status":"PARTIAL_MANUAL_PUBLICATION","next_trigger":"CHAMPION_CAPACITY_AVAILABLE"},
+    {"id":"chick-flicks","kind":"building","building_number":3,"name":"Chick Flicks","parent_id":null,"routes":["/chick-flicks.html","/episodes.html"],"champion":"chick-flicks-champion","dossier":"chick-flicks/CHARTER.md","state":"chick-flicks/state.json","initial_deep_dive":"RUNNING","launch_status":"OWNER_REVIEW_REQUIRED","next_trigger":"INITIAL_DEEP_DIVE_COMPLETE"},
+    {"id":"blend-snap","kind":"building","building_number":4,"name":"Blend & Snap","parent_id":null,"routes":["/blend-snap.html"],"champion":"blend-snap-champion","dossier":"blend-snap/CHARTER.md","state":"blend-snap/state.json","initial_deep_dive":"RUNNING","launch_status":"UNKNOWN","next_trigger":"INITIAL_DEEP_DIVE_COMPLETE"},
+    {"id":"mme-claio","kind":"building","building_number":5,"name":"Mme CLAi-O's Shop","parent_id":null,"routes":["/games/madame-claio.html"],"champion":"mme-claio-champion","dossier":"mme-claio/CHARTER.md","state":"mme-claio/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"CHAMPION_CAPACITY_AVAILABLE"},
+    {"id":"maikeover","kind":"building","building_number":6,"name":"MAiKEOVER on MAiN","parent_id":null,"routes":["/maikeover.html"],"champion":"maikeover-champion","dossier":"maikeover/CHARTER.md","state":"maikeover/state.json","initial_deep_dive":"RUNNING","launch_status":"PARTIAL_CROSS_DEVICE_UNVERIFIED","next_trigger":"INITIAL_DEEP_DIVE_COMPLETE"},
+    {"id":"bronze-aige","kind":"building","building_number":7,"name":"Bronze AiGE","parent_id":null,"routes":["/bronze-aige.html"],"champion":"bronze-aige-champion","dossier":"bronze-aige/CHARTER.md","state":"bronze-aige/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"CHAMPION_CAPACITY_AVAILABLE"},
+    {"id":"dream-phone","kind":"building","building_number":8,"name":"Dream Phone Booth","parent_id":null,"routes":["/games/dream-phone.html"],"champion":"dream-phone-champion","dossier":"dream-phone/deep-dive-2026-07-25.md","state":"dream-phone/state.json","initial_deep_dive":"REPORT_READY","launch_status":"HIDE_OR_LABEL","next_trigger":"PRODUCT_STATUS_DECISION"},
+    {"id":"mall","kind":"building","building_number":9,"name":"The Mall","parent_id":null,"routes":["/mall.html","/shop.html"],"champion":"mall-champion","dossier":"mall/CHARTER.md","state":"mall/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"CHAMPION_CAPACITY_AVAILABLE"},
+    {"id":"ksvl","kind":"building","building_number":10,"name":"KSVL Community RAiDIO","parent_id":null,"routes":["/radio.html","/ksvl-popup.html"],"champion":"ksvl-champion","dossier":"ksvl/CHARTER.md","state":"ksvl/state.json","initial_deep_dive":"QUEUED","launch_status":"TECHNICALLY_VERIFIED_OWNER_REVIEW_REQUIRED","next_trigger":"CHAMPION_CAPACITY_AVAILABLE"},
+    {"id":"post-office","kind":"building","building_number":11,"name":"SUNNYVAiLE Post Office","parent_id":null,"routes":["/post-office.html"],"champion":"post-office-champion","dossier":"post-office/CHARTER.md","state":"post-office/state.json","initial_deep_dive":"QUEUED","launch_status":"PARTIAL_DELIVERY_LIFECYCLE_UNVERIFIED","next_trigger":"CHAMPION_CAPACITY_AVAILABLE"},
+    {"id":"town-hall","kind":"building","building_number":12,"name":"Town Hall","parent_id":null,"routes":["/town-hall.html"],"champion":"town-hall-champion","dossier":"town-hall/CHARTER.md","state":"town-hall/state.json","initial_deep_dive":"QUEUED","launch_status":"PARTIAL_SUBMISSION_UNVERIFIED","next_trigger":"CHAMPION_CAPACITY_AVAILABLE"},
+    {"id":"library","kind":"building","building_number":13,"name":"SUNNYVAiLE LIBRAiRY","parent_id":null,"routes":["/library.html"],"champion":"library-champion","dossier":"library/CHARTER.md","state":"library/state.json","initial_deep_dive":"REPORT_READY","launch_status":"HIDE_OR_LABEL_UNRESOLVED_BOOKS","next_trigger":"OWNER_REVIEW_AND_FRESH_BROWSER_EVIDENCE"},
+    {"id":"sunnyvaile-high","kind":"building","building_number":14,"name":"SUNNYVAiLE High","parent_id":null,"routes":["/sunnyvaile-high.html"],"champion":"sunnyvaile-high-champion","dossier":"sunnyvaile-high/CHARTER.md","state":"sunnyvaile-high/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"CHAMPION_CAPACITY_AVAILABLE"},
+    {"id":"fairy-godmother","kind":"building","building_number":15,"name":"FAiRY Godmother's House","parent_id":null,"routes":["/games/fairy-godmother.html"],"champion":"fairy-godmother-champion","dossier":"fairy-godmother/deep-dive-2026-07-25.md","state":"fairy-godmother/state.json","initial_deep_dive":"REPORT_READY","launch_status":"FIX_BEFORE_PROMOTION","next_trigger":"P0_REPAIR_AUTHORIZED"},
+    {"id":"sorority-house","kind":"building","building_number":16,"name":"Sorority House · Delta LAi Nu","parent_id":null,"routes":["/sorority-house.html","/community.html"],"champion":"sorority-house-champion","dossier":"sorority-house/CHARTER.md","state":"sorority-house/state.json","initial_deep_dive":"QUEUED","launch_status":"PARTIAL_EXTERNAL_RESULT_UNVERIFIED","next_trigger":"CHAMPION_CAPACITY_AVAILABLE"},
+    {"id":"luminairy","kind":"building","building_number":17,"name":"The LUMINAiRY","parent_id":null,"routes":["/luminairy.html"],"champion":"luminairy-champion","dossier":"luminairy/CHARTER.md","state":"luminairy/state.json","initial_deep_dive":"QUEUED","launch_status":"RESEARCH_AND_OWNER_REVIEW_REQUIRED","next_trigger":"CHAMPION_CAPACITY_AVAILABLE"},
+
+    {"id":"newsstand-breaking","kind":"publication","name":"The Breaking","parent_id":"newsstand","routes":["/newsstand.html"],"champion":"newsstand-breaking-subchampion","dossier":"newsstand/subproducts/breaking.md","state":"newsstand/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"NEWSSTAND_CHAMPION_DISPATCH"},
+    {"id":"newsstand-daily","kind":"publication","name":"The Daily","parent_id":"newsstand","routes":["/newsstand.html"],"champion":"newsstand-daily-subchampion","dossier":"newsstand/subproducts/daily.md","state":"newsstand/state.json","initial_deep_dive":"QUEUED","launch_status":"PARTIAL","next_trigger":"NEWSSTAND_CHAMPION_DISPATCH"},
+    {"id":"newsstand-weekly","kind":"publication","name":"The Weekly","parent_id":"newsstand","routes":["/newsstand.html"],"champion":"newsstand-weekly-subchampion","dossier":"newsstand/subproducts/weekly.md","state":"newsstand/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"NEWSSTAND_CHAMPION_DISPATCH"},
+    {"id":"newsstand-tribune","kind":"publication","name":"The Tribune","parent_id":"newsstand","routes":["/newsstand.html"],"champion":"newsstand-tribune-subchampion","dossier":"newsstand/subproducts/tribune.md","state":"newsstand/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"NEWSSTAND_CHAMPION_DISPATCH"},
+
+    {"id":"episode-experience","kind":"experience","name":"Weekly Episode Experience","parent_id":"chick-flicks","routes":["/issues/issue-01.html","/issues/issue-02.html","/issues/issue-03.html","/issues/issue-04.html"],"champion":"episode-experience-subchampion","dossier":"episode-experience/CHARTER.md","state":"episode-experience/state.json","initial_deep_dive":"REPORT_READY","launch_status":"PARTIAL_LISTEN_ALONG_ONLY","next_trigger":"EXACT_RELEASE_AND_PUBLIC_ROUTE_VERIFICATION"},
+    {"id":"screening-room","kind":"experience","name":"Screening Room","parent_id":"chick-flicks","routes":["/watch.html"],"champion":"screening-room-subchampion","dossier":"screening-room/CHARTER.md","state":"screening-room/state.json","initial_deep_dive":"QUEUED","launch_status":"LISTEN_ALONG_ONLY","next_trigger":"CHICK_FLICKS_CHAMPION_DISPATCH"},
+    {"id":"episode-media-quality","kind":"production_system","name":"Episode Media Quality","parent_id":"chick-flicks","routes":["/watch.html"],"champion":"episode-media-quality-subchampion","dossier":"episode-media-quality/CHARTER.md","state":"episode-media-quality/eod-2026-07-25-release-gate.md","initial_deep_dive":"REPORT_READY","launch_status":"TRAILER_E01_E02_E03_E04_HOLD","next_trigger":"NEW_MEDIA_CANDIDATE"},
+
+    {"id":"practice-pack","kind":"learning_activity","name":"Study Pack","parent_id":"blend-snap","routes":["/blend-snap.html","/printable.html"],"champion":"practice-pack-subchampion","dossier":"practice-pack/CHARTER.md","state":"practice-pack/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"BLEND_SNAP_CHAMPION_DISPATCH"},
+    {"id":"try-on","kind":"learning_activity","name":"Try-On","parent_id":"blend-snap","routes":["/try-on.html"],"champion":"try-on-subchampion","dossier":"try-on/CHARTER.md","state":"try-on/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"BLEND_SNAP_CHAMPION_DISPATCH"},
+    {"id":"trading-cards","kind":"game","name":"Trading Cards","parent_id":"blend-snap","routes":["/games/trading-cards.html"],"champion":"trading-cards-subchampion","dossier":"trading-cards/CHARTER.md","state":"trading-cards/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"BLEND_SNAP_CHAMPION_DISPATCH"},
+
+    {"id":"mme-claio-reading","kind":"game","name":"Mme CLAi-O Reading","parent_id":"mme-claio","routes":["/games/madame-claio.html"],"champion":"mme-claio-reading-subchampion","dossier":"mme-claio/subproducts/reading.md","state":"mme-claio/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"MME_CLAIO_CHAMPION_DISPATCH"},
+    {"id":"resident-card","kind":"identity_product","name":"Resident Card","parent_id":"maikeover","routes":["/resident-card.html","/maikeover.html"],"champion":"resident-card-subchampion","dossier":"resident-card/CHARTER.md","state":"resident-card/state.json","initial_deep_dive":"QUEUED","launch_status":"PARTIAL_CROSS_DEVICE_UNVERIFIED","next_trigger":"MAIKEOVER_CHAMPION_DISPATCH"},
+    {"id":"closet-progression","kind":"identity_product","name":"Closet & Progression","parent_id":"maikeover","routes":["/laidies-card.html","/reference-closet.html"],"champion":"closet-progression-subchampion","dossier":"closet-progression/CHARTER.md","state":"closet-progression/state.json","initial_deep_dive":"QUEUED","launch_status":"DEVICE_LOCAL","next_trigger":"MAIKEOVER_CHAMPION_DISPATCH"},
+
+    {"id":"cocktail-fortune","kind":"game","name":"Cocktail Fortune","parent_id":"bronze-aige","routes":["/games/cocktail-fortune.html"],"champion":"cocktail-fortune-subchampion","dossier":"cocktail-fortune/CHARTER.md","state":"cocktail-fortune/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"BRONZE_AIGE_CHAMPION_DISPATCH"},
+    {"id":"businesswomens-special","kind":"game","name":"Businesswomen's Special","parent_id":"bronze-aige","routes":["/games/businesswomens-special.html"],"champion":"businesswomens-special-subchampion","dossier":"businesswomens-special/CHARTER.md","state":"businesswomens-special/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"BRONZE_AIGE_CHAMPION_DISPATCH"},
+
+    {"id":"dream-phone-game","kind":"game","name":"Dream Phone Game","parent_id":"dream-phone","routes":["/games/dream-phone-game.html"],"champion":"dream-phone-game-subchampion","dossier":"dream-phone/subproducts/game.md","state":"dream-phone/state.json","initial_deep_dive":"REPORT_READY","launch_status":"HIDE_OR_LABEL","next_trigger":"DREAM_PHONE_CHAMPION_DISPATCH"},
+
+    {"id":"mall-as-seen-on-tv","kind":"shop","name":"As Seen on TV","parent_id":"mall","routes":["/mall/as-seen-on-tv.html"],"champion":"mall-as-seen-on-tv-subchampion","dossier":"mall/shops/as-seen-on-tv.md","state":"mall/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"MALL_CHAMPION_DISPATCH"},
+    {"id":"mall-books-records","kind":"shop","name":"Books & Records","parent_id":"mall","routes":["/mall/books-and-records.html"],"champion":"mall-books-records-subchampion","dossier":"mall/shops/books-records.md","state":"mall/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"MALL_CHAMPION_DISPATCH"},
+    {"id":"mall-claires","kind":"shop","name":"CLAiRE'S","parent_id":"mall","routes":["/mall/claires.html"],"champion":"mall-claires-subchampion","dossier":"mall/shops/claires.md","state":"mall/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"MALL_CHAMPION_DISPATCH"},
+    {"id":"mall-food-court","kind":"shop","name":"Food Court","parent_id":"mall","routes":["/mall/food-court.html"],"champion":"mall-food-court-subchampion","dossier":"mall/shops/food-court.md","state":"mall/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"MALL_CHAMPION_DISPATCH"},
+    {"id":"mall-gizmos","kind":"shop","name":"Gizmos & Gadgets","parent_id":"mall","routes":["/mall/gizmos-and-gadgets.html"],"champion":"mall-gizmos-subchampion","dossier":"mall/shops/gizmos.md","state":"mall/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"MALL_CHAMPION_DISPATCH"},
+    {"id":"mall-hanger-management","kind":"shop","name":"Hanger Management","parent_id":"mall","routes":["/mall/hanger-management.html"],"champion":"mall-hanger-management-subchampion","dossier":"mall/shops/hanger-management.md","state":"mall/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"MALL_CHAMPION_DISPATCH"},
+    {"id":"mall-last-summer","kind":"shop","name":"I Know What You Did Last (x30) Summer","parent_id":"mall","routes":["/mall/last-summer.html"],"champion":"mall-last-summer-subchampion","dossier":"mall/shops/last-summer.md","state":"mall/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"MALL_CHAMPION_DISPATCH"},
+    {"id":"mall-maiybe","kind":"shop","name":"MAiYBE","parent_id":"mall","routes":["/mall/maiybe.html"],"champion":"mall-maiybe-subchampion","dossier":"mall/shops/maiybe.md","state":"mall/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"MALL_CHAMPION_DISPATCH"},
+    {"id":"mall-kiosk","kind":"shop","name":"Mall Kiosk","parent_id":"mall","routes":["/mall/mall-kiosk.html"],"champion":"mall-kiosk-subchampion","dossier":"mall/shops/mall-kiosk.md","state":"mall/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"MALL_CHAMPION_DISPATCH"},
+    {"id":"mall-pieces-flair","kind":"shop","name":"Pieces of Flair","parent_id":"mall","routes":["/mall/pieces-of-flair.html"],"champion":"mall-pieces-flair-subchampion","dossier":"mall/shops/pieces-flair.md","state":"mall/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"MALL_CHAMPION_DISPATCH"},
+    {"id":"mall-rollin-homies","kind":"shop","name":"Rollin' with my Homies","parent_id":"mall","routes":["/mall/rollin-with-my-homies.html"],"champion":"mall-rollin-homies-subchampion","dossier":"mall/shops/rollin-homies.md","state":"mall/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"MALL_CHAMPION_DISPATCH"},
+
+    {"id":"dj-booth","kind":"game","name":"DJ Booth","parent_id":"ksvl","routes":["/games/dj-booth.html"],"champion":"dj-booth-subchampion","dossier":"dj-booth/CHARTER.md","state":"dj-booth/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"KSVL_CHAMPION_DISPATCH"},
+    {"id":"ksvl-catalogue","kind":"audio_product","name":"KSVL Catalogue & Weekly Rotation","parent_id":"ksvl","routes":["/radio.html"],"champion":"ksvl-catalogue-subchampion","dossier":"ksvl/subproducts/catalogue.md","state":"ksvl/state.json","initial_deep_dive":"QUEUED","launch_status":"TECHNICALLY_VERIFIED_OWNER_REVIEW_REQUIRED","next_trigger":"KSVL_CHAMPION_DISPATCH"},
+
+    {"id":"newsletter-delivery","kind":"service","name":"Wednesday Newsletter Delivery","parent_id":"post-office","routes":["/post-office.html"],"champion":"newsletter-delivery-subchampion","dossier":"post-office/subproducts/newsletter.md","state":"post-office/state.json","initial_deep_dive":"QUEUED","launch_status":"PARTIAL_REAL_DELIVERY_UNVERIFIED","next_trigger":"POST_OFFICE_CHAMPION_DISPATCH"},
+    {"id":"sign-in","kind":"service","name":"Magic-link Sign-in","parent_id":"post-office","routes":["/post-office.html"],"champion":"sign-in-subchampion","dossier":"post-office/subproducts/sign-in.md","state":"post-office/state.json","initial_deep_dive":"QUEUED","launch_status":"PARTIAL_TWO_DEVICE_UNVERIFIED","next_trigger":"POST_OFFICE_CHAMPION_DISPATCH"},
+    {"id":"postcards-referral","kind":"service","name":"Postcards & Referral","parent_id":"post-office","routes":["/postcard.html","/clubhouse-pass.html"],"champion":"postcards-referral-subchampion","dossier":"post-office/subproducts/postcards-referral.md","state":"post-office/state.json","initial_deep_dive":"QUEUED","launch_status":"SHARE_ONLY_LIFECYCLE_UNVERIFIED","next_trigger":"POST_OFFICE_CHAMPION_DISPATCH"},
+
+    {"id":"town-feedback","kind":"service","name":"Town Feedback & Civic Records","parent_id":"town-hall","routes":["/town-hall.html","/community/comment-card.html"],"champion":"town-feedback-subchampion","dossier":"town-hall/subproducts/feedback.md","state":"town-hall/state.json","initial_deep_dive":"QUEUED","launch_status":"PARTIAL_SUBMISSION_UNVERIFIED","next_trigger":"TOWN_HALL_CHAMPION_DISPATCH"},
+
+    {"id":"miss-jeeves","kind":"tool","name":"Miss Jeeves Search","parent_id":"library","routes":["/library.html"],"champion":"miss-jeeves-subchampion","dossier":"library/subproducts/miss-jeeves.md","state":"library/state.json","initial_deep_dive":"RUNNING_WITH_PARENT","launch_status":"OWNER_REVIEW_REQUIRED","next_trigger":"LIBRARY_CHAMPION_DISPATCH"},
+    {"id":"library-101","kind":"content_family","name":"LIBRAiRY 101 Books","parent_id":"library","routes":["/content/library-books/rendered/concepts-101.html","/content/library-books/rendered/vocab-101.html"],"champion":"library-101-subchampion","dossier":"library/subproducts/library-101.md","state":"library/state.json","initial_deep_dive":"RUNNING_WITH_PARENT","launch_status":"EDITORIAL_AND_OWNER_REVIEW_REQUIRED","next_trigger":"LIBRARY_CHAMPION_DISPATCH"},
+    {"id":"grimoire","kind":"content_family","name":"Grimoire & SLAiYER Handbook","parent_id":"library","routes":["/grimoire/slaiyer-handbook.html","/handbook.html"],"champion":"grimoire-subchampion","dossier":"library/subproducts/grimoire.md","state":"library/state.json","initial_deep_dive":"RUNNING_WITH_PARENT","launch_status":"OWNER_REVIEW_REQUIRED","next_trigger":"LIBRARY_CHAMPION_DISPATCH"},
+    {"id":"library-saves","kind":"persistence_feature","name":"Puffy Saves & Retrieval","parent_id":"library","routes":["/library.html","/reference-closet.html"],"champion":"library-saves-subchampion","dossier":"library/subproducts/saves.md","state":"library/state.json","initial_deep_dive":"RUNNING_WITH_PARENT","launch_status":"DEVICE_LOCAL","next_trigger":"LIBRARY_CHAMPION_DISPATCH"},
+
+    {"id":"pop-quiz","kind":"learning_activity","name":"Pop Quiz","parent_id":"sunnyvaile-high","routes":["/learn/quiz.html"],"champion":"pop-quiz-subchampion","dossier":"sunnyvaile-high/subproducts/pop-quiz.md","state":"sunnyvaile-high/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"HIGH_CHAMPION_DISPATCH"},
+    {"id":"classes","kind":"learning_activity","name":"Classes & Study Hall","parent_id":"sunnyvaile-high","routes":["/learn.html","/learn/class.html"],"champion":"classes-subchampion","dossier":"sunnyvaile-high/subproducts/classes.md","state":"sunnyvaile-high/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"HIGH_CHAMPION_DISPATCH"},
+    {"id":"book-fair","kind":"learning_activity","name":"Book Fair","parent_id":"sunnyvaile-high","routes":["/bookfair.html"],"champion":"book-fair-subchampion","dossier":"sunnyvaile-high/subproducts/book-fair.md","state":"sunnyvaile-high/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"HIGH_CHAMPION_DISPATCH"},
+
+    {"id":"fairy-answer-quality","kind":"ai_service","name":"FAiRY Answer Quality & Safety","parent_id":"fairy-godmother","routes":["/games/fairy-godmother.html"],"champion":"fairy-answer-quality-subchampion","dossier":"fairy-godmother/subproducts/answer-quality.md","state":"fairy-godmother/state.json","initial_deep_dive":"REPORT_READY","launch_status":"FIX_BEFORE_PROMOTION","next_trigger":"FAIRY_CHAMPION_DISPATCH"},
+    {"id":"fairy-plays","kind":"economy_feature","name":"FAiRY Plays Ledger","parent_id":"fairy-godmother","routes":["/games/fairy-godmother.html"],"champion":"fairy-plays-subchampion","dossier":"fairy-godmother/subproducts/plays.md","state":"fairy-godmother/state.json","initial_deep_dive":"REPORT_READY","launch_status":"FIX_BEFORE_PROMOTION","next_trigger":"FAIRY_CHAMPION_DISPATCH"},
+
+    {"id":"community","kind":"community_product","name":"Community & Conversation","parent_id":"sorority-house","routes":["/community.html","/community/ask-the-room.html","/community/burn-book.html","/community/dear-laidies.html","/community/mix-cd-exchange.html","/community/try-on-debrief.html","/community/wins.html"],"champion":"community-subchampion","dossier":"community/CHARTER.md","state":"community/state.json","initial_deep_dive":"QUEUED","launch_status":"PARTIAL_EXTERNAL_RESULT_UNVERIFIED","next_trigger":"SORORITY_HOUSE_CHAMPION_DISPATCH"},
+    {"id":"girl-talk","kind":"game","name":"Girl Talk","parent_id":"sorority-house","routes":["/games/girl-talk.html"],"champion":"girl-talk-subchampion","dossier":"girl-talk/deep-dive-2026-07-25.md","state":"girl-talk/state.json","initial_deep_dive":"REPORT_READY","launch_status":"HONOUR_SYSTEM_ONLY","next_trigger":"COMMUNITY_COMPLETION_CONTRACT_CHANGE"},
+
+    {"id":"luminairy-people","kind":"research_editorial","name":"PATRON SAiNTS, MAiVENS & TRAiLBLAZERS","parent_id":"luminairy","routes":["/luminairy.html"],"champion":"luminairy-people-subchampion","dossier":"luminairy/subproducts/people.md","state":"luminairy/state.json","initial_deep_dive":"QUEUED","launch_status":"RESEARCH_AND_OWNER_REVIEW_REQUIRED","next_trigger":"LUMINAIRY_CHAMPION_DISPATCH"},
+
+    {"id":"fun-pack","kind":"game","name":"Fun Pack","parent_id":null,"routes":["/games/fun-pack.html"],"champion":"fun-pack-champion","dossier":"fun-pack/CHARTER.md","state":"fun-pack/state.json","initial_deep_dive":"QUEUED","launch_status":"UNKNOWN","next_trigger":"PRODUCT_HOME_DECISION"},
+    {"id":"platform-reliability","kind":"shared_platform","name":"Shared Platform, Data & Reliability","parent_id":null,"routes":["shared"],"champion":"platform-reliability-champion","dossier":"platform-reliability/CHARTER.md","state":"platform-reliability/state.json","initial_deep_dive":"QUEUED","launch_status":"PARTIAL","next_trigger":"CHAMPION_CAPACITY_AVAILABLE"}
   ]
 }

@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "BUILDING",
+  "privacy_rule": "Aggregated product events only. No prompts, message bodies, email addresses, names, raw Clarity recordings or sensitive user content enter champion evidence.",
+  "events": [
+    {"name":"product_viewed","journey_stage":"entry","authoritative_outcome":false,"safe_properties":["product_id","route","device_class","new_or_returning"]},
+    {"name":"meaningful_action_started","journey_stage":"action","authoritative_outcome":false,"safe_properties":["product_id","action_id"]},
+    {"name":"meaningful_action_completed","journey_stage":"completion","authoritative_outcome":true,"safe_properties":["product_id","action_id","completion_source"]},
+    {"name":"meaningful_action_failed","journey_stage":"failure","authoritative_outcome":true,"safe_properties":["product_id","action_id","failure_class"]},
+    {"name":"next_useful_action_opened","journey_stage":"continuation","authoritative_outcome":false,"safe_properties":["product_id","destination_product_id"]},
+    {"name":"reward_granted","journey_stage":"reward","authoritative_outcome":true,"safe_properties":["product_id","reward_id","source_event","persistence_class"]},
+    {"name":"reward_grant_failed","journey_stage":"failure","authoritative_outcome":true,"safe_properties":["product_id","reward_id","failure_class"]}
+  ],
+  "known_gaps": [
+    "Plausible API or export ingestion is not wired.",
+    "Clarity evidence is limited to privacy-safe human-curated observations.",
+    "Product-specific events and authoritative completion sources remain to be added by each champion."
+  ]
+}

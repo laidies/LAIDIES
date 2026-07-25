@@ -1,0 +1,38 @@
+{
+  "product": "weekly-episode-experience",
+  "status": "BUILDING",
+  "asOf": "2026-07-25",
+  "operatingMode": "manual-invocation",
+  "persistentRunner": "NOT WIRED",
+  "analyticsPull": "NOT WIRED",
+  "scope": [
+    "episode discovery",
+    "article",
+    "illustrated listen-along / approved motion-film branch",
+    "recap and continuation",
+    "weekly return"
+  ],
+  "currentReleaseTruth": {
+    "publishedEpisodes": ["01", "02", "03", "04"],
+    "episode05": "DRAFT",
+    "screeningRoomMotionFilms": "HOLD — EPISODE_FILMS is intentionally empty",
+    "screeningRoomPublicOffer": "cue-synced illustrated listen-alongs with read-along captions; Episodes 03–04 truthfully present narrated editions"
+  },
+  "latestDeepDive": "launch-deep-dive-2026-07-25.md",
+  "mediaDependency": "../episode-media-quality/eod-2026-07-25-release-gate.md",
+  "nextTrigger": {
+    "type": "release-artifact-and-public-route-verification",
+    "reason": "AW-003 requires the exact candidate and public origin to prove promoted episode journeys before announcement.",
+    "status": "PENDING"
+  },
+  "openBlockers": [
+    "All promoted motion films are HOLD pending independent complete audiovisual, caption and public-player evidence.",
+    "Analytics script presence/custom Episode watch event is not a product-learning loop; aggregated evidence ingestion is not wired.",
+    "The canon-to-issue-JSON/article/narration fan-out still has a documented second-source drift risk."
+  ],
+  "lastRun": {
+    "date": "2026-07-25",
+    "type": "one-time launch deep dive",
+    "result": "REPORT READY"
+  }
+}

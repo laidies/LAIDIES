@@ -1,0 +1,68 @@
+# LIBRAiRY Product Steward Charter
+
+**Status:** BUILDING — manual launch deep dive complete; no persistent runner is wired
+**Product owner:** LIBRAiRY product steward
+**Portfolio owner:** Codex portfolio orchestrator
+**Founder decision owner:** Ali
+
+## Product promise
+
+The SUNNYVAiLE LIBRAiRY makes a newcomer more capable with AI: she can enter a real library room, identify the right kind of help, open a substantial and honest source, get a direct answer when she does not know where to start, and save an exact useful place for later.
+
+The product is not a decorative bookshelf, a generic site search, or a claim that all displayed books are current and approved. Its shelves are the catalogue; its books, Miss Jeeves, and saved Puffy routes are one reference journey.
+
+## Owned scope
+
+- `library.html`: room arrival, shelf catalogue, availability truth, in-place reader, Miss Jeeves.
+- Rendered book families under `content/library-books/`, including editorial readiness, source/currency gates and cross-book ownership.
+- Book and exact-section saves via `content/site/puffy-bookmarks.js`, the personal 10-sticker pouch, and retrieval from My Closet.
+- The reference/retrieval relationship with the legacy Reference Closet and the current correction/feedback route.
+
+## Out of scope
+
+- SUNNYVAiLE High’s structured classes, quizzes and mastery claims.
+- Identity/reward-account architecture beyond accurately representing the LIBRAiRY’s device-local saves and escalating shared-platform defects.
+- Public deployment, editorial publication, or changes to shared canon/brand decisions.
+
+## Definition of a healthy journey
+
+1. A new visitor understands in ten seconds that this is a reference library, that covers are controls, and that Miss Jeeves can route a question.
+2. She can distinguish available books from previews before attempting to open one.
+3. An available book opens with a stable title, usable contents, complete readable body, source/currency context where required, and a recovery state if loading fails.
+4. Miss Jeeves gives a bounded direct answer and points to relevant, working book sections or a clearly labelled external route.
+5. She can save a whole book or exact section using one of her ten Puffies, reopen that exact location from My Closet, and remove it.
+6. A returning visitor can recover device-local saves without a false cross-device/account claim.
+7. A reader who spots an error can reach a clear editorial correction route; material corrections have an owner, source record and visible resolution status.
+
+## Quality and decision rules
+
+- The authoritative visual direction is the straight-on daylit room with integrated three-bay shelves. Do not revive `_library-v3.html` as a benchmark or turn the shelf into a card catalogue. See `operations/library-decisions.md`.
+- A rendered fragment, a passing link check, or a loading reader is not editorial approval. Every available book needs its own content/currency evidence.
+- Use the fixed LAiDIES status vocabulary. `REPORT READY`, `BUILDING`, and `VERIFIED LOCALLY` do not imply `VERIFIED PUBLICLY`.
+- Save wording must remain device-local unless a tested account-backed sync proves otherwise.
+- A correction intake must answer before it routes; it may not present an email address or generic Town Hall form as a sufficient substitute for a book/claim-specific correction path.
+
+## Current dependencies
+
+| Dependency | Why it matters | Current truth |
+| --- | --- | --- |
+| Rendered book fragments | Reader content and deep links | Mixed readiness; Vocab/Concepts architecture remains under ruling; several live books have explicit editorial holds. |
+| `site-index.json` | Miss Jeeves retrieval | Loads client-side; no audited index freshness/coverage contract. |
+| Puffy bookmark script + My Closet | Save/retrieve journey | Device-local `localStorage`; local round trip was previously verified, not account sync. |
+| Town Hall feedback | General feedback | Exists, but is not a LIBRAiRY correction workflow. |
+| Plausible/Clarity | Learning from behaviour | Scripts are present on related surfaces, but no LIBRAiRY event contract, aggregate pull, baseline or evidence packet is wired. |
+
+## Steward triggers
+
+- Any book/body/source/availability or site-index change.
+- A source correction, stale claim, broken deep link or reader failure.
+- A Puffy or My Closet persistence/retrieval change.
+- A repeated search-zero-result, failed save/reopen, or accessibility issue once instrumentation exists.
+- A new episode that changes a book’s promised availability or content currency.
+- Monthly editorial-health review and quarterly product-scope review, once the operating-system scheduler exists.
+
+## Escalations
+
+- **FIX BEFORE LAUNCH:** a live book with known factual/editorial hold presented as reliable; broken saved-route retrieval; false persistence claim; inaccessible core reader/search control; or direct-answer link that fails.
+- **HIDE/LABEL FOR LAUNCH:** a preview/placeholder that looks available, a book whose currency is unverified, or a visual route without current rendered evidence.
+- **Ali decision:** book-family ownership boundaries, representative content standard, large visual direction, and any change to the truth of public availability.
