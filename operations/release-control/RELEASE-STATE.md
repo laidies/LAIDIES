@@ -21,8 +21,10 @@ is recorded here.
 
 - Work from the last several days is mixed: some is committed and pushed, one
   production deployment is live, and a large amount is local only.
-- None of the current EOD product, integration, accessibility, terminology, or
-  media work should be described as live yet.
+- The scoped EOD product, integration, accessibility and terminology work in
+  release-source commit `0c6db9d` is live and publicly verified; excluded local
+  studio work is not deployed, and the Trailer/Episodes 1–4 motion films remain
+  on `HOLD`.
 - The untracked studio/archive material must not be bulk-added to a release
   commit merely to make `git status` look clean.
 - The release artifact, not the entire studio tree, is the deployment unit.
