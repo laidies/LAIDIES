@@ -39,6 +39,11 @@ assert.match(page, /failPlayer\('audio', 'The narration audio failed to load\.'\
 assert.match(page, /failPlayer\('visual', 'The timed visual failed to load\.'\)/);
 assert.match(page, /failPlayer\('cues', 'The timing and visual cue sheet failed to load\.'\)/);
 assert.match(page, /failPlayer\('playback', 'The narration could not start\.'\)/);
+assert.match(page, /laidies_screening_progress_v1/);
+assert.match(page, /local playback history, not an account/);
+assert.match(page, /Transcript unavailable for this final portion/);
+assert.match(page, /no words have been invented/);
+assert.match(page, /window\.addEventListener\('pagehide', function \(\) \{ storeProgress\(true\); \}\)/);
 assert.doesNotMatch(page, /Episode watch/);
 assert.match(page, /Listen-along start/);
 assert.match(page, /cover-only audio edition/i);
@@ -119,6 +124,17 @@ for (const [id, edition] of Object.entries(derived.editions)) {
     assert.doesNotMatch(sheet.note, /verified audio|timed lesson cards/i);
   }
 }
+
+assert.deepEqual(
+  JSON.parse(read("content/episodes/episode-trailer-cues.json")).cues.map((cue) => cue.t),
+  [0, 6.38, 43.26, 82.86, 105.38, 138.1, 177.6, 185.88, 195.22, 289.22, 360.2, 364.1, 371.42, 395.84, 416.04, 440.86, 489.58, 515.44, 537.98, 542.02, 569.66, 610.76, 632.36, 699.62, 766.86, 783.62, 786.56, 816.8, 844.86, 871, 887.84, 960],
+  "trailer semantic-onset clock differs from the authoritative VTT audit"
+);
+assert.deepEqual(
+  JSON.parse(read("content/episodes/episode-02-cues.json")).cues.map((cue) => cue.t),
+  [0, 37.12, 64.18, 82.34, 91.34, 122.77, 155.27, 168.33, 188.99, 247.11, 277.47, 311.31, 391.37, 463.83, 513.43, 602.45, 651.53, 662.65, 690.27, 779.67, 831.73, 852.07, 909.25, 915.645, 921.958, 945.95, 971.49],
+  "Episode 02 semantic-onset clock differs from the authoritative VTT audit"
+);
 
 console.log(failures.length ? "SCREENING ROOM REPAIR CONTRACT FAIL" : "SCREENING ROOM REPAIR CONTRACT PASS — TITLES HOLD");
 console.log(`programmes=${ids.length}`);

@@ -148,6 +148,11 @@
     .deck-track:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
     .player-status { margin: 12px 0 0; padding: 12px 16px; border: 2px solid var(--gold); background: #17091b; color: #fff; }
     .player-status button { margin-top: 8px; min-height: 44px; padding: 8px 18px; border: 0; background: var(--gold); color: #17091b; font: 800 0.8rem Jost, sans-serif; cursor: pointer; }
+    .resume-panel { margin: 12px 0 0; padding: 14px 16px; border: 1px solid rgba(201,162,39,0.55); background: #17091b; color: #fff; }
+    .resume-panel p { margin: 0 0 10px; font: 500 0.86rem/1.5 Jost, sans-serif; }
+    .resume-panel-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    .resume-panel button { min-height: 44px; padding: 8px 16px; border: 1px solid var(--gold); background: var(--gold); color: #17091b; font: 800 0.78rem Jost, sans-serif; cursor: pointer; }
+    .resume-panel button + button { background: transparent; color: var(--gold); }
     .deck-rail { position: absolute; left: 0; right: 0; top: 11px; height: 5px; border-radius: 3px; background: rgba(255,253,251,0.18); }
     .deck-fill { position: absolute; left: 0; top: 11px; height: 5px; border-radius: 3px; background: var(--gold); width: 0; }
     .deck-mark { position: absolute; top: 9px; width: 2px; height: 9px; background: rgba(255,253,251,0.45); }
@@ -251,6 +256,13 @@
           <p id="playerStatusText"></p>
           <button type="button" id="retryMedia">Retry this listen-along</button>
         </div>
+        <div class="resume-panel" id="resumePanel" hidden>
+          <p id="resumeText"></p>
+          <div class="resume-panel-actions">
+            <button type="button" id="resumePlayback" disabled>Resume</button>
+            <button type="button" id="startOver">Start over</button>
+          </div>
+        </div>
         <div class="chapters" id="chapters"></div>
       </div>
     </section>
@@ -292,6 +304,10 @@
     var playerStatus = document.getElementById('playerStatus');
     var playerStatusText = document.getElementById('playerStatusText');
     var retryMedia = document.getElementById('retryMedia');
+    var resumePanel = document.getElementById('resumePanel');
+    var resumeText = document.getElementById('resumeText');
+    var resumePlayback = document.getElementById('resumePlayback');
+    var startOver = document.getElementById('startOver');
     var playerFailed = false;
 
     // Public playback stays on the cue-synced illustrated listen-along until
@@ -320,6 +336,44 @@
     function episodeKey(ep) { return ep === 'trailer' ? 'trailer' : String(ep).padStart(2, '0'); }
     function filmFor(ep) { return EPISODE_FILMS[episodeKey(ep)] || null; }
     function captionsFor(ep) { return EPISODE_CAPTIONS[episodeKey(ep)] || null; }
+    var PROGRESS_KEY = 'laidies_screening_progress_v1';
+    var savedProgress = null;
+    var lastProgressWrite = 0;
+    function readProgress() {
+      try {
+        var candidate = JSON.parse(localStorage.getItem(PROGRESS_KEY) || 'null');
+        if (!candidate || candidate.version !== 1) return null;
+        if (Object.keys(candidate).sort().join(',') !== 'programme,time,version') return null;
+        if (candidate.programme !== episodeKey(ep)) return null;
+        if (!Number.isFinite(candidate.time) || candidate.time < 10 || candidate.time > 10800) return null;
+        return candidate;
+      } catch (error) { return null; }
+    }
+    function clearProgress() {
+      try { localStorage.removeItem(PROGRESS_KEY); } catch (error) {}
+      savedProgress = null;
+      resumePanel.hidden = true;
+    }
+    function storeProgress(force) {
+      if (segKind !== 'main' || playerFailed || !Number.isFinite(tape.currentTime)) return;
+      if (tape.currentTime < 10) return;
+      if (duration && tape.currentTime >= duration - 10) { clearProgress(); return; }
+      var stamp = Date.now();
+      if (!force && stamp - lastProgressWrite < 5000) return;
+      lastProgressWrite = stamp;
+      try {
+        localStorage.setItem(PROGRESS_KEY, JSON.stringify({
+          version: 1,
+          programme: episodeKey(ep),
+          time: Math.round(tape.currentTime * 10) / 10
+        }));
+      } catch (error) {}
+    }
+    savedProgress = readProgress();
+    if (savedProgress) {
+      resumeText.textContent = 'This device remembers ' + fmt(savedProgress.time) + ' in this listen-along. This is local playback history, not an account.';
+      resumePanel.hidden = false;
+    }
 
     document.querySelectorAll('.screening-program a[data-ep]').forEach(function (link) {
       var isCurrent = link.getAttribute('data-ep') === episodeKey(ep);
@@ -412,10 +466,11 @@
       return parts.bar;
     }
 
-    function mountAudioCaptionBar(audio, theatre, src) {
+    function mountAudioCaptionBar(audio, theatre, src, programme) {
       var parts = makeCaptionBar(theatre);
       var captionCues = [];
       var activeCaption = -1;
+      var captionStatus = EPISODE_CAPTION_STATUS[episodeKey(programme)] || { coverage: 'complete' };
 
       function seconds(stamp) {
         var bits = stamp.trim().split(':').map(Number);
@@ -446,9 +501,21 @@
           if (captionCues[i].start <= t && t < captionCues[i].end) { next = i; break; }
           if (captionCues[i].start > t) break;
         }
-        if (next === activeCaption) return;
-        activeCaption = next;
-        paintCaption(parts, next >= 0 ? captionCues[next].text : '');
+        var inUntranscribedGap = captionStatus.coverage === 'partial'
+          && captionCues.length
+          && t >= captionCues[captionCues.length - 1].end;
+        var captionState = next >= 0 ? next : inUntranscribedGap ? -2 : -1;
+        if (captionState === activeCaption) return;
+        activeCaption = captionState;
+        if (next >= 0) {
+          paintCaption(parts, captionCues[next].text);
+        } else if (inUntranscribedGap) {
+          parts.who.textContent = 'Caption status';
+          parts.txt.textContent = 'Transcript unavailable for this final portion. The narration continues; no words have been invented.';
+          parts.bar.classList.remove('is-maven');
+        } else {
+          paintCaption(parts, '');
+        }
       }
 
       fetch(src, { cache: 'no-store' })
@@ -494,7 +561,7 @@
     }
     var cues = [], duration = 0;
     var currentIdx = -1;
-    var segments = [], segIdx = 0, segKind = 'main', segDur = null, advancing = false, segStart = 0, seekPending = 0;
+    var segments = [], segIdx = 0, mainSegIdx = -1, segKind = 'main', segDur = null, advancing = false, segStart = 0, seekPending = 0;
 
     function fmt(s) {
       s = Math.max(0, Math.floor(s));
@@ -659,6 +726,7 @@
       track.setAttribute('aria-valuemax', String(Math.max(0, Math.round(d))));
       track.setAttribute('aria-valuenow', String(Math.max(0, Math.round(el))));
       track.setAttribute('aria-valuetext', fmt(el) + ' of ' + fmt(d));
+      if (playing()) storeProgress(false);
     }
 
     function loadSegment(i) {
@@ -692,6 +760,28 @@
         if (window.plausible) { try { window.plausible('Listen-along start', { props: { programme: episodeKey(ep), format: 'narrated' } }); } catch (e) {} }
       } else { tape.pause(); }
     }
+
+    resumePlayback.addEventListener('click', function () {
+      if (!savedProgress || mainSegIdx < 0 || playerFailed) return;
+      var resumeAt = savedProgress.time;
+      resumePanel.hidden = true;
+      if (segKind !== 'main') loadSegment(mainSegIdx);
+      seekPending = resumeAt;
+      try { tape.currentTime = resumeAt; } catch (error) {}
+      currentIdx = -1;
+      tick();
+      tape.play().catch(function () { failPlayer('playback', 'The narration could not resume.'); });
+    });
+    startOver.addEventListener('click', function () {
+      clearProgress();
+      if (mainSegIdx < 0 || playerFailed) return;
+      if (segKind !== 'main') loadSegment(mainSegIdx);
+      seekPending = 0;
+      try { tape.currentTime = 0; } catch (error) {}
+      currentIdx = -1;
+      tick();
+    });
+    window.addEventListener('pagehide', function () { storeProgress(true); });
 
     btnPlay.addEventListener('click', togglePlay);
     if (bigPlay) bigPlay.addEventListener('click', togglePlay);
@@ -761,7 +851,8 @@
         if (data.title && data.title.audio) segments.push({ kind: 'title', audio: data.title.audio, dur: data.title.dur || 25, cues: (data.title.cues || []).slice() });
         segments.push({ kind: 'main', audio: data.audio, dur: null, cues: mainCues });
         if (data.end && data.end.audio) segments.push({ kind: 'end', audio: data.end.audio, dur: data.end.dur || 22, cues: (data.end.cues || []).slice() });
-        var mainSegIdx = segments.findIndex(function (s) { return s.kind === 'main'; });
+        mainSegIdx = segments.findIndex(function (s) { return s.kind === 'main'; });
+        resumePlayback.disabled = !savedProgress;
 
         // chapters + seek marks (from the MAIN narration only)
         var d0 = mainCues[mainCues.length - 1].t + 26;
@@ -791,7 +882,10 @@
         tape.addEventListener('timeupdate', tick);
         tape.addEventListener('play', tick);
         tape.addEventListener('pause', tick);
-        tape.addEventListener('ended', function () { advanceSegment(); });
+        tape.addEventListener('ended', function () {
+          if (segKind === 'main') clearProgress();
+          advanceSegment();
+        });
 
         var __ep = (typeof epNum !== 'undefined' ? epNum : (new URLSearchParams(location.search).get('ep') || '01'));
         var __film = filmFor(__ep);
@@ -800,7 +894,7 @@
 
         loadSegment(0);
         var __captions = captionsFor(__ep);
-        if (__captions) mountAudioCaptionBar(tape, theatre, __captions);
+        if (__captions) mountAudioCaptionBar(tape, theatre, __captions, __ep);
 
         // ---- tune mode: play the real audio, tap N at each transition ----
         if (TUNE) {

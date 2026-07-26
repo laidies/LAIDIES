@@ -1,0 +1,169 @@
+#!/usr/bin/env node
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import http from "node:http";
+import path from "node:path";
+import { pathToFileURL } from "node:url";
+
+const root = path.resolve(process.env.SCREENING_ROOM_ROOT || process.cwd());
+const playwrightRoot = process.env.PLAYWRIGHT_CORE_PATH ||
+  path.join(root, ".ds-sync", "node_modules", "playwright-core");
+const chrome = process.env.CHROME_PATH ||
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+const { chromium } = await import(pathToFileURL(path.join(playwrightRoot, "index.mjs")));
+
+const types = {
+  ".css": "text/css; charset=utf-8",
+  ".html": "text/html; charset=utf-8",
+  ".js": "text/javascript; charset=utf-8",
+  ".json": "application/json; charset=utf-8",
+  ".m4a": "audio/mp4",
+  ".mp3": "audio/mpeg",
+  ".mp4": "video/mp4",
+  ".png": "image/png",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".webp": "image/webp",
+  ".vtt": "text/vtt; charset=utf-8",
+  ".woff2": "font/woff2"
+};
+
+const server = http.createServer((request, response) => {
+  const pathname = decodeURIComponent(new URL(request.url, "http://localhost").pathname);
+  const relative = pathname === "/" ? "watch.html" : pathname.replace(/^\/+/, "");
+  const file = path.resolve(root, relative);
+  if (!file.startsWith(`${root}${path.sep}`) || !fs.existsSync(file) || !fs.statSync(file).isFile()) {
+    response.writeHead(404).end("Not found");
+    return;
+  }
+  const stat = fs.statSync(file);
+  const headers = {
+    "Accept-Ranges": "bytes",
+    "Cache-Control": "no-store",
+    "Content-Type": types[path.extname(file).toLowerCase()] || "application/octet-stream"
+  };
+  const match = /^bytes=(\d*)-(\d*)$/.exec(request.headers.range || "");
+  if (match) {
+    const start = match[1] ? Number(match[1]) : 0;
+    const end = Math.min(match[2] ? Number(match[2]) : stat.size - 1, stat.size - 1);
+    if (start > end || start >= stat.size) {
+      response.writeHead(416, { "Content-Range": `bytes */${stat.size}` }).end();
+      return;
+    }
+    response.writeHead(206, {
+      ...headers,
+      "Content-Length": end - start + 1,
+      "Content-Range": `bytes ${start}-${end}/${stat.size}`
+    });
+    fs.createReadStream(file, { start, end }).pipe(response);
+    return;
+  }
+  response.writeHead(200, { ...headers, "Content-Length": stat.size });
+  fs.createReadStream(file).pipe(response);
+});
+
+await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
+const base = `http://127.0.0.1:${server.address().port}`;
+const browser = await chromium.launch({ executablePath: chrome, headless: true });
+
+async function open(programme = "01", options = {}) {
+  const context = await browser.newContext({ viewport: options.viewport || { width: 1280, height: 900 } });
+  if (options.progress) {
+    await context.addInitScript((progress) => {
+      localStorage.setItem("laidies_screening_progress_v1", JSON.stringify(progress));
+    }, options.progress);
+  }
+  const page = await context.newPage();
+  for (const pattern of options.abort || []) await page.route(pattern, (route) => route.abort());
+  if (options.rejectPlay) {
+    await page.addInitScript(() => {
+      HTMLMediaElement.prototype.play = function () {
+        return Promise.reject(new Error("test rejection"));
+      };
+    });
+  }
+  await page.goto(`${base}/watch.html?ep=${programme}`, { waitUntil: "domcontentloaded" });
+  return { context, page };
+}
+
+async function expectFailure(pattern, kind, options = {}) {
+  const run = await open("01", { abort: [pattern], rejectPlay: options.rejectPlay });
+  if (options.clickPlay) await run.page.locator("#btnPlay").click();
+  await run.page.locator(`#playerStatus[data-failure="${kind}"]`).waitFor();
+  assert.equal(await run.page.locator("#btnPlay").isDisabled(), true, `${kind}: play must stop`);
+  assert.equal(await run.page.locator("#retryMedia").isVisible(), true, `${kind}: retry missing`);
+  await run.context.close();
+}
+
+try {
+  const newcomer = await open("01");
+  await newcomer.page.locator(".scene.is-live").waitFor();
+  assert.equal(await newcomer.page.locator("#resumePanel").isVisible(), false, "newcomer saw a false resume prompt");
+  assert.deepEqual(
+    await newcomer.page.locator(".screening-program a[data-ep]").evaluateAll((links) =>
+      links.map((link) => link.getAttribute("data-ep"))),
+    ["trailer", "01", "02", "03", "04"]
+  );
+  await newcomer.page.waitForFunction(() => Number(document.querySelector("#track").getAttribute("aria-valuemax")) > 0);
+  await newcomer.page.locator("#track").focus();
+  await newcomer.page.keyboard.press("ArrowRight");
+  assert.ok(Number(await newcomer.page.locator("#track").getAttribute("aria-valuenow")) >= 5, "keyboard seek did not advance");
+  await newcomer.page.keyboard.press("End");
+  assert.ok(Number(await newcomer.page.locator("#track").getAttribute("aria-valuenow")) > 1000, "End did not seek to duration");
+  await newcomer.page.keyboard.press("Home");
+  assert.equal(await newcomer.page.locator("#track").getAttribute("aria-valuenow"), "0", "Home did not seek to start");
+  await newcomer.context.close();
+
+  const returning = await open("02", {
+    progress: { version: 1, programme: "02", time: 321.4 }
+  });
+  assert.equal(await returning.page.locator("#resumePanel").isVisible(), true, "returning listener resume prompt missing");
+  assert.match(await returning.page.locator("#resumeText").textContent(), /local playback history, not an account/);
+  await returning.page.locator("#resumePlayback").click();
+  await returning.page.waitForFunction(() => Math.abs(document.querySelector("#tape").currentTime - 321.4) < 2);
+  await returning.context.close();
+
+  const startOverRun = await open("02", {
+    progress: { version: 1, programme: "02", time: 321.4 }
+  });
+  await startOverRun.page.locator("#startOver").click();
+  assert.equal(await startOverRun.page.evaluate(() => localStorage.getItem("laidies_screening_progress_v1")), null);
+  assert.ok(await startOverRun.page.locator("#tape").evaluate((audio) => audio.currentTime < 1));
+  await startOverRun.context.close();
+
+  for (const width of [320, 390, 1280]) {
+    const run = await open("01", { viewport: { width, height: 820 } });
+    await run.page.locator(".scene.is-live").waitFor();
+    assert.equal(
+      await run.page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
+      true,
+      `${width}px viewport overflows horizontally`
+    );
+    await run.page.locator("#track").focus();
+    assert.equal(await run.page.locator("#track").evaluate((el) => el === document.activeElement), true);
+    await run.context.close();
+  }
+
+  const trailer = await open("trailer");
+  await trailer.page.waitForFunction(() => document.querySelector("#tape").duration > 960);
+  await trailer.page.locator("#tape").evaluate((audio) => { audio.currentTime = 903; });
+  await trailer.page.waitForFunction(() => document.querySelector(".cap-who")?.textContent === "Caption status");
+  assert.match(await trailer.page.locator(".cap-txt").textContent(), /no words have been invented/i);
+  await trailer.context.close();
+
+  await expectFailure("**/episode-01-cues.json", "cues");
+  await expectFailure("**/episode-01.vtt", "captions");
+  await expectFailure("**/episode-01-narration.m4a", "audio");
+  await expectFailure("**/ep-01.webp", "visual");
+  await expectFailure("**/__never__", "playback", { rejectPlay: true, clickPlay: true });
+
+  console.log("SCREENING ROOM BROWSER PASS");
+  console.log("journeys=newcomer,returning,start-over");
+  console.log("viewports=320,390,1280");
+  console.log("keyboard=slider-arrow,end,home");
+  console.log("failure_modes=cues,captions,audio,visual,playback");
+  console.log("trailer_partial_caption_gap=explicit");
+} finally {
+  await browser.close();
+  await new Promise((resolve) => server.close(resolve));
+}

@@ -1,15 +1,15 @@
 {
   "product": "screening-room",
   "parent": "chick-flicks",
-  "status": "BOUNDED LOCAL P0 REPAIR PASS — ALL FIVE TITLES AND RELEASE HOLD",
+  "status": "CYCLE 7 LOCAL PLAYER/TIMING PASS — ALL FIVE TITLES AND RELEASE HOLD",
   "asOf": "2026-07-26",
   "route": "/watch.html",
   "currentPublicFormat": "illustrated listen-along / narrated edition",
   "motionFilms": "HOLD — EPISODE_FILMS is empty; no title is approved as a motion film",
   "programmes": {
-    "trailer": "HOLD — runtime truthfully labels partial captions; final 64.356 seconds remain uncaptioned and visual timing remains estimated",
+    "trailer": "HOLD — cues 1–30 are VTT-aligned; runtime explicitly identifies the final 64.356-second transcript gap; final card timing and all visual occurrences remain unapproved",
     "01": "HOLD — observed style drift and incomplete full audiovisual review",
-    "02": "HOLD — Next time cue corrected to exact caption start 971.49; preceding 83.49-second hold, proportional timing, style and occurrence review remain open",
+    "02": "HOLD — all 27 main cue starts are aligned to matching VTT semantic onsets; style and visual-occurrence review remain open",
     "03": "HOLD — source timing is proportional; public artifact replaces every source visual with the Episode 03 VHS cover",
     "04": "HOLD — public artifact replaces every source visual and the Ada loop with the Episode 04 VHS cover; real-person/era and full-watch gates remain open"
   },
@@ -22,18 +22,20 @@
     "admissionAuthority": "screening-room-admission.json records exact media hashes/coverage and zero approved occurrences; all titles fail closed as HOLD",
     "backend": "none",
     "identityRewards": "none",
-    "analytics": "PARTIAL — local start event is Listen-along start; no completion event or approved shared measurement contract"
+    "analytics": "PARTIAL — local start event is Listen-along start; no completion event or approved shared measurement contract",
+    "resume": "PASS LOCALLY — validated same-programme device-local progress only; explicit not-an-account copy; start-over clears; no identity data",
+    "browserEvidence": "PASS LOCALLY — newcomer, returning, 320/390/1280 viewport, slider keyboard, explicit trailer caption gap, and cues/captions/audio/visual/playback failure journeys"
   },
   "latestDeepDive": "deep-dive-cycle-6-2026-07-26.md",
   "latestBuildPacket": "build-packet-cycle-6-p0-listen-along-admission-2026-07-26.md",
-  "latestRepairEvidence": "build-evidence-repair-1-2026-07-26.md",
+  "latestRepairEvidence": "build-evidence-cycle-7-screening-room-2026-07-26.md",
   "latestIndependentReview": "independent-rejudge-repair-1-2026-07-26.md",
   "score": {
     "total": 70,
     "threshold": 85,
     "verdict": "BOUNDED REPAIR PASS; ALL NON-COMPENSABLE 17/20 FLOORS FAIL"
   },
-  "nextTrigger": "BUILD COMPLETE OCCURRENCE EVIDENCE FOR ONE REPRESENTATIVE TITLE; THEN OWNER MEDIA TIMING CONTINUITY NATIVE ANALYTICS AND PUBLIC GATES",
+  "nextTrigger": "OWNER/INDEPENDENT SHOT ADMISSION FROM THE CYCLE 7 QUEUE; COMPLETE TRAILER CAPTION MASTER; RETIME EPISODES 01 AND 03 ONLY FROM AUTHORITATIVE ONSETS",
   "holds": [
     "Ali visual and public media approval",
     "complete narration-to-image alignment",

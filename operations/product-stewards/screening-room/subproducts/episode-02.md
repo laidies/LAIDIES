@@ -1,5 +1,5 @@
 # Episode 02 listen-along
 
-**Status:** HOLD. Runtime audio/cues/VTT exist. Timing is explicitly
-proportional/estimated; the final visual holds about 76.7 seconds through the
-remaining captioned narration. Extracted frames show recurring style drift.
+**Status:** HOLD. Runtime audio/cues/VTT exist. Cycle 7 aligns all 27 main cue
+starts to matching semantic onsets in the authoritative VTT. Extracted frames
+still show recurring style drift; no visual occurrence is admitted.

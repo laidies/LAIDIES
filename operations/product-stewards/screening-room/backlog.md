@@ -14,16 +14,19 @@
    CONTENT HOLD:** runtime and contract now say the master is partial with
    64.356 seconds uncaptioned. Author and align the missing captions and retime
    the final sequence only from the exact audio.
-3. **SR-003 P0 — Retune estimated visual clocks.** Trailer, Episodes 02 and 03
-   explicitly declare proportional/estimated timing; Episode 01 was rebased
-   and still requires occurrence-level review.
+3. **SR-003 P0 — Retune estimated visual clocks.** **TRAILER/EPISODE 02 MAIN
+   CLOCKS REPAIRED LOCALLY:** Trailer cues 1–30 and all 27 Episode 02 main cues
+   now use matching VTT semantic onsets. Trailer cue 31 remains unchanged
+   because the partial caption master supplies no matching onset. Episodes 01
+   and 03 still require authoritative occurrence-level timing review.
 4. **SR-004 P0 — Replace off-register episode imagery.** Episodes 01–02 have
    observed painterly/comic drift. Wrong image, person, setting or style is a
    full-shot replacement, not a filter or camera move.
-5. **SR-005 P0 — Complete player/accessibility failure journeys.** **COMMON
-   PLAYER BUILT LOCALLY; NATIVE EVIDENCE OPEN:** Audio,
-   caption, cue and asset failures; keyboard, focus, mobile, reflow,
-   Safari/VoiceOver and reduced motion.
+5. **SR-005 P0 — Complete player/accessibility failure journeys.** **CHROMIUM
+   BROWSER MATRIX PASS LOCALLY; NATIVE EVIDENCE OPEN:** newcomer/returning,
+   device-local resume/start-over, 320/390/1280 widths, slider keyboard and
+   audio/caption/cue/asset/playback failures pass. Safari/VoiceOver, 200%
+   reflow and reduced-motion human review remain open.
 6. **SR-006 P0 — Correct analytics semantics.** **START LABEL REPAIRED
    LOCALLY:** playback emits `Listen-along start`, never video watch or
    completion. Shared event-dictionary approval/measurement remains open.
@@ -32,10 +35,11 @@
    Episode 03–04 visual with one VHS cover. Bind that derived artifact to an
    explicit narrated-edition manifest and never claim source/artifact visual
    parity or an illustrated edition from the source cue sheet.
-8. **SR-008 P0 — Finish Episode 02 visual timing.** The exact “Next time”
-   anchor is repaired from 910.0 to the VTT start at 971.49. The preceding
-   Residence Card card now holds 83.49 seconds; retime remaining semantic
-   occurrences only from the recorded narration.
+8. **SR-008 P0 — Finish Episode 02 visual timing.** **MAIN CLOCK COMPLETE
+   LOCALLY:** all 27 main cues now begin at matching semantic VTT onsets,
+   including “Make It Official” at 945.950 and “Next time” at 971.490. Long
+   80.1/89.0/89.4-second holds remain editorial/visual-quality decisions; no
+   visual occurrence is admitted.
 
 ## HIDE/LABEL
 
