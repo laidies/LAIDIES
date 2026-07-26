@@ -829,16 +829,16 @@ const cocktailMenus = {
       note: "Pink, easy, and businesswomen's special approved.",
     },
     {
-      name: "Yes, Get the Bottle",
-      vibe: "For when the table has already done the math and the bottle is the responsible choice.",
-      order: "Pick the wine, bubbles, or rose everyone will actually drink.",
-      note: "Consensus, but with better glassware.",
+      name: "The Table Toast",
+      vibe: "For a shared moment that does not make anybody’s glass the point.",
+      order: "Choose any cocktail or spirit-free pour; joining the toast never depends on what is in the glass.",
+      note: "A conversation cue, not a service suggestion or a reason to start another round.",
     },
     {
       name: "Main Character Spritz",
       vibe: "For when the table needs tequila, bubbles, and a drink with its own entrance.",
       order: "Blanco tequila, Aperol, lemon, simple syrup, rocks, Prosecco, orange zest.",
-      note: "Developed exclusively for LAiDIES by Ryan C at CHAR No.5. Ask for Ryan and tell him Ali sent you.",
+      note: "A fictional BRONZE AiGE menu cue for the paper fortune teller—not an availability or service claim.",
     },
     {
       name: "Maid in Cuba",

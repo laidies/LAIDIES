@@ -1,9 +1,6 @@
 (function () {
-  var PROJECT_REF = "swqnkxzebxdbgyrzpdne";
-  var AUTH_KEY = "sb-" + PROJECT_REF + "-auth-token";
-  var isLocalPreview = /^(localhost|127\.0\.0\.1|0\.0\.0\.0)$/i.test(window.location.hostname);
   var handle = "";
-  var isResident = false;
+  var hasLocalCard = false;
 
   var roomData = {
     common: [
@@ -119,17 +116,10 @@
   function readResident() {
     try {
       handle = localStorage.getItem("laidies_card_username") || "";
-      var raw = localStorage.getItem(AUTH_KEY);
-      if (raw) {
-        var session = JSON.parse(raw);
-        if (session && session.user && session.user.email) {
-          isResident = !session.expires_at || session.expires_at * 1000 > Date.now();
-          if (!handle) handle = String(session.user.email).split("@")[0];
-        }
-      }
-      if (handle) isResident = true;
+      hasLocalCard = !!handle;
     } catch (_) {
-      isResident = false;
+      handle = "";
+      hasLocalCard = false;
     }
   }
 
@@ -148,16 +138,16 @@
     var doorState = document.getElementById("shDoorState");
     if (!title || !body) return;
 
-    if (isResident) {
-      title.textContent = "Welcome home" + (handle ? ", @" + handle : "") + ".";
-      body.textContent = "Your card is on file. Pick a wing, choose a room, and the live conversation opens right here in the house.";
-      if (residentState) residentState.textContent = "Your Resident Card is on file";
-      if (doorState) doorState.textContent = "All live rooms are unlocked";
+    if (hasLocalCard) {
+      title.textContent = "Welcome back" + (handle ? ", @" + handle : "") + ".";
+      body.textContent = "This device remembers your local Resident Card. It is not a Hyvor sign-in or cross-device community identity. Every room is still open to explore.";
+      if (residentState) residentState.textContent = "Local card on this device · not community sign-in";
+      if (doorState) doorState.textContent = "Rooms discoverable · Hyvor controls participation";
     } else {
-      title.textContent = "You’re on the porch—for now.";
-      body.textContent = "You can look through every wing and see what each room is for. A Resident Card unlocks the live conversations.";
-      if (residentState) residentState.textContent = "Visitor at the front door";
-      if (doorState) doorState.textContent = "Rooms visible · posting locked";
+      title.textContent = "Come in and look around.";
+      body.textContent = "Every wing and room is discoverable. Discussion is hosted by Hyvor, which controls its own sign-in, publication and moderation.";
+      if (residentState) residentState.textContent = "No community identity assumed";
+      if (doorState) doorState.textContent = "Rooms discoverable · external participation separate";
     }
   }
 
@@ -193,34 +183,25 @@
   }
 
   function loadHyvor(room, mount) {
-    if (isLocalPreview) {
-      mount.innerHTML =
-        '<div class="sh-thread-state">' +
-          "<h4>The live conversation lives here.</h4>" +
-          "<p>Hyvor only trusts the public site domain, so the comments are hidden in this local preview. On the live site, residents post and reply in this exact panel.</p>" +
-          '<a class="sh-button sh-button--paper" href="' + room.href + '">Open the fallback room <span>→</span></a>' +
-        "</div>";
+    if (
+      window.LAIDIES_COMMUNITY_ROOM &&
+      typeof window.LAIDIES_COMMUNITY_ROOM.mount === "function"
+    ) {
+      window.LAIDIES_COMMUNITY_ROOM.mount({
+        mount: mount,
+        pageId: room.id,
+        roomHref: room.href
+      });
       return;
     }
-
-    var existing = document.querySelector('script[data-sh-hyvor="true"]');
-    if (!existing) {
-      var script = document.createElement("script");
-      script.type = "module";
-      script.async = true;
-      script.src = "https://talk.hyvor.com/embed/embed.js";
-      script.dataset.shHyvor = "true";
-      document.head.appendChild(script);
-    }
-
-    var comments = document.createElement("hyvor-talk-comments");
-    comments.setAttribute("website-id", "15519");
-    comments.setAttribute("page-id", room.id);
-    mount.innerHTML = "";
-    mount.appendChild(comments);
+    mount.innerHTML =
+      '<div class="sh-thread-state" role="status">' +
+        "<h4>The external discussion is unavailable.</h4>" +
+        "<p>Nothing was submitted. Use the direct room link or return to the directory.</p>" +
+      "</div>";
   }
 
-  function openRoom(wing, roomId) {
+  function openRoom(wing, roomId, updateHash) {
     var room = roomById(wing, roomId);
     var title = document.getElementById("shConversationTitle");
     var body = document.getElementById("shConversationBody");
@@ -238,6 +219,12 @@
     fallback.textContent = room.embed ? "Open as its own page" : (room.action || "Enter this room");
     mount.innerHTML = "";
 
+    // Write every selected destination before either branch can return so the
+    // visible room, copyable URL and Back/Forward state remain the same truth.
+    if (updateHash !== false) {
+      window.history.pushState(null, "", "#room-" + room.id);
+    }
+
     if (!room.embed) {
       mount.innerHTML =
         '<div class="sh-thread-state">' +
@@ -247,20 +234,10 @@
       return;
     }
 
-    if (!isResident) {
-      mount.innerHTML =
-        '<div class="sh-thread-state">' +
-          "<h4>The conversation is past this door.</h4>" +
-          "<p>Visitors can see what happens in the room. Posting unlocks when your Resident Card is on file.</p>" +
-          '<a class="sh-button sh-button--pink" href="/resident-card.html">Get your Resident Card <span>→</span></a>' +
-        "</div>";
-      return;
-    }
-
     loadHyvor(room, mount);
   }
 
-  function openWing(wing, focusPanel) {
+  function openWing(wing, focusPanel, updateHash) {
     var panel = document.getElementById("shWingRoom");
     var rooms = roomData[wing] || [];
     if (!panel || !rooms.length) return;
@@ -272,11 +249,38 @@
     panel.hidden = false;
     panel.dataset.wing = wing;
     renderDirectory(wing);
-    openRoom(wing, rooms[0].id);
+    openRoom(wing, rooms[0].id, updateHash);
 
     if (focusPanel) {
-      panel.scrollIntoView({ behavior: "smooth", block: "start" });
+      var reduced =
+        window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      panel.scrollIntoView({
+        behavior: reduced ? "auto" : "smooth",
+        block: "start"
+      });
     }
+  }
+
+  function locationSelection() {
+    var roomId = String(window.location.hash || "").replace(/^#room-/, "");
+    var found = null;
+    Object.keys(roomData).some(function (wing) {
+      if (roomById(wing, roomId)) {
+        found = { wing: wing, roomId: roomId };
+        return true;
+      }
+      return false;
+    });
+    return found;
+  }
+
+  function openLocationSelection(focusPanel) {
+    var selected = locationSelection();
+    if (!selected) return false;
+    openWing(selected.wing, focusPanel, false);
+    openRoom(selected.wing, selected.roomId, false);
+    return true;
   }
 
   function bind() {
@@ -285,11 +289,17 @@
 
     document.querySelectorAll(".sh-wing-key").forEach(function (button) {
       button.addEventListener("click", function () {
-        openWing(button.dataset.wing, true);
+        openWing(button.dataset.wing, true, true);
       });
     });
 
-    openWing("common", false);
+    if (!openLocationSelection(false)) openWing("common", false, false);
+    window.addEventListener("popstate", function () {
+      openLocationSelection(false);
+    });
+    window.addEventListener("hashchange", function () {
+      openLocationSelection(false);
+    });
   }
 
   if (document.readyState === "loading") {

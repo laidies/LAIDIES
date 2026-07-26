@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The BRONZE AiGE · LAiDIES · SUNNYVAiLE</title>
-  <meta name="description" content="The BRONZE AiGE — SUNNYVAiLE's bar. Call a happy hour with your own crew: copy the invite, play the fortune teller together, talk AI off the conversation menu, and stamp a coaster every week you go.">
+  <meta name="description" content="The BRONZE AiGE — an alcohol-optional online social ritual for adults. Make your own plans, pick a cocktail or spirit-free fortune, and bring an AI conversation to your own table.">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
-  <link rel="stylesheet" href="content/bronze-aige-v2.css?v=20260724-1">
+  <link rel="stylesheet" href="content/bronze-aige-v2.css?v=20260725-p0">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
@@ -36,9 +36,10 @@
     <div class="bronze-room__copy">
       <p class="bronze-room__kicker">MAiN Street · No. 7 · SUNNYVAiLE</p>
       <h1 id="bronzeRoomTitle"><span class="bronze-title-bar">The BRONZE</span> <span class="ai">Ai</span>GE.</h1>
-      <p class="bronze-room__motto">Happy hour from 4. Live music after 8.</p>
-      <p class="bronze-room__state" id="bronzeRoomState" aria-live="polite">Cosmo is reading the room.</p>
-      <p class="bronze-room__subline">Choose something in the bar. It opens here; you never leave the room.</p>
+      <p class="bronze-room__motto">Call your own table. Cocktails optional. Conversation required.</p>
+      <p class="bronze-room__state" id="bronzeRoomState" aria-live="polite">Choose one of six stations in this online room.</p>
+      <p class="bronze-room__subline">LAiDIES supplies the ritual, not a venue: nothing here books, sends, serves, verifies attendance, or requires alcohol.</p>
+      <p id="bronzeCatalogueBoundaryStatus" role="status" aria-live="polite">The private fortune menu is still loading. Until it is verified, nothing can be selected or saved.</p>
     </div>
     <nav class="bronze-room__controls" aria-label="Operate the BRONZE AiGE bar">
       <button type="button" class="bronze-object bronze-object--fortune" data-bronze-panel="bronze-fortune" aria-controls="bronze-fortune" aria-expanded="false">
@@ -62,11 +63,11 @@
     <h1>The Bronze <span class="ai">AiGE</span>.</h1>
 
     <p class="sv-lede">
-      The town bar — where AI talk becomes a happy hour. Round up your own people at your own bar, let the fortune teller pick the drinks, steal the conversation menu, and stamp a coaster every week you actually go.
+      The town's online bar ritual — where AI talk becomes a conversation with your own people. Make your own plans, choose a cocktail or equally complete spirit-free fortune, borrow the conversation menu, and mark the week on this device if you want.
     </p>
 
     <p>
-      Every town needs the room where you compare notes, and this is ours. Sunnydale's Bronze is the patron of this place: happy hour from 4, live show after 8, both at once.
+      Every town needs the room where you compare notes, and this is ours. It is for adults, but drinking is never required or encouraged. LAiDIES does not sell or serve alcohol, book a bar, verify age, or give health advice; follow the law and qualified guidance where you are.
     </p>
 
     <h2>How it works</h2>
@@ -90,21 +91,22 @@
         <input type="date" id="bzWhenDate" aria-label="Happy hour date" style="padding: 9px 12px; border: 1.5px solid var(--gold); border-radius: 8px; background: var(--cream); color: var(--plum); font-family: inherit; font-size: 14px;">
         <input type="time" id="bzWhenTime" step="900" aria-label="Happy hour time" style="padding: 9px 12px; border: 1.5px solid var(--gold); border-radius: 8px; background: var(--cream); color: var(--plum); font-family: inherit; font-size: 14px;">
       </div>
-      <div id="bzInviteBlock" style="margin: 0 0 18px; padding: 18px 20px; background: var(--cream); border-radius: 10px; font-size: 15px; line-height: 1.7; color: var(--plum); white-space: pre-line;">🍸 LAiDIES happy hour — <span id="bzInviteWhen">Friday at 4pm</span>.
+      <div id="bzInviteBlock" style="margin: 0 0 18px; padding: 18px 20px; background: var(--cream); border-radius: 10px; font-size: 15px; line-height: 1.7; color: var(--plum); white-space: pre-line;">✨ LAiDIES conversation hour — <span id="bzInviteWhen">Friday at 4pm</span>.
 One rule: bring the thing you tried with AI this week. The win or the disaster — both count.
-The bar picks our drinks: <span id="bzInviteUrl" style="color: var(--rose); word-break: break-all;">/games/businesswomens-special.html</span>
+The Fortune Teller offers cocktail or spirit-free suggestions: <span id="bzInviteUrl" style="color: var(--rose); word-break: break-all;">/games/businesswomens-special.html</span>
 Dress code: main character.</div>
       <div style="display: flex; flex-wrap: wrap; gap: 12px;">
         <button type="button" id="bzCopyBtn" style="padding: 12px 24px; background: var(--plum-deep); color: var(--cream); border: 0; border-radius: 999px; font-family: inherit; font-weight: 800; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;">Copy the invite</button>
-        <button type="button" id="bzIcsBtn" style="padding: 12px 24px; background: var(--cream); color: var(--plum-deep); border: 1.5px solid var(--plum-deep); border-radius: 999px; font-family: inherit; font-weight: 800; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;">📅 Add to calendar</button>
+        <button type="button" id="bzIcsBtn" style="padding: 12px 24px; background: var(--cream); color: var(--plum-deep); border: 1.5px solid var(--plum-deep); border-radius: 999px; font-family: inherit; font-weight: 800; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;">📅 Download calendar file</button>
       </div>
-      <p id="bzWhenNote" style="margin: 12px 0 0; font-size: 13px; font-style: italic; color: var(--plum-soft);">The calendar file lands on Friday at 4pm. Move it — the bar doesn't check.</p>
+      <p id="bzWhenNote" style="margin: 12px 0 0; font-size: 13px; font-style: italic; color: var(--plum-soft);">This downloads a local calendar file for Friday at 4pm. It does not add, send, book, or reserve anything.</p>
+      <p id="bzInviteStatus" role="status" aria-live="polite" aria-atomic="true" style="margin: 10px 0 0; font-size: 13px; font-weight: 700; color: var(--plum-deep);"></p>
     </div>
 
     <h2 id="play">Step 2 · Play it (happy hour's from 4)</h2>
 
     <p>
-      At the table, everyone plays the Businesswomen's Special — a paper fortune teller behind the bar. Pinch open a mood, the bar assigns your drinks, you compare the damage. Then order off the conversation menu below; it changes with the episode.
+      At the table, play the Businesswomen's Special — a paper fortune teller with equal cocktail and spirit-free lanes. It deals a playful suggestion, not a real order, service promise, availability check, or health recommendation. Then choose from the conversation menu.
     </p>
 
     <a href="/games/businesswomens-special.html"
@@ -113,8 +115,8 @@ Dress code: main character.</div>
        onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 26px rgba(75, 33, 72, 0.12)';">
       <p style="margin: 0 0 8px; font-weight: 700; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);">★ The Main Event · Play It Together</p>
       <h3 style="margin: 0 0 10px; font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700; color: var(--plum);">The Businesswomen's Special</h3>
-      <p style="margin: 0 0 20px; font-size: 16px; line-height: 1.6; color: var(--plum); max-width: 56ch;">The bar's paper fortune teller. Play it solo, or better — play it with your people at 4 and compare what the bar hands you. Your drink of the week rides home on your Resident Card. Table for two or ten; no reservation needed.</p>
-      <span style="display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; background: var(--plum-deep); color: var(--cream); border-radius: 999px; font-weight: 800; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase;">🍸 Walk in &amp; play →</span>
+      <p style="margin: 0 0 20px; font-size: 16px; line-height: 1.6; color: var(--plum); max-width: 56ch;">The full pass-the-phone table version: four moods, cocktail or spirit-free, and a playful result saved only on this device. Nothing is ordered, served, consumed, booked, or added to an account.</p>
+      <span style="display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; background: var(--plum-deep); color: var(--cream); border-radius: 999px; font-weight: 800; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase;">🍹 Open the full table →</span>
     </a>
 
     <p style="font-size: 14px; font-style: italic; color: var(--plum-soft); margin: 12px 0 24px;">Named for the booth scene in <em>Romy and Michele's High School Reunion</em>. Some patrons get stained glass at The LUMINAiRY; Romy and Michele get a cocktail game.</p>
@@ -126,41 +128,24 @@ Dress code: main character.</div>
         <li style="font-size: 15px; line-height: 1.55; color: var(--plum);"><strong style="font-family: 'Playfair Display', Georgia, serif; font-size: 17px;">The One That Worked</strong> <span style="color: var(--rose); font-weight: 700;">· $0</span><br>The thing you tried with AI this week that actually landed. Everyone orders one.</li>
         <li style="font-size: 15px; line-height: 1.55; color: var(--plum);"><strong style="font-family: 'Playfair Display', Georgia, serif; font-size: 17px;">The Disaster</strong> <span style="color: var(--rose); font-weight: 700;">· free refills</span><br>The prompt that went sideways. Funnier told out loud.</li>
         <li style="font-size: 15px; line-height: 1.55; color: var(--plum);"><strong style="font-family: 'Playfair Display', Georgia, serif; font-size: 17px;">The Hot Take</strong> <span style="color: var(--rose); font-weight: 700;">· market price</span><br>The AI headline you're not buying.</li>
-        <li style="font-size: 15px; line-height: 1.55; color: var(--plum);"><strong style="font-family: 'Playfair Display', Georgia, serif; font-size: 17px;">The Wednesday Special</strong> <span id="bzWedTag" style="color: var(--rose); font-weight: 700;">· pairs with the episode</span><br><span id="bzWedBody">The bit from this week's episode you're still thinking about.</span></li>
+        <li style="font-size: 15px; line-height: 1.55; color: var(--plum);"><strong style="font-family: 'Playfair Display', Georgia, serif; font-size: 17px;">The Wednesday Special</strong> <span id="bzWedTag" role="status" aria-live="polite" aria-atomic="true" style="color: var(--rose); font-weight: 700;">· evergreen table prompt</span><br><span id="bzWedBody">What is one AI idea you are still thinking about — and what would change your mind?</span></li>
       </ul>
     </div>
 
     <script>
-      // Tonight's Specials — "The Wednesday Special" follows the latest PUBLISHED episode.
+      // The external Bronze controller upgrades the evergreen prompt only
+      // after both the episode index and matching issue validate.
       (function () {
         'use strict';
-        var tag = document.getElementById('bzWedTag');
-        var body = document.getElementById('bzWedBody');
-        if (!tag || !body) return;
-        fetch('/content/episode-index.json', { cache: 'no-store' })
-          .then(function (r) { return r.json(); })
-          .then(function (idx) {
-            var pub = (idx.episodes || []).filter(function (e) { return e.status === 'published'; });
-            if (!pub.length) return;
-            var latest = pub.reduce(function (a, b) { return b.number > a.number ? b : a; });
-            var n = latest.number < 10 ? '0' + latest.number : '' + latest.number;
-            return fetch('/content/episodes/issue-' + n + '.json', { cache: 'no-store' })
-              .then(function (r) { return r.json(); })
-              .then(function (ep) {
-                var title = ep.title || latest.title;
-                if (title) tag.textContent = '· pairs with “' + title + '”';
-                if (ep.communityPrompt) body.textContent = ep.communityPrompt;
-              });
-          })
-          .catch(function () { /* keep the evergreen copy on any failure */ });
+        document.documentElement.dataset.bronzeEpisodeContract = 'external-controller';
       })();
     </script>
 
     <aside style="margin: 24px 0 40px; padding: 22px 26px; background: var(--blush); border-radius: 10px; border-left: 4px solid var(--gold);">
       <p style="margin: 0 0 8px; font-weight: 700; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose);">✦ The LAiDIES House Cocktail</p>
       <h3 style="margin: 0 0 8px; font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--plum);">Main Character Spritz</h3>
-      <p style="margin: 0 0 12px; font-size: 14px; color: var(--plum-soft); font-style: italic;">Blanco tequila · Aperol · lemon · simple syrup · rocks · Prosecco · orange zest.</p>
-      <p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--plum);">Developed exclusively for LAiDIES by <strong>Ryan C</strong> at <strong><a href="https://www.charfive.com/" target="_blank" rel="noopener" style="color: var(--rose); text-decoration: underline; text-underline-offset: 3px;">CHAR No.5</a></strong> in Toronto. Real bar, real bartender, full credit. If your bar can shake it, the first round picks itself — and if you're in Toronto, ask for Ryan and tell him Ali sent you.</p>
+      <p style="margin: 0 0 12px; font-size: 14px; color: var(--plum-soft); font-style: italic;">Cocktail inspiration: blanco tequila · Aperol · lemon · simple syrup · rocks · Prosecco · orange zest. Spirit-free is always a complete option in the teller.</p>
+      <p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--plum);">A fictional menu cue for an adult, alcohol-optional social practice. It is not connected to a real venue, bartender, reservation, service, or product availability. Not drinking is the lowest-risk option.</p>
     </aside>
 
     <h2 id="answers">The cocktail party explanations</h2>
@@ -198,10 +183,10 @@ Dress code: main character.</div>
         <span style="font-size: 9px; letter-spacing: 0.14em; color: var(--plum-soft);">MAiN ST · No. 7</span>
       </div>
       <div style="flex: 1 1 260px; min-width: 240px;">
-        <p style="margin: 0 0 8px; font-weight: 700; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);">★ Went? Say so.</p>
-        <p style="margin: 0 0 16px; font-size: 15px; line-height: 1.6; color: var(--plum);">Every LAiDY at the table stamps her own — one coaster a week, and the stack stays behind the bar with your name on it. Honor system, like the dares. The bar trusts you.</p>
-        <button type="button" id="bzStampBtn" style="padding: 12px 24px; background: var(--plum-deep); color: var(--cream); border: 0; border-radius: 999px; font-family: inherit; font-weight: 800; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;">🍸 We went — stamp it</button>
-        <p id="bzStampMsg" style="margin: 12px 0 0; font-size: 13px; font-weight: 700; color: var(--rose);"></p>
+        <p style="margin: 0 0 8px; font-weight: 700; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);">★ Mark the week on this device.</p>
+        <p style="margin: 0 0 16px; font-size: 15px; line-height: 1.6; color: var(--plum);">An optional honour-system coaster saved only in this browser. It cannot verify a visit, gathering, drink, identity, learning, account, badge, or reward.</p>
+        <button type="button" id="bzStampBtn" style="padding: 12px 24px; background: var(--plum-deep); color: var(--cream); border: 0; border-radius: 999px; font-family: inherit; font-weight: 800; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;">Mark this week locally</button>
+        <p id="bzStampMsg" role="status" aria-live="polite" aria-atomic="true" style="margin: 12px 0 0; font-size: 13px; font-weight: 700; color: var(--rose);"></p>
       </div>
     </div>
 
@@ -224,6 +209,7 @@ Dress code: main character.</div>
         var timeInput = document.getElementById('bzWhenTime');
         var whenSpan = document.getElementById('bzInviteWhen');
         var noteEl = document.getElementById('bzWhenNote');
+        var inviteStatus = document.getElementById('bzInviteStatus');
         var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         var INVITE = '';
 
@@ -256,11 +242,11 @@ Dress code: main character.</div>
         function rebuildInvite() {
           var phrase = whenPhrase(picked());
           if (whenSpan) whenSpan.textContent = phrase;
-          INVITE = '🍸 LAiDIES happy hour — ' + phrase + '.\n' +
+          INVITE = '✨ LAiDIES conversation hour — ' + phrase + '.\n' +
             'One rule: bring the thing you tried with AI this week. The win or the disaster — both count.\n' +
-            'The bar picks our drinks: ' + url + '\n' +
+            'The Fortune Teller offers cocktail or spirit-free suggestions: ' + url + '\n' +
             'Dress code: main character.';
-          if (noteEl) noteEl.textContent = 'The calendar file lands on ' + phrase + '. Move it — the bar doesn’t check.';
+          if (noteEl) noteEl.textContent = 'Download uses ' + phrase + ' in your device’s local time. It does not add, send, book, or reserve anything.';
         }
         // Seed inputs with next Friday 4pm, then render.
         var seed = nextFriday();
@@ -274,6 +260,7 @@ Dress code: main character.</div>
         if (copyBtn) copyBtn.addEventListener('click', function() {
           function done() {
             copyBtn.textContent = 'Copied ✓';
+            if (inviteStatus) inviteStatus.textContent = 'Invite text copied. Nothing was sent.';
             setTimeout(function() { copyBtn.textContent = 'Copy the invite'; }, 2000);
           }
           if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -283,7 +270,12 @@ Dress code: main character.</div>
             var ta = document.createElement('textarea');
             ta.value = INVITE; ta.style.position = 'fixed'; ta.style.opacity = '0';
             document.body.appendChild(ta); ta.select();
-            try { document.execCommand('copy'); done(); } catch(e) {}
+            try {
+              if (document.execCommand('copy')) done();
+              else if (inviteStatus) inviteStatus.textContent = 'Copy was not confirmed. Select the invite text above and copy it manually.';
+            } catch(e) {
+              if (inviteStatus) inviteStatus.textContent = 'Copy was not confirmed. Select the invite text above and copy it manually.';
+            }
             document.body.removeChild(ta);
           }
         });
@@ -291,21 +283,40 @@ Dress code: main character.</div>
         var icsBtn = document.getElementById('bzIcsBtn');
         if (icsBtn) icsBtn.addEventListener('click', function() {
           var f = picked();
+          if (!Number.isFinite(f.getTime())) {
+            if (inviteStatus) inviteStatus.textContent = 'Choose a valid date and time before downloading the calendar file.';
+            return;
+          }
           var start = '' + f.getFullYear() + pad(f.getMonth() + 1) + pad(f.getDate()) + 'T' + pad(f.getHours()) + pad(f.getMinutes()) + '00';
           var stamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
           var ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//LAiDIES//SUNNYVAiLE//EN',
             'BEGIN:VEVENT', 'UID:happy-hour-' + start + '@laidies',
             'DTSTAMP:' + stamp, 'DTSTART:' + start, 'DURATION:PT90M',
-            'SUMMARY:LAiDIES Happy Hour 🍸',
-            'DESCRIPTION:One rule: bring the thing you tried with AI this week. The bar picks our drinks: ' + url,
-            'LOCATION:Your bar', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
-          var blob = new Blob([ics], { type: 'text/calendar' });
+            'SUMMARY:LAiDIES conversation hour',
+            'DESCRIPTION:Bring the thing you tried with AI this week. Cocktail or spirit-free Fortune Teller: ' + url,
+            'LOCATION:Your chosen place', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+          var objectUrl = '';
           var a = document.createElement('a');
-          a.href = URL.createObjectURL(blob);
-          a.download = 'laidies-happy-hour.ics';
-          document.body.appendChild(a); a.click();
-          document.body.removeChild(a);
-          setTimeout(function() { URL.revokeObjectURL(a.href); }, 4000);
+          try {
+            var blob = new Blob([ics], { type: 'text/calendar' });
+            objectUrl = URL.createObjectURL(blob);
+            a.href = objectUrl;
+            a.download = 'laidies-happy-hour.ics';
+            document.body.appendChild(a);
+            a.click();
+            URL.revokeObjectURL(objectUrl);
+            objectUrl = '';
+            document.body.removeChild(a);
+            if (inviteStatus) inviteStatus.textContent = 'Calendar file downloaded. Nothing was added, sent, booked, or reserved.';
+          } catch (error) {
+            if (a.parentNode) {
+              try { a.parentNode.removeChild(a); } catch (_) {}
+            }
+            if (objectUrl) {
+              try { URL.revokeObjectURL(objectUrl); } catch (_) {}
+            }
+            if (inviteStatus) inviteStatus.textContent = 'The calendar file was not confirmed. Nothing was added, sent, booked, or reserved. Check your downloads before trying again.';
+          }
         });
 
         var KEY = 'laidies_bronze_coasters';
@@ -319,7 +330,7 @@ Dress code: main character.</div>
         if (!face || !stampBtn) return;
 
         function isoWeek(d) {
-          var t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+          var t = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
           var day = t.getUTCDay() || 7;
           t.setUTCDate(t.getUTCDate() + 4 - day);
           var yStart = new Date(Date.UTC(t.getUTCFullYear(), 0, 1));
@@ -327,8 +338,29 @@ Dress code: main character.</div>
           return { id: t.getUTCFullYear() + '-W' + (w < 10 ? '0' + w : w), week: w, year: t.getUTCFullYear() };
         }
         function load() {
-          try { var v = JSON.parse(localStorage.getItem(KEY) || '[]'); return Array.isArray(v) ? v : []; }
-          catch(e) { return []; }
+          try {
+            var receipt = JSON.parse(localStorage.getItem(KEY) || 'null');
+            if (!receipt || Object.keys(receipt).sort().join('|') !== 'items|scope|version' ||
+                receipt.version !== 2 || receipt.scope !== 'device-local' ||
+                !Array.isArray(receipt.items) || receipt.items.length > 104) return [];
+            var nowMs = Date.now();
+            var currentWeek = isoWeek(new Date(nowMs)).id;
+            var seen = Object.create(null);
+            var valid = receipt.items.every(function(item) {
+              if (!item || Object.keys(item).sort().join('|') !== 'stampedAt|week' ||
+                  !/^\d{4}-W(?:0[1-9]|[1-4]\d|5[0-3])$/.test(item.week) ||
+                  typeof item.stampedAt !== 'string' || seen[item.week]) return false;
+              var stamp = Date.parse(item.stampedAt);
+              var accepted = Number.isFinite(stamp) &&
+                new Date(stamp).toISOString() === item.stampedAt &&
+                stamp <= nowMs &&
+                isoWeek(new Date(stamp)).id === item.week &&
+                item.week <= currentWeek;
+              if (accepted) seen[item.week] = true;
+              return accepted;
+            });
+            return valid ? receipt.items.slice() : [];
+          } catch(e) { return []; }
         }
         function render() {
           var now = isoWeek(new Date());
@@ -336,11 +368,11 @@ Dress code: main character.</div>
           weekLabel.textContent = 'WEEK ' + now.week + ' · ' + now.year;
           var claimed = list.some(function(c) { return c.week === now.id; });
           if (claimed) {
-            stampBtn.textContent = '🍸 Stamped — see you next week';
+            stampBtn.textContent = 'Marked locally — next week';
             stampBtn.style.opacity = '0.65';
             stampBtn.style.cursor = 'default';
           } else {
-            stampBtn.textContent = '🍸 We went — stamp it';
+            stampBtn.textContent = 'Mark this week locally';
             stampBtn.style.opacity = '1';
             stampBtn.style.cursor = 'pointer';
           }
@@ -355,6 +387,9 @@ Dress code: main character.</div>
               m.title = 'Happy hour · ' + c.week;
               row.appendChild(m);
             });
+          } else {
+            stackWrap.style.display = 'none';
+            row.innerHTML = '';
           }
         }
         stampBtn.addEventListener('click', function() {
@@ -364,9 +399,21 @@ Dress code: main character.</div>
             msg.textContent = 'This week’s coaster is already in your stack. Back next week?';
             return;
           }
-          list.push({ week: now.id, date: new Date().toISOString().slice(0, 10) });
-          try { localStorage.setItem(KEY, JSON.stringify(list)); } catch(e) {}
-          msg.textContent = 'Stamped. The bar knew you’d come.';
+          list.push({ week: now.id, stampedAt: new Date().toISOString() });
+          var saved = false;
+          try {
+            localStorage.setItem(KEY, JSON.stringify({
+              version: 2,
+              scope: 'device-local',
+              items: list
+            }));
+            saved = load().some(function(c) { return c.week === now.id; });
+          } catch(e) {}
+          if (!saved) {
+            msg.textContent = 'This browser could not save a local coaster. Nothing was marked; you can try again.';
+            return;
+          }
+          msg.textContent = 'This week is marked on this device only.';
           if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             face.style.transform = 'scale(1.1) rotate(-5deg)';
             setTimeout(function() { face.style.transform = 'none'; }, 320);
@@ -377,21 +424,22 @@ Dress code: main character.</div>
       })();
     </script>
 
-    <h2 id="bzLiveH2">Live show (after 8)</h2>
+    <h2 id="bzLiveH2">Tonight’s recorded stage</h2>
 
     <figure style="margin: 0 0 24px; border-radius: 12px; overflow: hidden; box-shadow: 0 12px 34px rgba(52,20,70,.28); line-height: 0;">
       <img src="assets/building-interiors/bronze-aige-live-band.jpg?v=20260708" alt="THE LAiDIES on the BRONZE AiGE stage — the house band mid-set under the disco ball, the THE LAiDIES kick drum lit in pink neon, plum velvet curtains and heart sconces" loading="lazy" style="width: 100%; height: auto; display: block;">
     </figure>
 
     <div id="bzBandBox" style="margin: 24px 0 40px; padding: 28px 32px; background: linear-gradient(135deg, var(--plum-deep) 0%, var(--rose) 100%); border-radius: 12px; color: var(--cream);">
-      <p id="bzEyebrow" style="margin: 0 0 8px; font-weight: 700; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);">★ Band of the Week · DOORS AT 8</p>
+      <p id="bzEyebrow" style="margin: 0 0 8px; font-weight: 700; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);">★ Recorded set · STAGE PREVIEW</p>
       <h3 style="margin: 0 0 8px; font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 700; color: var(--cream);">The Embeddings — <em>Businesswomen's Special</em></h3>
-      <p style="margin: 0 0 6px; font-size: 15px; line-height: 1.55; color: var(--cream); opacity: 0.95;">Band of the week. The Embeddings take the stage with the song the drink picker is named for — the Bronze's own anthem, live from the Bronze's own stage.</p>
-      <p id="bzStatus" style="margin: 0 0 18px; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; color: var(--gold);"></p>
+      <p style="margin: 0 0 6px; font-size: 15px; line-height: 1.55; color: var(--cream); opacity: 0.95;">A recorded LAiDIES track by The Embeddings, named for the paper fortune teller. Press play when you are ready; this is not a live performance or real venue.</p>
+      <p id="bzAtmosphere" style="margin: 0 0 8px; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; color: var(--gold);"></p>
+      <p id="bzStatus" role="status" aria-live="polite" aria-atomic="true" style="margin: 0 0 18px; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; color: var(--gold);">Recorded track ready. Playback starts only when you press play.</p>
       <button type="button"
               aria-label="Play Businesswomen's Special by The Embeddings"
+              aria-pressed="false"
               data-src="/content/music/game-businesswomens-special.mp3"
-              onclick="window.playLaidiesTheme(this);"
               style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: var(--gold); color: var(--plum-deep); border: 0; border-radius: 999px; font-weight: 800; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: transform 200ms ease;"
               onmouseover="this.style.transform='scale(1.04)'"
               onmouseout="this.style.transform='scale(1)'">
@@ -399,10 +447,10 @@ Dress code: main character.</div>
         <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor; display: none;" class="pause-icon" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
         <span id="bzPlayLabel">♪ Play the song</span>
       </button>
-      <p style="margin: 18px 0 0; font-size: 13px; line-height: 1.55; opacity: 0.94; color: var(--cream);">THE LAiDIES' LP + every band's catalog lives at <a href="/radio.html" style="color: var(--gold); text-decoration: underline;">KSVL RAiDIO</a>. This is tonight's bill.</p>
+      <p style="margin: 18px 0 0; font-size: 13px; line-height: 1.55; opacity: 0.94; color: var(--cream);">THE LAiDIES' LP + admitted station tracks live at <a href="/radio.html" style="color: var(--gold); text-decoration: underline;">KSVL RAiDIO</a>. This control plays one recorded file.</p>
     </div>
 
-    <p style="margin: 0 0 32px; font-size: 13px; line-height: 1.55; color: var(--plum-soft);">Music broadcast (recorded tracks, DJ SunnyV) lives at <a href="/radio.html" style="color: var(--rose); text-decoration: underline;">KSVL RAiDIO</a>. The Bronze is for the live thing — performance, not playback.</p>
+    <p style="margin: 0 0 32px; font-size: 13px; line-height: 1.55; color: var(--plum-soft);">The broader recorded catalogue lives at <a href="/radio.html" style="color: var(--rose); text-decoration: underline;">KSVL RAiDIO</a>. This stage is a fictional room treatment around playback, not a live performance.</p>
 
     <style>
       #bzBandBox.bz-live { animation: bzGlow 3.2s ease-in-out infinite; }
@@ -413,14 +461,13 @@ Dress code: main character.</div>
       @media (prefers-reduced-motion: reduce) { #bzBandBox.bz-live { animation: none; } }
     </style>
     <script>
-      // Showtime clock — the Bronze knows what time it is.
-      // Live window: 8pm–2am local. Outside it, the stage counts down.
+      // Time changes the fictional room atmosphere only.
       (function() {
         'use strict';
         var box = document.getElementById('bzBandBox');
         var eyebrow = document.getElementById('bzEyebrow');
         var h2 = document.getElementById('bzLiveH2');
-        var status = document.getElementById('bzStatus');
+        var status = document.getElementById('bzAtmosphere');
         var playLabel = document.getElementById('bzPlayLabel');
         if (!box || !eyebrow || !h2 || !status || !playLabel) return;
 
@@ -430,20 +477,20 @@ Dress code: main character.</div>
           var isLive = h >= 20 || h < 2;
           if (isLive) {
             box.classList.add('bz-live');
-            eyebrow.textContent = '★ Band of the Week · ON STAGE NOW';
-            h2.textContent = 'Live show (on now)';
-            status.textContent = 'Lights down. The Embeddings are on.';
-            playLabel.textContent = '♪ Join the crowd';
+            eyebrow.textContent = '★ Recorded set · AFTER-DARK MODE';
+            h2.textContent = 'Tonight’s recorded stage';
+            status.textContent = 'After-dark room mode is on. Playback has not started.';
+            playLabel.textContent = '♪ Play the recorded track';
           } else {
             box.classList.remove('bz-live');
             var doors = new Date(now);
             doors.setHours(20, 0, 0, 0);
             var mins = Math.max(1, Math.round((doors - now) / 60000));
             var hrs = Math.floor(mins / 60), m = mins % 60;
-            eyebrow.textContent = '★ Band of the Week · DOORS AT 8';
-            h2.textContent = 'Live show (after 8)';
-            status.textContent = 'Stage lights on in ' + (hrs ? hrs + 'h ' : '') + m + 'm. The soundcheck is open.';
-            playLabel.textContent = '♪ Hear the soundcheck';
+            eyebrow.textContent = '★ Recorded set · STAGE PREVIEW';
+            h2.textContent = 'Tonight’s recorded stage';
+            status.textContent = 'After-dark room mode begins in ' + (hrs ? hrs + 'h ' : '') + m + 'm. Playback has not started.';
+            playLabel.textContent = '♪ Play the recorded track';
           }
         }
         render();
@@ -454,39 +501,65 @@ Dress code: main character.</div>
     <script>
       (function() {
         'use strict';
-        if (window.playLaidiesTheme) return;
-        var activeBtn = null, activeAudio = null;
-        function stopActive() {
-          if (activeBtn) activeBtn.classList.remove('is-playing');
-          if (activeAudio) { try { activeAudio.pause(); } catch(e){} }
-          activeBtn = null; activeAudio = null;
+        var button = document.querySelector('#bzBandBox button[data-src]');
+        if (!button) return;
+        var activeAudio = null;
+        function announce(message) {
+          var status = document.getElementById('bzStatus');
+          if (status) status.textContent = message;
         }
-        window.playLaidiesTheme = function(btn) {
-          if (!btn || btn.disabled) return;
-          var src = btn.getAttribute('data-src'); if (!src) return;
-          if (activeBtn === btn) { stopActive(); return; }
+        function stopActive(message) {
+          button.classList.remove('is-playing');
+          button.setAttribute('aria-pressed', 'false');
+          var audio = activeAudio;
+          activeAudio = null;
+          if (audio) { try { audio.pause(); } catch(e){} }
+          if (message) announce(message);
+        }
+        button.addEventListener('click', function(event) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          if (button.disabled) return;
+          var src = button.getAttribute('data-src'); if (!src) return;
+          if (activeAudio) { stopActive('Recorded track paused.'); return; }
           stopActive();
           var audio = new Audio(src); audio.preload = 'metadata';
-          audio.addEventListener('ended', function() { if (activeAudio === audio) stopActive(); });
-          audio.addEventListener('error', function() { if (activeAudio === audio) stopActive(); });
-          audio.play().catch(function() { if (activeAudio === audio) stopActive(); });
-          btn.classList.add('is-playing');
-          activeBtn = btn; activeAudio = audio;
-        };
+          audio.addEventListener('playing', function() {
+            if (activeAudio !== audio) return;
+            button.classList.add('is-playing');
+            button.setAttribute('aria-pressed', 'true');
+            announce('Recorded track playing. Press the same control to pause.');
+          });
+          audio.addEventListener('pause', function() {
+            if (activeAudio === audio) stopActive('Recorded track paused.');
+          });
+          audio.addEventListener('ended', function() {
+            if (activeAudio === audio) stopActive('Recorded track ended.');
+          });
+          audio.addEventListener('error', function() {
+            if (activeAudio === audio) stopActive('The recorded track could not load or play. Nothing is playing; try again when you are ready.');
+          });
+          activeAudio = audio;
+          button.setAttribute('aria-pressed', 'false');
+          announce('Recorded track starting. Nothing is marked as playing yet.');
+          Promise.resolve(audio.play()).catch(function() {
+            if (activeAudio === audio) stopActive('Playback was blocked or failed. Nothing is playing; press the control to try again.');
+          });
+        }, true);
       })();
     </script>
 
     <h2>Why the Bronze exists</h2>
 
     <p>
-      Because nothing about learning AI is easier alone. This is the room for the coworker who's AI-curious, the friend who's skeptical, the group chat that keeps saying "we should try that." The <a href="/sorority-house.html" style="color: var(--rose); text-decoration: underline;">Sorority House</a> is where the chat happens; the Bronze is where the drinks do.
+      Because nothing about learning AI is easier alone. This is the room for the coworker who's AI-curious, the friend who's skeptical, the group chat that keeps saying "we should try that." The <a href="/sorority-house.html" style="color: var(--rose); text-decoration: underline;">Sorority House</a> is where the wider chat happens; the Bronze is where your own table ritual starts.
     </p>
 
     <div class="sv-trip-tie">
       <div class="sv-trip-tie__eyebrow">★ Your Resident Card</div>
-      <h3 class="sv-trip-tie__title">Cocktail of the Week — this is where you order it.</h3>
-      <p class="sv-trip-tie__body">Your drink of the week shows up on your Resident Card. The BRONZE AiGE is where you order it — take a seat, tell the bar, done. <strong>Every customization is a trip somewhere in town.</strong></p>
-      <p class="sv-trip-tie__note">Play first, then <a href="/laidies-card.html" style="color: var(--rose);">make it official on your card →</a></p>
+      <h3 class="sv-trip-tie__title">Your last fortune stays on this device.</h3>
+      <p class="sv-trip-tie__body">The Fortune Teller can remember one playful cocktail or spirit-free suggestion in this browser. It is not an order, consumption record, account field, cross-device history, Resident Card item, badge, or reward.</p>
+      <p class="sv-trip-tie__note"><a href="/laidies-card.html" style="color: var(--rose);">Open your separate Resident Card →</a></p>
     </div>
 
     <div class="sv-ctas">
@@ -516,7 +589,6 @@ Dress code: main character.</div>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
 <script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
-<script defer src="/content/site/bws-data.js?v=20260724-1"></script>
-<script defer src="/content/site/bronze-aige-v2.js?v=20260724-1"></script>
+<script defer src="/content/site/bronze-aige-v2.js?v=20260726-r2"></script>
 </body>
 </html>

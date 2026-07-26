@@ -1,19 +1,43 @@
 # BRONZE AiGE Steward Backlog
 
-**Status:** BUILDING — ranked recommendations; none authorises code, deployment, publication or policy change.
+**Status:** BOUNDED LOCAL PASS — independent Repair 2 rejudge 92/100.
+Owner, native-accessibility, audio-rights, analytics, public-origin and alcohol-
+activation holds remain. Nothing here authorises deployment or policy change.
 
 ## FIX BEFORE LAUNCH
 
-1. **Run the exact journey suite.** Test bar/BWS navigation, all six bar stations, direct hashes, hidden-panel focus/return, mobile 375px layout, keyboard controls, reduced motion, drink reveal, clipboard fallback, downloaded `.ics`, local-storage denial, live-show audio and failure recovery.
-2. **Make local truth unmissable.** Audit every “rides home,” coaster, regular, badge and Resident Card phrase. Keep browser-local/session state distinct from attendance, account persistence, cross-device history and reward authority.
-3. **Verify episode freshness/failure.** Exercise no-published-episode, missing index, failed issue fetch and stale prompt cases; do not label Wednesday Special current unless the concrete episode data resolves.
-4. **Set alcohol/service boundaries.** Ali must decide the age/responsible-use, location/availability and health framing appropriate to a playful suggestion tool. Preserve equal spirit-free discovery and never imply sale, reservation or service.
-5. **Inspect all external/deep routes and media.** Confirm BWS full-table route, Mme CLAi-O redirect relationship, Resident Card destination, KSVL links and `game-businesswomens-special.mp3` with visible recovery states.
+1. **Preserve the independently passed Repair 2 contract.** Keep pre-load nonconfigurable getter/value/proxy/delete/throw cases, missing-module held states, ordinary regressions and exact-artifact parity in the release suite.
+2. **Owner visual direction.** Replace or explicitly approve the bridge interior/Cosmo treatment; resolve the busy mobile hero/control composition and shared-header crowding.
+3. **Run native evidence.** Verify Safari, VoiceOver, browser zoom and representative physical devices, including audio block/error recovery and downloaded calendar-file inspection.
+4. **Approve audio and media relationships.** Establish rights/admission for the Businesswomen's Special track and approve the KSVL/stage relationship before public use.
+5. **Approve the learning loop.** Define a privacy-safe event contract, owner-approved aggregate metrics and review cadence without collecting discussion text or alcohol-choice profiles.
+6. **Run exact deployment/public-origin journeys.** Only after the preceding gates, verify public routes, assets, episode data, calendar/clipboard and failure behaviour.
+7. **Keep alcohol activation held.** The current responsible framing is locally verified product copy, not authorization for alcohol partnership, sales, availability, venue, service, affiliate or promotional claims.
+
+## REPAIR 2 INDEPENDENT LOCAL PASS
+
+1. `bws-data.js` is module-private and exports no window catalogue.
+2. Embedded and standalone consumers dynamically import their canonical source
+   into private closures and validate the frozen API before enabling use.
+3. Static loading/held copy and disabled standalone controls make module
+   absence visibly fail closed with no saved receipt.
+4. Pre-load nonconfigurable getter, value, proxy, failed-delete and throwing
+   getter fixtures are never read. Injected Ryan/bottle data never renders or
+   saves in source or exact artifact.
+
+## REPAIR 1 PRESERVED
+
+1. Real CHAR No.5/Ryan/service activation and bottle encouragement were removed from governed copy/data and the legacy duplicate; neutral adult social-practice and spirit-free parity remain.
+2. Embedded and standalone fortune tellers now consume a private, deep-frozen, non-writable canonical catalogue with stable item/mood IDs; injected global copy is neither rendered nor saved.
+3. Drink and coaster receipts are v2 exact-key allowlists. Drink rehydration resolves canonical IDs; timestamps allow no future tolerance; coaster week must match its timestamp, be non-future and unique. Invalid reads do not rewrite corrupt or sibling storage.
+4. Calendar object-URL creation, download click and revocation failures are caught and remain visibly unconfirmed without a success claim.
+5. The standalone menu uses evergreen/latest-published episode wording.
+6. Each governed audio control owns its player privately, ignores a pre-existing global adapter and marks playing only after the media `playing` event.
 
 ## HIDE/LABEL FOR LAUNCH
 
-1. Label the bar as an at-home/social planning ritual—not a real booking, invitation delivery or attendance system.
-2. Keep Cosmo as a planned keeper presence until an approved scene/character design exists; the current state line must not impersonate a rendered or interactive keeper.
+1. Preserve the implemented label: an adult, alcohol-optional online conversation ritual—not a real booking, invitation delivery, venue, attendance or drink-service system.
+2. Keep Cosmo as a planned keeper presence until an approved scene/character design exists; do not imply a rendered, live or interactive keeper.
 3. Do not call the current interior/overlay treatment final; the crisp, straight-on object-first room remains **OWNER REVIEW REQUIRED**.
 4. Do not promote a local all-corners badge or drink choice as a Clubhouse/Resident Card reward until an authoritative lifecycle is proved.
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The LUMINAiRY · LAiDIES · SUNNYVAiLE</title>
-  <meta name="description" content="The LUMINAiRY on Lantern Hill — home to the PATRON SAiNTS (pop-culture pantheon), The MAiVENS (women leading in AI) and the TRAiLBLAZERS (the pioneers who got here first). Three wings, one chapel.">
+  <meta name="description" content="The LUMINAiRY on Lantern Hill — three portrait wings with claim-by-claim research review in progress. Names and artwork remain visible while legacy profile text is held.">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
   <link rel="stylesheet" href="content/luminairy-v2.css?v=20260724-1">
@@ -43,14 +43,27 @@
   </section>
 
   <main class="lum-page">
+    <noscript>
+      <section class="lum-static-hold" aria-labelledby="lumStaticHoldTitle">
+        <h2 id="lumStaticHoldTitle">Profile research is held</h2>
+        <p>JavaScript is unavailable, so the LUMINAiRY is staying fail-closed. Names and portrait art may remain visible, but biographies, quotations, current roles and interpretations are not published in this state.</p>
+        <p><a href="/">Return to SUNNYVAiLE</a> · <a href="/town-hall.html#town-hall-feedback">Read correction-route status</a></p>
+      </section>
+    </noscript>
 
     <section class="lum-state" aria-labelledby="lumStateTitle">
       <div>
         <p class="lum-state__kicker">Your votive register</p>
         <h2 id="lumStateTitle">No Luminaries lit yet.</h2>
-        <p id="lumStateSummary">Pick one SAiNT, one MAiVEN and one TRAiLBLAZER below. Your choices live on your Resident Card.</p>
-        <p class="lum-state__progress" id="lumMavenProgress">MAiVENS met · 0 / 8</p>
+        <p id="lumStateSummary">Pick one SAiNT, one MAiVEN and one TRAiLBLAZER below. Choices stay in this browser on this device.</p>
+        <p class="lum-state__progress" id="lumMavenProgress">Keeper profiles opened here · 0 / 8</p>
+        <p class="lum-storage-status" id="lumStorageStatus" role="status" aria-live="assertive" aria-atomic="true" hidden></p>
       </div>
+      <aside class="lum-research-status" id="lumResearchStatus" role="status" aria-live="polite">
+        <strong>Research review in progress.</strong>
+        Names and artwork remain visible, but biography, quotation, current-role and LAiDIES interpretation text is held until its exact evidence is rechecked.
+        <a href="/town-hall.html#town-hall-feedback">Correction route and status</a> — the private Town Hall inbox is still in preflight, so no submission or reply is promised.
+      </aside>
       <div class="lum-votives" aria-label="Your three chosen Luminaries">
         <div class="lum-votive" data-lum-votive="saint">
           <span>SAiNT</span>
@@ -123,9 +136,9 @@
           <div class="wing-door__scrim">
             <p class="wing-door__eyebrow">✦ Wing II</p>
             <p class="wing-door__name">The MAiVENS</p>
-            <p class="wing-door__line">The real women leading in AI right now.</p>
+            <p class="wing-door__line">Portrait archive under claim-by-claim review.</p>
             <div class="wing-door__foot">
-              <span class="wing-door__count">23 women · 4 Foundresses sealed</span>
+              <span class="wing-door__count">23 portraits · profiles held</span>
               <span class="wing-door__cta"><span class="when-closed">Enter →</span><span class="when-open">Close ×</span></span>
             </div>
           </div>
@@ -137,9 +150,9 @@
           <div class="wing-door__scrim">
             <p class="wing-door__eyebrow">◆ Wing III</p>
             <p class="wing-door__name">TRAiLBLAZERS</p>
-            <p class="wing-door__line">The women shipping frontier Ai.</p>
+            <p class="wing-door__line">Portrait archive under current-role review.</p>
             <div class="wing-door__foot">
-              <span class="wing-door__count">6 founders</span>
+              <span class="wing-door__count">6 portraits · profiles held</span>
               <span class="wing-door__cta"><span class="when-closed">Enter →</span><span class="when-open">Close ×</span></span>
             </div>
           </div>
@@ -583,11 +596,11 @@
     <h2 id="mavens">The MAiVENS wing</h2>
 
     <p>
-      The women building the room next. If the SAiNTS handle the made-up moves, the MAiVENS handle the machine ones. <strong>Meet all 8 Keepers</strong> — tap <em>✦ Meet her</em> on each portrait — and the four historical Foundresses (Ada Lovelace, Grace Hopper, Hedy Lamarr, Karen Spärck Jones) unlock in the Holo Foundress case at the top of the wing.
+      A portrait archive with profile research under review. Profiles open one at a time only after an exact claim and a separately signed editorial receipt are admitted. Opening one is a private browser interaction, not completion, mastery or a reward.
     </p>
 
     <blockquote class="maven-epigraph">
-      &ldquo;The fathers only named it. It took a Godmother to make it.&rdquo;
+      <strong>LAiDIES interpretation:</strong> &ldquo;The fathers only named it. It took a Godmother to make it.&rdquo;
       <cite>&mdash; The Priors, &ldquo;It Was Women All Along&rdquo; &middot; the Founding Mothers anthem, on KSVL 99.9</cite>
     </blockquote>
     <style>
@@ -610,11 +623,11 @@
         </button>
         <button class="lum-archive-index__stop" type="button" role="tab" aria-selected="false" aria-controls="maven-chamber-foundresses" data-maven-chamber-button="foundresses">
           <span class="lum-archive-index__number">02</span>
-          <span><strong>The First Four</strong><small>Holo Foundress case</small></span>
+          <span><strong>Foundress Portraits</strong><small>Profiles held for review</small></span>
         </button>
         <button class="lum-archive-index__stop" type="button" role="tab" aria-selected="false" aria-controls="maven-chamber-lineage" data-maven-chamber-button="lineage">
           <span class="lum-archive-index__number">03</span>
-          <span><strong>Wider Lineage</strong><small>Eleven more lights</small></span>
+          <span><strong>Additional Portraits</strong><small>Profiles held for review</small></span>
         </button>
         <button class="lum-archive-index__stop" type="button" role="tab" aria-selected="false" aria-controls="maven-chamber-memorial" data-maven-chamber-button="memorial">
           <span class="lum-archive-index__number">04</span>
@@ -903,12 +916,10 @@
       }
       .foundress-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
       .foundress-lock {
-        position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-        color: var(--gold); font-size: 48px;
-        background: rgba(75,33,72,0.72); backdrop-filter: blur(6px);
+        position: absolute; right: 8px; bottom: 8px; left: 8px; display: flex; align-items: center; justify-content: center;
+        color: var(--pearl); background: rgba(35,18,49,0.9);
+        border: 1px solid var(--gold); border-radius: 999px;
       }
-      /* Default locked state: blur portraits + show lock overlay */
-      .foundress-case:not(.is-unlocked) .foundress-portrait img { filter: blur(14px) saturate(0.5); }
       .foundress-case.is-unlocked .foundress-lock { display: none; }
       /* Holo unlock — shimmering border on all 4 cards when the case is open */
       .foundress-case.is-unlocked .foundress-card {
@@ -988,17 +999,17 @@
     </style>
 
     <div class="lum-maven-chamber" id="maven-chamber-foundresses" role="tabpanel" data-maven-chamber="foundresses" hidden>
-    <section class="foundress-case is-unlocked" id="foundressCase" aria-label="Holo Foundress case">
+    <section class="foundress-case" id="foundressCase" aria-label="Foundress portrait case">
       <header class="foundress-case-head">
-        <p class="foundress-case-eyebrow">◆ HOLO FOUNDRESSES · Chase tier</p>
-        <h3 class="foundress-case-title">The First Four</h3>
-        <p class="foundress-case-sub"><span class="foundress-locked-msg">Sealed until you meet all 8 living Keepers below.</span><span class="foundress-unlocked-msg">Case unsealed. Every living Keeper in this wing descends from these four.</span></p>
+        <p class="foundress-case-eyebrow">◆ FOUNDRESS PORTRAIT CASE</p>
+        <h3 class="foundress-case-title">Four portraits, profiles held</h3>
+        <p class="foundress-case-sub"><span class="foundress-locked-msg">Names and artwork are available. Dates, titles, biographies and quotations remain held until exact evidence is admitted.</span><span class="foundress-unlocked-msg">A profile opens only after its exact claim and evidence record is admitted.</span></p>
       </header>
       <div class="foundress-grid">
         <div class="foundress-card" data-foundress-slug="ada-lovelace">
           <div class="foundress-portrait">
             <img src="assets/mavens/y2k-stained-glass-v2/ada-lovelace-y2k-stained-glass.jpg" alt="Ada Lovelace — Y2K stained-glass portrait" loading="lazy">
-            <span class="foundress-lock" aria-hidden="true">◆</span>
+            <span class="foundress-lock" aria-hidden="true">Profile held</span>
           </div>
           <p class="foundress-years">1815–1852</p>
           <h4 class="foundress-name">Ada Lovelace</h4>
@@ -1008,7 +1019,7 @@
         <div class="foundress-card" data-foundress-slug="grace-hopper">
           <div class="foundress-portrait">
             <img src="assets/mavens/y2k-stained-glass-v2/grace-hopper-y2k-stained-glass.jpg" alt="Grace Hopper — Y2K stained-glass portrait" loading="lazy">
-            <span class="foundress-lock" aria-hidden="true">◆</span>
+            <span class="foundress-lock" aria-hidden="true">Profile held</span>
           </div>
           <p class="foundress-years">1906–1992</p>
           <h4 class="foundress-name">Grace Hopper</h4>
@@ -1018,7 +1029,7 @@
         <div class="foundress-card" data-foundress-slug="hedy-lamarr">
           <div class="foundress-portrait">
             <img src="assets/mavens/y2k-stained-glass-v2/hedy-lamarr-y2k-stained-glass.jpg" alt="Hedy Lamarr — Y2K stained-glass portrait" loading="lazy">
-            <span class="foundress-lock" aria-hidden="true">◆</span>
+            <span class="foundress-lock" aria-hidden="true">Profile held</span>
           </div>
           <p class="foundress-years">1914–2000</p>
           <h4 class="foundress-name">Hedy Lamarr</h4>
@@ -1028,7 +1039,7 @@
         <div class="foundress-card" data-foundress-slug="karen-sparck-jones">
           <div class="foundress-portrait">
             <img src="assets/mavens/y2k-stained-glass-v2/karen-sparck-jones-y2k-stained-glass.jpg" alt="Karen Spärck Jones — Y2K stained-glass portrait" loading="lazy">
-            <span class="foundress-lock" aria-hidden="true">◆</span>
+            <span class="foundress-lock" aria-hidden="true">Profile held</span>
           </div>
           <p class="foundress-years">1935–2007</p>
           <h4 class="foundress-name">Karen Spärck Jones</h4>
@@ -1038,70 +1049,70 @@
       </div>
     </section>
 
-    <div class="maven-honesty">
+    <div class="maven-honesty" data-lum-claim-block="maven-lineage-context" hidden>
       <p style="margin: 0;"><strong>Recorded history has an honesty problem.</strong> The historical AI foundation was built while women of color were systematically kept out of the field. The lineage above (Ada → Grace, Hedy, Karen) is real, and it's also incomplete for reasons that had nothing to do with the women who were missing. The Keepers building it now — <strong>Gebru, Buolamwini, Li</strong> in the 8 below — are correcting the record in real time.</p>
     </div>
     </div>
 
     <div class="lum-maven-chamber is-active" id="maven-chamber-keepers" role="tabpanel" data-maven-chamber="keepers">
-    <p class="maven-wing-subhead">The 8 Keepers building it now</p>
+    <p class="maven-wing-subhead">Eight portrait profiles under review</p>
 
     <div class="stop-grid">
       <div class="stop stop--maven" data-maven-slug="hannah-fry">
         <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/hannah-fry-y2k-stained-glass.jpg" alt="Hannah Fry — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Hannah Fry</h3>
-        <p class="stop-desc">Keeper of the Probabilities · Cambridge · <em>Hello World</em>.</p>
-        <button class="maven-meet" type="button" aria-label="Meet Hannah Fry">✦ Meet her</button>
+        <p class="stop-desc">Hannah Fry joined Cambridge as Professor of the Public Understanding of Mathematics.</p>
+        <button class="maven-meet" type="button" disabled aria-label="Meet Hannah Fry">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="fei-fei-li">
         <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/fei-fei-li-y2k-stained-glass.jpg" alt="Fei-Fei Li — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Fei-Fei Li</h3>
         <p class="stop-desc">Keeper of the Field · Stanford · ImageNet, "Godmother of AI."</p>
-        <button class="maven-meet" type="button" aria-label="Meet Fei-Fei Li">✦ Meet her</button>
+        <button class="maven-meet" type="button" disabled aria-label="Meet Fei-Fei Li">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="timnit-gebru">
         <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/timnit-gebru-y2k-stained-glass.jpg" alt="Timnit Gebru — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Timnit Gebru</h3>
         <p class="stop-desc">Keeper of the Room · DAIR · <em>Stochastic Parrots</em>. Who's in, who's not, who pays.</p>
-        <button class="maven-meet" type="button" aria-label="Meet Timnit Gebru">✦ Meet her</button>
+        <button class="maven-meet" type="button" disabled aria-label="Meet Timnit Gebru">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="rachel-thomas">
         <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/rachel-thomas-y2k-stained-glass.jpg" alt="Rachel Thomas — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Rachel Thomas</h3>
         <p class="stop-desc">Keeper of the Door · fast.ai · AI for everyone not in the room yet.</p>
-        <button class="maven-meet" type="button" aria-label="Meet Rachel Thomas">✦ Meet her</button>
+        <button class="maven-meet" type="button" disabled aria-label="Meet Rachel Thomas">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="joy-buolamwini">
         <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/joy-buolamwini-y2k-stained-glass.jpg" alt="Joy Buolamwini — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Joy Buolamwini</h3>
         <p class="stop-desc">Keeper of the Mirror · MIT · Algorithmic Justice League. <em>Gender Shades</em>.</p>
-        <button class="maven-meet" type="button" aria-label="Meet Joy Buolamwini">✦ Meet her</button>
+        <button class="maven-meet" type="button" disabled aria-label="Meet Joy Buolamwini">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="kate-crawford">
         <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/kate-crawford-y2k-stained-glass.jpg" alt="Kate Crawford — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Kate Crawford</h3>
         <p class="stop-desc">Keeper of the Map · <em>Atlas of AI</em>. The mines, the water, the labor.</p>
-        <button class="maven-meet" type="button" aria-label="Meet Kate Crawford">✦ Meet her</button>
+        <button class="maven-meet" type="button" disabled aria-label="Meet Kate Crawford">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="meredith-whittaker">
         <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/meredith-whittaker-y2k-stained-glass.jpg" alt="Meredith Whittaker — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Meredith Whittaker</h3>
         <p class="stop-desc">Keeper of the Signal · Signal Foundation · ex-Google Walkout. Privacy is labor.</p>
-        <button class="maven-meet" type="button" aria-label="Meet Meredith Whittaker">✦ Meet her</button>
+        <button class="maven-meet" type="button" disabled aria-label="Meet Meredith Whittaker">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="emily-bender">
         <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/emily-bender-y2k-stained-glass.jpg" alt="Emily Bender — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Emily Bender</h3>
         <p class="stop-desc">Keeper of the Language · UW linguist · Stochastic Parrots. LLMs don't understand.</p>
-        <button class="maven-meet" type="button" aria-label="Meet Emily Bender">✦ Meet her</button>
+        <button class="maven-meet" type="button" disabled aria-label="Meet Emily Bender">✦ Meet her</button>
       </div>
     </div>
     </div>
@@ -1116,83 +1127,83 @@
         <span class="stop-num">✦</span>
         <h3 class="stop-name">The ENIAC Six</h3>
         <p class="stop-desc">Keepers of the First Program · 1945 · the first coders, uncaptioned for 40 years.</p>
-        <button class="maven-meet" type="button" aria-label="Meet the ENIAC Six">✦ Meet them</button>
+        <button class="maven-meet" type="button" disabled aria-label="Meet the ENIAC Six">✦ Meet them</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="margaret-hamilton" data-maven-extra="1">
         <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/margaret-hamilton-y2k-stained-glass.jpg" alt="Margaret Hamilton — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Margaret Hamilton</h3>
         <p class="stop-desc">Keeper of Software Itself · Apollo · named the craft, saved the landing.</p>
-        <button class="maven-meet" type="button" aria-label="Meet Margaret Hamilton">✦ Meet her</button>
+        <button class="maven-meet" type="button" disabled aria-label="Meet Margaret Hamilton">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="frances-allen" data-maven-extra="1">
         <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/frances-allen-y2k-stained-glass.jpg" alt="Frances Allen — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Frances Allen</h3>
         <p class="stop-desc">Keeper of Fast Code · IBM · optimizing compilers. First woman to win the Turing.</p>
-        <button class="maven-meet" type="button" aria-label="Meet Frances Allen">✦ Meet her</button>
+        <button class="maven-meet" type="button" disabled aria-label="Meet Frances Allen">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="grace-wahba" data-maven-extra="1">
         <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/grace-wahba-y2k-stained-glass.jpg" alt="Grace Wahba — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Grace Wahba</h3>
         <p class="stop-desc">Keeper of the Curve-Fit · the math inside machine learning.</p>
-        <button class="maven-meet" type="button" aria-label="Meet Grace Wahba">✦ Meet her</button>
+        <button class="maven-meet" type="button" disabled aria-label="Meet Grace Wahba">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="cynthia-dwork" data-maven-extra="1">
         <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/cynthia-dwork-y2k-stained-glass.jpg" alt="Cynthia Dwork — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Cynthia Dwork</h3>
         <p class="stop-desc">Keeper of Private Data · differential privacy. Learn without exposing anyone.</p>
-        <button class="maven-meet" type="button" aria-label="Meet Cynthia Dwork">✦ Meet her</button>
+        <button class="maven-meet" type="button" disabled aria-label="Meet Cynthia Dwork">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="daphne-koller" data-maven-extra="1">
         <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/daphne-koller-y2k-stained-glass.jpg" alt="Daphne Koller — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Daphne Koller</h3>
         <p class="stop-desc">Keeper of Reasoning Under Uncertainty · graphical models · Coursera.</p>
-        <button class="maven-meet" type="button" aria-label="Meet Daphne Koller">✦ Meet her</button>
+        <button class="maven-meet" type="button" disabled aria-label="Meet Daphne Koller">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="barbara-liskov" data-maven-extra="1">
         <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/barbara-liskov-y2k-stained-glass.jpg" alt="Barbara Liskov — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Barbara Liskov</h3>
         <p class="stop-desc">Keeper of Clean Code · abstraction. Turing Award, 2008.</p>
-        <button class="maven-meet" type="button" aria-label="Meet Barbara Liskov">✦ Meet her</button>
+        <button class="maven-meet" type="button" disabled aria-label="Meet Barbara Liskov">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="jean-sammet" data-maven-extra="1">
         <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/jean-sammet-y2k-stained-glass.jpg" alt="Jean Sammet — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Jean Sammet</h3>
         <p class="stop-desc">Keeper of the Languages · COBOL &amp; FORMAC.</p>
-        <button class="maven-meet" type="button" aria-label="Meet Jean Sammet">✦ Meet her</button>
+        <button class="maven-meet" type="button" disabled aria-label="Meet Jean Sammet">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="adele-goldberg" data-maven-extra="1">
         <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/adele-goldberg-y2k-stained-glass.jpg" alt="Adele Goldberg — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Adele Goldberg</h3>
         <p class="stop-desc">Keeper of the Interface · Smalltalk at PARC · the GUI Jobs borrowed.</p>
-        <button class="maven-meet" type="button" aria-label="Meet Adele Goldberg">✦ Meet her</button>
+        <button class="maven-meet" type="button" disabled aria-label="Meet Adele Goldberg">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="shafi-goldwasser" data-maven-extra="1">
         <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/shafi-goldwasser-y2k-stained-glass.jpg" alt="Shafi Goldwasser — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Shafi Goldwasser</h3>
         <p class="stop-desc">Keeper of Trust · zero-knowledge proofs. Turing Award, 2012.</p>
-        <button class="maven-meet" type="button" aria-label="Meet Shafi Goldwasser">✦ Meet her</button>
+        <button class="maven-meet" type="button" disabled aria-label="Meet Shafi Goldwasser">✦ Meet her</button>
       </div>
       <div class="stop stop--maven" data-maven-slug="lynn-conway" data-maven-extra="1">
         <div class="maven-portrait"><img src="assets/mavens/y2k-stained-glass-v2/lynn-conway-y2k-stained-glass.jpg" alt="Lynn Conway — Y2K stained-glass portrait" loading="lazy"></div>
         <span class="stop-num">✦</span>
         <h3 class="stop-name">Lynn Conway</h3>
         <p class="stop-desc">Keeper of the Chip · the silicon underneath · erased by IBM, restored in 2020.</p>
-        <button class="maven-meet" type="button" aria-label="Meet Lynn Conway">✦ Meet her</button>
+        <button class="maven-meet" type="button" disabled aria-label="Meet Lynn Conway">✦ Meet her</button>
       </div>
     </div>
     </div>
 
     <div class="lum-maven-chamber" id="maven-chamber-memorial" role="tabpanel" data-maven-chamber="memorial" hidden>
-    <div class="turing-memoriam" style="max-width:60ch;margin:56px auto 8px;padding:30px 30px 26px;text-align:center;border-top:1px solid rgba(201,162,39,0.45);border-bottom:1px solid rgba(201,162,39,0.45);">
+    <div class="turing-memoriam" data-lum-claim-block="turing-memoriam" hidden style="max-width:60ch;margin:56px auto 8px;padding:30px 30px 26px;text-align:center;border-top:1px solid rgba(201,162,39,0.45);border-bottom:1px solid rgba(201,162,39,0.45);">
       <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">✦&nbsp;&nbsp;In memoriam&nbsp;&nbsp;✦</div>
       <img src="assets/mavens/y2k-stained-glass-v2/alan-turing-y2k-stained-glass.jpg" alt="Alan Turing — Y2K stained-glass portrait" loading="lazy" style="width:96px;height:96px;object-fit:cover;border-radius:12px;border:1.5px solid var(--gold);margin:0 auto 14px;display:block;">
       <h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.5rem;color:var(--plum-deep,#37142f);margin:0 0 14px;line-height:1.15;">Alan Turing<br><span style="font-size:0.85rem;font-weight:400;opacity:0.7;">1912–1954</span></h3>
@@ -1227,7 +1238,7 @@
       .foundress-case.is-unlocked .foundress-card { cursor: pointer; }
       @media (max-width: 520px) { .mvbio-head { flex-direction: column; text-align: center; } .mvbio-name { font-size: 24px; } }
     </style>
-    <div id="mavenModal" class="mvbio" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="mvbioName">
+    <div id="mavenModal" class="mvbio" hidden aria-hidden="true" data-focus-state="closed" role="dialog" aria-modal="true" aria-labelledby="mvbioName">
       <div class="mvbio-backdrop" data-mvbio-close></div>
       <div class="mvbio-card" role="document">
         <button class="mvbio-x" type="button" aria-label="Close" data-mvbio-close>&times;</button>
@@ -1255,7 +1266,7 @@
     <div class="wing-panel" id="wing-builders" hidden>
     <h2 id="builders">The TRAiLBLAZERS wing</h2>
 
-    <p>
+    <p data-lum-claim-block="trailblazer-wing-context" hidden>
       The women <em>shipping</em> frontier <span class="ai">Ai</span>. If the MAiVENS interpret and critique the machine, the TRAiLBLAZERS build it — inside OpenAI, Anthropic, DeepMind, and their own new labs. Six for now; the roster grows as new frontier founders emerge. Portraits brewing.
     </p>
 
@@ -1309,8 +1320,8 @@
     <div class="sv-trip-tie">
       <div class="sv-trip-tie__eyebrow">★ Your Resident Card</div>
       <h3 class="sv-trip-tie__title">Your PATRON SAiNT — this is where you devote.</h3>
-      <p class="sv-trip-tie__body">Your PATRON SAiNT shows up on the back of your Resident Card. The LUMINAiRY is where you pick her — light a candle, pledge your allegiance, done. <strong>Every customization is a trip somewhere in town.</strong></p>
-      <p class="sv-trip-tie__note">Full picker still brewing with the member card. For now, this is where it lives.</p>
+      <p class="sv-trip-tie__body">Choose one PATRON SAiNT in this browser and a candle lights here on this device. This is not an account record and it does not prove Resident Card or cross-device sync.</p>
+      <p class="sv-trip-tie__note">You can change or clear the local choice at any time.</p>
     </div>
 
     <div class="sv-ctas">
@@ -1380,7 +1391,8 @@
   <footer>© LAiDIES · Filed from SUNNYVAiLE · The LUMINAiRY at Lantern Hill</footer>
 
     <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
-    <script defer src="/content/site/luminairy-v2.js?v=20260724-1"></script>
+    <script defer src="/content/site/luminairy-v2.js?v=20260725-2"></script>
+    <script defer src="/content/site/luminairy-claim-gate.js?v=20260725-1"></script>
 
     <!-- MAiVEN click-to-collect + Foundress unlock gate + Coven pickers (SAiNT/MAiVEN/TRAiLBLAZER) -->
     <script>
@@ -1390,11 +1402,40 @@
         // ── MAiVEN collect + Foundress unlock ──
         var COLLECT_KEY = 'laidies_mavens_collected';
         var LIVING = 8;
+        var storageFailed = false;
+        function setStorageFailure(message) {
+          storageFailed = true;
+          var status = document.getElementById('lumStorageStatus');
+          if (status) {
+            status.hidden = false;
+            status.textContent = message ||
+              'This browser blocked device-local storage. Your choice was not changed. Selection and clear controls are unavailable until storage works again.';
+          }
+          document.querySelectorAll('.coven-pick').forEach(function (button) {
+            button.disabled = true;
+            button.setAttribute('aria-describedby', 'lumStorageStatus');
+          });
+        }
         function readCollect() {
-          try { var v = localStorage.getItem(COLLECT_KEY); return v ? JSON.parse(v) : []; } catch (e) { return []; }
+          try {
+            var v = localStorage.getItem(COLLECT_KEY);
+            var parsed = v ? JSON.parse(v) : [];
+            return Array.isArray(parsed) ? parsed : [];
+          } catch (e) {
+            setStorageFailure();
+            return [];
+          }
         }
         function writeCollect(list) {
-          try { localStorage.setItem(COLLECT_KEY, JSON.stringify(list)); } catch (e) {}
+          try {
+            var encoded = JSON.stringify(list);
+            localStorage.setItem(COLLECT_KEY, encoded);
+            if (localStorage.getItem(COLLECT_KEY) !== encoded) throw new Error('round trip failed');
+            return true;
+          } catch (e) {
+            setStorageFailure('This browser could not save the local profile-open register. The profile can still open, but no saved progress is claimed and selection controls are unavailable.');
+            return false;
+          }
         }
         var collected = new Set(readCollect());
         var fill = document.getElementById('mavensProgressFill');
@@ -1415,10 +1456,10 @@
           });
           if (count) count.textContent = String(collected.size);
           if (fill) fill.style.width = Math.min(100, (collected.size / LIVING) * 100) + '%';
-          if (caseEl) caseEl.classList.add('is-unlocked'); // Foundresses always shown (seal retired)
+          if (caseEl) caseEl.classList.remove('is-unlocked');
         }
 
-        // ── Maven bio modal (verified; sources in the ledger) ──
+        // ── Maven bio modal (content remains subject to the public claim-admission gate) ──
         var MAVEN_BIOS = {
           'ada-lovelace': { name: 'Ada Lovelace', title: 'Keeper of the First Algorithm', meta: '1815–1852 · England',
             did: 'In 1843 she looked at a machine built only to crunch numbers and saw further than anyone — that with the right instructions it could work with symbols, even compose music. Her Note G is the first algorithm ever written for a machine.',
@@ -1537,37 +1578,99 @@
             source: 'https://en.wikipedia.org/wiki/Lynn_Conway' }
         };
         var mvModal = document.getElementById('mavenModal');
+        var mvModalOpener = null;
         function setText(id, t) { var el = document.getElementById(id); if (el) el.textContent = t; }
         function openMavenBio(slug) {
-          var b = MAVEN_BIOS[slug]; if (!b || !mvModal) return;
+          var admission = window.LAIDIES_LUMINAIRY_ADMISSIONS &&
+            window.LAIDIES_LUMINAIRY_ADMISSIONS[slug];
+          if (!admission || !mvModal) return;
+          var sourceCard = document.querySelector(
+            '[data-maven-slug="' + slug + '"], [data-foundress-slug="' + slug + '"]'
+          );
+          if (!sourceCard || sourceCard.getAttribute('data-editorial-status') !== 'admitted') return;
+          var nameNode = sourceCard.querySelector('.stop-name, .foundress-name');
+          var portrait = sourceCard.querySelector('img');
+          mvModalOpener = document.activeElement;
           var img = document.getElementById('mvbioImg');
-          if (img) { img.style.display = ''; img.onerror = function () { this.style.display = 'none'; }; img.src = 'assets/mavens/y2k-stained-glass-v2/' + slug + '-y2k-stained-glass.png'; img.alt = b.name + ' — stained-glass portrait'; }
-          setText('mvbioTitle', b.title); setText('mvbioName', b.name); setText('mvbioMeta', b.meta);
-          setText('mvbioDid', b.did); setText('mvbioFight', b.fight);
+          if (img && portrait) {
+            img.style.display = '';
+            img.src = portrait.currentSrc || portrait.src;
+            img.alt = portrait.alt;
+          }
+          setText('mvbioTitle', 'Research-admitted profile claim');
+          setText('mvbioName', nameNode ? nameNode.textContent : slug);
+          setText(
+            'mvbioMeta',
+            admission.evidence.sourcePublisher + ' · verified ' + admission.verifiedOn
+          );
+          setText('mvbioDid', admission.claimText);
+          setText('mvbioFight', '');
+          var fightWrap = document.querySelector('.mvbio-fight');
+          if (fightWrap) fightWrap.hidden = true;
           var qWrap = document.getElementById('mvbioQuoteWrap');
-          if (b.quote) { setText('mvbioQuote', '“' + b.quote + '”'); if (qWrap) qWrap.hidden = false; }
-          else if (qWrap) { qWrap.hidden = true; }
-          var src = document.getElementById('mvbioSource'); if (src) src.href = b.source;
+          if (qWrap) qWrap.hidden = true;
+          var src = document.getElementById('mvbioSource');
+          if (src) {
+            src.href = admission.evidence.sourceUrl;
+            src.textContent = 'Evidence for this profile claim ↗';
+          }
+          mvModal.setAttribute('data-focus-state', 'opening');
           mvModal.hidden = false; mvModal.setAttribute('aria-hidden', 'false');
           document.body.style.overflow = 'hidden';
+          var close = mvModal.querySelector('button[data-mvbio-close]');
+          if (close) {
+            close.focus({ preventScroll: true });
+            mvModal.setAttribute(
+              'data-focus-state',
+              document.activeElement === close ? 'ready' : 'failed'
+            );
+          } else {
+            mvModal.setAttribute('data-focus-state', 'failed');
+          }
         }
         function closeMavenBio() {
-          if (!mvModal) return;
+          if (!mvModal || mvModal.hidden) return;
           mvModal.hidden = true; mvModal.setAttribute('aria-hidden', 'true');
+          mvModal.setAttribute('data-focus-state', 'closed');
           document.body.style.overflow = '';
+          if (mvModalOpener && typeof mvModalOpener.focus === 'function') mvModalOpener.focus();
+          mvModalOpener = null;
+        }
+        function trapMavenFocus(e) {
+          if (!mvModal || mvModal.hidden || e.key !== 'Tab') return;
+          var focusable = Array.prototype.slice.call(
+            mvModal.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')
+          );
+          if (!focusable.length) return;
+          var first = focusable[0], last = focusable[focusable.length - 1];
+          if (!mvModal.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+          else if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
         }
 
         // ── Coven pickers ──
         // One pick per pantheon (radio semantics). Reads/writes the same keys the Closet's Coven band uses.
         var COVEN_KEYS = { saint: 'laidies_saint', maven: 'laidies_maven', builder: 'laidies_builder' };
         function readPick(pantheon) {
-          try { return localStorage.getItem(COVEN_KEYS[pantheon]) || ''; } catch (e) { return ''; }
+          try {
+            return localStorage.getItem(COVEN_KEYS[pantheon]) || '';
+          } catch (e) {
+            setStorageFailure();
+            return '';
+          }
         }
         function writePick(pantheon, slug) {
           try {
             if (slug) localStorage.setItem(COVEN_KEYS[pantheon], slug);
             else localStorage.removeItem(COVEN_KEYS[pantheon]);
-          } catch (e) {}
+            if ((localStorage.getItem(COVEN_KEYS[pantheon]) || '') !== slug) {
+              throw new Error('round trip failed');
+            }
+            return true;
+          } catch (e) {
+            setStorageFailure();
+            return false;
+          }
         }
 
         // Derive the saint slug from the existing audio path (the saint cards don't have a data attribute yet)
@@ -1593,6 +1696,7 @@
             btn.className = 'coven-pick';
             btn.setAttribute('data-pantheon', 'saint');
             btn.textContent = '★ One of my Luminaries';
+            btn.disabled = storageFailed;
             card.appendChild(btn);
           });
           document.querySelectorAll('.stop--maven:not([data-maven-extra])').forEach(function (card) {
@@ -1602,6 +1706,7 @@
             btn.className = 'coven-pick';
             btn.setAttribute('data-pantheon', 'maven');
             btn.textContent = '★ One of my Luminaries';
+            btn.disabled = storageFailed;
             card.appendChild(btn);
           });
           document.querySelectorAll('.stop--builder').forEach(function (card) {
@@ -1611,6 +1716,7 @@
             btn.className = 'coven-pick';
             btn.setAttribute('data-pantheon', 'builder');
             btn.textContent = '★ One of my Luminaries';
+            btn.disabled = storageFailed;
             card.appendChild(btn);
           });
         }
@@ -1631,6 +1737,10 @@
               card.classList.toggle('is-coven-pick', !!isPicked);
               var btn = card.querySelector('.coven-pick');
               if (btn) btn.textContent = isPicked ? '★ One of your Luminaries' : '★ One of my Luminaries';
+              if (btn && storageFailed) {
+                btn.disabled = true;
+                btn.setAttribute('aria-describedby', 'lumStorageStatus');
+              }
             });
           });
         }
@@ -1646,30 +1756,43 @@
             var slug = slugFor(card, pantheon);
             if (!slug) return;
             var current = readPick(pantheon);
-            writePick(pantheon, current === slug ? '' : slug);   // toggle: click again to un-pick
-            renderCoven();
+            if (writePick(pantheon, current === slug ? '' : slug)) {
+              renderCoven();
+            }
             return;
           }
           if (e.target.closest && e.target.closest('[data-mvbio-close]')) { closeMavenBio(); return; }
           var meetBtn = e.target.closest && e.target.closest('.maven-meet');
           if (meetBtn) {
             e.preventDefault();
-            var mCard = meetBtn.closest('.stop--maven');
+            var mCard = meetBtn.closest('.stop--maven, .foundress-card');
             if (!mCard) return;
-            var mSlug = mCard.getAttribute('data-maven-slug');
+            var mSlug = mCard.getAttribute('data-maven-slug') ||
+              mCard.getAttribute('data-foundress-slug');
             if (!mSlug) return;
+            if (!window.LAIDIES_LUMINAIRY_ADMISSIONS ||
+                !window.LAIDIES_LUMINAIRY_ADMISSIONS[mSlug] ||
+                mCard.getAttribute('data-editorial-status') !== 'admitted') return;
+            if (mCard.classList.contains('foundress-card')) {
+              openMavenBio(mSlug);
+              return;
+            }
             if (mCard.getAttribute('data-maven-extra')) { openMavenBio(mSlug); return; }
-            if (!collected.has(mSlug)) { collected.add(mSlug); writeCollect(Array.from(collected)); renderCollect(); }
+            if (!collected.has(mSlug)) {
+              var nextCollected = Array.from(collected).concat(mSlug);
+              if (writeCollect(nextCollected)) {
+                collected.add(mSlug);
+                renderCollect();
+              }
+            }
             openMavenBio(mSlug);
             return;
           }
-          var fCard = e.target.closest && e.target.closest('.foundress-card');
-          if (fCard && caseEl && caseEl.classList.contains('is-unlocked')) {
-            openMavenBio(fCard.getAttribute('data-foundress-slug'));
-            return;
-          }
         });
-        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' || e.keyCode === 27) closeMavenBio(); });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' || e.keyCode === 27) closeMavenBio();
+          else trapMavenFocus(e);
+        });
 
         injectPickers();
         renderCollect();
@@ -1678,7 +1801,12 @@
         // Pair with #mavens in the URL to also open the Mavens wing behind the modal.
         try {
           var _meet = new URLSearchParams(window.location.search).get('meet');
-          if (_meet && MAVEN_BIOS[_meet]) openMavenBio(_meet);
+          if (_meet) {
+            window.addEventListener('luminairy:claims-ready', function () {
+              openMavenBio(_meet);
+            }, { once: true });
+            window.setTimeout(function () { openMavenBio(_meet); }, 0);
+          }
         } catch (e) {}
       })();
     </script>

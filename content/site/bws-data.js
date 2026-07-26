@@ -1,6 +1,9 @@
-// BWS drink data — extracted from script.js so the game page doesn't need the old Clubhouse stack.
-// Source of truth for edits: keep in sync with script.js cocktailMenus / cocktailFortuneFlaps.
-const cocktailMenus = {
+// BWS drink data — module-private, immutable canonical catalogue.
+// Consumers import this module directly. Nothing is published to `window`, so
+// a preloaded page global can never become product/content authority.
+"use strict";
+
+const rawCocktailMenus = {
   cocktail: [
     {
       name: "French 75",
@@ -63,16 +66,16 @@ const cocktailMenus = {
       note: "Pink, easy, and businesswomen's special approved.",
     },
     {
-      name: "Yes, Get the Bottle",
-      vibe: "For when the table has already done the math and the bottle is the responsible choice.",
-      order: "Pick the wine, bubbles, or rose everyone will actually drink.",
-      note: "Consensus, but with better glassware.",
+      name: "The Table Toast",
+      vibe: "For a shared moment that does not make anybody’s glass the point.",
+      order: "Choose any cocktail or spirit-free pour; joining the toast never depends on what is in the glass.",
+      note: "A conversation cue, not a service suggestion or a reason to start another round.",
     },
     {
       name: "Main Character Spritz",
       vibe: "For when the table needs tequila, bubbles, and a drink with its own entrance.",
       order: "Blanco tequila, Aperol, lemon, simple syrup, rocks, Prosecco, orange zest.",
-      note: "Developed exclusively for LAiDIES by Ryan C at CHAR No.5. Ask for Ryan and tell him Ali sent you.",
+      note: "A fictional BRONZE AiGE menu cue for the paper fortune teller—not an availability or service claim.",
     },
     {
       name: "Maid in Cuba",
@@ -247,7 +250,7 @@ const cocktailMenus = {
   ],
 };
 
-const cocktailFortuneFlaps = [
+const rawCocktailFortuneFlaps = [
   {
     label: "Bubbles",
     description: "sparkly, easy, celebratory",
@@ -286,5 +289,58 @@ const cocktailFortuneFlaps = [
   },
 ];
 
-window.cocktailMenus = cocktailMenus;
-window.cocktailFortuneFlaps = cocktailFortuneFlaps;
+  function deepFreeze(value) {
+    if (!value || typeof value !== "object" || Object.isFrozen(value)) return value;
+    Object.keys(value).forEach(function (key) { deepFreeze(value[key]); });
+    return Object.freeze(value);
+  }
+
+  var lanes = deepFreeze(["cocktail", "spiritFree"]);
+  var menus = {};
+  lanes.forEach(function (lane) {
+    menus[lane] = rawCocktailMenus[lane].map(function (item, index) {
+      return {
+        id: lane + "-" + String(index + 1).padStart(2, "0"),
+        name: item.name,
+        vibe: item.vibe,
+        order: item.order,
+        note: item.note
+      };
+    });
+  });
+  deepFreeze(menus);
+  var flaps = rawCocktailFortuneFlaps.map(function (flap, index) {
+    return {
+      id: "mood-" + String(index + 1),
+      label: flap.label,
+      description: flap.description,
+      drinks: {
+        cocktail: flap.drinks.cocktail.slice(),
+        spiritFree: flap.drinks.spiritFree.slice()
+      }
+    };
+  });
+  deepFreeze(flaps);
+
+  var catalogue = Object.freeze({
+    hasLane: function (lane) {
+      return lanes.indexOf(lane) !== -1;
+    },
+    getFlaps: function () {
+      return flaps;
+    },
+    getMenu: function (lane) {
+      return lanes.indexOf(lane) === -1 ? null : menus[lane];
+    },
+    getItem: function (lane, itemId) {
+      var menu = lanes.indexOf(lane) === -1 ? null : menus[lane];
+      if (!menu || typeof itemId !== "string") return null;
+      return menu.find(function (item) { return item.id === itemId; }) || null;
+    },
+    getMood: function (moodId) {
+      if (typeof moodId !== "string") return null;
+      return flaps.find(function (flap) { return flap.id === moodId; }) || null;
+    }
+  });
+
+export default catalogue;

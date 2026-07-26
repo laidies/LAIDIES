@@ -1,0 +1,59 @@
+{
+  "product": "the-luminairy",
+  "date": "2026-07-25",
+  "status": "LOCAL EVIDENCE READY — CONTENT HELD",
+  "scope": "bounded relaunch P0; no deploy, publication, external mutation, credentials, Git action or central-file edit",
+  "admission": {
+    "registry": "content/luminairy-claims.json",
+    "records": 46,
+    "publicPersonBlocks": 43,
+    "contextualClaimBlocks": 3,
+    "admitted": 0,
+    "held": 46,
+    "policy": "fail-closed"
+  },
+  "officialResearchSpotChecks": [
+    {
+      "personId": "daniela-amodei",
+      "url": "https://www.anthropic.com/news/chris-liddell-appointed-anthropic-board",
+      "publisher": "Anthropic",
+      "checkedOn": "2026-07-25",
+      "supports": "co-founder and President of Anthropic",
+      "admissionDecision": "HELD because the existing card also adds unsourced functional interpretation"
+    },
+    {
+      "personId": "fidji-simo",
+      "url": "https://openai.com/index/leadership-expansion-with-fidji-simo/",
+      "publisher": "OpenAI",
+      "checkedOn": "2026-07-25",
+      "supports": "announced as CEO of Applications in 2025",
+      "admissionDecision": "HELD because the exact current card and currentness need atomic review"
+    },
+    {
+      "personId": "lila-ibrahim",
+      "url": "https://deepmind.google/responsibility-and-safety/",
+      "publisher": "Google DeepMind",
+      "checkedOn": "2026-07-25",
+      "supports": "current COO reference and responsibility-governance role",
+      "admissionDecision": "HELD because the existing card's shipping/causal interpretation is not supported by this source"
+    }
+  ],
+  "tests": [
+    {"command":"node scripts/validate-luminairy-claims.mjs","result":"PASS","detail":"46 records / 43 person blocks + 3 contextual blocks; fail-closed admission"},
+    {"command":"node scripts/test-luminairy-browser.cjs","result":"PASS","detail":"46 held blocks; mobile/reduced-motion; doors; local truth; simulated registry failure"},
+    {"command":"node scripts/check-inline-js.js","result":"PASS","detail":"352 scripts across 132 live pages"},
+    {"command":"node scripts/check-local-links.js","result":"PASS","detail":"1975 references across 110 pages"},
+    {"command":"git diff --check -- <bounded files>","result":"PASS"}
+  ],
+  "artifact": {
+    "path": "/tmp/laidies-luminairy-p0-exact.Ro1qdV",
+    "files": 1081,
+    "bytesMiB": 961.46,
+    "warning": "artifact exceeds the builder's 750 MiB warning threshold",
+    "exactFiles": [
+      {"path":"luminairy.html","sha256":"f85d5b6924dd8c4f05189268a6cb49227314acb16b8428c594b86c5d8760c0bd"},
+      {"path":"content/luminairy-claims.json","sha256":"304e9db35ef5ab2d64d3f2ee990ba6c775dbf0bc5b24a8edc6e49c614ab67d03"},
+      {"path":"content/site/luminairy-claim-gate.js","sha256":"4ef799319a22836f526a7cb30288e2aff96ec9d9cee0a8ce6b81246ef6cf77b3"}
+    ]
+  }
+}

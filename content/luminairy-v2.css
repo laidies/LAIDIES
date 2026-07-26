@@ -182,6 +182,58 @@ main.lum-page {
   transform: rotate(-1deg);
 }
 
+.lum-storage-status {
+  max-width: 620px;
+  margin: 18px 0 0;
+  padding: 12px 14px;
+  color: #08112f;
+  background: #fff4c9;
+  border: 3px solid #f59b58;
+  font-size: 0.95rem;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+.lum-storage-status[hidden] {
+  display: none;
+}
+
+[data-lum-claim-block],
+[data-lum-claim-block][hidden],
+html:not([data-luminairy-claims="loaded"]) [data-lum-claim-block] {
+  display: none;
+}
+
+.lum-static-hold {
+  margin: 0;
+  padding: 24px max(24px, calc((100vw - 1320px) / 2));
+  color: #08112f;
+  background: #fff4c9;
+  border-block: 4px solid #f59b58;
+}
+
+.lum-static-hold h2 {
+  margin: 0 0 8px;
+  font-family: var(--lum-display);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.lum-static-hold p {
+  max-width: 70ch;
+}
+
+.lum-static-hold a {
+  color: #3f176f;
+  font-weight: 800;
+}
+
+.coven-pick:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
 .lum-votives {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -438,6 +490,96 @@ main.lum-page {
 .lum-page .wing-panel .stop.is-coven-pick .coven-pick {
   color: var(--lum-ink);
   background: var(--lum-mint);
+}
+
+.lum-research-status {
+  margin: 18px auto 0;
+  max-width: 76rem;
+  padding: 14px 18px;
+  border: 2px solid #2b7780;
+  border-radius: 14px;
+  background: #f5ffff;
+  color: #241526;
+  font: 500 0.95rem/1.55 "Jost", sans-serif;
+}
+
+.lum-research-status strong {
+  color: #165b63;
+}
+
+.lum-research-status a {
+  color: #165b63;
+  font-weight: 800;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.16em;
+}
+
+.lum-claim-hold {
+  margin: 12px 18px 18px;
+  padding: 10px 12px;
+  border-left: 4px solid #2b7780;
+  background: #f5ffff;
+  color: #241526;
+  font: 700 0.82rem/1.45 "Jost", sans-serif;
+}
+
+.foundress-years,
+.foundress-title,
+.foundress-desc,
+html:not([data-luminairy-claims="loaded"]) .stop-desc,
+html:not([data-luminairy-claims="loaded"]) .saint-back-rule,
+html:not([data-luminairy-claims="loaded"]) .saint-back-devotion,
+html:not([data-luminairy-claims="loaded"]) .saint-back-meta {
+  display: none;
+}
+
+.foundress-card[data-editorial-status="admitted"] .foundress-years:not([hidden]),
+.foundress-card[data-editorial-status="admitted"] .foundress-title:not([hidden]),
+.foundress-card[data-editorial-status="admitted"] .foundress-desc:not([hidden]) {
+  display: block;
+}
+
+.foundress-card .lum-claim-hold {
+  margin: 10px 0 0;
+}
+
+.foundress-lock {
+  padding: 12px;
+  font: 800 0.72rem/1.25 "Jost", sans-serif;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.maven-meet:disabled {
+  cursor: not-allowed;
+  opacity: 0.82;
+}
+
+.lum-page :focus-visible {
+  outline: 4px solid #146b75;
+  outline-offset: 4px;
+}
+
+@media (max-width: 640px) {
+  .lum-research-status {
+    margin-inline: 12px;
+  }
+
+  .lum-page .wing-panel .stop-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lum-page *,
+  .lum-page *::before,
+  .lum-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 .lum-archive-index {

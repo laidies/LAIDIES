@@ -1,17 +1,20 @@
 # The LUMINAiRY backlog
 
-**Status:** BUILDING — recommendations only; none authorises a content change, public claim, art change or monetization.
+**Status:** **BOUNDED LOCAL PASS — independent Repair 3 rejudge 90/100; all
+production claims remain held**. Nothing here
+authorises a content admission, public claim, art change, deployment or
+monetization.
 
 ## FIX BEFORE LAUNCH
 
-1. **LUM-001 — Establish a claim-level research registry.** Owner: research/editorial sub-champion. Each public bio/history/current-role/quote claim needs claim ID, source URL/type, quoted support or evidence note, verified date, expiry/recheck date, scope/caveat, rights/attribution and correction owner.
+1. **LUM-001 — Establish a claim-level research registry. INDEPENDENT LOCAL PASS; EDITORIAL ADMISSIONS STILL REQUIRED.** Schema 3 covers all 43 person blocks and 3 contextual blocks. An admission binds product/person/wing/kind/status/scope, selector/text, source/evidence, dates and correction owner, and also requires an independently reviewed offline-P256-signed receipt. The public candidate has no signing key. Fully rehashed unrelated evidence and recomputed person/wing/kind/status/scope mutations fail; one externally signed hypothetical admission renders and opens. Every production block remains HELD. Owner: research/editorial sub-champion. Decompose each legacy profile into atomic bio/history/current-role/quote claims with claim-specific primary/authoritative evidence, scope/caveat, rights/attribution and approval.
 2. **LUM-002 — Run the editorial publication gate for every wing.** Owner: Editorial/Curriculum + AI Accuracy guild. Pass only when a reader promise, accurate analogy boundary, practical consequence, exact continuation and real-interface reading proof exist; attractive cards alone are DRAFT.
-3. **LUM-003 — Test the complete door/wing journey.** Owner: UX/Accessibility. Desktop/mobile/keyboard/screen-reader: arrival, hash/deep link, door open/close, cards, Maven modal, audio controls, selection state and return path.
-4. **LUM-004 — Separate local selection from durable progress.** Owner: LUMINAiRY + Identity. Keep coven picks/MAiVENS met visibly device-local until account sync and collection event contracts are proven.
+3. **LUM-003 — Test the complete door/wing journey. INDEPENDENT LOCAL PASS; NATIVE AND PUBLIC-ORIGIN PROOF STILL REQUIRED.** The admitted modal now establishes close-button focus synchronously and exposes an explicit ready state; the competing animation-frame refocus is removed. The 54-check browser suite separately asserts initial focus, backward wrap, forward wrap and Escape/close exact-opener return at desktop and 320 px while preserving all Repair 2 trust/static/storage journeys. Five consecutive source and five consecutive fresh exact-artifact runs pass with no retry or focus failure. Owner: UX/Accessibility. Still required: manual screen-reader/Safari/native zoom/physical-device, public-origin hash/back journey, audio controls and return path.
+4. **LUM-004 — Separate local selection from durable progress. INDEPENDENT LOCAL PASS; PUBLIC-ORIGIN PROOF STILL REQUIRED.** Owner: LUMINAiRY + Identity. Public copy calls picks and profile-open counts browser/device-local and disclaims account/Resident Card/cross-device proof. Writes/removals are read-verified; denied set/remove/get produces persistent live failure, preserves the smallest proven state and disables selection/clear controls.
 
 ## HIDE/LABEL FOR LAUNCH
 
-5. **LUM-005 — Hold stale/unsourced/contested person claims.** Label uncertainty or remove the claim; never preserve a persuasive biography by omitting uncertainty.
+5. **LUM-005 — Hold stale/unsourced/contested person claims. INDEPENDENT LOCAL PASS; ALL 46 PRODUCTION CLAIMS REMAIN HELD.** Static HTML/CSS natively suppresses all biographies and contextual claim blocks and disables profile openers before the gate runs; no-JavaScript and missing-gate rendered fixtures remain closed. Metadata, wing doors, the shared directory entry and shared Welcome Tour use non-claiming held language. Editorial admission remains separate work.
 
 6. **LUM-006 — Keep anthem/audio availability bounded by KSVL's playback and rights verdict.**
 

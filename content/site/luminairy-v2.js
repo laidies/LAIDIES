@@ -69,10 +69,10 @@
     if (summary) {
       summary.textContent = names.length
         ? "Lit in your register: " + names.join(" · ") + ". Pick again inside a wing to change the light."
-        : "Pick one SAiNT, one MAiVEN and one TRAiLBLAZER below. Your choices live on your Resident Card.";
+        : "Pick one SAiNT, one MAiVEN and one TRAiLBLAZER below. Choices stay in this browser on this device.";
     }
     if (progress) {
-      progress.textContent = "MAiVENS met · " + Math.min(8, collectedCount()) + " / 8";
+      progress.textContent = "Keeper profiles opened here · " + Math.min(8, collectedCount()) + " / 8";
     }
   }
 

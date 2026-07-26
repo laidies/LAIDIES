@@ -1,13 +1,72 @@
 # Delta LAi Nu Sorority House backlog
 
-**Status:** BUILDING — recommendations only; no entry authorises implementation, moderation action, publication or reward.
+**Status:** BOUNDED LOCAL PASS — independent Repair 1 rejudge 91/100; all real
+provider, moderation, owner, native-accessibility, analytics and public gates remain held.
+
+## REPAIR 1 VERIFIED LOCALLY — 2026-07-25
+
+The independent five-P0 rejection is repaired and independently rejudged at
+91/100 in source and a fresh exact artifact.
+
+1. **All eleven navigation states repaired.** Embedded and handoff destinations
+   write the exact hash before either render branch; Back and Forward restore
+   all eleven in source and artifact.
+2. **Girl Talk state made strict.** Only the exact bounded v1 schema and
+   canonical IDs survive; unknown, extra, forged, duplicate, incoherent and
+   over-bound records never count/render and receive visible reset copy.
+3. **Keyboard focus repaired.** Draw focuses the new card; the result is
+   announced and the next Draw Again control receives deliberate focus.
+4. **All 53 cards audited and rewritten.** Private completion is complete,
+   AI inputs are fictional/sanitized, unsafe email/post/share imperatives and
+   card-level FAiRY linkage are removed, and room sharing is optional and
+   sanitized at the decision point.
+5. **Provider policy boundary made usable.** The house and seven rooms expose
+   separate LAiDIES privacy plus official Hyvor Talk privacy, terms and
+   moderation/reporting links without invented outcome promises.
+6. **Discovery repaired.** Sorority House is now present in `sitemap.xml`.
+
+Evidence:
+`maker-evidence-community-provider-girl-talk-repair1-2026-07-25.md`.
+
+## EARLIER BOUNDED P0 FOUNDATION
+
+1. **SH-001 product-side boundary built.** All seven direct Hyvor rooms and the
+   house embed use one approved-host controller. Local preview, unavailable,
+   unsupported-host, signed-out and held fixtures make zero provider requests
+   and cannot claim submission/publication/moderation.
+2. **SH-002 decision-point rules built.** Provider privacy, public-room
+   sensitivity, moderation/no-guarantee and safe-return copy appears in every
+   governed provider state.
+3. **SH-003 Girl Talk foundation.** The deck is open as private
+   reflection/behaviour rehearsal and writes no legacy reward-shaped keys.
+   Repair 1 now owns the strict-envelope, card-level privacy and focus evidence.
+4. **SH-005 identity truth built.** A local Resident Card/handle never becomes
+   Hyvor sign-in, post signature, resident verification or cross-device state.
+5. **Accessibility/resilience maker pass.** Keyboard discovery, 11-room
+   inventory, hash/Back return, live status, 320px, reduced motion and provider
+   contrast pass in source and exact artifact.
+
+Evidence:
+`maker-evidence-community-provider-girl-talk-p0-2026-07-25.md`.
+This is not an independent pass, live provider proof, deployment or public
+verification.
 
 ## FIX BEFORE LAUNCH
 
-1. **SH-001 — Prove the community service contract.** Owner: Community + Safety/Privacy. Test public-domain resident/non-resident post/reply, sign-in, moderation hold/reject, provider load failure, report path, keyboard/mobile and safe return. Do not test with real sensitive content.
-2. **SH-002 — Make the room rules and escalation path visible at the decision point.** Owner: Community safety. Pass condition: readers know what belongs, what does not, what provider sees, how to report and what happens when a post is unavailable/held.
-3. **SH-003 — Preserve the EOD Girl Talk correction.** Owner: Girl Talk + Release QA. External prompt links issue no reward; any “I did it” result stays explicitly local honour-system/sticker and never asserts a verified community post, member reward, Closet import, detention or FAiRY allowance.
-4. **SH-004 — Clarify Girl Talk's primary job.** Owner: Girl Talk. Choose and test one: private reflection/question deck, confidence rehearsal or genuinely supported room prompt. Do not call a random card draw community practice by implication.
+1. **SH-001 — Prove the real community service contract.** Owner: Community +
+   Safety/Privacy. After independent rejudge and explicit authority, test
+   public-domain sign-in/post/reply, moderation hold/reject, provider load
+   failure, report path, keyboard/mobile and safe return with approved synthetic
+   content. Local fixture coverage does not satisfy this.
+2. **SH-002 — Name and prove human moderation operations.** Approve rules,
+   report/escalation, triage owner, incident response, retention/deletion and
+   appeal before promotion.
+3. **SH-003 — Preserve the independently passed bounded candidate.** The
+   Repair 1 rejudge passed at 91/100. Keep the non-compensable product, trust
+   and LAiDIES brand floors plus UX/technical gates in every release regression.
+4. **SH-004 — Test Girl Talk usefulness with newcomers.** Confirm a user can
+   explain its private reflection/rehearsal job, act safely and understand the
+   local marker without interpreting it as community/reward proof.
 
 ## HIDE/LABEL FOR LAUNCH
 

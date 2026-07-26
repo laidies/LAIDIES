@@ -29,7 +29,7 @@
     { href: '/library.html', name: 'The LIBRAiRY', icon: 'book',
       line: "When the jargon lands on the table, this is the rack where you look it up — the Glossary, the straight answers, and Miss Jeeves at the desk." },
     { href: '/luminairy.html', name: 'The LUMINAiRY', icon: 'candle',
-      line: "Pay your respects on Lantern Hill — the PATRON SAiNTS on one wall, the real women leading AI on the other, each with a ♪ Her song to play." },
+      line: "Visit the three portrait wings on Lantern Hill. Profile research and audio stay visibly held until each exact claim, source and rights record clears review." },
     { href: '/games/madame-claio.html', name: "Mme CLAi-O's", icon: 'crystal',
       line: "Call the psychic hotline and step in for your reading — practical advice, late-night-commercial drama." },
     { href: '/games/fairy-godmother.html', name: 'FAiRY Godmother', icon: 'wand',
