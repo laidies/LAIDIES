@@ -34,13 +34,21 @@ account/reward paths exist in code without end-to-end production proof.
 
 Run the persistent product-champion system in risk-ranked cycles. Require an
 `OPERATING-SPEC.md` before a champion builds, then complete the
-research → specification → build packet → specialist implementation →
-independent judgment → exact verification loop. The current three bounded
-lanes are FAiRY's meaning-aware safety/currentness classifier, the
-Library/High/episode/NewsStand learning-ecosystem inventory, and Episode 04's
-identity/history/transition admission packet. Town Entry, Visitor's Centre and
-the Post Office have completed bounded local repair cycles; their remaining
-public/provider/owner gates stay explicit.
+research → specification → competition → build packet → specialist
+implementation → independent judgment → exact verification loop.
+
+Ali's 2026-07-26 correction is now explicit: backend, contract and deterministic
+test passes do not establish that a building page is designed. The prior queue
+parked most buildings at owner-visual gates before producing credible,
+competing, owner-review candidates. The active three lanes are therefore the
+LIBRAiRY room-first benchmark, the Visitor's Centre first-arrival experience
+and Blend & Snap as the first transfer test of the room/object interaction
+grammar. Their portfolio brief is
+`operations/product-stewards/building-experience-readiness-2026-07-26.md`.
+
+FAiRY, learning-ecosystem and Episode 04 evidence remains preserved in their
+product dossiers and completed-cycle records; this priority correction does
+not erase their work or turn local candidates into release approval.
 
 Do not create or deploy a grand-reopening release artifact until the product
 registry and public-promise reconciliation show that every promoted product
@@ -103,6 +111,9 @@ AW-003 is complete only when:
   most do not yet have the normalized operating contract.
 - Execute the current three champion lanes and independently review their exact
   outputs.
+- Complete the full building-experience design cycle for all 17 buildings;
+  plumbing, truthful copy and local test passes are foundations, not visual or
+  product completion.
 - Populate the complete route/state inventory and execute it against a later
   exact candidate.
 - Repair, hide or relabel every failed promoted promise.
