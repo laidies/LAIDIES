@@ -996,8 +996,8 @@
         <section class="fg-results" aria-labelledby="fgResultsTitle">
           <div class="fg-results-intro" id="fgEmptyResults">
             <p>Your note will land here</p>
-            <h2 id="fgResultsTitle">First, the prompt glow-up.<br>Then, the draft you can use.</h2>
-            <span>The Godmother separates the instruction from the finished answer so you can copy either one.</span>
+            <h2 id="fgResultsTitle">A clear read.<br>Then, an answer you can use.</h2>
+            <span>The Godmother separates the usable answer from the reasoning, assumptions, unknowns, and next move.</span>
           </div>
 
           <div class="fg-response-column">
@@ -1054,7 +1054,9 @@
     <script src="../content/site/site-data.js?v=quizzes-complete-20260712"></script>
     <script>
     // ===== FAiRY GODMOTHER — Worker-powered =====
-    const WORKER_URL = "https://laidies-fairy-godmother.wednesday-laidies.workers.dev";
+    const WORKER_URL = window.LAIDIES_FAIRY_WORKER_URL
+      || "https://laidies-fairy-godmother.wednesday-laidies.workers.dev";
+    const USING_LEGACY_ENDPOINT = !window.LAIDIES_FAIRY_WORKER_URL;
 
     const ENERGY_KEY_MAP = {
       auto: "fairy",
@@ -1497,9 +1499,21 @@
             },
           }),
         });
-        if (!response.ok) throw new Error("HTTP " + response.status);
-        const data = await response.json();
-        const revised = data && data.response ? String(data.response).trim() : "";
+        const data = await response.json().catch(() => null);
+        const typedRevision = data && data.type === "revision_success"
+          && data.answer && data.answer.deliverable
+          ? String(data.answer.deliverable).trim()
+          : "";
+        const legacyRevision = USING_LEGACY_ENDPOINT && data && data.response
+          ? String(data.response).trim()
+          : "";
+        if (!response.ok || (!typedRevision && !legacyRevision)) {
+          const message = data && data.message
+            ? String(data.message)
+            : "The FAiRY Godmother's signal flickered. Your draft was not changed.";
+          throw Object.assign(new Error("Revision unavailable"), { userFacingMessage: message });
+        }
+        const revised = typedRevision || legacyRevision;
         if (!revised) {
           status.textContent = "The FAiRY Godmother came back empty. Try again.";
           return;
@@ -1509,7 +1523,9 @@
         status.textContent = "Revised — " + opt.label.toLowerCase() + ".";
       } catch (err) {
         console.error("Revision error:", err);
-        status.textContent = "The FAiRY Godmother's signal flickered. Try again.";
+        status.textContent = err && err.userFacingMessage
+          ? err.userFacingMessage
+          : "The FAiRY Godmother's signal flickered. Try again.";
       } finally {
         buttons.forEach((b, i) => {
           b.disabled = false;
@@ -1603,6 +1619,86 @@
 
     }
 
+    function appendTypedSection(parent, heading, value, options = {}) {
+      if (value == null || (Array.isArray(value) && value.length === 0)) return;
+      const sectionHeading = document.createElement("h3");
+      sectionHeading.className = "laidy-h3";
+      sectionHeading.textContent = heading;
+      parent.appendChild(sectionHeading);
+      if (Array.isArray(value)) {
+        const list = document.createElement("ul");
+        list.className = "laidy-list";
+        value.forEach((item) => {
+          const li = document.createElement("li");
+          li.textContent = String(item);
+          list.appendChild(li);
+        });
+        parent.appendChild(list);
+        return;
+      }
+      const paragraph = document.createElement(options.preformatted ? "pre" : "p");
+      paragraph.textContent = String(value);
+      if (options.preformatted) {
+        paragraph.style.whiteSpace = "pre-wrap";
+        paragraph.style.font = "inherit";
+      }
+      parent.appendChild(paragraph);
+    }
+
+    function showTypedSuccess(data, energyKey, question) {
+      const answer = data && data.answer ? data.answer : {};
+      wisdomCount++;
+      countEl.textContent = wisdomCount;
+      scrollHeader.textContent = "A note from FAiRY GODMOTHER";
+      scrollMode.textContent = ENERGY_LABEL[energyKey] || "";
+      scrollFooter.textContent = "Wisdom #" + wisdomCount + " • " + new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+      scrollBody.innerHTML = "";
+
+      const output = document.createElement("div");
+      output.className = "laidy-output";
+      appendTypedSection(output, "FAiRY’s read", answer.read);
+      appendTypedSection(output, "Your usable answer", answer.deliverable, { preformatted: true });
+      appendTypedSection(output, "Why this fits", answer.reasoning);
+      appendTypedSection(output, "Assumptions to check", answer.assumptions);
+      appendTypedSection(output, "What is still unknown", answer.unknowns);
+      appendTypedSection(output, "Your next move", answer.nextMove);
+
+      const disclosure = document.createElement("div");
+      disclosure.className = "laidy-disclosure";
+      disclosure.innerHTML =
+        "The FAiRY Godmother is AI, and AI can wear a great outfit with the price tag still on. <strong>Check the names, dates, numbers, assumptions, and anything in brackets before using this.</strong>";
+      output.appendChild(disclosure);
+      scrollBody.appendChild(output);
+
+      lastPostGlowUpText = String(answer.deliverable || "");
+      lastPromptGlowUpText = "";
+      if (lastPostGlowUpText) {
+        output.insertBefore(makeInlineAction("Copy usable answer", () => lastPostGlowUpText), disclosure);
+        output.insertBefore(makeRevisionRow(), disclosure);
+      }
+
+      if (coachActions) coachActions.classList.remove("is-visible");
+      if (coachCopyStatus) coachCopyStatus.textContent = "";
+      if (feedbackEl) feedbackEl.classList.remove("is-visible");
+      revealScroll();
+
+      const excerpt = String(answer.read || answer.deliverable || "").replace(/\s+/g, " ").trim().slice(0, 140);
+      adviceHistory.unshift({ q: question || "Surprise prompt", a: excerpt });
+      if (adviceHistory.length > 3) adviceHistory.pop();
+      renderHistory();
+    }
+
+    function showTypedOutcome(data) {
+      const parts = [];
+      if (data && data.message) parts.push(String(data.message));
+      if (data && data.question) parts.push(String(data.question));
+      if (data && data.usefulNow) parts.push(String(data.usefulNow));
+      if (data && data.sourcePlan && Array.isArray(data.sourcePlan.criteria)) {
+        parts.push(data.sourcePlan.criteria.join(" "));
+      }
+      showError(parts.join(" ") || "The FAiRY Godmother could not safely complete that request. Nothing was counted.");
+    }
+
     function renderHistory() {
       if (adviceHistory.length === 0) { historySection.style.display = "none"; return; }
       historySection.style.display = "block";
@@ -1625,7 +1721,12 @@
     }
 
     async function callWorker(prompt, energyKey) {
-      const payload = { prompt: prompt, energy: energyKey };
+      // Production v18 calls its automatic voice "auto"; the typed staging
+      // contract calls the same presentation choice "fairy".
+      const workerEnergy = USING_LEGACY_ENDPOINT && energyKey === "fairy"
+        ? "auto"
+        : energyKey;
+      const payload = { prompt: prompt, energy: workerEnergy };
       const controller = new AbortController();
       const timer = window.setTimeout(() => controller.abort(), ADVICE_TIMEOUT_MS);
       let response;
@@ -1635,17 +1736,18 @@
         body: JSON.stringify(payload),
         signal: controller.signal
       }); } finally { window.clearTimeout(timer); }
-      // Try to parse the body even on non-OK so we can surface friendly
-      // the FAiRY Godmother-voice messages from 429 responses (per-IP rate limit, daily cap).
       const data = await response.json().catch(() => null);
       if (!response.ok) {
-        if (data && data.response) {
+        if (data && (data.message || data.response)) {
           const err = new Error("HTTP " + response.status);
-          err.userFacingMessage = String(data.response);
-          err.kind = data.kind || null;
+          err.userFacingMessage = String(data.message || data.response);
+          err.kind = data.type || data.kind || null;
           throw err;
         }
         throw new Error("HTTP " + response.status);
+      }
+      if (data && typeof data.type === "string") {
+        return { contract: "typed", data: data };
       }
       const markdown = data && data.response ? String(data.response) : "";
       if (!hasExpectedGlowUp(markdown)) {
@@ -1653,7 +1755,7 @@
         err.userFacingMessage = "The preview did not return a complete prompt-and-draft response, so nothing was counted. Try again later.";
         throw err;
       }
-      return markdown;
+      return { contract: "legacy", markdown: markdown };
     }
 
     async function runWand() {
@@ -1670,11 +1772,11 @@
         showError("That is longer than this preview can safely handle. Please reduce it to 8,000 characters or fewer and remove confidential details.");
         return;
       }
-      if (isOutOfScopePrompt(q)) {
+      if (USING_LEGACY_ENDPOINT && isOutOfScopePrompt(q)) {
         showError("This preview cannot help with medical, crisis, emergency, legal, tax, investment, or other regulated-professional advice. Please use an appropriate qualified service instead.");
         return;
       }
-      if (needsVerifiedInformation(q)) {
+      if (USING_LEGACY_ENDPOINT && needsVerifiedInformation(q)) {
         showError("This preview cannot verify current research, sources, statistics, laws, prices, or product facts. Use primary sources; you can return with the source material for help drafting a question or summary.");
         return;
       }
@@ -1688,13 +1790,18 @@
 
       setLoading(true);
       try {
-        const markdown = await callWorker(q, energyKey);
-        if (!markdown.trim()) {
-          showError("The FAiRY Godmother came back empty-handed. Try waving the wand again.");
-          return;
+        const result = await callWorker(q, energyKey);
+        if (result.contract === "typed") {
+          if (result.data.type === "case_success") {
+            showTypedSuccess(result.data, energyKey, q);
+            incrementFreeWishesUsed();
+          } else {
+            showTypedOutcome(result.data);
+          }
+        } else {
+          showResponse(result.markdown, energyKey, q);
+          incrementFreeWishesUsed();
         }
-        showResponse(markdown, energyKey, q);
-        incrementFreeWishesUsed();
       } catch (err) {
         console.error("FAiRY GODMOTHER worker error:", err);
         if (err && err.userFacingMessage) {
@@ -1798,7 +1905,7 @@
         var draftParam = params.get("draft") === "1" ? "&draft=1" : "";
         var group = /^(fun|connect|realworld|practice)$/.test(params.get("group") || "") ? params.get("group") : "fun";
         var labels = {
-          fun: "Back to The Extra Credit",
+          fun: "Back to LAiDIES activities",
           connect: "Back to Meet & Celebrate",
           realworld: "Back to the Book of Receipts",
           practice: "Back to Weekly Study Pack"

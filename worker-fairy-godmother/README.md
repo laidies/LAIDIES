@@ -83,8 +83,17 @@ may supply either:
 Neither classifier path is provisioned in the default Wrangler configuration.
 Without one, the Worker fails closed with typed `classification_uncertain` and
 does not use allowance. Independent held-out classifier review, verified
-retrieval, the authoritative FAiRY Plays ledger, typed frontend and the full
+retrieval, the authoritative FAiRY Plays ledger and the full rendered
 staging/page gates remain required before promotion.
+
+The 2026-07-26 local candidate also requires `OPENAI_API_KEY` before an answer
+or revision call and accepts an optional non-secret `ANSWER_MODEL` setting
+(defaulting to the recovered `gpt-4o` model name until the owner approves an
+exact staging model/version). Request JSON is capped at 32,000 bytes before
+parsing, answer fields are bounded before `case_success`, and browser origins
+outside the LAiDIES/localhost allowlist fail before provider work. The local
+page understands the typed contract, but rendered-browser and real-provider
+evidence remain open.
 
 ## Offline provider evaluation
 
