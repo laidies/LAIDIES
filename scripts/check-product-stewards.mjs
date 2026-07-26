@@ -13,6 +13,48 @@ const guilds = JSON.parse(fs.readFileSync(path.join(base, "guilds.json"), "utf8"
 const errors = [];
 const ids = new Set();
 
+function findAdmissionManifests(directory) {
+  const found = [];
+  if (!fs.existsSync(directory)) return found;
+  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+    const absolute = path.join(directory, entry.name);
+    if (entry.isDirectory()) found.push(...findAdmissionManifests(absolute));
+    if (entry.isFile() && entry.name === "ADMISSION.json") found.push(absolute);
+  }
+  return found;
+}
+
+for (const admissionPath of findAdmissionManifests(path.join(root, "operations", "design-explorations"))) {
+  let admission;
+  try {
+    admission = JSON.parse(fs.readFileSync(admissionPath, "utf8"));
+  } catch (error) {
+    errors.push(`${path.relative(root, admissionPath)} is invalid JSON: ${error.message}`);
+    continue;
+  }
+  const label = admission.competition_id || path.relative(root, admissionPath);
+  if (admission.schema_version !== 1) errors.push(`${label} admission schema_version must be 1`);
+  if (!["ROUGH", "ADMITTED", "REJECTED"].includes(admission.status)) {
+    errors.push(`${label} has invalid admission status`);
+  }
+  if (admission.status === "ADMITTED") {
+    if (!admission.reviewer_id || admission.reviewer_id === admission.maker_id) {
+      errors.push(`${label} lacks an independent visual reviewer`);
+    }
+    if (!admission.owner_review_ready) errors.push(`${label} admitted without owner_review_ready`);
+    for (const score of ["product_legibility", "positive_laidies_brand_contribution", "ux_accessibility"]) {
+      if (!Number.isFinite(admission.scores?.[score]) || admission.scores[score] < 17) {
+        errors.push(`${label} admission ${score} is below 17/20`);
+      }
+    }
+    for (const [check, passed] of Object.entries(admission.visible_audit || {})) {
+      if (passed !== true) errors.push(`${label} visible admission failed ${check}`);
+    }
+  } else if (admission.owner_review_ready !== false) {
+    errors.push(`${label} ${admission.status} artifact cannot be owner-review ready`);
+  }
+}
+
 if (registry.schema_version !== 3) errors.push("registry schema_version must be 3");
 if (registry.orchestrator.active_concurrency_limit !== queue.concurrency_limit) {
   errors.push("registry and queue concurrency limits disagree");

@@ -1,6 +1,6 @@
 # SUNNYVAiLE LIBRAiRY experience brief
 
-**Status:** INTENT RECOVERED — STRUCTURE OWNER DECISION OPEN
+**Status:** INTENT RECOVERED — FIRST STRUCTURE SET REJECTED
 **Building owner:** LIBRAiRY product champion
 **Brand & Experience Director:** review pending
 **Functionality & Platform Director:** feasibility review pending
@@ -155,8 +155,10 @@ No ambient audio is required. `INFERENCE`
 
 ## Unresolved decisions and non-goals
 
-- Owner decision: choose Library structure A, B, C or none after reviewing the
-  three comparable capability-preserving options. `UNKNOWN`
+- The first three generated Library structures were rejected in owner visual
+  review. None is build authority. The next competition must first prove
+  LAiDIES visual fit using approved objects and deterministic live UI.
+  `ALI CONFIRMED`
 - Sitewide brand/artwork ruling remains a separate competition. `ALI CONFIRMED`
 - Non-goals: generic card-grid catalogue, a whole-site chatbot, false account
   sync, fake availability, and making every building structurally resemble

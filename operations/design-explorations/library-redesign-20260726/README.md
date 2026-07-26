@@ -1,10 +1,10 @@
 # LIBRAiRY experience-design competition
 
-**Status:** THREE UNAPPROVED OWNER-REVIEW OPTIONS
+**Status:** REJECTED — NONE PASSED OWNER VISUAL REVIEW
 **Competition:** Library information architecture and building experience
 **Not:** the sitewide brand/artwork-system comparison
 
-All options derive from
+The three generated options attempted to derive from
 `operations/product-stewards/library/EXPERIENCE-BRIEF.md` and preserve:
 
 - a real Library room;
@@ -17,30 +17,52 @@ All options derive from
 - future inventory growth; and
 - no individual book spotlights.
 
-## A — Expandable collection wall
+They failed the visible LAiDIES/Library bar. The mockups introduced futuristic
+chrome, invented symbols, generic app-navigation patterns and generated book
+art that did not communicate the real product. Structural plausibility did not
+compensate for the obvious visual and brand failure.
 
-`A-expandable-collection-wall-unapproved.png`
+No option is a finalist, recommendation or build authority.
 
-Strongest current recommendation. The modular wall gives the clearest scan,
-best growth capacity and most direct relationship among room, books and Miss
-Jeeves. Risks: a very wide wall needs a deliberate mobile restack, and empty
-future bays must not look broken.
+## A — Expandable collection wall — REJECTED
 
-## B — Miss Jeeves concierge with two stack wings
+`_rejected/A-expandable-collection-wall-rejected.png`
 
-`B-miss-jeeves-two-wings-unapproved.png`
+Rejected. Its modular-wall idea may be researched independently later, but the
+mockup uses a futuristic header/control language, invented icons and generated
+objects instead of an authentic LAiDIES Library interface.
 
-Makes help highly discoverable. Risks: Miss Jeeves becomes the dominant
-product, browsing is split across both sides, and the composition trends
-toward a generic information desk.
+## B — Miss Jeeves concierge with two stack wings — REJECTED
 
-## C — Modular browsable floor
+`_rejected/B-miss-jeeves-two-wings-rejected.png`
 
-`C-modular-browsable-floor-unapproved.png`
+Rejected. It reads as a futuristic control centre with meaningless logos,
+generic display bays and an app-dashboard layer unrelated to the Library.
 
-Creates the strongest sense of wandering through a Library and can add shelf
-modules. Risks: slower scanning, more complex responsive translation and a
-greater chance that visitors hunt for operable books.
+## C — Modular browsable floor — REJECTED
 
-Generated mock text/icons are placement evidence only. Production uses live
-HTML, approved book art, approved Puffy art and separately operable objects.
+`_rejected/C-modular-browsable-floor-rejected.png`
+
+Rejected. It reads as a futuristic app dock and retail display system. The
+symbols are not understandable actions and the artwork does not use the real
+book, Puffy or Library object language.
+
+## Why the review failed
+
+The initial review scored abstract structural ideas while underweighting the
+actual rendered artifact. Generation and recommendation were not separated by
+an independent visual/brand gate. The presentation occurred before checking
+every visible symbol, object, cover, surface and control against approved
+LAiDIES references.
+
+## Prevention gate
+
+Future candidates must use:
+
+- approved existing LAiDIES artwork and objects wherever they exist;
+- no generated navigation, logos, icons, fake book covers or mystery symbols;
+- separate environment art and deterministic live HTML UI;
+- a reference-to-candidate comparison at the same viewport;
+- Brand & Experience Director rejection before owner review when the artifact
+  reads as another genre, brand or product; and
+- an independent judge who did not create or prompt the candidate.

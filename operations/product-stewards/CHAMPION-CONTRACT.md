@@ -198,3 +198,25 @@ neutral evaluator scores anonymized candidates. No candidate can win below
 17/20 for product quality, accuracy/safety/trust or positive LAiDIES brand
 contribution. Ali retains final taste, identity, major-product and public
 creative decisions.
+
+### Hard visual-admission gate
+
+A generated visual candidate may not be presented to Ali as a valid choice,
+recommended direction or finalist until a reviewer who did not create or
+prompt it has inspected the actual full-resolution artifact and recorded:
+
+1. every visible word, symbol, icon, logo, cover, character, object and control
+   is either approved or explicitly labelled as non-production evidence;
+2. no invented navigation, mystery symbol, fake product art or generic
+   interface metaphor is doing the work of a real LAiDIES component;
+3. the candidate is visibly compared with the governing approved references
+   at the same viewport and state;
+4. the intended competition variable changed while all declared invariants
+   remained fixed;
+5. LAiDIES recognition, product legibility, accessibility and feasibility each
+   meet the applicable floor; and
+6. the maker did not approve, rank or recommend its own creative output.
+
+If this evidence does not exist, the artifact is `ROUGH EXPLORATION`, not an
+owner-review option. A structurally interesting idea cannot pass on concept
+merit when its visible execution fails the brand or product bar.
