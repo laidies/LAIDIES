@@ -82,7 +82,7 @@
     { href: '/games/fairy-godmother.html',  icon: 'wand',     label: 'FAiRY Godmother', title: "The FAiRY Godmother's House" },
     { href: '/newsstand.html',              icon: 'news',     label: 'Read the news',  title: 'The NewsStand' },
     { href: '/blend-snap.html',             icon: 'cup',      label: 'Study Pack',     title: 'The Blend & Snap · Study Pack' },
-    { href: '/games/fun-pack.html',         icon: 'joystick', label: 'Have fun',       title: 'Have fun · the games arcade' },
+    { href: '/#activities',                 icon: 'joystick', label: 'Have fun',       title: 'Have fun · LAiDIES activities' },
     { href: '/radio.html',                  icon: 'radio',    label: 'Tune in KSVL',   title: 'KSVL RAiDIO, 99.9' },
     { href: '/sorority-house.html',         icon: 'chat',     label: 'Say hi',         title: 'Delta LAi Nu chat rooms' },
     { href: '/post-office.html',            icon: 'mail',     label: 'Check the mail', title: 'Post Office · mail & gifts' },

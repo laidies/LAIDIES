@@ -47,7 +47,7 @@
     { href: '/post-office.html', name: 'The Post Office', icon: 'mail',
       line: "Request the Wednesday Postcard through Buttondown, check the held Resident Card account desk, or prepare a local postcard. This page cannot confirm subscription, email delivery or sign-in." },
     { href: '/radio.html', name: 'KSVL 99.9', icon: 'radio',
-      line: "Visit KSVL's soundcheck. Public listening is held until each exact master, transcript, lesson source and rights record clears its catalogue gate." },
+      line: "Listen to creator-confirmed LAiDIES originals at KSVL 99.9. Listening position stays on this device." },
     { href: '/maikeover.html', name: 'MAiKEOVER on MAiN', icon: 'lipstick',
       line: "Take the chair, style a device-local Resident Card preview and see the page's honest account status. Cross-device identity is not promised." }
   ];

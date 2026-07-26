@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>DJ SunnyV's Booth | LAiDIES · SUNNYVAiLE</title>
-    <meta name="description" content="Visit DJ SunnyV's Booth. Public listening and external playlists are held while KSVL completes exact-master, words, lesson-source and rights review." />
+    <meta name="description" content="Visit DJ SunnyV's Booth and listen to creator-confirmed LAiDIES originals with the KSVL player." />
     <meta property="og:title" content="DJ SunnyV's Booth | LAiDIES" />
-    <meta property="og:description" content="Visit DJ SunnyV's Booth. Public listening and external playlists are held while KSVL completes exact-master, words, lesson-source and rights review." />
+    <meta property="og:description" content="Visit DJ SunnyV's Booth and listen to creator-confirmed LAiDIES originals with the KSVL player." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://laidies.ai/assets/house-dj-mixdesk.png" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -650,7 +650,7 @@
       <section class="dj-title-section">
         <span class="eyebrow">The soundcheck room</span>
         <h1>DJ SunnyV&rsquo;s Booth</h1>
-        <p>The Booth is visibly held: no track, control or external playlist is available until it has a registry-native provenance and rights decision. Continue with an episode or lesson while the catalogue is reviewed.</p>
+        <p>Choose a creator-confirmed LAiDIES original and listen here. Listening position stays on this device; external playlists remain outside this station.</p>
       </section>
 
       <!-- PLAYER CONTAINER -->
@@ -678,16 +678,16 @@
         <div class="dj-now-playing" id="djNowPlaying">
           <span class="dj-now-playing-label">Soundcheck status</span>
           <span class="dj-now-playing-ep" id="djNpEp" style="display:none;"></span>
-          <h2 class="dj-now-playing-title" id="djNpTitle">Public tracks are held.</h2>
-          <p class="dj-now-playing-desc" id="djNpDesc" role="status" aria-live="polite" aria-atomic="true">The exact masters, as-recorded lyrics, lesson links and streaming-rights records are under owner review. A file is not being presented as cleared merely because it exists.</p>
+          <h2 class="dj-now-playing-title" id="djNpTitle">Choose a track to listen.</h2>
+          <p class="dj-now-playing-desc" id="djNpDesc" role="status" aria-live="polite" aria-atomic="true">Creator-confirmed LAiDIES originals are ready to play in KSVL.</p>
         </div>
 
         <!-- CONTROLS -->
         <div class="dj-controls">
-          <button type="button" class="dj-btn-prev" id="djPrev" aria-label="Previous track" title="Held" disabled>&#9198;</button>
-          <button type="button" class="dj-btn-play" id="djPlay" aria-label="Playback held pending rights review" title="Held" disabled>&#9654;&#65039;</button>
-          <button type="button" class="dj-btn-next" id="djNext" aria-label="Next track" title="Held" disabled>&#9197;</button>
-          <button type="button" class="dj-btn-repeat" id="djRepeat" aria-label="Repeat unavailable while tracks are held" title="Held" disabled>&#128257;</button>
+          <button type="button" class="dj-btn-prev" id="djPrev" aria-label="Previous track" title="Previous track">&#9198;</button>
+          <button type="button" class="dj-btn-play" id="djPlay" aria-label="Play selected track" title="Play">&#9654;&#65039;</button>
+          <button type="button" class="dj-btn-next" id="djNext" aria-label="Next track" title="Next track">&#9197;</button>
+          <button type="button" class="dj-btn-repeat" id="djRepeat" aria-label="Repeat mode" title="Repeat mode">&#128257;</button>
         </div>
 
         <!-- PROGRESS -->
@@ -695,14 +695,14 @@
           <span class="dj-progress-time" id="djTime">0:00</span>
           <div class="dj-progress-bar-wrap" id="djProgressWrap">
             <div class="dj-progress-bar-fill" id="djProgressFill"></div>
-            <input type="range" id="djSeek" min="0" max="1000" value="0" step="1" aria-label="Seek unavailable while tracks are held" disabled />
+            <input type="range" id="djSeek" min="0" max="1000" value="0" step="1" aria-label="Seek in selected track" />
           </div>
           <span class="dj-progress-time" id="djDuration">0:00</span>
         </div>
 
         <!-- TRACK LIST -->
         <section class="dj-tracklist-section">
-          <h2>Tracklist held</h2>
+          <h2>Tracklist</h2>
           <div id="djTracklist"></div>
         </section>
 
@@ -736,10 +736,8 @@
 
     <script>
     (function() {
-      // The older DJ Booth player remains inert until it is replaced by the
-      // registry-governed shared player. Do not let its duplicate hard-coded
-      // catalogue bypass KSVL's public rights/provenance admission.
-      return;
+      // This booth uses the creator-confirmed local catalogue. Keep its list
+      // aligned with KSVL when tracks are added or held for a real file issue.
       // === TRACK DATA ===
       var tracks = [
         {
@@ -971,7 +969,7 @@
           var group = /^(fun|connect|realworld|practice)$/.test(params.get("group") || "") ? params.get("group") : "";
           var groupParam = group ? "&group=" + encodeURIComponent(group) : "";
           var labels = {
-            fun: "Back to The Extra Credit",
+            fun: "Back to LAiDIES activities",
             connect: "Back to Meet & Celebrate",
             realworld: "Back to the Book of Receipts",
             practice: "Back to Weekly Study Pack"
@@ -1014,7 +1012,7 @@
       var group = /^(fun|connect|realworld|practice)$/.test(params.get("group") || "") ? params.get("group") : "";
       var groupParam = group ? "&group=" + encodeURIComponent(group) : "";
       var labels = {
-        fun: "Back to The Extra Credit",
+        fun: "Back to LAiDIES activities",
         connect: "Back to Meet & Celebrate",
         realworld: "Back to the Book of Receipts",
         practice: "Back to Weekly Study Pack"

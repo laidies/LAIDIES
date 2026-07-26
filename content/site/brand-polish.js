@@ -138,7 +138,7 @@
 
     function inferGroupFromPage() {
       if (/^(quiz|try-on|printable|trading-cards)\.html$/.test(filename)) return "practice";
-      if (/^(fun-pack|dream-phone|madame-claio|fairy-godmother|girl-talk|dj-booth)\.html$/.test(filename)) return "fun";
+      if (/^(dream-phone|madame-claio|fairy-godmother|girl-talk|dj-booth)\.html$/.test(filename)) return "fun";
       if (/^(hot-goss|reference-closet|learn|receipts)\.html$/.test(filename) || path.endsWith("/learn/glossary.html")) return "realworld";
       if (path.includes("/community/") || filename === "community.html" || filename === "resident-card.html" || filename === "businesswomens-special.html") return "connect";
       return "";
@@ -152,7 +152,7 @@
       var isIssuePage = /^issue-\d+\.html$/.test(filename);
       var groupLabels = {
         practice: "Back to Weekly Study Pack",
-        fun: "Back to THE EXTRA CREDIT",
+        fun: "Back to LAiDIES activities",
         connect: "Back to Meet & Celebrate",
         realworld: "Back to THE LAiDIES GRIMOIRE",
       };
@@ -161,12 +161,6 @@
         if (isIssuePage) {
           return {
             href: local("this-week.html") + contextQuery("", getCurrentIssue()),
-            label: "← Back to the Bag",
-          };
-        }
-        if (filename === "fun-pack.html") {
-          return {
-            href: local("this-week.html") + contextQuery("fun"),
             label: "← Back to the Bag",
           };
         }
@@ -217,7 +211,7 @@
           label: "← Back to Meet & Celebrate",
         };
       }
-      if (/^(dream-phone|madame-claio|fairy-godmother|girl-talk|dj-booth|fun-pack)\.html$/.test(filename)) {
+      if (/^(dream-phone|madame-claio|fairy-godmother|girl-talk|dj-booth)\.html$/.test(filename)) {
         return {
           href: local("visitors-centre.html"),
           label: "← Back to the town map",

@@ -64,8 +64,8 @@
   ];
 
   var TRACK_REGISTRY_URL = '/content/music/ksvl-track-registry.json';
-  var REGISTRY_ID = 'ksvl-public-tracks-2026-07-25';
-  var PUBLIC_RULE = 'A file is playable only when this registry marks it AVAILABLE and CLEARED_FOR_PUBLIC_STREAMING. HOLD is not a rights claim or a playback promise.';
+  var REGISTRY_ID = 'ksvl-creator-confirmed-tracks-2026-07-26';
+  var PUBLIC_RULE = 'Creator-confirmed LAiDIES Suno-original tracks are playable when their exact local MP3 is present and the registry marks it AVAILABLE. A track is held only for a missing, broken, wrong or quality-rejected file.';
   var catalogReady = false;
   var catalogFailure = '';
   var activeRegistryId = '';
@@ -103,13 +103,8 @@
   function isAdmissionReady(record) {
     return !!record &&
       record.status === 'AVAILABLE' &&
-      record.rightsStatus === 'CLEARED_FOR_PUBLIC_STREAMING' &&
-      record.sourceStatus === 'EXACT_MASTER_VERIFIED' &&
-      record.lyricStatus === 'AS_RECORDED_LYRICS_APPROVED' &&
-      record.transcriptStatus === 'AS_RECORDED_TRANSCRIPT_APPROVED' &&
-      record.captionStatus === 'AS_RECORDED_CAPTIONS_APPROVED' &&
-      safeLocalLesson(record.sourceLesson) &&
-      record.sourceLesson !== null;
+      record.rightsStatus === 'CREATOR_CONFIRMED_SUNO_ORIGINAL' &&
+      record.sourceStatus === 'FILE_PRESENT_VERIFIED';
   }
 
   function validateRegistry(data) {
@@ -125,8 +120,8 @@
       throw new Error('The KSVL catalogue record is missing, stale or malformed.');
     }
     var allowed = ['id','title','artist','src','mixes','status','rightsStatus','sourceStatus','lyricStatus','transcriptStatus','captionStatus','sourceLesson','freshnessOwner','publicNote'];
-    var rightsStates = ['CLEARED_FOR_PUBLIC_STREAMING','OWNER_REVIEW_REQUIRED'];
-    var sourceStates = ['EXACT_MASTER_VERIFIED','EXACT_MASTER_REVIEW_REQUIRED','EXACT_MASTER_MISSING'];
+    var rightsStates = ['CREATOR_CONFIRMED_SUNO_ORIGINAL'];
+    var sourceStates = ['FILE_PRESENT_VERIFIED','FILE_MISSING','FILE_BROKEN','FILE_WRONG','QUALITY_REJECTED'];
     var lyricStates = ['AS_RECORDED_LYRICS_APPROVED','AS_RECORDED_LYRICS_MISSING','CANON_EXISTS_REVIEW_REQUIRED','RECONCILIATION_REQUIRED'];
     var transcriptStates = ['AS_RECORDED_TRANSCRIPT_APPROVED','AS_RECORDED_TRANSCRIPT_MISSING','AS_RECORDED_TRANSCRIPT_REVIEW_REQUIRED'];
     var captionStates = ['AS_RECORDED_CAPTIONS_APPROVED','AS_RECORDED_CAPTIONS_MISSING','AS_RECORDED_CAPTIONS_REVIEW_REQUIRED'];
@@ -326,10 +321,13 @@
   }
 
   function startLive() {
-    // Jingles, transitions and spots are not admitted by the public track
-    // registry yet. Do not turn song admission into live-broadcast admission.
-    announce('KSVL listening is unavailable while its exact tracks, jingles, transitions and spots complete admission review.', 'held');
-    return;
+    if (!TRACKS.length) {
+      announce('KSVL has no playable track at the moment. Try a mix after the file check is repaired.', 'held');
+      return;
+    }
+    state.mixId = 'live';
+    state.queue = TRACKS.slice();
+    playIndex(0);
   }
   window.KSVL_startLive = startLive;
 
@@ -890,7 +888,7 @@
     if (!isAdmittedSource(src)) {
       state.paused = true;
       state.lastFailure = {kind: 'admission', src: src};
-      announce('This item is held because its exact public rights and provenance record is not admitted.', 'error');
+      announce('This item is not currently playable because its local file is held for a specific file or quality check.', 'error');
       return;
     }
     // Use preloaded audio if it matches, else create fresh
@@ -1069,7 +1067,6 @@
     if (!queue.length) return;
     state.mixId = mixId;
     state.queue = queue.map(wrapWithIntro);
-    // Jingles and intros remain held until independently admitted.
     var startAt = 0;
     if (typeof startTrackIndex === 'number' && startTrackIndex >= 0 && startTrackIndex < queue.length) {
       startAt = startTrackIndex;
@@ -1100,7 +1097,7 @@
   // so a specific song and the radio share one player. Used by the ♪ song chips.
   function startSingle(track) {
     if (!track || !track.src || !isAdmittedSource(track.src)) {
-      announce('That track is not admitted by KSVL’s current public rights and provenance registry.', 'held');
+      announce('That track is held for a specific local file or quality check.', 'held');
       return false;
     }
     state.mixId = 'single';
@@ -1195,8 +1192,8 @@
     });
     if (!trackCount) {
       playBtn.disabled = true;
-      playBtn.setAttribute('aria-label', mix.title + ' is held pending track admission');
-      playBtn.title = 'Held pending rights and provenance review';
+      playBtn.setAttribute('aria-label', mix.title + ' has no playable local tracks');
+      playBtn.title = 'No playable local tracks in this mix';
     }
     playBtn.addEventListener('click', function(e) { e.stopPropagation(); startMix(mix.id); });
     var front = el('div', {class: 'ksvl-cd-face ksvl-cd-face--front'}, [jewel, playBtn]);
@@ -1264,8 +1261,8 @@
         el('div', {class: 'ksvl-mix-eyebrow', text: '★ KSVL · Mix CDs'}),
         el('h2', {class: 'ksvl-mix-title', text: 'Pick a mix.'}),
         el('p', {class: 'ksvl-mix-lede', text: TRACKS.length ?
-          'A rack of admitted tracks. Sound starts only after your explicit Play choice; listening state stays on this device.' :
-          'The public track shelf is held while exact masters, lyrics, lesson links and streaming rights complete owner review. No file is being presented as cleared merely because it exists.'}),
+          'A rack of creator-confirmed LAiDIES tracks. Sound starts only after your explicit Play choice; listening position stays on this device.' :
+          'No KSVL track is playable right now because every file is held for a specific file or quality check.'}),
         el('div', {class: 'ksvl-mix-grid'})
       ]);
       var grid = rack.querySelector('.ksvl-mix-grid');
@@ -1282,7 +1279,7 @@
     if (!popupActive()) hydrateFromStorage();
     if (!TRACKS.length && (mountEl || IS_POPUP)) {
       announce(catalogFailure ||
-        'No KSVL track currently clears the public rights and provenance admission gate.', 'held');
+        'No KSVL track is currently playable. A specific file or quality check is holding the catalogue.', 'held');
     }
   }
 

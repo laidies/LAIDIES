@@ -26,7 +26,7 @@
     if (!studio || !state) return;
 
     studio.classList.remove("is-live");
-    state.textContent = "SOUNDCHECK HOLD · Public listening is unavailable.";
+    state.textContent = "KSVL is ready for listening.";
   }
 
   function initBroadcastObserver() {
@@ -45,8 +45,8 @@
       readout.textContent = value.toFixed(1);
       message.textContent =
         Math.abs(value - STATION) < 0.06
-          ? "99.9 is in soundcheck. No audio will start."
-          : "Decorative static. KSVL listening remains held at 99.9.";
+          ? "99.9 is KSVL. Choose Listen to start."
+          : "Decorative static. Return to 99.9 to listen to KSVL.";
     }
 
     function snapHome() {

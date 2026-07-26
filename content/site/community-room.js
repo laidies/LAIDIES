@@ -178,7 +178,7 @@
       practice: "Back to Weekly Study Pack",
       connect: "Back to Meet & Celebrate",
       realworld: "Back to the Book of Receipts",
-      fun: "Back to Weekly Fun Pack"
+      fun: "Back to LAiDIES activities"
     };
     // Keep the runtime route explicit without making the static dependency
     // crawler resolve this script-relative. The actual link already exists in

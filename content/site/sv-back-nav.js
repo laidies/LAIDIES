@@ -55,7 +55,6 @@
     '/games/fairy-godmother.html': 'FAiRY Godmother',
     '/games/girl-talk.html': 'Girl Talk',
     '/games/businesswomens-special.html': 'Businesswomen’s Special',
-    '/games/fun-pack.html': 'the arcade',
     '/games/trading-cards.html': 'Trading Cards',
     '/games/dj-booth.html': 'DJ Booth',
     '/games/cocktail-fortune.html': 'Cocktail Fortune',

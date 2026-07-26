@@ -337,7 +337,7 @@
       </div>
       <div class="preview-actions">
         <a class="button" id="downloadPdf" href="/printable.html" download>Download PDF</a>
-        <a class="button secondary" id="funPackLink" href="games/fun-pack.html">Open The Extra Credit</a>
+        <a class="button secondary" id="funPackLink" href="/#activities">Explore LAiDIES activities</a>
       </div>
     </section>
 
@@ -359,10 +359,10 @@
     <section class="pr-dispatch" aria-labelledby="prDispatchTitle">
       <p class="pr-kicker">Reference-room checkout</p>
       <h2 id="prDispatchTitle">Keep the pages. Try the move.</h2>
-      <p>The PDF is the desk reference. Extra Credit is where you put the lesson through its paces.</p>
+      <p>The PDF is the desk reference. Continue with any LAiDIES activity that fits what you want to do next.</p>
       <div class="pr-dispatch-actions">
         <a class="button" id="downloadPdfBottom" href="/printable.html" download>Take the complete PDF →</a>
-        <a class="button secondary" id="funPackLinkBottom" href="games/fun-pack.html">Continue to Extra Credit</a>
+        <a class="button secondary" id="funPackLinkBottom" href="/#activities">Explore LAiDIES activities</a>
         <a class="wednesday-return" data-wednesday-return href="/">← Back to the Bag</a>
       </div>
     </section>
@@ -460,10 +460,10 @@
     }
 
     if (funPackLink) {
-      funPackLink.href = addReturnParams("games/fun-pack.html");
+      funPackLink.href = "/#activities";
     }
     if (funPackLinkBottom) {
-      funPackLinkBottom.href = addReturnParams("games/fun-pack.html");
+      funPackLinkBottom.href = "/#activities";
     }
 
     if (!printable) {

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SUNNYVAiLE Community RAiDIO · KSVL · LAiDIES</title>
-  <meta name="description" content="Visit KSVL, SUNNYVAiLE Community RAiDIO. The public listening catalogue is in soundcheck while exact masters, lyrics, captions, lesson links and rights records complete review.">
+  <meta name="description" content="Visit KSVL, SUNNYVAiLE Community RAiDIO, and listen to creator-confirmed LAiDIES originals.">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
   <link rel="stylesheet" href="content/radio-v2.css?v=20260724-1">
@@ -63,8 +63,8 @@
       <p class="ksvl-studio__kicker">MAiN Street · 99.9 FM · SUNNYVAiLE</p>
       <h1 id="ksvlStudioTitle">KSVL R<span class="ai">Ai</span>DIO.</h1>
       <p class="ksvl-studio__motto">Don't just learn from books. Learn from hooks.</p>
-      <p class="ksvl-studio__state" id="ksvlStudioState" aria-live="polite">SOUNDCHECK HOLD · Public listening is unavailable.</p>
-      <p class="ksvl-studio__subline">DJ SunnyV&rsquo;s catalogue is being reconciled track by track: exact master, as-recorded words, lesson source and rights record.</p>
+      <p class="ksvl-studio__state" id="ksvlStudioState" aria-live="polite">KSVL is ready for listening.</p>
+      <p class="ksvl-studio__subline">Creator-confirmed LAiDIES originals, checked against the current local catalogue.</p>
     </div>
 
     <div class="ksvl-studio__controls" id="ksvlStudioControls" aria-label="Operate the KSVL studio"></div>
@@ -76,12 +76,12 @@
       </div>
       <div class="ksvl-tuner__scale">
         <div class="ksvl-tuner__marks" aria-hidden="true"><span>88</span><span>92</span><span>96</span><span>99.9</span><span>104</span><span>108</span></div>
-        <input id="ksvlDial" type="range" min="88" max="108" step="0.1" value="99.9" aria-label="Decorative FM dial. KSVL listening is held at 99.9 FM.">
-        <p id="ksvlDialMessage">99.9 is in soundcheck. No audio will start.</p>
+        <input id="ksvlDial" type="range" min="88" max="108" step="0.1" value="99.9" aria-label="Decorative FM dial. KSVL is at 99.9 FM.">
+        <p id="ksvlDialMessage">99.9 is KSVL.</p>
       </div>
-      <button type="button" class="ksvl-hero-tunein" id="ksvlTuneButton" aria-label="KSVL listening unavailable pending catalogue admission" disabled>
+      <button type="button" class="ksvl-hero-tunein" id="ksvlTuneButton" data-ksvl-start-live aria-label="Listen to KSVL 99.9">
         <span class="ksvl-hero-tunein__dot" aria-hidden="true"></span>
-        <span>Listening unavailable</span>
+        <span>Listen to KSVL</span>
       </button>
     </div>
   </div>
@@ -90,9 +90,9 @@
 
     <div class="sv-eyebrow">
       <span class="sv-eyebrow-label">★ MAiN Street · No. 10 · KSVL · SUNNYVAiLE</span>
-      <button class="sv-theme" type="button" aria-label="KSVL listening unavailable during soundcheck" disabled>
+      <button class="sv-theme" type="button" data-ksvl-start-live aria-label="Listen to KSVL">
         <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-        <span>♪ Soundcheck hold</span>
+        <span>♪ Listen to KSVL</span>
       </button>
     </div>
 
@@ -103,17 +103,17 @@
     </p>
 
     <p class="sv-lede">
-      KSVL, 99.9 · SUNNYVAiLE&rsquo;s own. The station is open to explore, but public listening is unavailable while every item completes exact-master, as-recorded lyric/transcript/caption, lesson-source and rights review.
+      KSVL, 99.9 · SUNNYVAiLE&rsquo;s own. Listen to creator-confirmed LAiDIES originals; requests, listening history and favourites stay local to this browser.
     </p>
 
     <!-- KSVL LIVE — the full station broadcast (moved to top) -->
     <div class="ksvl-live-band">
-      <div class="ksvl-live-band__badge">★ SOUNDCHECK</div>
-      <h2 class="ksvl-live-band__title">The whole public catalogue is held.</h2>
-      <p class="ksvl-live-band__lede">Zero tracks, jingles, transitions or spots are admitted for public listening. Explore the station plan, leave a review request, or continue with an available episode or lesson.</p>
-      <button type="button" class="ksvl-live-band__btn" aria-label="Listening unavailable pending catalogue admission" disabled>
+      <div class="ksvl-live-band__badge">★ KSVL 99.9</div>
+      <h2 class="ksvl-live-band__title">Creator-confirmed LAiDIES originals.</h2>
+      <p class="ksvl-live-band__lede">Twenty-nine current tracks are ready to hear. A track is held only for a specific missing, broken, wrong or quality-rejected file.</p>
+      <button type="button" class="ksvl-live-band__btn" data-ksvl-start-live aria-label="Listen to KSVL 99.9">
         <span class="ksvl-live-band__btn-icon" aria-hidden="true">■</span>
-        <span>LISTENING UNAVAILABLE · 99.9</span>
+        <span>LISTEN TO KSVL · 99.9</span>
       </button>
       <p class="ksvl-live-band__disclaimer"><a href="/chick-flicks.html">Open the episode shelf</a> · <a href="/library.html">Learn in the LIBRAiRY</a></p>
     </div>
@@ -322,7 +322,7 @@
 
     <p class="ksvl-band-eyebrow">★ 99.9 KSVL · The Bands</p>
     <h2 class="ksvl-band-title">The Bands</h2>
-    <p class="ksvl-band-lede">Ten fictional bands from SUNNYVAiLE. Flip the covers and inspect their planned tracklists, but DJ SunnyV is not publicly playing these albums and whole-album listening is unavailable until each item is admitted. Continue with <a href="/chick-flicks.html">an available episode</a> or <a href="/library.html">a LIBRAiRY lesson</a>.</p>
+    <p class="ksvl-band-lede">Ten fictional bands from SUNNYVAiLE. Flip the covers, inspect their tracklists and use the KSVL player to listen to the creator-confirmed local catalogue. Listening history and favourites stay on this device.</p>
 
     <div class="ksvl-band-grid" id="ksvl-band-grid"></div>
 
@@ -386,7 +386,7 @@
             } else {
               playBtn.disabled = true;
               playBtn.setAttribute('aria-label', a.band + ' album is held pending catalogue admission');
-              playBtn.setAttribute('title', 'Listening unavailable');
+              playBtn.setAttribute('title', 'No creator-confirmed KSVL track for this album yet');
             }
             playBtn.addEventListener('click', function(e) {
               e.stopPropagation();

@@ -364,7 +364,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "Small moves make confidence real enough to repeat",
           "explain": "The confidence loop starts with usable experience: try, compare, notice what works, keep judgment, and try again.",
-          "review": "Find it in the Episode 1 Fun Pack Try-On.",
+          "review": "Find it in the Episode 1 Try-On.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -737,7 +737,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "Open the tab and try one small thing",
           "explain": "Episode 1 is about starting small. Ten minutes beats waiting for a mythical free weekend.",
-          "review": "Find it in the opening and the Episode 1 Fun Pack Try-On.",
+          "review": "Find it in the opening and the Episode 1 Try-On.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -812,7 +812,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "Try one manageable move instead of waiting to feel ready",
           "explain": "The series is meant to make AI practice small enough that people actually do it.",
-          "review": "Find it in the Episode 1 Fun Pack Try-On and Episode promise.",
+          "review": "Find it in the Episode 1 Try-On and Episode promise.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -827,7 +827,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "To see which tool feels most useful for the same low-risk task",
           "explain": "Same ask, different tools, better comparison. It is a try-on, not a final exam.",
-          "review": "Find it in the Episode 1 Fun Pack Try-On.",
+          "review": "Find it in the Episode 1 Try-On.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -857,7 +857,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "A low-risk work explanation or draft you can judge",
           "explain": "The first try should be useful, small, and safe enough that you can learn without handing it the car keys.",
-          "review": "Find it in the Episode 1 Fun Pack Try-On.",
+          "review": "Find it in the Episode 1 Try-On.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -1066,7 +1066,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "Give AI the same real task twice: once vague, once specific",
           "explain": "The point is to see the difference. Same task, better brief, much better odds.",
-          "review": "Find it in the Episode 2 Fun Pack Try-On.",
+          "review": "Find it in the Episode 2 Try-On.",
           "reviewUrl": "issues/issue-02.html"
         },
         {

@@ -959,7 +959,7 @@ function buildProjectRadarHtml(episode) {
   const hasMemberPassFlow = fileHasText(scriptPath, /Create your lAIdies Card/) && fileHasText(scriptPath, /syncMemberRewards/);
   const hasFounderRewardShelf = fileHasText(communityCardPath, /reward shelf|founder reward|867 Club|secret badge/i);
   const hasReferenceCloset = exists(referenceClosetPath) && fileHasText(indexPath, /Reference Closet/i);
-  const hasPerIssueLoaderWarning = fileHasText(latestHandoff?.fullPath || "", /per-issue Fun Pack loader/i);
+  const hasPerIssueActivityWarning = fileHasText(latestHandoff?.fullPath || "", /per-issue activity loader/i);
   const hasSmtpSetup = fileHasText(setupPath, /custom SMTP|Resend API key|Clubhouse Pass Auth Email Delivery/i);
   const currentIssue = padIssue(episode.number);
   const nextIssue = padIssue(episode.number + 1);
@@ -999,9 +999,9 @@ function buildProjectRadarHtml(episode) {
         : "Implement or reconnect the reusable butterfly clip rating control before adding new rating prompts."
     ),
     buildTask(
-      "True per-issue Fun Pack loader",
-      hasPerIssueLoaderWarning ? "action" : "todo",
-      `Before Issue ${nextIssue}+ packs feel live, build a real loader for issue-specific quiz/card/try-on/printable content. Do not fake unlocked packs from the homepage switcher.`
+      "Per-issue activity routes",
+      hasPerIssueActivityWarning ? "action" : "todo",
+      `Before Issue ${nextIssue}+ activities are promoted, verify the issue-specific quiz, card, Try-On, and printable routes directly. Do not imply that one retired umbrella product unlocks them.`
     ),
     buildTask(
       "Reference Closet canon intake",
@@ -1025,7 +1025,7 @@ function buildProjectRadarHtml(episode) {
   const blockers = [
     hasSmtpSetup ? "" : "Clubhouse Pass auth email setup doc is missing or incomplete.",
     hasMemberPassFlow ? "Configure and test Clubhouse Pass email delivery before public user testing." : "Finish Member Pass / lAIdies Card flow wiring.",
-    "Build the true per-issue Fun Pack loader before promoting Issue 02+ pack activities as live.",
+    "Verify each Issue 02+ activity at its own route before promoting it as live.",
     "Run desktop and mobile browser QA for Clubhouse, Member Pass, card builder, and issue publishing after each major weekly change.",
     "Fill the growth scorecard after launch with newsletter, website, social, and community signals.",
   ].filter(Boolean);

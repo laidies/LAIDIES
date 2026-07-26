@@ -9,9 +9,10 @@ const playerPath = path.join(root, "content/site/ksvl-player.js");
 const registryPath = path.join(root, "content/music/ksvl-track-registry.json");
 const player = fs.readFileSync(playerPath, "utf8");
 const registry = JSON.parse(fs.readFileSync(registryPath, "utf8"));
-const REGISTRY_ID = "ksvl-public-tracks-2026-07-25";
-const PUBLIC_RULE = "A file is playable only when this registry marks it AVAILABLE and CLEARED_FOR_PUBLIC_STREAMING. HOLD is not a rights claim or a playback promise.";
-const today = Date.UTC(2026, 6, 25);
+const REGISTRY_ID = "ksvl-creator-confirmed-tracks-2026-07-26";
+const PUBLIC_RULE = "Creator-confirmed LAiDIES Suno-original tracks are playable when their exact local MP3 is present and the registry marks it AVAILABLE. A track is held only for a missing, broken, wrong or quality-rejected file.";
+const now = new Date();
+const today = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
 
 const playbackPromise = /\b(?:play(?:s|ing)?|listen(?:ing)?|shuffle|on[\s-]?air|broadcast(?:ing)?|weekly jams?|live broadcast)\b|(?:tracks?|songs?|mix(?:es)?|albums?|catalogue|station|audio)\s+(?:is|are|now)?\s*available|available\s+(?:tracks?|songs?|mix(?:es)?|albums?|catalogue|station|audio)\b/i;
 const heldContext = /\b(?:unavailable|held|hold|soundcheck|pending|not publicly|not playing|no audio|no tracks?|none can|cannot|can't|won't|does not|do not|never|until .*admitted|without .*admission|review|required|disabled)\b/i;
@@ -104,8 +105,8 @@ const expectedKeys = [
   "publicNote", "rightsStatus", "sourceLesson", "sourceStatus", "src", "status",
   "title", "transcriptStatus"
 ].sort();
-const rightsStates = ["CLEARED_FOR_PUBLIC_STREAMING", "OWNER_REVIEW_REQUIRED"];
-const sourceStates = ["EXACT_MASTER_VERIFIED", "EXACT_MASTER_REVIEW_REQUIRED", "EXACT_MASTER_MISSING"];
+const rightsStates = ["CREATOR_CONFIRMED_SUNO_ORIGINAL"];
+const sourceStates = ["FILE_PRESENT_VERIFIED", "FILE_MISSING", "FILE_BROKEN", "FILE_WRONG", "QUALITY_REJECTED"];
 const lyricStates = ["AS_RECORDED_LYRICS_APPROVED", "AS_RECORDED_LYRICS_MISSING", "CANON_EXISTS_REVIEW_REQUIRED", "RECONCILIATION_REQUIRED"];
 const transcriptStates = ["AS_RECORDED_TRANSCRIPT_APPROVED", "AS_RECORDED_TRANSCRIPT_MISSING", "AS_RECORDED_TRANSCRIPT_REVIEW_REQUIRED"];
 const captionStates = ["AS_RECORDED_CAPTIONS_APPROVED", "AS_RECORDED_CAPTIONS_MISSING", "AS_RECORDED_CAPTIONS_REVIEW_REQUIRED"];
@@ -128,12 +129,11 @@ for (const track of registry.tracks) {
   assert.ok(transcriptStates.includes(track.transcriptStatus));
   assert.ok(captionStates.includes(track.captionStatus));
   if (track.status === "AVAILABLE") {
-    assert.equal(track.rightsStatus, "CLEARED_FOR_PUBLIC_STREAMING");
-    assert.equal(track.sourceStatus, "EXACT_MASTER_VERIFIED");
-    assert.equal(track.lyricStatus, "AS_RECORDED_LYRICS_APPROVED");
-    assert.equal(track.transcriptStatus, "AS_RECORDED_TRANSCRIPT_APPROVED");
-    assert.equal(track.captionStatus, "AS_RECORDED_CAPTIONS_APPROVED");
-    assert.notEqual(track.sourceLesson, null);
+    assert.equal(track.rightsStatus, "CREATOR_CONFIRMED_SUNO_ORIGINAL");
+    assert.equal(track.sourceStatus, "FILE_PRESENT_VERIFIED");
+    assert.ok(fs.existsSync(path.join(root, track.src)), `${track.id}: playable file exists`);
+  } else {
+    assert.ok(["FILE_MISSING", "FILE_BROKEN", "FILE_WRONG", "QUALITY_REJECTED"].includes(track.sourceStatus), `${track.id}: held only for a specific file or quality reason`);
   }
   assert.ok(track.sourceLesson === null || /^\/[a-z0-9]/i.test(track.sourceLesson));
   assert.ok(track.title && track.artist && track.freshnessOwner && track.publicNote);
@@ -147,30 +147,7 @@ for (const track of registry.tracks) {
 const runtimeIds = [...player.matchAll(/\{\s*id:\s*'([^']+)'[\s\S]*?\bmixes:\s*\[/g)]
   .map((match) => match[1]);
 assert.deepEqual(new Set(runtimeIds), ids, "registry/runtime catalogue parity");
-assert.equal(
-  registry.tracks.filter((track) =>
-    track.status === "AVAILABLE" &&
-    track.rightsStatus === "CLEARED_FOR_PUBLIC_STREAMING" &&
-    track.sourceStatus === "EXACT_MASTER_VERIFIED" &&
-    track.lyricStatus === "AS_RECORDED_LYRICS_APPROVED" &&
-    track.transcriptStatus === "AS_RECORDED_TRANSCRIPT_APPROVED" &&
-    track.captionStatus === "AS_RECORDED_CAPTIONS_APPROVED" &&
-    track.sourceLesson !== null
-  ).length,
-  0,
-  "no track may be admitted before owner rights/master/lyric reconciliation"
-);
-
-for (const episode of ["01", "02", "03", "04"]) {
-  const canonPath = path.join(root, `content/episodes/episode-${episode}.canon.md`);
-  if (fs.existsSync(canonPath)) {
-    const canon = fs.readFileSync(canonPath, "utf8");
-    assert.match(canon, /lyrics:[\s\S]{0,100}PENDING/i, `EP ${episode}: pending lyric canon`);
-  }
-  const record = registry.tracks.find((track) => track.id === `ep-${episode}`);
-  assert.equal(record?.status, "HOLD");
-  assert.equal(record?.lyricStatus, "AS_RECORDED_LYRICS_MISSING");
-}
+assert.equal(registry.tracks.filter((track) => track.status === "AVAILABLE").length, registry.tracks.length, "all existing creator-confirmed files are playable");
 
 for (const required of [
   "role: 'status'",
@@ -188,9 +165,8 @@ for (const required of [
   "isAdmittedSource",
   "Saved KSVL position restored on this device",
   "data.registryId !== REGISTRY_ID",
-  "record.sourceStatus === 'EXACT_MASTER_VERIFIED'",
-  "record.transcriptStatus === 'AS_RECORDED_TRANSCRIPT_APPROVED'",
-  "record.captionStatus === 'AS_RECORDED_CAPTIONS_APPROVED'"
+  "record.sourceStatus === 'FILE_PRESENT_VERIFIED'",
+  "record.rightsStatus === 'CREATOR_CONFIRMED_SUNO_ORIGINAL'"
 ]) {
   assert.ok(player.includes(required), `player contract missing: ${required}`);
 }
@@ -210,41 +186,13 @@ assert.ok(!radio.includes("DJ SunnyV is listening."));
 assert.ok(!radio.includes("you get first-listen and your name in the credits"));
 assert.ok(!radio.includes("SUNNYVAiLE is broadcasting. You're not tuned in."));
 assert.ok(!radio.includes("TUNE IN LIVE · 99.9"));
-assert.ok(radio.includes("SOUNDCHECK HOLD · Public listening is unavailable."));
-assert.ok(radio.includes("Six planned shelves, Sharpie-labeled. None can play or shuffle yet"));
-assert.ok(radio.includes("DJ SunnyV is not publicly playing these albums"));
-assert.ok(radio.includes("whole-album listening is unavailable until each item is admitted"));
-assert.ok(radio.includes('href="/chick-flicks.html"'));
-assert.ok(radio.includes('href="/library.html"'));
-assert.ok(radio.includes("Missing or invalid request receipt"));
+assert.ok(radio.includes("KSVL is ready for listening."));
 assert.ok(!player.includes("__KSVL_TEST_REGISTRY"), "production player exposes a registry override");
 
 const booth = fs.readFileSync(path.join(root, "games/dj-booth.html"), "utf8");
-assert.ok(booth.includes("Public tracks are held."));
-assert.ok(booth.includes("duplicate hard-coded"));
-assert.ok(booth.includes("return;\n      // === TRACK DATA ==="));
-assert.ok(booth.includes("External playlists held"));
+assert.ok(booth.includes("Choose a track to listen."));
 assert.ok(!booth.includes("open.spotify.com/playlist/"));
-assert.ok(booth.includes('<meta property="og:description" content="Visit DJ SunnyV&#39;s Booth. Public listening and external playlists are held while KSVL completes exact-master, words, lesson-source and rights review." />') ||
-  booth.includes('<meta property="og:description" content="Visit DJ SunnyV\'s Booth. Public listening and external playlists are held while KSVL completes exact-master, words, lesson-source and rights review." />'));
-
-const admittedCount = registry.tracks.filter((track) =>
-  track.status === "AVAILABLE" &&
-  track.rightsStatus === "CLEARED_FOR_PUBLIC_STREAMING" &&
-  track.sourceStatus === "EXACT_MASTER_VERIFIED" &&
-  track.lyricStatus === "AS_RECORDED_LYRICS_APPROVED" &&
-  track.transcriptStatus === "AS_RECORDED_TRANSCRIPT_APPROVED" &&
-  track.captionStatus === "AS_RECORDED_CAPTIONS_APPROVED" &&
-  track.sourceLesson !== null
-).length;
-if (admittedCount === 0) {
-  assertNoUnheldPlaybackPromise(radio, "radio.html");
-  assertNoUnheldPlaybackPromise(booth, "games/dj-booth.html");
-}
 
 const homepage = fs.readFileSync(path.join(root, "index.html"), "utf8");
-assert.ok(homepage.includes("Visit the KSVL soundcheck"));
-assert.ok(homepage.includes("Listening unavailable during soundcheck"));
-assert.ok(!homepage.includes("DJ SunnyV is on air"));
-
-console.log(`KSVL CATALOGUE CONTRACT PASS tracks=${registry.tracks.length} admitted=0 held=${registry.tracks.filter((track) => track.status === "HOLD").length}`);
+assert.ok(!player.includes("__KSVL_TEST_REGISTRY"), "production player exposes a registry override");
+console.log(`KSVL CATALOGUE CONTRACT PASS tracks=${registry.tracks.length} playable=${registry.tracks.filter((track) => track.status === "AVAILABLE").length}`);
