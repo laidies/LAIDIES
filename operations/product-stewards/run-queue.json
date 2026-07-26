@@ -3,9 +3,14 @@
   "updated": "2026-07-25",
   "concurrency_limit": 3,
   "active": [
-    {"product_id":"fairy-godmother","run_type":"P0_SEMANTIC_PROVIDER_TRIAL_AUTHORITY_PACKET","status":"WAITING_FOR_PROVIDER_DATA_COST_AND_PRIVACY_AUTHORITY","write_boundary":"decision packet only; no provider trial without authority"},
-    {"product_id":"sunnyvaile-high","run_type":"P0_CONTENT_ACCESSIBILITY_REWARD_AND_PUBLIC_GATES","status":"WAITING_FOR_CONTENT_NATIVE_ZOOM_SAFARI_VOICEOVER_REWARD_PRIVACY_PUBLIC_AND_OWNER_AUTHORITY","write_boundary":"decision and evidence packets only; no promotion"},
-    {"product_id":"newsstand","run_type":"P0_OWNER_VISUAL_ACCESSIBILITY_ARTIFACT_AND_PUBLIC_GATES","status":"WAITING_FOR_OWNER_VISUAL_SAFARI_VOICEOVER_ARTIFACT_ROLLBACK_AND_PUBLIC_AUTHORITY","write_boundary":"decision and evidence packets only; no publication"}
+    {"product_id":"chick-flicks","run_type":"EXACT_ARTIFACT_CATALOGUE_AND_DISCOVERY_TEST","status":"READY_FOR_NEXT_AUTONOMOUS_RUN","write_boundary":"Chick Flicks source/tests/dossier/evidence only; no deploy or unapproved media"},
+    {"product_id":"blend-snap","run_type":"WEEKLY_PACK_AVAILABILITY_MANIFEST_DECISION","status":"READY_FOR_NEXT_AUTONOMOUS_RUN","write_boundary":"Blend & Snap source/tests/dossier/evidence only; no deploy or unapproved visuals"},
+    {"product_id":"dream-phone","run_type":"PRODUCT_STATUS_DECISION","status":"READY_FOR_NEXT_AUTONOMOUS_RUN","write_boundary":"Dream Phone source/tests/dossier/evidence only; no deploy or external mutation"}
+  ],
+  "waiting_external": [
+    {"product_id":"fairy-godmother","gate":"P0_SEMANTIC_PROVIDER_TRIAL_AUTHORITY_PACKET","status":"WAITING_FOR_PROVIDER_DATA_COST_AND_PRIVACY_AUTHORITY"},
+    {"product_id":"sunnyvaile-high","gate":"P0_CONTENT_ACCESSIBILITY_REWARD_AND_PUBLIC_GATES","status":"WAITING_FOR_CONTENT_NATIVE_ZOOM_SAFARI_VOICEOVER_REWARD_PRIVACY_PUBLIC_AND_OWNER_AUTHORITY"},
+    {"product_id":"newsstand","gate":"P0_OWNER_VISUAL_ACCESSIBILITY_ARTIFACT_AND_PUBLIC_GATES","status":"WAITING_FOR_OWNER_VISUAL_SAFARI_VOICEOVER_ARTIFACT_ROLLBACK_AND_PUBLIC_AUTHORITY"}
   ],
   "completed_cycles": [
     {"product_id":"platform-reliability","run_type":"SCOPED_PRODUCT_READINESS_INTEGRATION_CHECKPOINT","status":"COMMITTED_AND_PUSHED_A821C20_NO_DEPLOY_OR_PUBLICATION","next":"RECORD_CHECKPOINT_AND_RESUME_NEXT_RISK_RANKED_PRODUCT"},
