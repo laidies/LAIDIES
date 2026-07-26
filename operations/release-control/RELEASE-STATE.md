@@ -1,6 +1,6 @@
 # LAiDIES release state
 
-**Updated:** 2026-07-26 07:40 PDT
+**Updated:** 2026-07-26 07:48 PDT
 **Release owner:** current whole-site release and product-champion orchestrator
 **Rule:** `LOCAL`, `COMMITTED`, `PUSHED`, `DEPLOYED`, and `PUBLICLY VERIFIED`
 are different states. A change may use only the highest state for which evidence
@@ -10,13 +10,13 @@ is recorded here.
 
 | Layer | State | Evidence |
 |---|---|---|
-| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `7c8410e1-7a10-4bd7-8ccc-41d00af71bf7`, release-source commit `0c6db9d2d45f865abfac7b1f5fe2ee7655827565`, immutable URL `https://7c8410e1.laidies-sunnyvaile.pages.dev`; the immutable URL and `https://laidies.ai/` returned the tested homepage bytes and passed critical-route verification on 2026-07-25 |
-| Current branch candidate | `PUSHED` | `homepage-redesign` and `origin/homepage-redesign` contain candidate source `bd4cfb23399072ec6797662e9804e7b0180a5efd`, comprising KSVL/Fun Pack correction `2491710724dc41cd4c14c9702fc815b1c17998fc`, FAiRY repair `8c4422315708f5b66726987eb6da82913af08706`, and Screening Room timing/resume repair `bd4cfb23399072ec6797662e9804e7b0180a5efd`. |
-| Difference from production | `PUSHED / NOT DEPLOYED` | Production remains attached to public-source commit `0c6db9d`. The product-champion cycles and the three 2026-07-26 candidate commits are newer than production and must not be described as live until deployment and public verification complete. |
+| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `623e2b79-7fec-47ac-8ec9-e3fe80239ba1`, release-source commit `9ee00987fec4ee3cb3d53e4017c82bd0191a4321`, immutable URL `https://623e2b79.laidies-sunnyvaile.pages.dev`; the immutable URL and `https://laidies.ai/` returned the exact tested artifact bytes on all seven critical files on 2026-07-26. |
+| Current branch candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | `homepage-redesign` and `origin/homepage-redesign` contain deployed source `9ee00987fec4ee3cb3d53e4017c82bd0191a4321`, comprising KSVL/Fun Pack correction `2491710724dc41cd4c14c9702fc815b1c17998fc`, FAiRY repair `8c4422315708f5b66726987eb6da82913af08706`, Screening Room timing/resume repair `bd4cfb23399072ec6797662e9804e7b0180a5efd`, and fail-closed Screening Room visual admission `9ee00987fec4ee3cb3d53e4017c82bd0191a4321`. |
+| Difference from production | `NONE FOR DEPLOYED CANDIDATE` | Production is attached to release-source commit `9ee0098`. Unrelated dirty studio, editorial, media and operations work remains local and is not part of the public artifact. |
 | Current working tree | `LOCAL / MIXED / NOT DEPLOYED` | Unrelated studio, editorial, media, design and operations work remains intentionally dirty and excluded from the bounded candidate commits. Use `git status` for the current count; do not infer deployment from the working tree. |
-| 2026-07-26 announcement candidate | `PUSHED / NOT DEPLOYED` | Fresh artifact `/tmp/laidies-release-20260726.Xi0nlS`: 1,085 files, 959.56 MiB, 0 missing, 0 oversized; inline JS 349/132, local links 1,939/110, town, product-steward, KSVL 29/29, FAiRY live rendered response, and Screening Room source/artifact browser matrices pass. The internal 750 MiB advisory remains a deployment-performance warning. |
+| 2026-07-26 announcement candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Clean-worktree artifact `/tmp/laidies-clean-artifact-20260726b.uK3zYP`: 1,085 files, 959.56 MiB, 0 missing, 0 oversized; inline JS 349/132, local links 1,915/110, KSVL 29/29, FAiRY page contract, and Screening Room source/artifact browser matrices pass. Exact critical-file hashes match the immutable deployment and custom domain. The internal 750 MiB advisory remains a performance warning, not a Cloudflare file-count or per-file limit failure. |
 | EOD release candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Release-source commit `0c6db9d2d45f865abfac7b1f5fe2ee7655827565`; curated artifact `/tmp/laidies-eod-final.NeFVs6`; 1,069 files; 1,005,029,435 bytes; identity SHA-256 `6276ae94c0c04074769be127f7b21f1f0f4032a4cfb066909cd4f0d14f02d7d5`. |
-| Trailer and Episodes 1–4 motion films | `HOLD` | Media steward verdict: Trailer HOLD; E01 HOLD; E02 HOLD; E03 HOLD; E04 HOLD. Public CTAs and Screening Room remain illustrated listen-alongs. |
+| Trailer and Episodes 1–4 motion films | `HOLD` | Media steward verdict: Trailer HOLD; E01 HOLD; E02 HOLD; E03 HOLD; E04 HOLD. The public Screening Room offers functioning narration and read-along captions with one approved static programme cover; narration-specific visual sequences and motion films are not released. |
 
 ## What this means
 
@@ -26,9 +26,8 @@ is recorded here.
   release-source commit `0c6db9d` is live and publicly verified; excluded local
   studio work is not deployed, and the Trailer/Episodes 1–4 motion films remain
   on `HOLD`.
-- The newer product-champion work is committed through candidate source
-  `bd4cfb2`, but it is not deployed or publicly verified. It must not be
-  described as live.
+- The newer product-champion work is committed, pushed, deployed and publicly
+  verified through release-source `9ee0098`.
 - The retired Fun Pack is removed from current navigation and orchestration;
   its legacy URL redirects to the individual activities. KSVL has 29 playable
   creator-confirmed originals. FAiRY's live v18 path returned a usable rendered
@@ -37,24 +36,24 @@ is recorded here.
   commit merely to make `git status` look clean.
 - The release artifact, not the entire studio tree, is the deployment unit.
 
-## EOD release record
+## Current production release record
 
 Fill every field before declaring the relaunch ready:
 
 | Field | Required evidence | Current value |
 |---|---|---|
 | Source branch | exact branch | `homepage-redesign` |
-| Source commit | full SHA | `0c6db9d2d45f865abfac7b1f5fe2ee7655827565` |
+| Source commit | full SHA | `9ee00987fec4ee3cb3d53e4017c82bd0191a4321` |
 | Working-tree disclosure | clean, or explicit dirty-state manifest | the release source is committed; unrelated studio work remains intentionally unstaged and is excluded from the artifact |
-| Curated artifact path | exact local path | `/tmp/laidies-eod-final.NeFVs6` |
-| Artifact file count and bytes | builder report | 1,069 files; 1,005,029,435 bytes |
-| Artifact manifest digest | SHA-256 of sorted per-file SHA-256 manifest | `6276ae94c0c04074769be127f7b21f1f0f4032a4cfb066909cd4f0d14f02d7d5` |
-| Automated checks | command + result | links, inline JS, town/rewards, cues, product claims, accessibility, metadata, KSVL, runtime dependencies and exact-artifact browser smoke PASS; trailer long-hold warnings remain for media review |
-| Media gate | RELEASE/HOLD per trailer/E01/E02/E03/E04 | Trailer HOLD · E01 HOLD · E02 HOLD · E03 HOLD · E04 HOLD; listen-along only |
-| Cloudflare deployment ID | exact deployment UUID | `7c8410e1-7a10-4bd7-8ccc-41d00af71bf7` |
-| Immutable deployment URL | `*.pages.dev` URL | `https://7c8410e1.laidies-sunnyvaile.pages.dev` |
-| Custom-domain verification | HTTP/content/journey evidence | `https://laidies.ai`: homepage SHA matches artifact; 12 critical HTTP routes/dependencies returned 200; nine critical browser routes showed no broken images, horizontal overflow, unnamed buttons or console errors |
-| Rollback target | prior deployment ID | `edac8d4f-e304-4cef-8deb-b1de9cc32855` |
+| Curated artifact path | exact local path | `/tmp/laidies-clean-artifact-20260726b.uK3zYP` |
+| Artifact file count and bytes | builder report | 1,085 files; 959.56 MiB |
+| Artifact manifest digest | SHA-256 of sorted per-file SHA-256 manifest | critical release files were verified individually against both public origins; full artifact manifest digest was not separately recorded |
+| Automated checks | command + result | clean-worktree links 1,915/110 PASS; inline JS 349/132 PASS; KSVL catalogue 29/29 PASS; FAiRY page contract PASS; Screening Room source and artifact contract/browser matrix PASS |
+| Media gate | RELEASE/HOLD per trailer/E01/E02/E03/E04 | Trailer HOLD · E01 HOLD · E02 HOLD · E03 HOLD · E04 HOLD; public cover-only narration plus captions |
+| Cloudflare deployment ID | exact deployment UUID | `623e2b79-7fec-47ac-8ec9-e3fe80239ba1` |
+| Immutable deployment URL | `*.pages.dev` URL | `https://623e2b79.laidies-sunnyvaile.pages.dev` |
+| Custom-domain verification | HTTP/content/journey evidence | `https://laidies.ai`: seven critical routes/dependencies returned 200; seven critical deployed files byte-matched the clean artifact and immutable deployment; rendered KSVL enabled and played `Welcome to SUNNYVAiLE`; rendered Episode 03 loaded its programme cover, narration and caption UI without a missing-visual failure; retired Fun Pack returned 301 to `/#activities` |
+| Rollback target | prior deployment ID | `7c8410e1-7a10-4bd7-8ccc-41d00af71bf7` |
 
 ## Going-forward release protocol
 
