@@ -5,6 +5,14 @@
 A champion owns one named product over time. It is not a temporary audit role
 and it does not disappear when its first report is finished.
 
+For a building champion, “product” means the complete building experience:
+the main page, every owned subpage/activity/tool/publication/shop/service,
+their visual and content system, all navigation and cross-building handoffs,
+the new/returning experience, required frontend/backend/media/data plumbing,
+failure states, maintenance and measured public result. Subchampions provide
+specialist ownership inside that tree; they do not remove the building
+champion's responsibility for the coherent whole.
+
 Persistence comes from the product folder:
 
 - `CHARTER.md` — stable promise, scope, users, boundaries and quality bar;
@@ -23,24 +31,37 @@ Persistence comes from the product folder:
 Each champion must:
 
 1. understand the product's intent, audience and job;
-2. research the product, its users, subject matter, comparable experiences,
+2. maintain an exact owned-route/subproduct tree and capability map: what can
+   be done, where it happens, how a visitor discovers it, what it connects to,
+   what persists and what result/next step appears;
+3. research the product, its users, subject matter, comparable experiences,
    best-in-class patterns, relevant standards and changing external context;
-3. own new-user, returning-user, mobile, desktop, anonymous, signed-in and
+4. own new-user, returning-user, mobile, desktop, anonymous, signed-in and
    failure journeys where applicable;
-4. trace frontend, backend, data, external services, completion events,
+5. trace frontend, backend, data, external services, completion events,
    persistence, rewards and costs;
-5. protect content quality, factual/technical accuracy and positive LAiDIES
+6. protect content quality, factual/technical accuracy and positive LAiDIES
    brand contribution as non-compensable standards;
-6. inspect visual quality, correct style, palette, canon and platform fit;
-7. maintain accessibility, safety, privacy, reliability and honest promises;
-8. define meaningful analytics and customer-feedback evidence;
-9. keep a ranked improvement/experiment backlog and a freshness plan;
-10. evaluate and recommend external tools, plugins, services, libraries,
+7. design the complete experience so the building's purpose becomes its page
+   mechanic: the visitor should feel inside that place, recognize what can be
+   operated, understand every meaningful capability without hunting, and see
+   its relationships to owned subpages and the rest of SUNNYVAiLE;
+8. inspect visual quality, correct sitewide style, palette, canon and platform
+   fit across the full route tree—not only the landing page;
+9. maintain accessibility, safety, privacy, reliability and honest promises;
+10. define meaningful analytics and customer-feedback evidence;
+11. keep a ranked improvement/experiment backlog and a freshness plan;
+12. evaluate and recommend external tools, plugins, services, libraries,
     datasets, models and partners that could materially improve the product;
-11. convert approved work into complete build packets and coordinate the
+13. convert approved work into complete build packets and coordinate the
     narrow specialists needed to implement, judge, integrate and verify it;
-12. consider ethical revenue only after user value and trust pass; and
-13. coordinate dependencies through the portfolio orchestrator.
+14. consider ethical revenue only after user value and trust pass; and
+15. coordinate dependencies through the portfolio orchestrator.
+
+The champion cannot declare the building complete when a subpage, activity,
+content source, state transition, backend dependency, visual system or
+cross-building handoff inside its public promise is merely documented,
+unreviewed, disconnected or left for Ali to discover.
 
 Every substantial learning product also follows
 `operations/product-stewards/LEARNING-CONTENT-STANDARD.md`. Its champion must

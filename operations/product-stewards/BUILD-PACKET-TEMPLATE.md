@@ -5,6 +5,7 @@
 ## Outcome
 
 - Product:
+- Complete route/subpage/subproduct scope:
 - User problem:
 - Intended user outcome:
 - Evidence and research:
@@ -28,6 +29,7 @@
 | Gate | Exact test/evidence | Independent owner | Result |
 |---|---|---|---|
 | Product/content quality |  |  |  |
+| Complete main-page/subpage capability and cross-building journey |  |  |  |
 | Accuracy, safety and trust |  |  |  |
 | Positive LAiDIES brand contribution |  |  |  |
 | UX and accessibility |  |  |  |

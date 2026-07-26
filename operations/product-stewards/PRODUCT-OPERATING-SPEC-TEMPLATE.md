@@ -21,6 +21,12 @@ where behaviour is unknown or unbuilt.
 ## Experience model
 
 - Diegetic building/activity metaphor:
+- Complete owned route/subpage/subproduct tree:
+- Capability map: everything the visitor can do and where:
+- On-page explanation/discovery: how every meaningful capability is made
+  understandable without requiring prior knowledge:
+- Cross-page/building map: source, destination, reason, state carried and
+  return path:
 - Ten-second comprehension: what is this, what do I do, why, what happened,
   what next?
 - New-user journey:
@@ -55,6 +61,9 @@ Use `LEARNING-CONTENT-STANDARD.md` whenever this section is substantive.
 
 ## Visual, voice and media
 
+- Building-as-experience mechanic: how the environment and pictured objects
+  become the interface rather than decoration:
+- Sitewide visual-system authority and any deliberate product-level variation:
 - Approved visual direction, palette, illustration system and references:
 - Character/location/canon rules:
 - Voice and copy rules:
@@ -89,7 +98,8 @@ Use `LEARNING-CONTENT-STANDARD.md` whenever this section is substantive.
 ## Dependencies and ownership
 
 - Parent champion:
-- Subchampions:
+- Subchampions and owned deliverables:
+- Building champion reconciliation responsibility:
 - Required specialist guilds:
 - Upstream dependencies:
 - Downstream consumers:
