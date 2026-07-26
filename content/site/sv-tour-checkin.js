@@ -25,7 +25,7 @@
   // it lives with the Closet's "Optional stops · tools & games" (anytime, no reset).
   var STOPS = [
     { key: 'newsstand',       num: 1, path: '/newsstand.html',        label: 'NewsStand',       teaser: 'Source-checked desks' },
-    { key: 'chick-flicks',    num: 2, path: '/chick-flicks.html',     label: 'Chick Flicks',    teaser: 'This week\'s episode' },
+    { key: 'chick-flicks',    num: 2, path: '/chick-flicks.html',     label: 'Chick Flicks',    teaser: 'Latest released episode' },
     { key: 'blend-snap',      num: 3, path: '/blend-snap.html',       label: 'Blend & Snap',    teaser: 'Coffee + notes' },
     { key: 'ksvl',            num: 4, path: '/radio.html',            label: 'KSVL 99.9',       teaser: 'The episode song' },
     { key: 'sunnyvaile-high', num: 5, path: '/sunnyvaile-high.html',  label: 'SUNNYVAiLE High', teaser: 'Pop quiz' },

@@ -91,7 +91,12 @@
   .reveal .brk b{color:var(--rose)}
   .reveal .lesson{margin:14px 0 0;font-size:.9rem;color:var(--plum);font-weight:600}
   .reveal .src{margin:10px 0 0;font-size:.72rem;color:var(--muted)} .reveal .src a{color:var(--rose);font-weight:600}
+  .transfer{margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+  .transfer fieldset{border:0;margin:0 0 13px}.transfer legend{font-weight:700;font-size:.86rem;margin-bottom:6px}
+  .transfer label{display:block;font-size:.84rem;margin:5px 0}.transfer textarea{width:100%;min-height:72px;border:1px solid var(--card-edge);border-radius:10px;padding:9px;font:inherit;color:var(--plum);background:var(--pearl)}
+  .transfer .hint{font-size:.72rem;color:var(--muted);margin-top:5px}
   .next{margin:16px 0 0;width:100%;padding:15px;border-radius:13px;border:0;cursor:pointer;font-family:'Jost';font-weight:700;font-size:.98rem;background:linear-gradient(180deg,#a8546f,var(--rose));color:#fff}
+  .next:disabled{opacity:.45;cursor:not-allowed}
 
   .final{display:none} .final.show{display:block;animation:rise .4s ease}
   .final .card{padding:30px 26px;text-align:center;border-radius:22px}
@@ -102,6 +107,10 @@
 
   .foot{margin:26px 2px 0;font-size:.74rem;color:var(--muted);line-height:1.6;border-top:1px solid var(--line);padding-top:14px} .foot b{color:var(--rose)}
   .beta{display:inline-block;font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--gold);padding:2px 8px;border-radius:20px;vertical-align:middle;margin-left:8px}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
 </style>
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
@@ -132,7 +141,7 @@
 
     <div class="card claim-card">
       <span class="claim-tag"><span class="av">Ai</span> The AI swears —</span>
-      <p class="claim-txt" id="claimTxt"></p>
+      <p class="claim-txt" id="claimTxt" tabindex="-1"></p>
     </div>
 
     <div id="game">
@@ -143,31 +152,33 @@
         <button class="btn btn-real" data-v="for-real">✓ For Real<small>closest read in this deck</small></button>
         <button class="btn btn-asif" data-v="as-if">✗ As If<small>closest read in this deck</small></button>
       </div>
-      <div class="reveal" id="reveal"></div>
+      <div class="reveal" id="reveal" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></div>
     </div>
 
     <div class="final" id="final"></div>
 
-    <p class="foot"><b>Experimental deck:</b> claims and lines are scripted for practice, and source links are starting points for your own checking. Agreement alone is not proof; look for primary sources, dates, scope, and denominators before repeating a claim. <b>Beta</b> — tell us what needs correction.</p>
+    <p class="foot" id="deckStatus" aria-live="polite"><b>Experimental deck:</b> claims and lines are scripted for practice, and source links are starting points for your own checking. Agreement alone is not proof; look for primary sources, dates, scope, and denominators before repeating a claim. <b>Beta deck 2026-07-25-r2</b> · evidence checked 2026-07-25 · no published corrections recorded.</p>
   </div>
 
 <script>
 const ALL_ROUNDS = [
   { id:"sky-dancers", verdict:"as-if",
-    claim:`Sky Dancers — those fairy dolls you'd snap onto a launcher and send spinning with a pull-string — injured <span class="assert">thousands of kids</span> and even got <span class="assert">their own primetime TV exposé</span> before they were pulled off shelves.`,
+    evidence:{sourceUrls:[`https://www.cpsc.gov/Recalls/2000/cpsc-galoob-toys-inc-announce-recall-of-sky-dancers-flying-dolls`],claims:[
+      {id:"sky-dancers-reported-injuries",text:"The CPSC recall record reports 150 injuries, not thousands."},
+      {id:"sky-dancers-recall-units",text:"The recall covered about 8.9 million Sky Dancers."}]},
+    claim:`Sky Dancers — those fairy dolls you'd snap onto a launcher and send spinning with a pull-string — caused <span class="assert">thousands of reported injuries</span> before a recall covered <span class="assert">about 8.9 million dolls</span>.`,
     contacts:[
-      {av:"📚",nm:"Miss Jeeves",tl:"the librarian",leads:["I've got the recall write-up — about 150 reported injuries.","We don't keep TV transcripts, dear. Can't help you on the telly bit."]},
+      {av:"📚",nm:"Miss Jeeves",tl:"the librarian",leads:["The CPSC recall says 170 strike reports and 150 reported injuries.","It also says about 8.9 million dolls were covered by the recall."]},
       {av:"🧸",nm:"Toy-Shop Keeper",tl:"the mall toy counter",leads:["Sky Dancers?? Those flew off the shelves — we reordered every single week. Must've sold millions."]},
       {av:"☕",nm:"The Barista",tl:"overhears everything",leads:["My cousin's kid caught one in the eye — real ER trip.","The TV thing? Pretty sure that was… Dateline?"]},
       {av:"📧",nm:"Deb",tl:"forwards the chain email",leads:["Chain email: “THOUSANDS BLINDED — it was on 20/20!!”","Kathy on ICQ swears it was 60 Minutes."]},
-      {av:"🗣️",nm:"Office Gossip",tl:"workplace rumor",leads:["Everyone I know got hurt — it was thousands.","No no, I saw the exposé on Oprah."]},
-      {av:"📻",nm:"DJ SunnyV",tl:"caller buzz",leads:["A caller swore she caught it on some news show — couldn't say which."]},
-      {av:"🔮",nm:"Mme CLAi-O",tl:"the cards",leads:["The cards sense… studio lights… cameras… $40, please."]}],
+      {av:"🗣️",nm:"Office Gossip",tl:"workplace rumor",leads:["Everyone I know got hurt — it had to be thousands.","I don't have a record, but that number sounds right."]},
+      {av:"📻",nm:"DJ SunnyV",tl:"caller buzz",leads:["A caller swore it was thousands. She couldn't say where the count came from."]}],
     reveal:{rows:[
-      {tag:"inflated",label:"“thousands of kids”",text:`Real injuries — but <b>~150</b>, out of about <b>9 million</b> sold. Nobody gives you that denominator until you ask the toy-shop.`},
-      {tag:"madeup",label:"“primetime TV exposé”",text:`Four people “saw” it — 20/20, Dateline, 60 Minutes, Oprah. Nobody who <em>watched</em> a thing fumbles the channel. <b>It never aired.</b>`}],
-      lesson:`One juiced, one invented. The recall was real; the drama wasn't. As if. 💅`,
-      src:`CPSC recall notice`, url:`https://www.cpsc.gov/Recalls/2000/cpsc-galoob-toys-inc-announce-recall-of-sky-dancers-flying-dolls`}},
+      {claimId:"sky-dancers-reported-injuries",tag:"inflated",label:"“thousands of reported injuries”",text:`The official recall records <b>150 reported injuries</b>, not thousands.`,sourceLabel:"U.S. CPSC recall record",sourceUrl:`https://www.cpsc.gov/Recalls/2000/cpsc-galoob-toys-inc-announce-recall-of-sky-dancers-flying-dolls`,limit:"The record reports complaints and injuries received by CPSC and Galoob; it does not measure every incident that may have occurred."},
+      {claimId:"sky-dancers-recall-units",tag:"true",label:"“about 8.9 million dolls”",text:`That is the recall's unit count — the denominator for the 170 strike reports and 150 reported injuries.`,sourceLabel:"U.S. CPSC recall record",sourceUrl:`https://www.cpsc.gov/Recalls/2000/cpsc-galoob-toys-inc-announce-recall-of-sky-dancers-flying-dolls`,limit:"Units involved in a recall are not the same thing as units that caused an injury."}],
+      lesson:`As If. The hazard and recall were real; the injury count was inflated. Ask what the number counts and for the denominator.`,
+      src:`U.S. CPSC recall record`, url:`https://www.cpsc.gov/Recalls/2000/cpsc-galoob-toys-inc-announce-recall-of-sky-dancers-flying-dolls`}},
 
   { id:"furby-nsa", verdict:"for-real",
     claim:`The NSA actually <span class="assert">banned Furbies from its headquarters</span> — staff were <span class="assert">scared the toys were recording classified conversations</span> and would repeat them.`,
@@ -262,16 +273,16 @@ const ALL_ROUNDS = [
       src:`Mental Floss — history of AOL CDs`, url:`https://www.mentalfloss.com/article/87291/youve-got-mail-history-aols-free-trial-cds`}},
 
   { id:"mortal-kombat", verdict:"for-real",
-    claim:`A video game got so much heat that <span class="assert">the US Senate held hearings on it in 1993</span> — and <span class="assert">that's literally why the video-game rating system exists</span>.`,
+    claim:`After controversy around games including Mortal Kombat and Night Trap, <span class="assert">Sega and Nintendo appeared at congressional hearings in December 1993</span> — and <span class="assert">the industry cooperation that followed produced the ESRB in 1994</span>.`,
     contacts:[
-      {av:"📚",nm:"Miss Jeeves",tl:"the librarian",leads:["The Senate hearing record — December 1993, over Mortal Kombat and Night Trap, Senators Lieberman and Kohl.","And the ESRB was founded in '94, directly in response."]},
-      {av:"☕",nm:"The Barista",tl:"overhears everything",leads:["My brother said his games got 'M' ratings right after some Senate thing. Checks out."]},
-      {av:"🗣️",nm:"Office Gossip",tl:"workplace rumor",leads:["Sounds dramatic, but every source tells it the same way."]}],
+      {av:"📚",nm:"Miss Jeeves",tl:"the librarian",leads:["ESRB's history dates the first congressional hearing to December 1993 and documents Mortal Kombat and Night Trap in the lead-up.","It says a trade association formed four months after the first hearing; ESRB was officially formed five months after that."]},
+      {av:"☕",nm:"The Barista",tl:"overhears everything",leads:["My brother remembers ratings showing up soon after the hearings — but memory isn't the record."]},
+      {av:"🗣️",nm:"Office Gossip",tl:"workplace rumor",leads:["People call it 'the Mortal Kombat hearing,' but one game alone isn't the whole history."]}],
     reveal:{rows:[
-      {tag:"true",label:"“Senate hearings in 1993”",text:`Real — over Mortal Kombat's blood and the game Night Trap.`},
-      {tag:"true",label:"“why the rating system exists”",text:`Real — the industry created the ESRB in 1994 to dodge regulation.`}],
-      lesson:`For Real. That “M for Mature” on every game traces straight back to a fatality.`,
-      src:`Wikipedia — 1993–94 Senate hearings on video games`, url:`https://en.wikipedia.org/wiki/1993%E2%80%9394_United_States_Senate_hearings_on_video_games`}},
+      {tag:"true",label:"“December 1993 hearings”",text:`ESRB's official history records Sega and Nintendo at the first congressional hearing and documents Mortal Kombat and Night Trap in the lead-up.`},
+      {tag:"true",label:"“ESRB in 1994”",text:`ESRB says the industry formed a trade association four months after the first hearing and officially formed ESRB five months after that.`}],
+      lesson:`For Real — with a qualification. The hearings and 1994 founding are documented, but the two elapsed-time intervals must not be collapsed; saying one game alone “caused” the whole system would also flatten the history.`,
+      src:`ESRB oral history`, url:`https://www.esrb.org/about/part-8-twenty-five-years-later/`}},
 
   { id:"tickle-me-elmo", verdict:"as-if",
     claim:`The Tickle Me Elmo craze got so insane people were <span class="assert">routinely dropping twenty grand</span> on a <span class="assert">twenty-nine-dollar toy</span>.`,
@@ -326,16 +337,36 @@ const ALL_ROUNDS = [
 
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 const SHIFT_LEN = 8;
-let ROUNDS = shuffle(ALL_ROUNDS.slice()).slice(0, SHIFT_LEN);
+let ROUNDS = [];
 let round=0, score=0, results=[], ringing=false;
 const $=id=>document.getElementById(id);
+const ISO_DATE=/^(\d{4})-(\d{2})-(\d{2})$/;
+function dateValue(value){
+  const match=typeof value==="string"?ISO_DATE.exec(value):null;
+  if(!match)return null;
+  const year=Number(match[1]),month=Number(match[2]),day=Number(match[3]);
+  const leap=year%4===0&&(year%100!==0||year%400===0);
+  const days=[31,leap?29:28,31,30,31,30,31,31,30,31,30,31];
+  return year>=1&&month>=1&&month<=12&&day>=1&&day<=days[month-1]?value:null;
+}
+function checkedDate(value,current){const valid=dateValue(value);return valid&&valid<=current?valid:null;}
+function optionalCheckedDate(record,key,current){return !Object.hasOwn(record,key)||Boolean(checkedDate(record[key],current));}
+function today(){return window.__DREAM_PHONE_TODAY||new Date().toISOString().slice(0,10);}
+function exactClaims(runtime,ledger){
+  if(!runtime.evidence||!Array.isArray(runtime.evidence.claims)||!Array.isArray(runtime.evidence.sourceUrls))return false;
+  if(runtime.evidence.claims.length!==ledger.claims.length)return false;
+  return runtime.evidence.claims.every((claim,index)=>claim.id===ledger.claims[index].id&&claim.text===ledger.claims[index].text)&&
+    runtime.evidence.sourceUrls.length===1&&runtime.evidence.sourceUrls[0]===ledger.source.url&&
+    runtime.reveal.url===ledger.source.url&&runtime.reveal.rows.length===ledger.claims.length&&
+    runtime.reveal.rows.every((row,index)=>row.claimId===ledger.claims[index].id&&row.sourceUrl===ledger.source.url&&row.limit);
+}
 
 function drawScore(){
   $("roundLabel").textContent=`Call ${Math.min(round+1,ROUNDS.length)} of ${ROUNDS.length}`;
   let d="";for(let i=0;i<ROUNDS.length;i++){const c=i<results.length?(results[i]?"ok":"no"):"";d+=`<span class="dot ${c}"></span>`;}
   $("scoreDots").innerHTML=d;
 }
-function loadRound(){
+function loadRound(moveFocus=false){
   ringing=false;
   const r=ROUNDS[round];
   $("claimTxt").innerHTML=r.claim;
@@ -350,6 +381,55 @@ function loadRound(){
   $("reveal").className="reveal";$("reveal").innerHTML="";
   document.querySelectorAll(".btn-real,.btn-asif").forEach(b=>b.disabled=false);
   drawScore();
+  if(moveFocus)$("claimTxt").focus();
+}
+function unavailable(reason){
+  ROUNDS=[];
+  $("roundLabel").textContent="Deck unavailable";
+  $("scoreDots").innerHTML="";
+  $("claimTxt").textContent="This beta deck could not verify its evidence record, so no claim has been loaded.";
+  $("directory").innerHTML="";
+  $("notes").innerHTML=`<p class="notes-empty" role="alert">${reason} Nothing was scored. You can return to Dream Phone and try Just Call instead.</p>`;
+  document.querySelectorAll(".btn-real,.btn-asif").forEach(b=>b.disabled=true);
+}
+async function boot(){
+  document.querySelectorAll(".btn-real,.btn-asif").forEach(b=>b.disabled=true);
+  try{
+    const response=await fetch("./data/dream-phone-claim-ledger.json",{cache:"no-store"});
+    if(!response.ok)throw new Error("Evidence record unavailable.");
+    const ledger=await response.json();
+    if(!ledger||ledger.schemaVersion!==1||!Array.isArray(ledger.rounds))throw new Error("Evidence record malformed.");
+    const current=today();
+    if(!dateValue(current))throw new Error("Evidence clock is invalid.");
+    if(!checkedDate(ledger.checkedAt,current)||!ledger.policy||!dateValue(ledger.policy.nextReviewBy)||ledger.policy.nextReviewBy<current)throw new Error("Evidence record is stale.");
+    if(ledger.correctionStatus!=="NO_PUBLISHED_CORRECTIONS")throw new Error("Evidence record requires correction review.");
+    if(!ledger.rounds.every(item=>item&&optionalCheckedDate(item,"checkedAt",current)&&optionalCheckedDate(item,"correctionDate",current)&&
+      (!item.source||(optionalCheckedDate(item.source,"checkedAt",current)&&optionalCheckedDate(item.source,"correctionDate",current)))&&
+      (!Array.isArray(item.claims)||item.claims.every(claim=>claim&&optionalCheckedDate(claim,"checkedAt",current)&&optionalCheckedDate(claim,"correctionDate",current))))){
+      throw new Error("Evidence correction date is invalid.");
+    }
+    const allIds=ledger.rounds.map(item=>item&&item.id);
+    if(allIds.some(id=>typeof id!=="string")||new Set(allIds).size!==allIds.length)throw new Error("Evidence record has duplicate or invalid round IDs.");
+    const byId=new Map(ALL_ROUNDS.map(item=>[item.id,item]));
+    const admitted=ledger.rounds.filter(item=>item.status==="ADMITTED");
+    for(const item of admitted){
+      if(!dateValue(item.reviewBy)||item.reviewBy<current||!item.source||item.source.primaryOrOfficial!==true||
+        !checkedDate(item.source.checkedAt,current)||typeof item.source.url!=="string"||!item.source.url.startsWith("https://")||
+        !Array.isArray(item.claims)||!item.claims.length||new Set(item.claims.map(claim=>claim&&claim.id)).size!==item.claims.length||
+        !item.claims.every(claim=>claim&&claim.status==="ADMITTED"&&claim.correctionStatus==="NO_PUBLISHED_CORRECTION"&&typeof claim.text==="string")){
+        throw new Error("An admitted evidence record is stale or incomplete.");
+      }
+      const runtime=byId.get(item.id);
+      if(!runtime||!exactClaims(runtime,item))throw new Error("Evidence and runtime deck do not match.");
+    }
+    ROUNDS=shuffle(admitted.map(item=>byId.get(item.id))).slice(0,SHIFT_LEN);
+    if(!ROUNDS.length||ROUNDS.length!==admitted.length)throw new Error("Evidence and runtime deck do not match.");
+    window.DREAM_PHONE_ROUNDS=ROUNDS.map(item=>item.id);
+    $("deckStatus").innerHTML=`<b>Experimental deck:</b> claims and lines are scripted for practice, and source links are starting points for your own checking. Agreement alone is not proof; look for primary sources, dates, scope, and denominators before repeating a claim. <b>Beta deck ${ledger.deckVersion}</b> · evidence checked ${ledger.checkedAt} · ${ledger.correctionStatus==="NO_PUBLISHED_CORRECTIONS"?"no published corrections recorded":"correction review required"}.`;
+    loadRound(false);
+  }catch(error){
+    unavailable(error&&error.message?error.message:"Evidence record unavailable.");
+  }
 }
 function placeCall(c,btn){
   if(ringing||btn.classList.contains("called"))return;ringing=true;
@@ -370,23 +450,37 @@ document.querySelectorAll(".btn-real,.btn-asif").forEach(b=>{
     const right=pick===r.verdict; if(right)score++; results.push(right);
     const rev=$("reveal"); rev.className="reveal show "+(right?"win":"lose");
     const head = right ? (r.verdict==="for-real"?"For Real. ✓":"As If. ✓") : (r.verdict==="for-real"?"Actually — For Real.":"Actually — As If.");
-    const rows=r.reveal.rows.map(row=>`<div class="row"><span class="tag t-${row.tag}">${row.tag==="madeup"?"made up":row.tag}</span><span><b>${row.label}</b> — ${row.text}</span></div>`).join("");
+    const rows=r.reveal.rows.map(row=>`<div class="row"><span class="tag t-${row.tag}">${row.tag==="madeup"?"made up":row.tag}</span><span><b>${row.label}</b> — ${row.text}<br><small><b>Source:</b> <a href="${row.sourceUrl}" target="_blank" rel="noopener">${row.sourceLabel}</a><br><b>Limit:</b> ${row.limit}</small></span></div>`).join("");
+    const clauseChoices=r.reveal.rows.map((row,index)=>`<label><input type="radio" name="clause" value="${row.claimId}"> ${index+1}. ${row.label}</label>`).join("");
     rev.innerHTML=`<p class="rv">${head}<small>${right?"nice read":"the crew was trying to fool you"}</small></p>`+
       `<div class="brk">${rows}</div><p class="lesson">${r.reveal.lesson}</p>`+
-      `<p class="src">🧾 Background link (check it yourself): <a href="${r.reveal.url}" target="_blank" rel="noopener">${r.reveal.src}</a></p>`+
-      `<button class="next" id="next">${round<ROUNDS.length-1?"Next call →":"See how you did"}</button>`;
+      `<div class="transfer" id="transfer"><fieldset><legend>Which clause most needed checking?</legend>${clauseChoices}</fieldset>`+
+      `<fieldset><legend>What evidence should carry the most weight?</legend>`+
+      `<label><input type="radio" name="decisive" value="official"> The dated official record</label>`+
+      `<label><input type="radio" name="decisive" value="agreement"> Several callers agreeing</label>`+
+      `<label><input type="radio" name="decisive" value="vivid"> The most vivid story</label></fieldset>`+
+      `<label for="changeEvidence"><b>What new evidence would change your read?</b></label>`+
+      `<textarea id="changeEvidence" maxlength="280"></textarea><p class="hint">This reflection is not saved or scored. Complete it to continue.</p></div>`+
+      `<button class="next" id="next" disabled>${round<ROUNDS.length-1?"Next call →":"See how you did"}</button>`;
     drawScore();
-    $("next").addEventListener("click",()=>{round++;round<ROUNDS.length?(loadRound(),$("game").scrollIntoView({behavior:"smooth",block:"start"})):showFinal();});
+    const enableNext=()=>{
+      $("next").disabled=!(rev.querySelector('input[name="clause"]:checked')&&rev.querySelector('input[name="decisive"]:checked')&&$("changeEvidence").value.trim().length>=5);
+    };
+    rev.querySelectorAll("input").forEach(input=>input.addEventListener("change",enableNext));
+    $("changeEvidence").addEventListener("input",enableNext);
+    $("next").addEventListener("click",()=>{round++;round<ROUNDS.length?(loadRound(true),$("game").scrollIntoView({behavior:"smooth",block:"start"})):showFinal();});
+    rev.focus();
   });
 });
 function showFinal(){
   $("game").style.display="none";document.querySelector(".claim-card").style.display="none";document.querySelector(".scorebar").style.display="none";
   const f=$("final");f.className="final show";
-  const line = score===ROUNDS.length ? "Perfect read. You caught the juiced numbers, the scattered fakes, and didn't flinch at the wild-but-true ones. That's the whole skill." : `You called ${score} of ${ROUNDS.length}. The crew always sounds sure of themselves — you don't beat that by counting who agrees, but by finding the missing number and spotting when the story can't keep its story straight.`;
-  f.innerHTML=`<div class="card"><div class="grade">${score}/${ROUNDS.length}</div><div class="gl">called correctly</div><p>${line}</p><button class="again" onclick="location.reload()">New shift ↺</button></div>`;
+  const line = score===ROUNDS.length ? "You matched every authored call in this small beta deck. This is not mastery; keep checking each clause, source, date, scope and denominator on unfamiliar claims." : `You matched ${score} of ${ROUNDS.length} authored calls in this small beta deck. This is not mastery. The transferable move is to identify the precise clause, find the strongest evidence, notice its limits and say what would change your read.`;
+  f.innerHTML=`<div class="card" tabindex="-1" id="finalCard"><div class="grade">${score}/${ROUNDS.length}</div><div class="gl">deck calls matched · not mastery</div><p>${line}</p><button class="again" onclick="location.reload()">New shift ↺</button></div>`;
   f.scrollIntoView({behavior:"smooth",block:"center"});
+  $("finalCard").focus();
 }
-loadRound();
+boot();
 </script>
 </body>
 </html>

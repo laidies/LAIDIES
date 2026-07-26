@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Blend & Snap · LAiDIES · SUNNYVAiLE</title>
-  <meta name="description" content="The Blend & Snap at MAiN Street No. 4 — coffee shop, third place, and the counter where you order this week's Study Pack.">
+  <meta name="description" content="The Blend & Snap at MAiN Street No. 4 — order the weekly pack menu and see exactly which review, practice, reference, card, and quiz pieces are ready.">
   <meta property="og:title" content="The Blend & Snap · LAiDIES">
-  <meta property="og:description" content="Order your usual, pick up this week's Study Pack, and follow the Wednesday corkboard around town.">
+  <meta property="og:description" content="Order your usual, check exactly what is ready in an episode's Study Pack menu, and follow the corkboard around town.">
   <meta property="og:image" content="/assets/building-interiors/delivery-20260723-blend-snap-comic-v1/blend-snap-jojo-counter-comic-candidate-v1.png">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/sunnyvaile-building-v2.css?v=20260723-1">
@@ -240,6 +240,46 @@
       font-weight: 800;
       text-underline-offset: 4px;
     }
+    .bs-component-status {
+      display: inline-block;
+      margin-top: 7px;
+      padding: 3px 8px;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      color: var(--bs-purple);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .bs-component-status[data-status="held"],
+    .bs-component-status[data-status="unavailable"] { color: #934027; }
+    .bs-component-status[data-status="planned"] { color: #586073; }
+    .bs-menu-unavailable {
+      max-width: 320px;
+      color: rgba(17,24,59,.66);
+      font-size: 13px;
+      font-weight: 700;
+      text-align: right;
+    }
+    .bs-pack-fallback[hidden],
+    .bs-pack-retry[hidden] { display: none; }
+    .bs-pack-fallback,
+    .bs-pack-retry {
+      display: inline-block;
+      margin-top: 10px;
+      font-weight: 800;
+      text-underline-offset: 4px;
+    }
+    .bs-pack-retry {
+      margin-left: 10px;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+      text-decoration: underline;
+    }
 
     .bs-receipt {
       display: none;
@@ -269,6 +309,22 @@
     .bs-receipt p { margin: 14px 0 0; color: rgba(17,24,59,.7); }
     .bs-receipt__actions { display: grid; gap: 11px; }
     .bs-receipt__actions .svb-action { width: 100%; }
+    .bs-receipt__components {
+      display: grid;
+      gap: 8px;
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .bs-receipt__components li {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      padding-top: 8px;
+      border-top: 1px solid var(--bs-line);
+    }
+    .bs-receipt__components a { font-weight: 800; text-underline-offset: 3px; }
 
     .bs-regulars {
       margin-top: 24px;
@@ -290,9 +346,18 @@
       grid-template-columns: 88px minmax(0, 1fr) auto;
       gap: 16px;
       align-items: center;
+      width: 100%;
       padding: 14px 0;
       border-top: 1px solid var(--bs-line);
+      border-right: 0;
+      border-bottom: 0;
+      border-left: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      text-align: left;
       text-decoration: none;
+      cursor: pointer;
     }
     .bs-regular__number {
       color: var(--bs-pink);
@@ -359,6 +424,33 @@
     .bs-notice:nth-of-type(6) { left: 29%; top: 53.5%; }
     .bs-notice:nth-of-type(7) { left: 51.4%; top: 53.5%; }
     .bs-notice:nth-of-type(8) { left: 73.8%; top: 53.5%; }
+    .bs-notice--study-pack {
+      z-index: 2;
+      display: grid;
+      place-content: center;
+      box-sizing: border-box;
+      padding: clamp(8px, 1.5vw, 18px);
+      background: #fff8c8;
+      color: var(--bs-midnight);
+      text-align: center;
+      text-decoration: none;
+      transform: rotate(-1.5deg);
+      box-shadow: 0 3px 0 rgba(17,24,59,.18);
+    }
+    .bs-notice--study-pack strong {
+      display: block;
+      font-family: Anton, Impact, sans-serif;
+      font-size: clamp(12px, 1.9vw, 26px);
+      line-height: 1;
+      letter-spacing: .02em;
+    }
+    .bs-notice--study-pack span {
+      display: block;
+      margin-top: .45em;
+      font-size: clamp(8px, 1.05vw, 14px);
+      font-weight: 800;
+      line-height: 1.15;
+    }
     .bs-quiet {
       margin-top: 32px;
       padding: 22px 0;
@@ -411,6 +503,8 @@
         margin: 26px 0 0;
       }
       .bs-menu-line { grid-template-columns: 1fr; gap: 8px; }
+      .bs-menu-unavailable { max-width: none; text-align: left; }
+      .bs-receipt__components li { grid-template-columns: 1fr; }
       .bs-receipt { box-shadow: 7px 7px 0 var(--bs-cyan); }
       .bs-regular { grid-template-columns: 68px minmax(0, 1fr); }
       .bs-regular__go { grid-column: 2; }
@@ -444,7 +538,7 @@
     <section class="bs-hero" aria-label="JoJo at the Blend & Snap counter">
       <img src="/assets/building-interiors/delivery-20260723-blend-snap-comic-v1/blend-snap-jojo-counter-comic-candidate-v1.png" alt="JoJo slides a heart latte across the Blend & Snap counter in bright SUNNYVAiLE">
       <button class="bs-special-on-board" id="bsOrderHero" type="button">
-        <strong id="bsHeroSpecial">This week's Study Pack</strong>
+        <strong id="bsHeroSpecial">Episode pack menu</strong>
         <span>Order at the counter</span>
       </button>
     </section>
@@ -454,10 +548,10 @@
         <p class="bs-address">The Blend & Snap · No. 4 MAiN · Keeper: JoJo</p>
         <h1 id="bs-title">The usual?</h1>
         <p class="bs-state__copy" id="bsStateCopy">
-          First time in? Choose your coffee, then order this week's Study Pack. It is all on the house.
+          First time in? Choose your coffee, then order the pack menu to see exactly what is ready. It is all on the house.
         </p>
         <div class="bs-state__actions">
-          <button class="svb-action" id="bsOrderState" type="button">Order this week's pack</button>
+          <button class="svb-action" id="bsOrderState" type="button" disabled>Loading the episode menu</button>
           <button class="bs-theme" type="button" data-src="/content/music/the-laidies-down-at-the-blend-and-snap.mp3">Play “Down at the Blend & Snap”</button>
         </div>
       </div>
@@ -489,51 +583,41 @@
           <h2 id="bs-counter-title">Order at the counter.</h2>
         </div>
         <p>
-          The Special is the current Study Pack. The sides are the tools that go
-          with it. Nothing here pretends to be a checkout.
+          The Special is the current episode&rsquo;s pack menu. Every piece keeps
+          its own status, so planned or held work never masquerades as ready.
         </p>
       </div>
 
-      <button class="svb-action bs-mobile-order" id="bsOrderMobile" type="button">Order the Special</button>
+      <button class="svb-action bs-mobile-order" id="bsOrderMobile" type="button" disabled>Loading the Special</button>
 
       <div class="bs-menu-ledger">
         <div class="bs-menu-line">
           <div>
-            <h3 id="bsSpecialName">This week's Study Pack</h3>
-            <p id="bsSpecialDesc">Class notes, key concepts, and the cheat sheet for the next Pop Quiz.</p>
+            <h3 id="bsSpecialName">Episode Study Pack menu</h3>
+            <p id="bsSpecialDesc" role="status" aria-live="polite" aria-atomic="true" aria-busy="true" tabindex="-1">JoJo is checking which pieces are actually ready.</p>
+            <a class="bs-pack-fallback" id="bsPackFallback" href="/chick-flicks.html" hidden>Browse released Episodes →</a>
+            <button class="bs-pack-retry" id="bsPackRetry" type="button" hidden>Try loading the menu again</button>
           </div>
-          <button class="svb-action" id="bsOrderMenu" type="button">Order the Special</button>
+          <button class="svb-action" id="bsOrderMenu" type="button" disabled>Loading the Special</button>
         </div>
-        <div class="bs-menu-line">
-          <div>
-            <h3>Concept Card Pack</h3>
-            <p>Rip it, flip each card, learn one concept, and keep the references.</p>
-          </div>
-          <a class="bs-menu-link" href="/games/trading-cards.html">Open the pack →</a>
-        </div>
-        <div class="bs-menu-line">
-          <div>
-            <h3>The Pop Quiz</h3>
-            <p>Taken next door at SUNNYVAiLE High. This is where you study for it.</p>
-          </div>
-          <a class="bs-menu-link" href="/learn/quiz.html">Walk to the quiz →</a>
-        </div>
+        <div id="bsComponents" aria-live="polite"></div>
       </div>
 
       <article class="bs-receipt" id="bsReceipt" aria-live="polite">
         <div>
           <p class="bs-receipt__stamp">Order up · Study Pack</p>
-          <h3 id="bsReceiptTitle">This week's pack</h3>
-          <p id="bsReceiptCopy">JoJo has put the notes beside your coffee.</p>
+          <h3 id="bsReceiptTitle">Episode pack menu</h3>
+          <p id="bsReceiptCopy">JoJo is checking the menu.</p>
+          <ul class="bs-receipt__components" id="bsReceiptComponents"></ul>
         </div>
         <div class="bs-receipt__actions">
-          <a class="svb-action" id="bsTakePack" href="/issues/issue-01.html">Take it to a table</a>
+          <a class="svb-action" id="bsTakeEpisode" href="/chick-flicks.html">Read the Episode</a>
           <button class="svb-action svb-action--paper" id="bsCloseReceipt" type="button">Leave it at the counter</button>
         </div>
       </article>
 
       <details class="bs-regulars">
-        <summary>The Regulars · every past Study Pack</summary>
+        <summary>The Regulars · past episode pack menus</summary>
         <div class="bs-regulars__list" id="bsRegulars">
           <p>The back menu is being restocked.</p>
         </div>
@@ -553,8 +637,11 @@
       </div>
 
       <div class="bs-board-wrap">
-        <img src="/assets/building-interiors/delivery-20260723-blend-snap-comic-v1/blend-snap-corkboard-comic-candidate-v1.png" alt="Blend & Snap community corkboard with eight notices for the Wednesday route">
-        <a class="bs-notice" href="#the-study-pack" aria-label="Study Pack pickup — new every Wednesday"></a>
+        <img src="/assets/building-interiors/delivery-20260723-blend-snap-comic-v1/blend-snap-corkboard-comic-candidate-v1.png" alt="Blend & Snap community corkboard with eight notices; the Study Pack notice has a current availability label">
+        <a class="bs-notice bs-notice--study-pack" href="#the-study-pack" aria-label="Open the Study Pack menu and check current availability">
+          <strong>Study Pack menu</strong>
+          <span>Availability checked before every order</span>
+        </a>
         <a class="bs-notice" href="/sunnyvaile-high.html" aria-label="Pop Quiz help at SUNNYVAiLE High"></a>
         <a class="bs-notice" href="/chick-flicks.html" aria-label="Chick Flicks episode rewind club"></a>
         <a class="bs-notice" href="/bronze-aige.html" aria-label="BRONZE AiGE post-quiz debrief"></a>
@@ -566,9 +653,9 @@
 
       <p class="bs-quiet">
         <strong>Just here for the coffee?</strong> That is allowed too. Third places
-        do not ask you to be productive. Your weekly trading cards will eventually
-        drop into the Study Pack shelf in your Closet; the full member picker is
-        not open yet.
+        do not ask you to be productive. Any Try-On note or pack-menu memory offered
+        here stays on this device. Cards are labelled held or unavailable until
+        their collection authority is genuinely ready.
       </p>
     </section>
   </main>
@@ -580,56 +667,172 @@
       "use strict";
 
       var currentEpisode = null;
+      var currentPack = null;
       var currentKey = "";
       var receipt = document.getElementById("bsReceipt");
       var orderButtons = ["bsOrderHero", "bsOrderState", "bsOrderMobile", "bsOrderMenu"];
       var activeThemeButton = null;
       var activeAudio = null;
+      var packsByEpisode = {};
+      var dataState = "loading";
+      var sessionUsual = "";
+      var lastOrderTrigger = null;
+
+      function canUseStorage() {
+        try {
+          var probe = "laidies_bs_storage_probe";
+          localStorage.setItem(probe, "1");
+          localStorage.removeItem(probe);
+          return true;
+        } catch (error) {
+          return false;
+        }
+      }
+
+      var storageWritable = canUseStorage();
 
       function getLocal(key) {
         try { return localStorage.getItem(key) || ""; } catch (error) { return ""; }
       }
 
       function setLocal(key, value) {
-        try { localStorage.setItem(key, value); } catch (error) {}
+        try {
+          localStorage.setItem(key, value);
+          return true;
+        } catch (error) {
+          return false;
+        }
+      }
+
+      function getUsual() {
+        return sessionUsual || getLocal("laidies_bs_usual");
+      }
+
+      function setOrderAvailability(enabled, label) {
+        orderButtons.forEach(function(id) {
+          var button = document.getElementById(id);
+          if (!button) return;
+          button.disabled = !enabled;
+          if (id !== "bsOrderHero") button.textContent = label;
+        });
       }
 
       function stateCopy() {
-        var usual = getLocal("laidies_bs_usual");
+        var usual = getUsual();
         var pickedUp = getLocal("laidies_bs_last_pack");
         var title = document.getElementById("bs-title");
         var copy = document.getElementById("bsStateCopy");
 
+        if (dataState !== "ready") {
+          title.textContent = usual ? "The usual?" : "First time in?";
+          copy.textContent = dataState === "loading"
+            ? "JoJo is checking the episode pack menu before taking an order."
+            : "The pack menu is unavailable right now, so JoJo is not guessing what is ready. Browse the released Episodes instead.";
+          return;
+        }
+
         if (!usual) {
           title.textContent = "First time in?";
-          copy.textContent = "Choose your coffee, then order this week's Study Pack. It is all on the house.";
+          copy.textContent = currentKey && pickedUp === currentKey
+            ? "This device already opened Episode " +
+              String(currentEpisode.number).padStart(2, "0") +
+              "'s pack menu. Choose a coffee if you want JoJo to remember a usual here too."
+            : "Choose your coffee, then order Episode " +
+              String(currentEpisode.number).padStart(2, "0") +
+              "'s pack menu to see exactly what is ready. It is all on the house.";
           return;
         }
 
         title.textContent = "The usual?";
         if (currentKey && pickedUp === currentKey) {
-          copy.textContent = usual + " is waiting. You are all caught up — the next Study Pack lands Wednesday.";
+          copy.textContent = usual + " is waiting. This device already opened Episode " +
+            String(currentEpisode.number).padStart(2, "0") +
+            "'s pack menu; open it again whenever you want.";
         } else {
-          copy.textContent = usual + " is waiting. This week's Study Pack is fresh and JoJo has kept you a copy.";
+          copy.textContent = usual + " is waiting. Episode " +
+            String(currentEpisode.number).padStart(2, "0") +
+            "'s pack menu is ready to order on this device.";
         }
       }
 
-      function openReceipt() {
+      function componentActionLabel(component) {
+        if (component.id === "try_on") return "Open the Try-On →";
+        if (component.id === "cheat_sheet") return "Open the Cheat Sheet →";
+        if (component.id === "quiz") return "Walk to the Quiz →";
+        if (component.id === "trading_cards") return "Open the Cards →";
+        return "Open →";
+      }
+
+      function renderReceipt(pack) {
+        var episodeNumber = String(pack.episodeNumber).padStart(2, "0");
+        document.getElementById("bsReceiptTitle").textContent =
+          "Episode " + episodeNumber + " pack menu · " + pack.episodeTitle;
+        document.getElementById("bsReceiptCopy").textContent =
+          "The Episode explains. The Try-On practises. The Cheat Sheet stays close. Cards collect and reinforce. The Quiz checks understanding next door.";
+        document.getElementById("bsTakeEpisode").href = pack.episodeRoute;
+        document.getElementById("bsTakeEpisode").textContent =
+          "Read Episode " + episodeNumber;
+
+        var list = document.getElementById("bsReceiptComponents");
+        list.replaceChildren();
+        pack.components.forEach(function(component) {
+          var item = document.createElement("li");
+          var description = document.createElement("span");
+          var strong = document.createElement("strong");
+          strong.textContent = component.label;
+          description.appendChild(strong);
+          description.appendChild(document.createTextNode(" · " + component.job));
+          item.appendChild(description);
+          if (component.status === "available") {
+            var link = document.createElement("a");
+            link.href = component.route;
+            link.textContent = componentActionLabel(component);
+            item.appendChild(link);
+          } else {
+            var status = document.createElement("span");
+            status.className = "bs-component-status";
+            status.dataset.status = component.status;
+            status.textContent = component.statusLabel;
+            item.appendChild(status);
+          }
+          list.appendChild(item);
+        });
+      }
+
+      function openReceipt(pack, trigger) {
+        if (!pack || dataState !== "ready") return;
+        lastOrderTrigger = trigger || document.activeElement;
+        renderReceipt(pack);
         receipt.classList.add("is-open");
+        if (pack === currentPack) {
+          if (!setLocal("laidies_bs_last_pack", currentKey)) {
+            document.getElementById("bsMemoryNote").textContent =
+              "JoJo cannot remember pack pickup on this device right now. The menu still works.";
+          }
+          stateCopy();
+        }
         receipt.scrollIntoView({
           behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
           block: "center"
         });
+        window.setTimeout(function() {
+          var heading = document.getElementById("bsReceiptTitle");
+          heading.setAttribute("tabindex", "-1");
+          heading.focus({ preventScroll: true });
+        }, 0);
       }
 
       function selectDrink(button) {
         var drink = button.getAttribute("data-drink");
-        setLocal("laidies_bs_usual", drink);
+        sessionUsual = drink;
+        var saved = setLocal("laidies_bs_usual", drink);
         document.querySelectorAll(".bs-drink").forEach(function(item) {
           item.classList.toggle("is-selected", item === button);
         });
         document.getElementById("bsMemoryNote").textContent =
-          drink + " is now your usual on this device.";
+          saved
+            ? drink + " is now your usual on this device."
+            : "JoJo can hold " + drink + " for this visit, but this browser blocked device memory.";
         stateCopy();
       }
 
@@ -639,54 +842,191 @@
         });
       }
 
-      function applyEpisodeData(episodes) {
-        if (!episodes.length) return;
-        episodes.sort(function(a, b) { return Number(b.number) - Number(a.number); });
-        currentEpisode = episodes[0];
+      function isRealDate(value) {
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(value || "")) return false;
+        var parts = value.split("-").map(Number);
+        var parsed = new Date(Date.UTC(parts[0], parts[1] - 1, parts[2]));
+        return parsed.getUTCFullYear() === parts[0] &&
+          parsed.getUTCMonth() === parts[1] - 1 &&
+          parsed.getUTCDate() === parts[2];
+      }
+
+      function safeRoute(value) {
+        return typeof value === "string" &&
+          /^\/(?!\/)[A-Za-z0-9_./?=&%#-]+$/.test(value) &&
+          !value.includes("..");
+      }
+
+      function hasOnlyKeys(value, allowed) {
+        return value && Object.keys(value).every(function(key) {
+          return allowed.includes(key);
+        });
+      }
+
+      function validatePackManifest(manifest, episodes) {
+        var statuses = ["available", "held", "planned", "unavailable"];
+        var requiredComponents = ["study_sheet", "try_on", "cheat_sheet", "trading_cards", "quiz"];
+        var manifestKeys = ["schemaVersion", "manifestId", "updatedAt", "freshThrough", "packs"];
+        var packKeys = ["episodeNumber", "episodeSlug", "episodeTitle", "episodeRoute", "components"];
+        var componentKeys = ["id", "job", "label", "status", "statusLabel", "publicNote", "route"];
+        var today = window.__BLEND_SNAP_TODAY ||
+          new Date().toISOString().slice(0, 10);
+        if (!manifest || manifest.schemaVersion !== "1.0.0" ||
+            manifest.manifestId !== "blend-snap-weekly-packs" ||
+            !hasOnlyKeys(manifest, manifestKeys) ||
+            !isRealDate(manifest.updatedAt) ||
+            !isRealDate(manifest.freshThrough) ||
+            manifest.updatedAt > manifest.freshThrough ||
+            manifest.freshThrough < today ||
+            !Array.isArray(manifest.packs)) {
+          throw new Error("pack manifest invalid or stale");
+        }
+        var published = episodes.filter(function(episode) {
+          return episode.status === "published";
+        });
+        if (!published.length || manifest.packs.length !== published.length) {
+          throw new Error("published episode and pack inventory disagree");
+        }
+        var episodeByNumber = {};
+        published.forEach(function(episode) {
+          if (episodeByNumber[episode.number]) throw new Error("duplicate episode");
+          episodeByNumber[episode.number] = episode;
+        });
+        var seenPacks = {};
+        manifest.packs.forEach(function(pack) {
+          var episode = episodeByNumber[pack.episodeNumber];
+          var episodeRoute = "/" + String(episode && episode.issueUrl || "").replace(/^\//, "");
+          if (!episode || !hasOnlyKeys(pack, packKeys) ||
+              seenPacks[pack.episodeNumber] ||
+              pack.episodeSlug !== episode.slug ||
+              pack.episodeTitle !== episode.title ||
+              pack.episodeRoute !== episodeRoute ||
+              !safeRoute(pack.episodeRoute) ||
+              !Array.isArray(pack.components) ||
+              pack.components.length !== requiredComponents.length) {
+            throw new Error("pack does not match published episode");
+          }
+          seenPacks[pack.episodeNumber] = true;
+          var ids = [];
+          pack.components.forEach(function(component) {
+            ids.push(component.id);
+            if (!hasOnlyKeys(component, componentKeys) ||
+                !requiredComponents.includes(component.id) ||
+                !statuses.includes(component.status) ||
+                !component.label || !component.job || !component.statusLabel ||
+                !component.publicNote ||
+                (component.status === "available" && !safeRoute(component.route)) ||
+                (component.status !== "available" && component.route !== null)) {
+              throw new Error("component status contract invalid");
+            }
+          });
+          if (new Set(ids).size !== requiredComponents.length) {
+            throw new Error("duplicate or missing component");
+          }
+        });
+        return published.sort(function(a, b) {
+          return Number(b.number) - Number(a.number);
+        });
+      }
+
+      function renderMenuComponents(pack) {
+        var container = document.getElementById("bsComponents");
+        container.replaceChildren();
+        pack.components.forEach(function(component) {
+          var row = document.createElement("div");
+          row.className = "bs-menu-line";
+          var copy = document.createElement("div");
+          var heading = document.createElement("h3");
+          heading.textContent = component.label;
+          var job = document.createElement("p");
+          job.textContent = component.job + ".";
+          var status = document.createElement("span");
+          status.className = "bs-component-status";
+          status.dataset.status = component.status;
+          status.textContent = component.statusLabel;
+          copy.append(heading, job, status);
+          row.appendChild(copy);
+          if (component.status === "available") {
+            var link = document.createElement("a");
+            link.className = "bs-menu-link";
+            link.href = component.route;
+            link.textContent = componentActionLabel(component);
+            row.appendChild(link);
+          } else {
+            var note = document.createElement("span");
+            note.className = "bs-menu-unavailable";
+            note.textContent = component.publicNote;
+            row.appendChild(note);
+          }
+          container.appendChild(row);
+        });
+      }
+
+      function applyPackData(manifest, episodes) {
+        var sortedEpisodes = validatePackManifest(manifest, episodes);
+        manifest.packs.forEach(function(pack) {
+          packsByEpisode[pack.episodeNumber] = pack;
+        });
+        currentEpisode = sortedEpisodes[0];
+        currentPack = packsByEpisode[currentEpisode.number];
         currentKey = String(currentEpisode.slug || currentEpisode.number);
+        dataState = "ready";
 
         var episodeNumber = String(currentEpisode.number).padStart(2, "0");
-        var label = "Study Pack · Episode " + episodeNumber + " — " + currentEpisode.title;
-        var issueURL = "/" + String(currentEpisode.issueUrl || "").replace(/^\//, "");
-
-        document.getElementById("bsHeroSpecial").textContent = "Episode " + episodeNumber;
-        document.getElementById("bsSpecialName").textContent = label;
+        var packPieces = currentPack.components.filter(function(component) {
+          return component.id !== "quiz";
+        });
+        var readyCount = packPieces.filter(function(component) {
+          return component.status === "available";
+        }).length;
+        document.getElementById("bsHeroSpecial").textContent =
+          "Episode " + episodeNumber + " pack menu";
+        document.getElementById("bsSpecialName").textContent =
+          "Episode " + episodeNumber + " Study Pack menu · " + currentEpisode.title;
         document.getElementById("bsSpecialDesc").textContent =
-          currentEpisode.oneLineDescription || currentEpisode.lesson || "This week's class notes.";
-        document.getElementById("bsReceiptTitle").textContent = label;
-        document.getElementById("bsReceiptCopy").textContent =
-          currentEpisode.lesson || "JoJo has put the notes beside your coffee.";
-        document.getElementById("bsTakePack").href = issueURL;
+          readyCount + " of " + packPieces.length +
+          " pack pieces are ready. The Quiz is listed separately because it checks understanding; it is not part of the Pack.";
+        document.getElementById("bsSpecialDesc").setAttribute("aria-busy", "false");
+        document.getElementById("bsPackFallback").hidden = true;
+        document.getElementById("bsPackRetry").hidden = true;
+        renderMenuComponents(currentPack);
+        setOrderAvailability(true, "Order Episode " + episodeNumber + " pack menu");
 
-        var past = episodes.slice(1);
+        var past = sortedEpisodes.slice(1);
         var regulars = document.getElementById("bsRegulars");
         if (!past.length) {
-          regulars.innerHTML = "<p>Season one is young. Past packs join the back menu as Wednesdays stack up.</p>";
+          regulars.innerHTML = "<p>Season one is young. Past pack menus join here as Episodes stack up.</p>";
         } else {
           regulars.innerHTML = past.map(function(episode) {
-            var url = "/" + String(episode.issueUrl || "").replace(/^\//, "");
-            return '<a class="bs-regular" href="' + escapeHTML(url) + '">' +
+            return '<button class="bs-regular" type="button" data-pack-episode="' +
+              Number(episode.number) + '">' +
               '<span class="bs-regular__number">EP ' + String(episode.number).padStart(2, "0") + "</span>" +
               "<span><strong>" + escapeHTML(episode.title) + "</strong>" +
               escapeHTML(episode.oneLineDescription || episode.lesson || "") + "</span>" +
-              '<span class="bs-regular__go">Order →</span>' +
-            "</a>";
+              '<span class="bs-regular__go">View pack menu →</span>' +
+            "</button>";
           }).join("");
+          regulars.querySelectorAll("[data-pack-episode]").forEach(function(button) {
+            button.addEventListener("click", function() {
+              openReceipt(packsByEpisode[Number(button.dataset.packEpisode)], button);
+            });
+          });
         }
         stateCopy();
       }
 
       orderButtons.forEach(function(id) {
         var button = document.getElementById(id);
-        if (button) button.addEventListener("click", openReceipt);
+        if (button) button.addEventListener("click", function() {
+          openReceipt(currentPack, button);
+        });
       });
 
       document.getElementById("bsCloseReceipt").addEventListener("click", function() {
         receipt.classList.remove("is-open");
-      });
-
-      document.getElementById("bsTakePack").addEventListener("click", function() {
-        if (currentKey) setLocal("laidies_bs_last_pack", currentKey);
+        if (lastOrderTrigger && typeof lastOrderTrigger.focus === "function") {
+          lastOrderTrigger.focus();
+        }
       });
 
       document.querySelectorAll(".bs-drink").forEach(function(button) {
@@ -700,6 +1040,9 @@
         });
         document.getElementById("bsMemoryNote").textContent =
           savedDrink + " is your usual on this device.";
+      } else if (!storageWritable) {
+        document.getElementById("bsMemoryNote").textContent =
+          "This browser blocked device memory. You can still choose a drink for this visit and order the menu.";
       }
 
       document.querySelectorAll(".bs-theme").forEach(function(button) {
@@ -728,21 +1071,68 @@
         });
       });
 
-      fetch("/content/episode-index.json")
-        .then(function(response) {
-          if (!response.ok) throw new Error("menu unavailable");
+      function fetchJson(route) {
+        var controller = new AbortController();
+        var deadline = window.setTimeout(function() {
+          controller.abort();
+        }, 8000);
+        return fetch(route, { signal: controller.signal }).then(function(response) {
+          if (!response.ok) throw new Error("menu data unavailable");
           return response.json();
-        })
-        .then(function(data) {
-          applyEpisodeData((data.episodes || []).filter(function(episode) {
-            return episode.status === "published";
-          }));
-        })
-        .catch(function() {
-          document.getElementById("bsSpecialName").textContent = "The menu is being restocked";
-          document.getElementById("bsSpecialDesc").textContent = "Try the current episode from the homepage while JoJo fixes the board.";
-          stateCopy();
+        }).finally(function() {
+          window.clearTimeout(deadline);
         });
+      }
+
+      function showPackFailure() {
+        dataState = "error";
+        currentEpisode = null;
+        currentPack = null;
+        currentKey = "";
+        setOrderAvailability(false, "Pack menu unavailable");
+        document.getElementById("bsHeroSpecial").textContent = "Pack menu unavailable";
+        document.getElementById("bsSpecialName").textContent =
+          "JoJo is not taking a pack order right now";
+        document.getElementById("bsSpecialDesc").textContent =
+          "The episode index and component manifest did not agree, were stale, or could not be loaded. Nothing is being presented as ready until both sources pass.";
+        document.getElementById("bsSpecialDesc").setAttribute("aria-busy", "false");
+        document.getElementById("bsPackFallback").hidden = false;
+        document.getElementById("bsPackRetry").hidden = false;
+        document.getElementById("bsComponents").replaceChildren();
+        document.getElementById("bsRegulars").innerHTML =
+          "<p>Past pack menus are unavailable until the same inventory check passes.</p>";
+        receipt.classList.remove("is-open");
+        stateCopy();
+        window.setTimeout(function() {
+          document.getElementById("bsPackRetry").focus({ preventScroll: true });
+        }, 0);
+      }
+
+      function loadPackData(userTriggered) {
+        dataState = "loading";
+        setOrderAvailability(false, "Loading the episode menu");
+        document.getElementById("bsSpecialDesc").textContent =
+          "JoJo is checking the episode index and component menu before taking an order.";
+        document.getElementById("bsSpecialDesc").setAttribute("aria-busy", "true");
+        document.getElementById("bsPackFallback").hidden = true;
+        document.getElementById("bsPackRetry").hidden = true;
+        stateCopy();
+        if (userTriggered) {
+          document.getElementById("bsSpecialDesc").focus({ preventScroll: true });
+        }
+        Promise.all([
+          fetchJson("/content/episode-index.json"),
+          fetchJson("/content/blend-snap-weekly-packs.json")
+        ]).then(function(results) {
+          applyPackData(results[1], results[0].episodes || []);
+        }).catch(showPackFailure);
+      }
+
+      document.getElementById("bsPackRetry").addEventListener("click", function() {
+        loadPackData(true);
+      });
+
+      loadPackData(false);
 
       stateCopy();
     })();

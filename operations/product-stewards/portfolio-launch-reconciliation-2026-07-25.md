@@ -142,11 +142,14 @@ would multiply cost and continuity drift.
 | Stewardship architecture, roles, scorecard and cadence | **SPECIFIED** |
 | First-wave steward dossiers (FAiRY, Girl Talk, Dream Phone, episode media) | **REPORT READY** |
 | Persistent steward state in canonical folders | **PARTIAL** — initial dossiers exist |
-| Product Championship runner and anonymized judging workflow | **PLANNED / NOT WIRED** |
+| Product Championship runtime and maker/judge workflow | **ACTIVE** — weekday Codex heartbeat plus bounded live orchestration; durable evidence is recorded in the queue and product dossiers |
 | Plausible and Clarity evidence pulls | **PLANNED / NOT WIRED** |
-| Trigger scheduler, notifications and recurring weekly execution | **PLANNED / NOT WIRED** |
-| P0 product and shared-platform repairs | **NOT STARTED by this pilot** |
+| Trigger scheduler and recurring execution | **PARTIAL** — weekday 08:30 local heartbeat is wired; product-specific alerts and external inbox/analytics triggers are not |
+| P0 product and shared-platform repairs | **IN PROGRESS** — later champion cycles supersede this pilot's original not-started snapshot |
 | Relaunch approval for the four reviewed product groups | **NOT GRANTED** |
 
-The pilot is therefore evidence of a useful operating design, not evidence of
-an autonomous agent organization already running.
+This table was originally a pilot snapshot. The architecture now has a real
+scheduled Codex heartbeat and bounded maker/judge execution, while analytics,
+product-specific alerts and external support/customer signals remain unwired.
+Product dossiers and `run-queue.json` remain the authority for individual
+implementation and release status.

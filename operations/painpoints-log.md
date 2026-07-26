@@ -1286,6 +1286,32 @@ _Original source ID: repository #36_
   actually plays—not the whole backlot.
 - **Internal rule/check updated:** `scripts/build-public-site.mjs`,
   `watch.html`, `content/episodes/episode-*-cues.json` and this ledger.
+- **2026-07-25 weekly-pack extension:** Blend & Snap treated the newest
+  `published` episode as a complete Study Pack even though component readiness
+  lived in separate pages and assumptions: no Study Sheet existed, Episode 04
+  had no cards, and existing browser-randomized card packs failed the locked
+  server-authority economy. A versioned component manifest now cross-checks the
+  episode index, admits routes only for `available`, exposes
+  `held`/`planned`/`unavailable`, expires on a freshness date and fails the
+  café closed when either source drifts. **Prevention rule:** a ready parent
+  record does not make its bundle complete; every composite product needs an
+  explicit child inventory, independent admission status, freshness owner and
+  a rendered missing/stale-component test.
+- **2026-07-25 public/private evidence extension:** Replacing internal evidence
+  with visitor-safe UI copy was insufficient because the public JSON response
+  still shipped steward owners, verification rationale and production-only
+  language. The component contract is now split: a minimal public manifest
+  drives the browser, a private dossier ledger preserves evidence, and source
+  plus fresh-artifact tests reject private keys/phrases. **Prevention rule:**
+  inspect the complete delivered payload, not only rendered text; public copy
+  safety and public data minimization are separate release gates.
+- **2026-07-25 Chick Flicks extension:** The trailer issue existed in source
+  and its copy passed source tests, but the exact public artifact omitted it
+  because `watch.html` constructed the route in JavaScript. A visible,
+  truthful static issue handoff made the dependency crawl include the page and
+  its required asset. **Prevention rule:** exact-artifact fan-out tests must
+  require every named destination to return successfully; source-copy parity
+  is not evidence that a dynamically constructed route ships.
 - **Public angle:** “We tried to publish the whole studio instead of shipping
   the movie.”
 - **Privacy/IP/reputation:** Keep studio paths, unreleased masters and rejected

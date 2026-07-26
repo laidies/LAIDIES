@@ -33,7 +33,7 @@ The building is not a generic link hub, a productivity demand disguised as a caf
 | --- | --- | --- |
 | Enter café | Visitor understands she can order the current Study Pack and follow the noticeboard | No completion required |
 | Choose usual | A drink preference is selected | `localStorage` on this device only |
-| Order current pack | She opens the order slip and chooses “Take it to a table” | Current-pack stamp is written when that issue link is opened; this is a navigation proxy, not proof she studied |
+| Order current pack | She opens the order slip and may choose an available next step | Current-pack menu-open stamp is written when the receipt opens on this device; this is a navigation proxy, not proof she studied or completed anything |
 | Study Pack | She enters a released episode-specific review/practice/reference route | Study Sheet is planned; other components have distinct state |
 | Try-On | She completes her real-task exercise and optionally saves a reflection | Local save and local weekly visit marker only |
 | Trading Cards | She opens a pack, flips cards, and sees local collection/duplicate state | Local browser collection and last-pull state only |

@@ -1078,8 +1078,9 @@
     function writeJson(key, value) {
       try {
         localStorage.setItem(key, JSON.stringify(value));
+        return true;
       } catch (error) {
-        // Local save is helpful, not worth blocking the Try-On.
+        return false;
       }
     }
 
@@ -1260,7 +1261,7 @@
       var completionMap = readJson(completionStorageKey, {});
       completionMap[issueKey] = completionMap[issueKey] || {};
       completionMap[issueKey].tryon = new Date().toISOString();
-      writeJson(completionStorageKey, completionMap);
+      return writeJson(completionStorageKey, completionMap);
     }
 
     function saveTryOn() {
@@ -1275,12 +1276,14 @@
         ratingDescription: ratingDescriptions[rating] || "",
         savedAt: new Date().toISOString()
       };
-      writeJson(tryOnStorageKey, map);
-      markTryOnComplete();
+      var saved = writeJson(tryOnStorageKey, map);
+      if (saved) markTryOnComplete();
       if (saveStatus) {
         var hasContent = Boolean(map[issueKey].notes || map[issueKey].answerToCheck || map[issueKey].receiptsChecked || map[issueKey].saferVersion);
-        saveStatus.hidden = !hasContent;
-        saveStatus.textContent = hasContent ? "Saved to this device for now." : "";
+        saveStatus.hidden = saved ? !hasContent : false;
+        saveStatus.textContent = saved
+          ? (hasContent ? "Saved to this device for now." : "")
+          : "Could not save on this device. Your text is still on this page; copy it before leaving.";
       }
     }
 

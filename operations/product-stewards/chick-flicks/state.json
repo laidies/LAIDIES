@@ -1,6 +1,6 @@
 {
   "product": "Chick Flicks Building",
-  "status": "SPECIFIED",
+  "status": "BOUNDED LOCAL PASS — RELEASE HOLDS REMAIN",
   "asOf": "2026-07-25",
   "relationshipToActiveWork": "MERGE with AW-003",
   "route": "/chick-flicks",
@@ -19,18 +19,24 @@
   "evidence": {
     "publicMobileRouteLoad": "VERIFIED PUBLICLY",
     "publishedEpisodeAudioCaptionJourneys": "VERIFIED PUBLICLY by external episode/player evidence",
-    "catalogueMechanics": "BUILT LOCALLY",
+    "catalogueMechanics": "REPAIRED LOCALLY — 11 contract checks and 22 source/exact-artifact browser journeys passed",
     "cleanStateStorefrontComprehension": "NOT YET EXECUTED",
-    "fullAccessibilityRecovery": "NOT YET EXECUTED",
+    "deterministicAccessibilityRecovery": "REPAIRED LOCALLY — Chrome keyboard/focus/reflow/reduced-motion/timeout/degraded-state suite passed",
+    "assistiveTechnologyAndPublicRecovery": "NOT YET EXECUTED — Safari, VoiceOver, contrast and public-origin",
     "analyticsLearningLoop": "NOT YET WIRED",
-    "mediaCraftVerdict": "SPECIFIED under Episode Media Quality, not yet running"
+    "mediaCraftVerdict": "HOLD — trailer and Episodes 1–4 motion films are not approved"
   },
   "knownFacts": [
-    "The catalogue renders published tapes as rentable and other entries as coming soon from the episode index.",
-    "The current static storefront identifies Episode 04 as the new release while runtime logic chooses the latest published episode.",
-    "Favourite tape uses laidies_favorite_episode in localStorage.",
+    "A tape is rentable only when a validated published record has a safe local issue URL whose destination exists in the tested artifact.",
+    "All tapes derives from every validated index record; unmapped records remain visible in Unfiled.",
+    "Only draft promises forthcoming; cancelled, removed, held, missing and unknown statuses stay unavailable.",
+    "Manifest and destination checks abort after five seconds and retry focus is restored to a meaningful control or heading.",
+    "The candidate describes the highest rentable episode as latest released and makes no unsupported current-week claim.",
+    "Named homepage, directory, tour, check-in and trailer-issue Chick Flicks entries now use released-state wording.",
+    "Favourite and last-rental memory are explicitly browser/device-local and storage failures are visible.",
+    "The trailer handoff is labelled an illustrated, captioned listen-along; it is not motion-film approval.",
     "Episodes redirect to Chick Flicks, establishing it as the canonical discovery storefront."
   ],
-  "nextAction": "Run exact-artifact catalogue/current-week consistency and clean-state discovery tests before accepting any store expansion or release promotion.",
-  "authority": "records only in this directory; no product-code, deployment, publication, git, media, or shared-system edits"
+  "nextAction": "Independent re-judge passed 91/100. Separately run human comprehension, Safari/VoiceOver/contrast, native zoom and public-origin checks; establish Screening Room ownership. Keep owner visuals and all motion films on HOLD.",
+  "authority": "bounded source/tests/dossier evidence only for this trigger; no deployment, publication, git, media approval, unapproved visual replacement or shared-system edit"
 }

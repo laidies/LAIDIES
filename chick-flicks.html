@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>The Chick Flicks · LAiDIES · SUNNYVAiLE</title>
-    <meta name="description" content="Pull an episode off the New Releases wall at The Chick Flicks. New tapes land every Wednesday in SUNNYVAiLE.">
+    <meta name="description" content="Browse released and forthcoming LAiDIES episodes at The Chick Flicks, then open a verified issue or illustrated listen-along.">
     <link rel="icon" type="image/png" href="/assets/brand/laidies-logo-square-pearl-512-v1.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +27,7 @@
       plausible.init();
     </script>
   </head>
-  <body>
+  <body class="chick-flicks-page">
     <header class="sv-header"></header>
 
     <main class="cf-page">
@@ -50,11 +50,12 @@
         <div class="cf-state__inner">
           <p class="cf-address">The Chick Flicks · No. 3 MAiN · Keeper: Becky</p>
           <div>
-            <h1 id="cf-title">EP 04 is on the wall.</h1>
-            <p id="cf-state-copy">The Founding Mothers is this Wednesday’s new release. Pull a tape to take it home.</p>
+            <h1 id="cf-title" tabindex="-1" aria-live="polite">Checking the tape manifest…</h1>
+            <p id="cf-state-copy">Released tapes open their full issue. Forthcoming tapes stay clearly labelled on the shelf.</p>
           </div>
           <div class="cf-state__actions">
-            <button type="button" data-rent-latest>Rent the new release</button>
+            <button type="button" data-rent-latest disabled>Rent the latest released tape</button>
+            <button type="button" data-retry-catalogue hidden>Retry the tape manifest</button>
             <button class="cf-spot" type="button" data-src="/content/music/ksvl-spots/spot-chick-flicks-v2.mp3">
               Hear Becky’s store spot
             </button>
@@ -72,11 +73,12 @@
           <button type="button" data-aisle="ethics">Ethics</button>
           <button type="button" data-aisle="history">History</button>
           <button type="button" data-aisle="creative">Creative</button>
+          <button type="button" data-aisle="unfiled">Unfiled</button>
         </div>
-        <p class="cf-aisles__status" id="cfAisleStatus">Season 1 · four tapes available · one coming soon</p>
+        <p class="cf-aisles__status" id="cfAisleStatus" role="status" aria-live="polite">Checking the Season 1 tape manifest…</p>
       </nav>
 
-      <section class="cf-rental" id="cfRental" aria-labelledby="cf-rental-title">
+      <section class="cf-rental" id="cfRental" aria-labelledby="cf-rental-title" aria-live="polite" aria-atomic="true" tabindex="-1">
         <div class="cf-rental__object">
           <img
             src="/assets/building-interiors/delivery-20260724-chick-flicks-v1/chick-flicks-rental-card-comic-candidate-v1.png"
@@ -93,9 +95,9 @@
           <p class="cf-rental__due" id="cfRentalDue">Return by Friday · spiritually</p>
           <div class="cf-rental__actions">
             <a id="cfTakeHome" href="/issues/issue-04.html" hidden>Take the tape home</a>
-            <button id="cfFavourite" type="button" hidden>Put it on my member card</button>
+            <button id="cfFavourite" type="button" hidden>Save as favourite on this device</button>
           </div>
-          <p class="cf-rental__member" id="cfMemberStatus">No favourite tape on your Resident Card yet.</p>
+          <p class="cf-rental__member" id="cfMemberStatus">No favourite tape saved on this device.</p>
         </div>
       </section>
 
@@ -104,7 +106,7 @@
           <p class="cf-kicker">House rules · est. 1999</p>
           <h2 id="cf-rules-title">Be kind. Please. Rewind.</h2>
           <ol>
-            <li>New releases land on the front wall every Wednesday.</li>
+            <li>The latest verified release gets the front-wall sticker.</li>
             <li>Nothing is paywalled here, and no tape is ever late.</li>
             <li>Released tapes open the full episode; dimmed tapes tell the truth about what is still coming.</li>
           </ol>
@@ -120,9 +122,10 @@
       <section class="cf-trailer" aria-labelledby="cf-trailer-title">
         <div class="cf-trailer__copy">
           <p class="cf-kicker">First time in the store?</p>
-          <h2 id="cf-trailer-title">Roll the trailer first.</h2>
-          <p>It is the whole town in one watch. Then come back and pull Episode 01 from the wall.</p>
-          <a href="/issues/issue-trailer.html">Open the trailer issue →</a>
+          <h2 id="cf-trailer-title">Start with the trailer listen-along.</h2>
+          <p>Hear the illustrated, captioned introduction to the town in the Screening Room. Then come back and pull Episode 01 from the wall.</p>
+          <a href="/watch.html?ep=trailer">Open the illustrated trailer listen-along →</a>
+          <a href="/issues/issue-trailer.html">Read the illustrated trailer issue →</a>
         </div>
         <div class="cf-trailer__player" data-sv-trailer-player></div>
       </section>
@@ -135,8 +138,7 @@
         "use strict";
 
         var IMAGE_ROOT = "/assets/sunnyvaile-interiors/episode-vhs-boxes/";
-        var AISLES = {
-          all: [1, 2, 3, 4, 5],
+        var TOPIC_AISLES = {
           prompting: [1, 2, 4, 5],
           style: [2, 3],
           everyday: [1, 4, 5],
@@ -151,8 +153,14 @@
           everyday: "Everyday use",
           ethics: "Ethics",
           history: "History",
-          creative: "Creative"
+          creative: "Creative",
+          unfiled: "Unfiled"
         };
+        // Five seconds bounds both the manifest and each destination check.
+        // The test-only override is set before this script executes.
+        var configuredTimeout = Number(window.__CHICK_FLICKS_FETCH_TIMEOUT_MS);
+        var FETCH_TIMEOUT_MS = Number.isFinite(configuredTimeout) && configuredTimeout > 0 ?
+          configuredTimeout : 5000;
         var episodes = [];
         var latest = null;
         var selected = null;
@@ -164,11 +172,15 @@
         var favourite = document.getElementById("cfFavourite");
 
         function getLocal(key) {
-          try { return localStorage.getItem(key) || ""; } catch (error) { return ""; }
+          try { return localStorage.getItem(key) || ""; } catch (error) { return null; }
         }
 
         function setLocal(key, value) {
-          try { localStorage.setItem(key, value); } catch (error) { return; }
+          try { localStorage.setItem(key, value); return true; } catch (error) { return false; }
+        }
+
+        function removeLocal(key) {
+          try { localStorage.removeItem(key); return true; } catch (error) { return false; }
         }
 
         function escapeHTML(value) {
@@ -181,24 +193,57 @@
           return String(number).padStart(2, "0");
         }
 
+        function safeIssueUrl(value) {
+          if (!value || typeof value !== "string") return "";
+          try {
+            var parsed = new URL(value, window.location.origin);
+            if (parsed.origin !== window.location.origin || !/^https?:$/.test(parsed.protocol)) return "";
+            if (!/^\/issues\/[^/]+\.html$/.test(parsed.pathname)) return "";
+            return parsed.pathname + parsed.search + parsed.hash;
+          } catch (error) {
+            return "";
+          }
+        }
+
+        function releaseState(episode) {
+          if (episode._available) return "released";
+          if (episode.status === "published") return "unavailable";
+          if (episode.status === "draft") return "forthcoming";
+          return "unavailable";
+        }
+
         function tapeMarkup(episode) {
           var number = episodeNumber(episode.number);
-          var released = episode.status === "published" && episode.issueUrl;
-          var tag = latest && episode.number === latest.number ? '<span class="cf-tape__new">New</span>' : "";
+          var state = releaseState(episode);
+          var released = state === "released";
+          var tag = latest && episode.number === latest.number ? '<span class="cf-tape__new">Latest</span>' : "";
+          var stateLabel = state === "forthcoming" ? "coming soon" :
+            episode.status === "published" ? "temporarily unavailable" : "unavailable";
           var label = released ? "Rent Episode " + number + " — " + episode.title :
-            "Episode " + number + " — " + episode.title + ", coming soon";
+            "Episode " + number + " — " + episode.title + ", " + stateLabel;
           return [
-            '<button class="cf-tape', released ? "" : " is-coming", '" type="button" data-episode="', number, '"',
+            '<button class="cf-tape', released ? "" : " is-coming", '" type="button" data-episode="', number,
+              '" data-release-state="', state, '"',
               ' aria-label="', escapeHTML(label), '">',
               tag,
               '<img src="', IMAGE_ROOT, "ep-", number, '.webp" alt="" width="554" height="720">',
-              '<span class="cf-tape__label">EP ', number, released ? " · rent" : " · coming soon", "</span>",
+              '<span class="cf-tape__fallback" hidden aria-hidden="true">EP ', number,
+                '<small>Cover unavailable</small></span>',
+              '<span class="cf-tape__label">EP ', number, released ? " · rent" :
+                state === "forthcoming" ? " · coming soon" : " · unavailable", "</span>",
             "</button>"
           ].join("");
         }
 
         function visibleEpisodes() {
-          var numbers = AISLES[activeAisle] || [];
+          if (activeAisle === "all") return episodes.slice();
+          var numbers = activeAisle === "unfiled" ?
+            episodes.filter(function (episode) {
+              return !Object.keys(TOPIC_AISLES).some(function (aisle) {
+                return TOPIC_AISLES[aisle].indexOf(episode.number) !== -1;
+              });
+            }).map(function (episode) { return episode.number; }) :
+            (TOPIC_AISLES[activeAisle] || []);
           return numbers.map(function (number) {
             return episodes.filter(function (episode) { return episode.number === number; })[0];
           }).filter(Boolean);
@@ -214,24 +259,49 @@
           wallEmpty.hidden = list.length > 0;
           document.getElementById("cfAisleStatus").textContent = list.length ?
             AISLE_COPY[activeAisle] + " · " +
-              list.filter(function (episode) { return episode.status === "published"; }).length +
+              list.filter(function (episode) { return releaseState(episode) === "released"; }).length +
               " available · " +
-              list.filter(function (episode) { return episode.status !== "published"; }).length +
-              " coming soon" :
-            AISLE_COPY[activeAisle] + " · no released tapes yet";
+              list.filter(function (episode) { return releaseState(episode) === "forthcoming"; }).length +
+              " coming soon · " +
+              list.filter(function (episode) { return releaseState(episode) === "unavailable"; }).length +
+              " unavailable" :
+            AISLE_COPY[activeAisle] + " · no tapes filed in this aisle";
+
+          Array.prototype.forEach.call(document.querySelectorAll(".cf-tape img"), function (image) {
+            image.addEventListener("error", function () {
+              var button = image.closest(".cf-tape");
+              var fallback = button && button.querySelector(".cf-tape__fallback");
+              if (!button || !fallback) return;
+              button.classList.add("is-image-missing");
+              fallback.hidden = false;
+            });
+          });
 
           Array.prototype.forEach.call(document.querySelectorAll(".cf-tape"), function (button) {
             button.addEventListener("click", function () {
               var number = Number(button.getAttribute("data-episode"));
               var episode = episodes.filter(function (item) { return item.number === number; })[0];
-              if (!episode || episode.status !== "published" || !episode.issueUrl) {
+              if (!episode || !episode._available) {
+                var state = episode ? releaseState(episode) : "unavailable";
+                var forthcoming = state === "forthcoming";
+                var publishedButUnavailable = episode && episode.status === "published";
                 document.getElementById("cfRentalEpisode").textContent =
-                  "EP " + episodeNumber(number) + " · coming soon";
+                  "EP " + episodeNumber(number) +
+                  (forthcoming ? " · coming soon" :
+                    publishedButUnavailable ? " · temporarily unavailable" : " · unavailable");
+                document.getElementById("cf-rental-title").textContent =
+                  forthcoming ? "This tape is still forthcoming." :
+                    publishedButUnavailable ? "This released tape is behind the counter." :
+                      "This tape is unavailable.";
                 document.getElementById("cfRentalCopy").textContent =
-                  "That case is a shelf promise, not a finished episode. Becky will move it to New Releases when it is ready.";
+                  forthcoming ?
+                    "That case is a shelf promise, not a finished episode. Becky will move it to New Releases when it is ready." :
+                    publishedButUnavailable ?
+                      "Its issue destination could not be verified, so Chick Flicks will not offer a broken rental link." :
+                      "The manifest does not promise a future release for this tape, so it stays unavailable.";
                 takeHome.hidden = true;
                 favourite.hidden = true;
-                document.getElementById("cfRental").scrollIntoView({ behavior: "smooth", block: "center" });
+                revealRental();
                 return;
               }
               selectEpisode(episode);
@@ -239,19 +309,40 @@
           });
         }
 
-        function updateMemberStatus() {
+        function updateMemberStatus(message) {
           var saved = getLocal("laidies_favorite_episode");
+          var status = document.getElementById("cfMemberStatus");
           var episode = episodes.filter(function (item) {
             return episodeNumber(item.number) === saved;
           })[0];
-          document.getElementById("cfMemberStatus").textContent = episode ?
-            "Your Resident Card favourite is EP " + episodeNumber(episode.number) + " · " + episode.title + "." :
-            "No favourite tape on your Resident Card yet.";
+          if (message) {
+            status.textContent = message;
+          } else if (saved === null) {
+            status.textContent = "Favourite storage is unavailable in this browser.";
+          } else {
+            status.textContent = episode ?
+              "Favourite on this device: EP " + episodeNumber(episode.number) + " · " + episode.title + "." :
+              saved ? "A favourite saved on this device is no longer in the catalogue." :
+                "No favourite tape saved on this device.";
+          }
           if (selected) {
             favourite.textContent = saved === episodeNumber(selected.number) ?
-              "On my member card" : "Put it on my member card";
+              "Remove favourite from this device" : "Save as favourite on this device";
             favourite.classList.toggle("is-saved", saved === episodeNumber(selected.number));
           }
+        }
+
+        function scrollBehavior() {
+          return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches ?
+            "auto" : "smooth";
+        }
+
+        function revealRental() {
+          var rental = document.getElementById("cfRental");
+          rental.scrollIntoView({ behavior: scrollBehavior(), block: "center" });
+          window.requestAnimationFrame(function () {
+            try { rental.focus({ preventScroll: true }); } catch (error) { rental.focus(); }
+          });
         }
 
         function nextFriday() {
@@ -272,28 +363,38 @@
             "Becky has stamped the rental card. Nothing is actually due; the stamp just remembers what you took home.";
           document.getElementById("cfRentalDue").textContent =
             "Stamped return date · " + nextFriday();
-          takeHome.href = "/" + String(episode.issueUrl).replace(/^\/+/, "");
+          takeHome.href = episode._safeIssueUrl;
           takeHome.hidden = false;
           favourite.hidden = false;
           updateMemberStatus();
-          document.getElementById("cfRental").scrollIntoView({ behavior: "smooth", block: "center" });
+          revealRental();
         }
 
         function setArrivalState() {
           var last = getLocal("laidies_cf_last_rental");
           var title = document.getElementById("cf-title");
           var copy = document.getElementById("cf-state-copy");
-          if (!latest) return;
-          title.textContent = "EP " + episodeNumber(latest.number) + " is on the wall.";
+          var latestButton = document.querySelector("[data-rent-latest]");
+          if (!latest) {
+            title.textContent = "No released tapes are available.";
+            copy.textContent =
+              "The manifest loaded, but no published issue destination could be verified. Try the catalogue again later.";
+            latestButton.disabled = true;
+            return;
+          }
+          title.textContent = "EP " + episodeNumber(latest.number) + " is the latest released tape.";
+          latestButton.disabled = false;
           if (last) {
             var lastEpisode = episodes.filter(function (episode) {
               return episodeNumber(episode.number) === last;
             })[0];
             copy.textContent = lastEpisode ?
-              "You last rented EP " + last + " · " + lastEpisode.title + ". This Wednesday’s new release is " + latest.title + "." :
-              "This Wednesday’s new release is " + latest.title + ". Pull a tape to take it home.";
+              "Last rented on this device: EP " + last + " · " + lastEpisode.title +
+                ". Latest released: " + latest.title + "." :
+              "Latest released: " + latest.title + ". Pull a tape to open its full issue.";
           } else {
-            copy.textContent = latest.title + " is this Wednesday’s new release. New in town? Start with EP 01.";
+            copy.textContent = latest.title +
+              " is the latest released tape in the manifest. New in town? Start with EP 01.";
           }
         }
 
@@ -304,8 +405,12 @@
 
         favourite.addEventListener("click", function () {
           if (!selected) return;
-          setLocal("laidies_favorite_episode", episodeNumber(selected.number));
-          updateMemberStatus();
+          var number = episodeNumber(selected.number);
+          var saved = getLocal("laidies_favorite_episode");
+          var changed = saved === number ? removeLocal("laidies_favorite_episode") :
+            setLocal("laidies_favorite_episode", number);
+          updateMemberStatus(changed ? "" :
+            "This browser could not change your device-only favourite.");
         });
 
         document.getElementById("cfAisles").addEventListener("click", function (event) {
@@ -316,7 +421,7 @@
             item.classList.toggle("is-active", item === button);
           });
           renderWall();
-          document.querySelector(".cf-wall").scrollIntoView({ behavior: "smooth", block: "start" });
+          document.querySelector(".cf-wall").scrollIntoView({ behavior: scrollBehavior(), block: "start" });
         });
 
         var activeAudio = null;
@@ -346,26 +451,121 @@
           });
         });
 
-        fetch("/content/episode-index.json")
-          .then(function (response) {
-            if (!response.ok) throw new Error("Episode index unavailable");
-            return response.json();
-          })
-          .then(function (data) {
-            episodes = (data.episodes || []).slice().sort(function (a, b) {
-              return a.number - b.number;
-            });
-            latest = episodes.filter(function (episode) {
-              return episode.status === "published" && episode.issueUrl;
-            }).pop() || null;
-            renderWall();
-            setArrivalState();
-            updateMemberStatus();
-          })
-          .catch(function () {
-            wallEmpty.hidden = false;
-            wallEmpty.textContent = "The tape manifest is temporarily behind the counter.";
+        function validateEpisodes(data) {
+          if (!data || !Array.isArray(data.episodes)) {
+            throw new Error("Episode index has no episode list");
+          }
+          var seen = {};
+          var valid = data.episodes.map(function (raw) {
+            if (!raw || !Number.isInteger(raw.number) || raw.number < 1 ||
+                !String(raw.title || "").trim()) {
+              throw new Error("Episode index contains an invalid record");
+            }
+            if (seen[raw.number]) throw new Error("Episode index contains a duplicate number");
+            seen[raw.number] = true;
+            var episode = Object.assign({}, raw);
+            episode.title = String(raw.title).trim();
+            episode._safeIssueUrl = safeIssueUrl(raw.issueUrl);
+            episode._available = false;
+            return episode;
           });
+          if (!valid.length) throw new Error("Episode index is empty");
+          return valid.sort(function (a, b) { return a.number - b.number; });
+        }
+
+        function fetchWithTimeout(url, options) {
+          var controller = new AbortController();
+          var timeout = window.setTimeout(function () {
+            controller.abort();
+          }, FETCH_TIMEOUT_MS);
+          var requestOptions = Object.assign({}, options, { signal: controller.signal });
+          return fetch(url, requestOptions).finally(function () {
+            window.clearTimeout(timeout);
+          });
+        }
+
+        function verifyDestinations(list) {
+          return Promise.all(list.map(function (episode) {
+            if (episode.status !== "published" || !episode._safeIssueUrl) return episode;
+            return fetchWithTimeout(episode._safeIssueUrl, { method: "HEAD", cache: "no-store" })
+              .then(function (response) {
+                episode._available = response.ok;
+                return episode;
+              })
+              .catch(function (error) {
+                if (error && error.name === "AbortError") throw error;
+                episode._available = false;
+                return episode;
+              });
+          }));
+        }
+
+        function focusElement(element) {
+          window.requestAnimationFrame(function () {
+            if (!element) return;
+            try { element.focus({ preventScroll: true }); } catch (error) { element.focus(); }
+          });
+        }
+
+        function renderCatalogueFailure(focusRecovery) {
+          episodes = [];
+          latest = null;
+          selected = null;
+          wallBay.innerHTML = "";
+          mobileShelf.innerHTML =
+            '<p class="cf-mobile-empty">The tape manifest is temporarily behind the counter.</p>';
+          mobileShelf.classList.add("is-empty");
+          wallEmpty.hidden = false;
+          wallEmpty.textContent = "The tape manifest is temporarily behind the counter.";
+          document.getElementById("cf-title").textContent =
+            "The catalogue is temporarily unavailable.";
+          document.getElementById("cf-state-copy").textContent =
+            "No tape is being presented as released until the manifest and its issue destinations can be checked.";
+          document.getElementById("cfAisleStatus").textContent =
+            "Catalogue unavailable · retry the tape manifest";
+          document.querySelector("[data-rent-latest]").disabled = true;
+          var retry = document.querySelector("[data-retry-catalogue]");
+          retry.hidden = false;
+          if (focusRecovery) focusElement(retry);
+        }
+
+        function loadCatalogue(focusRecovery) {
+          var retry = document.querySelector("[data-retry-catalogue]");
+          var latestButton = document.querySelector("[data-rent-latest]");
+          var title = document.getElementById("cf-title");
+          retry.hidden = true;
+          latestButton.disabled = true;
+          title.textContent = "Checking the tape manifest…";
+          document.getElementById("cfAisleStatus").textContent =
+            "Checking the Season 1 tape manifest…";
+          if (focusRecovery) focusElement(title);
+          return fetchWithTimeout("/content/episode-index.json", { cache: "no-store" })
+            .then(function (response) {
+              if (!response.ok) throw new Error("Episode index unavailable");
+              return response.json();
+            })
+            .then(function (data) {
+              return verifyDestinations(validateEpisodes(data));
+            })
+            .then(function (verifiedEpisodes) {
+              episodes = verifiedEpisodes;
+              latest = episodes.filter(function (episode) {
+                return episode._available;
+              }).pop() || null;
+              renderWall();
+              setArrivalState();
+              updateMemberStatus();
+              if (focusRecovery) focusElement(latest ? latestButton : title);
+            })
+            .catch(function () {
+              renderCatalogueFailure(focusRecovery);
+            });
+        }
+
+        document.querySelector("[data-retry-catalogue]").addEventListener("click", function () {
+          loadCatalogue(true);
+        });
+        loadCatalogue(false);
 
         document.querySelector("[data-rent-latest]").addEventListener("click", function () {
           if (latest) selectEpisode(latest);

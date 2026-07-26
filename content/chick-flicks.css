@@ -35,6 +35,48 @@ main.cf-page {
   padding: 0;
 }
 
+.cf-page [hidden] {
+  display: none !important;
+}
+
+.chick-flicks-page .sv-header {
+  min-width: 0;
+  flex-wrap: wrap;
+  container: cf-header / inline-size;
+}
+
+.chick-flicks-page :is(.svgh-left, .svgh-nav) {
+  min-width: 0;
+}
+
+.chick-flicks-page .svgh-nav {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+@container cf-header (max-width: 520px) {
+  .chick-flicks-page :is(.svgh-quick, .svgh-ksvl, .svgh-histbtn) {
+    display: none !important;
+  }
+
+  .chick-flicks-page .svgh-jointail {
+    display: none;
+  }
+
+  .chick-flicks-page .svgh-nav {
+    gap: 8px;
+  }
+
+  .chick-flicks-page .svgh-nav :is(.svgh-join, .svgh-signin, .svgh-menu-btn) {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+}
+
 .cf-page *,
 .cf-page *::before,
 .cf-page *::after {
@@ -93,6 +135,40 @@ main.cf-page {
   object-fit: contain;
 }
 
+.cf-tape__fallback {
+  display: none;
+  width: min(100%, 118px);
+  min-height: 150px;
+  place-items: center;
+  align-content: center;
+  gap: 8px;
+  padding: 14px 8px;
+  border: 4px solid var(--cf-paper);
+  color: var(--cf-paper);
+  background: var(--cf-purple);
+  font-family: var(--cf-display);
+  font-size: clamp(25px, 3vw, 42px);
+  line-height: 1;
+  text-align: center;
+}
+
+.cf-tape__fallback small {
+  font-family: var(--cf-body);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.cf-tape.is-image-missing img {
+  display: none;
+}
+
+.cf-tape.is-image-missing .cf-tape__fallback {
+  display: grid;
+}
+
 .cf-tape:hover,
 .cf-tape:focus-visible {
   z-index: 4;
@@ -113,8 +189,11 @@ main.cf-page {
 
 .cf-tape__label {
   position: absolute;
-  left: 50%;
+  left: 0;
+  right: 0;
   bottom: -2px;
+  width: 100%;
+  max-width: 100%;
   padding: 3px 7px;
   color: var(--cf-ink);
   background: var(--cf-paper);
@@ -123,9 +202,10 @@ main.cf-page {
   font-weight: 800;
   letter-spacing: 0.10em;
   line-height: 1.1;
+  overflow-wrap: anywhere;
+  text-align: center;
   text-transform: uppercase;
-  white-space: nowrap;
-  transform: translateX(-50%);
+  white-space: normal;
 }
 
 .cf-tape__new {
@@ -204,6 +284,11 @@ main.cf-page {
   text-wrap: balance;
 }
 
+#cf-title:focus-visible {
+  outline: 3px solid var(--cf-cyan);
+  outline-offset: 5px;
+}
+
 .cf-state__inner > div > p {
   max-width: 760px;
   margin: 20px 0 0;
@@ -237,6 +322,12 @@ main.cf-page {
   cursor: pointer;
   box-shadow: 5px 5px 0 var(--cf-cyan);
   transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.cf-state__actions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+  box-shadow: none;
 }
 
 .cf-state__actions .cf-spot {
@@ -286,6 +377,7 @@ main.cf-page {
 
 .cf-aisles__track button {
   flex: 0 0 auto;
+  min-height: 44px;
   padding: 7px 0;
   border: 0;
   border-bottom: 5px solid transparent;
@@ -595,7 +687,7 @@ main.cf-page {
   }
 
   .cf-mobile-shelf .cf-tape__new {
-    right: -10%;
+    right: 0;
     font-size: 6px;
   }
 
@@ -653,5 +745,20 @@ main.cf-page {
   .cf-rental__actions button,
   .cf-counter__route > a {
     transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .cf-tape:hover,
+  .cf-tape:focus-visible,
+  .cf-state__actions button:hover,
+  .cf-state__actions button:focus-visible,
+  .cf-rental__actions a:hover,
+  .cf-rental__actions a:focus-visible,
+  .cf-rental__actions button:hover,
+  .cf-rental__actions button:focus-visible {
+    transform: none;
   }
 }

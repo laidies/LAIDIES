@@ -708,10 +708,11 @@
       </section>
 
       <!-- ════════ JUST CALL (preserved engine — wired by ../script.js) ════════ -->
-      <section class="dp-section" id="dpJustCall" hidden aria-label="Just Call the hotline">
+      <section class="dp-section" id="dpJustCall" hidden aria-label="Just Call experimental scripted hotline" aria-describedby="dpJustCallBoundary">
         <button type="button" class="dp-back" data-dp-back>← Back to Dream Phone</button>
         <div class="dp-game-head">
-          <h2>Just Call</h2>
+          <h2 id="dpJustCallTitle" tabindex="-1">Just Call</h2>
+          <p id="dpJustCallBoundary"><strong>Experimental · scripted.</strong> Pick a caller for a playful, prewritten reframe. Dream Phone does not know your situation and does not provide personalized or professional advice. Call history and discoveries last only in this page session; they are not saved to an account or another device.</p>
           <p>To get someone on the line, type a number, tap the buttons, or pick a card to dial. Each caller rotates through prewritten takes; choose what is useful and use your own judgment for real decisions. <span class="dp-hint">Psst… rumour has it you can still call Jenny, if you know her number — and a couple of old ☆ codes still pull their old tricks, if your memory goes back far enough. ☎</span></p>
         </div>
 
@@ -771,10 +772,6 @@
           <button type="button" data-dream-special="speaker">Speaker phone</button>
           <button type="button" data-dream-special="hangup">Mom says hang up!</button>
         </div>
-
-        <!-- 867 Club: unlock celebration lives in the badge-toast (see script.js dreamPhoneEgg → renderBadgeToast).
-             The persistent badge stays out of the sticky panel; it belongs in the Closet trophy shelf later. -->
-        <div class="secret-badge" id="dreamPhoneSecretBadge" hidden aria-hidden="true"></div>
 
         </div><!-- /jc-inst-side -->
         </div><!-- /jc-instrument -->
@@ -859,10 +856,9 @@
     <script src="../content/site/supabase-config.js"></script>
     <script src="../content/site/site-data.js?v=quizzes-complete-20260712"></script>
     <script src="../script.js"></script>
-    <!-- Path B: Just Call = per-caller voice bundles (dream-phone-bundles.js), rendered by the dialer module below.
-         The deduction Game (Path A) lives in dream-phone-game.js, parked. Eggs/badges via window.dreamPhoneEgg. -->
+    <!-- Just Call uses only the prewritten voice bundles. The separate patron-saint deduction
+         engine remains parked source and is deliberately not loaded on this public route. -->
     <script src="../games/dream-phone-bundles.js?v=dp-bundles-1"></script>
-    <script src="../games/dream-phone-game.js?v=dream-phone-game-3"></script>
     <script>
       // Weekly-bag return link (preserved from the parked page).
       (function() {
@@ -888,11 +884,31 @@
       // render the Output with hierarchy + payoff motion → store the active bundle so
       // a remix card returns THAT bundle's secret/speaker/hangup. Bypasses script.js's
       // old advice path (capture-phase stopPropagation on cards + remix tray), so the
-      // shared script.js stays untouched. Eggs/badges via window.dreamPhoneEgg.
+      // shared script.js stays untouched. This bounded experiment has no account rewards.
       (function () {
         var jc = document.getElementById("dpJustCall");
         var phone = document.getElementById("dpPhone");
         if (!jc || !phone) return;
+        var entry = document.getElementById("dpEntry");
+        var parkedGame = document.getElementById("dpGame");
+        var doorCall = document.getElementById("dpDoorCall");
+        function showTrack(track) {
+          if (entry) entry.hidden = track !== "entry";
+          jc.hidden = track !== "justcall";
+          if (parkedGame) parkedGame.hidden = true;
+          window.scrollTo({
+            top: 0,
+            behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
+          });
+          window.requestAnimationFrame(function () {
+            var target = track === "justcall" ? document.getElementById("dpJustCallTitle") : doorCall;
+            if (target) target.focus();
+          });
+        }
+        if (doorCall) doorCall.addEventListener("click", function () { showTrack("justcall"); });
+        Array.prototype.forEach.call(document.querySelectorAll("[data-dp-back]"), function (button) {
+          button.addEventListener("click", function () { showTrack("entry"); });
+        });
         var screenText = document.getElementById("dpScreenText");
         var keys = phone.querySelectorAll(".dp-key");
         var heart = document.getElementById("dpHeart");
@@ -912,7 +928,6 @@
         var active = null;        // { key, name, bundle }
         var bundleIdx = {};       // per-caller rotation index
         var debArmed = false;     // *67 just dialed → next call may reach Deb
-        var remixUsed = {};       // for Remix Scholar
 
         function el(tag, cls) { var n = document.createElement(tag); if (cls) n.className = cls; return n; }
         function onlyDigits(s) { return String(s || "").replace(/\D/g, ""); }
@@ -1008,8 +1023,6 @@
           slot.appendChild(layer);
           void layer.offsetWidth; layer.classList.add("is-in");
           slot.scrollIntoView({ behavior: "smooth", block: "nearest" });
-          remixUsed[special] = 1;
-          if (Object.keys(remixUsed).length >= 3 && window.dreamPhoneEgg) window.dreamPhoneEgg("remix-scholar");
         }
 
         function ringThen(name, then) {
@@ -1076,8 +1089,6 @@
             if (isJenny) { active = null; renderAnswer("Jenny", null, "867-5309. You found the secret line — I like the way you think."); }
             else { var b = nextBundle(key); active = { key: key, name: name, bundle: b }; if (b) renderAnswer(name, key, b.output); }
           });
-          if (isJenny && window.dreamPhoneEgg) window.dreamPhoneEgg("867");
-          if (key === "deb" && window.dreamPhoneEgg) window.dreamPhoneEgg("deb");
           pushHistory(name.toUpperCase(), fmtDigits(digits));
           lastCall = { digits: digits };
           clearSoon(isJenny ? 3600 : 4600);
@@ -1088,16 +1099,14 @@
         }
         function egg(code) {
           if (code === "*67") {
-            if (window.dreamPhoneEgg) window.dreamPhoneEgg("*67");
             debArmed = true;  // next call can reach Deb
             setScreen("CALLER ID: DISABLED. DRAMA: ENABLED.");
             clearSoon(2600); return;
           }
           if (code === "*69") {
             if (!lastCall) { setScreen("NOTHING TO REDIAL"); clearSoon(2000); return; }
-            var res = window.dreamPhoneEgg ? window.dreamPhoneEgg("*69") : { first: false };
-            if (res && res.first) { setScreen("OH, *69? CLASSIC. REDIALING…"); setTimeout(redial, 1500); }
-            else { redial(); }
+            setScreen("OH, *69? CLASSIC. REDIALING…");
+            setTimeout(redial, 900);
           }
         }
         function press(ch) {
@@ -1140,17 +1149,21 @@
           if (willOpen) renderHistory();
           historyPanel.hidden = !willOpen;
         });
-        function closeHistory() { if (historyPanel && !historyPanel.hidden) historyPanel.hidden = true; }
+        function closeHistory(returnFocus) {
+          if (!historyPanel || historyPanel.hidden) return;
+          historyPanel.hidden = true;
+          if (returnFocus && histBtn) histBtn.focus();
+        }
         // × button, tap-outside, and Esc all dismiss the Recent Calls popover
         var histClose = document.getElementById("dpHistClose");
-        if (histClose) histClose.addEventListener("click", function (e) { e.stopPropagation(); closeHistory(); });
+        if (histClose) histClose.addEventListener("click", function (e) { e.stopPropagation(); closeHistory(true); });
         document.addEventListener("click", function (e) {
           if (!historyPanel || historyPanel.hidden) return;
           if (historyPanel.contains(e.target)) return;     // clicks inside the popover stay open
           if (histBtn && histBtn.contains(e.target)) return; // the toggle button handles itself
           closeHistory();
         }, true);
-        document.addEventListener("keydown", function (e) { if (e.key === "Escape" || e.key === "Esc") closeHistory(); });
+        document.addEventListener("keydown", function (e) { if (e.key === "Escape" || e.key === "Esc") closeHistory(true); });
 
         // type-to-dial: native number pad on mobile + a real backspace everywhere (no more stuck typos on the keypad)
         var dialForm = document.getElementById("dpDialForm");

@@ -1,7 +1,7 @@
 {
   "_meta": {
     "purpose": "Master catalog of every piece of LAiDIES material. Powers Ask Jeeves (the LIBRAiRY reference desk): a plain-words question -> a clickable list of every place that covers it, grouped by type. Also the backbone for any site search.",
-    "rule": "NOTHING SHIPS WITHOUT AN INDEX ENTRY. Every new page/episode/book/activity gets an entry here (title, url, type, section, summary, topics, aliases) before it goes live. `scripts/check-index.js` lists live pages missing from here and must return zero before launch. Keep `status` accurate (live | coming). Verify tool/model facts per the fact ledger before adding tool entries.",
+    "rule": "NOTHING SHIPS WITHOUT AN INDEX ENTRY. Every new page/episode/book/activity gets an entry here (title, url, type, section, summary, topics, aliases) before it goes live. `scripts/check-index.js` lists live pages missing from here and must return zero before launch. Keep `status` accurate (live | preview | coming). Verify tool/model facts per the fact ledger before adding tool entries.",
     "schema": "entries[]: { id, title, url, type, section, status, summary, topics[], aliases[] }  — type: episode|101|tool|reference|concept|activity|building|character.  aliases = the plain-words a beginner would actually type (synonyms, 'how do I…', misspellings-of-intent). These carry keyword search.",
     "version": "2026-07-09",
     "seed": "Live material + core concepts. Coming material (Ep5, per-tool books, What Not to Paste, The Prompt Cookbook, per-101 pages) gets added as it ships — that's the rule."
@@ -59,7 +59,7 @@
       "summary": "Make your free Resident Card — 2 minutes, and everything you collect starts counting.", "topics": ["residence card", "sign up", "join", "make a card"], "aliases": ["how do i join", "make my card", "sign up", "get started here"] },
     { "id": "bld-visitors", "title": "The Visitors Centre", "url": "/visitors-centre.html", "type": "building", "section": "SUNNYVAiLE", "status": "live",
       "summary": "The town map + directory — find any building and what it's for.", "topics": ["map", "directory", "find your way", "what's in town"], "aliases": ["where is everything", "the town map", "help me find", "what buildings are there"] },
-    { "id": "act-dream-phone-game", "title": "Dream Phone — Is That Even True?", "url": "/games/dream-phone-game.html", "type": "activity", "section": "SUNNYVAiLE", "status": "live",
-      "summary": "A detective game in the Dream Phone booth — the AI tells you a wild 90s fact, you call around town to check it, then call it: For Real, or As If? Practice spotting a hallucination.", "topics": ["spot ai hallucinations", "fact-check the ai", "verify a claim", "real or fake", "90s trivia", "misinformation"], "aliases": ["is that even true", "for real or as if", "catch the ai lying", "dream phone game", "game to spot fake facts", "practice checking ai", "how do i know if it's true"] }
+    { "id": "act-dream-phone-game", "title": "Dream Phone — Is That Even True?", "url": "/games/dream-phone-game.html", "type": "activity", "section": "SUNNYVAiLE", "status": "preview",
+      "summary": "An experimental scripted beta deck in the Dream Phone booth. Call around town, compare a claim with its evidence record, and practise asking about specifics, sources and missing denominators. It is not an authoritative fact-checking service.", "topics": ["source checking practice", "verify a claim", "real or fake", "90s trivia", "misinformation"], "aliases": ["is that even true", "for real or as if", "dream phone game", "practice checking a claim", "how do i know if it's true"] }
   ]
 }
