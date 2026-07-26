@@ -50,6 +50,22 @@ The artwork pipeline is active under
 champions may create substantial new placement-specific art and must not treat
 the large existing image pile as an approval or a reason to reuse weak work.
 
+Ali's 2026-07-26 ownership ruling applies to the full building tree: the main
+page, every owned subpage/subproduct, all visible capabilities, content,
+cross-building relationships, frontend/backend/media/state plumbing and the
+complete new/returning/failure experience. The Library shelf/book/Miss
+Jeeves/Puffy model is the clearest current example of a building whose
+environment is the interface, but it is a principle rather than a template to
+clone literally.
+
+Before the first building wave integrates replacement art, complete the
+sitewide style championship in
+`operations/sitewide-style-championship-2026-07-26.md`. Compare the same
+Library experience in three systems: unified adult comic/graphic novel,
+deliberate painterly-town/comic-episode dual language, and a controlled
+functional hybrid. The 2026-07-23 comic direction remains provisional
+Direction A until Ali rules on comparable final evidence.
+
 FAiRY, learning-ecosystem and Episode 04 evidence remains preserved in their
 product dossiers and completed-cycle records; this priority correction does
 not erase their work or turn local candidates into release approval.
