@@ -333,6 +333,13 @@
       '03': { coverage: 'complete' },
       '04': { coverage: 'complete' }
     };
+    var HELD_VISUAL_COVERS = {
+      'trailer': '/assets/postcards/from-sunnyvaile/pc-welcome.png',
+      '01': '/assets/sunnyvaile-interiors/episode-vhs-boxes/ep-01.webp',
+      '02': '/assets/sunnyvaile-interiors/episode-vhs-boxes/ep-02.webp',
+      '03': '/assets/sunnyvaile-interiors/episode-vhs-boxes/ep-03.webp',
+      '04': '/assets/sunnyvaile-interiors/episode-vhs-boxes/ep-04.webp'
+    };
     function episodeKey(ep) { return ep === 'trailer' ? 'trailer' : String(ep).padStart(2, '0'); }
     function filmFor(ep) { return EPISODE_FILMS[episodeKey(ep)] || null; }
     function captionsFor(ep) { return EPISODE_CAPTIONS[episodeKey(ep)] || null; }
@@ -823,9 +830,33 @@
       failPlayer('route', 'This programme is not on the public tape list.');
       return;
     }
-    fetch('/content/episodes/episode-' + ep + '-cues.json', { cache: 'no-store' })
-      .then(function (r) { if (!r.ok) throw new Error('Cue request failed'); return r.json(); })
-      .then(function (data) {
+    Promise.all([
+      fetch('/content/episodes/episode-' + ep + '-cues.json', { cache: 'no-store' })
+        .then(function (r) { if (!r.ok) throw new Error('Cue request failed'); return r.json(); }),
+      fetch('/content/episodes/screening-room-admission.json', { cache: 'no-store' })
+        .then(function (r) { if (!r.ok) throw new Error('Admission request failed'); return r.json(); })
+    ])
+      .then(function (payloads) {
+        var data = payloads[0];
+        var admission = payloads[1] && payloads[1].programmes
+          ? payloads[1].programmes[episodeKey(ep)]
+          : null;
+        var visualsReleased = admission
+          && admission.admissionStatus === 'release'
+          && Array.isArray(admission.occurrences)
+          && admission.occurrences.length === admission.expectedOccurrenceCount;
+        if (!visualsReleased) {
+          data = Object.assign({}, data, {
+            edition: { kind: 'cover-only-audio' },
+            cues: [{
+              t: 0,
+              type: 'full',
+              pan: 'none',
+              chapter: 'Full programme',
+              src: HELD_VISUAL_COVERS[episodeKey(ep)]
+            }]
+          });
+        }
         if (ep === 'trailer') {
           document.getElementById('scrTitle').innerHTML = brand('The Trailer · Welcome to SUNNYVAiLE');
           document.title = 'The Trailer · The Screening Room · SUNNYVAiLE';

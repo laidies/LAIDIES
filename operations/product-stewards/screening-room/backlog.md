@@ -30,11 +30,12 @@
 6. **SR-006 P0 — Correct analytics semantics.** **START LABEL REPAIRED
    LOCALLY:** playback emits `Listen-along start`, never video watch or
    completion. Shared event-dictionary approval/measurement remains open.
-7. **SR-007 P0 — Govern the public cue transform.** **INDEPENDENT BOUNDED
-   REJUDGE PASS; ALL TITLES HOLD:** The builder replaces every
-   Episode 03–04 visual with one VHS cover. Bind that derived artifact to an
-   explicit narrated-edition manifest and never claim source/artifact visual
-   parity or an illustrated edition from the source cue sheet.
+7. **SR-007 P0 — Govern the public cue transform.** **FAIL-CLOSED RUNTIME
+   PASS; ALL TITLES HOLD:** Every held title now renders one tracked programme
+   cover with narration and captions. The runtime may use narration-specific
+   cue images only when the title is released and every expected occurrence has
+   an admission verdict. Untracked or unapproved source imagery is not required
+   by the deployable artifact.
 8. **SR-008 P0 — Finish Episode 02 visual timing.** **MAIN CLOCK COMPLETE
    LOCALLY:** all 27 main cues now begin at matching semantic VTT onsets,
    including “Make It Official” at 945.950 and “Next time” at 971.490. Long

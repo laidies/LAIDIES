@@ -47,6 +47,10 @@ assert.match(page, /window\.addEventListener\('pagehide', function \(\) \{ store
 assert.doesNotMatch(page, /Episode watch/);
 assert.match(page, /Listen-along start/);
 assert.match(page, /cover-only audio edition/i);
+assert.match(page, /screening-room-admission\.json/);
+assert.match(page, /admission\.admissionStatus === 'release'/);
+assert.match(page, /admission\.occurrences\.length === admission\.expectedOccurrenceCount/);
+assert.match(page, /HELD_VISUAL_COVERS/);
 assert.equal(admission.schemaVersion, 1);
 assert.equal(derived.schemaVersion, 1);
 
@@ -76,7 +80,9 @@ for (const id of ids) {
   for (const [position, cue] of sheet.cues.entries()) {
     assert.ok(Number.isFinite(cue.t) && cue.t >= prior, `${id}: cue ${position} is out of order`);
     prior = cue.t;
-    if (cue.src) assert.ok(exists(cue.src), `${id}: missing cue asset ${cue.src}`);
+    if (record.admissionStatus === "release" && cue.src) {
+      assert.ok(exists(cue.src), `${id}: missing released cue asset ${cue.src}`);
+    }
   }
   const vtt = read(captionPath);
   const ranges = [...vtt.matchAll(/(\d{2}):(\d{2}):(\d{2}\.\d{3})\s+-->\s+(\d{2}):(\d{2}):(\d{2}\.\d{3})/g)];
