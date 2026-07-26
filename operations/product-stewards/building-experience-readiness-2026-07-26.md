@@ -86,6 +86,14 @@ Backend, content, image, motion, audio, analytics and accessibility specialists
 join when required by the building. They are not substitutes for the building
 champion, and no specialist's isolated pass can declare the building finished.
 
+New artwork follows
+`operations/product-stewards/artwork-production-system-2026-07-26.md`.
+Existing image volume is not a reason to reuse weak work: every placement gets
+an explicit purpose and may commission new environment, object, character,
+content, result, motion-source and responsive artwork. Generated candidates
+must pass independent full-resolution and exact-use judgment before
+integration.
+
 ## Subsequent waves
 
 After the first wave establishes the design grammar:

@@ -45,6 +45,10 @@ LIBRAiRY room-first benchmark, the Visitor's Centre first-arrival experience
 and Blend & Snap as the first transfer test of the room/object interaction
 grammar. Their portfolio brief is
 `operations/product-stewards/building-experience-readiness-2026-07-26.md`.
+The artwork pipeline is active under
+`operations/product-stewards/artwork-production-system-2026-07-26.md`; building
+champions may create substantial new placement-specific art and must not treat
+the large existing image pile as an approval or a reason to reuse weak work.
 
 FAiRY, learning-ecosystem and Episode 04 evidence remains preserved in their
 product dossiers and completed-cycle records; this priority correction does
