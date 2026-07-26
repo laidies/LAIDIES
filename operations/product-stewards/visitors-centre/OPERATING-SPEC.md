@@ -1,6 +1,8 @@
 # Welcome Wagon Visitor's Centre — operating specification
 
-**Status:** SPECIFIED — reconciled 2026-07-25. Interaction evidence is bounded; this is not a public readiness or downstream-lifecycle claim.
+**Status:** BOUNDED LOCAL PASS — independent Repair 1 rejudge 92/100. This is
+not owner approval, native-accessibility proof, public readiness or a
+downstream-lifecycle claim.
 
 ## Identity and purpose
 
@@ -98,7 +100,7 @@
 - **Backend/data/reward:** Directory route binding and unknown/missing data recovery pass; postcard/trailer outcomes remain separately owned and require their provider/product evidence.
 - **Visual/media:** Map/room/asset loading, trailer controls/captions/failure and optional audio behavior reviewed on exact candidate; owner visual ruling recorded.
 - **Exact candidate/release/public verification:** Local interaction evidence already covers selected map/directory/reveal/return/postcard mechanics and 390×844. A new exact artifact must pass full clean journey; public verification needs the same bounded public-origin suite and approved analytics configuration.
-- **Current status/unresolved decisions:** **SPECIFIED.** Clean-state comprehension, full accessibility/recovery, analytics contract, current artifact/public suite and owner visual ruling remain open.
+- **Current status/unresolved decisions:** **BUILDING.** Deterministic clean-state comprehension assertions, directory/map recovery, keyboard focus return, storage failure, mobile/reflow/reduced-motion and truthful trailer/tour/postcard handoffs pass in the maker source/browser candidate. Human comprehension, independent judgment, native Safari/VoiceOver/zoom, owner visual approval, approved analytics and exact public-origin verification remain open.
 
 ## Source trail
 

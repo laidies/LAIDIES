@@ -1,14 +1,53 @@
 # Town Hall Steward Backlog
 
-**Status:** BUILDING — ranked recommendations; none authorises a product-code, data-policy or public change.
+**Status:** BOUNDED LOCAL PASS — independent Repair 1 rejudge 87/100.
+Submission, release, server, staff, owner, native-accessibility and
+civic-accountability gates remain held.
+
+## INDEPENDENT LOCAL PASS — RELEASE HOLDS REMAIN — 2026-07-25 Repair 1
+
+1. **Closed the false-acceptance seam.** The shipped controller no longer trusts
+   `LAIDIES_TOWN_HALL_FEEDBACK_ADAPTER` or a self-asserted `__testOnly` flag.
+   Synthetic journeys require localhost/127.0.0.1, the exact Repair 1 fixture
+   marker and a matching adapter fixture ID. The old production-global override
+   is an adversarial negative case.
+2. **Separated definite rejection from unknown delivery.** Returned status-zero
+   and “Failed to fetch” errors, thrown aborts and missing receipts preserve the
+   note, warn about duplicates and disable immediate retry. A definite 4xx or
+   database shape rejection preserves the note and permits correction/retry.
+3. **Added controller and local-receipt boundaries.** Mutated submission types
+   and subjects over 100 characters are blocked before transport. The returning
+   cue now requires a versioned, accepted, canonical and non-future timestamp;
+   arbitrary strings, malformed JSON and future receipts cannot claim acceptance.
+4. **Closed reduced-motion and contrast defects.** Reduced motion removes the
+   station scroll animation and page/control transitions. Source and exact
+   artifact tests prove submit and selected-chip computed contrast at or above
+   4.5:1.
+5. **Kept the real launch hold honest.** Visible copy says the inbox is in release
+   preflight and not open for submissions. The controller fails closed until an
+   authorised server/staff release gate is implemented and proven.
+
+Repair evidence: `repair-1-evidence-private-inbox-trust-2026-07-25.md`.
+The independent Repair 1 rejudge passed at 87/100. This is not live-service
+proof, deployment, public verification or owner visual/accountability approval.
+
+## VERIFIED LOCALLY — 2026-07-25 maker cycle
+
+1. **Bounded the comment-card promise.** Arrival, station, form and receipt copy no longer claim a human read, notification, review, response or cross-device record.
+2. **Removed unnecessary signed-in email collection.** Synthetic signed-in browser evidence proves the payload contains verified session user ID but no session email.
+3. **Removed the anonymous post-insert read trap.** The browser no longer chains `.select().single()` after insert, which conflicted with the inspected anonymous own-read policy and could report failure after a completed write.
+4. **Made failure and assistive status explicit.** Progress/success/error use a live status region; rejected and auth/config outcomes preserve content and restore controls; unknown outcomes preserve content, warn against a duplicate and suppress immediate retry.
+5. **Added deterministic controls.** A localhost/exact-fixture preflight adapter, 35-check source contract and 58-check adversarial rendered suite cover desktop/mobile, hashes, keyboard, anonymous/signed-in payloads, the disabled public release state, denied storage, failures, mutation, receipt integrity, reduced motion and contrast with all external network denied.
+
+These results are `VERIFIED LOCALLY`, not live-service, deployed, publicly verified, staff-triage or owner-visual approval.
 
 ## FIX BEFORE LAUNCH
 
-1. **Prove and bound the complete feedback lifecycle.** Run an authorised, controlled anonymous and signed-in submission test against the exact candidate; record acceptance, RLS behaviour, failure/retry, staff visibility and deletion/retention handling without retaining test content in the dossier. Make copy distinguish *filed*, *received*, *reviewed* and *resolved*.
+1. **Build and prove the complete feedback lifecycle in isolated staging.** Replace the direct public insert with a bounded server-side intake that provides validation, anti-automation/rate limits, idempotency or safe ambiguous-outcome handling, controlled logs and an acceptance receipt. Then run an authorised anonymous/signed-in/RLS/failure test; record staff visibility and deletion/retention handling without retaining test content in the dossier.
 2. **Name the civic-accountability owner and path.** Define who triages `filed → triaged → addressed/ignored/deb-flected`, what `reviewed_at` means, a response/escalation standard, correction/referral handling and an authorised public aggregate/reporting route. Do not promise “actually gets read” until this is operating and evidenced.
 3. **Establish abuse, privacy and incident controls.** Decide and test rate limiting/anti-automation, duplicate handling, malicious-content review, urgent/safety escalation, access roles, retention/deletion and staff notification. The inspected schema/RLS validates shape and ownership, not these operating controls.
-4. **Close privacy gaps in signed-in intake.** Confirm whether collecting `submitter_email` is necessary, who may access it, how it is retained/deleted and whether the public warning accurately covers it. Keep all private bodies, emails and names out of analytics, logs and champion evidence.
-5. **Accessibility and resilient-form pass.** Test keyboard/radio focus visibility, error/live announcement, loading/disabled state, focus after success/failure, mobile tap targets, zoom/reflow and JavaScript/CDN/config/service failure recovery on the exact candidate.
+4. **Keep signed-in intake minimised.** The local candidate no longer sends session email. Any future contact field requires an approved purpose, consent/notice, access rule and retention/deletion contract. Keep bodies, subjects, emails and names out of analytics, routine logs and champion evidence.
+5. **Complete independent accessibility and resilience judgement.** Maker evidence now covers keyboard station activation, radio focus styling, live status, loading/disabled recovery, mobile overflow and synthetic auth/insert/storage failures. Independent review must still cover zoom, assistive-technology behavior and exact visual focus/tap quality.
 
 ## HIDE/LABEL FOR LAUNCH
 

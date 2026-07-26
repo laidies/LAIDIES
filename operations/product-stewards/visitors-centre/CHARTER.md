@@ -1,8 +1,8 @@
 # Welcome Wagon Visitor's Centre Steward
 
-**Status:** SPECIFIED — manual dossier created; no persistent runner, analytics pull, or autonomous change authority is wired.
+**Status:** BUILDING — bounded local relaunch repair cycle; no persistent runner, analytics pull, deployment, or autonomous external authority is wired.
 **Relationship to AW-003:** MERGE — supplies evidence and launch-ranked recommendations to the reopening gate.
-**Authority:** Read-only investigation and records in this directory only. No page, map, trailer, postcard, global-navigation, analytics, deployment, publication, git, canon, or reward changes without portfolio reconciliation and the relevant owner approval.
+**Authority:** This cycle may repair the owned page, its deterministic tests and narrowly required shared Welcome Tour truth under `build-packet-relaunch-p0-2026-07-25.md`. It may not change shared directory canon, destination readiness, analytics, production/external services, rewards, deployment, publication or git state. Visual approval, native assistive-technology evidence and public verification remain independent gates.
 
 ## Product promise
 

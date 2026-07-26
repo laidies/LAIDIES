@@ -25,7 +25,7 @@
     { href: '/blend-snap.html', name: 'The Blend & Snap', icon: 'cup',
       line: "Order an episode's Study Pack menu and see exactly what is ready, held, planned or unavailable before you choose a next step." },
     { href: '/sunnyvaile-high.html', name: 'SUNNYVAiLE High', icon: 'gradcap',
-      line: "Sit this Wednesday's Pop Quiz on the episode — collect a sticker and watch your score land on your permanent Report Card." },
+      line: "Try a Pop Quiz or class that is currently available. Any score or keepsake is device-local unless the page explicitly proves an account record." },
     { href: '/library.html', name: 'The LIBRAiRY', icon: 'book',
       line: "When the jargon lands on the table, this is the rack where you look it up — the Glossary, the straight answers, and Miss Jeeves at the desk." },
     { href: '/luminairy.html', name: 'The LUMINAiRY', icon: 'candle',
@@ -33,7 +33,7 @@
     { href: '/games/madame-claio.html', name: "Mme CLAi-O's", icon: 'crystal',
       line: "Call the psychic hotline and step in for your reading — practical advice, late-night-commercial drama." },
     { href: '/games/fairy-godmother.html', name: 'FAiRY Godmother', icon: 'wand',
-      line: "Bring the prompt you can't finish, wave the wand, and ask the FAiRY Godmother for real advice in your favorite PATRON SAiNT's energy." },
+      line: "Bring an AI, career or everyday-life question for practical guidance. It is a tool, not homework, and high-stakes professional advice stays out of scope." },
     { href: '/bronze-aige.html', name: 'The BRONZE AiGE', icon: 'martini',
       line: "The town bar — round up your crew, let the Businesswomen's Special pick the drinks, and steal the conversation menu for happy hour at 4." },
     { href: '/mall.html', name: 'The Mall', icon: 'bag',
@@ -41,22 +41,27 @@
     { href: '/games/dream-phone.html', name: 'Dream Phone', icon: 'phone',
       line: "Try the experimental Dream Phone: pick a caller for a playful, prewritten reframe — not personalized or professional advice." },
     { href: '/sorority-house.html', name: 'Delta LAi Nu', icon: 'home',
-      line: "Delta LAi Nu on Wisteria Lane — the clubhouse where the chat rooms live and your Closet locker waits, the minute your card's on file." },
+      line: "Visit the Delta LAi Nu clubhouse preview. Account, room and Closet access are available only where the receiving page proves them." },
     { href: '/town-hall.html', name: 'Town Hall', icon: 'columns',
       line: "Deb's office — meet the mayor who's been here longer than anyone, read the poster saga, and drop a Comment Card if something needs handling." },
     { href: '/post-office.html', name: 'The Post Office', icon: 'mail',
       line: "Sign up here and your email becomes your PO box — one delivery every Wednesday when the new episode lands, no spam, ever." },
     { href: '/radio.html', name: 'KSVL 99.9', icon: 'radio',
-      line: "Turn the dial to 99.9 — DJ SunnyV plays the town all day, and once it's on, the music follows you everywhere you go." },
+      line: "Visit KSVL's soundcheck. Public listening is held until each exact master, transcript, lesson source and rights record clears its catalogue gate." },
     { href: '/maikeover.html', name: 'MAiKEOVER on MAiN', icon: 'lipstick',
-      line: "You've seen the town — now take the chair, pick your colors, and make the Resident Card that turns a tourist into a resident." }
+      line: "Take the chair, style a device-local Resident Card preview and see the page's honest account status. Cross-device identity is not promised." }
   ];
 
   function readState() {
     try { return JSON.parse(localStorage.getItem(KEY)) || null; } catch (e) { return null; }
   }
   function writeState(s) {
-    try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {}
+    try {
+      localStorage.setItem(KEY, JSON.stringify(s));
+      return true;
+    } catch (e) {
+      return false;
+    }
   }
 
   function esc(s) {
@@ -82,6 +87,7 @@
     + '  font-size: 9.5px; font-weight: 800; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold, #c9a227); margin: 0 0 6px; }'
     + '.svwt-skip { background: transparent; border: 0; color: rgba(255,253,251,0.55); font-size: 13px; cursor: pointer; padding: 2px 4px; font-family: inherit; }'
     + '.svwt-skip:hover { color: #fffdfb; }'
+    + '.svwt-skip:focus-visible, .svwt-next:focus-visible, .svwt-offer:focus-visible { outline: 3px solid #fffdfb; outline-offset: 3px; }'
     + '.svwt-name { margin: 0 0 4px; font-size: 15.5px; font-weight: 700; }'
     + '.svwt-line { margin: 0 0 12px; font-size: 12.5px; line-height: 1.5; color: rgba(255,253,251,0.88); }'
     + '.svwt-next { display: inline-block; background: var(--gold, #c9a227); color: #341446; border: 0; border-radius: 999px;'
@@ -194,8 +200,8 @@
     chip.innerHTML =
       '<p class="svwt-eyebrow"><span>' + ic('bus', 'eb3', 13) + ' Welcome Tour · complete</span></p>'
       + '<p class="svwt-name">' + ic('star', 'fin', 17) + ' Official Tourist!</p>'
-      + '<p class="svwt-line">You\'ve done the essential stops — you know your way around now. Make your Resident Card right here and it all starts counting — clips, charms, stickers, the works.</p>'
-      + '<a class="svwt-next" href="#maikeover-form" onclick="this.closest(\'.svwt-chip\').remove()">Make my card ★</a>';
+      + '<p class="svwt-line">You\'ve visited every stop. If you want, make a device-local Resident Card preview here; the page will label any account features that are still held.</p>'
+      + '<a class="svwt-next" href="#maikeover-form" onclick="this.closest(\'.svwt-chip\').remove()">Preview my card ★</a>';
     document.body.appendChild(chip);
     setTimeout(function () {
       var c = document.getElementById('svwtChip');
@@ -223,7 +229,23 @@
   }
 
   function startTour() {
-    writeState({ step: 1, startedAt: new Date().toISOString(), done: false, skipped: false });
+    if (!writeState({ step: 1, startedAt: new Date().toISOString(), done: false, skipped: false })) {
+      var offer = document.querySelector('.svwt-offer');
+      if (offer) offer.remove();
+      injectStyle();
+      var notice = document.createElement('div');
+      notice.id = 'svwtChip';
+      notice.className = 'svwt-chip';
+      notice.setAttribute('role', 'status');
+      notice.innerHTML =
+        '<p class="svwt-eyebrow"><span>Welcome Tour · unavailable</span></p>'
+        + '<p class="svwt-line">This browser cannot save tour progress. The town directory still works, and you can try the tour again after enabling site storage.</p>'
+        + '<button class="svwt-next" type="button">Keep using the Visitor\'s Centre</button>';
+      notice.querySelector('button').addEventListener('click', function () { notice.remove(); });
+      document.body.appendChild(notice);
+      notice.querySelector('button').focus();
+      return;
+    }
     if (pathNow() === STOPS[0].href) {
       var offer = document.querySelector('.svwt-offer');
       if (offer) offer.remove();

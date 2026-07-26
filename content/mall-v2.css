@@ -220,6 +220,14 @@ main.mall-page {
   text-underline-offset: 3px;
 }
 
+.mall-state-note {
+  display: block;
+  margin-top: 6px;
+  color: rgba(255, 255, 255, .7);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
 .mall-board {
   min-width: 0;
   padding: clamp(42px, 6vw, 82px) clamp(24px, 5vw, 78px);
@@ -287,6 +295,28 @@ main.mall-page {
   cursor: pointer;
 }
 
+.mall-search .mall-search-reset {
+  grid-column: 1 / -1;
+  justify-self: start;
+  min-height: 44px;
+  background: #fff;
+  box-shadow: 4px 4px 0 var(--mall-purple);
+}
+
+.mall-search-status,
+.mall-corridor-status {
+  margin: -12px 0 24px;
+  color: #34384d;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.mall-search-status:focus-visible,
+.mall-no-results:focus-visible {
+  outline: 4px solid var(--mall-purple);
+  outline-offset: 4px;
+}
+
 .mall-board ol {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -307,6 +337,38 @@ main.mall-page {
 
 .mall-board li[hidden] {
   display: none;
+}
+
+.mall-board .mall-held-entry {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+  border-left: 4px solid var(--rose, #9b3f5f);
+  background: rgba(255,255,255,.08);
+  color: #fff;
+}
+
+.mall-board .mall-held-entry strong,
+.mall-board .mall-held-entry small {
+  display: block;
+}
+
+.mall-board .mall-held-entry strong {
+  color: #ffd982;
+  font-size: 11px;
+  letter-spacing: .1em;
+}
+
+.mall-board .mall-held-entry small {
+  color: rgba(255,255,255,.78);
+}
+
+.mall-corridor .shop--held {
+  border-color: var(--rose, #9b3f5f);
+}
+
+.mall-corridor .shop--held .shop-photo img {
+  filter: grayscale(.6) saturate(.65);
 }
 
 .mall-board li a {
@@ -380,6 +442,13 @@ main.mall-page {
   line-height: 1;
 }
 
+.mall-no-results p {
+  max-width: 62ch;
+  margin: 10px 0 0;
+  color: #34384d;
+  line-height: 1.55;
+}
+
 .mall-no-results a {
   display: inline-block;
   margin-top: 12px;
@@ -418,6 +487,12 @@ main.mall-page {
   justify-content: flex-end;
   gap: 10px;
   padding: 0 clamp(22px, 5vw, 78px) 20px;
+  background: #fffaf5;
+}
+
+.mall-corridor-status {
+  margin: 0;
+  padding: 0 clamp(22px, 5vw, 78px) 16px;
   background: #fffaf5;
 }
 
@@ -627,8 +702,18 @@ main.mall-page {
     grid-template-columns: 1fr;
   }
 
+  .mall-walk-head > * {
+    min-width: 0;
+  }
+
+  .mall-walk-title {
+    font-size: 42px;
+    overflow-wrap: anywhere;
+  }
+
   .mall-walk-instructions {
     text-align: left;
+    overflow-wrap: anywhere;
   }
 
   .mall-walk-controls {

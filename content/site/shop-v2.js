@@ -16,7 +16,7 @@ var PRODUCTS = [
   {
     name: "Deb's “NOPE” Poster Set",
     price: "$28",
-    tag: "Bestseller",
+    tag: "Source-art concept",
     giftable: true,
     department: "prints",
     preview: "poster-set",
@@ -83,7 +83,7 @@ var PRODUCTS = [
   {
     name: "Puffy Sticker Sheet",
     price: "$8",
-    tag: "Restock",
+    tag: "Source-art preview",
     giftable: true,
     department: "small-goods",
     preview: "landscape",
@@ -103,7 +103,7 @@ var PRODUCTS = [
   {
     name: "Tee · “I survived Y2K. I'll survive this too.”",
     price: "$34",
-    tag: "Bestseller",
+    tag: "Text-only concept",
     giftable: true,
     department: "apparel",
     blurb: "You dialed up, you hoarded canned goods, the clock rolled over and you were fine. AI is just the next Tuesday. The real garment proof is not finished yet.",
@@ -130,7 +130,7 @@ var PRODUCTS = [
   {
     name: "The NOPE Pad",
     price: "$12",
-    tag: "Bestseller",
+    tag: "Text-only concept",
     giftable: true,
     department: "small-goods",
     blurb: "From the desk of Deb: a tear-off memo pad for the email, the task, or the meeting invite. The pad artwork is specced but does not yet have an approved product image.",
@@ -139,7 +139,7 @@ var PRODUCTS = [
   {
     name: "SUNNYVAiLE Tote",
     price: "$24",
-    tag: "Made to order",
+    tag: "Text-only concept",
     giftable: true,
     department: "small-goods",
     blurb: "Carry the whole town. The wordmark treatment belongs on a real canvas proof; until that exists, there is no fake tote hanging on the rack.",
@@ -167,6 +167,8 @@ var PRODUCTS = [
   var currentDepartment = "all";
   var currentIndex = 0;
   var boardKey = "laidies_puffies_board";
+  var interestStatus = document.getElementById("shopInterestStatus");
+  var pendingInterest = null;
 
   if (!list || !detail) return;
 
@@ -192,6 +194,36 @@ var PRODUCTS = [
       return Array.isArray(value) ? value : [];
     } catch (error) {
       return [];
+    }
+  }
+
+  function storageAvailable() {
+    var probe = "laidies_gift_shop_storage_probe";
+    try {
+      localStorage.setItem(probe, "1");
+      localStorage.removeItem(probe);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  function setInterestStatus(message, state) {
+    if (!interestStatus) return;
+    interestStatus.textContent = message || "";
+    interestStatus.dataset.state = state || "idle";
+    interestStatus.hidden = !message;
+  }
+
+  function showStorageFailure() {
+    setInterestStatus(
+      "This browser could not save or remove that interest. Nothing changed. You can still browse every concept here.",
+      "error"
+    );
+    pendingInterest = null;
+    var injectedRow = detail.nextElementSibling;
+    if (injectedRow && injectedRow.classList.contains("puffy-save-row")) {
+      injectedRow.remove();
     }
   }
 
@@ -268,7 +300,8 @@ var PRODUCTS = [
 
     var preview = previewMarkup(product);
     var hasPreview = Boolean(preview);
-    var held = isHeld(index);
+    var canStore = storageAvailable();
+    var held = canStore && isHeld(index);
     var live = product.buyUrl && product.buyUrl !== "#";
     var buyMarkup = live
       ? '<a class="shop-buy" href="' + esc(product.buyUrl) + '" target="_blank" rel="noopener">Buy from the real checkout →</a>'
@@ -279,9 +312,12 @@ var PRODUCTS = [
         : '<button class="shop-gift-action" type="button" disabled>Gift option opens with the till</button>'
       : "";
 
-    detail.id = itemId(index);
+    // Keep the product region's DOM identity stable for focus, assistive
+    // technology and automation. Puffy persistence gets its changing item key
+    // through its dedicated data contract instead.
+    detail.setAttribute("data-puffy-id", itemId(index));
     detail.setAttribute("data-puffy-title", product.name);
-    detail.setAttribute("data-puffy-summary", "Held behind the counter at the SUNNYVAiLE Gift Shop.");
+    detail.setAttribute("data-puffy-summary", "Private device-local interest from the held SUNNYVAiLE Gift Shop concept counter; not stock, a reservation, or a purchase.");
     detail.innerHTML =
       '<div class="shop-product__layout' + (hasPreview ? "" : " is-copy-only") + '">' +
         preview +
@@ -291,24 +327,37 @@ var PRODUCTS = [
           '<p class="shop-product__blurb">' + esc(product.blurb) + "</p>" +
           '<div class="shop-product__meta">' +
             '<span class="shop-product__price">' + esc(product.price) + "</span>" +
-            '<span class="shop-product__status">' + (live ? "Hosted checkout connected" : "Working price · checkout not connected") + "</span>" +
+            '<span class="shop-product__status">' + (live ? "Hosted checkout connected" : "Concept price label · checkout not connected") + "</span>" +
           "</div>" +
           '<div class="shop-product__actions">' +
-            '<button class="shop-hold' + (held ? " is-held" : "") + '" type="button" data-hold-product="' + index + '">' +
-              (held ? "Held behind the counter ✓" : "Hold it behind the counter") +
+            '<button class="shop-hold' + (held ? " is-held" : "") + '" type="button" data-hold-product="' + index + '"' +
+              ' aria-pressed="' + (held ? "true" : "false") + '"' +
+              (canStore ? "" : ' disabled aria-describedby="shopInterestStatus"') + ">" +
+              (canStore
+                ? held ? "Interest saved on this device ✓" : "Save this interest on this device"
+                : "Device interest saving unavailable") +
             "</button>" +
             buyMarkup +
             giftMarkup +
           "</div>" +
-          '<p class="shop-product__truth"><strong>' + (hasPreview ? "ACTUAL ART SHOWN." : "NO FAKE MOCKUP.") + "</strong> " +
+          '<p class="shop-product__truth"><strong>' + (hasPreview ? "SOURCE ART PREVIEW." : "NO FAKE MOCKUP.") + "</strong> " +
             (hasPreview
-              ? "This preview uses approved source art already in the project."
-              : "This item stays text-only until its real product proof exists.") +
+              ? "Project source art illustrates the idea; it is not a finished-product, stock, or fulfilment proof."
+              : "This concept stays text-only until a real product proof exists.") +
           "</p>" +
         "</div>" +
       "</div>";
 
-    if (window.svPuffyScan) window.svPuffyScan();
+    var existingPuffyRow = detail.nextElementSibling;
+    if (existingPuffyRow && existingPuffyRow.classList.contains("puffy-save-row")) {
+      existingPuffyRow.remove();
+    }
+    detail.removeAttribute("data-puffy-wired");
+    if (canStore && window.svPuffyScan) {
+      window.svPuffyScan();
+    } else if (!canStore) {
+      showStorageFailure();
+    }
     renderList();
     updateHeldCount();
     if (focusDetail) {
@@ -341,7 +390,6 @@ var PRODUCTS = [
     try {
       window.plausible("Gift Shop click", {
         props: {
-          product: PRODUCTS[index] ? PRODUCTS[index].name : "",
           kind: kind
         }
       });
@@ -377,10 +425,24 @@ var PRODUCTS = [
   detail.addEventListener("click", function (event) {
     var holdButton = event.target.closest("[data-hold-product]");
     if (holdButton) {
-      var injectedPuffy = detail.querySelector(":scope > .puffy-btn");
-      if (injectedPuffy) {
-        injectedPuffy.click();
+      if (!storageAvailable()) {
+        showStorageFailure();
         renderProduct(Number(holdButton.getAttribute("data-hold-product")), false);
+        return;
+      }
+      pendingInterest = {
+        index: Number(holdButton.getAttribute("data-hold-product")),
+        wasHeld: isHeld(Number(holdButton.getAttribute("data-hold-product")))
+      };
+      var puffyRow = detail.nextElementSibling;
+      var injectedPuffy = puffyRow && puffyRow.classList.contains("puffy-save-row")
+        ? puffyRow.querySelector(".puffy-btn")
+        : null;
+      if (injectedPuffy) {
+        // Let the originating click finish before opening the shared picker;
+        // its document-level outside-click handler would otherwise close the
+        // picker during the same bubbling event.
+        window.setTimeout(function () { injectedPuffy.click(); }, 0);
         track("hold", currentIndex);
       }
       return;
@@ -389,6 +451,35 @@ var PRODUCTS = [
     if (event.target.closest(".shop-buy")) track("buy", currentIndex);
   });
 
-  document.addEventListener("puffies:changed", updateHeldCount);
+  document.addEventListener("puffies:changed", function () {
+    if (!pendingInterest) {
+      updateHeldCount();
+      return;
+    }
+    if (!storageAvailable()) {
+      showStorageFailure();
+      renderProduct(pendingInterest ? pendingInterest.index : currentIndex, false);
+      return;
+    }
+    var nowHeld = isHeld(pendingInterest.index);
+    var resolvedIndex = pendingInterest.index;
+    pendingInterest = null;
+    renderProduct(resolvedIndex, false);
+    var resolvedControl = detail.querySelector("[data-hold-product]");
+    if (resolvedControl) {
+      resolvedControl.classList.toggle("is-held", nowHeld);
+      resolvedControl.setAttribute("aria-pressed", nowHeld ? "true" : "false");
+      resolvedControl.textContent = nowHeld
+        ? "Interest saved on this device ✓"
+        : "Save this interest on this device";
+    }
+    setInterestStatus(
+      nowHeld
+        ? "Interest saved privately on this device. This is not stock or a reservation."
+        : "Device-local interest removed.",
+      "success"
+    );
+    updateHeldCount();
+  });
   selectDepartment("all", false);
 })();

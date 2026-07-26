@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Gift Shop · SUNNYVAiLE · LAiDIES</title>
-  <meta name="description" content="Browse the SUNNYVAiLE Gift Shop floor, put future merchandise on hold, and see what is waiting for the till to open.">
+  <meta name="description" content="Browse SUNNYVAiLE Gift Shop concepts and source-art previews. Checkout, stock, fulfilment and reservations are not connected.">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
   <link rel="stylesheet" href="/content/shop-v2.css?v=20260724-1">
@@ -39,13 +39,13 @@
     <section class="shop-arrival" aria-labelledby="shop-title">
       <p class="shop-kicker">SUNNYV<span class="ai">Ai</span>LE · MERCHANDISE COUNTER</p>
       <h1 id="shop-title">THE GIFT SHOP</h1>
-      <p class="shop-lede">Walk the floor, pull a print from the bin, and put your favourites on hold. The stock is being made; the till opens when checkout is real.</p>
+      <p class="shop-lede">Walk the floor and inspect proposed merchandise concepts and source-art previews. There is no stock, reservation, checkout, affiliate sale, fulfilment, or payment on this page.</p>
     </section>
 
     <aside class="shop-state" aria-label="Shop status">
       <span class="shop-state__lamp" aria-hidden="true"></span>
-      <p><strong id="shopStateTitle">THE TILL IS NOT CONNECTED.</strong> <span id="shopStateCopy">Nothing here pretends to take payment. You can still browse the actual collection and hold things in your Closet.</span></p>
-      <a href="#shop-counter">See the stock list</a>
+      <p><strong id="shopStateTitle">BROWSE-ONLY CONCEPT COUNTER.</strong> <span id="shopStateCopy">The till is disconnected. Source art is not a product proof, and saving an interest on this device is not stock or a reservation.</span></p>
+      <a href="#shop-counter">See the concept list</a>
     </aside>
 
     <section class="shop-floor" aria-labelledby="shop-floor-title">
@@ -54,7 +54,7 @@
           <p class="shop-kicker">STEP INSIDE</p>
           <h2 id="shop-floor-title">THE ROOM IS THE DIRECTORY.</h2>
         </div>
-        <p>Tap what you would reach for in a real shop. On a phone, slide across the room.</p>
+        <p>Tap a fixture to inspect the concepts assigned to it. On a phone, slide across the room.</p>
       </header>
 
       <div class="shop-room-viewport" tabindex="0" aria-label="Scrollable Gift Shop interior">
@@ -88,7 +88,7 @@
           </button>
         </figure>
       </div>
-      <p class="shop-room-help">The empty fixtures tell the truth: approved art is on the floor now; unfinished merchandise stays unpictured until its real mockup exists.</p>
+      <p class="shop-room-help">The empty fixtures tell the truth: available source art may illustrate a concept, but nothing is a finished or available product until a real product proof and checkout pass review.</p>
     </section>
 
     <section class="shop-counter" id="shop-counter" aria-labelledby="counter-title">
@@ -97,8 +97,9 @@
           <p class="shop-kicker">AT THE COUNTER</p>
           <h2 id="counter-title">WHAT DID YOU PICK UP?</h2>
         </div>
-        <p class="shop-counter__count"><strong id="shopHeldCount">0</strong> held in your Closet</p>
+        <p class="shop-counter__count"><strong id="shopHeldCount">0</strong> interests saved on this device</p>
       </header>
+      <p class="shop-interest-status" id="shopInterestStatus" role="status" aria-live="polite" aria-atomic="true" hidden></p>
 
       <nav class="shop-departments" aria-label="Gift Shop departments">
         <button class="is-current" type="button" data-department="all">Everything</button>
@@ -109,28 +110,28 @@
       </nav>
 
       <div class="shop-register">
-        <ol class="shop-stocklist" id="shopStockList" aria-label="Products"></ol>
-        <article class="shop-product" id="shopProduct" aria-live="polite"></article>
+        <ol class="shop-stocklist" id="shopStockList" aria-label="Proposed merchandise concepts"></ol>
+        <article class="shop-product" id="shopProduct" aria-live="polite" aria-atomic="true"></article>
       </div>
     </section>
 
     <section class="shop-gifting" aria-labelledby="gifting-title">
-      <p class="shop-gifting__side">STRAIGHT TO HER DOOR</p>
+      <p class="shop-gifting__side">FUTURE OPTION · NOT ACTIVE</p>
       <div>
         <p class="shop-kicker">SEND IT AS A GIFT</p>
         <h2 id="gifting-title">THE NOTE GOES WITH IT.</h2>
-        <p>Every giftable item keeps its gift option. When the hosted checkout opens, it will collect her address and your note there—never in a pretend form on this site.</p>
+        <p>Gifting is only a future concept. No address, note, order, payment, delivery, or promise is collected here.</p>
       </div>
     </section>
 
-    <section class="shop-terms" aria-label="Made to order information">
-      <strong>MADE TO ORDER.</strong>
-      <p>Prints, stickers, and apparel will be produced by the print partner only after purchase. Prices are working labels until the real Printful or Gumroad checkout URLs are connected.</p>
+    <section class="shop-terms" aria-label="Concept and commerce status">
+      <strong>NO PRODUCTION OR COMMERCE CONTRACT YET.</strong>
+      <p>Prices are working concept labels only. No stock, production partner, affiliate relationship, checkout, shipping, delivery, return, or refund is represented as active.</p>
     </section>
 
     <nav class="shop-exits" aria-label="Leave the Gift Shop">
       <a href="/mall.html"><span>KEEP SHOPPING</span><strong>Browse The Mall</strong><b aria-hidden="true">→</b></a>
-      <a href="/laidies-card.html"><span>YOUR HOLDS</span><strong>Open your Closet</strong><b aria-hidden="true">→</b></a>
+      <a href="/laidies-card.html"><span>DEVICE-LOCAL SAVES</span><strong>Open your Closet</strong><b aria-hidden="true">→</b></a>
     </nav>
   </main>
 

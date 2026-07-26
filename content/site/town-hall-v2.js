@@ -13,7 +13,23 @@
 
   function readFiled() {
     try {
-      return !!localStorage.getItem("laidies_town_hall_feedback_filed");
+      var raw = localStorage.getItem("laidies_town_hall_feedback_filed");
+      if (!raw) return false;
+      var receipt = JSON.parse(raw);
+      if (
+        !receipt ||
+        receipt.version !== 1 ||
+        receipt.outcome !== "accepted" ||
+        typeof receipt.acceptedAt !== "string"
+      ) {
+        return false;
+      }
+      var acceptedAt = Date.parse(receipt.acceptedAt);
+      return (
+        Number.isFinite(acceptedAt) &&
+        new Date(acceptedAt).toISOString() === receipt.acceptedAt &&
+        acceptedAt <= Date.now() + 300000
+      );
     } catch (_) {
       return false;
     }
@@ -33,7 +49,9 @@
       setStation(
         buttons[2],
         "Comments",
-        readFiled() ? "Your last card is on the pile." : "Drop a card. Deb reads them, then Deb-flects."
+        readFiled()
+          ? "This device records one accepted card."
+          : "Open a private comment card."
       );
     }
   }

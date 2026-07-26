@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Mall · LAiDIES · SUNNYVAiLE</title>
-  <meta name="description" content="The Mall at MAiN Street No. 9 in SUNNYVAiLE — ten stops, all references. Searchable directory for every pop-culture moment LAiDIES reaches for.">
+  <meta name="description" content="The Mall at MAiN Street No. 9 in SUNNYVAiLE — search and browse ten preview reference departments, a held Gift Shop concept counter, and vacant Unit 11.">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
   <link rel="stylesheet" href="content/mall-v2.css?v=20260724-1">
@@ -158,11 +158,11 @@
     <div class="mall-arrival-copy">
       <p class="mall-arrival-kicker">MAiN Street · No. 9 · SUNNYVAiLE</p>
       <h1>The <span class="ai">Mall</span></h1>
-      <p>You’re standing in Centre Court. The fountain is running, the directory is lit, and every storefront below is somewhere you can actually enter.</p>
+      <p>You’re standing in Centre Court. Search the directory or walk the windows. Every listed route opens, but most departments are clearly labelled previews while their full shelves are built.</p>
     </div>
     <button class="mall-wish" id="mallWish" type="button">
       <strong>Make a wish</strong>
-      <span>At the Centre Court fountain</span>
+      <span>A private moment on this device · no account or reward</span>
     </button>
   </div>
 
@@ -173,11 +173,11 @@
         <div>
           <p class="mall-kicker">You are here · Centre Court</p>
           <h2 class="mall-directory-title" id="mallDirectoryTitle">Find your store.</h2>
-          <p>Ten reference departments, one open Gift Shop, and a vacant unit waiting for the thing you remember next.</p>
+          <p>Ten preview reference departments, a Gift Shop concept counter with its till closed, and a vacant unit linked to an optional community discussion.</p>
         </div>
         <ul class="mall-directory-state">
-          <li><strong>New this season</strong><a href="/shop.html">The Gift Shop is open →</a></li>
-          <li><strong>Now leasing</strong><a href="/community/burn-book.html">Unit 11 · nominate what belongs here →</a></li>
+          <li><strong>Browse only · till closed</strong><a href="/shop.html">Gift Shop concepts and source-art previews →</a></li>
+          <li><strong>Vacant · external community handoff</strong><a href="/community/burn-book.html">Unit 11 · open the Hyvor discussion →</a><span class="mall-state-note">Hyvor sign-in may be required. A suggestion does not guarantee review, publication, a new shop, or a reward.</span></li>
           <li><strong>Where you are</strong>Centre Court · Level 1</li>
         </ul>
       </div>
@@ -189,9 +189,13 @@
         <label for="mallSearch">Search the directory</label>
         <input id="mallSearch" type="search" placeholder="Try “Dunkaroos”, “Cher”, “Tamagotchi”…" autocomplete="off">
         <button id="mallSearchButton" type="button">Find it</button>
+        <button id="mallSearchReset" class="mall-search-reset" type="button">Show all</button>
       </div>
+      <p class="mall-search-status" id="mallSearchStatus" role="status" aria-live="polite" aria-atomic="true" tabindex="-1">All 10 preview departments are shown.</p>
       <ol>
-        <li data-search="pieces of flair accessories jewelry hair clips claires butterfly clips"><a href="/mall/pieces-of-flair.html"><span class="unit">01</span> PIECES OF FLAiR <span class="dots"></span></a></li>
+        <li class="mall-destination-held" data-search="pieces of flair accessories jewelry hair clips claires butterfly clips" data-mall-destination="pieces-of-flair" data-claim-verdict="hold-promotion">
+          <span class="mall-held-entry"><span class="unit">01</span> PIECES OF FLAiR <strong>HELD FOR REVIEW</strong><small>Not open from the Mall yet · browse another admitted preview</small></span>
+        </li>
         <li data-search="gizmos and gadgets walkman tamagotchi msn trapper keeper tech electronics"><a href="/mall/gizmos-and-gadgets.html"><span class="unit">06</span> Gizmos and Gadgets <span class="dots"></span></a></li>
         <li data-search="maiybe shes born with it makeup hair gloss mascara palettes rollers beauty"><a href="/mall/maiybe.html"><span class="unit">02</span> MAiYBE SHE'S BORN WITH IT <span class="dots"></span></a></li>
         <li data-search="hanger management clothes outfits fashion wardrobe"><a href="/mall/hanger-management.html"><span class="unit">07</span> Hanger Management <span class="dots"></span></a></li>
@@ -204,9 +208,10 @@
       </ol>
       <div class="mall-board-here"><span class="star">★</span> YOU ARE HERE</div>
       <p class="mall-board-note">Centre Court. Choose a result here or walk the full storefront corridor below.</p>
-      <div class="mall-no-results" id="mallNoResults" hidden>
+      <div class="mall-no-results" id="mallNoResults" tabindex="-1" hidden>
         <strong>We don’t have “<span id="mallNoResultsQuery">that</span>” yet.</strong>
-        <a id="mallBurnLink" href="/community/burn-book.html">Put it in the Burn Book—the mall expands →</a>
+        <p>Unit 11 opens an external Hyvor community discussion. Sign-in may be required, and a suggestion does not guarantee review, publication, a new shop, or a reward.</p>
+        <a id="mallBurnLink" href="/community/burn-book.html">Open the optional Burn Book discussion →</a>
       </div>
     </div>
     </section>
@@ -216,27 +221,28 @@
         <p class="mall-kicker">The concourse</p>
         <h2 class="mall-walk-title" id="mallWalkTitle">Walk the storefronts.</h2>
       </div>
-      <p class="mall-walk-instructions">Every window is a real entrance. Drag, scroll, or use the arrows; on mobile, keep walking down the corridor.</p>
+      <p class="mall-walk-instructions">Every window links to its named destination and states whether it is a preview. Drag, scroll, or use the arrows; on mobile, keep walking down the corridor.</p>
     </section>
     <div class="mall-walk-controls" aria-label="Move through the storefronts">
       <button type="button" data-mall-walk="previous" aria-label="Previous storefront">←</button>
       <button type="button" data-mall-walk="next" aria-label="Next storefront">→</button>
     </div>
+    <p class="mall-corridor-status" id="mallCorridorStatus" role="status" aria-live="polite" aria-atomic="true">Storefront 1 of 11.</p>
 
     <div class="mall-corridor" id="mallCorridor" tabindex="0" aria-label="Mall storefront corridor">
 
-      <a class="shop" href="/mall/pieces-of-flair.html" style="--acc: var(--rose, #9b3f5f);">
+      <article class="shop shop--held" data-mall-destination="pieces-of-flair" data-claim-verdict="hold-promotion" style="--acc: var(--rose, #9b3f5f);" aria-label="PIECES OF FLAiR held for review; not open from the Mall">
         <span class="shop-photo"><img src="assets/mall-storefronts/pieces-of-flair.jpg?v=20260707" alt="PIECES OF FLAiR storefront — pink butterfly-clip and jewelry shop, ear-piercing-while-you-wait" loading="lazy" width="1000" height="667"></span>
         <span class="shop-base">
-          <span class="shop-meta"><span class="shop-unit">UNIT 01</span><span class="shop-desc">Accessories, jewelry, hair clips, small wearables.</span></span>
-          <span class="shop-enter">Walk in →</span>
+          <span class="shop-meta"><span class="shop-unit">UNIT 01 · HELD FOR REVIEW</span><span class="shop-desc">Not open from the Mall until its device-local experience passes representative review.</span></span>
+          <a class="shop-enter" href="#mallDirectoryTitle">Browse admitted previews →</a>
         </span>
-      </a>
+      </article>
 
       <a class="shop" href="/mall/maiybe.html" style="--acc: var(--y2k-pink, #ee9fce);">
         <span class="shop-photo"><img src="assets/mall-storefronts/maiybe.jpg?v=20260707" alt="MAiYBE storefront — drug-store beauty counter, gloss and mascara and hot tools" loading="lazy" width="1000" height="667"></span>
         <span class="shop-base">
-          <span class="shop-meta"><span class="shop-unit">UNIT 02</span><span class="shop-desc">Drug-store hair &amp; makeup — gloss, mascara, palettes, rollers.</span></span>
+          <span class="shop-meta"><span class="shop-unit">UNIT 02 · PREVIEW</span><span class="shop-desc">Drug-store hair &amp; makeup — gloss, mascara, palettes, rollers.</span></span>
           <span class="shop-enter">Walk in →</span>
         </span>
       </a>
@@ -244,7 +250,7 @@
       <a class="shop" href="/mall/as-seen-on-tv.html" style="--acc: var(--teal, #247b83);">
         <span class="shop-photo"><img src="assets/mall-storefronts/as-seen-on-tv.jpg?v=20260707" alt="As Seen on TV storefront — wall of televisions and film posters" loading="lazy" width="1000" height="667"></span>
         <span class="shop-base">
-          <span class="shop-meta"><span class="shop-unit">UNIT 03</span><span class="shop-desc">TV shows and films you can't unsee.</span></span>
+          <span class="shop-meta"><span class="shop-unit">UNIT 03 · PREVIEW</span><span class="shop-desc">TV shows and films you can't unsee.</span></span>
           <span class="shop-enter">Walk in →</span>
         </span>
       </a>
@@ -252,7 +258,7 @@
       <a class="shop" href="/mall/rollin-with-my-homies.html" style="--acc: var(--gold, #c9a227);">
         <span class="shop-photo"><img src="assets/mall-storefronts/rollin-with-my-homies.jpg?v=20260707" alt="Rollin' with my Homies storefront — portrait wall of real people and characters" loading="lazy" width="1000" height="667"></span>
         <span class="shop-base">
-          <span class="shop-meta"><span class="shop-unit">UNIT 04</span><span class="shop-desc">People &amp; characters — real and fictional, one shelf.</span></span>
+          <span class="shop-meta"><span class="shop-unit">UNIT 04 · PREVIEW</span><span class="shop-desc">People &amp; characters — real and fictional, one shelf.</span></span>
           <span class="shop-enter">Walk in →</span>
         </span>
       </a>
@@ -260,7 +266,7 @@
       <a class="shop" href="/mall/books-and-records.html" style="--acc: var(--teal-bright, #57bfae);">
         <span class="shop-photo"><img src="assets/mall-storefronts/books-and-records.jpg?v=20260707" alt="Books and Records storefront — bookshelves and vinyl bins" loading="lazy" width="1000" height="667"></span>
         <span class="shop-base">
-          <span class="shop-meta"><span class="shop-unit">UNIT 05</span><span class="shop-desc">Books, quotes, songs, soundtracks.</span></span>
+          <span class="shop-meta"><span class="shop-unit">UNIT 05 · PREVIEW</span><span class="shop-desc">Books, quotes, songs, soundtracks.</span></span>
           <span class="shop-enter">Walk in →</span>
         </span>
       </a>
@@ -268,7 +274,7 @@
       <a class="shop" href="/mall/gizmos-and-gadgets.html" style="--acc: var(--teal, #247b83);">
         <span class="shop-photo"><img src="assets/mall-storefronts/gizmos-and-gadgets.jpg?v=20260707" alt="Gizmos and Gadgets storefront — Y2K electronics: Walkman, Tamagotchi, gadgets" loading="lazy" width="1000" height="667"></span>
         <span class="shop-base">
-          <span class="shop-meta"><span class="shop-unit">UNIT 06</span><span class="shop-desc">Y2K tech — Walkman, Tamagotchi, MSN, Trapper Keeper.</span></span>
+          <span class="shop-meta"><span class="shop-unit">UNIT 06 · PREVIEW</span><span class="shop-desc">Y2K tech — Walkman, Tamagotchi, MSN, Trapper Keeper.</span></span>
           <span class="shop-enter">Walk in →</span>
         </span>
       </a>
@@ -276,7 +282,7 @@
       <a class="shop" href="/mall/hanger-management.html" style="--acc: var(--rose, #9b3f5f);">
         <span class="shop-photo"><img src="assets/mall-storefronts/hanger-management.jpg?v=20260707" alt="Hanger Management storefront — racks of clothes and iconic outfits" loading="lazy" width="1000" height="667"></span>
         <span class="shop-base">
-          <span class="shop-meta"><span class="shop-unit">UNIT 07</span><span class="shop-desc">Clothes and iconic outfits.</span></span>
+          <span class="shop-meta"><span class="shop-unit">UNIT 07 · PREVIEW</span><span class="shop-desc">Clothes and iconic outfits.</span></span>
           <span class="shop-enter">Walk in →</span>
         </span>
       </a>
@@ -284,7 +290,7 @@
       <a class="shop" href="/mall/food-court.html" style="--acc: var(--gold, #c9a227);">
         <span class="shop-photo"><img src="assets/mall-storefronts/the-food-court.jpg?v=20260707" alt="The Food Court — neon counter with pizza, burgers, pretzels, bowls, drinks" loading="lazy" width="1000" height="667"></span>
         <span class="shop-base">
-          <span class="shop-meta"><span class="shop-unit">UNIT 08</span><span class="shop-desc">Food &amp; drink — Dunkaroos, Crystal Pepsi, Capri Sun.</span></span>
+          <span class="shop-meta"><span class="shop-unit">UNIT 08 · PREVIEW</span><span class="shop-desc">Food &amp; drink — Dunkaroos, Crystal Pepsi, Capri Sun.</span></span>
           <span class="shop-enter">Walk in →</span>
         </span>
       </a>
@@ -292,7 +298,7 @@
       <a class="shop" href="/mall/last-summer.html" style="--acc: var(--teal-bright, #57bfae);">
         <span class="shop-photo"><img src="assets/mall-storefronts/last-summer.jpg?v=20260707" alt="I Know What You Did Last Summer storefront — nostalgic experiences shop" loading="lazy" width="1000" height="667"></span>
         <span class="shop-base">
-          <span class="shop-meta"><span class="shop-unit">UNIT 09</span><span class="shop-desc">Experiences — sleepovers, mall walking, Blockbuster runs.</span></span>
+          <span class="shop-meta"><span class="shop-unit">UNIT 09 · PREVIEW</span><span class="shop-desc">Experiences — sleepovers, mall walking, Blockbuster runs.</span></span>
           <span class="shop-enter">Walk in →</span>
         </span>
       </a>
@@ -300,7 +306,7 @@
       <a class="shop" href="/mall/mall-kiosk.html" style="--acc: var(--y2k-pink, #ee9fce);">
         <span class="shop-photo"><img src="assets/mall-storefronts/the-mall-kiosk.jpg?v=20260707" alt="The Mall Kiosk — catch-all cart: Magic 8 Ball, Lite-Brite, Beanie Babies" loading="lazy" width="1000" height="667"></span>
         <span class="shop-base">
-          <span class="shop-meta"><span class="shop-unit">UNIT 10</span><span class="shop-desc">Catch-all — Magic 8 Ball, Lite-Brite, Beanie Babies.</span></span>
+          <span class="shop-meta"><span class="shop-unit">UNIT 10 · PREVIEW</span><span class="shop-desc">Catch-all — Magic 8 Ball, Lite-Brite, Beanie Babies.</span></span>
           <span class="shop-enter">Walk in →</span>
         </span>
       </a>
@@ -308,8 +314,8 @@
       <a class="shop shop--vacant" href="/community/burn-book.html">
         <span class="shop-photo"><img src="assets/mall-storefronts/unit-11-vacant.jpg?v=20260707" alt="Unit 11 — vacant storefront papered over with a NOW LEASING sign" loading="lazy" width="1000" height="667"></span>
         <span class="shop-base">
-          <span class="shop-meta"><span class="shop-unit">UNIT 11 · NOW LEASING</span><span class="shop-desc">Don't see what you remember? Put it in the Burn Book — the mall expands.</span></span>
-          <span class="shop-enter">Claim it →</span>
+          <span class="shop-meta"><span class="shop-unit">UNIT 11 · VACANT · EXTERNAL DISCUSSION</span><span class="shop-desc">Open the Hyvor Burn Book discussion. Sign-in may be required; no review, publication, new shop, or reward is promised.</span></span>
+          <span class="shop-enter">Open discussion →</span>
         </span>
       </a>
 

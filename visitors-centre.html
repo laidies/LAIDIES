@@ -9,6 +9,7 @@
   <meta property="og:description" content="The front door to SUNNYVAiLE. Find the whole town and choose your first stop.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="/assets/building-interiors/delivery-20260723-visitors-centre-lobby-v1/visitors-centre-lobby-map-wall-comic-candidate-v2.png">
+  <script>document.documentElement.classList.add("js");</script>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/sunnyvaile-building-v2.css?v=20260723-1">
   <style>
@@ -348,6 +349,70 @@
       box-shadow: none;
     }
     .vc-reveal.is-open { background: rgba(255,253,251,.94); }
+    .vc-reveal[hidden] { display: none !important; }
+    .vc-map-status {
+      margin: 10px 0 0;
+      padding: 10px 12px;
+      border-left: 4px solid var(--pink);
+      background: rgba(255,253,251,.94);
+      color: var(--midnight);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .vc-fallback-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 18px;
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .vc-directory-fallback {
+      grid-column: 1 / -1;
+      margin: 18px 0 0;
+      padding: 18px;
+      border: 2px solid var(--midnight);
+      border-radius: 12px;
+      background: #fff;
+      color: var(--midnight);
+    }
+    .js .vc-directory-fallback { display: none; }
+    .js .vc-directory-fallback.is-visible { display: block; }
+    html:not(.js) .vc-destination-picker { display: none; }
+    .vc-fallback-links li {
+      min-width: 0;
+      padding: 9px 0;
+      border-top: 1px solid var(--line);
+    }
+    .vc-fallback-links a {
+      font-weight: 800;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
+    .vc-fallback-limit {
+      display: block;
+      margin-top: 3px;
+      color: var(--ink-soft);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .vc-reveal-state {
+      display: inline-flex;
+      width: fit-content;
+      margin: 5px 0 0;
+      padding: 2px 7px;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      color: var(--purple);
+      font-size: clamp(7px, .64vw, 9px);
+      font-weight: 800;
+      letter-spacing: .1em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+    .vc-reveal-state[data-state="held"] {
+      color: #8f1f5d;
+    }
     .vc-reveal-address {
       margin: 0 0 3px;
       color: var(--purple);
@@ -849,6 +914,8 @@
       .vc-reveal { display:none; order:3; width:100%; height:auto; aspect-ratio:auto; min-height:0; max-height:none; grid-template-columns:1fr; border:3px solid var(--midnight); border-radius:8px; background:var(--midnight); color:var(--cream); box-shadow:7px 7px 0 var(--pink); }
       .vc-reveal.is-open { display:grid; background:var(--midnight); }
       .vc-reveal-address { color:var(--mint); font-size:9px; }
+      .vc-reveal-state { color:var(--mint); font-size:10px; }
+      .vc-reveal-state[data-state="held"] { color:#ffb4db; }
       .vc-reveal h3 { font-size:28px; }
       .vc-reveal-line,.vc-reveal-list { color:rgba(255,253,251,.82); }
       .vc-reveal-line { font-size:13px; }
@@ -869,6 +936,8 @@
       }
       .vc-hub-head,.vc-story-body { grid-template-columns:1fr; }
       .vc-directory { grid-template-columns: 1fr; }
+      .vc-fallback-links { grid-template-columns: 1fr; }
+      .vc-directory-fallback { padding: 15px; }
       .vc-building { grid-template-columns: 43px minmax(0, 1fr); }
       .vc-founder { width: min(100% - 32px, 980px); }
       .vc-founder-grid { grid-template-columns: 1fr; }
@@ -893,11 +962,9 @@
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script defer src="/content/site/sunnyvaile-directory.js?v=20260723-v2"></script>
-  <script defer src="/content/site/sv-trailer-player.js?v=20260707-1"></script>
-  <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
   <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
-  <script>
+  <script data-vc-directory-controller>
     window.plausible = window.plausible || function() {
       (plausible.q = plausible.q || []).push(arguments);
     };
@@ -914,7 +981,7 @@
     <section class="vc-room" aria-labelledby="vc-title">
       <div class="vc-room-art">
         <div class="vc-map-stage" id="vc-map-stage" aria-label="Interactive SUNNYVAiLE town map">
-          <img src="/assets/final_map/sunnyvaile-town-map-final-v5.webp" alt="SUNNYVAiLE, showing every town building">
+          <img id="vc-map-image" src="/assets/final_map/sunnyvaile-town-map-final-v5.webp" alt="Illustrated map of SUNNYVAiLE; every destination is also available by name in the directory below">
         </div>
       </div>
 
@@ -922,14 +989,17 @@
         <p class="vc-kicker">The front door · No. 1 MAiN</p>
         <h1 id="vc-title">Welcome to SUNNYV<span class="ai">Ai</span>LE.</h1>
         <p class="vc-welcome-copy">
-          Pick a building on the wall, or choose one by name below.
+          This is the town front desk. Pick a building on the wall—or choose one
+          by name below—to see what happens there before you step inside.
         </p>
+        <p class="vc-map-status" id="vc-map-status" role="status" aria-live="polite" hidden></p>
       </div>
 
-      <article class="vc-reveal" id="vc-building-card" aria-live="polite">
+      <article class="vc-reveal" id="vc-building-card" aria-live="polite" aria-atomic="true" hidden>
         <div>
           <p class="vc-reveal-address" id="vc-card-address">The wall map</p>
           <h3 id="vc-card-title">Choose a building above.</h3>
+          <p class="vc-reveal-state" id="vc-card-state" data-state="limited">Current status</p>
           <p class="vc-reveal-line" id="vc-card-line">Hover for its name. Click to see what lives there.</p>
           <ul class="vc-reveal-list" id="vc-card-list"></ul>
         </div>
@@ -953,25 +1023,43 @@
             <option value="">Select a SUNNYVAiLE building</option>
           </select>
         </label>
-        <p id="vc-directory-fallback" hidden>
-          The town directory is unavailable right now. You can still start from the
-          <a href="/">LAiDIES homepage</a>.
-        </p>
+        <nav id="vc-directory-fallback" class="vc-directory-fallback" aria-label="All SUNNYVAiLE destinations">
+          <strong class="vc-fallback-intro">All 17 named routes. The interactive map adds selection details when available.</strong>
+          <ol class="vc-fallback-links">
+            <li><a href="/visitors-centre.html" data-vc-id="visitors-centre" data-vc-state="limited" data-vc-summary="Start here to choose a named SUNNYVAiLE route." data-vc-limitation="Choosing a route is navigation, not proof that the destination or a downstream action is complete.">The Welcome Wagon Visitor's Centre</a><span class="vc-fallback-limit">Front desk. Route choice is not downstream completion.</span></li>
+            <li><a href="/newsstand.html" data-vc-id="newsstand" data-vc-state="limited" data-vc-summary="Open source-checked AI publications and their current reader states." data-vc-limitation="Publication availability and freshness vary; the NewsStand must show when an edition is current, quiet, held, corrected, or withdrawn.">The NewsStand</a><span class="vc-fallback-limit">Publication availability and freshness vary.</span></li>
+            <li><a href="/chick-flicks.html" data-vc-id="chick-flicks" data-vc-state="held" data-vc-summary="Browse episode articles and illustrated, captioned listen-alongs." data-vc-limitation="Trailer and Episodes 1–4 motion films are not approved here; use only the episode experience that its page currently labels available.">The Chick Flicks</a><span class="vc-fallback-limit">Motion films remain held; illustrated listen-alongs are the current public format.</span></li>
+            <li><a href="/blend-snap.html" data-vc-id="blend-snap" data-vc-state="limited" data-vc-summary="See the episode pack menu and which study or practice pieces are ready." data-vc-limitation="Pack components vary; a menu open is not study completion, and collection state may be device-local or unavailable.">The Blend &amp; Snap</a><span class="vc-fallback-limit">Pack components and collection state vary.</span></li>
+            <li><a href="/games/madame-claio.html" data-vc-id="mme-claio" data-vc-state="limited" data-vc-summary="Try a controlled fortune activity with clear reflection boundaries." data-vc-limitation="History and keepsakes are device-local; a reading is not factual prediction, professional advice, or durable reward.">Mme CLAi-O's Shop</a><span class="vc-fallback-limit">Reflection only; history and keepsakes are device-local.</span></li>
+            <li><a href="/maikeover.html" data-vc-id="maikeover" data-vc-state="held" data-vc-summary="Style a Resident Card preview and continue through its currently available local tools." data-vc-limitation="Saving and customization are device-local; account, cross-device, avatar, public-card, and reward promises are not confirmed.">MAiKEOVER on MAiN</a><span class="vc-fallback-limit">Account, cross-device, avatar, public-card, and reward promises remain held.</span></li>
+            <li><a href="/bronze-aige.html" data-vc-id="bronze-aige" data-vc-state="limited" data-vc-summary="Explore a social work-learning room and its currently labelled activities." data-vc-limitation="Selections and coaster state are device-local; current special, audio, invitation, and service readiness still require their own evidence.">The BRONZE AiGE</a><span class="vc-fallback-limit">Selections are local; audio, invite, and current-special readiness vary.</span></li>
+            <li><a href="/games/dream-phone.html" data-vc-id="dream-phone" data-vc-state="held" data-vc-summary="Open a scripted playful reframe or beta evidence-practice experience." data-vc-limitation="Product direction and evidence-game promotion remain under review; it does not provide personalized or professional advice.">The Phone Booth (Dream Phone)</a><span class="vc-fallback-limit">Promotion remains held pending product and evidence review.</span></li>
+            <li><a href="/mall.html" data-vc-id="mall" data-vc-state="limited" data-vc-summary="Browse the Mall directory and open a named shop route." data-vc-limitation="A shop listing is not proof that the shop is operable, stocked, ready to transact, or able to fulfil an order.">The Mall</a><span class="vc-fallback-limit">A listing does not prove shop operation, stock, transaction, or fulfilment.</span></li>
+            <li><a href="/radio.html" data-vc-id="ksvl-radio" data-vc-state="limited" data-vc-summary="Open KSVL's rights-aware listening surface and its current catalogue state." data-vc-limitation="Catalogue, controls, rights admission, and failure recovery remain partial; opening the station does not prove a track played.">KSVL Community RAiDIO</a><span class="vc-fallback-limit">Listening admission is partial; opening does not prove playback.</span></li>
+            <li><a href="/post-office.html" data-vc-id="post-office" data-vc-state="limited" data-vc-summary="Open newsletter, sign-in, and postcard handoffs." data-vc-limitation="Opening or sharing a handoff does not confirm delivery, subscription, sign-in, referral, or reward.">The SUNNYVAiLE Post Office</a><span class="vc-fallback-limit">Handoffs do not confirm delivery, sign-in, subscription, referral, or reward.</span></li>
+            <li><a href="/town-hall.html" data-vc-id="town-hall" data-vc-state="held" data-vc-summary="Meet Mayor Deb and the locals, or open a private Town Hall comment card." data-vc-limitation="An accepted card is not proof of reading, review, reply, resolution, or a public civic record; intake and staff-triage controls remain held.">Town Hall</a><span class="vc-fallback-limit">Reading, reply, civic-record, and staff-triage promises remain held.</span></li>
+            <li><a href="/library.html" data-vc-id="library" data-vc-state="limited" data-vc-summary="Browse AI reference shelves, ask Miss Jeeves, and save an exact place on this device." data-vc-limitation="Some books still need editorial or currency review; saves are device-local and opening a book is not editorial approval.">SUNNYVAiLE LIBRAiRY</a><span class="vc-fallback-limit">Some books remain under review; saves are device-local.</span></li>
+            <li><a href="/sunnyvaile-high.html" data-vc-id="sunnyvaile-high" data-vc-state="held" data-vc-summary="Open the learning campus and see only the classes or practice its page currently admits." data-vc-limitation="Class, quiz, mastery, Report Card, and reward lifecycles remain partial; a click or local score is not a durable learning record.">SUNNYVAiLE High</a><span class="vc-fallback-limit">Class, mastery, Report Card, and reward lifecycles remain held or partial.</span></li>
+            <li><a href="/games/fairy-godmother.html" data-vc-id="fairy-godmother" data-vc-state="held" data-vc-summary="Open the AI, career, and life-advice tool within its stated boundaries." data-vc-limitation="Accuracy, safety, routing, allowance, and failure repairs are not approved for promotion; it is not medical, crisis, legal, financial, or other high-stakes professional advice.">The FAiRY Godmother's House</a><span class="vc-fallback-limit">Core accuracy, safety, allowance, and failure repairs remain held.</span></li>
+            <li><a href="/sorority-house.html" data-vc-id="sorority-house" data-vc-state="limited" data-vc-summary="Choose a community conversation and read its current participation rules." data-vc-limitation="Posting, moderation, identity, access, and reward lifecycles remain unverified; entering is not a confirmed post, membership, or reward.">The Sorority House · Delta LAi Nu</a><span class="vc-fallback-limit">Posting, moderation, identity, access, and rewards remain unverified.</span></li>
+            <li><a href="/luminairy.html" data-vc-id="sanctuary" data-vc-state="limited" data-vc-summary="Meet sourced, dated guides and choose a useful next route." data-vc-limitation="Source freshness and corrections remain partial; selections are device-local and opening a profile is not evidence of current-source approval.">The LUMINAiRY</a><span class="vc-fallback-limit">Source freshness is partial; selections are device-local.</span></li>
+          </ol>
+        </nav>
       </div>
 
       <div class="vc-orientation">
         <section class="vc-panel">
           <p class="vc-kicker">New here?</p>
-          <h3>Let the host talk you through it.</h3>
+          <h3>Choose the short introduction or the full walk.</h3>
           <p>
-            Play the welcome trailer for the town in one sitting, or let the guided
-            tour walk you through every stop in order.
+            Listen to the illustrated, captioned trailer for a short introduction,
+            or start the optional guided tour through each stop in order. Neither is
+            required to use the directory.
           </p>
           <div class="vc-actions">
+            <a class="vc-action vc-action--primary" href="/watch.html?ep=trailer">Listen to the illustrated trailer</a>
             <a class="vc-action vc-action--teal" href="?welcome-tour=start">Start the tour</a>
-            <button class="vc-action" type="button" data-src="/content/music/sunnyvaile-town-anthem.mp3" onclick="window.playLaidiesTheme(this)">Play the town anthem</button>
           </div>
-          <div class="vc-trailer-wrap" data-sv-trailer-player></div>
         </section>
 
         <section class="vc-panel vc-panel--pink">
@@ -1101,43 +1189,6 @@
     (function() {
       "use strict";
 
-      var activeBtn = null;
-      var activeAudio = null;
-
-      function stopTheme() {
-        if (activeBtn) activeBtn.classList.remove("is-playing");
-        if (activeAudio) {
-          try { activeAudio.pause(); } catch (error) {}
-        }
-        activeBtn = null;
-        activeAudio = null;
-      }
-
-      window.playLaidiesTheme = function(btn) {
-        if (!btn || btn.disabled) return;
-        if (activeBtn === btn) {
-          stopTheme();
-          btn.textContent = "Play the town anthem";
-          return;
-        }
-        stopTheme();
-        document.querySelectorAll("audio").forEach(function(audio) {
-          try { audio.pause(); } catch (error) {}
-        });
-        var audio = new Audio(btn.getAttribute("data-src"));
-        audio.preload = "metadata";
-        audio.addEventListener("ended", function() {
-          btn.textContent = "Play the town anthem";
-          stopTheme();
-        });
-        audio.addEventListener("error", stopTheme);
-        audio.play().catch(stopTheme);
-        btn.classList.add("is-playing");
-        btn.textContent = "Pause the town anthem";
-        activeBtn = btn;
-        activeAudio = audio;
-      };
-
       document.addEventListener("DOMContentLoaded", function() {
         var buildings = Array.isArray(window.SV_BUILDINGS) ? window.SV_BUILDINGS : [];
         var map = document.getElementById("vc-map-stage");
@@ -1145,13 +1196,26 @@
         var card = document.getElementById("vc-building-card");
         var address = document.getElementById("vc-card-address");
         var title = document.getElementById("vc-card-title");
+        var state = document.getElementById("vc-card-state");
         var line = document.getElementById("vc-card-line");
         var list = document.getElementById("vc-card-list");
         var enter = document.getElementById("vc-card-enter");
         var close = document.getElementById("vc-card-close");
         var fallback = document.getElementById("vc-directory-fallback");
+        var mapImage = document.getElementById("vc-map-image");
+        var mapStatus = document.getElementById("vc-map-status");
         var currentId = "";
         var initiatingControl = null;
+        var destinationContracts = {};
+
+        fallback.querySelectorAll("[data-vc-id]").forEach(function(link) {
+          destinationContracts[link.getAttribute("data-vc-id")] = {
+            href: link.getAttribute("href"),
+            state: link.getAttribute("data-vc-state") || "limited",
+            summary: link.getAttribute("data-vc-summary") || "",
+            limitation: link.getAttribute("data-vc-limitation") || ""
+          };
+        });
 
         function allFor(id) {
           return document.querySelectorAll('[data-vc-building="' + id + '"]');
@@ -1167,9 +1231,12 @@
           currentId = "";
           clearActive();
           card.classList.remove("is-open");
+          card.hidden = true;
           directory.value = "";
           address.textContent = "The wall map";
           title.textContent = "Choose a building above.";
+          state.textContent = "Current status";
+          state.dataset.state = "limited";
           line.textContent = "Hover for its name. Click to see what lives there.";
           list.innerHTML = "";
           if (updateHash !== false) {
@@ -1187,23 +1254,35 @@
           }
           initiatingControl = trigger || directory;
           currentId = building.id;
+          var destination = destinationContracts[building.id];
+          var contractMatchesRoute = destination && destination.href === building.href;
+          if (!contractMatchesRoute) {
+            destination = {
+              href: building.href,
+              state: "held",
+              summary: "Current destination details are unavailable.",
+              limitation: "Open the page only to check its own current status. This selection is navigation, not completion or product readiness."
+            };
+          }
           clearActive();
           directory.value = building.id;
           allFor(building.id).forEach(function(el) { el.classList.add("is-active"); });
           address.textContent = building.address;
           title.textContent = building.name;
-          line.textContent = building.oneLiner || "";
+          state.textContent = destination.state === "held" ? "Held from promotion" : "Limited · check current status";
+          state.dataset.state = destination.state;
+          line.textContent = destination.summary;
           list.innerHTML = "";
-          (building.mechanics || []).slice(0, 3).forEach(function(mechanic) {
-            var item = document.createElement("li");
-            item.textContent = mechanic;
-            list.appendChild(item);
-          });
-          enter.href = building.href;
-          enter.textContent = "Step inside";
-          enter.setAttribute("aria-label", "Step inside " + building.name);
+          var item = document.createElement("li");
+          item.textContent = destination.limitation;
+          list.appendChild(item);
+          enter.href = destination.href;
+          enter.textContent = destination.state === "held" ? "Open page — check status" : "Open destination";
+          enter.setAttribute("aria-label", enter.textContent + ": " + building.name);
+          card.hidden = false;
           card.classList.add("is-open");
           history.replaceState(null, "", "#" + building.id);
+          enter.focus({ preventScroll: true });
         }
 
         buildings.forEach(function(building) {
@@ -1229,9 +1308,18 @@
 
         if (!buildings.length) {
           directory.disabled = true;
-          fallback.hidden = false;
+          fallback.classList.add("is-visible");
+          fallback.setAttribute("role", "status");
           return;
         }
+
+        function showMapFailure() {
+          map.hidden = true;
+          mapStatus.textContent = "The wall map did not load. The named directory below still works.";
+          mapStatus.hidden = false;
+        }
+        mapImage.addEventListener("error", showMapFailure);
+        if (mapImage.complete && mapImage.naturalWidth === 0) showMapFailure();
 
         close.addEventListener("click", function() { closeCard(true, true); });
         directory.addEventListener("change", function() {
@@ -1345,6 +1433,12 @@
 
         document.getElementById("vcPostcardNote").addEventListener("input", syncSendLinks);
         handle.addEventListener("input", syncSendLinks);
+        document.getElementById("vcPostcardText").addEventListener("click", function() {
+          status("Opening your device's text handoff. Sending is not confirmed here.");
+        });
+        document.getElementById("vcPostcardEmail").addEventListener("click", function() {
+          status("Opening your email handoff. Sending is not confirmed here.");
+        });
 
         document.getElementById("vcPostcardShare").addEventListener("click", function() {
           if (navigator.share) {
@@ -1367,9 +1461,11 @@
             navigator.clipboard.writeText(url).then(function() {
               status("Postcard link copied.");
             }).catch(function() {
+              status("Automatic copying was unavailable. Use the copy dialog; delivery is not confirmed.");
               window.prompt("Copy your postcard link:", url);
             });
           } else {
+            status("Automatic copying is unavailable. Use the copy dialog; delivery is not confirmed.");
             window.prompt("Copy your postcard link:", url);
           }
         });

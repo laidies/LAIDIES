@@ -368,6 +368,20 @@ body {
   line-height: 1;
 }
 
+.shop-interest-status {
+  margin: 0 0 20px;
+  padding: 12px 14px;
+  border: 2px solid var(--shop-ink);
+  background: #fff;
+  color: var(--shop-ink);
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.shop-interest-status[data-state="error"] {
+  border-left: 8px solid var(--shop-pink);
+}
+
 .shop-departments {
   display: flex;
   gap: 0;
