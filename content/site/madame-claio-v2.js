@@ -11,11 +11,17 @@
   var history = document.getElementById("callHistory");
 
   function readState() {
+    if (typeof window.getClaioLocalState === "function") {
+      return window.getClaioLocalState();
+    }
     var count = 0;
     var items = [];
 
     try {
-      count = parseInt(localStorage.getItem("claio-call-count") || "0", 10) || 0;
+      var rawCount = localStorage.getItem("claio-call-count") || "0";
+      var parsedCount = /^(0|[1-9]\d*)$/.test(rawCount) ? Number(rawCount) : 0;
+      count = Number.isSafeInteger(parsedCount) && parsedCount >= 0 && parsedCount <= 10000
+        ? parsedCount : 0;
     } catch (error) {
       count = 0;
     }
@@ -23,6 +29,10 @@
     try {
       items = JSON.parse(localStorage.getItem("claio-call-history") || "[]");
       if (!Array.isArray(items)) items = [];
+      items = items.filter(function (item) {
+        return item && Object.getPrototypeOf(item) === Object.prototype &&
+          typeof item.card === "string" && typeof item.read === "string";
+      }).slice(-10);
     } catch (error) {
       items = [];
     }
@@ -37,18 +47,18 @@
 
     if (state.count >= 5) {
       arrivalStatus.textContent = "She knows your number, Hotline Regular.";
-      arrivalNote.textContent = "Your last card was " + (last && last.card ? last.card : "already written in the velvet") + ".";
+      arrivalNote.textContent = "On this device, your last card was " + (last && last.card ? last.card : "already written in the velvet") + ".";
       return;
     }
 
     if (state.count > 0) {
       var remaining = Math.max(5 - state.count, 0);
-      arrivalStatus.textContent = "Back again. Your last card was " + (last && last.card ? last.card : "waiting on the table") + ".";
-      arrivalNote.textContent = remaining + " more " + (remaining === 1 ? "reading" : "readings") + " and she knows your number.";
+      arrivalStatus.textContent = "Back again. On this device, your last card was " + (last && last.card ? last.card : "waiting on the table") + ".";
+      arrivalNote.textContent = remaining + " more completed " + (remaining === 1 ? "reading" : "readings") + " for the local Hotline Regular keepsake.";
       return;
     }
 
-    arrivalStatus.textContent = "Madame is in. Your first reading is free.";
+    arrivalStatus.textContent = "Madame is in. The deck is ready.";
     arrivalNote.textContent = "Cut the deck when you are ready.";
   }
 
@@ -63,7 +73,6 @@
   if (deckHotspot && mainButton) {
     deckHotspot.addEventListener("click", function () {
       if (!mainButton.disabled) mainButton.click();
-      deckHotspot.blur();
     });
   }
 
@@ -82,7 +91,7 @@
     });
   }
 
-  if (history) history.setAttribute("aria-live", "polite");
+  if (history) history.setAttribute("aria-label", "Recent readings saved in this browser on this device");
 
   updateArrival();
   syncRoomState();

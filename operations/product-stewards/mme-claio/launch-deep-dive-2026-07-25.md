@@ -56,3 +56,21 @@ Maintain the deck with periodic safety/voice review, duplicate/overlap checks an
 ## Verdict
 
 Mme CLAi-O is **SPECIFIED** with comparatively strong **BUILT LOCALLY/PARTIAL** activity evidence. It can remain an honest encouragement product if the safety boundary and device-local persistence truth are made explicit and verified. It should not be promoted as an advice, prediction or durable-reward system until those boundaries and their actual mechanics pass.
+
+## 2026-07-25 controlled maker addendum
+
+The bounded maker cycle implemented the missing operating spec, visible
+non-predictive/professional boundary, optional private in-page prompt,
+high-stakes stop, device-local persistence truth, returning-session
+no-immediate-repeat, local reset, storage-failure fallback, result/boundary
+focus and announcements, reduced-motion path, and legacy/separate-product
+framing. The authored 100-card deck and approved visual assets were not
+changed.
+
+Source and exact public-artifact automated suites pass. This is
+**IMPLEMENTED**, not independently approved or released. Semantic/false-positive
+safety judging, Safari, VoiceOver, native zoom, owner visual review,
+analytics/privacy configuration, real-origin redirect verification and public
+release authority remain explicit holds. See
+`maker-packet-controlled-fortune-2026-07-25.md` and
+`evidence-controlled-fortune-2026-07-25.md`.

@@ -18,9 +18,9 @@ Mme CLAi-O is an optional SUNNYVAiLE reading room: a playful, warm, dramatic pro
 
 | State | Journey | Authoritative success | Current evidence limit |
 |---|---|---|---|
-| New visitor | Enter → understand a reading is playful encouragement → request a card → receive a clear reflection/next move | A non-repeating local card is shown with a non-authoritative, respectful frame. | Prior local audit found strong deck/history/badge mechanics; current browser/a11y/failure pass remains open. |
+| New visitor | Enter → understand each reading is a random, non-tailored authored reflection → cut the deck → receive a clear reflection/next move | A non-repeating local card is shown with a non-authoritative, respectful frame. | Repair 1 source/browser evidence passes locally; independent rejudge remains open. |
 | Returning visitor | Request another reading → review local history/call count | History accurately reflects this device and avoids immediate repeats. | Local state exists; account/cross-device retention is not proven. |
-| Sensitive/out-of-scope | Enter crisis, medical, legal, financial, or factual-decision request | Experience gives a clear boundary and routes to appropriate real-world help/resources rather than a fortune. | Current declared/content boundary needs a systematic adversarial review. |
+| Sensitive/out-of-scope | Read the permanent boundary before choosing whether to draw | Experience collects no typed request and plainly directs emergencies, safety/abuse, health, legal, financial and current-fact decisions to appropriate real-world help or reliable sources. | Repair 1 removes the failed semantic router; independent comprehension and accessibility judgment remains open. |
 | Cocktail Fortune legacy link | Open old route → arrive at Mme CLAi-O | Redirect occurs without duplicate/conflicting product promise. | Redirect is present; public redirect/recovery verification remains required. |
 | Businesswomen’s Special coordination | Select drink fortune at BRONZE AiGE | Separate adult/spirits context remains distinct and offers spirit-free route. | Separate product/page; do not claim shared persistence or safety review from CLAi-O. |
 

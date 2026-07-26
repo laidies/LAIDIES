@@ -253,6 +253,20 @@ body *::after {
   line-height: 1.5;
 }
 
+.claio-arrival .claio-boundary {
+  max-width: 48ch;
+  margin: 22px 0 0;
+  padding: 13px 15px;
+  border-left: 4px solid var(--cl-mint);
+  background: rgba(7, 11, 32, .88);
+  color: #fff !important;
+  font-size: .84rem;
+  font-weight: 650;
+  letter-spacing: 0;
+  line-height: 1.5;
+  text-transform: none;
+}
+
 .call-button {
   display: inline-flex;
   min-height: 54px;
@@ -377,6 +391,80 @@ body *::after {
   box-shadow: 14px 14px 0 rgba(21, 198, 216, .86);
   color: #fff;
   backdrop-filter: blur(14px);
+}
+
+.fortune-card:focus-visible,
+.claio-safety:focus-visible {
+  outline: 4px solid #fff;
+  outline-offset: -7px;
+  box-shadow: 0 0 0 4px var(--cl-cyan);
+}
+
+.claio-safety {
+  position: absolute;
+  top: 16%;
+  right: clamp(24px, 5vw, 76px);
+  z-index: 6;
+  width: min(48vw, 660px);
+  padding: clamp(28px, 4vw, 52px);
+  border: 3px solid var(--cl-coral);
+  background: #111735;
+  color: #fff;
+  box-shadow: 14px 14px 0 rgba(255, 118, 93, .32);
+}
+
+.claio-safety[hidden] {
+  display: none;
+}
+
+.claio-safety h3 {
+  margin: 0 0 14px;
+  color: #fff !important;
+  font-family: "Anton", sans-serif;
+  font-size: clamp(2rem, 4vw, 4.2rem);
+  font-weight: 400;
+  line-height: .98;
+  text-transform: uppercase;
+}
+
+.claio-safety p {
+  margin: 0;
+  color: #fff !important;
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  font-weight: 650;
+  line-height: 1.6;
+}
+
+.claio-safety.claio-safety--static {
+  position: relative;
+  inset: auto;
+  z-index: auto;
+  width: 100%;
+  padding: clamp(28px, 4vw, 48px) clamp(24px, 7vw, 112px);
+  border-width: 3px 0;
+  box-shadow: none;
+}
+
+.claio-safety.claio-safety--static h3 {
+  max-width: 24ch;
+  color: #fff !important;
+  font-size: clamp(1.8rem, 4vw, 3.7rem);
+}
+
+.claio-safety.claio-safety--static p {
+  max-width: 78ch;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
 .fortune-card::before {
@@ -525,9 +613,55 @@ body *::after {
   margin: 0;
 }
 
-.call-history-title {
+.call-history-header {
   grid-column: 1 / -1;
+  display: flex;
+  gap: 24px;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.call-history-title {
+  margin-bottom: 6px;
   color: var(--cl-mint) !important;
+}
+
+.call-history-scope {
+  max-width: 58ch;
+  margin: 0;
+  color: rgba(255, 255, 255, .78) !important;
+  font-size: .78rem;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.claio-clear-button {
+  flex: 0 0 auto;
+  min-height: 44px;
+  padding: 9px 13px;
+  border: 2px solid var(--cl-periwinkle);
+  border-radius: 6px;
+  background: transparent;
+  color: #fff;
+  font: 850 .7rem/1.2 "Jost", sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.claio-clear-button:hover {
+  background: var(--cl-periwinkle);
+  color: var(--cl-ink);
+}
+
+.call-button:focus-visible,
+.claio-song-button:focus-visible,
+.claio-clear-button:focus-visible,
+.game-page-header.claio-return a:focus-visible,
+.claio-resident-note a:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px var(--cl-blue);
 }
 
 .history-card {
@@ -686,8 +820,9 @@ body *::after {
   }
 
   .game-page-title h1 {
-    font-size: clamp(3.5rem, 15.5vw, 5.2rem);
-    white-space: nowrap;
+    font-size: clamp(3rem, 15.5vw, 5.2rem);
+    overflow-wrap: anywhere;
+    white-space: normal;
   }
 
   .claio-song-button {
@@ -766,6 +901,15 @@ body *::after {
     gap: 42px;
   }
 
+  .claio-safety {
+    position: relative;
+    inset: auto;
+    order: 4;
+    width: 100%;
+    padding: 44px 22px 52px;
+    box-shadow: none;
+  }
+
   .claio-drawn-card {
     display: grid;
     justify-items: start;
@@ -787,15 +931,19 @@ body *::after {
     grid-auto-flow: column;
     gap: 16px;
     margin-right: -22px;
-    padding: 36px 22px 6px 0;
+    padding: 128px 22px 6px 0;
     overflow-x: auto;
     scroll-snap-type: x proximity;
   }
 
-  .call-history-title {
+  .call-history-header {
     position: absolute;
     top: 0;
     left: 0;
+    right: 22px;
+    align-items: start;
+    flex-direction: column;
+    gap: 12px;
   }
 
   .history-card {

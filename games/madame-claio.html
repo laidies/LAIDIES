@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Madame CLAi-O | LAiDIES · SUNNYVAiLE</title>
-    <meta name="description" content="Ask the crystal ball for a career and life reading. Practical advice, late-night-commercial drama." />
+    <meta name="description" content="Cut Mme CLAi-O's deck for one random authored reflection—not a tailored answer, prediction or professional advice." />
     <meta name="theme-color" content="#1a0a12" />
     <link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -574,7 +574,7 @@
           <div>
             <p class="eyebrow">MA<span class="ai-highlight">i</span>N STREET · No. 5 · PSYCHIC READINGS</p>
             <h1>Mme CLA<span class="ai-highlight">i</span>-O</h1>
-            <p class="subtitle">Practical advice. Late-night-commercial drama.</p>
+            <p class="subtitle">Playful reflection. Late-night-commercial drama. No predictions.</p>
           </div>
           <button class="claio-song-button" type="button"
                   aria-label="Play the Madame CLAi-O song on KSVL"
@@ -597,16 +597,22 @@
 
           <div class="claio-arrival">
             <p>Her line is open</p>
-            <h2 id="claioArrivalStatus">Madame is in. Your first reading is free.</h2>
+            <h2 id="claioArrivalStatus">Madame is in. The deck is ready.</h2>
             <span id="claioArrivalNote">Cut the deck when you are ready.</span>
+            <p class="claio-boundary">
+              Every draw is one random authored card. It is not tailored to
+              you, does not analyze or answer a question, and is not a
+              prediction or professional advice. Keep it, adapt it or ignore it.
+            </p>
             <button class="call-button" type="button" id="fortuneButton">Cut the deck</button>
           </div>
 
-          <div class="calling-state" id="callingState">
+          <div class="calling-state" id="callingState" role="status" aria-live="polite" aria-atomic="true">
             <p class="calling-text">The cards are turning<span class="calling-dots"></span></p>
           </div>
 
-          <div class="fortune-card" id="fortuneCard">
+          <div class="fortune-card" id="fortuneCard" role="region"
+               aria-labelledby="fortuneCardName" tabindex="-1">
             <div class="claio-drawn-card">
               <p class="fortune-card-flourish" id="fortuneFlourish">Your reading</p>
               <img class="fortune-card-art" id="fortuneArt" alt="" style="display:none;" />
@@ -618,12 +624,25 @@
               <p class="fortune-card-section-label">The Message</p>
               <p class="fortune-card-message" id="fortuneMessage"></p>
               <div class="fortune-card-move">
-                <strong>Madame says do this</strong>
+                <strong>Madame suggests</strong>
                 <p id="fortuneMove"></p>
               </div>
             </div>
           </div>
+          <p class="sr-only" id="claioLiveStatus" role="status" aria-live="polite" aria-atomic="true"></p>
         </section>
+
+        <aside class="claio-safety claio-safety--static" id="claioSafety"
+               aria-labelledby="claioSafetyHeading" tabindex="-1">
+          <h3 id="claioSafetyHeading">Need real-world help or current information?</h3>
+          <p id="claioSafetyMessage">
+            Do not use a random card for emergencies, personal safety or abuse,
+            health, legal, financial or current-fact decisions. If someone may
+            be in immediate danger, contact local emergency services and a
+            trusted person nearby. Otherwise use a qualified professional or a
+            reliable, current primary source.
+          </p>
+        </aside>
 
         <!-- Existing progress state remains live but is expressed in the arrival line. -->
         <div class="reading-progress" id="readingProgress">
@@ -635,23 +654,29 @@
 
         <section class="claio-keepsakes">
           <div class="call-history" id="callHistory" style="display: none;">
-            <p class="call-history-title">Recent readings</p>
+            <div class="call-history-header">
+              <div>
+                <p class="call-history-title">Recent readings on this device</p>
+                <p class="call-history-scope">This browser keeps up to ten readings and shows the latest three. It is not an account history.</p>
+              </div>
+              <button type="button" class="claio-clear-button" id="clearClaioHistory">Clear Mme CLAi-O data</button>
+            </div>
           </div>
 
           <div class="claio-resident-note">
-            <p>Your Resident Card</p>
-            <h3>Your reading of the week comes from this room.</h3>
-            <span>The card you pull here rides home with you. Every customization is a trip somewhere in town.</span>
-            <a href="../resident-card.html">Open your Resident Card</a>
+            <p>On this device</p>
+            <h3>A keepsake, not a prediction.</h3>
+            <span id="claioStorageStatus">Recent readings and the Hotline Regular keepsake stay only in this browser on this device. Clearing browser data removes them.</span>
+            <a href="../resident-card.html">Visit your Resident Card</a>
           </div>
 
           <div class="badge-reveal" id="badgeReveal">
-            <strong>Hotline Regular merit badge unlocked.</strong>
-            <p>You have called more times than Cher changed outfits before her driver&rsquo;s test. Madame CLAi-O recognizes your number.</p>
+            <strong>Hotline Regular local keepsake unlocked.</strong>
+            <p>Five completed readings on this browser. It is not an account reward or member benefit.</p>
           </div>
         </section>
 
-        <p class="claio-chyron">CALL NOW · 1-900-CLAi-O · first reading free (they all are) · 100 cards in the deck · For entertainment purposes only.</p>
+        <p class="claio-chyron">CUT THE DECK · 100 AUTHORED CARDS · PLAYFUL REFLECTION, NOT FORESIGHT · FREE · DEVICE-LOCAL HISTORY</p>
         <p class="microcopy">Madame CLAi-O has 100 cards in her deck.</p>
       </div>
 
@@ -762,10 +787,143 @@
 {card:"The Hair Wrap Thread",read:"You started a project that requires daily commitment and you are already looking at scissors.",message:"The wrap only looks good if you keep showing up with the thread. Quitting at strand four is just a tangle.",move:"Commit for seven more days before you decide whether to cut it."}
 ];
 
-      let lastIndex = -1;
-      let readingCount = parseInt(localStorage.getItem('claio-call-count') || '0');
-      let callHistory = JSON.parse(localStorage.getItem('claio-call-history') || '[]');
+      const STORAGE_KEYS = {
+        count: 'claio-call-count',
+        history: 'claio-call-history',
+        badges: 'laidiesSecretBadges'
+      };
       const BADGE_THRESHOLD = 5;
+      const MAX_READING_COUNT = 10000;
+      const MAX_HISTORY = 10;
+      let storageAvailable = true;
+      function storageGet(key) {
+        try { return window.localStorage.getItem(key); }
+        catch (error) { storageAvailable = false; return null; }
+      }
+      function storageSet(key, value) {
+        try {
+          window.localStorage.setItem(key, value);
+          return true;
+        } catch (error) {
+          storageAvailable = false;
+          updateStorageTruth();
+          return false;
+        }
+      }
+      function storageRemove(key) {
+        try {
+          window.localStorage.removeItem(key);
+          return true;
+        } catch (error) {
+          storageAvailable = false;
+          updateStorageTruth();
+          return false;
+        }
+      }
+      function parseStoredJson(key, fallback) {
+        try {
+          const parsed = JSON.parse(storageGet(key) || '');
+          return parsed;
+        } catch (error) {
+          return fallback;
+        }
+      }
+
+      function isPlainObject(value) {
+        return !!value && typeof value === 'object' && !Array.isArray(value) &&
+          Object.getPrototypeOf(value) === Object.prototype;
+      }
+
+      function readStoredCount() {
+        const raw = storageGet(STORAGE_KEYS.count);
+        if (raw === null || raw === '') return 0;
+        if (!/^(0|[1-9]\d*)$/.test(raw)) return 0;
+        const value = Number(raw);
+        return Number.isSafeInteger(value) && value >= 0 && value <= MAX_READING_COUNT
+          ? value : 0;
+      }
+
+      function canonicalCard(name) {
+        return fortuneCards.find(card => card.card === name) || null;
+      }
+
+      function readStoredHistory() {
+        const parsed = parseStoredJson(STORAGE_KEYS.history, []);
+        if (!Array.isArray(parsed)) return [];
+        return parsed.reduce((items, item) => {
+          if (!isPlainObject(item) || typeof item.card !== 'string') return items;
+          const canonical = canonicalCard(item.card);
+          if (canonical) items.push({ card: canonical.card, read: canonical.read });
+          return items;
+        }, []).slice(-MAX_HISTORY);
+      }
+
+      function parseExactIsoUtcTimestamp(value) {
+        if (typeof value !== 'string') return null;
+        const match = value.match(
+          /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})\.(\d{3})Z$/
+        );
+        if (!match) return null;
+        const year = Number(match[1]);
+        const month = Number(match[2]);
+        const day = Number(match[3]);
+        const hour = Number(match[4]);
+        const minute = Number(match[5]);
+        const second = Number(match[6]);
+        const millisecond = Number(match[7]);
+        const leapYear = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+        const monthLengths = [31, leapYear ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        if (year < 1 || year > 9999 || month < 1 || month > 12 ||
+            day < 1 || day > monthLengths[month - 1] ||
+            hour > 23 || minute > 59 || second > 59 || millisecond >= 1000) {
+          return null;
+        }
+        const timestamp = Date.parse(value);
+        if (!Number.isFinite(timestamp) ||
+            new Date(timestamp).toISOString() !== value ||
+            timestamp > Date.now()) {
+          return null;
+        }
+        return timestamp;
+      }
+
+      function sanitizedBadgeStore() {
+        const parsed = parseStoredJson(STORAGE_KEYS.badges, {});
+        if (!isPlainObject(parsed)) return {};
+        return Object.keys(parsed).reduce((badges, key) => {
+          const member = parsed[key];
+          if (['__proto__', 'prototype', 'constructor'].includes(key) ||
+              !isPlainObject(member) || member.id !== key ||
+              typeof member.title !== 'string' || !member.title.trim() ||
+              typeof member.sticker !== 'string' || !member.sticker.trim() ||
+              typeof member.source !== 'string' || !member.source.trim() ||
+              typeof member.unlockedAt !== 'string') {
+            return badges;
+          }
+          const unlockedAt = parseExactIsoUtcTimestamp(member.unlockedAt);
+          if (unlockedAt === null) return badges;
+          if (key === 'hotline-regular' && member.scope !== 'device-local') {
+            return badges;
+          }
+          badges[key] = {
+            id: key,
+            title: member.title.trim().slice(0, 160),
+            sticker: member.sticker.trim().slice(0, 80),
+            source: member.source.trim().slice(0, 160),
+            unlockedAt: new Date(unlockedAt).toISOString(),
+            ...(typeof member.scope === 'string' && member.scope.trim()
+              ? { scope: member.scope.trim().slice(0, 80) } : {})
+          };
+          return badges;
+        }, Object.create(null));
+      }
+
+      let readingCount = readStoredCount();
+      let callHistory = readStoredHistory();
+      let lastIndex = callHistory.length
+        ? fortuneCards.findIndex(card => card.card === callHistory[callHistory.length - 1].card)
+        : -1;
+      let drawPending = false;
 
       const button = document.getElementById("fortuneButton");
       const callingState = document.getElementById("callingState");
@@ -780,10 +938,42 @@
       const progressFill = document.getElementById("progressFill");
       const historyEl = document.getElementById("callHistory");
       const badgeEl = document.getElementById("badgeReveal");
+      const safetyEl = document.getElementById("claioSafety");
+      const liveStatusEl = document.getElementById("claioLiveStatus");
+      const storageStatusEl = document.getElementById("claioStorageStatus");
+      const clearButton = document.getElementById("clearClaioHistory");
+      const reduceMotion = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       // Initialize display
+      const rawCountForRepair = storageGet(STORAGE_KEYS.count);
+      if (rawCountForRepair !== null && rawCountForRepair !== String(readingCount)) {
+        storageRemove(STORAGE_KEYS.count);
+      }
+      const rawHistoryForRepair = storageGet(STORAGE_KEYS.history);
+      if (rawHistoryForRepair !== null &&
+          rawHistoryForRepair !== JSON.stringify(callHistory)) {
+        if (callHistory.length) {
+          storageSet(STORAGE_KEYS.history, JSON.stringify(callHistory));
+        } else {
+          storageRemove(STORAGE_KEYS.history);
+        }
+      }
+      const rawBadgesForRepair = storageGet(STORAGE_KEYS.badges);
+      if (rawBadgesForRepair !== null) {
+        const cleanBadges = sanitizedBadgeStore();
+        const cleanBadgeJson = JSON.stringify(cleanBadges);
+        if (rawBadgesForRepair !== cleanBadgeJson) {
+          if (Object.keys(cleanBadges).length) {
+            storageSet(STORAGE_KEYS.badges, cleanBadgeJson);
+          } else {
+            storageRemove(STORAGE_KEYS.badges);
+          }
+        }
+      }
       updateCounter();
       updateProgress();
+      updateStorageTruth();
 
       function updateCounter() {
         counterEl.textContent = `Call ${readingCount}`;
@@ -794,14 +984,23 @@
           document.getElementById('readingProgress').style.display = 'none';
           badgeEl.classList.add('is-visible');
         } else {
+          badgeEl.classList.remove('is-visible');
+          document.getElementById('readingProgress').style.display = '';
           const pct = Math.min((readingCount / BADGE_THRESHOLD) * 100, 100);
           progressFill.style.width = pct + '%';
           progressText.textContent = `${readingCount} / ${BADGE_THRESHOLD} calls to unlock Hotline Regular`;
         }
       }
 
+      function updateStorageTruth() {
+        if (!storageStatusEl) return;
+        storageStatusEl.textContent = storageAvailable
+          ? 'Recent readings and the Hotline Regular keepsake stay only in this browser on this device. Clearing browser data removes them.'
+          : 'Browser storage is unavailable. You can still draw cards, but this page cannot save the count, history or keepsake after you leave.';
+      }
+
       function renderHistory() {
-        // Clear old history cards (keep the title)
+        // Clear old history cards (keep the header and reset control).
         const existingCards = historyEl.querySelectorAll('.history-card');
         existingCards.forEach(c => c.remove());
 
@@ -840,9 +1039,11 @@
 
       function nextIndex(length, prev) {
         if (length <= 1) return 0;
-        let i = prev;
-        while (i === prev) { i = Math.floor(Math.random() * length); }
-        return i;
+        for (let attempt = 0; attempt < 12; attempt++) {
+          const candidate = Math.floor(Math.random() * length);
+          if (candidate !== prev) return candidate;
+        }
+        return (prev + 1) % length;
       }
 
       // Card art — filenames derive from card names ("The Butterfly Clip" → butterfly-clip.png).
@@ -869,6 +1070,8 @@
       renderHistory();
 
       button?.addEventListener("click", () => {
+        if (drawPending) return;
+        drawPending = true;
         // Hide previous card
         cardEl.classList.remove("is-visible");
         // Show calling state
@@ -876,11 +1079,12 @@
         button.disabled = true;
         button.textContent = "THE CARDS ARE TURNING...";
 
-        // After 1.5s transition, show the reading
+        // Reduced-motion users receive the same result without the timed reveal.
         setTimeout(() => {
           callingState.classList.remove("is-visible");
           button.disabled = false;
           button.textContent = "PULL ANOTHER";
+          drawPending = false;
 
           lastIndex = nextIndex(fortuneCards.length, lastIndex);
           const fortune = fortuneCards[lastIndex];
@@ -898,13 +1102,13 @@
 
           cardEl.classList.add("is-visible");
 
-          readingCount++;
-          localStorage.setItem('claio-call-count', readingCount.toString());
+          readingCount = Math.min(readingCount + 1, MAX_READING_COUNT);
+          storageSet(STORAGE_KEYS.count, readingCount.toString());
 
           // Update call history
           callHistory.push({ card: fortune.card, read: fortune.read });
-          if (callHistory.length > 10) callHistory = callHistory.slice(-10);
-          localStorage.setItem('claio-call-history', JSON.stringify(callHistory));
+          if (callHistory.length > MAX_HISTORY) callHistory = callHistory.slice(-MAX_HISTORY);
+          storageSet(STORAGE_KEYS.history, JSON.stringify(callHistory));
 
           updateCounter();
           updateProgress();
@@ -919,24 +1123,54 @@
           if (readingCount >= BADGE_THRESHOLD) {
             badgeEl.classList.add("is-visible");
             try {
-              const badges = JSON.parse(localStorage.getItem("laidiesSecretBadges") || "{}");
+              const badges = sanitizedBadgeStore();
               if (!badges["hotline-regular"]) {
                 badges["hotline-regular"] = {
                   id: "hotline-regular",
-                  title: "Hotline Regular merit badge",
+                  title: "Hotline Regular local keepsake",
                   sticker: "Mme CLAi-O",
                   unlockedAt: new Date().toISOString(),
                   source: "Madame CLAi-O",
+                  scope: "device-local"
                 };
-                localStorage.setItem("laidiesSecretBadges", JSON.stringify(badges));
+                storageSet(STORAGE_KEYS.badges, JSON.stringify(badges));
               }
             } catch(e) {}
           }
 
-          // Scroll to card
-          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 1500);
+          liveStatusEl.textContent = `Reading complete: ${fortune.card}.`;
+          cardEl.focus({ preventScroll: true });
+          cardEl.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+        }, reduceMotion ? 0 : 1500);
       });
+
+      clearButton?.addEventListener('click', () => {
+        readingCount = 0;
+        callHistory = [];
+        lastIndex = -1;
+        storageRemove(STORAGE_KEYS.count);
+        storageRemove(STORAGE_KEYS.history);
+        const badges = sanitizedBadgeStore();
+        delete badges['hotline-regular'];
+        if (Object.keys(badges).length) storageSet(STORAGE_KEYS.badges, JSON.stringify(badges));
+        else storageRemove(STORAGE_KEYS.badges);
+        cardEl.classList.remove('is-visible');
+        updateCounter();
+        updateProgress();
+        renderHistory();
+        updateStorageTruth();
+        liveStatusEl.textContent = 'Mme CLAi-O history, call count and local keepsake were cleared from this browser.';
+        button.textContent = 'Cut the deck';
+        button.focus();
+      });
+
+      window.getClaioLocalState = function () {
+        return {
+          count: readingCount,
+          history: callHistory.slice(),
+          storageAvailable: storageAvailable
+        };
+      };
 
       // Ambient background stars now seeded by laidies-bg.js (.laidies-bg--dark).
     </script>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SUNNYVAiLE Community RAiDIO · KSVL · LAiDIES</title>
-  <meta name="description" content="SUNNYVAiLE Community RAiDIO (KSVL) — don't just learn from books, learn from hooks. Music broadcast all day. DJ SunnyV's tracks, patron saint themes, the town anthem on the hour. Tape it off the RAiDIO.">
+  <meta name="description" content="Visit KSVL, SUNNYVAiLE Community RAiDIO. The public listening catalogue is in soundcheck while exact masters, lyrics, captions, lesson links and rights records complete review.">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
   <link rel="stylesheet" href="content/radio-v2.css?v=20260724-1">
@@ -63,8 +63,8 @@
       <p class="ksvl-studio__kicker">MAiN Street · 99.9 FM · SUNNYVAiLE</p>
       <h1 id="ksvlStudioTitle">KSVL R<span class="ai">Ai</span>DIO.</h1>
       <p class="ksvl-studio__motto">Don't just learn from books. Learn from hooks.</p>
-      <p class="ksvl-studio__state" id="ksvlStudioState" aria-live="polite">SUNNYVAiLE is broadcasting. You're not tuned in.</p>
-      <p class="ksvl-studio__subline">DJ SunnyV · songs, jingles, weather, traffic, and commercials from every building in town.</p>
+      <p class="ksvl-studio__state" id="ksvlStudioState" aria-live="polite">SOUNDCHECK HOLD · Public listening is unavailable.</p>
+      <p class="ksvl-studio__subline">DJ SunnyV&rsquo;s catalogue is being reconciled track by track: exact master, as-recorded words, lesson source and rights record.</p>
     </div>
 
     <div class="ksvl-studio__controls" id="ksvlStudioControls" aria-label="Operate the KSVL studio"></div>
@@ -76,12 +76,12 @@
       </div>
       <div class="ksvl-tuner__scale">
         <div class="ksvl-tuner__marks" aria-hidden="true"><span>88</span><span>92</span><span>96</span><span>99.9</span><span>104</span><span>108</span></div>
-        <input id="ksvlDial" type="range" min="88" max="108" step="0.1" value="99.9" aria-label="FM dial. KSVL broadcasts at 99.9 FM.">
-        <p id="ksvlDialMessage">SUNNYVAiLE only gets one station.</p>
+        <input id="ksvlDial" type="range" min="88" max="108" step="0.1" value="99.9" aria-label="Decorative FM dial. KSVL listening is held at 99.9 FM.">
+        <p id="ksvlDialMessage">99.9 is in soundcheck. No audio will start.</p>
       </div>
-      <button type="button" class="ksvl-hero-tunein" id="ksvlTuneButton" onclick="if(window.KSVL_startLive) window.KSVL_startLive();" aria-label="Tune in to KSVL Live radio, 99.9 FM">
+      <button type="button" class="ksvl-hero-tunein" id="ksvlTuneButton" aria-label="KSVL listening unavailable pending catalogue admission" disabled>
         <span class="ksvl-hero-tunein__dot" aria-hidden="true"></span>
-        <span>▶ Tune in</span>
+        <span>Listening unavailable</span>
       </button>
     </div>
   </div>
@@ -90,11 +90,9 @@
 
     <div class="sv-eyebrow">
       <span class="sv-eyebrow-label">★ MAiN Street · No. 10 · KSVL · SUNNYVAiLE</span>
-      <button class="sv-theme" type="button"
-              aria-label="Tune in to KSVL Live radio"
-              onclick="if(window.KSVL_startLive) window.KSVL_startLive();">
+      <button class="sv-theme" type="button" aria-label="KSVL listening unavailable during soundcheck" disabled>
         <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-        <span>♪ Tune in Live</span>
+        <span>♪ Soundcheck hold</span>
       </button>
     </div>
 
@@ -105,19 +103,19 @@
     </p>
 
     <p class="sv-lede">
-      KSVL, 99.9 · SUNNYVAiLE's own. Music broadcast all day — the town anthem on the hour, patron saint themes, and DJ SunnyV at the mic. The kind of station where you race to push record and play when the DJ announces the song.
+      KSVL, 99.9 · SUNNYVAiLE&rsquo;s own. The station is open to explore, but public listening is unavailable while every item completes exact-master, as-recorded lyric/transcript/caption, lesson-source and rights review.
     </p>
 
     <!-- KSVL LIVE — the full station broadcast (moved to top) -->
     <div class="ksvl-live-band">
-      <div class="ksvl-live-band__badge">★ NEW TODAY</div>
-      <h2 class="ksvl-live-band__title">Tune in to KSVL Live.</h2>
-      <p class="ksvl-live-band__lede">DJ SunnyV at the mic. Songs, jingles, weather, traffic, and actual commercials from every building in town. Press play — it plays until you stop it.</p>
-      <button type="button" class="ksvl-live-band__btn" onclick="if(window.KSVL_startLive) window.KSVL_startLive();" aria-label="Tune in to KSVL Live radio">
-        <span class="ksvl-live-band__btn-icon" aria-hidden="true">▶</span>
-        <span>TUNE IN LIVE · 99.9</span>
+      <div class="ksvl-live-band__badge">★ SOUNDCHECK</div>
+      <h2 class="ksvl-live-band__title">The whole public catalogue is held.</h2>
+      <p class="ksvl-live-band__lede">Zero tracks, jingles, transitions or spots are admitted for public listening. Explore the station plan, leave a review request, or continue with an available episode or lesson.</p>
+      <button type="button" class="ksvl-live-band__btn" aria-label="Listening unavailable pending catalogue admission" disabled>
+        <span class="ksvl-live-band__btn-icon" aria-hidden="true">■</span>
+        <span>LISTENING UNAVAILABLE · 99.9</span>
       </button>
-      <p class="ksvl-live-band__disclaimer">Or open a counter below.</p>
+      <p class="ksvl-live-band__disclaimer"><a href="/chick-flicks.html">Open the episode shelf</a> · <a href="/library.html">Learn in the LIBRAiRY</a></p>
     </div>
 
     <!-- ============================================================
@@ -191,7 +189,7 @@
 
     <h2>Mix CDs</h2>
 
-    <p>Six mixes. Sharpie-labeled. Grab one and let it play — or open All Songs and shuffle the station.</p>
+    <p>Six planned shelves, Sharpie-labeled. None can play or shuffle yet: every item remains held in soundcheck pending admission. For something available now, <a href="/chick-flicks.html">open the episode shelf</a> or <a href="/library.html">learn in the LIBRAiRY</a>.</p>
 
     <style>
       .ksvl-live-band {
@@ -324,7 +322,7 @@
 
     <p class="ksvl-band-eyebrow">★ 99.9 KSVL · The Bands</p>
     <h2 class="ksvl-band-title">The Bands</h2>
-    <p class="ksvl-band-lede">Ten fictional bands from SUNNYVAiLE. DJ SunnyV plays them all. Tap a cover to flip it and read the tracklist; hit ▶ to play the whole album.</p>
+    <p class="ksvl-band-lede">Ten fictional bands from SUNNYVAiLE. Flip the covers and inspect their planned tracklists, but DJ SunnyV is not publicly playing these albums and whole-album listening is unavailable until each item is admitted. Continue with <a href="/chick-flicks.html">an available episode</a> or <a href="/library.html">a LIBRAiRY lesson</a>.</p>
 
     <div class="ksvl-band-grid" id="ksvl-band-grid"></div>
 
@@ -381,9 +379,15 @@
             var playBtn = document.createElement('button');
             playBtn.className = 'ksvl-band-play-btn';
             playBtn.type = 'button';
-            playBtn.setAttribute('aria-label', 'Play ' + a.band + ' — ' + a.album);
-            playBtn.setAttribute('title', 'Play whole album');
             playBtn.textContent = '▶';
+            if (tracks.length) {
+              playBtn.setAttribute('aria-label', 'Play ' + a.band + ' — ' + a.album);
+              playBtn.setAttribute('title', 'Play admitted album');
+            } else {
+              playBtn.disabled = true;
+              playBtn.setAttribute('aria-label', a.band + ' album is held pending catalogue admission');
+              playBtn.setAttribute('title', 'Listening unavailable');
+            }
             playBtn.addEventListener('click', function(e) {
               e.stopPropagation();
               window.KSVL_startAlbum(a.band, 0);
@@ -517,7 +521,7 @@
     <section class="ksvl-stickers" id="ksvl-stickers">
       <p class="ksvl-stickers-eyebrow">★ 99.9 KSVL · The Sticker Sheet</p>
       <h2 class="ksvl-stickers-title">Grab a few from the counter.</h2>
-      <p class="ksvl-stickers-lede">The station gives out free vinyl stickers to listeners. Take three home for your Closet. Earn the rest by tuning in, listening, and burning. New designs drop as the show goes on.</p>
+      <p class="ksvl-stickers-lede">The sticker counter is visible for review, but listening and listening-based rewards are held with the catalogue. No sticker is being represented as earned by unavailable playback.</p>
 
       <figure style="margin:14px 0 20px;">
         <img src="assets/building-interiors/ksvl-sticker-banner.jpg?v=20260708" alt="A pile of KSVL 99.9 vinyl stickers — CHARTER LISTENER, DON'T JUST LEARN FROM BOOKS LEARN FROM HOOKS!, ALL WEDNESDAYS, ENCORE, MIX CD ALCHEMY and the SUNNYVAiLE band decals" loading="lazy" style="width:100%;height:auto;display:block;border-radius:14px;box-shadow:0 10px 26px rgba(75,33,72,0.16);">
@@ -542,14 +546,14 @@
         var STICKERS = [
           // Station badges
           { slug: 'ksvl-community-raidio',           type: 'declaration', name: 'KSVL · Community RAiDIO',    earn: 'Grab from the counter.' },
-          { slug: 'ksvl-charter-listener',           type: 'achievement', name: 'Charter Listener',           earn: 'Tune in before Ep 05.' },
-          { slug: 'ksvl-all-wednesdays',             type: 'achievement', name: 'All Wednesdays',             earn: 'Tune in 3 Wednesdays in a row.' },
+          { slug: 'ksvl-charter-listener',           type: 'achievement', name: 'Charter Listener',           earn: 'Held while public listening is unavailable.' },
+          { slug: 'ksvl-all-wednesdays',             type: 'achievement', name: 'All Wednesdays',             earn: 'Held while public listening is unavailable.' },
           { slug: 'ksvl-dj-sunnyv-fanclub',          type: 'declaration', name: 'DJ SunnyV Fan Club',         earn: 'Grab from the counter.' },
           // Mix + genre badges
-          { slug: 'ksvl-saints-mix-certified',       type: 'achievement', name: 'SAiNTS Mix Certified',       earn: 'Listen to all 8 PATRON SAiNT songs.' },
-          { slug: 'ksvl-bronze-aige-regular',        type: 'achievement', name: 'BRONZE AiGE Regular',        earn: 'Play 3+ BRONZE AiGE tracks.' },
-          { slug: 'ksvl-mix-cd-alchemist',           type: 'achievement', name: 'Mix CD Alchemist',           earn: 'Burn a paid Mix CD.' },
-          { slug: 'ksvl-encore',                     type: 'achievement', name: 'Encore',                     earn: 'Play any one song 3 times.' },
+          { slug: 'ksvl-saints-mix-certified',       type: 'achievement', name: 'SAiNTS Mix Certified',       earn: 'Held while public listening is unavailable.' },
+          { slug: 'ksvl-bronze-aige-regular',        type: 'achievement', name: 'BRONZE AiGE Regular',        earn: 'Held while public listening is unavailable.' },
+          { slug: 'ksvl-mix-cd-alchemist',           type: 'achievement', name: 'Mix CD Alchemist',           earn: 'Held while catalogue and purchase rules are reviewed.' },
+          { slug: 'ksvl-encore',                     type: 'achievement', name: 'Encore',                     earn: 'Held while public listening is unavailable.' },
           // Motto stickers (bonus declarations)
           { slug: 'ksvl-books-hooks-motto-oval',     type: 'declaration', name: '"Don\'t just learn from books"', earn: 'Grab from the counter.' },
           { slug: 'ksvl-dont-just-learn-bumper',     type: 'declaration', name: 'Books & Hooks · Bumper',     earn: 'Grab from the counter.' },
@@ -615,7 +619,7 @@
           var earned = getEarned();
           if (hasPicked()) {
             var total = STICKERS.length;
-            status.innerHTML = '<span>You have <strong>' + earned.length + ' of ' + total + '</strong> stickers. Keep listening — the rest unlock as you go.</span>';
+            status.innerHTML = '<span>You have <strong>' + earned.length + ' of ' + total + '</strong> device-local stickers. Listening-based unlocks are held.</span>';
             return;
           }
           var selectedTiles = document.querySelectorAll('.ksvl-sticker-tile.is-selected');
@@ -694,8 +698,8 @@
 
     <section id="ksvl-request" style="margin: 0 0 34px; padding: 36px clamp(20px, 4vw, 44px); background: linear-gradient(135deg, var(--plum-deep) 0%, var(--rose) 100%); border-radius: 16px; color: var(--cream);">
       <p style="margin: 0 0 10px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);">★ 99.9 KSVL · Call in a request</p>
-      <h2 style="margin: 0 0 12px; color: var(--cream); font-family: 'Playfair Display', Georgia, serif; font-size: clamp(26px, 3.5vw, 34px);">Got a song idea? DJ SunnyV is listening.</h2>
-      <p style="margin: 0 0 28px; font-size: 15px; line-height: 1.6; color: var(--cream); opacity: 0.94;">Fill in the details, hit send. If we make the track, you get first-listen and your name in the credits.</p>
+      <h2 style="margin: 0 0 12px; color: var(--cream); font-family: 'Playfair Display', Georgia, serif; font-size: clamp(26px, 3.5vw, 34px);">Got a song idea? Leave it for station review.</h2>
+      <p style="margin: 0 0 28px; font-size: 15px; line-height: 1.6; color: var(--cream); opacity: 0.94;">A saved or received request is an idea for review—not a promise that DJ SunnyV heard it, selected it, will produce it or will add a credit. Signed-out drafts stay only on this device when local storage succeeds.</p>
 
       <form id="ksvl-request-form" style="display: grid; gap: 18px; max-width: 640px;">
         <label style="display: block;">
@@ -727,8 +731,8 @@
         </label>
 
         <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 6px;">
-          <button id="ksvl-req-submit" type="submit" style="padding: 12px 26px; background: var(--gold); color: var(--plum-deep); border: 0; border-radius: 999px; font-weight: 800; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: transform 200ms ease;">Send to DJ SunnyV →</button>
-          <span id="ksvl-req-status" style="font-size: 13px; color: var(--cream); opacity: 0.85; line-height: 1.4;"></span>
+          <button id="ksvl-req-submit" type="submit" style="padding: 12px 26px; background: var(--gold); color: var(--plum-deep); border: 0; border-radius: 999px; font-weight: 800; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: transform 200ms ease;">Save or send for review →</button>
+          <span id="ksvl-req-status" role="status" aria-live="polite" aria-atomic="true" tabindex="-1" style="font-size: 13px; color: var(--cream); opacity: 0.85; line-height: 1.4;"></span>
         </div>
       </form>
     </section>
@@ -840,11 +844,17 @@
           } catch (_) {}
 
           if (!session) {
-            // Save locally so it isn't lost, prompt sign-in
+            var savedLocally = false;
             try {
               localStorage.setItem('ksvl_pending_request', JSON.stringify({ style: style, topic: topic, lyrics: lyrics, saved_at: new Date().toISOString() }));
-            } catch (_) {}
-            statusEl.innerHTML = 'Sign in with your <a href="/resident-card.html" style="color: var(--gold); text-decoration: underline; font-weight: 700;">Resident Card</a> to send this to DJ SunnyV. Your request is held on this device.';
+              savedLocally = true;
+            } catch (_) {
+              savedLocally = false;
+            }
+            statusEl.innerHTML = savedLocally ?
+              'Draft saved only on this device. It has not been sent or reviewed. <a href="/resident-card.html" style="color: var(--gold); text-decoration: underline; font-weight: 700;">Sign in with your Resident Card</a> if you want to attempt delivery for station review.' :
+              'This browser could not save the draft. It has not been sent; copy your text before leaving.';
+            statusEl.focus();
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
             return;
@@ -859,7 +869,13 @@
           try {
             var result = await client.from('ksvl_song_requests').insert(payload).select().single();
             if (result.error) throw result.error;
-            statusEl.textContent = 'On the air. DJ SunnyV will take a look and let you know if it goes to production.';
+            var receiptId = result.data && result.data.id ? String(result.data.id) : '';
+            if (!/^[A-Za-z0-9][A-Za-z0-9_-]{2,79}$/.test(receiptId)) {
+              throw new Error('Missing or invalid request receipt');
+            }
+            statusEl.textContent = 'Received for station review · receipt ' + receiptId +
+              '. This does not mean DJ SunnyV has heard, selected or promised to produce it.';
+            statusEl.focus();
             form.reset();
             topicCount.textContent = '0 / 200';
             lyricsCount.textContent = '0 / 1000';
@@ -870,7 +886,8 @@
             }, 3000);
           } catch (err) {
             console.error('[KSVL Request] Insert failed:', err);
-            statusEl.textContent = 'Something jammed — try again in a moment.';
+            statusEl.textContent = 'The station did not return a request receipt. Nothing is being described as delivered; try again when you are ready.';
+            statusEl.focus();
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
           }
@@ -880,9 +897,9 @@
 
     <div class="sv-trip-tie">
       <div class="sv-trip-tie__eyebrow">★ Your Resident Card</div>
-      <h3 class="sv-trip-tie__title">Pick your favourite jam.</h3>
-      <p class="sv-trip-tie__body">Your song shows up on the front of your Resident Card. KSVL is where you pick it — spin the dial, choose your track, DJ SunnyV carries it into your card. <strong>Every customization is a trip somewhere in town.</strong></p>
-      <p class="sv-trip-tie__note">Spin the dial, then <a href="/laidies-card.html" style="color: var(--rose);">set your song on your card →</a></p>
+      <h3 class="sv-trip-tie__title">Choose a card song separately.</h3>
+      <p class="sv-trip-tie__body">KSVL listening history and favourites are not synced to an account. Your Resident Card has its own song choice; selecting or playing something here does not update the card or create a reward.</p>
+      <p class="sv-trip-tie__note"><a href="/laidies-card.html" style="color: var(--rose);">Open the Resident Card song choice →</a></p>
     </div>
 
   </main>
@@ -892,11 +909,10 @@
   <script>
     (function() {
       'use strict';
-      var activeBtn = null, activeAudio = null;
+      var activeBtn = null;
       function stopActive() {
         if (activeBtn) activeBtn.classList.remove('is-playing');
-        if (activeAudio) { try { activeAudio.pause(); } catch(e){} }
-        activeBtn = null; activeAudio = null;
+        activeBtn = null;
       }
       window.playLaidiesTheme = function(btn) {
         if (!btn || btn.disabled) return;
@@ -904,13 +920,11 @@
         if (!src) return;
         if (activeBtn === btn) { stopActive(); return; }
         stopActive();
-        var audio = new Audio(src);
-        audio.preload = 'metadata';
-        audio.addEventListener('ended', function() { if (activeAudio === audio) stopActive(); });
-        audio.addEventListener('error', function() { if (activeAudio === audio) stopActive(); });
-        audio.play().catch(function() { if (activeAudio === audio) stopActive(); });
-        btn.classList.add('is-playing');
-        activeBtn = btn; activeAudio = audio;
+        if (typeof window.KSVL_playTrack !== 'function') return;
+        if (window.KSVL_playTrack(src, btn.getAttribute('aria-label') || 'KSVL track', 'KSVL')) {
+          btn.classList.add('is-playing');
+          activeBtn = btn;
+        }
       };
     })();
   </script>

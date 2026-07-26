@@ -1,8 +1,31 @@
 # MAiKEOVER on MAiN backlog
 
-**Status:** BUILDING — recommendations only; no entry is implementation, release or public approval.
+**Status:** BOUNDED LOCAL PASS — independent Repair 2 rejudge 90/100; every
+real-service, owner, native-accessibility, public-origin and release hold remains.
 
 ## FIX BEFORE LAUNCH
+
+**Local maker checkpoint (2026-07-25):** device-local save/reload, blocked
+storage, explicit state labels, keyboard/background controls, mobile/reflow,
+reduced motion and deterministic two-account UI/privacy fixtures pass. This does
+not close MKO-001–004; their real-service evidence remains on the controlled
+external-authority hold in `controlled-external-test-packet-2026-07-25.md`.
+
+**Independent Repair 1 checkpoint:** the judge's atomicity, local-sharing,
+mock-isolation and public-reward-boundary P0s are repaired in the local
+candidate. One versioned local-card envelope is authoritative; Share requires a
+verified signed-in public profile; both controlled clients are injected-only;
+deterministic Account A/B fixtures cover visibility revocation and denied
+cross-account writes; public Cards omit collections. The later Repair 2 rejudge
+supersedes this checkpoint; no real-service status changes.
+
+**Independent Repair 2 checkpoint:** the complete visible Closet edit is now
+one atomic envelope operation; the public Card field list is governed by the
+separate Identity/Privacy contract; and the missing seven-drawer Tab-order,
+held/error focus, live-region dedupe, computed-contrast, distinct 200%/400%
+proxies, Closet failure and held Resident Card checks pass in source and exact
+artifact. Independent Repair 2 rejudge passed at 90/100; all real-service holds
+remain unchanged.
 
 1. **MKO-001 — Prove the full Resident Card account contract.**
    - Owner: Resident Card sub-champion + Platform/Data/Reliability + Safety/Privacy guild.

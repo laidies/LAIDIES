@@ -327,6 +327,21 @@ main.mo-page {
   line-height: 1.55;
 }
 
+.mo-persistence-state {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 20px 0 0;
+  padding: 14px 16px;
+  color: var(--mo-ink);
+  background: var(--mo-mint);
+  border: 2px solid var(--mo-paper);
+  border-left: 8px solid var(--mo-cyan);
+  font-size: 15px;
+  line-height: 1.5;
+  box-shadow: 5px 5px 0 var(--mo-purple);
+}
+
 .mo-arrival > p:last-child {
   position: relative;
   z-index: 1;
@@ -435,6 +450,26 @@ main.mo-page {
   border-radius: 7px !important;
 }
 
+.mo-controls :disabled {
+  cursor: not-allowed !important;
+  opacity: 1;
+  color: #3a3140 !important;
+  background: #e7e2e8 !important;
+  border-color: #3a3140 !important;
+}
+
+.mo-controls button:focus-visible,
+.mo-controls input:focus-visible,
+.mo-controls textarea:focus-visible,
+.mo-controls select:focus-visible,
+#mo-claim-card button:focus-visible,
+#mo-claim-card input:focus-visible,
+#mo-claim-card a:focus-visible,
+.mo-exit a:focus-visible {
+  outline: 4px solid var(--mo-purple) !important;
+  outline-offset: 3px;
+}
+
 .mo-controls button,
 .mo-controls .chip {
   color: var(--mo-ink) !important;
@@ -459,6 +494,15 @@ main.mo-page {
   padding: 13px 22px !important;
   background: var(--mo-pink) !important;
   box-shadow: 5px 5px 0 var(--mo-cyan);
+}
+
+.mo-controls #moMake:disabled,
+.mo-controls #moSave:disabled {
+  opacity: 1 !important;
+  color: #3a3140 !important;
+  background: #e7e2e8 !important;
+  border-color: #3a3140 !important;
+  box-shadow: none;
 }
 
 #moBgChips .mo-bg {
@@ -730,6 +774,11 @@ footer {
 
   .mo-arrival {
     padding: 48px 20px 54px;
+  }
+
+  .mo-persistence-state {
+    box-sizing: border-box;
+    width: 100%;
   }
 
   .mo-arrival h1 {

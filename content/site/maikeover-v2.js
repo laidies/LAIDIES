@@ -31,11 +31,19 @@
 
   function setArrivalState() {
     var title = document.getElementById("moArrivalTitle");
+    var persistence = document.getElementById("moPersistenceState");
     if (!title) return;
     var handle = localValue("laidies_card_username");
     title.textContent = handle
-      ? "Welcome back, @" + handle + " — the chair remembers you."
+      ? "This device remembers @" + handle + "."
       : "New here? Take the chair.";
+    if (persistence) {
+      persistence.innerHTML = handle
+        ? "<strong>Device-local card and handle draft:</strong> this browser remembers @" +
+          handle +
+          ". That does not prove an account, public card, or cross-device copy."
+        : "<strong>Device-local card:</strong> saving keeps this card in this browser on this device. It is not yet an account, public card, or cross-device copy.";
+    }
   }
 
   function moveLiveObjects() {
@@ -85,6 +93,13 @@
     }
 
     if (status) status.textContent = toolCopy[tool] || toolCopy.look;
+
+    if (tool === "finish") {
+      window.setTimeout(function () {
+        var held = document.querySelector('[data-state="held"]:not([hidden])');
+        if (held) held.focus();
+      }, 0);
+    }
 
     if (shouldScroll) {
       document.getElementById("mo-chair").scrollIntoView({

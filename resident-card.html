@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Make Your Resident Card · MAiKEOVER on MAiN · LAiDIES</title>
-  <meta name="description" content="Get your LAiDIES Resident Card made at MAiKEOVER on MAiN. Drop your address and we'll send a note from the SUNNYVAiLE Post Office.">
+  <meta name="description" content="Make a device-local LAiDIES Resident Card at MAiKEOVER on MAiN while account and cross-device release checks finish.">
   <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png">
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
@@ -20,6 +20,8 @@
     plausible.init()
   </script>
   <style>
+    [hidden] { display: none !important; }
+
     /* Form styling in SUNNYVAiLE palette */
     .rc-form-card {
       background: var(--cream);
@@ -315,7 +317,9 @@
         <h1>Make Your Resident Card.</h1>
 
         <p class="sv-lede">
-          At MAiKEOVER on MAiN, every LAiDY gets her Resident Card made. Drop your address below — we'll send a note from the SUNNYVAiLE Post Office. Click the link inside and you're in.
+          At MAiKEOVER on MAiN, every LAiDY can make and save a Resident Card on
+          this device. The account guest book stays closed while its privacy and
+          two-device release checks finish.
         </p>
 
         <p>
@@ -328,8 +332,14 @@
       </div>
     </section>
 
+    <div class="rc-form-card" role="status" aria-live="polite">
+      <strong>The account desk is not taking email addresses yet.</strong>
+      Nothing has been submitted and no account or public Card has been created.
+      <a href="/maikeover.html">Make and save your device-local card at the parlor →</a>
+    </div>
+
     <!-- THE FORM -->
-    <div class="rc-form-card member-pass-panel">
+    <div class="rc-form-card member-pass-panel" hidden inert style="display:none!important">
       <div class="member-pass-form-fields">
         <label for="memberPassEmail">✉️ Drop your address. We'll send a note from the Post Office.</label>
         <input id="memberPassEmail" type="email" autocomplete="email" placeholder="yourname@email.com" />
@@ -359,7 +369,7 @@
     </div>
 
     <!-- PROFILE QUESTIONS (optional) -->
-    <div class="rc-profile" id="member-passport">
+    <div class="rc-profile" id="member-passport" hidden inert>
       <h2>Tell us about you (optional)</h2>
       <p class="rc-profile-intro">Helps us tune your card, matches, and content. Skip any you want — always editable later.</p>
 
@@ -412,7 +422,7 @@
     </div>
 
     <!-- SIGN OUT / RESET -->
-    <div class="rc-actions">
+    <div class="rc-actions" hidden inert>
       <button class="member-pass-signout" type="button" id="memberSignOutButton" hidden>Sign out</button>
       <button type="button" id="memberStartFreshButton">Reset and start over</button>
     </div>
@@ -437,7 +447,8 @@
   <footer>© LAiDIES · Filed from SUNNYVAiLE · MAiKEOVER on MAiN · No. 6</footer>
 
   <script src="content/site/supabase-config.js" defer></script>
-  <script src="script.js?v=20260705-closet-1" defer></script>
+  <!-- The former account-intake runtime is intentionally not loaded while
+       this page is a held, non-operable route. -->
 
   <!-- Magic link confirmation state enhancement -->
   <script>

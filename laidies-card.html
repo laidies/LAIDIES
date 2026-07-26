@@ -12,8 +12,22 @@
   <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
-  <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
-  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+  <script>
+    window.__LAIDIES_CONTROLLED_PREFLIGHT__ =
+      /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname) &&
+      window.__LAIDIES_MAIKEOVER_ACCOUNT_PREFLIGHT__ === true &&
+      /^synthetic-[a-z0-9_-]+$/.test(String(window.__LAIDIES_MAIKEOVER_PREFLIGHT_FIXTURE_ID__ || '')) &&
+      !!window.__LAIDIES_MAIKEOVER_PREFLIGHT_CLIENT__;
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)};
+    plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    if (!window.__LAIDIES_CONTROLLED_PREFLIGHT__) {
+      var plausibleScript=document.createElement('script');
+      plausibleScript.async=true;
+      plausibleScript.src='https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js';
+      document.head.appendChild(plausibleScript);
+      plausible.init();
+    }
+  </script>
   <style>
     main { max-width: 960px; }
 
@@ -920,10 +934,10 @@
   <link rel="stylesheet" href="/content/closet-v2.css?v=20260724-1" />
   <!-- Microsoft Clarity (heatmaps + session recordings) -->
   <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    if (!window.__LAIDIES_CONTROLLED_PREFLIGHT__) (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "xnqcp37urd");
   </script>
 </head>
@@ -941,8 +955,13 @@
     <div class="closet-arrival-copy">
       <p>Delta L<span class="ai">Ai</span> Nu · Resident storage</p>
       <h1>The Closet</h1>
-      <span>Your Resident Card, Wednesday route, and every object you have collected in SUNNYVA<span class="ai">i</span>LE.</span>
+      <span>Your Resident Card, Wednesday route, and the supported objects this device or a verified account can prove.</span>
     </div>
+  </div>
+
+  <div id="closetPersistenceState" role="status" aria-live="polite" style="margin:14px 0 22px;padding:14px 16px;background:#eef8f7;border:2px solid #57b6c0;border-left-width:8px;border-radius:8px;color:#3a1838;font:600 14px/1.5 'Jost',sans-serif;">
+    Device-local view: this Closet currently shows supported information saved
+    in this browser. It does not prove account restoration or cross-device sync.
   </div>
 
   <!-- Public mode banner -->
@@ -1031,7 +1050,7 @@
 
     <div class="card-actions" id="selfCardActions">
       <button type="button" class="card-action-btn card-action-btn--primary" id="editCardBtn">✎ Edit my card</button>
-      <button type="button" class="card-action-btn" id="shareCardBtn">Share my card</button>
+      <button type="button" class="card-action-btn" id="shareCardBtn" disabled aria-describedby="closetPersistenceState">Share unavailable — public Card not verified</button>
     </div>
     <div class="card-actions" id="publicCardActions" hidden>
       <a class="card-action-btn card-action-btn--primary" href="/maikeover.html">Get your own card →</a>
@@ -1827,18 +1846,31 @@
   });
 
   var shareBtn = document.getElementById('shareCardBtn');
+  function updateShareAvailability() {
+    if (!shareBtn) return;
+    var canShare = !!(
+      currentSession &&
+      currentProfile &&
+      currentProfile.card_username &&
+      currentProfile.member_card_is_public === true
+    );
+    shareBtn.disabled = !canShare;
+    shareBtn.textContent = canShare
+      ? 'Share my public card'
+      : 'Share unavailable — public Card not verified';
+  }
   if (shareBtn) {
     shareBtn.addEventListener('click', function() {
       // Share the PUBLIC card URL (?u=handle), never window.location.href — the
       // bare Closet URL shows the recipient HER OWN empty Closet. Build it from
       // the signed-in resident's handle. (Fixed 2026-07-22; was copying the raw URL.)
-      var handle = (currentProfile && currentProfile.card_username) || '';
-      if (!handle) { try { handle = localStorage.getItem('laidies_card_username') || ''; } catch (_) {} }
-      if (!handle) {
-        shareBtn.textContent = 'Claim a handle first';
-        setTimeout(function() { shareBtn.textContent = 'Share my card'; }, 2600);
+      if (!currentSession || !currentProfile ||
+          currentProfile.member_card_is_public !== true ||
+          !currentProfile.card_username) {
+        updateShareAvailability();
         return;
       }
+      var handle = currentProfile.card_username;
       var url = window.location.origin + '/laidies-card.html?u=' + encodeURIComponent(handle);
       try {
         navigator.clipboard.writeText(url);
@@ -1846,20 +1878,25 @@
       } catch (_) {
         window.prompt('Copy your card link:', url);
       }
-      setTimeout(function() { shareBtn.textContent = 'Share my card'; }, 2200);
+      setTimeout(updateShareAvailability, 2200);
     });
   }
 
   // ============================================================
   // Supabase-backed Closet: real profile fetch + save + public mode
   // ============================================================
-  var SUPABASE_CONFIG = window.LAIDIES_SUPABASE_CONFIG || null;
+  var PREFLIGHT_FIXTURE_ID = String(window.__LAIDIES_MAIKEOVER_PREFLIGHT_FIXTURE_ID__ || '');
+  var CONTROLLED_PREFLIGHT =
+    /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname) &&
+    window.__LAIDIES_MAIKEOVER_ACCOUNT_PREFLIGHT__ === true &&
+    /^synthetic-[a-z0-9_-]+$/.test(PREFLIGHT_FIXTURE_ID);
   var supabaseClient = null;
   var currentSession = null;
   var currentProfile = null;
 
   // LocalStorage — offline cache + first-paint speed
   var LS = {
+    cardEnvelope: 'laidies_resident_card_v1',
     displayName: 'laidies_display_name',
     saint: 'laidies_saint',
     song: 'laidies_song',
@@ -2013,55 +2050,107 @@
         el.classList.add('is-empty');
       }
     };
-    applyPick('covenSaintPick',   LS.saint,       (window.SAINT_LABEL || SAINT_LABEL));
+    var envelope = readCardEnvelope();
+    var saintPick = envelope && envelope.fields ? envelope.fields.saint : '';
+    if (saintPick && (window.SAINT_LABEL || SAINT_LABEL)[saintPick]) {
+      var saintEl = document.getElementById('covenSaintPick');
+      if (saintEl) {
+        saintEl.textContent = (window.SAINT_LABEL || SAINT_LABEL)[saintPick];
+        saintEl.classList.remove('is-empty');
+      }
+    } else {
+      applyPick('covenSaintPick', LS.saint, (window.SAINT_LABEL || SAINT_LABEL));
+    }
     applyPick('covenMavenPick',   LS.maven,       MAVEN_LABEL);
     applyPick('covenBuilderPick', LS.builder,     BUILDER_LABEL);
     applyPick('covenTownPick',    LS.townRegular, TOWN_LABEL);
   }
 
+  function readCardEnvelope() {
+    try {
+      var raw = localStorage.getItem(LS.cardEnvelope);
+      if (!raw) return null;
+      var parsed = JSON.parse(raw);
+      if (!parsed || parsed.version !== 1 || !parsed.fields ||
+          typeof parsed.fields !== 'object' || Array.isArray(parsed.fields)) return null;
+      return parsed;
+    } catch (_) {
+      return null;
+    }
+  }
+
   function readCache() {
     var read = function(k) { try { return localStorage.getItem(k) || ''; } catch(e) { return ''; } };
+    var envelope = readCardEnvelope();
+    var card = envelope ? envelope.fields : null;
     return {
-      display_name: read(LS.displayName) || undefined,
-      favorite_saint: read(LS.saint) || undefined,
-      favorite_episode: read(LS.episode) || undefined,
-      favorite_song: read(LS.song) || undefined,
-      favorite_activity: read(LS.activity) || undefined,
-      card_motto: read(LS.motto) || undefined,
-      favorite_quote: read(LS.quote) || undefined,
-      card_archetype: read(LS.archetype) || undefined,
-      avatar_slug: read(LS.avatar) || undefined,
-      favorite_storefront: read(LS.storefront) || undefined,
-      favorite_character: read(LS.character) || undefined,
-      favorite_cocktail: read(LS.cocktail) || undefined,
-      card_avatar_url: read(LS.cardAvatarUrl) || undefined,
-      card_bg: read(LS.cardBg) || undefined,
-      favorite_movie: read(LS.movie) || undefined,
-      favorite_tvshow: read(LS.tvshow) || undefined,
-      card_carry: read(LS.carry) || undefined
+      display_name: (card ? card.displayName : read(LS.displayName)) || undefined,
+      favorite_saint: (card ? card.saint : read(LS.saint)) || undefined,
+      favorite_episode: (card ? card.episode : read(LS.episode)) || undefined,
+      favorite_song: (card ? card.song : read(LS.song)) || undefined,
+      favorite_activity: (card ? card.activity : read(LS.activity)) || undefined,
+      card_motto: (card ? card.motto : read(LS.motto)) || undefined,
+      favorite_quote: (card ? card.quote : read(LS.quote)) || undefined,
+      card_archetype: (card ? card.archetype : read(LS.archetype)) || undefined,
+      avatar_slug: (card ? card.avatarSlug : read(LS.avatar)) || undefined,
+      favorite_storefront: (card ? card.storefront : read(LS.storefront)) || undefined,
+      favorite_character: (card ? card.character : read(LS.character)) || undefined,
+      favorite_cocktail: (card ? card.cocktail : read(LS.cocktail)) || undefined,
+      card_avatar_url: (card ? card.cardAvatarUrl : read(LS.cardAvatarUrl)) || undefined,
+      card_bg: (card ? card.cardBg : read(LS.cardBg)) || undefined,
+      favorite_movie: (card ? card.movie : read(LS.movie)) || undefined,
+      favorite_tvshow: (card ? card.tvshow : read(LS.tvshow)) || undefined,
+      card_carry: (card ? card.carry : read(LS.carry)) || undefined
     };
   }
 
   function writeCache(p) {
-    if (!p) return;
-    var write = function(k, v) { try { if (v) localStorage.setItem(k, v); } catch(e){} };
-    write(LS.displayName, p.display_name);
-    write(LS.saint, p.favorite_saint);
-    write(LS.episode, p.favorite_episode);
-    write(LS.song, p.favorite_song);
-    write(LS.activity, p.favorite_activity);
-    write(LS.motto, p.card_motto);
-    write(LS.quote, p.favorite_quote);
-    write(LS.archetype, p.card_archetype);
-    write(LS.avatar, p.avatar_slug);
-    write(LS.storefront, p.favorite_storefront);
-    write(LS.character, p.favorite_character);
-    write(LS.cocktail, p.favorite_cocktail);
-    write(LS.cardAvatarUrl, p.card_avatar_url);
-    write(LS.cardBg, p.card_bg);
-    write(LS.movie, p.favorite_movie);
-    write(LS.tvshow, p.favorite_tvshow);
-    write(LS.carry, p.card_carry);
+    if (!p) return false;
+    var existing = readCache();
+    var envelope = {
+      version: 1,
+      fields: {
+        cardBg: p.card_bg != null ? p.card_bg : (existing.card_bg || 'classic'),
+        song: p.favorite_song != null ? p.favorite_song : (existing.favorite_song || ''),
+        saint: p.favorite_saint != null ? p.favorite_saint : (existing.favorite_saint || ''),
+        movie: p.favorite_movie != null ? p.favorite_movie : (existing.favorite_movie || ''),
+        tvshow: p.favorite_tvshow != null ? p.favorite_tvshow : (existing.favorite_tvshow || ''),
+        displayName: p.display_name != null ? p.display_name : (existing.display_name || ''),
+        carry: p.card_carry != null ? p.card_carry : (existing.card_carry || ''),
+        cardAvatarUrl: p.card_avatar_url != null ? p.card_avatar_url : (existing.card_avatar_url || ''),
+        activity: p.favorite_activity != null ? p.favorite_activity : (existing.favorite_activity || ''),
+        episode: p.favorite_episode != null ? p.favorite_episode : (existing.favorite_episode || ''),
+        storefront: p.favorite_storefront != null ? p.favorite_storefront : (existing.favorite_storefront || ''),
+        character: p.favorite_character != null ? p.favorite_character : (existing.favorite_character || ''),
+        cocktail: p.favorite_cocktail != null ? p.favorite_cocktail : (existing.favorite_cocktail || ''),
+        quote: p.favorite_quote != null ? p.favorite_quote : (existing.favorite_quote || ''),
+        motto: p.card_motto != null ? p.card_motto : (existing.card_motto || ''),
+        avatarSlug: p.avatar_slug != null ? p.avatar_slug : (existing.avatar_slug || ''),
+        archetype: p.card_archetype != null ? p.card_archetype : (existing.card_archetype || '')
+      }
+    };
+    var before;
+    try {
+      var serialized = JSON.stringify(envelope);
+      before = localStorage.getItem(LS.cardEnvelope);
+      localStorage.setItem(LS.cardEnvelope, serialized);
+      if (localStorage.getItem(LS.cardEnvelope) !== serialized) {
+        throw new Error('storage verification failed');
+      }
+    } catch (_) {
+      // One envelope contains the card and every visible local edit field.
+      // Restore its exact prior bytes if a non-standard storage shim mutates
+      // before failing; never report a partial save as successful.
+      try {
+        if (typeof before !== 'undefined' &&
+            localStorage.getItem(LS.cardEnvelope) !== before) {
+          if (before === null) localStorage.removeItem(LS.cardEnvelope);
+          else localStorage.setItem(LS.cardEnvelope, before);
+        }
+      } catch (_) {}
+      return false;
+    }
+    return true;
   }
 
   function updateAvatar(profile) {
@@ -2119,19 +2208,12 @@
   }
 
   async function initSupabase() {
-    if (!SUPABASE_CONFIG || !SUPABASE_CONFIG.url || !SUPABASE_CONFIG.anonKey) return null;
-    try {
-      var mod = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
-      supabaseClient = mod.createClient(SUPABASE_CONFIG.url, SUPABASE_CONFIG.anonKey, {
-        auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: false }
-      });
-      var s = await supabaseClient.auth.getSession();
-      currentSession = s && s.data ? s.data.session : null;
-      return supabaseClient;
-    } catch (err) {
-      console.error('[Closet] Supabase init failed:', err);
-      return null;
-    }
+    if (!CONTROLLED_PREFLIGHT) return null;
+    if (!window.__LAIDIES_MAIKEOVER_PREFLIGHT_CLIENT__) return null;
+    supabaseClient = window.__LAIDIES_MAIKEOVER_PREFLIGHT_CLIENT__;
+    var mockSession = await supabaseClient.auth.getSession();
+    currentSession = mockSession && mockSession.data ? mockSession.data.session : null;
+    return supabaseClient;
   }
 
   async function loadPublicProfile(username) {
@@ -2158,7 +2240,7 @@
         };
       }
     } catch (e) {}
-    if (!supabaseClient) return null;
+    if (!CONTROLLED_PREFLIGHT || !supabaseClient) return null;
     try {
       // Reads the CARD VIEW, never the profile table. member_profiles also holds
       // her age bracket, skill level, industry, goal, social graph and account
@@ -2168,7 +2250,7 @@
       // See supabase/migrations/20260722210000_public_cards_show_only_card_fields.sql
       var result = await supabaseClient
         .from('public_resident_cards')
-        .select('*')
+        .select('card_username,display_name,resident_number,card_role,card_archetype,card_avatar_url,avatar_slug,card_color_primary,card_color_accent,card_motto,favorite_saint,favorite_song,favorite_activity,favorite_episode,favorite_storefront,favorite_character,favorite_cocktail,favorite_quote,away_message,away_expires_at,accept_public_notes,member_card_is_public')
         .eq('card_username', username)
         .maybeSingle();
       return result.data || null;
@@ -2353,23 +2435,23 @@
   function collectEditForm() {
     var val = function(id) {
       var el = document.getElementById(id);
-      return el && el.value ? el.value.trim() : null;
+      return el ? String(el.value || '').trim() : '';
     };
     var checked = function(id) {
       var el = document.getElementById(id);
       return el ? !!el.checked : null;
     };
     var patch = {
-      display_name: val('editName') || null,
-      favorite_song: val('editSong') || null,
-      favorite_activity: val('editActivity') || null,
-      favorite_saint: val('editSaint') || null,
-      favorite_episode: val('editEpisode') || null,
-      favorite_storefront: val('editStorefront') || null,
-      favorite_character: val('editCharacter') || null,
-      favorite_cocktail: val('editCocktail') || null,
-      favorite_quote: val('editQuote') || null,
-      card_motto: val('editMotto') || null
+      display_name: val('editName'),
+      favorite_song: val('editSong'),
+      favorite_activity: val('editActivity'),
+      favorite_saint: val('editSaint'),
+      favorite_episode: val('editEpisode'),
+      favorite_storefront: val('editStorefront'),
+      favorite_character: val('editCharacter'),
+      favorite_cocktail: val('editCocktail'),
+      favorite_quote: val('editQuote'),
+      card_motto: val('editMotto')
     };
     var isPublic = checked('editIsPublic');
     if (isPublic !== null) patch.member_card_is_public = isPublic;
@@ -2418,7 +2500,15 @@
 
       // Not signed in: save to local cache only + prompt
       if (!currentSession) {
-        writeCache(patch);
+        if (!writeCache(patch)) {
+          saveBtn.textContent = 'Could not save on this device — try again';
+          saveBtn.disabled = false;
+          saveBtn.focus();
+          setTimeout(function() {
+            saveBtn.textContent = original;
+          }, 2400);
+          return;
+        }
         renderProfile(Object.assign({}, readCache(), patch));
         saveBtn.textContent = 'Saved on this device — sign in at MAiKEOVER to keep it';
         setTimeout(function() {
@@ -2433,6 +2523,7 @@
       var res = await saveOwnProfile(patch);
       if (res.ok) {
         currentProfile = res.profile;
+        updateShareAvailability();
         renderProfile(res.profile);
         saveBtn.textContent = 'Stamped ✓';
         setTimeout(function() {
@@ -2453,6 +2544,7 @@
   }
 
   async function init() {
+    var persistenceState = document.getElementById('closetPersistenceState');
     // Fast first paint from local cache (feels alive immediately)
     var cached = readCache();
     if (cached.display_name || cached.favorite_saint || cached.avatar_slug) {
@@ -2467,6 +2559,10 @@
 
     // ---- Public mode: /@username ---------------------------------
     if (isPublicMode) {
+      if (persistenceState) {
+        persistenceState.textContent =
+          'Public-card lookup: only an opted-in restricted card view may appear. A private, unavailable or unverified account receives the same non-revealing result.';
+      }
       // Always call — Town Characters resolve from JSON before Supabase,
       // so they must load even when the client fails to init.
       var profile = await loadPublicProfile(viewUsername);
@@ -2477,18 +2573,23 @@
       currentProfile = profile;
       renderProfile(profile);
       applyPublicMode();
-      // Load collections (RLS lets anon read events for public profiles).
-      // Town Characters have no auth row — nothing to load.
-      if (profile.id) {
-        loadCollections(profile.id).then(function(events) {
-          if (events) renderCollections(events);
-        }).catch(function(){});
+      if (persistenceState) {
+        persistenceState.textContent = profile.is_town_character
+          ? 'Town-character card: this is published fictional canon, not a member account.'
+          : 'Public Resident Card: this view contains only fields returned by the restricted public-card contract.';
       }
+      // Public Cards deliberately omit collections. Raw member_reward_events is
+      // an owner-oriented ledger, not a consented public projection. A future
+      // public collection view requires its own Privacy/Identity/Rewards contract.
       return;
     }
 
     // ---- Personal mode ------------------------------------------
     if (currentSession) {
+      if (persistenceState) {
+        persistenceState.textContent =
+          'Controlled signed-in preflight state: account data is being exercised here, but cross-device restoration is not approved until the complete two-device suite passes.';
+      }
       var own = await loadOwnProfile();
       if (own) {
         // Merge: server wins, but keep local CLAiRE'S avatar if server missing it
@@ -2498,6 +2599,7 @@
           saveOwnProfile({ avatar_slug: cached.avatar_slug }).catch(function(){});
         }
         currentProfile = own;
+        updateShareAvailability();
         renderProfile(own);
         writeCache(own);
         populateEditForm(own);
@@ -2512,8 +2614,13 @@
     } else {
       // Not signed in — cache render is the preview state
       populateEditForm(cached);
+      if (persistenceState) {
+        persistenceState.textContent =
+          'Device-local view: this Closet shows supported information saved in this browser. It does not prove account restoration or cross-device sync.';
+      }
     }
 
+    updateShareAvailability();
     wireSaveButton();
   }
 

@@ -25,11 +25,8 @@
     var state = document.getElementById("ksvlStudioState");
     if (!studio || !state) return;
 
-    var playing = nowPlayingText();
-    studio.classList.toggle("is-live", Boolean(playing));
-    state.textContent = playing
-      ? "ON AIR · " + playing
-      : "SUNNYVAiLE is broadcasting. You're not tuned in.";
+    studio.classList.remove("is-live");
+    state.textContent = "SOUNDCHECK HOLD · Public listening is unavailable.";
   }
 
   function initBroadcastObserver() {
@@ -48,16 +45,14 @@
       readout.textContent = value.toFixed(1);
       message.textContent =
         Math.abs(value - STATION) < 0.06
-          ? "SUNNYVAiLE only gets one station."
-          : "Static. KSVL is at 99.9.";
+          ? "99.9 is in soundcheck. No audio will start."
+          : "Decorative static. KSVL listening remains held at 99.9.";
     }
 
     function snapHome() {
-      var landed = Math.abs(Number(dial.value) - STATION) < 0.3;
       window.setTimeout(function () {
         dial.value = String(STATION);
         display();
-        if (landed && window.KSVL_startLive) window.KSVL_startLive();
       }, 180);
     }
 

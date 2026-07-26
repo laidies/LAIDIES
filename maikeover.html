@@ -13,15 +13,24 @@
   <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
-  <!-- Privacy-friendly analytics by Plausible -->
-  <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
   <script>
+    window.__LAIDIES_CONTROLLED_PREFLIGHT__ =
+      /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname) &&
+      window.__LAIDIES_MAIKEOVER_ACCOUNT_PREFLIGHT__ === true &&
+      /^synthetic-[a-z0-9_-]+$/.test(String(window.__LAIDIES_MAIKEOVER_PREFLIGHT_FIXTURE_ID__ || '')) &&
+      !!window.__LAIDIES_MAIKEOVER_PREFLIGHT_CLIENT__;
     window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-    plausible.init()
+    if (!window.__LAIDIES_CONTROLLED_PREFLIGHT__) {
+      var plausibleScript=document.createElement('script');
+      plausibleScript.async=true;
+      plausibleScript.src='https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js';
+      document.head.appendChild(plausibleScript);
+      plausible.init();
+    }
   </script>
   <!-- Microsoft Clarity (heatmaps + session recordings) -->
   <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
+    if (!window.__LAIDIES_CONTROLLED_PREFLIGHT__) (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
@@ -59,7 +68,11 @@
 
     <p class="sv-lede">
       Work the seven drawers, watch your Resident Card change in the mirror,
-      and leave MAiN Street as a member of the LAiDIES.
+      and leave MAiN Street with a card that feels like yours.
+    </p>
+    <p class="mo-persistence-state" id="moPersistenceState" role="status" aria-live="polite">
+      <strong>Device-local card:</strong> saving keeps this card in this browser
+      on this device. It is not yet an account, public card, or cross-device copy.
     </p>
 
     <p style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; color: var(--rose); font-size: 17px; text-align: center; padding: 14px 16px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 24px 0;">
@@ -107,11 +120,11 @@
             <label style="display:block; font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;">★ Your avatar</label>
             <p style="margin:0 0 10px; font-size:14px; color:var(--plum-soft);"><strong>The AI portrait booth is temporarily closed for a safety upgrade.</strong> You can still style and save the rest of your Resident Card today. No photo leaves this page while the booth is closed.</p>
             <div style="display:flex; gap:8px; margin-bottom:10px;">
-              <button type="button" class="mo-mode on" data-mode="photo" style="flex:1; background:var(--cream); color:var(--plum); border:1.5px solid var(--line); border-radius:999px; padding:9px; font-family:inherit; font-weight:700; font-size:13px; cursor:pointer;">Use my photo</button>
-              <button type="button" class="mo-mode" data-mode="scratch" style="flex:1; background:var(--cream); color:var(--plum); border:1.5px solid var(--line); border-radius:999px; padding:9px; font-family:inherit; font-weight:700; font-size:13px; cursor:pointer;">No photo — build one</button>
+              <button type="button" class="mo-mode on" data-mode="photo" disabled style="flex:1; background:var(--cream); color:var(--plum); border:1.5px solid var(--line); border-radius:999px; padding:9px; font-family:inherit; font-weight:700; font-size:13px; cursor:not-allowed;">Use my photo</button>
+              <button type="button" class="mo-mode" data-mode="scratch" disabled style="flex:1; background:var(--cream); color:var(--plum); border:1.5px solid var(--line); border-radius:999px; padding:9px; font-family:inherit; font-weight:700; font-size:13px; cursor:not-allowed;">No photo — build one</button>
             </div>
-            <input type="file" id="moPhoto" accept="image/*" style="width:100%; box-sizing:border-box; background:var(--cream); border:1.5px solid var(--line); color:var(--plum); border-radius:10px; padding:11px; font:14px 'Jost',sans-serif;">
-            <textarea id="moDescribe" hidden placeholder="Describe the LAiDY: hair, skin tone, features, vibe — e.g. warm brown skin, long dark curls, brown eyes, big smile" style="width:100%; box-sizing:border-box; background:var(--cream); border:1.5px solid var(--line); color:var(--plum); border-radius:10px; padding:11px; font:14px 'Jost',sans-serif; min-height:70px; resize:vertical;"></textarea>
+            <input type="file" id="moPhoto" accept="image/*" disabled aria-describedby="moStatus" style="width:100%; box-sizing:border-box; background:var(--cream); border:1.5px solid var(--line); color:var(--plum); border-radius:10px; padding:11px; font:14px 'Jost',sans-serif;">
+            <textarea id="moDescribe" hidden disabled aria-describedby="moStatus" placeholder="Describe the LAiDY: hair, skin tone, features, vibe — e.g. warm brown skin, long dark curls, brown eyes, big smile" style="width:100%; box-sizing:border-box; background:var(--cream); border:1.5px solid var(--line); color:var(--plum); border-radius:10px; padding:11px; font:14px 'Jost',sans-serif; min-height:70px; resize:vertical;"></textarea>
 
             <div class="mo-sub">The Era's Tour — pick one</div>
             <div class="mo-chips" id="moEra"></div>
@@ -128,14 +141,14 @@
             <div class="mo-chips" id="moBackdrop"></div>
 
             <button type="button" id="moMake" disabled aria-disabled="true" style="margin-top:14px; background:var(--rose); color:var(--cream); border:0; border-radius:999px; padding:12px 24px; font-family:inherit; font-weight:800; font-size:13px; letter-spacing:.06em; text-transform:uppercase; cursor:not-allowed; opacity:.55;">Portrait booth temporarily closed</button>
-            <div id="moStatus" style="margin-top:10px; font-size:13px; color:var(--plum-soft); min-height:18px;">The rest of the Resident Card maker remains open.</div>
+            <div id="moStatus" role="status" aria-live="polite" style="margin-top:10px; font-size:13px; color:var(--plum-soft); min-height:18px;">The rest of the Resident Card maker remains open.</div>
             <div id="moCands" style="display:flex; gap:10px; margin-top:12px;"></div>
           </div>
 
           <!-- Background -->
           <div>
             <label style="display:block; font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;">★ Card background</label>
-            <div id="moBgChips" style="display:flex; flex-wrap:wrap; gap:8px;"></div>
+            <div id="moBgChips" role="group" aria-label="Card background choices" style="display:flex; flex-wrap:wrap; gap:8px;"></div>
           </div>
 
           <!-- Song -->
@@ -324,7 +337,7 @@
           <div>
             <button type="button" id="moSave" style="background:var(--gold); color:var(--plum); border:0; border-radius:999px; padding:14px 30px; font-family:inherit; font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase; cursor:pointer;">Save my card ★</button>
             <a href="/laidies-card.html" id="moSeeCloset" style="display:none; margin-left:14px; color:var(--rose); font-weight:700; text-decoration:underline;">See it in my Closet →</a>
-            <div id="moSaveMsg" style="margin-top:10px; font-size:13px; color:#2c7d3c; min-height:18px;"></div>
+            <div id="moSaveMsg" role="status" aria-live="polite" tabindex="-1" style="margin-top:10px; font-size:13px; color:#2c7d3c; min-height:18px;"></div>
           </div>
 
         </div>
@@ -363,8 +376,16 @@
 
     <div id="mo-claim-card" style="background: var(--pearl); border-radius: 14px; padding: 26px 28px; margin: 22px 0 32px; border: 1px solid var(--line);">
 
+      <!-- Fail-closed release state. Local preflight may exercise the hidden
+           states with deterministic mocks; this panel is the public default. -->
+      <div class="mo-claim-state" data-state="held" tabindex="-1">
+        <p style="margin: 0 0 6px; font-family: 'Jost', sans-serif; font-weight: 700; color: var(--rose); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">★ Account release check</p>
+        <h3 style="margin:0 0 10px; color:var(--plum);">The guest book is not taking claims yet.</h3>
+        <p style="margin:0; color:var(--plum-soft); line-height:1.55;">You can make and save your Resident Card on this device. Handle claims, public Closet links, account restoration and cross-device copies stay closed until their privacy and two-device checks pass.</p>
+      </div>
+
       <!-- Loading placeholder -->
-      <div class="mo-claim-state" data-state="loading">
+      <div class="mo-claim-state" data-state="loading" hidden>
         <p style="margin: 0; color: var(--plum-soft); font-style: italic; font-size: 15px;">Checking the guest book…</p>
       </div>
 
@@ -373,10 +394,10 @@
 
       <!-- Already claimed -->
       <div class="mo-claim-state" data-state="claimed" hidden>
-        <p style="margin: 0 0 6px; font-family: 'Jost', sans-serif; font-weight: 600; color: var(--rose); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">★ Your handle is claimed</p>
+        <p id="mo-claim-result-label" style="margin: 0 0 6px; font-family: 'Jost', sans-serif; font-weight: 600; color: var(--rose); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">★ Your handle is claimed</p>
         <p style="margin: 0 0 8px; font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700; color: var(--plum);">@<span class="mo-your-handle">handle</span></p>
         <p style="margin: 0 0 18px; color: var(--plum-soft); font-size: 14px; word-break: break-all;">Your Closet lives at <span class="mo-your-url" style="color: var(--rose); font-weight: 600;">…</span></p>
-        <p id="mo-local-note" hidden style="margin: 0 0 16px; padding: 10px 14px; background: rgba(246,192,74,0.15); border-radius: 8px; font-size: 13px; color: var(--plum);">Saved on this device. <button type="button" id="mo-local-signin" style="background:none; border:0; padding:0; color:var(--rose); font-weight:700; text-decoration:underline; cursor:pointer; font:inherit;">Sign in to lock @<span class="mo-your-handle2"></span> to your account →</button> so it follows you everywhere.</p>
+        <p id="mo-local-note" hidden style="margin: 0 0 16px; padding: 10px 14px; background: rgba(246,192,74,0.15); border-radius: 8px; font-size: 13px; color: var(--plum);">Saved only in this browser. It is not reserved, public or available on another device. <button type="button" id="mo-local-signin" style="background:none; border:0; padding:0; color:var(--rose); font-weight:700; text-decoration:underline; cursor:pointer; font:inherit;">Open the account step for @<span class="mo-your-handle2"></span> →</button></p>
         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
           <a href="/laidies-card.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--rose); color: var(--cream); border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;">See my Closet →</a>
           <button type="button" class="mo-copy-btn" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: transparent; color: var(--plum); border: 1.5px solid var(--plum); border-radius: 999px; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; font-family: inherit;">Copy URL</button>
@@ -388,12 +409,12 @@
 
         <!-- Inline sign in / sign up (magic link, no password) -->
         <div id="mo-auth-box" style="margin: 0 0 20px; padding: 14px 16px; background: rgba(155,63,95,0.06); border-radius: 10px;">
-          <p style="margin: 0 0 8px; font-size: 14px; color: var(--plum);"><strong>Sign in — or sign up</strong>, same box. Locks your handle + card to you across every device. No password: we email you a link.</p>
+          <p style="margin: 0 0 8px; font-size: 14px; color: var(--plum);"><strong>Sign in — or sign up</strong>, same box. A successful account check can reserve your handle and retain supported card fields. Cross-device restoration is not claimed until the controlled journey passes. No password: we email you a link.</p>
           <div style="display: flex; gap: 8px; flex-wrap: wrap;">
             <input id="mo-email" type="email" autocomplete="email" placeholder="you@email.com" style="flex: 1; min-width: 180px; box-sizing: border-box; background: var(--cream); border: 1.5px solid var(--line); color: var(--plum); border-radius: 10px; padding: 10px 12px; font: 15px 'Jost', sans-serif;">
             <button id="mo-signin-btn" type="button" style="background: var(--rose); color: var(--cream); border: 0; border-radius: 999px; padding: 10px 18px; font-family: inherit; font-weight: 700; font-size: 13px; cursor: pointer; white-space: nowrap;">Email me a link →</button>
           </div>
-          <p id="mo-email-status" style="margin: 8px 0 0; font-size: 13px; color: var(--plum-soft); min-height: 16px;"></p>
+          <p id="mo-email-status" role="status" aria-live="polite" style="margin: 8px 0 0; font-size: 13px; color: var(--plum-soft); min-height: 16px;"></p>
         </div>
 
         <label for="mo-username-input" style="display: block; font-family: 'Jost', sans-serif; font-weight: 600; color: var(--rose); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 10px;">★ Pick a handle</label>
@@ -401,11 +422,11 @@
           <span style="padding: 12px 8px 12px 16px; font-family: 'Playfair Display', Georgia, serif; font-size: 22px; color: var(--plum); font-weight: 700;">@</span>
           <input id="mo-username-input" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="24" placeholder="yourhandle" style="flex: 1; border: 0; background: transparent; padding: 12px 8px; font-family: 'Jost', sans-serif; font-size: 18px; color: var(--plum); outline: none; min-width: 0;">
         </div>
-        <p id="mo-status" style="margin: 12px 0 18px; font-size: 14px; line-height: 1.5; color: var(--plum-soft); min-height: 22px;">Type 3–24 characters. Lowercase letters, numbers, underscores.</p>
+        <p id="mo-status" role="status" aria-live="polite" style="margin: 12px 0 18px; font-size: 14px; line-height: 1.5; color: var(--plum-soft); min-height: 22px;">Type 3–24 characters. Lowercase letters, numbers, underscores.</p>
         <p style="margin: 0 0 16px; font-size: 13px; color: var(--plum-soft); word-break: break-all;">Your Closet will live at <span class="mo-preview-url" style="color: var(--rose); font-weight: 600;">…/@yourhandle</span></p>
 
         <div style="display: flex; align-items: flex-start; gap: 10px; margin: 0 0 18px; padding: 12px 14px; background: rgba(197, 106, 138, 0.08); border-radius: 8px;">
-          <input type="checkbox" id="mo-public-check" checked style="width: 18px; height: 18px; margin-top: 2px; accent-color: var(--rose); cursor: pointer; flex-shrink: 0;" />
+          <input type="checkbox" id="mo-public-check" style="width: 18px; height: 18px; margin-top: 2px; accent-color: var(--rose); cursor: pointer; flex-shrink: 0;" />
           <label for="mo-public-check" style="cursor: pointer; flex: 1;">
             <span style="display: block; font-size: 14px; font-weight: 600; color: var(--plum);">Make my Closet visible right away</span>
             <span style="display: block; margin-top: 4px; font-size: 12px; color: var(--plum-soft); line-height: 1.5;">When on, your handle URL shows your card face + collections. You can flip it off any time in your Closet.</span>
@@ -463,6 +484,42 @@
     var $ = function(id){ return document.getElementById(id); };
     var lsGet = function(k){ try{ return localStorage.getItem(k)||''; }catch(e){ return ''; } };
     var lsSet = function(k,v){ try{ if(v) localStorage.setItem(k,v); else localStorage.removeItem(k); }catch(e){} };
+    var CARD_STORAGE_KEY = 'laidies_resident_card_v1';
+
+    function readCardEnvelope() {
+      try {
+        var raw = localStorage.getItem(CARD_STORAGE_KEY);
+        if (!raw) return null;
+        var parsed = JSON.parse(raw);
+        if (!parsed || parsed.version !== 1 || !parsed.fields ||
+            typeof parsed.fields !== 'object' || Array.isArray(parsed.fields)) return null;
+        return parsed;
+      } catch (_) {
+        return null;
+      }
+    }
+
+    function legacyCardFields() {
+      return {
+        cardBg: lsGet('laidies_card_bg'),
+        song: lsGet('laidies_song'),
+        saint: lsGet('laidies_saint'),
+        movie: lsGet('laidies_favorite_movie'),
+        tvshow: lsGet('laidies_favorite_tvshow'),
+        displayName: lsGet('laidies_display_name'),
+        carry: lsGet('laidies_carry'),
+        cardAvatarUrl: lsGet('laidies_card_avatar_url'),
+        activity: lsGet('laidies_activity'),
+        episode: lsGet('laidies_favorite_episode'),
+        storefront: lsGet('laidies_favorite_storefront'),
+        character: lsGet('laidies_favorite_character'),
+        cocktail: lsGet('laidies_favorite_cocktail'),
+        quote: lsGet('laidies_quote'),
+        motto: lsGet('laidies_motto'),
+        avatarSlug: lsGet('laidies_avatar'),
+        archetype: lsGet('laidies_archetype')
+      };
+    }
 
     var state = { bg:'classic', avatar:'' };
 
@@ -484,12 +541,22 @@
     (function(){
       var wrap = $('moBgChips');
       BG_ORDER.forEach(function(key){
-        var c = document.createElement('div');
-        c.className = 'mo-bg'; c.title = key; c.style.background = CARD_BG[key];
+        var c = document.createElement('button');
+        c.type = 'button';
+        c.className = 'mo-bg';
+        c.title = key;
+        c.setAttribute('aria-label', key + ' card background');
+        c.setAttribute('aria-pressed', 'false');
+        c.style.background = CARD_BG[key];
         c.onclick = function(){
           state.bg = key;
-          Array.prototype.forEach.call(wrap.children,function(x){ x.classList.remove('on'); });
-          c.classList.add('on'); renderPreview();
+          Array.prototype.forEach.call(wrap.children,function(x){
+            x.classList.remove('on');
+            x.setAttribute('aria-pressed', 'false');
+          });
+          c.classList.add('on');
+          c.setAttribute('aria-pressed', 'true');
+          renderPreview();
         };
         wrap.appendChild(c);
       });
@@ -531,18 +598,18 @@
     ];
     var accOn2={}, eraIdx2=0, fitIdx2=0, bgIdx2=6; // default backdrop = Pink→lilac
     var eraC=$('moEra'), fitC=$('moFit'), accC=$('moAcc'), bgC=$('moBackdrop');
-    A_ERA.forEach(function(v,i){ var c=document.createElement('span');c.className='chip'+(i===0?' on':'');c.textContent=v.l;
-      c.onclick=function(){ eraIdx2=i; Array.prototype.forEach.call(eraC.children,function(x,j){x.classList.toggle('on',j===i);}); $('moEraDesc').textContent=A_ERA[i].d; };
+    A_ERA.forEach(function(v,i){ var c=document.createElement('button');c.type='button';c.className='chip'+(i===0?' on':'');c.textContent=v.l;c.setAttribute('aria-pressed',i===0?'true':'false');
+      c.onclick=function(){ eraIdx2=i; Array.prototype.forEach.call(eraC.children,function(x,j){x.classList.toggle('on',j===i);x.setAttribute('aria-pressed',j===i?'true':'false');}); $('moEraDesc').textContent=A_ERA[i].d; };
       eraC.appendChild(c); });
     $('moEraDesc').textContent=A_ERA[0].d;
-    A_FIT.forEach(function(v,i){ var c=document.createElement('span');c.className='chip'+(i===0?' on':'');c.textContent=v.l;
-      c.onclick=function(){ fitIdx2=i; Array.prototype.forEach.call(fitC.children,function(x,j){x.classList.toggle('on',j===i);}); };
+    A_FIT.forEach(function(v,i){ var c=document.createElement('button');c.type='button';c.className='chip'+(i===0?' on':'');c.textContent=v.l;c.setAttribute('aria-pressed',i===0?'true':'false');
+      c.onclick=function(){ fitIdx2=i; Array.prototype.forEach.call(fitC.children,function(x,j){x.classList.toggle('on',j===i);x.setAttribute('aria-pressed',j===i?'true':'false');}); };
       fitC.appendChild(c); });
-    A_ACC.forEach(function(v,i){ var c=document.createElement('span');c.className='chip';c.textContent=v.l;
-      c.onclick=function(){ if(!accOn2[i] && Object.keys(accOn2).filter(function(k){return accOn2[k];}).length>=4){ $('moStatus').textContent='Keep it to 4 accessories — less is more.'; return; } accOn2[i]=!accOn2[i]; c.classList.toggle('on'); };
+    A_ACC.forEach(function(v,i){ var c=document.createElement('button');c.type='button';c.className='chip';c.textContent=v.l;c.setAttribute('aria-pressed','false');
+      c.onclick=function(){ if(!accOn2[i] && Object.keys(accOn2).filter(function(k){return accOn2[k];}).length>=4){ $('moStatus').textContent='Keep it to 4 accessories — less is more.'; return; } accOn2[i]=!accOn2[i]; c.classList.toggle('on'); c.setAttribute('aria-pressed',accOn2[i]?'true':'false'); };
       accC.appendChild(c); });
-    A_BG.forEach(function(v,i){ var c=document.createElement('span');c.className='chip'+(i===bgIdx2?' on':'');c.textContent=v.l;
-      c.onclick=function(){ bgIdx2=i; Array.prototype.forEach.call(bgC.children,function(x,j){x.classList.toggle('on',j===i);}); };
+    A_BG.forEach(function(v,i){ var c=document.createElement('button');c.type='button';c.className='chip'+(i===bgIdx2?' on':'');c.textContent=v.l;c.setAttribute('aria-pressed',i===bgIdx2?'true':'false');
+      c.onclick=function(){ bgIdx2=i; Array.prototype.forEach.call(bgC.children,function(x,j){x.classList.toggle('on',j===i);x.setAttribute('aria-pressed',j===i?'true':'false');}); };
       bgC.appendChild(c); });
     function avatarExtras(){
       var nm=($('moNameNeck').value||'').trim().replace(/"/g,'');
@@ -558,7 +625,7 @@
     $('moSaintSel').addEventListener('change', renderPreview);
     $('moMovieSel').addEventListener('change', renderPreview);
     $('moTvSel').addEventListener('change', renderPreview);
-    $('moCarrySel').addEventListener('change', function(){ lsSet('laidies_carry', $('moCarrySel').value); renderPreview(); });
+    $('moCarrySel').addEventListener('change', renderPreview);
     $('moNameInput').addEventListener('input', renderPreview);
 
     // ---- avatar generation ----
@@ -617,7 +684,7 @@
         body = JSON.stringify({ image:b64, traits:{ extras: avatarExtras() } });
       }
       var cands=$('moCands'); cands.innerHTML='';
-      var slots=[]; for(var i=0;i<3;i++){ var s=document.createElement('div'); s.className='mo-cand'; s.innerHTML='<span class="sp">…</span>'; cands.appendChild(s); slots.push(s); }
+      var slots=[]; for(var i=0;i<3;i++){ var s=document.createElement('button'); s.type='button'; s.className='mo-cand'; s.disabled=true; s.setAttribute('aria-label','Avatar candidate '+(i+1)+' loading'); s.innerHTML='<span class="sp">…</span>'; cands.appendChild(s); slots.push(s); }
       var done=0, ready=0, firstPicked=false, lastErr='', t0=Date.now();
       var tick=setInterval(function(){
         if(ready>=3){ return; }
@@ -652,7 +719,9 @@
                 var url='data:image/png;base64,'+dd.image;
                 var im=document.createElement('img'); im.src=url;
                 slots[k].innerHTML=''; slots[k].appendChild(im);
-                im.onclick=function(){ selectCand(url, slots[k]); };
+                slots[k].disabled=false;
+                slots[k].setAttribute('aria-label','Choose avatar candidate '+(k+1));
+                slots[k].onclick=function(){ selectCand(url, slots[k]); };
                 if(!firstPicked){ firstPicked=true; selectCand(url, slots[k]); }
                 ready++;
                 ok=true;
@@ -666,30 +735,82 @@
     });
 
     // ---- save ----
+    function announceCardSave(message, color) {
+      var result = $('moSaveMsg');
+      result.style.color = color;
+      // Repeating an identical action must not create a second, noisy live
+      // announcement. A changed result is written as one complete string.
+      if (result.textContent !== message) result.textContent = message;
+      result.focus();
+    }
+
     $('moSave').addEventListener('click', function(){
-      if(state.avatar) lsSet('laidies_card_avatar_url', state.avatar);
-      lsSet('laidies_card_bg', state.bg);
-      lsSet('laidies_song', $('moSongSel').value);
-      lsSet('laidies_saint', $('moSaintSel').value);
-      lsSet('laidies_favorite_movie', $('moMovieSel').value);
-      lsSet('laidies_favorite_tvshow', $('moTvSel').value);
-      lsSet('laidies_display_name', $('moNameInput').value.trim());
-      $('moSaveMsg').textContent='Saved ★ — your card is set.';
-      $('moSeeCloset').style.display='inline';
+      var previousEnvelope = readCardEnvelope();
+      var previousFields = previousEnvelope
+        ? previousEnvelope.fields
+        : legacyCardFields();
+      var envelope = {
+        version: 1,
+        fields: Object.assign({}, previousFields, {
+          cardBg: state.bg,
+          song: $('moSongSel').value,
+          saint: $('moSaintSel').value,
+          movie: $('moMovieSel').value,
+          tvshow: $('moTvSel').value,
+          displayName: $('moNameInput').value.trim(),
+          carry: $('moCarrySel').value,
+          cardAvatarUrl: state.avatar || ''
+        })
+      };
+      var serialized = JSON.stringify(envelope);
+      var before;
+      try {
+        // One versioned envelope is the only authoritative local card write.
+        // The browser's single setItem is atomic; legacy keys are import-only
+        // compatibility inputs and are never partially rewritten here.
+        before = localStorage.getItem(CARD_STORAGE_KEY);
+        localStorage.setItem(CARD_STORAGE_KEY, serialized);
+        if (localStorage.getItem(CARD_STORAGE_KEY) !== serialized) {
+          throw new Error('storage verification failed');
+        }
+        announceCardSave(
+          'Saved on this device ★ — reload this browser to find it again.',
+          '#2c7d3c'
+        );
+        $('moSeeCloset').style.display='inline';
+      } catch (error) {
+        // A standards-compliant failed setItem leaves the previous value
+        // untouched. If a non-standard shim changed it before throwing, make one
+        // best-effort restoration without ever touching legacy card fields.
+        try {
+          if (typeof before !== 'undefined' &&
+              localStorage.getItem(CARD_STORAGE_KEY) !== before) {
+            if (before === null) localStorage.removeItem(CARD_STORAGE_KEY);
+            else localStorage.setItem(CARD_STORAGE_KEY, before);
+          }
+        } catch (_) {}
+        announceCardSave(
+          'This browser could not save your card. Your preview is still here; free storage or adjust privacy settings, then try again.',
+          '#a83243'
+        );
+        $('moSeeCloset').style.display='none';
+      }
     });
 
     // ---- hydrate from existing state ----
     (function(){
-      var bg = lsGet('laidies_card_bg'); if(bg && CARD_BG[bg]){ state.bg=bg;
-        var chips=$('moBgChips').children, idx=BG_ORDER.indexOf(bg); if(chips[idx]) chips[idx].classList.add('on'); }
-      else { $('moBgChips').children[0] && $('moBgChips').children[0].classList.add('on'); }
-      var av = lsGet('laidies_card_avatar_url'); if(av){ state.avatar=av; }
-      var song=lsGet('laidies_song'); if(song) $('moSongSel').value=song;
-      var saint=lsGet('laidies_saint'); if(saint) $('moSaintSel').value=saint;
-      var movie=lsGet('laidies_favorite_movie'); if(movie) $('moMovieSel').value=movie;
-      var tv=lsGet('laidies_favorite_tvshow'); if(tv) $('moTvSel').value=tv;
-      var nm=lsGet('laidies_display_name'); if(nm) $('moNameInput').value=nm;
-      var carry=lsGet('laidies_carry'); if(carry) $('moCarrySel').value=carry;
+      var stored = readCardEnvelope();
+      var fields = stored ? stored.fields : legacyCardFields();
+      var bg = fields.cardBg; if(bg && CARD_BG[bg]){ state.bg=bg;
+        var chips=$('moBgChips').children, idx=BG_ORDER.indexOf(bg); if(chips[idx]) { chips[idx].classList.add('on'); chips[idx].setAttribute('aria-pressed','true'); } }
+      else if ($('moBgChips').children[0]) { $('moBgChips').children[0].classList.add('on'); $('moBgChips').children[0].setAttribute('aria-pressed','true'); }
+      var av = fields.cardAvatarUrl; if(av){ state.avatar=av; }
+      if(fields.song) $('moSongSel').value=fields.song;
+      if(fields.saint) $('moSaintSel').value=fields.saint;
+      if(fields.movie) $('moMovieSel').value=fields.movie;
+      if(fields.tvshow) $('moTvSel').value=fields.tvshow;
+      if(fields.displayName) $('moNameInput').value=fields.displayName;
+      if(fields.carry) $('moCarrySel').value=fields.carry;
       var h=lsGet('laidies_card_username'); if(h) $('moHandleNote').textContent='@'+h;
       renderPreview();
     })();
@@ -701,11 +822,11 @@
   (function() {
     'use strict';
 
-    var CONFIG = window.LAIDIES_SUPABASE_CONFIG;
-    if (!CONFIG || !CONFIG.url || !CONFIG.anonKey) {
-      console.warn('[MAiKEOVER] Supabase config missing — claim form disabled');
-      return;
-    }
+    var PREFLIGHT_FIXTURE_ID = String(window.__LAIDIES_MAIKEOVER_PREFLIGHT_FIXTURE_ID__ || '');
+    var CONTROLLED_PREFLIGHT =
+      /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname) &&
+      window.__LAIDIES_MAIKEOVER_ACCOUNT_PREFLIGHT__ === true &&
+      /^synthetic-[a-z0-9_-]+$/.test(PREFLIGHT_FIXTURE_ID);
 
     // Mirror of the SQL card_username_reserved list. Client-side gate for
     // faster UX; DB is the source of truth if these ever diverge.
@@ -821,11 +942,9 @@
           lastCheckResult = 'ok';
           setClaimEnabled(true);
         } else if (avail.transient) {
-          // Couldn't reach the guest book (e.g. not signed in) — let them grab it;
-          // we confirm it's free when they sign in.
-          setStatus('★ @' + checkedValue + " — grab it. We'll confirm it's free when you sign in.", 'ok');
-          lastCheckResult = 'ok';
-          setClaimEnabled(true);
+          setStatus('Couldn\'t verify @' + checkedValue + '. Nothing has been reserved; try again when the guest book is reachable.', 'bad');
+          lastCheckResult = 'unverified';
+          setClaimEnabled(false);
         } else {
           setStatus(avail.msg, 'bad');
           lastCheckResult = 'taken';
@@ -842,10 +961,9 @@
       claimBtn.textContent = 'Saving…';
       // Always cache locally so the card shows @handle immediately.
       try { localStorage.setItem('laidies_card_username', value); } catch (_) {}
-      if (window.plausible) { try { window.plausible('Resident Card made', { props: { signedIn: !!session } }); } catch (_) {} }
 
       if (!session) {
-        // Not signed in — keep it on this device; prompt to sign in to lock it.
+        // A local alias is never a public URL or an account claim.
         renderClaimed(value, true);
         return;
       }
@@ -856,7 +974,7 @@
           // ⛔ No `email` here — it lives on auth.users. See migration
           // 20260722201500_stop_storing_email_on_profiles.sql.
           card_username: value,
-          member_card_is_public: publicCheck ? !!publicCheck.checked : true
+          member_card_is_public: publicCheck ? !!publicCheck.checked : false
         };
         var result = await supabase
           .from('member_profiles')
@@ -873,6 +991,9 @@
           return;
         }
         renderClaimed(value, false);
+        if (window.plausible) {
+          try { window.plausible('Resident Card claim result', { props: { result: 'success' } }); } catch (_) {}
+        }
         redeemBestieInvite();   // if she arrived via a postcard, complete the necklace
       } catch (err) {
         setStatus('Something went sideways. Try again?', 'bad');
@@ -912,8 +1033,16 @@
       var origin = window.location.origin;
       var handleEl = card.querySelector('.mo-your-handle');
       var urlEl = card.querySelector('.mo-your-url');
+      var resultLabel = document.getElementById('mo-claim-result-label');
+      var copyBtn = card.querySelector('.mo-copy-btn');
       if (handleEl) handleEl.textContent = handle;
-      if (urlEl) urlEl.textContent = origin + '/@' + handle;
+      if (urlEl) urlEl.textContent = localOnly
+        ? 'Not public — @' + handle + ' exists only in this browser'
+        : origin + '/@' + handle;
+      if (resultLabel) resultLabel.textContent = localOnly
+        ? '★ Device-local handle draft'
+        : '★ Your handle is claimed';
+      if (copyBtn) copyBtn.hidden = !!localOnly;
       var h2 = card.querySelector('.mo-your-handle2'); if (h2) h2.textContent = handle;
       var note = document.getElementById('mo-local-note'); if (note) note.hidden = !localOnly;
       setState('claimed');
@@ -959,19 +1088,15 @@
 
     async function init() {
       var lh = localHandle();
-      try {
-        var mod = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
-        supabase = mod.createClient(CONFIG.url, CONFIG.anonKey, {
-          auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
-        });
-      } catch (err) {
-        // Supabase down — still let people pick a handle locally.
-        console.error('[MAiKEOVER] Supabase SDK load failed:', err);
-        setState('claim-form'); wireClaimForm();
-        var ab0 = document.getElementById('mo-auth-box'); if (ab0) ab0.hidden = true;
-        if (lh) { input.value = lh; updatePreview(lh); } else { updatePreview(''); }
+      if (!CONTROLLED_PREFLIGHT) {
+        setState('held');
         return;
       }
+      if (!window.__LAIDIES_MAIKEOVER_PREFLIGHT_CLIENT__) {
+        setState('held');
+        return;
+      }
+      supabase = window.__LAIDIES_MAIKEOVER_PREFLIGHT_CLIENT__;
 
       var s = await supabase.auth.getSession();
       session = s && s.data ? s.data.session : null;
