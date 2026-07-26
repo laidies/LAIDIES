@@ -1415,9 +1415,12 @@
         .puffy-board { display: grid; gap: 10px; margin-top: 12px; }
         .puffy-empty { font-size: 13.5px; font-style: italic; color: var(--plum-soft, #6b3a66); margin: 0; }
         .puffy-empty a { color: var(--rose, #9b3f5f); font-weight: 600; }
-        .puffy-item { position: relative; display: grid; grid-template-columns: 34px 1fr 26px; align-items: center; gap: 12px;
+        .puffy-item { position: relative; display: grid; grid-template-columns: minmax(0,1fr) 26px; align-items: center; gap: 12px;
           padding: 12px 14px; background: var(--cream, #fffdfb); border: 1.5px solid rgba(155,63,95,0.25); border-radius: 10px;
           text-decoration: none; color: var(--plum, #4b2148); transition: border-color .15s, transform .15s; }
+        .puffy-item-main { display: grid; grid-template-columns: 34px minmax(0,1fr); align-items: center; gap: 12px;
+          min-width: 0; color: inherit; text-decoration: none; }
+        .puffy-item-main:focus-visible { outline: 3px solid var(--rose, #9b3f5f); outline-offset: 4px; }
         .puffy-item:hover { border-color: var(--rose, #9b3f5f); transform: translateY(-1px); }
         .puffy-item-clip { width: 30px; height: 30px; background: url(/assets/butterfly-clip-rating-token.png) center/contain no-repeat; }
         .puffy-item-body b { display: block; font-size: 14px; font-weight: 700; }

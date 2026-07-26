@@ -293,6 +293,7 @@ for (const entry of [
   'content/episodes/episode-03-cues.json',
   'content/episodes/episode-04-cues.json',
   'content/site/high-classes.json',
+  'content/site/high-learning-ledger.json',
   'assets/sunnyvaile-interiors/episode-vhs-boxes/ep-01.webp',
   'assets/sunnyvaile-interiors/episode-vhs-boxes/ep-02.webp',
   'assets/sunnyvaile-interiors/episode-vhs-boxes/ep-03.webp',

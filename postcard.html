@@ -28,6 +28,7 @@
     .pc-note { width: 100%; min-height: 92px; margin: 8px 0 4px; padding: 14px 16px; border: 1.5px solid rgba(75,33,72,0.2); border-radius: 12px; background: var(--cream); font-family: 'Jost', sans-serif; font-size: 15px; color: var(--plum-deep); resize: vertical; }
     .pc-handlerow { display: flex; align-items: center; gap: 8px; margin: 6px 0 2px; font-size: 13px; color: var(--plum-soft); }
     .pc-handlerow input { flex: 0 1 220px; padding: 8px 12px; border: 1.5px solid rgba(75,33,72,0.2); border-radius: 999px; font: inherit; background: var(--cream); color: var(--plum-deep); }
+    .pc-back-signature { margin: 8px 0 0; font-family: 'Dancing Script', cursive; font-size: clamp(17px, 2.2vw, 22px); color: var(--rose); overflow-wrap: anywhere; }
 
     /* share buttons */
     .pc-send-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 6px; }
@@ -164,6 +165,7 @@
                   <div class="pc-back-msg">
                     <p class="pc-back-post">Postcard from SUNNYV<span class="ai">Ai</span>LE</p>
                     <p class="pc-back-note" id="pcPrevNote">Come find me in SUNNYVAiLE.</p>
+                    <p class="pc-back-signature" id="pcPrevSignature" hidden></p>
                     <p class="pc-back-blurb">A little internet town where smart, busy women learn AI — one Wednesday at a time.</p>
                   </div>
                   <div class="pc-back-addr">
@@ -232,7 +234,6 @@
     ];
     var byId = {}; POSTCARDS.forEach(function (p) { byId[p.id] = p; });
 
-    function ls(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
     function esc(s){ return String(s||'').replace(/[<>&"]/g, function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c];}); }
     function bindFlip(cardId, btnId) {
       var card = document.getElementById(cardId); if (!card) return;
@@ -246,17 +247,15 @@
     // Public links now contain only a postcard choice. Notes and writer handles
     // belong in the user-controlled share message, never a URL or analytics
     // surface, so every supported link opens the composition desk.
+    var picked = POSTCARDS[0].id;
     renderCompose();
 
     // ---------------- COMPOSE ----------------
-    var picked = POSTCARDS[0].id;
 
     function renderCompose() {
       // ?pc=<id> lets the Post Office postcard rack hand a card straight to the
       // desk. Falls back to the first card if the id is missing or unknown.
-      // NOTE: set here, not at declaration — renderCompose() is called above,
-      // before a top-level `var picked = …` assignment would have run, so
-      // BOTH branches must be assigned here or nothing starts selected.
+      // Resolve the admitted query id before listeners use the shared selection.
       picked = byId[params.get('pc')] ? params.get('pc') : POSTCARDS[0].id;
 
       var grid = document.getElementById('pcGrid');
@@ -281,16 +280,19 @@
         grid.appendChild(b);
       });
 
-      // prefill handle from the resident's card if they have one
-      var h = ls('laidies_card_username');
-      if (h) document.getElementById('pcHandle').value = h;
-
       // live two-sided preview
       var pvImg = document.getElementById('pcPrevImg');
       if (pvImg) pvImg.src = PC_BASE + (byId[picked] || POSTCARDS[0]).file;
-      document.getElementById('pcNote').addEventListener('input', function () {
+      function updateLocalPreview() {
         document.getElementById('pcPrevNote').textContent = note() || 'Come find me in SUNNYVAiLE.';
-      });
+        var signature = document.getElementById('pcPrevSignature');
+        var signed = handle();
+        signature.textContent = signed ? '— @' + signed : '';
+        signature.hidden = !signed;
+      }
+      document.getElementById('pcNote').addEventListener('input', updateLocalPreview);
+      document.getElementById('pcHandle').addEventListener('input', updateLocalPreview);
+      updateLocalPreview();
       bindFlip('pcPrev', 'pcPrevFlip');
 
       document.getElementById('pcShare').addEventListener('click', doShare);
@@ -307,7 +309,13 @@
       });
     }
 
-    function handle() { return (document.getElementById('pcHandle').value || '').replace(/^@/, '').trim(); }
+    function handle() {
+      return (document.getElementById('pcHandle').value || '')
+        .trim()
+        .replace(/^@+/, '')
+        .trim()
+        .slice(0, 24);
+    }
     function note()   { return (document.getElementById('pcNote').value || '').trim(); }
 
     function postcardURL() {
@@ -315,7 +323,9 @@
     }
     function messageText() {
       var n = note();
-      return (n ? n + '\n\n' : '') +
+      var signed = handle();
+      var personal = n + (signed ? (n ? '\n' : '') + '— @' + signed : '');
+      return (personal ? personal + '\n\n' : '') +
         'Come to SUNNYVAiLE — a little internet town where we learn AI one Wednesday at a time. Make your card here: ' + postcardURL();
     }
     function smsHref()  { return 'sms:?&body=' + encodeURIComponent(messageText()); }

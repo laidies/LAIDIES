@@ -1,14 +1,15 @@
 # SUNNYVAiLE Post Office — operating specification
 
-**Status:** SPECIFIED — service receipts remain unverified; no product PASS or public-release clearance follows from this document.
-**Reconciliation date:** 2026-07-25
+**Status:** BOUNDED LOCAL PASS — independent Repair 3 rejudge 91/100;
+provider/public receipts remain unverified.
+**Reconciliation date:** 2026-07-26
 **Trigger:** AW-003 requires each promoted service to have an explicit authoritative completion, privacy boundary and failure/retry contract before the reopening.
 
 ## Identity and boundary
 
-The Post Office is Penny's legible counter for three different jobs: request the weekly Wednesday delivery, begin the Resident Card sign-in handoff, or prepare a postcard to share. It is not a mailbox for resident-to-resident communication (that future feature is a site-wide layer), a proof of email delivery, or a referral/reward system.
+The Post Office is Penny's legible counter for three different jobs: continue an intended Wednesday newsletter request to Buttondown, check the held Resident Card account desk, or prepare a postcard to share. It is not a mailbox for resident-to-resident communication (that future feature is a site-wide layer), a proof of email delivery, or a referral/reward system.
 
-Its ten-second promise is: choose what you want to do; understand what the site can know; get one honest next step if it cannot finish. The counter/rack/writing-desk interaction is the building's branded contribution. The current canonical route is `/post-office.html`; it chooses cards locally in `content/site/post-office.js`, hands a selected card to `/postcard.html?pc=<id>`, links the Resident Card, and posts newsletter email directly to Buttondown.
+Its ten-second promise is: choose what you want to do; understand what the site can know; get one honest next step if it cannot finish. The counter/rack/writing-desk interaction is the building's branded contribution. The current canonical route is `/post-office.html`; it chooses cards locally in `content/site/post-office.js`, hands a selected card to `/postcard.html?pc=<id>`, presents a real held account-status target at `#signin` with no email intake, links the Resident Card/local MAiKEOVER alternative, and continues newsletter requests to Buttondown.
 
 ### Current truth matrix
 
@@ -28,7 +29,7 @@ Its ten-second promise is: choose what you want to do; understand what the site 
 | Building arrival | New visitor sees all three choices without hotspot hunting. Returning visitor may be shown only a locally-known selection, never an unverified delivery/account state. Mobile uses labelled controls and a visible writing desk; keyboard selection uses button semantics and `aria-pressed`; reduced-motion scroll must not hide selection. | Missing images/JS leave standard links and an explanation; do not replace the counter with a blank decorative room. |
 | Newsletter | Anonymous or returning visitor enters one email. Before submit, disclose Buttondown, purpose/cadence, privacy and unsubscribe. A request state must be announced in `aria-live`; mobile must not trap the popup/form. | Empty/invalid email: browser validation plus readable prompt. Opaque popup, blocked popup, network/provider/duplicate/confirmation-pending: do not fabricate success; show recoverable next action and direct Buttondown route. Retry must be user initiated and cannot create a client-side “already subscribed” truth record. |
 | Magic-link handoff | Post Office only routes to `/resident-card.html`; signed-in visitors get a clear “open/manage card” continuation rather than another claim. The Resident Card owns new/returning, callback, session and logout states. | At handoff failure, retain the current counter and link. At Resident Card: request accepted, no email, expired/used link, redirect/callback failure, session restore and logout all require visible states. A same-browser recommendation is usability guidance, not an account prerequisite unless provider evidence proves it. |
-| Postcard | New/returning users can select a card, write locally, choose native share when available or copy/SMS/email fallback. Mobile native-share availability is detected rather than presumed; keyboard/screen-reader users receive labelled card, note, button and status changes. | Cancelled share, unsupported share, clipboard denial, malformed/oversize note, offline and recipient-link failure all keep the note local and say exactly what was not completed. “Copy succeeded” is the only copy receipt. No recipient address/contact is collected or uploaded. |
+| Postcard | New/returning users can select a card, write locally, optionally sign it, choose native share when available or copy/SMS/email fallback. The signature stays in local preview/message text, not URL/storage/analytics. Mobile native-share availability is detected rather than presumed; keyboard/screen-reader users receive labelled card, note, button and status changes. | Cancelled share, unsupported share, clipboard denial, malformed/oversize note, offline and recipient-link failure all keep the note local and say exactly what was not completed. “Copy succeeded” is the only copy receipt. No recipient address/contact is collected or uploaded. |
 | Recipient/referral | A recipient may open only a public postcard representation. Current query-string/local-storage sender/note conventions are not an authorised private-invite store. | Invalid, expired or private links disclose no sender/note/account existence. Referral is unavailable until a separate opaque-token, two-account contract exists; no retry may grant a reward.
 
 ## Technical, data, privacy and economy contract
@@ -46,8 +47,20 @@ Its ten-second promise is: choose what you want to do; understand what the site 
 - **Separate contracts:** Newsletter Delivery, Magic-link Sign-in and Postcards/Referral are separately specified because their provider, authority, privacy, retry and release criteria differ.
 - **Required owners/guilds:** backend-integration, identity-rewards-data, safety-privacy-security, UX-service, accessibility-responsive QA, analytics-voice-of-customer and release-manager. Magic-link work also hands off to the Resident Card/MAiKEOVER owner.
 - **Maintenance triggers:** any Buttondown, Supabase/Auth/RPC/RLS, native-share, privacy/terms, postcard copy, public-promise, weekly-send or incident change; plus 24–72 hours after an approved release and quarterly provider/privacy review.
-- **Acceptance:** use the controlled packet `build-packet-controlled-service-suite-2026-07-25.md`. Product remains **BUILDING / FIX BEFORE LAUNCH** until an approved test identity yields redacted provider/session receipts, exact candidate binding, independent accessibility/privacy review and public-origin verification. Referral/reward remains **HIDE/LABEL** unless its future lifecycle independently passes.
+- **Acceptance:** Repair 1 passed independently at 87/100. Repair 2's
+  collection uniqueness/atomicity passed, but its rejudge failed at 86/100
+  because a repeated failed Retry dropped keyboard focus. Repair 3 restores
+  focus only after user-triggered retry failure while leaving initial failure
+  non-intrusive; it requires independent source/exact-artifact rejudge.
+  Preserve both prior judge reports. Use
+  `build-packet-controlled-service-suite-2026-07-25.md` only for a later
+  authorised provider test. Product remains **VERIFIED LOCALLY / REJUDGE
+  REQUIRED** and is not publicly cleared until independent
+  visual/accessibility/privacy review and public-origin verification pass.
+  Provider outcomes remain held until an approved test identity yields
+  redacted receipts. Referral/reward remains **HIDE/LABEL** unless its future
+  lifecycle independently passes.
 
 ## Source trail and reconciliation notes
 
-Facts observed locally: the direct Buttondown form in `post-office.html`; direct Buttondown POST plus local submitted flag in `script.js`; Resident Card magic-link/status code in `script.js`; Supabase OTP/session/RPC code in `maikeover.html`; local compose/share code in `postcard.html`; the registry, charter, launch deep dive, public-promise registry and event dictionary dated 2026-07-25. Inference: these sources establish wiring and local states, not external delivery/account/referral outcomes. This specification supersedes no locked creative decision and does not authorize a service call.
+Facts observed locally: the direct Buttondown handoff in `post-office.html`; direct Buttondown POST plus local submitted flag in `script.js`; Resident Card magic-link/status code in `script.js`; Supabase OTP/session/RPC code in `maikeover.html`; local compose/share code in `postcard.html`; the registry, charter, launch deep dive, public-promise registry and event dictionary dated 2026-07-25; and cycle 5 deterministic source/exact-artifact evidence dated 2026-07-26. Inference: these sources establish wiring and local states, not external delivery/account/referral outcomes. This specification supersedes no locked creative decision and does not authorize a service call.

@@ -118,6 +118,12 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 .jv-answer-links a,.jv-answer-links button{appearance:none;border:0;background:none;padding:0;color:#8f2e67;font:inherit;
   font-size:12px;font-weight:700;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .jv-answer-links a:hover,.jv-answer-links button:hover{color:#c02d84}
+.jv-answer-links .jv-held{border:1px dashed #947893;background:#fff7fb;color:#70425f;border-radius:8px;padding:8px 11px;font:700 10px/1.35 Jost,sans-serif}
+.library-status{max-width:1320px;margin:16px auto 0;padding:12px 15px;border:2px solid #8a607b;background:#fff8fc;color:#4b2148;font:650 12px/1.5 Jost,sans-serif}
+.library-status:empty{display:none}
+.reader-error{margin:18px 0;padding:18px;border:2px solid #9b4d68;background:#fff6f8;color:#421b2c}
+.reader-error h3{margin:0 0 8px;font:800 20px/1.2 Jost,sans-serif}.reader-error p{margin:0 0 12px}
+.reader-error button{border:2px solid #07142f;background:#fff;color:#07142f;padding:9px 13px;font:800 11px/1 Jost,sans-serif;cursor:pointer}
 .jv-card{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;gap:1px 12px;
   text-decoration:none;background:#fff;border:1px solid #ecdccb;border-radius:11px;padding:12px 15px;
   transition:transform .12s,box-shadow .12s,border-color .12s}
@@ -446,6 +452,7 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
       <img src="/assets/puffies/usable-25/01-heart-sunglasses.png" alt="">
       <p><strong>Save your place.</strong> When a book or passage is worth keeping, choose one of your 10 Puffy Stickers. It becomes a shortcut on the Puffy Board in <a href="/laidies-card.html#puffyPouch">My Closet</a>.</p>
     </div>
+    <p class="library-status" id="library-status" role="status" aria-live="polite">The shelves are being reviewed book by book. Every cover shows its current status; a held or preview book will not open until its own review clears.</p>
   </section>
 
   <section class="mobile-catalogue" id="mobile-catalogue" aria-label="Browse the LIBRAiRY books"></section>
@@ -481,49 +488,66 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 </div>
 
 <script>
+(()=>{
+'use strict';
 const B='assets/library-101/bright-family-v2/';
 const SECTIONS=[
  {name:'THE 101s',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-101s-v1.png',cap:'The plain-English basics — start here if the words themselves are the problem.',
   books:[
-   {id:'vocab-101',t:'Vocab 101',s:'The useful AI words from across SUNNYVAiLE — translated and arranged A–Z.',img:B+'textbook-vocab-101.png',c:'#245ed1',src:'/content/library-books/rendered/vocab-101.html?v=20260725-agi-threshold-v8',
-    toc:['Agentic AI','AGI','AI winter','Context','Context window','Generative AI','Grounding','Hallucination','Knowledge cutoff','Model / large language model (LLM)','Multimodal','Prompt','Reasoning model','Retrieval','Token','Training data'],
-    body:'<h4>What a prompt is</h4><p>A prompt is just what you say to it. That is the entire mystery.</p><h4>Tokens</h4><p>Machines read in pieces, not words. Useful only when someone bills you by it.</p><h4>Hallucination</h4><p>When it states something false with total confidence. Not lying — it has no idea it is wrong.</p>'},
-   {id:'concepts-101',t:'Concepts 101',s:'How it actually works, minus the math — prediction, training, why it sounds so sure.',img:B+'textbook-concepts-101.png',c:'#7038c9',src:'/content/library-books/rendered/concepts-101.html?v=20260725-agi-threshold-v2',
-    toc:['Prediction','Training','Why it sounds sure'],
-    body:'<h4>Prediction</h4><p>It predicts the next likely piece of text. That is the engine. Everything else is packaging.</p><h4>Training</h4><p>It read an enormous amount, once. It is not reading now.</p>'},
-   {id:'briefing-101',t:'Briefing 101',s:'How to ask so it comes back useful — brief it like a sharp new hire.',img:B+'textbook-briefing-101.png',c:'#d83f86',src:'/content/library-books/rendered/briefing-101.html',
-    toc:['Brief it like a new hire','Context','Show an example'],
-    body:'<h4>Brief it like a new hire</h4><p>Talented, fast, no idea who your client is. Tell it what you would tell a competent stranger.</p>'},
-   {id:'setup-101',t:'Setup 101',s:'Set it up once so every tool already knows how you work.',img:B+'textbook-setup-101.png',c:'#1597a7',src:'/content/library-books/rendered/setup-101.html',
-    toc:['Saved instructions','Your defaults'],
-    body:'<h4>Saved instructions</h4><p>Tell it once how you like things, and stop re-typing it every Wednesday.</p>'},
-   {id:'accounts-101',t:'Accounts 101',s:"What's safe to paste and what never is — the privacy basics.",img:B+'textbook-accounts-101.png',c:'#e45e55',src:'/content/library-books/rendered/accounts-101.html',
-    toc:['Never paste','Work vs personal'],
-    body:'<h4>Never paste</h4><p>Client names, anything under NDA, anything you would not read aloud in a lift.</p>'}
+   {id:'vocab-101',t:'Vocab 101',status:'hold',statusLabel:'Architecture and owner review',s:'The useful AI words from across SUNNYVAiLE — translated and arranged A–Z.',img:B+'textbook-vocab-101.png',c:'#245ed1'},
+   {id:'concepts-101',t:'Concepts 101',status:'hold',statusLabel:'Architecture and owner review',s:'How it actually works, minus the math — prediction, training, why it sounds so sure.',img:B+'textbook-concepts-101.png',c:'#7038c9'},
+   {id:'briefing-101',t:'Briefing 101',status:'hold',statusLabel:'Editorial review',s:'How to ask so it comes back useful — brief it like a sharp new hire.',img:B+'textbook-briefing-101.png',c:'#d83f86'},
+   {id:'setup-101',t:'Setup 101',status:'hold',statusLabel:'Currency review',s:'Set it up once so every tool already knows how you work.',img:B+'textbook-setup-101.png',c:'#1597a7'},
+   {id:'accounts-101',t:'Accounts 101',status:'hold',statusLabel:'Factual-integrity review',s:"What's safe to paste and what never is — the privacy basics.",img:B+'textbook-accounts-101.png',c:'#e45e55'}
   ]},
  {name:'THE TOOLS',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-tools-v1.png',cap:"Which one to open for which job. Who's Who is here now; the per-tool guides land with Episode 5.",
   books:[
-   {id:'whos-who',t:"Who's Who in AI",s:'Who makes what, and which tool to open for which job.',img:B+'book-whos-who.png',c:'#2f4f7c',src:'/content/library-books/rendered/whos-who.html',
-    toc:['The houses','Which one for which job'],
-    body:'<h4>The houses</h4><p>Each company is a fashion house. A model is one of its designs. The tool is the boutique where you shop it.</p>'},
-   {id:'chatgpt',t:'ChatGPT',s:'The all-rounder — most people’s first stop for most things.',soon:'EP 5',img:B+'book-chatgpt.png'},
-   {id:'claude',t:'Claude',s:'The careful one — a strong writer and thinker.',soon:'EP 5',img:B+'book-claude.png'},
-   {id:'gemini',t:'Gemini',s:'Google’s one, wired into the Google apps you already use.',soon:'EP 5',img:B+'book-gemini.png'},
-   {id:'copilot',t:'Copilot',s:'AI sitting inside Word, Excel and the rest of Office.',soon:'EP 5',img:B+'book-copilot.png'},
-   {id:'perplexity',t:'Perplexity',s:'Answers that come with their sources attached.',soon:'EP 5',img:B+'book-perplexity.png'}
+   {id:'whos-who',t:"Who's Who in AI",status:'hold',statusLabel:'Currentness and depth review',s:'Who makes what, and which tool to open for which job.',img:B+'book-whos-who.png',c:'#2f4f7c'},
+   {id:'chatgpt',t:'ChatGPT',status:'preview',statusLabel:'Lands EP 5',s:'The all-rounder — most people’s first stop for most things.',soon:'EP 5',img:B+'book-chatgpt.png'},
+   {id:'claude',t:'Claude',status:'preview',statusLabel:'Lands EP 5',s:'The careful one — a strong writer and thinker.',soon:'EP 5',img:B+'book-claude.png'},
+   {id:'gemini',t:'Gemini',status:'preview',statusLabel:'Lands EP 5',s:'Google’s one, wired into the Google apps you already use.',soon:'EP 5',img:B+'book-gemini.png'},
+   {id:'copilot',t:'Copilot',status:'preview',statusLabel:'Lands EP 5',s:'AI sitting inside Word, Excel and the rest of Office.',soon:'EP 5',img:B+'book-copilot.png'},
+   {id:'perplexity',t:'Perplexity',status:'preview',statusLabel:'Lands EP 5',s:'Answers that come with their sources attached.',soon:'EP 5',img:B+'book-perplexity.png'}
   ]},
  {name:'REFERENCE',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-reference-v1.png',cap:'The look-it-up answers — sourced, and how to check the machine yourself.',
   books:[
-   {id:'straight-answers',t:'Straight Answers About AI',s:'Sourced answers to the big questions — jobs, data, the environment.',img:B+'book-straight-answers-about-ai.png',c:'#7c2f4f',src:'/content/library-books/rendered/straight-answers.html',
-    toc:['Is it coming for my job?','Is my data safe?','The environment'],
-    body:'<h4>Is it coming for my job?</h4><p>Every claim here carries a source you can check. No vibes.</p>'},
-   {id:'how-to-check',t:"How to Check AI's Work",s:'Preview — the full Verification Rulebook is under independent learning, accuracy, brand and accessibility review.',soon:'AFTER REVIEW',img:B+'book-how-to-check-ai-work.png',c:'#8a6a1f'},
-   {id:'what-not-to-paste',t:'What Not to Paste',s:'The hard rules on what should never go into a chat box.',soon:'EP 7',img:B+'book-what-not-to-paste.png'},
-   {id:'prompt-cookbook',t:'The Prompt Cookbook',s:'Copy-paste recipes for the jobs that come up every week.',soon:'SOON',img:B+'book-the-prompt-cookbook.png'}
+   {id:'straight-answers',t:'Straight Answers About AI',status:'hold',statusLabel:'Source re-verification',s:'Sourced answers to the big questions — jobs, data, the environment.',img:B+'book-straight-answers-about-ai.png',c:'#7c2f4f'},
+   {id:'how-to-check',t:"How to Check AI's Work",status:'hold',statusLabel:'Independent review',s:'Preview — the full Verification Rulebook is under independent learning, accuracy, brand and accessibility review.',soon:'AFTER REVIEW',img:B+'book-how-to-check-ai-work.png',c:'#8a6a1f'},
+   {id:'what-not-to-paste',t:'What Not to Paste',status:'preview',statusLabel:'Lands EP 7',s:'The hard rules on what should never go into a chat box.',soon:'EP 7',img:B+'book-what-not-to-paste.png'},
+   {id:'prompt-cookbook',t:'The Prompt Cookbook',status:'preview',statusLabel:'Coming later',s:'Copy-paste recipes for the jobs that come up every week.',soon:'SOON',img:B+'book-the-prompt-cookbook.png'}
   ]}
 ];
-const ALL={};
-SECTIONS.forEach(s=>s.books.forEach(b=>ALL[b.id]=b));
+const ADMITTED_BOOK_SOURCES=Object.freeze({
+ /* A source enters this private map only after its book's independent
+    publication gates pass. No production book is admitted today. */
+});
+const ALL=Object.freeze(SECTIONS.reduce((catalogue,section)=>{
+ section.books=Object.freeze(section.books.map(book=>Object.freeze({...book})));
+ section.books.forEach(book=>{catalogue[book.id]=book;});
+ return catalogue;
+},Object.create(null)));
+SECTIONS.forEach(Object.freeze);
+Object.freeze(SECTIONS);
+function exactAdmittedBookSource(id){
+ const source=ADMITTED_BOOK_SOURCES[id];
+ if(typeof source!=='string'||!/^\/content\/library-books\/rendered\/[a-z0-9-]+\.html$/.test(source))return null;
+ if(source.startsWith('//')||/[\\\u0000-\u001f\u007f%]/.test(source))return null;
+ let url;
+ try{url=new URL(source,location.origin);}catch(error){return null;}
+ if(url.origin!==location.origin||url.pathname!==source||url.search||url.hash)return null;
+ return source;
+}
+function admittedBook(id){
+ const book=ALL[id];
+ const source=exactAdmittedBookSource(id);
+ return book&&book.status==='available'&&source?Object.freeze({book,source}):null;
+}
+function bookIsAvailable(b){return Boolean(b&&admittedBook(b.id)?.book===b);}
+function bookStatusText(b){return b&&b.statusLabel?b.statusLabel:'Not published';}
+function reportLibraryStatus(message){
+ const status=document.getElementById('library-status');
+ if(status)status.textContent=message||'';
+}
 
 /* V7 was generated from the actual catalogue: each visible feature cover maps
    to the real book object below. Coordinates are percentages of the 1491×1055
@@ -542,9 +566,10 @@ const stageMarkup=b=>{
  const p=STAGE_SLOTS[b.id],style=`left:${p[0]}%;top:${p[1]}%;width:${p[2]}%;height:${p[3]}%`;
  const tip=`<span class="tip"><b>${b.t}</b>${b.s||''}${b.soon?` <em>· Lands ${b.soon}</em>`:''}</span>`;
  const cover=`<img class="stage-cover" src="${b.img}" alt="" aria-hidden="true">`;
- const availability=b.soon?`<span class="stage-availability" aria-hidden="true">Lands ${b.soon}</span>`:'';
- return b.soon
-  ? `<span class="stage-book soon" style="${style}" tabindex="0" aria-label="${b.t}. ${b.s||''}. Preview only. Lands ${b.soon}.">${cover}${availability}${tip}</span>`
+ const available=bookIsAvailable(b);
+ const availability=!available?`<span class="stage-availability" aria-hidden="true">${bookStatusText(b)}</span>`:'';
+ return !available
+  ? `<span class="stage-book soon" data-library-status="${b.status}" style="${style}" tabindex="0" aria-label="${b.t}. ${b.s||''}. Not available: ${bookStatusText(b)}.">${cover}${availability}${tip}</span>`
   : `<button class="stage-book" type="button" style="${style}" aria-label="Open ${b.t}" onclick="openBook('${b.id}')">${cover}${tip}</button>`;
 };
 document.getElementById('wallcase').innerHTML=SECTIONS.flatMap(s=>s.books).map(stageMarkup).join('');
@@ -553,8 +578,8 @@ document.getElementById('mobile-catalogue').innerHTML=SECTIONS.map(s=>`
  <section class="mobile-department">
   <div class="mobile-department-head"><h2>${s.name}</h2><p>${s.cap}</p></div>
   <div class="mobile-shelf">
-   ${s.books.map(b=>b.soon
-    ? `<span class="mobile-book soon" tabindex="0" aria-label="${b.t}. ${b.s||''}. Lands ${b.soon}."><img src="${b.img}" alt=""><b>${b.t}</b><small>Lands ${b.soon}</small></span>`
+   ${s.books.map(b=>!bookIsAvailable(b)
+    ? `<span class="mobile-book soon" data-library-status="${b.status}" tabindex="0" aria-label="${b.t}. ${b.s||''}. Not available: ${bookStatusText(b)}."><img src="${b.img}" alt=""><b>${b.t}</b><small>${bookStatusText(b)}</small></span>`
     : `<button class="mobile-book" type="button" onclick="openBook('${b.id}')"><img src="${b.img}" alt=""><b>${b.t}</b><small>Open book</small></button>`
    ).join('')}
   </div>
@@ -608,7 +633,9 @@ function normalizeJeevesQuery(q){
 }
 function renderJeevesAnswer(intent){
   const links=intent.links.map(link=>link.book
-    ? `<button type="button" onclick="openBook('${link.book}','${link.heading.replace(/'/g,"\\'")}')">${link.label}</button>`
+    ? (bookIsAvailable(ALL[link.book])
+      ? `<button type="button" onclick="openBook('${link.book}','${link.heading.replace(/'/g,"\\'")}')">${link.label}</button>`
+      : `<span class="jv-held">${link.label} · ${bookStatusText(ALL[link.book])}</span>`)
     : `<a href="${link.url}">${link.label}</a>`).join('');
   return `<article class="jv-answer">
     <span class="jv-answer-kicker">Miss Jeeves says</span>
@@ -705,6 +732,11 @@ const READER_ACCENTS={
 };
 let readerReturnFocus=null;
 function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
+  const publication=admittedBook(id);
+  if(!publication){
+    reportLibraryStatus(`${b.t} is not published yet: ${bookStatusText(b)}. Miss Jeeves and saved links cannot open it until that review clears.`);
+    return;
+  }
   readerReturnFocus=document.activeElement;
   document.querySelector('.book').classList.toggle('focused',Boolean(headingNeedle));
   document.getElementById('reader').style.setProperty('--accent',READER_ACCENTS[id]||'#d62886');
@@ -720,8 +752,8 @@ function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
   readerTitle.setAttribute('data-puffy-summary','Saved book · SUNNYVAiLE LIBRAiRY');
   readerTitle.setAttribute('data-puffy-url','/library.html#'+id);
   const txt=document.getElementById('rtxt'), toc=document.getElementById('rtoc');
-  if(b.src){ txt.innerHTML='<p style="opacity:.6">Pulling it off the shelf…</p>'; toc.innerHTML='';
-    fetch(b.src).then(r=>{if(!r.ok)throw new Error('not found');return r.text()}).then(h=>{
+  if(publication.source){ txt.innerHTML='<p style="opacity:.6">Pulling it off the shelf…</p>'; toc.innerHTML='';
+    fetch(publication.source,{credentials:'same-origin',redirect:'error'}).then(r=>{if(!r.ok||r.url!==new URL(publication.source,location.origin).href)throw new Error('not found');return r.text()}).then(h=>{
       const doc=new DOMParser().parseFromString(h,'text/html');
       doc.querySelectorAll('.gr-topbar,.gr-emblem,.gr-chapter-next,script,style,nav,header,footer').forEach(n=>n.remove());
       const pages=[...doc.querySelectorAll('.gr-page')];
@@ -733,8 +765,13 @@ function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
       focusBookSection(txt,headingNeedle);
       if(window.svPuffyScan)window.svPuffyScan();
       requestAnimationFrame(()=>scrollBookTo(headingNeedle));
-    }).catch(()=>{renderShelfCopy(b,txt,toc,b.body||'<p>Could not open this one.</p>');decoratePuffySections(b,id,txt);if(window.svPuffyScan)window.svPuffyScan();});
-  } else { renderShelfCopy(b,txt,toc);decoratePuffySections(b,id,txt);focusBookSection(txt,headingNeedle);if(window.svPuffyScan)window.svPuffyScan();requestAnimationFrame(()=>scrollBookTo(headingNeedle)); }
+    }).catch(()=>{
+      txt.innerHTML='<section class="reader-error" role="alert"><h3>This book did not load.</h3><p>The short shelf description is not a substitute for the full book. Your place is safe; try the book again or return to the shelf.</p><button type="button" id="reader-retry">Try this book again</button></section>';
+      toc.innerHTML='';
+      const retry=document.getElementById('reader-retry');
+      if(retry)retry.addEventListener('click',()=>openBook(id,headingNeedle));
+    });
+  }
   document.getElementById('reader').classList.add('on');
   document.getElementById('reader').setAttribute('aria-hidden','false');
   document.body.classList.add('reader-open');
@@ -748,9 +785,22 @@ function closeBook(){
   if(readerReturnFocus&&typeof readerReturnFocus.focus==='function')readerReturnFocus.focus();
 }
 document.getElementById('reader').addEventListener('click',e=>{if(e.target.id==='reader')closeBook()});
-addEventListener('keydown',e=>{if(e.key==='Escape')closeBook()});
+addEventListener('keydown',e=>{
+ const reader=document.getElementById('reader');
+ if(!reader.classList.contains('on'))return;
+ if(e.key==='Escape'){closeBook();return;}
+ if(e.key!=='Tab')return;
+ const focusable=[...reader.querySelectorAll('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])')].filter(el=>!el.hidden);
+ if(!focusable.length)return;
+ const first=focusable[0],last=focusable[focusable.length-1];
+ if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+ else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+});
 const libraryHash=location.hash.slice(1).split('::');
+Object.defineProperty(window,'openBook',{value:openBook,writable:false,configurable:false});
+Object.defineProperty(window,'closeBook',{value:closeBook,writable:false,configurable:false});
 if(libraryHash[0]&&ALL[libraryHash[0]])openBook(libraryHash[0],libraryHash[1]?decodeURIComponent(libraryHash[1]):'');
+})();
 </script>
 <script defer src="/content/site/puffy-bookmarks.js?v=20260724-pouch10"></script>
 </body>

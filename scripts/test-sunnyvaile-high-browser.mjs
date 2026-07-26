@@ -8,6 +8,8 @@ const moduleRoot = process.env.HIGH_PLAYWRIGHT_ROOT;
 if (!moduleRoot) throw new Error("HIGH_PLAYWRIGHT_ROOT must point to a package root containing playwright-core");
 const requireFromRoot = createRequire(path.join(moduleRoot, "package.json"));
 const { chromium } = requireFromRoot("playwright-core");
+const classRegister = JSON.parse(fs.readFileSync("content/site/high-classes.json", "utf8"));
+const learningLedger = JSON.parse(fs.readFileSync("content/site/high-learning-ledger.json", "utf8"));
 
 const base = process.env.HIGH_URL || "http://127.0.0.1:8765";
 const executablePath = [
@@ -94,10 +96,229 @@ try {
     await page.route("**/content/site/high-classes.json*", (route) =>
       route.fulfill({ status: 503, contentType: "application/json", body: "{}" }));
     await page.goto(`${base}/learn/class.html?c=basics-current-context`, { waitUntil: "networkidle" });
-    assert.equal(await page.locator("#hd-name").textContent(), "The class list could not be loaded.");
+    assert.equal(await page.locator("#hd-name").textContent(), "The class and learning review could not be loaded.");
     assert.equal(await page.locator("#tv").isDisabled(), true);
     pass("class register service failure has an honest disabled recovery state");
     await page.close();
+  }
+
+  {
+    const page = await browser.newPage({ viewport: { width: 390, height: 900 } });
+    await localOnly(page);
+    await page.route("**/content/site/high-learning-ledger.json*", (route) =>
+      route.fulfill({ status: 503, contentType: "application/json", body: "{}" }));
+    await page.goto(`${base}/learn/class.html?c=basics-what-youre-looking-at`, { waitUntil: "networkidle" });
+    assert.equal(await page.locator("#hd-name").textContent(), "The class and learning review could not be loaded.");
+    assert.equal(await page.locator("#tv").isDisabled(), true);
+    pass("missing learning ledger disables the classroom instead of guessing admission");
+    await page.close();
+  }
+
+  {
+    const page = await browser.newPage({ viewport: { width: 390, height: 900 } });
+    await localOnly(page);
+    const hostileRegister = structuredClone(classRegister);
+    const target = hostileRegister.classes.find((item) => item.slug === "basics-what-youre-looking-at");
+    target.status = "live";
+    target.video = "/assets/hostile-self-promoted-class.mp4";
+    target.filmed_on = "2026-07-26";
+    target.verified_on = "2026-07-26";
+    await page.route("**/content/site/high-classes.json*", (route) =>
+      route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify(hostileRegister)
+      }));
+    await page.goto(`${base}/learn/class.html?c=basics-what-youre-looking-at`, { waitUntil: "networkidle" });
+    assert.equal(await page.locator("#hd-name").textContent(), "The class and learning review could not be loaded.");
+    assert.equal(await page.locator("#tv").isDisabled(), true);
+    assert.equal(await page.locator("#screen video").count(), 0);
+    pass("a live row and video cannot bypass the exact held record/video binding");
+    await page.close();
+  }
+
+  {
+    const iso = (date) => date.toISOString().slice(0, 10);
+    const today = new Date();
+    const yesterday = new Date(today); yesterday.setUTCDate(yesterday.getUTCDate() - 1);
+    const tomorrow = new Date(today); tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
+    const admittedFixture = () => {
+      const register = structuredClone(classRegister);
+      const ledger = structuredClone(learningLedger);
+      const cls = register.classes.find((item) => item.slug === "basics-what-youre-looking-at");
+      const record = ledger.records.find((item) => item.kind === "class");
+      cls.status = "live";
+      cls.video = "/assets/synthetic-review-only-class.mp4";
+      cls.filmed_on = iso(today);
+      cls.verified_on = iso(today);
+      record.status = "admitted";
+      record.reviewedOn = iso(today);
+      record.recheckOn = iso(today);
+      record.bindings.videoPath = cls.video;
+      return { register, ledger, cls, record };
+    };
+    const cases = [
+      ["top-level extra", ({ ledger }) => { ledger.unexpected = true; }],
+      ["top-level missing", ({ ledger }) => { delete ledger.runtimeRule; }],
+      ["record extra", ({ record }) => { record.unexpected = true; }],
+      ["record missing", ({ record }) => { delete record.contentPath; }],
+      ["short dates", ({ record }) => { record.reviewedOn = "0"; record.recheckOn = "9"; }],
+      ["impossible date", ({ record }) => { record.reviewedOn = "2026-02-30"; }],
+      ["future review", ({ record }) => { record.reviewedOn = iso(tomorrow); record.recheckOn = iso(tomorrow); }],
+      ["expired review", ({ record }) => { record.reviewedOn = iso(yesterday); record.recheckOn = iso(yesterday); }],
+      ["date order", ({ record }) => { record.reviewedOn = iso(today); record.recheckOn = iso(yesterday); }],
+      ["duplicate record ID", ({ ledger }) => {
+        const duplicate = structuredClone(ledger.records.find((item) => item.kind === "quiz-candidate"));
+        duplicate.contentId = "extra-quiz";
+        duplicate.questions.forEach((question) => { question.id += "-extra"; });
+        ledger.records.push(duplicate);
+      }],
+      ["duplicate class mapping held first", ({ ledger, record }) => {
+        const duplicate = structuredClone(record);
+        duplicate.recordId = "class-duplicate-held";
+        duplicate.status = "held";
+        duplicate.reviewedOn = null;
+        duplicate.recheckOn = null;
+        duplicate.bindings.registerLearningRecord = duplicate.recordId;
+        duplicate.bindings.videoPath = null;
+        ledger.records.unshift(duplicate);
+      }],
+      ["duplicate class mapping admitted first", ({ ledger, record }) => {
+        const duplicate = structuredClone(record);
+        duplicate.recordId = "class-duplicate-held";
+        duplicate.status = "held";
+        duplicate.reviewedOn = null;
+        duplicate.recheckOn = null;
+        duplicate.bindings.registerLearningRecord = duplicate.recordId;
+        duplicate.bindings.videoPath = null;
+        ledger.records.push(duplicate);
+      }],
+      ["wrong kind", ({ record }) => { record.kind = "quiz-candidate"; }],
+      ["wrong record ID binding", ({ record }) => { record.recordId = "wrong-record"; }],
+      ["wrong content binding", ({ record }) => { record.contentId = "basics-current-context"; }],
+      ["wrong video binding", ({ record }) => { record.bindings.videoPath = "/assets/wrong.mp4"; }],
+      ["source binding omitted", ({ record }) => { record.bindings.sourceIds.pop(); }],
+      ["duplicate source ID", ({ record }) => { record.sources[1].sourceId = record.sources[0].sourceId; }],
+      ["future source check", ({ record }) => {
+        record.sources[0].checkedOn = iso(tomorrow);
+        record.sources[0].recheckOn = iso(tomorrow);
+      }],
+      ["expired source check", ({ record }) => {
+        record.sources[0].checkedOn = iso(yesterday);
+        record.sources[0].recheckOn = iso(yesterday);
+      }],
+      ["sources checked after class review", ({ cls, record }) => {
+        cls.filmed_on = iso(yesterday);
+        cls.verified_on = iso(yesterday);
+        record.reviewedOn = iso(yesterday);
+        record.recheckOn = iso(tomorrow);
+        record.sources.forEach((source) => {
+          source.checkedOn = iso(today);
+          source.recheckOn = iso(tomorrow);
+        });
+      }],
+      ["sources expire before class admission", ({ record }) => {
+        record.reviewedOn = iso(today);
+        record.recheckOn = iso(tomorrow);
+        record.sources.forEach((source) => {
+          source.checkedOn = iso(today);
+          source.recheckOn = iso(today);
+        });
+      }],
+      ["one mixed source was checked after class review", ({ cls, record }) => {
+        cls.filmed_on = iso(yesterday);
+        cls.verified_on = iso(yesterday);
+        record.reviewedOn = iso(yesterday);
+        record.recheckOn = iso(tomorrow);
+        record.sources.forEach((source) => {
+          source.checkedOn = iso(yesterday);
+          source.recheckOn = iso(tomorrow);
+        });
+        record.sources[1].checkedOn = iso(today);
+      }],
+      ["one mixed source expires before class admission", ({ record }) => {
+        record.reviewedOn = iso(today);
+        record.recheckOn = iso(tomorrow);
+        record.sources.forEach((source) => {
+          source.checkedOn = iso(today);
+          source.recheckOn = iso(tomorrow);
+        });
+        record.sources[1].recheckOn = iso(today);
+      }],
+      ["quiz class binding", ({ ledger }) => {
+        ledger.records.find((item) => item.kind === "quiz-candidate").alignedClassId = "basics-current-context";
+      }],
+      ["duplicate register slug", ({ register }) => {
+        register.classes.push(structuredClone(register.classes[0]));
+      }],
+      ["duplicate register learning binding", ({ register, cls }) => {
+        const duplicate = structuredClone(cls);
+        duplicate.slug = "synthetic-duplicate-learning-binding";
+        register.classes.push(duplicate);
+      }],
+      ["future production evidence", ({ cls }) => {
+        cls.filmed_on = iso(tomorrow);
+        cls.verified_on = iso(tomorrow);
+      }],
+      ["unknown extra record", ({ ledger }) => {
+        const duplicate = structuredClone(ledger.records.find((item) => item.kind === "quiz-candidate"));
+        duplicate.recordId = "quiz-extra";
+        duplicate.contentId = "quiz-extra";
+        duplicate.questions.forEach((question) => { question.id += "-extra"; });
+        ledger.records.push(duplicate);
+      }]
+    ];
+
+    for (const [name, mutate] of cases) {
+      const fixture = admittedFixture();
+      mutate(fixture);
+      const page = await browser.newPage({ viewport: { width: 390, height: 900 } });
+      await localOnly(page);
+      await page.route("**/content/site/high-classes.json*", (route) =>
+        route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(fixture.register) }));
+      await page.route("**/content/site/high-learning-ledger.json*", (route) =>
+        route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(fixture.ledger) }));
+      await page.goto(`${base}/learn/class.html?c=basics-what-youre-looking-at`, { waitUntil: "networkidle" });
+      assert.equal(await page.locator("#hd-name").textContent(),
+        "The class and learning review could not be loaded.", name);
+      assert.equal(await page.locator("#tv").isDisabled(), true, name);
+      assert.equal(await page.locator("#screen video").count(), 0, name);
+      await page.close();
+    }
+    pass("29-case future synthetic-live matrix denies malformed, stale, temporally uncontained, duplicate, ambiguous and misbound admissions");
+
+    const admittedBoundaryFixtures = [
+      ["equal source and class interval", (fixture) => {
+        fixture.record.sources.forEach((source) => {
+          source.checkedOn = iso(today);
+          source.recheckOn = iso(today);
+        });
+      }],
+      ["mixed sources contain both equality boundaries", (fixture) => {
+        fixture.record.sources.forEach((source) => {
+          source.checkedOn = iso(today);
+          source.recheckOn = iso(today);
+        });
+        fixture.record.sources[0].checkedOn = iso(yesterday);
+        fixture.record.sources[1].recheckOn = iso(tomorrow);
+      }]
+    ];
+    for (const [name, mutate] of admittedBoundaryFixtures) {
+      const fixture = admittedFixture();
+      mutate(fixture);
+      const page = await browser.newPage({ viewport: { width: 390, height: 900 } });
+      await localOnly(page);
+      await page.route("**/content/site/high-classes.json*", (route) =>
+        route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(fixture.register) }));
+      await page.route("**/content/site/high-learning-ledger.json*", (route) =>
+        route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(fixture.ledger) }));
+      await page.goto(`${base}/learn/class.html?c=basics-what-youre-looking-at`, { waitUntil: "networkidle" });
+      assert.match(await page.locator("#class-review-status").textContent(), /Learning review:\s*admitted through/i, name);
+      assert.equal(await page.locator("#tv").isDisabled(), false, name);
+      assert.equal(await page.locator("#screen video").count(), 1, name);
+      await page.close();
+    }
+    pass("source intervals that inclusively contain both class boundaries remain admitted");
   }
 
   {

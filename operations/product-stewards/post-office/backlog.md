@@ -1,6 +1,53 @@
 # SUNNYVAiLE Post Office backlog
 
-**Status:** BUILDING — recommendations only; none is a live delivery, implementation or public approval.
+**Status:** **BOUNDED LOCAL PASS — independent Repair 3 rejudge 91/100;**
+external, native, owner and public outcomes remain held.
+
+## REPAIR 3 INDEPENDENT LOCAL PASS
+
+- Repair 2's archive-wide unique positive-integer episode numbers and unique
+  canonical issue URLs remain fail-closed before any archive DOM.
+- Repair 2 independently failed at 86/100 only because a user-triggered failed
+  Retry replaced the focused control and left focus on the document body.
+- Repair 3 distinguishes initial load from user retry. Initial archive failure
+  does not steal focus; a failed user retry focuses the newly rendered Retry
+  button.
+- Source and fresh exact artifact pass 101 browser checks. Two consecutive
+  Enter-triggered invalid retries retain visible focus, zero cards/links/images
+  and zero attacker-origin attempts.
+- Evidence: `maker-evidence-service-truth-repair-3-2026-07-26.md`.
+- Independent verdict:
+  `independent-rejudge-service-truth-repair-3-2026-07-26.md` — 91/100 PASS.
+- No promotion, provider, native, owner or public claim follows from this
+  bounded local acceptance.
+
+## REPAIR 1 INDEPENDENT LOCAL PASS
+
+- Archive paths are admitted before DOM creation: local `/assets/` images and
+  `/issues/issue-NN.html` routes only.
+- Protocol-relative, absolute, encoded-origin, backslash, control-character,
+  traversal and unexpected routes fail closed with zero attacker attempts.
+- Optional Signed handle is restored to local preview/share text and remains
+  absent from URL, storage and analytics.
+- Named shared Sign in/PO-box/delivery promises now state account status and
+  newsletter request truth.
+- Source and exact artifact pass 64 browser checks; fully loaded evidence is
+  in `evidence-repair-1-2026-07-26/`.
+- Evidence: `maker-evidence-service-truth-repair-1-2026-07-26.md`.
+- Independent verdict:
+  `independent-rejudge-service-truth-repair-1-2026-07-26.md` — 87/100 PASS.
+- The duplicate episode number/`issueUrl` P1 is repaired locally; Repair 3
+  independent acceptance remains required.
+
+## CYCLE 5 LOCAL CANDIDATE
+
+- Four visible counters now separate Buttondown request, held account status, postcard making and published episodes.
+- `#signin` is a real held destination with no email input or magic-link request.
+- Archive data renders as text and fails closed; publication is not labelled delivery.
+- A deep-link source-binding defect was fixed so the visible postcard and copied/shared canonical URL agree.
+- Source and fresh exact-artifact suites pass 32 browser checks with zero completed external requests.
+- Evidence: `maker-evidence-service-truth-p0-2026-07-26.md`.
+- Judge contract: `build-packet-service-truth-p0-2026-07-26.md`.
 
 ## FIX BEFORE LAUNCH
 

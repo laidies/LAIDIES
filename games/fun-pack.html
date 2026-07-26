@@ -211,6 +211,9 @@
         gap: 18px;
         margin-bottom: 40px;
       }
+      .activity-grid[aria-busy="true"] {
+        grid-template-columns: 1fr;
+      }
       @media (max-width: 560px) {
         .activity-grid { grid-template-columns: 1fr; }
       }
@@ -297,6 +300,59 @@
         transition: gap 0.2s;
       }
       .activity-card:hover .card-cta { gap: 8px; }
+      .fun-pack-state {
+        grid-column: 1 / -1;
+        border: 2px dashed var(--pink-border);
+        border-radius: 18px;
+        padding: clamp(22px, 5vw, 36px);
+        background: rgba(255, 253, 251, 0.9);
+        text-align: center;
+      }
+      .fun-pack-state[role="alert"] {
+        border-style: solid;
+        border-color: #8c1160;
+      }
+      .fun-pack-state h3 {
+        margin-bottom: 8px;
+        font-family: Georgia, serif;
+        font-size: clamp(1.15rem, 4vw, 1.45rem);
+      }
+      .fun-pack-state p {
+        max-width: 62ch;
+        margin: 0 auto 16px;
+        color: #5f4558;
+        line-height: 1.55;
+      }
+      .fun-pack-state-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+      .fun-pack-state-actions a,
+      .fun-pack-state-actions button {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(75,33,72,0.24);
+        border-radius: 999px;
+        padding: 10px 15px;
+        background: #3f1737;
+        color: #fffdfb;
+        font: inherit;
+        font-size: 0.84rem;
+        font-weight: 850;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .ep-btn:focus-visible,
+      .activity-card:focus-visible,
+      .fun-pack-state-actions a:focus-visible,
+      .fun-pack-state-actions button:focus-visible {
+        outline: 3px solid #247b83;
+        outline-offset: 3px;
+      }
 
       .print-panel-backdrop[hidden] { display: none; }
       .print-panel-backdrop {
@@ -407,6 +463,12 @@
           flex-direction: column;
         }
       }
+      @media (max-width: 360px) {
+        .svgh-nav .svgh-join,
+        .svgh-nav .svgh-signin {
+          display: none !important;
+        }
+      }
 
       
     </style>
@@ -450,91 +512,35 @@
         <!-- Title -->
         <section class="page-title-section">
           <p class="eyebrow">Games / THE EXTRA CREDIT</p>
-          <span class="status-pill">Four episode shelves open</span>
+          <span class="status-pill" id="packStatus">Checking this episode&rsquo;s extras</span>
           <h1>THE EXTRA CREDIT</h1>
-          <p class="subtitle">Pick an episode, then choose something playful to make the lesson stick.</p>
+          <p class="subtitle">Optional practice and delight after the lesson. An extra appears only after its own product owner admits it.</p>
         </section>
 
         <aside class="fun-pack-purpose" aria-label="How THE EXTRA CREDIT fits the weekly ritual">
           <div>
             <span>Ritual connection</span>
-            <p>Start with the episode or Study Pack, then use THE EXTRA CREDIT for a reading, a useful nudge, a call, or a round of Girl Talk.</p>
+            <p>Start with the episode or Study Pack. This shelf never turns a visit into completion, learning, a reward, or approval of a child product.</p>
+            <p><strong>Held child boundaries:</strong> Dream Phone remains Experimental · scripted and is not personalized or professional advice; Girl Talk remains device-local honour system; FAiRY Godmother remains fix before promotion.</p>
           </div>
           <a href="../chick-flicks.html">Choose an episode first</a>
         </aside>
 
         <!-- Episode Selector -->
-        <div class="episode-selector" role="group" aria-label="Select episode fun pack">
-          <button class="ep-btn" data-ep="issue01" type="button">Episode 01</button>
-          <button class="ep-btn" data-ep="issue02" type="button">Episode 02</button>
-          <button class="ep-btn" data-ep="issue03" type="button">Episode 03</button>
-          <button class="ep-btn is-active" data-ep="issue04" type="button">Episode 04</button>
-        </div>
+        <div class="episode-selector" id="episodeSelector" role="group" aria-label="Select episode Extra Credit" aria-describedby="packStatus"></div>
 
         <!-- Episode Context -->
-        <div class="episode-info" id="episodeInfo">
-          <h2 id="epTitle">Episode 04: The Founding Mothers</h2>
-          <p id="epDesc">The one where she learns that the history of AI was built by women long before it landed on her desk.</p>
+        <div class="episode-info" id="episodeInfo" aria-live="polite" aria-atomic="true">
+          <h2 id="epTitle">Checking the admitted Extra Credit registry&hellip;</h2>
+          <p id="epDesc">Nothing opens until the current episode and every child contract have been verified.</p>
         </div>
 
         <!-- Activity Grid -->
-        <div class="activity-grid" id="activityGrid">
-          <!-- Weekly Reading -->
-          <a href="madame-claio.html" class="activity-card" data-activity="madame">
-            <div class="activity-card-image">
-              <img src="../assets/madame-claio-character-v1.png" alt="Madame CLAi-O in a pink Y2K fortune-teller setup" loading="lazy" />
-              <span class="activity-card-time">~3 min</span>
-            </div>
-            <div class="activity-card-body">
-              <span class="activity-card-status">Available now</span>
-              <h3>Weekly Reading</h3>
-              <p>Ask Madame CLAi-O for the tiny dramatic forecast you needed before opening another tab.</p>
-              <span class="card-cta">Get your reading &rarr;</span>
-            </div>
-          </a>
-
-          <!-- FAiRY GODMOTHER -->
-          <a href="fairy-godmother.html" class="activity-card" data-activity="fairy">
-            <div class="activity-card-image">
-              <img src="../assets/town-characters/scenes/fairy-godmother-scene.jpg?v=20260708b" alt="LAiDIES FAiRY GODMOTHER portrait with pink sparkle styling" loading="lazy" />
-              <span class="activity-card-time">~2 min</span>
-            </div>
-            <div class="activity-card-body">
-              <span class="activity-card-status">Available now</span>
-              <h3>FAiRY GODMOTHER Note</h3>
-              <p>Get one useful nudge from the FAiRY Godmother when your work brain needs sparkle with actual instructions.</p>
-              <span class="card-cta">Get your note &rarr;</span>
-            </div>
-          </a>
-
-          <!-- Dream Phone -->
-          <a href="dream-phone.html" class="activity-card" data-activity="dream">
-            <div class="activity-card-image">
-              <img src="../assets/dream-phone-cordless-crop.png" alt="Pink cordless Dream Phone on a Y2K desk" loading="lazy" />
-              <span class="activity-card-time">~3 min</span>
-            </div>
-            <div class="activity-card-body">
-              <span class="activity-card-status">Experimental · scripted</span>
-              <h3>Dream Phone</h3>
-              <p>Pick a caller for a playful, prewritten reframe. It is not personalized or professional advice.</p>
-              <span class="card-cta">Try the experiment &rarr;</span>
-            </div>
-          </a>
-
-          <!-- Girl Talk -->
-          <a href="girl-talk.html" class="activity-card" data-activity="girltalk">
-            <div class="activity-card-image">
-              <img src="../assets/girl-talk-board.webp" alt="Retro Girl Talk board game styled for LAiDIES prompts" loading="lazy" />
-              <span class="activity-card-time">~5 min</span>
-            </div>
-            <div class="activity-card-body">
-              <span class="activity-card-status">Available now</span>
-              <h3>Girl Talk</h3>
-              <p>Pick Truth or Dare and draw an episode-linked prompt from the deck.</p>
-              <span class="card-cta">Play Girl Talk &rarr;</span>
-            </div>
-          </a>
-
+        <div class="activity-grid" id="activityGrid" aria-busy="true">
+          <div class="fun-pack-state" role="status">
+            <h3>Checking the shelf&hellip;</h3>
+            <p>We are confirming the episode, the child owner&rsquo;s verdict, and a clean way back before anything opens.</p>
+          </div>
         </div>
 
         
@@ -559,136 +565,434 @@
     (function() {
       'use strict';
 
-      const episodes = {
-        issue01: {
-          title: 'Episode 01: On Wednesdays We Do AI',
-          desc: 'The one where she opens the AI tab for the first time without making it a whole personality crisis.',
-          madame: 'madame-claio.html',
-          fairy: 'fairy-godmother.html',
-          dream: 'dream-phone.html',
-          girltalk: 'girl-talk.html',
-          madameImg: '../assets/madame-claio-character-v1.png',
-          fairyImg: '../assets/town-characters/scenes/fairy-godmother-scene.jpg?v=20260708b',
-          dreamImg: '../assets/dream-phone-cordless-crop.png',
-          girltalkImg: '../assets/girl-talk-board.webp',
-        },
-        issue02: {
-          title: 'Episode 02: Tell Me What You Want',
-          desc: 'The one where she learns to write specific, context-rich prompts that produce usable work output.',
-          madame: 'madame-claio.html',
-          fairy: 'fairy-godmother.html',
-          dream: 'dream-phone.html',
-          girltalk: 'girl-talk.html',
-          madameImg: '../assets/madame-claio-character-v1.png',
-          fairyImg: '../assets/town-characters/scenes/fairy-godmother-scene.jpg?v=20260708b',
-          dreamImg: '../assets/dream-phone-cordless-crop.png',
-          girltalkImg: '../assets/girl-talk-board.webp',
-        },
-        issue03: {
-          title: 'Episode 03: The Burn Book Problem',
-          desc: 'The one where she stops mistaking polish for proof and checks the alibi before it gets on the stand.',
-          madame: 'madame-claio.html',
-          fairy: 'fairy-godmother.html',
-          dream: 'dream-phone.html',
-          girltalk: 'girl-talk.html',
-          madameImg: '../assets/madame-claio-character-v1.png',
-          fairyImg: '../assets/town-characters/scenes/fairy-godmother-scene.jpg?v=20260708b',
-          dreamImg: '../assets/dream-phone-cordless-crop.png',
-          girltalkImg: '../assets/girl-talk-board.webp',
-        },
-        issue04: {
-          title: 'Episode 04: The Founding Mothers',
-          desc: 'The one where she learns that the history of AI was built by women long before it landed on her desk.',
-          madame: 'madame-claio.html',
-          fairy: 'fairy-godmother.html',
-          dream: 'dream-phone.html',
-          girltalk: 'girl-talk.html',
-          madameImg: '../assets/madame-claio-character-v1.png',
-          fairyImg: '../assets/town-characters/scenes/fairy-godmother-scene.jpg?v=20260708b',
-          dreamImg: '../assets/dream-phone-cordless-crop.png',
-          girltalkImg: '../assets/girl-talk-board.webp',
-        }
-      };
-
-      const epBtns = document.querySelectorAll('.ep-btn');
+      const registryUrl = '/games/data/fun-pack-registry.json';
+      const authorityUrl = '/games/data/fun-pack-admissions.json';
+      const PINNED_AUTHORITY = Object.freeze({
+        keyId: 'fun-pack-owner-admission-2026-01',
+        publicKeySpkiBase64: 'MCowBQYDK2VwAyEAmpoHdnlDHAJujAQJcGcReKXMMnjlAa6l9OC6lP6+bJg='
+      });
+      const PINNED_CHILDREN = Object.freeze({
+        'mme-claio': Object.freeze({ owner: 'mme-claio-champion', route: '/games/madame-claio.html' }),
+        'fairy-godmother': Object.freeze({ owner: 'fairy-godmother-champion', route: '/games/fairy-godmother.html' }),
+        'dream-phone': Object.freeze({ owner: 'dream-phone-champion', route: '/games/dream-phone.html' }),
+        'girl-talk': Object.freeze({ owner: 'girl-talk-subchampion', route: '/games/girl-talk.html' })
+      });
+      const selector = document.getElementById('episodeSelector');
       const epTitle = document.getElementById('epTitle');
       const epDesc = document.getElementById('epDesc');
+      const grid = document.getElementById('activityGrid');
+      const packStatus = document.getElementById('packStatus');
       const params = new URLSearchParams(window.location.search || '');
       const fromBag = params.get('from') === 'this-week';
-      let currentEpisodeKey = 'issue04';
+      let registry = null;
+      let currentEpisode = null;
+      let admittedActivitiesByEpisode = new Map();
 
-      function episodeNumberFromKey(ep) {
-        const match = String(ep || '').match(/\d+/);
-        return match ? Number(match[0]) : 2;
+      function isObject(value) {
+        return !!value && typeof value === 'object' && !Array.isArray(value);
       }
 
-      function withRitualReturn(url, ep) {
-        if (!url) return url;
-        const issue = encodeURIComponent(episodeNumberFromKey(ep));
-        const hashIndex = url.indexOf('#');
-        const hash = hashIndex >= 0 ? url.slice(hashIndex) : '';
-        let base = hashIndex >= 0 ? url.slice(0, hashIndex) : url;
-        if (!/[?&]issue=/.test(base)) {
-          base += (base.indexOf('?') === -1 ? '?' : '&') + 'issue=' + issue;
-        }
-        if (fromBag && !/[?&]from=/.test(base)) {
-          base += (base.indexOf('?') === -1 ? '?' : '&') + 'from=this-week';
-        }
-        if (fromBag && !/[?&]bag=/.test(base)) {
-          base += '&bag=open';
-        }
-        if (fromBag && params.get('draft') === '1' && !/[?&]draft=/.test(base)) {
-          base += '&draft=1';
-        }
-        return base + hash;
+      function exactKeys(value, expected) {
+        return isObject(value) &&
+          Object.keys(value).sort().join('|') === expected.slice().sort().join('|');
       }
 
-      function switchEpisode(ep) {
-        const data = episodes[ep];
-        if (!data) return;
-        currentEpisodeKey = ep;
-
-        epBtns.forEach(b => b.classList.toggle('is-active', b.dataset.ep === ep));
-        epTitle.textContent = data.title;
-        epDesc.textContent = data.desc;
-
-        // Update links
-        const grid = document.getElementById('activityGrid');
-        const cards = grid.querySelectorAll('.activity-card');
-        const links = [
-          withRitualReturn(data.madame, ep),
-          withRitualReturn(data.fairy, ep),
-          withRitualReturn(data.dream, ep),
-          withRitualReturn(data.girltalk, ep)
-        ];
-        const imageKeys = ['madameImg', 'fairyImg', 'dreamImg', 'girltalkImg'];
-        cards.forEach((card, i) => {
-          if (links[i] && !card.dataset.parked) card.href = links[i];
-          const image = card.querySelector('img');
-          if (image && data[imageKeys[i]]) image.src = data[imageKeys[i]];
-        });
+      function deepFreeze(value) {
+        if (!value || typeof value !== 'object' || Object.isFrozen(value)) return value;
+        Object.values(value).forEach(deepFreeze);
+        return Object.freeze(value);
       }
 
-      epBtns.forEach(btn => {
-        btn.addEventListener('click', () => switchEpisode(btn.dataset.ep));
-      });
-
-      const ritualIssue = String(params.get('issue') || '').match(/\d+/);
-      if (ritualIssue) {
-        switchEpisode('issue' + String(Number(ritualIssue[0])).padStart(2, '0'));
+      function nonEmptyText(value, maximum) {
+        return typeof value === 'string' && !!value.trim() && value === value.trim() &&
+          value.length <= maximum && !/[\u0000-\u001f\u007f]/.test(value);
       }
 
-      (function insertWednesdayReturnLink() {
-        if (params.get('from') !== 'this-week' || document.querySelector('[data-wednesday-return]')) return;
-        const issue = String(params.get('issue') || '').match(/\d+/);
-        const draftParam = params.get('draft') === '1' ? '&draft=1' : '';
+      function isoDay(value) {
+        if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return null;
+        const parts = value.split('-').map(Number);
+        const stamp = Date.UTC(parts[0], parts[1] - 1, parts[2]);
+        const date = new Date(stamp);
+        return date.getUTCFullYear() === parts[0] &&
+          date.getUTCMonth() === parts[1] - 1 &&
+          date.getUTCDate() === parts[2] ? stamp : null;
+      }
+
+      function cleanRawPath(value) {
+        return typeof value === 'string' &&
+          value.startsWith('/') &&
+          !value.startsWith('//') &&
+          !/%|\\|[\u0000-\u001f\u007f]|#/.test(value) &&
+          !value.split('?')[0].split('/').some((part) => part === '.' || part === '..');
+      }
+
+      function exactEpisodeRoute(value, number) {
+        return cleanRawPath(value) &&
+          value === '/issues/issue-' + String(number).padStart(2, '0') + '.html';
+      }
+
+      function exactBagRoute(value, number) {
+        return cleanRawPath(value) &&
+          value === '/this-week.html?issue=' + number + '&bag=open&group=fun';
+      }
+
+      function exactImageRoute(value) {
+        return cleanRawPath(value) &&
+          /^\/assets\/[A-Za-z0-9_./-]+\.(?:gif|jpe?g|png|svg|webp)$/.test(value) &&
+          value.indexOf('?') < 0;
+      }
+
+      function exactActivityRoute(value, childRoute, number, returnRoute) {
+        return typeof value === 'string' &&
+          value === childRoute + '?from=fun-pack&issue=' + number +
+            '&return=' + encodeURIComponent(returnRoute);
+      }
+
+      function canonicalJson(value) {
+        if (Array.isArray(value)) return '[' + value.map(canonicalJson).join(',') + ']';
+        if (isObject(value)) {
+          return '{' + Object.keys(value).sort().map((key) =>
+            JSON.stringify(key) + ':' + canonicalJson(value[key])
+          ).join(',') + '}';
+        }
+        return JSON.stringify(value);
+      }
+
+      function base64Bytes(value) {
+        if (typeof value !== 'string' || !/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(value)) {
+          throw new Error('invalid base64');
+        }
+        const binary = atob(value);
+        return Uint8Array.from(binary, (character) => character.charCodeAt(0));
+      }
+
+      function registryIsValid(data) {
+        if (!exactKeys(data, ['schemaVersion', 'checkedAt', 'currentEpisode', 'policy', 'episodes', 'children']) ||
+            data.schemaVersion !== 2) return false;
+        if (!exactKeys(data.policy, [
+          'candidateDescriptionsAreNotAuthority', 'failClosedOnMissingOrMalformedData',
+          'requiresSignedAdmissionReceipt', 'selectionIsNotCompletionOrReward'
+        ]) ||
+            data.policy.candidateDescriptionsAreNotAuthority !== true ||
+            data.policy.failClosedOnMissingOrMalformedData !== true ||
+            data.policy.requiresSignedAdmissionReceipt !== true ||
+            data.policy.selectionIsNotCompletionOrReward !== true) return false;
+        if (!Array.isArray(data.episodes) || !Array.isArray(data.children)) return false;
+        if (isoDay(data.checkedAt) === null) return false;
+
+        const childIds = new Set();
+        for (const child of data.children) {
+          const pinned = isObject(child) ? PINNED_CHILDREN[child.id] : null;
+          if (!exactKeys(child, ['id', 'name', 'owner', 'job', 'reason']) ||
+              !pinned || childIds.has(child.id) || child.owner !== pinned.owner ||
+              !nonEmptyText(child.name, 80) || !nonEmptyText(child.job, 300) ||
+              !nonEmptyText(child.reason, 300)) return false;
+          childIds.add(child.id);
+        }
+        if (childIds.size !== Object.keys(PINNED_CHILDREN).length) return false;
+
+        const episodeIds = new Set();
+        let currentCount = 0;
+        for (const episode of data.episodes) {
+          if (!exactKeys(episode, [
+            'id', 'number', 'releaseStatus', 'title', 'description', 'episodeRoute', 'bagReturnRoute'
+          ]) || !/^issue\d\d$/.test(episode.id || '') ||
+              episodeIds.has(episode.id) || !Number.isInteger(episode.number) ||
+              episode.id !== 'issue' + String(episode.number).padStart(2, '0') ||
+              !['PUBLISHED_CURRENT', 'PUBLISHED_ARCHIVE'].includes(episode.releaseStatus) ||
+              !nonEmptyText(episode.title, 120) || !nonEmptyText(episode.description, 300) ||
+              !exactEpisodeRoute(episode.episodeRoute, episode.number) ||
+              !exactBagRoute(episode.bagReturnRoute, episode.number)) return false;
+          if (episode.releaseStatus === 'PUBLISHED_CURRENT') currentCount += 1;
+          episodeIds.add(episode.id);
+        }
+        return data.episodes.length === 4 && currentCount === 1 &&
+          episodeIds.has(data.currentEpisode) &&
+          data.episodes.find((episode) => episode.id === data.currentEpisode)?.releaseStatus === 'PUBLISHED_CURRENT';
+      }
+
+      async function validateAdmissions(data, registryData) {
+        if (!exactKeys(data, [
+          'schemaVersion', 'authority', 'algorithm', 'keyId', 'publicKeySpkiBase64', 'receipts'
+        ]) ||
+            data.schemaVersion !== 1 ||
+            data.authority !== 'fun-pack-independent-child-admission' ||
+            data.algorithm !== 'Ed25519' ||
+            data.keyId !== PINNED_AUTHORITY.keyId ||
+            data.publicKeySpkiBase64 !== PINNED_AUTHORITY.publicKeySpkiBase64 ||
+            !Array.isArray(data.receipts)) throw new Error('admission authority invalid');
+
+        const publicKey = await crypto.subtle.importKey(
+          'spki',
+          base64Bytes(PINNED_AUTHORITY.publicKeySpkiBase64),
+          { name: 'Ed25519' },
+          false,
+          ['verify']
+        );
+        const episodes = new Map(registryData.episodes.map((episode) => [episode.id, episode]));
+        const candidates = new Set(registryData.children.map((child) => child.id));
+        const receiptIds = new Set();
+        const relationships = new Set();
+        const admitted = new Map(registryData.episodes.map((episode) => [episode.id, []]));
+        const now = new Date();
+        const today = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+
+        for (const receipt of data.receipts) {
+          if (!exactKeys(receipt, [
+            'schemaVersion', 'receiptId', 'keyId', 'issuedBy', 'ownerDisposition',
+            'childId', 'childRoute', 'episodeId', 'episodeNumber', 'episodeRelationship',
+            'returnContract', 'activity', 'issuedOn', 'recheckOn', 'signature'
+          ])) throw new Error('admission receipt shape invalid');
+          const pinned = PINNED_CHILDREN[receipt.childId];
+          const episode = episodes.get(receipt.episodeId);
+          const relationshipKey = receipt.childId + '|' + receipt.episodeId;
+          const expectedReturn = episode ? '/games/fun-pack.html?issue=' + episode.number : '';
+          if (receipt.schemaVersion !== 1 ||
+              receipt.keyId !== PINNED_AUTHORITY.keyId ||
+              !nonEmptyText(receipt.receiptId, 100) ||
+              receiptIds.has(receipt.receiptId) || relationships.has(relationshipKey) ||
+              !pinned || !candidates.has(receipt.childId) || !episode ||
+              receipt.issuedBy !== pinned.owner ||
+              receipt.ownerDisposition !== 'ADMITTED' ||
+              receipt.childRoute !== pinned.route ||
+              receipt.episodeNumber !== episode.number ||
+              receipt.episodeRelationship !== 'VERIFIED ' + episode.id ||
+              !exactKeys(receipt.returnContract, ['status', 'source', 'exactReturnRoute']) ||
+              receipt.returnContract.status !== 'VERIFIED' ||
+              receipt.returnContract.source !== 'fun-pack' ||
+              receipt.returnContract.exactReturnRoute !== expectedReturn ||
+              !exactKeys(receipt.activity, [
+                'title', 'description', 'episodeJob', 'time', 'cta', 'image', 'imageAlt', 'route'
+              ]) ||
+              !nonEmptyText(receipt.activity.title, 100) ||
+              !nonEmptyText(receipt.activity.description, 300) ||
+              !nonEmptyText(receipt.activity.episodeJob, 200) ||
+              !nonEmptyText(receipt.activity.time, 30) ||
+              !nonEmptyText(receipt.activity.cta, 80) ||
+              !nonEmptyText(receipt.activity.imageAlt, 180) ||
+              !exactImageRoute(receipt.activity.image) ||
+              !exactActivityRoute(receipt.activity.route, pinned.route, episode.number, expectedReturn)) {
+            throw new Error('admission receipt binding invalid');
+          }
+          const issued = isoDay(receipt.issuedOn);
+          const recheck = isoDay(receipt.recheckOn);
+          if (issued === null || recheck === null || issued > today || recheck < today || issued > recheck) {
+            throw new Error('admission receipt date invalid');
+          }
+          const payload = Object.fromEntries(Object.entries(receipt).filter(([key]) => key !== 'signature'));
+          const verified = await crypto.subtle.verify(
+            { name: 'Ed25519' },
+            publicKey,
+            base64Bytes(receipt.signature),
+            new TextEncoder().encode(canonicalJson(payload))
+          );
+          if (!verified) throw new Error('admission signature invalid');
+          receiptIds.add(receipt.receiptId);
+          relationships.add(relationshipKey);
+          admitted.get(episode.id).push(Object.assign({ childId: receipt.childId }, receipt.activity));
+        }
+        return admitted;
+      }
+
+      function actionLink(href, label) {
         const link = document.createElement('a');
-        link.dataset.wednesdayReturn = 'true';
-        link.href = '../this-week.html' + (issue ? '?issue=' + encodeURIComponent(Number(issue[0])) + '&bag=open&group=fun' + draftParam : '?bag=open&group=fun' + draftParam);
-        link.textContent = '\u2190 Back to the Bag';
-        link.style.cssText = 'position:fixed;bottom:calc(16px + env(safe-area-inset-bottom));left:clamp(14px,3vw,26px);right:auto;z-index:120;display:inline-flex;align-items:center;justify-content:center;max-width:calc(100% - 28px);margin:0;padding:10px 14px;border:1px solid rgba(185,93,120,.42);border-radius:999px;background:rgba(255,253,251,.94);color:#4b2148;font-weight:850;text-decoration:none;box-shadow:0 12px 30px rgba(75,33,72,.12),0 0 0 4px rgba(185,93,120,.08);backdrop-filter:blur(10px);';
-        document.querySelector('main')?.prepend(link);
-      })();
+        link.href = href;
+        link.textContent = label;
+        return link;
+      }
+
+      function statePanel(kind, title, message, episode) {
+        const panel = document.createElement('div');
+        panel.className = 'fun-pack-state';
+        panel.setAttribute('role', kind);
+        const heading = document.createElement('h3');
+        heading.textContent = title;
+        const copy = document.createElement('p');
+        copy.textContent = message;
+        const actions = document.createElement('div');
+        actions.className = 'fun-pack-state-actions';
+        if (episode) {
+          actions.append(
+            actionLink(episode.episodeRoute, 'Return to Episode ' + String(episode.number).padStart(2, '0')),
+            actionLink(episode.bagReturnRoute, 'Back to this episode’s Bag')
+          );
+        } else {
+          const retry = document.createElement('button');
+          retry.type = 'button';
+          retry.dataset.funPackRetry = 'true';
+          retry.textContent = 'Retry the shelf check';
+          retry.addEventListener('click', () => loadRegistry(true));
+          actions.append(retry, actionLink('../chick-flicks.html', 'Choose an episode'));
+        }
+        panel.append(heading, copy, actions);
+        return panel;
+      }
+
+      function renderActivity(activity) {
+        const link = document.createElement('a');
+        link.href = activity.route;
+        link.className = 'activity-card';
+        link.dataset.activity = activity.childId;
+        const media = document.createElement('div');
+        media.className = 'activity-card-image';
+        const image = document.createElement('img');
+        image.src = activity.image;
+        image.alt = activity.imageAlt;
+        image.loading = 'lazy';
+        const time = document.createElement('span');
+        time.className = 'activity-card-time';
+        time.textContent = activity.time;
+        media.append(image, time);
+        const body = document.createElement('div');
+        body.className = 'activity-card-body';
+        const status = document.createElement('span');
+        status.className = 'activity-card-status';
+        status.textContent = 'Admitted for this episode';
+        const heading = document.createElement('h3');
+        heading.textContent = activity.title;
+        const job = document.createElement('p');
+        job.textContent = activity.episodeJob + ' ' + activity.description;
+        const cta = document.createElement('span');
+        cta.className = 'card-cta';
+        cta.textContent = activity.cta + ' →';
+        body.append(status, heading, job, cta);
+        link.append(media, body);
+        return link;
+      }
+
+      function updateBagReturn(episode) {
+        let link = document.querySelector('[data-wednesday-return]');
+        if (!fromBag) {
+          if (link) link.remove();
+          return;
+        }
+        if (!link) {
+          link = document.createElement('a');
+          link.dataset.wednesdayReturn = 'true';
+          link.textContent = '\u2190 Back to the Bag';
+          link.style.cssText = 'position:fixed;bottom:calc(16px + env(safe-area-inset-bottom));left:clamp(14px,3vw,26px);right:auto;z-index:120;display:inline-flex;align-items:center;justify-content:center;max-width:calc(100% - 28px);margin:0;padding:10px 14px;border:1px solid rgba(185,93,120,.42);border-radius:999px;background:rgba(255,253,251,.94);color:#4b2148;font-weight:850;text-decoration:none;box-shadow:0 12px 30px rgba(75,33,72,.12),0 0 0 4px rgba(185,93,120,.08);backdrop-filter:blur(10px);';
+          document.querySelector('main')?.prepend(link);
+        }
+        const draftParam = params.get('draft') === '1' ? '&draft=1' : '';
+        link.href = episode.bagReturnRoute + draftParam;
+      }
+
+      function renderEpisode(episode, updateUrl) {
+        currentEpisode = episode;
+        selector.querySelectorAll('.ep-btn').forEach((button) => {
+          const selected = button.dataset.ep === episode.id;
+          button.classList.toggle('is-active', selected);
+          button.setAttribute('aria-pressed', selected ? 'true' : 'false');
+        });
+        epTitle.textContent = episode.title;
+        epDesc.textContent = episode.description;
+        grid.replaceChildren();
+        grid.setAttribute('aria-busy', 'false');
+        const admittedActivities = admittedActivitiesByEpisode.get(episode.id) || [];
+        if (admittedActivities.length) {
+          admittedActivities.forEach((activity) => grid.append(renderActivity(activity)));
+        } else {
+          grid.append(statePanel(
+            'status',
+            'No extras are admitted for Episode ' + String(episode.number).padStart(2, '0') + ' yet',
+            'That is a truthful empty shelf, not a broken one. Each optional activity stays out until its own product owner, episode relationship, accessibility evidence, and exact return path pass.',
+            episode
+          ));
+        }
+        updateBagReturn(episode);
+        if (updateUrl) {
+          let query = '?issue=' + episode.number;
+          if (fromBag) {
+            query = '?from=this-week&issue=' + episode.number + '&bag=open&group=fun';
+            if (params.get('draft') === '1') query += '&draft=1';
+          }
+          window.history.replaceState({}, '', window.location.pathname + query);
+        }
+      }
+
+      function renderRegistry(data, admittedByEpisode, authority) {
+        registry = deepFreeze(data);
+        admittedActivitiesByEpisode = new Map(
+          Array.from(admittedByEpisode, ([episodeId, activities]) =>
+            [episodeId, deepFreeze(activities)]
+          )
+        );
+        window.LAIDIES_FUN_PACK_REGISTRY = registry;
+        window.LAIDIES_FUN_PACK_AUTHORITY = {
+          keyId: authority.keyId,
+          receiptCount: authority.receipts.length
+        };
+        selector.replaceChildren();
+        registry.episodes.forEach((episode) => {
+          const button = document.createElement('button');
+          button.className = 'ep-btn';
+          button.type = 'button';
+          button.dataset.ep = episode.id;
+          button.setAttribute('aria-pressed', 'false');
+          button.textContent = 'Episode ' + String(episode.number).padStart(2, '0') +
+            (episode.releaseStatus === 'PUBLISHED_CURRENT' ? ' · Current' : ' · Archive');
+          button.addEventListener('click', () => renderEpisode(episode, true));
+          selector.append(button);
+        });
+        const admittedCount = Array.from(admittedActivitiesByEpisode.values())
+          .reduce((sum, activities) => sum + activities.length, 0);
+        packStatus.textContent = registry.episodes.length + ' published episodes · ' + admittedCount + ' admitted extras';
+        const requested = Number(params.get('issue'));
+        const selected = registry.episodes.find((episode) => episode.number === requested) ||
+          registry.episodes.find((episode) => episode.id === registry.currentEpisode);
+        renderEpisode(selected, false);
+      }
+
+      function renderFailure(restoreRetryFocus) {
+        registry = null;
+        admittedActivitiesByEpisode = new Map();
+        window.LAIDIES_FUN_PACK_REGISTRY = null;
+        window.LAIDIES_FUN_PACK_AUTHORITY = null;
+        currentEpisode = null;
+        selector.replaceChildren();
+        packStatus.textContent = 'Extra Credit shelf unavailable';
+        epTitle.textContent = 'The shelf check did not pass';
+        epDesc.textContent = 'No child activity has been opened or counted.';
+        grid.setAttribute('aria-busy', 'false');
+        grid.replaceChildren(statePanel(
+          'alert',
+          'Nothing opens when the registry or admission authority cannot be verified',
+          'Try the shelf check again, or return to the episode. Candidate descriptions cannot approve a child, episode relationship, route, return contract, completion, learning, or reward.',
+          null
+        ));
+        if (restoreRetryFocus) {
+          requestAnimationFrame(() => grid.querySelector('[data-fun-pack-retry]')?.focus());
+        }
+      }
+
+      async function loadRegistry(restoreRetryFocus) {
+        selector.replaceChildren();
+        grid.setAttribute('aria-busy', 'true');
+        packStatus.textContent = 'Checking this episode’s extras';
+        try {
+          const responses = await Promise.all([
+            fetch(registryUrl, { cache: 'no-store' }),
+            fetch(authorityUrl, { cache: 'no-store' })
+          ]);
+          if (!responses[0].ok || !responses[1].ok) throw new Error('authority request failed');
+          const payloads = await Promise.all([responses[0].json(), responses[1].json()]);
+          const data = payloads[0];
+          const authority = payloads[1];
+          if (!registryIsValid(data)) throw new Error('registry contract failed');
+          const admittedByEpisode = await validateAdmissions(authority, data);
+          renderRegistry(data, admittedByEpisode, authority);
+        } catch (error) {
+          renderFailure(restoreRetryFocus === true);
+        }
+      }
+
+      window.LAIDIES_FUN_PACK = {
+        loadRegistry,
+        registryIsValid,
+        validateAdmissions,
+        currentEpisode: () => currentEpisode
+      };
+      loadRegistry();
     })();
     </script>
       <script src="../content/site/mini-player.js?v=20260712ep-04-songs-1"></script>

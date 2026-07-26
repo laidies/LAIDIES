@@ -45,7 +45,7 @@
     { href: '/town-hall.html', name: 'Town Hall', icon: 'columns',
       line: "Deb's office — meet the mayor who's been here longer than anyone, read the poster saga, and drop a Comment Card if something needs handling." },
     { href: '/post-office.html', name: 'The Post Office', icon: 'mail',
-      line: "Sign up here and your email becomes your PO box — one delivery every Wednesday when the new episode lands, no spam, ever." },
+      line: "Request the Wednesday Postcard through Buttondown, check the held Resident Card account desk, or prepare a local postcard. This page cannot confirm subscription, email delivery or sign-in." },
     { href: '/radio.html', name: 'KSVL 99.9', icon: 'radio',
       line: "Visit KSVL's soundcheck. Public listening is held until each exact master, transcript, lesson source and rights record clears its catalogue gate." },
     { href: '/maikeover.html', name: 'MAiKEOVER on MAiN', icon: 'lipstick',

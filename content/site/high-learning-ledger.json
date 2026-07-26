@@ -1,0 +1,231 @@
+{
+  "schemaVersion": 1,
+  "product": "sunnyvaile-high",
+  "generatedOn": "2026-07-26",
+  "admissionPolicy": "fail-closed",
+  "defaultStatus": "held",
+  "runtimeRule": "A class requires a live register row, a real video, and a current admitted class learning record.",
+  "records": [
+    {
+      "recordId": "class-basics-what-youre-looking-at",
+      "kind": "class",
+      "contentId": "basics-what-youre-looking-at",
+      "status": "held",
+      "candidateStatus": "repaired-awaiting-independent-review",
+      "reviewedOn": null,
+      "recheckOn": null,
+      "contentPath": "operations/classes/basics-what-these-tools-are.CONTENT.md",
+      "learningObjective": "Distinguish an AI app from the model and other services it can use, trace what becomes working context, and choose what needs verification.",
+      "prerequisite": "No prior AI knowledge; learner can open one conversational AI product.",
+      "mentalModel": "The app coordinates instructions, conversation context and optional capabilities such as files, search or other tools; a model processes the supplied context and produces or helps select the next output or action.",
+      "adjacentDistinctions": [
+        "app or assistant versus model",
+        "generated response versus retrieved source",
+        "conversation context versus durable memory",
+        "a model capability versus a product feature or account entitlement"
+      ],
+      "misconceptions": [
+        "The app and the model are the same thing.",
+        "Conversational AI never searches or uses tools.",
+        "Anything an assistant says came from a verified source.",
+        "A new chat always means the product has no other memory or connected data."
+      ],
+      "modality": {
+        "narration": "Build the app-model-tools-context distinction in that order and state uncertainty before the demonstration.",
+        "images": "Use a labelled layer diagram and real, date-stamped interface captures; every image must match the narration at that moment.",
+        "animation": "Animate only the flow of a request, optional tool result and response. Do not use decorative character motion as a substitute for the mechanism.",
+        "demonstration": "Run one task first without search and then with visible search/citations, naming what changed and what still requires checking.",
+        "captions": "Caption the final approved narration verbatim and identify meaningful interface states without relying on colour alone."
+      },
+      "analogy": {
+        "text": "Think of the app as a studio, the model as one performer, and tools as equipment the studio may make available.",
+        "limit": "A model is not a person, and product orchestration is not literally a studio; use the analogy only to separate layers."
+      },
+      "uncertainty": [
+        "Product features, defaults, model names and account entitlements change.",
+        "Vendors use overlapping terms for models, assistants, apps, tools, memory and connectors."
+      ],
+      "sources": [
+        {
+          "sourceId": "openai-chatgpt-search",
+          "publisher": "OpenAI",
+          "title": "ChatGPT Search",
+          "url": "https://help.openai.com/en/articles/9237897-chatgpt-search",
+          "checkedOn": "2026-07-26",
+          "recheckOn": "2026-08-25",
+          "supports": ["ChatGPT can search the web and provide source links."]
+        },
+        {
+          "sourceId": "openai-chatgpt-apps",
+          "publisher": "OpenAI",
+          "title": "Apps in ChatGPT",
+          "url": "https://help.openai.com/en/articles/11487775-connectors-in",
+          "checkedOn": "2026-07-26",
+          "recheckOn": "2026-08-25",
+          "supports": ["A conversational product can connect to external services and data."]
+        },
+        {
+          "sourceId": "anthropic-claude-web-search",
+          "publisher": "Anthropic",
+          "title": "Enabling and using web search",
+          "url": "https://support.anthropic.com/en/articles/10684626-enabling-and-using-web-search",
+          "checkedOn": "2026-07-26",
+          "recheckOn": "2026-08-25",
+          "supports": ["Claude can use web search when the product makes it available."]
+        },
+        {
+          "sourceId": "google-gemini-tools",
+          "publisher": "Google",
+          "title": "Gemini API tools",
+          "url": "https://ai.google.dev/gemini-api/docs/tools",
+          "checkedOn": "2026-07-26",
+          "recheckOn": "2026-08-25",
+          "supports": ["Gemini models can be combined with tools such as search, URL context and function calling."]
+        },
+        {
+          "sourceId": "google-gemini-image-understanding",
+          "publisher": "Google",
+          "title": "Image understanding",
+          "url": "https://ai.google.dev/gemini-api/docs/image-understanding",
+          "checkedOn": "2026-07-26",
+          "recheckOn": "2026-08-25",
+          "supports": ["Current general-purpose models can process more than text."]
+        },
+        {
+          "sourceId": "openai-chatgpt-memory",
+          "publisher": "OpenAI",
+          "title": "Memory FAQ",
+          "url": "https://help.openai.com/en/articles/8590148-memory-faq",
+          "checkedOn": "2026-07-26",
+          "recheckOn": "2026-08-25",
+          "supports": [
+            "When enabled, ChatGPT memory can use context from prior chats, files and connected apps in future responses.",
+            "Memory availability and controls depend on product settings; Temporary Chat does not use or create memories."
+          ]
+        }
+      ],
+      "assessmentCandidateId": "quiz-basics-tool-vs-model",
+      "bindings": {
+        "registerPath": "/content/site/high-classes.json",
+        "registerLearningRecord": "class-basics-what-youre-looking-at",
+        "contentPath": "operations/classes/basics-what-these-tools-are.CONTENT.md",
+        "videoPath": null,
+        "assessmentRecordId": "quiz-basics-tool-vs-model",
+        "sourceIds": [
+          "openai-chatgpt-search",
+          "openai-chatgpt-apps",
+          "anthropic-claude-web-search",
+          "google-gemini-tools",
+          "google-gemini-image-understanding",
+          "openai-chatgpt-memory"
+        ]
+      },
+      "missingAcceptance": [
+        "independent instructional-design review",
+        "independent factual/currentness review",
+        "real-interface path verification",
+        "approved narration and transcript",
+        "approved images and animation timed to narration",
+        "captions and audio-description review",
+        "unfamiliar-learner explain-back and transfer evidence",
+        "final video and poster",
+        "owner visual approval"
+      ]
+    },
+    {
+      "recordId": "quiz-basics-tool-vs-model",
+      "kind": "quiz-candidate",
+      "contentId": "quiz-basics-tool-vs-model",
+      "alignedClassId": "basics-what-youre-looking-at",
+      "alignedClassRecordId": "class-basics-what-youre-looking-at",
+      "status": "held",
+      "candidateStatus": "repaired-awaiting-independent-review",
+      "runtimeKey": null,
+      "runtimePath": null,
+      "assessmentMode": "selected-response-practice-not-explain-back",
+      "explainBackStatus": "held-requires-human-rubric-and-unfamiliar-learner-study",
+      "sourceIds": [
+        "openai-chatgpt-search",
+        "openai-chatgpt-apps",
+        "anthropic-claude-web-search",
+        "google-gemini-tools",
+        "google-gemini-image-understanding",
+        "openai-chatgpt-memory"
+      ],
+      "objective": "Check whether the learner can apply the app-model-tools-context distinction and choose an appropriate verification action.",
+      "questions": [
+        {
+          "id": "layers-01",
+          "prompt": "You upload a PDF in an AI app and ask for a summary. Which description is most accurate?",
+          "options": [
+            "The app supplies the file and instructions as working context for a model to process.",
+            "The model permanently learns the whole PDF for every future user.",
+            "Uploading proves every statement in the PDF is true."
+          ],
+          "answer": "The app supplies the file and instructions as working context for a model to process.",
+          "explanation": "The product handles the file and passes usable information to the model. That does not make the file true or permanently retrain the model.",
+          "misconception": "File upload means permanent training or automatic verification.",
+          "reviewAction": "Return to the request-flow diagram and name the app, context and model layers."
+        },
+        {
+          "id": "layers-02",
+          "prompt": "An answer includes clickable web citations. What changed?",
+          "options": [
+            "The product used a search or retrieval capability and supplied results to the answering flow.",
+            "The model became incapable of generating text.",
+            "Every cited claim is now guaranteed correct."
+          ],
+          "answer": "The product used a search or retrieval capability and supplied results to the answering flow.",
+          "explanation": "Search can add current source material, but the learner must still inspect whether each source supports the claim.",
+          "misconception": "Citations automatically guarantee correctness.",
+          "reviewAction": "Open one citation and compare the source with the sentence it is meant to support."
+        },
+        {
+          "id": "layers-03",
+          "prompt": "Two products use similarly named models but show different buttons and limits. Why can that happen?",
+          "options": [
+            "Product features, connected tools and account entitlements can differ from the underlying model.",
+            "A model name determines every part of an app.",
+            "One of the products must be fake."
+          ],
+          "answer": "Product features, connected tools and account entitlements can differ from the underlying model.",
+          "explanation": "The model is one layer. The app controls interface, tool access, policies, limits and account features.",
+          "misconception": "Model capability and product availability are identical.",
+          "reviewAction": "Name one feature controlled by the app rather than the model alone."
+        },
+        {
+          "id": "layers-04",
+          "prompt": "A new chat remembers a preference. What is the safest conclusion?",
+          "options": [
+            "The product may have a memory or instruction feature; check its controls and scope.",
+            "The model secretly reads every file on the device.",
+            "New chats can never receive information from product features."
+          ],
+          "answer": "The product may have a memory or instruction feature; check its controls and scope.",
+          "explanation": "A new conversation can still receive saved instructions or memory depending on the product and settings.",
+          "misconception": "New chat always means no persisted product context.",
+          "reviewAction": "Find the product's official memory or privacy controls before making a claim."
+        },
+        {
+          "id": "layers-05",
+          "prompt": "Which task most clearly needs verification after an assistant answers?",
+          "options": [
+            "Summarising a current eligibility rule that affects an application.",
+            "Brainstorming playful names for a private playlist.",
+            "Changing a paragraph from formal to friendly."
+          ],
+          "answer": "Summarising a current eligibility rule that affects an application.",
+          "explanation": "The rule is current and consequential. Check the responsible authority's live source rather than trusting fluent wording.",
+          "misconception": "A confident answer is enough evidence for a current consequential fact.",
+          "reviewAction": "Identify the authority, date and exact claim that must be checked."
+        }
+      ],
+      "missingAcceptance": [
+        "independent assessment-validity review",
+        "unfamiliar-learner think-aloud",
+        "bias and readability review",
+        "approved runtime home and review routes"
+      ]
+    }
+  ]
+}

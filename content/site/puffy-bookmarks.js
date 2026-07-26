@@ -77,31 +77,247 @@
     'usable-25-images/75-pink-teal-magic-wand.png'
   ];
   var activePicker = null;
+  var storageFailed = false;
+  var recoveryCount = 0;
+  var MAX_BOARD_ITEMS = 100;
+  var BOARD_FIELDS = ['id', 'placedAt', 'purpose', 'sticker', 'summary', 'title', 'url'];
+  var PUFFY_PAGE_ROUTES = new Set([
+    '/library.html',
+    '/handbook.html',
+    '/sunnyvaile-high.html',
+    '/shop.html',
+    '/mall/as-seen-on-tv.html',
+    '/mall/books-and-records.html',
+    '/mall/food-court.html',
+    '/mall/gizmos-and-gadgets.html',
+    '/mall/hanger-management.html',
+    '/mall/last-summer.html',
+    '/mall/maiybe.html',
+    '/mall/mall-kiosk.html',
+    '/mall/rollin-with-my-homies.html'
+  ]);
+
+  function reportStorageFailure() {
+    storageFailed = true;
+    document.documentElement.setAttribute('data-puffy-storage', 'failed');
+    var notice = document.getElementById('puffyStorageStatus');
+    if (!notice) {
+      notice = document.createElement('p');
+      notice.id = 'puffyStorageStatus';
+      notice.setAttribute('role', 'alert');
+      notice.style.cssText =
+        'margin:12px 0;padding:10px 12px;border:2px solid #9b3f5f;background:#fff6f8;color:#421b2c;font:700 12px/1.45 Jost,sans-serif';
+      notice.textContent =
+        'This browser is not allowing device-local Puffy saves. Nothing was saved or removed. You can keep reading and try again after storage is available.';
+      var board = document.getElementById('puffyBoard');
+      var reader = document.getElementById('reader');
+      if (board || reader) (board || reader).insertAdjacentElement('beforebegin', notice);
+      else document.body.prepend(notice);
+    }
+  }
+
+  function reportRecovery(count) {
+    if (!count) return;
+    recoveryCount += count;
+    document.documentElement.setAttribute('data-puffy-recovered', String(recoveryCount));
+    var notice = document.getElementById('puffyRecoveryStatus');
+    if (!notice) {
+      notice = document.createElement('p');
+      notice.id = 'puffyRecoveryStatus';
+      notice.setAttribute('role', 'status');
+      notice.setAttribute('aria-live', 'polite');
+      notice.style.cssText =
+        'margin:12px 0;padding:10px 12px;border:2px solid #247b83;background:#f2fcfb;color:#163d42;font:700 12px/1.45 Jost,sans-serif';
+      var board = document.getElementById('puffyBoard');
+      var reader = document.getElementById('reader');
+      if (board || reader) (board || reader).insertAdjacentElement('beforebegin', notice);
+      else document.body.prepend(notice);
+    }
+    notice.textContent =
+      'We removed ' + recoveryCount + ' damaged or unsafe device-local Puffy ' +
+      (recoveryCount === 1 ? 'save' : 'saves') +
+      '. Your other saved places are still here.';
+  }
+
+  function cleanText(value, max, required) {
+    if (typeof value !== 'string' || /[\u0000-\u001f\u007f]/.test(value)) return null;
+    var clean = value.trim();
+    if ((required && !clean) || clean.length > max) return null;
+    return clean;
+  }
+
+  function exactIsoDate(value) {
+    if (typeof value !== 'string' ||
+        !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(value)) return null;
+    var milliseconds = Date.parse(value);
+    if (!Number.isFinite(milliseconds) ||
+        new Date(milliseconds).toISOString() !== value ||
+        milliseconds > Date.now() + 60000) return null;
+    return value;
+  }
+
+  function safeLocalRoute(value) {
+    if (typeof value !== 'string' || value.length < 2 || value.length > 500 ||
+        value[0] !== '/' || value.startsWith('//') ||
+        /[\\\u0000-\u001f\u007f]/.test(value) ||
+        /%(?:00|0a|0d|2f|5c)/i.test(value)) return null;
+    var url;
+    try { url = new URL(value, location.origin); }
+    catch (error) { return null; }
+    var rawPath = value.split(/[?#]/)[0];
+    if (url.origin !== location.origin || url.pathname !== rawPath ||
+        url.search || !PUFFY_PAGE_ROUTES.has(url.pathname)) return null;
+    return url.pathname + url.hash;
+  }
+
+  function canonicalBoardRecord(record) {
+    if (!record || typeof record !== 'object' || Array.isArray(record)) return null;
+    var keys = Object.keys(record).sort();
+    if (keys.some(function (key) { return !BOARD_FIELDS.includes(key); })) return null;
+    var id = cleanText(record.id, 120, true);
+    var title = cleanText(record.title, 120, true);
+    var summary = cleanText(record.summary === undefined ? '' : record.summary, 300, false);
+    var purpose = cleanText(record.purpose === undefined ? '' : record.purpose, 80, false);
+    var url = safeLocalRoute(record.url);
+    var placedAt = exactIsoDate(record.placedAt);
+    if (!id || !/^[A-Za-z0-9][A-Za-z0-9._:-]{0,119}$/.test(id) ||
+        title === null || summary === null || purpose === null || !url ||
+        !placedAt || !stickerByFile(record.sticker)) return null;
+    return {
+      id: id,
+      title: title,
+      summary: summary,
+      url: url,
+      sticker: record.sticker,
+      purpose: purpose,
+      placedAt: placedAt
+    };
+  }
+
+  function normalizeBoard(value) {
+    if (!Array.isArray(value)) return { list: [], rejected: 1 };
+    var list = [];
+    var indexes = Object.create(null);
+    var rejected = Math.max(0, value.length - 500);
+    value.slice(0, 500).forEach(function (record) {
+      var clean = canonicalBoardRecord(record);
+      if (!clean) { rejected += 1; return; }
+      if (indexes[clean.id] !== undefined) {
+        rejected += 1;
+        var at = indexes[clean.id];
+        if (clean.placedAt > list[at].placedAt) list[at] = clean;
+        return;
+      }
+      if (list.length >= MAX_BOARD_ITEMS) { rejected += 1; return; }
+      indexes[clean.id] = list.length;
+      list.push(clean);
+    });
+    return { list: list, rejected: rejected };
+  }
+
+  function writeBoard(list) {
+    try {
+      var serialized = JSON.stringify(list);
+      localStorage.setItem(KEY, serialized);
+      if (localStorage.getItem(KEY) !== serialized) throw new Error('Puffy save did not round-trip');
+      return true;
+    } catch (e) {
+      reportStorageFailure();
+      return false;
+    }
+  }
 
   function load() {
-    try { return JSON.parse(localStorage.getItem(KEY) || '[]') || []; }
-    catch (e) { return []; }
+    var raw;
+    var parsed;
+    try {
+      raw = localStorage.getItem(KEY);
+      parsed = raw === null ? [] : JSON.parse(raw);
+    } catch (e) {
+      reportRecovery(1);
+      writeBoard([]);
+      return [];
+    }
+    var normalized = normalizeBoard(parsed);
+    var serialized = JSON.stringify(normalized.list);
+    if (normalized.rejected || raw !== null && raw !== serialized) {
+      reportRecovery(normalized.rejected);
+      writeBoard(normalized.list);
+    }
+    return normalized.list;
   }
   function save(list) {
-    try { localStorage.setItem(KEY, JSON.stringify(list)); } catch (e) {}
+    var normalized = normalizeBoard(list);
+    if (normalized.rejected) {
+      reportRecovery(normalized.rejected);
+      return false;
+    }
+    return writeBoard(normalized.list);
+  }
+  function canonicalPouchRecord(item) {
+    if (typeof item === 'string') item = { file: item, purpose: '' };
+    if (!item || typeof item !== 'object' || Array.isArray(item) ||
+        Object.keys(item).some(function (key) { return key !== 'file' && key !== 'purpose'; })) return null;
+    var purpose = cleanText(item.purpose === undefined ? '' : item.purpose, 80, false);
+    if (!stickerByFile(item.file) || purpose === null) return null;
+    return { file: item.file, purpose: purpose };
+  }
+  function normalizePouch(value) {
+    if (!Array.isArray(value)) return { list: [], rejected: 1 };
+    var seen = new Set();
+    var rejected = 0;
+    var list = [];
+    value.forEach(function (item) {
+      var clean = canonicalPouchRecord(item);
+      if (!clean || seen.has(clean.file) || list.length >= 10) {
+        rejected += 1;
+        return;
+      }
+      seen.add(clean.file);
+      list.push(clean);
+    });
+    return { list: list, rejected: rejected };
+  }
+  function writePouch(list) {
+    try {
+      var serialized = JSON.stringify(list);
+      localStorage.setItem(POUCH_KEY, serialized);
+      if (localStorage.getItem(POUCH_KEY) !== serialized) throw new Error('Puffy pouch did not round-trip');
+      return true;
+    } catch (e) {
+      reportStorageFailure();
+      return false;
+    }
   }
   function loadPouch() {
-    var saved = [];
-    try { saved = JSON.parse(localStorage.getItem(POUCH_KEY) || '[]') || []; }
-    catch (e) {}
-    saved = saved.map(function (item) {
-      return typeof item === 'string' ? { file: item, purpose: '' } : item;
-    }).filter(function (item) {
-      return item && STICKERS.some(function (sticker) { return sticker.file === item.file; });
-    }).slice(0, 10);
+    var raw;
+    var parsed;
+    try {
+      raw = localStorage.getItem(POUCH_KEY);
+      parsed = raw === null ? [] : JSON.parse(raw);
+    } catch (e) {
+      reportRecovery(1);
+      parsed = [];
+    }
+    var normalized = normalizePouch(parsed);
+    var saved = normalized.list;
+    if (normalized.rejected || raw !== null && raw !== JSON.stringify(saved)) {
+      reportRecovery(normalized.rejected);
+      writePouch(saved);
+    }
     if (!saved.length) {
       saved = DEFAULT_POUCH.map(function (file) { return { file: file, purpose: '' }; });
-      savePouch(saved);
+      writePouch(saved);
     }
     return saved;
   }
   function savePouch(list) {
-    try { localStorage.setItem(POUCH_KEY, JSON.stringify(list.slice(0, 10))); } catch (e) {}
+    var normalized = normalizePouch(list);
+    if (normalized.rejected) {
+      reportRecovery(normalized.rejected);
+      return false;
+    }
+    return writePouch(normalized.list);
   }
   function stickerByFile(file) {
     return STICKERS.find(function (sticker) { return sticker.file === file; });
@@ -115,7 +331,7 @@
   }
 
   function stickerUrl(file) {
-    return '/assets/puffies/' + (file || 'usable-25/01-heart-sunglasses.png');
+    return '/assets/puffies/' + (stickerByFile(file) ? file : DEFAULT_POUCH[0]);
   }
 
   function closePicker() {
@@ -168,7 +384,7 @@
           purpose: pouchItem.purpose || '',
           placedAt: new Date().toISOString()
         });
-        save(list);
+        if (!save(list)) return;
         closePicker();
         paint();
         document.dispatchEvent(new CustomEvent('puffies:changed'));
@@ -178,7 +394,7 @@
     var peel = picker.querySelector('.puffy-picker-peel');
     peel.hidden = !current;
     peel.addEventListener('click', function () {
-      save(load().filter(function (p) { return p.id !== id; }));
+      if (!save(load().filter(function (p) { return p.id !== id; }))) return;
       closePicker();
       paint();
       document.dispatchEvent(new CustomEvent('puffies:changed'));
@@ -408,25 +624,24 @@
       list.forEach(function (p) {
         var currentPouchItem = loadPouch().find(function (item) { return item.file === p.sticker; });
         var purpose = currentPouchItem ? currentPouchItem.purpose : (p.purpose || '');
-        var a = document.createElement('a');
-        a.className = 'puffy-item';
-        a.href = p.url;
-        a.innerHTML = '<span class="puffy-item-clip" aria-hidden="true"></span>' +
-          '<span class="puffy-item-body"><b></b><small></small></span>' +
+        var item = document.createElement('div');
+        item.className = 'puffy-item';
+        item.innerHTML = '<a class="puffy-item-main"><span class="puffy-item-clip" aria-hidden="true"></span>' +
+          '<span class="puffy-item-body"><b></b><small></small></span></a>' +
           '<button type="button" class="puffy-peel" aria-label="Peel this puffy off the board">&times;</button>';
-        a.querySelector('b').textContent = p.title;
-        a.querySelector('small').textContent =
+        item.querySelector('.puffy-item-main').href = p.url;
+        item.querySelector('b').textContent = p.title;
+        item.querySelector('small').textContent =
           (purpose ? purpose + ' · ' : '') + (p.summary || 'Saved from the LIBRAiRY');
-        a.querySelector('.puffy-item-clip').style.backgroundImage = 'url("' + stickerUrl(p.sticker) + '")';
-        a.querySelector('.puffy-item-clip').style.backgroundSize = 'contain';
-        a.querySelector('.puffy-item-clip').style.backgroundPosition = 'center';
-        a.querySelector('.puffy-item-clip').style.backgroundRepeat = 'no-repeat';
-        a.querySelector('.puffy-peel').addEventListener('click', function (ev) {
-          ev.preventDefault(); ev.stopPropagation();
-          save(load().filter(function (q) { return q.id !== p.id; }));
+        item.querySelector('.puffy-item-clip').style.backgroundImage = 'url("' + stickerUrl(p.sticker) + '")';
+        item.querySelector('.puffy-item-clip').style.backgroundSize = 'contain';
+        item.querySelector('.puffy-item-clip').style.backgroundPosition = 'center';
+        item.querySelector('.puffy-item-clip').style.backgroundRepeat = 'no-repeat';
+        item.querySelector('.puffy-peel').addEventListener('click', function () {
+          if (!save(load().filter(function (q) { return q.id !== p.id; }))) return;
           paint();
         });
-        board.appendChild(a);
+        board.appendChild(item);
       });
     }
     paint();

@@ -4,11 +4,11 @@
  * Rewrites the page's existing <header class="sv-header"> (or the homepage's
  * .site-header) into the canonical structure Ali locked 2026-07-05:
  *
- *   [☰ Menu]  LAiDIES  ·············  This Week's Tour · Radio · [Join →] [✉︎ Sign In]
+ *   [☰ Menu]  LAiDIES  ·············  This Week's Tour · Radio · [Join →] [Account status]
  *
  * - Menu opens a dropdown with the full town directory (canon order + names
  *   from sunnyvaile-directory.js, lazy-loaded if the page doesn't have it).
- * - Sign In keeps class="sv-signin" so sv-nav-auth.js can swap it for the
+ * - Account status keeps class="sv-signin" so sv-nav-auth.js can swap it for the
  *   signed-in "Resident ★" pill. LOAD ORDER: include this script BEFORE
  *   sv-nav-auth.js (both defer — document order is execution order).
  * - On phones the two quick links fold into the Menu.
@@ -141,7 +141,7 @@
     + '@media (max-width: 560px) { .svgh-jointail { display: none; } }'
     + '@media (max-width: 640px) { .svgh-panel { top: 64px; } }'
     /* Phones (≤480px): drop the redundant history arrows and tighten the three
-       quick actions into ONE uniform pill row (Join filled · Sign In outline ·
+       quick actions into ONE uniform pill row (Join filled · Account status outline ·
        Menu outline) so nothing wraps or crowds at 375px. Placed last so these
        equal-specificity rules win the cascade over the base pill rules above,
        on both .site-header (homepage) and .sv-header (inner) pages.
@@ -250,7 +250,7 @@
       + '<nav class="svgh-nav">'
       + quick
       + '<a class="svgh-ksvl" href="/radio.html"><span class="onair-dot"></span>KSVL 99.9</a>'
-      + '<a class="sv-signin svgh-signin" href="' + esc(SIGNIN_HREF) + '">Sign in</a>'
+      + '<a class="sv-signin svgh-signin" href="' + esc(SIGNIN_HREF) + '">Account status</a>'
       + '<a class="svgh-join" href="' + esc(JOIN_HREF) + '">Join<span class="svgh-jointail"> the town</span></a>'
       + '<button type="button" class="svgh-menu-btn" aria-haspopup="true" aria-expanded="false" aria-controls="svghPanel">Menu</button>'
       + '</nav>';

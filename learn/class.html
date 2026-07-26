@@ -459,6 +459,8 @@
           <p id="class-format-note">This is a written production preview, not a finished class.
             The proposed tape will demonstrate the task on a real interface, but no class tape
             is available yet.</p>
+          <p id="class-review-status" data-learning-status="held"><strong>Learning review:</strong>
+            held until the lesson passes independent instructional, accuracy and media review.</p>
         </div>
 
         <div class="cls-card" id="cd-path-card" hidden>
@@ -561,7 +563,8 @@
 (function () {
   'use strict';
 
-  var DATA = '/content/site/high-classes.json?v=20260722-1';
+  var DATA = '/content/site/high-classes.json?v=20260726-1';
+  var LEARNING_DATA = '/content/site/high-learning-ledger.json?v=20260726-1';
   var $ = function (id) { return document.getElementById(id); };
 
   function param() {
@@ -584,10 +587,275 @@
 
   var ALL = [];   // every class, used to find each subject's first period
 
-  fetch(DATA).then(function (r) {
-    if (!r.ok) throw new Error('Class register request failed: ' + r.status);
-    return r.json();
-  }).then(function (json) {
+  function fetchJSON(url, label) {
+    return fetch(url).then(function (r) {
+      if (!r.ok) throw new Error(label + ' request failed: ' + r.status);
+      return r.json();
+    });
+  }
+
+  function exactKeys(value, expected, label) {
+    if (!value || Object.prototype.toString.call(value) !== '[object Object]') {
+      throw new Error(label + ' must be an object');
+    }
+    var actual = Object.keys(value).sort().join('|');
+    var wanted = expected.slice().sort().join('|');
+    if (actual !== wanted) throw new Error(label + ' has missing or extra fields');
+  }
+
+  function nonEmptyString(value, label) {
+    if (typeof value !== 'string' || !value.trim()) throw new Error(label + ' must be a non-empty string');
+    return value;
+  }
+
+  function uniqueStrings(value, label, minimum) {
+    if (!Array.isArray(value) || value.length < minimum) throw new Error(label + ' is incomplete');
+    var seen = {};
+    value.forEach(function (item) {
+      nonEmptyString(item, label);
+      if (seen[item]) throw new Error(label + ' has duplicates');
+      seen[item] = true;
+    });
+    return value;
+  }
+
+  function isoDay(value, label) {
+    if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+      throw new Error(label + ' must use YYYY-MM-DD');
+    }
+    var bits = value.split('-').map(Number);
+    var stamp = Date.UTC(bits[0], bits[1] - 1, bits[2]);
+    var date = new Date(stamp);
+    if (date.getUTCFullYear() !== bits[0] ||
+        date.getUTCMonth() !== bits[1] - 1 ||
+        date.getUTCDate() !== bits[2]) {
+      throw new Error(label + ' is not a real calendar date');
+    }
+    return stamp;
+  }
+
+  function sameStringSet(left, right) {
+    return left.slice().sort().join('|') === right.slice().sort().join('|');
+  }
+
+  function validateSource(source, index) {
+    var label = 'source[' + index + ']';
+    exactKeys(source,
+      ['sourceId', 'publisher', 'title', 'url', 'checkedOn', 'recheckOn', 'supports'], label);
+    nonEmptyString(source.sourceId, label + '.sourceId');
+    nonEmptyString(source.publisher, label + '.publisher');
+    nonEmptyString(source.title, label + '.title');
+    if (!/^https:\/\/[A-Za-z0-9.-]+\/\S+$/.test(source.url)) throw new Error(label + '.url is invalid');
+    var checked = isoDay(source.checkedOn, label + '.checkedOn');
+    var recheck = isoDay(source.recheckOn, label + '.recheckOn');
+    if (checked > recheck) throw new Error(label + ' date order is invalid');
+    var now = new Date();
+    var today = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+    if (checked > today || recheck < today) throw new Error(label + ' is future-dated or stale');
+    uniqueStrings(source.supports, label + '.supports', 1);
+    return { checkedOn: checked, recheckOn: recheck };
+  }
+
+  function validateQuestion(question, index) {
+    var label = 'question[' + index + ']';
+    exactKeys(question,
+      ['id', 'prompt', 'options', 'answer', 'explanation', 'misconception', 'reviewAction'], label);
+    nonEmptyString(question.id, label + '.id');
+    nonEmptyString(question.prompt, label + '.prompt');
+    uniqueStrings(question.options, label + '.options', 3);
+    if (question.options.indexOf(question.answer) < 0) throw new Error(label + '.answer is not offered');
+    nonEmptyString(question.explanation, label + '.explanation');
+    nonEmptyString(question.misconception, label + '.misconception');
+    nonEmptyString(question.reviewAction, label + '.reviewAction');
+  }
+
+  function validateLearningLedger(ledger, register) {
+    exactKeys(ledger,
+      ['schemaVersion', 'product', 'generatedOn', 'admissionPolicy', 'defaultStatus', 'runtimeRule', 'records'],
+      'learning ledger');
+    if (ledger.schemaVersion !== 1 ||
+        ledger.product !== 'sunnyvaile-high' ||
+        ledger.admissionPolicy !== 'fail-closed' ||
+        ledger.defaultStatus !== 'held') {
+      throw new Error('Learning ledger authority fields are invalid');
+    }
+    var generated = isoDay(ledger.generatedOn, 'learning ledger.generatedOn');
+    var ledgerNow = new Date();
+    var ledgerToday = Date.UTC(ledgerNow.getUTCFullYear(), ledgerNow.getUTCMonth(), ledgerNow.getUTCDate());
+    if (generated > ledgerToday) throw new Error('Learning ledger is future-dated');
+    nonEmptyString(ledger.runtimeRule, 'learning ledger.runtimeRule');
+    if (!Array.isArray(ledger.records) || !ledger.records.length) {
+      throw new Error('Learning ledger records are missing');
+    }
+    if (!register || !Array.isArray(register.classes) || !register.classes.length) {
+      throw new Error('Class register is invalid');
+    }
+
+    var recordIds = {};
+    var contentKeys = {};
+    var questionIds = {};
+    ledger.records.forEach(function (record, index) {
+      var label = 'record[' + index + ']';
+      if (!record || (record.kind !== 'class' && record.kind !== 'quiz-candidate')) {
+        throw new Error(label + ' kind is invalid');
+      }
+      var contentKey = record.kind + '|' + record.contentId;
+      nonEmptyString(record.recordId, label + '.recordId');
+      nonEmptyString(record.contentId, label + '.contentId');
+      if (recordIds[record.recordId] || contentKeys[contentKey]) {
+        throw new Error('Learning ledger has duplicate or ambiguous records');
+      }
+      recordIds[record.recordId] = record;
+      contentKeys[contentKey] = true;
+
+      if (record.kind === 'class') {
+        exactKeys(record, [
+          'recordId', 'kind', 'contentId', 'status', 'candidateStatus', 'reviewedOn', 'recheckOn',
+          'contentPath', 'learningObjective', 'prerequisite', 'mentalModel',
+          'adjacentDistinctions', 'misconceptions', 'modality', 'analogy', 'uncertainty',
+          'sources', 'assessmentCandidateId', 'bindings', 'missingAcceptance'
+        ], label);
+        if (record.status !== 'held' && record.status !== 'admitted') throw new Error(label + '.status is invalid');
+        if (record.candidateStatus !== 'repaired-awaiting-independent-review') {
+          throw new Error(label + '.candidateStatus is invalid');
+        }
+        nonEmptyString(record.contentPath, label + '.contentPath');
+        nonEmptyString(record.learningObjective, label + '.learningObjective');
+        nonEmptyString(record.prerequisite, label + '.prerequisite');
+        nonEmptyString(record.mentalModel, label + '.mentalModel');
+        uniqueStrings(record.adjacentDistinctions, label + '.adjacentDistinctions', 3);
+        uniqueStrings(record.misconceptions, label + '.misconceptions', 3);
+        exactKeys(record.modality,
+          ['narration', 'images', 'animation', 'demonstration', 'captions'], label + '.modality');
+        Object.keys(record.modality).forEach(function (key) {
+          nonEmptyString(record.modality[key], label + '.modality.' + key);
+        });
+        exactKeys(record.analogy, ['text', 'limit'], label + '.analogy');
+        nonEmptyString(record.analogy.text, label + '.analogy.text');
+        nonEmptyString(record.analogy.limit, label + '.analogy.limit');
+        uniqueStrings(record.uncertainty, label + '.uncertainty', 1);
+        if (!Array.isArray(record.sources) || record.sources.length < 1) throw new Error(label + '.sources missing');
+        var sourceIds = {};
+        var sourceIntervals = [];
+        record.sources.forEach(function (source, sourceIndex) {
+          sourceIntervals.push(validateSource(source, sourceIndex));
+          if (sourceIds[source.sourceId]) throw new Error(label + ' has duplicate source IDs');
+          sourceIds[source.sourceId] = true;
+        });
+        nonEmptyString(record.assessmentCandidateId, label + '.assessmentCandidateId');
+        exactKeys(record.bindings,
+          ['registerPath', 'registerLearningRecord', 'contentPath', 'videoPath',
+           'assessmentRecordId', 'sourceIds'], label + '.bindings');
+        if (record.bindings.registerPath !== '/content/site/high-classes.json' ||
+            record.bindings.registerLearningRecord !== record.recordId ||
+            record.bindings.contentPath !== record.contentPath ||
+            record.bindings.assessmentRecordId !== record.assessmentCandidateId) {
+          throw new Error(label + ' binding is invalid');
+        }
+        uniqueStrings(record.bindings.sourceIds, label + '.bindings.sourceIds', 1);
+        if (!sameStringSet(record.bindings.sourceIds, Object.keys(sourceIds))) {
+          throw new Error(label + ' source binding is incomplete');
+        }
+        uniqueStrings(record.missingAcceptance, label + '.missingAcceptance', 1);
+        if (record.status === 'held') {
+          if (record.reviewedOn !== null || record.recheckOn !== null || record.bindings.videoPath !== null) {
+            throw new Error(label + ' held record contains approval fields');
+          }
+        } else {
+          var reviewed = isoDay(record.reviewedOn, label + '.reviewedOn');
+          var recheck = isoDay(record.recheckOn, label + '.recheckOn');
+          var today = Date.UTC(new Date().getUTCFullYear(), new Date().getUTCMonth(), new Date().getUTCDate());
+          if (reviewed > recheck || reviewed > today || recheck < today) {
+            throw new Error(label + ' admission is future, expired or out of order');
+          }
+          sourceIntervals.forEach(function (sourceInterval) {
+            if (sourceInterval.checkedOn > reviewed || recheck > sourceInterval.recheckOn) {
+              throw new Error(label + ' source evidence does not contain the admission interval');
+            }
+          });
+          if (!/^\/[A-Za-z0-9_./-]+\.mp4$/.test(record.bindings.videoPath || '') ||
+              /^\/\//.test(record.bindings.videoPath)) {
+            throw new Error(label + ' video binding is invalid');
+          }
+        }
+      } else {
+        exactKeys(record, [
+          'recordId', 'kind', 'contentId', 'alignedClassId', 'alignedClassRecordId',
+          'status', 'candidateStatus', 'runtimeKey', 'runtimePath', 'assessmentMode',
+          'explainBackStatus', 'sourceIds', 'objective', 'questions', 'missingAcceptance'
+        ], label);
+        if (record.status !== 'held' ||
+            record.candidateStatus !== 'repaired-awaiting-independent-review' ||
+            record.runtimeKey !== null || record.runtimePath !== null ||
+            record.assessmentMode !== 'selected-response-practice-not-explain-back' ||
+            record.explainBackStatus !== 'held-requires-human-rubric-and-unfamiliar-learner-study') {
+          throw new Error(label + ' quiz admission fields are invalid');
+        }
+        nonEmptyString(record.alignedClassId, label + '.alignedClassId');
+        nonEmptyString(record.alignedClassRecordId, label + '.alignedClassRecordId');
+        uniqueStrings(record.sourceIds, label + '.sourceIds', 1);
+        nonEmptyString(record.objective, label + '.objective');
+        if (!Array.isArray(record.questions) || !record.questions.length) throw new Error(label + '.questions missing');
+        record.questions.forEach(function (question, questionIndex) {
+          validateQuestion(question, questionIndex);
+          if (questionIds[question.id]) throw new Error('Learning ledger has duplicate question IDs');
+          questionIds[question.id] = true;
+        });
+        uniqueStrings(record.missingAcceptance, label + '.missingAcceptance', 1);
+      }
+    });
+
+    var usedRecords = {};
+    var registerSlugs = {};
+    var registerLearningRecords = {};
+    register.classes.forEach(function (cls) {
+      nonEmptyString(cls.slug, 'class register slug');
+      if (registerSlugs[cls.slug]) throw new Error('Class register has duplicate slugs');
+      registerSlugs[cls.slug] = true;
+      if (!cls.learning_record) return;
+      if (registerLearningRecords[cls.learning_record]) {
+        throw new Error('Class register has duplicate learning-record bindings');
+      }
+      registerLearningRecords[cls.learning_record] = true;
+      var record = recordIds[cls.learning_record];
+      if (!record || record.kind !== 'class' || record.contentId !== cls.slug ||
+          cls.learning_content !== record.contentPath ||
+          record.bindings.videoPath !== cls.video) {
+        throw new Error('Class-to-learning record binding is invalid');
+      }
+      var quiz = recordIds[record.assessmentCandidateId];
+      if (!quiz || quiz.kind !== 'quiz-candidate' ||
+          quiz.recordId !== record.bindings.assessmentRecordId ||
+          quiz.alignedClassId !== cls.slug ||
+          quiz.alignedClassRecordId !== record.recordId ||
+          !sameStringSet(quiz.sourceIds, record.bindings.sourceIds)) {
+        throw new Error('Class-to-quiz binding is invalid');
+      }
+      if (record.status === 'admitted') {
+        var filmed = isoDay(cls.filmed_on, 'class.filmed_on');
+        var verified = isoDay(cls.verified_on, 'class.verified_on');
+        var reviewed = isoDay(record.reviewedOn, 'record.reviewedOn');
+        if (filmed > ledgerToday || verified > ledgerToday ||
+            filmed > reviewed || verified > reviewed ||
+            cls.status !== 'live' || typeof cls.video !== 'string') {
+          throw new Error('Admitted class production evidence is invalid');
+        }
+      }
+      usedRecords[record.recordId] = true;
+      usedRecords[quiz.recordId] = true;
+    });
+    Object.keys(recordIds).forEach(function (recordId) {
+      if (!usedRecords[recordId]) throw new Error('Learning ledger has an unknown or extra record');
+    });
+    return ledger;
+  }
+
+  Promise.all([
+    fetchJSON(DATA, 'Class register'),
+    fetchJSON(LEARNING_DATA, 'Learning ledger')
+  ]).then(function (payload) {
+    var json = payload[0];
+    var ledger = validateLearningLedger(payload[1], json);
     var list = json.classes || [];
     if (!list.length) throw new Error('Class register is empty');
     ALL = list;
@@ -608,10 +876,14 @@
     var siblings = list.filter(function (c) { return c.subject === cls.subject; })
                        .sort(function (a, b) { return a.period - b.period; });
 
-    render(cls, subject, siblings, subjects);
+    var review = cls.learning_record ? ledger.records.filter(function (record) {
+      return record.kind === 'class' && record.recordId === cls.learning_record;
+    })[0] || null : null;
+
+    render(cls, subject, siblings, subjects, review);
   }).catch(function () {
-    renderUnavailable('The class list could not be loaded.',
-      'The register is unavailable right now. Return to SUNNYVAiLE High for the 101 shelf or Pop Quiz.');
+    renderUnavailable('The class and learning review could not be loaded.',
+      'The register or its learning-admission record is unavailable. Return to SUNNYVAiLE High for the 101 shelf or Pop Quiz.');
   });
 
   function renderUnavailable(title, detail) {
@@ -623,9 +895,31 @@
     $('tvtag-text').textContent = 'Unavailable';
   }
 
-  function render(cls, subject, siblings, subjects) {
+  function isCurrentAdmission(review) {
+    if (!review || review.status !== 'admitted' || !review.reviewedOn || !review.recheckOn) return false;
+    try {
+      var reviewed = isoDay(review.reviewedOn, 'reviewedOn');
+      var recheck = isoDay(review.recheckOn, 'recheckOn');
+      var now = new Date();
+      var today = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+      return reviewed <= recheck && reviewed <= today && recheck >= today;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  function render(cls, subject, siblings, subjects, review) {
     var periodLabel = 'Period ' + cls.period;
-    var live = cls.status === 'live' && cls.video;
+    var admitted = isCurrentAdmission(review);
+    var live = cls.status === 'live' && cls.video && admitted;
+    var reviewStatus = $('class-review-status');
+    reviewStatus.dataset.learningStatus = admitted ? 'admitted' : (review ? review.status : 'held-unlisted');
+    reviewStatus.innerHTML = admitted
+      ? '<strong>Learning review:</strong> admitted through ' + esc(review.recheckOn) + '.'
+      : '<strong>Learning review:</strong> held. ' +
+        (review && review.candidateStatus === 'repaired-awaiting-independent-review'
+          ? 'This repaired candidate awaits independent instructional, accuracy and media review.'
+          : 'No current admission record exists for this preview.');
     $('class-format-note').textContent = live
       ? 'This class is a screen recording. Watch the demonstrated task on the real interface, inspect why it works, then try it yourself.'
       : 'This is a written production preview, not a finished class. The proposed tape will demonstrate the task on a real interface, but no class tape is available yet.';
@@ -726,7 +1020,9 @@
       : '—';
     $('tape-status').innerHTML = live
       ? '<span class="chip chip--live">Ready</span>'
-      : '<span class="chip chip--soon">Not filmed</span>';
+      : '<span class="chip chip--soon">' +
+        (cls.status === 'live' && cls.video ? 'Learning review held' : 'Not filmed') +
+        '</span>';
 
     // If a class is past its re-check window, the page says so rather than pretending.
     // Same thresholds as operations/tools/check-class-currency.py.

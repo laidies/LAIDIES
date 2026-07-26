@@ -1,34 +1,41 @@
 {
   "product": "sunnyvaile-post-office",
-  "status": "BUILDING",
-  "asOf": "2026-07-25",
+  "status": "BOUNDED LOCAL PASS — RELEASE HOLDS REMAIN",
+  "asOf": "2026-07-26",
   "operatingMode": "manual-invocation",
   "persistentRunner": "NOT WIRED",
   "analyticsPull": "NOT WIRED",
   "subChampions": {
-    "newsletterDelivery": "PARTIAL — Buttondown path and locally tested popup-blocked truth state exist; external submission/confirmation/error/retry evidence is not available",
-    "magicLinkSignIn": "NOT TESTED — Supabase flow is coordinated through Resident Card; handoff copy is locally truthful but no real email/auth journey was run",
-    "postcardsReferral": "VERIFIED LOCALLY — selection, compose, legacy-URL sanitisation and forced failure states passed; authoritative delivery, join and reward lifecycle is deliberately unavailable"
+    "newsletterDelivery": "BUILT LOCALLY / EXTERNAL HELD — Buttondown handoff, invalid-email and popup-blocked truth states pass; provider acceptance, confirmation, unsubscribe, delivery and failure receipts are unavailable",
+    "magicLinkSignIn": "HELD — Post Office now has a real account-status target with no email intake or magic-link request; Supabase request/callback/session journey was not run",
+    "postcardsReferral": "VERIFIED LOCALLY — exact deep-link selection/canonical copy binding, ephemeral Signed preview/share text, compose, legacy-query sanitisation and forced failure states pass; authoritative delivery, join and reward lifecycle is unavailable"
   },
   "currentTruth": {
-    "newsletter": "An opaque iframe/form post may report only a signup attempt, not a created subscription",
-    "postcard": "Native share/copy/email/SMS can prepare a share; it cannot prove delivery, opening, join or reward",
+    "newsletter": "A valid local request may continue to Buttondown, but the page cannot confirm provider acceptance, subscription, confirmation or delivery",
+    "postcard": "Native share/email/SMS can prepare a note and optional bounded signature while Copy exposes only the public card URL; none can prove delivery, opening, join or reward",
     "referralRewards": "HIDDEN/REMOVED until durable lifecycle and reward evidence exist",
     "privacy": "Generated postcard links now contain only a public card id; note/handle stay in user-controlled share text. Do not treat query parameters or client storage as a durable private invite record"
   },
-  "latestDeepDive": "launch-deep-dive-2026-07-25.md",
+  "latestDeepDive": "cycle-5-deep-dive-service-truth-p0-2026-07-26.md",
   "operatingSpec": "OPERATING-SPEC.md",
-  "latestEvidence": "evidence-local-service-boundaries-2026-07-25.md",
+  "latestBuildPacket": "build-packet-service-truth-repair-1-2026-07-26.md",
+  "latestEvidence": "maker-evidence-service-truth-repair-3-2026-07-26.md",
+  "independentRejudge": {
+    "repair1": "PASS 87/100 — provider/native/owner/public holds preserved",
+    "repair2": "FAIL 86/100 — archive integrity passed; repeated failed Retry lost keyboard focus",
+    "repair3": "PASS 91/100 — archive uniqueness, atomic failure and repeated keyboard retry focus independently accepted",
+    "latestEvidence": "independent-rejudge-service-truth-repair-3-2026-07-26.md"
+  },
   "localVerification": {
-    "date": "2026-07-25",
-    "result": "VERIFIED LOCALLY — bounded source, desktop/mobile, keyboard-state and forced failure suite; all external requests aborted",
-    "sourceBinding": "a5b3c513cfe13f1484095db23ce746d9b1b67a31 plus hashes in evidence-local-service-boundaries-2026-07-25.md",
-    "limits": "No provider, email, auth, native share, clipboard, analytics, public-origin or assistive-technology test occurred"
+    "date": "2026-07-26",
+    "result": "VERIFIED LOCALLY — Repair 3 source and fresh exact-artifact contract/browser suites pass 101 checks; two consecutive Enter retries restore focus; zero attacker-origin attempts and zero external requests completed",
+    "sourceBinding": "Repair 3 runtime SHA-256 hashes and exact artifact path are recorded in maker-evidence-service-truth-repair-3-2026-07-26.md",
+    "limits": "No provider, real email/auth, recipient, analytics, public-origin, owner visual or native assistive-technology test occurred"
   },
   "nextTrigger": {
-    "type": "approved-test-identity-controlled-third-party-delivery-and-failure-suite",
-    "status": "PENDING",
-    "reason": "The operating specification now distinguishes provider/session receipts from local actions. A disposable approved test identity and explicit authority are required for Buttondown/Supabase mutation, confirmation, unsubscribe, callback/session and cleanup; native-share/copy availability can be checked locally without a recipient."
+    "type": "provider-native-owner-analytics-and-public-gates",
+    "status": "WAITING_FOR_EXTERNAL_AND_OWNER_EVIDENCE",
+    "reason": "Repair 3 independently passed at 91/100. Archive truth, uniqueness, atomic failure and repeated keyboard retry focus are accepted locally; provider, native, owner, analytics and public evidence remain held."
   },
   "openBlockers": [
     "No real Buttondown subscribe/confirmation/unsubscribe/error evidence.",
@@ -39,5 +46,5 @@
     "Current postcard/referral surface has no authorised opaque invite/reward lifecycle; it remains unavailable.",
     "Provider-side Clarity masking configuration, CDN legacy-query retention and actual analytics payloads were not inspected; the static scan is only PARTIAL."
   ],
-  "lastRun": {"date": "2026-07-25", "type": "local-service-boundary-and-failure-suite", "result": "VERIFIED LOCALLY; EXTERNAL RESULTS UNVERIFIED"}
+  "lastRun": {"date": "2026-07-26", "type": "cycle-5-service-truth-repair-3-independent-rejudge", "result": "BOUNDED LOCAL PASS 91/100; 101 SOURCE/ARTIFACT CHECKS; THREE CONSECUTIVE FOCUSED RETRIES PER HOSTILE SCENARIO; EXTERNAL AND OWNER GATES HELD"}
 }

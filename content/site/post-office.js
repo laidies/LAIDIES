@@ -21,6 +21,45 @@
   var previewTitle = document.getElementById("poPostcardTitle");
   var writeLink = document.getElementById("poWriteLink");
 
+  function admittedArchivePath(value, kind) {
+    if (typeof value !== "string" || value !== value.trim() || !value) return null;
+    if (/[\u0000-\u001F\u007F\\%?#]/.test(value)) return null;
+    if (value.slice(0, 2) === "//") return null;
+    var canonical = value.charAt(0) === "/" ? value : "/" + value;
+    if (!/^\/(?!\/)/.test(canonical)) return null;
+    var segments = canonical.split("/").slice(1);
+    if (!segments.length || segments.some(function (segment) {
+      return !segment || segment === "." || segment === "..";
+    })) return null;
+    if (kind === "image") {
+      return /^\/assets\/[A-Za-z0-9_.\/-]+\.(?:avif|jpe?g|png|webp)$/.test(canonical)
+        ? canonical
+        : null;
+    }
+    if (kind === "issue") {
+      return /^\/issues\/issue-[0-9]{2,3}\.html$/.test(canonical)
+        ? canonical
+        : null;
+    }
+    return null;
+  }
+
+  function archiveFailure(focusRecovery) {
+    var message = document.createElement("p");
+    message.className = "po-archive-error";
+    message.textContent = "The published-episode drawer could not be verified. No newsletter delivery is implied; use the homepage to browse the currently available site.";
+    var retry = document.createElement("button");
+    retry.type = "button";
+    retry.className = "svb-action po-archive-retry";
+    retry.textContent = "Retry the archive check";
+    retry.addEventListener("click", function () {
+      retry.disabled = true;
+      loadArchive(true);
+    });
+    archive.replaceChildren(message, retry);
+    if (focusRecovery) retry.focus();
+  }
+
   function selectPostcard(card, button) {
     rack.querySelectorAll("button").forEach(function (item) {
       item.classList.toggle("is-selected", item === button);
@@ -54,7 +93,7 @@
   }
 
   var archive = document.getElementById("poArchive");
-  if (archive) {
+  function loadArchive(focusRecovery) {
     fetch("/content/episode-index.json")
       .then(function (response) {
         if (!response.ok) throw new Error("archive unavailable");
@@ -63,26 +102,75 @@
       .then(function (data) {
         var episodes = (data.episodes || []).filter(function (episode) {
           return episode.status === "published";
-        }).sort(function (a, b) {
-          return Number(b.number) - Number(a.number);
         });
 
-        archive.innerHTML = episodes.map(function (episode) {
+        if (!episodes.length) {
+          archive.textContent = "No published episodes are admitted to this drawer yet.";
+          return;
+        }
+        var admittedNumbers = Object.create(null);
+        var admittedIssueUrls = Object.create(null);
+        var admittedEpisodes = episodes.map(function (episode) {
+          if (
+            !episode ||
+            typeof episode.number !== "number" ||
+            !Number.isInteger(episode.number) ||
+            episode.number < 1 ||
+            typeof episode.title !== "string" ||
+            typeof episode.oneLineDescription !== "string" ||
+            typeof episode.heroImage !== "string" ||
+            typeof episode.issueUrl !== "string"
+          ) {
+            throw new Error("archive entry invalid");
+          }
           var number = String(episode.number).padStart(2, "0");
-          var image = episode.heroImage.charAt(0) === "/" ? episode.heroImage : "/" + episode.heroImage;
-          var url = episode.issueUrl.charAt(0) === "/" ? episode.issueUrl : "/" + episode.issueUrl;
-          return '<article class="po-delivery">' +
-            '<a href="' + url + '">' +
-              '<img src="' + image + '" alt="" loading="lazy">' +
-              '<span class="po-delivery__stamp">Delivered · Episode ' + number + "</span>" +
-            "</a>" +
-            '<h3><a href="' + url + '">' + episode.title + "</a></h3>" +
-            '<p>' + episode.oneLineDescription + "</p>" +
-          "</article>";
-        }).join("");
+          var image = admittedArchivePath(episode.heroImage, "image");
+          var url = admittedArchivePath(episode.issueUrl, "issue");
+          if (!image || !url) {
+            throw new Error("archive path invalid");
+          }
+          if (
+            Object.prototype.hasOwnProperty.call(admittedNumbers, episode.number) ||
+            Object.prototype.hasOwnProperty.call(admittedIssueUrls, url)
+          ) {
+            throw new Error("archive collection is duplicate or ambiguous");
+          }
+          admittedNumbers[episode.number] = true;
+          admittedIssueUrls[url] = true;
+          return { episode: episode, number: number, image: image, url: url };
+        }).sort(function (a, b) {
+          return b.episode.number - a.episode.number;
+        });
+
+        archive.replaceChildren();
+        admittedEpisodes.forEach(function (entry) {
+          var episode = entry.episode;
+          var article = document.createElement("article");
+          article.className = "po-delivery";
+          var imageLink = document.createElement("a");
+          imageLink.href = entry.url;
+          var img = document.createElement("img");
+          img.src = entry.image;
+          img.alt = "";
+          img.loading = "lazy";
+          var stamp = document.createElement("span");
+          stamp.className = "po-delivery__stamp";
+          stamp.textContent = "Published · Episode " + entry.number;
+          imageLink.append(img, stamp);
+          var heading = document.createElement("h3");
+          var titleLink = document.createElement("a");
+          titleLink.href = entry.url;
+          titleLink.textContent = episode.title;
+          heading.appendChild(titleLink);
+          var description = document.createElement("p");
+          description.textContent = episode.oneLineDescription;
+          article.append(imageLink, heading, description);
+          archive.appendChild(article);
+        });
       })
       .catch(function () {
-        archive.innerHTML = '<p class="po-archive-error">The archive drawer is temporarily stuck. Today’s episode is still waiting on the homepage.</p>';
+        archiveFailure(focusRecovery === true);
       });
   }
+  if (archive) loadArchive(false);
 })();

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The SUNNYVAiLE Post Office · SUNNYVAiLE</title>
-  <meta name="description" content="Rent your SUNNYVAiLE PO box, pick a postcard, and open the Wednesday delivery archive with Penny at the counter.">
+  <meta name="description" content="Request the Wednesday Postcard through Buttondown, check the held Resident Card account desk, or prepare a local SUNNYVAiLE postcard with Penny.">
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
   <link rel="stylesheet" href="/assets/sunnyvaile-building-v2.css?v=20260723-1">
@@ -375,18 +375,19 @@
     <header class="svb-title">
       <p class="svb-title__eyebrow">Civic Square · SUNNYVAiLE</p>
       <h1>The SUNNYV<span class="ai">Ai</span>LE Post Office</h1>
-      <p class="svb-title__lede">Rent your box, choose a postcard, or open an old Wednesday delivery. Penny will tell you exactly what is open before you touch anything.</p>
+      <p class="svb-title__lede">Request the Wednesday Postcard, check the Resident Card desk, choose a postcard, or open a published edition. Penny will tell you exactly what this page can confirm.</p>
     </header>
 
     <section class="svb-band" aria-labelledby="po-counter-title">
       <div class="svb-band__inner">
         <p class="svb-kicker">Penny’s counter · open now</p>
-        <h2 id="po-counter-title">The Wednesday Postcard is ready. The postcard rack is full.</h2>
-        <p class="svb-band__copy">Your email is your PO box for the weekly delivery. Sending a friend a postcard happens here too. Resident-to-resident mail is becoming a site-wide layer, so it won’t make you leave whatever you’re doing just to read a note.</p>
+        <h2 id="po-counter-title">The Buttondown request desk and postcard rack are open.</h2>
+        <p class="svb-band__copy">Buttondown owns newsletter signup and delivery. This page can open that request, but it cannot confirm a subscription or an email. The Resident Card account desk is held; composing a postcard remains local until you choose a device sharing tool.</p>
         <div class="svb-actions">
-          <a class="svb-action" href="#rent">Rent a box</a>
+          <a class="svb-action" href="#rent">Request the newsletter</a>
+          <a class="svb-action svb-action--mint" href="#signin">Check account status</a>
           <a class="svb-action svb-action--cyan" href="#rack">Pick a postcard</a>
-          <a class="svb-action svb-action--mint" href="#archive">Open the archive</a>
+          <a class="svb-action" href="#archive">Open published editions</a>
         </div>
       </div>
     </section>
@@ -396,28 +397,40 @@
         <img src="/assets/postcards/from-sunnyvaile/pc-youve-got-mail.png" alt="You've Got Mail from SUNNYVAiLE postcard" loading="lazy">
       </a>
       <div class="po-form">
-        <p class="svb-kicker">Counter one · rent a box</p>
-        <h2 id="po-rent-title">One delivery. Every Wednesday.</h2>
-        <p>A short hello and the new episode. No daily funnel, no five-email sequence, no “are you still interested?” note.</p>
+        <p class="svb-kicker">Counter one · newsletter request</p>
+        <h2 id="po-rent-title">Ask Buttondown for the Wednesday Postcard.</h2>
+        <p>The intended cadence is one useful Wednesday edition. Buttondown must accept the request and may require confirmation; this page cannot promise that an email will arrive.</p>
         <form id="po-newsletter-form" action="https://buttondown.com/api/emails/embed-subscribe/laidies" method="post" target="popupwindow">
           <div class="po-form__fields">
             <label class="sr-only" for="po-email">Email address</label>
             <input id="po-email" type="email" name="email" placeholder="you@yourcompany.com" autocomplete="email" aria-describedby="po-newsletter-notice" required>
-            <button class="svb-action" type="submit">Rent my box</button>
+            <button class="svb-action" type="submit">Continue to Buttondown</button>
           </div>
         </form>
         <p class="po-form__small" id="po-newsletter-notice">Your email goes to Buttondown to request the Wednesday Postcard. Buttondown will show the next step; a popup or form opening is not a subscription receipt. You can unsubscribe through its emails. <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a>.</p>
         <p class="po-form__small" id="po-newsletter-status" role="status" aria-live="polite" hidden></p>
         <p class="po-form__small" id="po-newsletter-fallback" hidden><a href="https://buttondown.com/laidies" target="_blank" rel="noreferrer">Open the Buttondown signup page</a>.</p>
-        <p class="po-form__small">Want to sign in or manage a card? <a href="/resident-card.html">Open your Resident Card</a>.</p>
-        <p class="po-form__small">The Resident Card handles its own email sign-in; opening it does not create an account.</p>
+        <p class="po-form__small">The account desk has a separate held status below. Newsletter consent never creates a Resident Card.</p>
+      </div>
+    </section>
+
+    <section class="svb-section" id="signin" aria-labelledby="po-signin-title">
+      <header class="svb-section__head">
+        <p class="svb-kicker">Counter two · Resident Card status</p>
+        <h2 id="po-signin-title">The account guest book is not taking email addresses.</h2>
+        <p class="svb-section__intro">No magic-link request starts at this counter. The Resident Card page reports the same held account state; MAiKEOVER can still make a card saved only on this device.</p>
+      </header>
+      <p class="svb-honest-note" role="status" aria-live="polite"><strong>Nothing has been submitted and no account has been created.</strong> A device-local card is not a sign-in, membership, public profile or cross-device identity.</p>
+      <div class="svb-actions">
+        <a class="svb-action" href="/resident-card.html">Open Resident Card status</a>
+        <a class="svb-action svb-action--cyan" href="/maikeover.html">Make a device-local card</a>
       </div>
     </section>
 
     <section class="po-rack-field" id="rack" aria-labelledby="po-rack-title">
       <div class="svb-section">
         <header class="svb-section__head">
-          <p class="svb-kicker">Counter two · the postcard rack</p>
+        <p class="svb-kicker">Counter three · the postcard rack</p>
           <h2 id="po-rack-title">Pick the one that sounds like her.</h2>
           <p class="svb-section__intro">The postcards are the controls. Choose one from the rack and Penny puts it on the writing desk.</p>
         </header>
@@ -438,9 +451,9 @@
 
     <section class="svb-section" id="archive" aria-labelledby="po-archive-title">
       <header class="svb-section__head">
-        <p class="svb-kicker">Counter three · previous deliveries</p>
-        <h2 id="po-archive-title">The Wednesday archive.</h2>
-        <p class="svb-section__intro">Missed one? Every published episode stays filed here. Open the image to read the delivery in place on the site.</p>
+        <p class="svb-kicker">Counter four · published editions</p>
+        <h2 id="po-archive-title">The published-episode archive.</h2>
+        <p class="svb-section__intro">This drawer lists admitted published episodes on the site. It does not prove that any newsletter was sent or delivered.</p>
       </header>
       <div class="po-archive" id="poArchive" aria-live="polite">
         <p>Opening the archive drawer…</p>
@@ -469,7 +482,7 @@
           return;
         }
         fallback.hidden = true;
-        status.textContent = 'Buttondown opened to receive your request. This page cannot confirm a subscription, confirmation email or delivery.';
+        status.textContent = 'A signup request was handed to the Buttondown window. This page cannot confirm that Buttondown accepted it, created a subscription, sent a confirmation email or delivered anything.';
       });
     })();
   </script>

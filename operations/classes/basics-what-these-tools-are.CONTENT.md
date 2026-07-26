@@ -1,67 +1,130 @@
-# What these tools are, and what they're for
-*SUNNYVAiLE High · The Basics. Teaching content (not narration, not a shot list). Plain teaching carries; analogy garnishes. Pairs with the next class, "How these tools actually work."*
+# What you are looking at: app, model, tools and context
 
----
+**SUNNYVAiLE High · The Basics · Cycle 5 teaching candidate**
 
-## What it is
-ChatGPT, Claude and Gemini are built on the same core — a **large language model** (the next class breaks down what that means). But the model on its own is just a text engine: it continues writing, it doesn't naturally answer *you*. What you actually talk to is that engine after two things were added on top:
+**Status:** HELD — repaired 2026-07-26; not filmed, admitted or approved.
 
-- It was **trained further to act like a helpful assistant** — to follow an instruction, answer your question instead of just finishing your sentence, and take turns in a back-and-forth. That extra training is the "chat" part — it's what turns a text engine into something that replies to *you*.
-- It was **wrapped in an app** — the box, your history, the settings, the buttons.
+**Learner:** someone who can open a conversational AI product but does not yet
+have a dependable mental model of its parts.
 
-So keep two nouns straight, because almost everything gets clearer once you do:
+**Objective:** distinguish the app from the model and optional services it can
+use, trace what becomes working context, and decide what must be verified.
 
-- **The model** — the engine that produces the words: the large language model, trained to behave like a helpful assistant.
-- **The tool** — the app wrapped around it. What you click.
+## The useful mental model
 
-"ChatGPT" is the app; the writing is done by the model in it. Claude is Anthropic's, Gemini is Google's — same arrangement, different maker. Learn one and the others feel familiar.
+When you open ChatGPT, Claude or Gemini, you are using a product, not touching a
+model by itself.
 
-## What it's for — and why it isn't just a better Google
-Most people use it like a search box, and that's the smallest thing it does. The difference is worth being clear about, because it changes everything you'd reach for it for.
+- **The app or assistant** is the product around the experience: interface,
+  account, settings, instructions, conversation history, permissions, limits
+  and any connected capabilities.
+- **The model** processes the information supplied for the current task and
+  produces or helps select the next output or action. Current general-purpose
+  models may work with text, images and other media; “just a text engine” is no
+  longer a safe description.
+- **Tools and retrieval** are optional capabilities the product may make
+  available: web search, file handling, code execution, function calls or
+  connected services. Availability varies by product, account and setting.
+- **Context** is the information made available for this task: your request,
+  relevant conversation, instructions, files or selected results from tools.
+  Context is not the same as verified truth.
 
-**Google searches; this writes.** Google finds pages other people already wrote and hands you the links — you do the reading and the work yourself. This one doesn't look anything up and hand you a list; it *generates* a fresh answer, built for your exact situation, and does the work *with* you. And you can talk back to it — "shorter," "more formal," "now for my case" — which a search box can't do. It isn't a better index; it's a different kind of thing: an assistant you have a conversation with.
+A compact request flow is:
 
-So the work it actually does for you:
+`request → app instructions/context → model → optional tool call/result → response`
 
-- **Drafts** the thing you're dreading — the email, the message you keep rewriting, a first version of anything you'd rather react to than start from a blank page.
-- **Digests** what's long or baffling — a contract, a policy, a dense report, a bill, a forty-message thread — into plain words.
-- **Thinks it through** with you — weigh two options, plan the trip, rehearse a hard conversation, pressure-test a plan before you commit to it.
-- **Explains anything at your level** — "explain this like I'm smart but new to it," then "simpler," then "give me an example."
-- **Does the tedious version** — notes into a table, a list into a schedule, one paragraph into three subject lines.
+The product may repeat parts of that flow. It may ask the model to choose a
+tool, add the result to context, and ask the model to answer. A polished answer
+does not reveal which parts were generated, retrieved or checked unless the
+product shows that evidence.
 
-**What it's good at, and what it isn't.** It's strong wherever the job is made of words and judgment — drafting, explaining, digesting, reshaping, thinking a decision through. It's weaker wherever the job needs a guaranteed-correct fact, fresh news it wasn't trained on, or exact math it didn't work through — because it produces plausible language, not verified truth. Knowing where that line falls is most of knowing when to reach for it.
+## Search and generation can overlap
 
-The shift worth making: stop treating it as a place to look things up, and start treating it as someone to hand the task to.
+“Search finds; AI writes” is too simple for current products. Conversational AI
+apps can search the web, open connected information and cite sources. Search
+adds evidence to the working context; the model still interprets and explains
+it. A citation is a route to inspect, not a correctness guarantee.
 
-## What it's made of — the building blocks
-The engine on its own doesn't do much. Every one of these tools is built from the same parts around it — and the hub they all feed is one idea: **context.**
+Ask three questions when current or consequential facts matter:
 
-**Context — "the room."** When it answers, it can only see what's in the current conversation right now: your messages and its own replies so far, up to a size limit. That's the room. It is *not* quietly reading your past chats, your files, or the web — only what's in the room. And this is what ties the whole machine together: **every other part is just a different way of getting something into the room.**
+1. Did the product use a current source?
+2. Does the source actually support this specific claim?
+3. Is the source responsible and recent enough for the decision?
 
-- **A file you upload** — dropped into the room.
-- **Memory** — a saved note about you it re-adds to the room at the start of each chat, so your name or your job is there even in a brand-new one. A sticky note it wrote, not the machine knowing you — and you can read it, edit it, or turn it off.
-- **A connector** — your email or drive, plugged in so it can pull things into the room once you allow it.
-- **Web search**, when it's switched on — puts fresh results in the room, so it can work with things from after its **cutoff**: the point where its training stopped and its built-in knowledge froze.
-- **Custom instructions** — a note *you* set once ("keep it short," "I manage a team, skip the basics") that rides along in the room every time.
+## What changes between products
 
-That's why a **new chat** is an empty room, why a **very long chat** starts forgetting its own beginning, why **being specific works** (you're filling the room with what it needs), and why "does it remember me" always comes down to: is something feeding the room?
+Two apps can expose similar models while offering different search, memory,
+file, privacy, price or usage features. Conversely, one app can switch among
+models. Keep **model capability**, **product feature** and **account
+entitlement** separate.
 
-A few more parts sit on top — each its own class later:
+“New chat” also does not guarantee “nothing persisted.” A product may supply
+saved instructions or memory according to its controls. Do not claim that a
+model can see every past chat, file or connected service; access depends on
+what the product deliberately supplies and permits.
 
-- **Projects** — a room you keep, for one ongoing job, so the setup is already there each time.
-- **Skills, plugins, scheduled runs** — teaching it a repeatable job, bolting on extra abilities, and having it run on its own.
+## Demonstration the tape must show
 
-Different makers name these differently and move the buttons around — but the parts are the same. Same sections, different magazine.
+Use one current product and one harmless, checkable question.
 
-## What it means for you
-- **Fill the room.** The more you give it — who it's for, what you need, the background — the better what comes back.
-- **A new chat is a clean slate on purpose;** the same chat holds the thread because it's all still in the room.
+1. Ask without search. Mark the generated answer and any uncertainty.
+2. repeat with the product's visible search feature enabled.
+3. Show the search state and source links at the exact moment narration names
+   them.
+4. Open one cited source and compare it with one claim.
+5. Name what changed—retrieved evidence entered the flow—and what did not—the
+   learner still had to verify support.
 
-## Getting started — what you actually need to do
-You don't install anything, and you don't pay to begin. Three steps:
+The screen capture must be recorded after the route is checked. Any interface
+claim receives a checked date and a 30-day recheck date.
 
-1. **Pick one and make a free account.** ChatGPT is at chatgpt.com, Claude at claude.ai, Gemini at gemini.google.com — it barely matters which, so just pick one. (Each has a phone app too; the website works the same everywhere.)
-2. **Open it and give it one real thing.** Skip the test questions — hand it something actually on your plate: a paragraph to tidy up, a decision to weigh, something confusing to have explained. A real task shows you what it's for; a test-drive won't.
-3. **Don't settle for the first answer — talk back to it.** "Make it shorter." "Try it more formal." "Now for my situation." Steering it is the point.
+## Analogy, then its limit
 
-That's the on-ramp. *Which* tool, and where each button lives, is what that tool's own classes are for — and how the engine actually turns your words into an answer, why it's so useful and why it can be so confidently wrong, is the very next class.
+Think of the app as a studio, the model as one performer, and tools as equipment
+the studio may make available. This separates the layers. But a model is not a
+person, and product orchestration is not literally a studio; return to the
+request-flow diagram for the actual mechanism.
+
+## Apply it
+
+For a task on your own list, write down:
+
+- what you want the model to produce;
+- what context the app must supply;
+- which optional tool would help;
+- which claim or outcome still needs verification; and
+- what private information should not be supplied.
+
+## Explain it back
+
+Complete this sentence without using the studio analogy:
+
+> An AI app is more than a model because …
+
+A good answer names the app's context and optional tools, and says that neither
+fluent generation nor citations remove the need to verify important claims.
+
+## Misleading-claim resistance
+
+Hold or correct explanations that say:
+
+- “today's AI only handles text”;
+- “conversational AI never searches or uses tools”;
+- “a new chat cannot receive saved information”;
+- “the model automatically sees everything you can access”; or
+- “citations prove the answer is correct.”
+
+## Currentness and source trail
+
+Checked 2026-07-26; recheck product-capability claims by 2026-08-25 and again
+before recording.
+
+- OpenAI, *ChatGPT Search*: <https://help.openai.com/en/articles/9237897-chatgpt-search>
+- OpenAI, *Apps in ChatGPT*: <https://help.openai.com/en/articles/11487775-connectors-in>
+- OpenAI, *Memory FAQ*: <https://help.openai.com/en/articles/8590148-memory-faq>
+- Anthropic, *Enabling and using web search*: <https://support.anthropic.com/en/articles/10684626-enabling-and-using-web-search>
+- Google, *Gemini API tools*: <https://ai.google.dev/gemini-api/docs/tools>
+- Google, *Image understanding*: <https://ai.google.dev/gemini-api/docs/image-understanding>
+
+These sources establish current examples, not permanent equivalence among
+products. Interface, availability, names and limits remain volatile.

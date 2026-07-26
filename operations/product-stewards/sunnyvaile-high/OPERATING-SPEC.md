@@ -1,7 +1,8 @@
 # SUNNYVAiLE High operating specification
 
-**Status:** SPECIFIED — bounded class-route and device-local learning-record
-repairs are VERIFIED LOCALLY; promotion remains **HOLD — FIX BEFORE PROMOTION**.
+**Status:** BOUNDED LOCAL PASS — independent Repair 2 rejudge 90/100;
+promotion remains **HOLD** pending instructional, media, accessibility, reward,
+owner and public gates.
 
 ## Product job
 
@@ -20,6 +21,9 @@ grade or superlative is not proof of mastery.
 ## Current inventory and admission
 
 - Canonical class register: `content/site/high-classes.json`.
+- Independent learning-admission register:
+  `content/site/high-learning-ledger.json`. Missing, malformed, unlisted, held,
+  expired or future-dated records fail closed.
 - Current register: 4 subjects, 37 planned class rows, zero `live` rows, zero
   videos and zero verified dates as of 2026-07-25.
 - Classroom route: `/learn/class.html?c=<slug>`.
@@ -30,7 +34,8 @@ grade or superlative is not proof of mastery.
 The register and written production previews may be visible only as plans.
 They must not be described as playable, finished, current or editorially
 approved classes until a row has a real video, filmed date, current
-verification date, source packet and the required learning review.
+verification date and a separate current `admitted` learning record. A
+`live` row plus a video cannot promote itself.
 
 ## Journeys and authoritative outcomes
 
@@ -64,8 +69,22 @@ must provide:
 
 The 37-row register does not currently satisfy this gate as an inventory.
 Only 21 rows have any `learn` list, 2 have a mechanism, 2 have a demonstration,
-none has a ready video, and none has a verified date. A rendered preview is
-therefore not an approved lesson.
+none has a ready video, none has a verified date and none has an admitted
+learning record. A rendered preview is therefore not an approved lesson.
+
+Cycle 5 Repair 1 adds one held representative packet for
+`basics-what-youre-looking-at`: a repaired mental model, official current
+sources including an explicit product-variable memory/new-chat binding,
+modality duties, misconception/transfer work and five selected-response
+practice items. A canned “explain it” recognition item was removed:
+explain-back requires a human rubric and unfamiliar-learner study. Its
+presence is evidence of a review candidate, not approval.
+
+Admission records use an exact complete schema. Missing or extra fields,
+invalid/impossible/future/expired/out-of-order dates, duplicate record or
+content IDs, unknown records and mismatched register/content/video/quiz/source
+bindings invalidate the ledger. Dates are parsed as real UTC calendar days;
+raw lexical comparison is not admission evidence.
 
 Every quiz question must have a unique ID, offered answer, explanation and
 review destination. A future bonus may omit a URL only when it has an explicit
@@ -94,8 +113,11 @@ published. Core points must equal the quiz `maxScore`.
 
 ## Failure and recovery
 
-- Non-OK, empty or malformed class register: show an unavailable state,
+- Non-OK, empty or malformed class register or learning ledger: show an unavailable state,
   disable the TV and offer independent 101/quiz routes.
+- Missing/unlisted/held/expired learning admission: keep the written preview
+  and test card non-playable even if a register row claims `live` and supplies
+  a video.
 - Unknown class slug: do not silently substitute the first row.
 - Unfilmed class: present a production-status card, never a play/completion
   event.
@@ -181,4 +203,3 @@ No local file, test, commit, push or deploy proves public readiness.
   memory behavior and controls change over time; product-specific teaching
   rows remain held pending fresh source review rather than being approved by
   this operating-spec cycle.
-
