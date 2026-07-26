@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0",
+  "purpose": "P0.2 coordinate QA only. Crops locate visible figures in the two existing source frames; they neither identify a person nor supply rights or cue admission.",
+  "sources": [
+    {
+      "cue": "16",
+      "path": "assets/episodes/ep-04/pixel/ep04-open-17-maivens-hall-comic-v3-canonical-cathedral-interior-1920.png",
+      "sha256": "007ff8202a7518f129096167730b30895dd9eae95b7faddffabf7c2331737f5a",
+      "dimensions": "1920x1080",
+      "state": "FAIL admission"
+    },
+    {
+      "cue": "17",
+      "path": "assets/episodes/ep-04/pixel/ep04-open-18-grace-looks-up-at-ada-maivens-comic-v2-canonical-cathedral-1920.png",
+      "sha256": "1fe2f9dfb33f35b6fc23d0159455778169dea38e56cec96b5b1db4677782ac6c",
+      "dimensions": "1920x1080",
+      "state": "FAIL admission"
+    }
+  ],
+  "crops": [
+    { "cue": "16", "item": 9, "coordinates": "x1550–1650,y260–610", "file": "coordinate-qa/cue16-item9.png", "sha256": "d32729f4549d26501795e5196d21fc612e710083914029214359bed99b5072ce", "meaning": "Location QA only; excludes the adjacent left face." }
+  ],
+  "removedDuplicateRows": [
+    { "cue": "16", "item": 10, "duplicateOf": 11, "reason": "The rectangle described the same dominant right-wall woman already recorded by item 11; no unique subject exists to retain." },
+    { "cue": "17", "item": 5, "duplicateOf": 3, "reason": "The rectangle described the same arms-crossed woman already recorded by item 3; no unique subject exists to retain." },
+    { "cue": "17", "item": 6, "duplicateOf": 4, "reason": "The rectangle described the same blue-clad figure already recorded by item 4; no unique subject exists to retain." }
+  ],
+  "contactSheet": {
+    "file": "coordinate-qa/coordinate-qa-contact-sheet.png",
+    "sha256": "0403588a31412e6c79c7aa0b2be24a834dc3e0aa2fe986377b34e5d0e9a4351a",
+    "dimensions": "680x586",
+    "renderScript": "make-coordinate-contact-sheet.py",
+    "warning": "The full SHA-bound source frame, not this derivative, remains the visual authority."
+  },
+  "admissionState": "FAIL/PENDING — no crop, source frame or contact sheet is an admitted person, visual source or cue."
+}

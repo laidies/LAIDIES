@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Class · SUNNYVAiLE High · LAiDIES</title>
-  <meta name="description" content="A class at SUNNYVAiLE High — take a seat, hit play on the TV. Short single-topic video lessons on how to actually operate the tools.">
+  <meta name="description" content="A SUNNYVAiLE High classroom production preview. Read the proposed objective and demonstration plan; class tapes are still in production.">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
@@ -65,6 +65,7 @@
 .chalk__name{
   font:500 clamp(13px,2.05vw,32px)/1.14 Jost,sans-serif;color:var(--chalk);
   letter-spacing:.012em;opacity:.9;
+  min-width:0;max-width:100%;overflow-wrap:anywhere;
   text-shadow:0 0 5px rgba(255,255,255,.22),0 1px 0 rgba(0,0,0,.16);
 }
 .chalk__rule{
@@ -117,19 +118,26 @@
    here so it ends well inside the visible slice. */
 @media (max-width:760px){
   .room{aspect-ratio:5/4}
-  .room__stage{position:absolute;top:50%;left:-40%;width:176%;transform:translateY(-46%)}
-  .chalk{left:43%;width:29%;top:27%;height:19%}
+  .room__stage{
+    position:absolute;inset:0;width:100%;height:100%;transform:none;
+  }
+  .room__img{width:100%;height:100%;object-fit:cover;object-position:center}
+  .chalk{left:50%;width:42%;top:27%;height:19%}
   .chalk__name{font-size:15px}
   .chalk__period{font-size:9px;letter-spacing:.14em}
-  .tvtag{top:45.5%}
+  .tv{left:22.5%;width:10%;top:32.5%;height:9%}
+  .tvtag{left:12%;width:30%;top:45.5%}
   .tvtag span{font-size:8px}
 }
 /* At 1:1 the stage must be ≥193% wide to cover the box vertically once the -46% upward
    bias is applied, so the left offset moves with it to keep the chalk block in frame. */
 @media (max-width:420px){
   .room{aspect-ratio:1/1}
-  .room__stage{left:-44%;width:196%}
-  .chalk{width:27%}
+  .room__stage{inset:0;width:100%;height:100%;transform:none}
+  .room__img{object-position:54% center}
+  .chalk{left:46%;width:49%}
+  .tv{left:11%;width:12.5%}
+  .tvtag{left:3%;width:37%}
   .chalk__name{font-size:14px}
 }
 
@@ -448,13 +456,13 @@
         <div class="cls-card">
           <h2>What this class answers</h2>
           <p class="q" id="cd-question">&nbsp;</p>
-          <p>The class is a screen recording. You watch it done once, on the real interface,
-            and then you can do it. The town is 1999; the software is not — that is what the
-            television is for.</p>
+          <p id="class-format-note">This is a written production preview, not a finished class.
+            The proposed tape will demonstrate the task on a real interface, but no class tape
+            is available yet.</p>
         </div>
 
         <div class="cls-card" id="cd-path-card" hidden>
-          <h2>What you'll watch happen</h2>
+          <h2 id="class-path-heading">Planned demonstration</h2>
           <ol id="cd-path"></ol>
         </div>
 
@@ -540,7 +548,7 @@
   </main>
 
   <!-- ── The television, full screen ───────────────────────────────────── -->
-  <div class="screen" id="screen" role="dialog" aria-modal="true" aria-labelledby="tv-label">
+  <div class="screen" id="screen" role="dialog" aria-modal="true" aria-label="Class tape" aria-hidden="true">
     <button class="screen__close" type="button" id="screen-close">Close</button>
     <div class="screen__inner" id="screen-inner">
       <div id="screen-slot"></div>
@@ -581,12 +589,16 @@
     return r.json();
   }).then(function (json) {
     var list = json.classes || [];
-    if (!list.length) return;
+    if (!list.length) throw new Error('Class register is empty');
     ALL = list;
 
     var slug = param();
     var cls = slug ? list.filter(function (c) { return c.slug === slug; })[0] : list[0];
-    if (!cls) cls = list[0];
+    if (!cls) {
+      renderUnavailable('That class is not in the register.',
+        'Check the class list at SUNNYVAiLE High, use the 101 shelf, or choose a Pop Quiz.');
+      return;
+    }
 
     var subjects = json.subjects || [];
     var subject = subjects.filter(function (s) { return s.slug === cls.subject; })[0]
@@ -598,13 +610,26 @@
 
     render(cls, subject, siblings, subjects);
   }).catch(function () {
-    $('hd-name').textContent = 'The class list could not be loaded.';
-    $('hd-sub').textContent  = 'The register is unavailable right now. Return to SUNNYVAiLE High for the 101 shelf or Pop Quiz.';
+    renderUnavailable('The class list could not be loaded.',
+      'The register is unavailable right now. Return to SUNNYVAiLE High for the 101 shelf or Pop Quiz.');
   });
+
+  function renderUnavailable(title, detail) {
+    $('hd-name').textContent = title;
+    $('hd-sub').textContent = detail;
+    $('chalk-name').textContent = 'PLEASE STAND BY';
+    $('tv').disabled = true;
+    $('tv').setAttribute('aria-label', 'Class tape unavailable');
+    $('tvtag-text').textContent = 'Unavailable';
+  }
 
   function render(cls, subject, siblings, subjects) {
     var periodLabel = 'Period ' + cls.period;
     var live = cls.status === 'live' && cls.video;
+    $('class-format-note').textContent = live
+      ? 'This class is a screen recording. Watch the demonstrated task on the real interface, inspect why it works, then try it yourself.'
+      : 'This is a written production preview, not a finished class. The proposed tape will demonstrate the task on a real interface, but no class tape is available yet.';
+    $('class-path-heading').textContent = live ? 'What you will watch happen' : 'Planned demonstration';
 
     document.title = subject.name + ' · ' + cls.name + ' · SUNNYVAiLE High · LAiDIES';
 
@@ -760,14 +785,20 @@
     function open() {
       lastFocus = document.activeElement;
       screen.classList.add('is-on');
+      screen.setAttribute('aria-hidden', 'false');
+      screen.setAttribute('aria-label', live ? cls.name + ' class tape' : cls.name + ' production status');
       document.body.style.overflow = 'hidden';
       close.focus();
       var v = slot.querySelector('video');
       if (v) { v.currentTime = 0; v.play().catch(function () {}); }
-      if (window.plausible) window.plausible('Class play', { props: { class: cls.slug } });
+      if (window.plausible) {
+        window.plausible(live ? 'Class tape opened' : 'Class production status opened',
+          { props: { class: cls.slug } });
+      }
     }
     function shut() {
       screen.classList.remove('is-on');
+      screen.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
       var v = slot.querySelector('video');
       if (v) v.pause();
@@ -778,7 +809,14 @@
     close.addEventListener('click', shut);
     screen.addEventListener('click', function (e) { if (e.target === screen) shut(); });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && screen.classList.contains('is-on')) shut();
+      if (!screen.classList.contains('is-on')) return;
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        shut();
+      } else if (e.key === 'Tab') {
+        e.preventDefault();
+        close.focus();
+      }
     });
   }
 
@@ -796,8 +834,8 @@
              '<div class="testcard__bars">' + bars + '</div>' +
              '<div class="testcard__msg">' +
                '<strong>Please stand by</strong>' +
-               '<span>' + cls.name + ' has not been filmed yet. The classroom is built and ' +
-               'the cart is here — the tape is not. Check back.</span>' +
+               '<span>' + cls.name + ' has not been filmed yet. This is a production preview, ' +
+               'not a playable or approved class.</span>' +
              '</div>' +
            '</div>';
   }

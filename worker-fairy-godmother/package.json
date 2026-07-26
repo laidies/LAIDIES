@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "check:recovery": "node scripts/verify-recovery.mjs",
-    "test:recovered": "node --test test/recovered-worker-contract.test.mjs",
+    "test:recovered": "node --test test/*.test.mjs",
     "test:fixtures": "node ../scripts/validate-fairy-godmother-evals.mjs",
-    "test": "npm run check:recovery && npm run test:recovered && npm run test:fixtures",
+    "test:classifier-fixture": "node ../scripts/validate-fairy-godmother-classifier-heldout.mjs",
+    "test": "npm run check:recovery && npm run test:recovered && npm run test:fixtures && npm run test:classifier-fixture",
     "dry-run": "wrangler deploy --dry-run"
   },
   "devDependencies": {

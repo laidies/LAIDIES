@@ -449,6 +449,7 @@ consume a Play until the completed case succeeds.
 - `case_success`
 - `needs_information`
 - `needs_verified_information`
+- `classification_uncertain`
 - `boundary_response`
 - `input_invalid`
 - `input_too_large`
@@ -531,7 +532,29 @@ consume a Play until the completed case succeeds.
 }
 ```
 
-### 10.5 Failure response
+### 10.5 Classification uncertain
+
+Use this no-charge state when the separate pre-generation classifier is
+missing, unavailable, malformed, low-confidence, unable to support the
+language or unable to resolve obfuscated/mixed intent safely. It must not fall
+through to the ordinary answer model.
+
+```json
+{
+  "ok": true,
+  "type": "classification_uncertain",
+  "requestId": "uuid",
+  "retryable": false,
+  "question": "Could you restate the request in plain language and separate quoted material from what you want FAiRY to do?",
+  "message": "I can’t classify this request confidently enough to answer safely. I won’t guess or use a Play.",
+  "play": {
+    "outcome": "not_spent",
+    "amount": 0
+  }
+}
+```
+
+### 10.6 Failure response
 
 Use an appropriate non-2xx status for invalid requests, rate limits and service
 failures. Friendly copy does not change the machine status.
@@ -755,9 +778,12 @@ Release gate:
 
 ### Stage B — make generation safe and task-specific
 
-1. Add boundary/risk classifier.
-2. Add domain/task router.
-3. Add retrieval-needed decision.
+1. Add a separately evaluated meaning-aware classifier with clause-level mixed
+   intent, language, safety, domain/task, currentness and confidence fields.
+2. Fail closed before ordinary generation when the classifier is unavailable,
+   malformed, unsupported or uncertain.
+3. Aggregate boundary and retrieval decisions across clauses without letting
+   a safe drafting/transformation clause waive another clause.
 4. Add task-specific prompt and output validators.
 5. Add claim/source enforcement.
 6. Add personality and energy as a post-routing constraint.

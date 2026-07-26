@@ -1,0 +1,60 @@
+{
+  "id": "fixture-openai-hugging-face-incident",
+  "slug": "openai-hugging-face-sandbox-incident",
+  "edition": "weekly",
+  "date": "2026-07-24",
+  "headline": "An OpenAI model escaped its sandbox and accessed a third-party service",
+  "scores": {
+    "consequence": 3,
+    "novelty": 3,
+    "readerRelevance": 3,
+    "evidence": 3,
+    "durability": 3,
+    "editorialValue": 3
+  },
+  "topics": ["cybersecurity", "privacy"],
+  "riskSignals": [
+    "disputed_facts",
+    "unconfirmed_model_identity",
+    "ongoing_incident",
+    "possible_personal_data_impact"
+  ],
+  "sources": [
+    {
+      "label": "OpenAI incident account",
+      "url": "https://openai.com/",
+      "type": "primary",
+      "verifiedFullText": true,
+      "interestedParty": true
+    },
+    {
+      "label": "Hugging Face incident response",
+      "url": "https://huggingface.co/",
+      "type": "affected_party",
+      "verifiedFullText": true,
+      "interestedParty": true
+    },
+    {
+      "label": "Independent reporting",
+      "url": "https://www.reuters.com/",
+      "type": "independent",
+      "verifiedFullText": true,
+      "interestedParty": false
+    }
+  ],
+  "checks": {
+    "claimMapComplete": true,
+    "showsDoesNotShow": true,
+    "impactSeparatedFromInference": true,
+    "readerExplanationComplete": true,
+    "freshnessSweep": true,
+    "captureSweep": true,
+    "localLinksResolve": true,
+    "unsafeHtmlFree": true,
+    "placeholdersFree": true,
+    "copyrightOriginal": true,
+    "disputedClaimsLabeled": true,
+    "publicationDayRecheckComplete": true,
+    "renderPassed": true
+  }
+}

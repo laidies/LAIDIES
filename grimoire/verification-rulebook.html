@@ -1,357 +1,904 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>How to Check AI's Work · The LIBRAiRY</title>
-    <meta name="description" content="How to check an AI answer without redoing all the work yourself — the Prompt Like Elle method: sort draft from claim, ground it in a source, make it show the line, ban invented receipts." />
-    <meta property="og:title" content="How to Check AI's Work — The LIBRAiRY" />
-    <meta property="og:description" content="The reference for checking AI answers: three moves, one rule, a copy-paste prompt. From Episode 3, The Burn Book Problem." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://laidies.ai/grimoire/verification-rulebook.html" />
-    <meta name="theme-color" content="#b95d78" />
-    <link rel="icon" type="image/png" href="/assets/brand/laidies-logo-square-pearl-512-v1.png" />
-    <link rel="manifest" href="/manifest.webmanifest" />
-    <link rel="apple-touch-icon" href="/assets/brand/laidies-logo-square-pearl-512-v1.png" />
-    <link rel="stylesheet" href="/styles.css?v=sticky-fix-2" />
-    <link rel="stylesheet" href="/content/grimoire.css?v=grimoire-17" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400&family=Inter:wght@400;600;700;800;900&display=swap">
-    <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
-    <script>
-      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-      plausible.init()
-    </script>
-
-    <style>
-      /* ============================================================
-         THE VERIFICATION RULEBOOK — local styles, scoped to .gr-ref.
-         Reuses the illuminated Grimoire shell (grimoire.css). Content
-         is the reference method from Episode 3 (The Burn Book Problem).
-         ============================================================ */
-      .gr-ref {
-        position: relative;
-        max-width: 920px;
-        margin: clamp(14px, 3vw, 28px) auto;
-        padding: clamp(28px, 4vw, 48px) clamp(20px, 3vw, 40px);
-        background:
-          linear-gradient(125deg, rgba(155, 63, 95, 0.10), rgba(36, 123, 131, 0.10)),
-          #fff8fc;
-        border: 8px solid #1a0a12;
-        border-radius: 18px;
-        box-shadow: 0 22px 56px rgba(0, 0, 0, 0.32), inset 0 0 0 1.5px rgba(201, 162, 39, 0.5);
-        font-family: var(--hb-body);
-        color: var(--ink);
-      }
-      .gr-ref::before,
-      .gr-ref::after {
-        content: "";
-        position: absolute;
-        width: 34px; height: 34px;
-        border: 2px solid var(--hb-leaf);
-        opacity: 0.85;
-        pointer-events: none;
-        z-index: 3;
-      }
-      .gr-ref::before { top: 6px; left: 6px; border-right: 0; border-bottom: 0; border-radius: 8px 0 0 0; }
-      .gr-ref::after  { bottom: 6px; right: 6px; border-left: 0; border-top: 0; border-radius: 0 0 8px 0; }
-
-      .ai { color: var(--rose); }
-
-      /* Header */
-      .gr-ref-header { text-align: center; margin: 0 auto clamp(20px, 3vw, 30px); max-width: 60ch; }
-      .gr-ref-eyebrow {
-        font-family: var(--hb-mono); font-size: 0.74rem; letter-spacing: 0.16em;
-        text-transform: uppercase; color: var(--wine); margin: 0 0 12px;
-      }
-      .gr-ref-title {
-        font-family: var(--hb-serif) !important; font-weight: 700;
-        font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.05;
-        color: var(--hb-ink); margin: 0 auto 14px; max-width: 18ch;
-      }
-      .gr-ref-dek {
-        font-family: var(--hb-serif); font-style: italic;
-        font-size: clamp(1rem, 1.5vw, 1.18rem); line-height: 1.55;
-        color: var(--muted); margin: 0 auto; max-width: 60ch;
-      }
-
-      /* Lede */
-      .vr-lede {
-        font-family: var(--hb-serif); font-size: clamp(1.05rem, 1.6vw, 1.2rem);
-        line-height: 1.7; color: var(--ink); max-width: 64ch; margin: 0 auto clamp(28px, 4vw, 40px);
-      }
-      .vr-lede strong { color: var(--wine); }
-
-      /* Section shell */
-      .vr-sec { max-width: 66ch; margin: 0 auto clamp(30px, 4vw, 46px); }
-      .vr-kicker {
-        font-family: var(--hb-mono); font-size: 0.7rem; letter-spacing: 0.18em;
-        text-transform: uppercase; color: var(--rose); margin: 0 0 6px;
-      }
-      .vr-h2 {
-        font-family: var(--hb-serif); font-weight: 700; font-size: clamp(1.35rem, 2.4vw, 1.7rem);
-        line-height: 1.15; color: var(--hb-ink); margin: 0 0 8px;
-      }
-      .vr-intro { font-family: var(--hb-serif); font-size: 1.04rem; line-height: 1.6; color: var(--ink); margin: 0 0 18px; }
-
-      /* Sort — draft / claim / receipt */
-      .vr-sort { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 4px 0 16px; }
-      @media (min-width: 660px) { .vr-sort { grid-template-columns: repeat(3, 1fr); } }
-      .vr-card {
-        background: #fffdfb; border: 1.5px solid var(--hb-rule); border-radius: 12px;
-        padding: 16px 18px; box-shadow: 0 6px 16px rgba(26, 10, 18, 0.06);
-      }
-      .vr-card h3 {
-        font-family: var(--hb-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
-        margin: 0 0 8px; color: var(--wine);
-      }
-      .vr-card p { font-family: var(--hb-body); font-size: 0.95rem; line-height: 1.5; margin: 0 0 8px; color: var(--ink); }
-      .vr-card .vr-tag {
-        font-family: var(--hb-mono); font-size: 0.7rem; letter-spacing: 0.05em; color: var(--muted);
-        display: inline-block; border-top: 1px dashed var(--hb-rule); padding-top: 8px; margin-top: 2px; width: 100%;
-      }
-      .vr-card--receipt { border-color: rgba(201, 162, 39, 0.55); box-shadow: 0 6px 16px rgba(201, 162, 39, 0.14); }
-
-      .vr-line {
-        font-family: var(--hb-serif); font-style: italic; font-size: 1.05rem; color: var(--wine);
-        text-align: center; margin: 14px auto 0; max-width: 46ch;
-      }
-
-      /* The three moves */
-      .vr-move { display: flex; gap: 16px; align-items: flex-start; margin: 0 0 22px; }
-      .vr-num {
-        flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%;
-        display: grid; place-items: center; font-family: var(--hb-serif); font-weight: 700; font-size: 1.25rem;
-        color: #fff; background: var(--wine); box-shadow: inset 0 0 0 2px rgba(201, 162, 39, 0.6);
-      }
-      .vr-move-body { flex: 1 1 auto; min-width: 0; }
-      .vr-move-body h3 { font-family: var(--hb-serif); font-weight: 700; font-size: 1.12rem; margin: 4px 0 6px; color: var(--hb-ink); }
-      .vr-move-body p { font-family: var(--hb-body); font-size: 0.96rem; line-height: 1.55; margin: 0 0 10px; color: var(--ink); }
-      .vr-say {
-        font-family: var(--hb-mono); font-size: 0.86rem; line-height: 1.5; color: var(--hb-ink);
-        background: rgba(36, 123, 131, 0.08); border-left: 3px solid var(--hb-leaf);
-        padding: 10px 14px; border-radius: 0 8px 8px 0;
-      }
-      .vr-say b { color: var(--wine); font-weight: 700; }
-
-      /* Callout */
-      .vr-callout {
-        background: linear-gradient(135deg, rgba(185, 93, 120, 0.12), rgba(201, 162, 39, 0.10));
-        border: 1.5px solid rgba(185, 93, 120, 0.4); border-radius: 14px;
-        padding: 20px 22px; margin: 4px 0 0;
-      }
-      .vr-callout h3 { font-family: var(--hb-serif); font-weight: 700; font-size: 1.15rem; margin: 0 0 8px; color: var(--wine); }
-      .vr-callout p { font-family: var(--hb-body); font-size: 0.98rem; line-height: 1.55; margin: 0; color: var(--ink); }
-
-      /* Copy-paste prompt — reads as a takeaway panel with a titlebar */
-      .vr-prompt { margin: 6px 0 0; border-radius: 12px; overflow: hidden; border: 1.5px solid rgba(201, 162, 39, 0.5); box-shadow: 0 12px 28px rgba(35, 16, 31, 0.34); }
-      .vr-prompt-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; background: #311430; padding: 10px 12px 10px 16px; border-bottom: 1px solid rgba(201, 162, 39, 0.32); }
-      .vr-prompt-label { font-family: var(--hb-mono); font-size: 0.7rem; letter-spacing: 0.02em; color: #ecc99f; }
-      .vr-prompt pre {
-        font-family: var(--hb-mono); font-size: 0.82rem; line-height: 1.6; color: #f4e7e2;
-        background: #23101f; border: 0; border-radius: 0;
-        padding: 20px; margin: 0; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;
-      }
-      .vr-copy {
-        flex: 0 0 auto; font-family: var(--hb-mono); font-size: 0.72rem; font-weight: 700;
-        letter-spacing: 0.06em; text-transform: uppercase; color: #23101f; background: rgba(201, 162, 39, 0.95);
-        border: 0; border-radius: 999px; padding: 6px 15px; cursor: pointer; transition: background 0.15s ease;
-      }
-      .vr-copy:hover { background: #e3c04a; }
-      .vr-copy:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
-
-      /* Check patterns */
-      .vr-patterns { list-style: none; margin: 6px 0 14px; padding: 0; display: grid; gap: 10px; }
-      .vr-patterns li {
-        font-family: var(--hb-body); font-size: 0.98rem; line-height: 1.5; color: var(--ink);
-        padding-left: 26px; position: relative;
-      }
-      .vr-patterns li::before {
-        content: "→"; position: absolute; left: 0; top: 0; color: var(--rose); font-weight: 700;
-      }
-      .vr-patterns b { color: var(--wine); }
-      .vr-fine { font-family: var(--hb-body); font-size: 0.94rem; line-height: 1.55; color: var(--muted); margin: 8px 0 0; }
-      .vr-fine strong { color: var(--wine); }
-
-      /* Footer */
-      .gr-ref-footer {
-        margin: clamp(30px, 4vw, 46px) 0 0; padding-top: clamp(22px, 3vw, 30px);
-        border-top: 1px dashed var(--hb-rule); text-align: center;
-        font-family: var(--hb-serif); font-style: italic; font-size: 0.95rem; color: var(--muted); line-height: 1.6;
-      }
-      .gr-ref-footer a { color: var(--wine); text-decoration: underline; text-decoration-color: var(--hb-rule); }
-      .gr-ref-footer a:hover { color: var(--rose); }
-
-      @media (max-width: 620px) {
-        .gr-ref { padding: 24px 15px; }
-        .vr-move { gap: 12px; }
-        .vr-num { width: 34px; height: 34px; font-size: 1.05rem; }
-      }
-    </style>
-    <!-- Microsoft Clarity (heatmaps + session recordings) -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "xnqcp37urd");
-  </script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to Check AI’s Work · The LIBRAiRY</title>
+  <meta name="description" content="A durable, practical method for turning fluent AI output into claims you can actually check.">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="laidies:canonical-source" content="/content/library-books/verification-rulebook.json">
+  <meta name="laidies:canonical-source-sha256" content="ac3ec15f27898ad69c9ac142a86e51948b5d024437b89dcd11cf336ad81fdacd">
+  <meta name="laidies:editorial-status" content="HOLD">
+  <link rel="icon" type="image/png" href="/assets/brand/laidies-logo-square-pearl-512-v1.png">
+  <link rel="stylesheet" href="/styles.css?v=sticky-fix-2">
+  <link rel="stylesheet" href="/content/grimoire.css?v=grimoire-17">
+  <style>
+    :root{--vr-ink:#25162d;--vr-paper:#fffaf0;--vr-pink:#b84978;--vr-pink-dark:#7b244b;--vr-blue:#164f91;--vr-gold:#e1ad36;--vr-line:#d7c7c3}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--vr-ink);background:#e8d9ce;font-family:Georgia,"Times New Roman",serif;line-height:1.62}
+    a{color:var(--vr-blue);text-underline-offset:.16em;overflow-wrap:anywhere}
+    a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,[tabindex="0"]:focus-visible{outline:3px solid #087c96;outline-offset:3px}
+    .vr-shell{max-width:1120px;margin:0 auto;background:var(--vr-paper);min-height:100vh;box-shadow:0 0 40px #3c213733}
+    .vr-topbar{display:flex;gap:1rem;justify-content:space-between;align-items:center;padding:.8rem clamp(1rem,4vw,2.5rem);background:#2d1735;color:#fff;position:sticky;top:0;z-index:10}
+    .vr-topbar a{color:#fff}
+    .vr-hold{padding:.8rem clamp(1rem,4vw,2.5rem);background:#fff0bd;border-bottom:2px solid #8a5b00;font:700 .95rem/1.4 system-ui,sans-serif}
+    main{display:block}
+    .vr-hero,.gr-page{padding:clamp(2rem,6vw,5rem) clamp(1rem,6vw,5.5rem)}
+    .vr-hero{background:linear-gradient(145deg,#fff7dc,#f9deeb);border-bottom:4px double var(--vr-pink)}
+    .vr-eyebrow,.vr-kicker{font:800 .8rem/1.4 system-ui,sans-serif;text-transform:uppercase;letter-spacing:.13em;color:var(--vr-pink-dark)}
+    h1{font-size:clamp(2.5rem,8vw,5.7rem);line-height:.94;margin:.3rem 0 1rem;max-width:12ch}
+    h2{font-size:clamp(2rem,5vw,3.4rem);line-height:1.05;margin:.25rem 0 .8rem}
+    h3{font-size:clamp(1.25rem,3vw,1.7rem);line-height:1.2;margin:2rem 0 .5rem}
+    [id]{scroll-margin-top:5.5rem}
+    p,li,dd{font-size:clamp(1rem,1.5vw,1.15rem)}
+    .vr-promise,.vr-dek{font-size:clamp(1.2rem,2.4vw,1.55rem);max-width:46rem}
+    .vr-scenario{max-width:48rem;padding:1rem 1.2rem;border-left:5px solid var(--vr-gold);background:#fff}
+    .vr-chapter:nth-of-type(even){background:#fff4f7}
+    .vr-chapter{border-bottom:1px solid var(--vr-line)}
+    .vr-subsection{max-width:52rem}
+    .vr-subsection ul,.vr-loop,.vr-transfer ol{padding-left:1.35rem}
+    .vr-definitions{display:grid;gap:.7rem;max-width:52rem}
+    .vr-definitions div{display:grid;grid-template-columns:minmax(8rem,12rem) 1fr;gap:1rem;padding:.8rem;border:1px solid var(--vr-line);background:#fff}
+    .vr-definitions dt{font-weight:800}
+    .vr-definitions dd{margin:0}
+    .vr-table-wrap{overflow-x:auto;max-width:100%;border:1px solid var(--vr-line)}
+    table{border-collapse:collapse;min-width:680px;background:#fff}
+    th,td{text-align:left;vertical-align:top;padding:.75rem;border:1px solid var(--vr-line)}
+    thead th{background:#2d1735;color:#fff;font-family:system-ui,sans-serif}
+    .vr-check{margin:2rem 0 0;padding:clamp(1rem,3vw,1.5rem);border:2px solid var(--vr-pink);border-radius:.8rem;background:#fff;max-width:52rem}
+    fieldset{border:0;padding:0;margin:0}
+    legend{font-weight:800;font-size:1.15rem;margin-bottom:.7rem}
+    .vr-check label{display:flex;align-items:flex-start;gap:.7rem;margin:.55rem 0;padding:.65rem;border:1px solid var(--vr-line);border-radius:.35rem;cursor:pointer}
+    .vr-check input{width:1.25rem;height:1.25rem;flex:0 0 auto}
+    .vr-check select,.vr-check textarea{display:block;width:100%;margin:.45rem 0 1rem;padding:.7rem;border:1px solid #765d70;border-radius:.25rem;background:#fff;color:var(--vr-ink);font:1rem/1.4 system-ui,sans-serif}
+    .vr-check textarea{min-height:7rem;resize:vertical}
+    .vr-select-label{display:block;margin:1rem 0;font-weight:700}
+    .vr-item-feedback{margin:-.65rem 0 .85rem;padding:.55rem;background:#f3efe9}
+    button,.vr-copy{min-height:44px;border:0;border-radius:.35rem;padding:.7rem 1rem;background:var(--vr-pink-dark);color:#fff;font:800 1rem/1.2 system-ui,sans-serif;cursor:pointer}
+    .vr-feedback{min-height:1.8rem;margin:.7rem 0 0;font-weight:700}
+    .vr-feedback[data-result="keyed-match"],.vr-feedback[data-result="recorded"]{color:#116032}
+    .vr-feedback[data-result="review"]{color:#8a3900}
+    .vr-feedback[data-result="self-check-ready"]{color:#164f91}
+    .vr-self-check{margin-top:1rem;padding:1rem;border:1px solid var(--vr-blue);background:#f2f7ff}
+    .vr-rubric-row{padding:.7rem 0;border-bottom:1px solid var(--vr-line)}
+    .vr-loop{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:1.2rem 0}
+    .vr-loop li{padding:.45rem .7rem;background:#2d1735;color:#fff;border-radius:99px;font:800 .9rem/1.2 system-ui,sans-serif}
+    .vr-prompt,.vr-transfer,.vr-metadata,.vr-sources,.vr-next{padding:clamp(2rem,5vw,4rem) clamp(1rem,6vw,5.5rem);border-bottom:1px solid var(--vr-line)}
+    .vr-prompt{background:#27162e;color:#fff}
+    .vr-prompt > h2,.vr-prompt > p,.vr-prompt > label{color:#fff!important}
+    .vr-prompt textarea{display:block;width:100%;min-height:13rem;padding:1rem;margin:1rem 0;background:#fff;color:#211327;font:1rem/1.55 ui-monospace,SFMono-Regular,monospace}
+    .vr-prompt > .vr-warning{font-weight:800;color:#ffe09b!important}
+    .vr-meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem}
+    .vr-meta-grid div{padding:1rem;border:1px solid var(--vr-line);background:#fff}
+    .vr-meta-grid dt{font:800 .8rem/1.3 system-ui,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+    .vr-meta-grid dd{margin:.4rem 0 0}
+    details{max-width:55rem;border:1px solid var(--vr-line);background:#fff;padding:1rem}
+    summary{cursor:pointer;font-weight:800}
+    .vr-source-list,.vr-handoffs{list-style:none;padding:0}
+    .vr-source-list li,.vr-handoffs li{display:grid;gap:.25rem;padding:1rem 0;border-bottom:1px solid var(--vr-line)}
+    .vr-source-list span,.vr-handoffs span{font-size:.95rem}
+    .vr-claim{margin:1rem 0;padding:1rem;border-left:5px solid var(--vr-blue);background:#f2f7ff}
+    .vr-claim p{margin:.35rem 0;font-size:.95rem}
+    .vr-prompt > .vr-claim p{color:var(--vr-ink)!important}
+    .vr-prompt > .vr-claim a{color:var(--vr-blue)!important}
+    .vr-claim-id{font-family:system-ui,sans-serif;font-weight:800}
+    .vr-claim-wording{font-weight:700}
+    .vr-ledger-list{list-style:none;padding:0}
+    .vr-ledger-list>li{padding:1rem 0;border-bottom:2px solid var(--vr-line)}
+    .vr-footer{padding:2rem;text-align:center;background:#2d1735;color:#fff;font:1rem/1.5 system-ui,sans-serif}
+    .vr-footer a{color:#fff}
+    @media(max-width:560px){.vr-topbar{position:static;align-items:flex-start;flex-direction:column}.vr-definitions div{grid-template-columns:1fr}.vr-hero,.gr-page,.vr-prompt,.vr-transfer,.vr-metadata,.vr-sources,.vr-next{padding-left:1rem;padding-right:1rem}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+    @media print{.vr-topbar,.vr-check button,.vr-copy{display:none}.vr-shell{box-shadow:none}.vr-hold{border:2px solid #000}.vr-chapter,.vr-prompt{break-inside:avoid;background:#fff!important;color:#000!important}.vr-prompt > h2,.vr-prompt > p,.vr-prompt > label,.vr-prompt > .vr-warning{color:#000!important}.vr-prompt textarea{border:1px solid #000}.vr-source-list a::after{content:" (" attr(href) ")";font-size:.85em}}
+  </style>
 </head>
-  <body>
-    <div class="grimoire-shell" data-paginated>
-      <div class="gr-topbar">
-        <a class="gr-back" href="/library.html">← Back to the LIBR<span class="ai">Ai</span>RY</a>
-        <span class="gr-where">How to Check AI's Work</span>
-      </div>
+<body>
+  <!-- GENERATED FILE. Canonical source: /content/library-books/verification-rulebook.json; SHA-256: ac3ec15f27898ad69c9ac142a86e51948b5d024437b89dcd11cf336ad81fdacd -->
+  <div class="vr-shell">
+    <nav class="vr-topbar" aria-label="Book navigation">
+      <a href="/library.html">← Back to the LIBRAiRY</a>
+      <a href="#receipt-loop">Jump to the Receipt Loop</a>
+      <a href="#source-bound-prompt">Copyable prompt</a>
+    </nav>
+    <div class="vr-hold" role="status">Preview candidate · independent learning, accuracy, brand and accessibility review has not passed. Do not treat this page as an approved or published LAiDIES book.</div>
+    <main>
+      <header class="vr-hero">
+        <p class="vr-eyebrow">The LIBRAiRY · Reference Shelf · candidate under review</p>
+        <h1>How to Check AI’s Work</h1>
+        <p class="vr-promise">You do not need to redo every word. You need to find the parts that could change a decision, then check those properly.</p>
+        <p class="vr-scenario">An AI turns meeting notes into a polished client update: “The client approved the revised launch date, expects a 20% lift and wants paid social added to phase one.” The notes actually say the client will review the date on Friday, somebody guessed “maybe 20%,” and paid social was only a question.</p>
+        <form class="vr-check" data-check="opening" data-type="single-choice">
+    <fieldset>
+      <legend>Which part deserves attention first?</legend>
+      <label><input type="radio" name="opening" value="draft" data-correct="false" required> <span>The polished wording</span></label><label><input type="radio" name="opening" value="claim" data-correct="false" required> <span>Every sentence equally</span></label><label><input type="radio" name="opening" value="decision" data-correct="true" required> <span>The approval, lift and scope claims</span></label>
+    </fieldset>
+    <button type="submit">Check my reasoning</button>
 
-      <main class="gr-ref gr-illuminated">
-        <header class="gr-ref-header">
-          <p class="gr-ref-eyebrow">The LIBR<span class="ai">Ai</span>RY · Reference Shelf · unlocked in Episode 3</p>
-          <h1 class="gr-ref-title">How to Check AI's Work</h1>
-          <p class="gr-ref-dek">How to check an <span class="ai">Ai</span> answer without redoing all the work yourself — the move Elle Woods would make. Put the answer on the stand; don't let a claim speak without a receipt.</p>
-        </header>
+    <p class="vr-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
+  </form>
+        <aside class="vr-claim" id="claim-VR-C001" data-claim-id="VR-C001" data-claim-status="SUPPORTED">
+      <p class="vr-claim-id"><a href="#ledger-VR-C001">VR-C001 · SUPPORTED</a></p>
+      <p class="vr-claim-wording">Generative AI can produce false content and fabricated citations, so important sources and citations still need review and verification.</p>
+      <p class="vr-claim-sources"><strong>Evidence:</strong> <a href="https://doi.org/10.6028/NIST.AI.600-1" rel="noopener noreferrer">SRC-NIST-GAI-600-1 · NIST</a></p>
+      <p><strong>Qualification:</strong> Sourced fact, scoped to the NIST risk profile.</p>
+      <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C001%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C001</a></p>
+    </aside>
+        <h2 id="receipt-loop-overview">The Receipt Loop</h2>
+        <ol class="vr-loop" aria-label="Receipt Loop steps"><li>Frame</li><li>Split</li><li>Find</li><li>Inspect</li><li>Cross-check</li><li>Decide</li><li>Record</li></ol>
+        <p>The label is a mnemonic. The mechanism is the claim-to-evidence decision process taught below.</p>
+      </header>
+      <article class="gr-page vr-chapter" id="sort-the-output" aria-labelledby="sort-the-output-title">
+  <p class="vr-kicker">Chapter 1 of 7</p>
+  <h2 id="sort-the-output-title">Sort the output</h2>
+  <p class="vr-dek">Fluency is presentation. Your first job is to identify what kind of thing each line is and what could change a decision.</p>
+  <section class="vr-subsection">
+    <h3>Four useful buckets</h3>
+    <p>A draft is proposed wording, structure or creative material. A factual claim says something checkable about the world. An assumption or inference connects facts without being directly stated. A recommendation proposes action and may depend on both facts and values.</p>
+<p>A sentence can contain more than one bucket. Split compound statements before you search so one true clause cannot lend credibility to a false neighbour.</p>
+    <ul><li>Draft: “Here is a warmer opening for the email.”</li><li>Claim: “The contract renews on 1 September.”</li><li>Inference: “The delay probably means the client is unhappy.”</li><li>Recommendation: “Move the campaign to September.”</li></ul>
 
-        <p class="vr-lede"><span class="ai">Ai</span> can sound right, and <strong>sounding right is not the same as being right</strong> — the two come out in the same handwriting. This is the short, reusable method for telling them apart before your name goes on it. Steal it, keep it, run it on anything.</p>
 
-        <!-- 1 · SORT -->
-        <section class="vr-sec">
-          <p class="vr-kicker">First</p>
-          <h2 class="vr-h2" id="draft-claim-receipt">Sort what you're holding.</h2>
-          <p class="vr-intro">Before you check a single thing, name what it is. Every line an answer hands you is one of three things.</p>
-          <div class="vr-sort">
-            <div class="vr-card">
-              <h3>Draft</h3>
-              <p>Wording, structure, a summary, a brainstorm. Nobody gets embarrassed by a rough phrasing.</p>
-              <span class="vr-tag">Low stakes — can be fast.</span>
-            </div>
-            <div class="vr-card">
-              <h3>Claim</h3>
-              <p>A name, a date, a number, a quote, a source — anything legal, HR, privacy, or money.</p>
-              <span class="vr-tag">This is what gets you — check it.</span>
-            </div>
-            <div class="vr-card vr-card--receipt">
-              <h3>Receipt</h3>
-              <p>The thing you can open, name, or point to if someone asks where a claim came from.</p>
-              <span class="vr-tag">What every claim needs before it speaks.</span>
-            </div>
-          </div>
-          <p class="vr-line">A draft is an outfit. A claim is an alibi. Dress accordingly.</p>
-        </section>
 
-        <!-- 2 · THE THREE MOVES -->
-        <section class="vr-sec">
-          <p class="vr-kicker">Prompt Like Elle</p>
-          <h2 class="vr-h2" id="three-moves">The three moves.</h2>
-          <p class="vr-intro">The serious guidance — OpenAI, Anthropic, Google, Stanford — all points the same way. In normal-human terms, it comes down to three moves.</p>
+  </section>
+<section class="vr-subsection">
+    <h3>Turn the stakes dial</h3>
+    <p>Ask what happens if the statement is wrong, how reversible the action is, how uncertain the evidence is and how quickly the answer can change. A playlist caption and a medication decision do not deserve the same checking plan.</p>
+<p>Check decision-changing claims first: money, deadlines, permissions, safety, public promises, people’s rights or anything hard to undo.</p>
 
-          <div class="vr-move">
-            <span class="vr-num">1</span>
-            <div class="vr-move-body">
-              <h3 id="give-it-the-source">Give it the source.</h3>
-              <p>Don't ask the tool what it <em>remembers</em>; hand it the material. Paste the document, upload the file, link the official page — or turn on search mode when you need something current. Then set the boundary. Elle doesn't argue from memory; she walks in with the file.</p>
-              <p class="vr-say"><b>Say:</b> "Answer only from the document I gave you. If it isn't in there, say so."</p>
-            </div>
-          </div>
 
-          <div class="vr-move">
-            <span class="vr-num">2</span>
-            <div class="vr-move-body">
-              <h3>Let it say "I don't know."</h3>
-              <p>Add the one sentence most people never think to add. That single line is what turns a confident guess back into an honest blank.</p>
-              <p class="vr-say"><b>Say:</b> "If you aren't sure, say so. Don't guess to be helpful. Mark anything you inferred."</p>
-            </div>
-          </div>
 
-          <div class="vr-move">
-            <span class="vr-num">3</span>
-            <div class="vr-move-body">
-              <h3 id="make-it-show-the-line">Make it show the line.</h3>
-              <p>A claim without a source it can point to doesn't get to speak. If it can't quote the line, treat it like it showed up at Spring Fling with no student ID.</p>
-              <p class="vr-say"><b>Say:</b> "For every factual claim, quote the exact sentence you relied on."</p>
-            </div>
-          </div>
-        </section>
 
-        <!-- 3 · THE ONE RULE -->
-        <section class="vr-sec">
-          <div class="vr-callout">
-            <h3>One rule over all three: no invented receipts.</h3>
-            <p>Say it out loud in the prompt — <em>"Do not invent sources, links, dates, quotes, numbers, or policies. If a receipt is missing, mark it <b>[needs receipt]</b>."</em> "Sources attached" is not the same as "sources checked." Sometimes it's still Chutney, handing you a folder in her own handwriting.</p>
-          </div>
-        </section>
+  </section>
+  <form class="vr-check" data-check="chapter-1" data-type="classification">
+    <fieldset>
+      <legend>Classify all eight lines before checking your reasoning.</legend>
+      <label class="vr-select-label">1. Here is a warmer opening for the email.<select name="chapter-1-c1-1" data-answer="0" required><option value="">Choose…</option><option value="0">DRAFT</option><option value="1">FACTUAL CLAIM</option><option value="2">ASSUMPTION / INFERENCE</option><option value="3">RECOMMENDATION / DECISION</option></select></label><p class="vr-item-feedback" data-for="c1-1" hidden>Proposed wording is draft material.</p><label class="vr-select-label">2. The contract renews on 1 September.<select name="chapter-1-c1-2" data-answer="1" required><option value="">Choose…</option><option value="0">DRAFT</option><option value="1">FACTUAL CLAIM</option><option value="2">ASSUMPTION / INFERENCE</option><option value="3">RECOMMENDATION / DECISION</option></select></label><p class="vr-item-feedback" data-for="c1-2" hidden>A date in a contract is externally checkable.</p><label class="vr-select-label">3. The delay probably means the client is unhappy.<select name="chapter-1-c1-3" data-answer="2" required><option value="">Choose…</option><option value="0">DRAFT</option><option value="1">FACTUAL CLAIM</option><option value="2">ASSUMPTION / INFERENCE</option><option value="3">RECOMMENDATION / DECISION</option></select></label><p class="vr-item-feedback" data-for="c1-3" hidden>The sentence interprets the delay; the client’s state is not directly established.</p><label class="vr-select-label">4. Move the campaign to September.<select name="chapter-1-c1-4" data-answer="3" required><option value="">Choose…</option><option value="0">DRAFT</option><option value="1">FACTUAL CLAIM</option><option value="2">ASSUMPTION / INFERENCE</option><option value="3">RECOMMENDATION / DECISION</option></select></label><p class="vr-item-feedback" data-for="c1-4" hidden>This proposes action.</p><label class="vr-select-label">5. The free plan includes five seats.<select name="chapter-1-c1-5" data-answer="1" required><option value="">Choose…</option><option value="0">DRAFT</option><option value="1">FACTUAL CLAIM</option><option value="2">ASSUMPTION / INFERENCE</option><option value="3">RECOMMENDATION / DECISION</option></select></label><p class="vr-item-feedback" data-for="c1-5" hidden>A current plan limit is a checkable provider claim.</p><label class="vr-select-label">6. Five seats makes it the best plan for us.<select name="chapter-1-c1-6" data-answer="3" required><option value="">Choose…</option><option value="0">DRAFT</option><option value="1">FACTUAL CLAIM</option><option value="2">ASSUMPTION / INFERENCE</option><option value="3">RECOMMENDATION / DECISION</option></select></label><p class="vr-item-feedback" data-for="c1-6" hidden>“Best” is a decision that depends on requirements and values.</p><label class="vr-select-label">7. The client approved the new launch date.<select name="chapter-1-c1-7" data-answer="1" required><option value="">Choose…</option><option value="0">DRAFT</option><option value="1">FACTUAL CLAIM</option><option value="2">ASSUMPTION / INFERENCE</option><option value="3">RECOMMENDATION / DECISION</option></select></label><p class="vr-item-feedback" data-for="c1-7" hidden>Approval is a material, checkable commitment.</p><label class="vr-select-label">8. This colour feels more confident.<select name="chapter-1-c1-8" data-answer="2" required><option value="">Choose…</option><option value="0">DRAFT</option><option value="1">FACTUAL CLAIM</option><option value="2">ASSUMPTION / INFERENCE</option><option value="3">RECOMMENDATION / DECISION</option></select></label><p class="vr-item-feedback" data-for="c1-8" hidden>This is an interpretation, not a source-established fact.</p>
+    </fieldset>
+    <button type="submit">Check my reasoning</button>
 
-        <!-- 4 · THE PROMPT -->
-        <section class="vr-sec">
-          <p class="vr-kicker">Copy · paste · done</p>
-          <h2 class="vr-h2">The Prompt Like Elle template.</h2>
-          <p class="vr-intro">Drop your source in the quotes, swap in your task, send.</p>
-          <div class="vr-prompt">
-            <div class="vr-prompt-bar">
-              <span class="vr-prompt-label">Your prompt — copy it, paste it into your AI tool</span>
-              <button class="vr-copy" type="button" data-copy>⧉ Copy</button>
-            </div>
-            <pre id="vrPrompt">Here is the source material:
-"""
-[paste your document, notes, or page here]
-"""
+    <p class="vr-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
+  </form>
+</article>
+<article class="gr-page vr-chapter" id="what-the-tool-did" aria-labelledby="what-the-tool-did-title">
+  <p class="vr-kicker">Chapter 2 of 7</p>
+  <h2 id="what-the-tool-did-title">Know what the tool actually did</h2>
+  <p class="vr-dek">Search, grounding, citations and provenance can help. None of them is the same thing as verification.</p>
+  <section class="vr-subsection">
+    <h3>Six different jobs</h3>
 
-Using ONLY what's above:
-1. [Your task — e.g. "turn these notes into a client update."]
-2. If something isn't in the source, say "not stated." Do not fill the gap.
-3. For every factual claim, quote the exact line you got it from.
-4. Do not invent sources, links, dates, quotes, or numbers.
-   Mark any missing receipt as [needs receipt].</pre>
-          </div>
-        </section>
 
-        <!-- 5 · CHECK PATTERNS -->
-        <section class="vr-sec">
-          <p class="vr-kicker">When a claim still needs checking</p>
-          <h2 class="vr-h2">Check patterns.</h2>
-          <p class="vr-intro">You won't verify everything — just the claims. Point each one at the question it can't dodge.</p>
-          <ul class="vr-patterns">
-            <li>If it says a <b>policy changed</b> — what date proves it?</li>
-            <li>If it says a <b>quote came from a person</b> — where's the quote?</li>
-            <li>If it says a <b>number moved</b> — from what, over what timeframe, according to whom?</li>
-            <li>If it says <b>"best practice"</b> — whose? For whom? Under what constraints? In what jurisdiction?</li>
-          </ul>
-          <p class="vr-fine"><strong>Trust a citation</strong> only when you've clicked it, it exists, and it actually says what the answer says it says. Otherwise: Google it, or ask the human who owns the decision. <strong>Make the second check independent</strong> — don't let the same witness validate itself.</p>
-        </section>
+    <dl class="vr-definitions"><div><dt>Generation</dt><dd>Creates the answer. Smooth language is not evidence.</dd></div><div><dt>Retrieval or search</dt><dd>Finds material. Finding a page does not make it the right page.</dd></div><div><dt>Grounding</dt><dd>Connects or constrains an answer to supplied or retrieved material. The material can still be weak, stale, out of scope or misread.</dd></div><div><dt>Citation</dt><dd>Points to a source. The source must exist, open and support the nearby claim.</dd></div><div><dt>Provenance</dt><dd>Records an asset’s origin or change history. It can help authenticate a trail without proving that the depicted event or assertion is true.</dd></div><div><dt>Verification</dt><dd>Connects a specific claim to adequate evidence under the right scope, date and stakes, then makes a qualified decision.</dd></div></dl>
 
-        <!-- 6 · THE CHUTNEY TEST -->
-        <section class="vr-sec">
-          <div class="vr-callout">
-            <h3>The Chutney test.</h3>
-            <p>Don't ask "does this sound smart?" — Chutney sounded smart three times. Ask: <em>what's the one detail that can't survive contact with the timeline?</em> Find it, and the answer either holds up or falls apart in your hands — before it ever leaves your laptop.</p>
-          </div>
-        </section>
+    <aside class="vr-claim" id="claim-VR-C002" data-claim-id="VR-C002" data-claim-status="QUALIFIED">
+      <p class="vr-claim-id"><a href="#ledger-VR-C002">VR-C002 · QUALIFIED</a></p>
+      <p class="vr-claim-wording">Current AI products can search the web and present citations; those are present capabilities, not hypothetical future abilities.</p>
+      <p class="vr-claim-sources"><strong>Evidence:</strong> <a href="https://developers.openai.com/api/docs/guides/tools-web-search" rel="noopener noreferrer">SRC-OAI-WEB-SEARCH · OpenAI</a></p>
+      <p><strong>Qualification:</strong> Provider documentation establishes the provider-described capability, not comparative accuracy.</p>
+      <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C002%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C002</a></p>
+    </aside><aside class="vr-claim" id="claim-VR-C003" data-claim-id="VR-C003" data-claim-status="QUALIFIED">
+      <p class="vr-claim-id"><a href="#ledger-VR-C003">VR-C003 · QUALIFIED</a></p>
+      <p class="vr-claim-wording">Search grounding can connect generated answers to current web material and return citation annotations.</p>
+      <p class="vr-claim-sources"><strong>Evidence:</strong> <a href="https://ai.google.dev/gemini-api/docs/google-search" rel="noopener noreferrer">SRC-GOOGLE-GROUNDING · Google</a></p>
+      <p><strong>Qualification:</strong> Provider documentation establishes the provider-described operation only.</p>
+      <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C003%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C003</a></p>
+    </aside><aside class="vr-claim" id="claim-VR-C004" data-claim-id="VR-C004" data-claim-status="SUPPORTED">
+      <p class="vr-claim-id"><a href="#ledger-VR-C004">VR-C004 · SUPPORTED</a></p>
+      <p class="vr-claim-wording">Grounding, direct quotations, citations and permission to express uncertainty can reduce hallucination risk, but they do not eliminate it; critical information still needs validation.</p>
+      <p class="vr-claim-sources"><strong>Evidence:</strong> <a href="https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations" rel="noopener noreferrer">SRC-ANTHROPIC-HALLUCINATION · Anthropic</a></p>
+      <p><strong>Qualification:</strong> Provider guidance plus its explicit limitation.</p>
+      <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C004%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C004</a></p>
+    </aside><aside class="vr-claim" id="claim-VR-C005" data-claim-id="VR-C005" data-claim-status="QUALIFIED">
+      <p class="vr-claim-id"><a href="#ledger-VR-C005">VR-C005 · QUALIFIED</a></p>
+      <p class="vr-claim-wording">A citation is a pointer to a source; verification additionally checks the source’s identity, relevance, scope, date and support for the specific claim.</p>
+      <p class="vr-claim-sources"><strong>Evidence:</strong> <a href="https://doi.org/10.6028/NIST.AI.600-1" rel="noopener noreferrer">SRC-NIST-GAI-600-1 · NIST</a> · <a href="https://cor.inquirygroup.org/about/" rel="noopener noreferrer">SRC-COR-ABOUT · Digital Inquiry Group</a></p>
+      <p><strong>Qualification:</strong> Qualified LAiDIES synthesis; not attributed verbatim to either source.</p>
+      <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C005%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C005</a></p>
+    </aside><aside class="vr-claim" id="claim-VR-C007" data-claim-id="VR-C007" data-claim-status="SUPPORTED">
+      <p class="vr-claim-id"><a href="#ledger-VR-C007">VR-C007 · SUPPORTED</a></p>
+      <p class="vr-claim-wording">C2PA provenance can bind claims about an asset’s source and history so tampering can be detected; it does not decide whether the content or provenance is good, bad or true.</p>
+      <p class="vr-claim-sources"><strong>Evidence:</strong> <a href="https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html" rel="noopener noreferrer">SRC-C2PA-2-4 · C2PA</a></p>
+      <p><strong>Qualification:</strong> Provenance and tamper evidence are not a truth score.</p>
+      <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C007%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C007</a></p>
+    </aside>
+  </section>
+<section class="vr-subsection">
+    <h3>The chain</h3>
+    <p>A source may be retrieved, summarized by a model and represented by a citation. The human check still asks whether the cited source is the right source and whether its exact content supports the exact claim.</p>
+<p>The same model asking itself “are you sure?” may expose inconsistency, but it is not independent evidence. Independence comes from the underlying authoritative record, a qualified owner or a genuinely separate evidence path.</p>
 
-        <footer class="gr-ref-footer">
-          <strong>About this shelf:</strong> This is the <em>quick move</em> — the checking method from <a href="/issues/issue-03.html">Episode 3, The Burn Book Problem</a>. Want the full story — what these AI tools are and why they slip up? That's the <em>deep read</em> in <a href="/grimoire/slaiyer-handbook-chapter-1.html">the SLAiYER Handbook</a>. And it pairs with <a href="/grimoire/chamber-of-receipts.html">the Chamber of Receipts</a>, where the evidence itself lives.
-        </footer>
-      </main>
+
+
+
+  </section>
+  <form class="vr-check" data-check="chapter-2" data-type="artifact-match">
+    <fieldset>
+      <legend>Match five artifacts to what they establish.</legend>
+      <label class="vr-select-label">1. A tool returns a list of pages relevant to the query.<select name="chapter-2-c2-1" data-answer="0" required><option value="">Choose…</option><option value="0">RETRIEVAL</option><option value="1">GROUNDING</option><option value="2">CITATION</option><option value="3">PROVENANCE</option><option value="4">VERIFICATION</option></select></label><p class="vr-item-feedback" data-for="c2-1" hidden>Finding material is retrieval; relevance and quality still need inspection.</p><label class="vr-select-label">2. The answer is constrained to a supplied policy document.<select name="chapter-2-c2-2" data-answer="1" required><option value="">Choose…</option><option value="0">RETRIEVAL</option><option value="1">GROUNDING</option><option value="2">CITATION</option><option value="3">PROVENANCE</option><option value="4">VERIFICATION</option></select></label><p class="vr-item-feedback" data-for="c2-2" hidden>The model is grounded in the document; the document and interpretation can still be wrong or out of scope.</p><label class="vr-select-label">3. A numbered link points to a report.<select name="chapter-2-c2-3" data-answer="2" required><option value="">Choose…</option><option value="0">RETRIEVAL</option><option value="1">GROUNDING</option><option value="2">CITATION</option><option value="3">PROVENANCE</option><option value="4">VERIFICATION</option></select></label><p class="vr-item-feedback" data-for="c2-3" hidden>The link is a pointer, not a support verdict.</p><label class="vr-select-label">4. Content Credentials bind an origin and edit history to an image.<select name="chapter-2-c2-4" data-answer="3" required><option value="">Choose…</option><option value="0">RETRIEVAL</option><option value="1">GROUNDING</option><option value="2">CITATION</option><option value="3">PROVENANCE</option><option value="4">VERIFICATION</option></select></label><p class="vr-item-feedback" data-for="c2-4" hidden>The trail can be tamper-evident without proving the depicted event.</p><label class="vr-select-label">5. The exact claim is mapped to adequate, current, in-scope evidence and given a qualified verdict.<select name="chapter-2-c2-5" data-answer="4" required><option value="">Choose…</option><option value="0">RETRIEVAL</option><option value="1">GROUNDING</option><option value="2">CITATION</option><option value="3">PROVENANCE</option><option value="4">VERIFICATION</option></select></label><p class="vr-item-feedback" data-for="c2-5" hidden>That is the claim-to-evidence decision process.</p>
+    </fieldset>
+    <button type="submit">Check my reasoning</button>
+
+    <p class="vr-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
+  </form>
+</article>
+<article class="gr-page vr-chapter" id="frame-the-claim" aria-labelledby="frame-the-claim-title">
+  <p class="vr-kicker">Chapter 3 of 7</p>
+  <h2 id="frame-the-claim-title">Frame the claim before searching</h2>
+  <p class="vr-dek">A vague question retrieves vague evidence. Make the statement small enough to test.</p>
+  <section class="vr-subsection">
+    <h3>Write the claim you actually need</h3>
+    <p>Name the product or person, plan or version, place or jurisdiction, date, conditions, denominator and intended decision. Preserve qualifiers such as “may,” “in this sample” and “for eligible accounts.”</p>
+<p>“She doesn’t even go here” is a useful scope reminder: evidence about a different plan, country or version may be real and still not apply. The film reference is only a mnemonic; it does not test the evidence for you.</p>
+    <ul><li>Vague: “It is 50% faster.”</li><li>Checkable: “In the named study, people completing which task, compared with what baseline, finished 50% faster under which conditions?”</li><li>Vague: “The plan is free.”</li><li>Checkable: “Is this feature included in the provider’s free plan for Canadian individual accounts on 25 July 2026?”</li></ul>
+
+
+
+  </section>
+  <form class="vr-check" data-check="chapter-3" data-type="repair">
+    <fieldset>
+      <legend>Choose the repair that makes each claim checkable.</legend>
+      <label class="vr-select-label">1. The new AI tool cuts admin time by 40%.<select name="chapter-3-c3-1" data-answer="1" required><option value="">Choose…</option><option value="0">Count pages repeating 40%.</option><option value="1">Name the tool/version, population, task, baseline, period, method and source.</option><option value="2">Ask the AI to sound less confident.</option></select></label><p class="vr-item-feedback" data-for="c3-1" hidden>The repair exposes the denominator, comparison and method.</p><label class="vr-select-label">2. The plan is free.<select name="chapter-3-c3-2" data-answer="0" required><option value="">Choose…</option><option value="0">Name provider, feature, plan, account type, region and date.</option><option value="1">Search “free plan” without qualifiers.</option><option value="2">Treat free as a permanent product property.</option></select></label><p class="vr-item-feedback" data-for="c3-2" hidden>Plan, account, region and date determine applicability.</p><label class="vr-select-label">3. The client approved Friday and expects a 20% lift.<select name="chapter-3-c3-3" data-answer="1" required><option value="">Choose…</option><option value="0">Keep it as one claim.</option><option value="1">Split approval/date from forecast; name the decision record and forecast evidence.</option><option value="2">Change “approved” to “liked.”</option></select></label><p class="vr-item-feedback" data-for="c3-3" hidden>Compound claims need separate evidence and verdicts.</p>
+    </fieldset>
+    <button type="submit">Check my reasoning</button>
+
+    <p class="vr-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
+  </form>
+</article>
+<article class="gr-page vr-chapter" id="choose-and-inspect" aria-labelledby="choose-and-inspect-title">
+  <p class="vr-kicker">Chapter 4 of 7</p>
+  <h2 id="choose-and-inspect-title">Choose and inspect evidence</h2>
+  <p class="vr-dek">There is no universal source ladder. Match evidence to the claim, then inspect what it actually says.</p>
+  <section class="vr-subsection">
+    <h3>Claim-matched evidence</h3>
+
+
+
+    <div class="vr-table-wrap" tabindex="0" role="region" aria-label="Claim type table"><table><thead><tr><th scope="col">Claim type</th><th scope="col">Best starting evidence</th><th scope="col">Never sufficient alone</th></tr></thead><tbody><tr><th scope="row">Current feature, price, plan or policy</th><td>Current official documentation, account UI or contract; record region, plan and access date</td><td>AI memory, search snippet or undated screenshot</td></tr><tr><th scope="row">Law, regulation or public rule</th><td>Current legislation, regulator, court or official authority; qualified professional for consequential application</td><td>Generic blog or a non-jurisdictional answer</td></tr><tr><th scope="row">Scientific or empirical result</th><td>Original paper, dataset and method; correction/retraction status; suitable expert synthesis</td><td>Press release or percentage without method/denominator</td></tr><tr><th scope="row">Quote, statement or event</th><td>Original transcript, recording, filing, document or direct statement</td><td>Quote graphic, repost or citation without accessible source</td></tr><tr><th scope="row">Internal commitment</th><td>Approved record, contract or named decision owner</td><td>Model-written recap or unattributed notes</td></tr><tr><th scope="row">Media origin</th><td>Original asset/context plus provenance where present</td><td>Metadata treated as a truth verdict</td></tr></tbody></table></div>
+
+  </section>
+<section class="vr-subsection">
+    <h3>The seven source questions</h3>
+
+    <ul><li>Identity: who created or published it, and what authority or interest do they have?</li><li>Relevance: does it address this exact claim rather than a nearby topic?</li><li>Scope: correct person, product, plan, place, jurisdiction and conditions?</li><li>Date/version: current enough for this decision?</li><li>Support: does it actually entail the claim, numbers and qualifiers?</li><li>Method: how was the evidence produced; what is missing or uncertain?</li><li>Independence: does corroboration trace to a genuinely separate origin?</li></ul>
+
+
+    <aside class="vr-claim" id="claim-VR-C006" data-claim-id="VR-C006" data-claim-status="SUPPORTED">
+      <p class="vr-claim-id"><a href="#ledger-VR-C006">VR-C006 · SUPPORTED</a></p>
+      <p class="vr-claim-wording">Lateral reading means leaving an unfamiliar page to investigate who is behind it and what trusted sources say about it.</p>
+      <p class="vr-claim-sources"><strong>Evidence:</strong> <a href="https://cor.inquirygroup.org/curriculum/lessons/intro-to-lateral-reading/" rel="noopener noreferrer">SRC-COR-LATERAL · Digital Inquiry Group</a></p>
+      <p><strong>Qualification:</strong> Directly supported by the named Digital Inquiry Group lesson.</p>
+      <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C006%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C006</a></p>
+    </aside><aside class="vr-claim" id="claim-VR-C011" data-claim-id="VR-C011" data-claim-status="QUALIFIED">
+      <p class="vr-claim-id"><a href="#ledger-VR-C011">VR-C011 · QUALIFIED</a></p>
+      <p class="vr-claim-wording">Separate URLs are not independent corroboration when they all trace to the same underlying source.</p>
+      <p class="vr-claim-sources"><strong>Evidence:</strong> <a href="https://cor.inquirygroup.org/about/" rel="noopener noreferrer">SRC-COR-ABOUT · Digital Inquiry Group</a> · <a href="https://cor.inquirygroup.org/curriculum/lessons/intro-to-lateral-reading/" rel="noopener noreferrer">SRC-COR-LATERAL · Digital Inquiry Group</a></p>
+      <p><strong>Qualification:</strong> Qualified synthesis, not a direct quotation or universal rule.</p>
+      <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C011%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C011</a></p>
+    </aside>
+  </section>
+  <form class="vr-check" data-check="chapter-4" data-type="source-compare">
+    <fieldset>
+      <legend>You need today’s seat limit for a paid software plan in Canada. Compare all three, choose the most diagnostic source, then explain why and what you would inspect.</legend>
+      <div role="group" aria-label="Choose the most diagnostic source"><label><input type="radio" name="chapter-4-choice" value="forum" data-correct="false" required> <span>A popular forum answer from last year.</span></label><label><input type="radio" name="chapter-4-choice" value="snippet" data-correct="false" required> <span>A search snippet quoting a review site.</span></label><label><input type="radio" name="chapter-4-choice" value="official" data-correct="true" required> <span>The provider’s current Canadian plan page or authenticated plan terms, opened and dated.</span></label></div>
+      <label>Why is it diagnostic?<textarea name="chapter-4-reason" minlength="30" required></textarea></label>
+      <label>What exact evidence action comes next?<textarea name="chapter-4-action" minlength="30" required></textarea></label>
+    </fieldset>
+    <button type="submit">Check my reasoning</button>
+    <div class="vr-self-check" data-self-check hidden>
+    <h3>Comparison rubric</h3>
+    <p>Compare your response yourself. This records reflection; it does not score your reasoning.</p>
+    <div class="vr-rubric-row">
+      <p><strong>Claim:</strong> The exact Canadian paid-plan seat-limit claim is framed.</p>
+      <label>My comparison for claim
+        <select name="chapter-4-rubric-claim" data-rubric-choice>
+          <option value="">Choose…</option>
+          <option value="met">Met</option>
+          <option value="revise">Revise</option>
+          <option value="unsure">Unsure</option>
+        </select>
+      </label>
+    </div><div class="vr-rubric-row">
+      <p><strong>Evidence:</strong> The current applicable provider terms and exact clause are selected.</p>
+      <label>My comparison for evidence
+        <select name="chapter-4-rubric-evidence" data-rubric-choice>
+          <option value="">Choose…</option>
+          <option value="met">Met</option>
+          <option value="revise">Revise</option>
+          <option value="unsure">Unsure</option>
+        </select>
+      </label>
+    </div><div class="vr-rubric-row">
+      <p><strong>Limitation:</strong> Conditions, omissions and the limit of an official source are named.</p>
+      <label>My comparison for limitation
+        <select name="chapter-4-rubric-limitation" data-rubric-choice>
+          <option value="">Choose…</option>
+          <option value="met">Met</option>
+          <option value="revise">Revise</option>
+          <option value="unsure">Unsure</option>
+        </select>
+      </label>
+    </div><div class="vr-rubric-row">
+      <p><strong>Action:</strong> The source will be opened, inspected and recorded with plan, region and date.</p>
+      <label>My comparison for action
+        <select name="chapter-4-rubric-action" data-rubric-choice>
+          <option value="">Choose…</option>
+          <option value="met">Met</option>
+          <option value="revise">Revise</option>
+          <option value="unsure">Unsure</option>
+        </select>
+      </label>
     </div>
+    <button type="button" data-record-self-check>Record self-check</button>
+  </div>
+    <p class="vr-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
+  </form>
+</article>
+<article class="gr-page vr-chapter" id="receipt-loop" aria-labelledby="receipt-loop-title">
+  <p class="vr-kicker">Chapter 5 of 7</p>
+  <h2 id="receipt-loop-title">Run the Receipt Loop</h2>
+  <p class="vr-dek">Frame → Split → Find → Inspect → Cross-check → Decide → Record.</p>
+  <section class="vr-subsection">
+    <h3>A worked decision</h3>
+    <p>Return to the client update. Frame and split three claims: approval of the date, expected 20% lift and paid-social scope. Find the meeting record and named decision owner. Inspect the exact lines. The notes support none of the three as written.</p>
+<p>The useful draft survives, but the claims change: “The client will review the proposed launch date Friday. The team discussed a possible lift but has not agreed a forecast. Paid social is an open scope question.”</p>
+    <ul><li>SUPPORTED: adequate evidence supports the framed claim.</li><li>CONTRADICTED: adequate evidence conflicts with it.</li><li>UNRESOLVED: evidence is missing, mixed or too weak.</li><li>NOT APPLICABLE: the evidence addresses a different scope, version or question.</li></ul>
 
-    <script>
-      (function () {
-        var btn = document.querySelector('[data-copy]');
-        var pre = document.getElementById('vrPrompt');
-        if (!btn || !pre) return;
-        btn.addEventListener('click', function () {
-          var text = pre.innerText;
-          function done() { btn.textContent = 'Copied ✓'; setTimeout(function () { btn.textContent = '⧉ Copy'; }, 1800); }
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(text).then(done, fallback);
-          } else { fallback(); }
-          function fallback() {
-            var r = document.createRange(); r.selectNode(pre);
-            var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
-            try { document.execCommand('copy'); done(); } catch (e) {}
-            sel.removeAllRanges();
-          }
-        });
-      })();
-    </script>
-  </body>
+
+    <aside class="vr-claim" id="claim-VR-C009" data-claim-id="VR-C009" data-claim-status="SUPPORTED">
+      <p class="vr-claim-id"><a href="#ledger-VR-C009">VR-C009 · SUPPORTED</a></p>
+      <p class="vr-claim-wording">The Receipt Loop uses four evidence verdicts: supported, contradicted, unresolved and not applicable.</p>
+      <p class="vr-claim-sources"><strong>Evidence:</strong> <a href="/operations/product-stewards/learning-content-ecosystem/build-packet-eco-01-verification-rulebook-2026-07-25.md" rel="noopener noreferrer">INTERNAL-ECO01-SPEC · LAiDIES</a></p>
+      <p><strong>Qualification:</strong> Internal product rule.</p>
+      <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C009%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C009</a></p>
+    </aside>
+  </section>
+<section class="vr-subsection">
+    <h3>Record the decision receipt</h3>
+    <p>Keep the exact claim, source, location, access date, scope, verdict, uncertainty and next review trigger. That turns a private moment of checking into a correction path.</p>
+<p>Do not force a true/false answer when the honest result is unresolved. Abstaining from invented certainty is a useful outcome.</p>
+
+
+
+
+  </section>
+  <form class="vr-check" data-check="chapter-5" data-type="claim-table">
+    <fieldset>
+      <legend>Complete the decision receipt before revealing the model answer.</legend>
+      <div class="vr-table-wrap" tabindex="0" role="region" aria-label="Claim decision table"><table><thead><tr><th scope="col">Claim</th><th scope="col">Source</th><th scope="col">Your verdict</th></tr></thead><tbody><tr><th scope="row">Ali approved the launch.</th><td>Meeting notes: “Ali will decide Friday.”</td><td><label class="vr-select-label">Verdict<select name="chapter-5-c5-1" data-answer="1" required><option value="">Choose…</option><option value="0">SUPPORTED</option><option value="1">CONTRADICTED</option><option value="2">UNRESOLVED</option><option value="3">NOT APPLICABLE</option></select></label></td></tr><tr><th scope="row">The campaign will lift results 20%.</th><td>Meeting notes: “Maybe 20%?” No forecast source.</td><td><label class="vr-select-label">Verdict<select name="chapter-5-c5-2" data-answer="2" required><option value="">Choose…</option><option value="0">SUPPORTED</option><option value="1">CONTRADICTED</option><option value="2">UNRESOLVED</option><option value="3">NOT APPLICABLE</option></select></label></td></tr><tr><th scope="row">Paid social is in phase one.</th><td>Meeting notes list paid social as an open question.</td><td><label class="vr-select-label">Verdict<select name="chapter-5-c5-3" data-answer="1" required><option value="">Choose…</option><option value="0">SUPPORTED</option><option value="1">CONTRADICTED</option><option value="2">UNRESOLVED</option><option value="3">NOT APPLICABLE</option></select></label></td></tr></tbody></table></div><label>Explain how the source supports your three verdicts.<textarea name="chapter-5-reason" minlength="40" required></textarea></label><label>What evidence or revision action comes next?<textarea name="chapter-5-action" minlength="30" required></textarea></label>
+    </fieldset>
+    <button type="submit">Check my reasoning</button>
+    <div class="vr-self-check" data-self-check hidden>
+    <h3>Comparison rubric</h3>
+    <p>Compare your response yourself. This records reflection; it does not score your reasoning.</p>
+    <div class="vr-rubric-row">
+      <p><strong>Claim:</strong> Approval, forecast and paid-social scope are split into separate claims.</p>
+      <label>My comparison for claim
+        <select name="chapter-5-rubric-claim" data-rubric-choice>
+          <option value="">Choose…</option>
+          <option value="met">Met</option>
+          <option value="revise">Revise</option>
+          <option value="unsure">Unsure</option>
+        </select>
+      </label>
+    </div><div class="vr-rubric-row">
+      <p><strong>Evidence:</strong> Each verdict is mapped to the exact meeting-note passage.</p>
+      <label>My comparison for evidence
+        <select name="chapter-5-rubric-evidence" data-rubric-choice>
+          <option value="">Choose…</option>
+          <option value="met">Met</option>
+          <option value="revise">Revise</option>
+          <option value="unsure">Unsure</option>
+        </select>
+      </label>
+    </div><div class="vr-rubric-row">
+      <p><strong>Limitation:</strong> The missing forecast source and pending decisions are preserved as uncertainty.</p>
+      <label>My comparison for limitation
+        <select name="chapter-5-rubric-limitation" data-rubric-choice>
+          <option value="">Choose…</option>
+          <option value="met">Met</option>
+          <option value="revise">Revise</option>
+          <option value="unsure">Unsure</option>
+        </select>
+      </label>
+    </div><div class="vr-rubric-row">
+      <p><strong>Action:</strong> The draft will be revised and the decision owner, source and date recorded.</p>
+      <label>My comparison for action
+        <select name="chapter-5-rubric-action" data-rubric-choice>
+          <option value="">Choose…</option>
+          <option value="met">Met</option>
+          <option value="revise">Revise</option>
+          <option value="unsure">Unsure</option>
+        </select>
+      </label>
+    </div>
+    <button type="button" data-record-self-check>Record self-check</button>
+  </div>
+    <p class="vr-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
+  </form>
+</article>
+<article class="gr-page vr-chapter" id="currentness-media-independence" aria-labelledby="currentness-media-independence-title">
+  <p class="vr-kicker">Chapter 6 of 7</p>
+  <h2 id="currentness-media-independence-title">Currentness, media and independent checks</h2>
+  <p class="vr-dek">A real source can be stale. A real provenance trail can accompany a false claim. A second answer can repeat the first answer’s blind spot.</p>
+  <section class="vr-subsection">
+    <h3>Stale but real</h3>
+    <p>A page may accurately describe an old model, plan, price or law and still be unusable for today’s decision. Record publication or version date, access date, region and change trigger.</p>
+<p>Current provider examples belong in dated, replaceable cards—not inside the durable definition of verification.</p>
+
+
+
+    <aside class="vr-claim" id="claim-VR-C014" data-claim-id="VR-C014" data-claim-status="SUPPORTED">
+      <p class="vr-claim-id"><a href="#ledger-VR-C014">VR-C014 · SUPPORTED</a></p>
+      <p class="vr-claim-wording">A real source can accurately describe an old state and still be inapplicable to a current decision.</p>
+      <p class="vr-claim-sources"><strong>Evidence:</strong> <a href="/operations/product-stewards/learning-content-ecosystem/build-packet-eco-01-verification-rulebook-2026-07-25.md" rel="noopener noreferrer">INTERNAL-ECO01-SPEC · LAiDIES</a></p>
+      <p><strong>Qualification:</strong> Internal instructional principle.</p>
+      <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C014%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C014</a></p>
+    </aside>
+  </section>
+<section class="vr-subsection">
+    <h3>Trace the origin</h3>
+    <p>Five articles may repeat one press release. Corroboration requires separate provenance or evidence, not merely separate URLs.</p>
+<p>For images, audio and video, provenance can help establish who made or changed an asset. Investigate the event, context and claim separately.</p>
+
+
+
+
+  </section>
+  <form class="vr-check" data-check="chapter-6" data-type="dual-case">
+    <fieldset>
+      <legend>Resolve both cases and explain the evidence gap.</legend>
+      <label class="vr-select-label">1. Freshness case: Three sites repeat a price from one provider page archived two years ago. Is that price established for today?<select name="chapter-6-c6-fresh" data-answer="2" required><option value="">Choose…</option><option value="0">SUPPORTED</option><option value="1">CONTRADICTED</option><option value="2">UNRESOLVED</option><option value="3">NOT APPLICABLE</option></select></label><p class="vr-item-feedback" data-for="c6-fresh" hidden>It is one stale evidence chain. Check current applicable terms.</p><label class="vr-select-label">2. Provenance case: Valid Content Credentials identify an image’s origin and edits. Do they establish that its captioned event happened in Vancouver today?<select name="chapter-6-c6-media" data-answer="2" required><option value="">Choose…</option><option value="0">SUPPORTED</option><option value="1">CONTRADICTED</option><option value="2">UNRESOLVED</option><option value="3">NOT APPLICABLE</option></select></label><p class="vr-item-feedback" data-for="c6-media" hidden>The provenance trail does not verify the event, place, date or caption.</p><label>Explain the evidence gap in both cases.<textarea name="chapter-6-reason" minlength="35" required></textarea></label><label>What exact evidence action comes next for each case?<textarea name="chapter-6-action" minlength="30" required></textarea></label>
+    </fieldset>
+    <button type="submit">Check my reasoning</button>
+    <div class="vr-self-check" data-self-check hidden>
+    <h3>Comparison rubric</h3>
+    <p>Compare your response yourself. This records reflection; it does not score your reasoning.</p>
+    <div class="vr-rubric-row">
+      <p><strong>Claim:</strong> Today’s price and today’s captioned event are treated as separate claims.</p>
+      <label>My comparison for claim
+        <select name="chapter-6-rubric-claim" data-rubric-choice>
+          <option value="">Choose…</option>
+          <option value="met">Met</option>
+          <option value="revise">Revise</option>
+          <option value="unsure">Unsure</option>
+        </select>
+      </label>
+    </div><div class="vr-rubric-row">
+      <p><strong>Evidence:</strong> Current plan terms and independent event/context records are identified.</p>
+      <label>My comparison for evidence
+        <select name="chapter-6-rubric-evidence" data-rubric-choice>
+          <option value="">Choose…</option>
+          <option value="met">Met</option>
+          <option value="revise">Revise</option>
+          <option value="unsure">Unsure</option>
+        </select>
+      </label>
+    </div><div class="vr-rubric-row">
+      <p><strong>Limitation:</strong> Stale repetition and provenance-without-event-proof are named.</p>
+      <label>My comparison for limitation
+        <select name="chapter-6-rubric-limitation" data-rubric-choice>
+          <option value="">Choose…</option>
+          <option value="met">Met</option>
+          <option value="revise">Revise</option>
+          <option value="unsure">Unsure</option>
+        </select>
+      </label>
+    </div><div class="vr-rubric-row">
+      <p><strong>Action:</strong> Freshness/scope and event place/date/context will be checked separately.</p>
+      <label>My comparison for action
+        <select name="chapter-6-rubric-action" data-rubric-choice>
+          <option value="">Choose…</option>
+          <option value="met">Met</option>
+          <option value="revise">Revise</option>
+          <option value="unsure">Unsure</option>
+        </select>
+      </label>
+    </div>
+    <button type="button" data-record-self-check>Record self-check</button>
+  </div>
+    <p class="vr-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
+  </form>
+</article>
+<article class="gr-page vr-chapter" id="use-qualify-escalate-stop" aria-labelledby="use-qualify-escalate-stop-title">
+  <p class="vr-kicker">Chapter 7 of 7</p>
+  <h2 id="use-qualify-escalate-stop-title">Use, qualify, escalate or stop</h2>
+  <p class="vr-dek">The goal is a better decision—not infinite research or performative certainty.</p>
+  <section class="vr-subsection">
+    <h3>Proportionate checking</h3>
+
+    <ul><li>Low and reversible: label it draft; one quick source inspection may be enough.</li><li>Material but reversible: use a claim table, authoritative source, scope/date check and independent corroboration where uncertainty remains.</li><li>High-stakes or hard to reverse: use authoritative records and the qualified human owner or professional. Stop or escalate when evidence is inadequate.</li></ul>
+
+
+    <aside class="vr-claim" id="claim-VR-C010" data-claim-id="VR-C010" data-claim-status="QUALIFIED">
+      <p class="vr-claim-id"><a href="#ledger-VR-C010">VR-C010 · QUALIFIED</a></p>
+      <p class="vr-claim-wording">Checking effort should be proportional to consequence, reversibility, uncertainty and freshness.</p>
+      <p class="vr-claim-sources"><strong>Evidence:</strong> <a href="/operations/product-stewards/learning-content-ecosystem/build-packet-eco-01-verification-rulebook-2026-07-25.md" rel="noopener noreferrer">INTERNAL-ECO01-SPEC · LAiDIES</a></p>
+      <p><strong>Qualification:</strong> Internal instructional recommendation pending newcomer evidence.</p>
+      <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C010%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C010</a></p>
+    </aside>
+  </section>
+<section class="vr-subsection">
+    <h3>Write the honest answer</h3>
+    <p>State what is supported, what remains uncertain, the scope and date, and what evidence would change the conclusion. A disclaimer does not repair bad advice.</p>
+<p>This Rulebook is not legal, medical, financial, HR or safety advice. In those domains, it can help you organize questions and sources, but it cannot replace the responsible professional or decision owner.</p>
+
+
+
+    <aside class="vr-claim" id="claim-VR-C013" data-claim-id="VR-C013" data-claim-status="SUPPORTED">
+      <p class="vr-claim-id"><a href="#ledger-VR-C013">VR-C013 · SUPPORTED</a></p>
+      <p class="vr-claim-wording">The Rulebook is not legal, medical, financial, HR or safety advice and cannot replace the responsible professional or decision owner.</p>
+      <p class="vr-claim-sources"><strong>Evidence:</strong> <a href="/operations/product-stewards/learning-content-ecosystem/build-packet-eco-01-verification-rulebook-2026-07-25.md" rel="noopener noreferrer">INTERNAL-ECO01-SPEC · LAiDIES</a></p>
+      <p><strong>Qualification:</strong> Internal safety rule.</p>
+      <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C013%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C013</a></p>
+    </aside>
+  </section>
+  <form class="vr-check" data-check="chapter-7" data-type="stakes">
+    <fieldset>
+      <legend>Choose the proportionate next action for all three stakes levels.</legend>
+      <label class="vr-select-label">1. Low/reversible: An AI suggests three playful headings for an internal brainstorm.<select name="chapter-7-c7-low" data-answer="0" required><option value="">Choose…</option><option value="0">USE AS LABELLED DRAFT</option><option value="1">CHECK AUTHORITATIVE SOURCE + QUALIFY</option><option value="2">STOP AND ESCALATE TO QUALIFIED HUMAN</option></select></label><p class="vr-item-feedback" data-for="c7-low" hidden>Creative draft use is reversible; do not invent factual support.</p><label class="vr-select-label">2. Material/reversible: An AI compares current software plans for a team purchase.<select name="chapter-7-c7-material" data-answer="1" required><option value="">Choose…</option><option value="0">USE AS LABELLED DRAFT</option><option value="1">CHECK AUTHORITATIVE SOURCE + QUALIFY</option><option value="2">STOP AND ESCALATE TO QUALIFIED HUMAN</option></select></label><p class="vr-item-feedback" data-for="c7-material" hidden>Check current applicable terms, requirements and uncertainty before buying.</p><label class="vr-select-label">3. High/hard to reverse: An AI says to stop prescribed medication because a forum reports side effects.<select name="chapter-7-c7-high" data-answer="2" required><option value="">Choose…</option><option value="0">USE AS LABELLED DRAFT</option><option value="1">CHECK AUTHORITATIVE SOURCE + QUALIFY</option><option value="2">STOP AND ESCALATE TO QUALIFIED HUMAN</option></select></label><p class="vr-item-feedback" data-for="c7-high" hidden>Do not act on the answer; contact the prescriber or appropriate medical professional.</p>
+    </fieldset>
+    <button type="submit">Check my reasoning</button>
+
+    <p class="vr-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
+  </form>
+</article>
+      <section class="vr-prompt" id="source-bound-prompt" aria-labelledby="prompt-title">
+        <h2 id="prompt-title">The source-bound prompt</h2>
+        <p>Use this to reduce risk and expose missing evidence. It is not a truth machine.</p>
+        <label for="vr-prompt-text">Copyable prompt</label>
+        <textarea id="vr-prompt-text" readonly>Answer only from the source material I provide or sources you can link directly. For every material claim: quote the exact supporting words and give the page, section or timestamp; if the source does not state it, write “not stated.” Separate source fact from inference. Add columns for source, publication/version date, access date and scope. Mark unsupported statements [needs receipt]. Preserve uncertainty and abstain when evidence is inadequate.</textarea>
+        <button type="button" class="vr-copy" data-copy-target="vr-prompt-text">Copy prompt</button>
+        <p class="vr-copy-status" role="status" aria-live="polite"></p>
+        <p class="vr-warning">Now open the source yourself. This prompt cannot certify the source, the quote or the conclusion.</p>
+        <aside class="vr-claim" id="claim-VR-C012" data-claim-id="VR-C012" data-claim-status="SUPPORTED">
+      <p class="vr-claim-id"><a href="#ledger-VR-C012">VR-C012 · SUPPORTED</a></p>
+      <p class="vr-claim-wording">The source-bound prompt is a risk-reduction aid, not a truth machine, and critical claims still require external validation.</p>
+      <p class="vr-claim-sources"><strong>Evidence:</strong> <a href="https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations" rel="noopener noreferrer">SRC-ANTHROPIC-HALLUCINATION · Anthropic</a></p>
+      <p><strong>Qualification:</strong> Safety limit retained next to the prompt.</p>
+      <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C012%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C012</a></p>
+    </aside>
+      </section>
+      <section class="vr-transfer" aria-labelledby="transfer-title">
+        <h2 id="transfer-title">The unseen transfer challenge</h2>
+        <p class="vr-scenario">A board memo says: “Tool A is the cheapest option for us, and a new study proves teams finish analysis 50% faster.” The linked price is for a different region and plan. The memo links a news story that mentions 50% but does not identify the task, baseline, sample or original study.</p>
+        <ol><li>Split the material claims.</li><li>Identify the decision-changing claim.</li><li>Choose the most diagnostic evidence action.</li><li>Name the scope and freshness checks.</li><li>Give a qualified verdict and state what would change it.</li></ol>
+        <form class="vr-check vr-transfer-form" data-transfer>
+          <label for="vr-transfer-claims">Split the material claims.</label>
+          <textarea id="vr-transfer-claims" minlength="40" required></textarea>
+          <label class="vr-select-label">Price evidence verdict<select name="vr-transfer-price-verdict" data-answer="" required><option value="">Choose…</option><option value="0">SUPPORTED</option><option value="1">CONTRADICTED</option><option value="2">UNRESOLVED</option><option value="3">NOT APPLICABLE</option></select></label>
+          <label class="vr-select-label">Speed evidence verdict<select name="vr-transfer-speed-verdict" data-answer="" required><option value="">Choose…</option><option value="0">SUPPORTED</option><option value="1">CONTRADICTED</option><option value="2">UNRESOLVED</option><option value="3">NOT APPLICABLE</option></select></label>
+          <label for="vr-transfer-action">What exact evidence actions come next?</label>
+          <textarea id="vr-transfer-action" minlength="40" required></textarea>
+          <label for="vr-transfer-limitation">What scope, freshness or method limitations remain?</label>
+          <textarea id="vr-transfer-limitation" minlength="40" required></textarea>
+          <button type="submit">Record my response and open self-check</button>
+          <div class="vr-self-check" data-self-check hidden>
+    <h3>Comparison rubric</h3>
+    <p>Compare your response yourself. This records reflection; it does not score your reasoning.</p>
+    <div class="vr-rubric-row">
+      <p><strong>Claim:</strong> Price, speed and “cheapest/best” are split into separate material claims.</p>
+      <label>My comparison for claim
+        <select name="transfer-rubric-claim" data-rubric-choice>
+          <option value="">Choose…</option>
+          <option value="met">Met</option>
+          <option value="revise">Revise</option>
+          <option value="unsure">Unsure</option>
+        </select>
+      </label>
+    </div><div class="vr-rubric-row">
+      <p><strong>Evidence:</strong> Current like-for-like plan terms and the original study/method are selected.</p>
+      <label>My comparison for evidence
+        <select name="transfer-rubric-evidence" data-rubric-choice>
+          <option value="">Choose…</option>
+          <option value="met">Met</option>
+          <option value="revise">Revise</option>
+          <option value="unsure">Unsure</option>
+        </select>
+      </label>
+    </div><div class="vr-rubric-row">
+      <p><strong>Limitation:</strong> Plan/region mismatch and missing task, baseline, sample and method are named.</p>
+      <label>My comparison for limitation
+        <select name="transfer-rubric-limitation" data-rubric-choice>
+          <option value="">Choose…</option>
+          <option value="met">Met</option>
+          <option value="revise">Revise</option>
+          <option value="unsure">Unsure</option>
+        </select>
+      </label>
+    </div><div class="vr-rubric-row">
+      <p><strong>Action:</strong> The learner states what to inspect, what remains unresolved and what would change each verdict.</p>
+      <label>My comparison for action
+        <select name="transfer-rubric-action" data-rubric-choice>
+          <option value="">Choose…</option>
+          <option value="met">Met</option>
+          <option value="revise">Revise</option>
+          <option value="unsure">Unsure</option>
+        </select>
+      </label>
+    </div>
+    <button type="button" data-record-self-check>Record self-check</button>
+  </div>
+          <p class="vr-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
+        </form>
+      </section>
+      <section class="vr-metadata" aria-labelledby="metadata-title">
+        <h2 id="metadata-title">Review, freshness and corrections</h2>
+        <dl class="vr-meta-grid">
+          <div><dt>Published</dt><dd>Not published — candidate under independent review</dd></div>
+          <div><dt>Last reviewed</dt><dd>2026-07-25 · maker review only</dd></div>
+          <div><dt>Next review</dt><dd>Before any release, then annually for the durable method and quarterly for any named provider example.</dd></div>
+          <div><dt>What can change</dt><dd>Provider features, plans, policies, interfaces, laws, statistics, research corrections and external links. The core checking method is reviewed annually or when learner evidence shows confusion.</dd></div>
+        </dl>
+        <p><a href="mailto:hello@laidies.ai?subject=Verification%20Rulebook%20correction&amp;body=Please%20include%20the%20chapter%2C%20claim%20or%20source%20ID%20and%20what%20you%20found.">Report a correction about a chapter, claim or source</a>. Include the relevant ID and what you found; do not email private source material.</p>
+        <p><strong>Canonical source:</strong> <code>/content/library-books/verification-rulebook.json</code><br><strong>Source SHA-256:</strong> <code>ac3ec15f27898ad69c9ac142a86e51948b5d024437b89dcd11cf336ad81fdacd</code></p>
+      </section>
+      <section class="vr-sources" aria-labelledby="sources-title">
+        <h2 id="sources-title">Source drawer</h2>
+        <p>Every material claim below is generated from the same canonical record as the reader wording. A working link does not, by itself, prove semantic support or currentness.</p>
+        <details><summary>Open the claim ledger</summary><ol class="vr-ledger-list"><li id="ledger-VR-C001">
+  <p><strong>VR-C001 · SUPPORTED</strong></p>
+  <p>Generative AI can produce false content and fabricated citations, so important sources and citations still need review and verification.</p>
+  <p><strong>Sources:</strong> <a href="#SRC-NIST-GAI-600-1">SRC-NIST-GAI-600-1</a></p>
+  <p><strong>Support:</strong> NIST.AI.600-1, pp. 9 and 34: confabulation includes confidently false content and fabricated citations; suggested actions require review and verification of sources and citations.</p>
+  <p><strong>Version/access:</strong> NIST AI 600-1, July 2024 · 2026-07-25</p>
+  <p><strong>Scope:</strong> Generative-AI risk management; not a performance rate or guarantee for a named model.</p>
+  <p><strong>Qualification:</strong> Sourced fact, scoped to the NIST risk profile.</p>
+  <p><strong>Next review:</strong> 2027-07-25 or on NIST revision</p>
+  <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C001%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C001</a></p>
+</li><li id="ledger-VR-C002">
+  <p><strong>VR-C002 · QUALIFIED</strong></p>
+  <p>Current AI products can search the web and present citations; those are present capabilities, not hypothetical future abilities.</p>
+  <p><strong>Sources:</strong> <a href="#SRC-OAI-WEB-SEARCH">SRC-OAI-WEB-SEARCH</a></p>
+  <p><strong>Support:</strong> Web search guide, Overview and Citations sections: web search can access up-to-date information and responses include URL citation annotations.</p>
+  <p><strong>Version/access:</strong> Current web documentation · 2026-07-25</p>
+  <p><strong>Scope:</strong> OpenAI API web-search tool; availability and implementation depend on current provider documentation.</p>
+  <p><strong>Qualification:</strong> Provider documentation establishes the provider-described capability, not comparative accuracy.</p>
+  <p><strong>Next review:</strong> Before release and 2026-10-25</p>
+  <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C002%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C002</a></p>
+</li><li id="ledger-VR-C003">
+  <p><strong>VR-C003 · QUALIFIED</strong></p>
+  <p>Search grounding can connect generated answers to current web material and return citation annotations.</p>
+  <p><strong>Sources:</strong> <a href="#SRC-GOOGLE-GROUNDING">SRC-GOOGLE-GROUNDING</a></p>
+  <p><strong>Support:</strong> Grounding with Google Search, How it works and Grounding metadata sections: search, processing, grounded response and citation metadata.</p>
+  <p><strong>Version/access:</strong> Current web documentation · 2026-07-25</p>
+  <p><strong>Scope:</strong> Gemini API grounding feature; does not establish source quality, entailment or universal truth.</p>
+  <p><strong>Qualification:</strong> Provider documentation establishes the provider-described operation only.</p>
+  <p><strong>Next review:</strong> Before release and 2026-10-25</p>
+  <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C003%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C003</a></p>
+</li><li id="ledger-VR-C004">
+  <p><strong>VR-C004 · SUPPORTED</strong></p>
+  <p>Grounding, direct quotations, citations and permission to express uncertainty can reduce hallucination risk, but they do not eliminate it; critical information still needs validation.</p>
+  <p><strong>Sources:</strong> <a href="#SRC-ANTHROPIC-HALLUCINATION">SRC-ANTHROPIC-HALLUCINATION</a></p>
+  <p><strong>Support:</strong> Reduce hallucinations, Allow Claude to say “I don’t know,” Use direct quotes, Verify with citations, and Limitations sections.</p>
+  <p><strong>Version/access:</strong> Current web documentation · 2026-07-25</p>
+  <p><strong>Scope:</strong> Risk-reduction guidance, not comparative model evidence or a guarantee.</p>
+  <p><strong>Qualification:</strong> Provider guidance plus its explicit limitation.</p>
+  <p><strong>Next review:</strong> Before release and 2026-10-25</p>
+  <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C004%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C004</a></p>
+</li><li id="ledger-VR-C005">
+  <p><strong>VR-C005 · QUALIFIED</strong></p>
+  <p>A citation is a pointer to a source; verification additionally checks the source’s identity, relevance, scope, date and support for the specific claim.</p>
+  <p><strong>Sources:</strong> <a href="#SRC-NIST-GAI-600-1">SRC-NIST-GAI-600-1</a> · <a href="#SRC-COR-ABOUT">SRC-COR-ABOUT</a></p>
+  <p><strong>Support:</strong> NIST pp. 9 and 34 require source/citation review; COR About names source identity, evidence and other-source questions. The five-part formulation is LAiDIES’ synthesis.</p>
+  <p><strong>Version/access:</strong> NIST AI 600-1; current COR About page · 2026-07-25</p>
+  <p><strong>Scope:</strong> Instructional verification model, not a universal legal standard.</p>
+  <p><strong>Qualification:</strong> Qualified LAiDIES synthesis; not attributed verbatim to either source.</p>
+  <p><strong>Next review:</strong> 2027-07-25 or on learner-confusion evidence</p>
+  <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C005%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C005</a></p>
+</li><li id="ledger-VR-C006">
+  <p><strong>VR-C006 · SUPPORTED</strong></p>
+  <p>Lateral reading means leaving an unfamiliar page to investigate who is behind it and what trusted sources say about it.</p>
+  <p><strong>Sources:</strong> <a href="#SRC-COR-LATERAL">SRC-COR-LATERAL</a></p>
+  <p><strong>Support:</strong> Intro to Lateral Reading, opening lesson description: defines the strategy as leaving the webpage and opening a new tab to see what trusted websites say about the unknown source.</p>
+  <p><strong>Version/access:</strong> Current COR lesson page · 2026-07-25</p>
+  <p><strong>Scope:</strong> Evaluating unfamiliar online sources; it is one verification action, not the entire Receipt Loop.</p>
+  <p><strong>Qualification:</strong> Directly supported by the named Digital Inquiry Group lesson.</p>
+  <p><strong>Next review:</strong> 2027-07-25 or on lesson revision</p>
+  <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C006%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C006</a></p>
+</li><li id="ledger-VR-C007">
+  <p><strong>VR-C007 · SUPPORTED</strong></p>
+  <p>C2PA provenance can bind claims about an asset’s source and history so tampering can be detected; it does not decide whether the content or provenance is good, bad or true.</p>
+  <p><strong>Sources:</strong> <a href="#SRC-C2PA-2-4">SRC-C2PA-2-4</a></p>
+  <p><strong>Support:</strong> C2PA 2.4 Content Credentials specification §§1.2 Scope, 1.3 Technical Overview and 2.3 Core Aspects; the trust model provides tamper-evident provenance and does not make value judgments.</p>
+  <p><strong>Version/access:</strong> C2PA Specifications 2.4 · 2026-07-25</p>
+  <p><strong>Scope:</strong> C2PA-compatible Content Credentials; not every metadata or authenticity system.</p>
+  <p><strong>Qualification:</strong> Provenance and tamper evidence are not a truth score.</p>
+  <p><strong>Next review:</strong> On specification revision or 2027-07-25</p>
+  <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C007%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C007</a></p>
+</li><li id="ledger-VR-C008">
+  <p><strong>VR-C008 · SUPPORTED</strong></p>
+  <p>At 320 CSS pixels, the rendered candidate must reflow without loss of information or functionality and without two-dimensional scrolling except where an exception applies.</p>
+  <p><strong>Sources:</strong> <a href="#SRC-WCAG-22">SRC-WCAG-22</a></p>
+  <p><strong>Support:</strong> WCAG 2.2 Success Criterion 1.4.10 Reflow.</p>
+  <p><strong>Version/access:</strong> WCAG 2.2 · 2026-07-25</p>
+  <p><strong>Scope:</strong> Rendered web reader acceptance; conformance requires more than this single criterion.</p>
+  <p><strong>Qualification:</strong> Acceptance requirement, not a claim that this candidate already conforms.</p>
+  <p><strong>Next review:</strong> On W3C errata or Recommendation change</p>
+  <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C008%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C008</a></p>
+</li><li id="ledger-VR-C009">
+  <p><strong>VR-C009 · SUPPORTED</strong></p>
+  <p>The Receipt Loop uses four evidence verdicts: supported, contradicted, unresolved and not applicable.</p>
+  <p><strong>Sources:</strong> <a href="#INTERNAL-ECO01-SPEC">INTERNAL-ECO01-SPEC</a></p>
+  <p><strong>Support:</strong> ECO-01 build packet, correct mental model and chapter 5.</p>
+  <p><strong>Version/access:</strong> 2026-07-25 · 2026-07-25</p>
+  <p><strong>Scope:</strong> LAiDIES teaching taxonomy, not a claim that every external framework uses these labels.</p>
+  <p><strong>Qualification:</strong> Internal product rule.</p>
+  <p><strong>Next review:</strong> After newcomer study or 2027-07-25</p>
+  <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C009%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C009</a></p>
+</li><li id="ledger-VR-C010">
+  <p><strong>VR-C010 · QUALIFIED</strong></p>
+  <p>Checking effort should be proportional to consequence, reversibility, uncertainty and freshness.</p>
+  <p><strong>Sources:</strong> <a href="#INTERNAL-ECO01-SPEC">INTERNAL-ECO01-SPEC</a></p>
+  <p><strong>Support:</strong> ECO-01 build packet, Stakes dial and proportionality contract.</p>
+  <p><strong>Version/access:</strong> 2026-07-25 · 2026-07-25</p>
+  <p><strong>Scope:</strong> General verification triage; does not replace professional standards or regulated duties.</p>
+  <p><strong>Qualification:</strong> Internal instructional recommendation pending newcomer evidence.</p>
+  <p><strong>Next review:</strong> After independent safety/instructional review</p>
+  <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C010%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C010</a></p>
+</li><li id="ledger-VR-C011">
+  <p><strong>VR-C011 · QUALIFIED</strong></p>
+  <p>Separate URLs are not independent corroboration when they all trace to the same underlying source.</p>
+  <p><strong>Sources:</strong> <a href="#SRC-COR-ABOUT">SRC-COR-ABOUT</a> · <a href="#SRC-COR-LATERAL">SRC-COR-LATERAL</a></p>
+  <p><strong>Support:</strong> COR asks what other sources say and teaches leaving a page to investigate an unknown source; the origin-tracing formulation is LAiDIES’ synthesis.</p>
+  <p><strong>Version/access:</strong> Current COR pages · 2026-07-25</p>
+  <p><strong>Scope:</strong> Evidence independence; distinct reporting may still add independent analysis.</p>
+  <p><strong>Qualification:</strong> Qualified synthesis, not a direct quotation or universal rule.</p>
+  <p><strong>Next review:</strong> 2027-07-25</p>
+  <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C011%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C011</a></p>
+</li><li id="ledger-VR-C012">
+  <p><strong>VR-C012 · SUPPORTED</strong></p>
+  <p>The source-bound prompt is a risk-reduction aid, not a truth machine, and critical claims still require external validation.</p>
+  <p><strong>Sources:</strong> <a href="#SRC-ANTHROPIC-HALLUCINATION">SRC-ANTHROPIC-HALLUCINATION</a></p>
+  <p><strong>Support:</strong> Reduce hallucinations, Limitations: techniques reduce but do not eliminate hallucinations; critical information needs validation.</p>
+  <p><strong>Version/access:</strong> Current web documentation · 2026-07-25</p>
+  <p><strong>Scope:</strong> Prompt use with generative AI; no prompt can certify arbitrary sources or conclusions.</p>
+  <p><strong>Qualification:</strong> Safety limit retained next to the prompt.</p>
+  <p><strong>Next review:</strong> Before release and 2026-10-25</p>
+  <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C012%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C012</a></p>
+</li><li id="ledger-VR-C013">
+  <p><strong>VR-C013 · SUPPORTED</strong></p>
+  <p>The Rulebook is not legal, medical, financial, HR or safety advice and cannot replace the responsible professional or decision owner.</p>
+  <p><strong>Sources:</strong> <a href="#INTERNAL-ECO01-SPEC">INTERNAL-ECO01-SPEC</a></p>
+  <p><strong>Support:</strong> ECO-01 build packet, stakes dial and safety acceptance test.</p>
+  <p><strong>Version/access:</strong> 2026-07-25 · 2026-07-25</p>
+  <p><strong>Scope:</strong> LAiDIES product boundary.</p>
+  <p><strong>Qualification:</strong> Internal safety rule.</p>
+  <p><strong>Next review:</strong> Every release and on safety incident</p>
+  <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C013%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C013</a></p>
+</li><li id="ledger-VR-C014">
+  <p><strong>VR-C014 · SUPPORTED</strong></p>
+  <p>A real source can accurately describe an old state and still be inapplicable to a current decision.</p>
+  <p><strong>Sources:</strong> <a href="#INTERNAL-ECO01-SPEC">INTERNAL-ECO01-SPEC</a></p>
+  <p><strong>Support:</strong> ECO-01 build packet, misconception correction and freshness contract.</p>
+  <p><strong>Version/access:</strong> 2026-07-25 · 2026-07-25</p>
+  <p><strong>Scope:</strong> Distinguishes historical accuracy from present applicability.</p>
+  <p><strong>Qualification:</strong> Internal instructional principle.</p>
+  <p><strong>Next review:</strong> 2027-07-25</p>
+  <p><a href="mailto:hello@laidies.ai?subject=Verification+Rulebook+correction&amp;body=Claim+ID%3A+VR-C014%0A%0AWhat+I+found%3A%0A%0ASource+or+evidence%3A%0A">Report a correction for VR-C014</a></p>
+</li></ol></details>
+        <details><summary>Open all source records</summary><ol class="vr-source-list"><li id="SRC-NIST-GAI-600-1">
+  <a href="https://doi.org/10.6028/NIST.AI.600-1" rel="noopener noreferrer"><strong>NIST AI RMF: Generative Artificial Intelligence Profile</strong> · NIST</a>
+  <span>Confabulation, fabricated citations, source verification and ongoing monitoring.</span>
+</li><li id="SRC-OAI-WEB-SEARCH">
+  <a href="https://developers.openai.com/api/docs/guides/tools-web-search" rel="noopener noreferrer"><strong>Web search tool documentation</strong> · OpenAI</a>
+  <span>Current example of search and visible/clickable citations as product capabilities.</span>
+</li><li id="SRC-ANTHROPIC-HALLUCINATION">
+  <a href="https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations" rel="noopener noreferrer"><strong>Reduce hallucinations</strong> · Anthropic</a>
+  <span>Grounding, quotation and citation techniques reduce but do not eliminate hallucinations.</span>
+</li><li id="SRC-GOOGLE-GROUNDING">
+  <a href="https://ai.google.dev/gemini-api/docs/google-search" rel="noopener noreferrer"><strong>Grounding with Google Search</strong> · Google</a>
+  <span>Current example distinguishing search grounding and citation annotations.</span>
+</li><li id="SRC-COR-ABOUT">
+  <a href="https://cor.inquirygroup.org/about/" rel="noopener noreferrer"><strong>Civic Online Reasoning — About</strong> · Digital Inquiry Group</a>
+  <span>The source-identity, evidence and other-source questions.</span>
+</li><li id="SRC-COR-LATERAL">
+  <a href="https://cor.inquirygroup.org/curriculum/lessons/intro-to-lateral-reading/" rel="noopener noreferrer"><strong>Intro to Lateral Reading</strong> · Digital Inquiry Group</a>
+  <span>Defines lateral reading as leaving an unfamiliar page and consulting trusted sources in another tab.</span>
+</li><li id="SRC-C2PA-2-4">
+  <a href="https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html" rel="noopener noreferrer"><strong>C2PA Content Credentials specification 2.4</strong> · C2PA</a>
+  <span>Full current specification containing §§1.2, 1.3 and 2.3 for provenance and tamper-evident source/history limits.</span>
+</li><li id="SRC-WCAG-22">
+  <a href="https://www.w3.org/TR/WCAG22/" rel="noopener noreferrer"><strong>Web Content Accessibility Guidelines (WCAG) 2.2</strong> · W3C</a>
+  <span>Accessibility requirements for the rendered reader candidate.</span>
+</li></ol></details>
+      </section>
+      <section class="vr-next" aria-labelledby="next-title">
+        <h2 id="next-title">Where to go next</h2>
+        <ul class="vr-handoffs"><li>
+  <a href="/issues/issue-03.html">Episode 3 · The Burn Book Problem</a>
+  <span>See the verification risk made memorable through story.</span>
+</li><li>
+  <strong>Dream Phone · evidence practice · HOLD</strong>
+  <span>Practice is still under source review; treat its links as review leads, not final authority.</span>
+</li><li>
+  <a href="/newsstand.html">NewsStand</a>
+  <span>See timely reporting under the NewsStand’s separate sourcing and correction rules.</span>
+</li></ul>
+      </section>
+    </main>
+    <footer class="vr-footer">ECO-01 candidate · status HOLD · <a href="/library.html">Return to the LIBRAiRY</a></footer>
+  </div>
+  <script>
+  (() => {
+    function eco01SubmissionState({ fieldsValid, keyedMatch, prose }) {
+      if (!fieldsValid) return "incomplete";
+      if (String(prose || "").trim()) return "self-check-ready";
+      return keyedMatch ? "keyed-match" : "review";
+    }
+    window.ECO01SubmissionState = eco01SubmissionState;
+    document.querySelectorAll(".vr-check:not([data-transfer])").forEach((form) => {
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const feedback = form.querySelector(".vr-feedback");
+        if (!form.reportValidity()) {
+          feedback.textContent = "Complete every choice and required explanation before checking.";
+          feedback.dataset.result = "review";
+          return;
+        }
+        const selects = [...form.querySelectorAll("select[data-answer]")];
+        const radios = [...form.querySelectorAll('input[type="radio"]:checked')];
+        const selectPass = selects.every((select) => select.value === select.dataset.answer);
+        const radioPass = radios.length === 0 || radios.every((radio) => radio.dataset.correct === "true");
+        const prose = [...form.querySelectorAll("textarea")].map((field) => field.value).join("\n");
+        const result = eco01SubmissionState({ fieldsValid: true, keyedMatch: selectPass && radioPass, prose });
+        form.querySelectorAll(".vr-item-feedback").forEach((item) => { item.hidden = false; });
+        const modelFeedback = ["","","","The current applicable provider terms are the best starting source because they match owner, plan, region and date. A strong reason still inspects conditions and does not assume “official” means complete or infallible.","Approval and paid-social scope are contradicted as written; the lift is unresolved. Preserve the useful draft, revise the claims and record owner, source, date and uncertainty.","",""][Number(form.dataset.check?.replace("chapter-", "")) - 1] || "";
+        if (result === "self-check-ready") {
+          form.querySelector("[data-self-check]")?.removeAttribute("hidden");
+          feedback.textContent = (selectPass && radioPass ? "Keyed choices match the model key. " : "Some keyed choices differ from the model key. ") + "Your written reasoning is recorded but not semantically scored. Compare it with the rubric and mark each dimension Met, Revise or Unsure. " + modelFeedback;
+        } else {
+          feedback.textContent = (result === "keyed-match" ? "Keyed choices match the model key. This checks selection, not independent understanding. " : "Review the model feedback and try the keyed choices again. ") + modelFeedback;
+        }
+        feedback.dataset.result = result;
+      });
+    });
+    document.querySelector("[data-transfer]")?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const feedback = form.querySelector(".vr-feedback");
+      if (!form.reportValidity()) {
+        feedback.textContent = "Write a complete evidence plan before revealing the rubric.";
+        feedback.dataset.result = "review";
+        return;
+      }
+      form.querySelector("[data-self-check]")?.removeAttribute("hidden");
+      feedback.textContent = "Response recorded but not semantically scored. Compare it with the rubric and mark each dimension Met, Revise or Unsure.";
+      feedback.dataset.result = "self-check-ready";
+    });
+    document.querySelectorAll("[data-record-self-check]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const form = button.closest("form");
+        const choices = [...form.querySelectorAll("[data-rubric-choice]")];
+        const feedback = form.querySelector(".vr-feedback");
+        if (choices.some((choice) => !choice.value)) {
+          feedback.textContent = "Mark every rubric dimension Met, Revise or Unsure before recording your self-check.";
+          feedback.dataset.result = "review";
+          choices.find((choice) => !choice.value)?.focus();
+          return;
+        }
+        feedback.textContent = "Self-check recorded. This is reflection evidence, not an independent correctness score.";
+        feedback.dataset.result = "recorded";
+      });
+    });
+    const copyButton = document.querySelector("[data-copy-target]");
+    copyButton?.addEventListener("click", async () => {
+      const target = document.getElementById(copyButton.dataset.copyTarget);
+      const status = document.querySelector(".vr-copy-status");
+      let copied = false;
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(target.value);
+          copied = true;
+        }
+      } catch (_) {}
+      if (!copied) {
+        target.focus();
+        target.select();
+        try { copied = document.execCommand("copy"); } catch (_) {}
+      }
+      status.textContent = copied ? "Prompt copied. Open and check every material source before relying on the answer." : "Copy was unavailable. The prompt is selected so you can copy it manually.";
+    });
+  })();
+  </script>
+</body>
 </html>

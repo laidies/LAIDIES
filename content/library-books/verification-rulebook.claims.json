@@ -1,0 +1,335 @@
+{
+  "schemaVersion": "2.0.0",
+  "bookId": "verification-rulebook",
+  "generatedFrom": "/content/library-books/verification-rulebook.json",
+  "generatedFromSha256": "ac3ec15f27898ad69c9ac142a86e51948b5d024437b89dcd11cf336ad81fdacd",
+  "ledgerStatus": "CANDIDATE_UNDER_INDEPENDENT_REVIEW",
+  "reviewedOn": "2026-07-25",
+  "reviewer": "ECO-01 maker — not an independent accuracy approval",
+  "canonicalVerdicts": [
+    "SUPPORTED",
+    "CONTRADICTED",
+    "UNRESOLVED",
+    "NOT APPLICABLE"
+  ],
+  "claims": [
+    {
+      "id": "VR-C001",
+      "publicWording": "Generative AI can produce false content and fabricated citations, so important sources and citations still need review and verification.",
+      "claimType": "current official risk guidance",
+      "riskTier": "material",
+      "sourceIds": [
+        "SRC-NIST-GAI-600-1"
+      ],
+      "supportLocation": "NIST.AI.600-1, pp. 9 and 34: confabulation includes confidently false content and fabricated citations; suggested actions require review and verification of sources and citations.",
+      "publicationVersion": "NIST AI 600-1, July 2024",
+      "accessed": "2026-07-25",
+      "scope": "Generative-AI risk management; not a performance rate or guarantee for a named model.",
+      "qualification": "Sourced fact, scoped to the NIST risk profile.",
+      "status": "SUPPORTED",
+      "nextReview": "2027-07-25 or on NIST revision",
+      "history": []
+    },
+    {
+      "id": "VR-C002",
+      "publicWording": "Current AI products can search the web and present citations; those are present capabilities, not hypothetical future abilities.",
+      "claimType": "provider capability",
+      "riskTier": "material",
+      "sourceIds": [
+        "SRC-OAI-WEB-SEARCH"
+      ],
+      "supportLocation": "Web search guide, Overview and Citations sections: web search can access up-to-date information and responses include URL citation annotations.",
+      "publicationVersion": "Current web documentation",
+      "accessed": "2026-07-25",
+      "scope": "OpenAI API web-search tool; availability and implementation depend on current provider documentation.",
+      "qualification": "Provider documentation establishes the provider-described capability, not comparative accuracy.",
+      "status": "QUALIFIED",
+      "nextReview": "Before release and 2026-10-25",
+      "history": []
+    },
+    {
+      "id": "VR-C003",
+      "publicWording": "Search grounding can connect generated answers to current web material and return citation annotations.",
+      "claimType": "provider capability",
+      "riskTier": "material",
+      "sourceIds": [
+        "SRC-GOOGLE-GROUNDING"
+      ],
+      "supportLocation": "Grounding with Google Search, How it works and Grounding metadata sections: search, processing, grounded response and citation metadata.",
+      "publicationVersion": "Current web documentation",
+      "accessed": "2026-07-25",
+      "scope": "Gemini API grounding feature; does not establish source quality, entailment or universal truth.",
+      "qualification": "Provider documentation establishes the provider-described operation only.",
+      "status": "QUALIFIED",
+      "nextReview": "Before release and 2026-10-25",
+      "history": []
+    },
+    {
+      "id": "VR-C004",
+      "publicWording": "Grounding, direct quotations, citations and permission to express uncertainty can reduce hallucination risk, but they do not eliminate it; critical information still needs validation.",
+      "claimType": "provider guidance",
+      "riskTier": "material",
+      "sourceIds": [
+        "SRC-ANTHROPIC-HALLUCINATION"
+      ],
+      "supportLocation": "Reduce hallucinations, Allow Claude to say “I don’t know,” Use direct quotes, Verify with citations, and Limitations sections.",
+      "publicationVersion": "Current web documentation",
+      "accessed": "2026-07-25",
+      "scope": "Risk-reduction guidance, not comparative model evidence or a guarantee.",
+      "qualification": "Provider guidance plus its explicit limitation.",
+      "status": "SUPPORTED",
+      "nextReview": "Before release and 2026-10-25",
+      "history": []
+    },
+    {
+      "id": "VR-C005",
+      "publicWording": "A citation is a pointer to a source; verification additionally checks the source’s identity, relevance, scope, date and support for the specific claim.",
+      "claimType": "LAiDIES instructional synthesis",
+      "riskTier": "material",
+      "sourceIds": [
+        "SRC-NIST-GAI-600-1",
+        "SRC-COR-ABOUT"
+      ],
+      "supportLocation": "NIST pp. 9 and 34 require source/citation review; COR About names source identity, evidence and other-source questions. The five-part formulation is LAiDIES’ synthesis.",
+      "publicationVersion": "NIST AI 600-1; current COR About page",
+      "accessed": "2026-07-25",
+      "scope": "Instructional verification model, not a universal legal standard.",
+      "qualification": "Qualified LAiDIES synthesis; not attributed verbatim to either source.",
+      "status": "QUALIFIED",
+      "nextReview": "2027-07-25 or on learner-confusion evidence",
+      "history": []
+    },
+    {
+      "id": "VR-C006",
+      "publicWording": "Lateral reading means leaving an unfamiliar page to investigate who is behind it and what trusted sources say about it.",
+      "claimType": "instructional method",
+      "riskTier": "minor",
+      "sourceIds": [
+        "SRC-COR-LATERAL"
+      ],
+      "supportLocation": "Intro to Lateral Reading, opening lesson description: defines the strategy as leaving the webpage and opening a new tab to see what trusted websites say about the unknown source.",
+      "publicationVersion": "Current COR lesson page",
+      "accessed": "2026-07-25",
+      "scope": "Evaluating unfamiliar online sources; it is one verification action, not the entire Receipt Loop.",
+      "qualification": "Directly supported by the named Digital Inquiry Group lesson.",
+      "status": "SUPPORTED",
+      "nextReview": "2027-07-25 or on lesson revision",
+      "history": [
+        {
+          "date": "2026-07-25",
+          "change": "Replaced non-entailing COR About attribution with the entailing Intro to Lateral Reading lesson after independent review."
+        }
+      ]
+    },
+    {
+      "id": "VR-C007",
+      "publicWording": "C2PA provenance can bind claims about an asset’s source and history so tampering can be detected; it does not decide whether the content or provenance is good, bad or true.",
+      "claimType": "technical standard",
+      "riskTier": "material",
+      "sourceIds": [
+        "SRC-C2PA-2-4"
+      ],
+      "supportLocation": "C2PA 2.4 Content Credentials specification §§1.2 Scope, 1.3 Technical Overview and 2.3 Core Aspects; the trust model provides tamper-evident provenance and does not make value judgments.",
+      "publicationVersion": "C2PA Specifications 2.4",
+      "accessed": "2026-07-25",
+      "scope": "C2PA-compatible Content Credentials; not every metadata or authenticity system.",
+      "qualification": "Provenance and tamper evidence are not a truth score.",
+      "status": "SUPPORTED",
+      "nextReview": "On specification revision or 2027-07-25",
+      "history": [
+        {
+          "date": "2026-07-25",
+          "change": "Superseded C2PA 2.2 with current 2.4 after the version trigger fired; teaching distinction retained and support locations rebound."
+        }
+      ]
+    },
+    {
+      "id": "VR-C008",
+      "publicWording": "At 320 CSS pixels, the rendered candidate must reflow without loss of information or functionality and without two-dimensional scrolling except where an exception applies.",
+      "claimType": "accessibility requirement",
+      "riskTier": "material",
+      "sourceIds": [
+        "SRC-WCAG-22"
+      ],
+      "supportLocation": "WCAG 2.2 Success Criterion 1.4.10 Reflow.",
+      "publicationVersion": "WCAG 2.2",
+      "accessed": "2026-07-25",
+      "scope": "Rendered web reader acceptance; conformance requires more than this single criterion.",
+      "qualification": "Acceptance requirement, not a claim that this candidate already conforms.",
+      "status": "SUPPORTED",
+      "nextReview": "On W3C errata or Recommendation change",
+      "history": []
+    },
+    {
+      "id": "VR-C009",
+      "publicWording": "The Receipt Loop uses four evidence verdicts: supported, contradicted, unresolved and not applicable.",
+      "claimType": "LAiDIES instructional model",
+      "riskTier": "minor",
+      "sourceIds": [
+        "INTERNAL-ECO01-SPEC"
+      ],
+      "supportLocation": "ECO-01 build packet, correct mental model and chapter 5.",
+      "publicationVersion": "2026-07-25",
+      "accessed": "2026-07-25",
+      "scope": "LAiDIES teaching taxonomy, not a claim that every external framework uses these labels.",
+      "qualification": "Internal product rule.",
+      "status": "SUPPORTED",
+      "nextReview": "After newcomer study or 2027-07-25",
+      "history": []
+    },
+    {
+      "id": "VR-C010",
+      "publicWording": "Checking effort should be proportional to consequence, reversibility, uncertainty and freshness.",
+      "claimType": "LAiDIES instructional recommendation",
+      "riskTier": "material",
+      "sourceIds": [
+        "INTERNAL-ECO01-SPEC"
+      ],
+      "supportLocation": "ECO-01 build packet, Stakes dial and proportionality contract.",
+      "publicationVersion": "2026-07-25",
+      "accessed": "2026-07-25",
+      "scope": "General verification triage; does not replace professional standards or regulated duties.",
+      "qualification": "Internal instructional recommendation pending newcomer evidence.",
+      "status": "QUALIFIED",
+      "nextReview": "After independent safety/instructional review",
+      "history": []
+    },
+    {
+      "id": "VR-C011",
+      "publicWording": "Separate URLs are not independent corroboration when they all trace to the same underlying source.",
+      "claimType": "LAiDIES instructional synthesis",
+      "riskTier": "minor",
+      "sourceIds": [
+        "SRC-COR-ABOUT",
+        "SRC-COR-LATERAL"
+      ],
+      "supportLocation": "COR asks what other sources say and teaches leaving a page to investigate an unknown source; the origin-tracing formulation is LAiDIES’ synthesis.",
+      "publicationVersion": "Current COR pages",
+      "accessed": "2026-07-25",
+      "scope": "Evidence independence; distinct reporting may still add independent analysis.",
+      "qualification": "Qualified synthesis, not a direct quotation or universal rule.",
+      "status": "QUALIFIED",
+      "nextReview": "2027-07-25",
+      "history": []
+    },
+    {
+      "id": "VR-C012",
+      "publicWording": "The source-bound prompt is a risk-reduction aid, not a truth machine, and critical claims still require external validation.",
+      "claimType": "safety limitation",
+      "riskTier": "material",
+      "sourceIds": [
+        "SRC-ANTHROPIC-HALLUCINATION"
+      ],
+      "supportLocation": "Reduce hallucinations, Limitations: techniques reduce but do not eliminate hallucinations; critical information needs validation.",
+      "publicationVersion": "Current web documentation",
+      "accessed": "2026-07-25",
+      "scope": "Prompt use with generative AI; no prompt can certify arbitrary sources or conclusions.",
+      "qualification": "Safety limit retained next to the prompt.",
+      "status": "SUPPORTED",
+      "nextReview": "Before release and 2026-10-25",
+      "history": []
+    },
+    {
+      "id": "VR-C013",
+      "publicWording": "The Rulebook is not legal, medical, financial, HR or safety advice and cannot replace the responsible professional or decision owner.",
+      "claimType": "product boundary",
+      "riskTier": "critical",
+      "sourceIds": [
+        "INTERNAL-ECO01-SPEC"
+      ],
+      "supportLocation": "ECO-01 build packet, stakes dial and safety acceptance test.",
+      "publicationVersion": "2026-07-25",
+      "accessed": "2026-07-25",
+      "scope": "LAiDIES product boundary.",
+      "qualification": "Internal safety rule.",
+      "status": "SUPPORTED",
+      "nextReview": "Every release and on safety incident",
+      "history": []
+    },
+    {
+      "id": "VR-C014",
+      "publicWording": "A real source can accurately describe an old state and still be inapplicable to a current decision.",
+      "claimType": "LAiDIES instructional principle",
+      "riskTier": "minor",
+      "sourceIds": [
+        "INTERNAL-ECO01-SPEC"
+      ],
+      "supportLocation": "ECO-01 build packet, misconception correction and freshness contract.",
+      "publicationVersion": "2026-07-25",
+      "accessed": "2026-07-25",
+      "scope": "Distinguishes historical accuracy from present applicability.",
+      "qualification": "Internal instructional principle.",
+      "status": "SUPPORTED",
+      "nextReview": "2027-07-25",
+      "history": []
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC-NIST-GAI-600-1",
+      "title": "NIST AI RMF: Generative Artificial Intelligence Profile",
+      "publisher": "NIST",
+      "url": "https://doi.org/10.6028/NIST.AI.600-1",
+      "use": "Confabulation, fabricated citations, source verification and ongoing monitoring."
+    },
+    {
+      "id": "SRC-OAI-WEB-SEARCH",
+      "title": "Web search tool documentation",
+      "publisher": "OpenAI",
+      "url": "https://developers.openai.com/api/docs/guides/tools-web-search",
+      "use": "Current example of search and visible/clickable citations as product capabilities."
+    },
+    {
+      "id": "SRC-ANTHROPIC-HALLUCINATION",
+      "title": "Reduce hallucinations",
+      "publisher": "Anthropic",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "use": "Grounding, quotation and citation techniques reduce but do not eliminate hallucinations."
+    },
+    {
+      "id": "SRC-GOOGLE-GROUNDING",
+      "title": "Grounding with Google Search",
+      "publisher": "Google",
+      "url": "https://ai.google.dev/gemini-api/docs/google-search",
+      "use": "Current example distinguishing search grounding and citation annotations."
+    },
+    {
+      "id": "SRC-COR-ABOUT",
+      "title": "Civic Online Reasoning — About",
+      "publisher": "Digital Inquiry Group",
+      "url": "https://cor.inquirygroup.org/about/",
+      "use": "The source-identity, evidence and other-source questions."
+    },
+    {
+      "id": "SRC-COR-LATERAL",
+      "title": "Intro to Lateral Reading",
+      "publisher": "Digital Inquiry Group",
+      "url": "https://cor.inquirygroup.org/curriculum/lessons/intro-to-lateral-reading/",
+      "use": "Defines lateral reading as leaving an unfamiliar page and consulting trusted sources in another tab."
+    },
+    {
+      "id": "SRC-C2PA-2-4",
+      "title": "C2PA Content Credentials specification 2.4",
+      "publisher": "C2PA",
+      "url": "https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html",
+      "use": "Full current specification containing §§1.2, 1.3 and 2.3 for provenance and tamper-evident source/history limits.",
+      "currentVersion": "2.4",
+      "versionIndexUrl": "https://spec.c2pa.org/specifications/specifications/2.4/index.html",
+      "versionPattern": "C2PA Specifications ([0-9]+\\.[0-9]+)"
+    },
+    {
+      "id": "SRC-WCAG-22",
+      "title": "Web Content Accessibility Guidelines (WCAG) 2.2",
+      "publisher": "W3C",
+      "url": "https://www.w3.org/TR/WCAG22/",
+      "use": "Accessibility requirements for the rendered reader candidate."
+    },
+    {
+      "id": "INTERNAL-ECO01-SPEC",
+      "title": "ECO-01 build packet",
+      "publisher": "LAiDIES",
+      "url": "/operations/product-stewards/learning-content-ecosystem/build-packet-eco-01-verification-rulebook-2026-07-25.md",
+      "use": "Internal product and instructional contract."
+    }
+  ]
+}

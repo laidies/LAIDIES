@@ -22,8 +22,8 @@
 - **Returning user:** verified identity and allowance → reopen an authoritative
   case where permitted → use included fittings → see case/Play receipt.
 - **Failure:** boundary, needs-information, needs-verified-information,
-  invalid-input, rate-limit and service-error states are visibly distinct and
-  never rendered or charged as success.
+  classification-uncertain, invalid-input, rate-limit and service-error states
+  are visibly distinct and never rendered or charged as success.
 - **Accessibility:** keyboard, focus, live announcements, 320/390px reflow,
   zoom, reduced motion, readable long output and bounded retry must pass.
 
@@ -31,8 +31,11 @@
 
 - **Input:** one meaningful sentence to 8,000 characters; no silent truncation
   or files in P0.
-- **Routing:** validate → injection check → boundary/risk → domain/task →
-  retrieval need → load-bearing missing information.
+- **Routing:** validate and segment user instructions from untrusted content →
+  separately classify every clause for language, safety, domain/task and
+  currentness → aggregate mixed intent fail-closed → identify load-bearing
+  missing information → allow the ordinary answer model only after the
+  classifier contract passes.
 - **Success:** schema-valid, safe and usable typed case response.
 - **Fittings:** up to three within the same case; not framed as homework or
   required “revision.”
@@ -73,6 +76,11 @@
 - **Target:** isolated `laidies-fairy-godmother-staging`; no production
   bindings in the default configuration.
 - **Response:** typed request and response schemas with honest HTTP semantics.
+- **Classifier:** separately configured meaning-aware adapter with a strict
+  versioned clause contract; missing, malformed, low-confidence,
+  unsupported-language or obfuscation-uncertain results stop before the answer
+  model and use no Play. Deterministic word lists are not the semantic safety
+  boundary.
 - **Timeout:** bounded upstream abort and retryable typed failure.
 - **Identity:** verified opaque server identity; no browser-asserted email.
 - **Logging/analytics:** no raw prompt, draft, email, name or case text.

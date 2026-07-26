@@ -1,6 +1,7 @@
 {
   "product": "SUNNYVAiLE NewsStand Building",
   "status": "BUILT LOCALLY",
+  "releaseStatus": "HOLD — FIX BEFORE LAUNCH",
   "asOf": "2026-07-25",
   "relationshipToActiveWork": "MERGE with AW-003",
   "route": "/newsstand",
@@ -9,31 +10,38 @@
   "publicationSubChampions": ["The Breaking", "The Daily", "The Weekly", "The Tribune"],
   "lockedPublicMastheads": ["The Breaking", "The Daily", "The Weekly", "The Tribune"],
   "currentImplementation": {
-    "readerEditions": ["breaking", "daily", "weekly", "tribune"],
-    "storedStoryEditions": ["wednesday", "tribune"],
+    "schemaVersion": "1.0.0",
+    "canonicalEditions": ["breaking", "daily", "weekly", "tribune"],
     "storiesFile": "content/newsstand-stories.js",
-    "currentMismatch": "The local reader now exposes all four D-042 mastheads and maps the validated legacy wednesday story to The Weekly. Producer/schema/validator migration and independent release review remain open."
+    "readerContract": "content/newsstand-reader-contract.js",
+    "storyState": "one approved Tribune; one Health Weekly held for independent accuracy/editorial approval",
+    "legacyArt": "Wednesday cover retained only with an explicit archive-art label; no replacement visual approved"
   },
   "evidence": {
-    "publicRouteAndSourcedStory": "VERIFIED PUBLICLY",
-    "mobileRouteLoad": "VERIFIED PUBLICLY",
-    "readerSearchMechanics": "VERIFIED LOCALLY",
-    "fourPublicationContract": "BUILT LOCALLY; MAKER MECHANICS VERIFIED; INDEPENDENT REVIEW PENDING",
+    "publicRouteAndSourcedStory": "PREVIOUSLY VERIFIED PUBLICLY; NOT EVIDENCE FOR THIS LOCAL CANDIDATE",
+    "canonicalPublicationContract": "BUILT LOCALLY",
+    "deterministicStateFixtures": "VERIFIED LOCALLY — 10 cases plus a 3-stage correction/retraction rollback drill",
+    "sourceManifests": "BUILT LOCALLY",
+    "healthHardHold": "ENFORCED LOCALLY; INDEPENDENT REVIEW REQUIRED",
+    "centralAvailabilityGate": "VERIFIED LOCALLY across paper, direct hash and archive search; hold/load/no-data/stale/unavailable cannot expose a story body",
+    "renderedChromeMatrix": "VERIFIED LOCALLY — 73 checks including Back/Forward state restoration, focus, 390 reflow, reduced motion and 200% page-scale proxy",
+    "historyStateRecovery": "VERIFIED LOCALLY — paper/search cards, query, origin-result focus and scroll vicinity restore on Back; Forward reopens the eligible story; empty hash without a prior view closes and clears the reader",
+    "focusAndAriaContract": "VERIFIED LOCALLY IN HEADLESS CHROME; REAL ASSISTIVE-TECH REVIEW OPEN",
     "producerToReaderPublicationRun": "NOT YET EXECUTED",
-    "automationAutonomy": "SPECIFIED; NOT YET WIRED",
-    "analyticsLearningLoop": "NOT YET WIRED"
+    "exactArtifactAndPublicVerification": "NOT EXECUTED"
   },
   "dependencies": [
     "operations/newsstand-editorial-radar.md",
     "operations/newsstand-autopublish-policy.json",
     "operations/newsstand-earned-autonomy.md",
     "operations/newsstand-candidate.schema.json",
-    "content/newsstand-stories.js or successor canonical publication data",
-    "primary sources and independent reporting",
+    "content/newsstand.schema.json",
+    "primary/official sources and independent context",
     "editorial approval/correction process",
-    "Platform deployment, analytics and rollback"
+    "Platform deployment, analytics and rollback",
+    "Ali approval for any replacement Weekly visual"
   ],
-  "lastRun": "2026-07-25 publication-contract reconciliation; evidence in publication-contract-reconciliation-evidence-2026-07-25.md",
-  "nextAction": "Run independent product/editorial, accessibility, visual and technical review of the exact local candidate; separately scope producer/schema/validator weekly-key migration before any release.",
-  "authority": "local code/content and product records only for this cycle; no deploy, external publication, git, new stories, sourcing, or shared-system changes"
+  "lastRun": "2026-07-25 canonical reader repair 3; evidence in build-evidence-canonical-reader-repair-3-2026-07-25.md",
+  "nextAction": "Run independent UX/accessibility/technical re-review of repair 3; keep Health and the release held. Reconcile the three named homepage descriptors in their owning lane; real Safari/VoiceOver, approved Weekly art, artifact binding and controlled producer/public rollback remain later gates.",
+  "authority": "local code/content and product records only; no deploy, external publication, credentials, service mutation, visual approval or git"
 }

@@ -1082,7 +1082,8 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "AI hallucinations",
           "explain": "Episode 3 is about confident output that may be wrong, unsupported, outdated, or made up.",
-          "review": "Preview the next Episode once it drops."
+            "review": "Reread the hallucinations lesson in Episode 03.",
+            "reviewUrl": "issues/issue-03.html"
         },
         {
           "id": "bonus-receipts",
@@ -1097,7 +1098,8 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "Receipts",
           "explain": "If the claim matters, the source matters. Confidence is not a citation.",
-          "review": "Preview the next Episode once it drops."
+            "review": "Reread the receipts lesson in Episode 03.",
+            "reviewUrl": "issues/issue-03.html"
         }
       ]
     },
@@ -1290,7 +1292,8 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "OpenAI",
           "explain": "ChatGPT, Gemini, and Claude are products (the things you open). OpenAI is the company that makes ChatGPT. Telling the companies from the products from the models is exactly what \"The AI Group Chat Roll Call\" sorts out next week.",
-          "review": "Preview Episode 5, The AI Group Chat Roll Call, when it drops."
+            "review": "The explanation above is the available review; Episode 5 is not published.",
+            "reviewStatus": "held-future-episode"
         }
       ]
     }

@@ -19,7 +19,7 @@
     { href: '/visitors-centre.html', name: "The Welcome Wagon", icon: 'map',
       line: "Every good town starts at the Visitor's Centre — press play on the trailer up top for a quick taste, then follow me and I'll walk you through every stop in town." },
     { href: '/newsstand.html', name: 'The NewsStand', icon: 'news',
-      line: "This week's AI news, translated — grab the WEDNESDAY Edition for the one line to say when it comes up at the meeting." },
+      line: "Check the four source-checked desks: a qualified interruption, consequential briefing, durable synthesis or sourced argument. A quiet desk means no story earned the paper." },
     { href: '/chick-flicks.html', name: 'The Chick Flicks', icon: 'vhs',
       line: "Pull this week's episode off the New Releases wall and take it home — one tape a week, always a chick flick." },
     { href: '/blend-snap.html', name: 'The Blend & Snap', icon: 'cup',

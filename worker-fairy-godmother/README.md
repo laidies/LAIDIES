@@ -9,13 +9,14 @@
   the active Cloudflare Quick Edit bundle.
 - `recovery/production-v18/manifest.json` — deployment, runtime, binding and
   checksum evidence.
-- `src/index.js` — exact working mirror of the recovered bundle. It begins
-  identical to the frozen artifact and is the starting point for the P0
-  reconstruction.
+- `src/index.js` — active P0 reconstruction. It intentionally diverges from
+  the frozen artifact while preserving that artifact as the production
+  baseline.
 - `wrangler.jsonc` — safe default configuration named
   `laidies-fairy-godmother-staging`, not the production Worker.
-- `test/recovered-worker-contract.test.mjs` — characterization tests for the
-  recovered behaviour.
+- `test/recovered-worker-contract.test.mjs` — deterministic reconstruction
+  contract tests, including typed failures, classifier orchestration,
+  no-charge side effects and strict answer validation.
 - `scripts/verify-recovery.mjs` — proves the frozen artifact still matches its
   recorded checksum and production identifiers.
 
@@ -55,10 +56,9 @@ npm test
 wrangler deploy --dry-run
 ```
 
-The tests characterize the recovered implementation; they do not declare the
-old behaviour correct. Several tests intentionally prove defects such as
-friendly upstream failures returning HTTP 200 and subscriber usage being
-counted before a successful answer.
+The recovery check proves the frozen artifact remains exact. The Worker tests
+exercise the local reconstruction; they do not change or declare the deployed
+v18 bundle correct.
 
 ## P0 target
 
@@ -70,6 +70,30 @@ The versioned 45-case acceptance suite is:
 
 `../operations/test-fixtures/fairy-godmother/p0-evaluation-set.json`
 
-The next safe step is to refactor `src/index.js` behind typed routing and
-response contracts, prove the local suite, provision isolated staging
-bindings, and deploy only to `laidies-fairy-godmother-staging`.
+The current phase-2 candidate requires a separately configured meaning-aware
+classifier before the ordinary answer model can run. Local tests inject this
+classifier and call no real provider. A future isolated staging environment
+may supply either:
+
+- `REQUEST_CLASSIFIER`, a service/object with `classify(envelope)` or
+  `fetch(...)`; or
+- a dedicated `CLASSIFIER_API_KEY` plus an explicitly selected
+  `CLASSIFIER_MODEL`.
+
+Neither classifier path is provisioned in the default Wrangler configuration.
+Without one, the Worker fails closed with typed `classification_uncertain` and
+does not use allowance. Independent held-out classifier review, verified
+retrieval, the authoritative FAiRY Plays ledger, typed frontend and the full
+staging/page gates remain required before promotion.
+
+## Offline provider evaluation
+
+`harness/` contains the no-credential evaluation path for a later authorized
+provider trial. It exports the 63 frozen semantic envelopes without expected
+labels, keeps the join map local, scores provider output only after inference,
+replays every classification through the Worker, reports confusion
+matrices/slices/latency/tokens/cost, and produces an Ed25519-signed run
+manifest.
+
+Building and testing the harness does not select or call a provider. See
+`harness/README.md`.

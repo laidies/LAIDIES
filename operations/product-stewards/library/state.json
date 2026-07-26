@@ -3,7 +3,7 @@
   "updated": "2026-07-25",
   "product_id": "library",
   "product": "SUNNYVAiLE LIBRAiRY",
-  "status": "REPORT_READY",
+  "status": "BUILDING",
   "steward_mode": "MANUAL_PILOT",
   "scope": [
     "library room and shelf catalogue",
@@ -16,6 +16,9 @@
   "current_evidence": {
     "source_inspection": "COMPLETE",
     "existing_local_qa": "PARTIAL",
+    "eco_01_verification_rulebook_candidate": "BUILT LOCALLY — HOLD",
+    "eco_01_independent_review_1": "HARD FAIL — REPAIRED LOCALLY; RE-REVIEW PENDING",
+    "eco_01_publication_truth_contract": "VERIFIED LOCALLY — SHELF AND MISS JEEVES REMAIN PREVIEW/HOLD",
     "fresh_rendered_flow_evidence": "BLOCKED_BROWSER_UNAVAILABLE",
     "public_origin_verification_this_run": "NOT_TESTED"
   },
@@ -32,11 +35,11 @@
   "known_blockers": [
     "No current rendered browser evidence was possible in this run.",
     "The available shelf contains books with documented editorial, factual-integrity or currency holds.",
-    "How to Check AI's Work remains a placeholder-style book experience in the content-quality audit.",
+    "How to Check AI's Work no longer opens thin embedded teaser copy: it is now a non-clickable shelf preview and Miss Jeeves cannot route around the hold. Independent review 1 hard-failed the candidate; the exact defects are repaired locally, but independent re-review, browser/VoiceOver acceptance and newcomer evidence remain mandatory.",
     "No LIBRAiRY-specific correction intake or resolution ledger exists.",
     "No event dictionary, baseline, analytics pull, or experiment record exists for the product."
   ],
-  "next_trigger": "ALI_RULES_ON_REPRESENTATIVE_VOCAB_TO_CONCEPTS_JOURNEY_AND_LAUNCH_LABELING_OF_UNRESOLVED_BOOKS",
+  "next_trigger": "INDEPENDENT_ECO_01_RE_REVIEW_THEN_BROWSER_VOICEOVER_AND_NEWCOMER_GATES",
   "automation": {
     "persistent_runner": "NOT_WIRED",
     "scheduler": "NOT_WIRED",

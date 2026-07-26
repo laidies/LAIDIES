@@ -77,6 +77,7 @@
     /* Zero-specificity fallbacks (:where) — give rebased legacy pages a
        proper header without overriding sunnyvaile-page.css anywhere. */
     + ':where(.sv-header) { position: sticky; top: 0; z-index: 9000; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px clamp(16px, 3vw, 32px); background: linear-gradient(110deg, rgba(228,216,244,0.97) 0%, rgba(246,214,226,0.97) 48%, rgba(201,229,223,0.97) 100%); border-bottom: 2px solid rgba(255,224,138,0.8); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); font-family: "Jost", sans-serif; }'
+    + 'body:is(.class-v2,.quiz-v2) .sv-header { min-width: 0; flex-wrap: wrap; container: svgh / inline-size; }'
     /* KSVL pill — live on-air link, ported from the homepage topbar. */
     + '.svgh-ksvl { display: inline-flex; align-items: center; gap: 7px; color: #4b2148 !important; font-weight: 700; font-size: 13.5px; white-space: nowrap; }'
     + '.svgh-ksvl .onair-dot { width: 8px; height: 8px; border-radius: 50%; background: #e0455f; box-shadow: 0 0 0 0 rgba(224,69,95,0.55); animation: svgh-pulse 1.8s ease-out infinite; }'
@@ -89,6 +90,7 @@
     + ':where(.sv-header nav) { display: flex; align-items: center; gap: 18px; }'
     + ':where(.sv-header nav a) { color: #4b2148; text-decoration: none; font-size: 14px; font-weight: 600; }'
     + '.svgh-left { display: flex; align-items: center; gap: 10px; }'
+    + 'body:is(.class-v2,.quiz-v2) :is(.svgh-left,.svgh-nav) { min-width: 0; }'
     + '.svgh-histbtn { width: 34px; height: 34px; border-radius: 50%; background: transparent;'
     + '  border: 1.5px solid rgba(75,33,72,0.28); color: var(--plum, #4b2148); font-size: 16px; line-height: 1;'
     + '  cursor: pointer; transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease; flex-shrink: 0; }'
@@ -123,11 +125,19 @@
     + '.svgh-coin { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; box-shadow: inset 0 0 0 1.5px rgba(52,20,70,0.16), 0 1px 3px rgba(75,33,72,0.25); }'
     + '.svgh-item .svgh-item-addr { margin-left: auto; font-size: 10.5px; font-weight: 500; color: var(--plum-soft, #766171); white-space: nowrap; }'
     + '.svgh-nav { display: flex; align-items: center; }'
+    + 'body:is(.class-v2,.quiz-v2) .svgh-nav { flex-wrap: wrap; justify-content: flex-end; }'
     + '.svgh-nav a { text-decoration: none; }'
     + '.site-header .svgh-nav { gap: 22px; }'
     + '.site-header .svgh-nav a { color: var(--plum, #4b2148); font-family: "Jost", sans-serif; font-size: 14px; font-weight: 600; }'
     + '.site-header .svgh-nav a:hover { color: var(--rose, #9b3f5f); }'
     + '@media (max-width: 760px) { .svgh-quick, .svgh-ksvl { display: none !important; } }'
+    + '@container svgh (max-width: 520px) {'
+    + '  body:is(.class-v2,.quiz-v2) :is(.svgh-quick,.svgh-ksvl,.svgh-histbtn) { display: none !important; }'
+    + '  body:is(.class-v2,.quiz-v2) .svgh-jointail { display: none; }'
+    + '  body:is(.class-v2,.quiz-v2) .svgh-nav { gap: 8px; }'
+    + '  body:is(.class-v2,.quiz-v2) .svgh-nav :is(.svgh-join,.svgh-signin,.svgh-menu-btn) {'
+    + '    box-sizing: border-box; margin: 0; padding: 6px 10px; border-radius: 999px; font-size: 11px; line-height: 1.2; }'
+    + '}'
     + '@media (max-width: 560px) { .svgh-jointail { display: none; } }'
     + '@media (max-width: 640px) { .svgh-panel { top: 64px; } }'
     /* Phones (≤480px): drop the redundant history arrows and tighten the three

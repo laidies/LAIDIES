@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.0",
+  "purpose": "Complete P0.2 independent-review packet register. It binds inputs and documents; it does not grant any approval.",
+  "packetState": "PENDING independent P0.2 judgment",
+  "p0_1Documents": [
+    { "path": "../p0-1/README.md", "sha256": "3b43f2b381f69668480ddeac0a3c702821c7c0eae46ce38d10304b7399c21806" },
+    { "path": "../p0-1/source-manifest.json", "sha256": "270bd16601738dcf11715f4ba35f27f4ba7118d7183ffd94431f6df88b63f349" },
+    { "path": "../p0-1/ada-lovelace-historical-admission-dossier-2026-07-25.md", "sha256": "01a8da0472539e7ce7987579d367a1890d2ca52d93538b0bf6e2f0018f2eb5f9" },
+    { "path": "../p0-1/cue-15-luminairy-exterior-resolution-2026-07-25.md", "sha256": "1e15f79082d3379419ebc8ae37e4813202cc40aa0340568733c252e7823c40e7" },
+    { "path": "../p0-1/cue-16-17-portrait-inventory-2026-07-25.md", "sha256": "50714500e8b69ef078838f234793d0a4d0c069a8d662b85ce4f7f298360510a1" },
+    { "path": "../p0-1/cue-18-transition-and-cue-19-still-brief-2026-07-25.md", "sha256": "5c119c799d2907db1e154472fe61ba252396c11ee1b21262476b5be389b8ab36" },
+    { "path": "../p0-1/independent-admission-verdict-2026-07-25.md", "sha256": "d3d1dc4d386fc713454ccc5e4e82a8abadafc6709a40362f91a46f5ac121142d" }
+  ],
+  "p0_2Documents": [
+    { "path": "README.md", "sha256": "d8255ae2902a1a71899b9c2155748a1042898f307d84d55d34f8a8a547a820e4" },
+    { "path": "source-asset-register.json", "sha256": "1e893ffd58b5d9f19ba7d7ff1b4e9648da11bc5634259ffac7610a2a5f966a83" },
+    { "path": "coordinate-qa-manifest.json", "sha256": "1e1a5850488709973adfbcc8f6733b73a4e2428af7ee7baec0cbeefc9a7df373" },
+    { "path": "cue-18-19-execution-fields-2026-07-25.md", "sha256": "4611b608348e146c5299c69046f50c98c5d36fc81db1fc4e2ee8613218de63d4" },
+    { "path": "make-coordinate-contact-sheet.py", "sha256": "89d670a46fd92991ba4e271f9fd24ddfd7f62b53a3d483bcf27a4691ca7d52d5" },
+    { "path": "coordinate-duplicate-repair-2026-07-25.md", "sha256": "f7bc2db8abc8a16f4be20de0253c48fe34bac56fdf7ef578205a2a5d056a0186" }
+  ],
+  "reviewInput": {
+    "path": "independent-admission-verdict-2026-07-25.md",
+    "sha256": "0c110b4fcc3f0a670ba654e018c6f6e05efab48349f724de67e24bb4e5e56db0",
+    "state": "Historical independent verdict that required this coordinate-only repair; retained unchanged."
+  },
+  "retainedAssets": [
+    { "path": "source-assets/ada-lovelace-engraved-1841-commons-pd.jpg", "sha256": "328ad98469b7cc25fcccca6c625d28625f4bb10befd424a1a3356c1422cd44c8", "state": "PENDING independent admission" },
+    { "path": "source-assets/babbage-analytical-engine-plan-1840-chm-commons-cc-by-4.jpg", "sha256": "d830bdfcbdbf0b2998b450b1caacd3973a47c3ea0219d4290a43b7679793d9a5", "state": "PENDING independent admission" },
+    { "path": "source-assets/menabrea-lovelace-1843-project-gutenberg-75107.html", "sha256": "c7927f7454c9f2ae6bdc624b42b925dc5f9d6a87f844c6dcf71abbc7163d8fe7", "state": "PENDING independent admission" },
+    { "path": "coordinate-qa/coordinate-qa-contact-sheet.png", "sha256": "0403588a31412e6c79c7aa0b2be24a834dc3e0aa2fe986377b34e5d0e9a4351a", "state": "QA derivative only; not identity evidence" }
+  ],
+  "prohibitedInputs": [
+    { "cue": "18", "path": "assets/episodes/ep-04/pixel/ep04-transition-ada-timejump-london-1843-comic-v1-no-halftone-1920.png", "sha256": "c2bf2e70f7b1cf88a9e731342cc4affa4ccf904229707fa2a04151f980deb34c", "state": "REJECTED" },
+    { "cue": "19", "path": "assets/episodes/ep-04/clips/ep04-scene-03-ada-loop-v1.mp4", "sha256": "343e37c02c4873ae71c7fed8e21bb6d4c52b7ccc0bfb05770a223b84ee36b3b4", "state": "REJECTED" }
+  ],
+  "selfHashRule": "This manifest's final SHA-256 is recorded externally in source-execution-binding-2026-07-25.md after this file is finalized."
+}

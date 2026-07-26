@@ -63,7 +63,7 @@
 
 .sh-v2 .sh-v2-homeroom {
   display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(540px, 1.08fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 540px), 1fr));
   min-height: 650px;
   border-bottom: 5px solid var(--sh-ink);
 }
@@ -72,7 +72,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-width: 0;
+  max-width: 100%;
   padding: clamp(60px, 8vw, 126px) clamp(32px, 6vw, 96px);
+  overflow-wrap: anywhere;
 }
 
 .sh-v2 .sv-eyebrow {
@@ -124,6 +127,8 @@
   display: grid;
   grid-template-rows: auto 1fr auto auto;
   align-content: stretch;
+  min-width: 0;
+  max-width: 100%;
   padding: clamp(40px, 5vw, 72px);
   color: white;
   background: var(--sh-ink);
@@ -281,16 +286,15 @@
 
 .sh-v2 .sh-hubs {
   display: grid;
-  grid-template-columns: repeat(6, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 165px), 1fr));
   gap: 0;
   max-width: 1240px;
   margin: 0 auto 52px;
   padding: 0 32px;
-  overflow-x: auto;
 }
 
 .sh-v2 .sh-hub {
-  min-width: 165px;
+  min-width: 0;
   min-height: 170px;
   padding: 28px 18px 20px;
   color: var(--sh-ink);
@@ -302,6 +306,37 @@
   border-radius: 0;
   box-shadow: none;
   text-align: left;
+}
+
+.sh-v2 .sv-header,
+.sh-v2 .svgh-nav {
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.sh-v2 .sv-header {
+  gap: 12px;
+  padding-inline: clamp(14px, 3vw, 40px);
+}
+
+.sh-v2 .svgh-nav {
+  justify-content: flex-end;
+}
+
+.sh-v2 .sv-ctas,
+.sh-v2 .sv-cta,
+.sh-v2 .sv-cta > span:first-child {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.sh-v2 .sv-cta {
+  gap: 12px;
+  overflow-wrap: anywhere;
+}
+
+.sh-v2 .sv-cta-arrow {
+  flex: 0 0 auto;
 }
 
 .sh-v2 .sh-hub:first-child {
@@ -690,9 +725,6 @@
     min-height: 760px;
   }
 
-  .sh-v2 .sh-hubs {
-    grid-template-columns: repeat(6, minmax(180px, 1fr));
-  }
 }
 
 @media (max-width: 620px) {

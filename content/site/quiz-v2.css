@@ -245,6 +245,8 @@ body.quiz-v2 {
 }
 
 .quiz-v2 .quiz-console {
+  min-width: 0;
+  max-width: 100%;
   margin: 0;
   padding: clamp(24px, 4vw, 44px);
   color: var(--q-ink);
@@ -254,6 +256,31 @@ body.quiz-v2 {
   border: 3px solid var(--q-ink);
   border-radius: 0;
   box-shadow: 16px 18px 0 rgba(118, 87, 255, 0.18);
+}
+
+.quiz-v2 :is(
+  .quiz-container,
+  .quiz-form,
+  .quiz-questions,
+  .quiz-question,
+  .quiz-options,
+  .quiz-option,
+  .quiz-ritual-controls,
+  .quiz-ritual-progress
+) {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.quiz-v2 :is(
+  .quiz-console-header h3,
+  .quiz-question h4,
+  .quiz-option,
+  .quiz-explain,
+  .quiz-result,
+  .quiz-score-details
+) {
+  overflow-wrap: anywhere;
 }
 
 .quiz-v2 .quiz-console-header {

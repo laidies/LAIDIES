@@ -1,0 +1,223 @@
+{
+  "schemaVersion": "1.0.0",
+  "suiteId": "eco-01-verification-rulebook-v1",
+  "status": "CANDIDATE — requires independent administration and newcomer study",
+  "created": "2026-07-25",
+  "scoringRule": "A case passes only when the learner gives the required distinction or verdict, a valid reason and a diagnostic evidence action. Keyword matching or a binary label alone cannot pass.",
+  "categories": {
+    "explanation_distinction": 4,
+    "application": 6,
+    "misconception_resistance": 4,
+    "transfer": 4
+  },
+  "cases": [
+    {
+      "id": "VR-E01",
+      "category": "explanation_distinction",
+      "prompt": "Explain to a friend why an answer with three citations is not automatically verified.",
+      "evidenceVerdict": "UNRESOLVED",
+      "qualification": "Citation presence alone does not establish support, scope or currentness.",
+      "requiredAction": "Open each source and map its exact passage to the nearby material claim.",
+      "mustInclude": ["citation is a pointer", "open the source", "exact claim support", "scope or date"],
+      "diagnosticAction": "Inspect each source and map its exact passage to the nearby material claim.",
+      "failIf": ["citations prove truth", "counting citations is sufficient"]
+    },
+    {
+      "id": "VR-E02",
+      "category": "explanation_distinction",
+      "prompt": "Distinguish retrieval, grounding and verification without using provider names.",
+      "evidenceVerdict": "UNRESOLVED",
+      "qualification": "Retrieved or grounded output remains unresolved until the material and interpretation are inspected.",
+      "requiredAction": "Inspect source quality, support, scope and date after retrieval or grounding.",
+      "mustInclude": ["retrieval finds material", "grounding connects output to material", "verification evaluates claim against adequate evidence"],
+      "diagnosticAction": "Inspect source quality, support, scope and date after retrieval/grounding.",
+      "failIf": ["grounded means true", "search is verification"]
+    },
+    {
+      "id": "VR-E03",
+      "category": "explanation_distinction",
+      "prompt": "What can provenance establish about an image, and what can it not establish?",
+      "evidenceVerdict": "UNRESOLVED",
+      "qualification": "Origin and edit history do not settle the depicted event or caption.",
+      "requiredAction": "Inspect provenance plus independent event and context evidence.",
+      "mustInclude": ["origin or edit trail", "does not prove depicted claim or event"],
+      "diagnosticAction": "Inspect provenance plus independent event/context evidence.",
+      "failIf": ["Content Credentials prove the image is real", "edited means false"]
+    },
+    {
+      "id": "VR-E04",
+      "category": "explanation_distinction",
+      "prompt": "Explain the Receipt Loop without using the words Elle, Chutney, Burn Book or receipts.",
+      "evidenceVerdict": "UNRESOLVED",
+      "qualification": "A claim stays unresolved until a complete claim-to-evidence decision path is performed.",
+      "requiredAction": "Frame, split, find, inspect, cross-check, decide and record.",
+      "mustInclude": ["frame and split claims", "find and inspect evidence", "qualified decision", "record source/date"],
+      "diagnosticAction": "Describe a complete claim-to-evidence decision path.",
+      "failIf": ["film analogy substitutes for mechanism", "ask the AI if it is sure"]
+    },
+    {
+      "id": "VR-E05",
+      "category": "application",
+      "dimension": "source",
+      "prompt": "An AI says a software plan has unlimited guests. You have a forum post, a search snippet and the provider’s dated plan terms. What do you use?",
+      "evidenceVerdict": "UNRESOLVED",
+      "qualification": "The guest limit is unresolved for the current plan and region.",
+      "requiredAction": "Open the provider’s current applicable terms and locate the guest-limit clause.",
+      "mustInclude": ["official plan terms", "current date", "correct plan or region"],
+      "diagnosticAction": "Open the provider’s current applicable terms and locate the guest-limit clause.",
+      "failIf": ["forum popularity proves the claim", "snippet alone"]
+    },
+    {
+      "id": "VR-E06",
+      "category": "application",
+      "dimension": "date",
+      "prompt": "A 2024 official help page states a model limit. You need the limit today.",
+      "evidenceVerdict": "NOT APPLICABLE",
+      "qualification": "The 2024 limit may be historically accurate but is not applicable evidence for today’s limit.",
+      "requiredAction": "Open current official documentation and record version and access date.",
+      "mustInclude": ["historically real can be stale", "version or access date"],
+      "diagnosticAction": "Open current official documentation and record version/access date.",
+      "failIf": ["old means fabricated", "official means permanently current"]
+    },
+    {
+      "id": "VR-E07",
+      "category": "application",
+      "dimension": "scope",
+      "prompt": "A US enterprise-plan page is cited for a Canadian individual free-plan feature.",
+      "evidenceVerdict": "NOT APPLICABLE",
+      "qualification": "The cited source mismatches jurisdiction, account type and plan.",
+      "requiredAction": "Find current Canadian individual free-plan documentation or authenticated terms.",
+      "mustInclude": ["jurisdiction mismatch", "plan/account mismatch"],
+      "diagnosticAction": "Find current Canadian individual free-plan documentation or authenticated terms.",
+      "failIf": ["same provider makes it applicable"]
+    },
+    {
+      "id": "VR-E08",
+      "category": "application",
+      "dimension": "denominator",
+      "prompt": "A memo says complaints fell 50%, from two complaints to one, without showing customer volume.",
+      "evidenceVerdict": "SUPPORTED",
+      "qualification": "The arithmetic claim—two complaints falling to one is a 50% decrease—is supported. The implied claim of meaningful improvement is UNRESOLVED without customer volume, period and collection method.",
+      "requiredAction": "Split arithmetic from significance; inspect complaint counts, customer volume, period and collection method before using the result for a decision.",
+      "mustInclude": ["split arithmetic from significance", "absolute counts", "missing denominator or volume", "significance unresolved"],
+      "diagnosticAction": "Inspect complaint counts, customer volume, period and collection method.",
+      "failIf": ["50% alone proves a major improvement"]
+    },
+    {
+      "id": "VR-E09",
+      "category": "application",
+      "dimension": "compound_claim",
+      "prompt": "“The client approved Friday and expects a 20% lift.” Notes only say the client will decide Friday.",
+      "evidenceVerdict": "CONTRADICTED",
+      "qualification": "The approval clause is contradicted; the separate lift clause is unresolved.",
+      "requiredAction": "Split the clauses; check the named decision record or owner and the source or method for the forecast.",
+      "mustInclude": ["split the clauses", "pending is not approved", "no evidence for lift"],
+      "diagnosticAction": "Check the named decision record/owner and the source/method for the forecast.",
+      "failIf": ["one verdict for the whole sentence without clause reasoning"]
+    },
+    {
+      "id": "VR-E10",
+      "category": "application",
+      "dimension": "provenance",
+      "prompt": "A video has a valid origin/edit trail but its caption says it shows an event in Vancouver today.",
+      "evidenceVerdict": "UNRESOLVED",
+      "qualification": "The origin/edit trail does not establish the captioned event, place or date.",
+      "requiredAction": "Verify capture context, location, date and independent event records.",
+      "mustInclude": ["provenance is not event verification", "location/date/context"],
+      "diagnosticAction": "Verify capture context, location/date and independent event records.",
+      "failIf": ["valid provenance proves caption"]
+    },
+    {
+      "id": "VR-E11",
+      "category": "misconception_resistance",
+      "prompt": "“The answer is grounded, so it is true.” Respond.",
+      "evidenceVerdict": "UNRESOLVED",
+      "qualification": "Grounding connects output to material; the material and interpretation can still fail.",
+      "requiredAction": "Open and inspect the grounded material against the exact claim.",
+      "mustInclude": ["grounding connects to material", "material or interpretation may be weak/stale/out of scope"],
+      "diagnosticAction": "Open and inspect the grounded material against the exact claim.",
+      "failIf": ["accept grounded as verified"]
+    },
+    {
+      "id": "VR-E12",
+      "category": "misconception_resistance",
+      "prompt": "“I asked the same model twice and it agreed both times. That is independent corroboration.” Respond.",
+      "evidenceVerdict": "UNRESOLVED",
+      "qualification": "Repeated model agreement is not independent evidence.",
+      "requiredAction": "Use an authoritative record, qualified owner or genuinely separate evidence path.",
+      "mustInclude": ["same system is not independent evidence", "shared failure or source"],
+      "diagnosticAction": "Use an authoritative record, qualified owner or genuinely separate evidence path.",
+      "failIf": ["agreement alone is corroboration"]
+    },
+    {
+      "id": "VR-E13",
+      "category": "misconception_resistance",
+      "prompt": "A company’s official press release says its own survey proves its product makes teams 60% more productive. The release gives no questionnaire, comparison group, response rate or task measure. “It is primary and official, so it is trustworthy.” Respond.",
+      "evidenceVerdict": "UNRESOLVED",
+      "qualification": "The company is primary for what it reported, but its incentive, missing method and uncertain applicability prevent the productivity conclusion.",
+      "requiredAction": "Inspect the underlying survey, sampling, questions, comparison, task measure, response rate and applicability; seek independent evidence.",
+      "mustInclude": ["primary source is not automatically sufficient", "method missing", "incentive or interest", "applicability"],
+      "diagnosticAction": "Inspect method, incentive and applicability rather than accepting or rejecting the source solely by label.",
+      "failIf": ["official proves the conclusion", "company source must be rejected solely because it is interested"]
+    },
+    {
+      "id": "VR-E14",
+      "category": "misconception_resistance",
+      "prompt": "“The copyable prompt prevents hallucinations.” Respond.",
+      "evidenceVerdict": "UNRESOLVED",
+      "qualification": "The prompt can reduce risk but cannot certify sources, quotes or conclusions.",
+      "requiredAction": "Open and verify cited material; abstain when evidence is inadequate.",
+      "mustInclude": ["reduces risk, does not eliminate", "external validation for critical claims"],
+      "diagnosticAction": "Open and verify the cited material; abstain when evidence is inadequate.",
+      "failIf": ["prompt guarantees accuracy"]
+    },
+    {
+      "id": "VR-E15",
+      "category": "transfer",
+      "domain": "procurement",
+      "prompt": "A board memo calls Tool A the cheapest, but links a different region and plan. Decide what to do.",
+      "evidenceVerdict": "NOT APPLICABLE",
+      "qualification": "The linked price is for the wrong plan and region; “cheapest” also depends on current requirements.",
+      "requiredAction": "Build a dated like-for-like cost and requirements table from current applicable terms.",
+      "mustInclude": ["correct plan", "region/currency", "current official price", "requirements beyond headline price"],
+      "diagnosticAction": "Build a dated like-for-like cost/requirements table from current applicable terms.",
+      "failIf": ["uses mismatched linked price"]
+    },
+    {
+      "id": "VR-E16",
+      "category": "transfer",
+      "domain": "research",
+      "prompt": "A news story says a study made teams 50% faster but does not link the study or name the task. Decide what to do.",
+      "evidenceVerdict": "UNRESOLVED",
+      "qualification": "The 50% claim lacks the original study, task, baseline, sample and method.",
+      "requiredAction": "Locate and inspect the original research and method before using the number.",
+      "mustInclude": ["original study", "task/baseline", "sample/method", "correction status"],
+      "diagnosticAction": "Locate and inspect the original research and method before using the number.",
+      "failIf": ["news percentage is sufficient"]
+    },
+    {
+      "id": "VR-E17",
+      "category": "transfer",
+      "domain": "workplace commitment",
+      "prompt": "An AI-written recap says Legal approved a public claim. The meeting transcript says Legal will review it next week.",
+      "evidenceVerdict": "CONTRADICTED",
+      "qualification": "A future review is not approval.",
+      "requiredAction": "Confirm approval with the authorized Legal owner and approved record before publication.",
+      "mustInclude": ["future review is not approval", "named owner/record", "revise public commitment"],
+      "diagnosticAction": "Confirm approval with the authorized Legal owner and approved record before publication.",
+      "failIf": ["polished recap substitutes for approval"]
+    },
+    {
+      "id": "VR-E18",
+      "category": "transfer",
+      "domain": "high-stakes health",
+      "prompt": "An AI recommends stopping prescribed medicine based on a forum report. Decide what to do.",
+      "evidenceVerdict": "UNRESOLVED",
+      "qualification": "The forum report and AI output do not establish that stopping medication is safe or appropriate.",
+      "requiredAction": "Do not act on the answer; contact the prescriber or appropriate qualified medical professional and use authoritative medication information to frame questions.",
+      "mustInclude": ["do not act on AI/forum advice", "prescriber or qualified medical professional", "authoritative medication information"],
+      "diagnosticAction": "Contact the prescriber/appropriate professional; use authoritative records to frame questions.",
+      "failIf": ["more prompting makes it safe", "Rulebook replaces medical advice"]
+    }
+  ]
+}

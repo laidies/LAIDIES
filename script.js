@@ -2108,6 +2108,7 @@ const memberAuthPendingStorageKey = "laidiesMemberAuthPending";
 const newsletterSubmittedStorageKey = "laidiesNewsletterSubmitted";
 const newsletterSubscribeUrl = "https://buttondown.com/api/emails/embed-subscribe/laidies";
 const deviceMemoryFallback = new Map();
+const sessionFallbackKeys = new Set();
 let memberAuthConfigured = false;
 let memberAuthClient = null;
 let memberAuthSession = null;
@@ -2125,6 +2126,9 @@ function getDeviceMemory() {
 
 function getStoredJson(key, fallbackValue) {
   try {
+    if (sessionFallbackKeys.has(key) && deviceMemoryFallback.has(key)) {
+      return JSON.parse(deviceMemoryFallback.get(key));
+    }
     const deviceMemory = getDeviceMemory();
     const value = deviceMemory ? deviceMemory.getItem(key) : deviceMemoryFallback.get(key);
     return value ? JSON.parse(value) : fallbackValue;
@@ -2139,12 +2143,16 @@ function setStoredJson(key, value) {
   try {
     if (deviceMemory) {
       deviceMemory.setItem(key, serialized);
-      return;
+      sessionFallbackKeys.delete(key);
+      deviceMemoryFallback.delete(key);
+      return "device";
     }
   } catch {
     // Fall through to memory so the experience keeps working even when storage is blocked.
   }
   deviceMemoryFallback.set(key, serialized);
+  sessionFallbackKeys.add(key);
+  return "session";
 }
 
 function removeStoredJson(key) {
@@ -2155,6 +2163,7 @@ function removeStoredJson(key) {
     // Fallback removal below keeps the current session consistent.
   }
   deviceMemoryFallback.delete(key);
+  sessionFallbackKeys.delete(key);
 }
 
 function resetMemberPassExperience(status = "Reset complete. Drop your address when you're ready to start over.") {
@@ -4679,7 +4688,7 @@ function getQuizBestScores() {
 }
 
 function saveQuizBestScores(scores) {
-  setStoredJson(quizStorageKey, scores);
+  return setStoredJson(quizStorageKey, scores);
 }
 
 function getQuizProgressRecords() {
@@ -4706,7 +4715,7 @@ function getQuizProgressRecords() {
 }
 
 function saveQuizProgressRecords(records) {
-  setStoredJson(quizProgressStorageKey, records);
+  return setStoredJson(quizProgressStorageKey, records);
 }
 
 function formatQuizProgressDate(value) {
@@ -4828,11 +4837,10 @@ function renderButterflyRating(score, quiz) {
     clip.setAttribute("aria-hidden", "true");
     return clip;
   });
-  const jarLink = document.createElement("a");
-  jarLink.className = "butterfly-jar-link";
-  jarLink.href = resolveSiteUrl("laidies-card.html") + "#butterflyJar";
-  jarLink.textContent = "Banked in your Butterfly Clip Jar →";
-  quizButterflyRating.replaceChildren(label, ...clips, jarLink);
+  const scope = document.createElement("span");
+  scope.className = "butterfly-jar-link";
+  scope.textContent = "Just-for-fun quiz rating — not a stored clip balance.";
+  quizButterflyRating.replaceChildren(label, ...clips, scope);
   quizButterflyRating.dataset.ratingTone = rating.tone;
   quizButterflyRating.setAttribute("aria-label", "Butterfly-clip rating: " + rating.title);
 }
@@ -4890,7 +4898,7 @@ function renderQuizCelebration(score, quiz) {
   }, ratio >= 1 ? 2600 : 1900);
 }
 
-function renderQuizResult(score, quiz, reward, coreScore = score) {
+function renderQuizResult(score, quiz, reward, coreScore = score, persistenceScope = "device") {
   if (!quizResult) return;
   const bonusScore = Number(quiz?.bonusScore || 0);
   const maxScore = Number(quiz?.maxScore || 10);
@@ -4907,7 +4915,9 @@ function renderQuizResult(score, quiz, reward, coreScore = score) {
   ratingLine.textContent = `Butterfly-clip rating: ${rating.clips}/${maxScore} · ${rating.title}`;
 
   const message = document.createElement("p");
-  message.textContent = `${reward.title}. ${reward.message} Resident Card score and sticker syncing is member magic coming soon; for now, this reward stays mostly on this browser/device.`;
+  message.textContent = persistenceScope === "device"
+    ? `${reward.title}. ${reward.message} This playful score and sticker are saved on this browser/device; cross-device progress is not verified.`
+    : `${reward.title}. ${reward.message} Browser storage is unavailable, so this result lasts only for this open session and will not survive reload.`;
 
   card.append(scoreLine, ratingLine, message);
   quizResult.appendChild(card);
@@ -4981,7 +4991,7 @@ function renderQuizProgressList() {
     const meta = document.createElement("p");
     meta.textContent = best
       ? `${Number(record?.attempts || 1)} attempt${Number(record?.attempts || 1) === 1 ? "" : "s"}${completed ? ` | completed ${completed}` : ""}${record?.stickerTitle ? ` | ${record.stickerTitle}` : ""}`
-      : "Take this quiz to add the score and sticker to your member-card progress.";
+      : "Take this quiz to add a playful score and sticker to this browser/device.";
 
     card.append(label, title, score, meta);
     return card;
@@ -5286,7 +5296,7 @@ function gradeQuiz() {
 
   const scores = getQuizBestScores();
   scores[activeQuizKey] = Math.max(Number(scores[activeQuizKey] || 0), score);
-  saveQuizBestScores(scores);
+  const bestPersistence = saveQuizBestScores(scores);
 
   const reward = getQuizReward(score, quiz.maxScore, Number(quiz.bonusScore || 0));
   const progress = getQuizProgressRecords();
@@ -5304,17 +5314,22 @@ function gradeQuiz() {
     stickerTitle: reward.title,
     stickerTier: reward.tier,
   };
-  saveQuizProgressRecords(progress);
-  if (window.plausible) { try { window.plausible('Quiz completed', { props: { quiz: activeQuizKey, score: score } }); } catch (e) {} }
+  const progressPersistence = saveQuizProgressRecords(progress);
+  const persistenceScope = bestPersistence === "device" && progressPersistence === "device"
+    ? "device"
+    : "session";
+  if (window.plausible) { try { window.plausible('Quiz completed', { props: { quiz: activeQuizKey } }); } catch (e) {} }
   markWednesdayRitualActionCompleteFromQuiz(activeQuizKey);
 
   renderQuizProgress();
-  renderQuizResult(score, quiz, reward, coreScore);
+  renderQuizResult(score, quiz, reward, coreScore, persistenceScope);
   renderStickerDrop(reward, { earned: true });
   renderButterflyRating(score, quiz);
   if (quizRewardTitle) quizRewardTitle.textContent = reward.title;
   if (quizBestScore) {
-    quizBestScore.textContent = `This score: ${score}/${quiz.maxScore}. Best saved score: ${progress[activeQuizKey].bestScore}/${quiz.maxScore}.`;
+    quizBestScore.textContent = persistenceScope === "device"
+      ? `This score: ${score}/${quiz.maxScore}. Best saved score: ${progress[activeQuizKey].bestScore}/${quiz.maxScore}.`
+      : `This score: ${score}/${quiz.maxScore}. Session-only best: ${progress[activeQuizKey].bestScore}/${quiz.maxScore}; browser storage is unavailable.`;
   }
   if (quizRewardMessage) quizRewardMessage.textContent = reward.message;
   renderQuizCelebration(score, quiz);

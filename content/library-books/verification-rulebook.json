@@ -1,0 +1,389 @@
+{
+  "schemaVersion": "1.0.0",
+  "bookId": "verification-rulebook",
+  "status": "HOLD",
+  "title": "How to Check AI’s Work",
+  "subtitle": "The Verification Rulebook",
+  "description": "A durable, practical method for turning fluent AI output into claims you can actually check.",
+  "audience": "A newcomer using AI for everyday work who needs a proportionate way to decide what can be used, qualified, escalated or stopped.",
+  "learningObjective": "Split an AI output into material claims, match each claim to adequate evidence, inspect support, scope and freshness, then record a qualified decision.",
+  "prerequisite": "None. Episode 3 is a recommended story-led introduction, not a gate.",
+  "published": "Not published — candidate under independent review",
+  "lastReviewed": "2026-07-25",
+  "nextReview": "Before any release, then annually for the durable method and quarterly for any named provider example.",
+  "whatCanChange": "Provider features, plans, policies, interfaces, laws, statistics, research corrections and external links. The core checking method is reviewed annually or when learner evidence shows confusion.",
+  "correctionRoute": "mailto:hello@laidies.ai?subject=Verification%20Rulebook%20correction&body=Please%20include%20the%20chapter%2C%20claim%20or%20source%20ID%20and%20what%20you%20found.",
+  "sourceLedger": "/content/library-books/verification-rulebook.claims.json",
+  "evaluationSet": "/content/library-books/verification-rulebook.evals.v1.json",
+  "canonicalNotice": "This JSON file is the sole canonical book source. grimoire/verification-rulebook.html is generated from it and must not be edited as a second book.",
+  "canonicalVerdicts": ["SUPPORTED", "CONTRADICTED", "UNRESOLVED", "NOT APPLICABLE"],
+  "claimRegistry": [
+    {"id":"VR-C001","publicWording":"Generative AI can produce false content and fabricated citations, so important sources and citations still need review and verification.","claimType":"current official risk guidance","riskTier":"material","sourceIds":["SRC-NIST-GAI-600-1"],"supportLocation":"NIST.AI.600-1, pp. 9 and 34: confabulation includes confidently false content and fabricated citations; suggested actions require review and verification of sources and citations.","publicationVersion":"NIST AI 600-1, July 2024","accessed":"2026-07-25","scope":"Generative-AI risk management; not a performance rate or guarantee for a named model.","qualification":"Sourced fact, scoped to the NIST risk profile.","status":"SUPPORTED","nextReview":"2027-07-25 or on NIST revision","history":[]},
+    {"id":"VR-C002","publicWording":"Current AI products can search the web and present citations; those are present capabilities, not hypothetical future abilities.","claimType":"provider capability","riskTier":"material","sourceIds":["SRC-OAI-WEB-SEARCH"],"supportLocation":"Web search guide, Overview and Citations sections: web search can access up-to-date information and responses include URL citation annotations.","publicationVersion":"Current web documentation","accessed":"2026-07-25","scope":"OpenAI API web-search tool; availability and implementation depend on current provider documentation.","qualification":"Provider documentation establishes the provider-described capability, not comparative accuracy.","status":"QUALIFIED","nextReview":"Before release and 2026-10-25","history":[]},
+    {"id":"VR-C003","publicWording":"Search grounding can connect generated answers to current web material and return citation annotations.","claimType":"provider capability","riskTier":"material","sourceIds":["SRC-GOOGLE-GROUNDING"],"supportLocation":"Grounding with Google Search, How it works and Grounding metadata sections: search, processing, grounded response and citation metadata.","publicationVersion":"Current web documentation","accessed":"2026-07-25","scope":"Gemini API grounding feature; does not establish source quality, entailment or universal truth.","qualification":"Provider documentation establishes the provider-described operation only.","status":"QUALIFIED","nextReview":"Before release and 2026-10-25","history":[]},
+    {"id":"VR-C004","publicWording":"Grounding, direct quotations, citations and permission to express uncertainty can reduce hallucination risk, but they do not eliminate it; critical information still needs validation.","claimType":"provider guidance","riskTier":"material","sourceIds":["SRC-ANTHROPIC-HALLUCINATION"],"supportLocation":"Reduce hallucinations, Allow Claude to say “I don’t know,” Use direct quotes, Verify with citations, and Limitations sections.","publicationVersion":"Current web documentation","accessed":"2026-07-25","scope":"Risk-reduction guidance, not comparative model evidence or a guarantee.","qualification":"Provider guidance plus its explicit limitation.","status":"SUPPORTED","nextReview":"Before release and 2026-10-25","history":[]},
+    {"id":"VR-C005","publicWording":"A citation is a pointer to a source; verification additionally checks the source’s identity, relevance, scope, date and support for the specific claim.","claimType":"LAiDIES instructional synthesis","riskTier":"material","sourceIds":["SRC-NIST-GAI-600-1","SRC-COR-ABOUT"],"supportLocation":"NIST pp. 9 and 34 require source/citation review; COR About names source identity, evidence and other-source questions. The five-part formulation is LAiDIES’ synthesis.","publicationVersion":"NIST AI 600-1; current COR About page","accessed":"2026-07-25","scope":"Instructional verification model, not a universal legal standard.","qualification":"Qualified LAiDIES synthesis; not attributed verbatim to either source.","status":"QUALIFIED","nextReview":"2027-07-25 or on learner-confusion evidence","history":[]},
+    {"id":"VR-C006","publicWording":"Lateral reading means leaving an unfamiliar page to investigate who is behind it and what trusted sources say about it.","claimType":"instructional method","riskTier":"minor","sourceIds":["SRC-COR-LATERAL"],"supportLocation":"Intro to Lateral Reading, opening lesson description: defines the strategy as leaving the webpage and opening a new tab to see what trusted websites say about the unknown source.","publicationVersion":"Current COR lesson page","accessed":"2026-07-25","scope":"Evaluating unfamiliar online sources; it is one verification action, not the entire Receipt Loop.","qualification":"Directly supported by the named Digital Inquiry Group lesson.","status":"SUPPORTED","nextReview":"2027-07-25 or on lesson revision","history":[{"date":"2026-07-25","change":"Replaced non-entailing COR About attribution with the entailing Intro to Lateral Reading lesson after independent review."}]},
+    {"id":"VR-C007","publicWording":"C2PA provenance can bind claims about an asset’s source and history so tampering can be detected; it does not decide whether the content or provenance is good, bad or true.","claimType":"technical standard","riskTier":"material","sourceIds":["SRC-C2PA-2-4"],"supportLocation":"C2PA 2.4 Content Credentials specification §§1.2 Scope, 1.3 Technical Overview and 2.3 Core Aspects; the trust model provides tamper-evident provenance and does not make value judgments.","publicationVersion":"C2PA Specifications 2.4","accessed":"2026-07-25","scope":"C2PA-compatible Content Credentials; not every metadata or authenticity system.","qualification":"Provenance and tamper evidence are not a truth score.","status":"SUPPORTED","nextReview":"On specification revision or 2027-07-25","history":[{"date":"2026-07-25","change":"Superseded C2PA 2.2 with current 2.4 after the version trigger fired; teaching distinction retained and support locations rebound."}]},
+    {"id":"VR-C008","publicWording":"At 320 CSS pixels, the rendered candidate must reflow without loss of information or functionality and without two-dimensional scrolling except where an exception applies.","claimType":"accessibility requirement","riskTier":"material","sourceIds":["SRC-WCAG-22"],"supportLocation":"WCAG 2.2 Success Criterion 1.4.10 Reflow.","publicationVersion":"WCAG 2.2","accessed":"2026-07-25","scope":"Rendered web reader acceptance; conformance requires more than this single criterion.","qualification":"Acceptance requirement, not a claim that this candidate already conforms.","status":"SUPPORTED","nextReview":"On W3C errata or Recommendation change","history":[]},
+    {"id":"VR-C009","publicWording":"The Receipt Loop uses four evidence verdicts: supported, contradicted, unresolved and not applicable.","claimType":"LAiDIES instructional model","riskTier":"minor","sourceIds":["INTERNAL-ECO01-SPEC"],"supportLocation":"ECO-01 build packet, correct mental model and chapter 5.","publicationVersion":"2026-07-25","accessed":"2026-07-25","scope":"LAiDIES teaching taxonomy, not a claim that every external framework uses these labels.","qualification":"Internal product rule.","status":"SUPPORTED","nextReview":"After newcomer study or 2027-07-25","history":[]},
+    {"id":"VR-C010","publicWording":"Checking effort should be proportional to consequence, reversibility, uncertainty and freshness.","claimType":"LAiDIES instructional recommendation","riskTier":"material","sourceIds":["INTERNAL-ECO01-SPEC"],"supportLocation":"ECO-01 build packet, Stakes dial and proportionality contract.","publicationVersion":"2026-07-25","accessed":"2026-07-25","scope":"General verification triage; does not replace professional standards or regulated duties.","qualification":"Internal instructional recommendation pending newcomer evidence.","status":"QUALIFIED","nextReview":"After independent safety/instructional review","history":[]},
+    {"id":"VR-C011","publicWording":"Separate URLs are not independent corroboration when they all trace to the same underlying source.","claimType":"LAiDIES instructional synthesis","riskTier":"minor","sourceIds":["SRC-COR-ABOUT","SRC-COR-LATERAL"],"supportLocation":"COR asks what other sources say and teaches leaving a page to investigate an unknown source; the origin-tracing formulation is LAiDIES’ synthesis.","publicationVersion":"Current COR pages","accessed":"2026-07-25","scope":"Evidence independence; distinct reporting may still add independent analysis.","qualification":"Qualified synthesis, not a direct quotation or universal rule.","status":"QUALIFIED","nextReview":"2027-07-25","history":[]},
+    {"id":"VR-C012","publicWording":"The source-bound prompt is a risk-reduction aid, not a truth machine, and critical claims still require external validation.","claimType":"safety limitation","riskTier":"material","sourceIds":["SRC-ANTHROPIC-HALLUCINATION"],"supportLocation":"Reduce hallucinations, Limitations: techniques reduce but do not eliminate hallucinations; critical information needs validation.","publicationVersion":"Current web documentation","accessed":"2026-07-25","scope":"Prompt use with generative AI; no prompt can certify arbitrary sources or conclusions.","qualification":"Safety limit retained next to the prompt.","status":"SUPPORTED","nextReview":"Before release and 2026-10-25","history":[]},
+    {"id":"VR-C013","publicWording":"The Rulebook is not legal, medical, financial, HR or safety advice and cannot replace the responsible professional or decision owner.","claimType":"product boundary","riskTier":"critical","sourceIds":["INTERNAL-ECO01-SPEC"],"supportLocation":"ECO-01 build packet, stakes dial and safety acceptance test.","publicationVersion":"2026-07-25","accessed":"2026-07-25","scope":"LAiDIES product boundary.","qualification":"Internal safety rule.","status":"SUPPORTED","nextReview":"Every release and on safety incident","history":[]},
+    {"id":"VR-C014","publicWording":"A real source can accurately describe an old state and still be inapplicable to a current decision.","claimType":"LAiDIES instructional principle","riskTier":"minor","sourceIds":["INTERNAL-ECO01-SPEC"],"supportLocation":"ECO-01 build packet, misconception correction and freshness contract.","publicationVersion":"2026-07-25","accessed":"2026-07-25","scope":"Distinguishes historical accuracy from present applicability.","qualification":"Internal instructional principle.","status":"SUPPORTED","nextReview":"2027-07-25","history":[]}
+  ],
+  "opening": {
+    "type": "single-choice",
+    "eyebrow": "The LIBRAiRY · Reference Shelf · candidate under review",
+    "promise": "You do not need to redo every word. You need to find the parts that could change a decision, then check those properly.",
+    "scenario": "An AI turns meeting notes into a polished client update: “The client approved the revised launch date, expects a 20% lift and wants paid social added to phase one.” The notes actually say the client will review the date on Friday, somebody guessed “maybe 20%,” and paid social was only a question.",
+    "question": "Which part deserves attention first?",
+    "claimIds": ["VR-C001"],
+    "options": [
+      {"id": "draft", "label": "The polished wording", "feedback": "The wording is draft material. Keep it if it helps, but it is not the decision-changing risk."},
+      {"id": "claim", "label": "Every sentence equally", "feedback": "Checking everything equally wastes effort. Triage the statements that could change action, commitment or harm."},
+      {"id": "decision", "label": "The approval, lift and scope claims", "feedback": "Exactly. Those statements can commit money, timing or client expectations, so they need inspectable evidence.", "correct": true}
+    ]
+  },
+  "receiptLoop": ["Frame", "Split", "Find", "Inspect", "Cross-check", "Decide", "Record"],
+  "chapters": [
+    {
+      "number": 1,
+      "slug": "sort-the-output",
+      "title": "Sort the output",
+      "dek": "Fluency is presentation. Your first job is to identify what kind of thing each line is and what could change a decision.",
+      "sections": [
+        {
+          "heading": "Four useful buckets",
+          "paragraphs": [
+            "A draft is proposed wording, structure or creative material. A factual claim says something checkable about the world. An assumption or inference connects facts without being directly stated. A recommendation proposes action and may depend on both facts and values.",
+            "A sentence can contain more than one bucket. Split compound statements before you search so one true clause cannot lend credibility to a false neighbour."
+          ],
+          "list": [
+            "Draft: “Here is a warmer opening for the email.”",
+            "Claim: “The contract renews on 1 September.”",
+            "Inference: “The delay probably means the client is unhappy.”",
+            "Recommendation: “Move the campaign to September.”"
+          ]
+        },
+        {
+          "heading": "Turn the stakes dial",
+          "paragraphs": [
+            "Ask what happens if the statement is wrong, how reversible the action is, how uncertain the evidence is and how quickly the answer can change. A playlist caption and a medication decision do not deserve the same checking plan.",
+            "Check decision-changing claims first: money, deadlines, permissions, safety, public promises, people’s rights or anything hard to undo."
+          ]
+        }
+      ],
+      "interaction": {
+        "type": "classification",
+        "prompt": "Classify all eight lines before checking your reasoning.",
+        "choices": ["DRAFT", "FACTUAL CLAIM", "ASSUMPTION / INFERENCE", "RECOMMENDATION / DECISION"],
+        "items": [
+          {"id":"c1-1","text":"Here is a warmer opening for the email.","answer":"DRAFT","feedback":"Proposed wording is draft material."},
+          {"id":"c1-2","text":"The contract renews on 1 September.","answer":"FACTUAL CLAIM","feedback":"A date in a contract is externally checkable."},
+          {"id":"c1-3","text":"The delay probably means the client is unhappy.","answer":"ASSUMPTION / INFERENCE","feedback":"The sentence interprets the delay; the client’s state is not directly established."},
+          {"id":"c1-4","text":"Move the campaign to September.","answer":"RECOMMENDATION / DECISION","feedback":"This proposes action."},
+          {"id":"c1-5","text":"The free plan includes five seats.","answer":"FACTUAL CLAIM","feedback":"A current plan limit is a checkable provider claim."},
+          {"id":"c1-6","text":"Five seats makes it the best plan for us.","answer":"RECOMMENDATION / DECISION","feedback":"“Best” is a decision that depends on requirements and values."},
+          {"id":"c1-7","text":"The client approved the new launch date.","answer":"FACTUAL CLAIM","feedback":"Approval is a material, checkable commitment."},
+          {"id":"c1-8","text":"This colour feels more confident.","answer":"ASSUMPTION / INFERENCE","feedback":"This is an interpretation, not a source-established fact."}
+        ]
+      }
+    },
+    {
+      "number": 2,
+      "slug": "what-the-tool-did",
+      "title": "Know what the tool actually did",
+      "dek": "Search, grounding, citations and provenance can help. None of them is the same thing as verification.",
+      "sections": [
+        {
+          "heading": "Six different jobs",
+          "claimIds": ["VR-C002", "VR-C003", "VR-C004", "VR-C005", "VR-C007"],
+          "definitions": [
+            {"term": "Generation", "definition": "Creates the answer. Smooth language is not evidence."},
+            {"term": "Retrieval or search", "definition": "Finds material. Finding a page does not make it the right page."},
+            {"term": "Grounding", "definition": "Connects or constrains an answer to supplied or retrieved material. The material can still be weak, stale, out of scope or misread."},
+            {"term": "Citation", "definition": "Points to a source. The source must exist, open and support the nearby claim."},
+            {"term": "Provenance", "definition": "Records an asset’s origin or change history. It can help authenticate a trail without proving that the depicted event or assertion is true."},
+            {"term": "Verification", "definition": "Connects a specific claim to adequate evidence under the right scope, date and stakes, then makes a qualified decision."}
+          ]
+        },
+        {
+          "heading": "The chain",
+          "paragraphs": [
+            "A source may be retrieved, summarized by a model and represented by a citation. The human check still asks whether the cited source is the right source and whether its exact content supports the exact claim.",
+            "The same model asking itself “are you sure?” may expose inconsistency, but it is not independent evidence. Independence comes from the underlying authoritative record, a qualified owner or a genuinely separate evidence path."
+          ]
+        }
+      ],
+      "interaction": {
+        "type": "artifact-match",
+        "prompt": "Match five artifacts to what they establish.",
+        "choices": ["RETRIEVAL", "GROUNDING", "CITATION", "PROVENANCE", "VERIFICATION"],
+        "items": [
+          {"id":"c2-1","text":"A tool returns a list of pages relevant to the query.","answer":"RETRIEVAL","feedback":"Finding material is retrieval; relevance and quality still need inspection."},
+          {"id":"c2-2","text":"The answer is constrained to a supplied policy document.","answer":"GROUNDING","feedback":"The model is grounded in the document; the document and interpretation can still be wrong or out of scope."},
+          {"id":"c2-3","text":"A numbered link points to a report.","answer":"CITATION","feedback":"The link is a pointer, not a support verdict."},
+          {"id":"c2-4","text":"Content Credentials bind an origin and edit history to an image.","answer":"PROVENANCE","feedback":"The trail can be tamper-evident without proving the depicted event."},
+          {"id":"c2-5","text":"The exact claim is mapped to adequate, current, in-scope evidence and given a qualified verdict.","answer":"VERIFICATION","feedback":"That is the claim-to-evidence decision process."}
+        ]
+      }
+    },
+    {
+      "number": 3,
+      "slug": "frame-the-claim",
+      "title": "Frame the claim before searching",
+      "dek": "A vague question retrieves vague evidence. Make the statement small enough to test.",
+      "sections": [
+        {
+          "heading": "Write the claim you actually need",
+          "paragraphs": [
+            "Name the product or person, plan or version, place or jurisdiction, date, conditions, denominator and intended decision. Preserve qualifiers such as “may,” “in this sample” and “for eligible accounts.”",
+            "“She doesn’t even go here” is a useful scope reminder: evidence about a different plan, country or version may be real and still not apply. The film reference is only a mnemonic; it does not test the evidence for you."
+          ],
+          "list": [
+            "Vague: “It is 50% faster.”",
+            "Checkable: “In the named study, people completing which task, compared with what baseline, finished 50% faster under which conditions?”",
+            "Vague: “The plan is free.”",
+            "Checkable: “Is this feature included in the provider’s free plan for Canadian individual accounts on 25 July 2026?”"
+          ]
+        }
+      ],
+      "interaction": {
+        "type": "repair",
+        "prompt": "Choose the repair that makes each claim checkable.",
+        "items": [
+          {"id":"c3-1","text":"The new AI tool cuts admin time by 40%.","choices":["Count pages repeating 40%.","Name the tool/version, population, task, baseline, period, method and source.","Ask the AI to sound less confident."],"answerIndex":1,"feedback":"The repair exposes the denominator, comparison and method."},
+          {"id":"c3-2","text":"The plan is free.","choices":["Name provider, feature, plan, account type, region and date.","Search “free plan” without qualifiers.","Treat free as a permanent product property."],"answerIndex":0,"feedback":"Plan, account, region and date determine applicability."},
+          {"id":"c3-3","text":"The client approved Friday and expects a 20% lift.","choices":["Keep it as one claim.","Split approval/date from forecast; name the decision record and forecast evidence.","Change “approved” to “liked.”"],"answerIndex":1,"feedback":"Compound claims need separate evidence and verdicts."}
+        ]
+      }
+    },
+    {
+      "number": 4,
+      "slug": "choose-and-inspect",
+      "title": "Choose and inspect evidence",
+      "dek": "There is no universal source ladder. Match evidence to the claim, then inspect what it actually says.",
+      "sections": [
+        {
+          "heading": "Claim-matched evidence",
+          "table": {
+            "headers": ["Claim type", "Best starting evidence", "Never sufficient alone"],
+            "rows": [
+              ["Current feature, price, plan or policy", "Current official documentation, account UI or contract; record region, plan and access date", "AI memory, search snippet or undated screenshot"],
+              ["Law, regulation or public rule", "Current legislation, regulator, court or official authority; qualified professional for consequential application", "Generic blog or a non-jurisdictional answer"],
+              ["Scientific or empirical result", "Original paper, dataset and method; correction/retraction status; suitable expert synthesis", "Press release or percentage without method/denominator"],
+              ["Quote, statement or event", "Original transcript, recording, filing, document or direct statement", "Quote graphic, repost or citation without accessible source"],
+              ["Internal commitment", "Approved record, contract or named decision owner", "Model-written recap or unattributed notes"],
+              ["Media origin", "Original asset/context plus provenance where present", "Metadata treated as a truth verdict"]
+            ]
+          }
+        },
+        {
+          "heading": "The seven source questions",
+          "claimIds": ["VR-C006", "VR-C011"],
+          "list": [
+            "Identity: who created or published it, and what authority or interest do they have?",
+            "Relevance: does it address this exact claim rather than a nearby topic?",
+            "Scope: correct person, product, plan, place, jurisdiction and conditions?",
+            "Date/version: current enough for this decision?",
+            "Support: does it actually entail the claim, numbers and qualifiers?",
+            "Method: how was the evidence produced; what is missing or uncertain?",
+            "Independence: does corroboration trace to a genuinely separate origin?"
+          ]
+        }
+      ],
+      "interaction": {
+        "type": "source-compare",
+        "prompt": "You need today’s seat limit for a paid software plan in Canada. Compare all three, choose the most diagnostic source, then explain why and what you would inspect.",
+        "options": [
+          {"id":"forum","label":"A popular forum answer from last year."},
+          {"id":"snippet","label":"A search snippet quoting a review site."},
+          {"id":"official","label":"The provider’s current Canadian plan page or authenticated plan terms, opened and dated.","correct":true}
+        ],
+        "minimumReasonLength": 30,
+        "minimumActionLength": 30,
+        "feedback": "The current applicable provider terms are the best starting source because they match owner, plan, region and date. A strong reason still inspects conditions and does not assume “official” means complete or infallible.",
+        "rubricDimensions": {
+          "claim": "The exact Canadian paid-plan seat-limit claim is framed.",
+          "evidence": "The current applicable provider terms and exact clause are selected.",
+          "limitation": "Conditions, omissions and the limit of an official source are named.",
+          "action": "The source will be opened, inspected and recorded with plan, region and date."
+        }
+      }
+    },
+    {
+      "number": 5,
+      "slug": "receipt-loop",
+      "title": "Run the Receipt Loop",
+      "dek": "Frame → Split → Find → Inspect → Cross-check → Decide → Record.",
+      "sections": [
+        {
+          "heading": "A worked decision",
+          "claimIds": ["VR-C009"],
+          "paragraphs": [
+            "Return to the client update. Frame and split three claims: approval of the date, expected 20% lift and paid-social scope. Find the meeting record and named decision owner. Inspect the exact lines. The notes support none of the three as written.",
+            "The useful draft survives, but the claims change: “The client will review the proposed launch date Friday. The team discussed a possible lift but has not agreed a forecast. Paid social is an open scope question.”"
+          ],
+          "list": [
+            "SUPPORTED: adequate evidence supports the framed claim.",
+            "CONTRADICTED: adequate evidence conflicts with it.",
+            "UNRESOLVED: evidence is missing, mixed or too weak.",
+            "NOT APPLICABLE: the evidence addresses a different scope, version or question."
+          ]
+        },
+        {
+          "heading": "Record the decision receipt",
+          "paragraphs": [
+            "Keep the exact claim, source, location, access date, scope, verdict, uncertainty and next review trigger. That turns a private moment of checking into a correction path.",
+            "Do not force a true/false answer when the honest result is unresolved. Abstaining from invented certainty is a useful outcome."
+          ]
+        }
+      ],
+      "interaction": {
+        "type": "claim-table",
+        "prompt": "Complete the decision receipt before revealing the model answer.",
+        "verdicts": ["SUPPORTED", "CONTRADICTED", "UNRESOLVED", "NOT APPLICABLE"],
+        "rows": [
+          {"id":"c5-1","claim":"Ali approved the launch.","source":"Meeting notes: “Ali will decide Friday.”","answer":"CONTRADICTED"},
+          {"id":"c5-2","claim":"The campaign will lift results 20%.","source":"Meeting notes: “Maybe 20%?” No forecast source.","answer":"UNRESOLVED"},
+          {"id":"c5-3","claim":"Paid social is in phase one.","source":"Meeting notes list paid social as an open question.","answer":"CONTRADICTED"}
+        ],
+        "minimumReasonLength": 40,
+        "minimumActionLength": 30,
+        "feedback": "Approval and paid-social scope are contradicted as written; the lift is unresolved. Preserve the useful draft, revise the claims and record owner, source, date and uncertainty.",
+        "rubricDimensions": {
+          "claim": "Approval, forecast and paid-social scope are split into separate claims.",
+          "evidence": "Each verdict is mapped to the exact meeting-note passage.",
+          "limitation": "The missing forecast source and pending decisions are preserved as uncertainty.",
+          "action": "The draft will be revised and the decision owner, source and date recorded."
+        }
+      }
+    },
+    {
+      "number": 6,
+      "slug": "currentness-media-independence",
+      "title": "Currentness, media and independent checks",
+      "dek": "A real source can be stale. A real provenance trail can accompany a false claim. A second answer can repeat the first answer’s blind spot.",
+      "sections": [
+        {
+          "heading": "Stale but real",
+          "claimIds": ["VR-C014"],
+          "paragraphs": [
+            "A page may accurately describe an old model, plan, price or law and still be unusable for today’s decision. Record publication or version date, access date, region and change trigger.",
+            "Current provider examples belong in dated, replaceable cards—not inside the durable definition of verification."
+          ]
+        },
+        {
+          "heading": "Trace the origin",
+          "paragraphs": [
+            "Five articles may repeat one press release. Corroboration requires separate provenance or evidence, not merely separate URLs.",
+            "For images, audio and video, provenance can help establish who made or changed an asset. Investigate the event, context and claim separately."
+          ]
+        }
+      ],
+      "interaction": {
+        "type": "dual-case",
+        "prompt": "Resolve both cases and explain the evidence gap.",
+        "verdicts": ["SUPPORTED", "CONTRADICTED", "UNRESOLVED", "NOT APPLICABLE"],
+        "cases": [
+          {"id":"c6-fresh","label":"Freshness case","text":"Three sites repeat a price from one provider page archived two years ago. Is that price established for today?","answer":"UNRESOLVED","feedback":"It is one stale evidence chain. Check current applicable terms."},
+          {"id":"c6-media","label":"Provenance case","text":"Valid Content Credentials identify an image’s origin and edits. Do they establish that its captioned event happened in Vancouver today?","answer":"UNRESOLVED","feedback":"The provenance trail does not verify the event, place, date or caption."}
+        ],
+        "minimumReasonLength": 35,
+        "minimumActionLength": 30,
+        "rubricDimensions": {
+          "claim": "Today’s price and today’s captioned event are treated as separate claims.",
+          "evidence": "Current plan terms and independent event/context records are identified.",
+          "limitation": "Stale repetition and provenance-without-event-proof are named.",
+          "action": "Freshness/scope and event place/date/context will be checked separately."
+        }
+      }
+    },
+    {
+      "number": 7,
+      "slug": "use-qualify-escalate-stop",
+      "title": "Use, qualify, escalate or stop",
+      "dek": "The goal is a better decision—not infinite research or performative certainty.",
+      "sections": [
+        {
+          "heading": "Proportionate checking",
+          "claimIds": ["VR-C010"],
+          "list": [
+            "Low and reversible: label it draft; one quick source inspection may be enough.",
+            "Material but reversible: use a claim table, authoritative source, scope/date check and independent corroboration where uncertainty remains.",
+            "High-stakes or hard to reverse: use authoritative records and the qualified human owner or professional. Stop or escalate when evidence is inadequate."
+          ]
+        },
+        {
+          "heading": "Write the honest answer",
+          "claimIds": ["VR-C013"],
+          "paragraphs": [
+            "State what is supported, what remains uncertain, the scope and date, and what evidence would change the conclusion. A disclaimer does not repair bad advice.",
+            "This Rulebook is not legal, medical, financial, HR or safety advice. In those domains, it can help you organize questions and sources, but it cannot replace the responsible professional or decision owner."
+          ]
+        }
+      ],
+      "interaction": {
+        "type": "stakes",
+        "prompt": "Choose the proportionate next action for all three stakes levels.",
+        "choices": ["USE AS LABELLED DRAFT", "CHECK AUTHORITATIVE SOURCE + QUALIFY", "STOP AND ESCALATE TO QUALIFIED HUMAN"],
+        "items": [
+          {"id":"c7-low","label":"Low/reversible","text":"An AI suggests three playful headings for an internal brainstorm.","answer":"USE AS LABELLED DRAFT","feedback":"Creative draft use is reversible; do not invent factual support."},
+          {"id":"c7-material","label":"Material/reversible","text":"An AI compares current software plans for a team purchase.","answer":"CHECK AUTHORITATIVE SOURCE + QUALIFY","feedback":"Check current applicable terms, requirements and uncertainty before buying."},
+          {"id":"c7-high","label":"High/hard to reverse","text":"An AI says to stop prescribed medication because a forum reports side effects.","answer":"STOP AND ESCALATE TO QUALIFIED HUMAN","feedback":"Do not act on the answer; contact the prescriber or appropriate medical professional."}
+        ]
+      }
+    }
+  ],
+  "promptCard": {
+    "title": "The source-bound prompt",
+    "intro": "Use this to reduce risk and expose missing evidence. It is not a truth machine.",
+    "text": "Answer only from the source material I provide or sources you can link directly. For every material claim: quote the exact supporting words and give the page, section or timestamp; if the source does not state it, write “not stated.” Separate source fact from inference. Add columns for source, publication/version date, access date and scope. Mark unsupported statements [needs receipt]. Preserve uncertainty and abstain when evidence is inadequate.",
+    "warning": "Now open the source yourself. This prompt cannot certify the source, the quote or the conclusion.",
+    "claimIds": ["VR-C012"]
+  },
+  "transferChallenge": {
+    "title": "The unseen transfer challenge",
+    "scenario": "A board memo says: “Tool A is the cheapest option for us, and a new study proves teams finish analysis 50% faster.” The linked price is for a different region and plan. The memo links a news story that mentions 50% but does not identify the task, baseline, sample or original study.",
+    "tasks": [
+      "Split the material claims.",
+      "Identify the decision-changing claim.",
+      "Choose the most diagnostic evidence action.",
+      "Name the scope and freshness checks.",
+      "Give a qualified verdict and state what would change it."
+    ],
+    "verdicts": ["SUPPORTED", "CONTRADICTED", "UNRESOLVED", "NOT APPLICABLE"],
+    "minimumClaimLength": 40,
+    "minimumActionLength": 40,
+    "minimumLimitationLength": 40,
+    "rubricDimensions": {
+      "claim": "Price, speed and “cheapest/best” are split into separate material claims.",
+      "evidence": "Current like-for-like plan terms and the original study/method are selected.",
+      "limitation": "Plan/region mismatch and missing task, baseline, sample and method are named.",
+      "action": "The learner states what to inspect, what remains unresolved and what would change each verdict."
+    },
+    "rubric": [
+      "Price claim: UNRESOLVED or NOT APPLICABLE until the current official price for the correct plan, region, currency and date is inspected.",
+      "Speed claim: UNRESOLVED until the original study, population, task, baseline, denominator, method and correction status are inspected.",
+      "Best/cheapest recommendation: UNRESOLVED until relevant cost and requirements are compared, not only headline price.",
+      "A passing answer names evidence that can materially resolve the decision and does not claim the prompt guarantees accuracy."
+    ]
+  },
+  "sources": [
+    {"id": "SRC-NIST-GAI-600-1", "title": "NIST AI RMF: Generative Artificial Intelligence Profile", "publisher": "NIST", "url": "https://doi.org/10.6028/NIST.AI.600-1", "use": "Confabulation, fabricated citations, source verification and ongoing monitoring."},
+    {"id": "SRC-OAI-WEB-SEARCH", "title": "Web search tool documentation", "publisher": "OpenAI", "url": "https://developers.openai.com/api/docs/guides/tools-web-search", "use": "Current example of search and visible/clickable citations as product capabilities."},
+    {"id": "SRC-ANTHROPIC-HALLUCINATION", "title": "Reduce hallucinations", "publisher": "Anthropic", "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations", "use": "Grounding, quotation and citation techniques reduce but do not eliminate hallucinations."},
+    {"id": "SRC-GOOGLE-GROUNDING", "title": "Grounding with Google Search", "publisher": "Google", "url": "https://ai.google.dev/gemini-api/docs/google-search", "use": "Current example distinguishing search grounding and citation annotations."},
+    {"id": "SRC-COR-ABOUT", "title": "Civic Online Reasoning — About", "publisher": "Digital Inquiry Group", "url": "https://cor.inquirygroup.org/about/", "use": "The source-identity, evidence and other-source questions."},
+    {"id": "SRC-COR-LATERAL", "title": "Intro to Lateral Reading", "publisher": "Digital Inquiry Group", "url": "https://cor.inquirygroup.org/curriculum/lessons/intro-to-lateral-reading/", "use": "Defines lateral reading as leaving an unfamiliar page and consulting trusted sources in another tab."},
+    {"id": "SRC-C2PA-2-4", "title": "C2PA Content Credentials specification 2.4", "publisher": "C2PA", "url": "https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html", "use": "Full current specification containing §§1.2, 1.3 and 2.3 for provenance and tamper-evident source/history limits.", "currentVersion":"2.4", "versionIndexUrl":"https://spec.c2pa.org/specifications/specifications/2.4/index.html", "versionPattern":"C2PA Specifications ([0-9]+\\.[0-9]+)"},
+    {"id": "SRC-WCAG-22", "title": "Web Content Accessibility Guidelines (WCAG) 2.2", "publisher": "W3C", "url": "https://www.w3.org/TR/WCAG22/", "use": "Accessibility requirements for the rendered reader candidate."}
+  ],
+  "handoffs": [
+    {"label": "Episode 3 · The Burn Book Problem", "href": "/issues/issue-03.html", "payoff": "See the verification risk made memorable through story."},
+    {"label": "Dream Phone · evidence practice", "href": "/games/dream-phone.html", "payoff": "Practice is still under source review; treat its links as review leads, not final authority.", "status": "HOLD"},
+    {"label": "NewsStand", "href": "/newsstand.html", "payoff": "See timely reporting under the NewsStand’s separate sourcing and correction rules."}
+  ]
+}

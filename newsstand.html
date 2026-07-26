@@ -68,16 +68,16 @@
             height="948"
           >
 
-          <div class="ns-paper-rack" aria-label="Current issues on the rack: The Weekly and The Tribune">
-            <button class="ns-paper ns-paper--weekly" type="button" data-edition="weekly" aria-label="Pull The Weekly">
+          <div class="ns-paper-rack" aria-label="The Weekly and The Tribune desks">
+            <button class="ns-paper ns-paper--weekly" type="button" data-edition="weekly" aria-pressed="false" aria-label="Open The Weekly desk. The paper image is legacy Wednesday Edition artwork, retained temporarily and not presented as a current Weekly cover.">
               <img
                 src="/assets/building-interiors/delivery-20260724-newsstand-comic-v1/newsstand-paper-wednesday-comic-candidate-v1.png"
                 alt=""
               >
-              <span class="ns-paper__masthead" aria-hidden="true">The Weekly</span>
+              <span class="ns-paper__masthead" aria-hidden="true">Archive art · The Weekly desk</span>
               <span class="ns-paper__fresh" data-fresh-for="weekly" hidden>Hot off the press</span>
             </button>
-            <button class="ns-paper ns-paper--tribune" type="button" data-edition="tribune" aria-label="Pull The Tribune, the argument paper">
+            <button class="ns-paper ns-paper--tribune" type="button" data-edition="tribune" aria-pressed="false" aria-label="Open The Tribune, the sourced argument paper">
               <img
                 src="/assets/building-interiors/delivery-20260724-newsstand-comic-v1/newsstand-paper-tribune-comic-candidate-v1.png"
                 alt=""
@@ -88,21 +88,25 @@
           </div>
         </div>
         <div class="ns-publications" aria-label="The four NewsStand publications">
-          <button class="ns-publication" type="button" data-edition="breaking">
+          <button class="ns-publication" type="button" data-edition="breaking" aria-pressed="false">
             <strong>The Breaking</strong>
-            <span>No qualified story is live</span>
+            <span class="ns-publication__job">Rare, qualified interruption</span>
+            <span class="ns-publication__status" data-status-for="breaking">Checking the desk…</span>
           </button>
-          <button class="ns-publication" type="button" data-edition="daily">
+          <button class="ns-publication" type="button" data-edition="daily" aria-pressed="false">
             <strong>The Daily</strong>
-            <span>No current issue is filed</span>
+            <span class="ns-publication__job">Consequential briefing</span>
+            <span class="ns-publication__status" data-status-for="daily">Checking the desk…</span>
           </button>
-          <button class="ns-publication" type="button" data-edition="weekly">
+          <button class="ns-publication" type="button" data-edition="weekly" aria-pressed="false">
             <strong>The Weekly</strong>
-            <span>Current issue available</span>
+            <span class="ns-publication__job">Durable weekly synthesis</span>
+            <span class="ns-publication__status" data-status-for="weekly">Checking the desk…</span>
           </button>
-          <button class="ns-publication" type="button" data-edition="tribune">
+          <button class="ns-publication" type="button" data-edition="tribune" aria-pressed="false">
             <strong>The Tribune</strong>
-            <span>Current argument available</span>
+            <span class="ns-publication__job">Sourced argument</span>
+            <span class="ns-publication__status" data-status-for="tribune">Checking the desk…</span>
           </button>
         </div>
       </section>
@@ -111,8 +115,9 @@
         <div class="ns-state__inner">
           <p class="ns-address">The SUNNYVAiLE NewsStand · No. 2 MAiN · Keeper: Paige</p>
           <div class="ns-state__copy">
-            <h1 id="ns-title">The Weekly is in.</h1>
-            <p id="ns-state-detail">Pull a paper from the rack. Paige has already checked the sources.</p>
+            <h1 id="ns-title">Checking Paige’s desk.</h1>
+            <p id="ns-state-detail">The NewsStand will show what is current, quiet, held or overdue after its dated publication record loads.</p>
+            <p class="ns-system-status" id="ns-system-status" role="status" aria-live="polite"></p>
           </div>
           <div class="ns-state__actions">
             <button class="ns-state__primary" type="button" data-pull="weekly">Pull The Weekly</button>
@@ -132,12 +137,12 @@
           <header class="ns-unfolded-paper__masthead">
             <div>
               <p class="ns-unfolded-paper__edition" id="ns-reader-edition">The Weekly</p>
-              <h2 id="ns-reader-title">This week’s front page.</h2>
+              <h2 id="ns-reader-title" tabindex="-1">This week’s front page.</h2>
             </div>
             <p class="ns-unfolded-paper__date" id="ns-reader-date"></p>
           </header>
           <div id="ns-rack" aria-live="polite"></div>
-          <div id="ns-empty" class="ns-empty" hidden>
+          <div id="ns-empty" class="ns-empty" role="status" tabindex="-1" hidden>
             Paige is still checking this desk. Nothing has been filed here yet.
           </div>
         </article>
@@ -164,7 +169,8 @@
       © LAiDIES · Filed from SUNNYVAiLE · The NewsStand at MAiN Street No. 2
     </footer>
 
-    <script src="/content/newsstand-stories.js?v=20260725-four-publications-v1"></script>
+    <script src="/content/newsstand-reader-contract.js?v=20260725-contract-v1"></script>
+    <script src="/content/newsstand-stories.js?v=20260725-canonical-v1"></script>
     <script>
       (function () {
         "use strict";
@@ -213,19 +219,39 @@
           "glean.com": "Glean",
           "openai.com": "OpenAI",
           "blog.google": "Google",
-          "digital-strategy.ec.europa.eu": "European Commission"
+          "digital-strategy.ec.europa.eu": "European Commission",
+          "help.openai.com": "OpenAI Help",
+          "hhs.gov": "U.S. HHS",
+          "ftc.gov": "U.S. FTC"
         };
 
-        var stories = (window.NEWSSTAND_STORIES || []).slice().sort(function (a, b) {
-          return String(b.date).localeCompare(String(a.date));
-        });
+        var contract = window.NewsstandContract || {
+          EDITIONS: ["breaking", "daily", "weekly", "tribune"],
+          datasetState: function () { return { state: "load-failure", errors: ["reader contract did not load"] }; },
+          accessDecision: function () { return { canExpose: false, state: "load-failure", reason: "The publication record did not load." }; },
+          effectivePublicationState: function () { return "unavailable"; },
+          visibleStories: function () { return []; },
+          storyState: function () { return "unavailable"; }
+        };
+        var data = window.NEWSSTAND_DATA;
+        var now = new Date().toISOString();
+        var dataset = contract
+          ? contract.datasetState(data, now)
+          : { state: "load-failure", errors: ["reader contract did not load"] };
+        var stories = dataset.state === "load-failure"
+          ? []
+          : (data.stories || []).slice().sort(function (a, b) {
+              return String(b.publishedAt).localeCompare(String(a.publishedAt));
+            });
         var selectedEdition = null;
+        var lastInvoker = null;
+        var pendingStoryView = null;
+        if ("scrollRestoration" in history) history.scrollRestoration = "manual";
         var reader = document.getElementById("paper-counter");
         var paperView = document.getElementById("ns-paper-view");
         var rack = document.getElementById("ns-rack");
         var empty = document.getElementById("ns-empty");
         var searchInput = document.getElementById("ns-search-input");
-        var searchTimer = null;
 
         function escapeHTML(value) {
           var node = document.createElement("div");
@@ -239,7 +265,7 @@
 
         function formatDate(iso) {
           if (!iso) return "";
-          var value = new Date(iso + "T00:00:00");
+          var value = new Date(String(iso).indexOf("T") === -1 ? iso + "T00:00:00Z" : iso);
           if (isNaN(value)) return iso;
           return value.toLocaleDateString("en-CA", {
             year: "numeric",
@@ -284,12 +310,84 @@
 
         function newestDate(list) {
           return list.reduce(function (latest, story) {
-            return String(story.date) > latest ? String(story.date) : latest;
+            return String(story.publishedAt) > latest ? String(story.publishedAt) : latest;
           }, "");
         }
 
-        function canonicalEdition(story) {
-          return story && story.edition === "wednesday" ? "weekly" : story.edition;
+        function motionBehavior() {
+          return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            ? "auto"
+            : "smooth";
+        }
+
+        function focusAfterPaint(node) {
+          if (!node) return;
+          window.requestAnimationFrame(function () {
+            node.focus({ preventScroll: true });
+          });
+        }
+
+        function setSelectedControls(mode) {
+          Array.prototype.forEach.call(document.querySelectorAll("[data-edition]"), function (button) {
+            var selected = button.getAttribute("data-edition") === mode;
+            button.classList.toggle("is-selected", selected);
+            button.setAttribute("aria-pressed", String(selected));
+          });
+        }
+
+        function captureReaderView(originSlug) {
+          if (reader.hidden || !selectedEdition) {
+            return { type: "closed", scrollY: window.scrollY };
+          }
+          return {
+            type: selectedEdition === "search" ? "search" : "paper",
+            mode: selectedEdition,
+            query: selectedEdition === "search" ? searchInput.value : "",
+            originSlug: originSlug || null,
+            scrollY: window.scrollY
+          };
+        }
+
+        function persistHashlessView(view) {
+          if (location.hash) return;
+          var state = history.state && typeof history.state === "object" ? history.state : {};
+          state.nsReaderView = view || captureReaderView(null);
+          history.replaceState(state, "", location.href);
+        }
+
+        function restoreViewPosition(view) {
+          window.requestAnimationFrame(function () {
+            window.requestAnimationFrame(function () {
+              var savedScroll = Number(view.scrollY) || 0;
+              window.scrollTo(0, savedScroll);
+              var origin = view.originSlug
+                ? rack.querySelector('.ns-front-story[href="#' + view.originSlug + '"]')
+                : null;
+              var fallback = view.type === "search"
+                ? document.getElementById("ns-search-button")
+                : document.querySelector('.ns-publication[data-edition="' + view.mode + '"]');
+              (origin || fallback || searchInput).focus({ preventScroll: true });
+              window.setTimeout(function () { window.scrollTo(0, savedScroll); }, 0);
+            });
+          });
+        }
+
+        function closeReaderForHistory(view) {
+          var returningEdition = selectedEdition;
+          selectedEdition = null;
+          reader.hidden = true;
+          rack.innerHTML = "";
+          empty.hidden = true;
+          setSelectedControls(null);
+          var fallback = returningEdition && returningEdition !== "search"
+            ? document.querySelector('.ns-publication[data-edition="' + returningEdition + '"]')
+            : searchInput;
+          window.requestAnimationFrame(function () {
+            if (view && Number.isFinite(Number(view.scrollY))) {
+              window.scrollTo(0, Number(view.scrollY));
+            }
+            (fallback || searchInput).focus({ preventScroll: true });
+          });
         }
 
         function storySearchText(story) {
@@ -299,6 +397,7 @@
             story.thread_subtitle,
             (story.tags || []).join(" "),
             story.saint_lane,
+            story.status,
             stripHTML(story.the_story),
             stripHTML(story.laidies_read),
             stripHTML(story.what_this_means),
@@ -307,15 +406,19 @@
         }
 
         function renderFrontStory(story) {
-          var edition = canonicalEdition(story);
+          var edition = story.edition;
           var label = EDITION[edition] ? EDITION[edition].label : "NewsStand";
           var teaser = firstSentence(story.laidies_read || story.the_story);
+          var status = contract.storyState(story);
+          var statusLabel = status === "corrected" ? "Corrected" : "Source-checked";
           return [
             '<a class="ns-front-story" href="#', escapeHTML(story.slug), '">',
               '<span class="ns-front-story__edition">', escapeHTML(label), "</span>",
-              '<span class="ns-front-story__date">', escapeHTML(formatDate(story.date)), "</span>",
+              '<span class="ns-front-story__date">', escapeHTML(formatDate(story.publishedAt)), "</span>",
               "<h3>", escapeHTML(story.headline), "</h3>",
               '<p>', escapeHTML(teaser), "</p>",
+              '<span class="ns-front-story__status">', escapeHTML(statusLabel),
+                " · checked ", escapeHTML(formatDate(story.lastCheckedAt)), "</span>",
               '<span class="ns-front-story__read">Open the story →</span>',
             "</a>"
           ].join("");
@@ -332,8 +435,17 @@
         }
 
         function renderArticle(story) {
-          var edition = canonicalEdition(story);
+          var edition = story.edition;
           var isTribune = edition === "tribune";
+          var state = contract.storyState(story);
+          if (state === "hold") {
+            return '<div class="ns-story-notice ns-story-notice--hold"><strong>Editorial hold</strong><p>This story is not available while its source and accuracy review is completed.</p></div>';
+          }
+          if (state === "retracted") {
+            return '<div class="ns-story-notice ns-story-notice--retracted"><strong>Retracted</strong><p>' +
+              escapeHTML(story.retraction && story.retraction.reason || "This story has been withdrawn.") +
+              "</p></div>";
+          }
           var watch = "";
           if (isTribune && story.watch_fors && story.watch_fors.length) {
             watch = [
@@ -349,20 +461,28 @@
           var sources = "";
           if (story.sources && story.sources.length) {
             sources = story.sources.map(function (source) {
-              var flag = source.flag === "vendor-sponsored" ? " · vendor-sponsored" : "";
+              var flag = source.publisherType === "vendor" ? " · vendor source" : "";
               return '<a href="' + escapeHTML(source.url) + '" target="_blank" rel="noopener">' +
                 escapeHTML(source.label) + escapeHTML(flag) + "</a>";
             }).join(" · ");
           }
 
+          var correction = state === "corrected"
+            ? '<aside class="ns-story-notice ns-story-notice--corrected"><strong>Correction · ' +
+              escapeHTML(formatDate(story.correction.correctedAt)) + "</strong><p>" +
+              escapeHTML(story.correction.summary) + "</p></aside>"
+            : "";
           return [
             '<article class="ns-article">',
               '<header class="ns-article__head">',
                 '<p class="ns-article__edition">', escapeHTML(EDITION[edition].label), "</p>",
-                '<p class="ns-article__date">', escapeHTML(formatDate(story.date)), "</p>",
+                '<p class="ns-article__date">Published ', escapeHTML(formatDate(story.publishedAt)),
+                  " · Updated ", escapeHTML(formatDate(story.updatedAt)),
+                  " · Checked ", escapeHTML(formatDate(story.lastCheckedAt)), "</p>",
                 "<h2>", escapeHTML(story.headline), "</h2>",
                 story.thread_subtitle ? "<p><em>" + escapeHTML(story.thread_subtitle) + "</em></p>" : "",
               "</header>",
+              correction,
               articleSection(isTribune ? "The Argument" : "The Story", story.the_story),
               articleSection("The LAiDIES Read", story.laidies_read),
               articleSection("What This Means For You", story.what_this_means),
@@ -377,6 +497,19 @@
               "</footer>",
             "</article>"
           ].join("");
+        }
+
+        function renderAccessNotice(decision) {
+          var label = decision.state === "retracted" ? "Retracted" :
+            decision.state === "stale" ? "Source check overdue" :
+            decision.state === "hold" ? "Editorial hold" :
+            decision.state === "quiet" ? "Quiet desk" :
+            decision.state === "no-data" ? "No approved data" :
+            "Publication unavailable";
+          var modifier = decision.state === "retracted" ? " ns-story-notice--retracted" : "";
+          return '<div class="ns-story-notice' + modifier + '" data-access-state="' +
+            escapeHTML(decision.state) + '"><strong>' + escapeHTML(label) +
+            "</strong><p>" + escapeHTML(decision.reason) + "</p></div>";
         }
 
         function setReaderHeader(mode, list) {
@@ -395,31 +528,65 @@
           setReaderHeader(options.mode, options.list || []);
           empty.textContent = options.empty || EDITION[options.mode].empty;
           empty.hidden = Boolean(options.html);
-          Array.prototype.forEach.call(document.querySelectorAll("[data-edition]"), function (button) {
-            button.classList.toggle("is-selected", button.getAttribute("data-edition") === options.mode);
-          });
+          if (options.invoker) lastInvoker = options.invoker;
+          setSelectedControls(options.mode);
           if (options.scroll !== false) {
-            reader.scrollIntoView({ behavior: "smooth", block: "start" });
+            reader.scrollIntoView({ behavior: motionBehavior(), block: "start" });
+          }
+          if (options.focus !== false) {
+            focusAfterPaint(options.html
+              ? document.getElementById("ns-reader-title")
+              : empty);
           }
         }
 
-        function pullPaper(edition, shouldScroll) {
+        function stateMessage(edition, state, publication) {
+          if (state === "quiet") return publication.note;
+          if (state === "hold") return publication.note || "This desk is on editorial hold.";
+          if (state === "stale") return "Paige’s dated source check is overdue. This desk is not being presented as current.";
+          if (state === "unavailable") return "This publication record is unavailable. Nothing is being presented as current.";
+          return EDITION[edition].empty;
+        }
+
+        function pullPaper(edition, shouldScroll, invoker, viewOptions) {
+          viewOptions = viewOptions || {};
           selectedEdition = edition;
           if (location.hash) {
             history.replaceState(null, "", location.pathname + location.search);
           }
-          var list = stories.filter(function (story) { return canonicalEdition(story) === edition; });
-          var html = "";
-          html = list.map(renderFrontStory).join("");
+          var access = contract.accessDecision(data, null, { edition: edition, scope: "paper" }, now);
+          if (!access.canExpose) {
+            showReader({
+              mode: edition,
+              list: [],
+              html: "",
+              empty: access.reason,
+              scroll: shouldScroll !== false,
+              focus: viewOptions.focus !== false,
+              invoker: invoker
+            });
+            if (!viewOptions.skipHistory) persistHashlessView(captureReaderView(null));
+            return;
+          }
+          var publication = data.publications[edition];
+          var list = contract.visibleStories(data, edition, now);
+          var html = list.map(renderFrontStory).join("");
           showReader({
             mode: edition,
             list: list,
             html: html,
-            scroll: shouldScroll !== false
+            empty: list.length
+              ? ""
+              : "This publication is marked current but has no approved, eligible story. Nothing is exposed.",
+            scroll: shouldScroll !== false,
+            focus: viewOptions.focus !== false,
+            invoker: invoker
           });
+          if (!viewOptions.skipHistory) persistHashlessView(captureReaderView(null));
         }
 
-        function renderSearch() {
+        function renderSearch(invoker, viewOptions) {
+          viewOptions = viewOptions || {};
           var query = searchInput.value.trim().toLowerCase();
           if (!query) {
             document.getElementById("ns-search-hint").textContent =
@@ -430,63 +597,191 @@
           if (location.hash) {
             history.replaceState(null, "", location.pathname + location.search);
           }
+          var searchAccess = contract.accessDecision(data, null, { scope: "search" }, now);
+          if (!searchAccess.canExpose) {
+            document.getElementById("ns-search-hint").textContent = "Archive unavailable: " + searchAccess.reason;
+            showReader({
+              mode: "search",
+              list: [],
+              html: "",
+              empty: searchAccess.reason,
+              scroll: viewOptions.scroll !== false,
+              focus: viewOptions.focus !== false,
+              invoker: invoker || searchInput
+            });
+            if (!viewOptions.skipHistory) persistHashlessView(captureReaderView(null));
+            return;
+          }
           var matches = stories.filter(function (story) {
-            return storySearchText(story).indexOf(query) !== -1;
+            return contract.accessDecision(data, story, { scope: "search" }, now).canExpose &&
+              storySearchText(story).indexOf(query) !== -1;
           });
           document.getElementById("ns-search-hint").textContent =
             matches.length + (matches.length === 1 ? " back issue found." : " back issues found.");
           showReader({
             mode: "search",
             list: matches,
-            html: matches.map(renderFrontStory).join("")
+            html: matches.map(renderFrontStory).join(""),
+            scroll: viewOptions.scroll !== false,
+            focus: viewOptions.focus !== false,
+            invoker: invoker || searchInput
           });
+          if (!viewOptions.skipHistory) persistHashlessView(captureReaderView(null));
         }
 
-        function renderHash(scroll) {
+        function renderHash(scroll, invoker) {
           var slug = (location.hash || "").replace(/^#/, "").trim();
           if (!slug) return false;
+          var routeAccess = contract.accessDecision(data, null, { scope: "hash" }, now);
+          if (!routeAccess.canExpose) {
+            selectedEdition = "search";
+            showReader({
+              mode: "search",
+              list: [],
+              html: renderAccessNotice(routeAccess),
+              scroll: scroll !== false,
+              invoker: invoker
+            });
+            document.getElementById("ns-reader-title").textContent =
+              routeAccess.state === "stale" ? "Archived route · check overdue." :
+              routeAccess.state === "hold" ? "Editorial hold." : "Story unavailable.";
+            return true;
+          }
           var story = stories.filter(function (item) { return item.slug === slug; })[0];
-          if (!story) return false;
-          selectedEdition = canonicalEdition(story);
+          if (!story) {
+            var missing = { state: "unavailable", reason: "No story record exists at this preserved route." };
+            selectedEdition = "search";
+            showReader({
+              mode: "search",
+              list: [],
+              html: renderAccessNotice(missing),
+              scroll: scroll !== false,
+              invoker: invoker
+            });
+            document.getElementById("ns-reader-title").textContent = "Story unavailable.";
+            return true;
+          }
+          var decision = contract.accessDecision(data, story, { scope: "hash" }, now);
+          var previousView = pendingStoryView ||
+            (history.state && history.state.nsPreviousView) ||
+            null;
+          var storyState = history.state && typeof history.state === "object" ? history.state : {};
+          storyState.nsStory = slug;
+          storyState.nsPreviousView = previousView;
+          history.replaceState(storyState, "", location.href);
+          pendingStoryView = null;
+          selectedEdition = story.edition;
           showReader({
-            mode: canonicalEdition(story),
+            mode: story.edition,
             list: [story],
-            html: renderArticle(story),
-            scroll: scroll !== false
+            html: decision.canExpose ? renderArticle(story) : renderAccessNotice(decision),
+            scroll: scroll !== false,
+            invoker: invoker
           });
-          document.getElementById("ns-reader-title").textContent = "Inside the paper.";
+          document.getElementById("ns-reader-title").textContent =
+            decision.state === "retracted" ? "Retraction notice." :
+            decision.state === "stale" ? "Archived route · check overdue." :
+            decision.state === "hold" ? "Editorial hold." :
+            decision.canExpose ? "Inside the paper." : "Story unavailable.";
           return true;
         }
 
+        function restoreHashlessView() {
+          var view = history.state && history.state.nsReaderView;
+          if (!view || view.type === "closed") {
+            closeReaderForHistory(view || { type: "closed", scrollY: window.scrollY });
+            return;
+          }
+          if (view.type === "search") {
+            searchInput.value = view.query || "";
+            renderSearch(null, { scroll: false, focus: false, skipHistory: true });
+            restoreViewPosition(view);
+            return;
+          }
+          if (view.type === "paper" && EDITION[view.mode]) {
+            pullPaper(view.mode, false, null, { focus: false, skipHistory: true });
+            restoreViewPosition(view);
+            return;
+          }
+          closeReaderForHistory(view);
+        }
+
+        function statusCopy(state, publication) {
+          if (state === "current") return "Current · checked " + formatDate(publication.lastCheckedAt);
+          if (state === "quiet") return "Quiet · checked " + formatDate(publication.lastCheckedAt);
+          if (state === "hold") return "Editorial hold";
+          if (state === "stale") return "Check overdue · not current";
+          return "Unavailable";
+        }
+
+        function renderPublicationStates() {
+          Array.prototype.forEach.call(document.querySelectorAll("[data-status-for]"), function (node) {
+            var edition = node.getAttribute("data-status-for");
+            var publication = data && data.publications && data.publications[edition];
+            var state = dataset.state === "load-failure" || dataset.state === "no-data"
+              ? "unavailable"
+              : dataset.state === "hold"
+                ? "hold"
+                : contract.effectivePublicationState(publication, now);
+            node.textContent = statusCopy(state, publication || {});
+            node.setAttribute("data-state", state);
+          });
+        }
+
         function setArrivalState() {
-          var lastVisit = getLocal("laidies_newsstand_last_visit");
-          var lastDate = lastVisit ? lastVisit.slice(0, 10) : "";
-          var newStories = stories.filter(function (story) {
-            return !lastDate || String(story.date) > lastDate;
-          });
-          var freshByEdition = {};
-          newStories.forEach(function (story) {
-            freshByEdition[canonicalEdition(story)] = true;
-          });
+          renderPublicationStates();
           Array.prototype.forEach.call(document.querySelectorAll("[data-fresh-for]"), function (stamp) {
-            stamp.hidden = !freshByEdition[stamp.getAttribute("data-fresh-for")];
+            var edition = stamp.getAttribute("data-fresh-for");
+            var publication = data && data.publications && data.publications[edition];
+            stamp.hidden = dataset.state !== "ready" || !publication ||
+              contract.effectivePublicationState(publication, now) !== "current";
           });
 
-          var weekly = stories.filter(function (story) { return canonicalEdition(story) === "weekly"; });
-          var latestWeekly = newestDate(weekly);
           var title = document.getElementById("ns-title");
           var detail = document.getElementById("ns-state-detail");
-          if (!lastVisit) {
-            title.textContent = "The Weekly is in.";
-            detail.textContent = stories.length + " papers are filed for your first stop. Pull one from the rack.";
-          } else if (newStories.length) {
-            title.textContent = newStories.length + (newStories.length === 1 ? " new story is in." : " new stories are in.");
-            detail.textContent = "Paige marked the fresh papers. The newest Weekly was filed " + formatDate(latestWeekly) + ".";
+          var system = document.getElementById("ns-system-status");
+          if (dataset.state === "load-failure") {
+            title.textContent = "The desk record did not load.";
+            detail.textContent = "Nothing is being presented as current. Try again later; the archive and publication labels remain visible for orientation.";
+            system.textContent = "Publication data unavailable.";
+          } else if (dataset.state === "no-data") {
+            title.textContent = "The desk is empty.";
+            detail.textContent = "The record loaded, but no approved stories were filed. Paige will not substitute filler.";
+            system.textContent = "No approved story data.";
+          } else if (dataset.state === "hold") {
+            title.textContent = "The NewsStand is on hold.";
+            detail.textContent = "Stories stay off the counter until the editorial hold is cleared.";
+            system.textContent = "Editorial hold.";
+          } else if (dataset.state === "stale") {
+            title.textContent = "Paige’s check is overdue.";
+            detail.textContent = "The papers are not being presented as current until their sources and status are checked again.";
+            system.textContent = "Publication check overdue.";
+          } else if (dataset.state === "unavailable") {
+            title.textContent = "Part of Paige’s desk is unavailable.";
+            detail.textContent = "No dated check is overdue, but at least one publication record is unavailable. Nothing from that desk is exposed.";
+            system.textContent = "Publication record unavailable.";
+          } else if (dataset.state === "clear") {
+            title.textContent = "A clear day at the NewsStand.";
+            detail.textContent = "No qualified current paper is filed. Last desk check: " + formatDate(data.lastCheckedAt) + ".";
+            system.textContent = "No current publication.";
           } else {
-            title.textContent = "You are caught up.";
-            detail.textContent = "The newest Weekly was filed " + formatDate(latestWeekly) + ". The rack is still open.";
+            var current = contract.EDITIONS.filter(function (edition) {
+              return contract.effectivePublicationState(data.publications[edition], now) === "current";
+            });
+            if (current.length) {
+              title.textContent = current.map(function (edition) { return EDITION[edition].label; }).join(" and ") +
+                (current.length === 1 ? " is current." : " are current.");
+              detail.textContent = "Last desk check: " + formatDate(data.lastCheckedAt) +
+                ". Quiet papers are a deliberate no-filler result; held, stale or unavailable papers stay off the counter." +
+                (dataset.staleEditions && dataset.staleEditions.length ? " One or more checks are overdue." : "") +
+                (dataset.unavailableEditions && dataset.unavailableEditions.length ? " One or more records are unavailable." : "");
+              system.textContent = current.length + (current.length === 1 ? " current publication." : " current publications.");
+            } else {
+              title.textContent = "A clear day at the NewsStand.";
+              detail.textContent = "No qualified current paper is filed. Last desk check: " + formatDate(data.lastCheckedAt) + ".";
+              system.textContent = "No current publication.";
+            }
           }
-          setLocal("laidies_newsstand_last_visit", new Date().toISOString());
         }
 
         var activeButton = null;
@@ -518,12 +813,12 @@
 
         Array.prototype.forEach.call(document.querySelectorAll("[data-edition]"), function (button) {
           button.addEventListener("click", function () {
-            pullPaper(button.getAttribute("data-edition"));
+            pullPaper(button.getAttribute("data-edition"), true, button);
           });
         });
         Array.prototype.forEach.call(document.querySelectorAll("[data-pull]"), function (button) {
           button.addEventListener("click", function () {
-            pullPaper(button.getAttribute("data-pull"));
+            pullPaper(button.getAttribute("data-pull"), true, button);
           });
         });
 
@@ -531,32 +826,54 @@
           if (location.hash) {
             history.replaceState(null, "", location.pathname + location.search);
           }
-          selectedEdition = null;
+          var returningEdition = selectedEdition;
           reader.hidden = true;
           Array.prototype.forEach.call(document.querySelectorAll("[data-edition]"), function (button) {
             button.classList.remove("is-selected");
+            button.setAttribute("aria-pressed", "false");
           });
-          document.querySelector(".ns-paper-rack").scrollIntoView({ behavior: "smooth", block: "center" });
+          var fallback = document.querySelector('.ns-publication[data-edition="' + returningEdition + '"]') ||
+            document.querySelector(".ns-publication");
+          var destination = lastInvoker && document.contains(lastInvoker) && !reader.contains(lastInvoker)
+            ? lastInvoker
+            : fallback;
+          selectedEdition = null;
+          pendingStoryView = null;
+          persistHashlessView({ type: "closed", scrollY: window.scrollY });
+          if (destination) {
+            destination.scrollIntoView({ behavior: motionBehavior(), block: "center" });
+            focusAfterPaint(destination);
+          }
         });
 
-        searchInput.addEventListener("input", function () {
-          clearTimeout(searchTimer);
-          searchTimer = setTimeout(renderSearch, 140);
-        });
         searchInput.addEventListener("keydown", function (event) {
           if (event.key === "Enter") {
             event.preventDefault();
-            clearTimeout(searchTimer);
-            renderSearch();
+            renderSearch(searchInput);
           }
         });
-        document.getElementById("ns-search-button").addEventListener("click", renderSearch);
+        document.getElementById("ns-search-button").addEventListener("click", function () {
+          renderSearch(this);
+        });
+        rack.addEventListener("click", function (event) {
+          var link = event.target.closest(".ns-front-story");
+          if (link) {
+            var slug = (link.getAttribute("href") || "").replace(/^#/, "");
+            pendingStoryView = captureReaderView(slug);
+            persistHashlessView(pendingStoryView);
+            lastInvoker = selectedEdition === "search"
+              ? (document.getElementById("ns-search-button") || searchInput)
+              : document.querySelector('.ns-publication[data-edition="' + selectedEdition + '"]');
+          }
+        });
         window.addEventListener("hashchange", function () {
-          renderHash(true);
+          if (location.hash) renderHash(true, lastInvoker);
+          else restoreHashlessView();
         });
 
         setArrivalState();
-        renderHash(false);
+        if (location.hash) renderHash(false, null);
+        else persistHashlessView({ type: "closed", scrollY: window.scrollY });
       })();
     </script>
     <script src="/content/site/brand-polish.js?v=wm2" defer></script>
