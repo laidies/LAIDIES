@@ -1,10 +1,10 @@
 {
   "product": "SUNNYVAiLE NewsStand Building",
-  "status": "BUILT LOCALLY",
+  "status": "BOUNDED REVIEW ROUTER PASS — ALL FOUR PUBLICATIONS AND RELEASE HOLD",
   "releaseStatus": "HOLD — FIX BEFORE LAUNCH",
-  "asOf": "2026-07-25",
+  "asOf": "2026-07-26",
   "relationshipToActiveWork": "MERGE with AW-003",
-  "route": "/newsstand",
+  "route": "/newsstand.html",
   "primaryFile": "newsstand.html",
   "ownedScope": ["building room", "paper rack", "reader", "archive search", "publication discovery", "freshness/empty/correction states", "reader-facing editorial contract"],
   "publicationSubChampions": ["The Breaking", "The Daily", "The Weekly", "The Tribune"],
@@ -24,8 +24,9 @@
     "sourceManifests": "BUILT LOCALLY",
     "healthHardHold": "ENFORCED LOCALLY; INDEPENDENT REVIEW REQUIRED",
     "centralAvailabilityGate": "VERIFIED LOCALLY across paper, direct hash and archive search; hold/load/no-data/stale/unavailable cannot expose a story body",
-    "renderedChromeMatrix": "VERIFIED LOCALLY — 73 checks including Back/Forward state restoration, focus, 390 reflow, reduced motion and 200% page-scale proxy",
-    "historyStateRecovery": "VERIFIED LOCALLY — paper/search cards, query, origin-result focus and scroll vicinity restore on Back; Forward reopens the eligible story; empty hash without a prior view closes and clears the reader",
+    "renderedChromeMatrix": "INDEPENDENTLY VERIFIED LOCALLY — 89 headless-Chrome assertions pass across repeated source/artifact runs; Chrome-profile cleanup remains racy after assertions",
+    "historyStateRecovery": "INDEPENDENTLY VERIFIED LOCALLY — query, cards, focus and requested/clamped/actual scroll settle across viewport changes, forged offsets and rapid history; native assistive-technology review remains open",
+    "candidateReviewRouter": "BOUNDED INDEPENDENT PASS — only REJECT or HOLD; no candidate assertion can authorize publication; recursive duplicate-key rejection, executable schema identity and independent signed/hash-bound authority remain absent",
     "focusAndAriaContract": "VERIFIED LOCALLY IN HEADLESS CHROME; REAL ASSISTIVE-TECH REVIEW OPEN",
     "producerToReaderPublicationRun": "NOT YET EXECUTED",
     "exactArtifactAndPublicVerification": "NOT EXECUTED"
@@ -41,7 +42,19 @@
     "Platform deployment, analytics and rollback",
     "Ali approval for any replacement Weekly visual"
   ],
-  "lastRun": "2026-07-25 canonical reader repair 3; evidence in build-evidence-canonical-reader-repair-3-2026-07-25.md",
-  "nextAction": "Run independent UX/accessibility/technical re-review of repair 3; keep Health and the release held. Reconcile the three named homepage descriptors in their owning lane; real Safari/VoiceOver, approved Weekly art, artifact binding and controlled producer/public rollback remain later gates.",
+  "cycle6": {
+    "audit": "cycle-6-four-publication-audit-2026-07-26.md",
+    "buildPacket": "build-packet-cycle-6-four-publication-p0-2026-07-26.md",
+    "externalCapabilityReview": "external-capability-review-cycle-6-2026-07-26.md",
+    "subproducts": {
+      "breaking": "BOUNDED ROUTER PASS; PRODUCT/RELEASE HOLD — 78/100",
+      "daily": "BOUNDED ROUTER PASS; PRODUCT/RELEASE HOLD — 79/100",
+      "weekly": "BOUNDED ROUTER PASS; EDITORIAL/OWNER/RELEASE HOLD — 74/100",
+      "tribune": "BOUNDED CONTENT STRENGTH; PRODUCT/RELEASE HOLD — 82/100"
+    }
+  },
+  "lastRun": "2026-07-26 Cycle 6 Repair 3 independent rejudge; bounded router pass, no publication or deploy",
+  "latestIndependentReview": "independent-rejudge-cycle-6-repair-3-2026-07-26.md",
+  "nextAction": "Build recursive raw duplicate-key rejection, one executable hash-bound schema, complete decision provenance, immutable source receipts and an independent private authority transaction. Keep every publication, visual, native accessibility and public release held.",
   "authority": "local code/content and product records only; no deploy, external publication, credentials, service mutation, visual approval or git"
 }

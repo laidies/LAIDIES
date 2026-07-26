@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
   <link rel="stylesheet" href="content/maikeover-v2.css?v=20260724-1">
+  <script src="/content/site/resident-card-contract-v1.js?v=20260726-repair-1"></script>
   <script src="/content/site/supabase-config.js?v=20260702-1"></script>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
@@ -487,38 +488,16 @@
     var CARD_STORAGE_KEY = 'laidies_resident_card_v1';
 
     function readCardEnvelope() {
-      try {
-        var raw = localStorage.getItem(CARD_STORAGE_KEY);
-        if (!raw) return null;
-        var parsed = JSON.parse(raw);
-        if (!parsed || parsed.version !== 1 || !parsed.fields ||
-            typeof parsed.fields !== 'object' || Array.isArray(parsed.fields)) return null;
-        return parsed;
-      } catch (_) {
-        return null;
-      }
+      var contract = window.LAIDIESResidentCard;
+      if (!contract) return null;
+      var result = contract.read(localStorage);
+      return result.state === 'saved' ? result.envelope : null;
     }
 
     function legacyCardFields() {
-      return {
-        cardBg: lsGet('laidies_card_bg'),
-        song: lsGet('laidies_song'),
-        saint: lsGet('laidies_saint'),
-        movie: lsGet('laidies_favorite_movie'),
-        tvshow: lsGet('laidies_favorite_tvshow'),
-        displayName: lsGet('laidies_display_name'),
-        carry: lsGet('laidies_carry'),
-        cardAvatarUrl: lsGet('laidies_card_avatar_url'),
-        activity: lsGet('laidies_activity'),
-        episode: lsGet('laidies_favorite_episode'),
-        storefront: lsGet('laidies_favorite_storefront'),
-        character: lsGet('laidies_favorite_character'),
-        cocktail: lsGet('laidies_favorite_cocktail'),
-        quote: lsGet('laidies_quote'),
-        motto: lsGet('laidies_motto'),
-        avatarSlug: lsGet('laidies_avatar'),
-        archetype: lsGet('laidies_archetype')
-      };
+      var contract = window.LAIDIESResidentCard;
+      var legacy = contract ? contract.readLegacy(localStorage) : null;
+      return legacy && legacy.state === 'legacy' ? legacy.fields : {};
     }
 
     var state = { bg:'classic', avatar:'' };
@@ -527,14 +506,31 @@
     function renderPreview(){
       $('moCard').style.background = CARD_BG[state.bg] || CARD_BG.classic;
       var nm = $('moNameInput').value.trim(); $('moName').textContent = nm || 'Your Name';
-      var handle = lsGet('laidies_card_username'); $('moHandle').textContent = handle ? ('@'+handle) : '@yourhandle';
+      var handle = window.LAIDIESResidentCard
+        ? window.LAIDIESResidentCard.readHandle(localStorage)
+        : '';
+      $('moHandle').textContent = handle ? ('@'+handle) : '@yourhandle';
       $('moMovie').textContent = $('moMovieSel').value || '—';
       $('moTv').textContent = $('moTvSel').value || '—';
       $('moSong').textContent = $('moSongSel').value || '—';
       $('moSaint').textContent = SAINT_LABEL[$('moSaintSel').value] || '—';
       $('moCarry').textContent = $('moCarrySel').value || '—';
       var av = $('moAvatar');
-      if(state.avatar){ av.innerHTML = '<img src="'+state.avatar+'" alt="avatar" style="width:100%;height:100%;object-fit:cover;">'; }
+      if(state.avatar){
+        var image = document.createElement('img');
+        var safePreview = window.LAIDIESResidentCard &&
+          window.LAIDIESResidentCard.isSafeAssetPath(state.avatar);
+        var safeGeneratedPng = /^data:image\/png;base64,[A-Za-z0-9+/=]+$/.test(state.avatar) &&
+          state.avatar.length <= 6000000;
+        if (safePreview || safeGeneratedPng) {
+          image.src = state.avatar;
+          image.alt = 'avatar';
+          image.style.width = '100%';
+          image.style.height = '100%';
+          image.style.objectFit = 'cover';
+          av.replaceChildren(image);
+        }
+      }
     }
 
     // ---- background chips ----
@@ -749,19 +745,30 @@
       var previousFields = previousEnvelope
         ? previousEnvelope.fields
         : legacyCardFields();
-      var envelope = {
-        version: 1,
-        fields: Object.assign({}, previousFields, {
-          cardBg: state.bg,
-          song: $('moSongSel').value,
-          saint: $('moSaintSel').value,
-          movie: $('moMovieSel').value,
-          tvshow: $('moTvSel').value,
-          displayName: $('moNameInput').value.trim(),
-          carry: $('moCarrySel').value,
-          cardAvatarUrl: state.avatar || ''
-        })
-      };
+      var candidateFields = Object.assign({}, previousFields, {
+        cardBg: state.bg,
+        song: $('moSongSel').value,
+        saint: $('moSaintSel').value,
+        movie: $('moMovieSel').value,
+        tvshow: $('moTvSel').value,
+        displayName: $('moNameInput').value.trim(),
+        carry: $('moCarrySel').value,
+        cardAvatarUrl: window.LAIDIESResidentCard &&
+          window.LAIDIESResidentCard.isSafeAssetPath(state.avatar)
+          ? state.avatar
+          : ''
+      });
+      var envelope = window.LAIDIESResidentCard
+        ? window.LAIDIESResidentCard.buildEnvelope(candidateFields)
+        : null;
+      if (!envelope) {
+        announceCardSave(
+          'Your Card contains a value this browser cannot safely save. Review the fields and try again; the previous saved Card is unchanged.',
+          '#a83243'
+        );
+        $('moSeeCloset').style.display='none';
+        return;
+      }
       var serialized = JSON.stringify(envelope);
       var before;
       try {

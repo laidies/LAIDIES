@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.com/schemas/newsstand-candidate.schema.json",
+  "title": "LAiDIES Newsstand candidate",
+  "type": "object",
+  "required": [
+    "id",
+    "slug",
+    "edition",
+    "date",
+    "headline",
+    "scores",
+    "topics",
+    "riskSignals",
+    "sources",
+    "checks",
+    "editorialJob"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "edition": { "enum": ["daily", "breaking", "weekly", "tribune"] },
+    "date": { "type": "string", "format": "date" },
+    "headline": { "type": "string", "minLength": 1 },
+    "editorialJob": {
+      "enum": ["qualified-interrupt", "edited-briefing", "durable-synthesis", "sourced-argument"]
+    },
+    "briefingItems": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "developments": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "qualifiedInterrupt": { "type": "object", "minProperties": 1, "additionalProperties": true },
+    "argumentStructure": {
+      "type": "object",
+      "required": ["evidence", "inference", "position"],
+      "properties": {
+        "evidence": { "type": "string", "minLength": 1 },
+        "inference": { "type": "string", "minLength": 1 },
+        "position": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "scores": {
+      "type": "object",
+      "required": [
+        "consequence",
+        "novelty",
+        "readerRelevance",
+        "evidence",
+        "durability",
+        "editorialValue"
+      ],
+      "properties": {
+        "consequence": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "novelty": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "readerRelevance": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "evidence": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "durability": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "editorialValue": { "type": "integer", "minimum": 0, "maximum": 3 }
+      },
+      "additionalProperties": false
+    },
+    "topics": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "riskSignals": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["label", "url", "type", "verifiedFullText", "interestedParty"],
+        "properties": {
+          "label": { "type": "string", "minLength": 1 },
+          "url": { "type": "string", "format": "uri" },
+          "type": {
+            "enum": [
+              "primary",
+              "affected_party",
+              "independent",
+              "secondary_analysis"
+            ]
+          },
+          "verifiedFullText": { "type": "boolean" },
+          "interestedParty": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "checks": {
+      "type": "object",
+      "additionalProperties": { "type": "boolean" }
+    }
+  },
+  "allOf": [
+    { "if": { "properties": { "edition": { "const": "breaking" } } }, "then": { "properties": { "editorialJob": { "const": "qualified-interrupt" } }, "required": ["qualifiedInterrupt"] } },
+    { "if": { "properties": { "edition": { "const": "daily" } } }, "then": { "properties": { "editorialJob": { "const": "edited-briefing" }, "briefingItems": { "minItems": 2 } }, "required": ["briefingItems"] } },
+    { "if": { "properties": { "edition": { "const": "weekly" } } }, "then": { "properties": { "editorialJob": { "const": "durable-synthesis" }, "developments": { "minItems": 2 } }, "required": ["developments"] } },
+    { "if": { "properties": { "edition": { "const": "tribune" } } }, "then": { "properties": { "editorialJob": { "const": "sourced-argument" } }, "required": ["argumentStructure"] } }
+  ],
+  "additionalProperties": false
+}

@@ -12,6 +12,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
+import crypto from 'node:crypto';
 
 const root = path.resolve(import.meta.dirname, '..');
 const output = path.resolve(process.argv[2] || path.join(process.env.TMPDIR || '/tmp', 'laidies-public-site'));
@@ -43,10 +44,12 @@ const missing = [];
 const oversized = [];
 let totalBytes = 0;
 
-const narratedEditionCovers = {
-  'content/episodes/episode-03-cues.json': '/assets/sunnyvaile-interiors/episode-vhs-boxes/ep-03.webp',
-  'content/episodes/episode-04-cues.json': '/assets/sunnyvaile-interiors/episode-vhs-boxes/ep-04.webp',
-};
+const derivedManifestPath = 'content/episodes/screening-room-derived-editions.json';
+const derivedManifest = JSON.parse(fs.readFileSync(path.join(root, derivedManifestPath), 'utf8'));
+const derivedEditions = new Map(
+  Object.entries(derivedManifest.editions || {}).map(([episode, edition]) => [edition.sourceCuePath, { episode, ...edition }]),
+);
+const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex');
 
 function isVisitorHtmlName(name) {
   return (
@@ -192,8 +195,11 @@ function extractLocalReferences(source, relative) {
 }
 
 function publicTextSource(relative, source) {
-  const cover = narratedEditionCovers[relative];
-  if (!cover) return source;
+  const edition = derivedEditions.get(relative);
+  if (!edition) return source;
+  if (sha256(source) !== edition.sourceCueSha256) {
+    throw new Error(`Derived edition source hash mismatch: ${relative}`);
+  }
 
   const data = JSON.parse(source);
   const title = typeof data.title === 'string'
@@ -205,18 +211,29 @@ function publicTextSource(relative, source) {
     return {
       t: cue.t,
       type: 'full',
-      src: cover,
+      src: edition.cover,
       ...(cue.chapter ? { chapter: cue.chapter } : {}),
       ...(line ? { line } : {}),
     };
   });
-  return `${JSON.stringify({
-    note: 'Public narrated edition: verified audio, read-along captions and timed lesson cards. Full motion/illustrated master remains in owner continuity review.',
+  const outputSource = `${JSON.stringify({
+    note: 'Public cover-only audio edition: one static cover remains on screen. Captions and source illustrated edition remain subject to their recorded holds; no motion film is approved.',
     episode: data.episode,
     title,
     audio: data.audio,
     cues,
+    edition: {
+      kind: edition.kind,
+      manifest: `/${derivedManifestPath}`,
+      reviewStatus: derivedManifest.reviewStatus,
+      staticCover: true,
+      sourceCueSha256: edition.sourceCueSha256,
+    },
   }, null, 2)}\n`;
+  if (sha256(outputSource) !== edition.artifactCueSha256) {
+    throw new Error(`Derived edition artifact hash mismatch: ${relative}`);
+  }
+  return outputSource;
 }
 
 function copyFile(relative) {
@@ -292,6 +309,9 @@ for (const entry of [
   'content/episodes/episode-02-cues.json',
   'content/episodes/episode-03-cues.json',
   'content/episodes/episode-04-cues.json',
+  'content/episodes/screening-room-admission.schema.json',
+  'content/episodes/screening-room-admission.json',
+  'content/episodes/screening-room-derived-editions.json',
   'content/site/high-classes.json',
   'content/site/high-learning-ledger.json',
   'assets/sunnyvaile-interiors/episode-vhs-boxes/ep-01.webp',

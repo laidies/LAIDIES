@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-07-26",
+  "owner": "Screening Room product champion",
+  "reviewStatus": "hold",
+  "editions": {
+    "03": {
+      "sourceCuePath": "content/episodes/episode-03-cues.json",
+      "sourceCueSha256": "aa770874293609ec41676839880471effce2a12f906d198cbf7230db31ed09a9",
+      "artifactCueSha256": "5e9bcdbaeef6e7a9696a9a83d7e8b627b8f901b57cbaac1dde71f168000102de",
+      "kind": "cover-only-audio",
+      "cover": "/assets/sunnyvaile-interiors/episode-vhs-boxes/ep-03.webp",
+      "rule": "preserve cue starts and chapters; replace every visual occurrence with one static cover; preserve source hold provenance",
+      "removedSemantics": ["source visual types", "source visual assets"],
+      "authority": "HOLD — derived fallback only; not visual or title admission"
+    },
+    "04": {
+      "sourceCuePath": "content/episodes/episode-04-cues.json",
+      "sourceCueSha256": "8cd20dc34aeada067262fdde797308e370749194a560cc9d8878d092cc60baf6",
+      "artifactCueSha256": "8c33dd0ad85eea1c64e22fc467474f6a7573865fd7555b749217cf442e28f980",
+      "kind": "cover-only-audio",
+      "cover": "/assets/sunnyvaile-interiors/episode-vhs-boxes/ep-04.webp",
+      "rule": "preserve cue starts; replace every visual occurrence including the held Ada loop with one static cover; preserve source hold provenance",
+      "removedSemantics": ["source visual types", "source visual assets", "Ada video loop"],
+      "authority": "HOLD — derived fallback only; not visual or title admission"
+    }
+  }
+}

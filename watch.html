@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Screening Room · The Chick Flicks · SUNNYVAiLE</title>
-  <meta name="description" content="Listen to the illustrated episode — narrated, scored, cue-synced, and available with read-along captions in the Chick Flicks Screening Room.">
+  <meta name="description" content="Listen to narrated LAiDIES episodes with read-along captions and a clearly labelled illustrated or cover-only visual format.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Jost:wght@400;500;700;800&family=VT323&display=swap" rel="stylesheet">
@@ -144,7 +144,10 @@
       background: linear-gradient(160deg, #4b2148, #341446); color: var(--gold); font-size: 19px;
       cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
     .deck-play:hover { background: var(--gold); color: #341446; }
-    .deck-track { flex: 1; position: relative; height: 26px; cursor: pointer; }
+    .deck-track { flex: 1; position: relative; height: 26px; cursor: pointer; border-radius: 14px; }
+    .deck-track:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    .player-status { margin: 12px 0 0; padding: 12px 16px; border: 2px solid var(--gold); background: #17091b; color: #fff; }
+    .player-status button { margin-top: 8px; min-height: 44px; padding: 8px 18px; border: 0; background: var(--gold); color: #17091b; font: 800 0.8rem Jost, sans-serif; cursor: pointer; }
     .deck-rail { position: absolute; left: 0; right: 0; top: 11px; height: 5px; border-radius: 3px; background: rgba(255,253,251,0.18); }
     .deck-fill { position: absolute; left: 0; top: 11px; height: 5px; border-radius: 3px; background: var(--gold); width: 0; }
     .deck-mark { position: absolute; top: 9px; width: 2px; height: 9px; background: rgba(255,253,251,0.45); }
@@ -206,7 +209,7 @@
     <section class="screening-arrival" aria-labelledby="scrTitle">
       <div class="screening-house-line">
         <p class="scr-eyebrow">The Chick Flicks · Screening Room One</p>
-        <p class="screening-house-status">Current review screenings</p>
+        <p class="screening-house-status">Illustrated listen-alongs</p>
       </div>
       <h1 class="scr-title" id="scrTitle">Episode 01 · On Wednesdays We Do A<span class="ai">i</span></h1>
       <p class="scr-sub" id="screeningIntro">Choose a tape, take your seat, and press play. Read-along captions are available.</p>
@@ -237,12 +240,16 @@
 
         <div class="deck">
           <button type="button" class="deck-play" id="btnPlay" aria-label="Play or pause">▶</button>
-          <div class="deck-track" id="track">
+          <div class="deck-track" id="track" role="slider" tabindex="0" aria-label="Seek within the current narration" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0" aria-valuetext="0:00 of 0:00">
             <div class="deck-rail"></div>
             <div class="deck-fill" id="fill"></div>
             <div class="deck-knob" id="knob"></div>
           </div>
           <div class="deck-time" id="time">0:00 / 0:00</div>
+        </div>
+        <div class="player-status" id="playerStatus" role="alert" hidden>
+          <p id="playerStatusText"></p>
+          <button type="button" id="retryMedia">Retry this listen-along</button>
         </div>
         <div class="chapters" id="chapters"></div>
       </div>
@@ -253,7 +260,7 @@
       <a href="/chick-flicks.html"><span>Return the tape</span><b>The Chick Flicks</b></a>
       <a href="/issues/issue-01.html" id="screeningArticleLink"><span>Read the issue</span><b>Open the full story</b></a>
       <a href="/handbook.html"><span>Take it with you</span><b>The LA<span class="ai">i</span>DIES Handbook</b></a>
-      <p class="scr-note" id="scrNote">Press play for the illustrated listen-along. The final motion films are completing their continuity check before they enter the public Screening Room.</p>
+      <p class="scr-note" id="scrNote">Press play for the illustrated listen-along. Motion-film editions are not approved for the public Screening Room.</p>
     </section>
   </main>
 
@@ -266,9 +273,11 @@
     'use strict';
 
     var params = new URLSearchParams(window.location.search);
-    var epRaw = (params.get('ep') || '01').toLowerCase();
-    var ep = epRaw === 'trailer' ? 'trailer' : (epRaw.replace(/[^0-9]/g, '') || '01');
-    var TUNE = params.has('tune');
+    var PUBLIC_EPISODES = ['trailer', '01', '02', '03', '04'];
+    var epCandidate = (params.get('ep') || '01').toLowerCase();
+    var invalidEpisode = PUBLIC_EPISODES.indexOf(epCandidate) === -1;
+    var ep = invalidEpisode ? '01' : epCandidate;
+    var TUNE = params.has('tune') && (location.hostname === 'localhost' || location.hostname === '127.0.0.1');
 
     var theatre = document.getElementById('theatre');
     var osd = document.getElementById('osd');
@@ -280,6 +289,10 @@
     var chaptersEl = document.getElementById('chapters');
     var knob = document.getElementById('knob');
     var bigPlay = document.getElementById('bigPlay');
+    var playerStatus = document.getElementById('playerStatus');
+    var playerStatusText = document.getElementById('playerStatusText');
+    var retryMedia = document.getElementById('retryMedia');
+    var playerFailed = false;
 
     // Public playback stays on the cue-synced illustrated listen-along until
     // the large motion masters pass owner continuity review and move to a
@@ -296,6 +309,13 @@
       '02': '/assets/captions/episode-02.vtt',
       '03': '/assets/captions/episode-03.vtt',
       '04': '/assets/captions/episode-04.vtt'
+    };
+    var EPISODE_CAPTION_STATUS = {
+      'trailer': { coverage: 'partial', note: 'Partial captions · final 64 seconds are not captioned' },
+      '01': { coverage: 'complete' },
+      '02': { coverage: 'complete' },
+      '03': { coverage: 'complete' },
+      '04': { coverage: 'complete' }
     };
     function episodeKey(ep) { return ep === 'trailer' ? 'trailer' : String(ep).padStart(2, '0'); }
     function filmFor(ep) { return EPISODE_FILMS[episodeKey(ep)] || null; }
@@ -315,19 +335,21 @@
     var screeningMeta = document.getElementById('screeningMeta');
     var narratedOnly = episodeKey(ep) === '03' || episodeKey(ep) === '04';
     if (screeningMeta) {
-      screeningMeta.textContent = narratedOnly
-        ? 'Narrated edition · read-along captions available'
+      screeningMeta.textContent = EPISODE_CAPTION_STATUS[episodeKey(ep)].coverage === 'partial'
+        ? EPISODE_CAPTION_STATUS[episodeKey(ep)].note
+        : narratedOnly
+          ? 'Narrated edition · visual format loading · read-along captions available'
         : captionsFor(ep)
           ? 'Illustrated listen-along · read-along captions available'
         : 'Illustrated listen-along · caption master in production';
     }
     var screeningIntro = document.getElementById('screeningIntro');
     if (screeningIntro && narratedOnly) {
-      screeningIntro.textContent = 'The complete narrated lesson, with read-along captions and timed lesson cards.';
+      screeningIntro.textContent = 'The narrated lesson with read-along captions. The visual format is identified when the tape loads.';
     }
     var scrNote = document.getElementById('scrNote');
     if (scrNote && narratedOnly) {
-      scrNote.textContent = 'This narrated edition is ready now. The full illustrated motion film is completing owner continuity review before it enters the public Screening Room.';
+      scrNote.textContent = 'This page currently offers a held narrated edition. A motion-film edition is not approved for public screening.';
     }
     // The MAiVENS speak in their own voices; the Heroine and the Announcer narrate.
     // Testimony is set apart typographically, the way a pull-quote would be.
@@ -352,6 +374,22 @@
       parts.txt.textContent = text.replace(/^<v[^>]*>/, '').replace(/<[^>]+>/g, '').replace(/\n/g, ' ');
       parts.bar.classList.toggle('is-maven', MAVEN_VOICES.indexOf(speaker) !== -1);
     }
+
+    function failPlayer(kind, message) {
+      if (playerFailed) return;
+      playerFailed = true;
+      try { tape.pause(); } catch (error) {}
+      btnPlay.disabled = true;
+      if (bigPlay) bigPlay.disabled = true;
+      track.setAttribute('aria-disabled', 'true');
+      track.tabIndex = -1;
+      playerStatus.hidden = false;
+      playerStatus.setAttribute('data-failure', kind);
+      playerStatusText.textContent = message + ' Playback has stopped; no simulated narration or scene advance is running.';
+      theatre.classList.remove('is-playing');
+      osd.textContent = 'PLAYBACK UNAVAILABLE';
+    }
+    retryMedia.addEventListener('click', function () { window.location.reload(); });
 
     function mountCaptionBar(v, theatre) {
       var parts = makeCaptionBar(theatre);
@@ -417,7 +455,8 @@
         .then(function (r) { if (!r.ok) throw new Error('Caption request failed'); return r.text(); })
         .then(function (raw) { captionCues = parseVtt(raw); paint(); })
         .catch(function () {
-          parts.txt.textContent = 'Read-along captions are temporarily unavailable.';
+          parts.txt.textContent = 'Read-along captions failed to load.';
+          failPlayer('captions', 'Read-along captions are temporarily unavailable.');
         });
       audio.addEventListener('timeupdate', paint);
       audio.addEventListener('seeked', paint);
@@ -453,8 +492,7 @@
       theatre.classList.add('is-film');
       return true;
     }
-    var cues = [], duration = 0, demoMode = false;
-    var demoClock = 0, demoPlaying = false, lastTick = null;
+    var cues = [], duration = 0;
     var currentIdx = -1;
     var segments = [], segIdx = 0, segKind = 'main', segDur = null, advancing = false, segStart = 0, seekPending = 0;
 
@@ -476,8 +514,8 @@
     function brand(x) { return esc(x).replace(/A[Ii]/g, '<span class="ai">Ai</span>'); }
     function gold(key, uid, px) { return window.svGoldIcon ? window.svGoldIcon(key, uid, px || 30) : ''; }
 
-    function now() { return demoMode ? demoClock : tape.currentTime; }
-    function playing() { return demoMode ? demoPlaying : !tape.paused; }
+    function now() { return tape.currentTime; }
+    function playing() { return !playerFailed && !tape.paused; }
 
     // ---- scene builders --------------------------------------------------
     function buildScene(c, i) {
@@ -538,9 +576,18 @@
       } else if (c.type === 'title' || c.type === 'end') {
         el.classList.add('scene--title');
         if (c.type === 'end') el.classList.add('scene--end');
-        el.innerHTML = (c.src ? '<img class="scene-portrait" src="' + esc(c.src) + '" alt="" onerror="this.remove()">' : '')
+        el.innerHTML = (c.src ? '<img class="scene-portrait" src="' + esc(c.src) + '" alt="">' : '')
           + '<p class="title-main">' + brand(c.title || '') + '</p>'
           + (c.sub ? '<p class="title-sub">' + brand(c.sub) + '</p>' : '');
+      }
+      var sceneMedia = el.querySelector('img, video');
+      if (sceneMedia) {
+        sceneMedia.addEventListener('error', function () {
+          failPlayer('visual', 'The timed visual failed to load.');
+        });
+        if (sceneMedia.tagName === 'IMG' && sceneMedia.complete && !sceneMedia.naturalWidth) {
+          failPlayer('visual', 'The timed visual failed to load.');
+        }
       }
       return el;
     }
@@ -595,9 +642,10 @@
     // ---- transport -------------------------------------------------------
     function tick() {
       var el = now() - segStart;
-      if (segDur && el >= segDur && !demoMode) { advanceSegment(); return; }
+      if (playerFailed) return;
+      if (segDur && el >= segDur) { advanceSegment(); return; }
       if (segDur) tape.volume = Math.max(0, Math.min(1, el / 0.6, (segDur - el) / 0.6));
-      else if (!demoMode) tape.volume = 1;
+      else tape.volume = 1;
       showScene(cueIndexFor(el));
       var d = segDur || duration || (cues.length ? cues[cues.length - 1].t + 26 : 0);
       var pct = d ? Math.min(100, (el / d) * 100) : 0;
@@ -606,22 +654,11 @@
       theatre.classList.toggle('is-playing', playing());
       var lbl = segKind === 'title' ? 'TITLES' : segKind === 'end' ? 'CREDITS' : 'PLAY';
       timeEl.textContent = fmt(el) + ' / ' + fmt(d);
-      osd.textContent = (playing() ? '▶ ' + lbl : '⏸ PAUSE') + ' · SP ' + fmtOsd(el) + (demoMode ? ' · ROUGH CUT' : '');
+      osd.textContent = (playing() ? '▶ ' + lbl : '⏸ PAUSE') + ' · SP ' + fmtOsd(el);
       btnPlay.textContent = playing() ? '❚❚' : '▶';
-    }
-
-    function demoLoop() {
-      // interval, not rAF, so the rough cut keeps advancing in background tabs
-      setInterval(function () {
-        var ts = performance.now();
-        if (demoPlaying) {
-          if (lastTick != null) demoClock += (ts - lastTick) / 1000;
-          var d = cues.length ? cues[cues.length - 1].t + 26 : 0;
-          if (demoClock >= d) { demoClock = d; demoPlaying = false; }
-          tick();
-        }
-        lastTick = ts;
-      }, 100);
+      track.setAttribute('aria-valuemax', String(Math.max(0, Math.round(d))));
+      track.setAttribute('aria-valuenow', String(Math.max(0, Math.round(el))));
+      track.setAttribute('aria-valuetext', fmt(el) + ' of ' + fmt(d));
     }
 
     function loadSegment(i) {
@@ -639,17 +676,20 @@
     function advanceSegment() {
       if (advancing) return;
       advancing = true;
-      if (segIdx + 1 < segments.length) { loadSegment(segIdx + 1); tape.play().catch(function () {}); }
+      if (segIdx + 1 < segments.length) {
+        loadSegment(segIdx + 1);
+        tape.play().catch(function () { failPlayer('playback', 'The next narration segment could not start.'); });
+      }
       else { tape.pause(); }
       setTimeout(function () { advancing = false; }, 400);
     }
     function togglePlay() {
-      if (demoMode) { demoPlaying = !demoPlaying; tick(); return; }
+      if (playerFailed) return;
       if (tape.paused) {
         // one deck at a time — the Screening Room silences everything else
         document.querySelectorAll('audio').forEach(function (a) { if (a !== tape && !a.paused) a.pause(); });
-        tape.play().catch(function () {});
-        if (window.plausible) { try { window.plausible('Episode watch', { props: { page: document.title } }); } catch (e) {} }
+        tape.play().catch(function () { failPlayer('playback', 'The narration could not start.'); });
+        if (window.plausible) { try { window.plausible('Listen-along start', { props: { programme: episodeKey(ep), format: 'narrated' } }); } catch (e) {} }
       } else { tape.pause(); }
     }
 
@@ -657,23 +697,44 @@
     if (bigPlay) bigPlay.addEventListener('click', togglePlay);
     theatre.addEventListener('click', function (e) { if (e.target.closest('a, .cta-btn, .big-play')) return; togglePlay(); });
     document.addEventListener('keydown', function (e) {
-      if (e.code === 'Space' && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) {
-        e.preventDefault(); togglePlay();
-      }
+      if (e.code !== 'Space' || e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+      if (e.target.closest('input, textarea, select, button, a, [contenteditable="true"]')) return;
+      e.preventDefault(); togglePlay();
     });
 
     track.addEventListener('click', function (e) {
-      if (segKind !== 'main' && !demoMode) return;
+      if (segKind !== 'main' || playerFailed) return;
       var r = track.getBoundingClientRect();
       var p = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
       var d = duration || (cues.length ? cues[cues.length - 1].t + 26 : 0);
-      if (demoMode) { demoClock = p * d; } else { tape.currentTime = p * d; }
+      tape.currentTime = p * d;
+      currentIdx = -1; tick();
+    });
+    track.addEventListener('keydown', function (e) {
+      if (segKind !== 'main' || playerFailed) return;
+      var d = duration || (cues.length ? cues[cues.length - 1].t + 26 : 0);
+      var next = tape.currentTime;
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') next -= 5;
+      else if (e.key === 'ArrowRight' || e.key === 'ArrowUp') next += 5;
+      else if (e.key === 'Home') next = 0;
+      else if (e.key === 'End') next = d;
+      else return;
+      e.preventDefault();
+      tape.currentTime = Math.max(0, Math.min(d, next));
       currentIdx = -1; tick();
     });
 
     // ---- boot ------------------------------------------------------------
+    if (invalidEpisode) {
+      document.getElementById('scrTitle').textContent = 'Tape not found';
+      screeningIntro.textContent = 'That Screening Room programme does not exist. Choose the trailer or Episodes 01–04.';
+      screeningMeta.textContent = 'Programme unavailable';
+      screeningArticleLink.href = '/chick-flicks.html';
+      failPlayer('route', 'This programme is not on the public tape list.');
+      return;
+    }
     fetch('/content/episodes/episode-' + ep + '-cues.json', { cache: 'no-store' })
-      .then(function (r) { return r.json(); })
+      .then(function (r) { if (!r.ok) throw new Error('Cue request failed'); return r.json(); })
       .then(function (data) {
         if (ep === 'trailer') {
           document.getElementById('scrTitle').innerHTML = brand('The Trailer · Welcome to SUNNYVAiLE');
@@ -687,6 +748,11 @@
             + (titleText ? ' · ' + brand(titleText) : '');
           document.title = 'Episode ' + data.episode
             + (titleText ? ' · ' + titleText : '') + ' · The Screening Room · SUNNYVAiLE';
+        }
+        if (data.edition && data.edition.kind === 'cover-only-audio') {
+          screeningMeta.textContent = 'Cover-only audio edition · static cover · read-along captions';
+          screeningIntro.textContent = 'The narration and read-along captions play while one static episode cover remains on screen.';
+          scrNote.textContent = 'This is a held cover-only audio edition. It is not an illustrated motion film or a narration-specific visual sequence.';
         }
 
         // build the broadcast: title bumper -> narration -> end bumper
@@ -705,8 +771,11 @@
           b.type = 'button'; b.className = 'chap'; b.dataset.t = c.t;
           b.textContent = c.chapter;
           b.addEventListener('click', function () {
-            if (segKind !== 'main') { loadSegment(mainSegIdx); tape.play().catch(function () {}); }
-            if (!demoMode) tape.currentTime = c.t; else demoClock = c.t;
+            if (segKind !== 'main') {
+              loadSegment(mainSegIdx);
+              tape.play().catch(function () { failPlayer('playback', 'The narration could not start at this chapter.'); });
+            }
+            tape.currentTime = c.t;
             currentIdx = -1; tick();
           });
           chaptersEl.appendChild(b);
@@ -717,13 +786,7 @@
 
         tape.addEventListener('loadedmetadata', function () { if (segKind === 'main') duration = tape.duration; if (seekPending > 0) { try { tape.currentTime = seekPending; } catch (e) {} } seekPending = 0; tick(); });
         tape.addEventListener('error', function () {
-          demoMode = true;
-          var b = document.createElement('div');
-          b.className = 'rough-banner';
-          b.textContent = 'Rough cut — narration not recorded yet. Scenes auto-advance on estimated timing.';
-          theatre.appendChild(b);
-          demoLoop();
-          tick();
+          failPlayer('audio', 'The narration audio failed to load.');
         });
         tape.addEventListener('timeupdate', tick);
         tape.addEventListener('play', tick);
@@ -769,9 +832,7 @@
         }
       })
       .catch(function () {
-        theatre.insertAdjacentHTML('beforeend',
-          '<div class="scene scene--title is-live"><p class="title-main">No tape on this shelf yet.</p>'
-          + '<p class="title-sub">Episode ' + esc(ep) + ' has no cue sheet</p></div>');
+        failPlayer('cues', 'The timing and visual cue sheet failed to load.');
       });
   })();
   </script>

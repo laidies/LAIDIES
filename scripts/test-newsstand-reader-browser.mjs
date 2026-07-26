@@ -9,7 +9,7 @@ import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const ROOT = path.resolve(process.env.NEWSSTAND_ROOT || path.resolve(path.dirname(fileURLToPath(import.meta.url)), ".."));
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const NOW_STALE = "2026-06-01T00:00:00Z";
 const CORRECTION_RECORD = "/operations/test-fixtures/newsstand-reader/evidence/correction-label-truth-2026-07-25.json";
@@ -222,6 +222,15 @@ async function act(client, expression) {
   await sleep(120);
 }
 
+async function waitForHistoryRestoration(client, previousId = "") {
+  for (let attempt = 0; attempt < 100; attempt += 1) {
+    const state = await value(client, `(() => { const reader = document.querySelector('#paper-counter'); return { state: reader.getAttribute('data-ns-restoration'), id: reader.getAttribute('data-ns-restoration-id') }; })()`);
+    if (state.state === "settled" && state.id && state.id !== previousId) return state.id;
+    await sleep(20);
+  }
+  throw new Error("NewsStand history restoration did not reach its observable settled state");
+}
+
 async function pressEnter(client) {
   await client.call("Input.dispatchKeyEvent", {
     type: "keyDown",
@@ -277,7 +286,9 @@ try {
   await pressEnter(paperHistory);
   check(await value(paperHistory, "location.hash"), "#label-is-not-a-truth-detector", "paper keyboard story route");
   check(await value(paperHistory, "document.querySelectorAll('.ns-article').length"), 1, "paper story open");
+  const paperRestorationBefore = await value(paperHistory, "document.querySelector('#paper-counter').getAttribute('data-ns-restoration-id') || ''");
   await act(paperHistory, "history.back()");
+  await waitForHistoryRestoration(paperHistory, paperRestorationBefore);
   check(await value(paperHistory, "location.hash"), "", "paper Back clears hash");
   check(await value(paperHistory, "document.querySelectorAll('.ns-article').length"), 0, "paper Back clears article");
   check(await value(paperHistory, "document.querySelectorAll('.ns-front-story').length"), 1, "paper Back restores cards");
@@ -286,8 +297,23 @@ try {
   await act(paperHistory, "history.forward()");
   check(await value(paperHistory, "document.querySelectorAll('.ns-article').length"), 1, "paper Forward restores story");
   check(await value(paperHistory, "document.activeElement.id"), "ns-reader-title", "paper Forward heading focus");
+  const repeatedPaperRestorationBefore = await value(paperHistory, "document.querySelector('#paper-counter').getAttribute('data-ns-restoration-id') || ''");
   await act(paperHistory, "history.back()");
+  await waitForHistoryRestoration(paperHistory, repeatedPaperRestorationBefore);
   check(await value(paperHistory, "document.querySelectorAll('.ns-article').length"), 0, "repeated paper Back has no stale body");
+  for (const [index, scrollTarget] of [360, 840].entries()) {
+    await paperHistory.call("Emulation.setDeviceMetricsOverride", { width: 1280, height: [620, 900][index], deviceScaleFactor: 1, mobile: false });
+    await act(paperHistory, `window.scrollTo(0, ${scrollTarget});document.querySelector('.ns-front-story').focus()`);
+    const expectedScroll = await value(paperHistory, "window.scrollY");
+    await pressEnter(paperHistory);
+    const restorationBefore = await value(paperHistory, "document.querySelector('#paper-counter').getAttribute('data-ns-restoration-id') || ''");
+    await act(paperHistory, "history.back()");
+    await waitForHistoryRestoration(paperHistory, restorationBefore);
+    check(await value(paperHistory, "document.querySelectorAll('.ns-front-story').length"), 1, `paper cycle ${scrollTarget} cards`);
+    check(await value(paperHistory, "document.activeElement.getAttribute('href')"), "#label-is-not-a-truth-detector", `paper cycle ${scrollTarget} focus`);
+    check(Math.abs((await value(paperHistory, "window.scrollY")) - expectedScroll) <= 200, true, `paper cycle ${scrollTarget} restored scroll vicinity`);
+    check(await value(paperHistory, "Number(document.querySelector('#paper-counter').getAttribute('data-ns-restored-scroll')) === window.scrollY"), true, `paper cycle ${scrollTarget} observable settled scroll`);
+  }
   paperHistory.close();
 
   const searchHistory = await openPage("/newsstand.html");
@@ -299,15 +325,32 @@ try {
   const searchScroll = await value(searchHistory, "window.scrollY");
   await pressEnter(searchHistory);
   check(await value(searchHistory, "document.querySelectorAll('.ns-article').length"), 1, "keyboard result story");
+  const searchRestorationBefore = await value(searchHistory, "document.querySelector('#paper-counter').getAttribute('data-ns-restoration-id') || ''");
   await act(searchHistory, "history.back()");
+  await waitForHistoryRestoration(searchHistory, searchRestorationBefore);
   check(await value(searchHistory, "document.querySelector('#ns-search-input').value"), "verification", "search Back query");
   check(await value(searchHistory, "document.querySelectorAll('.ns-front-story').length"), 1, "search Back cards");
   check(await value(searchHistory, "document.activeElement.getAttribute('href')"), "#label-is-not-a-truth-detector", "search Back result focus");
   check(Math.abs((await value(searchHistory, "window.scrollY")) - searchScroll) <= 200, true, "search Back restores origin vicinity");
   await act(searchHistory, "history.forward()");
   check(await value(searchHistory, "document.querySelectorAll('.ns-article').length"), 1, "search Forward story");
+  const repeatedSearchRestorationBefore = await value(searchHistory, "document.querySelector('#paper-counter').getAttribute('data-ns-restoration-id') || ''");
   await act(searchHistory, "history.back()");
+  await waitForHistoryRestoration(searchHistory, repeatedSearchRestorationBefore);
   check(await value(searchHistory, "document.querySelectorAll('.ns-article').length"), 0, "repeated search Back clears body");
+  for (const [index, scrollTarget] of [360, 840].entries()) {
+    await searchHistory.call("Emulation.setDeviceMetricsOverride", { width: 1280, height: [620, 900][index], deviceScaleFactor: 1, mobile: false });
+    await act(searchHistory, `window.scrollTo(0, ${scrollTarget});document.querySelector('.ns-front-story').focus()`);
+    const expectedScroll = await value(searchHistory, "window.scrollY");
+    await pressEnter(searchHistory);
+    const restorationBefore = await value(searchHistory, "document.querySelector('#paper-counter').getAttribute('data-ns-restoration-id') || ''");
+    await act(searchHistory, "history.back()");
+    await waitForHistoryRestoration(searchHistory, restorationBefore);
+    check(await value(searchHistory, "document.querySelector('#ns-search-input').value"), "verification", `search cycle ${scrollTarget} query`);
+    check(await value(searchHistory, "document.activeElement.getAttribute('href')"), "#label-is-not-a-truth-detector", `search cycle ${scrollTarget} focus`);
+    check(Math.abs((await value(searchHistory, "window.scrollY")) - expectedScroll) <= 200, true, `search cycle ${scrollTarget} restored scroll vicinity`);
+    check(await value(searchHistory, "Number(document.querySelector('#paper-counter').getAttribute('data-ns-restored-scroll')) === window.scrollY"), true, `search cycle ${scrollTarget} observable settled scroll`);
+  }
   searchHistory.close();
 
   const directHistory = await openPage("/newsstand.html#label-is-not-a-truth-detector");
@@ -412,7 +455,7 @@ try {
   check(await value(mobile, "document.documentElement.scrollWidth <= window.innerWidth"), true, "200 percent page-scale proxy");
   mobile.close();
 
-  console.log(`✓ NEWSSTAND BROWSER: ${checks} rendered checks · history/back/forward/search/paper/hold/stale/correction/retraction/focus/mobile/motion/zoom`);
+  console.log(`✓ NEWSSTAND BROWSER: ${checks} rendered checks · three repeated paper/search history cycles at 620/900px · hold/stale/correction/retraction/focus/mobile/motion/zoom`);
 } finally {
   clearTimeout(timeout);
   server.close();

@@ -246,6 +246,8 @@
         var selectedEdition = null;
         var lastInvoker = null;
         var pendingStoryView = null;
+        var restorationSequence = 0;
+        var activeHistoryRestoration = null;
         if ("scrollRestoration" in history) history.scrollRestoration = "manual";
         var reader = document.getElementById("paper-counter");
         var paperView = document.getElementById("ns-paper-view");
@@ -356,21 +358,59 @@
         }
 
         function restoreViewPosition(view) {
+          var savedScroll = Math.max(0, Number(view.scrollY) || 0);
+          var restorationId = String(++restorationSequence);
+          var restoration = { id: restorationId, requestedScroll: savedScroll, view: view };
+          activeHistoryRestoration = restoration;
+          reader.setAttribute("data-ns-restoration", "pending");
+          reader.setAttribute("data-ns-restoration-id", restorationId);
+          applyHistoryRestoration(restoration);
+        }
+
+        function applyHistoryRestoration(restoration) {
           window.requestAnimationFrame(function () {
+            if (activeHistoryRestoration !== restoration) return;
+            // One layout frame lets freshly rendered cards establish height.
+            // Completion remains observable and is revoked if history applies
+            // a later scroll position.
             window.requestAnimationFrame(function () {
-              var savedScroll = Number(view.scrollY) || 0;
-              window.scrollTo(0, savedScroll);
-              var origin = view.originSlug
-                ? rack.querySelector('.ns-front-story[href="#' + view.originSlug + '"]')
+              if (activeHistoryRestoration !== restoration) return;
+              var origin = restoration.view.originSlug
+                ? rack.querySelector('.ns-front-story[href="#' + restoration.view.originSlug + '"]')
                 : null;
-              var fallback = view.type === "search"
+              var fallback = restoration.view.type === "search"
                 ? document.getElementById("ns-search-button")
-                : document.querySelector('.ns-publication[data-edition="' + view.mode + '"]');
+                : document.querySelector('.ns-publication[data-edition="' + restoration.view.mode + '"]');
+              var maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+              restoration.actualTarget = Math.min(restoration.requestedScroll, maxScroll);
+              window.scrollTo(0, restoration.actualTarget);
               (origin || fallback || searchInput).focus({ preventScroll: true });
-              window.setTimeout(function () { window.scrollTo(0, savedScroll); }, 0);
+              window.requestAnimationFrame(function () {
+                if (activeHistoryRestoration !== restoration) return;
+                // Layout may clamp a saved position after an orientation/zoom
+                // change. The reachable target is the honest settled result.
+                if (window.scrollY !== restoration.actualTarget) {
+                  applyHistoryRestoration(restoration);
+                  return;
+                }
+                reader.setAttribute("data-ns-restored-scroll", String(window.scrollY));
+                reader.setAttribute("data-ns-requested-scroll", String(restoration.requestedScroll));
+                reader.setAttribute("data-ns-clamped-scroll", String(restoration.actualTarget));
+                reader.setAttribute("data-ns-restoration", "settled");
+                activeHistoryRestoration = null;
+                window.dispatchEvent(new CustomEvent("newsstand:history-restored", {
+                  detail: { id: restoration.id, requestedScroll: restoration.requestedScroll, scrollY: window.scrollY, clamped: restoration.actualTarget !== restoration.requestedScroll, mode: restoration.view.type }
+                }));
+              });
             });
           });
         }
+
+        window.addEventListener("scroll", function () {
+          if (!activeHistoryRestoration || window.scrollY === activeHistoryRestoration.actualTarget) return;
+          reader.setAttribute("data-ns-restoration", "pending");
+          applyHistoryRestoration(activeHistoryRestoration);
+        }, { passive: true });
 
         function closeReaderForHistory(view) {
           var returningEdition = selectedEdition;
@@ -382,12 +422,10 @@
           var fallback = returningEdition && returningEdition !== "search"
             ? document.querySelector('.ns-publication[data-edition="' + returningEdition + '"]')
             : searchInput;
-          window.requestAnimationFrame(function () {
-            if (view && Number.isFinite(Number(view.scrollY))) {
-              window.scrollTo(0, Number(view.scrollY));
-            }
-            (fallback || searchInput).focus({ preventScroll: true });
-          });
+          if (view && Number.isFinite(Number(view.scrollY))) {
+            window.scrollTo(0, Number(view.scrollY));
+          }
+          (fallback || searchInput).focus({ preventScroll: true });
         }
 
         function storySearchText(story) {

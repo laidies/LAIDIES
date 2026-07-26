@@ -1723,6 +1723,7 @@
 <footer>© LAiDIES · Filed from SUNNYVAiLE · Your Closet</footer>
 
 <script src="content/site/supabase-config.js" defer></script>
+<script src="/content/site/resident-card-contract-v1.js?v=20260726-repair-1"></script>
 <script>
 (function() {
   'use strict';
@@ -2062,7 +2063,11 @@
         saintEl.classList.remove('is-empty');
       }
     } else {
-      applyPick('covenSaintPick', LS.saint, (window.SAINT_LABEL || SAINT_LABEL));
+      var emptySaint = document.getElementById('covenSaintPick');
+      if (emptySaint) {
+        emptySaint.textContent = '— pick one —';
+        emptySaint.classList.add('is-empty');
+      }
     }
     applyPick('covenMavenPick',   LS.maven,       MAVEN_LABEL);
     applyPick('covenBuilderPick', LS.builder,     BUILDER_LABEL);
@@ -2070,40 +2075,33 @@
   }
 
   function readCardEnvelope() {
-    try {
-      var raw = localStorage.getItem(LS.cardEnvelope);
-      if (!raw) return null;
-      var parsed = JSON.parse(raw);
-      if (!parsed || parsed.version !== 1 || !parsed.fields ||
-          typeof parsed.fields !== 'object' || Array.isArray(parsed.fields)) return null;
-      return parsed;
-    } catch (_) {
-      return null;
-    }
+    var contract = window.LAIDIESResidentCard;
+    if (!contract) return null;
+    var result = contract.read(localStorage);
+    return result.state === 'saved' ? result.envelope : null;
   }
 
   function readCache() {
-    var read = function(k) { try { return localStorage.getItem(k) || ''; } catch(e) { return ''; } };
     var envelope = readCardEnvelope();
     var card = envelope ? envelope.fields : null;
     return {
-      display_name: (card ? card.displayName : read(LS.displayName)) || undefined,
-      favorite_saint: (card ? card.saint : read(LS.saint)) || undefined,
-      favorite_episode: (card ? card.episode : read(LS.episode)) || undefined,
-      favorite_song: (card ? card.song : read(LS.song)) || undefined,
-      favorite_activity: (card ? card.activity : read(LS.activity)) || undefined,
-      card_motto: (card ? card.motto : read(LS.motto)) || undefined,
-      favorite_quote: (card ? card.quote : read(LS.quote)) || undefined,
-      card_archetype: (card ? card.archetype : read(LS.archetype)) || undefined,
-      avatar_slug: (card ? card.avatarSlug : read(LS.avatar)) || undefined,
-      favorite_storefront: (card ? card.storefront : read(LS.storefront)) || undefined,
-      favorite_character: (card ? card.character : read(LS.character)) || undefined,
-      favorite_cocktail: (card ? card.cocktail : read(LS.cocktail)) || undefined,
-      card_avatar_url: (card ? card.cardAvatarUrl : read(LS.cardAvatarUrl)) || undefined,
-      card_bg: (card ? card.cardBg : read(LS.cardBg)) || undefined,
-      favorite_movie: (card ? card.movie : read(LS.movie)) || undefined,
-      favorite_tvshow: (card ? card.tvshow : read(LS.tvshow)) || undefined,
-      card_carry: (card ? card.carry : read(LS.carry)) || undefined
+      display_name: card && card.displayName || undefined,
+      favorite_saint: card && card.saint || undefined,
+      favorite_episode: card && card.episode || undefined,
+      favorite_song: card && card.song || undefined,
+      favorite_activity: card && card.activity || undefined,
+      card_motto: card && card.motto || undefined,
+      favorite_quote: card && card.quote || undefined,
+      card_archetype: card && card.archetype || undefined,
+      avatar_slug: card && card.avatarSlug || undefined,
+      favorite_storefront: card && card.storefront || undefined,
+      favorite_character: card && card.character || undefined,
+      favorite_cocktail: card && card.cocktail || undefined,
+      card_avatar_url: card && card.cardAvatarUrl || undefined,
+      card_bg: card && card.cardBg || undefined,
+      favorite_movie: card && card.movie || undefined,
+      favorite_tvshow: card && card.tvshow || undefined,
+      card_carry: card && card.carry || undefined
     };
   }
 
@@ -2132,9 +2130,12 @@
         archetype: p.card_archetype != null ? p.card_archetype : (existing.card_archetype || '')
       }
     };
+    var contract = window.LAIDIESResidentCard;
+    var projected = contract ? contract.buildEnvelope(envelope.fields) : null;
+    if (!projected) return false;
     var before;
     try {
-      var serialized = JSON.stringify(envelope);
+      var serialized = JSON.stringify(projected);
       before = localStorage.getItem(LS.cardEnvelope);
       localStorage.setItem(LS.cardEnvelope, serialized);
       if (localStorage.getItem(LS.cardEnvelope) !== serialized) {
@@ -2159,18 +2160,22 @@
   function updateAvatar(profile) {
     var el = document.getElementById('cardAvatar');
     if (!el || !profile) return;
-    // Town Characters ship a full portrait path; members use a generated avatar
-    // (data: URL from the MAiKEOVER avatar maker) or a PIECES OF FLAiR slug.
-    if (profile.card_avatar_url && (/^\/assets\//.test(profile.card_avatar_url) || /^data:image\//.test(profile.card_avatar_url))) {
-      el.innerHTML = '<img src="' + profile.card_avatar_url +
-                     '" alt="Resident Card portrait" onerror="this.remove()" style="width:100%;height:100%;object-fit:cover;">';
+    var contract = window.LAIDIESResidentCard;
+    if (contract && contract.replaceWithSafeImage(
+      el, profile.card_avatar_url, 'Resident Card portrait'
+    )) {
       return;
     }
-    if (!profile.avatar_slug) return;
-    var slug = String(profile.avatar_slug).replace(/[^a-z0-9-]/gi, '');
-    if (!slug) return;
-    el.innerHTML = '<img src="/assets/avatars/claires/claires-avatar-' + slug +
-                   '.png?v=20260701-1" alt="Resident Card avatar" onerror="this.remove()" style="width:100%;height:100%;object-fit:cover;">';
+    var slug = typeof profile.avatar_slug === 'string' &&
+      /^[a-z0-9][a-z0-9-]{0,63}$/.test(profile.avatar_slug)
+      ? profile.avatar_slug
+      : '';
+    if (!slug || !contract) return;
+    contract.replaceWithSafeImage(
+      el,
+      '/assets/avatars/claires/claires-avatar-' + slug + '.png',
+      'Resident Card avatar'
+    );
   }
 
   // Selectable Resident Card backgrounds (kept light so the plum card text stays

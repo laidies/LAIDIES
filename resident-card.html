@@ -3,435 +3,183 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Make Your Resident Card · MAiKEOVER on MAiN · LAiDIES</title>
-  <meta name="description" content="Make a device-local LAiDIES Resident Card at MAiKEOVER on MAiN while account and cross-device release checks finish.">
+  <title>Your Resident Card · MAiKEOVER on MAiN · LAiDIES</title>
+  <meta name="description" content="Check or make the LAiDIES Resident Card saved locally in this browser on this device.">
   <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png">
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
+  <link rel="stylesheet" href="/content/resident-card-v2.css?v=20260726-local-contract-1">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <link rel="stylesheet" href="/content/site/mini-player.css">
-  <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
   <script>
     window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-    plausible.init()
+    plausible.init();
   </script>
   <style>
-    [hidden] { display: none !important; }
-
-    /* Form styling in SUNNYVAiLE palette */
-    .rc-form-card {
-      background: var(--cream);
-      border: 2px solid var(--rose);
-      border-radius: 18px;
-      padding: 32px 32px;
-      margin: 32px 0;
-      box-shadow: 0 8px 24px rgba(75, 33, 72, 0.08);
+    [hidden] {
+      display: none !important;
     }
-    .rc-form-card label {
-      display: block;
-      font-family: 'Jost', sans-serif;
-      font-weight: 600;
-      font-size: 13px;
-      letter-spacing: 0.06em;
-      color: var(--plum);
-      margin-bottom: 10px;
+    .rc-local-status {
+      align-items: start !important;
+    }
+    .rc-local-status::before {
+      content: "RESIDENT CARD · DEVICE-LOCAL STATUS";
+    }
+    .rc-local-copy {
+      min-width: 0;
+    }
+    .rc-local-kicker {
+      margin: 0 0 .65rem;
+      color: var(--rc2-pink);
+      font-size: .72rem;
+      font-weight: 850;
+      letter-spacing: .14em;
       text-transform: uppercase;
     }
-    .rc-form-card input[type="email"] {
-      width: 100%;
-      padding: 16px 20px;
-      font-family: 'Jost', sans-serif;
-      font-size: 17px;
-      color: var(--plum);
-      border: 2px solid var(--line);
-      border-radius: 10px;
-      background: var(--pearl);
-      margin-bottom: 16px;
+    .rc-local-title {
+      margin: 0;
+      color: var(--rc2-night);
+      font-family: "Anton", "Arial Narrow", sans-serif;
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      font-weight: 400;
+      line-height: .95;
+      text-transform: uppercase;
+    }
+    .rc-local-detail,
+    .rc-local-boundary {
+      max-width: 48rem;
+      color: #3b415b;
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+    .rc-local-boundary {
+      margin-top: 1.2rem;
+      padding-left: 1rem;
+      border-left: 5px solid var(--rc2-cyan);
+    }
+    .rc-local-actions {
+      display: grid;
+      gap: .8rem;
+      align-self: center;
+    }
+    .rc-local-action {
       box-sizing: border-box;
-      transition: border-color 200ms;
-    }
-    .rc-form-card input[type="email"]:focus {
-      outline: none;
-      border-color: var(--rose);
-    }
-    .newsletter-opt {
-      display: flex;
+      display: inline-flex;
+      min-height: 3.4rem;
       align-items: center;
-      gap: 12px;
-      font-size: 14px;
-      color: var(--plum);
-      margin-bottom: 24px;
-      line-height: 1.4;
+      justify-content: center;
+      padding: .85rem 1.1rem;
+      border: 2px solid var(--rc2-night);
+      color: var(--rc2-cream);
+      background: var(--rc2-night);
+      box-shadow: 6px 6px 0 var(--rc2-cyan);
+      font-weight: 800;
+      text-align: center;
+      text-decoration: none;
     }
-    .newsletter-opt input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      accent-color: var(--rose);
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-    .submit-btn {
-      width: 100%;
-      padding: 18px 20px;
-      font-family: 'Jost', sans-serif;
-      font-size: 16px;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--plum) 0%, var(--rose) 100%);
-      color: var(--cream);
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-      letter-spacing: 0.02em;
-    }
-    .submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(155, 63, 95, 0.3);
-    }
-    .submit-btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
+    .rc-local-action.secondary {
+      color: var(--rc2-night);
+      background: transparent;
       box-shadow: none;
     }
-
-    /* Confirmation card — the on-brand Post Office note */
-    .member-pass-confirmation {
-      background: linear-gradient(135deg, var(--cream) 0%, var(--blush) 100%);
-      border: 2px solid var(--rose);
-      border-radius: 16px;
-      padding: 32px 28px;
-      margin-top: 20px;
-      text-align: center;
-      animation: rcFadeIn 0.4s ease-out;
-      box-shadow: 0 4px 16px rgba(75, 33, 72, 0.08);
+    .rc-local-action:focus-visible {
+      outline: 4px solid var(--rc2-pink);
+      outline-offset: 4px;
     }
-    .member-pass-confirmation[hidden] { display: none; }
-    .member-pass-confirmation-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 26px;
-      color: var(--plum);
-      margin: 0 0 14px;
-      font-weight: 700;
-      line-height: 1.15;
+    .rc-local-facts {
+      width: min(1180px, calc(100% - 2rem));
+      margin: 2rem auto 0;
+      padding: 1.5rem 0 0;
+      border-top: 2px solid var(--rc2-line);
     }
-    .member-pass-confirmation-detail {
-      font-size: 16px;
-      color: var(--plum);
-      line-height: 1.6;
+    .rc-local-facts h2 {
+      margin: 0 0 1rem;
+      color: var(--rc2-night);
+      font-size: 1.35rem;
+    }
+    .rc-local-facts ul {
       margin: 0;
-      opacity: 0.85;
+      padding-left: 1.25rem;
+      color: #3b415b;
+      line-height: 1.7;
     }
-    .member-pass-panel.is-link-sent .pass-status,
-    .member-pass-panel.is-link-sent .member-pass-detail,
-    .member-pass-panel.is-link-sent .member-pass-note {
-      display: none;
-    }
-    @keyframes rcFadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Email help / resend link */
-    .member-pass-email-help {
-      margin-top: 16px;
-      padding: 14px 18px;
-      background: var(--pearl);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      font-size: 14px;
-      color: var(--plum);
-      line-height: 1.5;
-    }
-    .member-pass-email-help[hidden] { display: none; }
-    .member-pass-resend-link {
-      display: inline-block;
-      margin-top: 16px;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--rose);
-      text-decoration: underline;
-      cursor: pointer;
-      background: none;
-      border: none;
-      font-family: inherit;
-    }
-    .pass-status {
-      text-align: center;
-      padding: 12px;
-      margin-top: 12px;
-      font-size: 14px;
-      color: var(--plum);
-    }
-    .member-pass-detail {
-      font-size: 14px;
-      color: var(--plum-soft);
-      line-height: 1.5;
-      margin-top: 10px;
-      text-align: center;
-    }
-    .member-pass-note {
-      font-size: 13px;
-      color: var(--plum-soft);
-      line-height: 1.4;
-      margin-top: 8px;
-      font-style: italic;
-      text-align: center;
-    }
-    .rc-privacy {
-      font-size: 12px;
-      color: var(--plum-soft);
-      margin-top: 20px;
-      text-align: center;
-      line-height: 1.5;
-    }
-    .rc-privacy a { color: var(--rose); text-decoration: underline; }
-    .member-pass-panel.is-link-sent .member-pass-form-fields {
-      opacity: 0.5;
-      pointer-events: none;
-      transition: opacity 0.3s;
-    }
-
-    /* Profile section */
-    .rc-profile {
-      margin-top: 48px;
-      padding-top: 32px;
-      border-top: 1px solid var(--line);
-    }
-    .rc-profile h2 {
-      margin: 0 0 8px;
-      font-size: 22px;
-      color: var(--plum);
-      font-weight: 700;
-    }
-    .rc-profile .rc-profile-intro {
-      font-size: 15px;
-      color: var(--plum-soft);
-      margin: 0 0 20px;
-    }
-    .rc-profile details {
-      margin-bottom: 12px;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 14px 20px;
-      background: var(--cream);
-    }
-    .rc-profile summary {
-      cursor: pointer;
-      font-family: 'Jost', sans-serif;
-      font-weight: 700;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--rose);
-      list-style: none;
-    }
-    .rc-profile summary::-webkit-details-marker { display: none; }
-    .rc-profile summary::before { content: '+ '; margin-right: 6px; }
-    .rc-profile details[open] summary::before { content: '– '; }
-    .rc-profile button {
-      margin: 8px 6px 0 0;
-      padding: 8px 16px;
-      font-family: 'Jost', sans-serif;
-      font-size: 13px;
-      font-weight: 500;
-      border: 1.5px solid var(--line);
-      border-radius: 999px;
-      background: var(--cream);
-      color: var(--plum);
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-    .rc-profile button:hover,
-    .rc-profile button.is-selected {
-      background: var(--rose);
-      color: var(--cream);
-      border-color: var(--rose);
-    }
-
-    /* Sign out / reset actions */
-    .rc-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 32px;
-      padding-top: 24px;
-      border-top: 1px solid var(--line);
-    }
-    .rc-actions button {
-      padding: 10px 20px;
-      font-family: 'Jost', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      background: transparent;
-      color: var(--plum-soft);
-      border: 1.5px solid var(--line);
-      border-radius: 999px;
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-    .rc-actions button:hover {
-      color: var(--rose);
-      border-color: var(--rose);
-    }
-
-    /* Wednesday tour breadcrumb */
-    .rc-tour-crumb {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-style: italic;
-      color: var(--rose);
-      font-size: 17px;
-      text-align: center;
-      padding: 14px 16px;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      margin: 24px 0;
+    @media (max-width: 720px) {
+      .rc-form-card.rc-local-status {
+        grid-template-columns: 1fr !important;
+        padding: 3.5rem 1.25rem 2rem !important;
+      }
+      .rc-local-actions {
+        width: 100%;
+      }
     }
   </style>
-  <link rel="stylesheet" href="/content/resident-card-v2.css?v=20260724-1" />
-  <!-- Microsoft Clarity (heatmaps + session recordings) -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "xnqcp37urd");
   </script>
 </head>
 <body>
-
   <header class="sv-header"></header>
 
   <main class="rc-page">
     <section class="rc-arrival">
       <div class="rc-arrival-copy">
-
         <div class="sv-eyebrow">
           <span class="sv-eyebrow-label">MAiN Street · No. 6 · SUNNYVAiLE</span>
         </div>
-
-        <h1>Make Your Resident Card.</h1>
-
+        <h1>Your Resident Card.</h1>
         <p class="sv-lede">
-          At MAiKEOVER on MAiN, every LAiDY can make and save a Resident Card on
-          this device. The account guest book stays closed while its privacy and
-          two-device release checks finish.
+          Make a card at MAiKEOVER on MAiN, then this browser can remember it on
+          this device.
         </p>
-
         <p>
-          Your Resident Card can save quiz scores, stickers, badges, hidden charms, and trading cards on this device while account restoration and cross-device sync complete their release checks.
+          It is a personal local keepsake—not an account, reserved handle,
+          public identity, proof of rewards, or cross-device backup.
         </p>
-
-        <p class="rc-tour-crumb">
-          Wednesday tour · Stop No. 6 · After class, before the Bronze.
-        </p>
+        <p class="rc-tour-crumb">Wednesday tour · Stop No. 6 · After class, before the Bronze.</p>
       </div>
     </section>
 
-    <div class="rc-form-card" role="status" aria-live="polite">
-      <strong>The account desk is not taking email addresses yet.</strong>
-      Nothing has been submitted and no account or public Card has been created.
-      <a href="/maikeover.html">Make and save your device-local card at the parlor →</a>
-    </div>
-
-    <!-- THE FORM -->
-    <div class="rc-form-card member-pass-panel" hidden inert style="display:none!important">
-      <div class="member-pass-form-fields">
-        <label for="memberPassEmail">✉️ Drop your address. We'll send a note from the Post Office.</label>
-        <input id="memberPassEmail" type="email" autocomplete="email" placeholder="yourname@email.com" />
-        <div class="newsletter-opt">
-          <input id="memberPassNewsletter" type="checkbox" checked />
-          <span>Also send me the Wednesday Postcard — mail from town every Wednesday.</span>
-        </div>
+    <section class="rc-form-card rc-local-status" aria-labelledby="rcLocalTitle">
+      <div class="rc-local-copy">
+        <p class="rc-local-kicker" id="rcLocalKicker">Checking this device…</p>
+        <h2 class="rc-local-title" id="rcLocalTitle">Looking for your card</h2>
+        <p class="rc-local-detail" id="rcLocalDetail" role="status" aria-live="polite" aria-atomic="true">
+          Checking this browser for a valid Resident Card.
+        </p>
+        <p class="rc-local-boundary" id="rcLocalBoundary">
+          No email is requested or submitted here. Clearing site data, using
+          private browsing, or changing browser or device can remove this local copy.
+        </p>
       </div>
-      <button class="submit-btn" type="button" id="saveMemberPassButton">Send my note →</button>
-      <div id="memberPassStatus" class="pass-status" aria-live="polite"></div>
-      <p id="memberPassDetail" class="member-pass-detail" aria-live="polite"></p>
-      <p id="memberPassNote" class="member-pass-note"></p>
-
-      <!-- Confirmation card (shown after magic link sent) -->
-      <div id="memberPassConfirmation" class="member-pass-confirmation" hidden aria-live="polite">
-        <p id="memberPassConfirmationTitle" class="member-pass-confirmation-title"></p>
-        <p id="memberPassConfirmationDetail" class="member-pass-confirmation-detail"></p>
-        <button type="button" class="member-pass-resend-link" id="memberPassResendLink" hidden>Didn't get it? Send another</button>
+      <div class="rc-local-actions">
+        <a class="rc-local-action" id="rcPrimaryAction" href="/maikeover.html">Make a local card</a>
+        <a class="rc-local-action secondary" id="rcClosetAction" href="/laidies-card.html" hidden>Open this device’s Closet</a>
       </div>
+    </section>
 
-      <!-- Email help (shown during pending state) -->
-      <div id="memberPassEmailHelp" class="member-pass-email-help" hidden>
-        <strong>📬 Check your inbox</strong> (and spam/promotions). Open the newest note from the <em>SUNNYVAiLE Post Office</em> on this same device. The link inside opens your card.
-      </div>
-
-      <p class="rc-privacy">Your email and profile answers are used for sign-in and card personalization. Stickers, charms, and cross-device sync are being polished. <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
-    </div>
-
-    <!-- PROFILE QUESTIONS (optional) -->
-    <div class="rc-profile" id="member-passport" hidden inert>
-      <h2>Tell us about you (optional)</h2>
-      <p class="rc-profile-intro">Helps us tune your card, matches, and content. Skip any you want — always editable later.</p>
-
-      <details class="member-profile-group" data-member-profile-group="industry">
-        <summary>Where do you do your thing?</summary>
-        <button type="button" data-member-profile="industry" data-member-profile-value="tax" aria-label="Select industry: Tax">Tax</button>
-        <button type="button" data-member-profile="industry" data-member-profile-value="finance" aria-label="Select industry: Finance">Finance</button>
-        <button type="button" data-member-profile="industry" data-member-profile-value="legal-compliance" aria-label="Select industry: Legal / Compliance">Legal / Compliance</button>
-        <button type="button" data-member-profile="industry" data-member-profile-value="ops-product" aria-label="Select industry: Ops / Product">Ops / Product</button>
-        <button type="button" data-member-profile="industry" data-member-profile-value="people-hr" aria-label="Select industry: People / HR">People / HR</button>
-        <button type="button" data-member-profile="industry" data-member-profile-value="marketing-comms" aria-label="Select industry: Marketing / Comms">Marketing / Comms</button>
-        <button type="button" data-member-profile="industry" data-member-profile-value="founder-consultant" aria-label="Select industry: Founder / Consultant">Founder / Consultant</button>
-        <button type="button" data-member-profile="industry" data-member-profile-value="tech-engineering" aria-label="Select industry: Tech / Engineering">Tech / Engineering</button>
-        <button type="button" data-member-profile="industry" data-member-profile-value="data-analytics" aria-label="Select industry: Data / Analytics">Data / Analytics</button>
-        <button type="button" data-member-profile="industry" data-member-profile-value="sales-bizdev" aria-label="Select industry: Sales / Biz Dev">Sales / Biz Dev</button>
-        <button type="button" data-member-profile="industry" data-member-profile-value="education-training" aria-label="Select industry: Education / Training">Education / Training</button>
-        <button type="button" data-member-profile="industry" data-member-profile-value="health-life-sciences" aria-label="Select industry: Health / Life Sciences">Health / Life Sciences</button>
-        <button type="button" data-member-profile="industry" data-member-profile-value="government-public" aria-label="Select industry: Government / Public Sector">Government / Public Sector</button>
-        <button type="button" data-member-profile="industry" data-member-profile-value="creative-media" aria-label="Select industry: Creative / Media">Creative / Media</button>
-        <button type="button" data-member-profile="industry" data-member-profile-value="exploring-other" aria-label="Select industry: Exploring / Other">Exploring / Other</button>
-      </details>
-
-      <details class="member-profile-group" data-member-profile-group="aiComfort">
-        <summary>What's your AI main character energy?</summary>
-        <button type="button" data-member-profile="aiComfort" data-member-profile-value="brand-new" aria-label="Select AI comfort: Brand new">Brand new</button>
-        <button type="button" data-member-profile="aiComfort" data-member-profile-value="prompting-sometimes" aria-label="Select AI comfort: Prompting sometimes">Prompting sometimes</button>
-        <button type="button" data-member-profile="aiComfort" data-member-profile-value="using-weekly" aria-label="Select AI comfort: Using weekly">Using weekly</button>
-        <button type="button" data-member-profile="aiComfort" data-member-profile-value="building-workflows" aria-label="Select AI comfort: Building workflows">Building workflows</button>
-        <button type="button" data-member-profile="aiComfort" data-member-profile-value="agent-curious" aria-label="Select AI comfort: Agent-curious">Agent-curious</button>
-      </details>
-
-      <details class="member-profile-group" data-member-profile-group="generation">
-        <summary>Which group chat raised you?</summary>
-        <button type="button" data-member-profile="generation" data-member-profile-value="gen-x" aria-label="Select generation: Gen X">Gen X</button>
-        <button type="button" data-member-profile="generation" data-member-profile-value="elder-millennial" aria-label="Select generation: Elder Millennial">Elder Millennial</button>
-        <button type="button" data-member-profile="generation" data-member-profile-value="millennial" aria-label="Select generation: Millennial">Millennial</button>
-        <button type="button" data-member-profile="generation" data-member-profile-value="gen-z" aria-label="Select generation: Gen Z">Gen Z</button>
-        <button type="button" data-member-profile="generation" data-member-profile-value="no-bounds" aria-label="Select generation: Age knows no bounds">Age knows no bounds</button>
-      </details>
-
-      <details class="member-profile-group" data-member-profile-group="goals">
-        <summary>What are you here for?</summary>
-        <button type="button" data-member-profile="goals" data-member-profile-value="learn-basics" aria-label="Select goal: Learn the basics">Learn the basics</button>
-        <button type="button" data-member-profile="goals" data-member-profile-value="save-time" aria-label="Select goal: Save time">Save time</button>
-        <button type="button" data-member-profile="goals" data-member-profile-value="write-better" aria-label="Select goal: Write better">Write better</button>
-        <button type="button" data-member-profile="goals" data-member-profile-value="build-tools" aria-label="Select goal: Build tools">Build tools</button>
-        <button type="button" data-member-profile="goals" data-member-profile-value="lead-team" aria-label="Select goal: Lead my team">Lead my team</button>
-        <button type="button" data-member-profile="goals" data-member-profile-value="find-community" aria-label="Select goal: Find community">Find community</button>
-      </details>
-    </div>
-
-    <!-- SIGN OUT / RESET -->
-    <div class="rc-actions" hidden inert>
-      <button class="member-pass-signout" type="button" id="memberSignOutButton" hidden>Sign out</button>
-      <button type="button" id="memberStartFreshButton">Reset and start over</button>
-    </div>
+    <section class="rc-local-facts" aria-labelledby="rcFactsTitle">
+      <h2 id="rcFactsTitle">What belongs to what</h2>
+      <ul>
+        <li>The Resident Card stores its own selected card details in one versioned local record.</li>
+        <li>Quizzes, stickers, charms and other activities may keep separate device-local progress; the Card does not prove or synchronize those results.</li>
+        <li>A local handle is a draft label only. It is not reserved and cannot sign posts, unlock rooms, publish a Card or authorize account data.</li>
+        <li>Account restoration, public member Cards and cross-device sync remain unavailable until their privacy, authorization and two-device release checks pass.</li>
+      </ul>
+    </section>
 
     <div class="sv-ctas">
       <a class="sv-cta" href="/maikeover.html">
         <span>
-          <span class="sv-cta-label">Back to the parlor</span>
-          <span class="sv-cta-title">← MAiKEOVER on MAiN</span>
+          <span class="sv-cta-label">Visit the parlor</span>
+          <span class="sv-cta-title">MAiKEOVER on MAiN →</span>
         </span>
       </a>
       <a class="sv-cta" href="/">
@@ -441,60 +189,10 @@
         </span>
       </a>
     </div>
-
   </main>
 
   <footer>© LAiDIES · Filed from SUNNYVAiLE · MAiKEOVER on MAiN · No. 6</footer>
-
-  <script src="content/site/supabase-config.js" defer></script>
-  <!-- The former account-intake runtime is intentionally not loaded while
-       this page is a held, non-operable route. -->
-
-  <!-- Magic link confirmation state enhancement -->
-  <script>
-  (function() {
-    var resendTimer = null;
-    var observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function() {
-        var confirmation = document.getElementById('memberPassConfirmation');
-        var resendLink = document.getElementById('memberPassResendLink');
-        if (!confirmation || !resendLink) return;
-        if (!confirmation.hidden) {
-          resendLink.hidden = true;
-          clearTimeout(resendTimer);
-          resendTimer = setTimeout(function() { resendLink.hidden = false; }, 30000);
-        } else {
-          clearTimeout(resendTimer);
-          resendLink.hidden = true;
-        }
-      });
-    });
-    document.addEventListener('DOMContentLoaded', function() {
-      var confirmation = document.getElementById('memberPassConfirmation');
-      if (confirmation) observer.observe(confirmation, { attributes: true, attributeFilter: ['hidden'] });
-      var resendLink = document.getElementById('memberPassResendLink');
-      var saveBtn = document.getElementById('saveMemberPassButton');
-      if (resendLink && saveBtn) {
-        resendLink.addEventListener('click', function(e) {
-          e.preventDefault();
-          try {
-            ['laidies_member_auth_pending','laidies_member_pass_pending'].forEach(function(k){ try { localStorage.removeItem(k); } catch(_){} });
-          } catch(_) {}
-          resendLink.textContent = 'Posting another...';
-          resendLink.disabled = true;
-          saveBtn.disabled = false;
-          saveBtn.click();
-          setTimeout(function() {
-            resendLink.textContent = "Didn't get it? Send another";
-            resendLink.disabled = false;
-          }, 2500);
-        });
-      }
-    });
-  })();
-  </script>
-
-    <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
-<script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+  <script src="/content/site/resident-card-contract-v1.js?v=20260726-repair-1"></script>
+  <script src="/content/site/resident-card-v2.js?v=20260726-repair-1"></script>
 </body>
 </html>

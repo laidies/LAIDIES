@@ -1,110 +1,87 @@
 #!/usr/bin/env node
-
 import assert from "node:assert/strict";
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { evaluateCandidate } from "./evaluate-newsstand-autopublish.mjs";
+import { evaluateCandidate, parseCandidateJson } from "./evaluate-newsstand-autopublish.mjs";
 
-const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
-const operationsDirectory = path.resolve(scriptDirectory, "../operations");
-const fixtureDirectory = path.join(
-  operationsDirectory,
-  "test-fixtures/newsstand-autopublish",
-);
-
-function readJson(filePath) {
-  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+const directory = path.dirname(fileURLToPath(import.meta.url));
+const operations = path.resolve(directory, "../operations");
+const fixtures = path.join(operations, "test-fixtures/newsstand-autopublish");
+const policy = JSON.parse(fs.readFileSync(path.join(operations, "newsstand-autopublish-policy.json"), "utf8"));
+const read = (name) => JSON.parse(fs.readFileSync(path.join(fixtures, name), "utf8"));
+const qualified = (edition) => ({
+  ...read("routine-daily-brief.json"), id: `qualified-${edition}`, slug: `qualified-${edition}`, edition,
+  editorialJob: edition === "breaking" ? "qualified-interrupt" : edition === "daily" ? "edited-briefing" : edition === "weekly" ? "durable-synthesis" : "sourced-argument",
+  briefingItems: edition === "daily" ? ["change-a", "change-b"] : undefined,
+  developments: edition === "weekly" ? ["development-a", "development-b"] : undefined,
+  qualifiedInterrupt: edition === "breaking" ? { reason: "candidate declaration only" } : undefined,
+  argumentStructure: edition === "tribune" ? { evidence: "candidate declaration", inference: "candidate declaration", position: "candidate declaration" } : undefined,
+});
+function compact(object) { return Object.fromEntries(Object.entries(object).filter(([, value]) => value !== undefined)); }
+function route(candidate, verdict, label) {
+  const result = evaluateCandidate(compact(candidate), policy);
+  assert.equal(result.verdict, verdict, label);
+  assert.equal(result.publishActionTaken, false, `${label}: must never publish`);
+  assert.equal(result.authorityPresent, false, `${label}: no independent authority exists`);
+  assert.equal(result.candidateAssertionsAreEvidence, false, `${label}: candidate declarations are not evidence`);
+  return result;
 }
 
-const policy = readJson(
-  path.join(operationsDirectory, "newsstand-autopublish-policy.json"),
+for (const edition of ["breaking", "daily", "weekly", "tribune"]) route(qualified(edition), "HOLD_FOR_INDEPENDENT_REVIEW", `${edition} qualified proposal routes to independent review`);
+const routineWeekly = route({ ...qualified("weekly"), developments: ["one routine update"] }, "REJECT", "one-item routine update cannot pretend to be Weekly");
+assert.ok(routineWeekly.rejectReasons.includes("edition_contract_failed:weekly_requires_durable_synthesis"));
+const dailyAsSynthesis = route({ ...qualified("daily"), editorialJob: "durable-synthesis", briefingItems: undefined, developments: ["a", "b"] }, "REJECT", "Daily cannot claim Weekly synthesis job");
+assert.ok(dailyAsSynthesis.rejectReasons.includes("edition_contract_failed:daily_requires_multi_item_briefing"));
+const unearnedBreaking = route({ ...qualified("breaking"), qualifiedInterrupt: undefined }, "REJECT", "Breaking requires a qualified-interrupt proposal");
+assert.ok(unearnedBreaking.rejectReasons.includes("edition_contract_failed:breaking_requires_qualified_interrupt"));
+const hiddenOpinion = route({ ...qualified("tribune"), argumentStructure: { evidence: "e", inference: "i" } }, "REJECT", "Tribune must separately declare position");
+assert.ok(hiddenOpinion.rejectReasons.includes("edition_contract_failed:tribune_requires_evidence_inference_position"));
+const scoreForgery = route({ ...qualified("daily"), scores: { consequence: 3, novelty: 3, readerRelevance: 3, evidence: 3, durability: 3, editorialValue: 3 }, checks: Object.fromEntries(policy.requiredChecks.map((check) => [check, true])) }, "HOLD_FOR_INDEPENDENT_REVIEW", "perfect candidate scores and checks do not authorize publication");
+assert.ok(scoreForgery.reviewReasons.includes("independent_signed_hashed_authority_required"));
+for (const [label, candidate] of [
+  ["duplicate weekly developments", { ...qualified("weekly"), developments: ["same", "same"] }],
+  ["empty daily briefing item", { ...qualified("daily"), briefingItems: ["", "change"] }],
+  ["empty breaking interrupt", { ...qualified("breaking"), qualifiedInterrupt: {} }],
+  ["unknown check", { ...qualified("daily"), checks: { ...qualified("daily").checks, madeUpApproval: true } }],
+  ["impossible calendar date", { ...qualified("daily"), date: "2026-02-31" }],
+  ["future date", { ...qualified("daily"), date: "2099-01-01" }],
+  ["stale date", { ...qualified("daily"), date: "2000-01-01" }]
+]) route(candidate, "REJECT", label);
+const malformed = route(read("bad-missing-source.json"), "REJECT", "malformed proposal rejects");
+assert.ok(malformed.rejectReasons.length > 0);
+
+assert.throws(
+  () => parseCandidateJson('{"id":"first","id":"second"}'),
+  /duplicate/i,
+  "raw duplicate root keys reject before JSON.parse normalization",
+);
+assert.throws(
+  () => parseCandidateJson('{"id":"first","\\u0069d":"second"}'),
+  /duplicate/i,
+  "escaped-equivalent root keys reject before JSON.parse normalization",
 );
 
-const cases = [
-  ["routine-daily-brief.json", "WOULD_AUTO_PUBLISH"],
-  ["daily-without-explanation.json", "REJECT"],
-  ["explained-filler.json", "REJECT"],
-  ["sensational-claim-corrected.json", "WOULD_AUTO_PUBLISH"],
-  ["sensational-claim-amplified.json", "REJECT"],
-  ["claude-opus-5-release.json", "HOLD"],
-  ["shallow-model-release.json", "REJECT"],
-  ["routine-product-update.json", "WOULD_AUTO_PUBLISH"],
-  ["openai-hugging-face-incident.json", "HOLD"],
-  ["bad-missing-source.json", "REJECT"],
-];
-
-for (const [fixtureName, expectedVerdict] of cases) {
-  const candidate = readJson(path.join(fixtureDirectory, fixtureName));
-  const result = evaluateCandidate(candidate, policy);
-  assert.equal(
-    result.verdict,
-    expectedVerdict,
-    `${fixtureName}: expected ${expectedVerdict}, received ${result.verdict}`,
-  );
-  assert.equal(
-    result.publishActionTaken,
-    false,
-    `${fixtureName}: evaluator must never publish`,
-  );
-  console.log(`PASS ${fixtureName}: ${result.verdict}`);
+const originalDateNow = Date.now;
+try {
+  Date.now = () => Date.parse("2026-07-26T12:00:00Z");
+  for (const date of ["2026-13-01", "2026-07-00", "2026-02-29", "2026-04-31"]) {
+    route({ ...qualified("daily"), date }, "REJECT", `malformed calendar date ${date}`);
+  }
+  route({ ...qualified("daily"), date: "2026-07-27" }, "REJECT", "tomorrow rejects");
+  route({ ...qualified("daily"), date: "2026-06-26" }, "HOLD_FOR_INDEPENDENT_REVIEW", "30-day boundary holds");
+  route({ ...qualified("daily"), date: "2026-06-25" }, "HOLD_FOR_INDEPENDENT_REVIEW", "31-day boundary holds");
+  route({ ...qualified("daily"), date: "2026-06-24" }, "REJECT", "32-day boundary rejects");
+} finally {
+  Date.now = originalDateNow;
 }
 
-const incident = readJson(
-  path.join(fixtureDirectory, "openai-hugging-face-incident.json"),
+const identityResult = route(qualified("daily"), "HOLD_FOR_INDEPENDENT_REVIEW", "policy identity accompanies parsed decisions");
+assert.equal(identityResult.policyVersion, policy.version);
+assert.equal(
+  identityResult.policySha256,
+  crypto.createHash("sha256").update(JSON.stringify(policy)).digest("hex"),
+  "policy identity binds the canonical policy object",
 );
-const incidentResult = evaluateCandidate(incident, policy);
-assert.ok(
-  incidentResult.holdReasons.includes("hard_hold_topic:cybersecurity"),
-  "The OpenAI/Hugging Face fixture must be held for cybersecurity risk.",
-);
-assert.ok(
-  incidentResult.holdReasons.includes("hold_signal:disputed_facts"),
-  "The OpenAI/Hugging Face fixture must be held when facts are disputed.",
-);
-
-const unexplainedDaily = readJson(
-  path.join(fixtureDirectory, "daily-without-explanation.json"),
-);
-const unexplainedDailyResult = evaluateCandidate(unexplainedDaily, policy);
-assert.ok(
-  unexplainedDailyResult.rejectReasons.includes(
-    "required_check_failed:readerExplanationComplete",
-  ),
-  "A DAILY item without reader explanation must be rejected.",
-);
-
-const explainedFiller = readJson(
-  path.join(fixtureDirectory, "explained-filler.json"),
-);
-const explainedFillerResult = evaluateCandidate(explainedFiller, policy);
-assert.ok(
-  explainedFillerResult.rejectReasons.some((reason) =>
-    reason.startsWith("quality_floor_failed:"),
-  ),
-  "A sourced and explained but low-value DAILY item must be rejected.",
-);
-
-const amplifiedClaim = readJson(
-  path.join(fixtureDirectory, "sensational-claim-amplified.json"),
-);
-const amplifiedClaimResult = evaluateCandidate(amplifiedClaim, policy);
-assert.ok(
-  amplifiedClaimResult.rejectReasons.includes(
-    "required_check_failed:sensationalFramingNeutralized",
-  ),
-  "A sensational claim must be rejected when its correction does not neutralize it.",
-);
-
-const shallowRelease = readJson(
-  path.join(fixtureDirectory, "shallow-model-release.json"),
-);
-const shallowReleaseResult = evaluateCandidate(shallowRelease, policy);
-assert.ok(
-  shallowReleaseResult.rejectReasons.includes(
-    "required_check_failed:releaseDetailsComplete",
-  ),
-  "A model release without decision-useful release details must be rejected.",
-);
-
-console.log("All Newsstand auto-publish policy tests passed.");
+console.log("✓ NEWSSTAND REVIEW ROUTER: four publication jobs · reject/reroute fixtures · no candidate can authorize publication");

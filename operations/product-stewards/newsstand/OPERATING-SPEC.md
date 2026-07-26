@@ -31,8 +31,18 @@ does not publish directly.
 - Every story records canonical edition, `status`, `publishedAt`, `updatedAt`,
   `lastCheckedAt`, `sourceApproval`, explicit `correction` and `retraction`
   fields, sources and an adjacent evidence-manifest path.
-- Candidate evaluation remains a separate pre-publication object. Candidate
-  success does not mutate the public dataset or prove publication.
+- Candidate evaluation is a separate **review-routing-only** object. Candidate
+  labels, scores, source types, `verifiedFullText` booleans and checks are
+  declarations, never evidence or publication authority. Without a separate
+  independently signed/hashed approval receipt (none exists now), a
+  well-formed candidate is held for independent review; it cannot receive an
+  auto-publish-like result or mutate the public dataset.
+
+Publication proposals must declare the job they ask an independent editor to
+assess: Breaking proposes a qualified interruption, Daily a multi-item edited
+briefing, Weekly a durable synthesis of at least two developments, and Tribune
+separate evidence, inference and position. Those declarations are structural
+review inputs, not proof that the job has been met.
 
 ## State and failure contract
 

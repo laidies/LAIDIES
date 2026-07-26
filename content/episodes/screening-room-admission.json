@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-07-26",
+  "programmes": {
+    "trailer": {
+      "admissionStatus": "hold",
+      "cueSheet": "/content/episodes/episode-trailer-cues.json",
+      "cueSheetSha256": "61a68c38381a910cab4d6914c944659748f5e8391b73a881f891f7db8e6f960a",
+      "audio": "/content/music/public/trailer-narration.m4a",
+      "audioSha256": "fa9bc5e4b20e9f16f9236f642b471fd171965ecaaa05f107ac9602d4aa5a216d",
+      "audioDurationSeconds": 967.116,
+      "captions": "/assets/captions/episode-trailer.vtt",
+      "captionsSha256": "fa512b536f01690667ca5771204ce425f71a18b0f8a186d8f77dcad0af2cad85",
+      "captionEndSeconds": 902.76,
+      "captionCoverage": "partial",
+      "expectedOccurrenceCount": 33,
+      "occurrences": [],
+      "holds": ["caption master ends 64.356 seconds before audio", "estimated cue timing", "occurrence continuity evidence missing"]
+    },
+    "01": {
+      "admissionStatus": "hold",
+      "cueSheet": "/content/episodes/episode-01-cues.json",
+      "cueSheetSha256": "21302b62055d633427fd6b3b10b9972d92d51e3a9bb6c05cdf8dc9a256840161",
+      "audio": "/content/music/public/episode-01-narration.m4a",
+      "audioSha256": "ca9e3d1f831aaca81310b354166567b13c27e76188e107afe3593b0f3cc675d7",
+      "audioDurationSeconds": 1172.245,
+      "captions": "/assets/captions/episode-01.vtt",
+      "captionsSha256": "191938a9879883d9439c4ff35c319c40c54fec09855c4c72ba66bd7cdcbd9539",
+      "captionEndSeconds": 1171.42,
+      "captionCoverage": "complete",
+      "expectedOccurrenceCount": 55,
+      "occurrences": [],
+      "holds": ["proportionally rebased cue timing", "style continuity unresolved", "occurrence continuity evidence missing"]
+    },
+    "02": {
+      "admissionStatus": "hold",
+      "cueSheet": "/content/episodes/episode-02-cues.json",
+      "cueSheetSha256": "eaafe46d06ff2a9827ee397a1e9248e8cffbee9693433c4e148fe00040cc4318",
+      "audio": "/content/music/public/episode-02-narration.m4a",
+      "audioSha256": "7140e8d469ab02e7b9d9d8c03b3c2c3d3c574570e0827afead778f7e05b85449",
+      "audioDurationSeconds": 987.481,
+      "captions": "/assets/captions/episode-02.vtt",
+      "captionsSha256": "7666e2d667aa3dfdac14a548d5cfdb08362b6221e9521ad5b6585b954677778f",
+      "captionEndSeconds": 986.67,
+      "captionCoverage": "complete",
+      "expectedOccurrenceCount": 31,
+      "occurrences": [],
+      "holds": ["proportional cue timing outside corrected Next time anchor", "style continuity unresolved", "occurrence continuity evidence missing"]
+    },
+    "03": {
+      "admissionStatus": "hold",
+      "cueSheet": "/content/episodes/episode-03-cues.json",
+      "cueSheetSha256": "aa770874293609ec41676839880471effce2a12f906d198cbf7230db31ed09a9",
+      "audio": "/content/music/public/episode-03-narration.m4a",
+      "audioSha256": "5127cf001cb54315eabcf22fa909b8fd9e75ffe129ae91c2c05f646bf734f410",
+      "audioDurationSeconds": 1047.98,
+      "captions": "/assets/captions/episode-03.vtt",
+      "captionsSha256": "aed14506fe7d399f0a77c391fa1e046746a920d86b65880093b30f0fc83c66be",
+      "captionEndSeconds": 1046.95,
+      "captionCoverage": "complete",
+      "expectedOccurrenceCount": 49,
+      "occurrences": [],
+      "holds": ["source timing is proportional", "public edition is cover-only", "occurrence continuity evidence missing"]
+    },
+    "04": {
+      "admissionStatus": "hold",
+      "cueSheet": "/content/episodes/episode-04-cues.json",
+      "cueSheetSha256": "8cd20dc34aeada067262fdde797308e370749194a560cc9d8878d092cc60baf6",
+      "audio": "/content/music/public/episode-04-narration.m4a",
+      "audioSha256": "bae15bb83b7c3cdfe05c60f5c0021a882b6e3ddcd791e8bf8f36363dcd5c9828",
+      "audioDurationSeconds": 1222.4,
+      "captions": "/assets/captions/episode-04.vtt",
+      "captionsSha256": "1bc6b59e3f80b7c7e02c4126a32b9532a31d8621e040f9f09d4fa8d37b0f19d4",
+      "captionEndSeconds": 1221.24,
+      "captionCoverage": "complete",
+      "expectedOccurrenceCount": 58,
+      "occurrences": [],
+      "holds": ["public edition is cover-only", "source Ada loop is excluded", "real-person and era review missing", "occurrence continuity evidence missing"]
+    }
+  },
+  "semanticAnchors": [
+    {
+      "programme": "02",
+      "id": "next-time",
+      "cueAsset": "/assets/sunnyvaile-interiors/episode-vhs-boxes/ep-03.webp",
+      "captionText": "Next time on LAiDIES",
+      "captionStartSeconds": 971.49,
+      "requiredCueStartSeconds": 971.49,
+      "authority": "assets/captions/episode-02.vtt"
+    }
+  ]
+}

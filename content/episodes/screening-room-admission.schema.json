@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.ai/schemas/screening-room-admission.schema.json",
+  "title": "Screening Room occurrence-level admission record",
+  "type": "object",
+  "required": ["schemaVersion", "programmes"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "asOf": { "type": "string", "format": "date" },
+    "programmes": {
+      "type": "object",
+      "required": ["trailer", "01", "02", "03", "04"],
+      "additionalProperties": false,
+      "properties": {
+        "trailer": { "$ref": "#/$defs/programme" },
+        "01": { "$ref": "#/$defs/programme" },
+        "02": { "$ref": "#/$defs/programme" },
+        "03": { "$ref": "#/$defs/programme" },
+        "04": { "$ref": "#/$defs/programme" }
+      }
+    },
+    "semanticAnchors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["programme", "id", "cueAsset", "captionText", "captionStartSeconds", "requiredCueStartSeconds", "authority"],
+        "additionalProperties": false,
+        "properties": {
+          "programme": { "enum": ["trailer", "01", "02", "03", "04"] },
+          "id": { "type": "string" },
+          "cueAsset": { "type": "string" },
+          "captionText": { "type": "string" },
+          "captionStartSeconds": { "type": "number", "minimum": 0 },
+          "requiredCueStartSeconds": { "type": "number", "minimum": 0 },
+          "authority": { "type": "string" }
+        }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "programme": {
+      "type": "object",
+      "required": [
+        "admissionStatus", "cueSheet", "cueSheetSha256", "audio", "audioSha256",
+        "audioDurationSeconds", "captions", "captionsSha256", "captionEndSeconds",
+        "captionCoverage", "expectedOccurrenceCount", "occurrences", "holds"
+      ],
+      "properties": {
+        "admissionStatus": { "enum": ["hold", "admitted"] },
+        "cueSheet": { "type": "string" },
+        "cueSheetSha256": { "pattern": "^[a-f0-9]{64}$" },
+        "audio": { "type": "string" },
+        "audioSha256": { "pattern": "^[a-f0-9]{64}$" },
+        "audioDurationSeconds": { "type": "number", "exclusiveMinimum": 0 },
+        "captions": { "type": "string" },
+        "captionsSha256": { "pattern": "^[a-f0-9]{64}$" },
+        "captionEndSeconds": { "type": "number", "exclusiveMinimum": 0 },
+        "captionCoverage": { "enum": ["complete", "partial"] },
+        "expectedOccurrenceCount": { "type": "integer", "minimum": 1 },
+        "occurrences": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/occurrence" }
+        },
+        "holds": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "occurrence": {
+      "type": "object",
+      "required": [
+        "index", "startSeconds", "endSeconds", "asset", "assetSha256",
+        "narrationMeaning", "identityVerdict", "locationVerdict",
+        "backgroundVerdict", "eraVerdict", "styleFamily", "continuityVerdict",
+        "independentJudge", "ownerDecision"
+      ],
+      "properties": {
+        "index": { "type": "integer", "minimum": 0 },
+        "startSeconds": { "type": "number", "minimum": 0 },
+        "endSeconds": { "type": "number", "exclusiveMinimum": 0 },
+        "asset": { "type": "string" },
+        "assetSha256": { "pattern": "^[a-f0-9]{64}$" },
+        "narrationMeaning": { "type": "string", "minLength": 1 },
+        "identityVerdict": { "enum": ["pass", "not-applicable"] },
+        "locationVerdict": { "enum": ["pass", "not-applicable"] },
+        "backgroundVerdict": { "enum": ["pass", "not-applicable"] },
+        "eraVerdict": { "enum": ["pass", "not-applicable"] },
+        "styleFamily": { "type": "string", "minLength": 1 },
+        "continuityVerdict": { "const": "pass" },
+        "independentJudge": { "type": "string", "minLength": 1 },
+        "ownerDecision": { "const": "approved" }
+      },
+      "additionalProperties": false
+    }
+  }
+}
