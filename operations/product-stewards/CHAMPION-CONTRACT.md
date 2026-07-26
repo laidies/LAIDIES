@@ -15,6 +15,8 @@ champion's responsibility for the coherent whole.
 
 Persistence comes from the product folder:
 
+- `EXPERIENCE-BRIEF.md` — reconciled authoritative intent, complete component
+  map and provenance labels; the gate before design or build;
 - `CHARTER.md` — stable promise, scope, users, boundaries and quality bar;
 - `OPERATING-SPEC.md` — exact journeys, mechanics, content/learning job,
   visual/experience rules, backend/state/reward contracts, failure behaviour,
@@ -30,7 +32,7 @@ Persistence comes from the product folder:
 
 Each champion must:
 
-1. understand the product's intent, audience and job;
+1. recover and reconcile the product's intent, audience and job before design;
 2. maintain an exact owned-route/subproduct tree and capability map: what can
    be done, where it happens, how a visitor discovers it, what it connects to,
    what persists and what result/next step appears;
@@ -72,6 +74,16 @@ No champion may fill a missing operating rule with a plausible guess. When the
 charter, operating spec, code, evidence or a locked decision conflict, the
 champion records the conflict, researches the options and runs a bounded
 reconciliation or owner-decision cycle before implementation.
+
+Current code and current pages are implementation evidence only. They do not
+promote themselves into intent. Source priority is: Ali's explicit direction
+and locked decisions; approved product/experience briefs and last approved
+artifacts; verified user/product evidence; current implementation observation;
+then research/comparables as options. Every governing experience-brief line is
+labelled `ALI CONFIRMED`, `LOCKED LEDGER`, `APPROVED BRIEF/ARTIFACT`,
+`VERIFIED USER/PRODUCT EVIDENCE`, `CURRENT IMPLEMENTATION OBSERVED`,
+`INFERENCE` or `UNKNOWN`. Only confirmed, locked or approved intent governs
+canon; inference competes or is tested, and unknowns remain explicit.
 
 ## Standing research authority
 

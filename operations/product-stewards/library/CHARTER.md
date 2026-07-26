@@ -36,7 +36,11 @@ The product is not a decorative bookshelf, a generic site search, or a claim tha
 
 ## Quality and decision rules
 
-- The authoritative visual direction is the straight-on daylit room with integrated three-bay shelves. Do not revive `_library-v3.html` as a benchmark or turn the shelf into a card catalogue. See `operations/library-decisions.md`.
+- The earlier straight-on three-bay room is implementation evidence, not the
+  current visual authority. Ali has rejected its over-image header, white/pink
+  treatment, book spotlights, limited growth capacity and current UX as the
+  final Library design. Use `EXPERIENCE-BRIEF.md`; the replacement structure
+  remains an owner decision.
 - A rendered fragment, a passing link check, or a loading reader is not editorial approval. Every available book needs its own content/currency evidence.
 - Use the fixed LAiDIES status vocabulary. `REPORT READY`, `BUILDING`, and `VERIFIED LOCALLY` do not imply `VERIFIED PUBLICLY`.
 - Save wording must remain device-local unless a tested account-backed sync proves otherwise.

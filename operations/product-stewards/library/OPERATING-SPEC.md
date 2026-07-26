@@ -126,8 +126,11 @@ pass until owner, native accessibility and newcomer-transfer gates clear.
 
 ## Visual, voice and media
 
-- Locked direction: straight-on, daylit, integrated three-bay room; shelves
-  are the interface.
+- Structure decision open: the three-bay incumbent is not a locked visual
+  authority. Shelves/books remain part of the interface, but the replacement
+  must remove the over-art header, reject the white/pink treatment and
+  individual spotlights, use the newer bright family and scale to substantially
+  more books. See `EXPERIENCE-BRIEF.md`.
 - Covers use the approved `bright-family-v2` family. `_originals`, wooden
   shelf kits and superseded systems remain preserved but are not public
   runtime authority.

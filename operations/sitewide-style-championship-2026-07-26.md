@@ -4,6 +4,12 @@
 **Owner decision:** Ali selects the final public style after comparable visual
 evidence exists.
 
+This competition tests rendering language only. Its candidates must preserve
+the same functional composition and geometry. The separate Library experience
+competition under `operations/design-explorations/library-redesign-20260726/`
+may change Library structure while preserving Library capabilities; it cannot
+select the sitewide style or become a structural template for other buildings.
+
 ## Product-owner trigger
 
 The public website is substantially painterly while the episodes use an adult
