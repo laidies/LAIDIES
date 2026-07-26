@@ -1,8 +1,8 @@
 # SUNNYVAiLE building-experience readiness reset
 
-**Status:** ACTIVE PORTFOLIO CORRECTION  
+**Status:** ACTIVE PORTFOLIO CORRECTION
 **Trigger:** Ali identified that backend/contract review was being confused with
-finished building-page design.  
+finished building-page design.
 **Scope:** all 17 canonical SUNNYVAiLE buildings.
 
 ## Corrected definition of a finished building
