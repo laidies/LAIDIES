@@ -1,6 +1,6 @@
 # LAiDIES release state
 
-**Updated:** 2026-07-26 03:51 PDT
+**Updated:** 2026-07-26 07:40 PDT
 **Release owner:** current whole-site release and product-champion orchestrator
 **Rule:** `LOCAL`, `COMMITTED`, `PUSHED`, `DEPLOYED`, and `PUBLICLY VERIFIED`
 are different states. A change may use only the highest state for which evidence
@@ -11,9 +11,10 @@ is recorded here.
 | Layer | State | Evidence |
 |---|---|---|
 | Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `7c8410e1-7a10-4bd7-8ccc-41d00af71bf7`, release-source commit `0c6db9d2d45f865abfac7b1f5fe2ee7655827565`, immutable URL `https://7c8410e1.laidies-sunnyvaile.pages.dev`; the immutable URL and `https://laidies.ai/` returned the tested homepage bytes and passed critical-route verification on 2026-07-25 |
-| Current branch | `PUSHED` | `homepage-redesign` and `origin/homepage-redesign` are synchronized at product-champion Cycle 6 commit `078a9e1876b405ee565b839adf8bd10cc43f302b`. |
-| Difference from production | `PUSHED / NOT DEPLOYED` | Production remains attached to public-source commit `0c6db9d`. Six later product-champion commits (`2dfde91`, `ad8cd91`, `b9cfcc7`, `4d067ef`, `b939af8`, `078a9e1`) contain source, contract, test and steward-record changes that are pushed but are **not** live. |
-| Current working tree | `LOCAL / NOT COMMITTED / NOT PUSHED / NOT DEPLOYED` | Unrelated studio, editorial, media, design and operations work remains intentionally dirty and excluded from the five bounded champion commits. Use `git status` for the current count; do not infer deployment from the working tree. |
+| Current branch candidate | `COMMITTED / PUSH PENDING` | `homepage-redesign` candidate source is `bd4cfb23399072ec6797662e9804e7b0180a5efd`, comprising KSVL/Fun Pack correction `2491710724dc41cd4c14c9702fc815b1c17998fc`, FAiRY repair `8c4422315708f5b66726987eb6da82913af08706`, and Screening Room timing/resume repair `bd4cfb23399072ec6797662e9804e7b0180a5efd`. |
+| Difference from production | `COMMITTED / NOT DEPLOYED` | Production remains attached to public-source commit `0c6db9d`. The product-champion cycles and the three 2026-07-26 candidate commits are newer than production and must not be described as live until deployment and public verification complete. |
+| Current working tree | `LOCAL / MIXED / NOT DEPLOYED` | Unrelated studio, editorial, media, design and operations work remains intentionally dirty and excluded from the bounded candidate commits. Use `git status` for the current count; do not infer deployment from the working tree. |
+| 2026-07-26 announcement candidate | `COMMITTED / NOT DEPLOYED` | Fresh artifact `/tmp/laidies-release-20260726.Xi0nlS`: 1,085 files, 959.56 MiB, 0 missing, 0 oversized; inline JS 349/132, local links 1,939/110, town, product-steward, KSVL 29/29, FAiRY live rendered response, and Screening Room source/artifact browser matrices pass. The internal 750 MiB advisory remains a deployment-performance warning. |
 | EOD release candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Release-source commit `0c6db9d2d45f865abfac7b1f5fe2ee7655827565`; curated artifact `/tmp/laidies-eod-final.NeFVs6`; 1,069 files; 1,005,029,435 bytes; identity SHA-256 `6276ae94c0c04074769be127f7b21f1f0f4032a4cfb066909cd4f0d14f02d7d5`. |
 | Trailer and Episodes 1–4 motion films | `HOLD` | Media steward verdict: Trailer HOLD; E01 HOLD; E02 HOLD; E03 HOLD; E04 HOLD. Public CTAs and Screening Room remain illustrated listen-alongs. |
 
@@ -25,9 +26,13 @@ is recorded here.
   release-source commit `0c6db9d` is live and publicly verified; excluded local
   studio work is not deployed, and the Trailer/Episodes 1–4 motion films remain
   on `HOLD`.
-- Six subsequent product-champion cycles are committed and pushed through
-  `078a9e1`, but none of those newer runtime or contract changes is deployed or
-  publicly verified. They must not be described as live.
+- The newer product-champion work is committed through candidate source
+  `bd4cfb2`, but it is not deployed or publicly verified. It must not be
+  described as live.
+- The retired Fun Pack is removed from current navigation and orchestration;
+  its legacy URL redirects to the individual activities. KSVL has 29 playable
+  creator-confirmed originals. FAiRY's live v18 path returned a usable rendered
+  response after the default-energy compatibility repair.
 - The untracked studio/archive material must not be bulk-added to a release
   commit merely to make `git status` look clean.
 - The release artifact, not the entire studio tree, is the deployment unit.
