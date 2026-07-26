@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "candidateId": "SVGH-320-2026-07-26-v1",
+  "status": "VERIFIED_LOCALLY_PENDING_INDEPENDENT_ACCEPTANCE",
+  "evidenceTime": "2026-07-26T12:42:57-07:00",
+  "scope": "checksum-bound shared component maker candidate; no deployment or public mutation",
+  "source": {
+    "path": "content/site/sv-global-header.js",
+    "preRepairSha256": "f500707712e100e45d972daada9dc60a7801ced07f6f517ff8c41752d2761d93",
+    "candidateSha256": "807bbe6b17abf09725b6fe82fb3c483102b658fda2cda571862f0e89b6661efa"
+  },
+  "changeBoundary": {
+    "mediaQuery": "max-width: 340px",
+    "changedProperties": [
+      ".sv-header gap: 6px",
+      ".sv-header padding-left/right: 8px",
+      ".svgh-nav gap: 4px",
+      ".svgh-join/.svgh-signin/.svgh-menu-btn padding: 5px 7px",
+      ".svgh-join/.svgh-signin/.svgh-menu-btn font-size: 10px"
+    ],
+    "navigationLabelsChanged": false,
+    "sitewideTokensChanged": false,
+    "typographyFamilyChanged": false,
+    "routeContentChanged": false
+  },
+  "boundInputs": {
+    "homepageSha256": "c437da107ba8863111a48434e790a2f6d17b683349b5ccea52954216dbd24772",
+    "visitorsCentreSha256": "de8e536dcfd4c80c419e4bfd6e61c7e2189fd4c07429869b5d505ba659707743",
+    "sororityHouseSha256": "350be1c0f055a61fed0db9299e57a4408b6883ab6651e0838f25a4b3fcfdde79"
+  },
+  "tests": {
+    "rawGate": {
+      "path": "operations/product-stewards/platform-reliability/shared-header/v1/test-shared-header-320.mjs",
+      "sha256": "faec28899a0477d0039c9cc4cdc62641ea7671be9da4dbe27558e5125db1f047",
+      "result": "PASS raw_nav_right=312 document_scroll_width=320 viewport=320"
+    },
+    "consumerMatrix": {
+      "path": "operations/product-stewards/platform-reliability/shared-header/v1/test-shared-header-consumer-matrix.mjs",
+      "sha256": "4aec9082fa1beb640ce40b1ec545c2658e426824a2a119bdc1550e7f55a5ddff",
+      "result": "PASS routes=3 js=9 no_js=3 keyboard=3 zoom200_proxy=3"
+    },
+    "consumerMatrixResult": {
+      "path": "operations/product-stewards/platform-reliability/shared-header/v1/evidence-candidate/matrix-result.json",
+      "sha256": "1bf8f531985515201d8927b42747d12492bb018cd7f16b96f8e15794006e4c7c",
+      "screenshotCount": 12
+    },
+    "visitorStaticContract": "PASS canonical_destinations=17",
+    "sororityBrowser": "PASS checks=138 external_provider_attempts=0",
+    "postOfficeStaticContract": "PASS",
+    "sunnyvaileHighStaticContract": "PASS checks=13"
+  },
+  "beforeAfter": {
+    "rawSharedBefore": {
+      "navRight": 333.94,
+      "documentScrollWidth": 334,
+      "viewportWidth": 320,
+      "status": "HOLD"
+    },
+    "rawSharedAfter": {
+      "navRight": 312,
+      "documentScrollWidth": 320,
+      "viewportWidth": 320,
+      "status": "PASS"
+    },
+    "desktopAnd390ComputedAppearance": "UNCHANGED IN FROZEN MATRIX",
+    "visitorAcceptedCompactGeometry": "MATCHED"
+  },
+  "aggregateMeasurement": {
+    "status": "BLOCKED_PROVIDER_DELIVERY_UNTOUCHED",
+    "contractSha256": "c11b059fec8d6955c30786bbbf315f14a7cbff0a29d3ab00192353c93e57ffa7",
+    "snapshotSha256": "0d1592ff3179a6d501583a011d4e2428d5a8bf67e9c65788f642de69df893a33",
+    "testSha256": "ddcffa3a78e5c8b5653f3b21801f47682f54acda330e5b0f10d4b942124ca5e8"
+  },
+  "acceptance": {
+    "maker": "Functionality & Platform",
+    "independentOwnersRequired": [
+      "Town Entry / Homepage",
+      "Visitor's Centre"
+    ],
+    "integrationComplete": false,
+    "deployment": "NOT_PERFORMED",
+    "publicVerification": "NOT_PERFORMED"
+  }
+}

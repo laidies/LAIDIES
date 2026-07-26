@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "candidateId": "LAIDIES-DOMAIN-METADATA-2026-07-26-v1",
+  "status": "BUILT_AND_VERIFIED_LOCALLY_INDEPENDENT_ACCEPTANCE_PENDING",
+  "payload": {
+    "authority": {
+      "path": "operations/product-stewards/platform-reliability/domain-transition-owner-receipt-v1-2026-07-26.md",
+      "sha256": "93361a7a42a4fb7de63f5b1f0120e6e63557529b419b2c92583825b56409cb99"
+    },
+    "sitemap": {
+      "path": "sitemap.xml",
+      "sha256": "accbb51c209f26c027d9bfd4ecb64886bdef515114e056c041acd7d0bfd56fa0",
+      "urls": 28,
+      "changed": false
+    },
+    "implementation": {
+      "modulePath": "operations/product-stewards/platform-reliability/domain-transition/v1/domain-metadata-v1.mjs",
+      "moduleSha256": "54f9c4d7de7522e68023ebae950e923740edc14ef137624b36b3f47206f9d32c",
+      "applyPath": "scripts/apply-domain-metadata-v1.mjs",
+      "applySha256": "b7d478bacab25782f9a250e6214c0026246c19978ef61e8ad104645441beae5e",
+      "predecessorManifestPath": "operations/product-stewards/platform-reliability/domain-transition/v1/domain-metadata-predecessor-v1.json",
+      "predecessorManifestSha256": "7a24033314f00ab812e2795aa1882d2deadcaed96891ba4b8bd20896f9059ff4",
+      "outputPath": "operations/product-stewards/platform-reliability/domain-transition/v1/domain-metadata-successor-v1-output.json",
+      "outputSha256": "2d6ce3cf36b65d2740a9dd154d2f8e823f76c1fdc5c10d82085c41fb78f708b5",
+      "corpusSha256": "f632f8142fdf4a5e9c51825d237d9762a1ca638c5cf1b7d5b92b92abb0fba50a"
+    },
+    "result": {
+      "changedRoutes": 28,
+      "canonicalMissingBefore": 26,
+      "canonicalMismatchBefore": 1,
+      "ogUrlMissingBefore": 26,
+      "ogUrlMismatchBefore": 1,
+      "canonicalMissingAfter": 0,
+      "canonicalMismatchAfter": 0,
+      "ogUrlMissingAfter": 0,
+      "ogUrlMismatchAfter": 0,
+      "metadataOnly": true,
+      "sitemapUnchanged": true
+    },
+    "tests": {
+      "successorPath": "operations/product-stewards/platform-reliability/domain-transition/v1/test-domain-metadata-successor-v1.mjs",
+      "successorSha256": "b242558baf10f9aaefa1c7b64ace8f6311a73ad7edeaf6bb9d4da8c37e9db3d5",
+      "successorResult": "PASS routes=28 canonical=28 og=28 sitemap_unchanged=1 artifact=28 rollback=28 invalid=2",
+      "localReadinessPath": "operations/product-stewards/platform-reliability/domain-transition/v1/test-domain-transition-local-readiness-v1.mjs",
+      "localReadinessSha256": "bc97ea6614b72367df822622488ffce11a3895020af2e7c9b4e984855e99774f",
+      "localReadinessResult": "PASS sitemap=28 canonical_missing=0 canonical_mismatch=0 og_missing=0 og_mismatch=0"
+    },
+    "rollback": {
+      "exactPredecessorHashes": 28,
+      "inverseVerified": 28,
+      "providerRuleChanged": false,
+      "sitemapChanged": false
+    },
+    "authorityCeiling": {
+      "deploy": false,
+      "publicMutation": false,
+      "providerOrCacheMutation": false,
+      "redirectRuleMutation": false,
+      "workerCorsMutation": false,
+      "analyticsProviderAccess": false,
+      "brandOrRouteContentMutation": false
+    },
+    "remainingProof": {
+      "providerRedirectRuleExportAndRollback": "PENDING",
+      "fullPublicLegacyRouteCorpus": "PENDING",
+      "searchAndSocialCacheMigration": "PENDING",
+      "privacySafeAnalyticsAttribution": "UNKNOWN",
+      "nativeAndPublicOriginMetadata": "NOT PERFORMED",
+      "legacyWorkerCorsRetirement": "BLOCKED BY OBSERVATION WINDOW AND OWNER ACCEPTANCE"
+    }
+  },
+  "seal": {
+    "algorithm": "SHA-256",
+    "canonicalization": "sorted-json-v1",
+    "payloadSha256": "1e7d887854f25236af3f98fabc01d64f9669631318474161e18d1c6af440659f"
+  }
+}

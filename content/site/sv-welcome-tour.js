@@ -2,9 +2,9 @@
  * THE WELCOME TOUR — first-visit guided walk through SUNNYVAiLE.
  *
  * Seventeen stops, one escort chip — the full guided walk through
- * SUNNYVAiLE in order, from the Visitor's Centre all the way to MAiKEOVER
+ * SUNNYVAiLE in order, from the Visitor’s Centre all the way to MAiKEOVER
  * (make your card), which ends the tour. Starts ONLY when the visitor asks
- * (menu item, homepage button, or the Visitor's Centre offer) — never
+ * (menu item, homepage button, or the Visitor’s Centre offer) — never
  * auto-plays, never returns after finish/skip.
  *
  * State: localStorage 'laidies_welcome_tour' = { step, startedAt, done, skipped }
@@ -16,8 +16,8 @@
   var KEY = 'laidies_welcome_tour';
 
   var STOPS = [
-    { href: '/visitors-centre.html', name: "The Welcome Wagon", icon: 'map',
-      line: "Every good town starts at the Visitor's Centre — press play on the trailer up top for a quick taste, then follow me and I'll walk you through every stop in town." },
+    { href: '/visitors-centre.html', name: "Visitor’s Centre", icon: 'map',
+      line: "Every good town starts at the Visitor’s Centre — press play on the trailer up top for a quick taste, then follow me and I'll walk you through every stop in town." },
     { href: '/newsstand.html', name: 'The NewsStand', icon: 'news',
       line: "Check the four source-checked desks: a qualified interruption, consequential briefing, durable synthesis or sourced argument. A quiet desk means no story earned the paper." },
     { href: '/chick-flicks.html', name: 'The Chick Flicks', icon: 'vhs',
@@ -209,7 +209,7 @@
     }, 30000);
   }
 
-  // Offer chip: shown ONLY on the Visitor's Centre to visitors who have
+  // Offer chip: shown ONLY on the Visitor’s Centre to visitors who have
   // never started, finished, or skipped the tour.
   function renderOffer() {
     injectStyle();
@@ -267,7 +267,7 @@
       renderChip(state);
       return;
     }
-    // Never started, never dismissed → offer it, on the Visitor's Centre only.
+    // Never started, never dismissed → offer it, on the Visitor’s Centre only.
     if (!state && pathNow() === '/visitors-centre.html') {
       renderOffer();
     }

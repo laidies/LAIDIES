@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "distributionId": "SVBN-CURATED-DISTRIBUTION-2026-07-26-v1",
+  "status": "BUILT_AND_VERIFIED_LOCALLY_INDEPENDENT_ACCEPTANCE_PENDING",
+  "evidenceTime": "2026-07-26T15:15:25-0700",
+  "payload": {
+    "candidate": {
+      "path": "content/site/sv-back-nav.js",
+      "sha256": "4490123a7d7ea447a125244ef1453c92c3cfdea32dca7fc86b6b096e57f9dfd3",
+      "behaviorTestPath": "scripts/test-sitewide-context-navigation.mjs",
+      "behaviorTestSha256": "8458b9de5c8f3e062f8b114d0b87f1182b0e395cbf61164d56a290951b927b92"
+    },
+    "distribution": {
+      "modulePath": "scripts/lib/context-navigation-distribution-v1.mjs",
+      "moduleSha256": "ba99adf536deea8f6b07dfb9fac65fa6f1ba9a2e0829cec7065f2c6c99726c13",
+      "builderPath": "scripts/build-public-site.mjs",
+      "predecessorBuilderSha256": "b10adb9ec919d38f0035d83794dba9f5d524876adfd4a38cf6b398bd5f49ce6f",
+      "builderSha256": "0880b84356680adf65cb344fa51cf179e52b80af6708ae3ad73332bc7065cc8b",
+      "publicSrc": "/content/site/sv-back-nav.js?v=svbn-2026-07-26-v1-4490123a7d7e",
+      "sourceLoaderBaseline": 18,
+      "curatedHtmlArtifacts": 88,
+      "curatedInventorySha256": "cc99d6d5f9b497d69244dd6dbc35f6ebdf8926a5214e27b85f81bbdf998e786c",
+      "mountsPerArtifact": 1
+    },
+    "tests": {
+      "distributionPath": "operations/product-stewards/platform-reliability/context-navigation/v1/test-context-navigation-distribution-v1.mjs",
+      "distributionSha256": "403a62520b12af2aa03c75a7cf97ae0e786cfa812f4f0a61c5d59e8ad1e29d23",
+      "distributionResult": "PASS html=88 predecessor_loaders=18 ordered_pages=4 duplicate_reject=1 idempotency=1 rollback=PASS",
+      "consumerMatrixPath": "operations/product-stewards/platform-reliability/context-navigation/v1/test-context-navigation-consumer-matrix-v1.mjs",
+      "consumerMatrixSha256": "2c463381c03a27d4b8ec9040522e732fdcf1d9417a0cdcdeefb1fee50e8154b3",
+      "consumerMatrixResult": "PASS rendered=9 no_js=3 internal=1",
+      "candidateBehaviorResult": "PASS scenarios=4 mobile_touch_target=PASS"
+    },
+    "preservation": {
+      "orderedPreviousNextSourceByteEquivalent": true,
+      "orderedInteractivePagesChecked": 4,
+      "duplicateSourceMountsFailClosed": true,
+      "missingBodyCloseFailsClosed": true,
+      "candidateHashMismatchFailsBuild": true,
+      "sourceRouteMutation": false,
+      "sharedHeaderMutation": false,
+      "homepageSha256": "d09d2acb6f8bcb54873de5009b75fea3551c81124ff925e55a9c2eb68a671189",
+      "startHereSha256": "76c5f80edc543209a8fd5822ee31e1d47c3ef54a5750ebf164bce1a9fd902e56",
+      "visitorsCentreSha256": "1d0e729dcc47d57eb2d942be0ac1e04aa793fcecbc84da2174beece2a4a4337a",
+      "sharedHeaderSha256": "807bbe6b17abf09725b6fe82fb3c483102b658fda2cda571862f0e89b6661efa"
+    },
+    "privacyAndFailure": {
+      "storage": "NONE",
+      "analytics": "NONE",
+      "networkProvider": "NONE",
+      "sameOriginReferrerUse": "in-memory exact contextual return only",
+      "externalReferrerBehavior": "SUNNYVAiLE home fallback; never history.back",
+      "directEntryBehavior": "SUNNYVAiLE home fallback except redundant direct home",
+      "noJavaScriptBehavior": "contextual control absent; existing source route and ordered links remain byte-equivalent",
+      "publicOrNativeProof": "NOT PERFORMED"
+    },
+    "rollback": {
+      "inverseBuilderSha256": "b10adb9ec919d38f0035d83794dba9f5d524876adfd4a38cf6b398bd5f49ce6f",
+      "sourceRoutesChanged": false,
+      "providerOrCacheMutation": false
+    },
+    "authorityCeiling": {
+      "deploy": false,
+      "publicMutation": false,
+      "providerOrCacheMutation": false,
+      "domainOrBackendMutation": false,
+      "brandOrArtMutation": false,
+      "visitorContainmentRemoval": false
+    },
+    "acceptance": {
+      "platformMaker": "PASS",
+      "townEntryConsumer": "PENDING",
+      "visitorsCentreConsumer": "PENDING",
+      "orderedExperienceIndependentJudge": "PENDING"
+    }
+  },
+  "seal": {
+    "algorithm": "SHA-256",
+    "canonicalization": "sorted-json-v1",
+    "payloadSha256": "6018ccf30c65dab26fd7aa0095b1c2007c1b4fdd7b44d7de0e63f326c477152c"
+  }
+}

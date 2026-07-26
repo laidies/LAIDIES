@@ -73,7 +73,7 @@
 
   var onHomepage = /^\/(index\.html)?$/.test(window.location.pathname);
   var FIRST = onHomepage
-    ? { href: '/visitors-centre.html', icon: 'map',  label: 'Start here', title: "Welcome Wagon Visitor's Centre" }
+    ? { href: '/visitors-centre.html', icon: 'map',  label: 'Start here', title: "Visitor’s Centre" }
     : { href: '/', icon: 'home', label: 'Home', title: 'Back to SUNNYVAiLE' };
 
   var ITEMS = [

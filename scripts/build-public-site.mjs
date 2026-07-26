@@ -13,6 +13,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 import crypto from 'node:crypto';
+import {
+  CONTEXT_NAV_SOURCE_PATH,
+  CONTEXT_NAV_SOURCE_SHA256,
+  distributeContextNavigation,
+} from './lib/context-navigation-distribution-v1.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const output = path.resolve(process.argv[2] || path.join(process.env.TMPDIR || '/tmp', 'laidies-public-site'));
@@ -50,6 +55,11 @@ const derivedEditions = new Map(
   Object.entries(derivedManifest.editions || {}).map(([episode, edition]) => [edition.sourceCuePath, { episode, ...edition }]),
 );
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex');
+
+const contextNavBytes = fs.readFileSync(path.join(root, CONTEXT_NAV_SOURCE_PATH));
+if (sha256(contextNavBytes) !== CONTEXT_NAV_SOURCE_SHA256) {
+  throw new Error(`Context navigation source hash mismatch: ${CONTEXT_NAV_SOURCE_PATH}`);
+}
 
 function isVisitorHtmlName(name) {
   return (
@@ -196,7 +206,7 @@ function extractLocalReferences(source, relative) {
 
 function publicTextSource(relative, source) {
   const edition = derivedEditions.get(relative);
-  if (!edition) return source;
+  if (!edition) return distributeContextNavigation(relative, source);
   if (sha256(source) !== edition.sourceCueSha256) {
     throw new Error(`Derived edition source hash mismatch: ${relative}`);
   }
@@ -233,7 +243,7 @@ function publicTextSource(relative, source) {
   if (sha256(outputSource) !== edition.artifactCueSha256) {
     throw new Error(`Derived edition artifact hash mismatch: ${relative}`);
   }
-  return outputSource;
+  return distributeContextNavigation(relative, outputSource);
 }
 
 function copyFile(relative) {
