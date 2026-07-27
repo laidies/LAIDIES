@@ -274,7 +274,7 @@
       <a href="/chick-flicks.html"><span>Return the tape</span><b>The Chick Flicks</b></a>
       <a href="/issues/issue-01.html" id="screeningArticleLink"><span>Read the issue</span><b>Open the full story</b></a>
       <a href="/handbook.html"><span>Take it with you</span><b>The LA<span class="ai">i</span>DIES Handbook</b></a>
-      <p class="scr-note" id="scrNote">Press play for the illustrated listen-along. Motion-film editions are not approved for the public Screening Room.</p>
+      <p class="scr-note" id="scrNote">Choose a programme to see its available screening format.</p>
     </section>
   </main>
 
@@ -312,11 +312,11 @@
     var startOver = document.getElementById('startOver');
     var playerFailed = false;
 
-    // Public playback stays on the cue-synced illustrated listen-along until
-    // the large motion masters pass owner continuity review and move to a
-    // dependable streaming host. Review files on the studio drive are not
-    // public release URLs.
-    var EPISODE_FILMS = {};
+    // Only independently accepted motion masters belong here. Large films are
+    // served from the immutable LAiDIES film origin rather than the site build.
+    var EPISODE_FILMS = {
+      '04': 'https://films.laidies.ai/episodes/episode-04-full-v8-welcome-founding-mothers-ident-v3-9e8eea3b019e.mp4'
+    };
     // Read-along captions. Timed against the narration audio, which runs the same
     // length as the film (20:22.40 for Ep4), so the VTT drops on with no offset.
     // Ep1/Ep2 captions are forced-aligned to those episodes' own narration audio
@@ -396,7 +396,7 @@
         : '/issues/issue-' + episodeKey(ep) + '.html';
     }
     var screeningMeta = document.getElementById('screeningMeta');
-    var narratedOnly = episodeKey(ep) === '03' || episodeKey(ep) === '04';
+    var narratedOnly = episodeKey(ep) === '03';
     if (screeningMeta) {
       screeningMeta.textContent = EPISODE_CAPTION_STATUS[episodeKey(ep)].coverage === 'partial'
         ? EPISODE_CAPTION_STATUS[episodeKey(ep)].note
@@ -843,11 +843,12 @@
         var admission = payloads[1] && payloads[1].programmes
           ? payloads[1].programmes[episodeKey(ep)]
           : null;
+        var releaseFilm = filmFor(ep);
         var visualsReleased = admission
           && admission.admissionStatus === 'release'
           && Array.isArray(admission.occurrences)
           && admission.occurrences.length === admission.expectedOccurrenceCount;
-        if (!visualsReleased) {
+        if (!visualsReleased && !releaseFilm) {
           data = Object.assign({}, data, {
             edition: { kind: 'cover-only-audio' },
             cues: [{
@@ -872,7 +873,11 @@
           document.title = 'Episode ' + data.episode
             + (titleText ? ' · ' + titleText : '') + ' · The Screening Room · SUNNYVAiLE';
         }
-        if (data.edition && data.edition.kind === 'cover-only-audio') {
+        if (releaseFilm) {
+          screeningMeta.textContent = 'Full motion episode · read-along captions available';
+          screeningIntro.textContent = 'Watch the complete Episode 04 motion film with its original narration and read-along captions.';
+          scrNote.textContent = 'Episode 04 is now screening as the complete motion film.';
+        } else if (data.edition && data.edition.kind === 'cover-only-audio') {
           screeningMeta.textContent = 'Cover-only audio edition · static cover · read-along captions';
           screeningIntro.textContent = 'The narration and read-along captions play while one static episode cover remains on screen.';
           scrNote.textContent = 'This is a held cover-only audio edition. It is not an illustrated motion film or a narration-specific visual sequence.';

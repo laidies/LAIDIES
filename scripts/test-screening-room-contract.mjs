@@ -17,8 +17,9 @@ const admission = JSON.parse(read("content/episodes/screening-room-admission.jso
 const derived = JSON.parse(read("content/episodes/screening-room-derived-editions.json"));
 const isArtifact = exists("build-report.json");
 
-assert.match(page, /var EPISODE_FILMS = \{\}/);
-assert.match(page, /Motion-film editions are not approved for the public Screening Room/);
+assert.match(page, /var EPISODE_FILMS = \{[\s\S]*?'04': 'https:\/\/films\.laidies\.ai\/episodes\/episode-04-full-v8-welcome-founding-mothers-ident-v3-9e8eea3b019e\.mp4'[\s\S]*?\}/);
+assert.doesNotMatch(page, /'01': 'https:\/\/films\.laidies\.ai|(?:'02'|'03'|'trailer'): 'https:\/\/films\.laidies\.ai/);
+assert.match(page, /Episode 04 is now screening as the complete motion film/);
 assert.match(page, /A motion-film edition is not approved for public screening/);
 assert.doesNotMatch(page, /final motion films are completing their continuity check/i);
 assert.match(page, /Illustrated listen-alongs/);
@@ -142,10 +143,10 @@ assert.deepEqual(
   "Episode 02 semantic-onset clock differs from the authoritative VTT audit"
 );
 
-console.log(failures.length ? "SCREENING ROOM REPAIR CONTRACT FAIL" : "SCREENING ROOM REPAIR CONTRACT PASS — TITLES HOLD");
+console.log(failures.length ? "SCREENING ROOM REPAIR CONTRACT FAIL" : "SCREENING ROOM REPAIR CONTRACT PASS — EPISODE 04 FILM BOUND");
 console.log(`programmes=${ids.length}`);
 console.log(`published_episodes=${published.length}`);
-console.log(`motion_films=0`);
+console.log(`motion_films=1`);
 for (const warning of warnings) console.log(`HOLD: ${warning}`);
 for (const failure of failures) console.error(`FAIL: ${failure}`);
 if (failures.length) process.exit(1);
