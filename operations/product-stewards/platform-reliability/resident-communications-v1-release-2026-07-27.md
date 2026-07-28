@@ -1,8 +1,8 @@
 # Resident communications v1 release evidence
 
-**Evidence time:** 2026-07-27 21:34 PDT  
-**Product state:** `BUILT / BACKEND APPLIED / PREVIEW VERIFIED`  
-**Source branch:** `resident-communications-20260727`  
+**Evidence time:** 2026-07-27 21:34 PDT
+**Product state:** `DEPLOYED / PUBLICLY VERIFIED`
+**Source branch:** `resident-communications-20260727`
 **Source commit at first preview:** `1dce196`
 
 ## What was already real
@@ -73,6 +73,25 @@ retained.
 - seven changed public files matched the built artifact byte for byte on the
   preview.
 
+## Production release
+
+- Release source commit:
+  `cd936df76543323e3e56e4b5d9469e6d1f61d9c6`
+- Cloudflare Pages deployment:
+  `9bd1513e-cb01-4a46-89e9-fda49b375503`
+- Immutable origin:
+  `https://9bd1513e.laidies-sunnyvaile.pages.dev`
+- Rollback deployment:
+  `60c3b069-39d2-4174-bc8f-3e99760374b3`
+- Exact public byte parity:
+  `resident-chat.html`, its JS and CSS, the gifting JS, Trading Cards,
+  Post Office and the sitewide auth navigation all match the built artifact at
+  both the immutable origin and `https://laidies.ai`.
+- Live visitor checks:
+  Resident Chat, Trading Cards and Post Office load from the public origin and
+  fail closed when signed out. The Post Office exposes the duplicate-transfer
+  counter and links to private resident chat.
+
 ## Remaining truth
 
 - The communications and duplicate-gifting mechanics are operational in the
@@ -81,6 +100,6 @@ retained.
   there are 20 concept cards and only one character card. The missing character,
   episode and town-card artwork remains a separate creative production scope.
 - No claim is made here that private resident messages are end-to-end encrypted.
-- Production publication and public-origin verification are recorded only
-  after the exact release is deployed.
-
+- Public deployment does not create the missing character, episode and town
+  card artwork; it makes the existing catalogue, pack, binder, gifting and chat
+  mechanics operational.

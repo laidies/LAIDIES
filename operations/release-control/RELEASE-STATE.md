@@ -1,12 +1,29 @@
 # LAiDIES release state
 
-**Updated:** 2026-07-26 07:48 PDT
+**Updated:** 2026-07-27 21:38 PDT
 **Release owner:** current whole-site release and product-champion orchestrator
 **Rule:** `LOCAL`, `COMMITTED`, `PUSHED`, `DEPLOYED`, and `PUBLICLY VERIFIED`
 are different states. A change may use only the highest state for which evidence
 is recorded here.
 
 ## Current truth
+
+### Resident communications release — 2026-07-27
+
+Resident Communications v1 is `DEPLOYED / PUBLICLY VERIFIED`.
+
+| Field | Exact evidence |
+|---|---|
+| Source branch | `resident-communications-20260727` |
+| Source commit | `cd936df76543323e3e56e4b5d9469e6d1f61d9c6` |
+| Public artifact | `/tmp/laidies-resident-communications.THEPtY`; 1,093 files; 959.62 MiB |
+| Cloudflare deployment | `9bd1513e-cb01-4a46-89e9-fda49b375503` |
+| Immutable origin | `https://9bd1513e.laidies-sunnyvaile.pages.dev` |
+| Rollback target | `60c3b069-39d2-4174-bc8f-3e99760374b3` |
+| Backend | Supabase migrations `20260727213000` and `20260727214500` applied; combined duplicate-gift/direct/group/read/report transaction PASS and rolled back |
+| Public verification | Seven changed files byte-identical between artifact, immutable origin and `https://laidies.ai`; public Resident Chat, Trading Cards and Post Office signed-out journeys PASS |
+| Exact scope | authoritative existing binder/pack integration, duplicate-only gifting, private direct/group resident chat, unread navigation |
+| Explicit exclusion | card art catalogue expansion: live catalogue remains 20 concept cards and one character card |
 
 | Layer | State | Evidence |
 |---|---|---|
