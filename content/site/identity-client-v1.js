@@ -53,9 +53,23 @@
       ? settings.hasLocalHistory
       : function () { return false; };
 
+    function canonicalJson(value) {
+      if (Array.isArray(value)) {
+        return value.map(canonicalJson);
+      }
+      if (value && typeof value === "object") {
+        return Object.keys(value).sort().reduce(function (result, key) {
+          result[key] = canonicalJson(value[key]);
+          return result;
+        }, {});
+      }
+      return value;
+    }
+
     function sameDocument(left, right) {
       try {
-        return JSON.stringify(left) === JSON.stringify(right);
+        return JSON.stringify(canonicalJson(left)) ===
+          JSON.stringify(canonicalJson(right));
       } catch (_) {
         return false;
       }
@@ -65,6 +79,24 @@
       var result = await client.auth.getSession();
       if (result.error) throw result.error;
       return result.data && result.data.session || null;
+    }
+
+    async function mutationRpc(name, args) {
+      var result;
+      var delays = [0, 120, 300, 700];
+      for (var attempt = 0; attempt < delays.length; attempt += 1) {
+        if (delays[attempt]) {
+          await new Promise(function (resolve) {
+            global.setTimeout(resolve, delays[attempt]);
+          });
+        }
+        result = await client.rpc(name, args);
+        if (!result.error ||
+            result.error.message !== "identity-mutation-busy") {
+          return result;
+        }
+      }
+      return result;
     }
 
     async function getState() {
@@ -135,7 +167,7 @@
       }
       var session = await getSession();
       if (!session) throw new Error("authentication-required");
-      var mutation = await client.rpc("claim_resident_card_v1", {
+      var mutation = await mutationRpc("claim_resident_card_v1", {
         p_document: envelope,
         p_idempotency_key: idempotencyKey,
         p_expected_revision: expectedRevision || null
@@ -160,7 +192,7 @@
     }
 
     async function revokeCard(idempotencyKey, expectedRevision) {
-      var result = await client.rpc("revoke_my_resident_card_v1", {
+      var result = await mutationRpc("revoke_my_resident_card_v1", {
         p_idempotency_key: idempotencyKey,
         p_expected_revision: expectedRevision
       });
@@ -170,7 +202,7 @@
 
     async function updateProfile(profile, idempotencyKey) {
       var requested = profile || {};
-      var mutation = await client.rpc("update_my_resident_profile_v1", {
+      var mutation = await mutationRpc("update_my_resident_profile_v1", {
         p_display_name: requested.displayName == null
           ? null
           : String(requested.displayName),

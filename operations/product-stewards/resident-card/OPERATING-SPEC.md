@@ -59,13 +59,20 @@ not three competing identity systems.
 - **Forbidden escalation:** no local value may authorize account data, public
   publication, community identity, room access, reward issuance or
   cross-device restoration.
-- **Backend:** none on `/resident-card.html`. Controlled Closet account
-  preflight remains localhost-only and is not approved for production use.
+- **Released frontend:** the current public route remains device-local until
+  the checksum-bound account candidate is released and publicly verified.
+- **Live private backend:** Supabase Auth, RLS and authenticated Card/profile
+  RPCs passed the two-account/three-session live suite on 2026-07-27.
+- **Frontend candidate:** Resident Card claim and second-browser Closet restore
+  pass locally against that live backend. Public Card sharing, rewards and
+  community identity remain outside this contract.
 
 ## Privacy, safety and reliability
 
-- Resident Card status asks for and submits no email.
-- The route must not load account SDK/config or hidden account/profile forms.
+- The released device-local route asks for and submits no email.
+- The account candidate has one explicit private sign-in form owned by the
+  Resident Card desk; it does not subscribe, publish a Card or move unrelated
+  local collections.
 - Never expose unknown envelope fields or private profile data.
 - A record rejected by the shared projection cannot render as a supported Card
   in the status route, MAiKEOVER or Closet.
@@ -137,7 +144,7 @@ pay-to-recover, reward boosts and sponsor access to profile or identity data.
 Current device-local P0 requires:
 
 - contract and browser suites pass;
-- no email/account runtime on the held route;
+- no hidden account runtime on the released device-local route;
 - newcomer, returning, invalid and blocked-storage journeys pass;
 - local identity cannot unlock, publish, sign or prove rewards;
 - fresh artifact contains exact approved source bytes;
@@ -152,3 +159,9 @@ Account/public/cross-device release additionally requires:
 - two-device create/edit/restore/logout/revoke/private/public suite;
 - recovery and deletion contract;
 - provider-cost/support plan and rollback rehearsal.
+
+The private cross-browser candidate has satisfied authenticated identity, RLS,
+direct-table denial, two-account isolation, two-browser restore, logout/revoke
+service behavior and local rollback-preserving tests. Email delivery,
+native-accessibility and public-origin verification remain open. Public Card
+projection is not part of this candidate.

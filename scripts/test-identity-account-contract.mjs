@@ -80,7 +80,13 @@ const client = {
         data: remoteRevision
           ? {
               state: "account-backed-resident",
-              card: { revision: remoteRevision, document: envelope },
+              card: {
+                revision: remoteRevision,
+                document: {
+                  fields: { displayName: envelope.fields.displayName },
+                  version: envelope.version
+                }
+              },
               profile: remoteProfile
             }
           : {
@@ -166,8 +172,11 @@ for (const required of [
   /primary key \(owner_id, idempotency_key\)/i,
   /request jsonb not null/i,
   /idempotency-conflict/i,
-  /pg_advisory_xact_lock/i,
+  /pg_try_advisory_xact_lock/i,
+  /identity-mutation-busy/i,
   /revision-conflict/i,
+  /v_current\.deleted_at is not null/i,
+  /on conflict \(owner_id\) do update/i,
   /resident_card_v1_is_valid/i,
   /update_my_resident_profile_v1/i,
   /invalid-card-username/i,
@@ -175,6 +184,17 @@ for (const required of [
 ]) {
   assert.match(migrationSource, required);
 }
+
+assert.doesNotMatch(
+  migrationSource,
+  /errcode\s*=\s*['"]40001['"]/i,
+  "application revision conflicts must not masquerade as retryable database serialization failures"
+);
+assert.match(
+  migrationSource,
+  /errcode\s*=\s*['"]PT409['"]/i,
+  "application revision conflicts must return an explicit HTTP 409"
+);
 
 assert.doesNotMatch(
   moduleSource,

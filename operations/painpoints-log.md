@@ -3319,3 +3319,44 @@ _Original source ID: repository #36_
 - **Privacy/IP/reputation:** Do not preserve or republish engagement data,
   private account details or the rejected announcement beyond the internal
   operational record.
+
+## BTB-225 · The simulated account passed while the real browser still failed
+
+`category: identity · live-service testing · cross-browser persistence`
+— ① Start with the real problem
+`source: Resident Card live Supabase and Closet verification, 2026-07-27`
+`publication status: VERIFIED AND CORRECTED LOCALLY — PREVENTION RULE`
+
+- **Context:** The recovered Resident Card account vertical already had static
+  contract checks and a multi-device simulation.
+- **Issue:** Those tests did not exercise Supabase/PostgREST error semantics,
+  revoked-row re-claim or JSONB key ordering through the real page.
+- **What happens:** The simulated suite passes, but stale-revision requests
+  time out, a resident cannot make a new Card after revoking one, and the real
+  page reports a successful remote write as failed.
+- **Evidence observed:** The live two-account/three-session service test first
+  hung at `revision-conflict`; the real Resident Card page then displayed
+  `remote-read-after-write-failed`. Exact fixes and the passing cross-browser
+  result are bound in
+  `operations/product-stewards/resident-card/live-account-cross-browser-verification-2026-07-27.md`.
+- **Diagnosis:** **Verified.** Application conflicts were labelled as database
+  serialization failures, deleted rows required an invisible revision, and
+  object equality depended on JSON key insertion order.
+- **Prevent / Fix:** Every account release must run the actual provider,
+  transport and representative page journey with at least two accounts and
+  two independent browser contexts. Include claim, retry, stale mutation,
+  revoke, re-claim, isolation, direct-table denial and consumer-page restore.
+  Compare JSON objects canonically, not by raw serialization order.
+- **Why the fix works:** It tests the service and the page behavior residents
+  actually receive, including provider-specific semantics that mocks cannot
+  reproduce.
+- **New output:** Repeatable live service and real cross-browser scripts plus
+  a checksum-bound evidence receipt; temporary accounts were removed.
+- **Transferable lesson:** A simulated backend is evidence about our model of
+  the service, not evidence that the service and product work together.
+- **Internal rule/check updated:** Account work cannot advance on static or
+  simulated PASS alone; live provider and representative consumer-page gates
+  are mandatory.
+- **Public angle:** “The backend passed—until we opened the real page.”
+- **Privacy/IP/reputation:** Test accounts are temporary and must be deleted
+  with zero residual profiles, Cards and receipts before handoff.

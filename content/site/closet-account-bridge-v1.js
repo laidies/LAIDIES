@@ -1,9 +1,23 @@
 (function closetAccountBridgeV1() {
   "use strict";
 
+  function canonicalJson(value) {
+    if (Array.isArray(value)) {
+      return value.map(canonicalJson);
+    }
+    if (value && typeof value === "object") {
+      return Object.keys(value).sort().reduce(function (result, key) {
+        result[key] = canonicalJson(value[key]);
+        return result;
+      }, {});
+    }
+    return value;
+  }
+
   function sameDocument(left, right) {
     try {
-      return JSON.stringify(left) === JSON.stringify(right);
+      return JSON.stringify(canonicalJson(left)) ===
+        JSON.stringify(canonicalJson(right));
     } catch (_) {
       return false;
     }

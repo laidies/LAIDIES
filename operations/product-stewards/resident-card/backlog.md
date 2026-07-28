@@ -27,8 +27,11 @@
 
 ## HIDE/LABEL
 
-7. **RC-006 — account/public/cross-device.** Keep unavailable until identity,
-   privacy, RLS, public projection and two-device gates pass.
+7. **RC-006 — private account/cross-browser candidate.** Live Supabase Auth,
+   RLS, direct-table denial, two-account isolation, Card claim/revoke/re-claim
+   and real two-browser Closet restore pass. Keep the frontend held until
+   release review, real magic-link delivery, native accessibility and public
+   origin verification complete. Public Card projection remains separate.
 8. **RC-007 — rewards and progression.** Keep separate-store truth; Card
    presentation never proves reward ownership or learning.
 

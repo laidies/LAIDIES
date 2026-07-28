@@ -217,9 +217,13 @@ begin
 
   -- Serialize identity mutations per resident. This closes first-claim and
   -- same-key retry races without blocking unrelated residents.
-  perform pg_catalog.pg_advisory_xact_lock(
+  if not pg_catalog.pg_try_advisory_xact_lock(
     pg_catalog.hashtextextended(v_owner::text, 0)
-  );
+  ) then
+    raise exception using
+      errcode = '55P03',
+      message = 'identity-mutation-busy';
+  end if;
 
   v_request := jsonb_build_object(
     'document', p_document,
@@ -246,19 +250,28 @@ begin
    where owner_id = v_owner
    for update;
 
-  if v_current.owner_id is null then
+  if v_current.owner_id is null or v_current.deleted_at is not null then
     if p_expected_revision is not null then
-      raise exception using errcode = '40001', message = 'revision-conflict';
+      -- This is an application-level optimistic-concurrency conflict, not a
+      -- PostgreSQL serialization failure. PT409 prevents API infrastructure
+      -- from retrying a request that can only succeed with a fresh revision.
+      raise exception using errcode = 'PT409', message = 'revision-conflict';
     end if;
     insert into public.resident_cards (
       owner_id, schema_version, document, revision, updated_at, deleted_at
     ) values (
       v_owner, 1, p_document, v_revision, now(), null
-    );
+    )
+    on conflict (owner_id) do update
+       set schema_version = excluded.schema_version,
+           document = excluded.document,
+           revision = excluded.revision,
+           updated_at = excluded.updated_at,
+           deleted_at = null;
   else
     if p_expected_revision is null
        or p_expected_revision <> v_current.revision then
-      raise exception using errcode = '40001', message = 'revision-conflict';
+      raise exception using errcode = 'PT409', message = 'revision-conflict';
     end if;
     update public.resident_cards
        set document = p_document,
@@ -309,9 +322,13 @@ begin
     raise exception using errcode = '22023', message = 'mutation-keys-required';
   end if;
 
-  perform pg_catalog.pg_advisory_xact_lock(
+  if not pg_catalog.pg_try_advisory_xact_lock(
     pg_catalog.hashtextextended(v_owner::text, 0)
-  );
+  ) then
+    raise exception using
+      errcode = '55P03',
+      message = 'identity-mutation-busy';
+  end if;
 
   v_request := jsonb_build_object('expected_revision', p_expected_revision);
   select *
@@ -337,7 +354,7 @@ begin
   if v_current.owner_id is null
      or v_current.deleted_at is not null
      or v_current.revision <> p_expected_revision then
-    raise exception using errcode = '40001', message = 'revision-conflict';
+    raise exception using errcode = 'PT409', message = 'revision-conflict';
   end if;
 
   update public.resident_cards
@@ -397,9 +414,13 @@ begin
     raise exception using errcode = '22023', message = 'invalid-card-username';
   end if;
 
-  perform pg_catalog.pg_advisory_xact_lock(
+  if not pg_catalog.pg_try_advisory_xact_lock(
     pg_catalog.hashtextextended(v_owner::text, 0)
-  );
+  ) then
+    raise exception using
+      errcode = '55P03',
+      message = 'identity-mutation-busy';
+  end if;
 
   v_request := jsonb_build_object(
     'display_name', v_display_name,
