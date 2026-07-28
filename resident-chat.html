@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SUNNYVAiLE Resident Chat · LAiDIES</title>
+  <meta name="description" content="Private handle-addressed resident and group chat for SUNNYVAiLE.">
+  <link rel="canonical" href="https://laidies.ai/resident-chat.html">
+  <meta property="og:url" content="https://laidies.ai/resident-chat.html">
+  <link rel="stylesheet" href="/content/site/resident-chat-v1.css?v=20260727-1">
+</head>
+<body class="resident-chat">
+  <main class="chat-shell">
+    <header class="chat-titlebar">
+      <span class="chat-titlebar__flower" aria-hidden="true">✿</span>
+      <h1>SUNNYVAiLE Chat</h1>
+      <a href="/post-office.html">Post Office</a>
+    </header>
+    <p class="chat-status" role="status" aria-live="polite" data-chat-status>Connecting private resident chat…</p>
+
+    <div class="chat-layout">
+      <aside class="chat-sidebar" aria-label="Conversation controls">
+        <div class="chat-actions">
+          <h2>Start a chat</h2>
+          <form class="chat-field" data-direct-form>
+            <label for="directHandle">Resident handle</label>
+            <input id="directHandle" name="handle" placeholder="@resident" maxlength="40" autocomplete="off" required>
+            <button class="chat-button" type="submit">Open private chat</button>
+          </form>
+          <form class="chat-field" data-group-form>
+            <label for="groupTitle">Group name</label>
+            <input id="groupTitle" name="title" maxlength="80" required>
+            <label for="groupHandles">Resident handles, comma separated</label>
+            <textarea id="groupHandles" name="handles" rows="3" placeholder="@jo, @sam" required></textarea>
+            <button class="chat-button" type="submit">Create private group</button>
+          </form>
+        </div>
+        <nav class="chat-thread-list" aria-label="Your conversations" data-chat-thread-list>
+          <p>Loading conversations…</p>
+        </nav>
+      </aside>
+
+      <section class="chat-thread" aria-labelledby="activeChatTitle">
+        <header class="chat-thread__head">
+          <h2 id="activeChatTitle" data-chat-title>Start a conversation</h2>
+          <p data-chat-detail>Use a resident handle. Email addresses are never shown.</p>
+        </header>
+        <div class="chat-messages" aria-live="polite" data-chat-messages>
+          <div class="chat-empty"><p>Opening your private chats…</p></div>
+        </div>
+        <form class="chat-compose chat-field" data-compose-form hidden>
+          <label class="sr-only" for="chatMessage">Message</label>
+          <textarea id="chatMessage" data-compose-body maxlength="2000" placeholder="Type a message…" required></textarea>
+          <button class="chat-button chat-button--send" type="submit">Send</button>
+        </form>
+      </section>
+    </div>
+  </main>
+  <script src="/content/site/supabase-config.js"></script>
+  <script defer src="/content/site/resident-chat-v1.js?v=20260727-1"></script>
+</body>
+</html>
+

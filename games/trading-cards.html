@@ -849,15 +849,11 @@
             <!-- Pack Controls (moved out of hero) -->
             <div class="pack-controls">
               <select class="pack-select" id="packSelect" aria-label="Pick a pack">
-                <option value="all">All released cards</option>
-                <option value="1">Issue 01 pack</option>
-                <option value="2">Issue 02 pack</option>
-                <option value="3">Issue 03 pack</option>
+                <option value="">Checking your unopened packs…</option>
               </select>
               <button class="btn" id="openPackBtn">&#x1F4E6; Open Pack</button>
-              <button class="btn btn-secondary" id="resetBtn">Reset</button>
             </div>
-            <p class="pack-status" id="packStatus">Open your first pack. Duplicates are part of the drama.</p>
+            <p class="pack-status" id="packStatus">Opening your account-backed binder…</p>
           </div>
         </section>
 
@@ -962,6 +958,7 @@
     </main>
 
     <!-- Scripts -->
+    <script src="../content/site/supabase-config.js"></script>
     <script>
     (function() {
       'use strict';
@@ -1151,31 +1148,11 @@
         }
       ];
 
-      // === Local Storage ===
-      const STORAGE_KEY = 'laidies_card_collection';
+      // The previous page rolled packs and reset the binder in localStorage.
+      // Pack contents and ownership now come only from the account-backed
+      // Supabase functions. localStorage keeps the last reveal animation only.
       const LAST_PULLS_KEY = 'laidies_last_pulls';
 
-      function getCollection() {
-        try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
-        catch { return {}; }
-      }
-      function saveCollection(coll) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(coll));
-        // Cards pulled here used to go nowhere — the Closet's binder is built from
-        // reward events, and nothing ever turned this store into one. So you could
-        // open packs all day and your Closet stayed empty. script.js reads both this
-        // store and the title cache below to emit `trading_card` events on sync.
-        // (Same pattern Girl Talk uses with laidies_gt_names.) Fixed 2026-07-22.
-        try {
-          var meta = {};
-          allCards.forEach(function (c) {
-            if ((coll[c.id] || 0) > 0) {
-              meta[c.id] = { title: c.title, rarity: c.rarity, episode: c.episode };
-            }
-          });
-          localStorage.setItem('laidies_cards_meta', JSON.stringify(meta));
-        } catch (e) {}
-      }
       function getLastPulls() {
         try { return JSON.parse(localStorage.getItem(LAST_PULLS_KEY)) || []; }
         catch { return []; }
@@ -1184,12 +1161,13 @@
         localStorage.setItem(LAST_PULLS_KEY, JSON.stringify(pulls));
       }
 
-      let collection = getCollection();
+      let collection = {};
+      let supabaseClient = null;
+      let currentSession = null;
 
       // === DOM refs ===
       const packSelect = document.getElementById('packSelect');
       const openPackBtn = document.getElementById('openPackBtn');
-      const resetBtn = document.getElementById('resetBtn');
       const packPulls = document.getElementById('packPulls');
       const packStatus = document.getElementById('packStatus');
       const binderGrid = document.getElementById('binderGrid');
@@ -1206,19 +1184,13 @@
         returnLink.textContent = '\u2190 Back to Weekly Study Pack';
         returnLink.hidden = false;
       }
-      if (issueMatch && packSelect.querySelector('option[value="' + Number(issueMatch[0]) + '"]')) {
-        packSelect.value = String(Number(issueMatch[0]));
-      }
-
-      // === Get selected pack cards ===
-      function getSelectedCards() {
-        const val = packSelect.value;
-        if (val === 'all') return allCards;
-        return allCards.filter(c => c.episode === parseInt(val));
-      }
       function setReadyStatusForSelectedPack() {
-        const selectedLabel = packSelect.selectedOptions[0] ? packSelect.selectedOptions[0].textContent : 'selected pack';
-        packStatus.textContent = selectedLabel + ' is selected. Open it to see what is in the wrapper.';
+        const selectedLabel = packSelect.selectedOptions[0]
+          ? packSelect.selectedOptions[0].textContent
+          : 'selected pack';
+        packStatus.textContent = packSelect.value
+          ? selectedLabel + ' is selected. Open it to see what is in the wrapper.'
+          : 'There is no unopened pack selected.';
       }
 
       // === Progress update ===
@@ -1277,72 +1249,92 @@
         });
       }
 
-      // === Open pack ===
-      // Rarity weights — Common 70 / Rare 25 / Holo 5. Actually makes "rare" rare.
-      const RARITY_WEIGHTS = { common: 70, rare: 25, holo: 5 };
-      function rollRarity() {
-        const r = Math.random() * 100;
-        if (r < RARITY_WEIGHTS.holo) return 'holo';
-        if (r < RARITY_WEIGHTS.holo + RARITY_WEIGHTS.rare) return 'rare';
-        return 'common';
-      }
-      function pickWeightedCard(cards) {
-        const target = rollRarity();
-        // Fall back through tiers if the chosen rarity is empty in this pack
-        const tiers = target === 'holo' ? ['holo', 'rare', 'common']
-                    : target === 'rare' ? ['rare', 'common', 'holo']
-                    :                      ['common', 'rare', 'holo'];
-        for (const t of tiers) {
-          const pool = cards.filter(function(c) { return c.rarity === t; });
-          if (pool.length) return pool[Math.floor(Math.random() * pool.length)];
-        }
-        return cards[Math.floor(Math.random() * cards.length)];
+      function cardById(cardId) {
+        return allCards.find(function (item) { return item.id === cardId; }) || null;
       }
 
-      function openPack() {
-        const cards = getSelectedCards();
-        if (!cards.length) {
-          packStatus.textContent = 'No cards in this pack yet. Try another.';
+      async function loadCollection() {
+        const response = await supabaseClient.rpc('my_trading_cards');
+        if (response.error) throw response.error;
+        collection = {};
+        (response.data || []).forEach(function (item) {
+          collection[item.card_id] = Number(item.card_count || 0);
+        });
+        updateProgress();
+        renderBinder();
+      }
+
+      async function loadPacks() {
+        const response = await supabaseClient
+          .from('member_packs')
+          .select('id,kind,source,earned_at')
+          .is('opened_at', null)
+          .order('earned_at', { ascending: true });
+        if (response.error) throw response.error;
+        packSelect.innerHTML = '';
+        (response.data || []).forEach(function (pack, index) {
+          const source = pack.source ? ' · ' + pack.source : '';
+          const kind = pack.kind === 'gold' ? 'Gold pack' : 'Standard pack';
+          packSelect.appendChild(new Option(
+            kind + source + ' · wrapper ' + (index + 1),
+            pack.id
+          ));
+        });
+        if (!packSelect.options.length) {
+          packSelect.appendChild(new Option('No unopened packs', ''));
+          packSelect.disabled = true;
+          openPackBtn.disabled = true;
+          packStatus.textContent = 'Your binder is connected. You have no unopened packs right now.';
           return;
         }
-
-        const pulls = Array.from({ length: 3 }, function() {
-          return pickWeightedCard(cards);
-        });
-
-        const newPulls = pulls.map(function(card) {
-          const prev = Number(collection[card.id] || 0);
-          collection[card.id] = prev + 1;
-          return Object.assign({}, card, { isDuplicate: prev > 0, count: collection[card.id] });
-        });
-
-        saveCollection(collection);
-        saveLastPulls(newPulls);
-        renderPulls(newPulls);
-        updateProgress();
-        renderBinder();
-
-        const hasDupe = newPulls.some(function(c) { return c.isDuplicate; });
-        const selectedLabel = packSelect.selectedOptions[0].textContent;
-        packStatus.textContent = hasDupe
-          ? 'Opened ' + selectedLabel + '. Duplicate drama detected \u2014 into the binder it goes.'
-          : 'Opened ' + selectedLabel + '. Fresh stack, no doubles! Into the binder they go.';
-
-        // Auto-scroll to revealed cards
-        setTimeout(function() {
-          packOpeningArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
+        packSelect.disabled = false;
+        openPackBtn.disabled = false;
+        setReadyStatusForSelectedPack();
       }
 
-      // === Reset ===
-      function resetCollection() {
-        collection = {};
-        saveCollection(collection);
-        localStorage.removeItem(LAST_PULLS_KEY);
-        renderPulls([]);
-        updateProgress();
-        renderBinder();
-        packStatus.textContent = 'Collection reset. The binder is empty and emotionally ready.';
+      async function openPack() {
+        if (!supabaseClient || !currentSession || !packSelect.value) {
+          packStatus.textContent = 'Sign in and choose an unopened pack first.';
+          return;
+        }
+        openPackBtn.disabled = true;
+        packStatus.textContent = 'Opening this exact pack once…';
+        try {
+          const response = await supabaseClient.rpc('open_pack', {
+            pack_id: packSelect.value
+          });
+          if (response.error) throw response.error;
+          const newPulls = (response.data || []).map(function (pull) {
+            const definition = cardById(pull.card_id) || {
+              id: pull.card_id,
+              title: pull.title,
+              icon: '\u2605',
+              front: 'Account-backed trading card.',
+              back: 'This card is recorded in your private binder.',
+              episode: 0
+            };
+            return Object.assign({}, definition, {
+              rarity: pull.finish || definition.rarity || 'common',
+              isDuplicate: Boolean(pull.is_duplicate),
+              count: Number(collection[pull.card_id] || 0) + 1
+            });
+          });
+          saveLastPulls(newPulls);
+          renderPulls(newPulls);
+          await loadCollection();
+          await loadPacks();
+          const hasDupe = newPulls.some(function (item) { return item.isDuplicate; });
+          packStatus.textContent = hasDupe
+            ? 'Pack opened once. Duplicate drama detected—your doubles can be mailed from the Post Office.'
+            : 'Pack opened once. The new cards are in your account-backed binder.';
+          setTimeout(function() {
+            packOpeningArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 100);
+        } catch (error) {
+          packStatus.textContent = 'The pack did not open. Nothing changed. ' +
+            String(error && error.message || '');
+          openPackBtn.disabled = false;
+        }
       }
 
       // === Render Binder ===
@@ -1370,9 +1362,40 @@
         });
       }
 
+      async function initAuthoritativeBinder() {
+        const config = window.LAIDIES_SUPABASE_CONFIG;
+        if (!config || !config.url || !config.anonKey) {
+          throw new Error('Resident services are unavailable in this build.');
+        }
+        const module = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
+        supabaseClient = module.createClient(config.url, config.anonKey, {
+          auth: {
+            persistSession: true,
+            autoRefreshToken: true,
+            detectSessionInUrl: true
+          }
+        });
+        const auth = await supabaseClient.auth.getSession();
+        if (auth.error) throw auth.error;
+        currentSession = auth.data && auth.data.session;
+        if (!currentSession) {
+          packSelect.innerHTML = '<option value="">Sign in required</option>';
+          packSelect.disabled = true;
+          openPackBtn.disabled = true;
+          packStatus.innerHTML = 'Your browser preview is not a binder. <a href="../resident-card.html">Sign in at the Resident Card desk</a> to open and keep packs.';
+          renderPulls([]);
+          updateProgress();
+          renderBinder();
+          return;
+        }
+        await loadCollection();
+        await loadPacks();
+      }
+
       // === Init ===
-      openPackBtn.addEventListener('click', openPack);
-      resetBtn.addEventListener('click', resetCollection);
+      openPackBtn.addEventListener('click', function () {
+        openPack();
+      });
       packSelect.addEventListener('change', function() {
         renderPulls([]);
         setReadyStatusForSelectedPack();
@@ -1380,19 +1403,14 @@
 
       updateProgress();
       renderBinder();
-
-      // Restore last pulls
-      const lastPulls = getLastPulls();
-      const selectedEpisode = parseInt(packSelect.value, 10);
-      const lastPullsMatchSelectedPack = packSelect.value === 'all' || lastPulls.every(function(card) {
-        return Number(card.episode) === selectedEpisode;
+      renderPulls(getLastPulls());
+      initAuthoritativeBinder().catch(function (error) {
+        packSelect.innerHTML = '<option value="">Binder unavailable</option>';
+        packSelect.disabled = true;
+        openPackBtn.disabled = true;
+        packStatus.textContent = 'The private binder did not open. No cards changed. ' +
+          String(error && error.message || '');
       });
-      if (lastPulls.length && lastPullsMatchSelectedPack) {
-        renderPulls(lastPulls);
-      } else if (lastPulls.length) {
-        renderPulls([]);
-        setReadyStatusForSelectedPack();
-      }
     })();
     </script>
       <script src="../content/site/mini-player.js?v=20260712ep-04-songs-1"></script>

@@ -102,6 +102,42 @@
       outline-offset: 2px;
     }
 
+    form.po-form {
+      display: grid;
+      gap: 10px;
+      max-width: 720px;
+    }
+
+    form.po-form label {
+      margin-top: 8px;
+      font: 800 14px/1.2 "Jost", system-ui, sans-serif;
+      color: var(--svb-ink);
+    }
+
+    form.po-form select,
+    form.po-form textarea {
+      width: 100%;
+      min-height: 50px;
+      padding: 12px 15px;
+      border: 2px solid var(--svb-ink);
+      border-radius: 10px;
+      background: var(--svb-paper);
+      color: var(--svb-ink);
+      font: 600 16px/1.35 "Jost", system-ui, sans-serif;
+    }
+
+    form.po-form textarea {
+      min-height: 112px;
+      resize: vertical;
+    }
+
+    form.po-form input:focus,
+    form.po-form select:focus,
+    form.po-form textarea:focus {
+      outline: 4px solid rgba(21, 188, 224, 0.3);
+      outline-offset: 2px;
+    }
+
     .po-form__small {
       margin-top: 14px !important;
       font-size: 13px !important;
@@ -462,7 +498,29 @@
       </div>
     </section>
 
-    <p class="svb-honest-note po-layer-note"><strong>The resident mail window is closed for now.</strong> Blocking and reporting must be finished before notes between residents open publicly. When it does open, mail will follow you around SUNNYVAiLE instead of making you return to this page to read it.</p>
+    <section class="svb-section" id="card-gifts" aria-labelledby="po-card-gifts-title" data-resident-card-gifting>
+      <header class="svb-section__head">
+        <p class="svb-kicker">Counter five · duplicate card gifts</p>
+        <h2 id="po-card-gifts-title">Send one of your doubles.</h2>
+        <p class="svb-section__intro">Address a duplicate trading card to a resident handle. The Post Office transfers one real copy into her binder and leaves your final copy safely in yours.</p>
+      </header>
+      <p class="svb-honest-note" role="status" aria-live="polite" data-gift-status>Opening your private card binder…</p>
+      <form class="po-form" data-gift-form hidden>
+        <label for="po-gift-handle">Resident handle</label>
+        <input id="po-gift-handle" data-gift-handle type="text" inputmode="text" autocomplete="off" maxlength="40" placeholder="@resident">
+        <label for="po-gift-card">Duplicate card</label>
+        <select id="po-gift-card" data-gift-card></select>
+        <label for="po-gift-note">Short note (optional)</label>
+        <textarea id="po-gift-note" data-gift-note maxlength="500" rows="4" placeholder="A note from your corner of SUNNYVAiLE"></textarea>
+        <button class="svb-action" type="submit" data-gift-submit>Send duplicate card</button>
+      </form>
+      <p class="po-form__small">Cards cannot be bought, copied or reset here. Sending is one-way, duplicate-only and recorded once.</p>
+      <div class="svb-actions">
+        <a class="svb-action svb-action--cyan" href="/resident-chat.html">Open private resident chat</a>
+      </div>
+    </section>
+
+    <p class="svb-honest-note po-layer-note"><strong>Private resident notes and group chat are the next communications layer.</strong> Card gifting uses the existing block and closed-box rules. No email address is revealed to another resident.</p>
   </main>
 
   <footer>© LAiDIES · Filed from SUNNYVAiLE · The Post Office at Civic Square</footer>
@@ -489,6 +547,8 @@
     })();
   </script>
   <script defer src="/content/site/charm-hunt.js?v=20260716-coords"></script>
+  <script src="/content/site/supabase-config.js"></script>
+  <script defer src="/content/site/resident-card-gifting-v1.js?v=20260727-1"></script>
   <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
   <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
 </body>
