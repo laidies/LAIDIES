@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "evidenceDate": "2026-07-27",
+  "baselineCommit": "d6de6c0e43f1083fa2246d57215cdfcb6d774634",
+  "isolatedBranch": "resident-account-vertical-20260727",
+  "publicTruth": "Device-local Resident Card and same-browser Closet work; public sign-in, account-backed Card and cross-device restore do not.",
+  "dirtyWorktreeInventory": {
+    "changedPaths": 1917,
+    "modifiedTrackedPaths": 198,
+    "untrackedPaths": 1719,
+    "trackedInsertions": 12723,
+    "trackedDeletions": 1599,
+    "largestScopes": {
+      "operations": {
+        "total": 1126,
+        "untracked": 1014
+      },
+      "assets": {
+        "total": 664,
+        "untracked": 659
+      },
+      "scripts": {
+        "total": 39,
+        "untracked": 21
+      },
+      "content": {
+        "total": 22,
+        "untracked": 6
+      }
+    },
+    "disposition": "Evidence source only. Recover checksum-bound product slices into isolated branches based on the verified public release."
+  },
+  "isolatedImplementation": {
+    "status": "BUILT_LOCALLY_LIVE_SCHEMA_MISSING",
+    "residentCardContract": "PASS_34_OF_34",
+    "maikeoverContract": "PASS",
+    "identityAccountContract": "PASS",
+    "crossDeviceSimulation": "PASS_ACCOUNTS_2_DEVICES_3",
+    "browserJourney": "PASS",
+    "liveProof": false
+  },
+  "liveSchemaProbe": {
+    "member_profiles": 200,
+    "member_reward_events": 200,
+    "resident_mail": 200,
+    "resident_blocks": 200,
+    "resident_cards": {
+      "status": 404,
+      "code": "PGRST205"
+    },
+    "get_my_resident_state_v1": {
+      "status": 404,
+      "code": "PGRST202"
+    }
+  },
+  "recoverableUntrackedFiles": [
+    {
+      "path": "content/site/identity-client-v1.js",
+      "sha256": "688a688f96a6f4209c8ba8fa863ee882935c35cb4052a03867572df823a05f34"
+    },
+    {
+      "path": "supabase/migrations/20260726010000_resident_identity_v1.sql",
+      "sha256": "f8f4cc3de1155ab78ad144795b170d8e5b44fb67cee65b51c1674e446cced358"
+    },
+    {
+      "path": "scripts/test-identity-account-contract.mjs",
+      "sha256": "fea0806bf64f777604b54d9c702f82545e17ee6bc60276f27647b4937e1c037b"
+    },
+    {
+      "path": "scripts/test-identity-cross-device-vertical.mjs",
+      "sha256": "fca760f5d64906be552887ade27489718992054a8702f6b484d466de33a9dfbc"
+    }
+  ]
+}

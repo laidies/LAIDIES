@@ -9,6 +9,18 @@ const runtime = fs.readFileSync(
   path.join(root, "content", "site", "resident-card-v2.js"),
   "utf8"
 );
+const accountRuntime = fs.readFileSync(
+  path.join(root, "content", "site", "resident-account-runtime-v1.js"),
+  "utf8"
+);
+const accountPage = fs.readFileSync(
+  path.join(root, "content", "site", "resident-account-page-v1.js"),
+  "utf8"
+);
+const closetBridge = fs.readFileSync(
+  path.join(root, "content", "site", "closet-account-bridge-v1.js"),
+  "utf8"
+);
 const contract = fs.readFileSync(
   path.join(root, "content", "site", "resident-card-contract-v1.js"),
   "utf8"
@@ -27,11 +39,18 @@ function check(value, label) {
 
 check(page.includes('src="/content/site/resident-card-contract-v1.js'), "route loads the shared Card contract");
 check(page.indexOf("resident-card-contract-v1.js") < page.indexOf("resident-card-v2.js"), "shared contract loads before status runtime");
-check(!/type=["']email["']|memberPassEmail|saveMemberPassButton/.test(page), "held route ships no email intake");
-check(!/supabase-config|member_profiles|magic link/i.test(page), "held route ships no account backend or magic-link machinery");
+check(/type=["']email["']/.test(page), "Resident Card owns the private email sign-in intake");
+check(page.includes("identity-client-v1.js") &&
+  page.includes("resident-account-runtime-v1.js") &&
+  page.includes("resident-account-page-v1.js"),
+  "Resident Card loads the shared account runtime");
+check(!/member_profiles|\.from\(/.test(accountPage),
+  "Resident Card account UI does not write profile tables directly");
 check(!/card (?:can|will) save quiz scores|card (?:can|will) save stickers|card (?:can|will) sign posts|card (?:can|will) unlock rooms/i.test(page), "route does not grant progression or community authority");
 check(page.includes("separate device-local progress"), "separate activity persistence is explicit");
-check(page.includes("not reserved") && page.includes("cross-device sync remain unavailable"), "identity and cross-device limits are explicit");
+check(page.includes("not reserved") &&
+  page.includes("other Closet collections and reward ownership require their own separate contracts"),
+  "identity and cross-product limits are explicit");
 check(page.includes('role="status"') && page.includes('aria-live="polite"') && page.includes('aria-atomic="true"'), "status has accessible live semantics");
 check(runtime.includes("contract.read(window.localStorage)"), "status reads only through the shared projection");
 check(runtime.includes("textContent = value"), "runtime renders local values with textContent");
@@ -53,7 +72,14 @@ check(closet.includes('src="/content/site/resident-card-contract-v1.js'), "Close
 check(closet.includes("contract.read(localStorage)"), "Closet reads only through the shared projection");
 check(closet.includes("contract.replaceWithSafeImage"), "Closet delegates avatar rendering to the shared safe DOM helper");
 check(!/el\\.innerHTML\\s*=\\s*'<img src=\"'\\s*\\+\\s*profile\\.card_avatar_url/.test(closet), "Closet no longer interpolates stored avatar URLs into HTML");
-check(closet.includes("CONTROLLED_PREFLIGHT") && closet.includes("/^(localhost|127\\.0\\.0\\.1)$/"), "Closet account backend remains localhost-controlled preflight only");
+check(closet.includes("closet-account-bridge-v1.js"),
+  "Closet loads the shared account restore bridge");
+check(closetBridge.includes("runtime.writeLocalEnvelope(remoteDocument)") &&
+  closetBridge.includes("account-backed-resident"),
+  "Closet restores only a verified account-backed Card");
+check(accountRuntime.includes("detectSessionInUrl: false") &&
+  accountRuntime.includes('flowType: "pkce"'),
+  "shared account runtime owns the PKCE callback boundary");
 check(house.includes("It is not a Hyvor sign-in or cross-device community identity."), "Sorority House denies local-card identity escalation");
 check(house.includes("Every room is still open to explore."), "local card cannot unlock community rooms");
 

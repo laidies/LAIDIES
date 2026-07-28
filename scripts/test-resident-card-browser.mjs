@@ -119,7 +119,7 @@ try {
     check(await page.locator("#rcLocalKicker").textContent() === "No local card found", "newcomer gets an explicit empty state");
     check(await page.locator("#rcPrimaryAction").textContent() === "Make a local card", "newcomer gets the correct next action");
     check(await page.locator("#rcClosetAction").isHidden(), "empty state does not offer a card-backed Closet shortcut");
-    check(await page.locator('input[type="email"]').count() === 0, "route contains no email input");
+    check(await page.locator('input[type="email"]').count() === 1, "route contains one account-owned email input");
     await context.close();
   }
 
@@ -290,8 +290,8 @@ try {
   }
 
   check(
-    !externalAttempts.some((url) => /supabase|magic.?link|auth\/v1|member_profiles/i.test(url)),
-    "route attempts no account or profile backend request"
+    !externalAttempts.some((url) => /\/auth\/v1|\/rest\/v1|member_profiles/i.test(url)),
+    "route makes no account mutation before a visitor submits the form"
   );
   check(pageErrors.length === 0, "hostile whole-journey fixtures produce no page errors");
 } finally {

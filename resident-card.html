@@ -90,6 +90,79 @@
       outline: 4px solid var(--rc2-pink);
       outline-offset: 4px;
     }
+    .rc-account {
+      width: min(1180px, calc(100% - 2rem));
+      margin: 2rem auto 0;
+      padding: clamp(1.25rem, 4vw, 2.25rem);
+      border: 3px solid var(--rc2-night);
+      background: #fff8e9;
+      box-shadow: 9px 9px 0 var(--rc2-pink);
+    }
+    .rc-account h2 {
+      margin: 0 0 .5rem;
+      color: var(--rc2-night);
+      font-size: clamp(1.7rem, 4vw, 2.7rem);
+    }
+    .rc-account p {
+      max-width: 52rem;
+      line-height: 1.6;
+    }
+    .rc-account-form {
+      display: flex;
+      max-width: 46rem;
+      gap: .7rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .rc-account-form input {
+      box-sizing: border-box;
+      flex: 1 1 17rem;
+      min-height: 3.25rem;
+      padding: .7rem .85rem;
+      border: 2px solid var(--rc2-night);
+      background: white;
+      color: var(--rc2-night);
+      font: inherit;
+    }
+    .rc-account button,
+    .rc-account .rc-account-link {
+      display: inline-flex;
+      min-height: 3.25rem;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      padding: .75rem 1rem;
+      border: 2px solid var(--rc2-night);
+      color: white;
+      background: var(--rc2-night);
+      font: 800 .9rem/1 "Jost", sans-serif;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .rc-account button.secondary {
+      color: var(--rc2-night);
+      background: transparent;
+    }
+    .rc-account button:disabled {
+      cursor: wait;
+      opacity: .6;
+    }
+    .rc-account-actions {
+      display: flex;
+      gap: .7rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    #rcAccountStatus {
+      padding-left: 1rem;
+      border-left: 5px solid var(--rc2-cyan);
+    }
+    #rcAccountStatus[data-tone="success"] {
+      border-color: #13725f;
+    }
+    #rcAccountStatus[data-tone="error"] {
+      border-color: #b5204d;
+    }
     .rc-local-facts {
       width: min(1180px, calc(100% - 2rem));
       margin: 2rem auto 0;
@@ -139,11 +212,13 @@
         <h1>Your Resident Card.</h1>
         <p class="sv-lede">
           Make a card at MAiKEOVER on MAiN, then this browser can remember it on
-          this device.
+          this device. The private account desk below can keep that exact Card
+          available between supported browsers.
         </p>
         <p>
-          It is a personal local keepsake—not an account, reserved handle,
-          public identity, proof of rewards, or cross-device backup.
+          The local Card remains a personal keepsake. Signing in creates a
+          separate private backup; neither state publishes the Card or proves
+          rewards.
         </p>
         <p class="rc-tour-crumb">Wednesday tour · Stop No. 6 · After class, before the Bronze.</p>
       </div>
@@ -173,8 +248,46 @@
         <li>The Resident Card stores its own selected card details in one versioned local record.</li>
         <li>Quizzes, stickers, charms and other activities may keep separate device-local progress; the Card does not prove or synchronize those results.</li>
         <li>A local handle is a draft label only. It is not reserved and cannot sign posts, unlock rooms, publish a Card or authorize account data.</li>
-        <li>Account restoration, public member Cards and cross-device sync remain unavailable until their privacy, authorization and two-device release checks pass.</li>
+        <li>A verified account may keep and restore the private Card envelope. Public member Cards, other Closet collections and reward ownership require their own separate contracts.</li>
       </ul>
+    </section>
+
+    <section class="rc-account" aria-labelledby="rcAccountTitle">
+      <p class="rc-local-kicker">Private account backup</p>
+      <h2 id="rcAccountTitle">Keep your Card between browsers.</h2>
+      <p id="rcAccountStatus" role="status" aria-live="polite" aria-atomic="true">
+        Checking the private account service…
+      </p>
+
+      <div id="rcAccountSignedOut" hidden>
+        <form class="rc-account-form" id="rcAccountForm">
+          <label class="sr-only" for="rcAccountEmail">Email address</label>
+          <input id="rcAccountEmail" type="email" autocomplete="email"
+                 required placeholder="you@example.com">
+          <button id="rcAccountEmailButton" type="submit">Email my sign-in link</button>
+        </form>
+        <p>
+          No password. Requesting a link does not publish your Card, subscribe
+          you to email, or move any other browser-local collection.
+        </p>
+      </div>
+
+      <div id="rcAccountSignedIn" hidden>
+        <p id="rcAccountIdentity"></p>
+        <div class="rc-account-actions" id="rcAccountClaim" hidden>
+          <button id="rcAccountClaimButton" type="button">Keep this local Card with my account</button>
+        </div>
+        <div class="rc-account-actions" id="rcAccountRestore" hidden>
+          <button id="rcAccountRestoreButton" type="button">Restore this Card to this browser</button>
+        </div>
+        <p id="rcAccountNoCard" hidden>
+          <a href="/maikeover.html">Make a Card at MAiKEOVER →</a>
+        </p>
+        <div class="rc-account-actions">
+          <a class="rc-account-link" id="rcAccountCloset" href="/laidies-card.html" hidden>Open my Closet</a>
+          <button class="secondary" id="rcAccountSignOut" type="button">Sign out</button>
+        </div>
+      </div>
     </section>
 
     <div class="sv-ctas">
@@ -196,5 +309,9 @@
   <footer>© LAiDIES · Filed from SUNNYVAiLE · MAiKEOVER on MAiN · No. 6</footer>
   <script src="/content/site/resident-card-contract-v1.js?v=20260726-repair-1"></script>
   <script src="/content/site/resident-card-v2.js?v=20260726-repair-1"></script>
+  <script src="/content/site/supabase-config.js?v=20260702-1"></script>
+  <script src="/content/site/identity-client-v1.js?v=20260727-account-1"></script>
+  <script src="/content/site/resident-account-runtime-v1.js?v=20260727-account-1"></script>
+  <script src="/content/site/resident-account-page-v1.js?v=20260727-account-1"></script>
 </body>
 </html>

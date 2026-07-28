@@ -25,8 +25,8 @@ requireText(spec, "cross-device outcomes remain\n**UNVERIFIED**",
   "operating spec does not hold cross-device outcomes");
 requireText(maikeover, 'data-state="held"',
   "MAiKEOVER lacks fail-closed account state");
-requireText(maikeover, "The guest book is not taking claims yet.",
-  "MAiKEOVER does not explain the account hold");
+requireText(maikeover, "Open the Resident Card desk",
+  "MAiKEOVER does not hand the valid local Card to the account owner");
 requireText(maikeover, "laidies_resident_card_v1",
   "local save lacks one versioned authoritative envelope");
 requireText(maikeover, "localStorage.getItem(CARD_STORAGE_KEY) !== serialized",
@@ -71,8 +71,8 @@ for (const prohibited of publicCardContract.prohibited) {
     failures.push(`public Card contract includes prohibited field: ${prohibited}`);
   }
 }
-requireText(closet, "if (!CONTROLLED_PREFLIGHT) return null;",
-  "Closet account dependency does not fail closed");
+requireText(closet, "closet-account-bridge-v1.js",
+  "Closet does not load the account-backed Card bridge");
 requireText(closet, "laidies_resident_card_v1",
   "Closet does not hydrate the authoritative local-card envelope");
 requireText(closet, "member_card_is_public === true",
@@ -88,10 +88,12 @@ const publicBranch = closet.slice(
 );
 forbidText(publicBranch, "loadCollections(",
   "public Card still loads owner-oriented collections");
-requireText(resident, "The account desk is not taking email addresses yet.",
-  "duplicate Resident Card intake does not expose its hold");
-requireText(resident, 'class="rc-form-card member-pass-panel" hidden inert',
-  "held Resident Card email form remains operable");
+requireText(resident, 'id="rcAccountEmail" type="email"',
+  "Resident Card does not own the account email intake");
+requireText(resident, "resident-account-page-v1.js",
+  "Resident Card does not load the account controller");
+requireText(resident, "No password.",
+  "Resident Card does not explain the private magic-link boundary");
 
 const analyticsCalls = [...maikeover.matchAll(/plausible\(([\s\S]{0,220}?)\)/g)]
   .map((match) => match[1])
@@ -109,4 +111,4 @@ if (failures.length) {
 }
 
 console.log("MAiKEOVER CONTRACT PASS");
-console.log("scope=local-save,state-label,account-hold,privacy,restricted-public-view");
+console.log("scope=local-save,state-label,account-handoff,privacy,restricted-public-view");
