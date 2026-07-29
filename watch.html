@@ -10,8 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Jost:wght@400;500;700;800&family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
-  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260729-continuation-1"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260729-continuation-1"></script>
   <!-- Deliberately no ksvl-player / quick-rail on this page: the Screening
        Room plays its own narration track and wants a dark, focused stage. -->
   <style>
@@ -352,8 +352,11 @@
       try {
         var candidate = JSON.parse(localStorage.getItem(PROGRESS_KEY) || 'null');
         if (!candidate || candidate.version !== 1) return null;
-        if (Object.keys(candidate).sort().join(',') !== 'programme,time,version') return null;
+        if (Object.keys(candidate).some(function (key) {
+          return ['completed', 'programme', 'savedAt', 'time', 'version'].indexOf(key) === -1;
+        })) return null;
         if (candidate.programme !== episodeKey(ep)) return null;
+        if (candidate.completed === true) return null;
         if (!Number.isFinite(candidate.time) || candidate.time < 10 || candidate.time > 10800) return null;
         return candidate;
       } catch (error) { return null; }
@@ -366,7 +369,7 @@
     function storeProgress(force) {
       if (segKind !== 'main' || playerFailed || !Number.isFinite(tape.currentTime)) return;
       if (tape.currentTime < 10) return;
-      if (duration && tape.currentTime >= duration - 10) { clearProgress(); return; }
+      if (duration && tape.currentTime >= duration - 10) return;
       var stamp = Date.now();
       if (!force && stamp - lastProgressWrite < 5000) return;
       lastProgressWrite = stamp;
@@ -374,13 +377,28 @@
         localStorage.setItem(PROGRESS_KEY, JSON.stringify({
           version: 1,
           programme: episodeKey(ep),
-          time: Math.round(tape.currentTime * 10) / 10
+          time: Math.round(tape.currentTime * 10) / 10,
+          completed: false,
+          savedAt: new Date().toISOString()
         }));
       } catch (error) {}
     }
+    function markComplete() {
+      try {
+        localStorage.setItem(PROGRESS_KEY, JSON.stringify({
+          version: 1,
+          programme: episodeKey(ep),
+          time: Math.round((duration || tape.currentTime || 0) * 10) / 10,
+          completed: true,
+          savedAt: new Date().toISOString()
+        }));
+      } catch (error) {}
+      savedProgress = null;
+      resumePanel.hidden = true;
+    }
     savedProgress = readProgress();
     if (savedProgress) {
-      resumeText.textContent = 'This device remembers ' + fmt(savedProgress.time) + ' in this listen-along. This is local playback history, not an account.';
+      resumeText.textContent = 'Your saved position is ' + fmt(savedProgress.time) + ' in this listen-along.';
       resumePanel.hidden = false;
     }
 
@@ -921,7 +939,7 @@
         tape.addEventListener('play', tick);
         tape.addEventListener('pause', tick);
         tape.addEventListener('ended', function () {
-          if (segKind === 'main') clearProgress();
+          if (segKind === 'main') markComplete();
           advanceSegment();
         });
 

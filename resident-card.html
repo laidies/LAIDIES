@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Your Resident Card · MAiKEOVER on MAiN · LAiDIES</title>
-  <meta name="description" content="Check or make the LAiDIES Resident Card saved locally in this browser on this device.">
+  <meta name="description" content="Sign in to keep your private LAiDIES Resident Card and supported SUNNYVAiLE progress available between browsers.">
   <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png">
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
   <link rel="stylesheet" href="/content/resident-card-v2.css?v=20260726-local-contract-1">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
-  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260729-continuation-1"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260729-continuation-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <link rel="stylesheet" href="/content/site/mini-player.css">
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
@@ -27,7 +27,7 @@
       align-items: start !important;
     }
     .rc-local-status::before {
-      content: "RESIDENT CARD · DEVICE-LOCAL STATUS";
+      content: "RESIDENT CARD · LOCAL COPY";
     }
     .rc-local-copy {
       min-width: 0;
@@ -211,14 +211,13 @@
         </div>
         <h1>Your Resident Card.</h1>
         <p class="sv-lede">
-          Make a card at MAiKEOVER on MAiN, then this browser can remember it on
-          this device. The private account desk below can keep that exact Card
-          available between supported browsers.
+          Make a card at MAiKEOVER on MAiN. This browser keeps a local copy;
+          signing in lets supported browsers restore that Card and pick up
+          supported SUNNYVAiLE progress.
         </p>
         <p>
-          The local Card remains a personal keepsake. Signing in creates a
-          separate private backup; neither state publishes the Card or proves
-          rewards.
+          Your account copy stays private. Signing in does not publish the Card,
+          subscribe you to email or turn collectibles into a public balance.
         </p>
         <p class="rc-tour-crumb">Wednesday tour · Stop No. 6 · After class, before the Bronze.</p>
       </div>
@@ -232,8 +231,8 @@
           Checking this browser for a valid Resident Card.
         </p>
         <p class="rc-local-boundary" id="rcLocalBoundary">
-          No email is requested or submitted here. Clearing site data, using
-          private browsing, or changing browser or device can remove this local copy.
+          Clearing site data or using private browsing can remove this local
+          copy. Sign in below to keep supported state with your account.
         </p>
       </div>
       <div class="rc-local-actions">
@@ -245,16 +244,17 @@
     <section class="rc-local-facts" aria-labelledby="rcFactsTitle">
       <h2 id="rcFactsTitle">What belongs to what</h2>
       <ul>
-        <li>The Resident Card stores its own selected card details in one versioned local record.</li>
-        <li>Quizzes, stickers, charms and other activities may keep separate device-local progress; the Card does not prove or synchronize those results.</li>
+        <li>The Resident Card keeps its selected card details locally and, when you explicitly claim it, in your private account.</li>
+        <li>Signed-in continuation currently synchronizes episode position, tour completion and the supported charms, trading-card and Puffy collections.</li>
+        <li>Private prompts, messages, drafts, Girl Talk choices and other free-form activity content stay out of continuation sync.</li>
         <li>A local handle is a draft label only. It is not reserved and cannot sign posts, unlock rooms, publish a Card or authorize account data.</li>
-        <li>A verified account may keep and restore the private Card envelope. Public member Cards, other Closet collections and reward ownership require their own separate contracts.</li>
+        <li>A verified account may keep and restore the private Card and supported continuation state. Public member Cards and public reward ownership remain separate features.</li>
       </ul>
     </section>
 
     <section class="rc-account" aria-labelledby="rcAccountTitle">
-      <p class="rc-local-kicker">Private account backup</p>
-      <h2 id="rcAccountTitle">Keep your Card between browsers.</h2>
+      <p class="rc-local-kicker">Private account continuation</p>
+      <h2 id="rcAccountTitle">Pick up where you left off.</h2>
       <p id="rcAccountStatus" role="status" aria-live="polite" aria-atomic="true">
         Checking the private account service…
       </p>
@@ -267,8 +267,8 @@
           <button id="rcAccountEmailButton" type="submit">Email my sign-in link</button>
         </form>
         <p>
-          No password. Requesting a link does not publish your Card, subscribe
-          you to email, or move any other browser-local collection.
+          No password. Requesting a link does not publish your Card or subscribe
+          you to email. Only the supported continuation state listed above syncs.
         </p>
       </div>
 
@@ -284,6 +284,7 @@
           <a href="/maikeover.html">Make a Card at MAiKEOVER →</a>
         </p>
         <div class="rc-account-actions">
+          <a class="rc-account-link" id="rcAccountContinue" href="/" hidden>Pick up where I left off</a>
           <a class="rc-account-link" id="rcAccountCloset" href="/laidies-card.html" hidden>Open my Closet</a>
           <button class="secondary" id="rcAccountSignOut" type="button">Sign out</button>
         </div>
@@ -312,6 +313,7 @@
   <script src="/content/site/supabase-config.js?v=20260702-1"></script>
   <script src="/content/site/identity-client-v1.js?v=20260727-account-1"></script>
   <script src="/content/site/resident-account-runtime-v1.js?v=20260727-account-1"></script>
-  <script src="/content/site/resident-account-page-v1.js?v=20260727-account-1"></script>
+  <script src="/content/site/resident-continuation-v1.js?v=20260729-continuation-1"></script>
+  <script src="/content/site/resident-account-page-v1.js?v=20260729-continuation-1"></script>
 </body>
 </html>

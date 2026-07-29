@@ -3,6 +3,7 @@
 
   var runtime = null;
   var state = null;
+  var continuationState = null;
 
   function byId(id) {
     return document.getElementById(id);
@@ -38,6 +39,21 @@
     show("rcAccountRestore", signedIn && !!remote);
     show("rcAccountNoCard", signedIn && !remote && (!local || local.state !== "saved"));
     show("rcAccountCloset", signedIn && !!remote);
+    var continueLink = byId("rcAccountContinue");
+    var continuation = continuationState &&
+      continuationState.document ||
+      window.LAIDIESResidentContinuationV1 &&
+      window.LAIDIESResidentContinuationV1.readLocalDocument();
+    var target = continuation && continuation.last;
+    if (continueLink) {
+      var canContinue = signedIn && target && target.path &&
+        target.path.indexOf("/resident-card") !== 0;
+      continueLink.hidden = !canContinue;
+      if (canContinue) {
+        continueLink.href = target.path;
+        continueLink.textContent = "Pick up: " + target.label + " →";
+      }
+    }
 
     if (!signedIn) {
       setStatus(
@@ -77,6 +93,10 @@
   async function refresh() {
     state = await runtime.getState();
     if (state.error) throw state.error;
+    if (window.LAIDIESResidentContinuationV1) {
+      continuationState =
+        await window.LAIDIESResidentContinuationV1.syncWith(runtime);
+    }
     render();
   }
 
@@ -137,7 +157,7 @@
       var remote = remoteCard();
       runtime.writeLocalEnvelope(remote.document);
       setStatus(
-        "Restored. This browser and the Closet now use your account-backed Card.",
+        "Restored. This browser now uses your account-backed Card and signed-in continuation.",
         "success"
       );
       window.dispatchEvent(new CustomEvent("laidies:resident-card-restored"));

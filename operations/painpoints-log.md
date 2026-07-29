@@ -3360,3 +3360,48 @@ _Original source ID: repository #36_
 - **Public angle:** “The backend passed—until we opened the real page.”
 - **Privacy/IP/reputation:** Test accounts are temporary and must be deleted
   with zero residual profiles, Cards and receipts before handoff.
+
+## BTB-226 · The Card synced, but “pick up where I left off” did not
+
+`category: identity · cross-device continuity · contract coverage`
+— ① Start with the real problem
+`source: Resident continuation implementation, 2026-07-29`
+`publication status: VERIFIED AND CORRECTED LOCALLY — PREVENTION RULE`
+
+- **Context:** The private Resident Card account vertical already passed live
+  Supabase and two-browser restoration tests.
+- **Issue:** Separate episode, tour and Closet collection stores remained
+  device-local, while Homepage and product language implied that signing in
+  would let a resident continue across devices.
+- **What happens:** Repeated account audits can report a healthy Card backend
+  while the visitor’s actual progress is absent on the next browser. A second
+  account on a shared browser can also inherit cached continuation state unless
+  the local cache is explicitly rebound.
+- **Evidence observed:** Inventory found the active episode key stores
+  `programme`, not the `ep` field earlier assumptions used; no continuation
+  table or RPC existed; the Homepage resume hook was still a future comment.
+  The first live migration test also caught a PostgreSQL ERE bound limit that
+  rejected otherwise valid documents.
+- **Diagnosis:** **Verified.** “Account restoration” was tested as a noun
+  (the Card object), not as the resident journey (the supported state needed to
+  resume). The cross-account local-cache boundary was not part of the original
+  contract.
+- **Prevent / Fix:** Every cross-device promise must declare the exact supported
+  stores and excluded private stores, bind adapters to the real payload shape,
+  run the database validator in its live SQL dialect, prove two-browser restore
+  and prove same-browser account-switch isolation. A successful object restore
+  cannot stand in for journey continuation.
+- **Why the fix works:** It tests the state a resident expects to recover,
+  provider enforcement, and the shared-browser privacy boundary together.
+- **New output:** Private continuation RPCs, the allowlisted merge/apply client,
+  site-wide bootstrap, Episode/Resident/Homepage wiring, live two-account RPC
+  proof and real two-browser account-switch proof.
+- **Transferable lesson:** “The account works” is incomplete unless the product
+  names which user state follows the account and proves that state on the next
+  device.
+- **Internal rule/check updated:** Cross-device features require explicit
+  store-level scope, real payload fixtures, two contexts, two accounts and a
+  switch-account isolation gate before public release.
+- **Public angle:** “We synced the membership card and forgot the journey.”
+- **Privacy/IP/reputation:** Only allowlisted bounded progress and collection
+  metadata syncs. Prompts, messages, drafts and private choices remain excluded.

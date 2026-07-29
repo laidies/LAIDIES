@@ -7,8 +7,17 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 
 const root = process.cwd();
-const email = process.env.RESIDENT_TEST_A_EMAIL;
-const password = process.env.RESIDENT_TEST_A_PASSWORD;
+const credentialsFile = process.env.RESIDENT_TEST_CREDENTIALS_FILE;
+const credentials = credentialsFile
+  ? JSON.parse(fs.readFileSync(credentialsFile, "utf8"))
+  : {};
+const switchCredentialsFile =
+  process.env.RESIDENT_SWITCH_TEST_CREDENTIALS_FILE;
+const switchCredentials = switchCredentialsFile
+  ? JSON.parse(fs.readFileSync(switchCredentialsFile, "utf8"))
+  : null;
+const email = process.env.RESIDENT_TEST_A_EMAIL || credentials.email;
+const password = process.env.RESIDENT_TEST_A_PASSWORD || credentials.password;
 if (!email || !password) {
   throw new Error("Resident test credentials are required.");
 }
@@ -62,6 +71,27 @@ const card = {
     cardAvatarUrl: "/assets/brand/laidies-logo-square-pearl-512-v1.png"
   }
 };
+// These are disposable test-account bytes. Keep the fixture newer than any
+// preparatory RPC state written earlier in the same verification run.
+const continuationTimestamp = new Date(Date.now() + 24 * 60 * 60 * 1000)
+  .toISOString();
+const continuation = {
+  version: 1,
+  last: {
+    path: "/watch.html?ep=02",
+    label: "Episode 02",
+    kind: "episode",
+    updated_at: continuationTimestamp
+  },
+  episodes: {
+    "02": {
+      value: { position_seconds: 123.4, completed: false },
+      updated_at: continuationTimestamp
+    }
+  },
+  activities: {},
+  collections: {}
+};
 
 async function signIn(page) {
   return page.evaluate(async ({ accountEmail, accountPassword }) => {
@@ -77,9 +107,20 @@ async function signIn(page) {
 
 try {
   const first = await browser.newContext({ viewport: { width: 1280, height: 900 } });
-  await first.addInitScript((envelope) => {
+  await first.addInitScript(({ envelope, continuationDocument }) => {
     localStorage.setItem("laidies_resident_card_v1", JSON.stringify(envelope));
-  }, card);
+    localStorage.setItem(
+      "laidies_continuation_v1",
+      JSON.stringify(continuationDocument)
+    );
+    localStorage.setItem("laidies_screening_progress_v1", JSON.stringify({
+      version: 1,
+      programme: "02",
+      time: 123.4,
+      completed: false,
+      savedAt: continuationDocument.last.updated_at
+    }));
+  }, { envelope: card, continuationDocument: continuation });
   const firstPage = await first.newPage();
   await firstPage.goto(`${origin}/resident-card.html`, {
     waitUntil: "domcontentloaded"
@@ -97,6 +138,11 @@ try {
     await firstPage.locator("#rcAccountStatus").innerText(),
     /private account-backed Card/
   );
+  await firstPage.locator("#rcAccountContinue").waitFor({ state: "visible" });
+  assert.equal(
+    await firstPage.locator("#rcAccountContinue").getAttribute("href"),
+    "/watch.html?ep=02"
+  );
 
   const second = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const secondPage = await second.newPage();
@@ -105,6 +151,18 @@ try {
   });
   assert.equal(await signIn(secondPage), userId);
   await secondPage.reload({ waitUntil: "domcontentloaded" });
+  await secondPage.locator("#rcAccountContinue").waitFor({ state: "visible" });
+  assert.equal(
+    await secondPage.locator("#rcAccountContinue").getAttribute("href"),
+    "/watch.html?ep=02"
+  );
+  const restoredContinuation = await secondPage.evaluate(() => ({
+    document: JSON.parse(localStorage.getItem("laidies_continuation_v1")),
+    episode: JSON.parse(localStorage.getItem("laidies_screening_progress_v1"))
+  }));
+  assert.equal(restoredContinuation.document.last.path, "/watch.html?ep=02");
+  assert.equal(restoredContinuation.episode.programme, "02");
+  assert.equal(restoredContinuation.episode.time, 123.4);
   await secondPage.locator("#rcAccountRestoreButton").waitFor({
     state: "visible"
   });
@@ -134,11 +192,59 @@ try {
     true
   );
 
+  let accountSwitchIsolation = null;
+  if (switchCredentials) {
+    await secondPage.goto(`${origin}/resident-card.html`, {
+      waitUntil: "domcontentloaded"
+    });
+    await secondPage.evaluate(async () => {
+      const runtime = await window.LAIDIESResidentAccountRuntime.get();
+      const result = await runtime.client.auth.signOut();
+      if (result.error) throw result.error;
+    });
+    await secondPage.evaluate(async ({ accountEmail, accountPassword }) => {
+      const runtime = await window.LAIDIESResidentAccountRuntime.get();
+      const result = await runtime.client.auth.signInWithPassword({
+        email: accountEmail,
+        password: accountPassword
+      });
+      if (result.error) throw result.error;
+    }, {
+      accountEmail: switchCredentials.email,
+      accountPassword: switchCredentials.password
+    });
+    await secondPage.reload({ waitUntil: "domcontentloaded" });
+    await secondPage.locator("#rcAccountContinue").waitFor({
+      state: "visible"
+    });
+    assert.equal(
+      await secondPage.locator("#rcAccountContinue").getAttribute("href"),
+      "/library.html"
+    );
+    accountSwitchIsolation = await secondPage.evaluate(() => ({
+      ownerBound: !!localStorage.getItem("laidies_continuation_owner_v1"),
+      episodeProgress:
+        localStorage.getItem("laidies_screening_progress_v1"),
+      lastPath: JSON.parse(
+        localStorage.getItem("laidies_continuation_v1")
+      ).last.path
+    }));
+    assert.equal(accountSwitchIsolation.episodeProgress, null);
+    assert.equal(accountSwitchIsolation.lastPath, "/library.html");
+  }
+
   console.log(JSON.stringify({
     result: "PASS",
     accountUserId: userId,
     firstBrowserClaim: true,
     secondBrowserRestore: true,
+    crossBrowserContinuation: true,
+    restoredEpisodePositionSeconds: restoredContinuation.episode.time,
+    accountSwitchIsolation: accountSwitchIsolation
+      ? accountSwitchIsolation.ownerBound &&
+        accountSwitchIsolation.episodeProgress === null &&
+        accountSwitchIsolation.lastPath === "/library.html"
+      : "not-run",
     closetAccountBacked: true,
     mobileClosetNoHorizontalOverflow: true
   }, null, 2));

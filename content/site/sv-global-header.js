@@ -34,7 +34,7 @@
   })();
 
   var JOIN_HREF = '/maikeover.html';
-  var SIGNIN_HREF = '/post-office.html#signin';
+  var SIGNIN_HREF = '/resident-card.html#rcAccountTitle';
   var QUICK_LINKS = [
     { label: 'Latest Episode', href: '/chick-flicks.html' },
     { label: 'Look it up', href: '/library.html' },
@@ -294,9 +294,30 @@
     })();
   }
 
+  // Account-backed continuation is a shared capability, not a Homepage-only
+  // widget. Load its small bootstrap from the header used across town. The
+  // bootstrap is idempotent and keeps anonymous progress in the local cache;
+  // only an authenticated Supabase session can read or write private remote
+  // continuation state.
+  function mountContinuation() {
+    if (window.LAIDIESResidentContinuationBootstrapV1 ||
+        document.querySelector('script[data-laidies-continuation-bootstrap]')) {
+      return;
+    }
+    var script = document.createElement('script');
+    script.src = '/content/site/resident-continuation-bootstrap-v1.js?v=20260729-continuation-1';
+    script.async = true;
+    script.dataset.laidiesContinuationBootstrap = '1';
+    document.head.appendChild(script);
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', mount);
+    document.addEventListener('DOMContentLoaded', function () {
+      mount();
+      mountContinuation();
+    });
   } else {
     mount();
+    mountContinuation();
   }
 })();
