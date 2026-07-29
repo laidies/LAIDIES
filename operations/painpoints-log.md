@@ -3405,3 +3405,47 @@ _Original source ID: repository #36_
 - **Public angle:** “We synced the membership card and forgot the journey.”
 - **Privacy/IP/reputation:** Only allowlisted bounded progress and collection
   metadata syncs. Prompts, messages, drafts and private choices remain excluded.
+
+## BTB-227 · Existing card systems looked unfinished because the public pages bypassed them
+
+`category: product integration · server authority · inventory integrity`
+— ① Start with the real problem
+`source: Resident Communications and Trading Cards reconciliation, 2026-07-27`
+`publication status: VERIFIED AND CORRECTED`
+
+- **Context:** Supabase already contained card definitions, binder inventory,
+  pack opening and invite redemption, while the public Trading Cards and Post
+  Office experiences appeared unfinished.
+- **Issue:** The product pages did not trace one authoritative mutation path.
+  Trading Cards still opened and reset packs in local browser state, and Post
+  Office could describe a card attachment without transferring a real
+  duplicate.
+- **What happens:** Repeated audits report missing “backend plumbing,” existing
+  work is rebuilt or distrusted, and residents can see UI claims that do not
+  correspond to durable inventory.
+- **Evidence observed:** Live inspection found 21 active card definitions and
+  working pack RPCs, but the consumer pages bypassed those services. A
+  two-resident rollback test passed only after the UI and transfer path were
+  bound to the same authoritative functions.
+- **Diagnosis:** **Verified.** This was an integration failure, not an absence
+  of prior work.
+- **Prevent / Fix:** Before creating replacement backend work, trace each
+  promised feature through five named layers: live source of truth, permitted
+  mutation function, public consumer, representative browser journey and
+  durable release evidence. Inventory-bearing products must never use
+  localStorage as authority or permit descriptive attachments without an
+  atomic transfer.
+- **Why the fix works:** It distinguishes “already built but disconnected” from
+  “not built,” protects real inventory and makes the resident-visible result
+  the acceptance boundary.
+- **New output:** Authoritative binder reads, duplicate-only atomic gifting,
+  Post Office receipts, direct/group Resident Chat and a combined rollback-only
+  functional test.
+- **Transferable lesson:** Audit the whole product path before replacing any
+  one layer.
+- **Internal rule/check updated:** Resident inventory work requires a combined
+  source → RPC → UI → browser → release receipt before completion.
+- **Public angle:** “The feature existed. The product did not.”
+- **Privacy/IP/reputation:** Use resident handles rather than email addresses;
+  keep functional accounts temporary and roll back all test conversations,
+  gifts and reports.
