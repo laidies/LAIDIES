@@ -41,7 +41,8 @@ const mime = new Map([
   [".svg", "image/svg+xml"]
 ]);
 
-const server = http.createServer((request, response) => {
+const requestedOrigin = process.env.RESIDENT_TEST_ORIGIN?.replace(/\/+$/, "");
+const server = requestedOrigin ? null : http.createServer((request, response) => {
   const url = new URL(request.url, "http://127.0.0.1");
   const relative = url.pathname === "/"
     ? "resident-card.html"
@@ -60,8 +61,11 @@ const server = http.createServer((request, response) => {
   fs.createReadStream(resolved).pipe(response);
 });
 
-await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
-const origin = `http://127.0.0.1:${server.address().port}`;
+if (server) {
+  await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
+}
+const origin = requestedOrigin ||
+  `http://127.0.0.1:${server.address().port}`;
 const browser = await chromium.launch({ executablePath: chrome, headless: true });
 const card = {
   version: 1,
@@ -127,12 +131,20 @@ try {
   });
   const userId = await signIn(firstPage);
   await firstPage.reload({ waitUntil: "domcontentloaded" });
-  await firstPage.locator("#rcAccountClaimButton").waitFor({ state: "visible" });
-  await firstPage.locator("#rcAccountClaimButton").click();
-  await firstPage.waitForFunction(() =>
-    !document.getElementById("rcAccountStatus").textContent
-      .includes("Keeping this Card")
-  );
+  const claimButton = firstPage.locator("#rcAccountClaimButton");
+  const claimedDuringTest = await claimButton.isVisible();
+  if (claimedDuringTest) {
+    await claimButton.click();
+    await firstPage.waitForFunction(() =>
+      !document.getElementById("rcAccountStatus").textContent
+        .includes("Keeping this Card")
+    );
+  } else {
+    await firstPage.waitForFunction(() =>
+      document.getElementById("rcAccountStatus").textContent
+        .includes("private account-backed Card")
+    );
+  }
   console.log("STEP first-browser-status", await firstPage.locator("#rcAccountStatus").innerText());
   assert.match(
     await firstPage.locator("#rcAccountStatus").innerText(),
@@ -236,7 +248,7 @@ try {
   console.log(JSON.stringify({
     result: "PASS",
     accountUserId: userId,
-    firstBrowserClaim: true,
+    firstBrowserClaim: claimedDuringTest ? "claimed" : "already-account-backed",
     secondBrowserRestore: true,
     crossBrowserContinuation: true,
     restoredEpisodePositionSeconds: restoredContinuation.episode.time,
@@ -253,5 +265,7 @@ try {
   await second.close();
 } finally {
   await browser.close();
-  await new Promise((resolve) => server.close(resolve));
+  if (server) {
+    await new Promise((resolve) => server.close(resolve));
+  }
 }

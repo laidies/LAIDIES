@@ -33,7 +33,8 @@ const mime = new Map([
   [".mp4", "video/mp4"],
   [".vtt", "text/vtt; charset=utf-8"]
 ]);
-const server = http.createServer((request, response) => {
+const requestedOrigin = process.env.RESIDENT_TEST_ORIGIN?.replace(/\/+$/, "");
+const server = requestedOrigin ? null : http.createServer((request, response) => {
   const url = new URL(request.url, "http://127.0.0.1");
   const relative = url.pathname === "/"
     ? "index.html"
@@ -52,8 +53,11 @@ const server = http.createServer((request, response) => {
   fs.createReadStream(resolved).pipe(response);
 });
 
-await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
-const origin = `http://127.0.0.1:${server.address().port}`;
+if (server) {
+  await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
+}
+const origin = requestedOrigin ||
+  `http://127.0.0.1:${server.address().port}`;
 const browser = await chromium.launch({ executablePath: chrome, headless: true });
 
 async function assertNoOverflow(page) {
@@ -125,5 +129,7 @@ try {
   );
 } finally {
   await browser.close();
-  await new Promise((resolve) => server.close(resolve));
+  if (server) {
+    await new Promise((resolve) => server.close(resolve));
+  }
 }

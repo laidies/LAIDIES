@@ -1,12 +1,31 @@
 # LAiDIES release state
 
-**Updated:** 2026-07-27 21:38 PDT
+**Updated:** 2026-07-29
 **Release owner:** current whole-site release and product-champion orchestrator
 **Rule:** `LOCAL`, `COMMITTED`, `PUSHED`, `DEPLOYED`, and `PUBLICLY VERIFIED`
 are different states. A change may use only the highest state for which evidence
 is recorded here.
 
 ## Current truth
+
+### Resident continuation combined release — 2026-07-29
+
+The Resident account, allowlisted cross-device continuation, authoritative
+Trading Card binder/gifting and direct/group Resident Chat are
+`DEPLOYED / PUBLICLY VERIFIED`.
+
+| Field | Exact evidence |
+|---|---|
+| Source branch | `resident-continuation-20260729` |
+| Source commit | `28f483e25c021e37e0acd2687abcae26a6d66927` |
+| Artifact | 1,096 files; 1,006,263,525 bytes; identity SHA-256 `87f7781feac664e3d63b2277f153e080e617e5905f5d6c99494fe4f309fcc435` |
+| Cloudflare deployment | `9f161385-7486-4207-9afe-8512ea453973` |
+| Immutable origin | `https://9f161385.laidies-sunnyvaile.pages.dev` |
+| Rollback target | `9bd1513e-cb01-4a46-89e9-fda49b375503` |
+| Backend | Supabase Card, continuation, authoritative binder/gifting and chat migrations live; RLS/RPC contracts pass |
+| Public byte parity | Homepage, Resident Card, Resident Chat, watch page and all three shared clients match the exact artifact at immutable and custom origins |
+| Public browser proof | 1440/390 UI PASS; two-browser Episode 02 restore at 123.4 seconds; two-account same-browser isolation PASS |
+| Explicit privacy boundary | prompts, drafts, messages, discussions, Girl Talk choices and private free-form activity content do not enter the continuation document |
 
 ### Resident communications release — 2026-07-27
 
