@@ -85,7 +85,6 @@ as $$
       and m.left_at is null
   );
 $$;
-
 revoke all on function public.is_resident_conversation_member(uuid, uuid)
   from public, anon;
 grant execute on function public.is_resident_conversation_member(uuid, uuid)
@@ -528,4 +527,3 @@ begin
   end if;
 end;
 $$;
-

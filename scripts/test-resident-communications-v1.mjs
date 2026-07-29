@@ -56,4 +56,3 @@ assert.match(navAuth, /href = '\/resident-chat\.html'/);
 
 console.log("RESIDENT COMMUNICATIONS V1 STATIC CONTRACT PASS");
 console.log("trading=server-authoritative gifts=duplicate-only chat=direct+group notifications=sitewide");
-
