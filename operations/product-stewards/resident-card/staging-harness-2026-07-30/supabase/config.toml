@@ -1,0 +1,23 @@
+# Local-only Supabase configuration. The non-default ports make this harness
+# distinct from any other local Supabase project.
+project_id = "laidies-resident-staging-20260730"
+
+[api]
+port = 55321
+
+[db]
+port = 55322
+
+[studio]
+port = 55323
+
+[inbucket]
+port = 55324
+
+[auth]
+site_url = "http://127.0.0.1:4173"
+additional_redirect_urls = ["http://127.0.0.1:4173/maikeover.html", "http://127.0.0.1:4173/resident-card.html", "http://127.0.0.1:4173/laidies-card.html"]
+
+[auth.email]
+enable_signup = true
+enable_confirmations = true
