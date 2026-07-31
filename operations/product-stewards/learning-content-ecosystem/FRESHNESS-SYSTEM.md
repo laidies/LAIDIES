@@ -167,6 +167,31 @@ Local edits remain `VERIFIED_LOCALLY`. Narration is not updated until new
 audio is integrated; a rendered page is not updated until its exact artifact
 is rebuilt; public state is not updated until the public bytes are verified.
 
+### Episode, podcast, YouTube and music fan-out
+
+When an affected consumer is an episode, trailer or song, the correction also
+opens a versioned media correction order governed by
+`content/data/media-release.schema.json` and
+`docs/product/take-it-with-me-media.md`. The order must determine whether the
+change affects:
+
+- the visual or audio master;
+- transcript, captions, chapters or lyrics;
+- canonical title, episode number, description or related-learning links;
+- the approved master episode cover and its site, podcast, YouTube and share
+  derivatives;
+- artist/band identity, album/release title, credits, identifiers, rights or
+  music artwork; and
+- every site, RSS, podcast, YouTube, YouTube Music or music-distributor
+  destination carrying the release.
+
+An accepted correction produces a new manifest version linked through
+`supersedes`. The previous version and artwork are explicitly `SUPERSEDED`;
+they are never silently overwritten or left current on another destination.
+A freshness signal may trigger this work, but it cannot auto-publish it. The
+transaction closes only after the admitted successor has been delivered and
+the exact public result has been verified at every affected destination.
+
 ## Backfill rule
 
 The initial register contains the Episode 01 representative concept cluster

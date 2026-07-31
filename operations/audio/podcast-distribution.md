@@ -1,8 +1,14 @@
 # LAiDIES — podcast distribution plan (drive-time listening)
 
+**Status:** retained implementation note; the controlling cross-destination
+contract is now `docs/product/take-it-with-me-media.md`, with manifest shape in
+`content/data/media-release.schema.json`. Any conflict is resolved in favour
+of those newer contracts.
+
 The answer to "how do people listen while driving": **the season is a
-podcast.** Same mp3s that power the Screening Room, published through an
-RSS feed, playable in Apple Podcasts / Spotify / any podcast app —
+podcast.** The exact admitted episode audio masters are published through a
+LAiDIES-owned RSS feed, playable in Apple Podcasts / Spotify / compatible
+podcast apps —
 CarPlay and Android Auto included. The Screening Room stays the enhanced
 on-site version; the podcast is the everywhere version.
 
@@ -13,9 +19,10 @@ on-site version; the podcast is the everywhere version.
    from a `podcast-episodes.json` (Claude builds both when the first
    mp3 lands). Cloudflare serves the mp3s; no hosting fees, feed URL
    stays ours forever.
-2. **Cover art:** 3000×3000 JPG/PNG, needs to read at thumbnail size —
-   Codex brief (show logo treatment, Y2K, "ladies" legible tiny). Apple
-   rejects feeds without it.
+2. **Cover art:** the podcast show art and episode-specific square cover are
+   named checksum-bound derivatives in the media manifest. They are composed
+   from approved source art, tested at thumbnail size and may not be replaced
+   by a random frame, retired cover or unreviewed crop.
 3. **Submit once** to: Apple Podcasts (Podcasts Connect — needs an
    Apple ID), Spotify (podcasters.spotify.com), YouTube Music, Amazon
    Music. Overcast/Pocket Casts pick it up from Apple automatically.
@@ -24,8 +31,9 @@ on-site version; the podcast is the everywhere version.
 4. **Launch with the Trailer + Ep 1** — directories and listeners
    both treat one-episode feeds as abandoned.
 
-**In-world frame:** the podcast IS KSVL syndication — show notes and
-descriptions written in station voice ("as heard on K-S-V-L, 99.9").
+**In-world frame:** the podcast is KSVL syndication — show notes and
+descriptions can use station voice while preserving the exact episode title,
+learning-home link and factual meaning.
 
 **Fallback option:** a free host (e.g. Spotify for Creators) handles
 validation/analytics for zero effort — but the feed URL becomes theirs.
@@ -53,3 +61,8 @@ designed to be REMEMBERED until you're home: one small real task.
 - [ ] feed.xml generator + /podcast/ folder (Claude, when mp3s land)
 - [ ] Apple ID decision for Podcasts Connect (Ali)
 - [x] Trailer strategy: DECIDED — the tour episode IS the trailer (Ali named it)
+
+For each later freshness correction, produce an admitted successor media
+manifest and update the RSS item, podcast-directory result, site player,
+transcript/captions, episode cover derivatives and YouTube release as affected.
+Do not leave the older title, cover or audio current on a secondary platform.

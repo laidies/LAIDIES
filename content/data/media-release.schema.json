@@ -1,0 +1,324 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.ai/schemas/media-release.schema.json",
+  "title": "LAiDIES media release manifest",
+  "description": "Authoritative versioned identity for an episode, trailer, song or music collection and every admitted destination derivative.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "releaseId",
+    "releaseType",
+    "version",
+    "status",
+    "canonical",
+    "artwork",
+    "assets",
+    "destinations",
+    "correctionPropagation"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "releaseId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]+$" },
+    "releaseType": {
+      "enum": ["EPISODE", "TRAILER", "SONG", "SINGLE", "ALBUM", "COLLECTION"]
+    },
+    "version": { "type": "integer", "minimum": 1 },
+    "status": {
+      "enum": [
+        "CAPTURED",
+        "SPECIFIED",
+        "BUILT_LOCALLY",
+        "VERIFIED_LOCALLY",
+        "ACCEPTED",
+        "DEPLOYED",
+        "VERIFIED_PUBLICLY",
+        "HOLD",
+        "SUPERSEDED",
+        "RETRACTED"
+      ]
+    },
+    "supersedes": { "type": ["string", "null"] },
+    "canonical": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "description", "canonicalUrl", "canonRefs"],
+      "properties": {
+        "title": { "type": "string", "minLength": 1 },
+        "description": { "type": "string", "minLength": 1 },
+        "canonicalUrl": { "type": "string", "format": "uri" },
+        "canonRefs": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "seasonNumber": { "type": ["integer", "null"], "minimum": 1 },
+        "episodeNumber": { "type": ["integer", "null"], "minimum": 0 },
+        "releaseDate": { "type": ["string", "null"], "format": "date" },
+        "language": { "type": "string", "pattern": "^[a-z]{2}(-[A-Z]{2})?$" },
+        "rightsStatus": { "enum": ["PASS", "HOLD", "NOT_APPLICABLE"] }
+      }
+    },
+    "musicMetadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artistDisplayName",
+        "artistId",
+        "trackTitle",
+        "releaseTitle",
+        "releaseFormat",
+        "songwriters",
+        "performers",
+        "producers",
+        "genres",
+        "language",
+        "explicit",
+        "territories",
+        "copyrightC",
+        "copyrightP",
+        "audioSha256",
+        "lyricsRef",
+        "artworkId",
+        "rightsStatus"
+      ],
+      "properties": {
+        "artistDisplayName": { "type": "string", "minLength": 1 },
+        "artistId": { "type": "string", "minLength": 1 },
+        "trackTitle": { "type": "string", "minLength": 1 },
+        "mixVersion": { "type": ["string", "null"] },
+        "releaseTitle": { "type": "string", "minLength": 1 },
+        "albumTitle": { "type": ["string", "null"] },
+        "releaseFormat": { "enum": ["SINGLE", "EP", "ALBUM", "SOUNDTRACK"] },
+        "songwriters": { "$ref": "#/$defs/creditList" },
+        "composers": { "$ref": "#/$defs/creditList" },
+        "lyricists": { "$ref": "#/$defs/creditList" },
+        "performers": { "$ref": "#/$defs/creditList" },
+        "producers": { "$ref": "#/$defs/creditList" },
+        "label": { "type": ["string", "null"] },
+        "publisher": { "type": ["string", "null"] },
+        "genres": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "language": { "type": "string", "minLength": 2 },
+        "explicit": { "type": "boolean" },
+        "originalReleaseDate": { "type": ["string", "null"], "format": "date" },
+        "territories": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 2 },
+          "uniqueItems": true
+        },
+        "copyrightC": { "type": "string", "minLength": 1 },
+        "copyrightP": { "type": "string", "minLength": 1 },
+        "isrc": { "type": ["string", "null"] },
+        "upcEan": { "type": ["string", "null"] },
+        "durationSeconds": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+        "audioSha256": { "$ref": "#/$defs/sha256" },
+        "lyricsRef": { "type": "string", "minLength": 1 },
+        "artworkId": { "type": "string", "minLength": 1 },
+        "rightsStatus": { "enum": ["PASS", "HOLD"] },
+        "distributorDeliveryIds": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        }
+      }
+    },
+    "artwork": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/artwork" }
+    },
+    "assets": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/mediaAsset" }
+    },
+    "destinations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/destination" }
+    },
+    "freshness": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "signalIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "workOrderIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "lastCheckedAt": { "type": ["string", "null"], "format": "date-time" }
+      }
+    },
+    "correctionPropagation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["affectedConsumers", "complete"],
+      "properties": {
+        "affectedConsumers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["consumer", "disposition", "evidence"],
+            "properties": {
+              "consumer": { "type": "string", "minLength": 1 },
+              "disposition": {
+                "enum": ["NO_CHANGE", "UPDATE", "REPLACE", "REMOVE", "CURRENT_NOTE", "HOLD", "SUPERSEDE"]
+              },
+              "evidence": { "type": ["string", "null"] }
+            }
+          }
+        },
+        "complete": { "type": "boolean" }
+      }
+    },
+    "releaseReceipt": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["manifestSha256", "admittedBy", "admittedAt"],
+      "properties": {
+        "manifestSha256": { "$ref": "#/$defs/sha256" },
+        "admittedBy": { "type": "string", "minLength": 1 },
+        "admittedAt": { "type": "string", "format": "date-time" },
+        "publicVerificationRef": { "type": ["string", "null"] }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "releaseType": { "enum": ["SONG", "SINGLE", "ALBUM", "COLLECTION"] } } },
+      "then": { "required": ["musicMetadata"] }
+    },
+    {
+      "if": { "properties": { "releaseType": { "enum": ["EPISODE", "TRAILER"] } } },
+      "then": {
+        "properties": {
+          "artwork": {
+            "contains": {
+              "type": "object",
+              "properties": { "kind": { "const": "MASTER_EPISODE_COVER" } },
+              "required": ["kind"]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "creditList": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "role"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "role": { "type": "string", "minLength": 1 },
+          "identifier": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "artwork": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artworkId",
+        "kind",
+        "sourcePath",
+        "sha256",
+        "width",
+        "height",
+        "approvalStatus",
+        "rightsStatus",
+        "altText"
+      ],
+      "properties": {
+        "artworkId": { "type": "string", "minLength": 1 },
+        "kind": {
+          "enum": [
+            "MASTER_EPISODE_COVER",
+            "PODCAST_SQUARE",
+            "YOUTUBE_THUMBNAIL",
+            "SITE_POSTER",
+            "SHARE_IMAGE",
+            "ALBUM_COVER",
+            "SONG_VISUALIZER_POSTER"
+          ]
+        },
+        "sourcePath": { "type": "string", "minLength": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 },
+        "derivedFrom": { "type": ["string", "null"] },
+        "focalPoint": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["x", "y"],
+          "properties": {
+            "x": { "type": "number", "minimum": 0, "maximum": 1 },
+            "y": { "type": "number", "minimum": 0, "maximum": 1 }
+          }
+        },
+        "safeAreaNotes": { "type": ["string", "null"] },
+        "approvalStatus": { "enum": ["PASS", "HOLD", "RETIRED", "SUPERSEDED"] },
+        "approvalRef": { "type": ["string", "null"] },
+        "creator": { "type": ["string", "null"] },
+        "rightsStatus": { "enum": ["PASS", "HOLD", "NOT_APPLICABLE"] },
+        "altText": { "type": "string", "minLength": 1 }
+      }
+    },
+    "mediaAsset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "sourcePath", "sha256", "mimeType", "admissionStatus"],
+      "properties": {
+        "role": {
+          "enum": [
+            "VISUAL_MASTER",
+            "AUDIO_MASTER",
+            "CAPTIONS_SRT",
+            "CAPTIONS_VTT",
+            "TRANSCRIPT",
+            "LYRIC_VIDEO",
+            "VISUALIZER",
+            "PODCAST_FEED_ITEM"
+          ]
+        },
+        "sourcePath": { "type": "string", "minLength": 1 },
+        "publicUrl": { "type": ["string", "null"], "format": "uri" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "mimeType": { "type": "string", "minLength": 1 },
+        "durationSeconds": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+        "admissionStatus": { "enum": ["PASS", "HOLD", "SUPERSEDED"] }
+      }
+    },
+    "destination": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "status", "publicUrl", "verificationRef"],
+      "properties": {
+        "name": {
+          "enum": [
+            "SITE",
+            "APPLE_PODCASTS",
+            "SPOTIFY_PODCASTS",
+            "YOUTUBE",
+            "YOUTUBE_MUSIC",
+            "APPLE_MUSIC",
+            "SPOTIFY_MUSIC",
+            "OTHER"
+          ]
+        },
+        "status": { "enum": ["NOT_BUILT", "READY", "DELIVERED", "VERIFIED_PUBLICLY", "HOLD", "SUPERSEDED"] },
+        "publicUrl": { "type": ["string", "null"], "format": "uri" },
+        "deliveryId": { "type": ["string", "null"] },
+        "verificationRef": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

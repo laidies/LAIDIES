@@ -37,6 +37,12 @@ Only narrow typed security-definer RPCs may mutate the ledger:
 insert/update/delete from clients is revoked. Transactions and row locks make
 concurrent reserve/commit safe.
 
+`wallet_snapshot` returns available and pending/reserved balances, lifetime
+earned, lifetime spent, lifetime refunded/adjusted and paginated itemized
+history. Each spend identifies the catalog offer, amount, time, destination,
+fulfilment receipt/status and any linked release/refund/correction. Consumers
+may not erase spent value from the resident's lifetime record.
+
 ## Existing sources that must be replaced or constrained
 
 - `content/site/clip-bank.js`: device-local derived Clips are not account
@@ -57,7 +63,10 @@ concurrent reserve/commit safe.
 - Book Fair: versioned catalog, cost, reservation, fulfilment receipt and
   failure reason; cannot debit directly.
 - Closet: wallet/entitlement consumer and accessible history.
-- FAiRY: typed play outcome/refund reason; cannot debit directly.
+- FAiRY: typed play outcome/refund reason; cannot debit directly. After the
+  first vertical passes, one versioned catalog offer may atomically reserve
+  Butterfly Clips, grant one extra Play and commit or release/refund. Plays do
+  not convert back into Clips.
 - Post Office: opaque invite lifecycle before referral grants.
 - Release/security: staging RLS, concurrency, provider and rollback proof.
 
@@ -87,9 +96,9 @@ those choices and may use clearly marked fixtures.
 5. Real Book Fair fulfilment success, timeout, permanent failure and retry.
 6. FAiRY consume/refund only after the first vertical passes.
 7. Two-tab/device/account, sign-out, correction and revoke propagation.
-8. Keyboard/screen-reader wallet, pending, failure, retry and history.
+8. Keyboard/screen-reader wallet, pending, lifetime earned/spent/refunded,
+   named itemized spend, failure, retry and history.
 9. Independent security/economic review and exact release/public proof.
 
 This is current-release work. It cannot be relabeled
 `INTENTIONAL LATER RELEASE` to absorb missed implementation.
-

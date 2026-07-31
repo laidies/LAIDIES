@@ -39,9 +39,11 @@ Keep the system legible:
 - **Charms, stickers, merit badges and trading cards** are earned/collected
   objects. They are not separate currencies.
 - **Progress, quiz scores and completed weeks** are records, not money.
-- **FAiRY Plays** may remain a clearly labelled service allowance for a
-  resource-limited tool, but not a competing general town currency. A future
-  option may allow clips to redeem an extra Play if cost and safety make sense.
+- **FAiRY Plays** remain a clearly labelled service allowance for a
+  resource-limited tool, not a competing general town currency. After the
+  first authoritative earning/spend/refund vertical passes, the shared catalog
+  may offer a one-way Butterfly Clips → extra FAiRY Play redemption. Plays do
+  not convert back into clips.
 - **Real money** remains completely separate.
 
 A visitor should never need an exchange-rate chart to understand her Closet.
@@ -72,6 +74,12 @@ Possible action families:
 | **Contribute** | Complete a safe community action | Reward genuine participation with caps; never pay for spam |
 | **Connect** | Mail an eligible postcard; welcome a distinct new resident; complete an opted-in learning action together | Give a small capped send thank-you and a larger reciprocal reward for a real joined relationship |
 | **Return** | Complete a released weekly route | Celebrate return without fragile daily streaks |
+
+Listening supports learning but raw attention is not currency. Pressing Play,
+leaving an episode/song running, repeat streaming or an unverifiable
+Apple/Spotify/YouTube listen does not earn clips. The meaningful checkpoint,
+Try-On, class step, quiz or completed route may earn once through the shared
+completion ledger.
 
 Every action record needs:
 
@@ -208,7 +216,10 @@ path when signed-in sync becomes authoritative.
 - No silent balance changes.
 - Every earn/spend event explains what happened.
 - A failed transaction leaves the balance unchanged and offers recovery.
-- A resident can see earned, spent, refunded and available totals.
+- A resident can see available and pending clips, lifetime earned, lifetime
+  spent, lifetime refunded/adjusted and an itemized history.
+- Every spend names what was purchased, how many clips were used, where the
+  result went and any linked refund/correction.
 
 ## Revenue later—not now
 
@@ -242,12 +253,17 @@ costs or pressure someone to buy.
 7. Measure earning, saving, redemption, use and return.
 8. Expand based on behavior; keep revenue dormant until demand exists.
 
+The first earning bands, redemption behavior and one-way FAiRY Play offer are
+specified in
+`operations/product-stewards/platform-reliability/REWARD-EARNING-AND-REDEMPTION-SPEC-2026-07-31.md`.
+
 Product companions:
 
 - `docs/product/building-loyalty-cards.md`
 - `docs/product/bring-your-people-reward-loops.md`
 - `docs/product/quotables-and-memory-hooks-system.md`
 - `docs/product/sustainable-growth-and-revenue-principles.md`
+- `docs/product/take-it-with-me-media.md`
 
 ## Definition of done
 

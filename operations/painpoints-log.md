@@ -10623,3 +10623,67 @@ _Original source ID: repository #36_
 - **Why the fix works:** It catches reader-facing entitlement errors that can survive a generally accurate price or launch summary.
 - **Possible Behind the Build angle:** Why one innocent-looking umbrella term can turn a product update into false access advice.
 - **Publication status:** VERIFIED INTERNAL LEARNING — held private NewsStand candidate; no public change.
+
+## BTB-290 — Building pages cannot each invent their own version of a town-wide system
+
+- **Date:** 2026-07-31
+- **Area:** SUNNYVAiLE buildings / Resident identity / Closet / rewards / progress.
+- **Failure:** Building concepts referenced saving, charms, Trading Cards,
+  Butterfly Clips, loyalty stamps and cross-device progress before one complete
+  shared transaction was available to every producer and consumer. This made a
+  visually finished building page liable to promise an object, balance or
+  completion state that another page stored differently—or did not actually
+  deliver at all.
+- **Root cause:** “Work through the town one building at a time” was not paired
+  with a dependency rule for shared systems. Page-level implementation could
+  therefore get ahead of the common identity, event, ownership, economic and
+  projection contracts.
+- **Prevention rule:** Classify every capability before a building build as
+  either building-owned or sitewide. Build sitewide capabilities once behind
+  typed shared contracts, then prove each through the smallest real vertical
+  slice before expanding it. The first collection proof must perform a real
+  activity, emit one authoritative completion, grant one exact item, show it
+  in My Closet, restore it in a second signed-in context and remove/correct it.
+  The first economic proof must additionally grant, reserve, fulfil, spend and
+  refund through one append-only ledger. Building pages may develop content,
+  visual identity and honest empty/failure states in parallel, but cannot
+  claim saving, ownership, currency, messaging or cross-device completion
+  before that shared result passes.
+- **Why the fix works:** It avoids both extremes: a giant speculative platform
+  built without a user journey, and seventeen incompatible local systems. One
+  real route validates the foundation; every later building reuses the same
+  event, ledger, Closet and account behavior.
+- **Possible Behind the Build angle:** How a fictional town forced a very real
+  platform decision: build the shops one by one, but build the wallet only once.
+
+## BTB-291 — A corrected episode can still be stale everywhere else
+
+- **Date:** 2026-07-31
+- **Area:** Weekly Episodes / KSVL / podcast / YouTube / music distribution.
+- **Failure:** Episode facts, titles, audio, song credits or cover art could be
+  corrected on the website while an older podcast item, YouTube upload,
+  thumbnail, KSVL entry or music-service delivery remained current. Episode
+  covers were treated as convenient images instead of release identity, so a
+  retired cover, arbitrary video frame or destructive crop could reappear.
+  Music notes also lacked one authoritative artist/band, album-art and credits
+  packet for every destination.
+- **Root cause:** Audio, video, RSS, YouTube, artwork and music-distribution
+  plans lived in separate documents and filenames. The freshness transaction
+  could name the episode page as a consumer without owning the entire released
+  media package and its destination derivatives.
+- **Prevention rule:** Every episode, trailer and song has one versioned
+  checksum-bound media manifest. The manifest binds exact masters, transcript,
+  captions/lyrics, metadata, approved episode cover or album art, named
+  derivatives and every destination. A freshness signal opens a successor
+  media correction order; each affected consumer is dispositioned and the
+  superseded version is removed from current status only after the exact public
+  successor is verified. Never derive release art from an unapproved crop,
+  retired asset or random frame, and never infer artist/album metadata from a
+  filename.
+- **Why the fix works:** Corrections now travel as one admitted release rather
+  than a collection of best-effort page edits. A single manifest makes stale
+  covers, mismatched credits and platform-specific old versions visible and
+  blocking.
+- **Possible Behind the Build angle:** Updating an episode is not editing a
+  webpage: the release graph that keeps a podcast, thumbnail, song and article
+  from disagreeing with each other.

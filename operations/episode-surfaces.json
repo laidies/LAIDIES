@@ -159,13 +159,40 @@
       "proof": "Captions match the final audio word-for-word after public-spelling normalization, omit delivery tags, and are loaded by the player."
     },
     {
+      "id": "episode-cover-artwork",
+      "domain": "visual",
+      "policy": "required",
+      "mode": "generated",
+      "canon_fields": ["meta", "artwork"],
+      "targets": ["content/data/media-releases/episode-{NN}.json", "assets/episodes/ep-{NN}/"],
+      "proof": "One approved checksum-bound master episode cover records title, number, rights, alt text, focal point and crop-safe derivatives for the site, podcast, YouTube and sharing; retired art and arbitrary film frames are ineligible."
+    },
+    {
+      "id": "episode-media-release-manifest",
+      "domain": "source",
+      "policy": "required",
+      "mode": "generated",
+      "canon_fields": ["meta", "episode_description", "narrative", "track", "artwork", "site_links", "references"],
+      "targets": ["content/data/media-releases/episode-{NN}.json"],
+      "proof": "Manifest validates against content/data/media-release.schema.json and binds the exact version, audio/video/caption/transcript assets, cover derivatives, metadata, destinations, correction propagation and release receipt."
+    },
+    {
       "id": "podcast-item",
       "domain": "audio",
-      "policy": "conditional",
+      "policy": "required",
       "mode": "external",
-      "canon_fields": ["meta", "episode_description", "try_on", "narration_audio"],
-      "targets": ["podcast/feed.xml", "operations/releases/episode-{NN}.md"],
-      "proof": "Feed validates and the public podcast item plays; selected only while the podcast channel is active."
+      "canon_fields": ["meta", "episode_description", "try_on", "narration_audio", "artwork", "site_links"],
+      "targets": ["podcast/feed.xml", "content/data/media-releases/episode-{NN}.json", "operations/releases/episode-{NN}.md"],
+      "proof": "The LAiDIES-owned feed validates; the item uses the exact admitted audio, title, episode cover and canonical learning-home link; public playback is verified in the activated podcast destinations."
+    },
+    {
+      "id": "youtube-episode",
+      "domain": "video",
+      "policy": "required",
+      "mode": "external",
+      "canon_fields": ["meta", "episode_description", "narrative", "artwork", "site_links", "references"],
+      "targets": ["content/data/media-releases/episode-{NN}.json", "operations/releases/episode-{NN}.md"],
+      "proof": "The official channel receives the admitted full visual master, accurate captions/chapters, approved thumbnail, canonical site and related-learning links; title, image, playback and links are verified publicly."
     },
     {
       "id": "episode-song",
@@ -175,6 +202,15 @@
       "canon_fields": ["track", "lesson", "quotables", "pronunciation"],
       "targets": ["content/music/dj-jaidy-week-{NN}-*.mp3", "operations/audio/laidies-songbook-suno.md"],
       "proof": "Approved episode song file, title, artist, canonical lyrics, one to three accurate lesson-memory hooks and rights/provenance are recorded; the song works as replayable music rather than a sung summary."
+    },
+    {
+      "id": "song-release-metadata",
+      "domain": "music",
+      "policy": "required",
+      "mode": "generated",
+      "canon_fields": ["meta", "track", "lesson", "artwork", "pronunciation"],
+      "targets": ["content/data/media-releases/song-episode-{NN}.json"],
+      "proof": "Manifest validates against content/data/media-release.schema.json and binds the exact artist/band, track and release titles, credits, rights, identifiers, territories, audio/lyrics checksums, approved album artwork, derivatives and destination delivery identities."
     },
     {
       "id": "song-performance-workbench",

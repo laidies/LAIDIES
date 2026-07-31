@@ -18,3 +18,11 @@ Do not build on:
 The ledger build begins only after the P0 service has verified identity and
 validated typed case outcomes. Every named earning source must be proven
 individually or removed from public copy.
+
+After the shared Butterfly Clip ledger has passed its first real
+grant/reserve/fulfil/spend/refund vertical, the town catalog may offer a
+one-way redemption for one extra FAiRY Play. The catalog—not the FAiRY
+browser—sets the price. Redemption must reserve Clips, grant the exact Play
+once, commit the spend only after that grant, and release/refund on failure.
+Plays never convert back to Clips. This is SPECIFIED future behavior, not a
+current public promise.
