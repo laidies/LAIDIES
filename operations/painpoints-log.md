@@ -10714,3 +10714,26 @@ _Original source ID: repository #36_
   them.
 - **Possible Behind the Build angle:** The difference between writing an idea
   down and building an operating system that can remember it for you.
+
+## BTB-296 — Two valid-looking components can still make one incoherent social object
+
+- **Date:** 2026-07-31
+- **Area:** Audience & Growth / social creative / founder review.
+- **Failure:** The Founding Mothers teaser stacked authoritative episode title
+  art over a generic gradient campaign card. Each component could look finished
+  in isolation, but together they read as disconnected, chaotic and unlikely to
+  be shared. It reached Ali as though it were a complete campaign direction.
+- **Root cause:** Component-level validity was mistaken for campaign coherence.
+  There was no required whole-object review of hierarchy, recognition, hook,
+  crop, channel job and reason to send or save before founder review.
+- **Prevention rule:** One social object and campaign runway use one intentional
+  visual grammar. Before Ali sees it, review the complete native crop for one
+  clear idea, hierarchy, LAiDIES recognition, source truth, adult brand fit,
+  first-frame comprehension, accessibility and a real watch/save/send reason.
+  Record rejection in steward state so the asset cannot be recycled as a
+  template or quietly returned in another package.
+- **Why the fix works:** The review unit becomes the audience's real object,
+  not a collection of independently polished parts, and rejected directions
+  become durable exclusions rather than reusable inventory.
+- **Possible Behind the Build angle:** How two finished-looking designs made
+  one unfinished campaign—and why the whole object has to be the test.

@@ -36,7 +36,18 @@ Nothing should be mass-deleted before the replacement runway exists. Apply this 
 | 5 | Tease the rhythm | Daily Buzz, KSVL and the Wednesday Tour make the town feel alive between episodes | Follow/stay tuned |
 | 6 | Show the system | What connects, saves, updates and leads somewhere useful | Grand reopening coming soon |
 
-## Founding Mothers teaser — exact candidate
+## Founding Mothers teaser — REJECTED VISUAL DIRECTION
+
+**Disposition:** The exact visual
+`social/launch/founding-mothers-reopening-teaser-v1.png` is rejected. Do not
+publish it, reuse it as a template or include it in the replacement runway.
+
+It combines authoritative Episode 04 title art with a separate generic
+gradient campaign card. The two systems compete instead of forming one
+recognizable LAiDIES composition, so the result reads as disconnected and
+chaotic rather than coherent, sophisticated or shareable. The file remains
+only as rejection evidence. The source proposition and caption below are
+working material, not approval of the rejected design.
 
 ### Cover
 
@@ -46,7 +57,7 @@ You were never behind on AI.
 **You were just never told it was yours.**  
 FOLLOW FOR THE FIRST LOOK
 
-Candidate asset: `social/launch/founding-mothers-reopening-teaser-v1.png`
+Rejected asset: `social/launch/founding-mothers-reopening-teaser-v1.png`
 
 - Candidate SHA-256: `e547e347070e5d5ae17193e7a8985243345562e40df06e391415a7626694f3da`
 - Bound source-frame SHA-256: `8dd5192b0265cf07321743d100539b938c566e85068eb84c837bd155907f57ec`

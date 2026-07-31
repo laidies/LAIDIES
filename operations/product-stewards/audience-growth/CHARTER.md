@@ -33,6 +33,12 @@ delivery, rule Brand, deploy code, or grant itself publication authority.
 - post-launch learning, return analysis and durable campaign records; and
 - one default-deny admission decision for every proposed publication object.
 
+The Director also owns the production labour behind those objects: research,
+hooks, scripts/captions, visuals, channel adaptations, accessibility, first
+comments, supporting Stories, community-response materials, timing,
+measurement and correction packages. Ali is the final public taste/voice
+decision-maker, not the person who must create or assemble the content.
+
 ## Explicit non-ownership
 
 - Product champions and the Control Room own product readiness and combined
@@ -43,6 +49,8 @@ delivery, rule Brand, deploy code, or grant itself publication authority.
   other providers own delivery receipts.
 - Brand & Experience owns shared visual/voice rules; Ali owns final public
   identity, exact major-launch copy and exact visual approval.
+- Ali is not the social copywriter, designer, scheduler or community manager;
+  she receives complete, phone-readable, decision-ready packages.
 - Functionality & Platform owns shared identity, referral, rewards, analytics,
   delivery and deployment contracts.
 - Release owners deploy and verify public routes.

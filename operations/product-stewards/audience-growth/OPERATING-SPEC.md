@@ -52,6 +52,13 @@ search/referrer patterns and content performance. It must bring forward a
 ranked recommendation and implement reversible, authorized improvements
 without waiting for Ali to generate every idea.
 
+`SOCIAL-TREND-AND-ENGAGEMENT-CONTRACT.md` is the standing execution contract
+for current platform research. A useful finding is not complete when it becomes
+a recommendation: the Director must translate it into LAiDIES, build the native
+candidate, pass the applicable gates, measure any authorized publication and
+record a KEEP, ITERATE or STOP decision. Trend copying, generic viral templates
+and engagement bait remain prohibited.
+
 ### Intake sources
 
 Use this authority order:
