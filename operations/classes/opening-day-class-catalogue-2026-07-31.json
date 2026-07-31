@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "updated": "2026-07-31",
+  "status": "BUILDING",
+  "objective": "Turn three existing instructional candidates into three complete, useful and connected SUNNYVAiLE High visitor experiences for opening day.",
+  "release_rule": "A written lesson candidate is not a released class. A class becomes opening-day ready only when every required experience component is accepted, the actual visitor route passes responsive and accessibility checks, the product paths shown in the lesson are freshly verified, and the completion event is proven through the learner record.",
+  "experience_levels": {
+    "entry": "Useful to someone who can open an AI product but does not yet have a dependable mental model of what is on the screen or what still requires verification.",
+    "working": "Useful to someone already using conversational AI who wants a repeatable way to organize real work and retain authority over the result.",
+    "judgement": "Useful to someone evaluating ambitious product claims or designing higher-consequence workflows and who needs an evidence-based setup and test method."
+  },
+  "required_class_components": [
+    "clear learner and observable outcome",
+    "freshly verified product path or explicitly product-independent teaching boundary",
+    "5–10 minute teaching experience without padding",
+    "worked before-and-after example with one meaningful variable changed",
+    "guided Try-On or controlled practice using safe material",
+    "knowledge or performance check with useful feedback",
+    "take-home artifact the learner can use after the class",
+    "primary-source trail, checked date, recheck trigger and limitations",
+    "related episode, Library reference and tool or activity where each genuinely exists",
+    "completion event, Closet learning record and rewards event without inventing a balance",
+    "captions, transcript, keyboard path, mobile layout and reduced-motion-safe presentation",
+    "independent accuracy, teaching, LAiDIES voice, anti-slop and location-fit review"
+  ],
+  "reward_boundary": {
+    "status": "DEPENDENCY",
+    "rule": "Each accepted class completion emits an idempotent class-completed event. Butterfly Clip and Fairy Play amounts are resolved by the shared rewards ledger, not hard-coded into a class page.",
+    "required_event_fields": [
+      "event_id",
+      "resident_id",
+      "class_id",
+      "class_version",
+      "completed_at",
+      "evidence_type"
+    ]
+  },
+  "classes": [
+    {
+      "id": "ODC-101",
+      "public_title": "What You're Looking At",
+      "level": "entry",
+      "visitor_job": "Understand the difference between the app, the model, tools and working context, then identify what still needs human verification.",
+      "source_files": [
+        "operations/classes/basics-what-these-tools-are.CONTENT.md",
+        "content/site/high-classes.json"
+      ],
+      "current_truth": "HELD instructional candidate; scripted in the class register, unfilmed, path-unverified, independently unreviewed and not admitted.",
+      "opening_day_connections": {
+        "episode": "episode:01",
+        "library": "library:vocab-101",
+        "practice": "class-local interface-mapping Try-On",
+        "relationship_record": "REL-EP01-HIGH-BASICS"
+      },
+      "remaining_work": [
+        "walk and record the real current web interfaces used in the demonstration",
+        "turn the controlled practice into a visitor-facing Try-On and answer key",
+        "create the take-home app/model/tools/context map",
+        "record or assemble the teaching media, captions, transcript and poster",
+        "implement the class route, feedback check, completion and related-learning links",
+        "pass independent content, accessibility and responsive review"
+      ],
+      "ready_when": "A new learner can complete the class on phone or desktop, correctly explain the four layers, identify one verification boundary, save the take-home map and see the completion restored after sign-in."
+    },
+    {
+      "id": "ODC-201",
+      "public_title": "From Chatting to Working",
+      "level": "working",
+      "visitor_job": "Turn a changing conversation into a current brief, bounded execution, intentional intervention and a durable checkpoint that can be resumed.",
+      "source_files": [
+        "operations/classes/masterclass-lesson-04-from-chatting-to-working.CONTENT.md",
+        "operations/classes/masterclass-lesson-04-from-chatting-to-working.script.md",
+        "operations/classes/masterclass-working-brief.TAKE-HOME.md"
+      ],
+      "current_truth": "BUILT LOCALLY instructional candidate; not independently accepted, filmed, admitted or public.",
+      "opening_day_connections": {
+        "episode": "episode:02",
+        "library": "library:briefing-101",
+        "practice": "Fairy Godmother working-brief Try-On",
+        "tool": "tool:fairy-godmother"
+      },
+      "remaining_work": [
+        "select one safe opening-day demonstration and bind every product-specific step to a current primary source",
+        "convert the working brief into a usable in-page and downloadable take-home artifact",
+        "build the intervention-choice practice and performance rubric",
+        "record or assemble the teaching media, captions, transcript and poster",
+        "implement the class route, completion, related-learning and Fairy Godmother handoff",
+        "pass independent content, accessibility and responsive review"
+      ],
+      "ready_when": "A learner can turn a messy sample conversation into a usable brief, choose whether to continue, steer, stop or restart, save the checkpoint and reopen the accepted artifact without reconstructing the job."
+    },
+    {
+      "id": "ODC-LAB-01",
+      "public_title": "What the Viral Reel Left Out",
+      "level": "judgement",
+      "visitor_job": "Separate an exciting capability demo from the complete workflow required to make it useful, safe and reliable for a real job.",
+      "source_files": [
+        "operations/classes/intermediate-what-the-viral-reel-left-out.CONTENT.md"
+      ],
+      "current_truth": "BUILT LOCALLY framework candidate; not independently accepted, filmed, admitted, routed or public.",
+      "opening_day_connections": {
+        "daily": "daily:what-the-viral-reel-left-out",
+        "library": "library:setup-101",
+        "practice": "class-local Missing Middle workflow card",
+        "related_class": "ODC-201"
+      },
+      "remaining_work": [
+        "choose one opening-day claim only after binding it to current primary evidence",
+        "create the Missing Middle workflow card in accessible web and downloadable forms",
+        "build guided, advanced and low-risk versions of the controlled practice",
+        "create the classification check with feedback for supported, incomplete, misleading and unsupported claims",
+        "record or assemble the teaching media, captions, transcript and poster",
+        "implement the class route, daily derivative connection, completion and related learning",
+        "pass independent content, accessibility and responsive review"
+      ],
+      "ready_when": "A learner can audit a current claim, identify its missing prerequisites, setup, judgement, risks, test and upkeep, and leave with a defensible build, revise, investigate, decline or monitor decision."
+    }
+  ],
+  "execution_order": [
+    {
+      "step": 1,
+      "work": "Freeze the exact opening-day teaching claims, examples and current primary sources for all three classes."
+    },
+    {
+      "step": 2,
+      "work": "Build the three practices, feedback checks and take-home artifacts before filming so the media demonstrates the actual learner experience."
+    },
+    {
+      "step": 3,
+      "work": "Implement one reusable class template with truthful states, related learning, completion and accessibility instead of three bespoke shells."
+    },
+    {
+      "step": 4,
+      "work": "Capture teaching media and posters against the accepted template and verified product paths."
+    },
+    {
+      "step": 5,
+      "work": "Run accuracy, anti-slop, teaching usefulness, LAiDIES voice, location-fit, mobile, accessibility, completion and cross-device acceptance."
+    }
+  ],
+  "not_opening_day": [
+    "The full 13-class Basics sequence",
+    "Complete tool-specific ChatGPT, Claude and Gemini subjects",
+    "Any class whose interface path has not been checked in the real current product",
+    "Any teaser, proposed syllabus row or lesson draft presented as a functioning class"
+  ]
+}

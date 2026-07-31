@@ -55,6 +55,26 @@ account/reward paths exist in code without end-to-end production proof.
 
 ### Current step
 
+Ali's 2026-07-31 opening-day scope is now explicit in
+`operations/launch/opening-day-whole-town-program-2026-07-31.json`. All 17
+canonical buildings are opening-day scope. Phases describe dependency order,
+not permission to omit a building or ship a placeholder. The launch catalogue
+is Trailer plus Episodes 01–04, three complete class pathways, four admitted
+Library books, one complete Episode 01 Study Pack, a complete opening Daily
+and at least three sourced NewsStand stories, all 29 KSVL tracks, six admitted
+LUMINAiRY profiles, real community rooms and one complete useful journey for
+every promoted game/tool. Episode 05 is the first post-opening Wednesday
+release on 2026-08-05; its engine and release path must be operational before
+opening even though Episode 05 is not part of the opening-day public cutline.
+
+Use `node scripts/check-opening-day-program.mjs` to prevent a building,
+catalogue floor or episode cutline from disappearing during execution.
+The first catalogue slice is bound in
+`operations/classes/opening-day-class-catalogue-2026-07-31.json`: three
+visitor-ready class contracts at entry, working and judgement levels. Use
+`node scripts/check-opening-day-classes.mjs`; a local lesson draft cannot be
+reported as an opening-day class until the full visitor experience passes.
+
 Run the persistent product-champion system in risk-ranked cycles. Require an
 `OPERATING-SPEC.md` before a champion builds, then complete the
 research → specification → competition → build packet → specialist

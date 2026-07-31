@@ -1,0 +1,276 @@
+{
+  "schema_version": 1,
+  "updated": "2026-07-31",
+  "status": "BUILDING",
+  "class_catalogue_manifest": "operations/classes/opening-day-class-catalogue-2026-07-31.json",
+  "objective": "Open the complete SUNNYVAiLE experience with every advertised building genuinely useful, connected and proven. Build phases are execution order only; no canonical building is omitted from opening day.",
+  "opening_day_release_rule": "Every building and shared system in this manifest must reach VERIFIED LOCALLY on the exact release candidate, then VERIFIED PUBLICLY after deployment. A route, mock, draft, local file or bounded component pass is not enough.",
+  "scope_boundary": "Opening day includes every canonical building and the launch catalogue below. It does not require every future class, book, shop item, room, collectible or idea-log entry. Anything not in the launch catalogue remains visibly unavailable and retains a named later-release trigger.",
+  "episode_cutline": {
+    "opening_day": [
+      "Trailer",
+      "Episode 01 — On Wednesdays We Do AI",
+      "Episode 02 — Tell Me What You Want",
+      "Episode 03 — The Burn Book Problem",
+      "Episode 04 — The Founding Mothers"
+    ],
+    "first_post_opening_release": "Episode 05",
+    "scheduled_release_date": "2026-08-05",
+    "requirement_before_opening": "The Episode 05 brief, production path, complement handoffs, media metadata, correction propagation and Wednesday release runbook must already be operational; Episode 05 itself is not part of opening-day public content."
+  },
+  "launch_catalogue": {
+    "episodes": "Trailer and Episodes 01–04, each with the admitted read, listen and watch experience, cover/metadata, sources where applicable and related-learning links.",
+    "classes": "Three complete pathways: AI foundations; setting up and using an AI tool well; and an intermediate practical lab titled What the Viral Reel Left Out. Each includes an outcome, lesson, worked example, Try-On/practice, check, sources/freshness and next step.",
+    "library_books": "Four editorially admitted durable references: Vocab 101, Briefing 101, Setup 101 and Accounts 101, reconciled against duplicate/stale Grimoire material and connected to relevant episodes, classes, news and tools.",
+    "study_packs": "One complete Episode 01 Study Pack containing exactly the one-page Cheat Sheet, one Try-On and one Trading Card Pack. The Pop Quiz stays at SUNNYVAiLE High.",
+    "news": "One complete opening-day Daily paper plus at least three current, sourced NewsStand stories with direct pages, newest/archive/topic/search discovery, corrections and related learning.",
+    "daily": "A functioning daily rotation for AI news, Paige's useful tip, What the Viral Reel Left Out, Promptoscope, Mme CLAi-O reading, Song of the Day, town notes and one anti-cringe curiosity or mutual-support note. Sourced reporting and fictional town fun are unmistakably separated.",
+    "music": "All 29 creator-confirmed KSVL tracks with functioning players, canonical titles/artists/artwork, playlists and take-it-with-me metadata.",
+    "luminairy": "At least six fully sourced, rights-cleared profiles balanced across women who shaped computing's past and women shaping AI now.",
+    "community": "At least one usable general community room and one clearly scoped Resident/Girl Talk room with real post/reply, unread, report/block, moderation and failure/retry behavior.",
+    "games_and_tools": "Every game or tool promoted from the Homepage/directory has one complete, comprehensible and useful visitor journey; opening-day promotion cannot point to previews, generic shells or fake completion."
+  },
+  "shared_systems": [
+    {
+      "id": "town-entry-homepage",
+      "owner_product": "town-entry-homepage",
+      "status": "BUILDING",
+      "opening_day_floor": "Preserve the approved masthead and intro. Present four clear sections, Daily Buzz as a distinct side rail, visible sign-in and direct links to every opening-day destination without duplicated or buried journeys.",
+      "acceptance_proof": "First-time, signed-out returning and signed-in returning journeys pass at 320, 390, intermediate and desktop widths with no clipping, dead space, misleading availability or broken links.",
+      "next_action": "Return to the last accepted pre-reorganization candidate and rebuild only against the locked four-section content contract."
+    },
+    {
+      "id": "identity-continuation-closet",
+      "owner_product": "resident-card",
+      "status": "BUILDING",
+      "opening_day_floor": "Resident Card creation/sign-in, local-safe signed-out use, account-backed Card/Closet/progress continuation, My Closet entry, UI sign-out and truthful cross-device behavior.",
+      "acceptance_proof": "Disposable-account UI proof covers entry, reload, cross-context restore, native Closet add/remove, account isolation, sign-out/fail-closed behavior and cleanup without using personal production data.",
+      "next_action": "Provision isolated staging plus a non-personal mail sink, then run the held account-entry matrix."
+    },
+    {
+      "id": "rewards-economy",
+      "owner_product": "platform-reliability",
+      "status": "SPECIFIED",
+      "opening_day_floor": "One authoritative Butterfly Clip ledger records current balance, lifetime earned, lifetime spent/refunded and what each transaction was for. FAiRY Plays use the same ledger and may be redeemed one way from Clips after a confirmed exchange.",
+      "acceptance_proof": "At least one real earn, one spend, one refund/retry and one Clip-to-Play redemption pass idempotency, account isolation, visible receipt and cross-context balance tests.",
+      "next_action": "Lock the initial earn table and launch redemption catalogue, then implement the ledger API and first vertical slice."
+    },
+    {
+      "id": "content-graph-search-freshness",
+      "owner_product": "learning-content-ecosystem",
+      "status": "BUILT LOCALLY",
+      "opening_day_floor": "Every released item is indexed, searchable and connected to appropriate learn-more locations across episodes, books, classes, news, Daily, tools and games. Contradictions and freshness changes create owned correction orders.",
+      "acceptance_proof": "The launch catalogue passes ingestion, search, related-content, contradiction, sitemap/feed, canonical/share metadata and correction-propagation checks on the exact release artifact.",
+      "next_action": "Resolve the existing relationship queue and bind each launch-catalogue artifact to its exact consumer set."
+    },
+    {
+      "id": "media-distribution",
+      "owner_product": "episode-media-quality",
+      "status": "SPECIFIED",
+      "opening_day_floor": "Episodes and songs have one checksum-bound version record, approved cover/crop family, correct artist/episode metadata, website playback and prepared podcast/YouTube/music-platform destinations. Freshness corrections propagate everywhere.",
+      "acceptance_proof": "Trailer and Episodes 01–04 plus all opening KSVL tracks reproduce exact manifest identities across website and every admitted external feed/channel; successor tests prove correction replacement.",
+      "next_action": "Populate canonical manifests and platform mappings, then prepare the opening-day distribution package without publishing before release admission."
+    },
+    {
+      "id": "moderation-messaging-notifications",
+      "owner_product": "community",
+      "status": "BUILDING",
+      "opening_day_floor": "Residents can find messages and unread state from mobile or desktop; community contributions have report/block/moderation, receipt, failure and retry behavior.",
+      "acceptance_proof": "Two-account message/post/reply/unread/report/block/moderation tests pass with privacy, accessibility, rate-limit and account-isolation evidence.",
+      "next_action": "Reconcile the existing messaging service and expose it through Sorority House and My Closet without inventing a second system."
+    },
+    {
+      "id": "analytics-control-room",
+      "owner_product": "platform-reliability",
+      "status": "BLOCKED — BUILD REMAINS REQUIRED",
+      "opening_day_floor": "Privacy-safe site health, agent health, releases, signups, visitors, popular/unpopular journeys, schedule, social status, blockers and evidence-backed recommendations are visible in the secure mobile Control Room.",
+      "acceptance_proof": "Authorized aggregate sources populate without private-data leakage; unknown stays null; every Ali action produces an immutable receipt and returns to its owner queue.",
+      "next_action": "Connect approved read-only analytics and verified signup aggregates after access is provisioned; keep mutation controls disabled until authentication and receipts pass."
+    },
+    {
+      "id": "sitewide-quality",
+      "owner_product": "platform-reliability",
+      "status": "BUILDING",
+      "opening_day_floor": "Shared header/navigation, responsive behavior, accessibility, privacy/security, performance, error handling and visitor-language standards apply across the whole town.",
+      "acceptance_proof": "Continuous full-page desktop/intermediate/mobile captures and automated/manual accessibility, link, media, console, performance and failure-state checks pass the exact candidate and public deployment.",
+      "next_action": "Use the 28-route inventory as the regression set and close shared failures before building-specific release gates."
+    }
+  ],
+  "buildings": [
+    {
+      "number": 1,
+      "id": "visitors-centre",
+      "name": "Visitor’s Centre",
+      "status": "BUILDING",
+      "opening_day_floor": "A complete first-arrival orientation with the Trailer, how SUNNYVAiLE/LAiDIES works, an accurate town directory, suggested starts for new and returning visitors and direct handoff to every open building.",
+      "acceptance_proof": "First visit, returning signed-out and signed-in routes are comprehensible and complete on desktop/mobile; no rejected white shell, fake map or dead destination remains.",
+      "next_action": "Recover the last complete orientation experience and rebuild it in the accepted building-as-interface visual language."
+    },
+    {
+      "number": 2,
+      "id": "newsstand",
+      "name": "NewsStand",
+      "status": "BUILDING",
+      "opening_day_floor": "The Daily newspaper, at least three current sourced launch stories, newest/archive/topic/search, exact sources, corrections, related learning and clearly labelled fictional town sections.",
+      "acceptance_proof": "Every launch story passes the full publication-validation-and-discovery chain; the Daily rotates correctly and stale/held/retracted items are suppressed.",
+      "next_action": "Finish the held rendered stories, commission the missing launch set and build the complete Daily/newspaper surfaces."
+    },
+    {
+      "number": 3,
+      "id": "chick-flicks",
+      "name": "Chick Flicks",
+      "status": "BUILDING",
+      "opening_day_floor": "Trailer and Episodes 01–04 are easy to discover, read, listen to and watch, with correct titles/covers, start-in-order/latest choices, portable listening and related learning.",
+      "acceptance_proof": "Every format plays/opens, resumes where supported, uses exact released bytes and propagates corrections; Episode 03 is The Burn Book Problem.",
+      "next_action": "Bind the admitted Trailer/Episodes 01–04 masters and written pages into one exact opening-day media catalogue."
+    },
+    {
+      "number": 4,
+      "id": "blend-snap",
+      "name": "Blend & Snap",
+      "status": "BUILDING",
+      "opening_day_floor": "The café is the Study Pack home and opens the complete Episode 01 Cheat Sheet, Try-On and Trading Card Pack with save/download/print and Closet handoffs.",
+      "acceptance_proof": "All three items pass instructional, source, print/mobile, card-ownership, download and completion tests; no rejected placeholder art or duplicate Study Sheet appears.",
+      "next_action": "Complete the admitted Episode 01 pack and integrate the authentic cards and Try-On into the café experience."
+    },
+    {
+      "number": 5,
+      "id": "mme-claio",
+      "name": "Mme CLAi-O's Shop",
+      "status": "BUILDING",
+      "opening_day_floor": "One complete playful card-reading experience with the correct character/art, clear entertainment boundaries, useful output and a distinct relationship to—but no false ownership of—the Daily Promptoscope.",
+      "acceptance_proof": "Card selection, output variation, replay, mobile/accessibility, privacy and failure states pass; rejected/pixelated/incorrect art is absent.",
+      "next_action": "Replace the rejected reading art and independently review the complete visitor journey."
+    },
+    {
+      "number": 6,
+      "id": "maikeover",
+      "name": "MAiKEOVER on MAiN",
+      "status": "BUILDING",
+      "opening_day_floor": "Resident Card and My Closet visibly manage identity, saved progress, collections, rewards, charms/badges/cards and message entry with truthful signed-in/signed-out states.",
+      "acceptance_proof": "Native add/remove, restore, account switch, cross-device, revocation, empty/error and accessibility journeys pass against authoritative stores.",
+      "next_action": "Finish the Closet category/ownership contract, then close the staging account-entry and cross-context propagation matrix."
+    },
+    {
+      "number": 7,
+      "id": "bronze-aige",
+      "name": "Bronze AiGE",
+      "status": "BUILDING",
+      "opening_day_floor": "Cocktail Fortune and the Businesswomen’s Special are both complete, legible, playful experiences with alcohol-safe language, real outcomes and appropriate KSVL/Closet/reward handoffs.",
+      "acceptance_proof": "Both journeys pass content, rights/audio, alcohol-safety, mobile, accessibility, analytics, completion and failure/retry gates.",
+      "next_action": "Close the current visual/native/audio/rights gates and bind each experience to a real completion event."
+    },
+    {
+      "number": 8,
+      "id": "dream-phone",
+      "name": "Dream Phone Booth",
+      "status": "BUILDING",
+      "opening_day_floor": "A coherent Dream Phone experience includes the funny caller/reflection game and the hallucination-detection challenge, with plain-language purpose and no misleading professional-advice promise.",
+      "acceptance_proof": "Both modes pass comprehension, learning usefulness, replay, state, rewards, accessibility, mobile and failure tests with no bizarre internal labelling.",
+      "next_action": "Lock the two-mode product model and build the hallucination challenge into the same visitor-facing experience."
+    },
+    {
+      "number": 9,
+      "id": "mall",
+      "name": "The Mall",
+      "status": "BUILDING",
+      "opening_day_floor": "A coherent Mall hub shows only real open destinations and includes one functioning Scholastic-style Book Fair pilot with at least three useful digital/collectible items and truthful Butterfly Clip pricing/fulfilment.",
+      "acceptance_proof": "Navigation, ownership, spend/refund, rights, fulfilment, stock/unavailable, accessibility and mobile journeys pass without fake commerce.",
+      "next_action": "Define the three-item Book Fair launch catalogue and bind it to the shared economy/Closet before visual storefront completion."
+    },
+    {
+      "number": 10,
+      "id": "ksvl",
+      "name": "KSVL Community RAiDIO",
+      "status": "BUILDING",
+      "opening_day_floor": "All 29 creator-confirmed songs are playable, discoverable and organized with correct artist/band, title, album art, playlist and portable-listening metadata.",
+      "acceptance_proof": "Every track and playlist passes exact media, metadata, cover, background playback, accessibility, request-service and public-origin checks.",
+      "next_action": "Close audio-quality/public-origin checks and generate the canonical platform-ready release manifests."
+    },
+    {
+      "number": 11,
+      "id": "post-office",
+      "name": "SUNNYVAiLE Post Office",
+      "status": "BUILDING",
+      "opening_day_floor": "Resident signup includes the Wednesday Postcard selected by default with a clear opt-out; a Postcard-only route supports confirmation, delivery, unsubscribe and retry without requiring a Resident Card.",
+      "acceptance_proof": "Provider-backed subscribe/opt-out/confirm/deliver/unsubscribe/recover flows pass with consent receipts, duplicate handling and failure states.",
+      "next_action": "Reconcile the correct consent copy and prove the real provider lifecycle."
+    },
+    {
+      "number": 12,
+      "id": "town-hall",
+      "name": "Town Hall",
+      "status": "BUILDING",
+      "opening_day_floor": "Visitors can report a problem, offer feedback or submit an idea and receive a clear durable receipt, status and retry path.",
+      "acceptance_proof": "Submit, validation, duplicate/idempotent retry, receipt, staff intake, privacy, accessibility and failure journeys pass end to end.",
+      "next_action": "Connect the existing build packet to the authoritative submission service and staff queue."
+    },
+    {
+      "number": 13,
+      "id": "library",
+      "name": "SUNNYVAiLE LIBRAiRY",
+      "status": "BUILDING",
+      "opening_day_floor": "Miss Jeeves provides search/lookup across four admitted books—Vocab 101, Briefing 101, Setup 101 and Accounts 101—with exact-section links, related learning and saved continuation.",
+      "acceptance_proof": "Books pass editorial/freshness/source review; search, exact-section reader, continuation, mobile, accessibility, empty/no-answer and related-content journeys pass with the approved modern Miss Jeeves image.",
+      "next_action": "Reconcile the extracted Grimoire material into the four canonical books, then complete editorial admission and reader integration."
+    },
+    {
+      "number": 14,
+      "id": "sunnyvaile-high",
+      "name": "SUNNYVAiLE High",
+      "status": "BUILDING",
+      "opening_day_floor": "Three complete pathways serve different needs without permanent beginner/advanced labels: AI foundations; set up and use your AI well; and the intermediate What the Viral Reel Left Out lab.",
+      "acceptance_proof": "Each path has a distinct observable skill, complete lesson, example, Try-On/practice, check, feedback, sources/freshness, related episode/book/tool and completion/Closet evidence.",
+      "next_action": "Merge the current class inventory into these three paths and finish the missing production materials instead of publishing more previews."
+    },
+    {
+      "number": 15,
+      "id": "fairy-godmother",
+      "name": "FAiRY Godmother's House",
+      "status": "BUILDING",
+      "opening_day_floor": "The FAiRY Godmother helps improve a prompt or draft using user-provided context, keeps high-stakes/current-fact work outside the casual preview and clearly shows FAiRY Play balance/use.",
+      "acceptance_proof": "Typed routing, useful output, uncertainty, privacy, provider failure, idempotent Play charge/refund, accessibility, mobile and reward-redemption tests pass.",
+      "next_action": "Finish the answer-quality router and integrate it with the shared Plays/economy ledger."
+    },
+    {
+      "number": 16,
+      "id": "sorority-house",
+      "name": "Sorority House · Delta LAi Nu",
+      "status": "BUILDING",
+      "opening_day_floor": "Residents can find messages and participate in at least one general community room and one clearly scoped Girl Talk room, with mutual-advancement norms and real moderation.",
+      "acceptance_proof": "Two-account post/reply/message/unread/report/block/moderation/account-isolation/mobile/accessibility/failure journeys pass and completion rewards real contribution rather than a page visit.",
+      "next_action": "Reconcile the existing messaging service, define the two launch-room charters and implement the full moderated visitor journeys."
+    },
+    {
+      "number": 17,
+      "id": "luminairy",
+      "name": "The LUMINAiRY",
+      "status": "BUILDING",
+      "opening_day_floor": "At least six fully sourced, rights-cleared profiles explain how women shaped computing's past and are shaping AI now, with distinct historical/current roles and related lessons, episodes and Library references.",
+      "acceptance_proof": "Every claim, image/right, citation, link, related-content relationship, mobile/accessibility state and correction trigger passes independent review.",
+      "next_action": "Select a balanced six-profile launch set from the held inventory and close evidence, writing, rights and visual admission one profile at a time."
+    }
+  ],
+  "execution_order": [
+    {
+      "phase": 1,
+      "name": "Shared truth and persistence",
+      "work": "Identity/continuation/Closet, rewards economy, content graph/search/freshness, media manifests, moderation/messaging, shared navigation and QA."
+    },
+    {
+      "phase": 2,
+      "name": "Opening catalogue production",
+      "work": "Trailer/Episodes 01–04, three classes, four books, Episode 01 Study Pack, launch NewsStand/Daily set, six LUMINAiRY profiles, KSVL metadata and launch community rooms."
+    },
+    {
+      "phase": 3,
+      "name": "Building verticals",
+      "work": "Complete every building against its floor, consuming the shared systems rather than inventing local substitutes. Multiple non-colliding buildings may move concurrently only when their shared dependencies are stable."
+    },
+    {
+      "phase": 4,
+      "name": "Whole-town integration and release",
+      "work": "Homepage/Visitor's Centre/directories, cross-links, search, return states, full route/state QA, exact release artifact, deployed public verification and opening announcement."
+    }
+  ]
+}
